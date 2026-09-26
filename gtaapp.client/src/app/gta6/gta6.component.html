@@ -1,7 +1,218 @@
 <div class="map-wrapper">
-  <a class="app-home-link" routerLink="/">Inicio</a>
-  <div class="no-map">
-    <h2 class="no-map-title">GTA VI</h2>
-    <p class="no-map-text">Proximamente. Estructura lista.</p>
+  <div class="gta6-canvas"></div>
+
+  <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
+  <div class="hud hud-tl">
+    <div class="hud-title">GTA VI</div>
+    <div class="hud-counter-badge" title="Items y categorias mapeados">
+      {{ totalItems }} Items · {{ categories.length }} Categorias
+    </div>
+    <div class="hud-time-badge" title="Hora del juego">{{ inGameTimeStr }}</div>
+    <a class="hud-home-btn" routerLink="/" title="Volver a la pantalla de inicio">Inicio</a>
+  </div>
+
+  <!-- ESQUINA INF-IZQ: Panel de control -->
+  <div class="hud hud-bl" [class.hud-collapsed]="!legendOpen">
+    <div class="hud-panel hud-legend-panel">
+      <!-- Cabecera del Panel de control: SIEMPRE visible, mantiene el ancho y el título -->
+      <div
+        class="hud-panel-head"
+        [class.is-collapsed]="!legendOpen"
+        (click)="!legendOpen ? toggleLegend() : null"
+        [title]="!legendOpen ? 'Clic para desplegar Panel de control' : ''"
+      >
+        <span class="hud-panel-title">Panel de control</span>
+        <button
+          type="button"
+          class="legend-toggle-btn"
+          (click)="toggleLegend(); $event.stopPropagation()"
+          [title]="legendOpen ? 'Minimizar panel' : 'Desplegar panel'"
+        >
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!legendOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Contenido desplegado del Panel de control con scroll general -->
+      <div class="hud-legend-body" *ngIf="legendOpen">
+        <div
+          class="hud-acc"
+          *ngFor="let category of categories"
+          [class.is-open]="accordion[category.key]"
+        >
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection(category.key)">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ category.title }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(itemKeys(category))"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(itemKeys(category), $event)"
+              [title]="'Activar o desactivar todos los items de ' + category.title"
+            />
+          </div>
+
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion[category.key]">
+            <button
+              type="button"
+              class="legend-btn"
+              *ngFor="let item of category.items"
+              [class.is-active]="layerFilters[item.id]"
+              (click)="toggleLayer(item.id)"
+            >
+              <i
+                class="legend-dot"
+                [style.background]="item.color"
+                [style.box-shadow]="'0 0 6px ' + item.color"
+              ></i>
+              <span class="legend-name">{{ item.name }}</span>
+              <span class="legend-count">{{ item.count }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESQUINA INF-DER: Ajustes -->
+  <div class="hud hud-br" [class.hud-collapsed]="!settingsOpen">
+    <div class="hud-panel">
+      <div
+        class="hud-panel-head"
+        [class.is-collapsed]="!settingsOpen"
+        (click)="!settingsOpen ? toggleSettings() : null"
+        [title]="!settingsOpen ? 'Clic para desplegar Ajustes' : ''"
+      >
+        <span class="hud-panel-title">Ajustes</span>
+        <button
+          type="button"
+          class="legend-toggle-btn"
+          (click)="toggleSettings(); $event.stopPropagation()"
+          [title]="settingsOpen ? 'Minimizar ajustes' : 'Desplegar ajustes'"
+        >
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!settingsOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="hud-settings-body" *ngIf="settingsOpen">
+        <!-- DESPLEGABLE: Modo de juego (Online vs Historia) -->
+        <div class="hud-acc" [class.is-open]="accordion['modo']">
+          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('modo')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">Modo de juego</span>
+          </button>
+          <div class="hud-acc-body" *ngIf="accordion['modo']">
+            <div class="hud-seg hud-seg-vertical">
+              <button
+                type="button"
+                class="hud-seg-btn seg-online"
+                [class.is-active]="selectedGameMode === 'online'"
+                (click)="setGameMode('online')"
+                title="GTA Online: Búnkeres, Vehículos, Servicios y Coleccionables"
+              >
+                GTA Online
+              </button>
+              <button
+                type="button"
+                class="hud-seg-btn seg-offline"
+                [class.is-active]="selectedGameMode === 'story'"
+                (click)="setGameMode('story')"
+                title="Modo Historia: Negocios comprables y mapas UV"
+              >
+                Modo Historia
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE: Selector de mapa -->
+        <div class="hud-acc" [class.is-open]="accordion['mapa']">
+          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('mapa')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">Selector de mapa</span>
+          </button>
+          <div class="hud-acc-body" *ngIf="accordion['mapa']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="mapTypeSelect">Base del mapa</label>
+              <select
+                id="mapTypeSelect"
+                class="hud-field-select"
+                (change)="switchMapType($any($event.target).value)"
+              >
+                <option
+                  *ngFor="let type of mapTypes"
+                  [value]="type.id"
+                  [selected]="currentMapType === type.id"
+                >
+                  {{ type.label }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE: Estilo Iconos -->
+        <div class="hud-acc" [class.is-open]="accordion['zona']">
+          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('zona')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">Estilo Iconos</span>
+          </button>
+          <div class="hud-acc-body" *ngIf="accordion['zona']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="iconThemeSelect">Tema de marcadores</label>
+              <select
+                id="iconThemeSelect"
+                class="hud-field-select"
+                [(ngModel)]="iconTheme"
+                (change)="updateIconStyle()"
+              >
+                <option value="modern">Moderno (Neón & HUD)</option>
+                <option value="classic">Clásico (Sutil & Original)</option>
+              </select>
+            </div>
+            <div class="hud-field">
+              <label class="hud-field-label" for="iconSizeSelect">Tamaño de iconos</label>
+              <select
+                id="iconSizeSelect"
+                class="hud-field-select"
+                [(ngModel)]="iconSize"
+                (change)="updateIconStyle()"
+              >
+                <option value="compact">Compacto (80%)</option>
+                <option value="standard" selected>Estándar (100%)</option>
+                <option value="large">Grande (120%)</option>
+              </select>
+            </div>
+            <div class="hud-field">
+              <label class="hud-field-label" for="hud-zone">Saltar a región</label>
+              <select
+                id="hud-zone"
+                class="hud-field-select"
+                (change)="onZoneChange($any($event.target).value)"
+              >
+                <option value="all">Mapa Completo (Visión General)</option>
+                <option value="city">Ciudad</option>
+                <option value="sandy">Zona de Desierto</option>
+                <option value="paleto">Norte</option>
+                <option value="blaine">Condado</option>
+                <option value="chumash">Costa Oeste</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTONES DE PIE DE PANEL -->
+        <div class="hud-panel-foot">
+          <button type="button" class="hud-panel-btn" (click)="recenterMap()">Centrar Mapa</button>
+          <button type="button" class="hud-panel-btn hud-panel-btn-primary" (click)="onZoneChange('all')">Vista General</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

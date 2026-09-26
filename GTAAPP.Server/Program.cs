@@ -1,6 +1,7 @@
 using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.AspNetCore.StaticFiles;
 using GTAAPP.Server.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -152,7 +153,17 @@ app.UseCors();
 app.UseRateLimiter();
 
 app.UseDefaultFiles();
-app.UseStaticFiles();
+
+var staticContentTypeProvider = new FileExtensionContentTypeProvider();
+staticContentTypeProvider.Mappings[".html"] = "text/html; charset=utf-8";
+staticContentTypeProvider.Mappings[".js"] = "application/javascript; charset=utf-8";
+staticContentTypeProvider.Mappings[".json"] = "application/json; charset=utf-8";
+staticContentTypeProvider.Mappings[".css"] = "text/css; charset=utf-8";
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    ContentTypeProvider = staticContentTypeProvider
+});
 app.MapStaticAssets();
 
 app.UseAuthorization();

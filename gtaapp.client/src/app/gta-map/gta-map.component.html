@@ -64,7 +64,9 @@
           (click)="toggleLegend(); $event.stopPropagation()"
           [title]="legendOpen ? 'Minimizar panel' : 'Desplegar panel'"
         >
-          <span class="legend-toggle-caret" [class.is-collapsed]="!legendOpen">▼</span>
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!legendOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </button>
       </div>
 
@@ -584,6 +586,62 @@
         </div>
       </div>
 
+      <!-- DESPLEGABLE: Fauna y Vida Salvaje (10 Hábitats de Fotografía) -->
+      <div class="hud-acc" [class.is-open]="accordion['fauna']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('fauna')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">Fauna y Vida Salvaje</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(faunaKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(faunaKeys, $event)"
+            title="Activar o desactivar toda la fauna"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['fauna']">
+          <div
+            *ngFor="let animal of faunaAnimals"
+            class="legend-char-row"
+            [class.is-active]="layerFilters[animal.id]"
+          >
+            <button
+              type="button"
+              class="legend-btn legend-char-btn"
+              [class.is-active]="layerFilters[animal.id]"
+              (click)="toggleLayer(animal.id)"
+              [title]="layerFilters[animal.id] ? 'Ocultar ' + animal.name : 'Mostrar ' + animal.name"
+            >
+              <img *ngIf="animal.imageUrl" [src]="animal.imageUrl" class="legend-animal-thumb" alt="" onerror="this.style.display='none'" />
+              <i *ngIf="!animal.imageUrl" class="legend-dot" [style.background]="animal.badge.color" [style.box-shadow]="'0 0 6px ' + animal.badge.color"></i>
+              <span class="legend-name">{{ animal.name }}</span>
+              <span class="legend-count">{{ animal.badge.symbol }}</span>
+            </button>
+
+            <!-- Botón de localización y zoom directo -->
+            <button
+              type="button"
+              class="char-zoom-btn"
+              (click)="zoomToCharacter(animal, $event)"
+              [title]="'Centrar mapa y zoom en ' + animal.name"
+            >
+              <svg viewBox="0 0 24 24" class="char-zoom-svg">
+                <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none" />
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+                <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- DESPLEGABLE 5: Coleccionables -->
       <div class="hud-acc" [class.is-open]="accordion['coleccionables']">
         <div class="hud-acc-head">
@@ -684,27 +742,28 @@
         (click)="!settingsOpen ? toggleSettings() : null"
         [title]="!settingsOpen ? 'Clic para desplegar Ajustes' : ''"
       >
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span class="hud-panel-title">Ajustes</span>
-          <span class="hud-panel-badge" *ngIf="settingsOpen">GTA V</span>
-        </div>
+        <span class="hud-panel-title">Ajustes</span>
         <button
           type="button"
           class="legend-toggle-btn"
           (click)="toggleSettings(); $event.stopPropagation()"
           [title]="settingsOpen ? 'Minimizar ajustes' : 'Desplegar ajustes'"
         >
-          <span class="legend-toggle-caret" [class.is-collapsed]="!settingsOpen">▼</span>
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!settingsOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </button>
       </div>
 
       <div class="hud-settings-body" *ngIf="settingsOpen">
         <!-- DESPLEGABLE: Modo de juego (Online vs Historia) -->
         <div class="hud-acc" [class.is-open]="accordion['modo']">
-          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('modo')">
-            <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">Modo de juego</span>
-          </button>
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('modo')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Modo de juego</span>
+            </div>
+          </div>
           <div class="hud-acc-body" *ngIf="accordion['modo']">
             <div class="hud-seg hud-seg-vertical">
               <button
@@ -731,10 +790,12 @@
 
         <!-- DESPLEGABLE: Selector de mapa -->
         <div class="hud-acc" [class.is-open]="accordion['mapa']">
-          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('mapa')">
-            <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">Selector de mapa</span>
-          </button>
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('mapa')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Selector de mapa</span>
+            </div>
+          </div>
           <div class="hud-acc-body" *ngIf="accordion['mapa']">
             <div class="hud-field">
               <label class="hud-field-label" for="mapTypeSelect">Base del mapa</label>
@@ -757,10 +818,12 @@
 
         <!-- DESPLEGABLE: Estilo Iconos -->
         <div class="hud-acc" [class.is-open]="accordion['zona']">
-          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('zona')">
-            <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">Estilo Iconos</span>
-          </button>
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('zona')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Estilo Iconos</span>
+            </div>
+          </div>
           <div class="hud-acc-body" *ngIf="accordion['zona']">
             <div class="hud-field">
               <label class="hud-field-label" for="iconThemeSelect">Tema de marcadores</label>
@@ -833,9 +896,6 @@
         <span class="side-lvl-pill" *ngIf="userProfile.rank || editRank">NV. {{ userProfile.rank || editRank }}</span>
       </div>
     </div>
-    <span class="side-count-badge" title="Propiedades compradas">
-      {{ userProfile.ownedPropertyIds.length }}
-    </span>
   </button>
 
   <!-- DRAWER LATERAL DERECHO: FICHA ELEGANTE DE JUGADOR Y PROGRESO -->
@@ -1010,23 +1070,15 @@
           </div>
         </div>
 
-        <!-- Métricas Financieras del Imperio y Nivel -->
-        <div class="player-stats-grid">
-          <div class="stat-pill stat-pill-empire">
-            <span class="stat-val stat-val-empire">{{ getFormattedEmpireValue() }}</span>
-            <span class="stat-lbl">Patrimonio Inmobiliario</span>
-          </div>
+        <!-- Métricas Rápidas de Nivel y Cuenta -->
+        <div class="player-stats-grid" style="grid-template-columns: 1fr 1fr;">
           <div class="stat-pill stat-pill-rank">
             <span class="stat-val stat-val-rank">{{ userProfile.rank || editRank || 100 }}</span>
             <span class="stat-lbl">Nivel (RP)</span>
           </div>
           <div class="stat-pill">
-            <span class="stat-val">{{ userProfile.ownedPropertyIds.length }}</span>
-            <span class="stat-lbl">Propiedades</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-val">{{ userProfile.collectedItemIds.length }} / {{ allCollectibles.length }}</span>
-            <span class="stat-lbl">Coleccionables</span>
+            <span class="stat-val" style="color: #2ecc71;">${{ (userProfile.bank || editBank || 0).toLocaleString() }}</span>
+            <span class="stat-lbl">Dinero en Banco</span>
           </div>
         </div>
       </div>
@@ -1034,94 +1086,6 @@
       <!-- Feedback Toast / Mensaje -->
       <div class="drawer-alert" *ngIf="syncFeedbackMsg">
         {{ syncFeedbackMsg }}
-      </div>
-
-      <!-- Preferencias Rápidas en el Mapa -->
-      <div class="drawer-section">
-        <h5 class="drawer-section-title">Visualización en el Mapa</h5>
-        <div class="drawer-toggle-row">
-          <label class="drawer-toggle-label">
-            <input
-              type="checkbox"
-              class="drawer-toggle-check"
-              [checked]="userProfile.highlightOwnedProperties"
-              (change)="toggleHighlightOwned()"
-            />
-            <span class="toggle-text">Resaltar en verde mis propiedades</span>
-          </label>
-        </div>
-        <div class="drawer-toggle-row">
-          <label class="drawer-toggle-label">
-            <input
-              type="checkbox"
-              class="drawer-toggle-check"
-              [checked]="userProfile.hideCollectedItems"
-              (change)="toggleHideCollected()"
-            />
-            <span class="toggle-text">Ocultar coleccionables ya conseguidos</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Lista de Mis Propiedades Compradas Agrupadas por Categoría -->
-      <div class="drawer-section">
-        <div class="drawer-section-header">
-          <h5 class="drawer-section-title">Mis Propiedades ({{ userProfile.ownedPropertyIds.length }})</h5>
-          <button
-            *ngIf="userProfile.ownedPropertyIds.length > 0"
-            type="button"
-            class="drawer-clear-btn"
-            (click)="clearOwnedProperties()"
-            title="Desmarcar todas las propiedades"
-          >
-            Vaciar todas
-          </button>
-        </div>
-
-        <p class="drawer-hint" *ngIf="userProfile.ownedPropertyIds.length === 0">
-          Haz clic en cualquier propiedad en el mapa y pulsa <b>"Marcar como Comprada"</b> para sumarla a tu imperio.
-        </p>
-
-        <!-- Acordeones por Categoría de Propiedades Compradas -->
-        <div class="drawer-owned-groups" *ngIf="userProfile.ownedPropertyIds.length > 0">
-          <div
-            *ngFor="let group of getOwnedPropertiesGrouped()"
-            class="drawer-cat-group"
-            [class.is-open]="isDrawerGroupOpen(group.category)"
-          >
-            <button
-              type="button"
-              class="drawer-cat-head"
-              (click)="toggleDrawerGroup(group.category)"
-            >
-              <div class="cat-head-left">
-                <span class="cat-head-caret"></span>
-                <span class="cat-head-title">{{ group.categoryLabel }} ({{ group.count }})</span>
-              </div>
-              <span class="cat-head-val">{{ group.totalValueFormatted }}</span>
-            </button>
-
-            <div class="drawer-cat-body" *ngIf="isDrawerGroupOpen(group.category)">
-              <div *ngFor="let prop of group.properties" class="drawer-owned-item">
-                <div class="owned-item-info">
-                  <span class="owned-item-name">{{ prop.name }}</span>
-                  <div class="owned-item-sub">
-                    <span class="owned-item-zone">{{ prop.zone }}</span>
-                    <span class="owned-item-price">{{ prop.priceFormatted }}</span>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  class="owned-item-del"
-                  (click)="togglePropertyOwned(prop.id)"
-                  title="Quitar de mi lista"
-                >
-                  ✕
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </aside>

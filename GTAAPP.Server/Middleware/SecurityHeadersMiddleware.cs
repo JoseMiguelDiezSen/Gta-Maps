@@ -25,10 +25,21 @@ public class SecurityHeadersMiddleware
                 headers.Append("X-Frame-Options", "SAMEORIGIN");
             }
 
-            // 2. Previene MIME-type sniffing
+            // 2. Previene MIME-type sniffing asegurando charset=utf-8 para evitar corrupción de idioma (mojibake)
             if (!headers.ContainsKey("X-Content-Type-Options"))
             {
                 headers.Append("X-Content-Type-Options", "nosniff");
+            }
+
+            var ct = context.Response.ContentType;
+            if (!string.IsNullOrEmpty(ct) && !ct.Contains("charset", StringComparison.OrdinalIgnoreCase))
+            {
+                if (ct.StartsWith("text/", StringComparison.OrdinalIgnoreCase) ||
+                    ct.Contains("json", StringComparison.OrdinalIgnoreCase) ||
+                    ct.Contains("javascript", StringComparison.OrdinalIgnoreCase))
+                {
+                    context.Response.ContentType = $"{ct}; charset=utf-8";
+                }
             }
 
             // 3. Control de Referrer para no filtrar rutas internas en enlaces salientes

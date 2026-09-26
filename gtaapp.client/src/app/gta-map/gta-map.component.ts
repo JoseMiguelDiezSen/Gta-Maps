@@ -138,6 +138,20 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         'contact-agent-14'
     ];
 
+    // Claves individuales de Fauna y Vida Salvaje (10 Hábitats de Fotografía)
+    readonly faunaKeys = [
+        'animal-rabbit-hills',
+        'animal-deer-chiliad',
+        'animal-cougar-tongva',
+        'animal-coyote-senora',
+        'animal-boar-bolingbroke',
+        'animal-hawk-vinewood',
+        'animal-cormorant-zancudo',
+        'animal-seagull-pier',
+        'animal-shark-paleto',
+        'animal-farm-grapeseed'
+    ];
+
     get currentPropertyKeys(): string[] {
         return this.selectedGameMode === 'story' ? this.storyPropertyKeys : this.onlinePropertyKeys;
     }
@@ -160,6 +174,13 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         );
     }
 
+    get faunaAnimals(): PropertyLocation[] {
+        return this.allProperties.filter(p =>
+            p.category === 'animal' &&
+            (p.gameMode === 'both' || p.gameMode === this.selectedGameMode)
+        );
+    }
+
     /**
      * Determina si un elemento del mapa es un inmueble o negocio realmente comprable por el jugador.
      * Excluye servicios públicos (comisarías, hospitales, bomberos, autolavados, tiendas),
@@ -167,7 +188,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
      */
     isPurchasable(p: PropertyLocation | undefined): boolean {
         if (!p) return false;
-        if (p.category === 'roleplay_job' || p.category === 'character') return false;
+        if (p.category === 'roleplay_job' || p.category === 'character' || p.category === 'animal') return false;
 
         const nonPurchasableCategories = [
             'police_station',
@@ -181,7 +202,8 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
             'bennys',
             'hao_garage',
             'ls_car_meet',
-            'character'
+            'character',
+            'animal'
         ];
 
         if (nonPurchasableCategories.includes(p.category)) return false;
@@ -253,12 +275,24 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         'contact-tony-prince': true,
         'contact-agatha-baker': true,
         'contact-agent-14': true,
-        // Coleccionables Online (por defecto desactivados para mapa limpio)
-        playing_card: false,
-        action_figure: false,
-        signal_jammer: false,
-        movie_prop: false,
-        radio_antenna: false
+        // Fauna y Vida Salvaje (10 Hábitats de Fotografía)
+        animal: true,
+        'animal-rabbit-hills': true,
+        'animal-deer-chiliad': true,
+        'animal-cougar-tongva': true,
+        'animal-coyote-senora': true,
+        'animal-boar-bolingbroke': true,
+        'animal-hawk-vinewood': true,
+        'animal-cormorant-zancudo': true,
+        'animal-seagull-pier': true,
+        'animal-shark-paleto': true,
+        'animal-farm-grapeseed': true,
+        // Coleccionables Online (activos por defecto)
+        playing_card: true,
+        action_figure: true,
+        signal_jammer: true,
+        movie_prop: true,
+        radio_antenna: true
     };
 
     // Propiedades cargadas
@@ -279,6 +313,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         servicios: false,       // Panel de control: Servicios
         roleplay: false,        // Panel de control: Trabajos Roleplay
         personajes: false,      // Panel de control: Personajes y Contactos
+        fauna: false,           // Panel de control: Fauna y Vida Salvaje
         coleccionables: false,  // Panel de control: Coleccionables
         modo: false,            // Ajustes: Modo de juego
         mapa: false,            // Ajustes: Selector de mapa
@@ -297,7 +332,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     settingsOpen = true;
 
     // Estilo de Iconos
-    iconTheme: 'modern' | 'classic' = 'modern';
+    iconTheme: 'modern' | 'classic' = 'classic';
     iconSize: 'compact' | 'standard' | 'large' = 'standard';
 
     // Menú contextual y Marcadores de usuario
@@ -671,8 +706,8 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         this.propertyMarkers = [];
 
         this.allProperties.forEach(p => {
-            // Comprobar filtro: si es roleplay_job o character, comprobar por su id individual
-            if (p.category === 'roleplay_job' || p.category === 'character') {
+            // Comprobar filtro: si es roleplay_job, character o animal, comprobar por su id individual
+            if (p.category === 'roleplay_job' || p.category === 'character' || p.category === 'animal') {
                 if (!this.layerFilters[p.id]) return;
             } else {
                 if (!this.layerFilters[p.category]) return;
@@ -698,12 +733,13 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
             if (p.category === 'car_wash') pinSymbol = '🚿';
             if (p.category === 'arena_war') pinSymbol = '🏟️';
 
+            const pinInnerHtml = `<span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span>`;
+
             const icon = L.divIcon({
-                className: `gta-pin-wrapper ${ownedClass}`,
+                className: 'gta-pin-wrapper',
                 html: `
-                    <div class="gta-pin gta-pin-${p.category} ${ownedClass}" style="--pin-color: ${p.badge.color}">
-                        <span class="gta-pin-symbol">${pinSymbol}</span>
-                        ${isHighlight ? '<span class="pin-crown-badge">✓</span>' : ''}
+                    <div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${p.badge.color}">
+                        ${pinInnerHtml}
                     </div>
                 `,
                 iconSize: [30, 30],
@@ -727,10 +763,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
                 ? `<div class="popup-image-box"><img src="${p.imageUrl}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
                 : '';
 
-            const ownedTagHtml = isOwned
-                ? `<div class="popup-owned-tag">PROPIEDAD ADQUIRIDA (EN POSESIÓN)</div>`
-                : '';
-
             // Bloque de precio vs servicio público
             const priceSectionHtml = isPurchasable
                 ? `
@@ -746,21 +778,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
                     </div>
                   `;
 
-            // Botón de compra SOLO para propiedades reales comprables
-            const actionButtonHtml = isPurchasable
-                ? `
-                    <div class="popup-action-row">
-                        <button
-                            id="popup-btn-prop-${p.id}"
-                            type="button"
-                            class="popup-card-action-btn ${isOwned ? 'is-owned' : ''}"
-                        >
-                            ${isOwned ? 'En Posesión · Clic para Desmarcar' : '＋ Marcar como Comprada'}
-                        </button>
-                    </div>
-                  `
-                : '';
-
             const popupHtml = `
                 <div class="gta-popup-card">
                     ${imageHtml}
@@ -770,13 +787,11 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
                         <div class="popup-zone">${p.zone}</div>
                     </div>
                     <div class="popup-content">
-                        ${ownedTagHtml}
                         ${priceSectionHtml}
                         ${incomeHtml}
                         ${ownerHtml}
                         <p class="popup-desc">${p.description}</p>
                         ${featuresHtml}
-                        ${actionButtonHtml}
                     </div>
                 </div>
             `;
@@ -784,27 +799,14 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
             const tooltipPrice = isPurchasable
                 ? `<br><span style="color:#2ecc71">${p.priceFormatted}</span>`
                 : `<br><span style="color:#3498db">${p.categoryLabel}</span>`;
-            const tooltipOwned = isOwned ? ' <b style="color:#2ecc71">[Comprada]</b>' : '';
 
             const marker = L.marker([lat, lng], { icon })
                 .bindPopup(popupHtml, { maxWidth: 300, className: 'gta-leaflet-popup' })
-                .bindTooltip(`<b>${p.name}</b>${tooltipPrice}${tooltipOwned}`, {
+                .bindTooltip(`<b>${p.name}</b>${tooltipPrice}`, {
                     direction: 'top',
                     offset: [0, -26],
                     className: 'gta-leaflet-tooltip'
                 });
-
-            marker.on('popupopen', () => {
-                if (isPurchasable) {
-                    const btn = document.getElementById(`popup-btn-prop-${p.id}`);
-                    if (btn) {
-                        btn.onclick = () => {
-                            this.togglePropertyOwned(p.id);
-                            marker.closePopup();
-                        };
-                    }
-                }
-            });
 
             marker.addTo(map);
             this.propertyMarkers.push({ marker, property: p });
@@ -865,15 +867,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
                             <span class="popup-tag-lbl">Recompensa:</span>
                             <span class="popup-tag-val val-income">${item.reward}</span>
                         </div>
-                        <div class="popup-action-row">
-                            <button
-                                id="popup-btn-col-${item.id}"
-                                type="button"
-                                class="popup-card-action-btn ${isCollected ? 'is-owned' : ''}"
-                            >
-                                ${isCollected ? '✓ Conseguido · Clic para Desmarcar' : '＋ Marcar como Conseguido'}
-                            </button>
-                        </div>
                     </div>
                 </div>
             `;
@@ -885,16 +878,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
                     offset: [0, -12],
                     className: 'gta-leaflet-tooltip'
                 });
-
-            marker.on('popupopen', () => {
-                const btn = document.getElementById(`popup-btn-col-${item.id}`);
-                if (btn) {
-                    btn.onclick = () => {
-                        this.toggleItemCollected(item.id);
-                        marker.closePopup();
-                    };
-                }
-            });
 
             marker.addTo(map);
             this.collectibleMarkers.push({ marker, item });

@@ -961,6 +961,40 @@
 :host ::ng-deep .gta-pin-symbol {
   font-size: 13px;
   line-height: 1;
+  color: var(--pin-color, #ffb833);
+}
+
+:host ::ng-deep .gta-pin-character {
+  border-color: #f5cd2f !important;
+}
+
+:host ::ng-deep .gta-pin-character .gta-pin-symbol {
+  color: #f5cd2f !important;
+  font-weight: 900 !important;
+  font-size: 14px !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95);
+}
+
+:host ::ng-deep .gta-pin-animal {
+  border-color: #1abc9c !important;
+  background: #0d1a17 !important;
+}
+
+:host ::ng-deep .gta-pin-animal .gta-pin-symbol {
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legend-animal-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
 }
 
 /* Marcador de jugador personalizado */
