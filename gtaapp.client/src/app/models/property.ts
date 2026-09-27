@@ -46,6 +46,10 @@ export type PropertyCategory =
   | 'strip_club'
   | 'roleplay_job'
   | 'arena_war'
+  | 'fake_ufo'
+  | 'shipwreck'
+  | 'cave'
+  | 'activity'
   | 'character';
 
 export interface PropertyLocation {

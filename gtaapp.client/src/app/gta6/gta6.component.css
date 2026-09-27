@@ -10,7 +10,17 @@
 .gta6-canvas {
   flex: 1;
   width: 100%;
-  background: #0b0f14;
+  background-color: #0b0f14;
+  background-image: url('/assets/filtracionesGta6/image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: grab;
+  user-select: none;
+}
+
+.gta6-canvas.is-panning {
+  cursor: grabbing;
 }
 
 /* ===== HUD: Base común glassmorphism ===== */
@@ -50,6 +60,120 @@
   align-items: center;
   gap: 14px;
   padding: 8px 16px;
+}
+
+/* Misma posicion y medidas que .hud-tl: se alinean en la misma fila */
+.hud-tc {
+  top: 4px;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translateX(-50%);
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+/* Cuenta atrás dentro de la barra superior: numeros grandes, letras pequeñas.
+   Suma 29px de alto (20 + 9) para no crecer la barra, que se queda en 30px de contenido */
+.hud-cd {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-cd-unit {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hud-cd-num {
+  font-family: 'Pricedown', monospace, system-ui;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  color: #ff4fe0;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 79, 224, 0.6);
+}
+
+.hud-cd-lab {
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hud-cd-sep {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 79, 224, 0.35);
+}
+
+/* Telemetría de Coordenadas (X, Y). Borde fucsia como el resto de paneles.
+   max-height + overflow: hidden -> recorta arriba y abajo antes de llegar al final;
+   text-overflow: ellipsis -> recorta en horizontal en vez de desbordar */
+/* Telemetría de Coordenadas (X, Y). Posicionamiento IDENTICO al de GTA5: abajo, centrado.
+   Va como hijo DIRECTO de .map-wrapper: dentro de un .hud el backdrop-filter
+   hace de bloque contenedor y se mediria contra la caja de 290px del panel, no contra la pantalla. */
+.hud-coords-dev {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  background: rgba(12, 16, 23, 0.94);
+  border: 1px solid rgba(255, 79, 224, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.75);
+  user-select: none;
+  cursor: pointer;
+  z-index: 1000;
+  max-height: 26px;
+  max-width: min(90vw, 420px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.coord-axis {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ff4fe0;
+  flex-shrink: 0;
+}
+
+.coord-val {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  min-width: 66px;
+  text-align: right;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.coord-sep {
+  color: rgba(255, 79, 224, 0.35);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.coord-copied {
+  color: #2ecc71;
+  font-size: 15px;
+  font-weight: 900;
+  margin-left: 2px;
+  flex-shrink: 0;
 }
 
 .hud-bl {
@@ -240,6 +364,7 @@
   cursor: pointer;
   transition: all 0.15s ease;
   flex-shrink: 0;
+  margin-right: 5px;
 }
 
 .legend-toggle-btn:hover {

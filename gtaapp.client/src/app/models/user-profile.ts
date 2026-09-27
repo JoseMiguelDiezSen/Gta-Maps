@@ -28,23 +28,3 @@ export interface SocialClubSyncPayload {
   collectedItemIds?: string[];
   rawScapiData?: any;
 }
-
-export interface AuthRequest {
-  gamertag: string;
-  pin: string;
-  currentProfile?: UserProfile;
-}
-
-export interface AuthResponse {
-  success: boolean;
-  message: string;
-  gamertag?: string;
-  isNewAccount?: boolean;
-  profile?: UserProfile;
-}
-
-export interface SaveProfileRequest {
-  gamertag: string;
-  pin: string;
-  profile: UserProfile;
-}

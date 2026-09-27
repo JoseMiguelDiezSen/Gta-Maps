@@ -13,22 +13,13 @@ namespace GTAAPP.Server.Controllers;
 public class LocationsController : ControllerBase
 {
     private static readonly Regex SafeQueryRegex = new(@"^[a-zA-Z0-9_\-]+$", RegexOptions.Compiled);
-    private readonly AtmImporter _atms;
     private readonly PropertyImporter _properties;
     private readonly CollectibleImporter _collectibles;
 
-    public LocationsController(AtmImporter atms, PropertyImporter properties, CollectibleImporter collectibles)
+    public LocationsController(PropertyImporter properties, CollectibleImporter collectibles)
     {
-        _atms = atms;
         _properties = properties;
         _collectibles = collectibles;
-    }
-
-    /// <summary>GET /api/locations/atms → todos los cajeros automáticos (ATMs) de GTA V.</summary>
-    [HttpGet("atms")]
-    public ActionResult<List<Location>> GetAtms()
-    {
-        return Ok(_atms.GetAtms());
     }
 
     /// <summary>

@@ -33,10 +33,6 @@
     <button type="button" class="hud-ctx-item" (click)="runCtxAction('centrar')">
       Centrar mapa aquí
     </button>
-    <div class="hud-ctx-sep"></div>
-    <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar')">
-      Borrar mis marcadores
-    </button>
   </div>
 
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
@@ -45,6 +41,12 @@
     <div class="hud-counter-badge" title="Inmuebles y negocios comprables mapeados">{{ purchasablePropertiesCount }} Propiedades · {{ allCollectibles.length }} Coleccionables</div>
     <div class="hud-time-badge" title="Hora del juego (Los Santos)">{{ inGameTimeStr }}</div>
     <a class="hud-home-btn" routerLink="/" title="Volver a la pantalla de inicio">Inicio</a>
+  </div>
+
+  <!-- SUP-CENTRO: Última actualización (misma estructura y tipografía que la barra sup-izq) -->
+  <div class="hud hud-tc">
+    <div class="hud-title">Últ. Actualización</div>
+    <div class="hud-time-badge">{{ ultimaActualizacion }}</div>
   </div>
 
   <!-- ESQUINA INF-IZQ: Panel de control (antigua Leyenda) -->
@@ -130,66 +132,6 @@
               <span class="legend-count">{{ getCategoryCount('hangar') }}</span>
             </button>
 
-            <!-- Negocios de Cocaína -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['coke_lockup']"
-              (click)="toggleLayer('coke_lockup')"
-            >
-              <i class="legend-dot dot-coke"></i>
-              <span class="legend-name">Negocios de Cocaína</span>
-              <span class="legend-count">{{ getCategoryCount('coke_lockup') }}</span>
-            </button>
-
-            <!-- Negocios de Marihuana -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['weed_farm']"
-              (click)="toggleLayer('weed_farm')"
-            >
-              <i class="legend-dot dot-weed"></i>
-              <span class="legend-name">Negocios de Marihuana</span>
-              <span class="legend-count">{{ getCategoryCount('weed_farm') }}</span>
-            </button>
-
-            <!-- Laboratorios de Metanfetamina -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['meth_lab']"
-              (click)="toggleLayer('meth_lab')"
-            >
-              <i class="legend-dot dot-meth"></i>
-              <span class="legend-name">Laboratorios de Metanfetamina</span>
-              <span class="legend-count">{{ getCategoryCount('meth_lab') }}</span>
-            </button>
-
-            <!-- Fábricas de Dinero Falso -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['cash_factory']"
-              (click)="toggleLayer('cash_factory')"
-            >
-              <i class="legend-dot dot-cash"></i>
-              <span class="legend-name">Fábricas de Dinero Falso</span>
-              <span class="legend-count">{{ getCategoryCount('cash_factory') }}</span>
-            </button>
-
-            <!-- Falsificación de Documentos -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['doc_forgery']"
-              (click)="toggleLayer('doc_forgery')"
-            >
-              <i class="legend-dot dot-doc"></i>
-              <span class="legend-name">Falsificación de Documentos</span>
-              <span class="legend-count">{{ getCategoryCount('doc_forgery') }}</span>
-            </button>
-
             <!-- Búnkeres -->
             <button
               type="button"
@@ -212,18 +154,6 @@
               <i class="legend-dot dot-facility"></i>
               <span class="legend-name">Instalaciones</span>
               <span class="legend-count">{{ getCategoryCount('facility') }}</span>
-            </button>
-
-            <!-- Clubes Nocturnos -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['nightclub']"
-              (click)="toggleLayer('nightclub')"
-            >
-              <i class="legend-dot dot-nightclub"></i>
-              <span class="legend-name">Clubes Nocturnos</span>
-              <span class="legend-count">{{ getCategoryCount('nightclub') }}</span>
             </button>
 
             <!-- Salas Recreativas -->
@@ -309,6 +239,52 @@
               <span class="legend-name">Almacenes Vehículos (I/E)</span>
               <span class="legend-count">{{ getCategoryCount('vehicle_warehouse') }}</span>
             </button>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 2: Negocios -->
+      <div class="hud-acc" [class.is-open]="accordion['negocios']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('negocios')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">Negocios</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(businessKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(businessKeys, $event)"
+            title="Activar o desactivar todos los negocios"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['negocios']">
+          <ng-container *ngIf="selectedGameMode === 'online'">
+            <!-- Negocios de Cocaína -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['coke_lockup']"
+              (click)="toggleLayer('coke_lockup')"
+            >
+              <i class="legend-dot dot-coke"></i>
+              <span class="legend-name">Negocios de Cocaína</span>
+              <span class="legend-count">{{ getCategoryCount('coke_lockup') }}</span>
+            </button>
+
+            <!-- Negocios de Marihuana -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['weed_farm']"
+              (click)="toggleLayer('weed_farm')"
+            >
+              <i class="legend-dot dot-weed"></i>
+              <span class="legend-name">Negocios de Marihuana</span>
+              <span class="legend-count">{{ getCategoryCount('weed_farm') }}</span>
+            </button>
 
             <!-- Almacenes de Cajas -->
             <button
@@ -321,11 +297,59 @@
               <span class="legend-name">Almacenes de Cajas</span>
               <span class="legend-count">{{ getCategoryCount('warehouse') }}</span>
             </button>
+
+            <!-- Clubes Nocturnos -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['nightclub']"
+              (click)="toggleLayer('nightclub')"
+            >
+              <i class="legend-dot dot-nightclub"></i>
+              <span class="legend-name">Clubes Nocturnos</span>
+              <span class="legend-count">{{ getCategoryCount('nightclub') }}</span>
+            </button>
+
+            <!-- Fábricas de Dinero Falso -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['cash_factory']"
+              (click)="toggleLayer('cash_factory')"
+            >
+              <i class="legend-dot dot-cash"></i>
+              <span class="legend-name">Fábricas de Dinero Falso</span>
+              <span class="legend-count">{{ getCategoryCount('cash_factory') }}</span>
+            </button>
+
+            <!-- Laboratorios de Metanfetamina -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['meth_lab']"
+              (click)="toggleLayer('meth_lab')"
+            >
+              <i class="legend-dot dot-meth"></i>
+              <span class="legend-name">Laboratorios de Metanfetamina</span>
+              <span class="legend-count">{{ getCategoryCount('meth_lab') }}</span>
+            </button>
+
+            <!-- Falsificación de Documentos -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['doc_forgery']"
+              (click)="toggleLayer('doc_forgery')"
+            >
+              <i class="legend-dot dot-doc"></i>
+              <span class="legend-name">Falsificación de Documentos</span>
+              <span class="legend-count">{{ getCategoryCount('doc_forgery') }}</span>
+            </button>
           </ng-container>
         </div>
       </div>
 
-      <!-- DESPLEGABLE 2: Vehículos -->
+      <!-- DESPLEGABLE 3: Vehículos -->
       <div class="hud-acc" [class.is-open]="accordion['vehiculos']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('vehiculos')">
@@ -395,7 +419,7 @@
         </div>
       </div>
 
-      <!-- DESPLEGABLE 3: Servicios -->
+      <!-- DESPLEGABLE 4: Servicios -->
       <div class="hud-acc" [class.is-open]="accordion['servicios']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('servicios')">
@@ -473,6 +497,18 @@
             <span class="legend-count">{{ getCategoryCount('convenience_store') }}</span>
           </button>
 
+          <!-- Tienda de Máscaras (Vespucci) -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['mask_shop']"
+            (click)="toggleLayer('mask_shop')"
+          >
+            <i class="legend-dot dot-mask"></i>
+            <span class="legend-name">Tienda de Máscaras (Playa)</span>
+            <span class="legend-count">{{ getCategoryCount('mask_shop') }}</span>
+          </button>
+
           <!-- Túneles de Lavado -->
           <button
             type="button"
@@ -493,13 +529,45 @@
             (click)="toggleLayer('strip_club')"
           >
             <i class="legend-dot dot-stripclub"></i>
-            <span class="legend-name">Vanilla Unicorn (Club)</span>
-            <span class="legend-count">{{ getCategoryCount('strip_club') }}</span>
+              <span class="legend-name">Vanilla Unicorn (Club)</span>
+              <span class="legend-count">{{ getCategoryCount('strip_club') }}</span>
+            </button>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 5: Actividades y Deportes -->
+      <div class="hud-acc" [class.is-open]="accordion['actividades']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('actividades')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">Actividades y Deportes</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(activityKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(activityKeys, $event)"
+            title="Activar o desactivar todas las actividades y deportes"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['actividades']">
+          <!-- Pendiente de investigar -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['activity']"
+            (click)="toggleLayer('activity')"
+          >
+            <i class="legend-dot dot-activity"></i>
+            <span class="legend-name">Por investigar</span>
+            <span class="legend-count">{{ getCategoryCount('activity') }}</span>
           </button>
         </div>
       </div>
 
-      <!-- DESPLEGABLE 4: Trabajos Roleplay (Los 7 puestos activos) -->
+      <!-- DESPLEGABLE 6: Trabajos Roleplay (Los 7 puestos activos) -->
       <div class="hud-acc" [class.is-open]="accordion['roleplay']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('roleplay')">
@@ -586,7 +654,7 @@
         </div>
       </div>
 
-      <!-- DESPLEGABLE: Fauna y Vida Salvaje (10 Hábitats de Fotografía) -->
+      <!-- DESPLEGABLE: Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía) -->
       <div class="hud-acc" [class.is-open]="accordion['fauna']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('fauna')">
@@ -642,7 +710,7 @@
         </div>
       </div>
 
-      <!-- DESPLEGABLE 5: Coleccionables -->
+      <!-- DESPLEGABLE 7: Coleccionables -->
       <div class="hud-acc" [class.is-open]="accordion['coleccionables']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('coleccionables')">
@@ -726,6 +794,62 @@
           <div class="hud-acc-empty" *ngIf="selectedGameMode === 'story'">
             Los coleccionables están disponibles en el modo GTA Online. Cámbialo en Ajustes.
           </div>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 8: Lugares extraños -->
+      <div class="hud-acc" [class.is-open]="accordion['lugares']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('lugares')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">Lugares extraños</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(strangeKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(strangeKeys, $event)"
+            title="Activar o desactivar todos los lugares extraños"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['lugares']">
+          <!-- OVNI -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['fake_ufo']"
+            (click)="toggleLayer('fake_ufo')"
+          >
+            <i class="legend-dot dot-fake-ufo"></i>
+            <span class="legend-name">OVNI</span>
+            <span class="legend-count">{{ getCategoryCount('fake_ufo') }}</span>
+          </button>
+
+          <!-- Naufragios -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['shipwreck']"
+            (click)="toggleLayer('shipwreck')"
+          >
+            <i class="legend-dot dot-shipwreck"></i>
+            <span class="legend-name">Naufragios</span>
+            <span class="legend-count">{{ getCategoryCount('shipwreck') }}</span>
+          </button>
+
+          <!-- Cuevas -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['cave']"
+            (click)="toggleLayer('cave')"
+          >
+            <i class="legend-dot dot-cave"></i>
+            <span class="legend-name">Cuevas</span>
+            <span class="legend-count">{{ getCategoryCount('cave') }}</span>
+          </button>
         </div>
       </div>
       </div>
@@ -877,6 +1001,20 @@
     </div>
   </div>
 
+  <!-- Telemetría de desarrollo: Coordenadas (X, Y) -->
+  <div
+    class="hud-coords-dev"
+    (click)="copyCurrentCoords()"
+    title="Clic para copiar coordenadas"
+  >
+    <span class="coord-axis">X:</span>
+    <span class="coord-val">{{ mouseCoords.x.toFixed(1) }}</span>
+    <span class="coord-sep">|</span>
+    <span class="coord-axis">Y:</span>
+    <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
+    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
+  </div>
+
   <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: PERFIL Y PROGRESO (Alineado a la altura del panel de la izquierda) -->
   <button
     type="button"
@@ -884,209 +1022,253 @@
     (click)="toggleProfileDrawer()"
     title="Abrir Mi Perfil y Progreso"
   >
-    <div class="side-trigger-avatar">
-      <img *ngIf="userProfile.avatarUrl" [src]="userProfile.avatarUrl" alt="Avatar" class="side-avatar-img" />
-      <span *ngIf="!userProfile.avatarUrl" class="side-avatar-placeholder">{{ (userProfile.nickname ? userProfile.nickname.substring(0, 2) : 'LS') | uppercase }}</span>
-      <span class="side-cloud-indicator" [class.is-online]="isCloudConnected" [title]="isCloudConnected ? 'Sincronizado en la nube' : 'Modo local'"></span>
-    </div>
-    <div class="side-trigger-info">
-      <span class="side-tag">{{ isCloudConnected ? 'NUBE ACTIVA' : 'MI PROGRESO' }}</span>
-      <div class="side-name-row">
-        <span class="side-name">{{ (isCloudConnected && activeGamertag) ? activeGamertag : (userProfile.nickname || 'Jugador') }}</span>
-        <span class="side-lvl-pill" *ngIf="userProfile.rank || editRank">NV. {{ userProfile.rank || editRank }}</span>
-      </div>
-    </div>
+    <span class="side-trigger-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
   </button>
 
-  <!-- DRAWER LATERAL DERECHO: FICHA ELEGANTE DE JUGADOR Y PROGRESO -->
+  <!-- DRAWER LATERAL DERECHO: TRANSPORTES -->
   <div class="hud-drawer-backdrop" *ngIf="profileDrawerOpen" (click)="closeProfileDrawer()"></div>
   <aside class="hud-profile-drawer" [class.is-open]="profileDrawerOpen">
-    <!-- Cabecera del Drawer -->
+
+    <!-- ====== CABECERA (siempre visible) ====== -->
     <div class="drawer-header">
       <div class="drawer-title-group">
-        <span class="drawer-badge">GTA V · IMPERIO CRIMINAL</span>
-        <h3 class="drawer-title">Ficha de Jugador</h3>
+        <!-- BREADCRUMB dinámico -->
+        <span class="drawer-badge" *ngIf="drawerView === 'tabs'">GTA V · IMPERIO CRIMINAL</span>
+        <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid'">
+          <button type="button" class="drawer-breadcrumb-back" (click)="closeDealerGrid()" title="Volver a Transportes">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">Transportes</span>
+          <span class="drawer-breadcrumb-sep">›</span>
+          <span class="drawer-breadcrumb-current">{{ activeDealerName }}</span>
+        </span>
+        <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">Transportes</h3>
+        <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
       </div>
-      <button type="button" class="drawer-close-btn" (click)="closeProfileDrawer()" title="Cerrar">✕</button>
+      <button type="button" class="drawer-close-btn" (click)="closeProfileDrawer()" title="Cerrar">&gt;&gt;</button>
     </div>
 
+    <!-- ====== TABS (solo en vista de lista) ====== -->
+    <div class="drawer-tabs" role="tablist" *ngIf="drawerView === 'tabs'">
+      <button
+        *ngFor="let tab of drawerTabs"
+        type="button"
+        class="drawer-tab"
+        role="tab"
+        [class.is-active]="activeDrawerTab === tab.id"
+        [attr.aria-selected]="activeDrawerTab === tab.id"
+        (click)="setDrawerTab(tab.id)"
+      >
+        <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
+        <span class="drawer-tab-label">{{ tab.label }}</span>
+      </button>
+    </div>
+
+    <!-- ====== CUERPO ====== -->
     <div class="drawer-body">
-      <!-- TARJETA DE CONEXIÓN EN LA NUBE (MULTI-DISPOSITIVO) -->
-      <div class="cloud-sync-card" [class.is-connected]="isCloudConnected">
-        <!-- Estado Conectado -->
-        <ng-container *ngIf="isCloudConnected">
-          <div class="cloud-sync-header">
-            <div class="cloud-status-badge is-online">
-              <span class="status-dot pulse"></span>
-              <span>PARTIDA EN LA NUBE ACTIVA</span>
-            </div>
-            <button
-              type="button"
-              class="cloud-disconnect-btn"
-              (click)="onDisconnectAccount()"
-              title="Cerrar sesión en este dispositivo"
-            >
-              Cambiar cuenta
-            </button>
-          </div>
-          <div class="cloud-user-meta">
-            <span class="cloud-user-label">Gamertag vinculado:</span>
-            <span class="cloud-user-name">@{{ activeGamertag }}</span>
-          </div>
-          <p class="cloud-sync-hint">
-            ✓ Guardado automático en tiempo real. Abre este mapa en tu móvil u otro equipo, introduce <b>@{{ activeGamertag }}</b> y tu PIN para cargar todo tu imperio.
-          </p>
-        </ng-container>
 
-        <!-- Estado Desconectado / Local -->
-        <ng-container *ngIf="!isCloudConnected">
-          <div class="cloud-sync-header">
-            <div class="cloud-status-badge is-offline">
-              <span class="status-dot"></span>
-              <span>MODO LOCAL (NO SINCRONIZADO)</span>
-            </div>
-          </div>
-          <p class="cloud-auth-desc">
-            Introduce tu <b>Gamertag</b> y un <b>PIN</b> para guardar tu partida en el servidor y poder continuar en tu móvil o cualquier otro navegador:
-          </p>
-          <div class="cloud-auth-form">
-            <div class="cloud-input-group">
-              <label class="cloud-input-label">Gamertag / Usuario</label>
-              <input
-                type="text"
-                class="cloud-input"
-                [(ngModel)]="authGamertag"
-                placeholder="Ej: JoseMiguel"
-                maxlength="30"
-                autocomplete="username"
-                [disabled]="authLoading"
-              />
-            </div>
-            <div class="cloud-input-group">
-              <label class="cloud-input-label">PIN (4-6 dígitos)</label>
-              <input
-                type="password"
-                maxlength="6"
-                inputmode="numeric"
-                pattern="[0-9]*"
-                class="cloud-input cloud-input-pin"
-                [(ngModel)]="authPin"
-                placeholder="••••"
-                (keyup.enter)="onConnectAccount()"
-                autocomplete="current-password"
-                [disabled]="authLoading"
-              />
-            </div>
-            <button
-              type="button"
-              class="cloud-submit-btn"
-              (click)="onConnectAccount()"
-              [disabled]="authLoading"
-            >
-              <span *ngIf="!authLoading">CONECTAR / GUARDAR</span>
-              <span *ngIf="authLoading">SINCRONIZANDO...</span>
-            </button>
-          </div>
-
-          <div class="cloud-auth-msg error" *ngIf="authErrorMsg">
-            ⚠️ {{ authErrorMsg }}
-          </div>
-          <div class="cloud-auth-msg success" *ngIf="authSuccessMsg">
-            ✓ {{ authSuccessMsg }}
-          </div>
-          <div class="cloud-auth-note">
-            💡 Si el Gamertag no existe, se creará tu cuenta automáticamente con este PIN guardando tu progreso actual.
-          </div>
-        </ng-container>
-      </div>
-
-      <!-- Tarjeta de Identidad del Jugador estilo GTA Online -->
-      <div class="player-card">
-        <div class="player-card-header">
+      <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
+      <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'vehiculos'">
+        <div class="dealer-list">
           <div
-            class="player-avatar-box"
-            (click)="avatarFileInput.click()"
-            title="Haz clic para subir o cambiar tu foto de perfil"
+            *ngFor="let d of visibleDealers"
+            class="dealer-card"
+            (click)="openDealerGrid(d.id, d.name)"
+            [style.--dealer-color]="d.color"
           >
-            <img *ngIf="userProfile.avatarUrl" [src]="userProfile.avatarUrl" alt="Avatar" class="player-avatar-img" />
-            <span *ngIf="!userProfile.avatarUrl" class="player-avatar-fallback">{{ (userProfile.nickname ? userProfile.nickname.substring(0, 2) : 'LS') | uppercase }}</span>
-            <div class="player-avatar-overlay">
-              <span class="avatar-camera-icon">📷</span>
+            <div class="dealer-card-icon">
+              <i class="fa-solid" [ngClass]="d.icon"></i>
             </div>
-            <input
-              #avatarFileInput
-              type="file"
-              accept="image/png, image/jpeg, image/webp, image/gif"
-              style="display: none"
-              (change)="onAvatarFileSelected($event)"
-            />
-          </div>
-          <div class="player-identity">
-            <input
-              type="text"
-              class="player-name-input"
-              [(ngModel)]="editNickname"
-              (blur)="saveLocalProfile()"
-              (keyup.enter)="saveLocalProfile()"
-              maxlength="50"
-              placeholder="Tu nombre / alias..."
-              title="Haz clic para editar tu nombre"
-            />
-            <div class="player-quick-fields">
-              <div class="player-chip player-chip-rank" title="Nivel del personaje en GTA Online">
-                <span class="chip-label">NIVEL</span>
-                <input
-                  type="number"
-                  class="chip-input chip-input-rank"
-                  [(ngModel)]="editRank"
-                  (blur)="saveLocalProfile()"
-                  (keyup.enter)="saveLocalProfile()"
-                  min="1"
-                  max="8000"
-                  placeholder="280"
-                />
-              </div>
-              <div class="player-chip player-chip-bank" title="Dinero en banco">
-                <span class="chip-label">$</span>
-                <input
-                  type="number"
-                  class="chip-input chip-input-money"
-                  [(ngModel)]="editBank"
-                  (blur)="saveLocalProfile()"
-                  (keyup.enter)="saveLocalProfile()"
-                  min="0"
-                />
-              </div>
-              <button
-                *ngIf="userProfile.avatarUrl"
-                type="button"
-                class="avatar-del-btn"
-                (click)="removeAvatar()"
-                title="Eliminar foto y restaurar iniciales"
-              >
-                ✕ Foto
-              </button>
+            <div class="dealer-card-info">
+              <span class="dealer-card-name">{{ d.name }}</span>
+              <span class="dealer-card-sub">Ver catálogo</span>
+            </div>
+            <div class="dealer-card-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
           </div>
         </div>
+      </ng-container>
 
-        <!-- Métricas Rápidas de Nivel y Cuenta -->
-        <div class="player-stats-grid" style="grid-template-columns: 1fr 1fr;">
-          <div class="stat-pill stat-pill-rank">
-            <span class="stat-val stat-val-rank">{{ userProfile.rank || editRank || 100 }}</span>
-            <span class="stat-lbl">Nivel (RP)</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-val" style="color: #2ecc71;">${{ (userProfile.bank || editBank || 0).toLocaleString() }}</span>
-            <span class="stat-lbl">Dinero en Banco</span>
-          </div>
+      <!-- ============ VISTA: GRID DE VEHÍCULOS ============ -->
+      <ng-container *ngIf="drawerView === 'dealer-grid'">
+
+        <!-- Loading -->
+        <div class="vgrid-loading" *ngIf="vehiclesLoading">
+          <div class="vgrid-spinner"></div>
+          <span>Cargando catálogo de {{ activeDealerName }}...</span>
         </div>
-      </div>
 
-      <!-- Feedback Toast / Mensaje -->
+        <!-- Error -->
+        <div class="vgrid-error" *ngIf="vehiclesError && !vehiclesLoading">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>No se pudo cargar el catálogo. Comprueba tu conexión.</span>
+        </div>
+
+        <!-- Sin resultados -->
+        <div class="vgrid-empty" *ngIf="!vehiclesLoading && !vehiclesError && dealerVehicles.length === 0">
+          <i class="fa-solid fa-car-burst"></i>
+          <span>Sin vehículos disponibles para este concesionario.</span>
+        </div>
+
+        <!-- Grid + detalle -->
+        <ng-container *ngIf="!vehiclesLoading && dealerVehicles.length > 0">
+
+          <!-- CONTADOR -->
+          <div class="vgrid-counter">
+            <span class="vgrid-count-num">{{ dealerVehicles.length }}</span>
+            <span class="vgrid-count-lbl">vehículos disponibles</span>
+          </div>
+
+          <!-- GRID DE TARJETAS -->
+          <div class="vgrid-grid">
+            <button
+              *ngFor="let v of dealerVehicles"
+              type="button"
+              class="vcard"
+              [class.is-selected]="selectedVehicle?.id === v.id"
+              (click)="selectVehicle(v)"
+            >
+              <!-- Zona imagen / foto -->
+              <div class="vcard-img">
+                <span class="vcard-class-badge">{{ getVehicleClassLabel(v.type) }}</span>
+                <img
+                  *ngIf="v.imageUrl && !v.imgFailed"
+                  [src]="v.imageUrl"
+                  [alt]="v.name"
+                  class="vcard-photo"
+                  loading="lazy"
+                  (error)="onVehicleImgError(v)"
+                />
+                <ng-container *ngIf="!v.imageUrl || v.imgFailed">
+                  <i class="fa-solid fa-car vcard-img-icon" *ngIf="v.type === 'car' || v.type === 'super' || v.type === 'sport'"></i>
+                  <i class="fa-solid fa-motorcycle vcard-img-icon" *ngIf="v.type === 'motorcycle'"></i>
+                  <i class="fa-solid fa-helicopter vcard-img-icon" *ngIf="v.type === 'helicopter'"></i>
+                  <i class="fa-solid fa-plane vcard-img-icon" *ngIf="v.type === 'plane'"></i>
+                  <i class="fa-solid fa-ship vcard-img-icon" *ngIf="v.type === 'boat'"></i>
+                  <i class="fa-solid fa-truck-monster vcard-img-icon" *ngIf="v.type === 'military' || v.type === 'van'"></i>
+                  <i class="fa-solid fa-car vcard-img-icon" *ngIf="v.type !== 'car' && v.type !== 'super' && v.type !== 'sport' && v.type !== 'motorcycle' && v.type !== 'helicopter' && v.type !== 'plane' && v.type !== 'boat' && v.type !== 'military' && v.type !== 'van'"></i>
+                </ng-container>
+                <span class="vcard-weapon-badge" *ngIf="v.weaponized" title="Armado">🔫</span>
+              </div>
+              <!-- Info del vehículo anexada a la foto -->
+              <div class="vcard-info">
+                <span class="vcard-name">{{ v.name }}</span>
+                <div class="vcard-sub-row">
+                  <span class="vcard-maker">{{ v.manufacturer }}</span>
+                  <span class="vcard-price">{{ formatPrice(v.priceFull) }}</span>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <!-- PANEL DE DETALLES (cuando hay selección) -->
+          <div class="vdetail" *ngIf="selectedVehicle">
+            <div class="vdetail-top">
+              <div class="vdetail-img">
+                <img
+                  *ngIf="selectedVehicle.imageUrl && !selectedVehicle.imgFailed"
+                  [src]="selectedVehicle.imageUrl"
+                  [alt]="selectedVehicle.name"
+                  class="vdetail-photo"
+                  (error)="onVehicleImgError(selectedVehicle)"
+                />
+                <ng-container *ngIf="!selectedVehicle.imageUrl || selectedVehicle.imgFailed">
+                  <i class="fa-solid fa-car vdetail-icon" *ngIf="selectedVehicle.type === 'car'"></i>
+                  <i class="fa-solid fa-motorcycle vdetail-icon" *ngIf="selectedVehicle.type === 'motorcycle'"></i>
+                  <i class="fa-solid fa-helicopter vdetail-icon" *ngIf="selectedVehicle.type === 'helicopter'"></i>
+                  <i class="fa-solid fa-plane vdetail-icon" *ngIf="selectedVehicle.type === 'plane'"></i>
+                  <i class="fa-solid fa-ship vdetail-icon" *ngIf="selectedVehicle.type === 'boat'"></i>
+                  <i class="fa-solid fa-car vdetail-icon" *ngIf="selectedVehicle.type !== 'car' && selectedVehicle.type !== 'motorcycle' && selectedVehicle.type !== 'helicopter' && selectedVehicle.type !== 'plane' && selectedVehicle.type !== 'boat'"></i>
+                </ng-container>
+              </div>
+              <div class="vdetail-header">
+                <span class="vdetail-maker">{{ selectedVehicle.manufacturer }}</span>
+                <h4 class="vdetail-name">{{ selectedVehicle.name }}</h4>
+                <div class="vdetail-tags">
+                  <span class="vdetail-class-tag">{{ getVehicleClassLabel(selectedVehicle.class) }}</span>
+                  <span class="vdetail-weapon-tag" *ngIf="selectedVehicle.weaponized">🔫 Vehículo Armado</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Precios -->
+            <div class="vdetail-prices">
+              <div class="vdetail-price-box vdetail-price-full">
+                <span class="vdetail-price-lbl">Precio de Compra</span>
+                <span class="vdetail-price-val">{{ formatPrice(selectedVehicle.priceFull) }}</span>
+              </div>
+              <div class="vdetail-price-box vdetail-price-trade" *ngIf="selectedVehicle.priceTrade > 0">
+                <span class="vdetail-price-lbl">Trade Price</span>
+                <span class="vdetail-price-val vdetail-price-trade-val">{{ formatPrice(selectedVehicle.priceTrade) }}</span>
+              </div>
+            </div>
+
+            <!-- Barras de Características (Aceleración, Frenada, Velocidad, Manejo) -->
+            <div class="vdetail-stat-bars">
+              <div class="vstat-row">
+                <span class="vstat-lbl">Velocidad</span>
+                <div class="vstat-bar-track">
+                  <div class="vstat-bar-fill fill-speed" [style.width.%]="(selectedVehicle.speed || 7) * 10"></div>
+                </div>
+                <span class="vstat-num">{{ selectedVehicle.speed }}</span>
+              </div>
+              <div class="vstat-row">
+                <span class="vstat-lbl">Aceleración</span>
+                <div class="vstat-bar-track">
+                  <div class="vstat-bar-fill fill-accel" [style.width.%]="(selectedVehicle.acceleration || 7) * 10"></div>
+                </div>
+                <span class="vstat-num">{{ selectedVehicle.acceleration }}</span>
+              </div>
+              <div class="vstat-row">
+                <span class="vstat-lbl">Frenada</span>
+                <div class="vstat-bar-track">
+                  <div class="vstat-bar-fill fill-brake" [style.width.%]="(selectedVehicle.braking || 6) * 10"></div>
+                </div>
+                <span class="vstat-num">{{ selectedVehicle.braking }}</span>
+              </div>
+              <div class="vstat-row">
+                <span class="vstat-lbl">Manejo</span>
+                <div class="vstat-bar-track">
+                  <div class="vstat-bar-fill fill-handling" [style.width.%]="(selectedVehicle.handling || 7) * 10"></div>
+                </div>
+                <span class="vstat-num">{{ selectedVehicle.handling }}</span>
+              </div>
+            </div>
+          </div>
+
+        </ng-container>
+      </ng-container>
+
+      <!-- ============ TAB: MISIONES ============ -->
+      <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
+        <div class="drawer-empty">
+          <i class="fa-solid fa-bullseye drawer-empty-icon"></i>
+          <p class="drawer-empty-text">Misiones</p>
+        </div>
+      </ng-container>
+
+      <!-- ============ TAB: ITEM3 ============ -->
+      <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item3'">
+        <div class="drawer-empty">
+          <i class="fa-solid fa-box drawer-empty-icon"></i>
+          <p class="drawer-empty-text">Item3</p>
+        </div>
+      </ng-container>
+
+      <!-- ============ TAB: ITEM4 ============ -->
+      <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item4'">
+        <div class="drawer-empty">
+          <i class="fa-solid fa-crown drawer-empty-icon"></i>
+          <p class="drawer-empty-text">Item4</p>
+        </div>
+      </ng-container>
+
+      <!-- Feedback Toast -->
       <div class="drawer-alert" *ngIf="syncFeedbackMsg">
         {{ syncFeedbackMsg }}
       </div>
+
     </div>
   </aside>
 </div>

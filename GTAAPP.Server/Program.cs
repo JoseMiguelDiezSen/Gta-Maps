@@ -88,21 +88,6 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 
-    // 2. Política estricta para Auth/Save (10 req/minuto) -> Prevención fuerza bruta PIN
-    options.AddPolicy("auth-policy", httpContext =>
-    {
-        var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
-        return RateLimitPartition.GetFixedWindowLimiter(
-            partitionKey: clientIp,
-            factory: _ => new FixedWindowRateLimiterOptions
-            {
-                PermitLimit = 10,
-                Window = TimeSpan.FromMinutes(1),
-                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
-                QueueLimit = 0
-            });
-    });
-
     // 3. Política para endpoints de datos (60 req/minuto) -> Prevención de scraping abusivo
     options.AddPolicy("data-policy", httpContext =>
     {
@@ -119,8 +104,6 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 });
-
-builder.Services.AddSingleton<GTAAPP.Server.Services.AtmImporter>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.PropertyImporter>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.CollectibleImporter>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.UserProfileService>();

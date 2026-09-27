@@ -45,16 +45,4 @@ export class LocationService {
       })
     );
   }
-
-  /**
-   * Obtiene la lista de cajeros automáticos.
-   */
-  getAtms(): Observable<{ name: string; type: string; x: number; y: number; z: number }[]> {
-    return this.http.get<{ name: string; type: string; x: number; y: number; z: number }[]>('/api/locations/atms').pipe(
-      catchError(err => {
-        console.warn('Fallo al obtener ATMs:', err);
-        return of([]);
-      })
-    );
-  }
 }

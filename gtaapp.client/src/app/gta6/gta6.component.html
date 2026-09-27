@@ -1,5 +1,14 @@
 <div class="map-wrapper">
-  <div class="gta6-canvas"></div>
+  <div
+    class="gta6-canvas"
+    [class.is-panning]="isPanning"
+    (wheel)="onCanvasWheel($event)"
+    (mousedown)="onCanvasMouseDown($event)"
+    [style.backgroundImage]="canvasBgImage"
+    [style.backgroundSize]="canvasBgSize"
+    [style.backgroundPosition]="canvasBgPos"
+    title="Rueda del ratón para acercar o alejar, arrastra para mover"
+  ></div>
 
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
   <div class="hud hud-tl">
@@ -9,6 +18,44 @@
     </div>
     <div class="hud-time-badge" title="Hora del juego">{{ inGameTimeStr }}</div>
     <a class="hud-home-btn" routerLink="/" title="Volver a la pantalla de inicio">Inicio</a>
+  </div>
+
+  <!-- SUP-CENTRO: Lanzamiento GTA VI + cuenta atrás (misma estructura y tipografía que la barra sup-izq) -->
+  <div class="hud hud-tc">
+    <div class="hud-title">Lanzamiento GTA VI</div>
+    <div class="hud-cd-sep"></div>
+    <div class="hud-cd">
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.days }}</span>
+        <span class="hud-cd-lab">Días</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.hours }}</span>
+        <span class="hud-cd-lab">Horas</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.minutes }}</span>
+        <span class="hud-cd-lab">Min</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.seconds }}</span>
+        <span class="hud-cd-lab">Seg</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CENTRO DE LA PANTALLA: Telemetría de Coordenadas (X, Y) -->
+  <div
+    class="hud-coords-dev"
+    (click)="copyCurrentCoords()"
+    title="Clic para copiar coordenadas"
+  >
+    <span class="coord-axis">X:</span>
+    <span class="coord-val">{{ mouseCoords.x.toFixed(1) }}</span>
+    <span class="coord-sep">|</span>
+    <span class="coord-axis">Y:</span>
+    <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
+    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
   </div>
 
   <!-- ESQUINA INF-IZQ: Panel de control -->
@@ -204,6 +251,31 @@
                 <option value="chumash">Costa Oeste</option>
               </select>
             </div>
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE: Policía -->
+        <div class="hud-acc" [class.is-open]="accordion['policia']">
+          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('policia')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">Policía</span>
+          </button>
+          <div class="hud-acc-body" *ngIf="accordion['policia']">
+            <button
+              type="button"
+              class="legend-btn"
+              *ngFor="let item of policiaItems"
+              [class.is-active]="layerFilters[item.id]"
+              (click)="toggleLayer(item.id)"
+            >
+              <i
+                class="legend-dot"
+                [style.background]="item.color"
+                [style.box-shadow]="'0 0 6px ' + item.color"
+              ></i>
+              <span class="legend-name">{{ item.name }}</span>
+              <span class="legend-count">{{ item.count }}</span>
+            </button>
           </div>
         </div>
 

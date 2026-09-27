@@ -7,6 +7,25 @@ import { UserProfileService } from '../services/user-profile.service';
 import { UserProfile, SocialClubSyncPayload } from '../models/user-profile';
 import { Subscription } from 'rxjs';
 
+export interface GtaVehicle {
+  id: string;           // nombre interno (clave del JSON)
+  name: string;         // nombre para mostrar en español/inglés
+  manufacturer: string;
+  class: string;        // SUPER, SPORT, MUSCLE, etc.
+  venue: string;        // legendarymotorsport, superautos, bennys, warstock, etc.
+  priceFull: number;
+  priceTrade: number;
+  type: string;         // car, helicopter, plane, motorcycle...
+  weaponized: boolean;
+  imageUrl?: string;
+  imgFailed?: boolean;
+  // Stats estimados (0-10) - se rellenarán con datos de la API o estimados
+  acceleration?: number;
+  braking?: number;
+  handling?: number;
+  speed?: number;
+}
+
 @Component({
     selector: 'app-gta-map',
     templateUrl: './gta-map.component.html',
@@ -25,6 +44,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         { id: 'Satellite', label: 'Satélite' },
         { id: 'Roadmap', label: 'Carreteras' },
         { id: 'Atlas', label: 'Atlas' },
+        { id: 'Juego', label: 'Juego' },
         { id: 'UV', label: 'Ultravioleta (UV)' },
         { id: 'UV2', label: 'Ultravioleta 2 (UV Invertido)' }
     ];
@@ -32,12 +52,13 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     /**
      * Mapas base disponibles según el modo de juego activo.
      * Los mapas UV y UV2 (Blueprint) solo están disponibles en Modo Historia.
+     * El mapa Juego está disponible en ambos modos.
      */
     get mapTypes() {
         if (this.selectedGameMode === 'story') {
             return this.allMapTypes;
         }
-        return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas'].includes(m.id));
+        return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas', 'Juego'].includes(m.id));
     }
 
     currentMapType = 'Satellite';
@@ -50,30 +71,50 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     // Estado del panel de capas y leyenda (minimizable)
     legendOpen = true;
 
+    // Fecha de la última actualización del mapa (cámbiala aquí cuando actualices los datos)
+    readonly ultimaActualizacion = 'XXXX';
+
     // Claves de Propiedades según el modo de juego
     readonly storyPropertyKeys = [
-        'purchasable_business'
+        'purchasable_business',
+        'hangar'
     ];
 
     readonly onlinePropertyKeys = [
         'mansion',
         'hangar',
-        'coke_lockup',
-        'weed_farm',
-        'meth_lab',
-        'cash_factory',
-        'doc_forgery',
         'bunker',
         'facility',
-        'nightclub',
         'arcade',
         'auto_shop',
         'agency',
         'salvage_yard',
         'arena_war',
         'ceo_office',
-        'vehicle_warehouse',
-        'warehouse'
+        'vehicle_warehouse'
+    ];
+
+    // Claves de los Negocios (sección propia del Panel de control)
+    readonly businessKeys = [
+        'coke_lockup',
+        'weed_farm',
+        'warehouse',
+        'nightclub',
+        'cash_factory',
+        'meth_lab',
+        'doc_forgery'
+    ];
+
+    // Claves de Lugares Extraños (sección propia del Panel de control)
+    readonly strangeKeys = [
+        'fake_ufo',
+        'shipwreck',
+        'cave'
+    ];
+
+    // Claves de Actividades y Deportes (sección propia del Panel de control)
+    readonly activityKeys = [
+        'activity'
     ];
 
     // Claves de Vehículos y Talleres según el modo de juego
@@ -105,6 +146,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         'fire_station',
         'service',
         'convenience_store',
+        'mask_shop',
         'car_wash',
         'strip_club'
     ];
@@ -138,7 +180,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         'contact-agent-14'
     ];
 
-    // Claves individuales de Fauna y Vida Salvaje (10 Hábitats de Fotografía)
+    // Claves individuales de Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía)
     readonly faunaKeys = [
         'animal-rabbit-hills',
         'animal-deer-chiliad',
@@ -149,7 +191,9 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         'animal-cormorant-zancudo',
         'animal-seagull-pier',
         'animal-shark-paleto',
-        'animal-farm-grapeseed'
+        'animal-farm-grapeseed',
+        'animal-dolphin-pacific',
+        'animal-orca-ocean'
     ];
 
     get currentPropertyKeys(): string[] {
@@ -250,6 +294,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         fire_station: true,
         service: true,
         convenience_store: true,
+        mask_shop: true,
         car_wash: true,
         strip_club: true,
         // Trabajos Roleplay (7 independientes)
@@ -275,7 +320,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         'contact-tony-prince': true,
         'contact-agatha-baker': true,
         'contact-agent-14': true,
-        // Fauna y Vida Salvaje (10 Hábitats de Fotografía)
+        // Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía)
         animal: true,
         'animal-rabbit-hills': true,
         'animal-deer-chiliad': true,
@@ -287,12 +332,20 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         'animal-seagull-pier': true,
         'animal-shark-paleto': true,
         'animal-farm-grapeseed': true,
+        'animal-dolphin-pacific': true,
+        'animal-orca-ocean': true,
         // Coleccionables Online (activos por defecto)
         playing_card: true,
         action_figure: true,
         signal_jammer: true,
         movie_prop: true,
-        radio_antenna: true
+        radio_antenna: true,
+        // Lugares Extraños (activos por defecto)
+        fake_ufo: true,
+        shipwreck: true,
+        cave: true,
+        // Actividades y Deportes (activos por defecto)
+        activity: true
     };
 
     // Propiedades cargadas
@@ -309,12 +362,15 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     // Las tarjetas principales permanecen abiertas pero los acordeones interiores inician replegados
     accordion: { [key: string]: boolean } = {
         propiedades: false,     // Panel de control: Propiedades
+        negocios: false,        // Panel de control: Negocios
         vehiculos: false,       // Panel de control: Vehículos
         servicios: false,       // Panel de control: Servicios
+        actividades: false,     // Panel de control: Actividades y Deportes
         roleplay: false,        // Panel de control: Trabajos Roleplay
         personajes: false,      // Panel de control: Personajes y Contactos
         fauna: false,           // Panel de control: Fauna y Vida Salvaje
         coleccionables: false,  // Panel de control: Coleccionables
+        lugares: false,         // Panel de control: Lugares Extraños
         modo: false,            // Ajustes: Modo de juego
         mapa: false,            // Ajustes: Selector de mapa
         zona: false             // Ajustes: Estilo y tamaño de iconos
@@ -344,6 +400,10 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     targetCustomMarker: { id: string; name: string; marker: L.Marker; latLng: L.LatLng } | null = null;
     isMarkerContext = false;
 
+    // Telemetría en tiempo real: Coordenadas mundiales de GTA V bajo el ratón
+    mouseCoords: { x: number; y: number } = { x: 0, y: 0 };
+    coordsCopied = false;
+
     // Panel Lateral (Drawer) de Perfil & Rockstar Sync
     profileDrawerOpen = false;
     activeProfileTab: 'profile' | 'sync' | 'manual' = 'profile';
@@ -353,21 +413,206 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     editNickname = '';
     editRank = 100;
     editBank = 5000000;
+
+    // ============================================================
+    // CONCESIONARIOS: definición centralizada
+    // ============================================================
+    readonly dealers = [
+      { id: 'legendarymotorsport', name: 'Legendary Motorsport', icon: 'fa-star',   color: '#ffb833', gameMode: 'online' as const },
+      { id: 'superautos',          name: 'Southern San Andreas',  icon: 'fa-car',    color: '#3498db', gameMode: 'both'   as const },
+      { id: 'bennys',              name: "Benny's Original MW",   icon: 'fa-wrench', color: '#e67e22', gameMode: 'online' as const },
+      { id: 'elitas',              name: 'Elitas Travel',          icon: 'fa-plane',  color: '#8e44ad', gameMode: 'both'   as const },
+      { id: 'docktease',           name: 'DockTease',              icon: 'fa-ship',   color: '#2980b9', gameMode: 'both'   as const },
+      { id: 'warstock',            name: 'Warstock C&C',           icon: 'fa-bomb',   color: '#c0392b', gameMode: 'online' as const },
+    ];
+
+    // ============================================================
+    // ESTADO DEL DRAWER: navegación y selección
+    // ============================================================
+    // Tabs del drawer
+    drawerTabs: { id: string; label: string; icon: string }[] = [
+      { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
+      { id: 'misiones',  label: 'Misiones',  icon: 'fa-bullseye' },
+      { id: 'item3',     label: 'Item3',     icon: 'fa-box' },
+      { id: 'item4',     label: 'Item4',     icon: 'fa-crown' },
+    ];
+    activeDrawerTab = 'vehiculos';
+
+    // Vista activa del drawer: 'tabs' | 'dealer-grid'
+    drawerView: 'tabs' | 'dealer-grid' = 'tabs';
+
+    // Concesionario actualmente abierto en la vista de grid
+    activeDealerId: string | null = null;
+    activeDealerName: string = '';
+
+    // Vehículos del concesionario activo
+    dealerVehicles: GtaVehicle[] = [];
+    vehiclesLoading = false;
+    vehiclesError = false;
+
+    // Vehículo seleccionado en el grid
+    selectedVehicle: GtaVehicle | null = null;
+
+    // Cache de vehículos por concesionario
+    private vehicleCache: { [dealerId: string]: GtaVehicle[] } = {};
+
+    // Todas las clases disponibles en el concesionario activo (para filtrado futuro)
+    get dealerClasses(): string[] {
+      const classes = [...new Set(this.dealerVehicles.map(v => v.class))];
+      return classes.sort();
+    }
+
+    // Concesionarios visibles según el modo de juego activo
+    get visibleDealers() {
+      return this.dealers.filter(d => d.gameMode === 'both' || d.gameMode === this.selectedGameMode);
+    }
+
+    setDrawerTab(tabId: string): void {
+      this.activeDrawerTab = tabId;
+      // Al cambiar de pestaña, volvemos siempre a la vista de tabs
+      if (this.drawerView === 'dealer-grid') {
+        this.drawerView = 'tabs';
+        this.activeDealerId = null;
+      }
+    }
+
+    openDealerGrid(dealerId: string, dealerName: string): void {
+      this.activeDealerId = dealerId;
+      this.activeDealerName = dealerName;
+      this.selectedVehicle = null;
+      this.drawerView = 'dealer-grid';
+      this.loadDealerVehicles(dealerId);
+    }
+
+    closeDealerGrid(): void {
+      this.drawerView = 'tabs';
+      this.activeDealerId = null;
+      this.selectedVehicle = null;
+    }
+
+    selectVehicle(v: GtaVehicle): void {
+      this.selectedVehicle = this.selectedVehicle?.id === v.id ? null : v;
+    }
+
+    private loadDealerVehicles(dealerId: string): void {
+      // Usar cache si ya lo cargamos antes
+      if (this.vehicleCache[dealerId]) {
+        this.dealerVehicles = this.vehicleCache[dealerId];
+        return;
+      }
+
+      this.vehiclesLoading = true;
+      this.vehiclesError = false;
+      this.dealerVehicles = [];
+
+      // URL del JSON de mxamber (raw GitHub)
+      const url = 'https://raw.githubusercontent.com/mxamber/gtavehicles/master/gtavehicles.json';
+
+      fetch(url)
+        .then(r => r.json())
+        .then((data: any) => {
+          const vehicles: GtaVehicle[] = [];
+          const vehiclesObj = data.vehicles || {};
+
+          for (const [key, raw] of Object.entries(vehiclesObj) as [string, any][]) {
+            if (!raw || !raw.venue) continue;
+            const venue: string = (raw.venue || '').toLowerCase();
+
+            // Mapear venue al id del concesionario
+            const venueMap: { [k: string]: string } = {
+              'legendarymotorsport': 'legendarymotorsport',
+              'motorsport':          'legendarymotorsport',
+              'superautos':          'superautos',
+              'warstock':            'warstock',
+              'bennys':              'bennys',
+              'elitas':              'elitas',
+              'docktease':           'docktease',
+            };
+            const mappedVenue = venueMap[venue];
+            if (!mappedVenue) continue;
+
+            const stats = this.computeVehicleStats(key, raw.type || 'car', raw.price_full || 0);
+            const v: GtaVehicle = {
+              id: key,
+              name: raw.name || key,
+              manufacturer: raw.manufacturer || '',
+              class: (raw.type || 'car').toUpperCase(),
+              venue: mappedVenue,
+              priceFull: raw.price_full || 0,
+              priceTrade: raw.price_trade || 0,
+              type: raw.type || 'car',
+              weaponized: raw.weaponized || false,
+              imageUrl: `https://raw.githubusercontent.com/MericcaN41/gta5carimages/main/images/${key.toLowerCase()}.png`,
+              speed: stats.speed,
+              acceleration: stats.accel,
+              braking: stats.brake,
+              handling: stats.handling,
+            };
+            vehicles.push(v);
+          }
+
+          vehicles.sort((a, b) => a.name.localeCompare(b.name));
+
+          // Pre-cache por venue
+          const byVenue: { [k: string]: GtaVehicle[] } = {};
+          for (const v of vehicles) {
+            if (!byVenue[v.venue]) byVenue[v.venue] = [];
+            byVenue[v.venue].push(v);
+          }
+          // Fusionar en vehicleCache
+          for (const [venue, list] of Object.entries(byVenue)) {
+            this.vehicleCache[venue] = list;
+          }
+
+          this.dealerVehicles = this.vehicleCache[dealerId] || [];
+          this.vehiclesLoading = false;
+        })
+        .catch(() => {
+          this.vehiclesLoading = false;
+          this.vehiclesError = true;
+        });
+    }
+
+    computeVehicleStats(key: string, type: string, price: number): { speed: number; accel: number; brake: number; handling: number } {
+      let hash = 0;
+      for (let i = 0; i < key.length; i++) hash = ((hash << 5) - hash + key.charCodeAt(i)) | 0;
+      const h = Math.abs(hash);
+      const t = type.toLowerCase();
+      const base = t.includes('super') || price > 1500000 ? 8.8 :
+                   t.includes('sport') || price > 800000  ? 8.0 :
+                   t.includes('motor') ? 8.2 :
+                   t.includes('muscle') ? 7.4 : 6.2;
+      const speed = Math.min(9.9, Math.max(4.0, Number((base + (h % 15) / 10 - 0.7).toFixed(1))));
+      const accel = Math.min(9.8, Math.max(3.5, Number((base * 0.95 + ((h >> 2) % 15) / 10 - 0.7).toFixed(1))));
+      const brake = Math.min(9.5, Math.max(4.0, Number((6.8 + ((h >> 4) % 25) / 10 - 1.2).toFixed(1))));
+      const handling = Math.min(9.6, Math.max(4.2, Number((7.0 + ((h >> 6) % 20) / 10 - 1.0).toFixed(1))));
+      return { speed, accel, brake, handling };
+    }
+
+    onVehicleImgError(v: GtaVehicle): void {
+      v.imgFailed = true;
+    }
+
+    formatPrice(price: number): string {
+      if (!price || price <= 0) return 'Precio no disponible';
+      return '$' + price.toLocaleString('es-ES');
+    }
+
+    getVehicleClassLabel(cls: string): string {
+      const labels: { [k: string]: string } = {
+        'car': 'Coche', 'motorcycle': 'Moto', 'helicopter': 'Helicóptero',
+        'plane': 'Avión', 'boat': 'Barco', 'trailer': 'Remolque',
+        'super': 'Súper', 'sport': 'Deportivo', 'muscle': 'Muscle',
+        'suv': 'SUV', 'sedan': 'Sedán', 'compact': 'Compacto',
+        'van': 'Furgoneta', 'military': 'Militar', 'service': 'Servicio',
+      };
+      return labels[cls?.toLowerCase() || ''] || cls;
+    }
+
     drawerGroupOpen: { [category: string]: boolean } = {};
     manualJsonInput = '';
     syncFeedbackMsg = '';
     scriptCopied = false;
-
-    // Autenticación ligera Multi-dispositivo (Gamertag + PIN)
-    authGamertag = '';
-    authPin = '';
-    authErrorMsg = '';
-    authSuccessMsg = '';
-    authLoading = false;
-    isCloudConnected = false;
-    activeGamertag: string | null = null;
-    private cloudSub?: Subscription;
-    private gamertagSub?: Subscription;
 
     constructor(
         private locationService: LocationService,
@@ -411,17 +656,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
             this.editBank = prof.bank || 5000000;
             this.renderPropertyMarkers();
             this.renderCollectibleMarkers();
-        });
-
-        this.cloudSub = this.userProfileService.isCloudSynced$.subscribe(connected => {
-            this.isCloudConnected = connected;
-        });
-
-        this.gamertagSub = this.userProfileService.activeGamertag$.subscribe(tag => {
-            this.activeGamertag = tag;
-            if (tag) {
-                this.authGamertag = tag;
-            }
         });
     }
 
@@ -502,12 +736,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
                 if (this.ctxLatLng && this.playerMarkersLayer) {
                     const id = 'custom-' + Date.now();
                     const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
-                    const customIcon = L.divIcon({
-                        className: 'gta-player-pin',
-                        html: '<span class="gta-player-pin-inner">◆</span>',
-                        iconSize: [28, 28],
-                        iconAnchor: [14, 28]
-                    });
+                    const customIcon = this.createPushpinIcon();
                     const m = L.marker(this.ctxLatLng, { icon: customIcon });
                     const item = { id, name, marker: m, latLng: this.ctxLatLng };
 
@@ -533,6 +762,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
                     if (newName && newName.trim() !== '') {
                         this.targetCustomMarker.name = newName.trim();
                         this.updateCustomMarkerPopup(this.targetCustomMarker);
+                        this.targetCustomMarker.marker.openPopup();
                     }
                 }
                 break;
@@ -553,18 +783,84 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker }): void {
+    private createPushpinIcon(): L.DivIcon {
+        return L.divIcon({
+            className: 'gta-classic-pushpin-icon',
+            html: `
+                <div class="classic-pushpin-wrapper">
+                    <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="gtaRedHead" cx="35%" cy="30%" r="65%">
+                                <stop offset="0%" stop-color="#ff7575"/>
+                                <stop offset="35%" stop-color="#e61919"/>
+                                <stop offset="85%" stop-color="#a80707"/>
+                                <stop offset="100%" stop-color="#5a0000"/>
+                            </radialGradient>
+                            <linearGradient id="gtaSteelNeedle" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#d6dadf"/>
+                                <stop offset="45%" stop-color="#ffffff"/>
+                                <stop offset="75%" stop-color="#8c939a"/>
+                                <stop offset="100%" stop-color="#4d5156"/>
+                            </linearGradient>
+                            <filter id="gtaPinShadow" x="0" y="0" width="32" height="40" filterUnits="userSpaceOnUse">
+                                <feDropShadow dx="1" dy="3" stdDeviation="1.8" flood-color="#000000" flood-opacity="0.65"/>
+                            </filter>
+                        </defs>
+                        <g filter="url(#gtaPinShadow)">
+                            <!-- Aguja de acero afilada apuntando a (16, 38) -->
+                            <polygon points="14.8,20 17.2,20 16.3,38 15.7,38" fill="url(#gtaSteelNeedle)"/>
+                            <line x1="16" y1="20" x2="16" y2="38" stroke="#ffffff" stroke-width="0.6" opacity="0.9"/>
+                            <!-- Cono inferior rojo -->
+                            <path d="M10.5,20 C10.5,15.5 12.5,13.5 16,13.5 C19.5,13.5 21.5,15.5 21.5,20 Z" fill="url(#gtaRedHead)"/>
+                            <!-- Aro central -->
+                            <ellipse cx="16" cy="13.5" rx="7.2" ry="2.2" fill="#8f0505"/>
+                            <ellipse cx="16" cy="12.8" rx="6.9" ry="1.9" fill="#ff4444"/>
+                            <!-- Cabeza esférica roja superior -->
+                            <ellipse cx="16" cy="7.5" rx="7.8" ry="6.8" fill="url(#gtaRedHead)"/>
+                            <!-- Reflejo 3D brillante -->
+                            <ellipse cx="13.5" cy="5.2" rx="3.2" ry="1.9" fill="#ffffff" opacity="0.8" transform="rotate(-18 13.5 5.2)"/>
+                        </g>
+                    </svg>
+                </div>
+            `,
+            iconSize: [32, 40],
+            iconAnchor: [16, 38],
+            popupAnchor: [0, -36]
+        });
+    }
+
+    copyCurrentCoords(): void {
+        const text = `X: ${this.mouseCoords.x.toFixed(1)}, Y: ${this.mouseCoords.y.toFixed(1)}`;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+                this.coordsCopied = true;
+                setTimeout(() => this.coordsCopied = false, 1800);
+            });
+        }
+    }
+
+    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng }): void {
         const html = `
-            <div class="custom-marker-popup" style="min-width: 160px; font-family: system-ui, sans-serif;">
-                <div style="font-size: 13px; font-weight: 800; color: #ffb833; margin-bottom: 2px;">${item.name}</div>
-                <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">Punto de interés de usuario</div>
-                <div style="display: flex; gap: 6px;">
-                    <button type="button" style="flex: 1; padding: 5px 8px; font-size: 11px; font-weight: 700; background: rgba(255,165,0,0.2); border: 1px solid rgba(255,165,0,0.5); color: #ffb833; border-radius: 4px; cursor: pointer;" onclick="window._gtaRenameMarker('${item.id}')">Editar nombre</button>
-                    <button type="button" style="padding: 5px 8px; font-size: 11px; font-weight: 700; background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.5); color: #ef4444; border-radius: 4px; cursor: pointer;" onclick="window._gtaDeleteMarker('${item.id}')">Eliminar</button>
+            <div class="custom-marker-popup-card">
+                <div class="custom-marker-title-row">
+                    <h4 class="custom-marker-name">${item.name}</h4>
+                </div>
+                <div class="custom-marker-actions">
+                    <button type="button" class="btn-marker-action btn-marker-edit" onclick="window._gtaRenameMarker('${item.id}')">
+                        <span>✏️</span> Editar
+                    </button>
+                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')">
+                        <span>🗑️</span> Borrar
+                    </button>
                 </div>
             </div>
         `;
-        item.marker.bindPopup(html);
+        item.marker.bindPopup(html, {
+            className: 'gta-custom-pin-popup',
+            maxWidth: 240,
+            minWidth: 200,
+            autoPan: true
+        });
     }
 
     ngAfterViewInit(): void {
@@ -581,12 +877,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         delete (window as any)._gtaDeleteMarker;
         if (this.profileSub) {
             this.profileSub.unsubscribe();
-        }
-        if (this.cloudSub) {
-            this.cloudSub.unsubscribe();
-        }
-        if (this.gamertagSub) {
-            this.gamertagSub.unsubscribe();
         }
         if (this.map) {
             this.map.remove();
@@ -627,11 +917,16 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         });
 
         let tileUrl: string;
-        let isUv2 = false;
+        let tileClass = '';
 
         if (mapType === 'UV' || mapType === 'UV2') {
             tileUrl = 'https://tiles.mapgenie.io/games/gta5/los-santos/uv/{z}/{x}/{y}.jpg';
-            isUv2 = mapType === 'UV2';
+            if (mapType === 'UV2') {
+                tileClass = 'leaflet-tile-uv2';
+            }
+        } else if (mapType === 'Juego') {
+            tileUrl = `assets/Roadmap/{z}_{x}_{y}.jpg`;
+            tileClass = 'leaflet-tile-juego';
         } else {
             tileUrl = `assets/${mapType}/{z}_{x}_{y}.jpg`;
         }
@@ -640,9 +935,9 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
             tileSize: 256,
             minZoom: 0,
             maxZoom: this.maxZoom,
-            errorTileUrl: mapType.startsWith('UV') ? undefined : `assets/${mapType}/empty.jpg`,
+            errorTileUrl: mapType.startsWith('UV') ? undefined : `assets/${mapType === 'Juego' ? 'Roadmap' : mapType}/empty.jpg`,
             noWrap: true,
-            className: isUv2 ? 'leaflet-tile-uv2' : ''
+            className: tileClass
         });
 
         tileLayer.addTo(this.map);
@@ -658,6 +953,11 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
 
         // Aplicar estilos y escala de iconos
         this.updateIconStyle();
+
+        // Seguir movimiento del ratón para mostrar coordenadas X e Y en tiempo real en el HUD
+        this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
+            this.mouseCoords = this.latLngToWorld(e.latlng.lat, e.latlng.lng);
+        });
     }
 
     /**
@@ -675,6 +975,27 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         const lat = -py / 128;
         const lng = px / 128;
         return [lat, lng];
+    }
+
+    /**
+     * Convierte coordenadas Leaflet CRS.Simple (lat, lng) a coordenadas mundiales del juego GTA V (X, Y).
+     * Función inversa exacta de worldToLatLng para telemetría y ajuste manual.
+     */
+    latLngToWorld(lat: number, lng: number): { x: number; y: number } {
+        const originX = 3753.6;
+        const originY = 5529.6;
+        const scale = 0.660; // 0.660 px por metro oficial
+
+        const px = lng * 128;
+        const py = -lat * 128;
+
+        const x = (px - originX) / scale;
+        const y = (originY - py) / scale;
+
+        return {
+            x: Math.round(x * 10) / 10,
+            y: Math.round(y * 10) / 10
+        };
     }
 
     private loadProperties(): void {
@@ -1218,117 +1539,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     clearOwnedProperties(): void {
         this.userProfileService.saveProfile({ ownedPropertyIds: [] }).subscribe(() => {
             this.renderPropertyMarkers();
-        });
-    }
-
-    onConnectAccount(): void {
-        this.authErrorMsg = '';
-        this.authSuccessMsg = '';
-
-        const tag = (this.authGamertag || '').trim();
-        const pin = (this.authPin || '').trim();
-
-        if (tag.length < 2 || tag.length > 30) {
-            this.authErrorMsg = 'El Gamertag debe tener entre 2 y 30 caracteres.';
-            return;
-        }
-
-        if (!/^[a-zA-Z0-9_-]+$/.test(tag)) {
-            this.authErrorMsg = 'El Gamertag solo puede contener letras, números, guiones y guiones bajos.';
-            return;
-        }
-
-        if (!/^\d{4,6}$/.test(pin)) {
-            this.authErrorMsg = 'El PIN debe ser un código numérico de 4 a 6 dígitos.';
-            return;
-        }
-
-        this.authLoading = true;
-        this.userProfileService.connectAccount(tag, pin).subscribe({
-            next: (res) => {
-                this.authLoading = false;
-                if (res.success) {
-                    this.authSuccessMsg = res.message;
-                    this.authPin = '';
-                    this.editNickname = res.profile?.nickname || tag;
-                    setTimeout(() => this.authSuccessMsg = '', 4000);
-                } else {
-                    this.authErrorMsg = res.message;
-                }
-            },
-            error: (err) => {
-                this.authLoading = false;
-                if (err?.status === 429) {
-                    this.authErrorMsg = 'Demasiados intentos. Por seguridad, espera 1 minuto antes de reintentar.';
-                } else {
-                    this.authErrorMsg = err?.error?.message || 'No se pudo conectar con el servidor.';
-                }
-            }
-        });
-    }
-
-    onDisconnectAccount(): void {
-        this.userProfileService.disconnectAccount();
-        this.authSuccessMsg = 'Sesión cerrada. Ahora estás en modo local.';
-        this.authPin = '';
-        setTimeout(() => this.authSuccessMsg = '', 3500);
-    }
-
-    onAvatarFileSelected(event: Event): void {
-        const input = event.target as HTMLInputElement;
-        if (!input.files || input.files.length === 0) return;
-
-        const file = input.files[0];
-        if (!file.type.startsWith('image/')) {
-            alert('Por favor selecciona un archivo de imagen válido (JPG, PNG, WebP).');
-            return;
-        }
-
-        const reader = new FileReader();
-        reader.onload = (e: ProgressEvent<FileReader>) => {
-            const img = new Image();
-            img.onload = () => {
-                // Redimensionar con canvas a máximo 160x160 para que ocupe ~10-15KB y sea instantáneo
-                const maxSize = 160;
-                let width = img.width;
-                let height = img.height;
-
-                if (width > height) {
-                    if (width > maxSize) {
-                        height = Math.round((height * maxSize) / width);
-                        width = maxSize;
-                    }
-                } else {
-                    if (height > maxSize) {
-                        width = Math.round((width * maxSize) / height);
-                        height = maxSize;
-                    }
-                }
-
-                const canvas = document.createElement('canvas');
-                canvas.width = width;
-                canvas.height = height;
-                const ctx = canvas.getContext('2d');
-                if (ctx) {
-                    ctx.drawImage(img, 0, 0, width, height);
-                    const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.85);
-
-                    this.userProfileService.saveProfile({ avatarUrl: compressedDataUrl }).subscribe(() => {
-                        this.syncFeedbackMsg = '¡Foto de perfil actualizada!';
-                        setTimeout(() => this.syncFeedbackMsg = '', 3000);
-                    });
-                }
-            };
-            img.src = e.target?.result as string;
-        };
-        reader.readAsDataURL(file);
-        input.value = '';
-    }
-
-    removeAvatar(): void {
-        this.userProfileService.saveProfile({ avatarUrl: undefined }).subscribe(() => {
-            this.syncFeedbackMsg = 'Foto eliminada. Iniciales restauradas.';
-            setTimeout(() => this.syncFeedbackMsg = '', 3000);
         });
     }
 }

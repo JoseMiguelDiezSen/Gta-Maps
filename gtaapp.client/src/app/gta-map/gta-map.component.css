@@ -52,6 +52,19 @@
   padding: 8px 16px;
 }
 .hud-tr { top: 14px; right: 14px; align-items: flex-end; }
+/* Misma posicion y medidas que .hud-tl: se alinean en la misma fila */
+.hud-tc {
+  top: 4px;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translateX(-50%);
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
 .hud-bl { bottom: 14px; left: 14px; top: auto; align-items: flex-start; max-height: calc(100vh - 76px); }
 .hud-br { bottom: 14px; right: 14px; align-items: flex-end; }
 
@@ -339,6 +352,7 @@
   cursor: pointer;
   transition: all 0.15s ease;
   flex-shrink: 0;
+  margin-right: 5px;
 }
 
 .legend-toggle-btn:hover {
@@ -552,6 +566,10 @@
 .dot-autoshop { background: #e67e22; box-shadow: 0 0 6px #e67e22; }
 .dot-veh-warehouse { background: #e74c3c; box-shadow: 0 0 6px #e74c3c; }
 .dot-warehouse { background: #16a085; box-shadow: 0 0 6px #16a085; }
+.dot-fake-ufo { background: #9b59b6; box-shadow: 0 0 6px #9b59b6; }
+.dot-shipwreck { background: #2980b9; box-shadow: 0 0 6px #2980b9; }
+.dot-cave { background: #a0522d; box-shadow: 0 0 6px #a0522d; }
+.dot-activity { background: #00897b; box-shadow: 0 0 6px #00897b; }
 .dot-nightclub { background: #e91e63; box-shadow: 0 0 6px #e91e63; }
 .dot-arcade { background: #00cec9; box-shadow: 0 0 6px #00cec9; }
 .dot-ceo { background: #2980b9; box-shadow: 0 0 6px #2980b9; }
@@ -572,6 +590,7 @@
 
 /* Puntos para Servicios ampliados */
 .dot-store { background: #2ecc71; box-shadow: 0 0 6px #2ecc71; }
+.dot-mask { background: #1abc9c; box-shadow: 0 0 6px #1abc9c; }
 .dot-carwash { background: #3498db; box-shadow: 0 0 6px #3498db; }
 .dot-stripclub { background: #e84393; box-shadow: 0 0 6px #e84393; }
 
@@ -581,6 +600,11 @@
 /* Estilo para mapa UV2 (Ultravioleta Invertido de alto contraste) */
 :host ::ng-deep .leaflet-tile-uv2 {
   filter: invert(100%) hue-rotate(180deg) contrast(125%) brightness(105%);
+}
+
+/* Estilo para mapa Juego: radar / pause menu in-game (fondo gris y carreteras negras) */
+:host ::ng-deep .leaflet-tile-juego {
+  filter: grayscale(100%) contrast(140%) brightness(95%);
 }
 
 /* Puntos para categoría de vehículos y talleres */
@@ -997,12 +1021,126 @@
   flex-shrink: 0;
 }
 
-/* Marcador de jugador personalizado */
-:host ::ng-deep .gta-player-pin {
-  font-size: 24px;
-  line-height: 1;
-  text-align: center;
-  filter: drop-shadow(0 0 6px #ff0055);
+/* ===== CHINCHETA ROJA CLÁSICA PERSONALIZADA (Marcador de usuario) ===== */
+:host ::ng-deep .leaflet-div-icon.gta-classic-pushpin-icon,
+:host ::ng-deep .gta-classic-pushpin-icon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+}
+
+:host ::ng-deep .classic-pushpin-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: 16px 38px;
+}
+
+:host ::ng-deep .classic-pushpin-wrapper:hover {
+  transform: scale(1.22) translateY(-3px);
+  filter: drop-shadow(0 0 10px rgba(255, 60, 60, 0.9));
+}
+
+/* ===== POPUP ESTILIZADO DE CHINCHETA (Estética de paneles con cuadrícula y bordes ámbar) ===== */
+:host ::ng-deep .gta-custom-pin-popup .leaflet-popup-content-wrapper {
+  background: rgba(12, 16, 23, 0.96) !important;
+  background-image:
+    linear-gradient(rgba(255, 184, 51, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 184, 51, 0.05) 1px, transparent 1px) !important;
+  background-size: 14px 14px !important;
+  border: 1px solid rgba(255, 184, 51, 0.5) !important;
+  border-top: 2px solid #ffb833 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 14px rgba(255, 184, 51, 0.2) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+:host ::ng-deep .gta-custom-pin-popup .leaflet-popup-content {
+  margin: 0 !important;
+  line-height: normal !important;
+}
+
+:host ::ng-deep .gta-custom-pin-popup .leaflet-popup-tip-container {
+  overflow: visible !important;
+}
+
+:host ::ng-deep .gta-custom-pin-popup .leaflet-popup-tip {
+  background: rgba(12, 16, 23, 0.96) !important;
+  border: 1px solid rgba(255, 184, 51, 0.5) !important;
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .custom-marker-popup-card {
+  padding: 10px 14px;
+  font-family: inherit;
+  color: #fff;
+  min-width: 170px;
+}
+
+:host ::ng-deep .custom-marker-title-row {
+  margin-bottom: 10px;
+}
+
+:host ::ng-deep .custom-marker-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  line-height: 1.25;
+}
+
+:host ::ng-deep .custom-marker-actions {
+  display: flex;
+  gap: 8px;
+}
+
+:host ::ng-deep .btn-marker-action {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+:host ::ng-deep .btn-marker-edit {
+  background: rgba(255, 184, 51, 0.14);
+  border: 1px solid rgba(255, 184, 51, 0.55);
+  color: #ffc24a;
+}
+
+:host ::ng-deep .btn-marker-edit:hover {
+  background: rgba(255, 184, 51, 0.28);
+  border-color: #ffb833;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 184, 51, 0.3);
+}
+
+:host ::ng-deep .btn-marker-delete {
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #f87171;
+}
+
+:host ::ng-deep .btn-marker-delete:hover {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: #ef4444;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
 }
 
 /* Marcador refinado y cuadrado para coleccionables */
@@ -1252,14 +1390,18 @@
 /* ==========================================
    BOTÓN LATERAL ADHESIVO EN BORDE DERECHO (ALINEADO CON PANEL IZQUIERDO)
    ========================================== */
-.hud-side-trigger {
-  position: fixed;
-  right: 0;
-  top: 4px; /* Subido 10px, a la misma altura que .hud-tl (top: 4px) */
-  z-index: 1400;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  .hud-side-trigger {
+    position: fixed;
+    right: 0;
+    top: 4px; /* Alineado con .hud-tl y .hud-tc para que no salte al abrir */
+    width: 132px;
+    height: 132px;
+    z-index: 1400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   background-color: rgba(12, 16, 23, 0.94);
   background-image:
     linear-gradient(rgba(255, 184, 51, 0.04) 1px, transparent 1px),
@@ -1267,9 +1409,9 @@
   background-size: 20px 20px, 20px 20px;
   border: 1px solid rgba(255, 165, 0, 0.45);
   border-right: none;
-  border-radius: 8px 0 0 8px;
-  padding: 8px 14px 8px 10px;
-  color: #fff;
+    border-radius: 8px 0 0 8px;
+    padding: 14px;
+    color: #fff;
   cursor: pointer;
   box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 165, 0, 0.2);
   backdrop-filter: blur(10px);
@@ -1277,88 +1419,34 @@
   user-select: none;
 }
 
-.hud-side-trigger:hover {
-  background-color: rgba(22, 32, 44, 0.98);
-  border-color: #ffb833;
-  padding-right: 18px;
-  box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.7), 0 0 18px rgba(255, 165, 0, 0.4);
-}
+  .hud-side-trigger:hover {
+    background-color: rgba(22, 32, 44, 0.98);
+    border-color: #ffb833;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.7), 0 0 18px rgba(255, 165, 0, 0.4);
+  }
 
-.side-trigger-avatar {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 165, 0, 0.15);
-  border: 1.5px solid rgba(255, 165, 0, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
+  .side-avatar-placeholder {
+    font-size: 26px;
+  }
 
-.side-avatar-placeholder {
-  font-size: 16px;
-}
 
-.side-cloud-indicator {
-  position: absolute;
-  bottom: -2px;
-  right: -2px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(255, 184, 51, 0.4);
-  border: 1.5px solid #0c1017;
-  transition: all 0.2s ease;
-}
 
-.side-cloud-indicator.is-online {
-  background: #10b981;
-  box-shadow: 0 0 6px #10b981;
-}
+  .side-trigger-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 165, 0, 0.15);
+    border: 1.5px solid rgba(255, 165, 0, 0.45);
+    color: #ffb833;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
 
-.side-trigger-info {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  line-height: 1.2;
-}
-
-.side-tag {
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  color: #ffb833;
-}
-
-.side-name-row {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.side-name {
-  font-size: 12px;
-  font-weight: 700;
-  color: #ffffff;
-  max-width: 90px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.side-lvl-pill {
-  font-size: 9px;
-  font-weight: 800;
-  color: #ffb833;
-  background: rgba(255, 184, 51, 0.2);
-  border: 1px solid rgba(255, 184, 51, 0.45);
-  border-radius: 4px;
-  padding: 1px 4px;
-  line-height: 1;
-  white-space: nowrap;
-}
 
 .side-count-badge {
   font-size: 11px;
@@ -1387,11 +1475,11 @@
 
 .hud-profile-drawer {
   position: fixed;
-  top: 0;
+  top: 14px;
   right: 0;
   width: 480px;
   max-width: 96vw;
-  height: 100vh;
+  height: calc(100vh - 28px);
   z-index: 1510;
   background-color: #0c1017;
   background-image:
@@ -1400,10 +1488,13 @@
     radial-gradient(circle at 90% 10%, rgba(255, 184, 51, 0.07) 0%, transparent 45%),
     radial-gradient(circle at 10% 90%, rgba(46, 204, 113, 0.05) 0%, transparent 45%);
   background-size: 20px 20px, 20px 20px, 100% 100%, 100% 100%;
-  border-left: 1px solid rgba(255, 165, 0, 0.35);
+  border: 1px solid rgba(255, 165, 0, 0.4);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
   box-shadow: -12px 0 40px rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   transform: translateX(100%);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -1418,7 +1509,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 16px 20px 16px 24px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(0, 0, 0, 0.4);
 }
@@ -1448,7 +1539,10 @@
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.65);
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
   cursor: pointer;
   padding: 6px 10px;
   border-radius: 6px;
@@ -1460,13 +1554,118 @@
   color: #fff;
 }
 
-.drawer-body {
+  .drawer-tabs {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    padding: 12px 20px 0 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  .drawer-tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex: 1;
+    padding: 10px 8px 11px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  }
+
+  .drawer-tab:hover {
+    color: #fff;
+    background: rgba(255, 184, 51, 0.06);
+    border-color: rgba(255, 165, 0, 0.28);
+  }
+
+  .drawer-tab.is-active {
+    color: #ffb833;
+    background: rgba(255, 184, 51, 0.1);
+    border-color: rgba(255, 165, 0, 0.4);
+  }
+
+  .drawer-tab.is-active::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: -1px;
+    height: 2px;
+    background: #ffb833;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 0 8px rgba(255, 184, 51, 0.7);
+  }
+
+  .drawer-tab-icon {
+    font-size: 12px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .drawer-tab-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .drawer-tab-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: drawerTabIn 0.22s ease-out;
+  }
+
+  @keyframes drawerTabIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .drawer-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 44px 16px;
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.12) 0%, rgba(13, 19, 26, 0.9) 100%);
+    border: 1px solid rgba(255, 165, 0, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  }
+
+  .drawer-empty-icon {
+    font-size: 28px;
+    line-height: 1;
+    color: rgba(255, 184, 51, 0.7);
+  }
+
+  .drawer-empty-text {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .drawer-body {
   flex: 1;
   overflow-y: auto;
-  padding: 18px 20px;
+  padding: 18px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 }
 
 .drawer-body::-webkit-scrollbar {
@@ -1478,54 +1677,14 @@
   border-radius: 3px;
 }
 
-/* Tarjeta de Sincronización en la Nube (Gamertag + PIN) */
-.cloud-sync-card {
-  background: rgba(14, 20, 28, 0.85);
-  border: 1px solid rgba(255, 165, 0, 0.35);
-  border-radius: 12px;
-  padding: 14px 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: all 0.2s ease;
-}
 
-.cloud-sync-card.is-connected {
-  border-color: rgba(16, 185, 129, 0.45);
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(12, 16, 23, 0.9) 100%);
-}
+/* Tarjeta / Panel Modular del Drawer (Listo para reutilizar) */
 
-.cloud-sync-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
 
-.cloud-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-}
 
-.cloud-status-badge.is-online {
-  color: #34d399;
-  background: rgba(16, 185, 129, 0.18);
-  border: 1px solid rgba(16, 185, 129, 0.45);
-}
 
-.cloud-status-badge.is-offline {
-  color: #ffb833;
-  background: rgba(255, 184, 51, 0.14);
-  border: 1px solid rgba(255, 184, 51, 0.35);
-}
+
+
 
 .status-dot {
   width: 6px;
@@ -1544,199 +1703,62 @@
   50% { opacity: 0.5; transform: scale(1.3); }
 }
 
-.cloud-disconnect-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
 
-.cloud-disconnect-btn:hover {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: #ef4444;
-  color: #ef4444;
-}
 
-.cloud-user-meta {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin: 2px 0 0;
-}
 
-.cloud-user-label {
-  font-size: 10px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.55);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
 
-.cloud-user-name {
-  font-size: 16px;
-  font-weight: 800;
-  color: #ffb833;
-  letter-spacing: 0.5px;
-}
 
-.cloud-sync-hint {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.8);
-}
 
-.cloud-auth-desc {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.75);
-}
 
-.cloud-auth-form {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 8px;
-  margin-top: 4px;
-}
 
-.cloud-input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
 
-.cloud-input-label {
-  font-size: 9px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
 
-.cloud-input {
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 165, 0, 0.35);
-  border-radius: 6px;
-  padding: 7px 9px;
-  color: #fff;
-  font-size: 12px;
-  font-family: inherit;
-  outline: none;
-  transition: border-color 0.15s ease;
-  box-sizing: border-box;
-  width: 100%;
-}
 
-.cloud-input:focus {
-  border-color: #ffb833;
-  box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2);
-}
 
-.cloud-submit-btn {
-  grid-column: 1 / -1;
-  margin-top: 4px;
-  padding: 8px 12px;
-  background: linear-gradient(135deg, rgba(255, 184, 51, 0.25) 0%, rgba(255, 140, 0, 0.35) 100%);
-  border: 1px solid #ffb833;
-  color: #ffb833;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  text-transform: uppercase;
-}
 
-.cloud-submit-btn:hover:not(:disabled) {
-  background: rgba(255, 165, 0, 0.45);
-  color: #fff;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.4);
-}
 
-.cloud-submit-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
 
-.cloud-auth-msg {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 6px 8px;
-  border-radius: 5px;
-  line-height: 1.3;
-}
 
-.cloud-auth-msg.error {
-  color: #f87171;
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.35);
-}
 
-.cloud-auth-msg.success {
-  color: #34d399;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-}
 
-.cloud-auth-note {
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.3;
-}
 
 /* Tarjeta elegante de Jugador */
 .player-card {
   background: linear-gradient(135deg, rgba(255, 165, 0, 0.12) 0%, rgba(13, 19, 26, 0.9) 100%);
   border: 1px solid rgba(255, 165, 0, 0.4);
   border-radius: 12px;
-  padding: 16px;
+  padding: 13.5px 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
-.player-card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
-}
+  .player-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
 
-.player-avatar-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #1e293b;
-  border: 2px solid rgba(255, 165, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+  .player-avatar-box {
+    width: 160px;
+    height: 70px;
+    border-radius: 6px;
+    background: #1e293b;
+    border: 2px solid rgba(255, 165, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
 
-.player-avatar-box:hover {
-  border-color: #ffb833;
-  box-shadow: 0 0 16px rgba(255, 184, 51, 0.6);
-  transform: scale(1.04);
-}
-
-.player-avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
+  .player-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
 
 .side-avatar-img {
   width: 100%;
@@ -1746,150 +1768,602 @@
   display: block;
 }
 
-.player-avatar-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.18s ease;
-}
+  .player-avatar-fallback {
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0 8px;
+    color: rgba(255, 184, 51, 0.75);
+  }
 
-.player-avatar-box:hover .player-avatar-overlay {
-  opacity: 1;
-}
 
-.avatar-camera-icon {
-  font-size: 15px;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.8));
-}
+  .player-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    flex: 1;
+  }
 
-.player-avatar-fallback {
-  font-size: 18px;
-  font-weight: 800;
-  color: #ffb833;
-}
+  /* ==========================================
+     DRAWER: LISTA DE CONCESIONARIOS (TRANSPORTES)
+     ========================================== */
+  .dealer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: fadeIn 0.22s ease-out;
+  }
 
-.player-identity {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-  flex: 1;
-}
+  .dealer-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.08) 0%, rgba(13, 19, 26, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid var(--dealer-color, #ffb833);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  }
 
-.player-name-input {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 800;
-  font-family: inherit;
-  padding: 2px 4px;
-  outline: none;
-  width: 100%;
-  box-sizing: border-box;
-  transition: all 0.15s ease;
-}
+  .dealer-card:hover {
+    background: linear-gradient(135deg, rgba(255, 184, 51, 0.16) 0%, rgba(18, 25, 36, 0.98) 100%);
+    border-color: var(--dealer-color, #ffb833);
+    transform: translateX(4px);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6), -2px 0 14px rgba(255, 184, 51, 0.35);
+  }
 
-.player-name-input:hover,
-.player-name-input:focus {
-  background: rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 165, 0, 0.5);
-}
+  .dealer-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--dealer-color, #ffb833);
+    color: var(--dealer-color, #ffb833);
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+  }
 
-.player-quick-fields {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 2px;
-}
+  .dealer-card:hover .dealer-card-icon {
+    transform: scale(1.08);
+    box-shadow: 0 0 14px var(--dealer-color, #ffb833);
+  }
 
-.player-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  padding: 2px 6px;
-}
+  .dealer-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+  }
 
-.player-chip-rank {
-  border-color: rgba(255, 184, 51, 0.45);
-}
+  .dealer-card-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.3px;
+  }
 
-.player-chip-bank {
-  border-color: rgba(46, 204, 113, 0.45);
-}
+  .dealer-card-sub {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.48);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
 
-.chip-label {
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
+  .dealer-card-arrow {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
 
-.player-chip-rank .chip-label {
-  color: #ffb833;
-}
+  .dealer-card:hover .dealer-card-arrow {
+    background: rgba(255, 184, 51, 0.25);
+    border-color: #ffb833;
+    color: #ffb833;
+    transform: translateX(3px);
+  }
 
-.player-chip-bank .chip-label {
-  color: #2ecc71;
-  font-size: 11px;
-}
+  /* ==========================================
+     BREADCRUMB DE NAVEGACIÓN
+     ========================================== */
+  .drawer-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
 
-.chip-input {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 700;
-  width: 44px;
-  padding: 0;
-  outline: none;
-  -moz-appearance: textfield;
-}
+  .drawer-breadcrumb-back {
+    background: rgba(255, 184, 51, 0.15);
+    border: 1px solid rgba(255, 184, 51, 0.45);
+    border-radius: 4px;
+    color: #ffb833;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 3px 7px;
+    line-height: 1;
+    transition: all 0.15s ease;
+  }
 
-.chip-input::-webkit-outer-spin-button,
-.chip-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+  .drawer-breadcrumb-back:hover {
+    background: rgba(255, 184, 51, 0.35);
+    color: #fff;
+    transform: translateX(-2px);
+  }
 
-.chip-input-rank {
-  width: 50px;
-  color: #ffb833;
-  font-weight: 800;
-  text-align: center;
-}
+  .drawer-breadcrumb-link {
+    color: rgba(255, 184, 51, 0.75);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.15s ease;
+  }
 
-.chip-input-money {
-  width: 82px;
-  color: #2ecc71;
-}
+  .drawer-breadcrumb-link:hover {
+    color: #ffb833;
+    text-decoration: underline;
+  }
 
-.avatar-del-btn {
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.35);
-  color: #f87171;
-  font-size: 9px;
-  font-weight: 700;
-  padding: 3px 6px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-}
+  .drawer-breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 11px;
+    margin: 0 2px;
+  }
 
-.avatar-del-btn:hover {
-  background: rgba(239, 68, 68, 0.3);
-  color: #fff;
-}
+  .drawer-breadcrumb-current {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+
+  /* ==========================================
+     VEHICLE GRID & CATALOG
+     ========================================== */
+  .vgrid-loading,
+  .vgrid-error,
+  .vgrid-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 50px 20px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .vgrid-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255, 184, 51, 0.2);
+    border-top-color: #ffb833;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .vgrid-error { color: #f87171; }
+  .vgrid-error i, .vgrid-empty i { font-size: 32px; opacity: 0.75; }
+
+  .vgrid-counter {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .vgrid-count-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffb833;
+    font-family: 'Pricedown', system-ui, sans-serif;
+  }
+
+  .vgrid-count-lbl {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+
+  /* Cuadrícula limpia de 3 columnas */
+  .vgrid-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-height: 360px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .vgrid-grid::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .vgrid-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 165, 0, 0.35);
+    border-radius: 3px;
+  }
+
+  .vcard {
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 21, 30, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    font-family: inherit;
+    padding: 0;
+    position: relative;
+  }
+
+  .vcard:hover {
+    border-color: rgba(255, 184, 51, 0.6);
+    background: rgba(255, 184, 51, 0.09);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  }
+
+  .vcard.is-selected {
+    border-color: #ffb833;
+    background: rgba(255, 184, 51, 0.16);
+    box-shadow: 0 0 0 2px #ffb833, 0 8px 24px rgba(255, 184, 51, 0.3);
+  }
+
+  /* Contenedor de la foto del coche */
+  .vcard-img {
+    aspect-ratio: 16/10;
+    width: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.6) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .vcard-photo {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  }
+
+  .vcard:hover .vcard-photo {
+    transform: scale(1.08);
+  }
+
+  .vcard-img-icon {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .vcard-class-badge {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 2px 5px;
+    background: rgba(0, 0, 0, 0.75);
+    color: rgba(255, 184, 51, 0.9);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 184, 51, 0.35);
+    z-index: 2;
+  }
+
+  .vcard-weapon-badge {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 10px;
+    line-height: 1;
+    z-index: 2;
+  }
+
+  /* Info del vehículo anexada a la foto */
+  .vcard-info {
+    padding: 6px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .vcard-name {
+    font-size: 11px;
+    font-weight: 800;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+
+  .vcard-sub-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .vcard-maker {
+    font-size: 8px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .vcard-price {
+    font-size: 9px;
+    font-weight: 800;
+    color: #34d399;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ==========================================
+     PANEL DE DETALLES DEL VEHÍCULO
+     ========================================== */
+  .vdetail {
+    background: linear-gradient(135deg, rgba(255, 184, 51, 0.1) 0%, rgba(10, 15, 22, 0.95) 100%);
+    border: 1px solid rgba(255, 184, 51, 0.4);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: vdetailIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5), 0 0 16px rgba(255, 184, 51, 0.15);
+  }
+
+  @keyframes vdetailIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .vdetail-top {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .vdetail-img {
+    width: 100px;
+    height: 64px;
+    flex-shrink: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.7) 100%);
+    border: 1px solid rgba(255, 184, 51, 0.35);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .vdetail-photo {
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.8));
+  }
+
+  .vdetail-icon {
+    font-size: 28px;
+    color: rgba(255, 184, 51, 0.6);
+  }
+
+  .vdetail-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .vdetail-maker {
+    font-size: 10px;
+    font-weight: 700;
+    color: #ffb833;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .vdetail-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .vdetail-tags {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 3px;
+  }
+
+  .vdetail-class-tag {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .vdetail-weapon-tag {
+    font-size: 9px;
+    font-weight: 700;
+    color: #f87171;
+  }
+
+  /* Precios */
+  .vdetail-prices {
+    display: flex;
+    gap: 8px;
+  }
+
+  .vdetail-price-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .vdetail-price-full {
+    border-color: rgba(46, 204, 113, 0.4);
+    background: rgba(46, 204, 113, 0.08);
+  }
+
+  .vdetail-price-lbl {
+    font-size: 8px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .vdetail-price-val {
+    font-size: 15px;
+    font-weight: 800;
+    color: #2ecc71;
+    letter-spacing: 0.3px;
+  }
+
+  .vdetail-price-trade-val {
+    color: #ffb833;
+  }
+
+  /* Barras de Características (Aceleración, Frenada, etc.) */
+  .vdetail-stat-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+  }
+
+  .vstat-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .vstat-lbl {
+    width: 75px;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.65);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .vstat-bar-track {
+    flex: 1;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .vstat-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .fill-speed {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+  }
+
+  .fill-accel {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+  }
+
+  .fill-brake {
+    background: linear-gradient(90deg, #ef4444, #f87171);
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
+  }
+
+  .fill-handling {
+    background: linear-gradient(90deg, #10b981, #34d399);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+  }
+
+  .vstat-num {
+    width: 24px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #fff;
+    text-align: right;
+    font-family: 'Consolas', monospace;
+    flex-shrink: 0;
+  }
+
+
+  .player-name-input {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: inherit;
+    line-height: 1.25;
+  }
+
 
 /* Grid de métricas del Imperio y Personaje */
 .player-stats-grid {
@@ -2383,7 +2857,54 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75) !important;
 }
 
-:host ::ng-deep .icon-theme-classic .gta-player-pin {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8)) !important;
+:host ::ng-deep .icon-theme-classic .gta-classic-pushpin-icon {
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.8)) !important;
+}
+
+/* ===== Telemetría de desarrollo: Coordenadas (X, Y) ===== */
+.hud-coords-dev {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  background: rgba(12, 16, 23, 0.94);
+  border: 1px solid rgba(255, 184, 51, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.75);
+  user-select: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.hud-coords-dev .coord-axis {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffb833;
+}
+
+.hud-coords-dev .coord-val {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  min-width: 66px;
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+
+.hud-coords-dev .coord-sep {
+  color: rgba(255, 184, 51, 0.35);
+  font-weight: 600;
+}
+
+.hud-coords-dev .coord-copied {
+  color: #2ecc71;
+  font-size: 15px;
+  font-weight: 900;
+  margin-left: 2px;
 }
 
