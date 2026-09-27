@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { GtaMapComponent } from './gta-map/gta-map.component';
+import { Gta5Component } from './gta5/gta5.component';
 import { Gta6Component } from './gta6/gta6.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
     declarations: [
         AppComponent,
-        GtaMapComponent,
+        Gta5Component,
         Gta6Component,
         HomeComponent
     ],

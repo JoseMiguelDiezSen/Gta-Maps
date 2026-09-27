@@ -3,19 +3,16 @@ import * as L from 'leaflet';
 import { LocationService } from '../services/location.service';
 import { PropertyLocation } from '../models/property';
 import { CollectibleItem } from '../models/collectible';
-import { UserProfileService } from '../services/user-profile.service';
-import { UserProfile, SocialClubSyncPayload } from '../models/user-profile';
-import { Subscription } from 'rxjs';
 
 import { GtaVehicle, DealerCategory } from '../models/vehicle';
 
 @Component({
-    selector: 'app-gta-map',
-    templateUrl: './gta-map.component.html',
-    styleUrls: ['./gta-map.component.css'],
+    selector: 'app-gta5',
+    templateUrl: './gta5.component.html',
+    styleUrls: ['./gta5.component.css'],
     standalone: false
 })
-export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
+export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
 
     private map: L.Map | undefined;
 
@@ -387,15 +384,8 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     mouseCoords: { x: number; y: number } = { x: 0, y: 0 };
     coordsCopied = false;
 
-    // Panel Lateral (Drawer) de Perfil & Rockstar Sync
+    // Panel Lateral (Drawer) de Transportes & Catálogo
     profileDrawerOpen = false;
-    activeProfileTab: 'profile' | 'sync' | 'manual' = 'profile';
-    userProfile!: UserProfile;
-    private profileSub?: Subscription;
-
-    editNickname = '';
-    editRank = 100;
-    editBank = 5000000;
 
     // ============================================================
     // CONCESIONARIOS: definición centralizada
@@ -668,14 +658,8 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
       return 'fa-car';
     }
 
-    drawerGroupOpen: { [category: string]: boolean } = {};
-    manualJsonInput = '';
-    syncFeedbackMsg = '';
-    scriptCopied = false;
-
     constructor(
-        private locationService: LocationService,
-        public userProfileService: UserProfileService
+        private locationService: LocationService
     ) {}
 
     ngOnInit(): void {
@@ -702,20 +686,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
             }
         };
-
-        this.userProfile = this.userProfileService.currentProfile;
-        this.editNickname = this.userProfile.nickname;
-        this.editRank = this.userProfile.rank || 100;
-        this.editBank = this.userProfile.bank || 5000000;
-
-        this.profileSub = this.userProfileService.profile$.subscribe(prof => {
-            this.userProfile = prof;
-            this.editNickname = prof.nickname;
-            this.editRank = prof.rank || 100;
-            this.editBank = prof.bank || 5000000;
-            this.renderPropertyMarkers();
-            this.renderCollectibleMarkers();
-        });
     }
 
     private startInGameClock(): void {
@@ -934,9 +904,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         delete (window as any)._gtaRenameMarker;
         delete (window as any)._gtaDeleteMarker;
-        if (this.profileSub) {
-            this.profileSub.unsubscribe();
-        }
         if (this.map) {
             this.map.remove();
         }
@@ -1099,9 +1066,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
             }
 
             const isPurchasable = this.isPurchasable(p);
-            const isOwned = isPurchasable && this.userProfileService.isPropertyOwned(p.id);
-            const isHighlight = isOwned && this.userProfile?.highlightOwnedProperties;
-            const ownedClass = isHighlight ? 'pin-is-owned' : '';
 
             const [lat, lng] = this.worldToLatLng(p.position.x, p.position.y);
 
@@ -1207,13 +1171,6 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         this.allCollectibles.forEach(item => {
-            const isCollected = this.userProfileService.isItemCollected(item.id);
-
-            // Comprobar si el usuario decidió ocultar coleccionables ya conseguidos
-            if (this.userProfile?.hideCollectedItems && isCollected) {
-                return;
-            }
-
             // Comprobar filtro de categoría
             if (!this.layerFilters[item.category]) return;
 
@@ -1475,129 +1432,5 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     closeProfileDrawer(): void {
         this.profileDrawerOpen = false;
-    }
-
-    saveLocalProfile(): void {
-        const rawNick = (this.editNickname || '').trim().replace(/<[^>]*>?/gm, '');
-        const cleanNick = rawNick.substring(0, 50) || 'Jugador de Los Santos';
-        const cleanRank = Math.min(Math.max(Number(this.editRank) || 1, 1), 8000);
-        const cleanBank = Math.max(Number(this.editBank) || 0, 0);
-
-        this.editNickname = cleanNick;
-        this.editRank = cleanRank;
-        this.editBank = cleanBank;
-
-        this.userProfileService.saveProfile({
-            nickname: cleanNick,
-            rank: cleanRank,
-            bank: cleanBank
-        }).subscribe({
-            next: () => {
-                this.syncFeedbackMsg = '¡Ficha guardada!';
-                setTimeout(() => this.syncFeedbackMsg = '', 2500);
-            },
-            error: (err) => {
-                if (err?.status === 429) {
-                    this.syncFeedbackMsg = 'Límite de guardados excedido. Espera unos segundos.';
-                }
-            }
-        });
-    }
-
-    toggleHighlightOwned(): void {
-        this.userProfileService.toggleHighlightOwned();
-    }
-
-    toggleHideCollected(): void {
-        this.userProfileService.toggleHideCollected();
-    }
-
-    togglePropertyOwned(propertyId: string): void {
-        const prop = this.allProperties.find(p => p.id === propertyId);
-        if (!this.isPurchasable(prop)) {
-            return;
-        }
-
-        const current = this.userProfile.ownedPropertyIds || [];
-        const index = current.indexOf(propertyId);
-        const updated = [...current];
-        if (index >= 0) {
-            updated.splice(index, 1);
-        } else {
-            updated.push(propertyId);
-        }
-        this.userProfileService.saveProfile({ ownedPropertyIds: updated }).subscribe(() => {
-            this.renderPropertyMarkers();
-        });
-    }
-
-    toggleItemCollected(itemId: string): void {
-        const current = this.userProfile.collectedItemIds || [];
-        const index = current.indexOf(itemId);
-        const updated = [...current];
-        if (index >= 0) {
-            updated.splice(index, 1);
-        } else {
-            updated.push(itemId);
-        }
-        this.userProfileService.saveProfile({ collectedItemIds: updated }).subscribe(() => {
-            this.renderCollectibleMarkers();
-        });
-    }
-
-    getOwnedPropertyList(): PropertyLocation[] {
-        const ids = new Set(this.userProfile.ownedPropertyIds || []);
-        return this.allProperties.filter(p => ids.has(p.id) && this.isPurchasable(p));
-    }
-
-    getTotalEmpireValue(): number {
-        const owned = this.getOwnedPropertyList();
-        return owned.reduce((sum, p) => sum + (p.price || 0), 0);
-    }
-
-    getFormattedEmpireValue(): string {
-        const val = this.getTotalEmpireValue();
-        return '$' + val.toLocaleString('es-ES');
-    }
-
-    getOwnedPropertiesGrouped(): { category: string; categoryLabel: string; count: number; totalValueFormatted: string; properties: PropertyLocation[] }[] {
-        const owned = this.getOwnedPropertyList();
-        const map = new Map<string, { category: string; categoryLabel: string; count: number; totalValue: number; properties: PropertyLocation[] }>();
-
-        for (const p of owned) {
-            const cat = p.category || 'otros';
-            if (!map.has(cat)) {
-                map.set(cat, {
-                    category: cat,
-                    categoryLabel: p.categoryLabel || cat,
-                    count: 0,
-                    totalValue: 0,
-                    properties: []
-                });
-            }
-            const group = map.get(cat)!;
-            group.count++;
-            group.totalValue += (p.price || 0);
-            group.properties.push(p);
-        }
-
-        return Array.from(map.values()).map(g => ({
-            ...g,
-            totalValueFormatted: '$' + g.totalValue.toLocaleString('es-ES')
-        }));
-    }
-
-    toggleDrawerGroup(category: string): void {
-        this.drawerGroupOpen[category] = !this.isDrawerGroupOpen(category);
-    }
-
-    isDrawerGroupOpen(category: string): boolean {
-        return this.drawerGroupOpen[category] !== false;
-    }
-
-    clearOwnedProperties(): void {
-        this.userProfileService.saveProfile({ ownedPropertyIds: [] }).subscribe(() => {
-            this.renderPropertyMarkers();
-        });
     }
 }

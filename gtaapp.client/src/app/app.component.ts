@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { GtaMapComponent } from './gta-map/gta-map.component';
 
 @Component({
     selector: 'app-root',

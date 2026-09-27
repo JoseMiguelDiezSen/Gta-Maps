@@ -106,7 +106,6 @@ builder.Services.AddRateLimiter(options =>
 });
 builder.Services.AddSingleton<GTAAPP.Server.Services.PropertyImporter>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.CollectibleImporter>();
-builder.Services.AddSingleton<GTAAPP.Server.Services.UserProfileService>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

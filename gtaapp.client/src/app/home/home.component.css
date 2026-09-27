@@ -67,6 +67,31 @@
   color: #fff;
 }
 
+.home-logo {
+  max-width: 240px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  user-select: none;
+}
+
+.home-logo:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
+}
+
+@media (max-width: 480px) {
+  .home-logo {
+    max-width: 180px;
+    max-height: 90px;
+  }
+}
+
 .home-title {
   margin: 0;
   color: #fff;
