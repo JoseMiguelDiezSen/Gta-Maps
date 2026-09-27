@@ -1,4 +1,4 @@
-﻿.map-wrapper {
+.map-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -52,18 +52,45 @@
   padding: 8px 16px;
 }
 .hud-tr { top: 14px; right: 14px; align-items: flex-end; }
-/* Misma posicion y medidas que .hud-tl: se alinean en la misma fila */
-.hud-tc {
-  top: 4px;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  transform: translateX(-50%);
-  flex-direction: row;
+/* Marca de última actualización debajo del panel superior izquierdo (compacta y visible) */
+.hud-last-update {
+  position: absolute;
+  top: 56px;
+  left: 14px;
+  z-index: 1000;
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 8px 16px;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background-color: rgba(12, 16, 23, 0.88);
+  border: 1px solid rgba(255, 184, 51, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
   white-space: nowrap;
+  pointer-events: auto;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.hud-last-update:hover {
+  border-color: rgba(255, 184, 51, 0.7);
+  background-color: rgba(12, 16, 23, 0.96);
+}
+
+.hud-last-update .hud-update-label {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+
+.hud-last-update .hud-update-value {
+  color: #ffb833;
+  font-weight: 700;
+  font-family: 'Segoe UI', system-ui, monospace;
 }
 .hud-bl { bottom: 14px; left: 14px; top: auto; align-items: flex-start; max-height: calc(100vh - 76px); }
 .hud-br { bottom: 14px; right: 14px; align-items: flex-end; }
@@ -1384,77 +1411,86 @@
 }
 
 /* ==========================================
-   BOTÓN LATERAL ADHESIVO EN BORDE DERECHO (ALINEADO CON PANEL IZQUIERDO)
+   BARRA LATERAL DE TRANSPORTES (ESQUINA SUP-DER, ALINEADA CON PANEL IZQUIERDO)
    ========================================== */
-  .hud-side-trigger {
-    position: fixed;
-    right: 0;
-    top: 4px; /* Alineado con .hud-tl y .hud-tc para que no salte al abrir */
-    width: 132px;
-    height: 132px;
-    z-index: 1400;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  background-color: rgba(12, 16, 23, 0.94);
+.hud-side-trigger {
+  position: fixed;
+  right: 0;
+  top: 4px; /* Margen superior mantenido, alineado con .hud-tl y .hud-tc */
+  width: 290px; /* Mismo tamaño de ancho que Panel de control y Ajustes */
+  max-width: 90vw;
+  box-sizing: border-box;
+  padding: 12px 16px; /* Mismo padding y altura de barra que Panel de control */
+  z-index: 1400;
+  display: flex;
+  flex-direction: row; /* Formato barra horizontal en vez de cuadrado */
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: rgba(12, 16, 23, 0.90);
   background-image:
     linear-gradient(rgba(255, 184, 51, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 184, 51, 0.04) 1px, transparent 1px);
-  background-size: 20px 20px, 20px 20px;
-  border: 1px solid rgba(255, 165, 0, 0.45);
+    linear-gradient(90deg, rgba(255, 184, 51, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 90% 10%, rgba(255, 184, 51, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(46, 204, 113, 0.05) 0%, transparent 45%);
+  background-size: 20px 20px, 20px 20px, 100% 100%, 100% 100%;
+  border: 1px solid rgba(255, 165, 0, 0.4);
   border-right: none;
-    border-radius: 8px 0 0 8px;
-    padding: 14px;
-    color: #fff;
+  border-radius: 10px 0 0 10px;
+  color: #fff;
   cursor: pointer;
   box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 165, 0, 0.2);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-  .hud-side-trigger:hover {
-    background-color: rgba(22, 32, 44, 0.98);
-    border-color: #ffb833;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.7), 0 0 18px rgba(255, 165, 0, 0.4);
-  }
+.hud-side-trigger:hover {
+  background-color: rgba(22, 32, 44, 0.96);
+  border-color: rgba(255, 165, 0, 0.7);
+  box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.7), 0 0 18px rgba(255, 165, 0, 0.4);
+}
 
-  .side-avatar-placeholder {
-    font-size: 26px;
-  }
+.hud-side-trigger:hover .hud-panel-title {
+  color: #ffa500;
+}
 
-
-
-  .side-trigger-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: rgba(255, 165, 0, 0.15);
-    border: 1.5px solid rgba(255, 165, 0, 0.45);
-    color: #ffb833;
-    font-size: 28px;
-    flex-shrink: 0;
-  }
-
-
-.side-count-badge {
-  font-size: 11px;
-  font-weight: 800;
-  padding: 3px 8px;
-  background: rgba(16, 185, 129, 0.2);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  border-radius: 6px;
+.side-trigger-content {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 10px;
+}
+
+.side-trigger-icon {
+  color: #ffb833;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.side-trigger-toggle-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffb833;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.hud-side-trigger:hover .side-trigger-toggle-btn {
+  background: rgba(255, 184, 51, 0.2);
+  border-color: rgba(255, 165, 0, 0.5);
+  color: #fff;
 }
 
 /* ==========================================

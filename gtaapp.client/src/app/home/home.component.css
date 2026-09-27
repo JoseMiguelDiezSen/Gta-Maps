@@ -8,6 +8,8 @@
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom: 50px;
 }
 
 .home-shell::before {
@@ -37,52 +39,160 @@
   pointer-events: none;
 }
 
+/* ==========================================
+   SELECTOR DE IDIOMA CON BANDERAS VECTORIALES
+   ========================================== */
 .language-selector {
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 10;
+  z-index: 100;
+  user-select: none;
 }
 
-.language-dropdown {
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.language-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 8px;
-  color: #fff;
+  color: #ffffff;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: background 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
-.language-dropdown:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+.language-trigger:hover,
+.language-selector.is-open .language-trigger {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 184, 51, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 12px rgba(255, 184, 51, 0.2);
 }
 
-.language-dropdown option {
-  background: #1a1a2e;
-  color: #fff;
+.flag-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 15px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.lang-flag {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.language-name {
+  line-height: 1;
+}
+
+.language-chevron {
+  color: rgba(255, 255, 255, 0.7);
+  transition: transform 0.2s ease;
+}
+
+.language-chevron.is-open {
+  transform: rotate(180deg);
+  color: #ffb833;
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px;
+  background: rgba(18, 22, 34, 0.95);
+  border: 1px solid rgba(255, 184, 51, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), 0 0 15px rgba(255, 184, 51, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: langFadeIn 0.15s ease-out;
+  z-index: 101;
+}
+
+@keyframes langFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.language-option:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.language-option.is-selected {
+  background: rgba(255, 184, 51, 0.15);
+  color: #ffb833;
+  font-weight: 600;
+}
+
+.language-check {
+  margin-left: auto;
+  font-size: 12px;
+  color: #ffb833;
+  font-weight: 700;
 }
 
 .home-logo {
-  max-width: 240px;
-  max-height: 120px;
+  max-width: 180px;
+  max-height: 90px;
   width: auto;
   height: auto;
   object-fit: contain;
   z-index: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
   user-select: none;
 }
 
 @media (max-width: 480px) {
   .home-logo {
-    max-width: 180px;
-    max-height: 90px;
+    max-width: 130px;
+    max-height: 65px;
   }
 }
 
@@ -163,4 +273,65 @@
   background: rgba(236, 72, 153, 0.4);
   border-color: #ec4899;
   transform: translateY(-2px);
+}
+
+/* Marca de última actualización debajo de los botones: sin panel, limpia y centrada */
+.home-last-update {
+  margin-top: 14px;
+  font-size: 12px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.4px;
+  text-align: center;
+  z-index: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  user-select: none;
+  cursor: default;
+}
+
+.home-last-update-val {
+  color: #ffb833;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.home-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 14px 24px;
+  background: rgba(10, 15, 30, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.home-footer-text {
+  margin: 0;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+  .home-footer {
+    padding: 10px 16px;
+  }
+
+  .home-footer-text {
+    font-size: 11px;
+    line-height: 1.4;
+  }
 }

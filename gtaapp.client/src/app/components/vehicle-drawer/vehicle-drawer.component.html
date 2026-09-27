@@ -8,7 +8,6 @@
   <div class="drawer-header">
     <div class="drawer-title-group">
       <!-- BREADCRUMB dinámico -->
-      <span class="drawer-badge" *ngIf="drawerView === 'tabs'">GTA V · IMPERIO CRIMINAL</span>
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid'">
         <button type="button" class="drawer-breadcrumb-back" (click)="closeDealerGrid()" title="Volver a Transportes">
           <i class="fa-solid fa-arrow-left"></i>
@@ -17,10 +16,15 @@
         <span class="drawer-breadcrumb-sep">›</span>
         <span class="drawer-breadcrumb-current">{{ activeDealerName }}</span>
       </span>
-      <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">Transportes</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
+        <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
+        <span>Transportes</span>
+      </h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
     </div>
-    <button type="button" class="drawer-close-btn" (click)="onClose()" title="Cerrar">&gt;&gt;</button>
+    <button type="button" class="drawer-close-btn" (click)="onClose()" title="Cerrar Transportes">
+      <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
+    </button>
   </div>
 
   <!-- ====== TABS (solo en vista de lista) ====== -->

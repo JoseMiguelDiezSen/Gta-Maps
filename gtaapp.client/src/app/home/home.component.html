@@ -1,10 +1,85 @@
 <div class="home-shell">
-  <div class="language-selector">
-    <select class="language-dropdown">
-      <option value="es">🇪🇸 Español</option>
-      <option value="en">🇬🇧 English</option>
-    </select>
+  <!-- SELECTOR DE IDIOMA PERSONALIZADO CON BANDERAS VECTORIALES (SVG) -->
+  <div class="language-selector" [class.is-open]="isOpen">
+    <button
+      type="button"
+      class="language-trigger"
+      (click)="toggleDropdown($event)"
+      [attr.aria-expanded]="isOpen"
+      aria-haspopup="listbox"
+      title="Cambiar idioma"
+    >
+      <span class="flag-icon-box" [ngSwitch]="currentLanguage.code">
+        <!-- Bandera España SVG -->
+        <svg *ngSwitchCase="'es'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+          <path fill="#c60b1e" d="M0 0h640v480H0z"/>
+          <path fill="#ffc400" d="M0 120h640v240H0z"/>
+          <g transform="translate(180, 240) scale(1.6)">
+            <path fill="#c60b1e" d="M-18-36h36v40a18 18 0 0 1-36 0z"/>
+            <path fill="#ffc400" d="M-13-31h26v34a13 13 0 0 1-26 0z"/>
+            <path fill="#c60b1e" d="M-9-27h18v13h-18zM-9-9h18v13h-18z"/>
+            <circle cx="0" cy="-43" r="7" fill="#ffc400"/>
+          </g>
+        </svg>
+        <!-- Bandera Reino Unido SVG -->
+        <svg *ngSwitchCase="'en'" class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true">
+          <clipPath id="uk-flag-clip-curr"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+          <g clip-path="url(#uk-flag-clip-curr)">
+            <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+          </g>
+        </svg>
+      </span>
+      <span class="language-name">{{ currentLanguage.label }}</span>
+      <svg class="language-chevron" [class.is-open]="isOpen" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+        <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- MENÚ DESPLEGABLE CON BANDERAS VECTORIALES -->
+    <div class="language-menu" *ngIf="isOpen" role="listbox">
+      <button
+        *ngFor="let lang of languages"
+        type="button"
+        class="language-option"
+        [class.is-selected]="lang.code === selectedCode"
+        (click)="selectLanguage(lang.code, $event)"
+        role="option"
+        [attr.aria-selected]="lang.code === selectedCode"
+      >
+        <span class="flag-icon-box" [ngSwitch]="lang.code">
+          <!-- Bandera España SVG -->
+          <svg *ngSwitchCase="'es'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+            <path fill="#c60b1e" d="M0 0h640v480H0z"/>
+            <path fill="#ffc400" d="M0 120h640v240H0z"/>
+            <g transform="translate(180, 240) scale(1.6)">
+              <path fill="#c60b1e" d="M-18-36h36v40a18 18 0 0 1-36 0z"/>
+              <path fill="#ffc400" d="M-13-31h26v34a13 13 0 0 1-26 0z"/>
+              <path fill="#c60b1e" d="M-9-27h18v13h-18zM-9-9h18v13h-18z"/>
+              <circle cx="0" cy="-43" r="7" fill="#ffc400"/>
+            </g>
+          </svg>
+          <!-- Bandera Reino Unido SVG -->
+          <svg *ngSwitchCase="'en'" class="lang-flag" viewBox="0 0 60 30" width="22" height="15" aria-hidden="true">
+            <clipPath id="uk-flag-clip-opt"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+            <g clip-path="url(#uk-flag-clip-opt)">
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+            </g>
+          </svg>
+        </span>
+        <span class="language-name">{{ lang.label }}</span>
+        <span class="language-check" *ngIf="lang.code === selectedCode">✓</span>
+      </button>
+    </div>
   </div>
+
   <img src="assets/logoJMD.png" alt="Logo" class="home-logo" />
   <h1 class="home-title">GTA Maps</h1>
   <p class="home-subtitle">Elige el juego</p>
@@ -18,4 +93,14 @@
       <span class="home-btn-sub">En Desarrollo...</span>
     </a>
   </div>
+
+  <div class="home-last-update" [title]="'Última actualización: ' + ultimaActualizacion + ' (Commit ' + buildCommit + ')'">
+    Última actualización: <span class="home-last-update-val">{{ ultimaActualizacion }}</span>
+  </div>
+
+  <footer class="home-footer">
+    <p class="home-footer-text">
+      © Copyright 2026 JMD Software, all rights reserved. JMD® and JMD Logo® are trademarks of The JMD Corporation. All rights Reserved.
+    </p>
+  </footer>
 </div>

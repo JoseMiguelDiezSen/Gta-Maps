@@ -43,10 +43,10 @@
     <a class="hud-home-btn" routerLink="/" title="Volver a la pantalla de inicio">Inicio</a>
   </div>
 
-  <!-- SUP-CENTRO: Última actualización (misma estructura y tipografía que la barra sup-izq) -->
-  <div class="hud hud-tc">
-    <div class="hud-title">Últ. Actualización</div>
-    <div class="hud-time-badge">{{ ultimaActualizacion }}</div>
+  <!-- MARCA DE ÚLTIMA ACTUALIZACIÓN: debajo del panel superior izquierdo (compacto y bien visible) -->
+  <div class="hud-last-update" [title]="'Última actualización: ' + ultimaActualizacion + ' (Commit ' + buildCommit + ')'">
+    <span class="hud-update-label">Última actualización:</span>
+    <span class="hud-update-value">{{ ultimaActualizacion }}</span>
   </div>
 
   <!-- ESQUINA INF-IZQ: Panel de control (antigua Leyenda) -->
@@ -1022,7 +1022,13 @@
     (click)="toggleProfileDrawer()"
     title="Abrir Transportes"
   >
-    <span class="side-trigger-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
+    <div class="side-trigger-content">
+      <i class="fa-solid fa-mobile-screen-button side-trigger-icon"></i>
+      <span class="hud-panel-title">Transportes</span>
+    </div>
+    <div class="side-trigger-toggle-btn" title="Desplegar Transportes">
+      <i class="fa-solid fa-chevron-left side-trigger-caret"></i>
+    </div>
   </button>
 
   <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO DE VEHÍCULOS -->

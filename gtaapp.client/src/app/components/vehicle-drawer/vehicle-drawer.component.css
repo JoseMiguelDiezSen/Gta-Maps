@@ -71,28 +71,41 @@
 
 .drawer-title {
   margin: 0;
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.5px;
-  color: #ffffff;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #ffb833;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.drawer-title-icon {
+  font-size: 13px;
+  color: #ffb833;
 }
 
 .drawer-close-btn {
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -2px;
-  cursor: pointer;
-  padding: 6px 10px;
+  width: 24px;
+  height: 24px;
   border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffb833;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  flex-shrink: 0;
   transition: all 0.15s ease;
+  padding: 0;
 }
 
 .drawer-close-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 184, 51, 0.2);
+  border-color: rgba(255, 165, 0, 0.5);
   color: #fff;
 }
 
