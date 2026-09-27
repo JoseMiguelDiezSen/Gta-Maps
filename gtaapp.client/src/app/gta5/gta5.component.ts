@@ -1,6 +1,11 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import * as L from 'leaflet';
 import { LocationService } from '../services/location.service';
+import { GameClockService } from '../services/game-clock.service';
+import { UserMarkersService, UserCustomMarker } from '../services/user-markers.service';
+import { GtaCoordinates } from '../utils/gta-coordinates';
+import { MapMarkerFactory } from '../utils/map-marker.factory';
 import { LocationItem } from '../models/location';
 import { CollectibleItem } from '../models/collectible';
 
@@ -49,7 +54,7 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
     // Estado del panel de capas y leyenda (minimizable)
     legendOpen = true;
 
-    // Fecha de la última actualización del mapa (cámbiala aquí cuando actualices los datos)
+    // Fecha de la última actualización del mapa
     readonly ultimaActualizacion = 'XXXX';
 
     // Claves de Propiedades según el modo de juego
@@ -72,7 +77,7 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         'vehicle_warehouse'
     ];
 
-    // Claves de los Negocios (sección propia del Panel de control)
+    // Claves de los Negocios
     readonly businessKeys = [
         'coke_lockup',
         'weed_farm',
@@ -83,14 +88,14 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         'doc_forgery'
     ];
 
-    // Claves de Lugares Extraños (sección propia del Panel de control)
+    // Claves de Lugares Extraños
     readonly strangeKeys = [
         'fake_ufo',
         'shipwreck',
         'cave'
     ];
 
-    // Claves de Actividades y Deportes (sección propia del Panel de control)
+    // Claves de Actividades y Deportes
     readonly activityKeys = [
         'activity'
     ];
@@ -117,7 +122,7 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         'radio_antenna'
     ];
 
-    // Claves de Servicios (Comisarías, Hospitales, Bomberos, Armerías, Tiendas atracables, Autolavado y Strip Club)
+    // Claves de Servicios
     readonly serviceKeys = [
         'police_station',
         'hospital',
@@ -129,17 +134,15 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         'strip_club'
     ];
 
-    // Claves dinámicas de los Trabajos Roleplay (sincronizadas desde los datos del backend)
+    // Claves dinámicas sincronizadas desde los datos del backend
     get roleplayKeys(): string[] {
         return this.roleplayJobs.map(j => j.id);
     }
 
-    // Claves dinámicas de Personajes y Contactos (sincronizadas desde los datos del backend)
     get characterKeys(): string[] {
         return this.contactCharacters.map(c => c.id);
     }
 
-    // Claves dinámicas de Fauna y Vida Salvaje (sincronizadas desde los datos del backend)
     get faunaKeys(): string[] {
         return this.faunaAnimals.map(a => a.id);
     }
@@ -173,11 +176,6 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         );
     }
 
-    /**
-     * Determina si un elemento del mapa es un inmueble o negocio realmente comprable por el jugador.
-     * Excluye servicios públicos (comisarías, hospitales, bomberos, autolavados, tiendas),
-     * talleres de uso libre y actividades / misiones de roleplay.
-     */
     isPurchasable(p: LocationItem | undefined): boolean {
         if (!p) return false;
         if (p.category === 'roleplay_job' || p.category === 'character' || p.category === 'animal') return false;
@@ -209,7 +207,7 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         ).length;
     }
 
-    // Estado de filtros de categorías (Leyenda interactiva)
+    // Estado de filtros de categorías
     layerFilters: { [key: string]: boolean } = {
         mansion: true,
         purchasable_business: true,
@@ -231,12 +229,10 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         arcade: true,
         ceo_office: true,
         mc_business: true,
-        // Talleres y Vehículos
         ls_customs: true,
         bennys: true,
         hao_garage: true,
         ls_car_meet: true,
-        // Servicios
         police_station: true,
         hospital: true,
         fire_station: true,
@@ -245,59 +241,51 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         mask_shop: true,
         car_wash: true,
         strip_club: true,
-        // Fauna
         animal: true,
-        // Coleccionables Online (activos por defecto)
         playing_card: true,
         action_figure: true,
         signal_jammer: true,
         movie_prop: true,
         radio_antenna: true,
-        // Lugares Extraños (activos por defecto)
         fake_ufo: true,
         shipwreck: true,
         cave: true,
-        // Actividades y Deportes (activos por defecto)
         activity: true
     };
 
-    // Propiedades y ubicaciones cargadas
+    // Propiedades y coleccionables cargados
     allProperties: LocationItem[] = [];
     private propertyMarkers: { marker: L.Marker; property: LocationItem }[] = [];
 
-    // Coleccionables GTA Online cargados
     allCollectibles: CollectibleItem[] = [];
     private collectibleMarkers: { marker: L.Marker; item: CollectibleItem }[] = [];
 
     private playerMarkersLayer: L.LayerGroup | undefined;
 
-    // Estado unificado de acordeones (Panel de control y Ajustes)
-    // Las tarjetas principales permanecen abiertas pero los acordeones interiores inician replegados
+    // Estado unificado de acordeones
     accordion: { [key: string]: boolean } = {
-        propiedades: false,     // Panel de control: Propiedades
-        negocios: false,        // Panel de control: Negocios
-        vehiculos: false,       // Panel de control: Vehículos
-        servicios: false,       // Panel de control: Servicios
-        actividades: false,     // Panel de control: Actividades y Deportes
-        roleplay: false,        // Panel de control: Trabajos Roleplay
-        personajes: false,      // Panel de control: Personajes y Contactos
-        fauna: false,           // Panel de control: Fauna y Vida Salvaje
-        coleccionables: false,  // Panel de control: Coleccionables
-        lugares: false,         // Panel de control: Lugares Extraños
-        modo: false,            // Ajustes: Modo de juego
-        mapa: false,            // Ajustes: Selector de mapa
-        zona: false             // Ajustes: Estilo y tamaño de iconos
+        propiedades: false,
+        negocios: false,
+        vehiculos: false,
+        servicios: false,
+        actividades: false,
+        roleplay: false,
+        personajes: false,
+        fauna: false,
+        coleccionables: false,
+        lugares: false,
+        modo: false,
+        mapa: false,
+        zona: false
     };
 
     selectedZone = 'all';
 
-    // Hora del juego en Los Santos (1 minuto en el juego = 2 segundos reales)
-    inGameHours = 12;
-    inGameMinutes = 0;
+    // Hora del juego en Los Santos
     inGameTimeStr = '12:00';
-    private clockInterval: any;
+    private clockSub?: Subscription;
 
-    // Panel de Ajustes (colapsable como el Panel de Control)
+    // Panel de Ajustes
     settingsOpen = true;
 
     // Estilo de Iconos
@@ -309,9 +297,12 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
     ctxX = 0;
     ctxY = 0;
     private ctxLatLng: L.LatLng | null = null;
-    userCustomMarkers: { id: string; name: string; marker: L.Marker; latLng: L.LatLng }[] = [];
-    targetCustomMarker: { id: string; name: string; marker: L.Marker; latLng: L.LatLng } | null = null;
+    targetCustomMarker: UserCustomMarker | null = null;
     isMarkerContext = false;
+
+    get userCustomMarkers(): UserCustomMarker[] {
+        return this.userMarkersService.allMarkers;
+    }
 
     // Telemetría en tiempo real: Coordenadas mundiales de GTA V bajo el ratón
     mouseCoords: { x: number; y: number } = { x: 0, y: 0 };
@@ -321,57 +312,34 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
     profileDrawerOpen = false;
 
     constructor(
-        private locationService: LocationService
+        private locationService: LocationService,
+        private clockService: GameClockService,
+        private userMarkersService: UserMarkersService
     ) {}
 
     ngOnInit(): void {
-        this.startInGameClock();
+        this.clockSub = this.clockService.time$.subscribe(time => {
+            this.inGameTimeStr = time;
+        });
 
         (window as any)._gtaRenameMarker = (id: string) => {
-            const found = this.userCustomMarkers.find(m => m.id === id);
+            const found = this.userMarkersService.findMarker(id);
             if (found) {
                 const newName = prompt('Introduce el nuevo nombre del marcador:', found.name);
                 if (newName && newName.trim() !== '') {
-                    found.name = newName.trim();
-                    this.updateCustomMarkerPopup(found);
+                    this.userMarkersService.renameMarker(id, newName);
                 }
             }
         };
 
         (window as any)._gtaDeleteMarker = (id: string) => {
-            const found = this.userCustomMarkers.find(m => m.id === id);
-            if (found && this.playerMarkersLayer) {
-                this.playerMarkersLayer.removeLayer(found.marker);
-                this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== id);
+            if (this.playerMarkersLayer) {
+                this.userMarkersService.deleteMarker(id, this.playerMarkersLayer);
                 if (this.targetCustomMarker?.id === id) {
                     this.targetCustomMarker = null;
                 }
             }
         };
-    }
-
-    private startInGameClock(): void {
-        const now = new Date();
-        const totalRealSecondsToday = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-        const inGameTotalSeconds = (totalRealSecondsToday * 30) % 86400;
-        this.inGameHours = Math.floor(inGameTotalSeconds / 3600);
-        this.inGameMinutes = Math.floor((inGameTotalSeconds % 3600) / 60);
-        this.updateInGameTimeString();
-
-        this.clockInterval = setInterval(() => {
-            this.inGameMinutes++;
-            if (this.inGameMinutes >= 60) {
-                this.inGameMinutes = 0;
-                this.inGameHours = (this.inGameHours + 1) % 24;
-            }
-            this.updateInGameTimeString();
-        }, 2000);
-    }
-
-    private updateInGameTimeString(): void {
-        const hh = this.inGameHours.toString().padStart(2, '0');
-        const mm = this.inGameMinutes.toString().padStart(2, '0');
-        this.inGameTimeStr = `${hh}:${mm}`;
     }
 
     toggleSettings(): void {
@@ -425,25 +393,13 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
                 break;
             case 'marcador':
                 if (this.ctxLatLng && this.playerMarkersLayer) {
-                    const id = 'custom-' + Date.now();
-                    const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
-                    const customIcon = this.createPushpinIcon();
-                    const m = L.marker(this.ctxLatLng, { icon: customIcon });
-                    const item = { id, name, marker: m, latLng: this.ctxLatLng };
-
-                    m.on('contextmenu', (e: L.LeafletMouseEvent) => {
-                        L.DomEvent.stopPropagation(e);
+                    this.userMarkersService.addMarker(this.ctxLatLng, this.playerMarkersLayer, (item, e) => {
                         this.targetCustomMarker = item;
                         this.isMarkerContext = true;
                         this.ctxX = e.originalEvent.clientX;
                         this.ctxY = e.originalEvent.clientY;
                         this.ctxOpen = true;
                     });
-
-                    this.updateCustomMarkerPopup(item);
-                    m.addTo(this.playerMarkersLayer);
-                    this.userCustomMarkers.push(item);
-                    m.openPopup();
                 }
                 break;
             case 'editar_marcador':
@@ -451,73 +407,23 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
                     const current = this.targetCustomMarker.name;
                     const newName = prompt('Introduce el nuevo nombre del marcador:', current);
                     if (newName && newName.trim() !== '') {
-                        this.targetCustomMarker.name = newName.trim();
-                        this.updateCustomMarkerPopup(this.targetCustomMarker);
-                        this.targetCustomMarker.marker.openPopup();
+                        this.userMarkersService.renameMarker(this.targetCustomMarker.id, newName);
                     }
                 }
                 break;
             case 'borrar_este_marcador':
                 if (this.targetCustomMarker && this.playerMarkersLayer) {
-                    this.playerMarkersLayer.removeLayer(this.targetCustomMarker.marker);
-                    this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== this.targetCustomMarker!.id);
+                    this.userMarkersService.deleteMarker(this.targetCustomMarker.id, this.playerMarkersLayer);
                     this.targetCustomMarker = null;
                 }
                 break;
             case 'borrar':
                 if (this.playerMarkersLayer) {
-                    this.playerMarkersLayer.clearLayers();
-                    this.userCustomMarkers = [];
+                    this.userMarkersService.clearAll(this.playerMarkersLayer);
                     this.targetCustomMarker = null;
                 }
                 break;
         }
-    }
-
-    private createPushpinIcon(): L.DivIcon {
-        return L.divIcon({
-            className: 'gta-classic-pushpin-icon',
-            html: `
-                <div class="classic-pushpin-wrapper">
-                    <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <radialGradient id="gtaRedHead" cx="35%" cy="30%" r="65%">
-                                <stop offset="0%" stop-color="#ff7575"/>
-                                <stop offset="35%" stop-color="#e61919"/>
-                                <stop offset="85%" stop-color="#a80707"/>
-                                <stop offset="100%" stop-color="#5a0000"/>
-                            </radialGradient>
-                            <linearGradient id="gtaSteelNeedle" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#d6dadf"/>
-                                <stop offset="45%" stop-color="#ffffff"/>
-                                <stop offset="75%" stop-color="#8c939a"/>
-                                <stop offset="100%" stop-color="#4d5156"/>
-                            </linearGradient>
-                            <filter id="gtaPinShadow" x="0" y="0" width="32" height="40" filterUnits="userSpaceOnUse">
-                                <feDropShadow dx="1" dy="3" stdDeviation="1.8" flood-color="#000000" flood-opacity="0.65"/>
-                            </filter>
-                        </defs>
-                        <g filter="url(#gtaPinShadow)">
-                            <!-- Aguja de acero afilada apuntando a (16, 38) -->
-                            <polygon points="14.8,20 17.2,20 16.3,38 15.7,38" fill="url(#gtaSteelNeedle)"/>
-                            <line x1="16" y1="20" x2="16" y2="38" stroke="#ffffff" stroke-width="0.6" opacity="0.9"/>
-                            <!-- Cono inferior rojo -->
-                            <path d="M10.5,20 C10.5,15.5 12.5,13.5 16,13.5 C19.5,13.5 21.5,15.5 21.5,20 Z" fill="url(#gtaRedHead)"/>
-                            <!-- Aro central -->
-                            <ellipse cx="16" cy="13.5" rx="7.2" ry="2.2" fill="#8f0505"/>
-                            <ellipse cx="16" cy="12.8" rx="6.9" ry="1.9" fill="#ff4444"/>
-                            <!-- Cabeza esférica roja superior -->
-                            <ellipse cx="16" cy="7.5" rx="7.8" ry="6.8" fill="url(#gtaRedHead)"/>
-                            <!-- Reflejo 3D brillante -->
-                            <ellipse cx="13.5" cy="5.2" rx="3.2" ry="1.9" fill="#ffffff" opacity="0.8" transform="rotate(-18 13.5 5.2)"/>
-                        </g>
-                    </svg>
-                </div>
-            `,
-            iconSize: [32, 40],
-            iconAnchor: [16, 38],
-            popupAnchor: [0, -36]
-        });
     }
 
     copyCurrentCoords(): void {
@@ -530,30 +436,6 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng }): void {
-        const html = `
-            <div class="custom-marker-popup-card">
-                <div class="custom-marker-title-row">
-                    <h4 class="custom-marker-name">${item.name}</h4>
-                </div>
-                <div class="custom-marker-actions">
-                    <button type="button" class="btn-marker-action btn-marker-edit" onclick="window._gtaRenameMarker('${item.id}')">
-                        <span>✏️</span> Editar
-                    </button>
-                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')">
-                        <span>🗑️</span> Borrar
-                    </button>
-                </div>
-            </div>
-        `;
-        item.marker.bindPopup(html, {
-            className: 'gta-custom-pin-popup',
-            maxWidth: 240,
-            minWidth: 200,
-            autoPan: true
-        });
-    }
-
     ngAfterViewInit(): void {
         this.initMap(this.currentMapType);
         window.addEventListener('resize', this.onWindowResize);
@@ -561,8 +443,8 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnDestroy(): void {
         window.removeEventListener('resize', this.onWindowResize);
-        if (this.clockInterval) {
-            clearInterval(this.clockInterval);
+        if (this.clockSub) {
+            this.clockSub.unsubscribe();
         }
         delete (window as any)._gtaRenameMarker;
         delete (window as any)._gtaDeleteMarker;
@@ -573,16 +455,14 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
 
     private readonly onWindowResize = () => {
         if (this.map) {
-            this.map.setMinZoom(this.computeMinZoom(this.imageSize, this.maxZoom));
+            this.map.setMinZoom(this.computeMinZoom());
         }
     };
 
-    private computeMinZoom(imageSize: number, maxZoom: number): number {
+    private computeMinZoom(): number {
         const el = document.getElementById('gta-map');
         const width = el ? el.clientWidth : 0;
-        if (width <= 0) return 2;
-        const min = maxZoom + Math.log2(width / imageSize);
-        return Math.min(maxZoom, Math.max(1, Math.ceil(min)));
+        return GtaCoordinates.computeMinZoom(this.imageSize, this.maxZoom, width);
     }
 
     private initMap(mapType: string): void {
@@ -591,7 +471,7 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         }
 
         const mapBounds = L.latLngBounds([-64, 0], [0, 64]);
-        const minZoom = this.computeMinZoom(this.imageSize, this.maxZoom);
+        const minZoom = this.computeMinZoom();
 
         this.map = L.map('gta-map', {
             crs: L.CRS.Simple,
@@ -642,55 +522,24 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         // Aplicar estilos y escala de iconos
         this.updateIconStyle();
 
-        // Seguir movimiento del ratón para mostrar coordenadas X e Y en tiempo real en el HUD
+        // Seguir movimiento del ratón para telemetría de coordenadas
         this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
-            this.mouseCoords = this.latLngToWorld(e.latlng.lat, e.latlng.lng);
+            this.mouseCoords = GtaCoordinates.latLngToWorld(e.latlng.lat, e.latlng.lng);
         });
     }
 
-    /**
-     * Convierte coordenadas de mundo del juego GTA V (X, Y) a coordenadas Leaflet CRS.Simple.
-     * Calibrado matemáticamente sobre la proyección satelital oficial de 8192px.
-     */
     worldToLatLng(x: number, y: number): [number, number] {
-        const originX = 3753.6;
-        const originY = 5529.6;
-        const scale = 0.660; // 0.660 px por metro oficial
-
-        const px = originX + (scale * x);
-        const py = originY - (scale * y);
-
-        const lat = -py / 128;
-        const lng = px / 128;
-        return [lat, lng];
+        return GtaCoordinates.worldToLatLng(x, y);
     }
 
-    /**
-     * Convierte coordenadas Leaflet CRS.Simple (lat, lng) a coordenadas mundiales del juego GTA V (X, Y).
-     * Función inversa exacta de worldToLatLng para telemetría y ajuste manual.
-     */
     latLngToWorld(lat: number, lng: number): { x: number; y: number } {
-        const originX = 3753.6;
-        const originY = 5529.6;
-        const scale = 0.660; // 0.660 px por metro oficial
-
-        const px = lng * 128;
-        const py = -lat * 128;
-
-        const x = (px - originX) / scale;
-        const y = (originY - py) / scale;
-
-        return {
-            x: Math.round(x * 10) / 10,
-            y: Math.round(y * 10) / 10
-        };
+        return GtaCoordinates.latLngToWorld(lat, lng);
     }
 
     private loadProperties(): void {
         this.locationService.getProperties().subscribe({
             next: (properties) => {
                 this.allProperties = properties;
-                // Auto-inicializar filtros dinámicamente para cada entidad y categoría recibida
                 properties.forEach(p => {
                     if (this.layerFilters[p.id] === undefined) {
                         this.layerFilters[p.id] = true;
@@ -724,103 +573,27 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         const map = this.map;
         if (!map) return;
 
-        // Limpiar marcadores anteriores
         this.propertyMarkers.forEach(p => p.marker.remove());
         this.propertyMarkers = [];
 
         this.allProperties.forEach(p => {
-            // Comprobar filtro: si es roleplay_job, character o animal, comprobar por su id individual
             const isIndividual = p.category === 'roleplay_job' || p.category === 'character' || p.category === 'animal';
             const filterKey = isIndividual ? p.id : p.category;
             if (this.layerFilters[filterKey] === false) return;
 
-            // Comprobar filtro de modo de juego (Bifurcación Modo Historia vs GTA Online)
             if (p.gameMode !== 'both' && p.gameMode !== this.selectedGameMode) {
                 return;
             }
 
             const isPurchasable = this.isPurchasable(p);
-
-            const [lat, lng] = this.worldToLatLng(p.position.x, p.position.y);
-
-            // Determinar símbolo gráfico para el pin (garantizar iconos limpios en comisarías, hospitales, bomberos y arena)
-            let pinSymbol = p.badge.symbol || '•';
-            if (p.category === 'police_station' && (!pinSymbol || pinSymbol === 'POL')) pinSymbol = '🚓';
-            if (p.category === 'hospital' && (!pinSymbol || pinSymbol === 'MED' || pinSymbol === '✚')) pinSymbol = '🏥';
-            if (p.category === 'fire_station' && (!pinSymbol || pinSymbol === 'BOM')) pinSymbol = '🚒';
-            if (p.category === 'car_wash') pinSymbol = '🚿';
-            if (p.category === 'arena_war') pinSymbol = '🏟️';
-
-            const pinInnerHtml = `<span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span>`;
-
-            const icon = L.divIcon({
-                className: 'gta-pin-wrapper',
-                html: `
-                    <div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${p.badge.color}">
-                        ${pinInnerHtml}
-                    </div>
-                `,
-                iconSize: [30, 30],
-                iconAnchor: [15, 30],
-                popupAnchor: [0, -28]
-            });
-
-            const featuresHtml = p.features && p.features.length > 0
-                ? `<ul class="popup-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>`
-                : '';
-
-            const incomeHtml = p.income
-                ? `<div class="popup-row"><span class="popup-tag-lbl">Ingresos:</span> <span class="popup-tag-val val-income">${p.income}</span></div>`
-                : '';
-
-            const ownerHtml = p.owner
-                ? `<div class="popup-row"><span class="popup-tag-lbl">Comprador:</span> <span class="popup-tag-val">${p.owner}</span></div>`
-                : '';
-
-            const imageHtml = p.imageUrl
-                ? `<div class="popup-image-box"><img src="${p.imageUrl}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
-                : '';
-
-            // Bloque de precio vs servicio público
-            const priceSectionHtml = isPurchasable
-                ? `
-                    <div class="popup-price-box">
-                        <span class="price-title">PRECIO</span>
-                        <span class="price-num">${p.priceFormatted}</span>
-                    </div>
-                  `
-                : `
-                    <div class="popup-service-tag-box">
-                        <span class="service-type-badge">${p.categoryLabel}</span>
-                        <span class="service-status-text">${p.priceFormatted || 'Punto de Interés'}</span>
-                    </div>
-                  `;
-
-            const popupHtml = `
-                <div class="gta-popup-card">
-                    ${imageHtml}
-                    <div class="popup-banner" style="background: linear-gradient(135deg, ${p.badge.color}33, #0b0f14 85%); border-bottom: 2px solid ${p.badge.color};">
-                        <span class="popup-badge" style="color: ${p.badge.color}; border-color: ${p.badge.color}66">${p.categoryLabel}</span>
-                        <h4 class="popup-title">${p.name}</h4>
-                        <div class="popup-zone">${p.zone}</div>
-                    </div>
-                    <div class="popup-content">
-                        ${priceSectionHtml}
-                        ${incomeHtml}
-                        ${ownerHtml}
-                        <p class="popup-desc">${p.description}</p>
-                        ${featuresHtml}
-                    </div>
-                </div>
-            `;
-
-            const tooltipPrice = isPurchasable
-                ? `<br><span style="color:#2ecc71">${p.priceFormatted}</span>`
-                : `<br><span style="color:#3498db">${p.categoryLabel}</span>`;
+            const [lat, lng] = GtaCoordinates.worldToLatLng(p.position.x, p.position.y);
+            const icon = MapMarkerFactory.createPropertyIcon(p);
+            const popupHtml = MapMarkerFactory.createPropertyPopupHtml(p, isPurchasable);
+            const tooltipHtml = MapMarkerFactory.createPropertyTooltipHtml(p, isPurchasable);
 
             const marker = L.marker([lat, lng], { icon })
                 .bindPopup(popupHtml, { maxWidth: 300, className: 'gta-leaflet-popup' })
-                .bindTooltip(`<b>${p.name}</b>${tooltipPrice}`, {
+                .bindTooltip(tooltipHtml, {
                     direction: 'top',
                     offset: [0, -26],
                     className: 'gta-leaflet-tooltip'
@@ -835,56 +608,24 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         const map = this.map;
         if (!map) return;
 
-        // Limpiar marcadores anteriores
         this.collectibleMarkers.forEach(c => c.marker.remove());
         this.collectibleMarkers = [];
 
-        // Los coleccionables son exclusivos de GTA Online: no mostrar si el modo seleccionado es 'story'
         if (this.selectedGameMode === 'story') {
             return;
         }
 
         this.allCollectibles.forEach(item => {
-            // Comprobar filtro de categoría
             if (!this.layerFilters[item.category]) return;
 
-            const [lat, lng] = this.worldToLatLng(item.position.x, item.position.y);
-
-            const icon = L.divIcon({
-                className: 'gta-pin-collectible-wrapper',
-                html: `
-                    <div class="gta-pin-collectible gta-pin-col-${item.category}" style="--pin-color: ${item.badge.color}">
-                        <span class="gta-pin-col-symbol">${item.badge.symbol || '•'}</span>
-                    </div>
-                `,
-                iconSize: [22, 22],
-                iconAnchor: [11, 11],
-                popupAnchor: [0, -13]
-            });
-
-            const popupHtml = `
-                <div class="gta-popup-card">
-                    <div class="popup-banner" style="background: linear-gradient(135deg, ${item.badge.color}33, #0b0f14 85%); border-bottom: 2px solid ${item.badge.color};">
-                        <span class="popup-badge" style="color: ${item.badge.color}; border-color: ${item.badge.color}66">${item.categoryLabel} (#${item.number}/${item.total})</span>
-                        <h4 class="popup-title">${item.name}</h4>
-                        <div class="popup-zone">${item.zone}</div>
-                    </div>
-                    <div class="popup-content">
-                        <div class="popup-row">
-                            <span class="popup-tag-lbl">Pista / Ubicación:</span>
-                            <span class="popup-tag-val">${item.hint}</span>
-                        </div>
-                        <div class="popup-row">
-                            <span class="popup-tag-lbl">Recompensa:</span>
-                            <span class="popup-tag-val val-income">${item.reward}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
+            const [lat, lng] = GtaCoordinates.worldToLatLng(item.position.x, item.position.y);
+            const icon = MapMarkerFactory.createCollectibleIcon(item);
+            const popupHtml = MapMarkerFactory.createCollectiblePopupHtml(item);
+            const tooltipHtml = MapMarkerFactory.createCollectibleTooltipHtml(item);
 
             const marker = L.marker([lat, lng], { icon })
                 .bindPopup(popupHtml, { maxWidth: 320, className: 'gta-leaflet-popup' })
-                .bindTooltip(`<b>${item.name}</b><br><span style="color:${item.badge.color}">${item.categoryLabel} (#${item.number}/${item.total})</span>`, {
+                .bindTooltip(tooltipHtml, {
                     direction: 'top',
                     offset: [0, -12],
                     className: 'gta-leaflet-tooltip'
@@ -895,9 +636,6 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
-    /**
-     * Alterna la visibilidad de una categoría de la leyenda
-     */
     toggleLayer(categoryKey: string): void {
         const current = this.layerFilters[categoryKey] !== false;
         this.layerFilters[categoryKey] = !current;
@@ -905,22 +643,18 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         this.renderCollectibleMarkers();
     }
 
-    /**
-     * Vuela la cámara y centra el mapa con zoom directo sobre un personaje
-     */
     zoomToCharacter(char: LocationItem, event?: MouseEvent): void {
         if (event) {
             event.stopPropagation();
         }
         if (!this.map) return;
 
-        // Si el personaje está desactivado en los filtros, activarlo
         if (!this.layerFilters[char.id]) {
             this.layerFilters[char.id] = true;
             this.renderPropertyMarkers();
         }
 
-        const [lat, lng] = this.worldToLatLng(char.position.x, char.position.y);
+        const [lat, lng] = GtaCoordinates.worldToLatLng(char.position.x, char.position.y);
         const targetZoom = Math.min(this.maxZoom, 5.5);
 
         this.map.flyTo([lat, lng], targetZoom, {
@@ -928,7 +662,6 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
             duration: 1.1
         });
 
-        // Abrir automáticamente el popup del personaje tras el vuelo de cámara
         setTimeout(() => {
             const match = this.propertyMarkers.find(pm => pm.property.id === char.id);
             if (match) {
@@ -937,16 +670,10 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         }, 850);
     }
 
-    /**
-     * Alterna la apertura/cierre de la caja de leyenda
-     */
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
     }
 
-    /**
-     * Devuelve el número de elementos cargados de una categoría según el modo activo
-     */
     getCategoryCount(categoryKey: string): number {
         return this.allProperties.filter(p =>
             p.category === categoryKey &&
@@ -954,23 +681,14 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         ).length;
     }
 
-    /**
-     * Devuelve el número de coleccionables cargados de una categoría
-     */
     getCollectibleCount(categoryKey: string): number {
         return this.allCollectibles.filter(c => c.category === categoryKey).length;
     }
 
-    /**
-     * Devuelve el número de capas actualmente encendidas
-     */
     getActiveLayersCount(): number {
         return Object.values(this.layerFilters).filter(v => v).length;
     }
 
-    /**
-     * Activa o desactiva todas las capas a la vez
-     */
     setAllLayers(state: boolean): void {
         Object.keys(this.layerFilters).forEach(key => {
             this.layerFilters[key] = state;
@@ -979,38 +697,23 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         this.renderCollectibleMarkers();
     }
 
-    /**
-     * Alterna la apertura o cierre de un acordeón concreto dentro de la leyenda
-     */
     toggleLegendSection(section: string): void {
         this.toggleSection(section);
     }
 
-    /**
-     * Devuelve el número de capas encendidas dentro de un grupo concreto
-     */
     getActiveCountInSection(keys: string[]): number {
         return keys.filter(k => this.layerFilters[k] !== false).length;
     }
 
-    /**
-     * Comprueba si todas las capas de una sección están activadas
-     */
     isSectionAllActive(keys: string[]): boolean {
         return keys.length > 0 && keys.every(k => this.layerFilters[k] !== false);
     }
 
-    /**
-     * Maneja el cambio del checkbox suelto e independiente de cada desplegable
-     */
     onSectionCheckboxChange(keys: string[], event: Event): void {
         const input = event.target as HTMLInputElement;
         this.toggleAllInSection(keys, input.checked);
     }
 
-    /**
-     * Activa o desactiva todas las capas pertenecientes a un grupo de la leyenda
-     */
     toggleAllInSection(keys: string[], state?: boolean): void {
         const allActive = keys.every(k => this.layerFilters[k] !== false);
         const targetState = state !== undefined ? state : !allActive;
@@ -1021,16 +724,11 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         this.renderCollectibleMarkers();
     }
 
-    /**
-     * Sincroniza el modo de juego (Modo Historia o GTA Online)
-     * tanto desde la barra superior como desde el panel de control.
-     */
     setGameMode(mode: 'story' | 'online'): void {
         this.selectedGameMode = mode;
         this.chipOffline = mode === 'story';
         this.chipOnline = mode === 'online';
 
-        // Si cambiamos a GTA Online y teníamos un mapa UV seleccionado, volvemos a Satélite
         if (mode === 'online' && (this.currentMapType === 'UV' || this.currentMapType === 'UV2')) {
             this.switchMapType('Satellite');
         }
@@ -1039,16 +737,10 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         this.renderCollectibleMarkers();
     }
 
-    /**
-     * Cambia el filtro de modo de juego desde el selector del Panel de Control
-     */
     onGameModeChange(mode: 'story' | 'online'): void {
         this.setGameMode(mode);
     }
 
-    /**
-     * Hace zoom y centra la cámara en una zona específica
-     */
     onZoneChange(zone: string): void {
         this.selectedZone = zone;
         if (!this.map) return;
@@ -1070,7 +762,7 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
                 this.map.flyTo([-34, 11], 4.2, { duration: 1.2 });
                 break;
             default: // all
-                this.map.flyTo([-36, 30], this.computeMinZoom(this.imageSize, this.maxZoom) + 0.5, { duration: 1 });
+                this.map.flyTo([-36, 30], this.computeMinZoom() + 0.5, { duration: 1 });
                 break;
         }
     }
@@ -1094,14 +786,11 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
 
     recenterMap(): void {
         if (this.map) {
-            this.map.setView([-36, 30], this.computeMinZoom(this.imageSize, this.maxZoom) + 0.5);
+            this.map.setView([-36, 30], this.computeMinZoom() + 0.5);
         }
     }
 
-    // ==========================================
-    // MÉTODOS DE FICHA DE JUGADOR Y PROGRESO
-    // ==========================================
-
+    // Drawer lateral de Vehículos
     toggleProfileDrawer(): void {
         this.profileDrawerOpen = !this.profileDrawerOpen;
     }
