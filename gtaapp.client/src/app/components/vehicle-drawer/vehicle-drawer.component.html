@@ -9,20 +9,20 @@
     <div class="drawer-title-group">
       <!-- BREADCRUMB dinámico -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid'">
-        <button type="button" class="drawer-breadcrumb-back" (click)="closeDealerGrid()" title="Volver a Transportes">
+        <button type="button" class="drawer-breadcrumb-back" (click)="closeDealerGrid()" [title]="'transports.backToTransports' | translate">
           <i class="fa-solid fa-arrow-left"></i>
         </button>
-        <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">Transportes</span>
+        <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">{{ 'transports.title' | translate }}</span>
         <span class="drawer-breadcrumb-sep">›</span>
         <span class="drawer-breadcrumb-current">{{ activeDealerName }}</span>
       </span>
       <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
         <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
-        <span>Transportes</span>
+        <span>{{ 'transports.title' | translate }}</span>
       </h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
     </div>
-    <button type="button" class="drawer-close-btn" (click)="onClose()" title="Cerrar Transportes">
+    <button type="button" class="drawer-close-btn" (click)="onClose()" [title]="'transports.closeTitle' | translate">
       <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
     </button>
   </div>
@@ -39,7 +39,7 @@
       (click)="setDrawerTab(tab.id)"
     >
       <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
-      <span class="drawer-tab-label">{{ tab.label }}</span>
+      <span class="drawer-tab-label">{{ ('transports.tabs.' + (tab.id === 'vehiculos' ? 'vehicles' : tab.id === 'misiones' ? 'missions' : tab.id)) | translate }}</span>
     </button>
   </div>
 
@@ -61,7 +61,7 @@
           </div>
           <div class="dealer-card-info">
             <span class="dealer-card-name">{{ d.name }}</span>
-            <span class="dealer-card-sub">{{ d.description || 'Ver catálogo' }}</span>
+            <span class="dealer-card-sub">{{ ('transports.dealers.' + (d.id === 'legendarymotorsport' ? 'legendary' : d.id) + 'Desc' | translate) }}</span>
           </div>
           <div class="dealer-card-arrow">
             <i class="fa-solid fa-chevron-right"></i>
@@ -76,19 +76,19 @@
       <!-- Loading -->
       <div class="vgrid-loading" *ngIf="vehiclesLoading">
         <div class="vgrid-spinner"></div>
-        <span>Cargando catálogo de {{ activeDealerName }}...</span>
+        <span>{{ 'transports.catalog.loading' | translate:{ dealer: activeDealerName } }}</span>
       </div>
 
       <!-- Error -->
       <div class="vgrid-error" *ngIf="vehiclesError && !vehiclesLoading">
         <i class="fa-solid fa-triangle-exclamation"></i>
-        <span>No se pudo cargar el catálogo. Comprueba tu conexión.</span>
+        <span>{{ 'transports.catalog.error' | translate }}</span>
       </div>
 
       <!-- Sin resultados -->
       <div class="vgrid-empty" *ngIf="!vehiclesLoading && !vehiclesError && dealerVehicles.length === 0">
         <i class="fa-solid fa-car-burst"></i>
-        <span>Sin vehículos disponibles para este concesionario.</span>
+        <span>{{ 'transports.catalog.empty' | translate }}</span>
       </div>
 
       <!-- Grid + detalle -->
@@ -98,10 +98,10 @@
         <div class="vgrid-counter">
           <div class="vgrid-counter-left">
             <span class="vgrid-count-num">{{ filteredDealerVehicles.length }}</span>
-            <span class="vgrid-count-lbl">vehículos disponibles</span>
+            <span class="vgrid-count-lbl">{{ 'transports.catalog.availableCount' | translate }}</span>
           </div>
           <span class="vgrid-count-total" *ngIf="selectedVehicleClass !== 'all'">
-            de {{ dealerVehicles.length }} en catálogo
+            {{ 'transports.catalog.ofCatalog' | translate:{ total: dealerVehicles.length } }}
           </span>
         </div>
 
@@ -117,7 +117,7 @@
             [attr.aria-selected]="selectedVehicleClass === cat.id"
           >
             <i class="fa-solid vcat-icon" [ngClass]="cat.icon"></i>
-            <span class="vcat-name">{{ cat.name }}</span>
+            <span class="vcat-name">{{ cat.id === 'all' ? ('common.all' | translate) : cat.name }}</span>
             <span class="vcat-count">{{ cat.count }}</span>
           </button>
         </div>
@@ -144,7 +144,7 @@
               <ng-container *ngIf="!v.imageUrl || v.imgFailed">
                 <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
               </ng-container>
-              <span class="vcard-weapon-badge" *ngIf="v.weaponized" title="Armado">🔫</span>
+              <span class="vcard-weapon-badge" *ngIf="v.weaponized" [title]="'transports.catalog.weaponized' | translate">🔫</span>
             </div>
             <!-- Info del vehículo anexada a la foto -->
             <div class="vcard-info">
@@ -162,7 +162,7 @@
           <span class="vgrid-divider-line"></span>
           <span class="vgrid-divider-tag">
             <i class="fa-solid fa-gauge-high"></i>
-            <span>FICHA DE ESPECIFICACIONES</span>
+            <span>{{ 'transports.catalog.specsTitle' | translate }}</span>
           </span>
           <span class="vgrid-divider-line"></span>
         </div>
@@ -187,7 +187,7 @@
               <h4 class="vdetail-name">{{ selectedVehicle.name }}</h4>
               <div class="vdetail-tags">
                 <span class="vdetail-class-tag">{{ selectedVehicle.class }}</span>
-                <span class="vdetail-weapon-tag" *ngIf="selectedVehicle.weaponized">🔫 Vehículo Armado</span>
+                <span class="vdetail-weapon-tag" *ngIf="selectedVehicle.weaponized">🔫 {{ 'transports.catalog.weaponized' | translate }}</span>
               </div>
             </div>
           </div>
@@ -195,11 +195,11 @@
           <!-- Precios -->
           <div class="vdetail-prices">
             <div class="vdetail-price-box vdetail-price-full">
-              <span class="vdetail-price-lbl">Precio de Compra</span>
+              <span class="vdetail-price-lbl">{{ 'transports.catalog.buyPrice' | translate }}</span>
               <span class="vdetail-price-val">{{ selectedVehicle.priceFormatted }}</span>
             </div>
             <div class="vdetail-price-box vdetail-price-trade" *ngIf="selectedVehicle.priceTrade > 0">
-              <span class="vdetail-price-lbl">Trade Price</span>
+              <span class="vdetail-price-lbl">{{ 'transports.catalog.tradePrice' | translate }}</span>
               <span class="vdetail-price-val vdetail-price-trade-val">{{ formatPrice(selectedVehicle.priceTrade) }}</span>
             </div>
           </div>
@@ -207,28 +207,28 @@
           <!-- Barras de Características (Aceleración, Frenada, Velocidad, Manejo) -->
           <div class="vdetail-stat-bars">
             <div class="vstat-row">
-              <span class="vstat-lbl">Velocidad</span>
+              <span class="vstat-lbl">{{ 'transports.stats.speed' | translate }}</span>
               <div class="vstat-bar-track">
                 <div class="vstat-bar-fill fill-speed" [style.width.%]="(selectedVehicle.speed || 7) * 10"></div>
               </div>
               <span class="vstat-num">{{ selectedVehicle.speed }}</span>
             </div>
             <div class="vstat-row">
-              <span class="vstat-lbl">Aceleración</span>
+              <span class="vstat-lbl">{{ 'transports.stats.acceleration' | translate }}</span>
               <div class="vstat-bar-track">
                 <div class="vstat-bar-fill fill-accel" [style.width.%]="(selectedVehicle.acceleration || 7) * 10"></div>
               </div>
               <span class="vstat-num">{{ selectedVehicle.acceleration }}</span>
             </div>
             <div class="vstat-row">
-              <span class="vstat-lbl">Frenada</span>
+              <span class="vstat-lbl">{{ 'transports.stats.braking' | translate }}</span>
               <div class="vstat-bar-track">
                 <div class="vstat-bar-fill fill-brake" [style.width.%]="(selectedVehicle.braking || 6) * 10"></div>
               </div>
               <span class="vstat-num">{{ selectedVehicle.braking }}</span>
             </div>
             <div class="vstat-row">
-              <span class="vstat-lbl">Manejo</span>
+              <span class="vstat-lbl">{{ 'transports.stats.handling' | translate }}</span>
               <div class="vstat-bar-track">
                 <div class="vstat-bar-fill fill-handling" [style.width.%]="(selectedVehicle.handling || 7) * 10"></div>
               </div>
@@ -248,7 +248,7 @@
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
       <div class="drawer-empty">
         <i class="fa-solid fa-bullseye drawer-empty-icon"></i>
-        <p class="drawer-empty-text">Misiones</p>
+        <p class="drawer-empty-text">{{ 'transports.tabs.missions' | translate }}</p>
       </div>
     </ng-container>
 
@@ -256,7 +256,7 @@
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item3'">
       <div class="drawer-empty">
         <i class="fa-solid fa-box drawer-empty-icon"></i>
-        <p class="drawer-empty-text">Item3</p>
+        <p class="drawer-empty-text">{{ 'transports.tabs.item3' | translate }}</p>
       </div>
     </ng-container>
 
@@ -264,7 +264,7 @@
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item4'">
       <div class="drawer-empty">
         <i class="fa-solid fa-crown drawer-empty-icon"></i>
-        <p class="drawer-empty-text">Item4</p>
+        <p class="drawer-empty-text">{{ 'transports.tabs.item4' | translate }}</p>
       </div>
     </ng-container>
 
