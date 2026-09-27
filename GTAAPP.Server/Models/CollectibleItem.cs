@@ -2,18 +2,9 @@ using System.Text.Json.Serialization;
 
 namespace GTAAPP.Server.Models;
 
-public class CollectibleBadge
-{
-    [JsonPropertyName("icon")]
-    public string Icon { get; set; } = string.Empty;
-
-    [JsonPropertyName("color")]
-    public string Color { get; set; } = string.Empty;
-
-    [JsonPropertyName("symbol")]
-    public string Symbol { get; set; } = string.Empty;
-}
-
+/// <summary>
+/// Elemento coleccionable exclusivo de GTA Online (naipes, figuras de acción, inhibidores, etc.).
+/// </summary>
 public class CollectibleItem
 {
     [JsonPropertyName("id")]
@@ -47,8 +38,8 @@ public class CollectibleItem
     public string Reward { get; set; } = string.Empty;
 
     [JsonPropertyName("position")]
-    public PropertyPosition Position { get; set; } = new();
+    public MapPosition Position { get; set; } = new();
 
     [JsonPropertyName("badge")]
-    public CollectibleBadge Badge { get; set; } = new();
+    public MapBadge Badge { get; set; } = new();
 }

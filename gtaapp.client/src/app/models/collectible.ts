@@ -1,14 +1,4 @@
-export interface CollectibleBadge {
-  icon: string;
-  color: string;
-  symbol: string;
-}
-
-export interface CollectiblePosition {
-  x: number;
-  y: number;
-  z: number;
-}
+import { MapPosition, MapBadge } from './map-common';
 
 export type CollectibleCategory =
   | 'playing_card'
@@ -28,6 +18,10 @@ export interface CollectibleItem {
   description: string;
   hint: string;
   reward: string;
-  position: CollectiblePosition;
-  badge: CollectibleBadge;
+  position: MapPosition;
+  badge: MapBadge;
 }
+
+// Alias de retrocompatibilidad
+export type CollectiblePosition = MapPosition;
+export type CollectibleBadge = MapBadge;

@@ -1,16 +1,8 @@
-export interface PropertyBadge {
-  icon: string;
-  color: string;
-  symbol: string;
-}
+import { MapPosition, MapBadge } from './map-common';
 
-export interface PropertyPosition {
-  x: number;
-  y: number;
-  z: number;
-}
+export { MapPosition, MapBadge };
 
-export type PropertyCategory =
+export type LocationCategory =
   | 'purchasable_business'
   | 'mansion'
   | 'hangar'
@@ -52,10 +44,10 @@ export type PropertyCategory =
   | 'activity'
   | 'character';
 
-export interface PropertyLocation {
+export interface LocationItem {
   id: string;
   name: string;
-  category: PropertyCategory;
+  category: LocationCategory;
   categoryLabel: string;
   gameMode: 'story' | 'online' | 'both';
   owner?: string;
@@ -66,6 +58,12 @@ export interface PropertyLocation {
   description: string;
   features?: string[];
   income?: string;
-  position: PropertyPosition;
-  badge: PropertyBadge;
+  position: MapPosition;
+  badge: MapBadge;
 }
+
+// Alias de retrocompatibilidad
+export type PropertyLocation = LocationItem;
+export type PropertyCategory = LocationCategory;
+export type PropertyPosition = MapPosition;
+export type PropertyBadge = MapBadge;

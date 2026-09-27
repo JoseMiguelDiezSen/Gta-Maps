@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import * as L from 'leaflet';
 import { LocationService } from '../services/location.service';
-import { PropertyLocation } from '../models/property';
+import { LocationItem } from '../models/location';
 import { CollectibleItem } from '../models/collectible';
 
 import { GtaVehicle, DealerCategory } from '../models/vehicle';
@@ -184,21 +184,21 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         return this.selectedGameMode === 'story' ? this.storyVehicleKeys : this.onlineVehicleKeys;
     }
 
-    get roleplayJobs(): PropertyLocation[] {
+    get roleplayJobs(): LocationItem[] {
         return this.allProperties.filter(p =>
             p.category === 'roleplay_job' &&
             (p.gameMode === 'both' || p.gameMode === this.selectedGameMode)
         );
     }
 
-    get contactCharacters(): PropertyLocation[] {
+    get contactCharacters(): LocationItem[] {
         return this.allProperties.filter(p =>
             p.category === 'character' &&
             (p.gameMode === 'both' || p.gameMode === this.selectedGameMode)
         );
     }
 
-    get faunaAnimals(): PropertyLocation[] {
+    get faunaAnimals(): LocationItem[] {
         return this.allProperties.filter(p =>
             p.category === 'animal' &&
             (p.gameMode === 'both' || p.gameMode === this.selectedGameMode)
@@ -210,7 +210,7 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
      * Excluye servicios públicos (comisarías, hospitales, bomberos, autolavados, tiendas),
      * talleres de uso libre y actividades / misiones de roleplay.
      */
-    isPurchasable(p: PropertyLocation | undefined): boolean {
+    isPurchasable(p: LocationItem | undefined): boolean {
         if (!p) return false;
         if (p.category === 'roleplay_job' || p.category === 'character' || p.category === 'animal') return false;
 
@@ -328,9 +328,9 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         activity: true
     };
 
-    // Propiedades cargadas
-    allProperties: PropertyLocation[] = [];
-    private propertyMarkers: { marker: L.Marker; property: PropertyLocation }[] = [];
+    // Propiedades y ubicaciones cargadas
+    allProperties: LocationItem[] = [];
+    private propertyMarkers: { marker: L.Marker; property: LocationItem }[] = [];
 
     // Coleccionables GTA Online cargados
     allCollectibles: CollectibleItem[] = [];
@@ -1233,7 +1233,7 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
     /**
      * Vuela la cámara y centra el mapa con zoom directo sobre un personaje
      */
-    zoomToCharacter(char: PropertyLocation, event?: MouseEvent): void {
+    zoomToCharacter(char: LocationItem, event?: MouseEvent): void {
         if (event) {
             event.stopPropagation();
         }

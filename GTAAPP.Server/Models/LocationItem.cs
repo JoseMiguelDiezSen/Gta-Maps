@@ -2,31 +2,11 @@ using System.Text.Json.Serialization;
 
 namespace GTAAPP.Server.Models;
 
-public class PropertyBadge
-{
-    [JsonPropertyName("icon")]
-    public string Icon { get; set; } = string.Empty;
-
-    [JsonPropertyName("color")]
-    public string Color { get; set; } = string.Empty;
-
-    [JsonPropertyName("symbol")]
-    public string Symbol { get; set; } = string.Empty;
-}
-
-public class PropertyPosition
-{
-    [JsonPropertyName("x")]
-    public float X { get; set; }
-
-    [JsonPropertyName("y")]
-    public float Y { get; set; }
-
-    [JsonPropertyName("z")]
-    public float Z { get; set; }
-}
-
-public class PropertyLocation
+/// <summary>
+/// Modelo unificado para cualquier punto de interés o ubicación del mapa de GTA V
+/// (propiedades, negocios, servicios, talleres, trabajos de rol, contactos, fauna, actividades, etc.).
+/// </summary>
+public class LocationItem
 {
     [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
@@ -69,8 +49,8 @@ public class PropertyLocation
     public string? Income { get; set; }
 
     [JsonPropertyName("position")]
-    public PropertyPosition Position { get; set; } = new();
+    public MapPosition Position { get; set; } = new();
 
     [JsonPropertyName("badge")]
-    public PropertyBadge Badge { get; set; } = new();
+    public MapBadge Badge { get; set; } = new();
 }
