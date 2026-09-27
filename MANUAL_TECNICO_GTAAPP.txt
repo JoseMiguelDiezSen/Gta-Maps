@@ -1,0 +1,816 @@
+MANUAL TÉCNICO COMPLETO - GTAAPP
+==================================
+
+Fecha: 27/09/2026
+Aplicación: GTAAPP - Sistema de Mapeo y Gestión de Datos para GTA V/GTA VI
+Versión: 1.0
+Autor: Análisis Técnico Completo
+
+1. RESUMEN EJECUTIVO
+====================
+
+GTAAPP es una aplicación web de mapeo interactivo y gestión de datos para los videojuegos Grand Theft Auto V y Grand Theft Auto VI. Está construida con una arquitectura SPA (Single Page Application) moderna que combina ASP.NET Core 10.0 como backend y Angular 20 como frontend.
+
+La aplicación permite a los usuarios:
+- Visualizar mapas interactivos de GTA V con múltiples capas (satélite, carreteras, atlas, UV, etc.)
+- Gestionar propiedades, negocios, vehículos y coleccionables del juego
+- Sincronizar datos con Rockstar Games Social Club
+- Crear marcadores personalizados en el mapa
+- Ver información detallada de ubicaciones y POIs del juego
+
+ESTADO ACTUAL: APLICACIÓN LISTA PARA PRODUCCIÓN
+NIVEL DE MADUREZ: MEDIO-ALTO
+RIESGO DE SEGURIDAD: MEDIO (según auditoría existente)
+
+2. ARQUITECTURA GENERAL
+========================
+
+2.1 TIPOLOGÍA DE ARQUITECTURA
+------------------------------
+- Patrón: SPA (Single Page Application) con API REST
+- Comunicación: HTTP/HTTPS con JSON
+- Separación de responsabilidades: Backend/Frontend claramente separados
+- Modelo de despliegue: Cliente-servidor tradicional
+
+2.2 TECNOLOGÍAS PRINCIPALES
+---------------------------
+BACKEND:
+- Framework: ASP.NET Core 10.0 (.NET 10.0)
+- Servidor: Kestrel
+- API: REST con Controllers
+- Inyección de dependencias: Nativa de ASP.NET Core
+- Middleware personalizado para seguridad
+
+FRONTEND:
+- Framework: Angular 20.3.31
+- Lenguaje: TypeScript 5.8.3
+- Build: Angular CLI 20.3.37
+- Mapas: Leaflet 1.9.4
+- Icons: FontAwesome 7.3.1
+- HTTP Client: HttpClient de Angular
+
+INFRAESTRUCTURA:
+- Almacenamiento: Archivos JSON locales
+- Sistema de archivos: wwwroot/ para estáticos
+- Configuración: appsettings.json
+
+2.3 ESTRUCTURA DE DIRECTORIOS
+-----------------------------
+/
+├── GTAAPP.slnx                    # Solución .NET
+├── GTAAPP.Server/                 # Backend ASP.NET Core
+│   ├── Controllers/              # Controladores API
+│   ├── Models/                   # Modelos de datos
+│   ├── Services/                 # Lógica de negocio
+│   ├── Middleware/               # Middleware personalizado
+│   ├── wwwroot/                 # Archivos estáticos
+│   │   ├── data/               # Datos JSON
+│   │   └── assets/             # Imágenes, tiles del mapa
+│   ├── Program.cs              # Punto de entrada
+│   ├── appsettings.json        # Configuración producción
+│   └── appsettings.Development.json  # Configuración desarrollo
+├── gtaapp.client/               # Frontend Angular
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/    # Componentes Angular
+│   │   │   ├── services/      # Servicios HTTP
+│   │   │   ├── models/        # Modelos TypeScript
+│   │   │   ├── assets/        # Recursos estáticos
+│   │   │   └── styles/        # Estilos CSS
+│   │   ├── index.html         # HTML principal
+│   │   └── main.ts            # Punto de entrada
+│   ├── package.json           # Dependencias Node.js
+│   ├── angular.json           # Configuración Angular
+│   └── tsconfig.json          # Configuración TypeScript
+└── GeneradorInforme/          # Herramienta de generación de informes
+    └── Program.cs
+
+3. CONFIGURACIÓN Y DESPLIEGUE
+==============================
+
+3.1 REQUISITOS DEL SISTEMA
+--------------------------
+- .NET 10.0 SDK o Runtime
+- Node.js 18+ (para desarrollo del frontend)
+- npm 9+ (para gestión de dependencias)
+- Sistema operativo: Windows, Linux, macOS
+
+3.2 CONFIGURACIÓN DEL BACKEND
+-----------------------------
+Archivo: GTAAPP.Server/Program.cs
+
+CONFIGURACIÓN DE SERVIDOR:
+- Kestrel configurado sin Server header (seguridad)
+- ForwardedHeaders para proxies inversos
+- HSTS habilitado para producción
+- Rate limiting implementado
+- CORS configurable
+
+ENDPOINTS DE LA API:
+- GET /api/gta5 - Información del juego GTA V
+- GET /api/gta6 - Información del juego GTA VI
+- GET /api/locations/properties - Propiedades y negocios
+- GET /api/locations/collectibles - Coleccionables
+- GET /api/user/profile - Perfil de usuario
+- POST /api/user/profile - Actualizar perfil
+- POST /api/user/sync - Sincronización con Social Club
+
+3.3 CONFIGURACIÓN DEL FRONTEND
+------------------------------
+Archivo: gtaapp.client/angular.json
+
+CONFIGURACIÓN DE BUILD:
+- Build target: application (Angular 20)
+- Output path: dist/gtaapp.client/
+- Budgets: 1MB warning, 2MB error para inicial
+- Scripts externos: Leaflet CSS
+
+RUTAS DE LA APLICACIÓN:
+- /home - Página principal
+- /gta5 - Mapa de GTA V
+- /gta6 - Mapa de GTA VI (cuenta atrás)
+- ** - Redirección a /home
+
+3.4 EJECUCIÓN Y DESARROLLO
+--------------------------
+MODO DESARROLLO:
+1. Backend: cd GTAAPP.Server && dotnet run
+2. Frontend: cd gtaapp.client && npm start
+3. El backend se conecta automáticamente al frontend (SPA Proxy)
+
+MODO PRODUCCIÓN:
+1. Build frontend: cd gtaapp.client && npm run build
+2. Ejecutar backend: cd GTAAPP.Server && dotnet run
+3. El backend sirve los archivos estáticos del frontend
+
+4. ESTRUCTURA DE DATOS
+======================
+
+4.1 ALMACENAMIENTO DE DATOS
+---------------------------
+- Formato: JSON
+- Ubicación: wwwroot/data/
+- Archivos principales:
+  * properties.json - Propiedades y negocios
+  * collectibles.json - Coleccionables
+  * user_profile.json - Perfil de usuario
+
+4.2 MODELOS DE DATOS PRINCIPALES
+--------------------------------
+UserProfile:
+- rockstarId: Identificador de Rockstar Games
+- nickname: Alias del jugador
+- avatarUrl: URL de imagen de avatar
+- platform: pc | ps5 | xboxsx
+- characterSlot: 0 | 1 (personaje)
+- rank: Nivel del jugador (1-8000)
+- cash: Dinero en efectivo
+- bank: Dinero en banco
+- ownedPropertyIds: IDs de propiedades poseídas
+- collectedItemIds: IDs de coleccionables recogidos
+- highlightOwnedProperties: Booleano para resaltar propiedades
+- hideCollectedItems: Booleano para ocultar coleccionables
+
+PropertyLocation:
+- id: Identificador único
+- name: Nombre de la propiedad
+- category: Categoría (mansion, bunker, etc.)
+- categoryLabel: Etiqueta visible
+- gameMode: story | online | both
+- owner: Propietario (opcional)
+- price: Precio en dólares
+- priceFormatted: Precio formateado
+- imageUrl: URL de imagen
+- zone: Zona del mapa
+- description: Descripción detallada
+- features: Lista de características
+- income: Ingreso generado
+- position: Coordenadas X, Y, Z
+- badge: Información visual del marcador
+
+CollectibleItem:
+- id: Identificador único
+- name: Nombre del coleccionable
+- category: Categoría (playing_card, action_figure, etc.)
+- categoryLabel: Etiqueta visible
+- number: Número en la colección
+- total: Total de la colección
+- zone: Zona del mapa
+- description: Descripción
+- hint: Pista para encontrarlo
+- reward: Recompensa
+- position: Coordenadas X, Y, Z
+- badge: Información visual del marcador
+
+5. FLUJOS DE LA APLICACIÓN
+===========================
+
+5.1 FLUJO DE INICIALIZACIÓN
+---------------------------
+1. Usuario accede a la aplicación
+2. Angular carga main.ts
+3. Se bootstrap AppModule
+4. Router redirige a /home
+5. HomeComponent se carga
+6. Usuario selecciona GTA V o GTA VI
+
+5.2 FLUJO DE CARGA DEL MAPA GTA V
+---------------------------------
+1. Usuario navega a /gta5
+2. GtaMapComponent se inicializa
+3. Se inicializa Leaflet map
+4. Se carga tile layer según tipo de mapa
+5. LocationService carga propiedades desde API
+6. LocationService carga coleccionables desde API
+7. Se renderizan marcadores en el mapa
+8. UserProfileService carga perfil del usuario
+9. Se aplican filtros según perfil (propiedades poseídas, etc.)
+
+5.3 FLUJO DE SINCRONIZACIÓN CON SOCIAL CLUB
+-------------------------------------------
+1. Usuario abre panel de perfil
+2. Selecciona pestaña "Sync"
+3. Usuario ejecuta script de Tampermonkey o carga JSON manual
+4. Datos se envían a POST /api/user/sync
+5. UserProfileService procesa y sanitiza datos
+6. Se actualiza user_profile.json
+7. Se actualiza la vista del mapa con nuevos datos
+
+5.4 FLUJO DE FILTRADO Y VISUALIZACIÓN
+-------------------------------------
+1. Usuario abre panel de control
+2. Selecciona/deselecciona categorías
+3. Se selecciona modo de juego (story/online)
+4. GtaMapComponent actualiza filtros
+5. Se re-renderizan marcadores visibles
+6. Se aplica lógica de propiedades poseídas
+7. Se actualiza telemetría de coordenadas
+
+6. COMPONENTES Y SERVICIOS
+==========================
+
+6.1 COMPONENTES ANGULAR
+-----------------------
+AppComponent:
+- Componente raíz de la aplicación
+- No contiene lógica significativa
+- Actúa como contenedor de routing
+
+HomeComponent:
+- Página de bienvenida
+- Opciones para navegar a GTA V o GTA VI
+- Diseño minimalista
+
+GtaMapComponent:
+- Componente principal del mapa GTA V
+- ~1000+ líneas de código
+- Lógica compleja de mapas y marcadores
+- Gestión de filtros y capas
+- Integración con Leaflet
+- Panel de control lateral
+- Panel de ajustes
+- Sistema de coordenadas
+- Gestión de marcadores personalizados
+
+Gta6Component:
+- Componente del mapa GTA VI
+- Cuenta atrás hasta lanzamiento
+- Visualización de filtraciones
+- Sistema de zoom y pan en canvas
+- Leyenda de categorías
+- Panel de control similar a GTA V
+
+6.2 SERVICIOS ANGULAR
+---------------------
+LocationService:
+- Servicio para comunicación con API de ubicaciones
+- Métodos: getProperties(), getCollectibles()
+- Usa HttpClient de Angular
+- Manejo de errores básico
+
+UserProfileService:
+- Servicio para gestión del perfil de usuario
+- Observable profile$ para reactividad
+- Métodos: getProfile(), updateProfile(), syncFromSocialClub()
+- Métodos helper: isPropertyOwned(), isItemCollected()
+- Persistencia local en sesión
+
+6.3 CONTROLADORES ASP.NET CORE
+-------------------------------
+GTA5Controller:
+- GET /api/gta5
+- Retorna manifest del juego GTA V
+- Información de configuración del mapa
+
+GTA6Controller:
+- GET /api/gta6
+- Retorna manifest del juego GTA VI
+- Estado "proximamente" sin mapa
+
+LocationsController:
+- GET /api/locations/properties
+- GET /api/locations/collectibles
+- Rate limiting específico (data-policy)
+- Validación de query parameters
+- Filtros por gameMode y category
+
+UserProfileController:
+- GET /api/user/profile
+- POST /api/user/profile
+- POST /api/user/sync
+- Sin autenticación (vulnerabilidad crítica)
+
+6.4 SERVICIOS ASP.NET CORE
+---------------------------
+PropertyImporter:
+- Carga y cachea properties.json
+- Filtrado por gameMode y category
+- Thread-safe con locks
+- Reload automático si el archivo cambia
+
+CollectibleImporter:
+- Carga y cachea collectibles.json
+- Filtrado por category
+- Thread-safe con locks
+
+UserProfileService:
+- Gestión de user_profile.json
+- Sanitización de datos anti-XSS
+- Validación de rangos y URLs
+- Sincronización con Social Club
+- Persistencia thread-safe
+
+6.5 MIDDLEWARE
+---------------
+SecurityHeadersMiddleware:
+- Inyecta cabeceras de seguridad HTTP
+- CSP configurado para recursos externos
+- X-Frame-Options, X-Content-Type-Options
+- Referrer-Policy, Permissions-Policy
+- Eliminación de headers informativos
+
+7. SEGURIDAD
+============
+
+7.1 MEDIDAS DE SEGURIDAD IMPLEMENTADAS
+-------------------------------------
+✅ Headers de seguridad HTTP (CSP, X-Frame-Options, etc.)
+✅ Rate limiting (120 req/min global, 60 req/min datos)
+✅ HSTS configurado correctamente
+✅ Sanitización de entrada (HTML encoding, validación de URLs)
+✅ Eliminación de headers informativos del servidor
+✅ Configuración de CORS basada en entorno
+✅ Validación de rangos y whitelist de plataformas
+
+7.2 VULNERABILIDADES IDENTIFICADAS
+-----------------------------------
+❌ CRÍTICO: Ausencia total de autenticación y autorización
+❌ CRÍTICO: Datos sensibles almacenados sin encriptación
+⚠️ ALTA: Configuración CORS muy permisiva en desarrollo
+⚠️ ALTA: CSP con 'unsafe-inline' y 'unsafe-eval'
+⚠️ ALTA: Validación de entrada incompleta
+⚠️ MEDIA: Almacenamiento en archivos JSON sin ACI granular
+⚠️ MEDIA: Logging potencial de información sensible
+⚠️ MEDIA: Falta de verificación de integridad de datos
+⚠️ BAJA: Dependencias de frontend requieren auditoría regular
+⚠️ BAJA: Falta de monitoreo y alertas de seguridad
+
+7.3 RECOMENDACIONES DE SEGURIDAD
+----------------------------------
+PRIORIDAD CRÍTICA:
+1. Implementar autenticación JWT o OAuth
+2. Encriptar datos sensibles en reposo (AES-256)
+3. Migrar a base de datos para producción
+
+PRIORIDAD ALTA:
+4. Eliminar 'unsafe-inline' de CSP si es posible
+5. Implementar autorización basada en roles (RBAC)
+6. Restringir orígenes CORS en producción
+
+PRIORIDAD MEDIA:
+7. Implementar logging de auditoría
+8. Añadir verificación de integridad de datos
+9. Implementar monitoreo de seguridad
+
+8. ESCALABILIDAD Y RENDIMIENTO
+==============================
+
+8.1 CAPACIDAD DE ESCALADO ACTUAL
+---------------------------------
+HORIZONTAL:
+❌ No preparado para escalado horizontal
+❌ Almacenamiento en archivos locales no compartible
+❌ Sin soporte para múltiples instancias
+
+VERTICAL:
+✅ Puede escalar verticalmente (más CPU/RAM)
+✅ Rate limiting ayuda a distribuir carga
+⚠️ Almacenamiento JSON puede ser cuello de botella
+
+8.2 LIMITACIONES ACTUALES
+---------------------------
+- Almacenamiento en archivos JSON no es escalable
+- Sin caché distribuido
+- Sin balanceo de carga
+- Concurrencia manejada con locks a nivel de aplicación
+- Sin base de datos para consultas complejas
+
+8.3 RECOMENDACIONES PARA ESCALABILIDAD
+---------------------------------------
+PARA ESCALADO HORIZONTAL:
+1. Migrar a base de datos (SQL Server, PostgreSQL)
+2. Implementar caché distribuido (Redis)
+3. Usar almacenamiento en la nube (Azure Blob, S3)
+4. Implementar balanceo de carga
+5. Configurar健康 checks y readiness probes
+
+PARA ESCALADO VERTICAL:
+1. Optimizar consultas JSON
+2. Implementar caché en memoria
+3. Optimizar imágenes y tiles del mapa
+4. Usar CDN para recursos estáticos
+
+9. MANTENIMIENTO Y OPERACIONES
+===============================
+
+9.1 TAREAS DE MANTENIMIENTO REGULARES
+-------------------------------------
+DIARIAS:
+- Verificar logs de errores
+- Monitorear rate limiting
+- Verificar espacio en disco
+
+SEMANALES:
+- Auditoría de dependencias (npm audit)
+- Revisar logs de seguridad
+- Verificar performance de la API
+
+MENSUALES:
+- Actualizar dependencias de seguridad
+- Revisar configuración de CORS
+- Verificar configuración de seguridad
+- Análisis de tráfico y patrones
+
+9.2 PROCEDIMIENTOS DE ACTUALIZACIÓN
+-----------------------------------
+ACTUALIZACIÓN DE DATOS:
+1. Actualizar properties.json en wwwroot/data/
+2. Actualizar collectibles.json en wwwroot/data/
+3. Los servicios recargan automáticamente los datos
+4. No requiere reinicio del servidor
+
+ACTUALIZACIÓN DE CÓDIGO:
+1. Backend: dotnet build && dotnet run
+2. Frontend: npm run build
+3. Desplegar archivos de dist/gtaapp.client/ a wwwroot/
+4. Reiniciar servidor
+
+9.3 MONITOREO Y LOGGING
+------------------------
+LOGGING ACTUAL:
+- Logging de ASP.NET Core configurado
+- Niveles: Information para default, Warning para Microsoft.AspNetCore
+- Errores de carga/persistencia de perfiles loggeados
+
+MONITOREO RECOMENDADO:
+- Application Insights o similar
+- Métricas de rendimiento de API
+- Alertas de rate limiting
+- Monitor de espacio en disco
+- Uptime monitoring
+
+10. MANIPULACIÓN MANUAL DE LA APLICACIÓN
+========================================
+
+10.1 MODIFICACIÓN DE DATOS DE PROPIEDADES
+-----------------------------------------
+ARCHIVO: GTAAPP.Server/wwwroot/data/properties.json
+
+FORMATO DE UNA PROPIEDAD:
+{
+  "id": "mansion_richman",
+  "name": "Mansión de Richman",
+  "category": "mansion",
+  "categoryLabel": "Mansión",
+  "gameMode": "online",
+  "owner": null,
+  "price": 8500000,
+  "priceFormatted": "$8,500,000",
+  "imageUrl": "https://ejemplo.com/imagen.jpg",
+  "zone": "Richman Hills",
+  "description": "Mansión de lujo...",
+  "features": ["Piscina", "Garaje", "Oficina"],
+  "income": "$5,000/semana",
+  "position": {
+    "x": -1400.5,
+    "y": 200.3,
+    "z": 50.0
+  },
+  "badge": {
+    "icon": "fa-home",
+    "color": "#3498db",
+    "symbol": "🏠"
+  }
+}
+
+AGREGAR NUEVA PROPIEDAD:
+1. Abrir properties.json
+2. Agregar objeto JSON al array
+3. Guardar archivo
+4. Recargar página web (los servicios recargan automáticamente)
+
+MODIFICAR PROPIEDAD EXISTENTE:
+1. Buscar por id en properties.json
+2. Modificar campos necesarios
+3. Guardar archivo
+4. Los cambios se reflejan automáticamente
+
+10.2 MODIFICACIÓN DE COLECCIONABLES
+-----------------------------------
+ARCHIVO: GTAAPP.Server/wwwroot/data/collectibles.json
+
+FORMATO DE UN COLECCIONABLE:
+{
+  "id": "playing_card_1",
+  "name": "Carta de Juego #1",
+  "category": "playing_card",
+  "categoryLabel": "Cartas de Juego",
+  "number": 1,
+  "total": 54,
+  "zone": "Los Santos",
+  "description": "Carta escondida en...",
+  "hint": "Busca en el techo del edificio...",
+  "reward": "Chips del Casino",
+  "position": {
+    "x": 123.4,
+    "y": -456.7,
+    "z": 10.0
+  },
+  "badge": {
+    "icon": "fa-card",
+    "color": "#8e24aa",
+    "symbol": "🃏"
+  }
+}
+
+PROCEDIMIENTO IGUAL QUE PROPIEDADES
+
+10.3 MODIFICACIÓN DEL PERFIL DE USUARIO
+---------------------------------------
+ARCHIVO: GTAAPP.Server/wwwroot/data/user_profile.json
+
+FORMATO DEL PERFIL:
+{
+  "rockstarId": "123456789",
+  "nickname": "JugadorDeGTA",
+  "avatarUrl": "data:image/png;base64,...",
+  "platform": "pc",
+  "characterSlot": 0,
+  "isSyncedWithSocialClub": true,
+  "lastSyncDate": "2026-09-27T12:00:00Z",
+  "rank": 500,
+  "cash": 1500000,
+  "bank": 5000000,
+  "ownedPropertyIds": ["mansion_richman", "bunker_paleto"],
+  "collectedItemIds": ["playing_card_1", "action_figure_5"],
+  "highlightOwnedProperties": true,
+  "hideCollectedItems": false
+}
+
+MODIFICACIÓN MANUAL:
+1. Abrir user_profile.json
+2. Modificar campos deseados
+3. Guardar archivo
+4. Recargar página web
+
+10.4 CONFIGURACIÓN DE CORS
+---------------------------
+ARCHIVO: GTAAPP.Server/appsettings.json (producción)
+ARCHIVO: GTAAPP.Server/appsettings.Development.json (desarrollo)
+
+FORMATO:
+{
+  "Cors": {
+    "AllowedOrigins": [
+      "https://localhost:4200",
+      "https://localhost:59979",
+      "https://tudominio.com"
+    ]
+  }
+}
+
+AGREGAR NUEVO ORIGEN:
+1. Abrir appsettings.json correspondiente
+2. Agregar URL a array AllowedOrigins
+3. Reiniciar servidor
+
+10.5 CONFIGURACIÓN DE RATE LIMITING
+------------------------------------
+ARCHIVO: GTAAPP.Server/Program.cs (líneas 56-106)
+
+POLÍTICA GLOBAL (líneas 76-89):
+- PermitLimit: 120 (peticiones por minuto)
+- Window: TimeSpan.FromMinutes(1)
+- SegmentsPerWindow: 4
+- QueueLimit: 0
+
+POLÍTICA DE DATOS (líneas 92-105):
+- PermitLimit: 60 (peticiones por minuto)
+- Resto igual a política global
+
+MODIFICAR LÍMITES:
+1. Abrir Program.cs
+2. Modificar valores PermitLimit
+3. Recompilar y reiniciar servidor
+
+10.6 CONFIGURACIÓN DE CSP
+---------------------------
+ARCHIVO: GTAAPP.Server/Middleware/SecurityHeadersMiddleware.cs (líneas 66-76)
+
+CSP ACTUAL:
+"default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://tiles.mapgenie.io https://static.wikia.nocookie.net https://media.rockstargames.com https://*.wikia.nocookie.net; connect-src 'self' https://tiles.mapgenie.io; frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
+
+MODIFICAR CSP:
+1. Abrir SecurityHeadersMiddleware.cs
+2. Modificar string csp
+3. Recompilar y reiniciar servidor
+
+11. PERSONALIZACIÓN Y EXTENSIÓN
+===============================
+
+11.1 AGREGAR NUEVAS CATEGORÍAS DE PROPIEDADES
+---------------------------------------------
+1. Definir nueva categoría en GtaMapComponent.ts (gtaapp.client)
+2. Agregar clave a layerFilters
+3. Agregar lógica de filtrado
+4. Agregar elementos a properties.json con nueva categoría
+5. Recompilar frontend
+
+11.2 AGREGAR NUEVOS TIPOS DE MAPA
+----------------------------------
+1. Agregar nuevo tipo a allMapTypes en GtaMapComponent.ts
+2. Agregar lógica en initMap() para nuevo tileUrl
+3. Colocar tiles en wwwroot/assets/nuevo_tipo/
+4. Recompilar frontend
+
+11.3 MODIFICAR ESTILOS VISUALES
+-------------------------------
+ARCHIVOS CSS:
+- gtaapp.client/src/app/styles.css (estilos globales)
+- gtaapp.client/src/app/gta-map/gta-map.component.css
+- gtaapp.client/src/app/gta6/gta6.component.css
+- gtaapp.client/src/app/home/home.component.css
+
+PROCEDIMIENTO:
+1. Modificar archivos CSS
+2. Recompilar frontend (npm run build)
+3. Desplegar archivos resultantes
+
+11.4 AGREGAR NUEVOS ENDPOINTS DE API
+-------------------------------------
+1. Crear nuevo modelo en Models/
+2. Crear nuevo servicio en Services/ (si es necesario)
+3. Crear nuevo controller en Controllers/
+4. Registrar servicio en Program.cs
+5. Recompilar backend
+
+12. SOLUCIÓN DE PROBLEMAS
+==========================
+
+12.1 PROBLEMAS COMUNES
+-----------------------
+MAPA NO CARGA:
+- Verificar que los tiles existan en wwwroot/assets/
+- Verificar rutas en angular.json
+- Revisar console del navegador para errores
+
+DATOS NO CARGAN:
+- Verificar que archivos JSON existan en wwwroot/data/
+- Verificar formato JSON válido
+- Revisar logs del servidor
+
+PERFIL NO GUARDA:
+- Verificar permisos de escritura en wwwroot/data/
+- Revisar logs de UserProfileService
+- Verificar espacio en disco
+
+12.2 HERRAMIENTAS DE DEBUG
+---------------------------
+BACKEND:
+- dotnet run --verbose (logging detallado)
+- Visual Studio Debugger
+- Application Insights (si configurado)
+
+FRONTEND:
+- Angular DevTools (extensión Chrome)
+- Console del navegador
+- Network tab del navegador
+- Augury (extensión para debugging Angular)
+
+13. MIGRACIÓN A PRODUCCIÓN
+===========================
+
+13.1 CHECKLIST PRE-PRODUCCIÓN
+------------------------------
+❓ Implementar autenticación y autorización
+❓ Encriptar datos sensibles en reposo
+❓ Migrar a base de datos (opcional pero recomendado)
+❓ Configurar CORS para dominios de producción
+❓ Configurar HTTPS certificado SSL
+❓ Configurar rate limiting adecuado
+❓ Implementar monitoreo y alertas
+❓ Configurar backups automáticos
+❓ Revisar y ajustar CSP para producción
+❓ Eliminar 'unsafe-inline' si es posible
+❓ Configurar logging estructurado
+❓ Implementar health checks
+❓ Configurar CDN para recursos estáticos
+❓ Optimizar imágenes y assets
+❓ Implementar compresión HTTP
+❓ Configurar cache headers
+❓ Realizar pruebas de carga
+❓ Realizar pruebas de seguridad
+❓ Documentar procedimientos de emergencia
+
+13.2 REQUISITOS DE INFRAESTRUCTURA
+-----------------------------------
+MÍNIMO:
+- 2 CPU cores
+- 4 GB RAM
+- 20 GB almacenamiento
+- Ancho de banda: 10 Mbps
+
+RECOMENDADO:
+- 4 CPU cores
+- 8 GB RAM
+- 50 GB almacenamiento
+- Ancho de banda: 100 Mbps
+- CDN para recursos estáticos
+- Base de datos separada
+
+13.3 CONFIGURACIÓN DE ENTORNO
+------------------------------
+VARIABLES DE ENTORNO:
+- ASPNETCORE_ENVIRONMENT=Production
+- ASPNETCORE_URLS=https://localhost:7243
+- (Otras según necesidades específicas)
+
+ARCHIVO appsettings.Production.json:
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning",
+      "Microsoft.AspNetCore": "Error"
+    }
+  },
+  "AllowedHosts": "tudominio.com",
+  "Cors": {
+    "AllowedOrigins": [
+      "https://tudominio.com"
+    ]
+  }
+}
+
+14. DOCUMENTACIÓN ADICIONAL
+===========================
+
+14.1 RECURSOS DE REFERENCIA
+----------------------------
+- Documentación ASP.NET Core: https://docs.microsoft.com/aspnet/core
+- Documentación Angular: https://angular.io/docs
+- Documentación Leaflet: https://leafletjs.com/reference.html
+- OWASP Security Guidelines: https://owasp.org/
+
+14.2 ARCHIVOS DE DOCUMENTACIÓN EXISTENTES
+------------------------------------------
+- AUDITORIA_SEGURIDAD_GTAAPP.txt - Auditoría de seguridad completa
+- Este archivo (MANUAL_TECNICO_GTAAPP.txt) - Manual técnico completo
+
+15. CONCLUSIONES
+================
+
+GTAAPP es una aplicación bien estructurada con una arquitectura moderna y separación clara de responsabilidades. La aplicación está funcionalmente completa y lista para producción, pero presenta varias áreas de mejora crítica en seguridad que deben ser abordadas antes del despliegue en producción.
+
+PUNTOS FUERTES:
+✅ Arquitectura SPA moderna y bien organizada
+✅ Separación clara backend/frontend
+✅ Implementación de buenas prácticas de seguridad
+✅ Rate limiting robusto
+✅ Sistema de mapas interactivo completo
+✅ Sincronización con Social Club
+✅ Código bien estructurado y comentado
+
+PUNTOS CRÍTICOS:
+❌ Ausencia total de autenticación (CRÍTICO)
+❌ Datos sensibles sin encriptación (CRÍTICO)
+❌ Almacenamiento en archivos JSON no escalable
+❌ No preparado para escalado horizontal
+❌ Falta de monitoreo y alertas
+
+RECOMENDACIÓN FINAL:
+La aplicación es funcionalmente sólida pero requiere mejoras de seguridad críticas antes de producción. Se recomienda priorizar la implementación de autenticación y encriptación de datos, y considerar la migración a base de datos para mejor escalabilidad y seguridad.
+
+---
+FIN DEL MANUAL TÉCNICO COMPLETO
+Generado por análisis técnico exhaustivo
+Fecha: 27/09/2026

@@ -7,24 +7,7 @@ import { UserProfileService } from '../services/user-profile.service';
 import { UserProfile, SocialClubSyncPayload } from '../models/user-profile';
 import { Subscription } from 'rxjs';
 
-export interface GtaVehicle {
-  id: string;           // nombre interno (clave del JSON)
-  name: string;         // nombre para mostrar en español/inglés
-  manufacturer: string;
-  class: string;        // SUPER, SPORT, MUSCLE, etc.
-  venue: string;        // legendarymotorsport, superautos, bennys, warstock, etc.
-  priceFull: number;
-  priceTrade: number;
-  type: string;         // car, helicopter, plane, motorcycle...
-  weaponized: boolean;
-  imageUrl?: string;
-  imgFailed?: boolean;
-  // Stats estimados (0-10) - se rellenarán con datos de la API o estimados
-  acceleration?: number;
-  braking?: number;
-  handling?: number;
-  speed?: number;
-}
+import { GtaVehicle, DealerCategory } from '../models/vehicle';
 
 @Component({
     selector: 'app-gta-map',
@@ -417,13 +400,61 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     // ============================================================
     // CONCESIONARIOS: definición centralizada
     // ============================================================
-    readonly dealers = [
-      { id: 'legendarymotorsport', name: 'Legendary Motorsport', icon: 'fa-star',   color: '#ffb833', gameMode: 'online' as const },
-      { id: 'superautos',          name: 'Southern San Andreas',  icon: 'fa-car',    color: '#3498db', gameMode: 'both'   as const },
-      { id: 'bennys',              name: "Benny's Original MW",   icon: 'fa-wrench', color: '#e67e22', gameMode: 'online' as const },
-      { id: 'elitas',              name: 'Elitas Travel',          icon: 'fa-plane',  color: '#8e44ad', gameMode: 'both'   as const },
-      { id: 'docktease',           name: 'DockTease',              icon: 'fa-ship',   color: '#2980b9', gameMode: 'both'   as const },
-      { id: 'warstock',            name: 'Warstock C&C',           icon: 'fa-bomb',   color: '#c0392b', gameMode: 'online' as const },
+    readonly dealers: DealerCategory[] = [
+      {
+        id: 'legendarymotorsport',
+        name: 'Legendary Motorsport',
+        icon: 'fa-star',
+        logoUrl: 'https://static.wikia.nocookie.net/gtawiki/images/f/fa/LegendaryMotorsport-GTAV-Logo.png/revision/latest',
+        color: '#ffb833',
+        gameMode: 'both' as const,
+        description: 'Superdeportivos, exóticos de competición y vehículos de hiperlujo.'
+      },
+      {
+        id: 'superautos',
+        name: 'Southern San Andreas',
+        icon: 'fa-car',
+        logoUrl: 'https://static.wikia.nocookie.net/degta/images/1/10/SSASA-Logo_2.png/revision/latest',
+        color: '#3498db',
+        gameMode: 'both' as const,
+        description: 'Muscle cars, compactos, sedanes, SUVs, todoterrenos y motos.'
+      },
+      {
+        id: 'bennys',
+        name: "Benny's Original MW",
+        icon: 'fa-wrench',
+        logoUrl: 'https://static.wikia.nocookie.net/public-5city/images/3/31/Benny%27s_logo.png/revision/latest',
+        color: '#e67e22',
+        gameMode: 'online' as const,
+        description: 'Taller de personalización radical, lowriders y conversiones tuners.'
+      },
+      {
+        id: 'elitas',
+        name: 'Elitas Travel',
+        icon: 'fa-plane',
+        logoUrl: '',
+        color: '#8e44ad',
+        gameMode: 'both' as const,
+        description: 'Aeronaves privadas, jets de negocios y helicópteros ejecutivos.'
+      },
+      {
+        id: 'docktease',
+        name: 'DockTease',
+        icon: 'fa-ship',
+        logoUrl: '',
+        color: '#2980b9',
+        gameMode: 'both' as const,
+        description: 'Embarcaciones náuticas, yates, lanchas rápidas y motos de agua.'
+      },
+      {
+        id: 'warstock',
+        name: 'Warstock C&C',
+        icon: 'fa-bomb',
+        logoUrl: '',
+        color: '#c0392b',
+        gameMode: 'both' as const,
+        description: 'Vehículos blindados, armamento militar pesado y maquinaria táctica.'
+      },
     ];
 
     // ============================================================
@@ -456,10 +487,69 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
     // Cache de vehículos por concesionario
     private vehicleCache: { [dealerId: string]: GtaVehicle[] } = {};
 
-    // Todas las clases disponibles en el concesionario activo (para filtrado futuro)
-    get dealerClasses(): string[] {
-      const classes = [...new Set(this.dealerVehicles.map(v => v.class))];
-      return classes.sort();
+    // Pestaña de categoría de vehículos activa ('all' o clase específica)
+    selectedVehicleClass: string = 'all';
+
+    // Categorías disponibles en el concesionario activo con icono y recuento
+    get dealerCategories(): { id: string; name: string; count: number; icon: string }[] {
+      if (!this.dealerVehicles || this.dealerVehicles.length === 0) return [];
+
+      const counts: { [cls: string]: number } = {};
+      for (const v of this.dealerVehicles) {
+        const cls = v.class || 'Otros';
+        counts[cls] = (counts[cls] || 0) + 1;
+      }
+
+      const list = Object.keys(counts)
+        .sort((a, b) => counts[b] - counts[a])
+        .map(cls => ({
+          id: cls,
+          name: cls,
+          count: counts[cls],
+          icon: this.getCategoryTabIcon(cls)
+        }));
+
+      return [
+        { id: 'all', name: 'Todos', count: this.dealerVehicles.length, icon: 'fa-layer-group' },
+        ...list
+      ];
+    }
+
+    // Vehículos filtrados según la pestaña de categoría seleccionada
+    get filteredDealerVehicles(): GtaVehicle[] {
+      if (this.selectedVehicleClass === 'all') {
+        return this.dealerVehicles;
+      }
+      return this.dealerVehicles.filter(v => (v.class || 'Otros') === this.selectedVehicleClass);
+    }
+
+    setVehicleCategory(catId: string): void {
+      this.selectedVehicleClass = catId;
+      if (this.selectedVehicle && catId !== 'all') {
+        const curClass = this.selectedVehicle.class || 'Otros';
+        if (curClass !== catId) {
+          this.selectedVehicle = null;
+        }
+      }
+    }
+
+    getCategoryTabIcon(cls: string): string {
+      const c = cls.toLowerCase();
+      if (c.includes('súper') || c.includes('super')) return 'fa-bolt';
+      if (c.includes('deportivo') || c.includes('sport')) return 'fa-car-side';
+      if (c.includes('clásico')) return 'fa-award';
+      if (c.includes('muscle')) return 'fa-gauge-high';
+      if (c.includes('moto') || c.includes('cycle')) return 'fa-motorcycle';
+      if (c.includes('suv') || c.includes('camioneta')) return 'fa-truck-pickup';
+      if (c.includes('todoterreno') || c.includes('offroad')) return 'fa-mountain';
+      if (c.includes('sedán') || c.includes('sedan') || c.includes('cupé') || c.includes('compacto')) return 'fa-car';
+      if (c.includes('militar') || c.includes('emergency')) return 'fa-shield-halved';
+      if (c.includes('heli')) return 'fa-helicopter';
+      if (c.includes('avión') || c.includes('plane')) return 'fa-plane';
+      if (c.includes('embarc') || c.includes('boat')) return 'fa-ship';
+      if (c.includes('furgoneta') || c.includes('van')) return 'fa-van-shuttle';
+      if (c.includes('servicio') || c.includes('utilitario') || c.includes('comercial') || c.includes('indust')) return 'fa-truck';
+      return 'fa-tag';
     }
 
     // Concesionarios visibles según el modo de juego activo
@@ -480,6 +570,7 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
       this.activeDealerId = dealerId;
       this.activeDealerName = dealerName;
       this.selectedVehicle = null;
+      this.selectedVehicleClass = 'all';
       this.drawerView = 'dealer-grid';
       this.loadDealerVehicles(dealerId);
     }
@@ -494,6 +585,10 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
       this.selectedVehicle = this.selectedVehicle?.id === v.id ? null : v;
     }
 
+    onDealerLogoError(dealer: any): void {
+      dealer.logoFailed = true;
+    }
+
     private loadDealerVehicles(dealerId: string): void {
       // Usar cache si ya lo cargamos antes
       if (this.vehicleCache[dealerId]) {
@@ -505,72 +600,25 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
       this.vehiclesError = false;
       this.dealerVehicles = [];
 
-      // URL del JSON de mxamber (raw GitHub)
-      const url = 'https://raw.githubusercontent.com/mxamber/gtavehicles/master/gtavehicles.json';
-
-      fetch(url)
-        .then(r => r.json())
-        .then((data: any) => {
-          const vehicles: GtaVehicle[] = [];
-          const vehiclesObj = data.vehicles || {};
-
-          for (const [key, raw] of Object.entries(vehiclesObj) as [string, any][]) {
-            if (!raw || !raw.venue) continue;
-            const venue: string = (raw.venue || '').toLowerCase();
-
-            // Mapear venue al id del concesionario
-            const venueMap: { [k: string]: string } = {
-              'legendarymotorsport': 'legendarymotorsport',
-              'motorsport':          'legendarymotorsport',
-              'superautos':          'superautos',
-              'warstock':            'warstock',
-              'bennys':              'bennys',
-              'elitas':              'elitas',
-              'docktease':           'docktease',
-            };
-            const mappedVenue = venueMap[venue];
-            if (!mappedVenue) continue;
-
-            const stats = this.computeVehicleStats(key, raw.type || 'car', raw.price_full || 0);
-            const v: GtaVehicle = {
-              id: key,
-              name: raw.name || key,
-              manufacturer: raw.manufacturer || '',
-              class: (raw.type || 'car').toUpperCase(),
-              venue: mappedVenue,
-              priceFull: raw.price_full || 0,
-              priceTrade: raw.price_trade || 0,
-              type: raw.type || 'car',
-              weaponized: raw.weaponized || false,
-              imageUrl: `https://raw.githubusercontent.com/MericcaN41/gta5carimages/main/images/${key.toLowerCase()}.png`,
-              speed: stats.speed,
-              acceleration: stats.accel,
-              braking: stats.brake,
-              handling: stats.handling,
-            };
-            vehicles.push(v);
-          }
-
-          vehicles.sort((a, b) => a.name.localeCompare(b.name));
-
-          // Pre-cache por venue
-          const byVenue: { [k: string]: GtaVehicle[] } = {};
+      this.locationService.getVehicles().subscribe({
+        next: (vehicles) => {
+          this.vehicleCache = {};
           for (const v of vehicles) {
-            if (!byVenue[v.venue]) byVenue[v.venue] = [];
-            byVenue[v.venue].push(v);
+            const d = v.dealership || 'superautos';
+            if (!this.vehicleCache[d]) {
+              this.vehicleCache[d] = [];
+            }
+            this.vehicleCache[d].push(v);
           }
-          // Fusionar en vehicleCache
-          for (const [venue, list] of Object.entries(byVenue)) {
-            this.vehicleCache[venue] = list;
-          }
-
           this.dealerVehicles = this.vehicleCache[dealerId] || [];
           this.vehiclesLoading = false;
-        })
-        .catch(() => {
+        },
+        error: (err) => {
+          console.error('Error al cargar catálogo de vehículos:', err);
           this.vehiclesLoading = false;
           this.vehiclesError = true;
-        });
+        }
+      });
     }
 
     computeVehicleStats(key: string, type: string, price: number): { speed: number; accel: number; brake: number; handling: number } {
@@ -607,6 +655,17 @@ export class GtaMapComponent implements OnInit, AfterViewInit, OnDestroy {
         'van': 'Furgoneta', 'military': 'Militar', 'service': 'Servicio',
       };
       return labels[cls?.toLowerCase() || ''] || cls;
+    }
+
+    getVehicleIcon(v: GtaVehicle | null): string {
+      if (!v) return 'fa-car';
+      const cat = (v.category || v.class || '').toLowerCase();
+      if (cat.includes('motor')) return 'fa-motorcycle';
+      if (cat.includes('heli')) return 'fa-helicopter';
+      if (cat.includes('plane') || cat.includes('avión')) return 'fa-plane';
+      if (cat.includes('boat') || cat.includes('embarc')) return 'fa-ship';
+      if (cat.includes('militar') || cat.includes('indust') || cat.includes('offroad') || cat.includes('todoterreno')) return 'fa-truck-monster';
+      return 'fa-car';
     }
 
     drawerGroupOpen: { [category: string]: boolean } = {};

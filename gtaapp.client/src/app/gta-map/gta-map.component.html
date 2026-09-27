@@ -1065,7 +1065,7 @@
     </div>
 
     <!-- ====== CUERPO ====== -->
-    <div class="drawer-body">
+    <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'">
 
       <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
       <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'vehiculos'">
@@ -1077,11 +1077,12 @@
             [style.--dealer-color]="d.color"
           >
             <div class="dealer-card-icon">
-              <i class="fa-solid" [ngClass]="d.icon"></i>
+              <img *ngIf="d.logoUrl && !d.logoFailed" [src]="d.logoUrl" [alt]="d.name" class="dealer-logo-img" (error)="onDealerLogoError(d)" />
+              <i *ngIf="!d.logoUrl || d.logoFailed" class="fa-solid" [ngClass]="d.icon"></i>
             </div>
             <div class="dealer-card-info">
               <span class="dealer-card-name">{{ d.name }}</span>
-              <span class="dealer-card-sub">Ver catálogo</span>
+              <span class="dealer-card-sub">{{ d.description || 'Ver catálogo' }}</span>
             </div>
             <div class="dealer-card-arrow">
               <i class="fa-solid fa-chevron-right"></i>
@@ -1112,26 +1113,47 @@
         </div>
 
         <!-- Grid + detalle -->
-        <ng-container *ngIf="!vehiclesLoading && dealerVehicles.length > 0">
+        <div class="vgrid-view-container" *ngIf="!vehiclesLoading && dealerVehicles.length > 0">
 
           <!-- CONTADOR -->
           <div class="vgrid-counter">
-            <span class="vgrid-count-num">{{ dealerVehicles.length }}</span>
-            <span class="vgrid-count-lbl">vehículos disponibles</span>
+            <div class="vgrid-counter-left">
+              <span class="vgrid-count-num">{{ filteredDealerVehicles.length }}</span>
+              <span class="vgrid-count-lbl">vehículos disponibles</span>
+            </div>
+            <span class="vgrid-count-total" *ngIf="selectedVehicleClass !== 'all'">
+              de {{ dealerVehicles.length }} en catálogo
+            </span>
+          </div>
+
+          <!-- PESTAÑAS DE CATEGORÍA DE VEHÍCULOS -->
+          <div class="vcategory-tabs" role="tablist">
+            <button
+              *ngFor="let cat of dealerCategories"
+              type="button"
+              class="vcat-tab"
+              [class.is-active]="selectedVehicleClass === cat.id"
+              (click)="setVehicleCategory(cat.id)"
+              role="tab"
+              [attr.aria-selected]="selectedVehicleClass === cat.id"
+            >
+              <i class="fa-solid vcat-icon" [ngClass]="cat.icon"></i>
+              <span class="vcat-name">{{ cat.name }}</span>
+              <span class="vcat-count">{{ cat.count }}</span>
+            </button>
           </div>
 
           <!-- GRID DE TARJETAS -->
-          <div class="vgrid-grid">
-            <button
-              *ngFor="let v of dealerVehicles"
-              type="button"
+          <div class="vgrid-grid" [class.has-selection]="selectedVehicle !== null">
+            <div
+              *ngFor="let v of filteredDealerVehicles"
               class="vcard"
               [class.is-selected]="selectedVehicle?.id === v.id"
               (click)="selectVehicle(v)"
             >
               <!-- Zona imagen / foto -->
               <div class="vcard-img">
-                <span class="vcard-class-badge">{{ getVehicleClassLabel(v.type) }}</span>
+                <span class="vcard-class-badge">{{ v.class }}</span>
                 <img
                   *ngIf="v.imageUrl && !v.imgFailed"
                   [src]="v.imageUrl"
@@ -1141,13 +1163,7 @@
                   (error)="onVehicleImgError(v)"
                 />
                 <ng-container *ngIf="!v.imageUrl || v.imgFailed">
-                  <i class="fa-solid fa-car vcard-img-icon" *ngIf="v.type === 'car' || v.type === 'super' || v.type === 'sport'"></i>
-                  <i class="fa-solid fa-motorcycle vcard-img-icon" *ngIf="v.type === 'motorcycle'"></i>
-                  <i class="fa-solid fa-helicopter vcard-img-icon" *ngIf="v.type === 'helicopter'"></i>
-                  <i class="fa-solid fa-plane vcard-img-icon" *ngIf="v.type === 'plane'"></i>
-                  <i class="fa-solid fa-ship vcard-img-icon" *ngIf="v.type === 'boat'"></i>
-                  <i class="fa-solid fa-truck-monster vcard-img-icon" *ngIf="v.type === 'military' || v.type === 'van'"></i>
-                  <i class="fa-solid fa-car vcard-img-icon" *ngIf="v.type !== 'car' && v.type !== 'super' && v.type !== 'sport' && v.type !== 'motorcycle' && v.type !== 'helicopter' && v.type !== 'plane' && v.type !== 'boat' && v.type !== 'military' && v.type !== 'van'"></i>
+                  <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
                 </ng-container>
                 <span class="vcard-weapon-badge" *ngIf="v.weaponized" title="Armado">🔫</span>
               </div>
@@ -1156,10 +1172,20 @@
                 <span class="vcard-name">{{ v.name }}</span>
                 <div class="vcard-sub-row">
                   <span class="vcard-maker">{{ v.manufacturer }}</span>
-                  <span class="vcard-price">{{ formatPrice(v.priceFull) }}</span>
+                  <span class="vcard-price">{{ v.priceFormatted }}</span>
                 </div>
               </div>
-            </button>
+            </div>
+          </div>
+
+          <!-- SEPARADOR ESTILIZADO ENTRE GRID Y FICHA -->
+          <div class="vgrid-divider" *ngIf="selectedVehicle">
+            <span class="vgrid-divider-line"></span>
+            <span class="vgrid-divider-tag">
+              <i class="fa-solid fa-gauge-high"></i>
+              <span>FICHA DE ESPECIFICACIONES</span>
+            </span>
+            <span class="vgrid-divider-line"></span>
           </div>
 
           <!-- PANEL DE DETALLES (cuando hay selección) -->
@@ -1174,19 +1200,14 @@
                   (error)="onVehicleImgError(selectedVehicle)"
                 />
                 <ng-container *ngIf="!selectedVehicle.imageUrl || selectedVehicle.imgFailed">
-                  <i class="fa-solid fa-car vdetail-icon" *ngIf="selectedVehicle.type === 'car'"></i>
-                  <i class="fa-solid fa-motorcycle vdetail-icon" *ngIf="selectedVehicle.type === 'motorcycle'"></i>
-                  <i class="fa-solid fa-helicopter vdetail-icon" *ngIf="selectedVehicle.type === 'helicopter'"></i>
-                  <i class="fa-solid fa-plane vdetail-icon" *ngIf="selectedVehicle.type === 'plane'"></i>
-                  <i class="fa-solid fa-ship vdetail-icon" *ngIf="selectedVehicle.type === 'boat'"></i>
-                  <i class="fa-solid fa-car vdetail-icon" *ngIf="selectedVehicle.type !== 'car' && selectedVehicle.type !== 'motorcycle' && selectedVehicle.type !== 'helicopter' && selectedVehicle.type !== 'plane' && selectedVehicle.type !== 'boat'"></i>
+                  <i class="fa-solid vdetail-icon" [ngClass]="getVehicleIcon(selectedVehicle)"></i>
                 </ng-container>
               </div>
               <div class="vdetail-header">
                 <span class="vdetail-maker">{{ selectedVehicle.manufacturer }}</span>
                 <h4 class="vdetail-name">{{ selectedVehicle.name }}</h4>
                 <div class="vdetail-tags">
-                  <span class="vdetail-class-tag">{{ getVehicleClassLabel(selectedVehicle.class) }}</span>
+                  <span class="vdetail-class-tag">{{ selectedVehicle.class }}</span>
                   <span class="vdetail-weapon-tag" *ngIf="selectedVehicle.weaponized">🔫 Vehículo Armado</span>
                 </div>
               </div>
@@ -1196,7 +1217,7 @@
             <div class="vdetail-prices">
               <div class="vdetail-price-box vdetail-price-full">
                 <span class="vdetail-price-lbl">Precio de Compra</span>
-                <span class="vdetail-price-val">{{ formatPrice(selectedVehicle.priceFull) }}</span>
+                <span class="vdetail-price-val">{{ selectedVehicle.priceFormatted }}</span>
               </div>
               <div class="vdetail-price-box vdetail-price-trade" *ngIf="selectedVehicle.priceTrade > 0">
                 <span class="vdetail-price-lbl">Trade Price</span>
@@ -1235,9 +1256,13 @@
                 <span class="vstat-num">{{ selectedVehicle.handling }}</span>
               </div>
             </div>
-          </div>
 
-        </ng-container>
+            <!-- Descripción de humor / catálogo oficial -->
+            <p class="vdetail-desc" *ngIf="selectedVehicle.description">
+              {{ selectedVehicle.description }}
+            </p>
+          </div>
+        </div>
       </ng-container>
 
       <!-- ============ TAB: MISIONES ============ -->

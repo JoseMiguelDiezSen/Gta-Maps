@@ -1,0 +1,297 @@
+AUDITORÍA DE SEGURIDAD - APLICACIÓN GTAAPP
+===========================================
+
+Fecha: 27/09/2026 12:57
+Auditor: Devin AI Security Analysis
+
+1. RESUMEN EJECUTIVO
+====================
+Esta auditoría de seguridad analiza la aplicación GTAAPP, un sistema de mapeo y gestión de datos para Grand Theft Auto (GTA V/GTA VI) desarrollado con ASP.NET Core 10.0 y Angular 20. A diferencia de aplicaciones empresariales tradicionales, esta aplicación presenta un modelo de seguridad diferente con características positivas y áreas de mejora importantes.
+
+NIVEL DE RIESGO GLOBAL: MEDIO
+La aplicación tiene buenas prácticas de seguridad implementadas pero presenta ausencia de autenticación y datos almacenados localmente sin encriptación.
+
+2. ARQUITECTURA GENERAL DE LA APLICACIÓN
+=======================================
+Tecnologías identificadas:
+• Backend: ASP.NET Core 10.0
+• Frontend: Angular 20.3.31
+• Mapas: Leaflet 1.9.4
+• Icons: FontAwesome 7.3.1
+• Build: Angular CLI 20.3.37
+
+Estructura del proyecto:
+• GTAAPP.Server/: Backend ASP.NET Core
+• gtaapp.client/: Frontend Angular
+• Arquitectura SPA con API REST
+• Almacenamiento de datos en archivos JSON locales
+
+3. VULNERABILIDADES CRÍTICAS
+==============================
+3.1 AUSENCIA DE AUTENTICACIÓN Y AUTORIZACIÓN
+SEVERIDAD: CRÍTICA
+Ubicación: Todos los controladores, Program.cs
+Descripción:
+La aplicación NO implementa ningún sistema de autenticación. Todos los endpoints son públicos sin atributos [Authorize]. Cualquier persona con acceso a la API puede leer y modificar datos del perfil de usuario.
+Código vulnerable:
+[ApiController]
+[Route("api/user")]
+public class UserProfileController : ControllerBase
+Impacto:
+• Cualquier usuario puede acceder a los datos del perfil sin autenticación
+• Posible manipulación de datos de otros usuarios
+• No hay rastro de quién realiza las modificaciones
+• Sin control de acceso basado en roles
+Recomendación:
+Implementar autenticación mediante JWT, OAuth, o ASP.NET Core Identity. Añadir atributos [Authorize] en los controladores. Implementar autorización basada en roles para permitir solo al propietario modificar su perfil.
+
+3.2 DATOS SENSIBLES ALMACENADOS SIN ENCRIPTACIÓN
+SEVERIDAD: CRÍTICA
+Ubicación: UserProfileService.cs líneas 24, 181
+Descripción:
+Los datos del perfil de usuario se almacenan en archivos JSON local sin encriptación: user_profile.json
+Código vulnerable:
+_filePath = Path.Combine(baseDir, "data", "user_profile.json");
+File.WriteAllText(_filePath, json);
+Impacto:
+• Cualquier persona con acceso al servidor puede leer los datos de usuario
+• No hay protección de datos sensibles en reposo
+• Posible exposición de información personal si el servidor es comprometido
+Recomendación:
+Implementar encriptación de datos sensibles (AES-256) para el almacenamiento. Considerar usar base de datos en lugar de archivos JSON. Implementar hashing para datos sensibles como Rockstar ID.
+
+4. VULNERABILIDADES DE ALTA SEVERIDAD
+=====================================
+4.1 CONFIGURACIÓN CORS MUY PERMISIVA
+SEVERIDAD: ALTA
+Ubicación: Program.cs líneas 35-54, appsettings.json
+Descripción:
+La configuración CORS permite múltiples orígenes locales pero también podría permitir orígenes no autorizadas en producción.
+Código vulnerable:
+if (builder.Environment.IsDevelopment() && allowedOrigins.Length == 0)
+{
+    policy.SetIsOriginAllowed(origin => new Uri(origin).IsLoopback)
+Impacto:
+• En desarrollo, permite cualquier origen loopback sin restricciones
+• Posible CSRF si no se validan origins correctamente
+Recomendación:
+Limitar estrictamente los orígenes permitidos en producción. Implementar validación de origins específicos. Usar credenciales CORS para mayor seguridad.
+
+4.2 CONFIGURACIÓN DE CONTENIDO CSP SUBOPTIMAL
+SEVERIDAD: ALTA
+Ubicación: SecurityHeadersMiddleware.cs líneas 66-76
+Descripción:
+El Content Security Policy incluye 'unsafe-inline' y 'unsafe-eval' en script-src, lo cual debilita la protección XSS.
+Código vulnerable:
+var csp = "default-src 'self'; " +
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval'; "
+Impacto:
+• Permite ejecución de scripts inseguros insertados
+• Reduce la efectividad de CSP contra ataques XSS
+Recomendación:
+Eliminar 'unsafe-inline' y 'unsafe-eval' si es posible. Usar nonce o hash para scripts específicos. Considerar el uso de Trusted Types para DOM manipulation.
+
+4.3 VALIDACIÓN DE ENTRADA INCOMPLETA
+SEVERIDAD: ALTA
+Ubicación: LocationsController.cs líneas 15, 30-50
+Descripción:
+La validación de entrada usa regex simple pero no cubre todos los vectores de ataque.
+Código vulnerable:
+private static readonly Regex SafeQueryRegex = new(@"^[a-zA-Z0-9_\-]+$", RegexOptions.Compiled);
+Impacto:
+• No previene todos los vectores de inyección
+• Faltan validaciones más robustas para datos complejos
+Recomendación:
+Implementar validación más robusta usando FluentValidation o Data Annotations. Sanitizar más exhaustivamente todas las entradas. Implementar whitelist de valores permitidos.
+
+5. VULNERABILIDADES DE MEDIA SEVERIDAD
+=======================================
+5.1 ALMACENAMIENTO EN ARCHIVOS JSON
+SEVERIDAD: MEDIA
+Ubicación: UserProfileService.cs
+Descripción:
+Los datos se almacenan en archivos JSON en el sistema de archivos en lugar de base de datos.
+Impacto:
+• Problemas de concurrencia (manejado con lock pero no ideal)
+• Sin ACI granular a nivel de datos
+• Escalabilidad limitada
+• Posible corrupción de datos en casos de fallo de escritura
+Recomendación:
+Considerar migrar a base de datos (SQL Server, PostgreSQL) para mejor ACI, escalabilidad y rendimiento. Si se mantiene JSON, implementar backups automáticos y validación de integridad.
+
+5.2 LOGGING DE INFORMACIÓN SENSIBLE
+SEVERIDAD: MEDIA
+Ubicación: UserProfileService.cs líneas 164, 185
+Descripción:
+Los errores de carga/persistencia se loggean pero podría contener información sensible en contextos de error.
+Impacto:
+• Posible exposición de rutas de archivos o datos sensibles en logs
+Recomendación:
+Implementar sanitización de datos sensibles en logs. Usar logging estructurado con niveles apropiados. No loggear información de identificación personal.
+
+5.3 FALTA DE INTEGRIDAD DE DATOS
+SEVERIDAD: MEDIA
+Ubicación: UserProfileService.cs
+Descripción:
+No hay mecanismo de verificación de integridad de datos (checksums, firmas digitales).
+Impacto:
+• Posible corrupción de datos no detectada
+• No hay forma de verificar que los datos no han sido modificados
+Recomendación:
+Implementar checksums o firmas digitales para verificar integridad de datos críticos. Usar ETags para detección de modificaciones concurrentes.
+
+6. VULNERABILIDADES DE BAJA SEVERIDAD
+=====================================
+6.1 DEPENDENCIAS DE FRONTEND
+SEVERIDAD: BAJA
+Ubicación: gtaapp.client/package.json
+Descripción:
+Algunas dependencias de Angular están en versiones recientes pero debería verificarse regularmente.
+Impacto:
+• Posibles vulnerabilidades en dependencias de terceros
+Recomendación:
+Implementar auditoría de dependencias regular con npm audit. Usar dependencias actualizadas y mantenerlas parcheadas.
+
+6.2 FALTA DE MONITOREO Y ALERTAS
+SEVERIDAD: BAJA
+Ubicación: No implementado
+Descripción:
+No hay sistema de monitoreo de seguridad o alertas automáticas.
+Impacto:
+• Detección tardía de incidentes de seguridad
+• Sin visibilidad de patrones de ataque
+Recomendación:
+Implementar monitoreo de seguridad (Application Insights, Sentry, etc.). Configurar alertas para patrones sospechosos. Implementar logging de accesos fallidos.
+
+7. PRÁCTICAS DE SEGURIDAD IMPLEMENTADAS (POSITIVAS)
+====================================================
+7.1 SEGURITY HEADERS MIDDLEWARE
+ESTADO: IMPLEMENTADO CORRECTAMENTE
+Descripción:
+Middleware de headers de seguridad bien implementado con X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, CSP.
+Detalles positivos:
+• X-Frame-Options: SAMEORIGIN (previene clickjacking)
+• X-Content-Type-Options: nosniff (previene MIME sniffing)
+• Referrer-Policy: strict-origin-when-cross-origin
+• Permissions-Policy restringe APIs no necesarias
+• CSP configurado para limitar recursos externos
+• Eliminación de headers de información del servidor
+
+7.2 RATE LIMITING
+ESTADO: IMPLEMENTADO CORRECTAMENTE
+Descripción:
+Rate limiting nativo de ASP.NET Core 10.0 implementado con políticas por IP y para endpoints de datos.
+Detalles positivos:
+• Política global: 120 req/minuto por IP
+• Política para datos: 60 req/minuto
+• Prevención de scraping masivo
+• Prevención de fuerza bruta
+• Response 429 con Retry-After header
+
+7.3 HSTS
+ESTADO: IMPLEMENTADO CORRECTAMENTE
+Descripción:
+HTTP Strict Transport Security configurado correctamente para producción.
+Detalles positivos:
+• MaxAge: 365 días
+• IncludeSubDomains: true
+• Preload: true
+• Prevención de degradación HTTPS
+
+7.4 VALIDACIÓN Y SANITIZACIÓN DE ENTRADA
+ESTADO: IMPLEMENTADO PARCIALMENTE
+Descripción:
+Sanitización de datos de usuario implementada en UserProfileService con validación de longitud, HTML encoding, y validación de URLs.
+Detalles positivos:
+• Sanitización de nickname (max 50 caracteres, HTML encoding)
+• Validación de URLs de avatar (solo data:image o https://)
+• Validación de rangos (clamping entre 1-8000)
+• Validación de plataformas (whitelist: pc, ps5, xboxsx)
+• Regex para validación de queries en LocationsController
+
+7.5 SERVER HEADERS
+ESTADO: IMPLEMENTADO CORRECTAMENTE
+Descripción:
+Eliminación de headers que exponen información del servidor.
+Detalles positivos:
+• AddServerHeader = false en Kestrel
+• Eliminación de Server header
+• Eliminación de X-Powered-By header
+
+8. RECOMENDACIONES GENERALES DE SEGURIDAD
+========================================
+1. Implementar autenticación JWT o OAuth para proteger endpoints
+2. Encriptar datos sensibles en user_profile.json con AES-256
+3. Migrar a base de datos para mejor seguridad y escalabilidad
+4. Eliminar 'unsafe-inline' y 'unsafe-eval' de CSP si es posible
+5. Implementar autorización basada en roles (RBAC)
+6. Añadir atributos [Authorize] en controladores sensibles
+7. Implementar logging de auditoría de accesos y modificaciones
+8. Implementar monitoreo de seguridad y alertas automáticas
+9. Añadir validación de integridad de datos (checksums)
+10. Implementar backups automáticos y verificación de integridad
+11. Restringir orígenes CORS más estrictamente en producción
+12. Implementar pruebas de seguridad automatizadas
+13. Auditoría regular de dependencias con npm audit
+14. Implementar rate limiting específico por endpoint según sensibilidad
+15. Considerar implementar Web Application Firewall (WAF)
+
+9. CONCLUSIONES
+===============
+La aplicación GTAAPP presenta un caso interesante de seguridad con buenas prácticas implementadas (headers de seguridad, rate limiting, HSTS, sanitización de entrada) pero con ausencia crítica de autenticación y almacenamiento de datos sin encriptación. A diferencia de aplicaciones empresariales tradicionales, este modelo de aplicación sin login con datos locales presenta riesgos diferentes pero significativos.
+
+Puntos fuertes:
+• Excelente implementación de headers de seguridad
+• Rate limiting robusto contra scraping y ataques de fuerza bruta
+• Sanitización de entrada bien implementada
+• Configuración de HSTS correcta
+• No exposición de información del servidor
+
+Puntos críticos:
+• Ausencia total de autenticación y autorización
+• Datos sensibles almacenados sin encriptación
+• Almacenamiento en archivos JSON sin ACI granular
+• CSP con 'unsafe-inline' debilita protección XSS
+
+Se recomienda encarecidamente:
+• Implementar autenticación como prioridad crítica
+• Encriptar datos sensibles en reposo
+• Considerar migrar a base de datos para producción
+• Mejorar configuración de CSP
+
+NIVEL DE RIESGO ACTUAL: MEDIO
+NIVEL DE RIESGO DESPUÉS DE CORRECCIONES: BAJO (estimado)
+
+10. APÉNDICE - LISTADO DE ARCHIVOS REVISADOS
+==========================================
+Archivos de configuración:
+• GTAAPP.Server/Program.cs
+• GTAAPP.Server/appsettings.json
+• GTAAPP.Server/GTAAPP.Server.csproj
+• gtaapp.client/package.json
+
+Controladores:
+• GTAAPP.Server/Controllers/GTA5Controller.cs
+• GTAAPP.Server/Controllers/GTA6Controller.cs
+• GTAAPP.Server/Controllers/LocationsController.cs
+• GTAAPP.Server/Controllers/UserProfileController.cs
+
+Middleware:
+• GTAAPP.Server/Middleware/SecurityHeadersMiddleware.cs
+
+Servicios:
+• GTAAPP.Server/Services/UserProfileService.cs
+• GTAAPP.Server/Services/PropertyImporter.cs
+• GTAAPP.Server/Services/CollectibleImporter.cs
+
+Modelos:
+• GTAAPP.Server/Models/UserProfile.cs
+• GTAAPP.Server/Models/GameManifest.cs
+• GTAAPP.Server/Models/Location.cs
+• GTAAPP.Server/Models/PropertyLocation.cs
+• GTAAPP.Server/Models/CollectibleItem.cs
+
+---
+FIN DEL INFORME DE AUDITORÍA DE SEGURIDAD
+Generado por Devin AI Security Analysis
+27/09/2026 12:57:26
