@@ -4,18 +4,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { Gta5Component } from './gta5/gta5.component';
-import { Gta6Component } from './gta6/gta6.component';
-import { HomeComponent } from './home/home.component';
+import { AppComponent }           from './app.component';
+import { Gta5OnlineComponent }    from './gta5/online/gta5-online.component';
+import { Gta5HistoriaComponent }  from './gta5/historia/gta5-historia.component';
+import { Gta6Component }          from './gta6/gta6.component';
+import { HomeComponent }          from './home/home.component';
 import { VehicleDrawerComponent } from './components/vehicle-drawer/vehicle-drawer.component';
-import { AppRoutingModule } from './app-routing.module';
-import { TranslatePipe } from './i18n';
+import { AppRoutingModule }       from './app-routing.module';
+import { TranslatePipe }          from './i18n';
 
 @NgModule({
     declarations: [
         AppComponent,
-        Gta5Component,
+        Gta5OnlineComponent,
+        Gta5HistoriaComponent,
         Gta6Component,
         HomeComponent,
         VehicleDrawerComponent,

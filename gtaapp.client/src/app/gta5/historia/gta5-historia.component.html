@@ -1,0 +1,440 @@
+<div
+  class="map-wrapper"
+  (click)="closeContextMenu()"
+  (contextmenu)="openContextMenu($event)"
+>
+  <!-- MAPA PRINCIPAL — id diferente al de Online para no colisionar -->
+  <div id="gta-map-historia"></div>
+
+  <!-- MENÚ CONTEXTUAL -->
+  <div
+    class="hud-ctx"
+    *ngIf="ctxOpen"
+    [style.left.px]="ctxX"
+    [style.top.px]="ctxY"
+    (click)="$event.stopPropagation()"
+  >
+    <ng-container *ngIf="isMarkerContext && targetCustomMarker">
+      <div class="hud-ctx-header">{{ targetCustomMarker.name }}</div>
+      <button type="button" class="hud-ctx-item" (click)="runCtxAction('editar_marcador')">✏️ Editar marcador</button>
+      <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar_este_marcador')">🗑️ Borrar marcador</button>
+      <div class="hud-ctx-sep"></div>
+    </ng-container>
+    <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">📍 Añadir marcador</button>
+    <button type="button" class="hud-ctx-item" (click)="runCtxAction('centrar')">🎯 Centrar aquí</button>
+  </div>
+
+  <!-- ESQUINA SUP-IZQ: HUD principal -->
+  <div class="hud hud-tl">
+    <div class="hud-title">GTA V</div>
+    <div class="hud-counter-badge" title="Propiedades disponibles en Modo Historia">
+      {{ purchasablePropertiesCount }} propiedades
+    </div>
+    <div class="hud-time-badge" title="Hora en Los Santos">{{ inGameTimeStr }}</div>
+  </div>
+
+  <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idéntico al estilo de los paneles) -->
+  <div class="hud hud-tc">
+    <div class="mode-switch-track">
+      <div class="mode-switch-btn mode-historia is-active" title="Modo Historia activo">
+        <i class="mode-indicator dot-historia"></i>
+        <span>Modo Historia</span>
+      </div>
+      <a class="mode-switch-btn mode-online" routerLink="/gta5" title="Cambiar a GTA Online">
+        <i class="mode-indicator dot-online"></i>
+        <span>GTA Online</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       PANEL DE CONTROL — ESQUINA INF-IZQ
+       Panel exclusivo de Modo Historia. Distinto al de Online.
+       ================================================================ -->
+  <div class="hud hud-bl" [class.hud-collapsed]="!legendOpen">
+    <div class="hud-panel hud-legend-panel">
+
+      <!-- Cabecera del panel -->
+      <div
+        class="hud-panel-head"
+        [class.is-collapsed]="!legendOpen"
+        (click)="!legendOpen ? toggleLegend() : null"
+        [title]="!legendOpen ? 'Expandir panel' : ''"
+      >
+        <span class="hud-panel-title">Panel Historia</span>
+        <button type="button" class="legend-toggle-btn" (click)="toggleLegend(); $event.stopPropagation()">
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!legendOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="hud-legend-body" *ngIf="legendOpen">
+
+        <!-- ── PROPIEDADES (Historia) ── -->
+        <div class="hud-acc" [class.is-open]="accordion['propiedades']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('propiedades')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Propiedades</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(storyPropertyKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(storyPropertyKeys, $event)"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['propiedades']">
+            <!-- Negocios comprables de los protagonistas -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['purchasable_business']"
+              (click)="toggleLayer('purchasable_business')"
+            >
+              <i class="legend-dot dot-story"></i>
+              <span class="legend-name">{{ 'gta5.layers.storyBusiness' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('purchasable_business') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── VEHÍCULOS Y TALLERES (Historia) ── -->
+        <div class="hud-acc" [class.is-open]="accordion['vehiculos']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('vehiculos')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Talleres</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(storyVehicleKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(storyVehicleKeys, $event)"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['vehiculos']">
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['ls_customs']" (click)="toggleLayer('ls_customs')">
+              <i class="legend-dot dot-lsc"></i>
+              <span class="legend-name">{{ 'gta5.layers.lsCustoms' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('ls_customs') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['hao_garage']" (click)="toggleLayer('hao_garage')">
+              <i class="legend-dot dot-hao"></i>
+              <span class="legend-name">{{ 'gta5.layers.haoGarage' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('hao_garage') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── SERVICIOS ── -->
+        <div class="hud-acc" [class.is-open]="accordion['servicios']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('servicios')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Servicios</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(serviceKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(serviceKeys, $event)"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['servicios']">
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['police_station']" (click)="toggleLayer('police_station')">
+              <i class="legend-dot dot-police"></i>
+              <span class="legend-name">{{ 'gta5.layers.policeStationShort' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('police_station') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['hospital']" (click)="toggleLayer('hospital')">
+              <i class="legend-dot dot-hospital"></i>
+              <span class="legend-name">{{ 'gta5.layers.hospital' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('hospital') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['fire_station']" (click)="toggleLayer('fire_station')">
+              <i class="legend-dot dot-fire"></i>
+              <span class="legend-name">{{ 'gta5.layers.fireStationShort' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('fire_station') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['service']" (click)="toggleLayer('service')">
+              <i class="legend-dot dot-service"></i>
+              <span class="legend-name">{{ 'gta5.layers.ammuNationShort' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('service') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['convenience_store']" (click)="toggleLayer('convenience_store')">
+              <i class="legend-dot dot-store"></i>
+              <span class="legend-name">{{ 'gta5.layers.convenienceStoreShort' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('convenience_store') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['mask_shop']" (click)="toggleLayer('mask_shop')">
+              <i class="legend-dot dot-mask"></i>
+              <span class="legend-name">{{ 'gta5.layers.maskShopShort' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('mask_shop') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['car_wash']" (click)="toggleLayer('car_wash')">
+              <i class="legend-dot dot-carwash"></i>
+              <span class="legend-name">{{ 'gta5.layers.carWashShort' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('car_wash') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['strip_club']" (click)="toggleLayer('strip_club')">
+              <i class="legend-dot dot-stripclub"></i>
+              <span class="legend-name">{{ 'gta5.layers.stripClub' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('strip_club') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── PERSONAJES Y PROTAGONISTAS ── -->
+        <div class="hud-acc" [class.is-open]="accordion['personajes']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('personajes')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Personajes</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(characterKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(characterKeys, $event)"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['personajes']">
+            <div *ngFor="let char of storyCharacters" class="legend-char-row" [class.is-active]="layerFilters[char.id]">
+              <button
+                type="button"
+                class="legend-btn legend-char-btn"
+                [class.is-active]="layerFilters[char.id]"
+                (click)="toggleLayer(char.id)"
+              >
+                <i class="legend-dot" [style.background]="char.badge.color" [style.box-shadow]="'0 0 6px ' + char.badge.color"></i>
+                <span class="legend-name">{{ char.name }}</span>
+                <span class="legend-count">{{ char.badge.symbol }}</span>
+              </button>
+              <button type="button" class="char-zoom-btn" (click)="zoomToCharacter(char, $event)" [title]="'Centrar en ' + char.name">
+                <svg viewBox="0 0 24 24" class="char-zoom-svg">
+                  <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none"/>
+                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                  <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="hud-acc-empty" *ngIf="storyCharacters.length === 0">
+              {{ 'gta5.layers.emptyCharacters' | translate }}
+            </div>
+          </div>
+        </div>
+
+        <!-- ── COLECCIONABLES DE HISTORIA ── -->
+        <div class="hud-acc" [class.is-open]="accordion['coleccionables']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('coleccionables')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Coleccionables Historia</span>
+            </div>
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['coleccionables']">
+            <!-- Huesos Alienígenas (30) — Michael -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['alien_bone']" (click)="toggleLayer('alien_bone')">
+              <i class="legend-square" style="background:#7c3aed;box-shadow:0 0 6px #7c3aed"></i>
+              <span class="legend-name">{{ 'gta5.layers.alienBone' | translate }}</span>
+              <span class="legend-count">30</span>
+            </button>
+            <!-- Piezas de Nave Espacial (50) — Trevor -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['spaceship_part']" (click)="toggleLayer('spaceship_part')">
+              <i class="legend-square" style="background:#06b6d4;box-shadow:0 0 6px #06b6d4"></i>
+              <span class="legend-name">{{ 'gta5.layers.spaceshipPart' | translate }}</span>
+              <span class="legend-count">50</span>
+            </button>
+            <!-- Letras de Grafiti (50) — Franklin -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['graffiti']" (click)="toggleLayer('graffiti')">
+              <i class="legend-square" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b"></i>
+              <span class="legend-name">{{ 'gta5.layers.graffiti' | translate }}</span>
+              <span class="legend-count">50</span>
+            </button>
+            <!-- Partes de Submarino (30) -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['submarine_part']" (click)="toggleLayer('submarine_part')">
+              <i class="legend-square" style="background:#0891b2;box-shadow:0 0 6px #0891b2"></i>
+              <span class="legend-name">{{ 'gta5.layers.submarinePart' | translate }}</span>
+              <span class="legend-count">30</span>
+            </button>
+            <!-- Fragmentos de Carta (50) — Franklin -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['letter_scrap']" (click)="toggleLayer('letter_scrap')">
+              <i class="legend-square" style="background:#84cc16;box-shadow:0 0 6px #84cc16"></i>
+              <span class="legend-name">{{ 'gta5.layers.letterScrap' | translate }}</span>
+              <span class="legend-count">50</span>
+            </button>
+
+            <div class="hud-acc-empty" style="margin-top:8px; font-size:10px; opacity:0.55;">
+              📌 Datos de ubicaciones próximamente
+            </div>
+          </div>
+        </div>
+
+        <!-- ── LUGARES EXTRAÑOS ── -->
+        <div class="hud-acc" [class.is-open]="accordion['lugares']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('lugares')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Lugares Extraños</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(strangeKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(strangeKeys, $event)"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['lugares']">
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['fake_ufo']" (click)="toggleLayer('fake_ufo')">
+              <i class="legend-dot dot-fake-ufo"></i>
+              <span class="legend-name">{{ 'gta5.layers.fakeUfo' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('fake_ufo') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['shipwreck']" (click)="toggleLayer('shipwreck')">
+              <i class="legend-dot dot-shipwreck"></i>
+              <span class="legend-name">{{ 'gta5.layers.shipwreck' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('shipwreck') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['cave']" (click)="toggleLayer('cave')">
+              <i class="legend-dot dot-cave"></i>
+              <span class="legend-name">{{ 'gta5.layers.cave' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('cave') }}</span>
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /hud-legend-body -->
+    </div>
+  </div>
+
+  <!-- ================================================================
+       PANEL DE AJUSTES — ESQUINA INF-DER
+       ================================================================ -->
+  <div class="hud hud-br" [class.hud-collapsed]="!settingsOpen">
+    <div class="hud-panel">
+      <div
+        class="hud-panel-head"
+        [class.is-collapsed]="!settingsOpen"
+        (click)="!settingsOpen ? toggleSettings() : null"
+      >
+        <span class="hud-panel-title">Ajustes</span>
+        <button type="button" class="legend-toggle-btn" (click)="toggleSettings(); $event.stopPropagation()">
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!settingsOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="hud-settings-body" *ngIf="settingsOpen">
+
+        <!-- Selector de mapa base -->
+        <div class="hud-acc" [class.is-open]="accordion['mapa']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('mapa')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Mapa base</span>
+            </div>
+          </div>
+          <div class="hud-acc-body" *ngIf="accordion['mapa']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="mapTypeSelectHistoria">Tipo de mapa</label>
+              <select id="mapTypeSelectHistoria" class="hud-field-select" (change)="switchMapType($any($event.target).value)">
+                <option *ngFor="let type of mapTypes" [value]="type.id" [selected]="currentMapType === type.id">
+                  {{ type.label }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estilo de iconos -->
+        <div class="hud-acc" [class.is-open]="accordion['zona']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('zona')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">Estilo Iconos</span>
+            </div>
+          </div>
+          <div class="hud-acc-body" *ngIf="accordion['zona']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="iconThemeHistoria">Tema</label>
+              <select id="iconThemeHistoria" class="hud-field-select" [(ngModel)]="iconTheme" (change)="updateIconStyle()">
+                <option value="modern">Moderno</option>
+                <option value="classic">Clásico</option>
+              </select>
+            </div>
+            <div class="hud-field">
+              <label class="hud-field-label" for="iconSizeHistoria">Tamaño</label>
+              <select id="iconSizeHistoria" class="hud-field-select" [(ngModel)]="iconSize" (change)="updateIconStyle()">
+                <option value="compact">Compacto</option>
+                <option value="standard">Estándar</option>
+                <option value="large">Grande</option>
+              </select>
+            </div>
+            <div class="hud-field">
+              <label class="hud-field-label" for="hudZoneHistoria">Saltar a zona</label>
+              <select id="hudZoneHistoria" class="hud-field-select" (change)="onZoneChange($any($event.target).value)">
+                <option value="all">Todo el mapa</option>
+                <option value="city">Los Santos (ciudad)</option>
+                <option value="sandy">Sandy Shores</option>
+                <option value="paleto">Paleto Bay</option>
+                <option value="blaine">Condado Blaine</option>
+                <option value="chumash">Chumash</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones de pie de panel -->
+        <div class="hud-panel-foot">
+          <a class="hud-panel-btn hud-panel-btn-home" routerLink="/" title="Volver al inicio">Inicio</a>
+          <button type="button" class="hud-panel-btn hud-panel-btn-primary" (click)="onZoneChange('all')">Vista general</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELEMETRÍA DE COORDENADAS -->
+  <div class="hud-coords-dev" (click)="copyCurrentCoords()" title="Coordenadas GTA V — clic para copiar">
+    <span class="coord-axis">X:</span>
+    <span class="coord-val">{{ mouseCoords.x.toFixed(1) }}</span>
+    <span class="coord-sep">|</span>
+    <span class="coord-axis">Y:</span>
+    <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
+    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
+  </div>
+
+  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: TRANSPORTES -->
+  <button
+    type="button"
+    class="hud-side-trigger"
+    (click)="toggleProfileDrawer()"
+    [title]="'transports.title' | translate"
+  >
+    <div class="side-trigger-content">
+      <i class="fa-solid fa-mobile-screen-button side-trigger-icon"></i>
+      <span class="hud-panel-title">{{ 'transports.title' | translate }}</span>
+    </div>
+    <div class="side-trigger-toggle-btn" [title]="'transports.title' | translate">
+      <i class="fa-solid fa-chevron-left side-trigger-caret"></i>
+    </div>
+  </button>
+
+  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO DE VEHÍCULOS -->
+  <app-vehicle-drawer
+    [isOpen]="profileDrawerOpen"
+    [gameMode]="selectedGameMode"
+    (closeDrawer)="closeProfileDrawer()"
+  ></app-vehicle-drawer>
+
+</div>

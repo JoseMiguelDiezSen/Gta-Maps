@@ -1,4 +1,7 @@
 <div class="home-shell">
+  <!-- LOGO EN LA ESQUINA SUPERIOR IZQUIERDA -->
+  <img src="assets/logoJMD.png" alt="Logo" class="home-logo" />
+
   <!-- SELECTOR DE IDIOMA PERSONALIZADO CON BANDERAS VECTORIALES (SVG) -->
   <div class="language-selector" [class.is-open]="isOpen">
     <button
@@ -80,8 +83,8 @@
     </div>
   </div>
 
-  <img src="assets/logoJMD.png" alt="Logo" class="home-logo" />
   <h1 class="home-title">GTA Maps</h1>
+  <p class="home-disclaimer">{{ 'home.disclaimer' | translate }}</p>
   <p class="home-subtitle">{{ 'home.chooseGame' | translate }}</p>
   <div class="home-actions">
     <a class="home-btn home-btn-gta5" routerLink="/gta5">
@@ -97,6 +100,16 @@
   <div class="home-last-update" [title]="('common.lastUpdate' | translate) + ': ' + ultimaActualizacion + ' (' + ('common.commit' | translate) + ' ' + buildCommit + ')'">
     {{ 'common.lastUpdate' | translate }}: <span class="home-last-update-val">{{ ultimaActualizacion }}</span>
   </div>
+
+  <!-- RECUADRO DE USUARIOS ONLINE (ESQUINA INFERIOR IZQUIERDA) -->
+  <aside class="home-online-widget" aria-live="polite" [attr.aria-label]="usuariosActivosService.usuariosActivos() + ' ' + ((usuariosActivosService.usuariosActivos() === 1 ? 'home.onlineUser' : 'home.onlineUsers') | translate)">
+    <span class="online-indicator">
+      <span class="online-dot"></span>
+      <span class="online-ping"></span>
+    </span>
+    <span class="online-number">{{ usuariosActivosService.usuariosActivos() }}</span>
+    <span class="online-label">{{ (usuariosActivosService.usuariosActivos() === 1 ? 'home.onlineUser' : 'home.onlineUsers') | translate }}</span>
+  </aside>
 
   <footer class="home-footer">
     <p class="home-footer-text">

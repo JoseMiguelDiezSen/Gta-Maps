@@ -5,7 +5,7 @@ namespace GTAAPP.Server.Services;
 
 /// <summary>
 /// Servicio centralizado que gestiona en memoria y con caché cada uno de los datasets
-/// correspondientes a las categorías del panel de control de GTA V.
+/// estructurados bajo wwwroot/data/{juego}/{modo}/{idioma}/...
 /// </summary>
 public class LocationsService
 {
@@ -21,65 +21,104 @@ public class LocationsService
         _logger = logger;
     }
 
-    private string DataPath => Path.Combine(_env.WebRootPath ?? Path.Combine(AppContext.BaseDirectory, "wwwroot"), "data");
-
-    // 1. PROPIEDADES
-    public IReadOnlyList<LocationItem> GetPropertiesOnly() => LoadJsonFile<LocationItem>("properties.json");
-
-    // 2. NEGOCIOS
-    public IReadOnlyList<LocationItem> GetBusinesses() => LoadJsonFile<LocationItem>("businesses.json");
-
-    // 3. SERVICIOS
-    public IReadOnlyList<LocationItem> GetServices() => LoadJsonFile<LocationItem>("services.json");
-
-    // 4. VEHÍCULOS / TALLERES
-    public IReadOnlyList<LocationItem> GetVehicleShops() => LoadJsonFile<LocationItem>("vehicle_shops.json");
-
-    // 5. TRABAJOS ROLEPLAY
-    public IReadOnlyList<LocationItem> GetRoleplayJobs() => LoadJsonFile<LocationItem>("roleplay_jobs.json");
-
-    // 6. PERSONAJES Y CONTACTOS
-    public IReadOnlyList<LocationItem> GetCharacters() => LoadJsonFile<LocationItem>("characters.json");
-
-    // 7. FAUNA Y VIDA SALVAJE
-    public IReadOnlyList<LocationItem> GetFauna() => LoadJsonFile<LocationItem>("fauna.json");
-
-    // 8. ACTIVIDADES Y DEPORTES
-    public IReadOnlyList<LocationItem> GetActivities() => LoadJsonFile<LocationItem>("activities.json");
-
-    // 9. LUGARES EXTRAÑOS
-    public IReadOnlyList<LocationItem> GetStrangePlaces() => LoadJsonFile<LocationItem>("strange_places.json");
-
-    // 10. COLECCIONABLES
-    public IReadOnlyList<CollectibleItem> GetCollectibles(string? category = null)
+    private string GetFilePath(string game, string mode, string fileName, string? lang = null)
     {
-        var list = LoadJsonFile<CollectibleItem>("collectibles.json");
+        var basePath = _env.WebRootPath ?? Path.Combine(AppContext.BaseDirectory, "wwwroot");
+        var activeLang = string.IsNullOrWhiteSpace(lang) ? "es" : lang.Trim().ToLowerInvariant();
+
+        // 1. Buscar en la estructura jerárquica con el idioma solicitado: data/{game}/{mode}/{activeLang}/{fileName}
+        var targetPath = Path.Combine(basePath, "data", game, mode, activeLang, fileName);
+        if (File.Exists(targetPath))
+        {
+            return targetPath;
+        }
+
+        // 2. Fallback a español si no existe la traducción: data/{game}/{mode}/es/{fileName}
+        var esPath = Path.Combine(basePath, "data", game, mode, "es", fileName);
+        if (File.Exists(esPath))
+        {
+            return esPath;
+        }
+
+        // 3. Fallback retrocompatible por si acaso
+        var legacyPath = Path.Combine(basePath, "data", fileName);
+        if (File.Exists(legacyPath))
+        {
+            return legacyPath;
+        }
+
+        return targetPath;
+    }
+
+    // ==========================================
+    // GTA 5 ONLINE (carpeta: data/gta5/online/{lang}/)
+    // ==========================================
+    public IReadOnlyList<LocationItem> GetPropertiesOnly(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "properties.json", lang);
+    public IReadOnlyList<LocationItem> GetBusinesses(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "businesses.json", lang);
+    public IReadOnlyList<LocationItem> GetServices(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "services.json", lang);
+    public IReadOnlyList<LocationItem> GetVehicleShops(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "vehicle_shops.json", lang);
+    public IReadOnlyList<LocationItem> GetRoleplayJobs(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "roleplay_jobs.json", lang);
+    public IReadOnlyList<LocationItem> GetCharacters(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "characters.json", lang);
+    public IReadOnlyList<LocationItem> GetFauna(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "fauna.json", lang);
+    public IReadOnlyList<LocationItem> GetActivities(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "activities.json", lang);
+    public IReadOnlyList<LocationItem> GetStrangePlaces(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "strange_places.json", lang);
+
+    public IReadOnlyList<CollectibleItem> GetCollectibles(string? category = null, string? lang = null)
+    {
+        var list = LoadJsonFile<CollectibleItem>("gta5", "online", "collectibles.json", lang);
         if (string.IsNullOrWhiteSpace(category)) return list;
         return list.Where(c => c.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
-    // AGREGACIÓN DE TODAS LAS UBICACIONES DEL MAPA
-    public IReadOnlyList<LocationItem> GetAllLocations(string? gameMode = null, string? category = null)
+    // ==========================================
+    // GTA 5 MODO HISTORIA (carpeta: data/gta5/historia/{lang}/)
+    // ==========================================
+    public IReadOnlyList<LocationItem> GetStoryProperties(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "properties.json", lang);
+    public IReadOnlyList<LocationItem> GetStoryCharacters(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "characters.json", lang);
+    public IReadOnlyList<LocationItem> GetStoryServices(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "services.json", lang);
+    public IReadOnlyList<LocationItem> GetStoryVehicleShops(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "vehicle_shops.json", lang);
+    public IReadOnlyList<LocationItem> GetStoryFauna(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "fauna.json", lang);
+    public IReadOnlyList<LocationItem> GetStoryActivities(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "activities.json", lang);
+    public IReadOnlyList<LocationItem> GetStoryStrangePlaces(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "strange_places.json", lang);
+
+    public IReadOnlyList<CollectibleItem> GetStoryCollectibles(string? category = null, string? lang = null)
+    {
+        var list = LoadJsonFile<CollectibleItem>("gta5", "historia", "collectibles.json", lang);
+        if (string.IsNullOrWhiteSpace(category)) return list;
+        return list.Where(c => c.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
+    }
+
+    // ==========================================
+    // AGREGACIÓN DE UBICACIONES POR MODO E IDIOMA
+    // ==========================================
+    public IReadOnlyList<LocationItem> GetAllLocations(string? gameMode = null, string? category = null, string? lang = null)
     {
         var all = new List<LocationItem>();
-        all.AddRange(GetPropertiesOnly());
-        all.AddRange(GetBusinesses());
-        all.AddRange(GetServices());
-        all.AddRange(GetVehicleShops());
-        all.AddRange(GetRoleplayJobs());
-        all.AddRange(GetCharacters());
-        all.AddRange(GetFauna());
-        all.AddRange(GetActivities());
-        all.AddRange(GetStrangePlaces());
+
+        if (string.Equals(gameMode, "story", StringComparison.OrdinalIgnoreCase))
+        {
+            all.AddRange(GetStoryProperties(lang));
+            all.AddRange(GetStoryServices(lang));
+            all.AddRange(GetStoryVehicleShops(lang));
+            all.AddRange(GetStoryCharacters(lang));
+            all.AddRange(GetStoryFauna(lang));
+            all.AddRange(GetStoryActivities(lang));
+            all.AddRange(GetStoryStrangePlaces(lang));
+        }
+        else
+        {
+            all.AddRange(GetPropertiesOnly(lang));
+            all.AddRange(GetBusinesses(lang));
+            all.AddRange(GetServices(lang));
+            all.AddRange(GetVehicleShops(lang));
+            all.AddRange(GetRoleplayJobs(lang));
+            all.AddRange(GetCharacters(lang));
+            all.AddRange(GetFauna(lang));
+            all.AddRange(GetActivities(lang));
+            all.AddRange(GetStrangePlaces(lang));
+        }
 
         IEnumerable<LocationItem> result = all;
-
-        if (!string.IsNullOrWhiteSpace(gameMode))
-        {
-            result = result.Where(p =>
-                p.GameMode.Equals(gameMode, StringComparison.OrdinalIgnoreCase) ||
-                p.GameMode.Equals("both", StringComparison.OrdinalIgnoreCase));
-        }
 
         if (!string.IsNullOrWhiteSpace(category))
         {
@@ -89,19 +128,21 @@ public class LocationsService
         return result.ToList();
     }
 
-    private IReadOnlyList<T> LoadJsonFile<T>(string fileName)
+    private IReadOnlyList<T> LoadJsonFile<T>(string game, string mode, string fileName, string? lang = null)
     {
-        var fullPath = Path.Combine(DataPath, fileName);
+        var fullPath = GetFilePath(game, mode, fileName, lang);
         if (!File.Exists(fullPath))
         {
             return [];
         }
 
+        var activeLang = string.IsNullOrWhiteSpace(lang) ? "es" : lang.Trim().ToLowerInvariant();
+        var cacheKey = $"{game}/{mode}/{activeLang}/{fileName}";
         var lastWrite = File.GetLastWriteTimeUtc(fullPath);
 
         lock (_lock)
         {
-            if (_cache.TryGetValue(fileName, out var cachedEntry) && cachedEntry.lastModified >= lastWrite)
+            if (_cache.TryGetValue(cacheKey, out var cachedEntry) && cachedEntry.lastModified >= lastWrite)
             {
                 return (IReadOnlyList<T>)cachedEntry.data;
             }
@@ -111,12 +152,12 @@ public class LocationsService
                 using var stream = File.OpenRead(fullPath);
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var list = JsonSerializer.Deserialize<List<T>>(stream, options) ?? [];
-                _cache[fileName] = (lastWrite, list);
+                _cache[cacheKey] = (lastWrite, list);
                 return list;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al cargar dataset: {FileName}", fileName);
+                _logger.LogError(ex, "Error al cargar dataset {Game}/{Mode}/{Lang}/{FileName}", game, mode, activeLang, fileName);
                 return [];
             }
         }

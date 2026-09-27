@@ -26,52 +26,52 @@ public class LocationsController : ControllerBase
 
     /// <summary>GET /api/locations → Agregación de todas las categorías del mapa</summary>
     [HttpGet("")]
-    public ActionResult<List<LocationItem>> GetAllLocations([FromQuery] string? gameMode, [FromQuery] string? category)
+    public ActionResult<List<LocationItem>> GetAllLocations([FromQuery] string? gameMode, [FromQuery] string? category, [FromQuery] string? lang)
     {
-        return Ok(_service.GetAllLocations(SanitizeGameMode(gameMode), SanitizeCategory(category)));
+        return Ok(_service.GetAllLocations(SanitizeGameMode(gameMode), SanitizeCategory(category), SanitizeLang(lang)));
     }
 
     /// <summary>GET /api/locations/properties → 1. Propiedades (mansiones, búnkeres, hangares, oficinas CEO...)</summary>
     [HttpGet("properties")]
-    public ActionResult<List<LocationItem>> GetProperties() => Ok(_service.GetPropertiesOnly());
+    public ActionResult<List<LocationItem>> GetProperties([FromQuery] string? lang) => Ok(_service.GetPropertiesOnly(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/businesses → 2. Negocios (clubes, arcades, laboratorios de moteros...)</summary>
     [HttpGet("businesses")]
-    public ActionResult<List<LocationItem>> GetBusinesses() => Ok(_service.GetBusinesses());
+    public ActionResult<List<LocationItem>> GetBusinesses([FromQuery] string? lang) => Ok(_service.GetBusinesses(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/services → 3. Servicios (comisarías, hospitales, bomberos, 24/7, Ammu-Nation...)</summary>
     [HttpGet("services")]
-    public ActionResult<List<LocationItem>> GetServices() => Ok(_service.GetServices());
+    public ActionResult<List<LocationItem>> GetServices([FromQuery] string? lang) => Ok(_service.GetServices(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/vehicle-shops → 4. Talleres (LS Customs, Benny's, Garaje Hao, Car Meet...)</summary>
     [HttpGet("vehicle-shops")]
-    public ActionResult<List<LocationItem>> GetVehicleShops() => Ok(_service.GetVehicleShops());
+    public ActionResult<List<LocationItem>> GetVehicleShops([FromQuery] string? lang) => Ok(_service.GetVehicleShops(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/roleplay-jobs → 5. Trabajos Roleplay (Pizza This, bomberos, taxi, carretillero...)</summary>
     [HttpGet("roleplay-jobs")]
-    public ActionResult<List<LocationItem>> GetRoleplayJobs() => Ok(_service.GetRoleplayJobs());
+    public ActionResult<List<LocationItem>> GetRoleplayJobs([FromQuery] string? lang) => Ok(_service.GetRoleplayJobs(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/characters → 6. Personajes y Contactos (Lester, Franklin, Trevor, Michael...)</summary>
     [HttpGet("characters")]
-    public ActionResult<List<LocationItem>> GetCharacters() => Ok(_service.GetCharacters());
+    public ActionResult<List<LocationItem>> GetCharacters([FromQuery] string? lang) => Ok(_service.GetCharacters(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/fauna → 7. Fauna y Vida Salvaje (12 Hábitats de animales y fotografía)</summary>
     [HttpGet("fauna")]
-    public ActionResult<List<LocationItem>> GetFauna() => Ok(_service.GetFauna());
+    public ActionResult<List<LocationItem>> GetFauna([FromQuery] string? lang) => Ok(_service.GetFauna(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/activities → 8. Actividades y Deportes</summary>
     [HttpGet("activities")]
-    public ActionResult<List<LocationItem>> GetActivities() => Ok(_service.GetActivities());
+    public ActionResult<List<LocationItem>> GetActivities([FromQuery] string? lang) => Ok(_service.GetActivities(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/strange-places → 9. Lugares extraños (OVNIs, naufragios, cuevas...)</summary>
     [HttpGet("strange-places")]
-    public ActionResult<List<LocationItem>> GetStrangePlaces() => Ok(_service.GetStrangePlaces());
+    public ActionResult<List<LocationItem>> GetStrangePlaces([FromQuery] string? lang) => Ok(_service.GetStrangePlaces(SanitizeLang(lang)));
 
     /// <summary>GET /api/locations/collectibles → 10. Coleccionables exclusivos de GTA Online</summary>
     [HttpGet("collectibles")]
-    public ActionResult<List<CollectibleItem>> GetCollectibles([FromQuery] string? category)
+    public ActionResult<List<CollectibleItem>> GetCollectibles([FromQuery] string? category, [FromQuery] string? lang)
     {
-        return Ok(_service.GetCollectibles(SanitizeCategory(category)));
+        return Ok(_service.GetCollectibles(SanitizeCategory(category), SanitizeLang(lang)));
     }
 
     private static string? SanitizeGameMode(string? gameMode)
@@ -86,5 +86,12 @@ public class LocationsController : ControllerBase
         if (string.IsNullOrWhiteSpace(category)) return null;
         var trimmed = category.Trim();
         return (trimmed.Length <= 50 && SafeQueryRegex.IsMatch(trimmed)) ? WebUtility.HtmlEncode(trimmed) : null;
+    }
+
+    private static string? SanitizeLang(string? lang)
+    {
+        if (string.IsNullOrWhiteSpace(lang)) return null;
+        var trimmed = lang.Trim().ToLowerInvariant();
+        return (trimmed.Length <= 10 && SafeQueryRegex.IsMatch(trimmed)) ? trimmed : null;
     }
 }

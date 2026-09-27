@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.StaticFiles;
 using GTAAPP.Server.Middleware;
+using GTAAPP.Server.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,7 @@ builder.Services.AddHsts(options =>
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddSignalR();
 
 // Configuración de CORS basada en entorno y orígenes permitidos
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
@@ -42,13 +44,15 @@ builder.Services.AddCors(options =>
         {
             policy.SetIsOriginAllowed(origin => new Uri(origin).IsLoopback)
                   .AllowAnyHeader()
-                  .AllowAnyMethod();
+                  .AllowAnyMethod()
+                  .AllowCredentials();
         }
         else
         {
             policy.WithOrigins(allowedOrigins)
                   .AllowAnyHeader()
-                  .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+                  .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                  .AllowCredentials();
         }
     });
 });
@@ -149,6 +153,7 @@ app.UseStaticFiles(new StaticFileOptions
 app.MapStaticAssets();
 
 app.MapControllers();
+app.MapHub<UsuariosActivosHub>("/hubs/usuarios-activos");
 
 app.MapFallbackToFile("/index.html");
 

@@ -68,7 +68,7 @@ public class SecurityHeadersMiddleware
                           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
                           "font-src 'self' https://fonts.gstatic.com data:; " +
                           "img-src 'self' data: blob: https://tiles.mapgenie.io https://static.wikia.nocookie.net https://media.rockstargames.com https://*.wikia.nocookie.net; " +
-                          "connect-src 'self' https://tiles.mapgenie.io; " +
+                          "connect-src 'self' ws: wss: https://tiles.mapgenie.io; " +
                           "frame-ancestors 'self'; " +
                           "base-uri 'self'; " +
                           "form-action 'self';";

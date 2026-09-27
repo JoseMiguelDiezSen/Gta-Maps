@@ -1,6 +1,12 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
-import { buildInfo } from '../../environments/build-info';
-import { TranslationService, LanguageCode } from '../i18n';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { APP_VERSION } from '../../environments/version';
+import { TranslationService } from '../i18n';
+import { UsuariosActivosService } from '../services/usuarios-activos.service';
+
+export interface Language {
+    code: 'es' | 'en';
+    label: string;
+}
 
 @Component({
     selector: 'app-home',
@@ -8,27 +14,33 @@ import { TranslationService, LanguageCode } from '../i18n';
     styleUrls: ['./home.component.css'],
     standalone: false
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
     isOpen = false;
+    selectedCode: 'es' | 'en' = 'es';
 
-    readonly ultimaActualizacion = buildInfo.timestamp;
-    readonly buildCommit = buildInfo.commitHash;
+    readonly ultimaActualizacion = APP_VERSION.timestamp;
+    readonly buildCommit = APP_VERSION.commit;
+
+    readonly languages: Language[] = [
+        { code: 'es', label: 'Español' },
+        { code: 'en', label: 'English' }
+    ];
 
     constructor(
         private readonly elementRef: ElementRef,
-        readonly translationService: TranslationService
+        private readonly translationService: TranslationService,
+        public readonly usuariosActivosService: UsuariosActivosService
     ) {}
 
-    get languages() {
-        return this.translationService.supportedLanguages;
+    ngOnInit(): void {
+        const current = this.translationService.currentLanguage();
+        if (current === 'es' || current === 'en') {
+            this.selectedCode = current;
+        }
     }
 
-    get selectedCode(): LanguageCode {
-        return this.translationService.currentLanguage();
-    }
-
-    get currentLanguage() {
-        return this.translationService.currentLanguageInfo();
+    get currentLanguage(): Language {
+        return this.languages.find(l => l.code === this.selectedCode) || this.languages[0];
     }
 
     toggleDropdown(event: Event): void {
@@ -36,10 +48,11 @@ export class HomeComponent {
         this.isOpen = !this.isOpen;
     }
 
-    selectLanguage(code: LanguageCode, event: Event): void {
+    selectLanguage(code: 'es' | 'en', event: Event): void {
         event.stopPropagation();
-        this.translationService.setLanguage(code);
+        this.selectedCode = code;
         this.isOpen = false;
+        this.translationService.setLanguage(code);
     }
 
     @HostListener('document:click', ['$event'])

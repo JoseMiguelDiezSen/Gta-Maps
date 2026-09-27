@@ -25,7 +25,10 @@ export const es: TranslationSchema = {
     gta5Sub: 'Mapa disponible',
     gta6Title: 'GTA VI',
     gta6Sub: 'En Desarrollo...',
-    copyright: '© Copyright 2026 JMD Software, all rights reserved. JMD® and JMD Logo® are trademarks of The JMD Corporation. All rights Reserved.'
+    disclaimer: 'Proyecto creado por fans. No afiliado con Rockstar Games.',
+    copyright: '© Copyright 2026 JMD Software, all rights reserved. JMD® and JMD Logo® are trademarks of The JMD Corporation. All rights Reserved.',
+    onlineUsers: 'usuarios online',
+    onlineUser: 'usuario online'
   },
   gta5: {
     hud: {
@@ -45,6 +48,16 @@ export const es: TranslationSchema = {
       deleteMarker: 'Eliminar este marcador',
       addMarker: 'Añadir marcador aquí',
       centerMap: 'Centrar mapa aquí'
+    },
+    popups: {
+      income: 'Ingresos:',
+      buyer: 'Comprador:',
+      price: 'PRECIO',
+      pointOfInterest: 'Punto de Interés',
+      hint: 'Pista / Ubicación:',
+      reward: 'Recompensa:',
+      edit: 'Editar',
+      delete: 'Borrar'
     },
     settings: {
       gameMode: 'Modo de juego',
@@ -91,6 +104,73 @@ export const es: TranslationSchema = {
       characters: 'Personajes',
       wildlife: 'Vida Salvaje',
       customMarkers: 'Marcadores Personalizados'
+    },
+    layers: {
+      storyBusiness: 'Negocios (Historia)',
+      mansion: 'Mansiones de Lujo',
+      hangar: 'Hangares',
+      bunker: 'Búnkeres',
+      facility: 'Instalaciones',
+      arcade: 'Salas Recreativas',
+      autoShop: 'Talleres (Tuners)',
+      agency: 'Agencias (The Contract)',
+      salvageYard: 'Desguaces (The Chop Shop)',
+      arenaWar: 'Taller de la Arena (Arena War)',
+      ceoOffice: 'Oficinas de CEO',
+      vehicleWarehouse: 'Almacenes Vehículos (I/E)',
+      cokeLockup: 'Negocios de Cocaína',
+      weedFarm: 'Negocios de Marihuana',
+      warehouse: 'Almacenes de Cajas',
+      nightclub: 'Clubes Nocturnos',
+      cashFactory: 'Fábricas de Dinero Falso',
+      methLab: 'Laboratorios de Metanfetamina',
+      docForgery: 'Falsificación de Documentos',
+      lsCustoms: 'Los Santos Customs',
+      bennys: "Taller Benny's",
+      haoGarage: 'Garaje de Hao (HSW)',
+      lsCarMeet: 'LS Car Meet (Cypress)',
+      policeStation: 'Comisarías de Policía',
+      policeStationShort: 'Comisarías',
+      hospital: 'Hospitales',
+      fireStation: 'Estaciones de Bomberos',
+      fireStationShort: 'Bomberos',
+      ammuNation: 'Armerías Ammu-Nation',
+      ammuNationShort: 'Ammu-Nation',
+      convenienceStore: 'Tiendas 24/7 (Atracables)',
+      convenienceStoreShort: 'Tiendas 24/7',
+      maskShop: 'Tienda de Máscaras (Playa)',
+      maskShopShort: 'Tienda de Máscaras',
+      carWash: 'Túneles de Lavado',
+      carWashShort: 'Lavado de Coches',
+      stripClub: 'Vanilla Unicorn (Club)',
+      activity: 'Por investigar',
+      fakeUfo: 'OVNI',
+      shipwreck: 'Naufragios',
+      cave: 'Cuevas',
+      playingCard: 'Naipes de Baraja',
+      actionFigure: 'Figuras de Acción',
+      signalJammer: 'Inhibidores de Señal',
+      movieProp: 'Atrezzo de Solomon',
+      radioAntenna: 'Antenas Still Slipping',
+      alienBone: 'Huesos Alienígenas',
+      spaceshipPart: 'Piezas de Nave Espacial',
+      graffiti: 'Letras de Grafiti',
+      submarinePart: 'Partes de Submarino',
+      letterScrap: 'Fragmentos de Carta',
+      emptyCollectiblesStory: 'Los coleccionables están disponibles en el modo GTA Online. Cámbialo en Ajustes.',
+      emptyCharacters: 'Sin personajes de Historia cargados todavía.'
+    },
+    checkboxTitles: {
+      toggleProperties: 'Activar o desactivar todas las propiedades',
+      toggleBusinesses: 'Activar o desactivar todos los negocios',
+      toggleVehicles: 'Activar o desactivar todos los talleres y vehículos',
+      toggleServices: 'Activar o desactivar todos los servicios',
+      toggleActivities: 'Activar o desactivar todas las actividades y deportes',
+      toggleRoleplay: 'Activar o desactivar todos los trabajos roleplay',
+      toggleCharacters: 'Activar o desactivar todos los personajes y contactos',
+      toggleWildlife: 'Activar o desactivar toda la fauna',
+      toggleCollectibles: 'Activar o desactivar todos los coleccionables',
+      toggleStrangePlaces: 'Activar o desactivar todos los lugares extraños'
     }
   },
   gta6: {
@@ -101,7 +181,19 @@ export const es: TranslationSchema = {
       coordsDev: 'Clic para copiar coordenadas',
       panelTitle: 'Panel de control'
     },
-    canvasHelp: 'Rueda del ratón para acercar o alejar, arrastra para mover'
+    canvasHelp: 'Rueda del ratón para acercar o alejar, arrastra para mover',
+    categories: {
+      propiedades: 'Propiedades',
+      vehiculos: 'Vehículos',
+      negocios: 'Negocios',
+      categoria_3: 'Categoría 3',
+      categoria_4: 'Categoría 4',
+      categoria_5: 'Categoría 5',
+      fauna: 'Fauna y Vida Silvestre',
+      coleccionables: 'Coleccionables',
+      lugares: 'Lugares Extraños',
+      toggleAll: 'Activar o desactivar todos los items de {{ title }}'
+    }
   },
   transports: {
     title: 'Transportes',

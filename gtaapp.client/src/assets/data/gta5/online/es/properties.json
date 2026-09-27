@@ -1,454 +1,19 @@
-[
-    {
-        "id":  "biz-smoke-on-the-water",
-        "name":  "Smoke on the Water",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Franklin Clinton",
-        "price":  93000,
-        "priceFormatted":  "$93,000",
-        "zone":  "Vespucci Beach",
-        "description":  "Dispensario de marihuana medicinal en primera línea de playa. Requiere misiones de defensa y reparto ocasionales en furgoneta.",
-        "features":  [
-                         "Exclusivo para Franklin",
-                         "Misiones de reparto periódicas",
-                         "Retorno de inversión en 10 semanas de juego"
-                     ],
-        "income":  "$9,300 semanales fijos",
-        "position":  {
-                         "x":  -1172,
-                         "y":  -1571.9,
-                         "z":  4.6
-                     },
-        "badge":  {
-                      "icon":  "store",
-                      "color":  "#2ecc71",
-                      "symbol":  "$"
-                  },
-        "imageUrl":  "/assets/data-images/properties/Smoke-on-the-Water-Logo.png"
-    },
-    {
-        "id":  "biz-tequi-la-la",
-        "name":  "Tequi-la-la",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Cualquier protagonista",
-        "price":  2000000,
-        "priceFormatted":  "$2,000,000",
-        "zone":  "West Vinewood",
-        "description":  "Legendario club nocturno y bar de rock en Eclipse Boulevard. Sede de conciertos históricos y peleas de bandas.",
-        "features":  [
-                         "Disponible para Michael, Franklin o Trevor",
-                         "Eventos aleatorios de peleas en el bar",
-                         "Entrada gratuita VIP tras compra"
-                     ],
-        "income":  "$16,500 semanales fijos",
-        "position":  {
-                         "x":  -568.5,
-                         "y":  291.1,
-                         "z":  79.2
-                     },
-        "badge":  {
-                      "icon":  "cocktail",
-                      "color":  "#9b59b6",
-                      "symbol":  "🍸"
-                  },
-        "imageUrl":  "/assets/data-images/properties/Tequilala-GTAV-Logo.png"
-    },
-    {
-        "id":  "biz-pitchers",
-        "name":  "Pitchers",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Cualquier protagonista",
-        "price":  750000,
-        "priceFormatted":  "$750,000",
-        "zone":  "Downtown Vinewood",
-        "description":  "Popular bar de copas con terraza en pleno centro de Vinewood. Alta afluencia de clientela nocturna.",
-        "features":  [
-                         "Disponible para los tres personajes",
-                         "Misiones de entrega de alcohol y suministros",
-                         "Retorno de inversión en 107 semanas"
-                     ],
-        "income":  "$7,000 semanales fijos",
-        "position":  {
-                         "x":  236.4,
-                         "y":  344.2,
-                         "z":  105.5
-                     },
-        "badge":  {
-                      "icon":  "beer",
-                      "color":  "#e67e22",
-                      "symbol":  "🍺"
-                  },
-        "imageUrl":  "/assets/data-images/properties/Pitchers-GTAV.png"
-    },
-    {
-        "id":  "biz-the-hen-house",
-        "name":  "The Hen House",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Cualquier protagonista",
-        "price":  80000,
-        "priceFormatted":  "$80,000",
-        "zone":  "Paleto Bay",
-        "description":  "Pintoresco pub rural ubicado en el extremo norte del mapa en Paleto Bay. El negocio más barato para adquirir en el modo historia.",
-        "features":  [
-                         "La propiedad más económica de adquirir",
-                         "Defensa ocasional contra ladrones locales",
-                         "Ideal para comenzar cartera inmobiliaria"
-                     ],
-        "income":  "$920 semanales fijos",
-        "position":  {
-                         "x":  -305.2,
-                         "y":  6265.8,
-                         "z":  31.5
-                     },
-        "badge":  {
-                      "icon":  "home",
-                      "color":  "#d35400",
-                      "symbol":  "🏠"
-                  },
-        "imageUrl":  "/assets/data-images/properties/TheHenHouse-GTAVee.jpg"
-    },
-    {
-        "id":  "biz-cinema-doppler",
-        "name":  "Cinema Doppler",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Michael De Santa",
-        "price":  10000000,
-        "priceFormatted":  "$10,000,000",
-        "zone":  "Vinewood Boulevard",
-        "description":  "Cine histórico estilo Art Déco situado en el Paseo de la Fama de Vinewood. Gran generador de ingresos pasivos.",
-        "features":  [
-                         "Exclusivo para Michael",
-                         "Misiones de reparto de rollos de película y protección",
-                         "Amortización en 76 semanas"
-                     ],
-        "income":  "$132,200 semanales fijos",
-        "position":  {
-                         "x":  305.8,
-                         "y":  147.2,
-                         "z":  103.8
-                     },
-        "badge":  {
-                      "icon":  "film",
-                      "color":  "#f1c40f",
-                      "symbol":  "🎬"
-                  },
-        "imageUrl":  "/assets/data-images/properties/DopplerCinema-GTAV-Building.png"
-    },
-    {
-        "id":  "biz-ten-cent-theater",
-        "name":  "Ten Cent Theater",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Michael De Santa",
-        "price":  20000000,
-        "priceFormatted":  "$20,000,000",
-        "zone":  "Textile City",
-        "description":  "Emblemático cine y teatro clásico en el corazón comercial de Textile City. Genera una de las rentas semanales más elevadas.",
-        "features":  [
-                         "Exclusivo para Michael",
-                         "Renta semanal de más de un cuarto de millón",
-                         "Retorno de inversión en 76 semanas"
-                     ],
-        "income":  "$264,000 semanales fijos",
-        "position":  {
-                         "x":  393.2,
-                         "y":  -710.8,
-                         "z":  29.3
-                     },
-        "badge":  {
-                      "icon":  "film",
-                      "color":  "#f1c40f",
-                      "symbol":  "🎬"
-                  },
-        "imageUrl":  "/assets/data-images/properties/TenCentTheater-GTAV-OfficialScreenshot.png"
-    },
-    {
-        "id":  "biz-tivoli-cinema",
-        "name":  "Tivoli Cinema",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Michael De Santa",
-        "price":  30000000,
-        "priceFormatted":  "$30,000,000",
-        "zone":  "Morningwood",
-        "description":  "Palacio cinematográfico de lujo en Morningwood. La sala de proyección con mayor prestigio de la ciudad.",
-        "features":  [
-                         "Exclusivo para Michael",
-                         "El cine más caro de comprar en San Andreas",
-                         "Ingresos masivos semanales"
-                     ],
-        "income":  "$142,300 semanales fijos",
-        "position":  {
-                         "x":  -1424.5,
-                         "y":  -221.8,
-                         "z":  46.5
-                     },
-        "badge":  {
-                      "icon":  "film",
-                      "color":  "#f1c40f",
-                      "symbol":  "🎬"
-                  },
-        "imageUrl":  "/assets/data-images/properties/TivoliCinema-GTAV.png"
-    },
-    {
-        "id":  "biz-ls-customs-desert",
-        "name":  "Los Santos Customs (Desierto)",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Franklin Clinton",
-        "price":  349000,
-        "priceFormatted":  "$349,000",
-        "zone":  "Grand Senora Desert",
-        "description":  "Taller mecánico oficial en plena Ruta 68. Adquirirlo desbloquea tuneos, blindajes y reparaciones 100% GRATIS para Franklin.",
-        "features":  [
-                         "Exclusivo para Franklin",
-                         "¡Modificaciones y tuneos de vehículos GRATUITOS para Franklin de por vida!",
-                         "Ingreso semanal pasivo añadido"
-                     ],
-        "income":  "Modificaciones GRATIS + $1,600 semanales",
-        "position":  {
-                         "x":  1177,
-                         "y":  2640,
-                         "z":  37.8
-                     },
-        "badge":  {
-                      "icon":  "wrench",
-                      "color":  "#3498db",
-                      "symbol":  "🔧"
-                  },
-        "imageUrl":  "/assets/data-images/properties/GTAV-LSCustoms-Logo.png"
-    },
-    {
-        "id":  "biz-car-scrapyard",
-        "name":  "Desguace de Coches",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Cualquier protagonista",
-        "price":  275000,
-        "priceFormatted":  "$275,000",
-        "zone":  "El Burro Heights",
-        "description":  "Centro de reciclaje automotriz. Genera dinero directo por cada vehículo que explotes o destruyas en cualquier parte de San Andreas.",
-        "features":  [
-                         "Paga $150 en efectivo por cada coche destruido en el mapa",
-                         "Límite máximo de $5,000 semanales por chatarra",
-                         "Disponible para los tres personajes"
-                     ],
-        "income":  "$150 por vehículo destruido (hasta $5,000/sem)",
-        "position":  {
-                         "x":  1289.2,
-                         "y":  -2072.5,
-                         "z":  51.5
-                     },
-        "badge":  {
-                      "icon":  "trash",
-                      "color":  "#7f8c8d",
-                      "symbol":  "🚗"
-                  },
-        "imageUrl":  "/assets/data-images/properties/CarScrapyard-GTAV-Warehouse.jpg"
-    },
-    {
-        "id":  "biz-hookies",
-        "name":  "Hookies",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Michael o Franklin",
-        "price":  600000,
-        "priceFormatted":  "$600,000",
-        "zone":  "North Chumash",
-        "description":  "Restaurante y marisquería de carretera en la autopista Great Ocean, frecuentado por la banda de moteros The Lost MC.",
-        "features":  [
-                         "Comprable por Michael o Franklin",
-                         "Misiones de defensa contra ataques de The Lost MC",
-                         "Ubicación privilegiada en la costa oeste"
-                     ],
-        "income":  "$4,700 semanales fijos",
-        "position":  {
-                         "x":  -2195.4,
-                         "y":  4272.5,
-                         "z":  48.6
-                     },
-        "badge":  {
-                      "icon":  "restaurant",
-                      "color":  "#e67e22",
-                      "symbol":  "🦞"
-                  },
-        "imageUrl":  "/assets/data-images/properties/Hookies-GTAVee.jpg"
-    },
-    {
-        "id":  "biz-sonar-collections",
-        "name":  "Muelle de Búsqueda Sonar",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Cualquier protagonista",
-        "price":  250000,
-        "priceFormatted":  "$250,000",
-        "zone":  "Paleto Cove",
-        "description":  "Instalación portuaria secreta con minisubmarino atracado. Desbloquea la búsqueda de 30 barriles de residuos nucleares en el fondo oceánico.",
-        "features":  [
-                         "Desbloquea el minisubmarino para exploración submarina",
-                         "Coleccionable de 30 barriles nucleares a $23,000 c/u",
-                         "Bonus final de $250,000 al recolectar todos los residuos"
-                     ],
-        "income":  "$23,000 por barril nuclear recuperado ($940,000 total)",
-        "position":  {
-                         "x":  -1612.4,
-                         "y":  5262.8,
-                         "z":  3.9
-                     },
-        "badge":  {
-                      "icon":  "anchor",
-                      "color":  "#1abc9c",
-                      "symbol":  "⚓"
-                  },
-        "imageUrl":  "/assets/data-images/properties/SonarCollectionsDock-GTAV.png"
-    },
-    {
-        "id":  "biz-mckenzie-hangar",
-        "name":  "Aeródromo McKenzie Field",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Trevor Philips",
-        "price":  150000,
-        "priceFormatted":  "$150,000",
-        "zone":  "Grapeseed",
-        "description":  "Pista de aterrizaje clandestina y hangar para avioneta Cuban 800 y buggy Dune. Base de operaciones para tráfico de armas de Trevor.",
-        "features":  [
-                         "Exclusivo para Trevor",
-                         "Misiones de contrabando aéreo y bombardeo con avioneta",
-                         "Misiones terrestres de entrega en todoterreno con armas"
-                     ],
-        "income":  "$5,000 por entrega terrestre / $7,000 por entrega aérea",
-        "position":  {
-                         "x":  2137.2,
-                         "y":  4785.4,
-                         "z":  41.1
-                     },
-        "badge":  {
-                      "icon":  "plane",
-                      "color":  "#e74c3c",
-                      "symbol":  "✈️"
-                  },
-        "imageUrl":  "/assets/data-images/properties/McKenzieFieldHangar-GTAVee-Signage.jpg"
-    },
-    {
-        "id":  "biz-golf-club",
-        "name":  "Club de Golf de Los Santos",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Cualquier protagonista",
-        "price":  150000000,
-        "priceFormatted":  "$150,000,000",
-        "zone":  "Richman",
-        "description":  "La propiedad más exclusiva, cara y prestigiosa de todo el juego. Símbolo supremo de riqueza en San Andreas.",
-        "features":  [
-                         "La propiedad más cara de la historia de GTA ($150 Millones)",
-                         "Partidas de golf gratis para el propietario",
-                         "Acceso irrestricto al campo con cualquier vestimenta"
-                     ],
-        "income":  "$264,500 semanales fijos",
-        "position":  {
-                         "x":  -1338.2,
-                         "y":  56.4,
-                         "z":  54.2
-                     },
-        "badge":  {
-                      "icon":  "trophy",
-                      "color":  "#27ae60",
-                      "symbol":  "⛳"
-                  },
-        "imageUrl":  "/assets/data-images/properties/LosSantosGolfClub-GTAO-Logo.png"
-    },
-    {
-        "id":  "biz-towing-impound",
-        "name":  "Depósito de Grúas",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Franklin Clinton",
-        "price":  150000,
-        "priceFormatted":  "$150,000",
-        "zone":  "Rancho",
-        "description":  "Depósito municipal de vehículos remolcados. Desbloqueable tras completar las misiones de Tonya en Los Santos sur.",
-        "features":  [
-                         "Exclusivo para Franklin",
-                         "Misiones de remolque de coches mal aparcados o averiados",
-                         "Pago instantáneo por vehículo retirado"
-                     ],
-        "income":  "$500 por cada coche remolcado",
-        "position":  {
-                         "x":  408.2,
-                         "y":  -1638.5,
-                         "z":  29.3
-                     },
-        "badge":  {
-                      "icon":  "truck",
-                      "color":  "#e67e22",
-                      "symbol":  "🚚"
-                  },
-        "imageUrl":  "/assets/data-images/properties/TowTruckMission-GTA5.png"
-    },
-    {
-        "id":  "biz-downtown-cab",
-        "name":  "Downtown Cab Co.",
-        "category":  "purchasable_business",
-        "categoryLabel":  "Negocios a Comprar",
-        "gameMode":  "story",
-        "owner":  "Franklin Clinton",
-        "price":  200000,
-        "priceFormatted":  "$200,000",
-        "zone":  "East Vinewood",
-        "description":  "Empresa metropolitana de taxis de Los Santos. Incluye viajes en taxi 100% gratuitos y carreras privadas VIP.",
-        "features":  [
-                         "Exclusivo para Franklin",
-                         "¡Todos los viajes en taxi y saltos de destino GRATIS para Franklin!",
-                         "Llamadas especiales para transportar a clientes VIP por propinas millonarias"
-                     ],
-        "income":  "Taxis GRATIS + $2,000 semanales",
-        "position":  {
-                         "x":  894.5,
-                         "y":  -179.2,
-                         "z":  73.8
-                     },
-        "badge":  {
-                      "icon":  "taxi",
-                      "color":  "#f39c12",
-                      "symbol":  "🚕"
-                  },
-        "imageUrl":  "/assets/data-images/properties/DowntownCabCo-GTAV-Logo.png"
-    },
+﻿[
     {
         "id":  "bunker-chumash",
-        "name":  "Búnker de Chumash",
+        "name":  "BÃºnker de Chumash",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  1650000,
         "priceFormatted":  "$1,650,000",
         "zone":  "Chumash / Costa Oeste",
-        "description":  "El búnker más valorado por los jugadores veteranos. Su salida directa a la autopista Great Ocean permite realizar ventas en Los Santos en tiempo récord.",
+        "description":  "El bÃºnker mÃ¡s valorado por los jugadores veteranos. Su salida directa a la autopista Great Ocean permite realizar ventas en Los Santos en tiempo rÃ©cord.",
         "features":  [
                          "Acceso directo e inmediato a la autopista",
                          "Menor tiempo de trayecto en misiones de venta a Los Santos",
-                         "Espacio para Centro de Operaciones Móvil (MOC)",
-                         "Investigación de munición especial explosiva MK II"
+                         "Espacio para Centro de Operaciones MÃ³vil (MOC)",
+                         "InvestigaciÃ³n de municiÃ³n especial explosiva MK II"
                      ],
         "income":  "Hasta $1,050,000 por venta de arsenal completa",
         "position":  {
@@ -459,24 +24,24 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Bunker-GTAO-Chumash.png"
     },
     {
         "id":  "bunker-farmhouse",
-        "name":  "Búnker de Farmhouse",
+        "name":  "BÃºnker de Farmhouse",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  2375000,
         "priceFormatted":  "$2,375,000",
         "zone":  "Grand Senora / Granja",
-        "description":  "El búnker más cercano al núcleo urbano de Los Santos. Ubicado al este de la autopista Senora Freeway, ideal para helicópteros y ventas en Phantom Wedge.",
+        "description":  "El bÃºnker mÃ¡s cercano al nÃºcleo urbano de Los Santos. Ubicado al este de la autopista Senora Freeway, ideal para helicÃ³pteros y ventas en Phantom Wedge.",
         "features":  [
-                         "La posición geográfica más céntrica del mapa",
-                         "Cercanía máxima a los puntos de entrega de la ciudad",
-                         "Salida cómoda para vehículos pesados"
+                         "La posiciÃ³n geogrÃ¡fica mÃ¡s cÃ©ntrica del mapa",
+                         "CercanÃ­a mÃ¡xima a los puntos de entrega de la ciudad",
+                         "Salida cÃ³moda para vehÃ­culos pesados"
                      ],
         "income":  "Hasta $1,050,000 por venta de arsenal completa",
         "position":  {
@@ -487,23 +52,23 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Bunker-GTAO-Farmhouse.png"
     },
     {
         "id":  "bunker-route-68",
-        "name":  "Búnker de Ruta 68",
+        "name":  "BÃºnker de Ruta 68",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  1450000,
         "priceFormatted":  "$1,450,000",
         "zone":  "Ruta 68 Grand Senora",
-        "description":  "Excelente relación calidad-precio. Ubicado junto a la pista de aterrizaje de Sandy Shores y cerca de los negocios de motero.",
+        "description":  "Excelente relaciÃ³n calidad-precio. Ubicado junto a la pista de aterrizaje de Sandy Shores y cerca de los negocios de motero.",
         "features":  [
                          "Precio muy competitivo",
-                         "Próximo al aeródromo de Sandy Shores",
+                         "PrÃ³ximo al aerÃ³dromo de Sandy Shores",
                          "Gran sinergia con sedes de moteros del desierto"
                      ],
         "income":  "Hasta $1,050,000 por venta completa",
@@ -515,24 +80,24 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Bunker-GTAO-Route68.png"
     },
     {
         "id":  "bunker-desert",
-        "name":  "Búnker de Grand Senora Desert",
+        "name":  "BÃºnker de Grand Senora Desert",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  2120000,
         "priceFormatted":  "$2,120,000",
         "zone":  "Gran Desierto Senora",
-        "description":  "Instalación subterránea en medio de las dunas del desierto, justo al oeste de la pista de aterrizaje de Sandy Shores.",
+        "description":  "InstalaciÃ³n subterrÃ¡nea en medio de las dunas del desierto, justo al oeste de la pista de aterrizaje de Sandy Shores.",
         "features":  [
                          "Despegue despejado para aeronaves",
-                         "Acceso directo a pistas aéreas",
-                         "Entorno plano sin obstáculos montañosos"
+                         "Acceso directo a pistas aÃ©reas",
+                         "Entorno plano sin obstÃ¡culos montaÃ±osos"
                      ],
         "income":  "Hasta $1,050,000 por venta completa",
         "position":  {
@@ -543,22 +108,22 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Bunker-GTAO-GrandSenoraDesert.png"
     },
     {
         "id":  "bunker-paleto",
-        "name":  "Búnker de Paleto Forest",
+        "name":  "BÃºnker de Paleto Forest",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  1165000,
         "priceFormatted":  "$1,165,000",
         "zone":  "Paleto Forest",
-        "description":  "El búnker más barato del juego, incluido en el Criminal Enterprise Starter Pack. Muy alejado de la ciudad para ventas en solitario.",
+        "description":  "El bÃºnker mÃ¡s barato del juego, incluido en el Criminal Enterprise Starter Pack. Muy alejado de la ciudad para ventas en solitario.",
         "features":  [
-                         "El búnker con menor coste de compra",
+                         "El bÃºnker con menor coste de compra",
                          "Zona tranquila para reabastecimiento",
                          "Rutas de entrega largas hacia Los Santos"
                      ],
@@ -571,15 +136,15 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Bunker-GTAO-PaletoForest.png"
     },
     {
         "id":  "bunker-zancudo",
-        "name":  "Búnker de Lago Zancudo",
+        "name":  "BÃºnker de Lago Zancudo",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  1550000,
         "priceFormatted":  "$1,550,000",
@@ -587,8 +152,8 @@
         "description":  "Situado en las colinas que bordean la base militar de Fort Zancudo. Ideal si posees un hangar en la base militar.",
         "features":  [
                          "Sinergia directa con base militar Fort Zancudo",
-                         "Salida hacia la costa norte y autovía",
-                         "Defensa aérea natural de la base"
+                         "Salida hacia la costa norte y autovÃ­a",
+                         "Defensa aÃ©rea natural de la base"
                      ],
         "income":  "Hasta $1,050,000 por venta completa",
         "position":  {
@@ -599,24 +164,24 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Bunker-GTAO-LagoZancudo.png"
     },
     {
         "id":  "bunker-raton",
-        "name":  "Búnker de Raton Canyon",
+        "name":  "BÃºnker de Raton Canyon",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  1450000,
         "priceFormatted":  "$1,450,000",
         "zone":  "Raton Canyon",
-        "description":  "Oculto entre los desfiladeros de Raton Canyon, ofrece excelente discreción y camuflaje natural.",
+        "description":  "Oculto entre los desfiladeros de Raton Canyon, ofrece excelente discreciÃ³n y camuflaje natural.",
         "features":  [
-                         "Ubicación aislada y protegida",
-                         "Rutas aéreas espectaculares por el cañón",
-                         "Coste económico"
+                         "UbicaciÃ³n aislada y protegida",
+                         "Rutas aÃ©reas espectaculares por el caÃ±Ã³n",
+                         "Coste econÃ³mico"
                      ],
         "income":  "Hasta $1,050,000 por venta completa",
         "position":  {
@@ -627,24 +192,24 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Bunker-GTAO-RatonCanyon.png"
     },
     {
         "id":  "bunker-thomson",
-        "name":  "Búnker de Thomson Scrapyard",
+        "name":  "BÃºnker de Thomson Scrapyard",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  2290000,
         "priceFormatted":  "$2,290,000",
         "zone":  "Desierto Este",
-        "description":  "Situado junto al desguace de Thomson en la parte oriental del desierto. Acceso rápido a la autopista Senora Freeway.",
+        "description":  "Situado junto al desguace de Thomson en la parte oriental del desierto. Acceso rÃ¡pido a la autopista Senora Freeway.",
         "features":  [
                          "Acceso despejado a la autopista este",
-                         "Próximo a turbinas eólicas y costa oriental",
-                         "Amplio espacio para vehículos pesados"
+                         "PrÃ³ximo a turbinas eÃ³licas y costa oriental",
+                         "Amplio espacio para vehÃ­culos pesados"
                      ],
         "income":  "Hasta $1,050,000 por venta completa",
         "position":  {
@@ -655,22 +220,22 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Bunker-GTAO-ThomsonScrapyard.png"
     },
     {
         "id":  "bunker-smoke-tree",
-        "name":  "Búnker de Smoke Tree Vale",
+        "name":  "BÃºnker de Smoke Tree Vale",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  2205000,
         "priceFormatted":  "$2,205,000",
         "zone":  "San Chianski / Desierto",
-        "description":  "Búnker al pie de las colinas de San Chianski, en una zona abierta y despejada.",
+        "description":  "BÃºnker al pie de las colinas de San Chianski, en una zona abierta y despejada.",
         "features":  [
-                         "Terreno llano para helicópteros y cazas",
+                         "Terreno llano para helicÃ³pteros y cazas",
                          "Ruta directa hacia el sur por autopista",
                          "Zona tranquila para reabastecer"
                      ],
@@ -683,23 +248,23 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Gunrunning-GTAO-OfficialScreen-Bunker.jpg"
     },
     {
         "id":  "bunker-grapeseed",
-        "name":  "Búnker de Grapeseed",
+        "name":  "BÃºnker de Grapeseed",
         "category":  "bunker",
-        "categoryLabel":  "Búnkeres",
+        "categoryLabel":  "BÃºnkeres",
         "gameMode":  "online",
         "price":  1750000,
         "priceFormatted":  "$1,750,000",
         "zone":  "Grapeseed",
-        "description":  "Búnker en la comarca agrícola de Grapeseed, a espaldas del monte Chiliad y al lado del aeródromo McKenzie.",
+        "description":  "BÃºnker en la comarca agrÃ­cola de Grapeseed, a espaldas del monte Chiliad y al lado del aerÃ³dromo McKenzie.",
         "features":  [
-                         "Conexión con pista de aterrizaje McKenzie Field",
-                         "Cercanía a Alamo Sea y granjas",
+                         "ConexiÃ³n con pista de aterrizaje McKenzie Field",
+                         "CercanÃ­a a Alamo Sea y granjas",
                          "Precio intermedio muy equilibrado"
                      ],
         "income":  "Hasta $1,050,000 por venta completa",
@@ -711,24 +276,24 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#d35400",
-                      "symbol":  "🛡️"
+                      "symbol":  "ðŸ›¡ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Gunrunning-GTAO-OfficialScreen-Bunker.jpg"
     },
     {
         "id":  "facility-desert",
-        "name":  "Instalación Grand Senora Desert",
+        "name":  "InstalaciÃ³n Grand Senora Desert",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  2525000,
         "priceFormatted":  "$2,525,000",
         "zone":  "Grand Senora Desert",
-        "description":  "Base militar subterránea de alta tecnología. Sede obligatoria para iniciar las misiones del Juicio del Fin del Mundo (Doomsday Heist).",
+        "description":  "Base militar subterrÃ¡nea de alta tecnologÃ­a. Sede obligatoria para iniciar las misiones del Juicio del Fin del Mundo (Doomsday Heist).",
         "features":  [
-                         "Cañón Orbital por satélite con disparo guiado",
+                         "CaÃ±Ã³n Orbital por satÃ©lite con disparo guiado",
                          "Garaje para el tanque blindado TM-02 Khanjali",
-                         "Plataforma para el avión despegue vertical Mammoth Thruster",
+                         "Plataforma para el aviÃ³n despegue vertical Mammoth Thruster",
                          "Sede de los 3 actos del Golpe del Fin del Mundo"
                      ],
         "income":  "Desbloquea atracos Doomsday con pagos de hasta $2,250,000",
@@ -740,26 +305,26 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-GrandSenoraDesert.png"
     },
     {
         "id":  "facility-route-68",
-        "name":  "Instalación Ruta 68",
+        "name":  "InstalaciÃ³n Ruta 68",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  2312500,
         "priceFormatted":  "$2,312,500",
         "zone":  "Ruta 68",
-        "description":  "Instalación céntrica junto a la carretera principal de Ruta 68. Muy accesible para vehículos terrestres pesados.",
+        "description":  "InstalaciÃ³n cÃ©ntrica junto a la carretera principal de Ruta 68. Muy accesible para vehÃ­culos terrestres pesados.",
         "features":  [
                          "Acceso directo a Ruta 68 asfaltada",
-                         "Despliegue rápido del tanque Khanjali",
-                         "Ubicación muy céntrica en el mapa"
+                         "Despliegue rÃ¡pido del tanque Khanjali",
+                         "UbicaciÃ³n muy cÃ©ntrica en el mapa"
                      ],
-        "income":  "Atracos Doomsday y cañón orbital",
+        "income":  "Atracos Doomsday y caÃ±Ã³n orbital",
         "position":  {
                          "x":  -360,
                          "y":  3030,
@@ -768,26 +333,26 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-Route68.png"
     },
     {
         "id":  "facility-sandy-shores",
-        "name":  "Instalación Sandy Shores",
+        "name":  "InstalaciÃ³n Sandy Shores",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  2740000,
         "priceFormatted":  "$2,740,000",
         "zone":  "Sandy Shores",
-        "description":  "Una de las mejores instalaciones del juego por su inmediata proximidad al aeródromo de Sandy Shores y helicópteros.",
+        "description":  "Una de las mejores instalaciones del juego por su inmediata proximidad al aerÃ³dromo de Sandy Shores y helicÃ³pteros.",
         "features":  [
-                         "Despegue inmediato de cazas y helicópteros en aeródromo adyacente",
-                         "Sinergia con búnkeres y fábricas del desierto",
-                         "Acceso inmejorable para misiones de preparación"
+                         "Despegue inmediato de cazas y helicÃ³pteros en aerÃ³dromo adyacente",
+                         "Sinergia con bÃºnkeres y fÃ¡bricas del desierto",
+                         "Acceso inmejorable para misiones de preparaciÃ³n"
                      ],
-        "income":  "Atracos Doomsday y cañón orbital",
+        "income":  "Atracos Doomsday y caÃ±Ã³n orbital",
         "position":  {
                          "x":  1860,
                          "y":  3840,
@@ -796,26 +361,26 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-SandyShores.png"
     },
     {
         "id":  "facility-fort-zancudo",
-        "name":  "Instalación Fort Zancudo",
+        "name":  "InstalaciÃ³n Fort Zancudo",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  2750000,
         "priceFormatted":  "$2,750,000",
         "zone":  "Fort Zancudo",
-        "description":  "Instalación situada en el perímetro exterior de Fort Zancudo, con máxima protección táctica militar.",
+        "description":  "InstalaciÃ³n situada en el perÃ­metro exterior de Fort Zancudo, con mÃ¡xima protecciÃ³n tÃ¡ctica militar.",
         "features":  [
-                         "Ubicación estratégica militarizada",
-                         "Conexión con autovía costera",
-                         "Excelente cobertura aérea"
+                         "UbicaciÃ³n estratÃ©gica militarizada",
+                         "ConexiÃ³n con autovÃ­a costera",
+                         "Excelente cobertura aÃ©rea"
                      ],
-        "income":  "Atracos Doomsday y cañón orbital",
+        "income":  "Atracos Doomsday y caÃ±Ã³n orbital",
         "position":  {
                          "x":  -2230,
                          "y":  3240,
@@ -824,26 +389,26 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-LagoZancudo.png"
     },
     {
         "id":  "facility-lago-zancudo",
-        "name":  "Instalación Lago Zancudo",
+        "name":  "InstalaciÃ³n Lago Zancudo",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  2599000,
         "priceFormatted":  "$2,599,000",
         "zone":  "Lago Zancudo",
-        "description":  "Base subterránea escondida en los pantanos de Lago Zancudo. Acceso costero y fluvial protegido.",
+        "description":  "Base subterrÃ¡nea escondida en los pantanos de Lago Zancudo. Acceso costero y fluvial protegido.",
         "features":  [
                          "Acceso directo a lanchas y anfibios en el pantano",
-                         "Cercanía a la base militar",
-                         "Poco tránsito de jugadores hostiles"
+                         "CercanÃ­a a la base militar",
+                         "Poco trÃ¡nsito de jugadores hostiles"
                      ],
-        "income":  "Atracos Doomsday y cañón orbital",
+        "income":  "Atracos Doomsday y caÃ±Ã³n orbital",
         "position":  {
                          "x":  -2840,
                          "y":  3000,
@@ -852,26 +417,26 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-LagoZancudo.png"
     },
     {
         "id":  "facility-paleto",
-        "name":  "Instalación Paleto Bay",
+        "name":  "InstalaciÃ³n Paleto Bay",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  1255000,
         "priceFormatted":  "$1,255,000",
         "zone":  "Paleto Bay",
-        "description":  "La instalación más asequible del juego. Ideal para jugadores que buscan desbloquear el Cañón Orbital con el menor coste inicial.",
+        "description":  "La instalaciÃ³n mÃ¡s asequible del juego. Ideal para jugadores que buscan desbloquear el CaÃ±Ã³n Orbital con el menor coste inicial.",
         "features":  [
-                         "La instalación más económica de adquirir",
-                         "Fácil acceso por carretera costera norte",
-                         "Mismas funciones de alta tecnología que las más caras"
+                         "La instalaciÃ³n mÃ¡s econÃ³mica de adquirir",
+                         "FÃ¡cil acceso por carretera costera norte",
+                         "Mismas funciones de alta tecnologÃ­a que las mÃ¡s caras"
                      ],
-        "income":  "Atracos Doomsday y cañón orbital",
+        "income":  "Atracos Doomsday y caÃ±Ã³n orbital",
         "position":  {
                          "x":  -370,
                          "y":  6050,
@@ -880,26 +445,26 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-PaletoBay.png"
     },
     {
         "id":  "facility-mount-gordo",
-        "name":  "Instalación Mount Gordo",
+        "name":  "InstalaciÃ³n Mount Gordo",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  1465000,
         "priceFormatted":  "$1,465,000",
         "zone":  "Mount Gordo",
-        "description":  "Instalación en las laderas nororientales de Mount Gordo con vistas al mar. Gran tranquilidad y bajo precio.",
+        "description":  "InstalaciÃ³n en las laderas nororientales de Mount Gordo con vistas al mar. Gran tranquilidad y bajo precio.",
         "features":  [
-                         "Precio económico",
-                         "Salida despejada sobre el océano",
+                         "Precio econÃ³mico",
+                         "Salida despejada sobre el ocÃ©ano",
                          "Excelente aislamiento"
                      ],
-        "income":  "Atracos Doomsday y cañón orbital",
+        "income":  "Atracos Doomsday y caÃ±Ã³n orbital",
         "position":  {
                          "x":  2740,
                          "y":  4420,
@@ -908,26 +473,26 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-MountGordo.png"
     },
     {
         "id":  "facility-ron-alternates",
-        "name":  "Instalación Ron Alternates Wind Farm",
+        "name":  "InstalaciÃ³n Ron Alternates Wind Farm",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  1775000,
         "priceFormatted":  "$1,775,000",
-        "zone":  "Parque Eólico Ron Alternates",
-        "description":  "Enclavada en el parque eólico entre gigantescas turbinas de viento. Conexión directa con la autopista Senora hacia la ciudad.",
+        "zone":  "Parque EÃ³lico Ron Alternates",
+        "description":  "Enclavada en el parque eÃ³lico entre gigantescas turbinas de viento. ConexiÃ³n directa con la autopista Senora hacia la ciudad.",
         "features":  [
                          "Muy cercana a la zona norte de Los Santos",
                          "Camino pavimentado hasta la entrada",
                          "Cobertura visual entre molinos de viento"
                      ],
-        "income":  "Atracos Doomsday y cañón orbital",
+        "income":  "Atracos Doomsday y caÃ±Ã³n orbital",
         "position":  {
                          "x":  2070,
                          "y":  1750,
@@ -936,26 +501,26 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-Floorplan_Map_Key.png"
     },
     {
         "id":  "facility-land-act",
-        "name":  "Instalación Land Act Reservoir",
+        "name":  "InstalaciÃ³n Land Act Reservoir",
         "category":  "facility",
         "categoryLabel":  "Instalaciones",
         "gameMode":  "online",
         "price":  2950000,
         "priceFormatted":  "$2,950,000",
         "zone":  "Embalse Land Act",
-        "description":  "Instalación secreta del Juicio Final ubicada en el embalse Land Act (Tataviam Mountains), al noreste de la presa. Acceso por pista de montaña.",
+        "description":  "InstalaciÃ³n secreta del Juicio Final ubicada en el embalse Land Act (Tataviam Mountains), al noreste de la presa. Acceso por pista de montaÃ±a.",
         "features":  [
-                         "La distancia más corta a la ciudad de Los Santos",
-                         "Máximo secreto en un valle cerrado",
+                         "La distancia mÃ¡s corta a la ciudad de Los Santos",
+                         "MÃ¡ximo secreto en un valle cerrado",
                          "Vistas privilegiadas al embalse y presa"
                      ],
-        "income":  "Atracos Doomsday y cañón orbital",
+        "income":  "Atracos Doomsday y caÃ±Ã³n orbital",
         "position":  {
                          "x":  1860,
                          "y":  280,
@@ -964,7 +529,7 @@
         "badge":  {
                       "icon":  "satellite",
                       "color":  "#8e44ad",
-                      "symbol":  "🛰️"
+                      "symbol":  "ðŸ›°ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Facilities-GTAO-LandActReservoir.png"
     },
@@ -977,12 +542,12 @@
         "price":  1830000,
         "priceFormatted":  "$1,830,000",
         "zone":  "Burton / Los Santos Centro",
-        "description":  "Taller mecánico del DLC Los Santos Tuners. Incluye elevadores para reparar y entregar coches de clientes, taller de mods personal y contratos de atracos de KDJ y Sessanta.",
+        "description":  "Taller mecÃ¡nico del DLC Los Santos Tuners. Incluye elevadores para reparar y entregar coches de clientes, taller de mods personal y contratos de atracos de KDJ y Sessanta.",
         "features":  [
-                         "Modificaciones de tuneo con 5% de descuento y pintura clásica gratis",
-                         "Elevadores hidráulicos para encargos de clientes con beneficios de hasta $60,000",
-                         "Sede para contratos de mini-atracos (El contrato de la Unión Depository paga $300,000)",
-                         "Pizarra de exportaciones exóticas de vehículos robados"
+                         "Modificaciones de tuneo con 5% de descuento y pintura clÃ¡sica gratis",
+                         "Elevadores hidrÃ¡ulicos para encargos de clientes con beneficios de hasta $60,000",
+                         "Sede para contratos de mini-atracos (El contrato de la UniÃ³n Depository paga $300,000)",
+                         "Pizarra de exportaciones exÃ³ticas de vehÃ­culos robados"
                      ],
         "income":  "Contratos de atraco ($300k) + Clientes de tuneo ($40k-$60k c/u)",
         "position":  {
@@ -993,7 +558,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#e67e22",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/AutoShops-GTAO.gif"
     },
@@ -1006,9 +571,9 @@
         "price":  1705000,
         "priceFormatted":  "$1,705,000",
         "zone":  "Strawberry",
-        "description":  "Excelente taller en la zona sur de la ciudad, muy próximo al Car Meet de Los Santos (LS Car Meet en Cypress Flats).",
+        "description":  "Excelente taller en la zona sur de la ciudad, muy prÃ³ximo al Car Meet de Los Santos (LS Car Meet en Cypress Flats).",
         "features":  [
-                         "Cercanía al LS Car Meet y circuito de pruebas",
+                         "CercanÃ­a al LS Car Meet y circuito de pruebas",
                          "Servicio de entrega de coches de clientes",
                          "Mini-atracos de alta intensidad"
                      ],
@@ -1021,7 +586,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#e67e22",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/AutoShops-GTAO.gif"
     },
@@ -1036,9 +601,9 @@
         "zone":  "Rancho",
         "description":  "Taller ubicado en el barrio de Rancho con excelente acceso por Olympic Freeway.",
         "features":  [
-                         "Elevadores de preparación de coches",
+                         "Elevadores de preparaciÃ³n de coches",
                          "Taller personal con todas las pinturas desbloqueadas",
-                         "Contratos de robo y Unión Depository"
+                         "Contratos de robo y UniÃ³n Depository"
                      ],
         "income":  "Contratos de atraco y tuneo de coches",
         "position":  {
@@ -1049,7 +614,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#e67e22",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/AutoShops-GTAO.gif"
     },
@@ -1062,9 +627,9 @@
         "price":  1920000,
         "priceFormatted":  "$1,920,000",
         "zone":  "La Mesa",
-        "description":  "El taller más cotizado de Los Santos por su posición junto a la autopista y los canales del río.",
+        "description":  "El taller mÃ¡s cotizado de Los Santos por su posiciÃ³n junto a la autopista y los canales del rÃ­o.",
         "features":  [
-                         "La salida más limpia hacia las autopistas este y norte",
+                         "La salida mÃ¡s limpia hacia las autopistas este y norte",
                          "Gran espacio exterior para aparcar camiones",
                          "Sinergia con salas recreativas de La Mesa"
                      ],
@@ -1077,7 +642,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#e67e22",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/AutoShops-GTAO.gif"
     },
@@ -1090,10 +655,10 @@
         "price":  1670000,
         "priceFormatted":  "$1,670,000",
         "zone":  "Mission Row",
-        "description":  "El taller de Tuners más asequible de la ciudad, en pleno centro urbano cerca de Legion Square.",
+        "description":  "El taller de Tuners mÃ¡s asequible de la ciudad, en pleno centro urbano cerca de Legion Square.",
         "features":  [
-                         "El precio de adquisición más bajo",
-                         "Ubicación céntrica en Mission Row",
+                         "El precio de adquisiciÃ³n mÃ¡s bajo",
+                         "UbicaciÃ³n cÃ©ntrica en Mission Row",
                          "Todas las ventajas de tuneo y descuentos activas"
                      ],
         "income":  "Contratos de atraco y tuneo de coches",
@@ -1105,7 +670,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#e67e22",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/AutoShops-GTAO.gif"
     },
@@ -1118,14 +683,14 @@
         "price":  4000000,
         "priceFormatted":  "$4,000,000",
         "zone":  "Pillbox Hill",
-        "description":  "El rascacielos más alto de Los Santos y el pináculo del éxito corporativo. Helipuerto en la azotea más alta de la ciudad.",
+        "description":  "El rascacielos mÃ¡s alto de Los Santos y el pinÃ¡culo del Ã©xito corporativo. Helipuerto en la azotea mÃ¡s alta de la ciudad.",
         "features":  [
-                         "El edificio más alto e imponente de San Andreas",
-                         "Helipuerto en la cúspide con despegue instantáneo",
+                         "El edificio mÃ¡s alto e imponente de San Andreas",
+                         "Helipuerto en la cÃºspide con despegue instantÃ¡neo",
                          "Garaje de hasta 60 plazas para superdeportivos",
-                         "Taller de tuneo personal de vehículos incluido en garaje"
+                         "Taller de tuneo personal de vehÃ­culos incluido en garaje"
                      ],
-        "income":  "Misiones de importación/exportación de vehículos y mercancía especial",
+        "income":  "Misiones de importaciÃ³n/exportaciÃ³n de vehÃ­culos y mercancÃ­a especial",
         "position":  {
                          "x":  -75.2,
                          "y":  -824.8,
@@ -1134,7 +699,7 @@
         "badge":  {
                       "icon":  "building",
                       "color":  "#2980b9",
-                      "symbol":  "🏢"
+                      "symbol":  "ðŸ¢"
                   },
         "imageUrl":  "/assets/data-images/properties/MazeBankTower-GTAV-Overview.png"
     },
@@ -1147,11 +712,11 @@
         "price":  2250000,
         "priceFormatted":  "$2,250,000",
         "zone":  "Pillbox Hill",
-        "description":  "Impresionante complejo corporativo en el centro financiero. Entrada subterránea protegida y helipuerto a media altura.",
+        "description":  "Impresionante complejo corporativo en el centro financiero. Entrada subterrÃ¡nea protegida y helipuerto a media altura.",
         "features":  [
                          "Arquitectura moderna con acceso protegido a garaje",
-                         "Helipuerto a altura óptima para aproximaciones rápidas",
-                         "Ubicación céntrica perfecta"
+                         "Helipuerto a altura Ã³ptima para aproximaciones rÃ¡pidas",
+                         "UbicaciÃ³n cÃ©ntrica perfecta"
                      ],
         "income":  "Red de contrabando de coches y almacenes",
         "position":  {
@@ -1162,7 +727,7 @@
         "badge":  {
                       "icon":  "building",
                       "color":  "#2980b9",
-                      "symbol":  "🏢"
+                      "symbol":  "ðŸ¢"
                   },
         "imageUrl":  "/assets/data-images/properties/ArcadiusBusinessCenter-GTAV-Logo.png"
     },
@@ -1175,7 +740,7 @@
         "price":  3100000,
         "priceFormatted":  "$3,100,000",
         "zone":  "Del Perro",
-        "description":  "Oficinas de lujo con vistas panorámicas al océano Pacífico y la playa de Del Perro. El helipuerto con mejores vistas de la costa.",
+        "description":  "Oficinas de lujo con vistas panorÃ¡micas al ocÃ©ano PacÃ­fico y la playa de Del Perro. El helipuerto con mejores vistas de la costa.",
         "features":  [
                          "Vistas completas al mar y la puesta de sol",
                          "Helipuerto despejado con acceso al muelle de Del Perro",
@@ -1190,7 +755,7 @@
         "badge":  {
                       "icon":  "building",
                       "color":  "#2980b9",
-                      "symbol":  "🏢"
+                      "symbol":  "ðŸ¢"
                   },
         "imageUrl":  "/assets/data-images/properties/LombankWest-GTAV.png"
     },
@@ -1203,13 +768,13 @@
         "price":  1000000,
         "priceFormatted":  "$1,000,000",
         "zone":  "Del Perro",
-        "description":  "La sede de CEO más popular y económica para iniciar tu imperio criminal. Cercana a la playa y autopista Del Perro Freeway.",
+        "description":  "La sede de CEO mÃ¡s popular y econÃ³mica para iniciar tu imperio criminal. Cercana a la playa y autopista Del Perro Freeway.",
         "features":  [
-                         "La oficina más asequible de comprar",
+                         "La oficina mÃ¡s asequible de comprar",
                          "Incluida en el Criminal Enterprise Starter Pack",
                          "Mismas funciones ejecutivas que las oficinas de $4M"
                      ],
-        "income":  "Punto de partida para importación/exportación",
+        "income":  "Punto de partida para importaciÃ³n/exportaciÃ³n",
         "position":  {
                          "x":  -1392.6,
                          "y":  -480.1,
@@ -1218,7 +783,7 @@
         "badge":  {
                       "icon":  "building",
                       "color":  "#2980b9",
-                      "symbol":  "🏢"
+                      "symbol":  "ðŸ¢"
                   },
         "imageUrl":  "/assets/data-images/properties/MazeBankWest-GTAV.png"
     },
@@ -1231,12 +796,12 @@
         "price":  2530000,
         "priceFormatted":  "$2,530,000",
         "zone":  "Vinewood",
-        "description":  "La sala de recreativos mejor situada de la ciudad. Sala de máquinas retro en la superficie y centro de mando subterráneo para el Golpe al Casino Diamond.",
+        "description":  "La sala de recreativos mejor situada de la ciudad. Sala de mÃ¡quinas retro en la superficie y centro de mando subterrÃ¡neo para el Golpe al Casino Diamond.",
         "features":  [
-                         "Centro de Operaciones Maestro (Master Control Terminal): ¡controla TODOS tus negocios desde un único ordenador!",
-                         "Sede de planificación para el atraco a la cámara del Casino Diamond",
-                         "Caja fuerte con $5,000 por día de juego con máquinas arcade llenas",
-                         "Simulador de drones y garaje para 10 vehículos"
+                         "Centro de Operaciones Maestro (Master Control Terminal): Â¡controla TODOS tus negocios desde un Ãºnico ordenador!",
+                         "Sede de planificaciÃ³n para el atraco a la cÃ¡mara del Casino Diamond",
+                         "Caja fuerte con $5,000 por dÃ­a de juego con mÃ¡quinas arcade llenas",
+                         "Simulador de drones y garaje para 10 vehÃ­culos"
                      ],
         "income":  "Atraco al Casino Diamond (hasta $3,600,000 en oro/diamantes)",
         "position":  {
@@ -1247,7 +812,7 @@
         "badge":  {
                       "icon":  "gamepad",
                       "color":  "#9b59b6",
-                      "symbol":  "🕹️"
+                      "symbol":  "ðŸ•¹ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Arcades-GTAO-ArcadeOverview.png"
     },
@@ -1264,7 +829,7 @@
         "features":  [
                          "Acceso directo al Casino por las avenidas norte",
                          "Terminal de Control Maestro instalable",
-                         "Garaje para vehículos del atraco"
+                         "Garaje para vehÃ­culos del atraco"
                      ],
         "income":  "Golpe al Casino Diamond",
         "position":  {
@@ -1275,7 +840,7 @@
         "badge":  {
                       "icon":  "gamepad",
                       "color":  "#9b59b6",
-                      "symbol":  "🕹️"
+                      "symbol":  "ðŸ•¹ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Arcades-GTAO-ArcadeOverview.png"
     },
@@ -1288,9 +853,9 @@
         "price":  1875000,
         "priceFormatted":  "$1,875,000",
         "zone":  "La Mesa",
-        "description":  "La opción preferida de los \u0027speedrunners\u0027 del atraco al Casino por su proximidad directa a los canales y al propio Casino Diamond.",
+        "description":  "La opciÃ³n preferida de los \u0027speedrunners\u0027 del atraco al Casino por su proximidad directa a los canales y al propio Casino Diamond.",
         "features":  [
-                         "La distancia más corta en coche al Casino Diamond",
+                         "La distancia mÃ¡s corta en coche al Casino Diamond",
                          "Acceso directo a las alcantarillas de escape",
                          "Espacio para la Terminal de Control Maestro"
                      ],
@@ -1303,7 +868,7 @@
         "badge":  {
                       "icon":  "gamepad",
                       "color":  "#9b59b6",
-                      "symbol":  "🕹️"
+                      "symbol":  "ðŸ•¹ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Arcades-GTAO-ArcadeOverview.png"
     },
@@ -1331,7 +896,7 @@
         "badge":  {
                       "icon":  "gamepad",
                       "color":  "#9b59b6",
-                      "symbol":  "🕹️"
+                      "symbol":  "ðŸ•¹ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Arcades-GTAO-ArcadeOverview.png"
     },
@@ -1346,7 +911,7 @@
         "zone":  "Grapeseed",
         "description":  "Sala de recreativos en el norte en la comarca de Grapeseed.",
         "features":  [
-                         "Precio económico",
+                         "Precio econÃ³mico",
                          "Base en el norte de Alamo Sea",
                          "Terminal de control"
                      ],
@@ -1359,7 +924,7 @@
         "badge":  {
                       "icon":  "gamepad",
                       "color":  "#9b59b6",
-                      "symbol":  "🕹️"
+                      "symbol":  "ðŸ•¹ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Arcades-GTAO-ArcadeOverview.png"
     },
@@ -1372,9 +937,9 @@
         "price":  1235000,
         "priceFormatted":  "$1,235,000",
         "zone":  "Paleto Bay",
-        "description":  "El salón de recreativos más barato del juego, ubicado en Paleto Bay.",
+        "description":  "El salÃ³n de recreativos mÃ¡s barato del juego, ubicado en Paleto Bay.",
         "features":  [
-                         "El precio más bajo de todos los recreativos",
+                         "El precio mÃ¡s bajo de todos los recreativos",
                          "Incluido en promociones especiales de Twitch Prime",
                          "Mismas funciones completas de atraco y terminal"
                      ],
@@ -1387,7 +952,7 @@
         "badge":  {
                       "icon":  "gamepad",
                       "color":  "#9b59b6",
-                      "symbol":  "🕹️"
+                      "symbol":  "ðŸ•¹ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Arcades-GTAO-ArcadeOverview.png"
     },
@@ -1400,12 +965,12 @@
         "price":  2650000,
         "priceFormatted":  "$2,650,000",
         "zone":  "Base Militar Fort Zancudo",
-        "description":  "Comprar este hangar concede autorización de bajo nivel en Fort Zancudo: ¡puedes entrar en la base militar sin que te persiga la policía ni el ejército!",
+        "description":  "Comprar este hangar concede autorizaciÃ³n de bajo nivel en Fort Zancudo: Â¡puedes entrar en la base militar sin que te persiga la policÃ­a ni el ejÃ©rcito!",
         "features":  [
-                         "Permiso oficial de paso libre por Fort Zancudo sin estrellas de búsqueda",
+                         "Permiso oficial de paso libre por Fort Zancudo sin estrellas de bÃºsqueda",
                          "Robo legal de cazas militares P-996 Lazer sin alerta inmediata",
-                         "Taller aeronáutico personalizado para cazas y bombarderos",
-                         "Negocio de contrabando aéreo Smuggler\u0027s Run"
+                         "Taller aeronÃ¡utico personalizado para cazas y bombarderos",
+                         "Negocio de contrabando aÃ©reo Smuggler\u0027s Run"
                      ],
         "income":  "Hasta $2,550,000 por venta completa con bonus",
         "position":  {
@@ -1416,7 +981,7 @@
         "badge":  {
                       "icon":  "plane",
                       "color":  "#6c5ce7",
-                      "symbol":  "✈️"
+                      "symbol":  "âœˆï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Hangars-GTAO-Zancudo3499.jpg"
     },
@@ -1429,13 +994,13 @@
         "price":  1378000,
         "priceFormatted":  ",378,000 (Historia) / ,200,000 (Online)",
         "zone":  "Aeropuerto Internacional LSIA",
-        "description":  "Hangar civil en la zona sur de LSIA (New Empire Way). En Modo Historia puede ser adquirido por Franklin Clinton o Michael De Santa por ,378,000 para almacenar aviones grandes, jets y bombarderos comprados o sustraídos sin generar nivel de búsqueda policial en el aeropuerto. En GTA Online sirve como centro de contrabando aéreo (Smuggler\u0027s Run).",
+        "description":  "Hangar civil en la zona sur de LSIA (New Empire Way). En Modo Historia puede ser adquirido por Franklin Clinton o Michael De Santa por ,378,000 para almacenar aviones grandes, jets y bombarderos comprados o sustraÃ­dos sin generar nivel de bÃºsqueda policial en el aeropuerto. En GTA Online sirve como centro de contrabando aÃ©reo (Smuggler\u0027s Run).",
         "features":  [
                          "Almacenamiento de hasta 20 aeronaves",
-                         "Acceso libre a pistas comerciales de LSIA sin nivel de búsqueda",
+                         "Acceso libre a pistas comerciales de LSIA sin nivel de bÃºsqueda",
                          "Adquirible por Michael y Franklin en Modo Historia"
                      ],
-        "income":  "Misiones de contrabando aéreo",
+        "income":  "Misiones de contrabando aÃ©reo",
         "position":  {
                          "x":  -980,
                          "y":  -2990,
@@ -1444,7 +1009,7 @@
         "badge":  {
                       "icon":  "plane",
                       "color":  "#6c5ce7",
-                      "symbol":  "✈️"
+                      "symbol":  "âœˆï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Hangars-GTAO-LSIA1.jpg",
         "owner":  "Franklin Clinton / Michael De Santa (Historia) / Jugador (Online)"
@@ -1461,11 +1026,11 @@
         "description":  "Socio al 50% con Franklin Clinton para resolver problemas de las celebridades de Vinewood. Desbloquea el contrato VIP de Dr. Dre.",
         "features":  [
                          "Historia \u0027The Contract\u0027 con Dr. Dre (Premio final de $1,000,000 repetible)",
-                         "Armería privada con descuento exclusivo en munición y armas pesadas",
-                         "Taller automotriz con tecnología de bloqueo de misiles de Imani (antimisiles guiados)",
-                         "Caja fuerte con ingresos pasivos crecientes hasta $20,000 por día"
+                         "ArmerÃ­a privada con descuento exclusivo en municiÃ³n y armas pesadas",
+                         "Taller automotriz con tecnologÃ­a de bloqueo de misiles de Imani (antimisiles guiados)",
+                         "Caja fuerte con ingresos pasivos crecientes hasta $20,000 por dÃ­a"
                      ],
-        "income":  "$1,000,000 por contrato Dr. Dre + Contratos de seguridad periódicos",
+        "income":  "$1,000,000 por contrato Dr. Dre + Contratos de seguridad periÃ³dicos",
         "position":  {
                          "x":  380,
                          "y":  320,
@@ -1474,7 +1039,7 @@
         "badge":  {
                       "icon":  "briefcase",
                       "color":  "#f39c12",
-                      "symbol":  "💼"
+                      "symbol":  "ðŸ’¼"
                   },
         "imageUrl":  "/assets/data-images/properties/F.Clinton_Partner-GTAOe-LargeLogoTexture.png"
     },
@@ -1487,13 +1052,13 @@
         "price":  2570000,
         "priceFormatted":  "$2,570,000",
         "zone":  "Strawberry",
-        "description":  "Desguace en sociedad con Yusuf Amir para robar y despiezar superdeportivos exóticos de coleccionistas de élite.",
+        "description":  "Desguace en sociedad con Yusuf Amir para robar y despiezar superdeportivos exÃ³ticos de coleccionistas de Ã©lite.",
         "features":  [
-                         "Robos semanales de vehículos de alto valor de Yusuf Amir",
-                         "Grúa remolcadora para desguazar vehículos y ganar ingresos pasivos",
+                         "Robos semanales de vehÃ­culos de alto valor de Yusuf Amir",
+                         "GrÃºa remolcadora para desguazar vehÃ­culos y ganar ingresos pasivos",
                          "Caja fuerte con ingresos continuos en efectivo"
                      ],
-        "income":  "Hasta $400,000 por coche robado + $24,000 por vehículo remolcado",
+        "income":  "Hasta $400,000 por coche robado + $24,000 por vehÃ­culo remolcado",
         "position":  {
                          "x":  -160,
                          "y":  -1690,
@@ -1502,7 +1067,7 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#c0392b",
-                      "symbol":  "🚘"
+                      "symbol":  "ðŸš˜"
                   },
         "imageUrl":  "/assets/data-images/properties/SalvageYard-GTAO-Logo.png"
     },
@@ -1515,11 +1080,11 @@
         "price":  3195000,
         "priceFormatted":  "$3,195,000",
         "zone":  "Base Militar Fort Zancudo",
-        "description":  "Hangar central en la base militar de Fort Zancudo. Concede pase libre a la base militar y taller aeronáutico para cazas.",
+        "description":  "Hangar central en la base militar de Fort Zancudo. Concede pase libre a la base militar y taller aeronÃ¡utico para cazas.",
         "features":  [
                          "Acceso directo e inmediato a la pista principal de Fort Zancudo",
-                         "Entrada libre sin nivel de búsqueda militar",
-                         "Almacén y taller de personalización de aeronaves"
+                         "Entrada libre sin nivel de bÃºsqueda militar",
+                         "AlmacÃ©n y taller de personalizaciÃ³n de aeronaves"
                      ],
         "income":  "Misiones de contrabando Smuggler\u0027s Run",
         "position":  {
@@ -1530,7 +1095,7 @@
         "badge":  {
                       "icon":  "plane",
                       "color":  "#6c5ce7",
-                      "symbol":  "✈️"
+                      "symbol":  "âœˆï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Hangars-GTAO-Zancudo3497.jpg"
     },
@@ -1543,9 +1108,9 @@
         "price":  3250000,
         "priceFormatted":  "$3,250,000",
         "zone":  "Base Militar Fort Zancudo",
-        "description":  "El hangar más cotizado y caro de Fort Zancudo, situado en el extremo occidental de la pista con el despegue más limpio hacia el océano.",
+        "description":  "El hangar mÃ¡s cotizado y caro de Fort Zancudo, situado en el extremo occidental de la pista con el despegue mÃ¡s limpio hacia el ocÃ©ano.",
         "features":  [
-                         "La mejor orientación de pista y espacio exterior despejado",
+                         "La mejor orientaciÃ³n de pista y espacio exterior despejado",
                          "Inmunidad militar y robo de aviones Lazer sin alarma",
                          "Capacidad para 20 aeronaves en almacenamiento"
                      ],
@@ -1558,7 +1123,7 @@
         "badge":  {
                       "icon":  "plane",
                       "color":  "#6c5ce7",
-                      "symbol":  "✈️"
+                      "symbol":  "âœˆï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Hangars-GTAO-ZancudoA2.jpg"
     },
@@ -1571,7 +1136,7 @@
         "price":  1378000,
         "priceFormatted":  ",378,000 (Historia) / ,525,000 (Online)",
         "zone":  "Aeropuerto Internacional LSIA",
-        "description":  "Hangar espacioso en la terminal de New Empire Way en LSIA. Permite a Franklin y Michael guardar aviones, jets privados y helicópteros comprados en Elitás Travel o sustraídos de la base militar sin activar el nivel de búsqueda policial al ingresar a las pistas.",
+        "description":  "Hangar espacioso en la terminal de New Empire Way en LSIA. Permite a Franklin y Michael guardar aviones, jets privados y helicÃ³pteros comprados en ElitÃ¡s Travel o sustraÃ­dos de la base militar sin activar el nivel de bÃºsqueda policial al ingresar a las pistas.",
         "features":  [
                          "Pistas comerciales directas y despegue frontal",
                          "Guardado de jets militares y aeronaves civiles",
@@ -1586,26 +1151,26 @@
         "badge":  {
                       "icon":  "plane",
                       "color":  "#6c5ce7",
-                      "symbol":  "✈️"
+                      "symbol":  "âœˆï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Hangars-GTAO-LSIA1.jpg",
         "owner":  "Franklin Clinton / Michael De Santa (Historia) / Jugador (Online)"
     },
     {
         "id":  "hangar-grand-senora-airfield",
-        "name":  "Aeródromo de Grand Senora Desert",
+        "name":  "AerÃ³dromo de Grand Senora Desert",
         "category":  "hangar",
-        "categoryLabel":  "Hangares y Aeródromos",
+        "categoryLabel":  "Hangares y AerÃ³dromos",
         "gameMode":  "both",
         "owner":  "Trevor Philips (Historia) / Pegasus \u0026 Ron (Online)",
         "price":  0,
-        "priceFormatted":  "Activo / Base aérea",
+        "priceFormatted":  "Activo / Base aÃ©rea",
         "zone":  "Grand Senora Desert",
-        "description":  "Principal aeródromo del condado de Blaine con pistas de aterrizaje cruzadas, hangares de almacenamiento y helipuerto. Base de Trevor Philips y punto neurálgico de entrega de aeronaves Pegasus.",
+        "description":  "Principal aerÃ³dromo del condado de Blaine con pistas de aterrizaje cruzadas, hangares de almacenamiento y helipuerto. Base de Trevor Philips y punto neurÃ¡lgico de entrega de aeronaves Pegasus.",
         "features":  [
                          "Doble pista de aterrizaje para aeronaves de gran porte",
                          "Hangares principales y zona de repostaje",
-                         "Punto neurálgico de entrega Pegasus en Sandy Shores"
+                         "Punto neurÃ¡lgico de entrega Pegasus en Sandy Shores"
                      ],
         "income":  "Acceso libre / Centro de operaciones",
         "position":  {
@@ -1616,24 +1181,24 @@
         "badge":  {
                       "icon":  "plane",
                       "color":  "#6c5ce7",
-                      "symbol":  "✈️"
+                      "symbol":  "âœˆï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/Sandy-shores-airfield.jpg"
     },
     {
         "id":  "veh-wh-la-mesa",
-        "name":  "Almacén de Vehículos La Mesa",
+        "name":  "AlmacÃ©n de VehÃ­culos La Mesa",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  1500000,
         "priceFormatted":  "$1,500,000",
         "zone":  "La Mesa",
-        "description":  "El almacén de exportación de vehículos robados más popular y rentable por su precio y cercanía a la autopista de Los Santos.",
+        "description":  "El almacÃ©n de exportaciÃ³n de vehÃ­culos robados mÃ¡s popular y rentable por su precio y cercanÃ­a a la autopista de Los Santos.",
         "features":  [
-                         "Capacidad para 40 coches de gama alta/media/estándar",
-                         "Taller subterráneo propio para tunear antes de la exportación",
-                         "Sótano para vehículos especiales blindados (Phantom Wedge, Ruiner 2000)"
+                         "Capacidad para 40 coches de gama alta/media/estÃ¡ndar",
+                         "Taller subterrÃ¡neo propio para tunear antes de la exportaciÃ³n",
+                         "SÃ³tano para vehÃ­culos especiales blindados (Phantom Wedge, Ruiner 2000)"
                      ],
         "income":  "Hasta $100,000 de beneficio neto por venta de coche de gama alta",
         "position":  {
@@ -1644,26 +1209,26 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
         "id":  "veh-wh-murrieta",
-        "name":  "Almacén de Vehículos Murrieta Heights",
+        "name":  "AlmacÃ©n de VehÃ­culos Murrieta Heights",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  2850000,
         "priceFormatted":  "$2,850,000",
         "zone":  "Murrieta Heights",
-        "description":  "El almacén de exportación más exclusivo y caro, situado en la colina este con salida directa y sin obstáculos a la autopista.",
+        "description":  "El almacÃ©n de exportaciÃ³n mÃ¡s exclusivo y caro, situado en la colina este con salida directa y sin obstÃ¡culos a la autopista.",
         "features":  [
-                         "Salida inmediata a la interestatal este sin semáforos",
+                         "Salida inmediata a la interestatal este sin semÃ¡foros",
                          "Excelente defensa contra jugadores atacantes",
-                         "Capacidad para 40 vehículos exóticos"
+                         "Capacidad para 40 vehÃ­culos exÃ³ticos"
                      ],
-        "income":  "Beneficios de $80,000 a $100,000 por vehículo exportado",
+        "income":  "Beneficios de $80,000 a $100,000 por vehÃ­culo exportado",
         "position":  {
                          "x":  1210,
                          "y":  -1280,
@@ -1672,24 +1237,24 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
         "id":  "veh-wh-davis",
-        "name":  "Almacén de Vehículos Davis",
+        "name":  "AlmacÃ©n de VehÃ­culos Davis",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  2495000,
         "priceFormatted":  "$2,495,000",
         "zone":  "Davis",
-        "description":  "Almacén en pleno barrio de Davis, muy cercano a Legion Square y al centro neurálgico de Los Santos.",
+        "description":  "AlmacÃ©n en pleno barrio de Davis, muy cercano a Legion Square y al centro neurÃ¡lgico de Los Santos.",
         "features":  [
-                         "Ubicación urbana muy céntrica",
-                         "Fácil acceso para entregas desde el norte y centro",
-                         "Almacenamiento subterráneo de vehículos armados"
+                         "UbicaciÃ³n urbana muy cÃ©ntrica",
+                         "FÃ¡cil acceso para entregas desde el norte y centro",
+                         "Almacenamiento subterrÃ¡neo de vehÃ­culos armados"
                      ],
         "income":  "Hasta $100,000 por venta de coche alta gama",
         "position":  {
@@ -1700,26 +1265,26 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
         "id":  "veh-wh-la-puerta",
-        "name":  "Almacén de Vehículos La Puerta",
+        "name":  "AlmacÃ©n de VehÃ­culos La Puerta",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  2735000,
         "priceFormatted":  "$2,735,000",
         "zone":  "La Puerta",
-        "description":  "Situado junto a los canales de La Puerta y el estadio Maze Bank Arena. Muy cómodo y con amplia explanada frontal.",
+        "description":  "Situado junto a los canales de La Puerta y el estadio Maze Bank Arena. Muy cÃ³modo y con amplia explanada frontal.",
         "features":  [
                          "Salida amplia para camiones y superdeportivos",
-                         "Cercanía al helipuerto de Vespucci",
-                         "Capacidad para 40 vehículos"
+                         "CercanÃ­a al helipuerto de Vespucci",
+                         "Capacidad para 40 vehÃ­culos"
                      ],
-        "income":  "Hasta $100,000 por vehículo de gama alta",
+        "income":  "Hasta $100,000 por vehÃ­culo de gama alta",
         "position":  {
                          "x":  -890,
                          "y":  -1520,
@@ -1728,24 +1293,24 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
         "id":  "veh-wh-cypress",
-        "name":  "Almacén de Vehículos Cypress Flats",
+        "name":  "AlmacÃ©n de VehÃ­culos Cypress Flats",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  2675000,
         "priceFormatted":  "$2,675,000",
         "zone":  "Cypress Flats",
-        "description":  "En el distrito industrial de Cypress Flats, muy próximo al LS Car Meet y a la red ferroviaria.",
+        "description":  "En el distrito industrial de Cypress Flats, muy prÃ³ximo al LS Car Meet y a la red ferroviaria.",
         "features":  [
-                         "Entorno industrial discreto para exportación",
-                         "Conexión directa con Olympic Freeway",
-                         "Espacio para vehículos especiales de SecuroServ"
+                         "Entorno industrial discreto para exportaciÃ³n",
+                         "ConexiÃ³n directa con Olympic Freeway",
+                         "Espacio para vehÃ­culos especiales de SecuroServ"
                      ],
         "income":  "Hasta $100,000 por coche",
         "position":  {
@@ -1756,22 +1321,22 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
         "id":  "veh-wh-el-burro",
-        "name":  "Almacén de Vehículos El Burro Heights",
+        "name":  "AlmacÃ©n de VehÃ­culos El Burro Heights",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  1635000,
         "priceFormatted":  "$1,635,000",
         "zone":  "El Burro Heights",
-        "description":  "Ubicado en las colinas industriales de El Burro Heights, cerca de los campos petrolíferos.",
+        "description":  "Ubicado en las colinas industriales de El Burro Heights, cerca de los campos petrolÃ­feros.",
         "features":  [
-                         "Uno de los almacenes más económicos de la ciudad",
+                         "Uno de los almacenes mÃ¡s econÃ³micos de la ciudad",
                          "Acceso asfaltado por Sustancia Road",
                          "Capacidad de 40 deportivos"
                      ],
@@ -1784,22 +1349,22 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
         "id":  "veh-wh-lsia-east",
-        "name":  "Almacén de Vehículos LSIA Este",
+        "name":  "AlmacÃ©n de VehÃ­culos LSIA Este",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  2300000,
         "priceFormatted":  "$2,300,000",
         "zone":  "Aeropuerto LSIA",
-        "description":  "Almacén en la entrada este del aeropuerto por Exceptionalists Way.",
+        "description":  "AlmacÃ©n en la entrada este del aeropuerto por Exceptionalists Way.",
         "features":  [
-                         "Carreteras amplias de múltiples carriles",
+                         "Carreteras amplias de mÃºltiples carriles",
                          "Proximidad al aeropuerto y autopista sur",
                          "Capacidad para 40 coches"
                      ],
@@ -1812,23 +1377,23 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
         "id":  "veh-wh-lsia-west",
-        "name":  "Almacén de Vehículos LSIA Oeste",
+        "name":  "AlmacÃ©n de VehÃ­culos LSIA Oeste",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  2170000,
         "priceFormatted":  "$2,170,000",
         "zone":  "Aeropuerto LSIA",
         "description":  "Situado en Shank Street junto a las pistas comerciales de LSIA.",
         "features":  [
-                         "Acceso rápido sin tráfico",
-                         "Almacenamiento completo de vehículos especiales",
+                         "Acceso rÃ¡pido sin trÃ¡fico",
+                         "Almacenamiento completo de vehÃ­culos especiales",
                          "Zona despejada"
                      ],
         "income":  "Hasta $100,000 por coche",
@@ -1840,23 +1405,23 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
         "id":  "veh-wh-elysian",
-        "name":  "Almacén de Vehículos Elysian Island",
+        "name":  "AlmacÃ©n de VehÃ­culos Elysian Island",
         "category":  "vehicle_warehouse",
-        "categoryLabel":  "Importación / Exportación",
+        "categoryLabel":  "ImportaciÃ³n / ExportaciÃ³n",
         "gameMode":  "online",
         "price":  1950000,
         "priceFormatted":  "$1,950,000",
         "zone":  "Elysian Island",
-        "description":  "Almacén en la zona portuaria de Elysian Island, ideal para operaciones discretas de contrabando de vehículos.",
+        "description":  "AlmacÃ©n en la zona portuaria de Elysian Island, ideal para operaciones discretas de contrabando de vehÃ­culos.",
         "features":  [
                          "Aislado del bullicio del centro urbano",
-                         "Conexión directa por puentes de Los Santos",
+                         "ConexiÃ³n directa por puentes de Los Santos",
                          "Capacidad para 40 coches"
                      ],
         "income":  "Hasta $100,000 por coche",
@@ -1868,7 +1433,7 @@
         "badge":  {
                       "icon":  "car",
                       "color":  "#e74c3c",
-                      "symbol":  "🏎️"
+                      "symbol":  "ðŸŽï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
@@ -1877,10 +1442,10 @@
         "name":  "The Tongva Estate",
         "price":  11500000,
         "category":  "mansion",
-        "categoryLabel":  "Mansión de Lujo",
+        "categoryLabel":  "MansiÃ³n de Lujo",
         "gameMode":  "online",
         "badge":  {
-                      "symbol":  "🏰",
+                      "symbol":  "ðŸ°",
                       "color":  "#d4af37"
                   },
         "zone":  "Tongva Hills",
@@ -1889,13 +1454,13 @@
                          "y":  390,
                          "z":  240
                      },
-        "description":  "Espectacular finca privada en Tongva Hills con helipuerto particular, vistas panorámicas al océano Pacífico, piscina infinita y garaje para 20 vehículos.",
+        "description":  "Espectacular finca privada en Tongva Hills con helipuerto particular, vistas panorÃ¡micas al ocÃ©ano PacÃ­fico, piscina infinita y garaje para 20 vehÃ­culos.",
         "features":  [
-                         "Garaje para 20 vehículos",
+                         "Garaje para 20 vehÃ­culos",
                          "Helipuerto privado",
                          "Concierge IA personal",
                          "Acceso a Golpe Kortz Center",
-                         "Vistas al Pacífico"
+                         "Vistas al PacÃ­fico"
                      ],
         "priceFormatted":  "$11,500,000",
         "imageUrl":  "/assets/data-images/properties/Mansions-GTAOe-TheTongvaEstate.png"
@@ -1905,10 +1470,10 @@
         "name":  "The Vinewood Residence",
         "price":  12200000,
         "category":  "mansion",
-        "categoryLabel":  "Mansión de Lujo",
+        "categoryLabel":  "MansiÃ³n de Lujo",
         "gameMode":  "online",
         "badge":  {
-                      "symbol":  "🏰",
+                      "symbol":  "ðŸ°",
                       "color":  "#d4af37"
                   },
         "zone":  "Vinewood Hills",
@@ -1917,11 +1482,11 @@
                          "y":  1190,
                          "z":  325
                      },
-        "description":  "Mansión moderna en las colinas de Vinewood Hills situada justo bajo el legendario cartel de Vinewood, con helipuerto y vistas a todo Los Santos.",
+        "description":  "MansiÃ³n moderna en las colinas de Vinewood Hills situada justo bajo el legendario cartel de Vinewood, con helipuerto y vistas a todo Los Santos.",
         "features":  [
-                         "Garaje para 20 vehículos",
+                         "Garaje para 20 vehÃ­culos",
                          "Helipuerto privado",
-                         "Salón de belleza y gimnasio",
+                         "SalÃ³n de belleza y gimnasio",
                          "Estudio de arte",
                          "Vistas sobre el skyline"
                      ],
@@ -1933,10 +1498,10 @@
         "name":  "The Richman Villa",
         "price":  12800000,
         "category":  "mansion",
-        "categoryLabel":  "Mansión de Lujo",
+        "categoryLabel":  "MansiÃ³n de Lujo",
         "gameMode":  "online",
         "badge":  {
-                      "symbol":  "🏰",
+                      "symbol":  "ðŸ°",
                       "color":  "#d4af37"
                   },
         "zone":  "Richman",
@@ -1945,13 +1510,13 @@
                          "y":  440,
                          "z":  125
                      },
-        "description":  "Villa de estilo neoclásico en la exclusiva urbanización de Richman, colindante con el Kortz Center y el club de golf, con máxima proximidad al centro urbano.",
+        "description":  "Villa de estilo neoclÃ¡sico en la exclusiva urbanizaciÃ³n de Richman, colindante con el Kortz Center y el club de golf, con mÃ¡xima proximidad al centro urbano.",
         "features":  [
-                         "Garaje para 20 vehículos",
+                         "Garaje para 20 vehÃ­culos",
                          "Helipuerto privado",
                          "Estudio de arte Kortz",
                          "Piscina y spa",
-                         "Ubicación premium céntrica"
+                         "UbicaciÃ³n premium cÃ©ntrica"
                      ],
         "priceFormatted":  "$12,800,000",
         "imageUrl":  "/assets/data-images/properties/Mansions-GTAOe-RichmanVilla.png"
@@ -1968,8 +1533,8 @@
         "description":  "Edificio comercial de primer orden en el distrito financiero de Hawick. Base para los contratos de Dr. Dre.",
         "features":  [
                          "Contratos de seguridad y golpes VIP con Franklin y Chop",
-                         "Taller de vehículos de la agencia con blindaje Imani Tech",
-                         "Armería de la agencia con fusiles pesados y PEM"
+                         "Taller de vehÃ­culos de la agencia con blindaje Imani Tech",
+                         "ArmerÃ­a de la agencia con fusiles pesados y PEM"
                      ],
         "income":  "Hasta $1,000,000 por contrato VIP de Dr. Dre",
         "position":  {
@@ -1980,7 +1545,7 @@
         "badge":  {
                       "icon":  "building",
                       "color":  "#e67e22",
-                      "symbol":  "🏢"
+                      "symbol":  "ðŸ¢"
                   },
         "imageUrl":  "/assets/data-images/properties/F.Clinton_Partner-GTAOe-LargeLogoTexture.png"
     },
@@ -1996,7 +1561,7 @@
         "description":  "Agencia situada en el opulento bulevar comercial de Rockford Hills, rodeada de boutiques de alta costura.",
         "features":  [
                          "Acceso directo a helipuerto en la azotea",
-                         "Garaje subterráneo de varias plantas",
+                         "Garaje subterrÃ¡neo de varias plantas",
                          "Caja fuerte con ingresos pasivos"
                      ],
         "income":  "Hasta $20,000 pasivos diarios",
@@ -2008,7 +1573,7 @@
         "badge":  {
                       "icon":  "building",
                       "color":  "#e67e22",
-                      "symbol":  "🏢"
+                      "symbol":  "ðŸ¢"
                   },
         "imageUrl":  "/assets/data-images/properties/F.Clinton_Partner-GTAOe-LargeLogoTexture.png"
     },
@@ -2023,10 +1588,10 @@
         "zone":  "Vespucci Canals",
         "description":  "Sede con vistas a los canales y a la costa oeste de Los Santos.",
         "features":  [
-                         "Ubicación costera relajada",
-                         "Rápida incorporación a Del Perro Freeway"
+                         "UbicaciÃ³n costera relajada",
+                         "RÃ¡pida incorporaciÃ³n a Del Perro Freeway"
                      ],
-        "income":  "Contratos de recuperación y asesinatos por encargo",
+        "income":  "Contratos de recuperaciÃ³n y asesinatos por encargo",
         "position":  {
                          "x":  -1100,
                          "y":  -1050,
@@ -2035,7 +1600,7 @@
         "badge":  {
                       "icon":  "building",
                       "color":  "#e67e22",
-                      "symbol":  "🏢"
+                      "symbol":  "ðŸ¢"
                   },
         "imageUrl":  "/assets/data-images/properties/F.Clinton_Partner-GTAOe-LargeLogoTexture.png"
     },
@@ -2048,13 +1613,13 @@
         "price":  2420000,
         "priceFormatted":  "$2,420,000",
         "zone":  "Murrieta Heights",
-        "description":  "Desguace y taller de despiece industrial cerca de El Burro Heights con grúa de remolque para servicio de asistencia.",
+        "description":  "Desguace y taller de despiece industrial cerca de El Burro Heights con grÃºa de remolque para servicio de asistencia.",
         "features":  [
-                         "Robos de vehículos de Yusuf Amir con botines de cientos de miles",
-                         "Camión grúa para remolcar y desguazar vehículos",
+                         "Robos de vehÃ­culos de Yusuf Amir con botines de cientos de miles",
+                         "CamiÃ³n grÃºa para remolcar y desguazar vehÃ­culos",
                          "Ingresos pasivos en caja fuerte"
                      ],
-        "income":  "Hasta $400,000 por vehículo robado",
+        "income":  "Hasta $400,000 por vehÃ­culo robado",
         "position":  {
                          "x":  1220,
                          "y":  -1300,
@@ -2063,7 +1628,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#d35400",
-                      "symbol":  "🏗️"
+                      "symbol":  "ðŸ—ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/SalvageYard-GTAO-Logo.png"
     },
@@ -2078,10 +1643,10 @@
         "zone":  "La Puerta",
         "description":  "Desguace situado en La Puerta, junto al Maze Bank Arena y el acceso al puerto.",
         "features":  [
-                         "Ubicación céntrica privilegiada cerca de autopistas",
-                         "Desguace rápido de piezas con doble operario"
+                         "UbicaciÃ³n cÃ©ntrica privilegiada cerca de autopistas",
+                         "Desguace rÃ¡pido de piezas con doble operario"
                      ],
-        "income":  "Robos semanales de vehículos de alta gama",
+        "income":  "Robos semanales de vehÃ­culos de alta gama",
         "position":  {
                          "x":  -840,
                          "y":  -1490,
@@ -2090,7 +1655,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#d35400",
-                      "symbol":  "🏗️"
+                      "symbol":  "ðŸ—ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/SalvageYard-GTAO-Logo.png"
     },
@@ -2106,7 +1671,7 @@
         "description":  "Desguace en el desierto con amplio patio para despiece.",
         "features":  [
                          "Acceso despejado en el condado de Blaine",
-                         "Grúa para servicios rurales"
+                         "GrÃºa para servicios rurales"
                      ],
         "income":  "Despiece continuo",
         "position":  {
@@ -2117,7 +1682,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#d35400",
-                      "symbol":  "🏗️"
+                      "symbol":  "ðŸ—ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/SalvageYard-GTAO-Logo.png"
     },
@@ -2130,10 +1695,10 @@
         "price":  1620000,
         "priceFormatted":  "$1,620,000",
         "zone":  "Paleto Bay",
-        "description":  "El desguace más económico del juego, en la bahía de Paleto.",
+        "description":  "El desguace mÃ¡s econÃ³mico del juego, en la bahÃ­a de Paleto.",
         "features":  [
-                         "Inversión reducida",
-                         "Tranquilidad total para misiones de grúa"
+                         "InversiÃ³n reducida",
+                         "Tranquilidad total para misiones de grÃºa"
                      ],
         "income":  "Despiece continuo",
         "position":  {
@@ -2144,7 +1709,7 @@
         "badge":  {
                       "icon":  "wrench",
                       "color":  "#d35400",
-                      "symbol":  "🏗️"
+                      "symbol":  "ðŸ—ï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/SalvageYard-GTAO-Logo.png"
     },
@@ -2158,11 +1723,11 @@
         "price":  995000,
         "priceFormatted":  "$995,000",
         "zone":  "La Puerta",
-        "description":  "Taller de preparación mecánica y combate en el estadio Maze Bank Arena. Permite adquirir, almacenar y personalizar vehículos acorazados mortíferos para competir en la serie Arena War.",
+        "description":  "Taller de preparaciÃ³n mecÃ¡nica y combate en el estadio Maze Bank Arena. Permite adquirir, almacenar y personalizar vehÃ­culos acorazados mortÃ­feros para competir en la serie Arena War.",
         "features":  [
-                         "Garaje de 3 plantas para hasta 30 vehículos modificados",
-                         "Mecánico especializado en blindaje, nitro, pinchos, arietes y sierras giratorias",
-                         "Tablero de Trayectoria de la Arena y acumulación de puntos AP"
+                         "Garaje de 3 plantas para hasta 30 vehÃ­culos modificados",
+                         "MecÃ¡nico especializado en blindaje, nitro, pinchos, arietes y sierras giratorias",
+                         "Tablero de Trayectoria de la Arena y acumulaciÃ³n de puntos AP"
                      ],
         "income":  "Premios por eventos de la Arena y recompensas de espectadores",
         "position":  {
@@ -2173,7 +1738,7 @@
         "badge":  {
                       "icon":  "shield",
                       "color":  "#e056fd",
-                      "symbol":  "🏟️"
+                      "symbol":  "ðŸŸï¸"
                   },
         "imageUrl":  "/assets/data-images/properties/MazeBankArena-GTAO-ArenaWar.png"
     }

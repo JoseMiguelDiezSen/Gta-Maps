@@ -25,7 +25,10 @@ export const en: TranslationSchema = {
     gta5Sub: 'Map available',
     gta6Title: 'GTA VI',
     gta6Sub: 'In Development...',
-    copyright: '© Copyright 2026 JMD Software, all rights reserved. JMD® and JMD Logo® are trademarks of The JMD Corporation. All rights Reserved.'
+    disclaimer: 'Fan-made project. Not affiliated with Rockstar Games.',
+    copyright: '© Copyright 2026 JMD Software, all rights reserved. JMD® and JMD Logo® are trademarks of The JMD Corporation. All rights Reserved.',
+    onlineUsers: 'users online',
+    onlineUser: 'user online'
   },
   gta5: {
     hud: {
@@ -45,6 +48,16 @@ export const en: TranslationSchema = {
       deleteMarker: 'Delete this marker',
       addMarker: 'Add marker here',
       centerMap: 'Center map here'
+    },
+    popups: {
+      income: 'Income:',
+      buyer: 'Buyer:',
+      price: 'PRICE',
+      pointOfInterest: 'Point of Interest',
+      hint: 'Hint / Location:',
+      reward: 'Reward:',
+      edit: 'Edit',
+      delete: 'Delete'
     },
     settings: {
       gameMode: 'Game Mode',
@@ -91,6 +104,73 @@ export const en: TranslationSchema = {
       characters: 'Characters',
       wildlife: 'Wildlife',
       customMarkers: 'Custom Markers'
+    },
+    layers: {
+      storyBusiness: 'Businesses (Story)',
+      mansion: 'Luxury Mansions',
+      hangar: 'Hangars',
+      bunker: 'Bunkers',
+      facility: 'Facilities',
+      arcade: 'Arcades',
+      autoShop: 'Auto Shops (Tuners)',
+      agency: 'Agencies (The Contract)',
+      salvageYard: 'Salvage Yards (The Chop Shop)',
+      arenaWar: 'Arena Workshop (Arena War)',
+      ceoOffice: 'Executive Offices',
+      vehicleWarehouse: 'Vehicle Warehouses (I/E)',
+      cokeLockup: 'Cocaine Lockups',
+      weedFarm: 'Weed Farms',
+      warehouse: 'Cargo Warehouses',
+      nightclub: 'Nightclubs',
+      cashFactory: 'Counterfeit Cash Factories',
+      methLab: 'Meth Labs',
+      docForgery: 'Document Forgery Offices',
+      lsCustoms: 'Los Santos Customs',
+      bennys: "Benny's Original Motorworks",
+      haoGarage: "Hao's Special Works (HSW)",
+      lsCarMeet: 'LS Car Meet (Cypress)',
+      policeStation: 'Police Stations',
+      policeStationShort: 'Police Stations',
+      hospital: 'Hospitals',
+      fireStation: 'Fire Stations',
+      fireStationShort: 'Fire Stations',
+      ammuNation: 'Ammu-Nation Gun Stores',
+      ammuNationShort: 'Ammu-Nation',
+      convenienceStore: '24/7 Supermarkets (Robbable)',
+      convenienceStoreShort: '24/7 Supermarkets',
+      maskShop: 'Movie Masks Shop (Beach)',
+      maskShopShort: 'Movie Masks Shop',
+      carWash: 'Car Washes',
+      carWashShort: 'Car Wash',
+      stripClub: 'Vanilla Unicorn (Strip Club)',
+      activity: 'Under Investigation',
+      fakeUfo: 'UFOs',
+      shipwreck: 'Shipwrecks',
+      cave: 'Caves',
+      playingCard: 'Playing Cards',
+      actionFigure: 'Action Figures',
+      signalJammer: 'Signal Jammers',
+      movieProp: "Solomon's Movie Props",
+      radioAntenna: 'Still Slipping Radio Antennas',
+      alienBone: 'Alien Bones',
+      spaceshipPart: 'Spaceship Parts',
+      graffiti: 'Graffiti Letters / Monkey Mosaics',
+      submarinePart: 'Submarine Pieces',
+      letterScrap: 'Letter Scraps',
+      emptyCollectiblesStory: 'Collectibles are available in GTA Online mode. Switch in Settings.',
+      emptyCharacters: 'No Story characters loaded yet.'
+    },
+    checkboxTitles: {
+      toggleProperties: 'Toggle all properties',
+      toggleBusinesses: 'Toggle all businesses',
+      toggleVehicles: 'Toggle all workshops and vehicles',
+      toggleServices: 'Toggle all services',
+      toggleActivities: 'Toggle all activities and sports',
+      toggleRoleplay: 'Toggle all roleplay jobs',
+      toggleCharacters: 'Toggle all characters and contacts',
+      toggleWildlife: 'Toggle all wildlife',
+      toggleCollectibles: 'Toggle all collectibles',
+      toggleStrangePlaces: 'Toggle all strange places'
     }
   },
   gta6: {
@@ -101,7 +181,19 @@ export const en: TranslationSchema = {
       coordsDev: 'Click to copy coordinates',
       panelTitle: 'Control Panel'
     },
-    canvasHelp: 'Scroll wheel to zoom, drag to pan'
+    canvasHelp: 'Scroll wheel to zoom, drag to pan',
+    categories: {
+      propiedades: 'Properties',
+      vehiculos: 'Vehicles',
+      negocios: 'Businesses',
+      categoria_3: 'Category 3',
+      categoria_4: 'Category 4',
+      categoria_5: 'Category 5',
+      fauna: 'Wildlife',
+      coleccionables: 'Collectibles',
+      lugares: 'Strange Places',
+      toggleAll: 'Toggle all items in {{ title }}'
+    }
   },
   transports: {
     title: 'Transports',

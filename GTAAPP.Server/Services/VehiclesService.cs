@@ -5,6 +5,7 @@ namespace GTAAPP.Server.Services;
 
 /// <summary>
 /// Servicio independiente para la gestión y consulta del catálogo de vehículos y concesionarios.
+/// Lee desde wwwroot/data/gta5/online/{lang}/vehicles.json.
 /// </summary>
 public class VehiclesService
 {
@@ -20,7 +21,7 @@ public class VehiclesService
         _logger = logger;
     }
 
-    private string DataPath => Path.Combine(_env.WebRootPath ?? Path.Combine(AppContext.BaseDirectory, "wwwroot"), "data");
+    private string BaseWebRoot => _env.WebRootPath ?? Path.Combine(AppContext.BaseDirectory, "wwwroot");
 
     public IReadOnlyList<GtaVehicle> GetVehicles(string? dealership = null, string? category = null)
     {
@@ -42,7 +43,11 @@ public class VehiclesService
 
     private IReadOnlyList<GtaVehicle> LoadVehicles()
     {
-        var fullPath = Path.Combine(DataPath, "vehicles.json");
+        // 1. Nueva ruta jerárquica
+        var hierPath = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles.json");
+        // 2. Fallback retrocompatible
+        var fullPath = File.Exists(hierPath) ? hierPath : Path.Combine(BaseWebRoot, "data", "vehicles.json");
+
         if (!File.Exists(fullPath))
         {
             return [];

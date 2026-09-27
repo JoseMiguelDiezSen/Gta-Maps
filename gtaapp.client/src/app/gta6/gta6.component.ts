@@ -1,4 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { TranslationService } from '../i18n';
 
 interface Gta6LegendItem {
     id: string;
@@ -153,11 +154,15 @@ export class Gta6Component implements OnInit, OnDestroy {
 
     readonly policiaKeys: string[] = this.policiaItems.map(i => i.id);
 
-    readonly mapTypes = [
-        { id: 'Satellite', label: 'Satélite', file: '/assets/filtracionesGta6/satelite.jpg', w: 912, h: 1136 },
-        { id: 'Roadmap', label: 'Carreteras', file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 },
-        { id: 'Atlas', label: 'Atlas', file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 }
-    ];
+    constructor(readonly translationService: TranslationService) {}
+
+    get mapTypes() {
+        return [
+            { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite'), file: '/assets/filtracionesGta6/satelite.jpg', w: 912, h: 1136 },
+            { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 },
+            { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 }
+        ];
+    }
 
     legendOpen = true;
     settingsOpen = true;
@@ -242,6 +247,10 @@ export class Gta6Component implements OnInit, OnDestroy {
 
     itemKeys(category: Gta6LegendCategory): string[] {
         return category.items.map(item => item.id);
+    }
+
+    getCategoryTitle(category: Gta6LegendCategory): string {
+        return this.translationService.t('gta6.categories.' + category.key) || category.title;
     }
 
     toggleLegend(): void {

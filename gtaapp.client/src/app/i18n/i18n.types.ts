@@ -33,7 +33,10 @@ export interface TranslationSchema {
     gta5Sub: string;
     gta6Title: string;
     gta6Sub: string;
+    disclaimer: string;
     copyright: string;
+    onlineUsers: string;
+    onlineUser: string;
   };
   gta5: {
     hud: {
@@ -53,6 +56,16 @@ export interface TranslationSchema {
       deleteMarker: string;
       addMarker: string;
       centerMap: string;
+    };
+    popups: {
+      income: string;
+      buyer: string;
+      price: string;
+      pointOfInterest: string;
+      hint: string;
+      reward: string;
+      edit: string;
+      delete: string;
     };
     settings: {
       gameMode: string;
@@ -100,6 +113,73 @@ export interface TranslationSchema {
       wildlife: string;
       customMarkers: string;
     };
+    layers: {
+      storyBusiness: string;
+      mansion: string;
+      hangar: string;
+      bunker: string;
+      facility: string;
+      arcade: string;
+      autoShop: string;
+      agency: string;
+      salvageYard: string;
+      arenaWar: string;
+      ceoOffice: string;
+      vehicleWarehouse: string;
+      cokeLockup: string;
+      weedFarm: string;
+      warehouse: string;
+      nightclub: string;
+      cashFactory: string;
+      methLab: string;
+      docForgery: string;
+      lsCustoms: string;
+      bennys: string;
+      haoGarage: string;
+      lsCarMeet: string;
+      policeStation: string;
+      policeStationShort: string;
+      hospital: string;
+      fireStation: string;
+      fireStationShort: string;
+      ammuNation: string;
+      ammuNationShort: string;
+      convenienceStore: string;
+      convenienceStoreShort: string;
+      maskShop: string;
+      maskShopShort: string;
+      carWash: string;
+      carWashShort: string;
+      stripClub: string;
+      activity: string;
+      fakeUfo: string;
+      shipwreck: string;
+      cave: string;
+      playingCard: string;
+      actionFigure: string;
+      signalJammer: string;
+      movieProp: string;
+      radioAntenna: string;
+      alienBone: string;
+      spaceshipPart: string;
+      graffiti: string;
+      submarinePart: string;
+      letterScrap: string;
+      emptyCollectiblesStory: string;
+      emptyCharacters: string;
+    };
+    checkboxTitles: {
+      toggleProperties: string;
+      toggleBusinesses: string;
+      toggleVehicles: string;
+      toggleServices: string;
+      toggleActivities: string;
+      toggleRoleplay: string;
+      toggleCharacters: string;
+      toggleWildlife: string;
+      toggleCollectibles: string;
+      toggleStrangePlaces: string;
+    };
   };
   gta6: {
     hud: {
@@ -110,6 +190,18 @@ export interface TranslationSchema {
       panelTitle: string;
     };
     canvasHelp: string;
+    categories: {
+      propiedades: string;
+      vehiculos: string;
+      negocios: string;
+      categoria_3: string;
+      categoria_4: string;
+      categoria_5: string;
+      fauna: string;
+      coleccionables: string;
+      lugares: string;
+      toggleAll: string;
+    };
   };
   transports: {
     title: string;

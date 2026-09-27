@@ -1,0 +1,988 @@
+<div
+  class="map-wrapper"
+  (click)="closeContextMenu()"
+  (contextmenu)="openContextMenu($event)"
+>
+  <div id="gta-map"></div>
+
+  <!-- MENU CONTEXTUAL (click derecho sobre el mapa o marcador) -->
+  <div
+    class="hud-ctx"
+    *ngIf="ctxOpen"
+    [style.left.px]="ctxX"
+    [style.top.px]="ctxY"
+    (click)="$event.stopPropagation()"
+  >
+    <!-- Opciones específicas cuando se hace clic derecho sobre un marcador de usuario -->
+    <ng-container *ngIf="isMarkerContext && targetCustomMarker">
+      <div class="hud-ctx-header" style="padding: 6px 12px; font-size: 11px; font-weight: 800; color: #ffb833; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 4px;">
+        {{ targetCustomMarker.name }}
+      </div>
+      <button type="button" class="hud-ctx-item" (click)="runCtxAction('editar_marcador')">
+        {{ 'gta5.contextMenu.editMarker' | translate }}
+      </button>
+      <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar_este_marcador')">
+        {{ 'gta5.contextMenu.deleteMarker' | translate }}
+      </button>
+      <div class="hud-ctx-sep"></div>
+    </ng-container>
+
+    <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
+      {{ 'gta5.contextMenu.addMarker' | translate }}
+    </button>
+    <button type="button" class="hud-ctx-item" (click)="runCtxAction('centrar')">
+      {{ 'gta5.contextMenu.centerMap' | translate }}
+    </button>
+  </div>
+
+  <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
+  <div class="hud hud-tl">
+    <div class="hud-title">GTA V</div>
+    <div class="hud-counter-badge" [title]="'gta5.hud.counterBadgeTitle' | translate">{{ 'gta5.hud.propertiesCount' | translate:{ count: purchasablePropertiesCount, collectibles: allCollectibles.length } }}</div>
+    <div class="hud-time-badge" [title]="'gta5.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
+  </div>
+
+  <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idéntico al estilo de los paneles) -->
+  <div class="hud hud-tc">
+    <div class="mode-switch-track">
+      <a class="mode-switch-btn mode-historia" routerLink="/gta5/historia" title="Cambiar a Modo Historia">
+        <i class="mode-indicator dot-historia"></i>
+        <span>Modo Historia</span>
+      </a>
+      <div class="mode-switch-btn mode-online is-active" title="Modo GTA Online activo">
+        <i class="mode-indicator dot-online"></i>
+        <span>GTA Online</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESQUINA INF-IZQ: Panel de control (antigua Leyenda) -->
+  <div class="hud hud-bl" [class.hud-collapsed]="!legendOpen">
+    <div class="hud-panel hud-legend-panel">
+      <!-- Cabecera del Panel de control: SIEMPRE visible, mantiene el ancho y el título -->
+      <div
+        class="hud-panel-head"
+        [class.is-collapsed]="!legendOpen"
+        (click)="!legendOpen ? toggleLegend() : null"
+        [title]="!legendOpen ? ('gta5.hud.expandPanel' | translate) : ''"
+      >
+        <span class="hud-panel-title">{{ 'gta5.hud.panelTitle' | translate }}</span>
+        <button
+          type="button"
+          class="legend-toggle-btn"
+          (click)="toggleLegend(); $event.stopPropagation()"
+          [title]="legendOpen ? ('gta5.hud.collapsePanel' | translate) : ('gta5.hud.expandPanel' | translate)"
+        >
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!legendOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Contenido desplegado del Panel de control con scroll general -->
+      <div class="hud-legend-body" *ngIf="legendOpen">
+
+      <!-- DESPLEGABLE 1: Propiedades -->
+      <div class="hud-acc" [class.is-open]="accordion['propiedades']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('propiedades')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.properties' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(currentPropertyKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(currentPropertyKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleProperties' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['propiedades']">
+          <!-- Mansiones (A Safehouse in the Hills) -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['mansion']"
+              (click)="toggleLayer('mansion')"
+            >
+              <i class="legend-dot dot-mansion"></i>
+              <span class="legend-name">{{ 'gta5.layers.mansion' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('mansion') }}</span>
+            </button>
+
+            <!-- Hangares y Aeródromos -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['hangar']"
+              (click)="toggleLayer('hangar')"
+            >
+              <i class="legend-dot dot-hangar"></i>
+              <span class="legend-name">{{ 'gta5.layers.hangar' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('hangar') }}</span>
+            </button>
+
+            <!-- Búnkeres -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['bunker']"
+              (click)="toggleLayer('bunker')"
+            >
+              <i class="legend-dot dot-bunker"></i>
+              <span class="legend-name">{{ 'gta5.layers.bunker' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('bunker') }}</span>
+            </button>
+
+            <!-- Instalaciones -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['facility']"
+              (click)="toggleLayer('facility')"
+            >
+              <i class="legend-dot dot-facility"></i>
+              <span class="legend-name">{{ 'gta5.layers.facility' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('facility') }}</span>
+            </button>
+
+            <!-- Salas Recreativas -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['arcade']"
+              (click)="toggleLayer('arcade')"
+            >
+              <i class="legend-dot dot-arcade"></i>
+              <span class="legend-name">{{ 'gta5.layers.arcade' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('arcade') }}</span>
+            </button>
+
+            <!-- Talleres Tuners -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['auto_shop']"
+              (click)="toggleLayer('auto_shop')"
+            >
+              <i class="legend-dot dot-autoshop"></i>
+              <span class="legend-name">{{ 'gta5.layers.autoShop' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('auto_shop') }}</span>
+            </button>
+
+            <!-- Agencias The Contract -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['agency']"
+              (click)="toggleLayer('agency')"
+            >
+              <i class="legend-dot dot-agency"></i>
+              <span class="legend-name">{{ 'gta5.layers.agency' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('agency') }}</span>
+            </button>
+
+            <!-- Desguaces The Chop Shop -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['salvage_yard']"
+              (click)="toggleLayer('salvage_yard')"
+            >
+              <i class="legend-dot dot-salvage"></i>
+              <span class="legend-name">{{ 'gta5.layers.salvageYard' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('salvage_yard') }}</span>
+            </button>
+
+            <!-- Taller de la Arena (Arena War) -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['arena_war']"
+              (click)="toggleLayer('arena_war')"
+            >
+              <i class="legend-dot dot-arenawar"></i>
+              <span class="legend-name">{{ 'gta5.layers.arenaWar' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('arena_war') }}</span>
+            </button>
+
+            <!-- Oficinas CEO -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['ceo_office']"
+              (click)="toggleLayer('ceo_office')"
+            >
+              <i class="legend-dot dot-ceo"></i>
+              <span class="legend-name">{{ 'gta5.layers.ceoOffice' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('ceo_office') }}</span>
+            </button>
+
+            <!-- Almacenes de Vehículos (Import / Export) -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['vehicle_warehouse']"
+              (click)="toggleLayer('vehicle_warehouse')"
+            >
+              <i class="legend-dot dot-veh-warehouse"></i>
+              <span class="legend-name">{{ 'gta5.layers.vehicleWarehouse' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('vehicle_warehouse') }}</span>
+            </button>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 2: Negocios -->
+      <div class="hud-acc" [class.is-open]="accordion['negocios']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('negocios')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.businesses' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(businessKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(businessKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleBusinesses' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['negocios']">
+            <!-- Negocios de Cocaína -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['coke_lockup']"
+              (click)="toggleLayer('coke_lockup')"
+            >
+              <i class="legend-dot dot-coke"></i>
+              <span class="legend-name">{{ 'gta5.layers.cokeLockup' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('coke_lockup') }}</span>
+            </button>
+
+            <!-- Negocios de Marihuana -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['weed_farm']"
+              (click)="toggleLayer('weed_farm')"
+            >
+              <i class="legend-dot dot-weed"></i>
+              <span class="legend-name">{{ 'gta5.layers.weedFarm' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('weed_farm') }}</span>
+            </button>
+
+            <!-- Almacenes de Cajas -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['warehouse']"
+              (click)="toggleLayer('warehouse')"
+            >
+              <i class="legend-dot dot-warehouse"></i>
+              <span class="legend-name">{{ 'gta5.layers.warehouse' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('warehouse') }}</span>
+            </button>
+
+            <!-- Clubes Nocturnos -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['nightclub']"
+              (click)="toggleLayer('nightclub')"
+            >
+              <i class="legend-dot dot-nightclub"></i>
+              <span class="legend-name">{{ 'gta5.layers.nightclub' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('nightclub') }}</span>
+            </button>
+
+            <!-- Fábricas de Dinero Falso -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['cash_factory']"
+              (click)="toggleLayer('cash_factory')"
+            >
+              <i class="legend-dot dot-cash"></i>
+              <span class="legend-name">{{ 'gta5.layers.cashFactory' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('cash_factory') }}</span>
+            </button>
+
+            <!-- Laboratorios de Metanfetamina -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['meth_lab']"
+              (click)="toggleLayer('meth_lab')"
+            >
+              <i class="legend-dot dot-meth"></i>
+              <span class="legend-name">{{ 'gta5.layers.methLab' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('meth_lab') }}</span>
+            </button>
+
+            <!-- Falsificación de Documentos -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['doc_forgery']"
+              (click)="toggleLayer('doc_forgery')"
+            >
+              <i class="legend-dot dot-doc"></i>
+              <span class="legend-name">{{ 'gta5.layers.docForgery' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('doc_forgery') }}</span>
+            </button>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 3: Vehículos -->
+      <div class="hud-acc" [class.is-open]="accordion['vehiculos']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('vehiculos')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.vehicles' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(currentVehicleKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(currentVehicleKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleVehicles' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['vehiculos']">
+          <!-- Los Santos Customs (Disponible en Historia y Online) -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['ls_customs']"
+            (click)="toggleLayer('ls_customs')"
+          >
+            <i class="legend-dot dot-lsc"></i>
+            <span class="legend-name">{{ 'gta5.layers.lsCustoms' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('ls_customs') }}</span>
+          </button>
+
+          <!-- Benny's Original Motor Works (Solo GTA Online) -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['bennys']"
+            (click)="toggleLayer('bennys')"
+          >
+            <i class="legend-dot dot-bennys"></i>
+            <span class="legend-name">{{ 'gta5.layers.bennys' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('bennys') }}</span>
+          </button>
+
+          <!-- Garaje de Hao (En ambos modos) -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['hao_garage']"
+            (click)="toggleLayer('hao_garage')"
+          >
+            <i class="legend-dot dot-hao"></i>
+            <span class="legend-name">{{ 'gta5.layers.haoGarage' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('hao_garage') }}</span>
+          </button>
+
+          <!-- LS Car Meet (Solo GTA Online) -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['ls_car_meet']"
+            (click)="toggleLayer('ls_car_meet')"
+          >
+            <i class="legend-dot dot-carmeet"></i>
+            <span class="legend-name">{{ 'gta5.layers.lsCarMeet' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('ls_car_meet') }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 4: Servicios -->
+      <div class="hud-acc" [class.is-open]="accordion['servicios']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('servicios')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.services' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(serviceKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(serviceKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleServices' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['servicios']">
+          <!-- Comisarías de Policía -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['police_station']"
+            (click)="toggleLayer('police_station')"
+          >
+            <i class="legend-dot dot-police"></i>
+            <span class="legend-name">{{ 'gta5.layers.policeStation' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('police_station') }}</span>
+          </button>
+
+          <!-- Hospitales -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['hospital']"
+            (click)="toggleLayer('hospital')"
+          >
+            <i class="legend-dot dot-hospital"></i>
+            <span class="legend-name">{{ 'gta5.layers.hospital' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('hospital') }}</span>
+          </button>
+
+          <!-- Estaciones de Bomberos -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['fire_station']"
+            (click)="toggleLayer('fire_station')"
+          >
+            <i class="legend-dot dot-fire"></i>
+            <span class="legend-name">{{ 'gta5.layers.fireStation' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('fire_station') }}</span>
+          </button>
+
+          <!-- Armerías Ammu-Nation -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['service']"
+            (click)="toggleLayer('service')"
+          >
+            <i class="legend-dot dot-service"></i>
+            <span class="legend-name">{{ 'gta5.layers.ammuNation' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('service') }}</span>
+          </button>
+
+          <!-- Tiendas 24/7 (Atracables) -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['convenience_store']"
+            (click)="toggleLayer('convenience_store')"
+          >
+            <i class="legend-dot dot-store"></i>
+            <span class="legend-name">{{ 'gta5.layers.convenienceStore' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('convenience_store') }}</span>
+          </button>
+
+          <!-- Tienda de Máscaras (Vespucci) -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['mask_shop']"
+            (click)="toggleLayer('mask_shop')"
+          >
+            <i class="legend-dot dot-mask"></i>
+            <span class="legend-name">{{ 'gta5.layers.maskShop' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('mask_shop') }}</span>
+          </button>
+
+          <!-- Túneles de Lavado -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['car_wash']"
+            (click)="toggleLayer('car_wash')"
+          >
+            <i class="legend-dot dot-carwash"></i>
+            <span class="legend-name">{{ 'gta5.layers.carWash' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('car_wash') }}</span>
+          </button>
+
+          <!-- Strip Club Vanilla Unicorn -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['strip_club']"
+            (click)="toggleLayer('strip_club')"
+          >
+            <i class="legend-dot dot-stripclub"></i>
+              <span class="legend-name">{{ 'gta5.layers.stripClub' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('strip_club') }}</span>
+            </button>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 5: Actividades y Deportes -->
+      <div class="hud-acc" [class.is-open]="accordion['actividades']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('actividades')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.activities' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(activityKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(activityKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleActivities' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['actividades']">
+          <!-- Pendiente de investigar -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['activity']"
+            (click)="toggleLayer('activity')"
+          >
+            <i class="legend-dot dot-activity"></i>
+            <span class="legend-name">{{ 'gta5.layers.activity' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('activity') }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 6: Trabajos Roleplay (Los 7 puestos activos) -->
+      <div class="hud-acc" [class.is-open]="accordion['roleplay']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('roleplay')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.roleplay' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(roleplayKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(roleplayKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleRoleplay' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['roleplay']">
+          <button
+            *ngFor="let job of roleplayJobs"
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters[job.id]"
+            (click)="toggleLayer(job.id)"
+          >
+            <i class="legend-dot" [style.background]="job.badge.color" [style.box-shadow]="'0 0 6px ' + job.badge.color"></i>
+            <span class="legend-name">{{ job.name }}</span>
+            <span class="legend-count">{{ job.badge.symbol }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE: Personajes y Contactos -->
+      <div class="hud-acc" [class.is-open]="accordion['personajes']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('personajes')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.characters' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(characterKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(characterKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleCharacters' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['personajes']">
+          <div
+            *ngFor="let char of contactCharacters"
+            class="legend-char-row"
+            [class.is-active]="layerFilters[char.id]"
+          >
+            <button
+              type="button"
+              class="legend-btn legend-char-btn"
+              [class.is-active]="layerFilters[char.id]"
+              (click)="toggleLayer(char.id)"
+              [title]="layerFilters[char.id] ? 'Ocultar ' + char.name : 'Mostrar ' + char.name"
+            >
+              <i class="legend-dot" [style.background]="char.badge.color" [style.box-shadow]="'0 0 6px ' + char.badge.color"></i>
+              <span class="legend-name">{{ char.name }}</span>
+              <span class="legend-count">{{ char.badge.symbol }}</span>
+            </button>
+
+            <!-- Botón de localización y zoom directo -->
+            <button
+              type="button"
+              class="char-zoom-btn"
+              (click)="zoomToCharacter(char, $event)"
+              [title]="'Centrar mapa y zoom en ' + char.name"
+            >
+              <svg viewBox="0 0 24 24" class="char-zoom-svg">
+                <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none" />
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+                <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE: Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía) -->
+      <div class="hud-acc" [class.is-open]="accordion['fauna']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('fauna')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.wildlife' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(faunaKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(faunaKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleWildlife' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['fauna']">
+          <div
+            *ngFor="let animal of faunaAnimals"
+            class="legend-char-row"
+            [class.is-active]="layerFilters[animal.id]"
+          >
+            <button
+              type="button"
+              class="legend-btn legend-char-btn"
+              [class.is-active]="layerFilters[animal.id]"
+              (click)="toggleLayer(animal.id)"
+              [title]="layerFilters[animal.id] ? 'Ocultar ' + animal.name : 'Mostrar ' + animal.name"
+            >
+              <img *ngIf="animal.imageUrl" [src]="animal.imageUrl" class="legend-animal-thumb" alt="" onerror="this.style.display='none'" />
+              <i *ngIf="!animal.imageUrl" class="legend-dot" [style.background]="animal.badge.color" [style.box-shadow]="'0 0 6px ' + animal.badge.color"></i>
+              <span class="legend-name">{{ animal.name }}</span>
+              <span class="legend-count">{{ animal.badge.symbol }}</span>
+            </button>
+
+            <!-- Botón de localización y zoom directo -->
+            <button
+              type="button"
+              class="char-zoom-btn"
+              (click)="zoomToCharacter(animal, $event)"
+              [title]="'Centrar mapa y zoom en ' + animal.name"
+            >
+              <svg viewBox="0 0 24 24" class="char-zoom-svg">
+                <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none" />
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+                <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 7: Coleccionables -->
+      <div class="hud-acc" [class.is-open]="accordion['coleccionables']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('coleccionables')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.collectibles' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(collectibleKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(collectibleKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleCollectibles' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['coleccionables']">
+          <!-- Naipes de Baraja (54) -->
+          <button
+            type="button"
+            class="legend-btn legend-btn-collectible"
+            [class.is-active]="layerFilters['playing_card']"
+            (click)="toggleLayer('playing_card')"
+          >
+            <i class="legend-square dot-card"></i>
+            <span class="legend-name">{{ 'gta5.layers.playingCard' | translate }}</span>
+            <span class="legend-count">{{ getCollectibleCount('playing_card') }}</span>
+          </button>
+
+          <!-- Figuras de Acción (100) -->
+          <button
+            type="button"
+            class="legend-btn legend-btn-collectible"
+            [class.is-active]="layerFilters['action_figure']"
+            (click)="toggleLayer('action_figure')"
+          >
+            <i class="legend-square dot-figure"></i>
+            <span class="legend-name">{{ 'gta5.layers.actionFigure' | translate }}</span>
+            <span class="legend-count">{{ getCollectibleCount('action_figure') }}</span>
+          </button>
+
+          <!-- Inhibidores de Señal (50) -->
+          <button
+            type="button"
+            class="legend-btn legend-btn-collectible"
+            [class.is-active]="layerFilters['signal_jammer']"
+            (click)="toggleLayer('signal_jammer')"
+          >
+            <i class="legend-square dot-jammer"></i>
+            <span class="legend-name">{{ 'gta5.layers.signalJammer' | translate }}</span>
+            <span class="legend-count">{{ getCollectibleCount('signal_jammer') }}</span>
+          </button>
+
+          <!-- Atrezzo de Solomon (10) -->
+          <button
+            type="button"
+            class="legend-btn legend-btn-collectible"
+            [class.is-active]="layerFilters['movie_prop']"
+            (click)="toggleLayer('movie_prop')"
+          >
+            <i class="legend-square dot-prop"></i>
+            <span class="legend-name">{{ 'gta5.layers.movieProp' | translate }}</span>
+            <span class="legend-count">{{ getCollectibleCount('movie_prop') }}</span>
+          </button>
+
+          <!-- Antenas Still Slipping (10) -->
+          <button
+            type="button"
+            class="legend-btn legend-btn-collectible"
+            [class.is-active]="layerFilters['radio_antenna']"
+            (click)="toggleLayer('radio_antenna')"
+          >
+            <i class="legend-square dot-antenna"></i>
+            <span class="legend-name">{{ 'gta5.layers.radioAntenna' | translate }}</span>
+            <span class="legend-count">{{ getCollectibleCount('radio_antenna') }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DESPLEGABLE 8: Lugares extraños -->
+      <div class="hud-acc" [class.is-open]="accordion['lugares']">
+        <div class="hud-acc-head">
+          <div class="hud-acc-toggle" (click)="toggleSection('lugares')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.categories.strangePlaces' | translate }}</span>
+          </div>
+          <input
+            type="checkbox"
+            class="hud-acc-check"
+            [checked]="isSectionAllActive(strangeKeys)"
+            (click)="$event.stopPropagation()"
+            (change)="onSectionCheckboxChange(strangeKeys, $event)"
+            [title]="'gta5.checkboxTitles.toggleStrangePlaces' | translate"
+          />
+        </div>
+
+        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['lugares']">
+          <!-- OVNI -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['fake_ufo']"
+            (click)="toggleLayer('fake_ufo')"
+          >
+            <i class="legend-dot dot-fake-ufo"></i>
+            <span class="legend-name">{{ 'gta5.layers.fakeUfo' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('fake_ufo') }}</span>
+          </button>
+
+          <!-- Naufragios -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['shipwreck']"
+            (click)="toggleLayer('shipwreck')"
+          >
+            <i class="legend-dot dot-shipwreck"></i>
+            <span class="legend-name">{{ 'gta5.layers.shipwreck' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('shipwreck') }}</span>
+          </button>
+
+          <!-- Cuevas -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['cave']"
+            (click)="toggleLayer('cave')"
+          >
+            <i class="legend-dot dot-cave"></i>
+            <span class="legend-name">{{ 'gta5.layers.cave' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('cave') }}</span>
+          </button>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ESQUINA INF-DER: Ajustes -->
+  <div class="hud hud-br" [class.hud-collapsed]="!settingsOpen">
+    <div class="hud-panel">
+      <div
+        class="hud-panel-head"
+        [class.is-collapsed]="!settingsOpen"
+        (click)="!settingsOpen ? toggleSettings() : null"
+        [title]="!settingsOpen ? ('gta5.hud.expandSettings' | translate) : ''"
+      >
+        <span class="hud-panel-title">{{ 'gta5.hud.settingsTitle' | translate }}</span>
+        <button
+          type="button"
+          class="legend-toggle-btn"
+          (click)="toggleSettings(); $event.stopPropagation()"
+          [title]="settingsOpen ? ('gta5.hud.collapseSettings' | translate) : ('gta5.hud.expandSettings' | translate)"
+        >
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!settingsOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="hud-settings-body" *ngIf="settingsOpen">
+        <!-- DESPLEGABLE: Selector de mapa -->
+        <div class="hud-acc" [class.is-open]="accordion['mapa']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('mapa')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.settings.mapSelector' | translate }}</span>
+            </div>
+          </div>
+          <div class="hud-acc-body" *ngIf="accordion['mapa']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="mapTypeSelect">{{ 'gta5.settings.baseMap' | translate }}</label>
+              <select
+                id="mapTypeSelect"
+                class="hud-field-select"
+                (change)="switchMapType($any($event.target).value)"
+              >
+                <option
+                  *ngFor="let type of mapTypes"
+                  [value]="type.id"
+                  [selected]="currentMapType === type.id"
+                >
+                  {{ type.label }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE: Estilo Iconos -->
+        <div class="hud-acc" [class.is-open]="accordion['zona']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('zona')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.settings.iconStyle' | translate }}</span>
+            </div>
+          </div>
+          <div class="hud-acc-body" *ngIf="accordion['zona']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="iconThemeSelect">{{ 'gta5.settings.markerTheme' | translate }}</label>
+              <select
+                id="iconThemeSelect"
+                class="hud-field-select"
+                [(ngModel)]="iconTheme"
+                (change)="updateIconStyle()"
+              >
+                <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>
+                <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
+              </select>
+            </div>
+            <div class="hud-field">
+              <label class="hud-field-label" for="iconSizeSelect">{{ 'gta5.settings.iconSize' | translate }}</label>
+              <select
+                id="iconSizeSelect"
+                class="hud-field-select"
+                [(ngModel)]="iconSize"
+                (change)="updateIconStyle()"
+              >
+                <option value="compact">{{ 'gta5.settings.sizeCompact' | translate }}</option>
+                <option value="standard" selected>{{ 'gta5.settings.sizeStandard' | translate }}</option>
+                <option value="large">{{ 'gta5.settings.sizeLarge' | translate }}</option>
+              </select>
+            </div>
+            <div class="hud-field">
+              <label class="hud-field-label" for="hud-zone">{{ 'gta5.settings.jumpToRegion' | translate }}</label>
+              <select
+                id="hud-zone"
+                class="hud-field-select"
+                (change)="onZoneChange($any($event.target).value)"
+              >
+                <option value="all">{{ 'gta5.settings.regionAll' | translate }}</option>
+                <option value="city">{{ 'gta5.settings.regionCity' | translate }}</option>
+                <option value="sandy">{{ 'gta5.settings.regionSandy' | translate }}</option>
+                <option value="paleto">{{ 'gta5.settings.regionPaleto' | translate }}</option>
+                <option value="blaine">{{ 'gta5.settings.regionBlaine' | translate }}</option>
+                <option value="chumash">{{ 'gta5.settings.regionChumash' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTONES DE PIE DE PANEL -->
+        <div class="hud-panel-foot">
+          <a class="hud-panel-btn hud-panel-btn-home" routerLink="/" [title]="'common.backToHome' | translate">{{ 'common.backToHome' | translate }}</a>
+          <button type="button" class="hud-panel-btn hud-panel-btn-primary" (click)="onZoneChange('all')">{{ 'common.viewGeneral' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Telemetría de desarrollo: Coordenadas (X, Y) -->
+  <div
+    class="hud-coords-dev"
+    (click)="copyCurrentCoords()"
+    [title]="'gta6.hud.coordsDev' | translate"
+  >
+    <span class="coord-axis">X:</span>
+    <span class="coord-val">{{ mouseCoords.x.toFixed(1) }}</span>
+    <span class="coord-sep">|</span>
+    <span class="coord-axis">Y:</span>
+    <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
+    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
+  </div>
+
+  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: PERFIL Y PROGRESO (Alineado a la altura del panel de la izquierda) -->
+  <button
+    type="button"
+    class="hud-side-trigger"
+    (click)="toggleProfileDrawer()"
+    [title]="'transports.title' | translate"
+  >
+    <div class="side-trigger-content">
+      <i class="fa-solid fa-mobile-screen-button side-trigger-icon"></i>
+      <span class="hud-panel-title">{{ 'transports.title' | translate }}</span>
+    </div>
+    <div class="side-trigger-toggle-btn" [title]="'transports.title' | translate">
+      <i class="fa-solid fa-chevron-left side-trigger-caret"></i>
+    </div>
+  </button>
+
+  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO DE VEHÍCULOS -->
+  <app-vehicle-drawer
+    [isOpen]="profileDrawerOpen"
+    [gameMode]="selectedGameMode"
+    (closeDrawer)="closeProfileDrawer()"
+  ></app-vehicle-drawer>
+</div>

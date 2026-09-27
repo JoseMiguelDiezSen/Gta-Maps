@@ -91,7 +91,7 @@
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection(category.key)">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">{{ category.title }}</span>
+              <span class="hud-acc-title">{{ getCategoryTitle(category) }}</span>
             </div>
             <input
               type="checkbox"
@@ -99,7 +99,7 @@
               [checked]="isSectionAllActive(itemKeys(category))"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(itemKeys(category), $event)"
-              [title]="'Activar o desactivar todos los items de ' + category.title"
+              [title]="'gta6.categories.toggleAll' | translate:{ title: getCategoryTitle(category) }"
             />
           </div>
 
