@@ -10,7 +10,13 @@ function getGitCommitHash() {
   }
 }
 
-function getFormattedDate() {
+function getCommitDate() {
+  try {
+    const gitDate = execSync('git log -1 --format="%cd" --date=format:"%d/%m/%Y %H:%M"', { encoding: 'utf8' }).trim();
+    if (gitDate) return gitDate;
+  } catch {
+    // Fallback a hora actual si no hay git
+  }
   const now = new Date();
   const day = String(now.getDate()).padStart(2, '0');
   const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -28,7 +34,7 @@ if (!fs.existsSync(targetDir)) {
 }
 
 const commitHash = getGitCommitHash();
-const timestamp = getFormattedDate();
+const timestamp = getCommitDate();
 const rawDate = new Date().toISOString();
 
 const content = `// Archivo generado automáticamente en cada compilación/subida de código.

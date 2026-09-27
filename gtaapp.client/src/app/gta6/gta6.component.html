@@ -7,39 +7,39 @@
     [style.backgroundImage]="canvasBgImage"
     [style.backgroundSize]="canvasBgSize"
     [style.backgroundPosition]="canvasBgPos"
-    title="Rueda del ratón para acercar o alejar, arrastra para mover"
+    [title]="'gta6.canvasHelp' | translate"
   ></div>
 
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
   <div class="hud hud-tl">
     <div class="hud-title">GTA VI</div>
-    <div class="hud-counter-badge" title="Items y categorias mapeados">
-      {{ totalItems }} Items · {{ categories.length }} Categorias
+    <div class="hud-counter-badge">
+      {{ 'gta6.hud.itemsCount' | translate:{ total: totalItems, categories: categories.length } }}
     </div>
-    <div class="hud-time-badge" title="Hora del juego">{{ inGameTimeStr }}</div>
-    <a class="hud-home-btn" routerLink="/" title="Volver a la pantalla de inicio">Inicio</a>
+    <div class="hud-time-badge" [title]="'gta5.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
+    <a class="hud-home-btn" routerLink="/" [title]="'common.backToHome' | translate">{{ 'common.backToHome' | translate }}</a>
   </div>
 
   <!-- SUP-CENTRO: Lanzamiento GTA VI + cuenta atrás (misma estructura y tipografía que la barra sup-izq) -->
   <div class="hud hud-tc">
-    <div class="hud-title">Lanzamiento GTA VI</div>
+    <div class="hud-title">{{ 'gta6.hud.launchTitle' | translate }}</div>
     <div class="hud-cd-sep"></div>
     <div class="hud-cd">
       <div class="hud-cd-unit">
         <span class="hud-cd-num">{{ countdown.days }}</span>
-        <span class="hud-cd-lab">Días</span>
+        <span class="hud-cd-lab">{{ 'common.days' | translate }}</span>
       </div>
       <div class="hud-cd-unit">
         <span class="hud-cd-num">{{ countdown.hours }}</span>
-        <span class="hud-cd-lab">Horas</span>
+        <span class="hud-cd-lab">{{ 'common.hours' | translate }}</span>
       </div>
       <div class="hud-cd-unit">
         <span class="hud-cd-num">{{ countdown.minutes }}</span>
-        <span class="hud-cd-lab">Min</span>
+        <span class="hud-cd-lab">{{ 'common.minutes' | translate }}</span>
       </div>
       <div class="hud-cd-unit">
         <span class="hud-cd-num">{{ countdown.seconds }}</span>
-        <span class="hud-cd-lab">Seg</span>
+        <span class="hud-cd-lab">{{ 'common.seconds' | translate }}</span>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@
   <div
     class="hud-coords-dev"
     (click)="copyCurrentCoords()"
-    title="Clic para copiar coordenadas"
+    [title]="'gta6.hud.coordsDev' | translate"
   >
     <span class="coord-axis">X:</span>
     <span class="coord-val">{{ mouseCoords.x.toFixed(1) }}</span>
@@ -66,14 +66,14 @@
         class="hud-panel-head"
         [class.is-collapsed]="!legendOpen"
         (click)="!legendOpen ? toggleLegend() : null"
-        [title]="!legendOpen ? 'Clic para desplegar Panel de control' : ''"
+        [title]="!legendOpen ? ('gta5.hud.expandPanel' | translate) : ''"
       >
-        <span class="hud-panel-title">Panel de control</span>
+        <span class="hud-panel-title">{{ 'gta5.hud.panelTitle' | translate }}</span>
         <button
           type="button"
           class="legend-toggle-btn"
           (click)="toggleLegend(); $event.stopPropagation()"
-          [title]="legendOpen ? 'Minimizar panel' : 'Desplegar panel'"
+          [title]="legendOpen ? ('gta5.hud.collapsePanel' | translate) : ('gta5.hud.expandPanel' | translate)"
         >
           <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!legendOpen">
             <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -132,14 +132,14 @@
         class="hud-panel-head"
         [class.is-collapsed]="!settingsOpen"
         (click)="!settingsOpen ? toggleSettings() : null"
-        [title]="!settingsOpen ? 'Clic para desplegar Ajustes' : ''"
+        [title]="!settingsOpen ? ('gta5.hud.expandSettings' | translate) : ''"
       >
-        <span class="hud-panel-title">Ajustes</span>
+        <span class="hud-panel-title">{{ 'gta5.hud.settingsTitle' | translate }}</span>
         <button
           type="button"
           class="legend-toggle-btn"
           (click)="toggleSettings(); $event.stopPropagation()"
-          [title]="settingsOpen ? 'Minimizar ajustes' : 'Desplegar ajustes'"
+          [title]="settingsOpen ? ('gta5.hud.collapseSettings' | translate) : ('gta5.hud.expandSettings' | translate)"
         >
           <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!settingsOpen">
             <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -152,7 +152,7 @@
         <div class="hud-acc" [class.is-open]="accordion['modo']">
           <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('modo')">
             <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">Modo de juego</span>
+            <span class="hud-acc-title">{{ 'gta5.settings.gameMode' | translate }}</span>
           </button>
           <div class="hud-acc-body" *ngIf="accordion['modo']">
             <div class="hud-seg hud-seg-vertical">
@@ -161,18 +161,18 @@
                 class="hud-seg-btn seg-online"
                 [class.is-active]="selectedGameMode === 'online'"
                 (click)="setGameMode('online')"
-                title="GTA Online: Búnkeres, Vehículos, Servicios y Coleccionables"
+                [title]="'gta5.settings.onlineDesc' | translate"
               >
-                GTA Online
+                {{ 'gta5.settings.onlineMode' | translate }}
               </button>
               <button
                 type="button"
                 class="hud-seg-btn seg-offline"
                 [class.is-active]="selectedGameMode === 'story'"
                 (click)="setGameMode('story')"
-                title="Modo Historia: Negocios comprables y mapas UV"
+                [title]="'gta5.settings.storyDesc' | translate"
               >
-                Modo Historia
+                {{ 'gta5.settings.storyMode' | translate }}
               </button>
             </div>
           </div>
@@ -182,11 +182,11 @@
         <div class="hud-acc" [class.is-open]="accordion['mapa']">
           <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('mapa')">
             <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">Selector de mapa</span>
+            <span class="hud-acc-title">{{ 'gta5.settings.mapSelector' | translate }}</span>
           </button>
           <div class="hud-acc-body" *ngIf="accordion['mapa']">
             <div class="hud-field">
-              <label class="hud-field-label" for="mapTypeSelect">Base del mapa</label>
+              <label class="hud-field-label" for="mapTypeSelect">{{ 'gta5.settings.baseMap' | translate }}</label>
               <select
                 id="mapTypeSelect"
                 class="hud-field-select"
@@ -208,47 +208,47 @@
         <div class="hud-acc" [class.is-open]="accordion['zona']">
           <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('zona')">
             <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">Estilo Iconos</span>
+            <span class="hud-acc-title">{{ 'gta5.settings.iconStyle' | translate }}</span>
           </button>
           <div class="hud-acc-body" *ngIf="accordion['zona']">
             <div class="hud-field">
-              <label class="hud-field-label" for="iconThemeSelect">Tema de marcadores</label>
+              <label class="hud-field-label" for="iconThemeSelect">{{ 'gta5.settings.markerTheme' | translate }}</label>
               <select
                 id="iconThemeSelect"
                 class="hud-field-select"
                 [(ngModel)]="iconTheme"
                 (change)="updateIconStyle()"
               >
-                <option value="modern">Moderno (Neón & HUD)</option>
-                <option value="classic">Clásico (Sutil & Original)</option>
+                <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>
+                <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
               </select>
             </div>
             <div class="hud-field">
-              <label class="hud-field-label" for="iconSizeSelect">Tamaño de iconos</label>
+              <label class="hud-field-label" for="iconSizeSelect">{{ 'gta5.settings.iconSize' | translate }}</label>
               <select
                 id="iconSizeSelect"
                 class="hud-field-select"
                 [(ngModel)]="iconSize"
                 (change)="updateIconStyle()"
               >
-                <option value="compact">Compacto (80%)</option>
-                <option value="standard" selected>Estándar (100%)</option>
-                <option value="large">Grande (120%)</option>
+                <option value="compact">{{ 'gta5.settings.sizeCompact' | translate }}</option>
+                <option value="standard" selected>{{ 'gta5.settings.sizeStandard' | translate }}</option>
+                <option value="large">{{ 'gta5.settings.sizeLarge' | translate }}</option>
               </select>
             </div>
             <div class="hud-field">
-              <label class="hud-field-label" for="hud-zone">Saltar a región</label>
+              <label class="hud-field-label" for="hud-zone">{{ 'gta5.settings.jumpToRegion' | translate }}</label>
               <select
                 id="hud-zone"
                 class="hud-field-select"
                 (change)="onZoneChange($any($event.target).value)"
               >
-                <option value="all">Mapa Completo (Visión General)</option>
-                <option value="city">Ciudad</option>
-                <option value="sandy">Zona de Desierto</option>
-                <option value="paleto">Norte</option>
-                <option value="blaine">Condado</option>
-                <option value="chumash">Costa Oeste</option>
+                <option value="all">{{ 'gta5.settings.regionAll' | translate }}</option>
+                <option value="city">{{ 'gta5.settings.regionCity' | translate }}</option>
+                <option value="sandy">{{ 'gta5.settings.regionSandy' | translate }}</option>
+                <option value="paleto">{{ 'gta5.settings.regionPaleto' | translate }}</option>
+                <option value="blaine">{{ 'gta5.settings.regionBlaine' | translate }}</option>
+                <option value="chumash">{{ 'gta5.settings.regionChumash' | translate }}</option>
               </select>
             </div>
           </div>
@@ -258,7 +258,7 @@
         <div class="hud-acc" [class.is-open]="accordion['policia']">
           <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('policia')">
             <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">Policía</span>
+            <span class="hud-acc-title">{{ 'gta5.settings.police' | translate }}</span>
           </button>
           <div class="hud-acc-body" *ngIf="accordion['policia']">
             <button
@@ -281,8 +281,8 @@
 
         <!-- BOTONES DE PIE DE PANEL -->
         <div class="hud-panel-foot">
-          <button type="button" class="hud-panel-btn" (click)="recenterMap()">Centrar Mapa</button>
-          <button type="button" class="hud-panel-btn hud-panel-btn-primary" (click)="onZoneChange('all')">Vista General</button>
+          <button type="button" class="hud-panel-btn" (click)="recenterMap()">{{ 'common.recenterMap' | translate }}</button>
+          <button type="button" class="hud-panel-btn hud-panel-btn-primary" (click)="onZoneChange('all')">{{ 'common.viewGeneral' | translate }}</button>
         </div>
       </div>
     </div>

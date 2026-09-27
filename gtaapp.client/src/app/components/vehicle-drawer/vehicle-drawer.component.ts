@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GtaVehicle, DealerCategory } from '../../models/vehicle';
 import { VehicleService } from '../../services/vehicle.service';
+import { TranslationService } from '../../i18n';
 
 @Component({
   selector: 'app-vehicle-drawer',
@@ -101,7 +102,10 @@ export class VehicleDrawerComponent {
     },
   ];
 
-  constructor(private vehicleService: VehicleService) {}
+  constructor(
+    private vehicleService: VehicleService,
+    readonly translationService: TranslationService
+  ) {}
 
   get visibleDealers(): DealerCategory[] {
     return this.dealers.filter(d => d.gameMode === 'both' || d.gameMode === this.gameMode);
@@ -184,8 +188,11 @@ export class VehicleDrawerComponent {
   }
 
   formatPrice(price: number): string {
-    if (!price || price <= 0) return 'Precio no disponible';
-    return '$' + price.toLocaleString('es-ES');
+    if (!price || price <= 0) {
+      return this.translationService.currentLanguage() === 'en' ? 'Price not available' : 'Precio no disponible';
+    }
+    const locale = this.translationService.currentLanguage() === 'en' ? 'en-US' : 'es-ES';
+    return '$' + price.toLocaleString(locale);
   }
 
   getCategoryTabIcon(cls: string): string {

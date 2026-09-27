@@ -1,10 +1,6 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { buildInfo } from '../../environments/build-info';
-
-export interface Language {
-    code: 'es' | 'en';
-    label: string;
-}
+import { TranslationService, LanguageCode } from '../i18n';
 
 @Component({
     selector: 'app-home',
@@ -12,29 +8,27 @@ export interface Language {
     styleUrls: ['./home.component.css'],
     standalone: false
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
     isOpen = false;
-    selectedCode: 'es' | 'en' = 'es';
 
     readonly ultimaActualizacion = buildInfo.timestamp;
     readonly buildCommit = buildInfo.commitHash;
 
-    readonly languages: Language[] = [
-        { code: 'es', label: 'Español' },
-        { code: 'en', label: 'English' }
-    ];
+    constructor(
+        private readonly elementRef: ElementRef,
+        readonly translationService: TranslationService
+    ) {}
 
-    constructor(private readonly elementRef: ElementRef) {}
-
-    ngOnInit(): void {
-        const savedLang = localStorage.getItem('gta_lang');
-        if (savedLang === 'es' || savedLang === 'en') {
-            this.selectedCode = savedLang;
-        }
+    get languages() {
+        return this.translationService.supportedLanguages;
     }
 
-    get currentLanguage(): Language {
-        return this.languages.find(l => l.code === this.selectedCode) || this.languages[0];
+    get selectedCode(): LanguageCode {
+        return this.translationService.currentLanguage();
+    }
+
+    get currentLanguage() {
+        return this.translationService.currentLanguageInfo();
     }
 
     toggleDropdown(event: Event): void {
@@ -42,11 +36,10 @@ export class HomeComponent implements OnInit {
         this.isOpen = !this.isOpen;
     }
 
-    selectLanguage(code: 'es' | 'en', event: Event): void {
+    selectLanguage(code: LanguageCode, event: Event): void {
         event.stopPropagation();
-        this.selectedCode = code;
+        this.translationService.setLanguage(code);
         this.isOpen = false;
-        localStorage.setItem('gta_lang', code);
     }
 
     @HostListener('document:click', ['$event'])

@@ -7,7 +7,7 @@
       (click)="toggleDropdown($event)"
       [attr.aria-expanded]="isOpen"
       aria-haspopup="listbox"
-      title="Cambiar idioma"
+      [title]="'home.changeLanguage' | translate"
     >
       <span class="flag-icon-box" [ngSwitch]="currentLanguage.code">
         <!-- Bandera España SVG -->
@@ -82,25 +82,25 @@
 
   <img src="assets/logoJMD.png" alt="Logo" class="home-logo" />
   <h1 class="home-title">GTA Maps</h1>
-  <p class="home-subtitle">Elige el juego</p>
+  <p class="home-subtitle">{{ 'home.chooseGame' | translate }}</p>
   <div class="home-actions">
     <a class="home-btn home-btn-gta5" routerLink="/gta5">
-      <span class="home-btn-title">GTA V</span>
-      <span class="home-btn-sub">Mapa disponible</span>
+      <span class="home-btn-title">{{ 'home.gta5Title' | translate }}</span>
+      <span class="home-btn-sub">{{ 'home.gta5Sub' | translate }}</span>
     </a>
     <a class="home-btn home-btn-gta6" routerLink="/gta6">
-      <span class="home-btn-title">GTA VI</span>
-      <span class="home-btn-sub">En Desarrollo...</span>
+      <span class="home-btn-title">{{ 'home.gta6Title' | translate }}</span>
+      <span class="home-btn-sub">{{ 'home.gta6Sub' | translate }}</span>
     </a>
   </div>
 
-  <div class="home-last-update" [title]="'Última actualización: ' + ultimaActualizacion + ' (Commit ' + buildCommit + ')'">
-    Última actualización: <span class="home-last-update-val">{{ ultimaActualizacion }}</span>
+  <div class="home-last-update" [title]="('common.lastUpdate' | translate) + ': ' + ultimaActualizacion + ' (' + ('common.commit' | translate) + ' ' + buildCommit + ')'">
+    {{ 'common.lastUpdate' | translate }}: <span class="home-last-update-val">{{ ultimaActualizacion }}</span>
   </div>
 
   <footer class="home-footer">
     <p class="home-footer-text">
-      © Copyright 2026 JMD Software, all rights reserved. JMD® and JMD Logo® are trademarks of The JMD Corporation. All rights Reserved.
+      {{ 'home.copyright' | translate }}
     </p>
   </footer>
 </div>
