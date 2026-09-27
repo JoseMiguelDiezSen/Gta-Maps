@@ -129,50 +129,20 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         'strip_club'
     ];
 
-    // Claves individuales de los 7 Trabajos Roleplay
-    readonly roleplayKeys = [
-        'job-pizza-delperro',
-        'job-pizza-vinewood',
-        'job-pizza-missionrow',
-        'job-firefighter',
-        'job-forklift',
-        'job-paperboy',
-        'job-taxi'
-    ];
+    // Claves dinámicas de los Trabajos Roleplay (sincronizadas desde los datos del backend)
+    get roleplayKeys(): string[] {
+        return this.roleplayJobs.map(j => j.id);
+    }
 
-    // Claves individuales de Personajes y Contactos Emblemáticos
-    readonly characterKeys = [
-        'contact-simeon',
-        'contact-lester-factory',
-        'contact-lester-house',
-        'contact-lamar',
-        'contact-madrazo',
-        'contact-gerald',
-        'contact-trevor',
-        'contact-ron',
-        'contact-dax-freakshop',
-        'contact-franklin-agency',
-        'contact-michael-mansion',
-        'contact-tony-prince',
-        'contact-agatha-baker',
-        'contact-agent-14'
-    ];
+    // Claves dinámicas de Personajes y Contactos (sincronizadas desde los datos del backend)
+    get characterKeys(): string[] {
+        return this.contactCharacters.map(c => c.id);
+    }
 
-    // Claves individuales de Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía)
-    readonly faunaKeys = [
-        'animal-rabbit-hills',
-        'animal-deer-chiliad',
-        'animal-cougar-tongva',
-        'animal-coyote-senora',
-        'animal-boar-bolingbroke',
-        'animal-hawk-vinewood',
-        'animal-cormorant-zancudo',
-        'animal-seagull-pier',
-        'animal-shark-paleto',
-        'animal-farm-grapeseed',
-        'animal-dolphin-pacific',
-        'animal-orca-ocean'
-    ];
+    // Claves dinámicas de Fauna y Vida Salvaje (sincronizadas desde los datos del backend)
+    get faunaKeys(): string[] {
+        return this.faunaAnimals.map(a => a.id);
+    }
 
     get currentPropertyKeys(): string[] {
         return this.selectedGameMode === 'story' ? this.storyPropertyKeys : this.onlinePropertyKeys;
@@ -275,43 +245,8 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         mask_shop: true,
         car_wash: true,
         strip_club: true,
-        // Trabajos Roleplay (7 independientes)
-        'job-pizza-delperro': true,
-        'job-pizza-vinewood': true,
-        'job-pizza-missionrow': true,
-        'job-firefighter': true,
-        'job-forklift': true,
-        'job-paperboy': true,
-        'job-taxi': true,
-        // Personajes y Contactos Emblemáticos
-        'contact-simeon': true,
-        'contact-lester-factory': true,
-        'contact-lester-house': true,
-        'contact-lamar': true,
-        'contact-madrazo': true,
-        'contact-gerald': true,
-        'contact-trevor': true,
-        'contact-ron': true,
-        'contact-dax-freakshop': true,
-        'contact-franklin-agency': true,
-        'contact-michael-mansion': true,
-        'contact-tony-prince': true,
-        'contact-agatha-baker': true,
-        'contact-agent-14': true,
-        // Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía)
+        // Fauna
         animal: true,
-        'animal-rabbit-hills': true,
-        'animal-deer-chiliad': true,
-        'animal-cougar-tongva': true,
-        'animal-coyote-senora': true,
-        'animal-boar-bolingbroke': true,
-        'animal-hawk-vinewood': true,
-        'animal-cormorant-zancudo': true,
-        'animal-seagull-pier': true,
-        'animal-shark-paleto': true,
-        'animal-farm-grapeseed': true,
-        'animal-dolphin-pacific': true,
-        'animal-orca-ocean': true,
         // Coleccionables Online (activos por defecto)
         playing_card: true,
         action_figure: true,
@@ -755,6 +690,15 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         this.locationService.getProperties().subscribe({
             next: (properties) => {
                 this.allProperties = properties;
+                // Auto-inicializar filtros dinámicamente para cada entidad y categoría recibida
+                properties.forEach(p => {
+                    if (this.layerFilters[p.id] === undefined) {
+                        this.layerFilters[p.id] = true;
+                    }
+                    if (this.layerFilters[p.category] === undefined) {
+                        this.layerFilters[p.category] = true;
+                    }
+                });
                 this.renderPropertyMarkers();
             },
             error: (err) => console.error('Error al cargar propiedades:', err)
@@ -765,6 +709,11 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
         this.locationService.getCollectibles().subscribe({
             next: (collectibles) => {
                 this.allCollectibles = collectibles;
+                collectibles.forEach(c => {
+                    if (this.layerFilters[c.category] === undefined) {
+                        this.layerFilters[c.category] = true;
+                    }
+                });
                 this.renderCollectibleMarkers();
             },
             error: (err) => console.error('Error al cargar coleccionables:', err)
@@ -781,11 +730,9 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
 
         this.allProperties.forEach(p => {
             // Comprobar filtro: si es roleplay_job, character o animal, comprobar por su id individual
-            if (p.category === 'roleplay_job' || p.category === 'character' || p.category === 'animal') {
-                if (!this.layerFilters[p.id]) return;
-            } else {
-                if (!this.layerFilters[p.category]) return;
-            }
+            const isIndividual = p.category === 'roleplay_job' || p.category === 'character' || p.category === 'animal';
+            const filterKey = isIndividual ? p.id : p.category;
+            if (this.layerFilters[filterKey] === false) return;
 
             // Comprobar filtro de modo de juego (Bifurcación Modo Historia vs GTA Online)
             if (p.gameMode !== 'both' && p.gameMode !== this.selectedGameMode) {
@@ -952,7 +899,8 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
      * Alterna la visibilidad de una categoría de la leyenda
      */
     toggleLayer(categoryKey: string): void {
-        this.layerFilters[categoryKey] = !this.layerFilters[categoryKey];
+        const current = this.layerFilters[categoryKey] !== false;
+        this.layerFilters[categoryKey] = !current;
         this.renderPropertyMarkers();
         this.renderCollectibleMarkers();
     }
@@ -1042,14 +990,14 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
      * Devuelve el número de capas encendidas dentro de un grupo concreto
      */
     getActiveCountInSection(keys: string[]): number {
-        return keys.filter(k => this.layerFilters[k]).length;
+        return keys.filter(k => this.layerFilters[k] !== false).length;
     }
 
     /**
      * Comprueba si todas las capas de una sección están activadas
      */
     isSectionAllActive(keys: string[]): boolean {
-        return keys.length > 0 && keys.every(k => this.layerFilters[k]);
+        return keys.length > 0 && keys.every(k => this.layerFilters[k] !== false);
     }
 
     /**
@@ -1064,7 +1012,8 @@ export class Gta5Component implements OnInit, AfterViewInit, OnDestroy {
      * Activa o desactiva todas las capas pertenecientes a un grupo de la leyenda
      */
     toggleAllInSection(keys: string[], state?: boolean): void {
-        const targetState = state !== undefined ? state : !keys.every(k => this.layerFilters[k]);
+        const allActive = keys.every(k => this.layerFilters[k] !== false);
+        const targetState = state !== undefined ? state : !allActive;
         keys.forEach(k => {
             this.layerFilters[k] = targetState;
         });
