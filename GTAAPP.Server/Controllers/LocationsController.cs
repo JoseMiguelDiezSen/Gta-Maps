@@ -74,23 +74,6 @@ public class LocationsController : ControllerBase
         return Ok(_service.GetCollectibles(SanitizeCategory(category)));
     }
 
-    /// <summary>GET /api/locations/vehicles → 11. Catálogo completo de vehículos por concesionario</summary>
-    [HttpGet("vehicles")]
-    public ActionResult<List<GtaVehicle>> GetVehicles([FromQuery] string? dealership, [FromQuery] string? category)
-    {
-        string? cleanDealership = null;
-        if (!string.IsNullOrWhiteSpace(dealership))
-        {
-            var trimmedDealer = dealership.Trim();
-            if (trimmedDealer.Length <= 50 && SafeQueryRegex.IsMatch(trimmedDealer))
-            {
-                cleanDealership = WebUtility.HtmlEncode(trimmedDealer);
-            }
-        }
-
-        return Ok(_service.GetVehicles(cleanDealership, SanitizeCategory(category)));
-    }
-
     private static string? SanitizeGameMode(string? gameMode)
     {
         if (string.IsNullOrWhiteSpace(gameMode)) return null;

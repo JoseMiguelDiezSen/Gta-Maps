@@ -105,6 +105,7 @@ builder.Services.AddRateLimiter(options =>
     });
 });
 builder.Services.AddSingleton<GTAAPP.Server.Services.LocationsService>();
+builder.Services.AddSingleton<GTAAPP.Server.Services.VehiclesService>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

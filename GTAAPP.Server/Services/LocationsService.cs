@@ -58,25 +58,6 @@ public class LocationsService
         return list.Where(c => c.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
-    // 11. VEHÍCULOS (Catálogo)
-    public IReadOnlyList<GtaVehicle> GetVehicles(string? dealership = null, string? category = null)
-    {
-        var list = LoadJsonFile<GtaVehicle>("vehicles.json");
-        IEnumerable<GtaVehicle> result = list;
-
-        if (!string.IsNullOrWhiteSpace(dealership))
-        {
-            result = result.Where(v => v.Dealership.Equals(dealership, StringComparison.OrdinalIgnoreCase));
-        }
-
-        if (!string.IsNullOrWhiteSpace(category))
-        {
-            result = result.Where(v => v.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
-        }
-
-        return result.ToList();
-    }
-
     // AGREGACIÓN DE TODAS LAS UBICACIONES DEL MAPA
     public IReadOnlyList<LocationItem> GetAllLocations(string? gameMode = null, string? category = null)
     {

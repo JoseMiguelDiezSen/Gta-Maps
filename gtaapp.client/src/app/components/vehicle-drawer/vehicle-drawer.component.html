@@ -1,0 +1,268 @@
+<!-- BACKDROP -->
+<div class="hud-drawer-backdrop" *ngIf="isOpen" (click)="onClose()"></div>
+
+<!-- ASIDE DRAWER -->
+<aside class="hud-profile-drawer" [class.is-open]="isOpen">
+
+  <!-- ====== CABECERA (siempre visible) ====== -->
+  <div class="drawer-header">
+    <div class="drawer-title-group">
+      <!-- BREADCRUMB dinámico -->
+      <span class="drawer-badge" *ngIf="drawerView === 'tabs'">GTA V · IMPERIO CRIMINAL</span>
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid'">
+        <button type="button" class="drawer-breadcrumb-back" (click)="closeDealerGrid()" title="Volver a Transportes">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">Transportes</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current">{{ activeDealerName }}</span>
+      </span>
+      <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">Transportes</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
+    </div>
+    <button type="button" class="drawer-close-btn" (click)="onClose()" title="Cerrar">&gt;&gt;</button>
+  </div>
+
+  <!-- ====== TABS (solo en vista de lista) ====== -->
+  <div class="drawer-tabs" role="tablist" *ngIf="drawerView === 'tabs'">
+    <button
+      *ngFor="let tab of drawerTabs"
+      type="button"
+      class="drawer-tab"
+      role="tab"
+      [class.is-active]="activeDrawerTab === tab.id"
+      [attr.aria-selected]="activeDrawerTab === tab.id"
+      (click)="setDrawerTab(tab.id)"
+    >
+      <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
+      <span class="drawer-tab-label">{{ tab.label }}</span>
+    </button>
+  </div>
+
+  <!-- ====== CUERPO ====== -->
+  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'">
+
+    <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'vehiculos'">
+      <div class="dealer-list">
+        <div
+          *ngFor="let d of visibleDealers"
+          class="dealer-card"
+          (click)="openDealerGrid(d.id, d.name)"
+          [style.--dealer-color]="d.color"
+        >
+          <div class="dealer-card-icon">
+            <img *ngIf="d.logoUrl && !d.logoFailed" [src]="d.logoUrl" [alt]="d.name" class="dealer-logo-img" (error)="onDealerLogoError(d)" />
+            <i *ngIf="!d.logoUrl || d.logoFailed" class="fa-solid" [ngClass]="d.icon"></i>
+          </div>
+          <div class="dealer-card-info">
+            <span class="dealer-card-name">{{ d.name }}</span>
+            <span class="dealer-card-sub">{{ d.description || 'Ver catálogo' }}</span>
+          </div>
+          <div class="dealer-card-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: GRID DE VEHÍCULOS ============ -->
+    <ng-container *ngIf="drawerView === 'dealer-grid'">
+
+      <!-- Loading -->
+      <div class="vgrid-loading" *ngIf="vehiclesLoading">
+        <div class="vgrid-spinner"></div>
+        <span>Cargando catálogo de {{ activeDealerName }}...</span>
+      </div>
+
+      <!-- Error -->
+      <div class="vgrid-error" *ngIf="vehiclesError && !vehiclesLoading">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>No se pudo cargar el catálogo. Comprueba tu conexión.</span>
+      </div>
+
+      <!-- Sin resultados -->
+      <div class="vgrid-empty" *ngIf="!vehiclesLoading && !vehiclesError && dealerVehicles.length === 0">
+        <i class="fa-solid fa-car-burst"></i>
+        <span>Sin vehículos disponibles para este concesionario.</span>
+      </div>
+
+      <!-- Grid + detalle -->
+      <div class="vgrid-view-container" *ngIf="!vehiclesLoading && dealerVehicles.length > 0">
+
+        <!-- CONTADOR -->
+        <div class="vgrid-counter">
+          <div class="vgrid-counter-left">
+            <span class="vgrid-count-num">{{ filteredDealerVehicles.length }}</span>
+            <span class="vgrid-count-lbl">vehículos disponibles</span>
+          </div>
+          <span class="vgrid-count-total" *ngIf="selectedVehicleClass !== 'all'">
+            de {{ dealerVehicles.length }} en catálogo
+          </span>
+        </div>
+
+        <!-- PESTAÑAS DE CATEGORÍA DE VEHÍCULOS -->
+        <div class="vcategory-tabs" role="tablist">
+          <button
+            *ngFor="let cat of dealerCategories"
+            type="button"
+            class="vcat-tab"
+            [class.is-active]="selectedVehicleClass === cat.id"
+            (click)="setVehicleCategory(cat.id)"
+            role="tab"
+            [attr.aria-selected]="selectedVehicleClass === cat.id"
+          >
+            <i class="fa-solid vcat-icon" [ngClass]="cat.icon"></i>
+            <span class="vcat-name">{{ cat.name }}</span>
+            <span class="vcat-count">{{ cat.count }}</span>
+          </button>
+        </div>
+
+        <!-- GRID DE TARJETAS -->
+        <div class="vgrid-grid" [class.has-selection]="selectedVehicle !== null">
+          <div
+            *ngFor="let v of filteredDealerVehicles"
+            class="vcard"
+            [class.is-selected]="selectedVehicle?.id === v.id"
+            (click)="selectVehicle(v)"
+          >
+            <!-- Zona imagen / foto -->
+            <div class="vcard-img">
+              <span class="vcard-class-badge">{{ v.class }}</span>
+              <img
+                *ngIf="v.imageUrl && !v.imgFailed"
+                [src]="v.imageUrl"
+                [alt]="v.name"
+                class="vcard-photo"
+                loading="lazy"
+                (error)="onVehicleImgError(v)"
+              />
+              <ng-container *ngIf="!v.imageUrl || v.imgFailed">
+                <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
+              </ng-container>
+              <span class="vcard-weapon-badge" *ngIf="v.weaponized" title="Armado">🔫</span>
+            </div>
+            <!-- Info del vehículo anexada a la foto -->
+            <div class="vcard-info">
+              <span class="vcard-name">{{ v.name }}</span>
+              <div class="vcard-sub-row">
+                <span class="vcard-maker">{{ v.manufacturer }}</span>
+                <span class="vcard-price">{{ v.priceFormatted }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEPARADOR ESTILIZADO ENTRE GRID Y FICHA -->
+        <div class="vgrid-divider" *ngIf="selectedVehicle">
+          <span class="vgrid-divider-line"></span>
+          <span class="vgrid-divider-tag">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>FICHA DE ESPECIFICACIONES</span>
+          </span>
+          <span class="vgrid-divider-line"></span>
+        </div>
+
+        <!-- PANEL DE DETALLES (cuando hay selección) -->
+        <div class="vdetail" *ngIf="selectedVehicle">
+          <div class="vdetail-top">
+            <div class="vdetail-img">
+              <img
+                *ngIf="selectedVehicle.imageUrl && !selectedVehicle.imgFailed"
+                [src]="selectedVehicle.imageUrl"
+                [alt]="selectedVehicle.name"
+                class="vdetail-photo"
+                (error)="onVehicleImgError(selectedVehicle)"
+              />
+              <ng-container *ngIf="!selectedVehicle.imageUrl || selectedVehicle.imgFailed">
+                <i class="fa-solid vdetail-icon" [ngClass]="getVehicleIcon(selectedVehicle)"></i>
+              </ng-container>
+            </div>
+            <div class="vdetail-header">
+              <span class="vdetail-maker">{{ selectedVehicle.manufacturer }}</span>
+              <h4 class="vdetail-name">{{ selectedVehicle.name }}</h4>
+              <div class="vdetail-tags">
+                <span class="vdetail-class-tag">{{ selectedVehicle.class }}</span>
+                <span class="vdetail-weapon-tag" *ngIf="selectedVehicle.weaponized">🔫 Vehículo Armado</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Precios -->
+          <div class="vdetail-prices">
+            <div class="vdetail-price-box vdetail-price-full">
+              <span class="vdetail-price-lbl">Precio de Compra</span>
+              <span class="vdetail-price-val">{{ selectedVehicle.priceFormatted }}</span>
+            </div>
+            <div class="vdetail-price-box vdetail-price-trade" *ngIf="selectedVehicle.priceTrade > 0">
+              <span class="vdetail-price-lbl">Trade Price</span>
+              <span class="vdetail-price-val vdetail-price-trade-val">{{ formatPrice(selectedVehicle.priceTrade) }}</span>
+            </div>
+          </div>
+
+          <!-- Barras de Características (Aceleración, Frenada, Velocidad, Manejo) -->
+          <div class="vdetail-stat-bars">
+            <div class="vstat-row">
+              <span class="vstat-lbl">Velocidad</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-speed" [style.width.%]="(selectedVehicle.speed || 7) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.speed }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">Aceleración</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-accel" [style.width.%]="(selectedVehicle.acceleration || 7) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.acceleration }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">Frenada</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-brake" [style.width.%]="(selectedVehicle.braking || 6) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.braking }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">Manejo</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-handling" [style.width.%]="(selectedVehicle.handling || 7) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.handling }}</span>
+            </div>
+          </div>
+
+          <!-- Descripción de humor / catálogo oficial -->
+          <p class="vdetail-desc" *ngIf="selectedVehicle.description">
+            {{ selectedVehicle.description }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: MISIONES ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
+      <div class="drawer-empty">
+        <i class="fa-solid fa-bullseye drawer-empty-icon"></i>
+        <p class="drawer-empty-text">Misiones</p>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: ITEM3 ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item3'">
+      <div class="drawer-empty">
+        <i class="fa-solid fa-box drawer-empty-icon"></i>
+        <p class="drawer-empty-text">Item3</p>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: ITEM4 ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item4'">
+      <div class="drawer-empty">
+        <i class="fa-solid fa-crown drawer-empty-icon"></i>
+        <p class="drawer-empty-text">Item4</p>
+      </div>
+    </ng-container>
+
+  </div>
+</aside>

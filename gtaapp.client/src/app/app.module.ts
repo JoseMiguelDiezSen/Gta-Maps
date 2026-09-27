@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { Gta5Component } from './gta5/gta5.component';
 import { Gta6Component } from './gta6/gta6.component';
 import { HomeComponent } from './home/home.component';
+import { VehicleDrawerComponent } from './components/vehicle-drawer/vehicle-drawer.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
         AppComponent,
         Gta5Component,
         Gta6Component,
-        HomeComponent
+        HomeComponent,
+        VehicleDrawerComponent
     ],
     bootstrap: [AppComponent],
     imports: [

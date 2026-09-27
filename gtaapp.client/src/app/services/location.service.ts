@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, of, forkJoin, map } from 'rxjs';
 import { LocationItem } from '../models/location';
 import { CollectibleItem } from '../models/collectible';
-import { GtaVehicle } from '../models/vehicle';
 
 @Injectable({ providedIn: 'root' })
 export class LocationService {
@@ -136,23 +135,6 @@ export class LocationService {
       catchError(err => {
         console.warn('Fallo al obtener coleccionables desde /api, usando fallback local:', err);
         return this.http.get<CollectibleItem[]>('assets/data/collectibles.json');
-      })
-    );
-  }
-
-  /**
-   * Obtiene la base de datos completa de vehículos catalogados por concesionario.
-   * Si la API de ASP.NET no responde, usa como fallback el archivo local assets/data/vehicles.json.
-   */
-  getVehicles(dealership?: string): Observable<GtaVehicle[]> {
-    let url = '/api/locations/vehicles';
-    if (dealership) {
-      url += `?dealership=${encodeURIComponent(dealership)}`;
-    }
-
-    return this.http.get<GtaVehicle[]>(url).pipe(
-      catchError(err => {
-        return this.http.get<GtaVehicle[]>('assets/data/vehicles.json');
       })
     );
   }
