@@ -1,0 +1,559 @@
+<!-- BACKDROP -->
+<div class="hud-drawer-backdrop" *ngIf="isOpen" (click)="onClose()"></div>
+
+<!-- ASIDE DRAWER -->
+<aside class="hud-profile-drawer" [class.is-open]="isOpen">
+
+  <!-- ====== CABECERA (siempre visible) ====== -->
+  <div class="drawer-header">
+    <div class="drawer-title-group">
+      <!-- BREADCRUMB dinámico de concesionario y vehículo -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid' || drawerView === 'vehicle-detail'">
+        <button type="button" class="drawer-breadcrumb-back" (click)="onBreadcrumbBack()" [title]="'transports.backToTransports' | translate">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">{{ 'transports.title' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span
+          class="drawer-breadcrumb-link"
+          [class.drawer-breadcrumb-current]="drawerView === 'dealer-grid'"
+          (click)="backToDealerGrid()"
+          [title]="activeDealerName"
+        >{{ activeDealerName }}</span>
+        <ng-container *ngIf="drawerView === 'vehicle-detail' && selectedVehicle">
+          <span class="drawer-breadcrumb-sep">›</span>
+          <span class="drawer-breadcrumb-current vehicle-crumb-name" [title]="selectedVehicle.name">{{ selectedVehicle.name }}</span>
+        </ng-container>
+      </span>
+
+      <!-- BREADCRUMB dinámico de misión -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'mission-detail'">
+        <button type="button" class="drawer-breadcrumb-back" (click)="closeMissionDetail()" [title]="'transports.missions.backToMissions' | translate">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="drawer-breadcrumb-link" (click)="closeMissionDetail()">{{ 'transports.tabs.missions' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current">{{ selectedMission?.title }}</span>
+      </span>
+
+      <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
+        <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
+        <span>{{ 'transports.title' | translate }}</span>
+      </h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
+      <h3 class="drawer-title vehicle-detail-header-title" *ngIf="drawerView === 'vehicle-detail'">{{ selectedVehicle?.name }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'mission-detail'">{{ selectedMission?.title }}</h3>
+    </div>
+    <button type="button" class="drawer-close-btn" (click)="onClose()" [title]="'transports.closeTitle' | translate">
+      <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
+    </button>
+  </div>
+
+  <!-- ====== TABS (solo en vista de lista) ====== -->
+  <div class="drawer-tabs" role="tablist" *ngIf="drawerView === 'tabs'">
+    <button
+      *ngFor="let tab of drawerTabs"
+      type="button"
+      class="drawer-tab"
+      role="tab"
+      [class.is-active]="activeDrawerTab === tab.id"
+      [attr.aria-selected]="activeDrawerTab === tab.id"
+      (click)="setDrawerTab(tab.id)"
+    >
+      <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
+      <span class="drawer-tab-label">{{ ('transports.tabs.' + (tab.id === 'vehiculos' ? 'vehicles' : tab.id === 'misiones' ? 'missions' : tab.id)) | translate }}</span>
+    </button>
+  </div>
+
+  <!-- ====== CUERPO ====== -->
+  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'">
+
+    <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'vehiculos'">
+      <div class="dealer-list">
+        <div
+          *ngFor="let d of visibleDealers"
+          class="dealer-card"
+          (click)="openDealerGrid(d.id, d.name)"
+          [style.--dealer-color]="d.color"
+        >
+          <div class="dealer-card-icon">
+            <img *ngIf="d.logoUrl && !d.logoFailed" [src]="d.logoUrl" [alt]="d.name" class="dealer-logo-img" (error)="onDealerLogoError(d)" />
+            <i *ngIf="!d.logoUrl || d.logoFailed" class="fa-solid" [ngClass]="d.icon"></i>
+          </div>
+          <div class="dealer-card-info">
+            <span class="dealer-card-name">{{ d.name }}</span>
+            <span class="dealer-card-sub">{{ ('transports.dealers.' + (d.id === 'legendarymotorsport' ? 'legendary' : d.id) + 'Desc' | translate) }}</span>
+          </div>
+          <div class="dealer-card-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: GRID DE VEHÍCULOS ============ -->
+    <ng-container *ngIf="drawerView === 'dealer-grid'">
+
+      <!-- Loading -->
+      <div class="vgrid-loading" *ngIf="vehiclesLoading">
+        <div class="vgrid-spinner"></div>
+        <span>{{ 'transports.catalog.loading' | translate:{ dealer: activeDealerName } }}</span>
+      </div>
+
+      <!-- Error -->
+      <div class="vgrid-error" *ngIf="vehiclesError && !vehiclesLoading">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>{{ 'transports.catalog.error' | translate }}</span>
+      </div>
+
+      <!-- Sin resultados -->
+      <div class="vgrid-empty" *ngIf="!vehiclesLoading && !vehiclesError && dealerVehicles.length === 0">
+        <i class="fa-solid fa-car-burst"></i>
+        <span>{{ 'transports.catalog.empty' | translate }}</span>
+      </div>
+
+      <!-- Grid de vehículos -->
+      <div class="vgrid-view-container" *ngIf="!vehiclesLoading && dealerVehicles.length > 0">
+
+        <!-- CONTADOR -->
+        <div class="vgrid-counter">
+          <div class="vgrid-counter-left">
+            <span class="vgrid-count-num">{{ filteredDealerVehicles.length }}</span>
+            <span class="vgrid-count-lbl">{{ 'transports.catalog.availableCount' | translate }}</span>
+          </div>
+          <span class="vgrid-count-total" *ngIf="selectedVehicleClass !== 'all'">
+            {{ 'transports.catalog.ofCatalog' | translate:{ total: dealerVehicles.length } }}
+          </span>
+        </div>
+
+        <!-- PESTAÑAS DE CATEGORÍA DE VEHÍCULOS -->
+        <div class="vcategory-tabs" role="tablist">
+          <button
+            *ngFor="let cat of dealerCategories"
+            type="button"
+            class="vcat-tab"
+            [class.is-active]="selectedVehicleClass === cat.id"
+            (click)="setVehicleCategory(cat.id)"
+            role="tab"
+            [attr.aria-selected]="selectedVehicleClass === cat.id"
+          >
+            <i class="fa-solid vcat-icon" [ngClass]="cat.icon"></i>
+            <span class="vcat-name">{{ cat.id === 'all' ? ('common.all' | translate) : cat.name }}</span>
+            <span class="vcat-count">{{ cat.count }}</span>
+          </button>
+        </div>
+
+        <!-- GRID DE TARJETAS -->
+        <div class="vgrid-grid">
+          <div
+            *ngFor="let v of filteredDealerVehicles"
+            class="vcard"
+            (click)="selectVehicle(v)"
+          >
+            <!-- Zona imagen / foto -->
+            <div class="vcard-img">
+              <span class="vcard-class-badge">{{ v.class }}</span>
+              <img
+                *ngIf="v.imageUrl && !v.imgFailed"
+                [src]="v.imageUrl"
+                [alt]="v.name"
+                class="vcard-photo"
+                loading="lazy"
+                (error)="onVehicleImgError(v)"
+              />
+              <ng-container *ngIf="!v.imageUrl || v.imgFailed">
+                <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
+              </ng-container>
+              <span class="vcard-weapon-badge" *ngIf="v.weaponized" [title]="'transports.catalog.weaponized' | translate">🔫</span>
+            </div>
+            <!-- Info del vehículo anexada a la foto -->
+            <div class="vcard-info">
+              <span class="vcard-name">{{ v.name }}</span>
+              <div class="vcard-sub-row">
+                <span class="vcard-maker">{{ v.manufacturer }}</span>
+                <span class="vcard-price">{{ v.priceFormatted }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE VEHÍCULO (PANEL LIMPIO) ============ -->
+    <ng-container *ngIf="drawerView === 'vehicle-detail' && selectedVehicle">
+      <div class="vclean-container">
+        <div class="vclean-card">
+
+          <!-- Showcase de Imagen Grande y Limpia -->
+          <div class="vclean-hero">
+            <span class="vclean-class-badge">{{ selectedVehicle.class }}</span>
+            <span class="vclean-weapon-badge" *ngIf="selectedVehicle.weaponized" [title]="'transports.catalog.weaponized' | translate">
+              🔫 {{ 'transports.catalog.weaponized' | translate }}
+            </span>
+            <img
+              *ngIf="selectedVehicle.imageUrl && !selectedVehicle.imgFailed"
+              [src]="selectedVehicle.imageUrl"
+              [alt]="selectedVehicle.name"
+              class="vclean-hero-img"
+              (error)="onVehicleImgError(selectedVehicle)"
+            />
+            <div *ngIf="!selectedVehicle.imageUrl || selectedVehicle.imgFailed" class="vclean-hero-fallback">
+              <i class="fa-solid" [ngClass]="getVehicleIcon(selectedVehicle)"></i>
+            </div>
+          </div>
+
+          <!-- Cabecera de la Ficha -->
+          <div class="vclean-header">
+            <span class="vclean-maker">{{ selectedVehicle.manufacturer }}</span>
+            <h2 class="vclean-title">{{ selectedVehicle.name }}</h2>
+          </div>
+
+          <!-- Precios -->
+          <div class="vclean-prices">
+            <div class="vclean-price-box vclean-price-primary">
+              <span class="vclean-price-lbl">{{ 'transports.catalog.buyPrice' | translate }}</span>
+              <span class="vclean-price-val">{{ selectedVehicle.priceFormatted }}</span>
+            </div>
+            <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedVehicle.priceTrade > 0">
+              <span class="vclean-price-lbl">{{ 'transports.catalog.tradePrice' | translate }}</span>
+              <span class="vclean-price-val">{{ formatPrice(selectedVehicle.priceTrade) }}</span>
+            </div>
+          </div>
+
+          <!-- Barras de Especificaciones -->
+          <div class="vclean-stats">
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.stats.speed' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-speed" [style.width.%]="(selectedVehicle.speed || 7) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.speed }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.stats.acceleration' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-accel" [style.width.%]="(selectedVehicle.acceleration || 7) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.acceleration }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.stats.braking' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-brake" [style.width.%]="(selectedVehicle.braking || 6) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.braking }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.stats.handling' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-handling" [style.width.%]="(selectedVehicle.handling || 7) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.handling }}</span>
+            </div>
+          </div>
+
+          <!-- Descripción Oficial / Humor -->
+          <div class="vclean-desc-box" *ngIf="selectedVehicle.description">
+            <div class="vclean-desc-head">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>{{ 'transports.catalog.specsTitle' | translate }}</span>
+            </div>
+            <p class="vclean-desc-text">{{ selectedVehicle.description }}</p>
+          </div>
+
+          <!-- Botón de retorno al pie -->
+          <div class="vclean-bottom-action">
+            <button type="button" class="vclean-back-btn" (click)="backToDealerGrid()">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>Volver a {{ activeDealerName }}</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: MISIONES (MODO HISTORIA) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
+      <div class="missions-tab-container">
+
+        <!-- Barra de Búsqueda y Filtro Rápido -->
+        <div class="missions-toolbar">
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="missionSearchQuery"
+              [placeholder]="'transports.missions.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="missionSearchQuery"
+              type="button"
+              class="missions-search-clear"
+              (click)="missionSearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Filtro de protagonistas -->
+          <div class="missions-filter-chips">
+            <button
+              type="button"
+              class="chip-btn"
+              [class.is-active]="selectedCharacterFilter === 'all'"
+              (click)="setCharacterFilter('all')"
+            >
+              <span>{{ 'transports.missions.all' | translate }}</span>
+              <span class="chip-count">{{ getCharacterMissionCount('all') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-franklin"
+              [class.is-active]="selectedCharacterFilter === 'franklin'"
+              (click)="setCharacterFilter('franklin')"
+            >
+              <i class="fa-solid fa-circle chip-dot dot-franklin"></i>
+              <span>Franklin</span>
+              <span class="chip-count">{{ getCharacterMissionCount('franklin') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-michael"
+              [class.is-active]="selectedCharacterFilter === 'michael'"
+              (click)="setCharacterFilter('michael')"
+            >
+              <i class="fa-solid fa-circle chip-dot dot-michael"></i>
+              <span>Michael</span>
+              <span class="chip-count">{{ getCharacterMissionCount('michael') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-trevor"
+              [class.is-active]="selectedCharacterFilter === 'trevor'"
+              (click)="setCharacterFilter('trevor')"
+            >
+              <i class="fa-solid fa-circle chip-dot dot-trevor"></i>
+              <span>Trevor</span>
+              <span class="chip-count">{{ getCharacterMissionCount('trevor') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-heists"
+              [class.is-active]="selectedCharacterFilter === 'heists'"
+              (click)="setCharacterFilter('heists')"
+            >
+              <i class="fa-solid fa-sack-dollar chip-icon-gold"></i>
+              <span>{{ 'transports.missions.heists' | translate }}</span>
+              <span class="chip-count">{{ getCharacterMissionCount('heists') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Estado de carga -->
+        <div class="missions-state-loading" *ngIf="missionsLoading">
+          <div class="vgrid-spinner"></div>
+          <span>{{ 'transports.missions.loading' | translate }}</span>
+        </div>
+
+        <!-- Estado de error -->
+        <div class="missions-state-error" *ngIf="missionsError && !missionsLoading">
+          <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+          <span>{{ 'transports.missions.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadStoryMissions(true)">
+            <i class="fa-solid fa-rotate-right"></i> {{ 'transports.missions.retry' | translate }}
+          </button>
+        </div>
+
+        <!-- Estado vacío tras búsqueda -->
+        <div class="missions-state-empty" *ngIf="!missionsLoading && !missionsError && filteredStoryMissions.length === 0">
+          <i class="fa-solid fa-crosshairs empty-icon"></i>
+          <span>{{ 'transports.missions.empty' | translate }}</span>
+        </div>
+
+        <!-- Lista de misiones (Cards altas con flecha de entrada) -->
+        <div class="missions-list" *ngIf="!missionsLoading && filteredStoryMissions.length > 0">
+          <div
+            *ngFor="let m of filteredStoryMissions"
+            class="mission-list-card"
+            (click)="openMissionDetail(m)"
+            [style.--m-accent]="getMissionAccentColor(m)"
+          >
+            <!-- Badge numérico a la izquierda -->
+            <div class="mcard-left">
+              <span class="mcard-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+            </div>
+
+            <!-- Información central -->
+            <div class="mcard-info">
+              <div class="mcard-title-row">
+                <span class="mcard-title">{{ m.title }}</span>
+                <span class="mcard-cat">{{ m.category }}</span>
+              </div>
+              <div class="mcard-meta-row">
+                <span class="mcard-char-badge" [ngClass]="getCharacterBadgeClass(m.character)">
+                  <i class="fa-solid fa-circle char-mini-dot"></i>
+                  <span>{{ m.character }}</span>
+                </span>
+                <span class="mcard-giver" *ngIf="m.giver">
+                  <i class="fa-solid fa-user-secret"></i>
+                  <span>{{ m.giver }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Flecha de entrada a la derecha -->
+            <div class="mcard-arrow-box">
+              <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE MISIÓN (PANEL LIMPIO) ============ -->
+    <ng-container *ngIf="drawerView === 'mission-detail' && selectedMission">
+      <div class="mdetail-container" [style.--m-accent]="getMissionAccentColor(selectedMission)">
+
+        <!-- Barra superior de navegación interna -->
+        <div class="mdetail-top-bar">
+          <button type="button" class="mdetail-back-action" (click)="closeMissionDetail()">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>{{ 'transports.missions.backToMissions' | translate }}</span>
+          </button>
+
+          <div class="mdetail-stepper">
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!previousMission"
+              (click)="selectPreviousMission()"
+              [title]="'transports.missions.prevMission' | translate"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="mdetail-step-label">
+              {{ selectedMission.order }} / {{ storyMissions.length }}
+            </span>
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!nextMission"
+              (click)="selectNextMission()"
+              [title]="'transports.missions.nextMission' | translate"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenido scrolleable de la misión -->
+        <div class="mdetail-body">
+
+          <!-- Tarjeta principal de la misión -->
+          <div class="mdetail-main-card">
+            
+            <!-- Cabecera de la misión -->
+            <div class="mdetail-hero">
+              <div class="mdetail-hero-badges">
+                <span class="mdetail-hero-num">{{ 'transports.missions.missionBadge' | translate:{ order: (selectedMission.order < 10 ? '0' + selectedMission.order : selectedMission.order) } }}</span>
+                <span class="mdetail-hero-cat">{{ selectedMission.category }}</span>
+              </div>
+              <h2 class="mdetail-hero-title">{{ selectedMission.title }}</h2>
+
+              <div class="mdetail-hero-chars">
+                <span class="mdetail-char-pill" [ngClass]="getCharacterBadgeClass(selectedMission.character)">
+                  <i class="fa-solid fa-user"></i>
+                  <span>{{ selectedMission.character }}</span>
+                </span>
+                <span class="mdetail-giver-pill" *ngIf="selectedMission.giver">
+                  <i class="fa-solid fa-user-secret"></i>
+                  <span>{{ 'transports.missions.contact' | translate }} <strong>{{ selectedMission.giver }}</strong></span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Bloque: Sinopsis de la misión -->
+            <div class="mdetail-block">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-book-open"></i>
+                <span>{{ 'transports.missions.synopsis' | translate }}</span>
+              </div>
+              <div class="mdetail-synopsis">
+                <p>{{ selectedMission.description }}</p>
+              </div>
+            </div>
+
+            <!-- Bloque: Recompensa y Desbloqueos -->
+            <div class="mdetail-grid" *ngIf="selectedMission.reward || selectedMission.unlockedBy">
+              <div class="mdetail-box reward-box" *ngIf="selectedMission.reward">
+                <i class="fa-solid fa-trophy box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.missions.reward' | translate }}</span>
+                  <span class="box-val">{{ selectedMission.reward }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box unlock-box" *ngIf="selectedMission.unlockedBy">
+                <i class="fa-solid fa-lock-open box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.missions.unlockedAfter' | translate }}</span>
+                  <span class="box-val">{{ selectedMission.unlockedBy }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Requisitos Medalla de Oro (100%) -->
+            <div class="mdetail-block gold-block" *ngIf="selectedMission.goldRequirements && selectedMission.goldRequirements.length > 0">
+              <div class="mdetail-block-head gold-head">
+                <i class="fa-solid fa-medal"></i>
+                <span>{{ 'transports.missions.goldObjectives' | translate }}</span>
+              </div>
+              <div class="mdetail-gold-list">
+                <div class="gold-goal-item" *ngFor="let req of selectedMission.goldRequirements">
+                  <div class="gold-goal-check">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ req }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de retorno al pie -->
+            <div class="mdetail-bottom-action">
+              <button type="button" class="mdetail-return-btn" (click)="closeMissionDetail()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>{{ 'transports.missions.returnToList' | translate }}</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: ITEM3 ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item3'">
+      <div class="drawer-empty">
+        <i class="fa-solid fa-box drawer-empty-icon"></i>
+        <p class="drawer-empty-text">{{ 'transports.tabs.item3' | translate }}</p>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: ITEM4 ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item4'">
+      <div class="drawer-empty">
+        <i class="fa-solid fa-crown drawer-empty-icon"></i>
+        <p class="drawer-empty-text">{{ 'transports.tabs.item4' | translate }}</p>
+      </div>
+    </ng-container>
+
+  </div>
+</aside>

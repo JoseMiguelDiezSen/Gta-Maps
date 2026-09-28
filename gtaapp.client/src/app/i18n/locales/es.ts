@@ -229,6 +229,25 @@ export const es: TranslationSchema = {
       elitasDesc: 'Aeronaves privadas, jets de negocios y helicópteros ejecutivos.',
       dockteaseDesc: 'Embarcaciones náuticas, yates, lanchas rápidas y motos de agua.',
       warstockDesc: 'Vehículos blindados, armamento militar pesado y maquinaria táctica.'
+    },
+    missions: {
+      searchPlaceholder: 'Buscar misión, personaje, contacto...',
+      all: 'Todas',
+      heists: 'Golpes',
+      loading: 'Cargando misiones del Modo Historia...',
+      error: 'Error al conectar con la base de datos de misiones.',
+      retry: 'Reintentar',
+      empty: 'No se encontraron misiones para este criterio de búsqueda.',
+      backToMissions: 'Volver a Misiones',
+      missionBadge: 'MISIÓN #{{ order }}',
+      contact: 'Contacto:',
+      synopsis: 'Sinopsis de la Misión',
+      reward: 'Recompensa',
+      unlockedAfter: 'Desbloqueado tras',
+      goldObjectives: 'Objetivos de Medalla de Oro (100%)',
+      returnToList: 'Volver al listado de misiones',
+      prevMission: 'Misión anterior',
+      nextMission: 'Misión siguiente'
     }
   }
 };

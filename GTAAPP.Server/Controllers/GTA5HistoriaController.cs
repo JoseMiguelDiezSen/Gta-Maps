@@ -134,4 +134,14 @@ public class GTA5HistoriaController : ControllerBase
     {
         return Ok(_locationsService.GetStoryCollectibles(category, lang).ToList());
     }
+
+    /// <summary>
+    /// GET /api/gta5/historia/missions
+    /// Misiones oficiales de GTA V Modo Historia (Campaña de Michael, Franklin y Trevor).
+    /// </summary>
+    [HttpGet("missions")]
+    public ActionResult<List<MissionItem>> GetStoryMissions([FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetStoryMissions(lang).ToList());
+    }
 }

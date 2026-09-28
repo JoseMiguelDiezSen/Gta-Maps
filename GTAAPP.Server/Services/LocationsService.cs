@@ -80,6 +80,7 @@ public class LocationsService
     public IReadOnlyList<LocationItem> GetStoryFauna(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "fauna.json", lang);
     public IReadOnlyList<LocationItem> GetStoryActivities(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "activities.json", lang);
     public IReadOnlyList<LocationItem> GetStoryStrangePlaces(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "strange_places.json", lang);
+    public IReadOnlyList<MissionItem> GetStoryMissions(string? lang = null) => LoadJsonFile<MissionItem>("gta5", "historia", "missions.json", lang);
 
     public IReadOnlyList<CollectibleItem> GetStoryCollectibles(string? category = null, string? lang = null)
     {

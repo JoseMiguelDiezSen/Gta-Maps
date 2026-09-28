@@ -238,5 +238,24 @@ export interface TranslationSchema {
       dockteaseDesc: string;
       warstockDesc: string;
     };
+    missions: {
+      searchPlaceholder: string;
+      all: string;
+      heists: string;
+      loading: string;
+      error: string;
+      retry: string;
+      empty: string;
+      backToMissions: string;
+      missionBadge: string;
+      contact: string;
+      synopsis: string;
+      reward: string;
+      unlockedAfter: string;
+      goldObjectives: string;
+      returnToList: string;
+      prevMission: string;
+      nextMission: string;
+    };
   };
 }

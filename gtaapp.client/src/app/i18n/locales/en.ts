@@ -229,6 +229,25 @@ export const en: TranslationSchema = {
       elitasDesc: 'Private aircraft, corporate jets and executive helicopters.',
       dockteaseDesc: 'Nautical vessels, luxury yachts, speedboats and watercraft.',
       warstockDesc: 'Armored vehicles, heavy military weaponry and tactical gear.'
+    },
+    missions: {
+      searchPlaceholder: 'Search mission, character, contact...',
+      all: 'All',
+      heists: 'Heists',
+      loading: 'Loading Story Mode missions...',
+      error: 'Could not connect to the missions database.',
+      retry: 'Retry',
+      empty: 'No missions found matching your search.',
+      backToMissions: 'Back to Missions',
+      missionBadge: 'MISSION #{{ order }}',
+      contact: 'Contact:',
+      synopsis: 'Mission Synopsis',
+      reward: 'Reward',
+      unlockedAfter: 'Unlocked after',
+      goldObjectives: 'Gold Medal Objectives (100%)',
+      returnToList: 'Back to missions list',
+      prevMission: 'Previous mission',
+      nextMission: 'Next mission'
     }
   }
 };

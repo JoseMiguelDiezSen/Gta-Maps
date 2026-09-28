@@ -1,4 +1,4 @@
-<div
+﻿<div
   class="map-wrapper"
   (click)="closeContextMenu()"
   (contextmenu)="openContextMenu($event)"
@@ -13,7 +13,7 @@
     [style.top.px]="ctxY"
     (click)="$event.stopPropagation()"
   >
-    <!-- Opciones específicas cuando se hace clic derecho sobre un marcador de usuario -->
+    <!-- Opciones especÃ­ficas cuando se hace clic derecho sobre un marcador de usuario -->
     <ng-container *ngIf="isMarkerContext && targetCustomMarker">
       <div class="hud-ctx-header" style="padding: 6px 12px; font-size: 11px; font-weight: 800; color: #ffb833; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 4px;">
         {{ targetCustomMarker.name }}
@@ -42,7 +42,7 @@
     <div class="hud-time-badge" [title]="'gta5.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
   </div>
 
-  <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idéntico al estilo de los paneles) -->
+  <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idÃ©ntico al estilo de los paneles) -->
   <div class="hud hud-tc">
     <div class="mode-switch-track">
       <a class="mode-switch-btn mode-historia" routerLink="/gta5/historia" title="Cambiar a Modo Historia">
@@ -59,7 +59,7 @@
   <!-- ESQUINA INF-IZQ: Panel de control (antigua Leyenda) -->
   <div class="hud hud-bl" [class.hud-collapsed]="!legendOpen">
     <div class="hud-panel hud-legend-panel">
-      <!-- Cabecera del Panel de control: SIEMPRE visible, mantiene el ancho y el título -->
+      <!-- Cabecera del Panel de control: SIEMPRE visible, mantiene el ancho y el tÃ­tulo -->
       <div
         class="hud-panel-head"
         [class.is-collapsed]="!legendOpen"
@@ -112,7 +112,7 @@
               <span class="legend-count">{{ getCategoryCount('mansion') }}</span>
             </button>
 
-            <!-- Hangares y Aeródromos -->
+            <!-- Hangares y AerÃ³dromos -->
             <button
               type="button"
               class="legend-btn"
@@ -124,7 +124,7 @@
               <span class="legend-count">{{ getCategoryCount('hangar') }}</span>
             </button>
 
-            <!-- Búnkeres -->
+            <!-- BÃºnkeres -->
             <button
               type="button"
               class="legend-btn"
@@ -220,7 +220,7 @@
               <span class="legend-count">{{ getCategoryCount('ceo_office') }}</span>
             </button>
 
-            <!-- Almacenes de Vehículos (Import / Export) -->
+            <!-- Almacenes de VehÃ­culos (Import / Export) -->
             <button
               type="button"
               class="legend-btn"
@@ -252,7 +252,7 @@
         </div>
 
         <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['negocios']">
-            <!-- Negocios de Cocaína -->
+            <!-- Negocios de CocaÃ­na -->
             <button
               type="button"
               class="legend-btn"
@@ -300,7 +300,7 @@
               <span class="legend-count">{{ getCategoryCount('nightclub') }}</span>
             </button>
 
-            <!-- Fábricas de Dinero Falso -->
+            <!-- FÃ¡bricas de Dinero Falso -->
             <button
               type="button"
               class="legend-btn"
@@ -324,7 +324,7 @@
               <span class="legend-count">{{ getCategoryCount('meth_lab') }}</span>
             </button>
 
-            <!-- Falsificación de Documentos -->
+            <!-- FalsificaciÃ³n de Documentos -->
             <button
               type="button"
               class="legend-btn"
@@ -338,7 +338,7 @@
         </div>
       </div>
 
-      <!-- DESPLEGABLE 3: Vehículos -->
+      <!-- DESPLEGABLE 3: VehÃ­culos -->
       <div class="hud-acc" [class.is-open]="accordion['vehiculos']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('vehiculos')">
@@ -424,7 +424,7 @@
         </div>
 
         <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['servicios']">
-          <!-- Comisarías de Policía -->
+          <!-- ComisarÃ­as de PolicÃ­a -->
           <button
             type="button"
             class="legend-btn"
@@ -460,7 +460,7 @@
             <span class="legend-count">{{ getCategoryCount('fire_station') }}</span>
           </button>
 
-          <!-- Armerías Ammu-Nation -->
+          <!-- ArmerÃ­as Ammu-Nation -->
           <button
             type="button"
             class="legend-btn"
@@ -484,7 +484,7 @@
             <span class="legend-count">{{ getCategoryCount('convenience_store') }}</span>
           </button>
 
-          <!-- Tienda de Máscaras (Vespucci) -->
+          <!-- Tienda de MÃ¡scaras (Vespucci) -->
           <button
             type="button"
             class="legend-btn"
@@ -496,7 +496,7 @@
             <span class="legend-count">{{ getCategoryCount('mask_shop') }}</span>
           </button>
 
-          <!-- Túneles de Lavado -->
+          <!-- TÃºneles de Lavado -->
           <button
             type="button"
             class="legend-btn"
@@ -621,7 +621,7 @@
               <span class="legend-count">{{ char.badge.symbol }}</span>
             </button>
 
-            <!-- Botón de localización y zoom directo -->
+            <!-- BotÃ³n de localizaciÃ³n y zoom directo -->
             <button
               type="button"
               class="char-zoom-btn"
@@ -641,7 +641,7 @@
         </div>
       </div>
 
-      <!-- DESPLEGABLE: Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía) -->
+      <!-- DESPLEGABLE: Fauna y Vida Salvaje (12 HÃ¡bitats de Fauna y FotografÃ­a) -->
       <div class="hud-acc" [class.is-open]="accordion['fauna']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('fauna')">
@@ -677,7 +677,7 @@
               <span class="legend-count">{{ animal.badge.symbol }}</span>
             </button>
 
-            <!-- Botón de localización y zoom directo -->
+            <!-- BotÃ³n de localizaciÃ³n y zoom directo -->
             <button
               type="button"
               class="char-zoom-btn"
@@ -727,7 +727,7 @@
             <span class="legend-count">{{ getCollectibleCount('playing_card') }}</span>
           </button>
 
-          <!-- Figuras de Acción (100) -->
+          <!-- Figuras de AcciÃ³n (100) -->
           <button
             type="button"
             class="legend-btn legend-btn-collectible"
@@ -739,7 +739,7 @@
             <span class="legend-count">{{ getCollectibleCount('action_figure') }}</span>
           </button>
 
-          <!-- Inhibidores de Señal (50) -->
+          <!-- Inhibidores de SeÃ±al (50) -->
           <button
             type="button"
             class="legend-btn legend-btn-collectible"
@@ -777,7 +777,7 @@
         </div>
       </div>
 
-      <!-- DESPLEGABLE 8: Lugares extraños -->
+      <!-- DESPLEGABLE 8: Lugares extraÃ±os -->
       <div class="hud-acc" [class.is-open]="accordion['lugares']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('lugares')">
@@ -949,7 +949,7 @@
     </div>
   </div>
 
-  <!-- Telemetría de desarrollo: Coordenadas (X, Y) -->
+  <!-- TelemetrÃ­a de desarrollo: Coordenadas (X, Y) -->
   <div
     class="hud-coords-dev"
     (click)="copyCurrentCoords()"
@@ -960,10 +960,10 @@
     <span class="coord-sep">|</span>
     <span class="coord-axis">Y:</span>
     <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
-    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
+    <span *ngIf="coordsCopied" class="coord-copied">âœ“</span>
   </div>
 
-  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: PERFIL Y PROGRESO (Alineado a la altura del panel de la izquierda) -->
+  <!-- BOTÃ“N LATERAL EN ESQUINA SUP-DER: PERFIL Y PROGRESO (Alineado a la altura del panel de la izquierda) -->
   <button
     type="button"
     class="hud-side-trigger"
@@ -979,10 +979,10 @@
     </div>
   </button>
 
-  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO DE VEHÍCULOS -->
-  <app-vehicle-drawer
+  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÃLOGO DE VEHÃCULOS -->
+  <app-info-panel
     [isOpen]="profileDrawerOpen"
     [gameMode]="selectedGameMode"
     (closeDrawer)="closeProfileDrawer()"
-  ></app-vehicle-drawer>
+  ></app-info-panel>
 </div>

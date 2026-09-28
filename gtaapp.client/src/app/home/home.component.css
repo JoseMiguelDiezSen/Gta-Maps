@@ -218,7 +218,7 @@
 }
 
 .home-disclaimer {
-  margin: 6px 0 2px 0;
+  margin: 0;
   color: rgba(255, 255, 255, 0.72);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 13.5px;
@@ -229,8 +229,19 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
+.home-divider {
+  border: none;
+  height: 2px;
+  width: 600px;
+  max-width: 85%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.85) 50%, transparent 100%);
+  clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
+  margin: 0;
+  z-index: 1;
+}
+
 .home-subtitle {
-  margin: 4px 0 24px 0;
+  margin: 2px 0 22px 0;
   color: rgba(255, 255, 255, 0.55);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
