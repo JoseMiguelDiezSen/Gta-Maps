@@ -1,4 +1,4 @@
 export const APP_VERSION = {
-  timestamp: '29/09/2026 10:48',
-  commit: '3a2af66e7323d1498f6e2e36ec807d2389397e19'
+  timestamp: '29/09/2026 10:49',
+  commit: '7bd2ebbd553c1723809095a3d06a6df09517d46d'
 };

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, catchError, of } from 'rxjs';
-import { GtaMission, GtaStrangerMission } from '../models/mission';
-import { GtaHeist } from '../models/heist';
+import { GtaMission, GtaStrangerMission, GtaHeist } from '../models/mission';
 import { TranslationService } from '../i18n';
 
 @Injectable({ providedIn: 'root' })

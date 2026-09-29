@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output, effect } from '@angular/core';
 import { GtaVehicle, DealerCategory } from '../../models/vehicle';
-import { GtaMission, GtaStrangerMission, StrangerSeriesGroup } from '../../models/mission';
-import { GtaHeist } from '../../models/heist';
+import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../models/mission';
 import { VehicleService } from '../../services/vehicle.service';
 import { MissionService } from '../../services/mission.service';
 import { TranslationService } from '../../i18n';

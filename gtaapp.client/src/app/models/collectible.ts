@@ -1,4 +1,4 @@
-import { MapPosition, MapBadge } from './map-common';
+import { MapPosition, MapBadge } from './location';
 
 export type CollectibleCategory =
   | 'playing_card'

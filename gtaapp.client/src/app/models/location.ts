@@ -1,6 +1,14 @@
-import { MapPosition, MapBadge } from './map-common';
+export interface MapPosition {
+  x: number;
+  y: number;
+  z: number;
+}
 
-export { MapPosition, MapBadge };
+export interface MapBadge {
+  icon: string;
+  color: string;
+  symbol: string;
+}
 
 export type LocationCategory =
   | 'safehouse'
