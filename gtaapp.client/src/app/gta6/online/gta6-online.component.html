@@ -1,0 +1,290 @@
+<div class="map-wrapper">
+  <div
+    class="gta6-canvas"
+    [class.is-panning]="isPanning"
+    (wheel)="onCanvasWheel($event)"
+    (mousedown)="onCanvasMouseDown($event)"
+    [style.backgroundImage]="canvasBgImage"
+    [style.backgroundSize]="canvasBgSize"
+    [style.backgroundPosition]="canvasBgPos"
+    [title]="'gta6.canvasHelp' | translate"
+  ></div>
+
+  <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
+  <div class="hud hud-tl">
+    <div class="hud-title">GTA VI</div>
+    <div class="hud-counter-badge">
+      {{ 'gta6.hud.itemsCount' | translate:{ total: totalItems, categories: categories.length } }}
+    </div>
+    <div class="hud-time-badge" [title]="'gta5.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
+    <a class="hud-home-btn" routerLink="/" [title]="'common.backToHome' | translate">{{ 'common.backToHome' | translate }}</a>
+  </div>
+
+  <!-- SUP-CENTRO: Lanzamiento GTA VI + cuenta atrás (misma estructura y tipografía que la barra sup-izq) -->
+  <div class="hud hud-tc">
+    <div class="hud-title">{{ 'gta6.hud.launchTitle' | translate }}</div>
+    <div class="hud-cd-sep"></div>
+    <div class="hud-cd">
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.days }}</span>
+        <span class="hud-cd-lab">{{ 'common.days' | translate }}</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.hours }}</span>
+        <span class="hud-cd-lab">{{ 'common.hours' | translate }}</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.minutes }}</span>
+        <span class="hud-cd-lab">{{ 'common.minutes' | translate }}</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.seconds }}</span>
+        <span class="hud-cd-lab">{{ 'common.seconds' | translate }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CENTRO DE LA PANTALLA: Telemetría de Coordenadas (X, Y) -->
+  <div
+    class="hud-coords-dev"
+    (click)="copyCurrentCoords()"
+    [title]="'gta6.hud.coordsDev' | translate"
+  >
+    <span class="coord-axis">X:</span>
+    <span class="coord-val">{{ mouseCoords.x.toFixed(1) }}</span>
+    <span class="coord-sep">|</span>
+    <span class="coord-axis">Y:</span>
+    <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
+    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
+  </div>
+
+  <!-- ESQUINA INF-IZQ: Panel de control -->
+  <div class="hud hud-bl" [class.hud-collapsed]="!legendOpen">
+    <div class="hud-panel hud-legend-panel">
+      <!-- Cabecera del Panel de control: SIEMPRE visible, mantiene el ancho y el título -->
+      <div
+        class="hud-panel-head"
+        [class.is-collapsed]="!legendOpen"
+        (click)="!legendOpen ? toggleLegend() : null"
+        [title]="!legendOpen ? ('gta5.hud.expandPanel' | translate) : ''"
+      >
+        <span class="hud-panel-title">{{ 'gta5.hud.panelTitle' | translate }}</span>
+        <button
+          type="button"
+          class="legend-toggle-btn"
+          (click)="toggleLegend(); $event.stopPropagation()"
+          [title]="legendOpen ? ('gta5.hud.collapsePanel' | translate) : ('gta5.hud.expandPanel' | translate)"
+        >
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!legendOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Contenido desplegado del Panel de control con scroll general -->
+      <div class="hud-legend-body" *ngIf="legendOpen">
+        <div
+          class="hud-acc"
+          *ngFor="let category of categories"
+          [class.is-open]="accordion[category.key]"
+        >
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection(category.key)">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ getCategoryTitle(category) }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(itemKeys(category))"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(itemKeys(category), $event)"
+              [title]="'gta6.categories.toggleAll' | translate:{ title: getCategoryTitle(category) }"
+            />
+          </div>
+
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion[category.key]">
+            <button
+              type="button"
+              class="legend-btn"
+              *ngFor="let item of category.items"
+              [class.is-active]="layerFilters[item.id]"
+              (click)="toggleLayer(item.id)"
+            >
+              <i
+                class="legend-dot"
+                [style.background]="item.color"
+                [style.box-shadow]="'0 0 6px ' + item.color"
+              ></i>
+              <span class="legend-name">{{ item.name }}</span>
+              <span class="legend-count">{{ item.count }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESQUINA INF-DER: Ajustes -->
+  <div class="hud hud-br" [class.hud-collapsed]="!settingsOpen">
+    <div class="hud-panel">
+      <div
+        class="hud-panel-head"
+        [class.is-collapsed]="!settingsOpen"
+        (click)="!settingsOpen ? toggleSettings() : null"
+        [title]="!settingsOpen ? ('gta5.hud.expandSettings' | translate) : ''"
+      >
+        <span class="hud-panel-title">{{ 'gta5.hud.settingsTitle' | translate }}</span>
+        <button
+          type="button"
+          class="legend-toggle-btn"
+          (click)="toggleSettings(); $event.stopPropagation()"
+          [title]="settingsOpen ? ('gta5.hud.collapseSettings' | translate) : ('gta5.hud.expandSettings' | translate)"
+        >
+          <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!settingsOpen">
+            <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="hud-settings-body" *ngIf="settingsOpen">
+        <!-- DESPLEGABLE: Modo de juego (Online vs Historia) -->
+        <div class="hud-acc" [class.is-open]="accordion['modo']">
+          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('modo')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.settings.gameMode' | translate }}</span>
+          </button>
+          <div class="hud-acc-body" *ngIf="accordion['modo']">
+            <div class="hud-seg hud-seg-vertical">
+              <button
+                type="button"
+                class="hud-seg-btn seg-online"
+                [class.is-active]="selectedGameMode === 'online'"
+                (click)="setGameMode('online')"
+                [title]="'gta5.settings.onlineDesc' | translate"
+              >
+                {{ 'gta5.settings.onlineMode' | translate }}
+              </button>
+              <button
+                type="button"
+                class="hud-seg-btn seg-offline"
+                [class.is-active]="selectedGameMode === 'story'"
+                (click)="setGameMode('story')"
+                [title]="'gta5.settings.storyDesc' | translate"
+              >
+                {{ 'gta5.settings.storyMode' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE: Selector de mapa -->
+        <div class="hud-acc" [class.is-open]="accordion['mapa']">
+          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('mapa')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.settings.mapSelector' | translate }}</span>
+          </button>
+          <div class="hud-acc-body" *ngIf="accordion['mapa']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="mapTypeSelect">{{ 'gta5.settings.baseMap' | translate }}</label>
+              <select
+                id="mapTypeSelect"
+                class="hud-field-select"
+                (change)="switchMapType($any($event.target).value)"
+              >
+                <option
+                  *ngFor="let type of mapTypes"
+                  [value]="type.id"
+                  [selected]="currentMapType === type.id"
+                >
+                  {{ type.label }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE: Estilo Iconos -->
+        <div class="hud-acc" [class.is-open]="accordion['zona']">
+          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('zona')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.settings.iconStyle' | translate }}</span>
+          </button>
+          <div class="hud-acc-body" *ngIf="accordion['zona']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="iconThemeSelect">{{ 'gta5.settings.markerTheme' | translate }}</label>
+              <select
+                id="iconThemeSelect"
+                class="hud-field-select"
+                [(ngModel)]="iconTheme"
+                (change)="updateIconStyle()"
+              >
+                <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>
+                <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
+              </select>
+            </div>
+            <div class="hud-field">
+              <label class="hud-field-label" for="iconSizeSelect">{{ 'gta5.settings.iconSize' | translate }}</label>
+              <select
+                id="iconSizeSelect"
+                class="hud-field-select"
+                [(ngModel)]="iconSize"
+                (change)="updateIconStyle()"
+              >
+                <option value="compact">{{ 'gta5.settings.sizeCompact' | translate }}</option>
+                <option value="standard" selected>{{ 'gta5.settings.sizeStandard' | translate }}</option>
+                <option value="large">{{ 'gta5.settings.sizeLarge' | translate }}</option>
+              </select>
+            </div>
+            <div class="hud-field">
+              <label class="hud-field-label" for="hud-zone">{{ 'gta5.settings.jumpToRegion' | translate }}</label>
+              <select
+                id="hud-zone"
+                class="hud-field-select"
+                (change)="onZoneChange($any($event.target).value)"
+              >
+                <option value="all">{{ 'gta5.settings.regionAll' | translate }}</option>
+                <option value="city">{{ 'gta5.settings.regionCity' | translate }}</option>
+                <option value="sandy">{{ 'gta5.settings.regionSandy' | translate }}</option>
+                <option value="paleto">{{ 'gta5.settings.regionPaleto' | translate }}</option>
+                <option value="blaine">{{ 'gta5.settings.regionBlaine' | translate }}</option>
+                <option value="chumash">{{ 'gta5.settings.regionChumash' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE: Policía -->
+        <div class="hud-acc" [class.is-open]="accordion['policia']">
+          <button type="button" class="hud-acc-head hud-acc-head-btn" (click)="toggleSection('policia')">
+            <span class="hud-acc-caret"></span>
+            <span class="hud-acc-title">{{ 'gta5.settings.police' | translate }}</span>
+          </button>
+          <div class="hud-acc-body" *ngIf="accordion['policia']">
+            <button
+              type="button"
+              class="legend-btn"
+              *ngFor="let item of policiaItems"
+              [class.is-active]="layerFilters[item.id]"
+              (click)="toggleLayer(item.id)"
+            >
+              <i
+                class="legend-dot"
+                [style.background]="item.color"
+                [style.box-shadow]="'0 0 6px ' + item.color"
+              ></i>
+              <span class="legend-name">{{ item.name }}</span>
+              <span class="legend-count">{{ item.count }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- BOTONES DE PIE DE PANEL -->
+        <div class="hud-panel-foot">
+          <button type="button" class="hud-panel-btn" (click)="recenterMap()">{{ 'common.recenterMap' | translate }}</button>
+          <button type="button" class="hud-panel-btn hud-panel-btn-primary" (click)="onZoneChange('all')">{{ 'common.viewGeneral' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

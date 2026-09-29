@@ -1,5 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { TranslationService } from '../i18n';
+import { TranslationService } from '../../i18n';
 
 interface Gta6LegendItem {
     id: string;
@@ -15,12 +15,12 @@ interface Gta6LegendCategory {
 }
 
 @Component({
-    selector: 'app-gta6',
-    templateUrl: './gta6.component.html',
-    styleUrls: ['./gta6.component.css'],
+    selector: 'app-gta6-online',
+    templateUrl: './gta6-online.component.html',
+    styleUrls: ['./gta6-online.component.css'],
     standalone: false
 })
-export class Gta6Component implements OnInit, OnDestroy {
+export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     // Cuenta atrás: 19 de noviembre a las 00:00 (mes 10 = noviembre, en hora local)
     readonly countdownTarget = new Date(2026, 10, 19, 0, 0, 0);

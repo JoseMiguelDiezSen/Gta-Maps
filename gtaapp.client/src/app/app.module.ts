@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent }           from './app.component';
 import { Gta5OnlineComponent }    from './gta5/online/gta5-online.component';
 import { Gta5HistoriaComponent }  from './gta5/historia/gta5-historia.component';
-import { Gta6Component }          from './gta6/gta6.component';
+import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
+import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
 import { HomeComponent }          from './home/home.component';
 import { InfoPanelComponent } from './components/info-panel/info-panel.component';
 import { AppRoutingModule }       from './app-routing.module';
@@ -18,7 +19,8 @@ import { TranslatePipe }          from './i18n';
         AppComponent,
         Gta5OnlineComponent,
         Gta5HistoriaComponent,
-        Gta6Component,
+        Gta6OnlineComponent,
+        Gta6HistoriaComponent,
         HomeComponent,
         InfoPanelComponent,
         TranslatePipe

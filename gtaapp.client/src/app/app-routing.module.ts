@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent }           from './home/home.component';
 import { Gta5OnlineComponent }     from './gta5/online/gta5-online.component';
 import { Gta5HistoriaComponent }   from './gta5/historia/gta5-historia.component';
-import { Gta6Component }           from './gta6/gta6.component';
+import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
+import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,7 +22,11 @@ const routes: Routes = [
     { path: 'gt5',           redirectTo: '/gta5', pathMatch: 'full' },
 
     // ── GTA VI ───────────────────────────────────────────────────────────────
-    { path: 'gta6', component: Gta6Component },
+    { path: 'gta6',          component: Gta6OnlineComponent },
+    { path: 'gta6online',    component: Gta6OnlineComponent },
+    { path: 'gta6/online',   component: Gta6OnlineComponent },
+    { path: 'gta6/historia', component: Gta6HistoriaComponent },
+    { path: 'gta6historia',  component: Gta6HistoriaComponent },
 
     { path: '**', redirectTo: '/home' }
 ];
