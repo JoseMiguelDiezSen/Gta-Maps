@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, effect } from '@angular/co
 import * as L from 'leaflet';
 import { LocationService } from '../../services/location.service';
 import { LocationItem } from '../../models/location';
+import { CollectibleItem } from '../../models/collectible';
 import { TranslationService } from '../../i18n';
 
 // ---------------------------------------------------------------------------
@@ -43,8 +44,9 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // CATEGORÍAS DE HISTORIA (completamente distintas del Online)
     // -----------------------------------------------------------------------
 
-    // Propiedades comprables en modo historia (Franklin, Michael, Trevor)
+    // Propiedades en modo historia (Casas de protagonistas y negocios comprables)
     readonly storyPropertyKeys = [
+        'safehouse',
         'purchasable_business'
     ];
 
@@ -76,15 +78,14 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         'cave'
     ];
 
-    // Coleccionables EXCLUSIVOS de Modo Historia (pendiente de datos reales)
-    // Estos NO existen en Online. Aquí irán: huesos alienígenas, piezas de nave,
-    // letras de grafiti (Franklin), partes de submarino, etc.
+    // Coleccionables EXCLUSIVOS de Modo Historia
+    // Fragmentos de carta (50), Piezas de nave espacial (50), Desperdicios nucleares (30), Piezas de submarino (30), Tratados de Epsilon (10)
     readonly storyCollectibleKeys = [
-        'alien_bone',       // 30 huesos alienígenas
+        'letter_scrap',     // 50 fragmentos de carta
         'spaceship_part',   // 50 piezas de nave espacial
-        'graffiti',         // 50 letras de grafiti (misión Franklin)
-        'submarine_part',   // 30 partes de submarino
-        'letter_scrap'      // 50 fragmentos de carta (misión Franklin)
+        'nuclear_waste',    // 30 desperdicios nucleares
+        'submarine_part',   // 30 piezas de submarino
+        'epsilon_tract'     // 10 tratados de Epsilon
     ];
 
     // Personajes narrativos de Modo Historia
@@ -102,6 +103,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // -----------------------------------------------------------------------
     layerFilters: { [key: string]: boolean } = {
         // Propiedades historia
+        safehouse:            true,
         purchasable_business: true,
         // Talleres
         ls_customs:  true,
@@ -122,11 +124,11 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         shipwreck:  true,
         cave:       true,
         // Coleccionables de Historia
-        alien_bone:     true,
+        letter_scrap:   true,
         spaceship_part: true,
-        graffiti:       true,
+        nuclear_waste:  true,
         submarine_part: true,
-        letter_scrap:   true
+        epsilon_tract:  true
     };
 
     // -----------------------------------------------------------------------
@@ -135,9 +137,10 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     allProperties: LocationItem[] = [];
     private propertyMarkers: { marker: L.Marker; property: LocationItem }[] = [];
 
-    // Los coleccionables de Historia son LocationItem (no CollectibleItem de Online)
-    // Se irán añadiendo con la estructura de datos propia de Historia
-    // private storyCollectibles: LocationItem[] = [];
+    // Coleccionables de Modo Historia
+    allCollectibles: CollectibleItem[] = [];
+    private collectibleMarkers: { marker: L.Marker; item: CollectibleItem }[] = [];
+    private collectibleMarkersLayer: L.LayerGroup | undefined;
 
     private playerMarkersLayer: L.LayerGroup | undefined;
 
@@ -227,6 +230,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             const lang = this.translationService.currentLanguage();
             if (this.map) {
                 this.loadProperties();
+                this.loadCollectibles();
             }
         });
     }
@@ -318,8 +322,10 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
         tileLayer.addTo(this.map);
         this.playerMarkersLayer = L.layerGroup().addTo(this.map);
+        this.collectibleMarkersLayer = L.layerGroup().addTo(this.map);
 
         this.loadProperties();
+        this.loadCollectibles();
         this.updateIconStyle();
 
         this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
@@ -385,6 +391,24 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // -----------------------------------------------------------------------
+    // CARGA DE COLECCIONABLES HISTORIA
+    // -----------------------------------------------------------------------
+    private loadCollectibles(): void {
+        this.locationService.getCollectibles(undefined, undefined, 'story').subscribe({
+            next: (items) => {
+                this.allCollectibles = items;
+                this.allCollectibles.forEach(c => {
+                    if (this.layerFilters[c.category] === undefined) {
+                        this.layerFilters[c.category] = true;
+                    }
+                });
+                this.renderCollectibleMarkers();
+            },
+            error: (err) => console.error('[Historia] Error al cargar coleccionables:', err)
+        });
+    }
+
+    // -----------------------------------------------------------------------
     // RENDER DE MARCADORES
     // -----------------------------------------------------------------------
     private renderPropertyMarkers(): void {
@@ -403,6 +427,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             const isPurchasable = this.isPurchasable(p);
 
             let pinSymbol = p.badge.symbol || '•';
+            if (p.category === 'safehouse')      pinSymbol = '🏠';
             if (p.category === 'police_station') pinSymbol = '🚓';
             if (p.category === 'hospital')       pinSymbol = '🏥';
             if (p.category === 'fire_station')   pinSymbol = '🚒';
@@ -458,6 +483,75 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
+    private renderCollectibleMarkers(): void {
+        const map = this.map;
+        if (!map) return;
+
+        if (!this.collectibleMarkersLayer) {
+            this.collectibleMarkersLayer = L.layerGroup().addTo(map);
+        }
+        this.collectibleMarkersLayer.clearLayers();
+        this.collectibleMarkers = [];
+
+        const isEs = this.translationService.currentLanguage() !== 'en';
+        const rewardLabel = isEs ? 'Recompensa' : 'Reward';
+
+        this.allCollectibles.forEach(item => {
+            if (this.layerFilters[item.category] === false) return;
+
+            const [lat, lng] = this.worldToLatLng(item.position.x, item.position.y);
+            const isEpsilon = item.category === 'epsilon_tract';
+            const pinSymbol = isEpsilon ? '✝' : (item.badge.symbol || '•');
+            const symbolStyle = isEpsilon
+                ? 'color: #ffffff !important; font-size: 14px; font-weight: 900; line-height: 1; text-shadow: 0 0 4px #ffffff, 0 0 8px #38bdf8;'
+                : `color: ${item.badge.color || '#ffb833'}; font-weight: 700; line-height: 1;`;
+
+            const icon = L.divIcon({
+                className: 'gta-pin-collectible-wrapper',
+                html: `
+                    <div class="gta-pin-collectible gta-pin-col-${item.category}" style="--pin-color: ${item.badge.color}">
+                        <span class="gta-pin-col-symbol" style="${symbolStyle}">${pinSymbol}</span>
+                    </div>
+                `,
+                iconSize: [22, 22],
+                iconAnchor: [11, 11],
+                popupAnchor: [0, -13]
+            });
+
+            const rewardHtml = item.reward
+                ? `<div class="popup-reward-badge" style="display: flex; align-items: center; gap: 6px; font-size: 11px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 6px; padding: 6px 10px; color: #bae6fd; margin-top: 8px;">
+                    <span style="font-size: 13px;">🎁</span>
+                    <span><strong>${rewardLabel}:</strong> ${item.reward}</span>
+                   </div>`
+                : '';
+
+            const popupHtml = `
+                <div class="gta-popup-card">
+                    <div class="popup-banner" style="background: linear-gradient(135deg, ${item.badge.color}33, #0b0f14 85%); border-bottom: 2px solid ${item.badge.color};">
+                        <span class="popup-badge" style="color: ${item.badge.color}; border-color: ${item.badge.color}66">${item.categoryLabel} (#${item.number}/${item.total})</span>
+                        <h4 class="popup-title">${item.name}</h4>
+                        <div class="popup-zone">${item.zone}</div>
+                    </div>
+                    <div class="popup-content">
+                        <p class="popup-desc" style="margin: 0; font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.9);">${item.hint}</p>
+                        ${rewardHtml}
+                    </div>
+                </div>
+            `;
+
+            const marker = L.marker([lat, lng], { icon })
+                .bindPopup(popupHtml, { maxWidth: 320, className: 'gta-leaflet-popup' })
+                .bindTooltip(`<b>${item.name}</b><br><span style="color:${item.badge.color}">${item.categoryLabel} (#${item.number}/${item.total})</span>`, {
+                    direction: 'top',
+                    offset: [0, -12],
+                    className: 'gta-leaflet-tooltip'
+                });
+
+            this.collectibleMarkersLayer?.addLayer(marker);
+            this.collectibleMarkers.push({ marker, item });
+        });
+    }
+
     // -----------------------------------------------------------------------
     // CONTROLES DE UI — Panel de capas
     // -----------------------------------------------------------------------
@@ -465,6 +559,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         const current = this.layerFilters[categoryKey] !== false;
         this.layerFilters[categoryKey] = !current;
         this.renderPropertyMarkers();
+        this.renderCollectibleMarkers();
     }
 
     toggleLegend(): void { this.legendOpen = !this.legendOpen; }
@@ -479,10 +574,15 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         const input = event.target as HTMLInputElement;
         keys.forEach(k => { this.layerFilters[k] = input.checked; });
         this.renderPropertyMarkers();
+        this.renderCollectibleMarkers();
     }
 
     getCategoryCount(categoryKey: string): number {
         return this.allProperties.filter(p => p.category === categoryKey).length;
+    }
+
+    getCollectibleCount(categoryKey: string): number {
+        return this.allCollectibles.filter(c => c.category === categoryKey).length;
     }
 
     // -----------------------------------------------------------------------
@@ -659,7 +759,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     isPurchasable(p: LocationItem): boolean {
-        const nonPurchasable = ['police_station','hospital','fire_station','car_wash','convenience_store','service','strip_club','ls_customs','hao_garage','character','animal'];
+        const nonPurchasable = ['safehouse','police_station','hospital','fire_station','car_wash','convenience_store','service','strip_club','ls_customs','hao_garage','character','animal'];
         if (nonPurchasable.includes(p.category)) return false;
         return (p.price || 0) > 0;
     }

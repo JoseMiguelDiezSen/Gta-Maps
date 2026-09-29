@@ -3,6 +3,7 @@ import { MapPosition, MapBadge } from './map-common';
 export { MapPosition, MapBadge };
 
 export type LocationCategory =
+  | 'safehouse'
   | 'purchasable_business'
   | 'mansion'
   | 'hangar'

@@ -64,8 +64,8 @@ public class VehiclesService
 
             try
             {
-                using var stream = File.OpenRead(fullPath);
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                using var stream = File.OpenRead(fullPath);
                 var list = JsonSerializer.Deserialize<List<GtaVehicle>>(stream, options) ?? [];
                 _cache = (lastWrite, list);
                 return list;

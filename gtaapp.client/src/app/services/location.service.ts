@@ -33,18 +33,21 @@ export class LocationService {
   }
 
   /**
-   * Obtiene la lista de coleccionables de GTA Online desde /api/locations/collectibles.
+   * Obtiene la lista de coleccionables de GTA Online o Historia desde /api/locations/collectibles.
    */
-  getCollectibles(category?: string, lang?: string): Observable<CollectibleItem[]> {
+  getCollectibles(category?: string, lang?: string, gameMode?: string): Observable<CollectibleItem[]> {
     let params = new HttpParams();
     if (category) params = params.set('category', category);
 
     const activeLang = lang || this.translationService.currentLanguage();
     if (activeLang) params = params.set('lang', activeLang);
 
-    return this.http.get<CollectibleItem[]>('/api/locations/collectibles', { params }).pipe(
+    const url = gameMode === 'story' ? '/api/gta5/historia/collectibles' : '/api/locations/collectibles';
+    if (gameMode && gameMode !== 'story') params = params.set('gameMode', gameMode);
+
+    return this.http.get<CollectibleItem[]>(url, { params }).pipe(
       catchError(err => {
-        console.error('Error al obtener coleccionables desde /api/locations/collectibles:', err);
+        console.error('Error al obtener coleccionables desde ' + url + ':', err);
         return of([]);
       })
     );

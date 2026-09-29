@@ -36,6 +36,33 @@
         <span class="drawer-breadcrumb-current">{{ selectedMission?.title }}</span>
       </span>
 
+      <!-- BREADCRUMB dinámico de misión secundaria (Extraños y Locos) -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'stranger-detail'">
+        <button type="button" class="drawer-breadcrumb-back" (click)="closeStrangerDetail()" [title]="'transports.strangers.backToStrangers' | translate">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="drawer-breadcrumb-link" (click)="closeStrangerDetail()">{{ 'transports.strangers.title' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span
+          class="drawer-breadcrumb-link"
+          *ngIf="selectedStranger?.seriesName"
+          (click)="setStrangerSeriesFilter(selectedStranger!.series); closeStrangerDetail()"
+          [title]="selectedStranger?.seriesName"
+        >{{ selectedStranger?.seriesName }}</span>
+        <span class="drawer-breadcrumb-sep" *ngIf="selectedStranger?.seriesName">›</span>
+        <span class="drawer-breadcrumb-current">{{ selectedStranger?.title }}</span>
+      </span>
+
+      <!-- BREADCRUMB dinámico de golpe (GTA Online) -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'heist-detail'">
+        <button type="button" class="drawer-breadcrumb-back" (click)="closeHeistDetail()" [title]="'transports.heists.backToHeists' | translate">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="drawer-breadcrumb-link" (click)="closeHeistDetail()">{{ 'transports.tabs.golpes' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current">{{ selectedHeist?.title }}</span>
+      </span>
+
       <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
         <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
         <span>{{ 'transports.title' | translate }}</span>
@@ -43,6 +70,8 @@
       <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
       <h3 class="drawer-title vehicle-detail-header-title" *ngIf="drawerView === 'vehicle-detail'">{{ selectedVehicle?.name }}</h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'mission-detail'">{{ selectedMission?.title }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'stranger-detail'">{{ selectedStranger?.title }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'heist-detail'">{{ selectedHeist?.title }}</h3>
     </div>
     <button type="button" class="drawer-close-btn" (click)="onClose()" [title]="'transports.closeTitle' | translate">
       <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
@@ -66,28 +95,45 @@
   </div>
 
   <!-- ====== CUERPO ====== -->
-  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'">
+  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'" [class.is-stranger-view]="drawerView === 'stranger-detail'" [class.is-heist-view]="drawerView === 'heist-detail'">
 
     <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'vehiculos'">
-      <div class="dealer-list">
-        <div
-          *ngFor="let d of visibleDealers"
-          class="dealer-card"
-          (click)="openDealerGrid(d.id, d.name)"
-          [style.--dealer-color]="d.color"
-        >
-          <div class="dealer-card-icon">
-            <img *ngIf="d.logoUrl && !d.logoFailed" [src]="d.logoUrl" [alt]="d.name" class="dealer-logo-img" (error)="onDealerLogoError(d)" />
-            <i *ngIf="!d.logoUrl || d.logoFailed" class="fa-solid" [ngClass]="d.icon"></i>
-          </div>
-          <div class="dealer-card-info">
-            <span class="dealer-card-name">{{ d.name }}</span>
-            <span class="dealer-card-sub">{{ ('transports.dealers.' + (d.id === 'legendarymotorsport' ? 'legendary' : d.id) + 'Desc' | translate) }}</span>
-          </div>
-          <div class="dealer-card-arrow">
-            <i class="fa-solid fa-chevron-right"></i>
-          </div>
+      <div class="dealers-tab-scroll">
+        <div class="dealer-list">
+
+          <!-- Dealers normales -->
+          <ng-container *ngFor="let d of visibleDealers">
+
+            <!-- Separador antes de la sección especial -->
+            <div class="dealer-section-divider"
+                 *ngIf="d.id === 'pedal_and_metal'">
+              <div class="dealer-section-divider-line"></div>
+              <span class="dealer-section-divider-label">Vehículos Especiales</span>
+              <div class="dealer-section-divider-line"></div>
+            </div>
+
+            <div
+              class="dealer-card"
+              [class.dealer-card--special]="d.id === 'pegasus' || d.id === 'especiales' || d.id === 'arena_war' || d.id === 'pedal_and_metal'"
+              (click)="openDealerGrid(d.id, d.name)"
+              [style.--dealer-color]="d.color"
+            >
+              <div class="dealer-card-icon">
+                <img *ngIf="d.logoUrl && !d.logoFailed" [src]="d.logoUrl" [alt]="d.name" class="dealer-logo-img" (error)="onDealerLogoError(d)" />
+                <i *ngIf="!d.logoUrl || d.logoFailed" class="fa-solid" [ngClass]="d.icon"></i>
+              </div>
+              <div class="dealer-card-info">
+                <span class="dealer-card-name">{{ d.name }}</span>
+                <span class="dealer-card-sub">{{ getDealerDesc(d) }}</span>
+              </div>
+              <div class="dealer-card-arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+
+          </ng-container>
+
         </div>
       </div>
     </ng-container>
@@ -275,9 +321,11 @@
       </div>
     </ng-container>
 
-    <!-- ============ TAB: MISIONES (MODO HISTORIA) ============ -->
+    <!-- ============ TAB: MISIONES ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
-      <div class="missions-tab-container">
+
+      <!-- En Modo Historia: catálogo de misiones de la campaña offline -->
+      <div class="missions-tab-container" *ngIf="gameMode === 'story'">
 
         <!-- Barra de Búsqueda y Filtro Rápido -->
         <div class="missions-toolbar">
@@ -414,6 +462,129 @@
         </div>
 
       </div>
+
+      <!-- En Modo Online: catálogo de misiones de contacto y operaciones de GTA Online -->
+      <div class="missions-tab-container" *ngIf="gameMode === 'online'">
+
+        <!-- Barra de Búsqueda y Filtros de Contactos -->
+        <div class="missions-toolbar">
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="onlineMissionSearchQuery"
+              [placeholder]="'transports.missions.searchOnlinePlaceholder' | translate"
+            />
+            <button
+              *ngIf="onlineMissionSearchQuery"
+              type="button"
+              class="missions-search-clear"
+              (click)="onlineMissionSearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Selector de Categoría / Serie -->
+          <div class="strangers-series-select-wrap">
+            <select
+              class="strangers-series-select"
+              [(ngModel)]="selectedOnlineCategoryFilter"
+              (ngModelChange)="setOnlineCategoryFilter($event)"
+            >
+              <option value="all">⭐ {{ 'transports.missions.allCategories' | translate }} ({{ onlineMissions.length }})</option>
+              <option *ngFor="let cat of onlineCategories" [value]="cat">
+                {{ cat }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Filtro de Contactos (Chips) -->
+          <div class="missions-filter-chips">
+            <button
+              *ngFor="let contact of onlineContactsList"
+              type="button"
+              class="chip-btn"
+              [class.is-active]="selectedOnlineContactFilter === contact.id"
+              (click)="setOnlineContactFilter(contact.id)"
+            >
+              <i class="fa-solid chip-dot" [ngClass]="contact.icon" [style.color]="contact.color"></i>
+              <span>{{ contact.name }}</span>
+              <span class="chip-count">{{ contact.count }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Estado de carga -->
+        <div class="missions-state-loading" *ngIf="onlineMissionsLoading">
+          <div class="vgrid-spinner"></div>
+          <span>{{ 'transports.missions.onlineLoading' | translate }}</span>
+        </div>
+
+        <!-- Estado de error -->
+        <div class="missions-state-error" *ngIf="onlineMissionsError && !onlineMissionsLoading">
+          <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+          <span>{{ 'transports.missions.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadOnlineMissions(true)">
+            <i class="fa-solid fa-rotate-right"></i> {{ 'transports.missions.retry' | translate }}
+          </button>
+        </div>
+
+        <!-- Estado vacío tras búsqueda -->
+        <div class="missions-state-empty" *ngIf="!onlineMissionsLoading && !onlineMissionsError && filteredOnlineMissions.length === 0">
+          <i class="fa-solid fa-crosshairs empty-icon"></i>
+          <span>{{ 'transports.missions.empty' | translate }}</span>
+        </div>
+
+        <!-- Lista de misiones de GTA Online (Cards altas con flecha de entrada) -->
+        <div class="missions-list" *ngIf="!onlineMissionsLoading && filteredOnlineMissions.length > 0">
+          <div
+            *ngFor="let m of filteredOnlineMissions"
+            class="mission-list-card"
+            (click)="openMissionDetail(m)"
+            [style.--m-accent]="getMissionAccentColor(m)"
+          >
+            <!-- Badge numérico a la izquierda -->
+            <div class="mcard-left">
+              <span class="mcard-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+            </div>
+
+            <!-- Información central -->
+            <div class="mcard-info">
+              <div class="mcard-title-row">
+                <span class="mcard-title">{{ m.title }}</span>
+                <span class="mcard-cat">{{ m.category }}</span>
+              </div>
+              <div class="mcard-meta-row">
+                <span class="mcard-char-badge" [ngClass]="getOnlineContactBadgeClass(m.character)">
+                  <i class="fa-solid fa-circle char-mini-dot"></i>
+                  <span>{{ m.character }}</span>
+                </span>
+                <span class="mcard-rank-badge" *ngIf="m.minLevel">
+                  <i class="fa-solid fa-ranking-star"></i>
+                  <span>Rango {{ m.minLevel }}+</span>
+                </span>
+                <span class="mcard-players-badge" *ngIf="m.players">
+                  <i class="fa-solid fa-users"></i>
+                  <span>{{ m.players }}</span>
+                </span>
+                <span class="mcard-giver" *ngIf="m.giver">
+                  <i class="fa-solid fa-user-secret"></i>
+                  <span>{{ m.giver }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Flecha de entrada a la derecha -->
+            <div class="mcard-arrow-box">
+              <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </ng-container>
 
     <!-- ============ VISTA: DETALLE DE MISIÓN (PANEL LIMPIO) ============ -->
@@ -438,7 +609,7 @@
               <i class="fa-solid fa-chevron-left"></i>
             </button>
             <span class="mdetail-step-label">
-              {{ selectedMission.order }} / {{ storyMissions.length }}
+              {{ selectedMission.order }} / {{ currentMissionsList.length }}
             </span>
             <button
               type="button"
@@ -467,9 +638,17 @@
               <h2 class="mdetail-hero-title">{{ selectedMission.title }}</h2>
 
               <div class="mdetail-hero-chars">
-                <span class="mdetail-char-pill" [ngClass]="getCharacterBadgeClass(selectedMission.character)">
+                <span class="mdetail-char-pill" [ngClass]="gameMode === 'online' ? getOnlineContactBadgeClass(selectedMission.character) : getCharacterBadgeClass(selectedMission.character)">
                   <i class="fa-solid fa-user"></i>
                   <span>{{ selectedMission.character }}</span>
+                </span>
+                <span class="mdetail-rank-pill" *ngIf="selectedMission.minLevel">
+                  <i class="fa-solid fa-ranking-star"></i>
+                  <span>{{ 'transports.missions.rankBadge' | translate:{ rank: selectedMission.minLevel } }}</span>
+                </span>
+                <span class="mdetail-players-pill" *ngIf="selectedMission.players">
+                  <i class="fa-solid fa-users"></i>
+                  <span>{{ 'transports.missions.playersBadge' | translate:{ players: selectedMission.players } }}</span>
                 </span>
                 <span class="mdetail-giver-pill" *ngIf="selectedMission.giver">
                   <i class="fa-solid fa-user-secret"></i>
@@ -508,11 +687,11 @@
               </div>
             </div>
 
-            <!-- Bloque: Requisitos Medalla de Oro (100%) -->
+            <!-- Bloque: Objetivos / Requisitos de Oro -->
             <div class="mdetail-block gold-block" *ngIf="selectedMission.goldRequirements && selectedMission.goldRequirements.length > 0">
               <div class="mdetail-block-head gold-head">
-                <i class="fa-solid fa-medal"></i>
-                <span>{{ 'transports.missions.goldObjectives' | translate }}</span>
+                <i class="fa-solid" [ngClass]="gameMode === 'online' ? 'fa-crosshairs' : 'fa-medal'"></i>
+                <span>{{ (gameMode === 'online' ? 'transports.missions.onlineObjectives' : 'transports.missions.goldObjectives') | translate }}</span>
               </div>
               <div class="mdetail-gold-list">
                 <div class="gold-goal-item" *ngFor="let req of selectedMission.goldRequirements">
@@ -539,19 +718,856 @@
       </div>
     </ng-container>
 
-    <!-- ============ TAB: ITEM3 ============ -->
-    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item3'">
-      <div class="drawer-empty">
-        <i class="fa-solid fa-box drawer-empty-icon"></i>
-        <p class="drawer-empty-text">{{ 'transports.tabs.item3' | translate }}</p>
+    <!-- ============ TAB: EXTRAÑOS Y LOCOS (STRANGERS AND FREAKS) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'strangers'">
+
+      <!-- En Modo Historia: catálogo de extraños y locos -->
+      <div class="strangers-tab-container" *ngIf="gameMode === 'story'">
+
+        <!-- Toolbar: Búsqueda, Filtros y Selector de Series -->
+        <div class="strangers-toolbar">
+
+          <!-- Buscador -->
+          <div class="strangers-search-box">
+            <i class="fa-solid fa-magnifying-glass strangers-search-icon"></i>
+            <input
+              type="text"
+              class="strangers-search-input"
+              [(ngModel)]="strangerSearchQuery"
+              [placeholder]="'transports.strangers.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="strangerSearchQuery"
+              type="button"
+              class="strangers-search-clear"
+              (click)="strangerSearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Filtros de Protagonistas, 100% y Selector de Vista -->
+          <div class="strangers-filter-row">
+            <div class="strangers-filter-chips">
+              <button
+                type="button"
+                class="chip-btn"
+                [class.is-active]="selectedStrangerCharacterFilter === 'all'"
+                (click)="setStrangerCharacterFilter('all')"
+              >
+                <span>{{ 'transports.strangers.all' | translate }}</span>
+                <span class="chip-count">{{ getStrangerCharacterMissionCount('all') }}</span>
+              </button>
+              <button
+                type="button"
+                class="chip-btn chip-franklin"
+                [class.is-active]="selectedStrangerCharacterFilter === 'franklin'"
+                (click)="setStrangerCharacterFilter('franklin')"
+              >
+                <i class="fa-solid fa-circle chip-dot dot-franklin"></i>
+                <span>Franklin</span>
+                <span class="chip-count">{{ getStrangerCharacterMissionCount('franklin') }}</span>
+              </button>
+              <button
+                type="button"
+                class="chip-btn chip-michael"
+                [class.is-active]="selectedStrangerCharacterFilter === 'michael'"
+                (click)="setStrangerCharacterFilter('michael')"
+              >
+                <i class="fa-solid fa-circle chip-dot dot-michael"></i>
+                <span>Michael</span>
+                <span class="chip-count">{{ getStrangerCharacterMissionCount('michael') }}</span>
+              </button>
+              <button
+                type="button"
+                class="chip-btn chip-trevor"
+                [class.is-active]="selectedStrangerCharacterFilter === 'trevor'"
+                (click)="setStrangerCharacterFilter('trevor')"
+              >
+                <i class="fa-solid fa-circle chip-dot dot-trevor"></i>
+                <span>Trevor</span>
+                <span class="chip-count">{{ getStrangerCharacterMissionCount('trevor') }}</span>
+              </button>
+              <button
+                type="button"
+                class="chip-btn chip-100"
+                [class.is-active]="strangerOnly100Filter"
+                (click)="toggleStranger100Filter()"
+                title="Filtrar misiones requeridas para el 100%"
+              >
+                <i class="fa-solid fa-award chip-icon-gold"></i>
+                <span>{{ 'transports.strangers.only100' | translate }}</span>
+                <span class="chip-count">{{ getStranger100MissionCount() }}</span>
+              </button>
+            </div>
+
+            <!-- Selector de Modo de Vista: Por Series vs Lista Completa -->
+            <div class="strangers-view-toggle">
+              <button
+                type="button"
+                class="view-mode-btn"
+                [class.is-active]="strangerSeriesViewMode === 'series'"
+                (click)="setStrangerViewMode('series')"
+                [title]="'transports.strangers.viewSeries' | translate"
+              >
+                <i class="fa-solid fa-layer-group"></i>
+                <span>{{ 'transports.strangers.viewSeries' | translate }}</span>
+              </button>
+              <button
+                type="button"
+                class="view-mode-btn"
+                [class.is-active]="strangerSeriesViewMode === 'list'"
+                (click)="setStrangerViewMode('list')"
+                [title]="'transports.strangers.viewList' | translate"
+              >
+                <i class="fa-solid fa-list-ol"></i>
+                <span>{{ 'transports.strangers.viewList' | translate }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Selector desplegable de Series -->
+          <div class="strangers-series-selector-bar">
+            <span class="series-selector-label">
+              <i class="fa-solid fa-filter"></i> Serie:
+            </span>
+            <select
+              class="strangers-series-select"
+              [(ngModel)]="selectedStrangerSeriesFilter"
+            >
+              <option value="all">⭐ {{ 'transports.strangers.allSeries' | translate }} ({{ strangerMissions.length }})</option>
+              <option *ngFor="let s of strangerSeriesList" [value]="s.id">
+                {{ s.name }} ({{ s.count }} misiones)
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Contenedor scrolleable de Extraños y Locos -->
+        <div class="strangers-scroll-area">
+
+          <!-- Estado de carga -->
+          <div class="missions-state-loading" *ngIf="strangersLoading">
+            <div class="vgrid-spinner"></div>
+            <span>{{ 'transports.strangers.loading' | translate }}</span>
+          </div>
+
+          <!-- Estado de error -->
+          <div class="missions-state-error" *ngIf="strangersError && !strangersLoading">
+            <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+            <span>{{ 'transports.strangers.error' | translate }}</span>
+            <button type="button" class="missions-retry-btn" (click)="loadStrangerMissions(true)">
+              <i class="fa-solid fa-rotate-right"></i> {{ 'transports.strangers.retry' | translate }}
+            </button>
+          </div>
+
+          <!-- Estado vacío tras búsqueda -->
+          <div class="missions-state-empty" *ngIf="!strangersLoading && !strangersError && filteredStrangerMissions.length === 0">
+            <i class="fa-solid fa-mask empty-icon"></i>
+            <span>{{ 'transports.strangers.empty' | translate }}</span>
+          </div>
+
+          <!-- VISTA POR SERIES (Agrupadas jerárquicamente) -->
+          <div class="strangers-series-container" *ngIf="!strangersLoading && !strangersError && strangerSeriesViewMode === 'series' && filteredStrangerSeriesGroups.length > 0">
+            <div
+              *ngFor="let group of filteredStrangerSeriesGroups"
+              class="stranger-series-group"
+              [style.--s-color]="group.color"
+            >
+              <!-- Cabecera de la serie -->
+              <div
+                class="series-group-header"
+                (click)="toggleStrangerSeriesExpand(group.id)"
+              >
+                <div class="series-group-info">
+                  <i class="fa-solid series-icon" [ngClass]="group.icon" [style.color]="group.color"></i>
+                  <div class="series-title-wrap">
+                    <span class="series-title">{{ group.name }}</span>
+                    <span class="series-badge-count">{{ group.missions.length }} de {{ group.total }} misiones</span>
+                  </div>
+                </div>
+                <div class="series-toggle-arrow">
+                  <i
+                    class="fa-solid fa-chevron-down arrow-icon"
+                    [class.is-collapsed]="!isStrangerSeriesExpanded(group.id)"
+                  ></i>
+                </div>
+              </div>
+
+              <!-- Listado de misiones de la serie -->
+              <div class="series-group-missions" *ngIf="isStrangerSeriesExpanded(group.id)">
+                <div
+                  *ngFor="let m of group.missions"
+                  class="stranger-mission-card"
+                  (click)="openStrangerDetail(m)"
+                  [style.--m-accent]="m.seriesColor"
+                >
+                  <!-- Badge numérico de orden en la serie -->
+                  <div class="scard-order-badge">
+                    <span class="scard-order-num">{{ m.seriesOrder }}/{{ m.seriesTotal }}</span>
+                    <span class="scard-global-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+                  </div>
+
+                  <!-- Imagen miniatura pequeña -->
+                  <div class="scard-thumb-box" *ngIf="m.thumbnail">
+                    <img [src]="m.thumbnail" [alt]="m.title" class="scard-thumb-img" loading="lazy" />
+                  </div>
+
+                  <!-- Información central -->
+                  <div class="scard-info">
+                    <div class="scard-title-row">
+                      <span class="scard-title">{{ m.title }}</span>
+                      <span class="scard-req100-badge" *ngIf="m.requiredFor100" title="Requerido para el 100% de GTA V">
+                        <i class="fa-solid fa-award"></i> 100%
+                      </span>
+                    </div>
+                    <div class="scard-meta-row">
+                      <span class="mcard-char-badge" [ngClass]="getCharacterBadgeClass(m.character)">
+                        <i class="fa-solid fa-circle char-mini-dot"></i>
+                        <span>{{ m.character }}</span>
+                      </span>
+                      <span class="mcard-giver" *ngIf="m.giver">
+                        <i class="fa-solid fa-user-secret"></i>
+                        <span>{{ m.giver }}</span>
+                      </span>
+                    </div>
+                    <p class="scard-desc" *ngIf="m.description">{{ m.description }}</p>
+                  </div>
+
+                  <!-- Flecha de entrada -->
+                  <div class="mcard-arrow-box">
+                    <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VISTA LISTA PLANA (Todas las 66 en orden continuo) -->
+          <div class="strangers-flat-list" *ngIf="!strangersLoading && !strangersError && strangerSeriesViewMode === 'list' && filteredStrangerMissions.length > 0">
+            <div
+              *ngFor="let m of filteredStrangerMissions"
+              class="stranger-mission-card stranger-flat-card"
+              (click)="openStrangerDetail(m)"
+              [style.--m-accent]="m.seriesColor"
+            >
+              <div class="scard-order-badge">
+                <span class="scard-global-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+              </div>
+
+              <div class="scard-thumb-box" *ngIf="m.thumbnail">
+                <img [src]="m.thumbnail" [alt]="m.title" class="scard-thumb-img" loading="lazy" />
+              </div>
+
+              <div class="scard-info">
+                <div class="scard-title-row">
+                  <span class="scard-title">{{ m.title }}</span>
+                  <span class="scard-series-tag" [style.background]="m.seriesColor + '22'" [style.color]="m.seriesColor" [style.borderColor]="m.seriesColor + '55'">
+                    <i class="fa-solid" [ngClass]="m.seriesIcon"></i>
+                    <span>{{ m.seriesName }}</span>
+                  </span>
+                  <span class="scard-req100-badge" *ngIf="m.requiredFor100">
+                    <i class="fa-solid fa-award"></i> 100%
+                  </span>
+                </div>
+                <div class="scard-meta-row">
+                  <span class="mcard-char-badge" [ngClass]="getCharacterBadgeClass(m.character)">
+                    <i class="fa-solid fa-circle char-mini-dot"></i>
+                    <span>{{ m.character }}</span>
+                  </span>
+                  <span class="mcard-giver" *ngIf="m.giver">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span>{{ m.giver }}</span>
+                  </span>
+                </div>
+                <p class="scard-desc" *ngIf="m.description">{{ m.description }}</p>
+              </div>
+
+              <div class="mcard-arrow-box">
+                <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </ng-container>
 
-    <!-- ============ TAB: ITEM4 ============ -->
+    <!-- ============ VISTA: DETALLE DE MISIÓN SECUNDARIA (EXTRAÑOS Y LOCOS) ============ -->
+    <ng-container *ngIf="drawerView === 'stranger-detail' && selectedStranger">
+      <div class="mdetail-container" [style.--m-accent]="getStrangerAccentColor(selectedStranger)">
+
+        <!-- Barra superior de navegación interna -->
+        <div class="mdetail-top-bar">
+          <button type="button" class="mdetail-back-action" (click)="closeStrangerDetail()">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>{{ 'transports.strangers.backToStrangers' | translate }}</span>
+          </button>
+
+          <div class="mdetail-stepper">
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!previousStranger"
+              (click)="selectPreviousStranger()"
+              [title]="'transports.strangers.prevMission' | translate"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="mdetail-step-label">
+              {{ selectedStranger.order }} / {{ strangerMissions.length }}
+            </span>
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!nextStranger"
+              (click)="selectNextStranger()"
+              [title]="'transports.strangers.nextMission' | translate"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenido scrolleable de la misión secundaria -->
+        <div class="mdetail-body">
+          <div class="mdetail-main-card">
+
+            <!-- Hero media oficial -->
+            <div class="stranger-hero-media" *ngIf="selectedStranger.thumbnail">
+              <img [src]="selectedStranger.thumbnail" [alt]="selectedStranger.title" class="stranger-hero-img" />
+              <div class="stranger-hero-overlay"></div>
+              <div class="stranger-hero-badges">
+                <span class="stranger-hero-series-badge" [style.backgroundColor]="selectedStranger.seriesColor">
+                  <i class="fa-solid" [ngClass]="selectedStranger.seriesIcon"></i>
+                  <span>{{ selectedStranger.seriesName }} ({{ selectedStranger.seriesOrder }}/{{ selectedStranger.seriesTotal }})</span>
+                </span>
+                <span class="stranger-hero-req100-badge" *ngIf="selectedStranger.requiredFor100">
+                  <i class="fa-solid fa-award"></i> {{ 'transports.strangers.req100Badge' | translate }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Cabecera de la misión -->
+            <div class="mdetail-hero">
+              <div class="mdetail-hero-badges">
+                <span class="mdetail-hero-num">{{ 'transports.strangers.missionNum' | translate:{ order: (selectedStranger.order < 10 ? '0' + selectedStranger.order : selectedStranger.order) } }}</span>
+                <span class="mdetail-hero-cat" [style.borderColor]="selectedStranger.seriesColor + '44'" [style.color]="selectedStranger.seriesColor">
+                  <i class="fa-solid" [ngClass]="selectedStranger.seriesIcon"></i>
+                  {{ selectedStranger.seriesName }}
+                </span>
+              </div>
+              <h2 class="mdetail-hero-title">{{ selectedStranger.title }}</h2>
+              <div class="mdetail-title-en" *ngIf="selectedStranger.titleEn && selectedStranger.titleEn !== selectedStranger.title">
+                {{ selectedStranger.titleEn }}
+              </div>
+
+              <div class="mdetail-hero-chars">
+                <span class="mdetail-char-pill" [ngClass]="getCharacterBadgeClass(selectedStranger.character)">
+                  <i class="fa-solid fa-circle char-mini-dot"></i>
+                  <span>{{ selectedStranger.character }}</span>
+                </span>
+                <span class="mdetail-giver-pill" *ngIf="selectedStranger.giver">
+                  <i class="fa-solid fa-user-secret"></i>
+                  <span>{{ 'transports.strangers.contact' | translate }} <strong>{{ selectedStranger.giver }}</strong></span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Bloque: Sinopsis de la misión -->
+            <div class="mdetail-block" *ngIf="selectedStranger.description">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-book-open"></i>
+                <span>{{ 'transports.strangers.synopsis' | translate }}</span>
+              </div>
+              <div class="mdetail-synopsis">
+                <p>{{ selectedStranger.description }}</p>
+              </div>
+            </div>
+
+            <!-- Bloque: Recompensa y Desbloqueos -->
+            <div class="mdetail-grid" *ngIf="selectedStranger.reward || selectedStranger.unlockedBy">
+              <div class="mdetail-box unlock-box" *ngIf="selectedStranger.unlockedBy">
+                <i class="fa-solid fa-lock-open box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.strangers.unlockedAfter' | translate }}</span>
+                  <span class="box-val">{{ selectedStranger.unlockedBy }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box reward-box" *ngIf="selectedStranger.reward">
+                <i class="fa-solid fa-trophy box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.strangers.reward' | translate }}</span>
+                  <span class="box-val highlight-gold">{{ selectedStranger.reward }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Requisitos Medalla de Oro (100%) -->
+            <div class="mdetail-block gold-block" *ngIf="selectedStranger.goldRequirements && selectedStranger.goldRequirements.length > 0">
+              <div class="mdetail-block-head gold-head">
+                <i class="fa-solid fa-medal"></i>
+                <span>{{ 'transports.strangers.goldObjectives' | translate }}</span>
+              </div>
+              <div class="mdetail-gold-list">
+                <div class="gold-goal-item" *ngFor="let req of selectedStranger.goldRequirements">
+                  <div class="gold-goal-check">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ req }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Objetivos en partida -->
+            <div class="mdetail-block" *ngIf="selectedStranger.objectives && selectedStranger.objectives.length > 0">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-list-check"></i>
+                <span>{{ 'transports.strangers.objectives' | translate }}</span>
+              </div>
+              <div class="stranger-objectives-list">
+                <div class="stranger-obj-item" *ngFor="let obj of selectedStranger.objectives">
+                  <i class="fa-solid fa-caret-right"></i>
+                  <span>{{ obj }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Enlace externo a GTABase -->
+            <div class="stranger-ext-guide" *ngIf="selectedStranger.walkthroughUrl">
+              <a [href]="selectedStranger.walkthroughUrl" target="_blank" rel="noopener noreferrer" class="stranger-guide-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>{{ 'transports.strangers.viewGuide' | translate }}</span>
+              </a>
+            </div>
+
+            <!-- Botón de retorno al pie -->
+            <div class="mdetail-bottom-action">
+              <button type="button" class="mdetail-return-btn" (click)="closeStrangerDetail()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>{{ 'transports.strangers.returnToList' | translate }}</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- En GTA Online: elemento limpio con la estructura base -->
+      <div class="dealers-tab-scroll" *ngIf="gameMode !== 'story'">
+        <div class="drawer-empty">
+          <i class="fa-solid fa-box drawer-empty-icon"></i>
+          <p class="drawer-empty-text">{{ 'transports.tabs.item3' | translate }}</p>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: ITEM 3 (GTA ONLINE) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item3'">
+      <div class="dealers-tab-scroll">
+        <div class="drawer-empty">
+          <i class="fa-solid fa-box drawer-empty-icon"></i>
+          <p class="drawer-empty-text">{{ 'transports.tabs.item3' | translate }}</p>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: ITEM4 (MODO HISTORIA / OFFLINE) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item4'">
-      <div class="drawer-empty">
-        <i class="fa-solid fa-crown drawer-empty-icon"></i>
-        <p class="drawer-empty-text">{{ 'transports.tabs.item4' | translate }}</p>
+      <div class="dealers-tab-scroll">
+        <div class="drawer-empty">
+          <i class="fa-solid fa-crown drawer-empty-icon"></i>
+          <p class="drawer-empty-text">{{ 'transports.tabs.item4' | translate }}</p>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: GOLPES (EXCLUSIVO GTA ONLINE) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'golpes'">
+      <div class="heists-tab-container">
+        <!-- Toolbar: Búsqueda y Filtros de Categoría -->
+        <div class="heists-toolbar">
+          <!-- Buscador -->
+          <div class="heists-search-box">
+            <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
+            <input
+              type="text"
+              class="heists-search-input"
+              [(ngModel)]="heistSearchQuery"
+              [placeholder]="'transports.heists.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="heistSearchQuery"
+              type="button"
+              class="heists-search-clear"
+              (click)="heistSearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Filtros de Categorías con conteos -->
+          <div class="heists-filter-chips">
+            <button
+              type="button"
+              class="chip-btn"
+              [class.is-active]="selectedHeistCategoryFilter === 'all'"
+              (click)="setHeistCategoryFilter('all')"
+            >
+              <span>{{ 'transports.heists.all' | translate }}</span>
+              <span class="chip-count">{{ getHeistCategoryCount('all') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-classic"
+              [class.is-active]="selectedHeistCategoryFilter === 'classic'"
+              (click)="setHeistCategoryFilter('classic')"
+            >
+              <i class="fa-solid fa-building-user chip-dot dot-classic"></i>
+              <span>{{ 'transports.heists.classic' | translate }}</span>
+              <span class="chip-count">{{ getHeistCategoryCount('classic') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-doomsday"
+              [class.is-active]="selectedHeistCategoryFilter === 'doomsday'"
+              (click)="setHeistCategoryFilter('doomsday')"
+            >
+              <i class="fa-solid fa-radiation chip-dot dot-doomsday"></i>
+              <span>{{ 'transports.heists.doomsday' | translate }}</span>
+              <span class="chip-count">{{ getHeistCategoryCount('doomsday') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-casino"
+              [class.is-active]="selectedHeistCategoryFilter === 'casino'"
+              (click)="setHeistCategoryFilter('casino')"
+            >
+              <i class="fa-solid fa-gem chip-dot dot-casino"></i>
+              <span>{{ 'transports.heists.casino' | translate }}</span>
+              <span class="chip-count">{{ getHeistCategoryCount('casino') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-cayo"
+              [class.is-active]="selectedHeistCategoryFilter === 'cayo_perico'"
+              (click)="setHeistCategoryFilter('cayo_perico')"
+            >
+              <i class="fa-solid fa-island-tropical chip-dot dot-cayo"></i>
+              <span>{{ 'transports.heists.cayoPerico' | translate }}</span>
+              <span class="chip-count">{{ getHeistCategoryCount('cayo_perico') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-raid"
+              [class.is-active]="selectedHeistCategoryFilter === 'raid'"
+              (click)="setHeistCategoryFilter('raid')"
+            >
+              <i class="fa-solid fa-drumstick-bite chip-dot dot-raid"></i>
+              <span>{{ 'transports.heists.raid' | translate }}</span>
+              <span class="chip-count">{{ getHeistCategoryCount('raid') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Estado de Carga -->
+        <div class="missions-loading" *ngIf="heistsLoading">
+          <i class="fa-solid fa-circle-notch fa-spin missions-spinner"></i>
+          <span>{{ 'transports.heists.loading' | translate }}</span>
+        </div>
+
+        <!-- Estado de Error -->
+        <div class="missions-error" *ngIf="!heistsLoading && heistsError">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>{{ 'transports.heists.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadOnlineHeists()">
+            <i class="fa-solid fa-rotate-right"></i>
+            {{ 'transports.heists.retry' | translate }}
+          </button>
+        </div>
+
+        <!-- Estado Vacío -->
+        <div class="missions-empty" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length === 0">
+          <i class="fa-solid fa-sack-dollar"></i>
+          <span>{{ 'transports.heists.empty' | translate }}</span>
+        </div>
+
+        <!-- LISTA DE GOLPES (Estilo idéntico a las tarjetas de Vehículos) -->
+        <div class="heists-list" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length > 0">
+          <div
+            *ngFor="let h of filteredOnlineHeists"
+            class="heist-card"
+            (click)="openHeistDetail(h)"
+            [style.--heist-color]="h.badgeColor"
+          >
+            <div class="heist-card-icon">
+              <i class="fa-solid" [ngClass]="h.badgeIcon"></i>
+            </div>
+
+            <div class="heist-card-info">
+              <div class="heist-card-title-row">
+                <span class="heist-card-order">#{{ h.order < 10 ? '0' + h.order : h.order }}</span>
+                <span class="heist-card-name">{{ h.title }}</span>
+              </div>
+              <div class="heist-card-sub">
+                <span class="heist-card-cat">{{ h.categoryLabel }}</span>
+                <span class="heist-card-sep">•</span>
+                <span class="heist-card-take"><i class="fa-solid fa-sack-dollar"></i> {{ h.potentialTake.normal }}</span>
+                <span class="heist-card-sep">•</span>
+                <span class="heist-card-players"><i class="fa-solid fa-users"></i> {{ h.players }}</span>
+              </div>
+            </div>
+
+            <div class="heist-card-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE GOLPE (GTA ONLINE) ============ -->
+    <ng-container *ngIf="drawerView === 'heist-detail' && selectedHeist">
+      <div class="mdetail-container" [style.--m-accent]="getHeistAccentColor(selectedHeist)">
+
+        <!-- Barra superior de navegación interna -->
+        <div class="mdetail-top-bar">
+          <button type="button" class="mdetail-back-action" (click)="closeHeistDetail()">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>{{ 'transports.heists.backToHeists' | translate }}</span>
+          </button>
+
+          <div class="mdetail-stepper">
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!previousHeist"
+              (click)="selectPreviousHeist()"
+              [title]="'transports.heists.prevHeist' | translate"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="mdetail-step-label">
+              {{ selectedHeist.order }} / {{ onlineHeists.length }}
+            </span>
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!nextHeist"
+              (click)="selectNextHeist()"
+              [title]="'transports.heists.nextHeist' | translate"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenido scrolleable del golpe -->
+        <div class="mdetail-body">
+          <div class="mdetail-main-card">
+
+            <!-- Hero media oficial -->
+            <div class="stranger-hero-media" *ngIf="selectedHeist.thumbnail">
+              <img [src]="selectedHeist.thumbnail" [alt]="selectedHeist.title" class="stranger-hero-img" />
+              <div class="stranger-hero-overlay"></div>
+              <div class="stranger-hero-badges">
+                <span class="stranger-hero-series-badge" [style.backgroundColor]="selectedHeist.badgeColor">
+                  <i class="fa-solid" [ngClass]="selectedHeist.badgeIcon"></i>
+                  <span>{{ selectedHeist.categoryLabel }}</span>
+                </span>
+                <span class="heist-hero-take-badge">
+                  <i class="fa-solid fa-sack-dollar"></i>
+                  <span>{{ selectedHeist.potentialTake.normal }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Cabecera del Golpe -->
+            <div class="mdetail-hero">
+              <div class="mdetail-hero-badges">
+                <span class="mdetail-hero-num">{{ 'transports.heists.heistNum' | translate:{ order: (selectedHeist.order < 10 ? '0' + selectedHeist.order : selectedHeist.order) } }}</span>
+                <span class="mdetail-hero-cat" [style.borderColor]="selectedHeist.badgeColor + '44'" [style.color]="selectedHeist.badgeColor">
+                  <i class="fa-solid" [ngClass]="selectedHeist.badgeIcon"></i>
+                  {{ selectedHeist.categoryLabel }}
+                </span>
+              </div>
+              <h2 class="mdetail-hero-title">{{ selectedHeist.title }}</h2>
+              <div class="mdetail-title-en" *ngIf="selectedHeist.titleEn && selectedHeist.titleEn !== selectedHeist.title">
+                {{ selectedHeist.titleEn }}
+              </div>
+
+              <div class="mdetail-hero-chars">
+                <span class="mdetail-char-pill heist-players-pill">
+                  <i class="fa-solid fa-users"></i>
+                  <span>{{ selectedHeist.players }}</span>
+                </span>
+                <span class="mdetail-giver-pill" *ngIf="selectedHeist.giver">
+                  <i class="fa-solid fa-user-secret"></i>
+                  <span>{{ 'transports.heists.organizer' | translate }} <strong>{{ selectedHeist.giver }}</strong></span>
+                </span>
+                <span class="mdetail-giver-pill" *ngIf="selectedHeist.minLevel">
+                  <i class="fa-solid fa-id-badge"></i>
+                  <span>{{ 'transports.heists.minLevel' | translate }} <strong>Nv. {{ selectedHeist.minLevel }}</strong></span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Grid de Estadísticas / Claves del Golpe -->
+            <div class="mdetail-grid">
+              <div class="mdetail-box reward-box" *ngIf="selectedHeist.potentialTake">
+                <i class="fa-solid fa-money-bill-wave box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
+                  <span class="box-val highlight-gold">{{ selectedHeist.potentialTake.normal }}</span>
+                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.hard">Difícil: {{ selectedHeist.potentialTake.hard }}</span>
+                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.description">{{ selectedHeist.potentialTake.description }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedHeist.setupCostFormatted">
+                <i class="fa-solid fa-receipt box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.setupCost' | translate }}</span>
+                  <span class="box-val">{{ selectedHeist.setupCostFormatted }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box unlock-box" *ngIf="selectedHeist.propertyRequired">
+                <i class="fa-solid fa-building box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
+                  <span class="box-val">{{ selectedHeist.propertyRequired }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedHeist.target">
+                <i class="fa-solid fa-crosshairs box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.target' | translate }}</span>
+                  <span class="box-val">{{ selectedHeist.target }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedHeist.location">
+                <i class="fa-solid fa-location-dot box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.location' | translate }}</span>
+                  <span class="box-val">{{ selectedHeist.location }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Sinopsis / Información -->
+            <div class="mdetail-block" *ngIf="selectedHeist.description">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-book-open"></i>
+                <span>{{ 'transports.heists.synopsis' | translate }}</span>
+              </div>
+              <div class="mdetail-synopsis">
+                <p>{{ selectedHeist.description }}</p>
+              </div>
+            </div>
+
+            <!-- Bloque: Enfoques tácticos (ej. Casino) -->
+            <div class="mdetail-block" *ngIf="selectedHeist.approaches && selectedHeist.approaches.length > 0">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-masks-theater"></i>
+                <span>{{ 'transports.heists.approachesTitle' | translate }}</span>
+              </div>
+              <div class="heist-approaches-list">
+                <div class="heist-approach-card" *ngFor="let app of selectedHeist.approaches">
+                  <div class="heist-approach-title">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>{{ app.name }}</span>
+                  </div>
+                  <p class="heist-approach-desc">{{ app.description }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Misiones de Preparación -->
+            <div class="mdetail-block" *ngIf="selectedHeist.setupMissions && selectedHeist.setupMissions.length > 0">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-list-check"></i>
+                <span>{{ 'transports.heists.setupsTitle' | translate }} ({{ selectedHeist.setupMissions.length }})</span>
+              </div>
+              <div class="heist-setups-list">
+                <div class="heist-setup-item" *ngFor="let s of selectedHeist.setupMissions; let idx = index">
+                  <div class="heist-setup-num">{{ idx + 1 }}</div>
+                  <div class="heist-setup-body">
+                    <div class="heist-setup-head">
+                      <span class="heist-setup-name">{{ s.name }}</span>
+                      <span class="heist-setup-type" *ngIf="s.type">{{ s.type }}</span>
+                    </div>
+                    <p class="heist-setup-desc" *ngIf="s.description">{{ s.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Desafíos de Élite -->
+            <div class="mdetail-block gold-block" *ngIf="selectedHeist.eliteChallenges && selectedHeist.eliteChallenges.length > 0">
+              <div class="mdetail-block-head gold-head">
+                <i class="fa-solid fa-stopwatch"></i>
+                <span>{{ 'transports.heists.eliteTitle' | translate }}</span>
+                <span class="heist-elite-reward" *ngIf="selectedHeist.eliteReward">+{{ selectedHeist.eliteReward }}</span>
+              </div>
+              <div class="mdetail-gold-list">
+                <div class="gold-goal-item" *ngFor="let ec of selectedHeist.eliteChallenges">
+                  <div class="gold-goal-check">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ ec }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Vehículos desbloqueados -->
+            <div class="mdetail-block" *ngIf="selectedHeist.unlockedVehicles && selectedHeist.unlockedVehicles.length > 0">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-car"></i>
+                <span>{{ 'transports.heists.unlockedVehicles' | translate }}</span>
+              </div>
+              <div class="heist-vehicles-tags">
+                <span class="heist-vehicle-tag" *ngFor="let v of selectedHeist.unlockedVehicles">
+                  <i class="fa-solid fa-tag"></i>
+                  {{ v }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Bloque: Consejos tácticos -->
+            <div class="mdetail-block" *ngIf="selectedHeist.tips && selectedHeist.tips.length > 0">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>{{ 'transports.heists.tipsTitle' | translate }}</span>
+              </div>
+              <div class="stranger-objectives-list">
+                <div class="stranger-obj-item" *ngFor="let tip of selectedHeist.tips">
+                  <i class="fa-solid fa-caret-right"></i>
+                  <span>{{ tip }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de retorno al pie -->
+            <div class="mdetail-bottom-action">
+              <button type="button" class="mdetail-return-btn" (click)="closeHeistDetail()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>{{ 'transports.heists.returnToList' | translate }}</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </ng-container>
 

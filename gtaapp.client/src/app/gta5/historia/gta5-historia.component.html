@@ -1,12 +1,12 @@
-﻿<div
+<div
   class="map-wrapper"
   (click)="closeContextMenu()"
   (contextmenu)="openContextMenu($event)"
 >
-  <!-- MAPA PRINCIPAL â€” id diferente al de Online para no colisionar -->
+  <!-- MAPA PRINCIPAL — id diferente al de Online para no colisionar -->
   <div id="gta-map-historia"></div>
 
-  <!-- MENÃš CONTEXTUAL -->
+  <!-- MENÚ CONTEXTUAL -->
   <div
     class="hud-ctx"
     *ngIf="ctxOpen"
@@ -20,8 +20,8 @@
       <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar_este_marcador')">ðŸ—‘ï¸ Borrar marcador</button>
       <div class="hud-ctx-sep"></div>
     </ng-container>
-    <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">ðŸ“ AÃ±adir marcador</button>
-    <button type="button" class="hud-ctx-item" (click)="runCtxAction('centrar')">ðŸŽ¯ Centrar aquÃ­</button>
+    <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">📍  Añadir marcador</button>
+    <button type="button" class="hud-ctx-item" (click)="runCtxAction('centrar')">🎯 Centrar aquí</button>
   </div>
 
   <!-- ESQUINA SUP-IZQ: HUD principal -->
@@ -33,7 +33,7 @@
     <div class="hud-time-badge" title="Hora en Los Santos">{{ inGameTimeStr }}</div>
   </div>
 
-  <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idÃ©ntico al estilo de los paneles) -->
+  <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idéntico al estilo de los paneles) -->
   <div class="hud hud-tc">
     <div class="mode-switch-track">
       <div class="mode-switch-btn mode-historia is-active" title="Modo Historia activo">
@@ -48,7 +48,7 @@
   </div>
 
   <!-- ================================================================
-       PANEL DE CONTROL â€” ESQUINA INF-IZQ
+       PANEL DE CONTROL — ESQUINA INF-IZQ
        Panel exclusivo de Modo Historia. Distinto al de Online.
        ================================================================ -->
   <div class="hud hud-bl" [class.hud-collapsed]="!legendOpen">
@@ -71,7 +71,7 @@
 
       <div class="hud-legend-body" *ngIf="legendOpen">
 
-        <!-- â”€â”€ PROPIEDADES (Historia) â”€â”€ -->
+        <!-- ── PROPIEDADES (Historia) ── -->
         <div class="hud-acc" [class.is-open]="accordion['propiedades']">
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('propiedades')">
@@ -87,6 +87,17 @@
             />
           </div>
           <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['propiedades']">
+            <!-- Casas y pisos francos de los protagonistas -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['safehouse']"
+              (click)="toggleLayer('safehouse')"
+            >
+              <i class="legend-dot dot-safehouse"></i>
+              <span class="legend-name">{{ 'gta5.layers.safehouses' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('safehouse') }}</span>
+            </button>
             <!-- Negocios comprables de los protagonistas -->
             <button
               type="button"
@@ -101,7 +112,7 @@
           </div>
         </div>
 
-        <!-- â”€â”€ VEHÃCULOS Y TALLERES (Historia) â”€â”€ -->
+        <!-- ── VEHÍCULOS Y TALLERES (Historia) ── -->
         <div class="hud-acc" [class.is-open]="accordion['vehiculos']">
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('vehiculos')">
@@ -130,7 +141,7 @@
           </div>
         </div>
 
-        <!-- â”€â”€ SERVICIOS â”€â”€ -->
+        <!-- ── SERVICIOS ── -->
         <div class="hud-acc" [class.is-open]="accordion['servicios']">
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('servicios')">
@@ -189,7 +200,7 @@
           </div>
         </div>
 
-        <!-- â”€â”€ PERSONAJES Y PROTAGONISTAS â”€â”€ -->
+        <!-- ── PERSONAJES Y PROTAGONISTAS ── -->
         <div class="hud-acc" [class.is-open]="accordion['personajes']">
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('personajes')">
@@ -233,58 +244,61 @@
           </div>
         </div>
 
-        <!-- â”€â”€ COLECCIONABLES DE HISTORIA â”€â”€ -->
+        <!-- ── COLECCIONABLES DE HISTORIA ── -->
         <div class="hud-acc" [class.is-open]="accordion['coleccionables']">
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('coleccionables')">
               <span class="hud-acc-caret"></span>
               <span class="hud-acc-title">Coleccionables Historia</span>
             </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(storyCollectibleKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(storyCollectibleKeys, $event)"
+            />
           </div>
           <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['coleccionables']">
-            <!-- Huesos AlienÃ­genas (30) â€” Michael -->
-            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['alien_bone']" (click)="toggleLayer('alien_bone')">
-              <i class="legend-square" style="background:#7c3aed;box-shadow:0 0 6px #7c3aed"></i>
-              <span class="legend-name">{{ 'gta5.layers.alienBone' | translate }}</span>
-              <span class="legend-count">30</span>
+            <!-- Fragmentos de Carta (50) -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['letter_scrap']" (click)="toggleLayer('letter_scrap')">
+              <i class="legend-square" style="background:#84cc16;box-shadow:0 0 6px #84cc16"></i>
+              <span class="legend-name">{{ 'gta5.layers.letterScrap' | translate }}</span>
+              <span class="legend-count">{{ getCollectibleCount('letter_scrap') }}</span>
             </button>
-            <!-- Piezas de Nave Espacial (50) â€” Trevor -->
+            <!-- Piezas de Nave Espacial (50) -->
             <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['spaceship_part']" (click)="toggleLayer('spaceship_part')">
               <i class="legend-square" style="background:#06b6d4;box-shadow:0 0 6px #06b6d4"></i>
               <span class="legend-name">{{ 'gta5.layers.spaceshipPart' | translate }}</span>
-              <span class="legend-count">50</span>
+              <span class="legend-count">{{ getCollectibleCount('spaceship_part') }}</span>
             </button>
-            <!-- Letras de Grafiti (50) â€” Franklin -->
-            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['graffiti']" (click)="toggleLayer('graffiti')">
-              <i class="legend-square" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b"></i>
-              <span class="legend-name">{{ 'gta5.layers.graffiti' | translate }}</span>
-              <span class="legend-count">50</span>
+            <!-- Desperdicios Nucleares (30) -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['nuclear_waste']" (click)="toggleLayer('nuclear_waste')">
+              <i class="legend-square" style="background:#eab308;box-shadow:0 0 6px #eab308"></i>
+              <span class="legend-name">{{ 'gta5.layers.nuclearWaste' | translate }}</span>
+              <span class="legend-count">{{ getCollectibleCount('nuclear_waste') }}</span>
             </button>
             <!-- Partes de Submarino (30) -->
             <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['submarine_part']" (click)="toggleLayer('submarine_part')">
               <i class="legend-square" style="background:#0891b2;box-shadow:0 0 6px #0891b2"></i>
               <span class="legend-name">{{ 'gta5.layers.submarinePart' | translate }}</span>
-              <span class="legend-count">30</span>
+              <span class="legend-count">{{ getCollectibleCount('submarine_part') }}</span>
             </button>
-            <!-- Fragmentos de Carta (50) â€” Franklin -->
-            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['letter_scrap']" (click)="toggleLayer('letter_scrap')">
-              <i class="legend-square" style="background:#84cc16;box-shadow:0 0 6px #84cc16"></i>
-              <span class="legend-name">{{ 'gta5.layers.letterScrap' | translate }}</span>
-              <span class="legend-count">50</span>
+            <!-- Tratados de Epsilon (10) -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['epsilon_tract']" (click)="toggleLayer('epsilon_tract')">
+              <i class="legend-square" style="background:#38bdf8;box-shadow:0 0 6px #38bdf8"></i>
+              <span class="legend-name">{{ 'gta5.layers.epsilonTract' | translate }}</span>
+              <span class="legend-count">{{ getCollectibleCount('epsilon_tract') }}</span>
             </button>
-
-            <div class="hud-acc-empty" style="margin-top:8px; font-size:10px; opacity:0.55;">
-              ðŸ“Œ Datos de ubicaciones prÃ³ximamente
-            </div>
           </div>
         </div>
 
-        <!-- â”€â”€ LUGARES EXTRAÃ‘OS â”€â”€ -->
+        <!-- ── LUGARES EXTRAÑOS ── -->
         <div class="hud-acc" [class.is-open]="accordion['lugares']">
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('lugares')">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">Lugares ExtraÃ±os</span>
+              <span class="hud-acc-title">Lugares Extraños</span>
             </div>
             <input
               type="checkbox"
@@ -318,7 +332,7 @@
   </div>
 
   <!-- ================================================================
-       PANEL DE AJUSTES â€” ESQUINA INF-DER
+       PANEL DE AJUSTES — ESQUINA INF-DER
        ================================================================ -->
   <div class="hud hud-br" [class.hud-collapsed]="!settingsOpen">
     <div class="hud-panel">
@@ -370,14 +384,14 @@
               <label class="hud-field-label" for="iconThemeHistoria">Tema</label>
               <select id="iconThemeHistoria" class="hud-field-select" [(ngModel)]="iconTheme" (change)="updateIconStyle()">
                 <option value="modern">Moderno</option>
-                <option value="classic">ClÃ¡sico</option>
+                <option value="classic">Clásico</option>
               </select>
             </div>
             <div class="hud-field">
-              <label class="hud-field-label" for="iconSizeHistoria">TamaÃ±o</label>
+              <label class="hud-field-label" for="iconSizeHistoria">Tamaño</label>
               <select id="iconSizeHistoria" class="hud-field-select" [(ngModel)]="iconSize" (change)="updateIconStyle()">
                 <option value="compact">Compacto</option>
-                <option value="standard">EstÃ¡ndar</option>
+                <option value="standard">Estándar</option>
                 <option value="large">Grande</option>
               </select>
             </div>
@@ -404,17 +418,17 @@
     </div>
   </div>
 
-  <!-- TELEMETRÃA DE COORDENADAS -->
-  <div class="hud-coords-dev" (click)="copyCurrentCoords()" title="Coordenadas GTA V â€” clic para copiar">
+  <!-- TELEMETRÍA DE COORDENADAS -->
+  <div class="hud-coords-dev" (click)="copyCurrentCoords()" title="Coordenadas GTA V — clic para copiar">
     <span class="coord-axis">X:</span>
     <span class="coord-val">{{ mouseCoords.x.toFixed(1) }}</span>
     <span class="coord-sep">|</span>
     <span class="coord-axis">Y:</span>
     <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
-    <span *ngIf="coordsCopied" class="coord-copied">âœ“</span>
+    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
   </div>
 
-  <!-- BOTÃ“N LATERAL EN ESQUINA SUP-DER: TRANSPORTES -->
+  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: TRANSPORTES -->
   <button
     type="button"
     class="hud-side-trigger"
@@ -430,7 +444,7 @@
     </div>
   </button>
 
-  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÃLOGO DE VEHÃCULOS -->
+  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO DE VEHÍCULOS -->
   <app-info-panel
     [isOpen]="profileDrawerOpen"
     [gameMode]="selectedGameMode"

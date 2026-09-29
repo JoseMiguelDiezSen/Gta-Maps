@@ -82,4 +82,24 @@ public class GTA5OnlineController : ControllerBase
     {
         return Ok(_locationsService.GetCollectibles(category, lang).ToList());
     }
+
+    /// <summary>
+    /// GET /api/gta5/online/heists
+    /// Catálogo oficial de Golpes (Heists) de GTA Online (Fleeca, Juicio Final, Casino, Cayo Perico...).
+    /// </summary>
+    [HttpGet("heists")]
+    public ActionResult<List<HeistItem>> GetHeists([FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetHeists(lang).ToList());
+    }
+
+    /// <summary>
+    /// GET /api/gta5/online/missions
+    /// Misiones oficiales de GTA Online (Misiones de Contacto, Embargos, Última Jugada, Asesinatos, Lowriders...).
+    /// </summary>
+    [HttpGet("missions")]
+    public ActionResult<List<MissionItem>> GetMissions([FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetOnlineMissions(lang).ToList());
+    }
 }

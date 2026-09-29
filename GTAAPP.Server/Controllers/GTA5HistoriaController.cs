@@ -144,4 +144,16 @@ public class GTA5HistoriaController : ControllerBase
     {
         return Ok(_locationsService.GetStoryMissions(lang).ToList());
     }
+
+    /// <summary>
+    /// GET /api/gta5/historia/strangers
+    /// Misiones secundarias de Extraños y Locos (Strangers and Freaks) de GTA V Modo Historia.
+    /// Rutas: /api/gta5/historia/strangers y /api/gta5/historia/strangers-and-freaks.
+    /// </summary>
+    [HttpGet("strangers")]
+    [HttpGet("strangers-and-freaks")]
+    public ActionResult<List<StrangerMissionItem>> GetStoryStrangerMissions([FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetStoryStrangerMissions(lang).ToList());
+    }
 }

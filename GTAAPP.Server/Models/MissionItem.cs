@@ -36,4 +36,10 @@ public class MissionItem
 
     [JsonPropertyName("unlockedBy")]
     public string? UnlockedBy { get; set; }
+
+    [JsonPropertyName("minLevel")]
+    public int? MinLevel { get; set; }
+
+    [JsonPropertyName("players")]
+    public string? Players { get; set; }
 }

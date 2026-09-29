@@ -62,6 +62,8 @@ public class LocationsService
     public IReadOnlyList<LocationItem> GetFauna(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "fauna.json", lang);
     public IReadOnlyList<LocationItem> GetActivities(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "activities.json", lang);
     public IReadOnlyList<LocationItem> GetStrangePlaces(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "strange_places.json", lang);
+    public IReadOnlyList<HeistItem> GetHeists(string? lang = null) => LoadJsonFile<HeistItem>("gta5", "online", "heists.json", lang);
+    public IReadOnlyList<MissionItem> GetOnlineMissions(string? lang = null) => LoadJsonFile<MissionItem>("gta5", "online", "missions.json", lang);
 
     public IReadOnlyList<CollectibleItem> GetCollectibles(string? category = null, string? lang = null)
     {
@@ -81,6 +83,7 @@ public class LocationsService
     public IReadOnlyList<LocationItem> GetStoryActivities(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "activities.json", lang);
     public IReadOnlyList<LocationItem> GetStoryStrangePlaces(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "strange_places.json", lang);
     public IReadOnlyList<MissionItem> GetStoryMissions(string? lang = null) => LoadJsonFile<MissionItem>("gta5", "historia", "missions.json", lang);
+    public IReadOnlyList<StrangerMissionItem> GetStoryStrangerMissions(string? lang = null) => LoadJsonFile<StrangerMissionItem>("gta5", "historia", "strangers_and_freaks.json", lang);
 
     public IReadOnlyList<CollectibleItem> GetStoryCollectibles(string? category = null, string? lang = null)
     {

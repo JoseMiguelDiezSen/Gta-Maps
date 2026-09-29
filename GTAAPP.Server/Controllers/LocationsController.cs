@@ -67,10 +67,15 @@ public class LocationsController : ControllerBase
     [HttpGet("strange-places")]
     public ActionResult<List<LocationItem>> GetStrangePlaces([FromQuery] string? lang) => Ok(_service.GetStrangePlaces(SanitizeLang(lang)));
 
-    /// <summary>GET /api/locations/collectibles → 10. Coleccionables exclusivos de GTA Online</summary>
+    /// <summary>GET /api/locations/collectibles → 10. Coleccionables (GTA Online o Historia)</summary>
     [HttpGet("collectibles")]
-    public ActionResult<List<CollectibleItem>> GetCollectibles([FromQuery] string? category, [FromQuery] string? lang)
+    public ActionResult<List<CollectibleItem>> GetCollectibles([FromQuery] string? category, [FromQuery] string? lang, [FromQuery] string? gameMode)
     {
+        var mode = SanitizeGameMode(gameMode);
+        if (string.Equals(mode, "story", StringComparison.OrdinalIgnoreCase))
+        {
+            return Ok(_service.GetStoryCollectibles(SanitizeCategory(category), SanitizeLang(lang)));
+        }
         return Ok(_service.GetCollectibles(SanitizeCategory(category), SanitizeLang(lang)));
     }
 

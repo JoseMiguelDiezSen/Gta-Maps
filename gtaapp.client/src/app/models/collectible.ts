@@ -5,7 +5,12 @@ export type CollectibleCategory =
   | 'action_figure'
   | 'signal_jammer'
   | 'movie_prop'
-  | 'radio_antenna';
+  | 'radio_antenna'
+  | 'letter_scrap'
+  | 'spaceship_part'
+  | 'nuclear_waste'
+  | 'submarine_part'
+  | 'epsilon_tract';
 
 export interface CollectibleItem {
   id: string;

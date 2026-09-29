@@ -1,4 +1,4 @@
-﻿<div
+<div
   class="map-wrapper"
   (click)="closeContextMenu()"
   (contextmenu)="openContextMenu($event)"
@@ -13,7 +13,7 @@
     [style.top.px]="ctxY"
     (click)="$event.stopPropagation()"
   >
-    <!-- Opciones especÃ­ficas cuando se hace clic derecho sobre un marcador de usuario -->
+    <!-- Opciones específicas cuando se hace clic derecho sobre un marcador de usuario -->
     <ng-container *ngIf="isMarkerContext && targetCustomMarker">
       <div class="hud-ctx-header" style="padding: 6px 12px; font-size: 11px; font-weight: 800; color: #ffb833; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 4px;">
         {{ targetCustomMarker.name }}
@@ -28,31 +28,31 @@
     </ng-container>
 
     <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
-      AÃ±adir marcador aquÃ­
+      Añadir marcador aquí
     </button>
     <button type="button" class="hud-ctx-item" (click)="runCtxAction('centrar')">
-      Centrar mapa aquÃ­
+      Centrar mapa aquí
     </button>
   </div>
 
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
   <div class="hud hud-tl">
     <div class="hud-title">GTA V</div>
-    <div class="hud-counter-badge" title="Inmuebles y negocios comprables mapeados">{{ purchasablePropertiesCount }} Propiedades Â· {{ allCollectibles.length }} Coleccionables</div>
+    <div class="hud-counter-badge" title="Inmuebles y negocios comprables mapeados">{{ purchasablePropertiesCount }} Propiedades · {{ allCollectibles.length }} Coleccionables</div>
     <div class="hud-time-badge" title="Hora del juego (Los Santos)">{{ inGameTimeStr }}</div>
     <a class="hud-home-btn" routerLink="/" title="Volver a la pantalla de inicio">Inicio</a>
   </div>
 
-  <!-- MARCA DE ÃšLTIMA ACTUALIZACIÃ“N: debajo del panel superior izquierdo (compacto y bien visible) -->
-  <div class="hud-last-update" [title]="'Ãšltima actualizaciÃ³n: ' + ultimaActualizacion + ' (Commit ' + buildCommit + ')'">
-    <span class="hud-update-label">Ãšltima actualizaciÃ³n:</span>
+  <!-- MARCA DE ÚLTIMA ACTUALIZACIÓN: debajo del panel superior izquierdo (compacto y bien visible) -->
+  <div class="hud-last-update" [title]="'Última actualización: ' + ultimaActualizacion + ' (Commit ' + buildCommit + ')'">
+    <span class="hud-update-label">Última actualización:</span>
     <span class="hud-update-value">{{ ultimaActualizacion }}</span>
   </div>
 
   <!-- ESQUINA INF-IZQ: Panel de control (antigua Leyenda) -->
   <div class="hud hud-bl" [class.hud-collapsed]="!legendOpen">
     <div class="hud-panel hud-legend-panel">
-      <!-- Cabecera del Panel de control: SIEMPRE visible, mantiene el ancho y el tÃ­tulo -->
+      <!-- Cabecera del Panel de control: SIEMPRE visible, mantiene el ancho y el título -->
       <div
         class="hud-panel-head"
         [class.is-collapsed]="!legendOpen"
@@ -120,7 +120,7 @@
               <span class="legend-count">{{ getCategoryCount('mansion') }}</span>
             </button>
 
-            <!-- Hangares y AerÃ³dromos -->
+            <!-- Hangares y Aeródromos -->
             <button
               type="button"
               class="legend-btn"
@@ -132,7 +132,7 @@
               <span class="legend-count">{{ getCategoryCount('hangar') }}</span>
             </button>
 
-            <!-- BÃºnkeres -->
+            <!-- Búnkeres -->
             <button
               type="button"
               class="legend-btn"
@@ -140,7 +140,7 @@
               (click)="toggleLayer('bunker')"
             >
               <i class="legend-dot dot-bunker"></i>
-              <span class="legend-name">BÃºnkeres</span>
+              <span class="legend-name">Búnkeres</span>
               <span class="legend-count">{{ getCategoryCount('bunker') }}</span>
             </button>
 
@@ -228,7 +228,7 @@
               <span class="legend-count">{{ getCategoryCount('ceo_office') }}</span>
             </button>
 
-            <!-- Almacenes de VehÃ­culos (Import / Export) -->
+            <!-- Almacenes de Vehículos (Import / Export) -->
             <button
               type="button"
               class="legend-btn"
@@ -236,7 +236,7 @@
               (click)="toggleLayer('vehicle_warehouse')"
             >
               <i class="legend-dot dot-veh-warehouse"></i>
-              <span class="legend-name">Almacenes VehÃ­culos (I/E)</span>
+              <span class="legend-name">Almacenes Vehículos (I/E)</span>
               <span class="legend-count">{{ getCategoryCount('vehicle_warehouse') }}</span>
             </button>
           </ng-container>
@@ -262,7 +262,7 @@
 
         <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['negocios']">
           <ng-container *ngIf="selectedGameMode === 'online'">
-            <!-- Negocios de CocaÃ­na -->
+            <!-- Negocios de Cocaína -->
             <button
               type="button"
               class="legend-btn"
@@ -270,7 +270,7 @@
               (click)="toggleLayer('coke_lockup')"
             >
               <i class="legend-dot dot-coke"></i>
-              <span class="legend-name">Negocios de CocaÃ­na</span>
+              <span class="legend-name">Negocios de Cocaína</span>
               <span class="legend-count">{{ getCategoryCount('coke_lockup') }}</span>
             </button>
 
@@ -310,7 +310,7 @@
               <span class="legend-count">{{ getCategoryCount('nightclub') }}</span>
             </button>
 
-            <!-- FÃ¡bricas de Dinero Falso -->
+            <!-- Fábricas de Dinero Falso -->
             <button
               type="button"
               class="legend-btn"
@@ -318,7 +318,7 @@
               (click)="toggleLayer('cash_factory')"
             >
               <i class="legend-dot dot-cash"></i>
-              <span class="legend-name">FÃ¡bricas de Dinero Falso</span>
+              <span class="legend-name">Fábricas de Dinero Falso</span>
               <span class="legend-count">{{ getCategoryCount('cash_factory') }}</span>
             </button>
 
@@ -334,7 +334,7 @@
               <span class="legend-count">{{ getCategoryCount('meth_lab') }}</span>
             </button>
 
-            <!-- FalsificaciÃ³n de Documentos -->
+            <!-- Falsificación de Documentos -->
             <button
               type="button"
               class="legend-btn"
@@ -342,19 +342,19 @@
               (click)="toggleLayer('doc_forgery')"
             >
               <i class="legend-dot dot-doc"></i>
-              <span class="legend-name">FalsificaciÃ³n de Documentos</span>
+              <span class="legend-name">Falsificación de Documentos</span>
               <span class="legend-count">{{ getCategoryCount('doc_forgery') }}</span>
             </button>
           </ng-container>
         </div>
       </div>
 
-      <!-- DESPLEGABLE 3: VehÃ­culos -->
+      <!-- DESPLEGABLE 3: Vehículos -->
       <div class="hud-acc" [class.is-open]="accordion['vehiculos']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('vehiculos')">
             <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">VehÃ­culos</span>
+            <span class="hud-acc-title">Vehículos</span>
           </div>
           <input
             type="checkbox"
@@ -362,7 +362,7 @@
             [checked]="isSectionAllActive(currentVehicleKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(currentVehicleKeys, $event)"
-            title="Activar o desactivar todos los talleres y vehÃ­culos"
+            title="Activar o desactivar todos los talleres y vehículos"
           />
         </div>
 
@@ -437,7 +437,7 @@
         </div>
 
         <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['servicios']">
-          <!-- ComisarÃ­as de PolicÃ­a -->
+          <!-- Comisarías de Policía -->
           <button
             type="button"
             class="legend-btn"
@@ -445,7 +445,7 @@
             (click)="toggleLayer('police_station')"
           >
             <i class="legend-dot dot-police"></i>
-            <span class="legend-name">ComisarÃ­as de PolicÃ­a</span>
+            <span class="legend-name">Comisarías de Policía</span>
             <span class="legend-count">{{ getCategoryCount('police_station') }}</span>
           </button>
 
@@ -473,7 +473,7 @@
             <span class="legend-count">{{ getCategoryCount('fire_station') }}</span>
           </button>
 
-          <!-- ArmerÃ­as Ammu-Nation -->
+          <!-- Armerías Ammu-Nation -->
           <button
             type="button"
             class="legend-btn"
@@ -481,7 +481,7 @@
             (click)="toggleLayer('service')"
           >
             <i class="legend-dot dot-service"></i>
-            <span class="legend-name">ArmerÃ­as Ammu-Nation</span>
+            <span class="legend-name">Armerías Ammu-Nation</span>
             <span class="legend-count">{{ getCategoryCount('service') }}</span>
           </button>
 
@@ -497,7 +497,7 @@
             <span class="legend-count">{{ getCategoryCount('convenience_store') }}</span>
           </button>
 
-          <!-- Tienda de MÃ¡scaras (Vespucci) -->
+          <!-- Tienda de Máscaras (Vespucci) -->
           <button
             type="button"
             class="legend-btn"
@@ -505,11 +505,11 @@
             (click)="toggleLayer('mask_shop')"
           >
             <i class="legend-dot dot-mask"></i>
-            <span class="legend-name">Tienda de MÃ¡scaras (Playa)</span>
+            <span class="legend-name">Tienda de Máscaras (Playa)</span>
             <span class="legend-count">{{ getCategoryCount('mask_shop') }}</span>
           </button>
 
-          <!-- TÃºneles de Lavado -->
+          <!-- Túneles de Lavado -->
           <button
             type="button"
             class="legend-btn"
@@ -517,7 +517,7 @@
             (click)="toggleLayer('car_wash')"
           >
             <i class="legend-dot dot-carwash"></i>
-            <span class="legend-name">TÃºneles de Lavado</span>
+            <span class="legend-name">Túneles de Lavado</span>
             <span class="legend-count">{{ getCategoryCount('car_wash') }}</span>
           </button>
 
@@ -634,7 +634,7 @@
               <span class="legend-count">{{ char.badge.symbol }}</span>
             </button>
 
-            <!-- BotÃ³n de localizaciÃ³n y zoom directo -->
+            <!-- Botón de localización y zoom directo -->
             <button
               type="button"
               class="char-zoom-btn"
@@ -654,7 +654,7 @@
         </div>
       </div>
 
-      <!-- DESPLEGABLE: Fauna y Vida Salvaje (12 HÃ¡bitats de Fauna y FotografÃ­a) -->
+      <!-- DESPLEGABLE: Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía) -->
       <div class="hud-acc" [class.is-open]="accordion['fauna']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('fauna')">
@@ -690,7 +690,7 @@
               <span class="legend-count">{{ animal.badge.symbol }}</span>
             </button>
 
-            <!-- BotÃ³n de localizaciÃ³n y zoom directo -->
+            <!-- Botón de localización y zoom directo -->
             <button
               type="button"
               class="char-zoom-btn"
@@ -742,7 +742,7 @@
               <span class="legend-count">{{ getCollectibleCount('playing_card') }}</span>
             </button>
 
-            <!-- Figuras de AcciÃ³n (100) -->
+            <!-- Figuras de Acción (100) -->
             <button
               type="button"
               class="legend-btn legend-btn-collectible"
@@ -750,11 +750,11 @@
               (click)="toggleLayer('action_figure')"
             >
               <i class="legend-square dot-figure"></i>
-              <span class="legend-name">Figuras de AcciÃ³n</span>
+              <span class="legend-name">Figuras de Acción</span>
               <span class="legend-count">{{ getCollectibleCount('action_figure') }}</span>
             </button>
 
-            <!-- Inhibidores de SeÃ±al (50) -->
+            <!-- Inhibidores de Señal (50) -->
             <button
               type="button"
               class="legend-btn legend-btn-collectible"
@@ -762,7 +762,7 @@
               (click)="toggleLayer('signal_jammer')"
             >
               <i class="legend-square dot-jammer"></i>
-              <span class="legend-name">Inhibidores de SeÃ±al</span>
+              <span class="legend-name">Inhibidores de Señal</span>
               <span class="legend-count">{{ getCollectibleCount('signal_jammer') }}</span>
             </button>
 
@@ -792,17 +792,17 @@
           </ng-container>
 
           <div class="hud-acc-empty" *ngIf="selectedGameMode === 'story'">
-            Los coleccionables estÃ¡n disponibles en el modo GTA Online. CÃ¡mbialo en Ajustes.
+            Los coleccionables están disponibles en el modo GTA Online. Cámbialo en Ajustes.
           </div>
         </div>
       </div>
 
-      <!-- DESPLEGABLE 8: Lugares extraÃ±os -->
+      <!-- DESPLEGABLE 8: Lugares extraños -->
       <div class="hud-acc" [class.is-open]="accordion['lugares']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('lugares')">
             <span class="hud-acc-caret"></span>
-            <span class="hud-acc-title">Lugares extraÃ±os</span>
+            <span class="hud-acc-title">Lugares extraños</span>
           </div>
           <input
             type="checkbox"
@@ -810,7 +810,7 @@
             [checked]="isSectionAllActive(strangeKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(strangeKeys, $event)"
-            title="Activar o desactivar todos los lugares extraÃ±os"
+            title="Activar o desactivar todos los lugares extraños"
           />
         </div>
 
@@ -895,7 +895,7 @@
                 class="hud-seg-btn seg-online"
                 [class.is-active]="selectedGameMode === 'online'"
                 (click)="setGameMode('online')"
-                title="GTA Online: BÃºnkeres, VehÃ­culos, Servicios y Coleccionables"
+                title="GTA Online: Búnkeres, Vehículos, Servicios y Coleccionables"
               >
                 GTA Online
               </button>
@@ -957,12 +957,12 @@
                 [(ngModel)]="iconTheme"
                 (change)="updateIconStyle()"
               >
-                <option value="modern">Moderno (NeÃ³n & HUD)</option>
-                <option value="classic">ClÃ¡sico (Sutil & Original)</option>
+                <option value="modern">Moderno (Neón & HUD)</option>
+                <option value="classic">Clásico (Sutil & Original)</option>
               </select>
             </div>
             <div class="hud-field">
-              <label class="hud-field-label" for="iconSizeSelect">TamaÃ±o de iconos</label>
+              <label class="hud-field-label" for="iconSizeSelect">Tamaño de iconos</label>
               <select
                 id="iconSizeSelect"
                 class="hud-field-select"
@@ -970,18 +970,18 @@
                 (change)="updateIconStyle()"
               >
                 <option value="compact">Compacto (80%)</option>
-                <option value="standard" selected>EstÃ¡ndar (100%)</option>
+                <option value="standard" selected>Estándar (100%)</option>
                 <option value="large">Grande (120%)</option>
               </select>
             </div>
             <div class="hud-field">
-              <label class="hud-field-label" for="hud-zone">Saltar a regiÃ³n</label>
+              <label class="hud-field-label" for="hud-zone">Saltar a región</label>
               <select
                 id="hud-zone"
                 class="hud-field-select"
                 (change)="onZoneChange($any($event.target).value)"
               >
-                <option value="all">Mapa Completo (VisiÃ³n General)</option>
+                <option value="all">Mapa Completo (Visión General)</option>
                 <option value="city">Los Santos Ciudad</option>
                 <option value="sandy">Sandy Shores & Gran Desierto</option>
                 <option value="paleto">Paleto Bay (Norte)</option>
@@ -1001,7 +1001,7 @@
     </div>
   </div>
 
-  <!-- TelemetrÃ­a de desarrollo: Coordenadas (X, Y) -->
+  <!-- Telemetría de desarrollo: Coordenadas (X, Y) -->
   <div
     class="hud-coords-dev"
     (click)="copyCurrentCoords()"
@@ -1012,10 +1012,10 @@
     <span class="coord-sep">|</span>
     <span class="coord-axis">Y:</span>
     <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
-    <span *ngIf="coordsCopied" class="coord-copied">âœ“</span>
+    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
   </div>
 
-  <!-- BOTÃ“N LATERAL EN ESQUINA SUP-DER: PERFIL Y PROGRESO (Alineado a la altura del panel de la izquierda) -->
+  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: PERFIL Y PROGRESO (Alineado a la altura del panel de la izquierda) -->
   <button
     type="button"
     class="hud-side-trigger"
@@ -1031,7 +1031,7 @@
     </div>
   </button>
 
-  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÃLOGO DE VEHÃCULOS -->
+  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO DE VEHÍCULOS -->
   <app-info-panel
     [isOpen]="profileDrawerOpen"
     [gameMode]="selectedGameMode"
