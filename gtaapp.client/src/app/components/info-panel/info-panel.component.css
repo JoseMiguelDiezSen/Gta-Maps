@@ -1620,6 +1620,10 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   flex-shrink: 0;
 }
 
+.mdetail-top-bar.is-centered {
+  justify-content: center;
+}
+
 .mdetail-back-action {
   display: inline-flex;
   align-items: center;

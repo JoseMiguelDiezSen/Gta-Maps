@@ -1,4 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslationService } from '../../i18n';
 
 interface Gta6LegendItem {
@@ -21,10 +22,6 @@ interface Gta6LegendCategory {
     standalone: false
 })
 export class Gta6OnlineComponent implements OnInit, OnDestroy {
-
-    // Cuenta atrás: 19 de noviembre a las 00:00 (mes 10 = noviembre, en hora local)
-    readonly countdownTarget = new Date(2026, 10, 19, 0, 0, 0);
-    countdown = { days: '00', hours: '00', minutes: '00', seconds: '00' };
 
     // Telemetría de coordenadas. GTA6 no tiene mapa, así que se queda en 0,0
     mouseCoords = { x: 0, y: 0 };
@@ -154,7 +151,10 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     readonly policiaKeys: string[] = this.policiaItems.map(i => i.id);
 
-    constructor(readonly translationService: TranslationService) {}
+    constructor(
+        readonly translationService: TranslationService,
+        private router: Router
+    ) {}
 
     get mapTypes() {
         return [
@@ -166,6 +166,7 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     legendOpen = true;
     settingsOpen = true;
+    selectedGame = 'gta6';
     selectedGameMode: 'story' | 'online' = 'online';
     currentMapType = 'Satellite';
     iconTheme = 'modern';
@@ -183,10 +184,19 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
         coleccionables: false,
         lugares: false,
         policia: false,
-        modo: false,
         mapa: false,
-        zona: false
+        zona: false,
+        juego: false
     };
+
+    switchGame(game: string): void {
+        this.selectedGame = game;
+        if (game === 'gta5') {
+            this.router.navigate(['/gta5-online']);
+        } else {
+            this.router.navigate(['/gta6-online']);
+        }
+    }
 
     layerFilters: { [key: string]: boolean } = [
         ...this.categories.reduce((acc, category) => acc.concat(category.items), [] as Gta6LegendItem[]),
@@ -197,7 +207,6 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     }, {} as { [key: string]: boolean });
 
     private clockInterval: ReturnType<typeof setInterval> | undefined;
-    private countdownInterval: ReturnType<typeof setInterval> | undefined;
 
     get totalItems(): number {
         return this.categories.reduce((sum, category) => sum + category.items.length, 0);
@@ -233,15 +242,11 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.startInGameClock();
-        this.startCountdown();
     }
 
     ngOnDestroy(): void {
         if (this.clockInterval) {
             clearInterval(this.clockInterval);
-        }
-        if (this.countdownInterval) {
-            clearInterval(this.countdownInterval);
         }
     }
 
@@ -405,22 +410,5 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
         tick();
         this.clockInterval = setInterval(tick, 30000);
-    }
-
-    private startCountdown(): void {
-        const pad = (n: number): string => String(n).padStart(2, '0');
-
-        const tick = (): void => {
-            const restante = Math.max(0, Math.floor((this.countdownTarget.getTime() - Date.now()) / 1000));
-            this.countdown = {
-                days: pad(Math.floor(restante / 86400)),
-                hours: pad(Math.floor((restante % 86400) / 3600)),
-                minutes: pad(Math.floor((restante % 3600) / 60)),
-                seconds: pad(restante % 60)
-            };
-        };
-
-        tick();
-        this.countdownInterval = setInterval(tick, 1000);
     }
 }

@@ -40,7 +40,7 @@
         <i class="mode-indicator dot-historia"></i>
         <span>Modo Historia</span>
       </div>
-      <a class="mode-switch-btn mode-online" routerLink="/gta5" title="Cambiar a GTA Online">
+      <a class="mode-switch-btn mode-online" routerLink="/gta5-online" title="Cambiar a GTA Online">
         <i class="mode-indicator dot-online"></i>
         <span>GTA Online</span>
       </a>
@@ -76,7 +76,7 @@
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('propiedades')">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">Propiedades</span>
+              <span class="hud-acc-title">{{ 'gta5.categories.properties' | translate }}</span>
             </div>
             <input
               type="checkbox"
@@ -84,20 +84,63 @@
               [checked]="isSectionAllActive(storyPropertyKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(storyPropertyKeys, $event)"
+              [title]="'gta5.checkboxTitles.toggleProperties' | translate"
             />
           </div>
           <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['propiedades']">
-            <!-- Casas y pisos francos de los protagonistas -->
+            <!-- Casa de Michael -->
             <button
               type="button"
               class="legend-btn"
-              [class.is-active]="layerFilters['safehouse']"
-              (click)="toggleLayer('safehouse')"
+              [class.is-active]="layerFilters['safehouse_michael']"
+              (click)="toggleLayer('safehouse_michael')"
             >
-              <i class="legend-dot dot-safehouse"></i>
-              <span class="legend-name">{{ 'gta5.layers.safehouses' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('safehouse') }}</span>
+              <i class="legend-dot dot-michael"></i>
+              <span class="legend-name">{{ 'gta5.layers.safehouseMichael' | translate }}</span>
+              <span class="legend-count">{{ getSafehouseCount('michael') }}</span>
             </button>
+            <!-- Casas de Franklin -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['safehouse_franklin']"
+              (click)="toggleLayer('safehouse_franklin')"
+            >
+              <i class="legend-dot dot-franklin"></i>
+              <span class="legend-name">{{ 'gta5.layers.safehouseFranklin' | translate }}</span>
+              <span class="legend-count">{{ getSafehouseCount('franklin') }}</span>
+            </button>
+            <!-- Casas de Trevor -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['safehouse_trevor']"
+              (click)="toggleLayer('safehouse_trevor')"
+            >
+              <i class="legend-dot dot-trevor"></i>
+              <span class="legend-name">{{ 'gta5.layers.safehouseTrevor' | translate }}</span>
+              <span class="legend-count">{{ getSafehouseCount('trevor') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── NEGOCIOS (Historia) ── -->
+        <div class="hud-acc" [class.is-open]="accordion['negocios']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('negocios')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.categories.businesses' | translate }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(storyBusinessKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(storyBusinessKeys, $event)"
+              [title]="'gta5.checkboxTitles.toggleBusinesses' | translate"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['negocios']">
             <!-- Negocios comprables de los protagonistas -->
             <button
               type="button"
@@ -196,6 +239,68 @@
               <i class="legend-dot dot-stripclub"></i>
               <span class="legend-name">{{ 'gta5.layers.stripClub' | translate }}</span>
               <span class="legend-count">{{ getCategoryCount('strip_club') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── ACTIVIDADES Y DEPORTES ── -->
+        <div class="hud-acc" [class.is-open]="accordion['actividades']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('actividades')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.categories.activities' | translate }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(activityKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(activityKeys, $event)"
+              [title]="'gta5.checkboxTitles.toggleActivities' | translate"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['actividades']">
+            <!-- Golf -->
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['golf']" (click)="toggleLayer('golf')">
+              <i class="legend-dot dot-golf"></i>
+              <span class="legend-name">{{ 'gta5.layers.golf' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('golf') }}</span>
+            </button>
+            <!-- Dardos -->
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['darts']" (click)="toggleLayer('darts')">
+              <i class="legend-dot dot-darts"></i>
+              <span class="legend-name">{{ 'gta5.layers.darts' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('darts') }}</span>
+            </button>
+            <!-- Tenis -->
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['tennis']" (click)="toggleLayer('tennis')">
+              <i class="legend-dot dot-tennis"></i>
+              <span class="legend-name">{{ 'gta5.layers.tennis' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('tennis') }}</span>
+            </button>
+            <!-- Saltos Acrobáticos -->
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['stunt_jump']" (click)="toggleLayer('stunt_jump')">
+              <i class="legend-dot dot-stunt-jump"></i>
+              <span class="legend-name">{{ 'gta5.layers.stuntJump' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('stunt_jump') }}</span>
+            </button>
+            <!-- Bajo el Puente -->
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['under_the_bridge']" (click)="toggleLayer('under_the_bridge')">
+              <i class="legend-dot dot-under-bridge"></i>
+              <span class="legend-name">{{ 'gta5.layers.underTheBridge' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('under_the_bridge') }}</span>
+            </button>
+            <!-- Vuelos a Cuchillo -->
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['knife_flight']" (click)="toggleLayer('knife_flight')">
+              <i class="legend-dot dot-knife-flight"></i>
+              <span class="legend-name">{{ 'gta5.layers.knifeFlight' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('knife_flight') }}</span>
+            </button>
+            <!-- Saltos en Paracaídas -->
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['parachuting']" (click)="toggleLayer('parachuting')">
+              <i class="legend-dot dot-parachuting"></i>
+              <span class="legend-name">{{ 'gta5.layers.parachuting' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('parachuting') }}</span>
             </button>
           </div>
         </div>
@@ -381,10 +486,11 @@
           </div>
           <div class="hud-acc-body" *ngIf="accordion['zona']">
             <div class="hud-field">
-              <label class="hud-field-label" for="iconThemeHistoria">Tema</label>
+              <label class="hud-field-label" for="iconThemeHistoria">{{ 'gta5.settings.markerTheme' | translate }}</label>
               <select id="iconThemeHistoria" class="hud-field-select" [(ngModel)]="iconTheme" (change)="updateIconStyle()">
-                <option value="modern">Moderno</option>
-                <option value="classic">Clásico</option>
+                <option value="standard">{{ 'gta5.settings.themeStandard' | translate }}</option>
+                <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
+                <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>
               </select>
             </div>
             <div class="hud-field">
@@ -395,24 +501,13 @@
                 <option value="large">Grande</option>
               </select>
             </div>
-            <div class="hud-field">
-              <label class="hud-field-label" for="hudZoneHistoria">Saltar a zona</label>
-              <select id="hudZoneHistoria" class="hud-field-select" (change)="onZoneChange($any($event.target).value)">
-                <option value="all">Todo el mapa</option>
-                <option value="city">Los Santos (ciudad)</option>
-                <option value="sandy">Sandy Shores</option>
-                <option value="paleto">Paleto Bay</option>
-                <option value="blaine">Condado Blaine</option>
-                <option value="chumash">Chumash</option>
-              </select>
-            </div>
+
           </div>
         </div>
 
         <!-- Botones de pie de panel -->
         <div class="hud-panel-foot">
-          <a class="hud-panel-btn hud-panel-btn-home" routerLink="/" title="Volver al inicio">Inicio</a>
-          <button type="button" class="hud-panel-btn hud-panel-btn-primary" (click)="onZoneChange('all')">Vista general</button>
+          <a class="hud-panel-btn hud-panel-btn-home" routerLink="/" [title]="'common.backToHome' | translate">{{ 'common.backToHome' | translate }}</a>
         </div>
       </div>
     </div>

@@ -38,14 +38,35 @@
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
   <div class="hud hud-tl">
     <div class="hud-title">GTA V</div>
-    <div class="hud-counter-badge" [title]="'gta5.hud.counterBadgeTitle' | translate">{{ 'gta5.hud.propertiesCount' | translate:{ count: purchasablePropertiesCount, collectibles: allCollectibles.length } }}</div>
+    <div class="hud-counter-badge" [title]="selectedCity === 'cp' ? ('gta5.cayoPerico.badgeCount' | translate:{ count: cayoPericoLocations.length }) : ('gta5.hud.counterBadgeTitle' | translate)">
+      <ng-container *ngIf="selectedCity === 'cp'">
+        {{ 'gta5.cayoPerico.badgeCount' | translate:{ count: cayoPericoLocations.length } }}
+      </ng-container>
+      <ng-container *ngIf="selectedCity === 'ls'">
+        {{ 'gta5.hud.propertiesCount' | translate:{ count: purchasablePropertiesCount, collectibles: allCollectibles.length } }}
+      </ng-container>
+    </div>
     <div class="hud-time-badge" [title]="'gta5.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
+  </div>
+
+  <!-- BOTÓN DE ACCESO A ISLA (debajo de GTA V en la esquina superior izquierda) -->
+  <div class="hud hud-island-selector">
+    <button
+      type="button"
+      class="island-toggle-btn island-single-btn"
+      [class.is-cayo-active]="selectedCity === 'cp'"
+      (click)="toggleCity()"
+      [title]="selectedCity === 'ls' ? 'Cayo Perico' : 'Los Santos'"
+    >
+      <span class="island-btn-icon">{{ selectedCity === 'ls' ? '🌴' : '🏙️' }}</span>
+      <span class="island-btn-text">{{ selectedCity === 'ls' ? 'Cayo Perico' : 'Los Santos' }}</span>
+    </button>
   </div>
 
   <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idéntico al estilo de los paneles) -->
   <div class="hud hud-tc">
     <div class="mode-switch-track">
-      <a class="mode-switch-btn mode-historia" routerLink="/gta5/historia" title="Cambiar a Modo Historia">
+      <a class="mode-switch-btn mode-historia" routerLink="/gta5-historia" title="Cambiar a Modo Historia">
         <i class="mode-indicator dot-historia"></i>
         <span>Modo Historia</span>
       </a>
@@ -82,7 +103,232 @@
       <!-- Contenido desplegado del Panel de control con scroll general -->
       <div class="hud-legend-body" *ngIf="legendOpen">
 
-      <!-- DESPLEGABLE 1: Propiedades -->
+      
+      <!-- ========================================== -->
+      <!-- VISTA CAYO PERICO: ACCORDEONES EXCLUSIVOS -->
+      <!-- ========================================== -->
+      <ng-container *ngIf="selectedCity === 'cp'">
+        <!-- CAYO 1: Puntos de Interés del Golpe -->
+        <div class="hud-acc" [class.is-open]="accordion['cayo_poi']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('cayo_poi')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.cayoPerico.heistPoi' | translate }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(cayoPoiKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(cayoPoiKeys, $event)"
+              [title]="'gta5.cayoPerico.togglePoi' | translate"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_poi']">
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['infiltration_points']" (click)="toggleLayer('infiltration_points')">
+              <i class="legend-dot dot-cayo-poi"></i>
+              <span class="legend-name">{{ 'gta5.layers.infiltrationPoints' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('infiltration_points') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['escape_points']" (click)="toggleLayer('escape_points')">
+              <i class="legend-dot" style="background:#ef4444; box-shadow:0 0 6px #ef4444;"></i>
+              <span class="legend-name">{{ 'gta5.layers.escapePoints' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('escape_points') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['compound_entry_points']" (click)="toggleLayer('compound_entry_points')">
+              <i class="legend-dot" style="background:#eab308; box-shadow:0 0 6px #eab308;"></i>
+              <span class="legend-name">{{ 'gta5.layers.compoundEntryPoints' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('compound_entry_points') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['power_station']" (click)="toggleLayer('power_station')">
+              <i class="legend-dot" style="background:#3b82f6; box-shadow:0 0 6px #3b82f6;"></i>
+              <span class="legend-name">{{ 'gta5.layers.powerStation' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('power_station') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['control_tower']" (click)="toggleLayer('control_tower')">
+              <i class="legend-dot" style="background:#06b6d4; box-shadow:0 0 6px #06b6d4;"></i>
+              <span class="legend-name">{{ 'gta5.layers.controlTower' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('control_tower') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CAYO 2: Reconocimiento de la Isla -->
+        <div class="hud-acc" [class.is-open]="accordion['cayo_scoping']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('cayo_scoping')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.cayoPerico.heistScoping' | translate }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(cayoScopingKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(cayoScopingKeys, $event)"
+              [title]="'gta5.cayoPerico.toggleScoping' | translate"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_scoping']">
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['secondary_targets']" (click)="toggleLayer('secondary_targets')">
+              <i class="legend-dot" style="background:#22c55e; box-shadow:0 0 6px #22c55e;"></i>
+              <span class="legend-name">{{ 'gta5.layers.secondaryTargets' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('secondary_targets') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['bolt_cutters']" (click)="toggleLayer('bolt_cutters')">
+              <i class="legend-dot" style="background:#a855f7; box-shadow:0 0 6px #a855f7;"></i>
+              <span class="legend-name">{{ 'gta5.layers.boltCutters' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('bolt_cutters') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['grappling_eq']" (click)="toggleLayer('grappling_eq')">
+              <i class="legend-dot" style="background:#ec4899; box-shadow:0 0 6px #ec4899;"></i>
+              <span class="legend-name">{{ 'gta5.layers.grapplingEq' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('grappling_eq') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['guard_clothing']" (click)="toggleLayer('guard_clothing')">
+              <i class="legend-dot" style="background:#14b8a6; box-shadow:0 0 6px #14b8a6;"></i>
+              <span class="legend-name">{{ 'gta5.layers.guardClothing' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('guard_clothing') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['supply_truck']" (click)="toggleLayer('supply_truck')">
+              <i class="legend-dot" style="background:#f59e0b; box-shadow:0 0 6px #f59e0b;"></i>
+              <span class="legend-name">{{ 'gta5.layers.supplyTruck' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('supply_truck') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['cutting_powder']" (click)="toggleLayer('cutting_powder')">
+              <i class="legend-dot" style="background:#84cc16; box-shadow:0 0 6px #84cc16;"></i>
+              <span class="legend-name">{{ 'gta5.layers.cuttingPowder' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('cutting_powder') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['water_tower']" (click)="toggleLayer('water_tower')">
+              <i class="legend-dot" style="background:#0ea5e9; box-shadow:0 0 6px #0ea5e9;"></i>
+              <span class="legend-name">{{ 'gta5.layers.waterTower' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('water_tower') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CAYO 3: Armas Exclusivas -->
+        <div class="hud-acc" [class.is-open]="accordion['cayo_armas']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('cayo_armas')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.cayoPerico.weapons' | translate }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(cayoWeaponKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(cayoWeaponKeys, $event)"
+              [title]="'gta5.cayoPerico.toggleWeapons' | translate"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_armas']">
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['combat_shotgun']" (click)="toggleLayer('combat_shotgun')">
+              <i class="legend-dot" style="background:#e11d48; box-shadow:0 0 6px #e11d48;"></i>
+              <span class="legend-name">{{ 'gta5.layers.combatShotgun' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('combat_shotgun') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['perico_pistol']" (click)="toggleLayer('perico_pistol')">
+              <i class="legend-dot" style="background:#d97706; box-shadow:0 0 6px #d97706;"></i>
+              <span class="legend-name">{{ 'gta5.layers.pericoPistol' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('perico_pistol') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CAYO 4: Vehículos y Spawns -->
+        <div class="hud-acc" [class.is-open]="accordion['cayo_vehiculos']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('cayo_vehiculos')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.cayoPerico.vehicles' | translate }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(cayoVehicleKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(cayoVehicleKeys, $event)"
+              [title]="'gta5.cayoPerico.toggleVehicles' | translate"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_vehiculos']">
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['spawns_forklift']" (click)="toggleLayer('spawns_forklift')">
+              <i class="legend-dot" style="background:#eab308; box-shadow:0 0 6px #eab308;"></i>
+              <span class="legend-name">{{ 'gta5.layers.spawnsForklift' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('spawns_forklift') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['spawns_manchez_scout']" (click)="toggleLayer('spawns_manchez_scout')">
+              <i class="legend-dot" style="background:#38bdf8; box-shadow:0 0 6px #38bdf8;"></i>
+              <span class="legend-name">{{ 'gta5.layers.spawnsManchezScout' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('spawns_manchez_scout') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['spawns_verus']" (click)="toggleLayer('spawns_verus')">
+              <i class="legend-dot" style="background:#a3e635; box-shadow:0 0 6px #a3e635;"></i>
+              <span class="legend-name">{{ 'gta5.layers.spawnsVerus' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('spawns_verus') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['spawns_winky']" (click)="toggleLayer('spawns_winky')">
+              <i class="legend-dot" style="background:#fbbf24; box-shadow:0 0 6px #fbbf24;"></i>
+              <span class="legend-name">{{ 'gta5.layers.spawnsWinky' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('spawns_winky') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['spawns_squaddie']" (click)="toggleLayer('spawns_squaddie')">
+              <i class="legend-dot" style="background:#f87171; box-shadow:0 0 6px #f87171;"></i>
+              <span class="legend-name">{{ 'gta5.layers.spawnsSquaddie' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('spawns_squaddie') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['spawns_dinghy']" (click)="toggleLayer('spawns_dinghy')">
+              <i class="legend-dot" style="background:#60a5fa; box-shadow:0 0 6px #60a5fa;"></i>
+              <span class="legend-name">{{ 'gta5.layers.spawnsDinghy' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('spawns_dinghy') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['spawns_weaponized_dinghy']" (click)="toggleLayer('spawns_weaponized_dinghy')">
+              <i class="legend-dot" style="background:#c084fc; box-shadow:0 0 6px #c084fc;"></i>
+              <span class="legend-name">{{ 'gta5.layers.spawnsWeaponizedDinghy' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('spawns_weaponized_dinghy') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- CAYO 5: Coleccionables Diarios -->
+        <div class="hud-acc" [class.is-open]="accordion['cayo_diarios']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('cayo_diarios')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.cayoPerico.dailyCollectibles' | translate }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(cayoDailyKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(cayoDailyKeys, $event)"
+              [title]="'gta5.cayoPerico.toggleDailies' | translate"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_diarios']">
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['treasure_chests']" (click)="toggleLayer('treasure_chests')">
+              <i class="legend-dot" style="background:#facc15; box-shadow:0 0 6px #facc15;"></i>
+              <span class="legend-name">{{ 'gta5.layers.treasureChests' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('treasure_chests') }}</span>
+            </button>
+            <button type="button" class="legend-btn" [class.is-active]="layerFilters['buried_stashes']" (click)="toggleLayer('buried_stashes')">
+              <i class="legend-dot" style="background:#fb923c; box-shadow:0 0 6px #fb923c;"></i>
+              <span class="legend-name">{{ 'gta5.layers.buriedStashes' | translate }}</span>
+              <span class="legend-count">{{ getCayoCategoryCount('buried_stashes') }}</span>
+            </button>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- ========================================== -->
+      <!-- VISTA LOS SANTOS: ACCORDEONES ORIGINALES  -->
+      <!-- ========================================== -->
+      <ng-container *ngIf="selectedCity === 'ls'">
+<!-- DESPLEGABLE 1: Propiedades -->
       <div class="hud-acc" [class.is-open]="accordion['propiedades']">
         <div class="hud-acc-head">
           <div class="hud-acc-toggle" (click)="toggleSection('propiedades')">
@@ -540,16 +786,47 @@
         </div>
 
         <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['actividades']">
-          <!-- Pendiente de investigar -->
-          <button
-            type="button"
-            class="legend-btn"
-            [class.is-active]="layerFilters['activity']"
-            (click)="toggleLayer('activity')"
-          >
-            <i class="legend-dot dot-activity"></i>
-            <span class="legend-name">{{ 'gta5.layers.activity' | translate }}</span>
-            <span class="legend-count">{{ getCategoryCount('activity') }}</span>
+          <!-- Golf -->
+          <button type="button" class="legend-btn" [class.is-active]="layerFilters['golf']" (click)="toggleLayer('golf')">
+            <i class="legend-dot dot-golf"></i>
+            <span class="legend-name">{{ 'gta5.layers.golf' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('golf') }}</span>
+          </button>
+          <!-- Dardos -->
+          <button type="button" class="legend-btn" [class.is-active]="layerFilters['darts']" (click)="toggleLayer('darts')">
+            <i class="legend-dot dot-darts"></i>
+            <span class="legend-name">{{ 'gta5.layers.darts' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('darts') }}</span>
+          </button>
+          <!-- Tenis -->
+          <button type="button" class="legend-btn" [class.is-active]="layerFilters['tennis']" (click)="toggleLayer('tennis')">
+            <i class="legend-dot dot-tennis"></i>
+            <span class="legend-name">{{ 'gta5.layers.tennis' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('tennis') }}</span>
+          </button>
+          <!-- Saltos Acrobáticos -->
+          <button type="button" class="legend-btn" [class.is-active]="layerFilters['stunt_jump']" (click)="toggleLayer('stunt_jump')">
+            <i class="legend-dot dot-stunt-jump"></i>
+            <span class="legend-name">{{ 'gta5.layers.stuntJump' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('stunt_jump') }}</span>
+          </button>
+          <!-- Bajo el Puente -->
+          <button type="button" class="legend-btn" [class.is-active]="layerFilters['under_the_bridge']" (click)="toggleLayer('under_the_bridge')">
+            <i class="legend-dot dot-under-bridge"></i>
+            <span class="legend-name">{{ 'gta5.layers.underTheBridge' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('under_the_bridge') }}</span>
+          </button>
+          <!-- Vuelos a Cuchillo -->
+          <button type="button" class="legend-btn" [class.is-active]="layerFilters['knife_flight']" (click)="toggleLayer('knife_flight')">
+            <i class="legend-dot dot-knife-flight"></i>
+            <span class="legend-name">{{ 'gta5.layers.knifeFlight' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('knife_flight') }}</span>
+          </button>
+          <!-- Saltos en Paracaídas -->
+          <button type="button" class="legend-btn" [class.is-active]="layerFilters['parachuting']" (click)="toggleLayer('parachuting')">
+            <i class="legend-dot dot-parachuting"></i>
+            <span class="legend-name">{{ 'gta5.layers.parachuting' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('parachuting') }}</span>
           </button>
         </div>
       </div>
@@ -832,6 +1109,7 @@
           </button>
         </div>
       </div>
+      </ng-container>
       </div>
 
     </div>
@@ -860,6 +1138,30 @@
       </div>
 
       <div class="hud-settings-body" *ngIf="settingsOpen">
+        <!-- DESPLEGABLE: Selector de juego -->
+        <div class="hud-acc" [class.is-open]="accordion['juego']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('juego')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.settings.gameSelector' | translate }}</span>
+            </div>
+          </div>
+          <div class="hud-acc-body" *ngIf="accordion['juego']">
+            <div class="hud-field">
+              <label class="hud-field-label" for="gameSelect">{{ 'gta5.settings.game' | translate }}</label>
+              <select
+                id="gameSelect"
+                class="hud-field-select"
+                [(ngModel)]="selectedGame"
+                (change)="switchGame($any($event.target).value)"
+              >
+                <option value="gta5">{{ 'gta5.settings.gta5' | translate }}</option>
+                <option value="gta6">{{ 'gta5.settings.gta6' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
         <!-- DESPLEGABLE: Selector de mapa -->
         <div class="hud-acc" [class.is-open]="accordion['mapa']">
           <div class="hud-acc-head">
@@ -905,8 +1207,9 @@
                 [(ngModel)]="iconTheme"
                 (change)="updateIconStyle()"
               >
-                <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>
-                <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
+                <option value="standard">{{ 'gta5.settings.themeStandard' | translate }}</option>
+                  <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
+                  <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>
               </select>
             </div>
             <div class="hud-field">
@@ -922,28 +1225,12 @@
                 <option value="large">{{ 'gta5.settings.sizeLarge' | translate }}</option>
               </select>
             </div>
-            <div class="hud-field">
-              <label class="hud-field-label" for="hud-zone">{{ 'gta5.settings.jumpToRegion' | translate }}</label>
-              <select
-                id="hud-zone"
-                class="hud-field-select"
-                (change)="onZoneChange($any($event.target).value)"
-              >
-                <option value="all">{{ 'gta5.settings.regionAll' | translate }}</option>
-                <option value="city">{{ 'gta5.settings.regionCity' | translate }}</option>
-                <option value="sandy">{{ 'gta5.settings.regionSandy' | translate }}</option>
-                <option value="paleto">{{ 'gta5.settings.regionPaleto' | translate }}</option>
-                <option value="blaine">{{ 'gta5.settings.regionBlaine' | translate }}</option>
-                <option value="chumash">{{ 'gta5.settings.regionChumash' | translate }}</option>
-              </select>
-            </div>
           </div>
         </div>
 
         <!-- BOTONES DE PIE DE PANEL -->
         <div class="hud-panel-foot">
           <a class="hud-panel-btn hud-panel-btn-home" routerLink="/" [title]="'common.backToHome' | translate">{{ 'common.backToHome' | translate }}</a>
-          <button type="button" class="hud-panel-btn hud-panel-btn-primary" (click)="onZoneChange('all')">{{ 'common.viewGeneral' | translate }}</button>
         </div>
       </div>
     </div>

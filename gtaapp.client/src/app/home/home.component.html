@@ -89,11 +89,11 @@
   <hr class="home-divider" />
   <p class="home-subtitle">{{ 'home.chooseGame' | translate }}</p>
   <div class="home-actions">
-    <a class="home-btn home-btn-gta5" routerLink="/gta5">
+    <a class="home-btn home-btn-gta5" routerLink="/gta5-online">
       <span class="home-btn-title">{{ 'home.gta5Title' | translate }}</span>
       <span class="home-btn-sub">{{ 'home.gta5Sub' | translate }}</span>
     </a>
-    <a class="home-btn home-btn-gta6" routerLink="/gta6">
+    <a class="home-btn home-btn-gta6" routerLink="/gta6-online">
       <span class="home-btn-title">{{ 'home.gta6Title' | translate }}</span>
       <span class="home-btn-sub">{{ 'home.gta6Sub' | translate }}</span>
     </a>
@@ -101,6 +101,30 @@
 
   <div class="home-last-update" [title]="('common.lastUpdate' | translate) + ': ' + ultimaActualizacion + ' (' + ('common.commit' | translate) + ' ' + buildCommit + ')'">
     {{ 'common.lastUpdate' | translate }}: <span class="home-last-update-val">{{ ultimaActualizacion }}</span>
+  </div>
+
+  <!-- BLOQUE DE LANZAMIENTO GTA VI (Cuenta atrás) -->
+  <div class="hud-gta6-launch">
+    <div class="hud-title">{{ 'gta6.hud.launchTitle' | translate }}</div>
+    <div class="hud-cd-sep"></div>
+    <div class="hud-cd">
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.days }}</span>
+        <span class="hud-cd-lab">{{ 'common.days' | translate }}</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.hours }}</span>
+        <span class="hud-cd-lab">{{ 'common.hours' | translate }}</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.minutes }}</span>
+        <span class="hud-cd-lab">{{ 'common.minutes' | translate }}</span>
+      </div>
+      <div class="hud-cd-unit">
+        <span class="hud-cd-num">{{ countdown.seconds }}</span>
+        <span class="hud-cd-lab">{{ 'common.seconds' | translate }}</span>
+      </div>
+    </div>
   </div>
 
   <!-- RECUADRO DE USUARIOS ONLINE (ESQUINA INFERIOR IZQUIERDA) -->

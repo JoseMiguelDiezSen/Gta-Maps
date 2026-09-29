@@ -1,4 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslationService } from '../../i18n';
 
 interface Gta6LegendItem {
@@ -22,10 +23,6 @@ interface Gta6LegendCategory {
 })
 export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
-    // Cuenta atrás: 19 de noviembre a las 00:00 (mes 10 = noviembre, en hora local)
-    readonly countdownTarget = new Date(2026, 10, 19, 0, 0, 0);
-    countdown = { days: '00', hours: '00', minutes: '00', seconds: '00' };
-
     // Telemetría de coordenadas. GTA6 no tiene mapa, así que se queda en 0,0
     mouseCoords = { x: 0, y: 0 };
     coordsCopied = false;
@@ -44,23 +41,14 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     private panStartBgX = 0;
     private panStartBgY = 0;
 
-    readonly     categories: Gta6LegendCategory[] = [
+    readonly categories: Gta6LegendCategory[] = [
         {
             key: 'propiedades',
             title: 'Propiedades',
             items: [
-                { id: 'casa_jason', name: 'Casa de Jason', count: 1, color: '#3498db' },
-                { id: 'casa_lucia', name: 'Casa de Lucia', count: 1, color: '#ff5fa2' }
-            ]
-        },
-        {
-            key: 'vehiculos',
-            title: 'Vehículos',
-            items: [
-                { id: 'ls_customs', name: 'Los Santos Customs', count: 0, color: '#e67e22' },
-                { id: 'hao_garage', name: 'Garaje de Hao', count: 0, color: '#f1c40f' },
-                { id: 'bennys', name: "Benny's Original Motor Works", count: 0, color: '#c0392b' },
-                { id: 'ls_car_meet', name: 'LS Car Meet (Cypress)', count: 0, color: '#16a085' }
+                { id: 'casa_jason', name: 'Casa de Jason', count: 0, color: '#3498db' },
+                { id: 'casa_lucia', name: 'Casa de Lucía', count: 0, color: '#ff5fa2' },
+                { id: 'casa_jason_lucia', name: 'Casa de Jason y Lucía', count: 0, color: '#9b59b6' }
             ]
         },
         {
@@ -74,6 +62,16 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
                 { id: 'cash_factory', name: 'Fábricas de Dinero Falso', count: 0, color: '#16a085' },
                 { id: 'meth_lab', name: 'Laboratorios de Metanfetamina', count: 0, color: '#c0392b' },
                 { id: 'doc_forgery', name: 'Falsificación de Documentos', count: 0, color: '#2980b9' }
+            ]
+        },
+        {
+            key: 'vehiculos',
+            title: 'Vehículos',
+            items: [
+                { id: 'ls_customs', name: 'Los Santos Customs', count: 0, color: '#e67e22' },
+                { id: 'hao_garage', name: 'Garaje de Hao', count: 0, color: '#f1c40f' },
+                { id: 'bennys', name: "Benny's Original Motor Works", count: 0, color: '#c0392b' },
+                { id: 'ls_car_meet', name: 'LS Car Meet (Cypress)', count: 0, color: '#16a085' }
             ]
         },
         {
@@ -154,7 +152,10 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
     readonly policiaKeys: string[] = this.policiaItems.map(i => i.id);
 
-    constructor(readonly translationService: TranslationService) {}
+    constructor(
+        readonly translationService: TranslationService,
+        private router: Router
+    ) {}
 
     get mapTypes() {
         return [
@@ -166,6 +167,7 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
     legendOpen = true;
     settingsOpen = true;
+    selectedGame = 'gta6';
     selectedGameMode: 'story' | 'online' = 'online';
     currentMapType = 'Satellite';
     iconTheme = 'modern';
@@ -183,10 +185,19 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
         coleccionables: false,
         lugares: false,
         policia: false,
-        modo: false,
         mapa: false,
-        zona: false
+        zona: false,
+        juego: false
     };
+
+    switchGame(game: string): void {
+        this.selectedGame = game;
+        if (game === 'gta5') {
+            this.router.navigate(['/gta5-online']);
+        } else {
+            this.router.navigate(['/gta6-online']);
+        }
+    }
 
     layerFilters: { [key: string]: boolean } = [
         ...this.categories.reduce((acc, category) => acc.concat(category.items), [] as Gta6LegendItem[]),
@@ -197,7 +208,6 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     }, {} as { [key: string]: boolean });
 
     private clockInterval: ReturnType<typeof setInterval> | undefined;
-    private countdownInterval: ReturnType<typeof setInterval> | undefined;
 
     get totalItems(): number {
         return this.categories.reduce((sum, category) => sum + category.items.length, 0);
@@ -233,15 +243,11 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.startInGameClock();
-        this.startCountdown();
     }
 
     ngOnDestroy(): void {
         if (this.clockInterval) {
             clearInterval(this.clockInterval);
-        }
-        if (this.countdownInterval) {
-            clearInterval(this.countdownInterval);
         }
     }
 
@@ -251,6 +257,12 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
     getCategoryTitle(category: Gta6LegendCategory): string {
         return this.translationService.t('gta6.categories.' + category.key) || category.title;
+    }
+
+    getItemName(item: Gta6LegendItem): string {
+        const key = 'gta6.items.' + item.id;
+        const translated = this.translationService.t(key);
+        return translated && translated !== key ? translated : item.name;
     }
 
     toggleLegend(): void {
@@ -405,22 +417,5 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
         tick();
         this.clockInterval = setInterval(tick, 30000);
-    }
-
-    private startCountdown(): void {
-        const pad = (n: number): string => String(n).padStart(2, '0');
-
-        const tick = (): void => {
-            const restante = Math.max(0, Math.floor((this.countdownTarget.getTime() - Date.now()) / 1000));
-            this.countdown = {
-                days: pad(Math.floor(restante / 86400)),
-                hours: pad(Math.floor((restante % 86400) / 3600)),
-                minutes: pad(Math.floor((restante % 3600) / 60)),
-                seconds: pad(restante % 60)
-            };
-        };
-
-        tick();
-        this.countdownInterval = setInterval(tick, 1000);
     }
 }

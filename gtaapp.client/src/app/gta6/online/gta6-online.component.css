@@ -62,18 +62,103 @@
   padding: 8px 16px;
 }
 
-/* Misma posicion y medidas que .hud-tl: se alinean en la misma fila */
 .hud-tc {
   top: 4px;
   left: 50%;
-  right: auto;
-  bottom: auto;
   transform: translateX(-50%);
   flex-direction: row;
   align-items: center;
-  gap: 14px;
-  padding: 8px 16px;
+  padding: 5px 8px;
+  border-radius: 14px;
+}
+
+/* Selector de Modo (idéntico a GTA 5) */
+.mode-switch-track {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.mode-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
+  user-select: none;
+}
+
+.mode-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+/* Modo Historia */
+.dot-historia {
+  background: #ff5252;
+  box-shadow: 0 0 6px rgba(255, 82, 82, 0.6);
+}
+
+.mode-historia:hover:not(.is-active) {
+  color: #ff9e9e;
+  background: rgba(255, 82, 82, 0.12);
+  border-color: rgba(255, 82, 82, 0.35);
+}
+
+.mode-historia.is-active {
+  color: #ffd1d1;
+  background: rgba(239, 68, 68, 0.28);
+  border-color: rgba(239, 68, 68, 0.7);
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.mode-historia.is-active .dot-historia {
+  box-shadow: 0 0 8px #ff4d4d, 0 0 14px #ff1a1a;
+  transform: scale(1.15);
+}
+
+/* Modo Online */
+.dot-online {
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+}
+
+.mode-online:hover:not(.is-active) {
+  color: #a7f3d0;
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.mode-online.is-active {
+  color: #b9ffce;
+  background: rgba(34, 197, 94, 0.28);
+  border-color: rgba(34, 197, 94, 0.7);
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.mode-online.is-active .dot-online {
+  box-shadow: 0 0 8px #22c55e, 0 0 14px #15803d;
+  transform: scale(1.15);
 }
 
 /* Cuenta atrás dentro de la barra superior: numeros grandes, letras pequeñas.
@@ -734,3 +819,15 @@
 }
 
 .hud-panel-btn-primary:hover { background: rgba(200, 0, 170, 0.75); }
+
+.hud-panel-btn-home {
+  font-weight: 800;
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+

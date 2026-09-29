@@ -84,6 +84,16 @@ public class GTA5OnlineController : ControllerBase
     }
 
     /// <summary>
+    /// GET /api/gta5/online/cayo-perico
+    /// Puntos de interés, objetivos, armas, vehículos y coleccionables de Cayo Perico.
+    /// </summary>
+    [HttpGet("cayo-perico")]
+    public ActionResult<List<LocationItem>> GetCayoPerico([FromQuery] string? category, [FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetCayoPericoLocations(category, lang).ToList());
+    }
+
+    /// <summary>
     /// GET /api/gta5/online/heists
     /// Catálogo oficial de Golpes (Heists) de GTA Online (Fleeca, Juicio Final, Casino, Cayo Perico...).
     /// </summary>

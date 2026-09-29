@@ -72,6 +72,13 @@ public class LocationsService
         return list.Where(c => c.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
+    public IReadOnlyList<LocationItem> GetCayoPericoLocations(string? category = null, string? lang = null)
+    {
+        var list = LoadJsonFile<LocationItem>("gta5", "online", "cayo_perico.json", lang);
+        if (string.IsNullOrWhiteSpace(category)) return list;
+        return list.Where(c => c.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
+    }
+
     // ==========================================
     // GTA 5 MODO HISTORIA (carpeta: data/gta5/historia/{lang}/)
     // ==========================================

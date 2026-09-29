@@ -4,6 +4,7 @@ import { LocationService } from '../../services/location.service';
 import { LocationItem } from '../../models/location';
 import { CollectibleItem } from '../../models/collectible';
 import { TranslationService } from '../../i18n';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-gta5-online',
@@ -36,10 +37,54 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
      * El mapa Juego está disponible en ambos modos.
      */
     get mapTypes() {
+        if (this.selectedCity === 'cp') {
+            return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Juego'].includes(m.id));
+        }
         return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas', 'Juego'].includes(m.id));
     }
 
     currentMapType = 'Satellite';
+
+    // Selector de Isla / Zona: 'ls' = Los Santos / San Andreas, 'cp' = Cayo Perico
+    selectedCity: 'ls' | 'cp' = 'ls';
+
+    // Cayo Perico - Datos y Categorías
+    cayoPericoLocations: LocationItem[] = [];
+    private cayoPericoMarkers: { marker: L.Marker; location: LocationItem }[] = [];
+
+    readonly cayoPoiKeys = [
+        'infiltration_points',
+        'escape_points',
+        'compound_entry_points',
+        'power_station',
+        'control_tower'
+    ];
+    readonly cayoScopingKeys = [
+        'secondary_targets',
+        'bolt_cutters',
+        'grappling_eq',
+        'guard_clothing',
+        'supply_truck',
+        'cutting_powder',
+        'water_tower'
+    ];
+    readonly cayoWeaponKeys = [
+        'combat_shotgun',
+        'perico_pistol'
+    ];
+    readonly cayoVehicleKeys = [
+        'spawns_forklift',
+        'spawns_manchez_scout',
+        'spawns_verus',
+        'spawns_winky',
+        'spawns_squaddie',
+        'spawns_dinghy',
+        'spawns_weaponized_dinghy'
+    ];
+    readonly cayoDailyKeys = [
+        'treasure_chests',
+        'buried_stashes'
+    ];
 
     // Modo fijo: GTA Online
     readonly selectedGameMode = 'online';
@@ -81,7 +126,13 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Claves de Actividades y Deportes
     readonly activityKeys = [
-        'activity'
+        'golf',
+        'darts',
+        'tennis',
+        'stunt_jump',
+        'under_the_bridge',
+        'knife_flight',
+        'parachuting'
     ];
 
     // Claves de Vehículos y Talleres de GTA Online
@@ -229,7 +280,38 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         fake_ufo: true,
         shipwreck: true,
         cave: true,
-        activity: true
+        activity: true,
+        golf: true,
+        darts: true,
+        tennis: true,
+        stunt_jump: true,
+        under_the_bridge: true,
+        knife_flight: true,
+        parachuting: true,
+        // Cayo Perico
+        infiltration_points: true,
+        escape_points: true,
+        compound_entry_points: true,
+        power_station: true,
+        control_tower: true,
+        secondary_targets: true,
+        bolt_cutters: true,
+        grappling_eq: true,
+        guard_clothing: true,
+        supply_truck: true,
+        cutting_powder: true,
+        water_tower: true,
+        combat_shotgun: true,
+        perico_pistol: true,
+        treasure_chests: true,
+        buried_stashes: true,
+        spawns_forklift: true,
+        spawns_manchez_scout: true,
+        spawns_verus: true,
+        spawns_winky: true,
+        spawns_squaddie: true,
+        spawns_dinghy: true,
+        spawns_weaponized_dinghy: true
     };
 
     // Propiedades y ubicaciones cargadas
@@ -255,9 +337,17 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         coleccionables: false,
         lugares: false,
         mapa: false,
-        zona: false
+        zona: false,
+        juego: false,
+        // Cayo Perico
+        cayo_poi: false,
+        cayo_scoping: false,
+        cayo_armas: false,
+        cayo_vehiculos: false,
+        cayo_diarios: false
     };
 
+    selectedGame = 'gta5';
     selectedZone = 'all';
 
     // Hora del juego en Los Santos (1 minuto en el juego = 2 segundos reales)
@@ -291,18 +381,50 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     constructor(
         private locationService: LocationService,
-        readonly translationService: TranslationService
+        readonly translationService: TranslationService,
+        private router: Router,
+        private route: ActivatedRoute
     ) {
         effect(() => {
             const lang = this.translationService.currentLanguage();
             if (this.map) {
-                this.loadProperties();
-                this.loadCollectibles();
+                if (this.selectedCity === 'cp') {
+                    this.loadCayoPerico();
+                } else {
+                    this.loadProperties();
+                    this.loadCollectibles();
+                }
             }
         });
     }
 
+    switchGame(game: string): void {
+        this.selectedGame = game;
+        if (game === 'gta6') {
+            this.router.navigate(['/gta6-online']);
+        } else {
+            this.router.navigate(['/gta5-online']);
+        }
+    }
+
     ngOnInit(): void {
+        const qCity = this.route.snapshot.queryParamMap.get('city');
+        if (qCity === 'cp') {
+            this.selectedCity = 'cp';
+        }
+        const qLayer = this.route.snapshot.queryParamMap.get('layer');
+        if (qLayer === 'render') this.currentMapType = 'Satellite';
+        else if (qLayer === 'game') this.currentMapType = 'Juego';
+        else if (qLayer === 'print') this.currentMapType = 'Roadmap';
+
+        const qGroups = this.route.snapshot.queryParamMap.get('groups');
+        if (qGroups) {
+            const groupsList = qGroups.split(',');
+            this.cayoPoiKeys.concat(this.cayoScopingKeys, this.cayoWeaponKeys, this.cayoVehicleKeys, this.cayoDailyKeys).forEach(k => {
+                this.layerFilters[k] = groupsList.includes(k);
+            });
+        }
+
         this.startInGameClock();
 
         (window as any)._gtaRenameMarker = (id: string) => {
@@ -364,7 +486,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             'icon-size-standard',
             'icon-size-large',
             'icon-theme-modern',
-            'icon-theme-classic'
+            'icon-theme-classic',
+            'icon-theme-standard'
         );
         container.classList.add(`icon-size-${this.iconSize}`, `icon-theme-${this.iconTheme}`);
     }
@@ -548,9 +671,29 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private readonly onWindowResize = () => {
         if (this.map) {
-            this.map.setMinZoom(this.computeMinZoom(this.imageSize));
+            if (this.selectedCity === 'cp') {
+                const minZoom = this.computeCayoMinZoom();
+                this.map.setMinZoom(minZoom);
+                if (this.map.getZoom() < minZoom) {
+                    this.map.setZoom(minZoom);
+                }
+            } else {
+                this.map.setMinZoom(this.computeMinZoom(this.imageSize));
+            }
         }
     };
+
+    private computeCayoMinZoom(): number {
+        const el = document.getElementById('gta-map');
+        const width = el ? el.clientWidth : 0;
+        const height = el ? el.clientHeight : 0;
+        if (width <= 0) return 3.63;
+        // El mapa de Rockstar mide 155 de ancho y 148 de alto en coordenadas.
+        // zoom mínimo para cubrir siempre el 100% de la pantalla (sin ningún relleno ni a los lados ni arriba/abajo)
+        const zoomForWidth = Math.log2(width / 155);
+        const zoomForHeight = Math.log2(height / 148);
+        return Math.max(1, Math.max(zoomForWidth, zoomForHeight));
+    }
 
     private computeMinZoom(imageSize: number): number {
         const el = document.getElementById('gta-map');
@@ -566,66 +709,120 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             this.map.remove();
         }
 
-        const mapBounds = L.latLngBounds([-64, 0], [0, 64]);
-        const minZoom = this.computeMinZoom(this.imageSize);
+        const mapContainer = document.getElementById('gta-map');
 
-        this.map = L.map('gta-map', {
-            crs: L.CRS.Simple,
-            minZoom,
-            maxZoom: this.maxZoom,
-            zoom: minZoom,
-            center: [-36, 30],
-            maxBounds: mapBounds,
-            zoomControl: false,
-            attributionControl: false
-        });
-
-        let tileUrl: string;
-        let tileClass = '';
-
-        if (mapType === 'UV' || mapType === 'UV2') {
-            tileUrl = 'https://tiles.mapgenie.io/games/gta5/los-santos/uv/{z}/{x}/{y}.jpg';
-            if (mapType === 'UV2') {
-                tileClass = 'leaflet-tile-uv2';
+        if (this.selectedCity === 'cp') {
+            let layerSlug = 'render_island_heist';
+            let oceanColor = '#0C2A47';
+            if (mapType === 'Roadmap' || mapType === 'Atlas') {
+                layerSlug = 'print_island_heist';
+                oceanColor = '#3FA7C4';
+            } else if (mapType === 'Juego') {
+                layerSlug = 'game_island_heist';
+                oceanColor = '#2A3B43';
             }
-        } else if (mapType === 'Juego') {
-            tileUrl = `assets/Roadmap/{z}_{x}_{y}.jpg`;
-            tileClass = 'leaflet-tile-juego';
+
+            if (mapContainer) {
+                mapContainer.style.backgroundColor = oceanColor;
+            }
+
+            const cayoMinZoom = this.computeCayoMinZoom();
+            const cayoBounds = L.latLngBounds([[-148, 0], [0, 155]]);
+            this.map = L.map('gta-map', {
+                crs: L.CRS.Simple,
+                minZoom: cayoMinZoom,
+                maxZoom: 7,
+                zoom: cayoMinZoom,
+                zoomSnap: 0,
+                center: [-74, 77.5],
+                maxBounds: cayoBounds,
+                maxBoundsViscosity: 1.0,
+                zoomControl: false,
+                attributionControl: false
+            });
+
+            // Mapa oficial de Rockstar Games Social Club (256x256 px, zooms 0-6 nativos)
+            const tileUrl = `https://s.rsg.sc/sc/images/games/GTAV/map/${layerSlug}/{z}/{x}/{y}.jpg`;
+
+            const tileLayer = L.tileLayer(tileUrl, {
+                tileSize: 256,
+                minZoom: 0,
+                maxNativeZoom: 6,
+                maxZoom: 7,
+                noWrap: true,
+                bounds: cayoBounds
+            });
+            tileLayer.addTo(this.map);
+
+            this.playerMarkersLayer = L.layerGroup().addTo(this.map);
+
+            this.loadCayoPerico();
         } else {
-            tileUrl = `assets/${mapType}/{z}_{x}_{y}.jpg`;
+            if (mapContainer) {
+                mapContainer.style.backgroundColor = '#0b0f14';
+            }
+            const mapBounds = L.latLngBounds([-64, 0], [0, 64]);
+            const minZoom = this.computeMinZoom(this.imageSize);
+
+            this.map = L.map('gta-map', {
+                crs: L.CRS.Simple,
+                minZoom,
+                maxZoom: this.maxZoom,
+                zoom: minZoom,
+                center: [-36, 30],
+                maxBounds: mapBounds,
+                zoomControl: false,
+                attributionControl: false
+            });
+
+            let tileUrl: string;
+            let tileClass = '';
+
+            if (mapType === 'UV' || mapType === 'UV2') {
+                tileUrl = 'https://tiles.mapgenie.io/games/gta5/los-santos/uv/{z}/{x}/{y}.jpg';
+                if (mapType === 'UV2') {
+                    tileClass = 'leaflet-tile-uv2';
+                }
+            } else if (mapType === 'Juego') {
+                tileUrl = `assets/Roadmap/{z}_{x}_{y}.jpg`;
+                tileClass = 'leaflet-tile-juego';
+            } else {
+                tileUrl = `assets/${mapType}/{z}_{x}_{y}.jpg`;
+            }
+
+            const tileLayer = L.tileLayer(tileUrl, {
+                tileSize: 256,
+                minZoom: 0,
+                maxNativeZoom: 7,
+                maxZoom: this.maxZoom,
+                errorTileUrl: mapType.startsWith('UV') ? undefined : `assets/${mapType === 'Juego' ? 'Roadmap' : mapType}/empty.jpg`,
+                noWrap: true,
+                className: tileClass
+            });
+            tileLayer.addTo(this.map);
+
+            this.playerMarkersLayer = L.layerGroup().addTo(this.map);
+
+            this.loadProperties();
+            this.loadCollectibles();
         }
 
-        const tileLayer = L.tileLayer(tileUrl, {
-            tileSize: 256,
-            minZoom: 0,
-            maxNativeZoom: 7,
-            maxZoom: this.maxZoom,
-            errorTileUrl: mapType.startsWith('UV') ? undefined : `assets/${mapType === 'Juego' ? 'Roadmap' : mapType}/empty.jpg`,
-            noWrap: true,
-            className: tileClass
-        });
-
-        tileLayer.addTo(this.map);
-
-        // Capa para marcadores del jugador creados con clic derecho
-        this.playerMarkersLayer = L.layerGroup().addTo(this.map);
-
-        // Cargar dataset de negocios y propiedades
-        this.loadProperties();
-
-        // Cargar dataset de coleccionables de GTA Online
-        this.loadCollectibles();
-
-        // Aplicar estilos y escala de iconos
         this.updateIconStyle();
 
-        // Seguir movimiento del ratón para telemetría en tiempo real
         this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
             this.mouseCoords = this.latLngToWorld(e.latlng.lat, e.latlng.lng);
         });
     }
 
     worldToLatLng(x: number, y: number): [number, number] {
+        if (this.selectedCity === 'cp') {
+            const ptX = ((x - 3700) / 2000) * 10000;
+            const ptY = ((-4150 - y) / 2000) * 10000;
+            const lat = -ptY / 64;
+            const lng = ptX / 64;
+            return [lat, lng];
+        }
+
         const originX = 3753.6;
         const originY = 5529.6;
         const scale = 0.660; // 0.660 px por metro oficial
@@ -639,6 +836,17 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     latLngToWorld(lat: number, lng: number): { x: number; y: number } {
+        if (this.selectedCity === 'cp') {
+            const ptX = lng * 64;
+            const ptY = -lat * 64;
+            const x = 3700 + (ptX / 10000) * 2000;
+            const y = -4150 - (ptY / 10000) * 2000;
+            return {
+                x: Math.round(x * 10) / 10,
+                y: Math.round(y * 10) / 10
+            };
+        }
+
         const originX = 3753.6;
         const originY = 5529.6;
         const scale = 0.660; // 0.660 px por metro oficial
@@ -653,6 +861,104 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             x: Math.round(x * 10) / 10,
             y: Math.round(y * 10) / 10
         };
+    }
+
+    switchCity(city: 'ls' | 'cp'): void {
+        if (this.selectedCity === city) return;
+        this.selectedCity = city;
+        if (this.selectedCity === 'cp' && (this.currentMapType === 'UV' || this.currentMapType === 'UV2')) {
+            this.currentMapType = 'Satellite';
+        }
+        this.initMap(this.currentMapType);
+    }
+
+    toggleCity(): void {
+        this.switchCity(this.selectedCity === 'ls' ? 'cp' : 'ls');
+    }
+
+    private loadCayoPerico(): void {
+        this.locationService.getCayoPericoLocations().subscribe({
+            next: (locations) => {
+                this.cayoPericoLocations = locations;
+                locations.forEach(loc => {
+                    if (this.layerFilters[loc.category] === undefined) {
+                        this.layerFilters[loc.category] = true;
+                    }
+                });
+                this.renderCayoPericoMarkers();
+            },
+            error: (err) => console.error('Error al cargar Cayo Perico:', err)
+        });
+    }
+
+    private renderCayoPericoMarkers(): void {
+        const map = this.map;
+        if (!map || this.selectedCity !== 'cp') return;
+
+        this.cayoPericoMarkers.forEach(m => m.marker.remove());
+        this.cayoPericoMarkers = [];
+
+        this.cayoPericoLocations.forEach(loc => {
+            if (this.layerFilters[loc.category] === false) return;
+
+            const [lat, lng] = this.worldToLatLng(loc.position.x, loc.position.y);
+
+            const badgeColor = loc.badge.color || '#f97316';
+            const badgeSymbol = loc.badge.symbol || '•';
+
+            const icon = L.divIcon({
+                className: 'gta-pin-wrapper',
+                html: `
+                    <div class="gta-pin gta-pin-${loc.category}" style="--pin-color: ${badgeColor}; border-color: ${badgeColor};">
+                        <span class="gta-pin-symbol" style="color: ${badgeColor}; font-weight: 800;">${badgeSymbol}</span>
+                    </div>
+                `,
+                iconSize: [30, 30],
+                iconAnchor: [15, 30],
+                popupAnchor: [0, -28]
+            });
+
+            const featuresHtml = loc.features && loc.features.length > 0
+                ? `<ul class="popup-features">${loc.features.map(f => `<li>${f}</li>`).join('')}</ul>`
+                : '';
+
+            const imageHtml = loc.imageUrl
+                ? `<div class="popup-image-box"><img src="${loc.imageUrl}" alt="${loc.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
+                : '';
+
+            const popupHtml = `
+                <div class="gta-popup-card">
+                    ${imageHtml}
+                    <div class="popup-banner" style="background: linear-gradient(135deg, ${badgeColor}33, #0b0f14 85%); border-bottom: 2px solid ${badgeColor};">
+                        <span class="popup-badge" style="color: ${badgeColor}; border-color: ${badgeColor}66">${loc.categoryLabel}</span>
+                        <h4 class="popup-title">${loc.name}</h4>
+                        <div class="popup-zone">🌴 ${loc.zone}</div>
+                    </div>
+                    <div class="popup-content">
+                        <p class="popup-desc">${loc.description}</p>
+                        ${featuresHtml}
+                        <div class="popup-row" style="margin-top: 8px; opacity: 0.7; font-size: 11px;">
+                            <span>Coordenadas:</span> <span>X: ${loc.position.x.toFixed(1)}, Y: ${loc.position.y.toFixed(1)}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const marker = L.marker([lat, lng], { icon })
+                .bindPopup(popupHtml, { maxWidth: 300, className: 'gta-leaflet-popup' })
+                .bindTooltip(`<b>${loc.name}</b><br><span style="color:${badgeColor}">${loc.categoryLabel}</span>`, {
+                    direction: 'top',
+                    offset: [0, -26],
+                    className: 'gta-leaflet-tooltip'
+                });
+
+            marker.addTo(map);
+            this.cayoPericoMarkers.push({ marker, location: loc });
+        });
+    }
+
+    getCayoCategoryCount(categoryKey: string): number {
+        return this.cayoPericoLocations.filter(loc => loc.category === categoryKey).length;
     }
 
     private loadProperties(): void {
@@ -713,6 +1019,13 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             if (p.category === 'fire_station' && (!pinSymbol || pinSymbol === 'BOM')) pinSymbol = '🚒';
             if (p.category === 'car_wash') pinSymbol = '🚿';
             if (p.category === 'arena_war') pinSymbol = '🏟️';
+            if (p.category === 'golf') pinSymbol = '⛳';
+            if (p.category === 'darts') pinSymbol = '🎯';
+            if (p.category === 'tennis') pinSymbol = '🎾';
+            if (p.category === 'stunt_jump') pinSymbol = '🏎️';
+            if (p.category === 'under_the_bridge') pinSymbol = '🌉';
+            if (p.category === 'knife_flight') pinSymbol = '✈️';
+            if (p.category === 'parachuting') pinSymbol = '🪂';
 
             const pinInnerHtml = `<span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span>`;
 
@@ -853,8 +1166,12 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     toggleLayer(categoryKey: string): void {
         const current = this.layerFilters[categoryKey] !== false;
         this.layerFilters[categoryKey] = !current;
-        this.renderPropertyMarkers();
-        this.renderCollectibleMarkers();
+        if (this.selectedCity === 'cp') {
+            this.renderCayoPericoMarkers();
+        } else {
+            this.renderPropertyMarkers();
+            this.renderCollectibleMarkers();
+        }
     }
 
     zoomToCharacter(char: LocationItem, event?: MouseEvent): void {
@@ -907,8 +1224,12 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         Object.keys(this.layerFilters).forEach(key => {
             this.layerFilters[key] = state;
         });
-        this.renderPropertyMarkers();
-        this.renderCollectibleMarkers();
+        if (this.selectedCity === 'cp') {
+            this.renderCayoPericoMarkers();
+        } else {
+            this.renderPropertyMarkers();
+            this.renderCollectibleMarkers();
+        }
     }
 
     toggleLegendSection(section: string): void {
@@ -934,13 +1255,22 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         keys.forEach(k => {
             this.layerFilters[k] = targetState;
         });
-        this.renderPropertyMarkers();
-        this.renderCollectibleMarkers();
+        if (this.selectedCity === 'cp') {
+            this.renderCayoPericoMarkers();
+        } else {
+            this.renderPropertyMarkers();
+            this.renderCollectibleMarkers();
+        }
     }
 
     onZoneChange(zone: string): void {
         this.selectedZone = zone;
         if (!this.map) return;
+
+        if (this.selectedCity === 'cp') {
+            this.map.flyTo([-75, 120], this.computeCayoMinZoom(), { duration: 1 });
+            return;
+        }
 
         switch (zone) {
             case 'city':

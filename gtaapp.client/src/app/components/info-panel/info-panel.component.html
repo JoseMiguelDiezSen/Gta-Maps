@@ -592,12 +592,7 @@
       <div class="mdetail-container" [style.--m-accent]="getMissionAccentColor(selectedMission)">
 
         <!-- Barra superior de navegación interna -->
-        <div class="mdetail-top-bar">
-          <button type="button" class="mdetail-back-action" (click)="closeMissionDetail()">
-            <i class="fa-solid fa-arrow-left"></i>
-            <span>{{ 'transports.missions.backToMissions' | translate }}</span>
-          </button>
-
+        <div class="mdetail-top-bar is-centered">
           <div class="mdetail-stepper">
             <button
               type="button"
@@ -1001,12 +996,7 @@
       <div class="mdetail-container" [style.--m-accent]="getStrangerAccentColor(selectedStranger)">
 
         <!-- Barra superior de navegación interna -->
-        <div class="mdetail-top-bar">
-          <button type="button" class="mdetail-back-action" (click)="closeStrangerDetail()">
-            <i class="fa-solid fa-arrow-left"></i>
-            <span>{{ 'transports.strangers.backToStrangers' | translate }}</span>
-          </button>
-
+        <div class="mdetail-top-bar is-centered">
           <div class="mdetail-stepper">
             <button
               type="button"
@@ -1137,13 +1127,6 @@
               </div>
             </div>
 
-            <!-- Enlace externo a GTABase -->
-            <div class="stranger-ext-guide" *ngIf="selectedStranger.walkthroughUrl">
-              <a [href]="selectedStranger.walkthroughUrl" target="_blank" rel="noopener noreferrer" class="stranger-guide-btn">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span>{{ 'transports.strangers.viewGuide' | translate }}</span>
-              </a>
-            </div>
 
             <!-- Botón de retorno al pie -->
             <div class="mdetail-bottom-action">
@@ -1338,12 +1321,7 @@
       <div class="mdetail-container" [style.--m-accent]="getHeistAccentColor(selectedHeist)">
 
         <!-- Barra superior de navegación interna -->
-        <div class="mdetail-top-bar">
-          <button type="button" class="mdetail-back-action" (click)="closeHeistDetail()">
-            <i class="fa-solid fa-arrow-left"></i>
-            <span>{{ 'transports.heists.backToHeists' | translate }}</span>
-          </button>
-
+        <div class="mdetail-top-bar is-centered">
           <div class="mdetail-stepper">
             <button
               type="button"

@@ -57,7 +57,7 @@
 
 /* ===== PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante con estética HUD) ===== */
 .hud-tc {
-  top: 10px;
+  top: 4px;
   left: 50%;
   transform: translateX(-50%);
   flex-direction: row;
@@ -677,6 +677,9 @@
 
 .dot-story { background: #2ecc71; box-shadow: 0 0 6px #2ecc71; }
 .dot-safehouse { background: #2ecc71; box-shadow: 0 0 6px #2ecc71; }
+.dot-michael { background: #3498db; box-shadow: 0 0 6px #3498db; }
+.dot-franklin { background: #2ecc71; box-shadow: 0 0 6px #2ecc71; }
+.dot-trevor { background: #e67e22; box-shadow: 0 0 6px #e67e22; }
 .dot-letter-scrap { background: #84cc16; box-shadow: 0 0 6px #84cc16; }
 .dot-spaceship-part { background: #06b6d4; box-shadow: 0 0 6px #06b6d4; }
 .dot-nuclear-waste { background: #eab308; box-shadow: 0 0 6px #eab308; }
@@ -691,6 +694,13 @@
 .dot-shipwreck { background: #2980b9; box-shadow: 0 0 6px #2980b9; }
 .dot-cave { background: #a0522d; box-shadow: 0 0 6px #a0522d; }
 .dot-activity { background: #00897b; box-shadow: 0 0 6px #00897b; }
+.dot-golf { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+.dot-darts { background: #f97316; box-shadow: 0 0 6px #f97316; }
+.dot-tennis { background: #eab308; box-shadow: 0 0 6px #eab308; }
+.dot-stunt-jump { background: #ec4899; box-shadow: 0 0 6px #ec4899; }
+.dot-under-bridge { background: #06b6d4; box-shadow: 0 0 6px #06b6d4; }
+.dot-knife-flight { background: #8b5cf6; box-shadow: 0 0 6px #8b5cf6; }
+.dot-parachuting { background: #3b82f6; box-shadow: 0 0 6px #3b82f6; }
 .dot-nightclub { background: #e91e63; box-shadow: 0 0 6px #e91e63; }
 .dot-arcade { background: #00cec9; box-shadow: 0 0 6px #00cec9; }
 .dot-ceo { background: #2980b9; box-shadow: 0 0 6px #2980b9; }

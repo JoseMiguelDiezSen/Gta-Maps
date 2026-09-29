@@ -1,13 +1,10 @@
 export type LanguageCode = 'es' | 'en';
-
 export interface LanguageInfo {
   code: LanguageCode;
   label: string;
   shortLabel: string;
 }
-
 export type TranslationParams = Record<string, string | number>;
-
 export interface TranslationSchema {
   common: {
     backToHome: string;
@@ -73,12 +70,17 @@ export interface TranslationSchema {
       storyMode: string;
       onlineDesc: string;
       storyDesc: string;
+      gameSelector: string;
+      game: string;
+      gta5: string;
+      gta6: string;
       mapSelector: string;
       baseMap: string;
       iconStyle: string;
       markerTheme: string;
-      themeModern: string;
+      themeStandard: string;
       themeClassic: string;
+      themeModern: string;
       iconSize: string;
       sizeCompact: string;
       sizeStandard: string;
@@ -152,6 +154,13 @@ export interface TranslationSchema {
       carWashShort: string;
       stripClub: string;
       activity: string;
+      golf: string;
+      darts: string;
+      tennis: string;
+      stuntJump: string;
+      underTheBridge: string;
+      knifeFlight: string;
+      parachuting: string;
       fakeUfo: string;
       shipwreck: string;
       cave: string;
@@ -168,8 +177,49 @@ export interface TranslationSchema {
       nuclearWaste: string;
       epsilonTract: string;
       safehouses: string;
+      safehouseMichael: string;
+      safehouseFranklin: string;
+      safehouseTrevor: string;
       emptyCollectiblesStory: string;
       emptyCharacters: string;
+      escapePoints: string;
+      infiltrationPoints: string;
+      compoundEntryPoints: string;
+      powerStation: string;
+      controlTower: string;
+      secondaryTargets: string;
+      boltCutters: string;
+      grapplingEq: string;
+      guardClothing: string;
+      supplyTruck: string;
+      cuttingPowder: string;
+      waterTower: string;
+      combatShotgun: string;
+      pericoPistol: string;
+      treasureChests: string;
+      buriedStashes: string;
+      spawnsForklift: string;
+      spawnsManchezScout: string;
+      spawnsVerus: string;
+      spawnsWinky: string;
+      spawnsSquaddie: string;
+      spawnsDinghy: string;
+      spawnsWeaponizedDinghy: string;
+    };
+    cayoPerico: {
+      islandTitle: string;
+      losSantosTitle: string;
+      badgeCount: string;
+      heistPoi: string;
+      heistScoping: string;
+      weapons: string;
+      vehicles: string;
+      dailyCollectibles: string;
+      togglePoi: string;
+      toggleScoping: string;
+      toggleWeapons: string;
+      toggleVehicles: string;
+      toggleDailies: string;
     };
     checkboxTitles: {
       toggleProperties: string;
@@ -204,6 +254,11 @@ export interface TranslationSchema {
       coleccionables: string;
       lugares: string;
       toggleAll: string;
+    };
+    items: {
+      casa_jason: string;
+      casa_lucia: string;
+      casa_jason_lucia: string;
     };
   };
   transports: {

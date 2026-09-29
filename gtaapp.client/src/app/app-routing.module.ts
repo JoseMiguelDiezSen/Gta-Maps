@@ -14,19 +14,23 @@ const routes: Routes = [
     // ── GTA V ────────────────────────────────────────────────────────────────
     // /gta5 y /gta5online van directo al Online — igual que siempre desde la home
     // Dentro del mapa hay botón para cambiar a Historia (/gta5/historia o /gta5historia)
-    { path: 'gta5',          component: Gta5OnlineComponent },
-    { path: 'gta5online',    component: Gta5OnlineComponent },
-    { path: 'gta5/online',   component: Gta5OnlineComponent },
-    { path: 'gta5/historia', component: Gta5HistoriaComponent },
-    { path: 'gta5historia',  component: Gta5HistoriaComponent },
-    { path: 'gt5',           redirectTo: '/gta5', pathMatch: 'full' },
+    { path: 'gta5-online',   component: Gta5OnlineComponent },
+    { path: 'gta5-historia', component: Gta5HistoriaComponent },
+    { path: 'gta6-online',   component: Gta6OnlineComponent },
+    { path: 'gta6-historia', component: Gta6HistoriaComponent },
 
-    // ── GTA VI ───────────────────────────────────────────────────────────────
-    { path: 'gta6',          component: Gta6OnlineComponent },
-    { path: 'gta6online',    component: Gta6OnlineComponent },
-    { path: 'gta6/online',   component: Gta6OnlineComponent },
-    { path: 'gta6/historia', component: Gta6HistoriaComponent },
-    { path: 'gta6historia',  component: Gta6HistoriaComponent },
+    // Redirecciones por compatibilidad
+    { path: 'gta5',          redirectTo: '/gta5-online', pathMatch: 'full' },
+    { path: 'gta5online',    redirectTo: '/gta5-online', pathMatch: 'full' },
+    { path: 'gta5/online',   redirectTo: '/gta5-online', pathMatch: 'full' },
+    { path: 'gta5/historia', redirectTo: '/gta5-historia', pathMatch: 'full' },
+    { path: 'gta5historia',  redirectTo: '/gta5-historia', pathMatch: 'full' },
+    { path: 'gt5',           redirectTo: '/gta5-online', pathMatch: 'full' },
+    { path: 'gta6',          redirectTo: '/gta6-online', pathMatch: 'full' },
+    { path: 'gta6online',    redirectTo: '/gta6-online', pathMatch: 'full' },
+    { path: 'gta6/online',   redirectTo: '/gta6-online', pathMatch: 'full' },
+    { path: 'gta6/historia', redirectTo: '/gta6-historia', pathMatch: 'full' },
+    { path: 'gta6historia',  redirectTo: '/gta6-historia', pathMatch: 'full' },
 
     { path: '**', redirectTo: '/home' }
 ];

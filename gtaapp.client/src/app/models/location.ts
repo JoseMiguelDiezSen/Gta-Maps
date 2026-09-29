@@ -51,6 +51,13 @@ export type LocationCategory =
   | 'shipwreck'
   | 'cave'
   | 'activity'
+  | 'golf'
+  | 'darts'
+  | 'tennis'
+  | 'stunt_jump'
+  | 'under_the_bridge'
+  | 'knife_flight'
+  | 'parachuting'
   | 'character';
 
 export interface LocationItem {

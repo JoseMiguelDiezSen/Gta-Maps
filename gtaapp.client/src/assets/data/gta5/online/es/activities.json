@@ -1,1 +1,3590 @@
-[]
+[
+  {
+    "id": "activity-golf-1",
+    "name": "Club de Golf de Los Santos",
+    "category": "golf",
+    "categoryLabel": "Golf",
+    "gameMode": "both",
+    "price": 100,
+    "priceFormatted": "$100 por partida",
+    "zone": "Richman, Los Santos",
+    "description": "Campo de golf profesional de 9 hoyos. Juega solo o contra rivales (Michael, Franklin, Trevor). Completa 9 hoyos a la par o bajo par para el 100% del modo historia.",
+    "features": [
+      "Recorrido completo de 9 hoyos",
+      "Requisito oficial para el 100%",
+      "Disponible en solitario y con amigos"
+    ],
+    "position": {
+      "x": -1367.6,
+      "y": 114.9,
+      "z": 53.6
+    },
+    "badge": {
+      "icon": "golf",
+      "color": "#22c55e",
+      "symbol": "⛳"
+    }
+  },
+  {
+    "id": "activity-darts-1",
+    "name": "Dardos - Yellow Jack Inn",
+    "category": "darts",
+    "categoryLabel": "Dardos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Grand Senora Desert",
+    "description": "Diana de dardos en el clásico bar Yellow Jack Inn del desierto de Senora. Gana una partida de 301 cerrando con doble para el requisito del 100%.",
+    "features": [
+      "Modalidad de juego 301 con salida en doble",
+      "Requisito oficial para el 100%",
+      "Partidas individuales y con acompañantes"
+    ],
+    "position": {
+      "x": 1990.2,
+      "y": 3053.4,
+      "z": 47.2
+    },
+    "badge": {
+      "icon": "bullseye",
+      "color": "#f97316",
+      "symbol": "🎯"
+    }
+  },
+  {
+    "id": "activity-tennis-1",
+    "name": "Pistas de Tenis - Vespucci Beach (Corte 1)",
+    "category": "tennis",
+    "categoryLabel": "Tenis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Vespucci Beach",
+    "description": "Cancha de tenis reglamentaria en Vespucci Beach. Gana al menos 1 set de tenis contra cualquier rival para el requisito del 100% de la historia.",
+    "features": [
+      "Partidos de 1, 3 o 5 sets",
+      "Requisito para 100%",
+      "Golpes con efecto, globos y remates"
+    ],
+    "position": {
+      "x": -1162.6,
+      "y": -1628.4,
+      "z": 3.4
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-2",
+    "name": "Pistas de Tenis - Vinewood Hotel",
+    "category": "tennis",
+    "categoryLabel": "Tenis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Vinewood",
+    "description": "Cancha de tenis reglamentaria en Vinewood. Gana al menos 1 set de tenis contra cualquier rival para el requisito del 100% de la historia.",
+    "features": [
+      "Partidos de 1, 3 o 5 sets",
+      "Requisito para 100%",
+      "Golpes con efecto, globos y remates"
+    ],
+    "position": {
+      "x": 479.8,
+      "y": -234.9,
+      "z": 52.8
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-3",
+    "name": "Pista de Tenis - Mansión Michael",
+    "category": "tennis",
+    "categoryLabel": "Tenis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Rockford Hills",
+    "description": "Cancha de tenis reglamentaria en Rockford Hills. Gana al menos 1 set de tenis contra cualquier rival para el requisito del 100% de la historia.",
+    "features": [
+      "Partidos de 1, 3 o 5 sets",
+      "Requisito para 100%",
+      "Golpes con efecto, globos y remates"
+    ],
+    "position": {
+      "x": -774.2,
+      "y": 161.4,
+      "z": 66.5
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-4",
+    "name": "Pistas de Tenis - Weazel Courts",
+    "category": "tennis",
+    "categoryLabel": "Tenis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Morningwood",
+    "description": "Cancha de tenis reglamentaria en Morningwood. Gana al menos 1 set de tenis contra cualquier rival para el requisito del 100% de la historia.",
+    "features": [
+      "Partidos de 1, 3 o 5 sets",
+      "Requisito para 100%",
+      "Golpes con efecto, globos y remates"
+    ],
+    "position": {
+      "x": -379.2,
+      "y": 265.4,
+      "z": 83
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-5",
+    "name": "Pistas de Tenis - Hotel Richman",
+    "category": "tennis",
+    "categoryLabel": "Tenis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Richman",
+    "description": "Cancha de tenis reglamentaria en Richman. Gana al menos 1 set de tenis contra cualquier rival para el requisito del 100% de la historia.",
+    "features": [
+      "Partidos de 1, 3 o 5 sets",
+      "Requisito para 100%",
+      "Golpes con efecto, globos y remates"
+    ],
+    "position": {
+      "x": -1227,
+      "y": 285.8,
+      "z": 64.9
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-6",
+    "name": "Pistas de Tenis - Chumash Pacific",
+    "category": "tennis",
+    "categoryLabel": "Tenis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Chumash",
+    "description": "Cancha de tenis reglamentaria en Chumash. Gana al menos 1 set de tenis contra cualquier rival para el requisito del 100% de la historia.",
+    "features": [
+      "Partidos de 1, 3 o 5 sets",
+      "Requisito para 100%",
+      "Golpes con efecto, globos y remates"
+    ],
+    "position": {
+      "x": -2863,
+      "y": 44,
+      "z": 11.6
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-7",
+    "name": "Pistas de Tenis - Universidad ULSA",
+    "category": "tennis",
+    "categoryLabel": "Tenis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Richman / ULSA",
+    "description": "Cancha de tenis reglamentaria en Richman / ULSA. Gana al menos 1 set de tenis contra cualquier rival para el requisito del 100% de la historia.",
+    "features": [
+      "Partidos de 1, 3 o 5 sets",
+      "Requisito para 100%",
+      "Golpes con efecto, globos y remates"
+    ],
+    "position": {
+      "x": -1742,
+      "y": 167,
+      "z": 64.4
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-8",
+    "name": "Pistas de Tenis - Vinewood Hills",
+    "category": "tennis",
+    "categoryLabel": "Tenis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Vinewood Hills",
+    "description": "Cancha de tenis reglamentaria en Vinewood Hills. Gana al menos 1 set de tenis contra cualquier rival para el requisito del 100% de la historia.",
+    "features": [
+      "Partidos de 1, 3 o 5 sets",
+      "Requisito para 100%",
+      "Golpes con efecto, globos y remates"
+    ],
+    "position": {
+      "x": -234,
+      "y": 504,
+      "z": 120
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-1",
+    "name": "Salto Acrobático #1",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "Salto acrobático único #1 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 2.1,
+      "y": 1720.5,
+      "z": 224.4
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-2",
+    "name": "Salto Acrobático #2",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #2 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -437.4,
+      "y": -1196.3,
+      "z": 53
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-3",
+    "name": "Salto Acrobático #3",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Salto acrobático único #3 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 466.7,
+      "y": 4319.4,
+      "z": 60
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-4",
+    "name": "Salto Acrobático #4",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Salto acrobático único #4 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -166.3,
+      "y": 6578.9,
+      "z": 12.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-5",
+    "name": "Salto Acrobático #5",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "Salto acrobático único #5 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -977.3,
+      "y": 4180.2,
+      "z": 133.4
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-6",
+    "name": "Salto Acrobático #6",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #6 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -7.6,
+      "y": -1037.7,
+      "z": 37.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-7",
+    "name": "Salto Acrobático #7",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #7 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -268.1,
+      "y": -770.6,
+      "z": 55.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-8",
+    "name": "Salto Acrobático #8",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #8 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -86.2,
+      "y": -537.1,
+      "z": 38.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-9",
+    "name": "Salto Acrobático #9",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Vespucci / Del Perro",
+    "description": "Salto acrobático único #9 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -1594.8,
+      "y": -762.4,
+      "z": 20.9
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-10",
+    "name": "Salto Acrobático #10",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Salto acrobático único #10 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -248.7,
+      "y": -215.4,
+      "z": 47.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-11",
+    "name": "Salto Acrobático #11",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Salto acrobático único #11 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -1442.9,
+      "y": 403,
+      "z": 109.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-12",
+    "name": "Salto Acrobático #12",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Salto acrobático único #12 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 3352,
+      "y": 5156.3,
+      "z": 18.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-13",
+    "name": "Salto Acrobático #13",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Salto acrobático único #13 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 1687.5,
+      "y": 2340.3,
+      "z": 73.4
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-14",
+    "name": "Salto Acrobático #14",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #14 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 307.4,
+      "y": -621,
+      "z": 42.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-15",
+    "name": "Salto Acrobático #15",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Vespucci / Del Perro",
+    "description": "Salto acrobático único #15 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -882.8,
+      "y": -854.3,
+      "z": 17.6
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-16",
+    "name": "Salto Acrobático #16",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #16 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 364.7,
+      "y": -1163,
+      "z": 28.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-17",
+    "name": "Salto Acrobático #17",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #17 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 396.1,
+      "y": -1656.2,
+      "z": 48
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-18",
+    "name": "Salto Acrobático #18",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #18 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 52.5,
+      "y": -779.2,
+      "z": 42.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-19",
+    "name": "Salto Acrobático #19",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Salto acrobático único #19 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 32.6,
+      "y": 6526.1,
+      "z": 29.6
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-20",
+    "name": "Salto Acrobático #20",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Salto acrobático único #20 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 1789,
+      "y": 2049.2,
+      "z": 65.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-21",
+    "name": "Salto Acrobático #21",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Salto acrobático único #21 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -1070.8,
+      "y": 10.7,
+      "z": 50.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-22",
+    "name": "Salto Acrobático #22",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #22 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 84.7,
+      "y": -2196.3,
+      "z": 5.7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-23",
+    "name": "Salto Acrobático #23",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Salto acrobático único #23 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 1637.9,
+      "y": 3608.3,
+      "z": 33.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-24",
+    "name": "Salto Acrobático #24",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Salto acrobático único #24 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 566.7,
+      "y": -594.2,
+      "z": 43.9
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-25",
+    "name": "Salto Acrobático #25",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #25 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 453,
+      "y": -1374.9,
+      "z": 43
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-26",
+    "name": "Salto Acrobático #26",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #26 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -425.6,
+      "y": -1555.6,
+      "z": 22.7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-27",
+    "name": "Salto Acrobático #27",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #27 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -963.2,
+      "y": -2778.5,
+      "z": 14.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-28",
+    "name": "Salto Acrobático #28",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Salto acrobático único #28 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -2009.7,
+      "y": -319.3,
+      "z": 47.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-29",
+    "name": "Salto Acrobático #29",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Salto acrobático único #29 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 1671.9,
+      "y": 3151.2,
+      "z": 45.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-30",
+    "name": "Salto Acrobático #30",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Vespucci / Del Perro",
+    "description": "Salto acrobático único #30 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -524.7,
+      "y": -1489.9,
+      "z": 12.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-31",
+    "name": "Salto Acrobático #31",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #31 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 787.8,
+      "y": -2912.4,
+      "z": 5.6
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-32",
+    "name": "Salto Acrobático #32",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Salto acrobático único #32 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 1978.7,
+      "y": 1925.9,
+      "z": 87.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-33",
+    "name": "Salto Acrobático #33",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #33 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 672.3,
+      "y": -3003.4,
+      "z": 6
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-34",
+    "name": "Salto Acrobático #34",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #34 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 108.2,
+      "y": -2815.1,
+      "z": 9.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-35",
+    "name": "Salto Acrobático #35",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #35 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 109.1,
+      "y": -3209.3,
+      "z": 7.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-36",
+    "name": "Salto Acrobático #36",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #36 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 124.2,
+      "y": -2954.8,
+      "z": 9.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-37",
+    "name": "Salto Acrobático #37",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #37 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 174.6,
+      "y": -2782.5,
+      "z": 7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-38",
+    "name": "Salto Acrobático #38",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #38 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 163.7,
+      "y": -2961.3,
+      "z": 7.7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-39",
+    "name": "Salto Acrobático #39",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #39 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 285.8,
+      "y": -3014.1,
+      "z": 8.8
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-40",
+    "name": "Salto Acrobático #40",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #40 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 371.5,
+      "y": -2635.3,
+      "z": 9.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-41",
+    "name": "Salto Acrobático #41",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #41 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -854.3,
+      "y": -2551.8,
+      "z": 20.4
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-42",
+    "name": "Salto Acrobático #42",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #42 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -986.5,
+      "y": -2507.2,
+      "z": 20.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-43",
+    "name": "Salto Acrobático #43",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Vespucci / Del Perro",
+    "description": "Salto acrobático único #43 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -589.3,
+      "y": -1532.2,
+      "z": 3.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-44",
+    "name": "Salto Acrobático #44",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Vespucci / Del Perro",
+    "description": "Salto acrobático único #44 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -626.6,
+      "y": -1075.9,
+      "z": 21.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-45",
+    "name": "Salto Acrobático #45",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #45 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -453.6,
+      "y": -1397.4,
+      "z": 30.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-46",
+    "name": "Salto Acrobático #46",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Salto acrobático único #46 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -445.2,
+      "y": -542,
+      "z": 24.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-47",
+    "name": "Salto Acrobático #47",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Salto acrobático único #47 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -594.9,
+      "y": -109.9,
+      "z": 41
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-48",
+    "name": "Salto Acrobático #48",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Salto acrobático único #48 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": -726.3,
+      "y": -58.8,
+      "z": 39.7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-49",
+    "name": "Salto Acrobático #49",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #49 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 1480.2,
+      "y": -2218.5,
+      "z": 77.8
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-50",
+    "name": "Salto Acrobático #50",
+    "category": "stunt_jump",
+    "categoryLabel": "Saltos Acrobáticos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Recompensa RP",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Salto acrobático único #50 de 50. Impúlsate por la rampa con un vehículo o motocicleta a velocidad suficiente y aterriza limpiamente sobre las ruedas en la zona de recepción. Se requieren 25 para el 100% y los 50 para el trofeo 'Muestra'.",
+    "features": [
+      "50 saltos únicos repartidos por San Andreas",
+      "25 requeridos para el 100%",
+      "Desbloquea pinturas exclusivas en LS Customs (Online)"
+    ],
+    "position": {
+      "x": 367.2,
+      "y": -2522.3,
+      "z": 6.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-bridge-1",
+    "name": "Bajo el Puente #1",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Desafío de vuelo #1 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 1083,
+      "y": -231,
+      "z": 60
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-2",
+    "name": "Bajo el Puente #2",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Desafío de vuelo #2 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 1024,
+      "y": -325,
+      "z": 60
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-3",
+    "name": "Bajo el Puente #3",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Desafío de vuelo #3 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 910,
+      "y": -401,
+      "z": 43
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-4",
+    "name": "Bajo el Puente #4",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Desafío de vuelo #4 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 721,
+      "y": -457,
+      "z": 26
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-5",
+    "name": "Bajo el Puente #5",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Desafío de vuelo #5 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 643,
+      "y": -579,
+      "z": 26
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-6",
+    "name": "Bajo el Puente #6",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Desafío de vuelo #6 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 590,
+      "y": -851,
+      "z": 26
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-7",
+    "name": "Bajo el Puente #7",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Desafío de vuelo #7 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 590,
+      "y": -1023,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-8",
+    "name": "Bajo el Puente #8",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Desafío de vuelo #8 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 582,
+      "y": -1205,
+      "z": 24
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-9",
+    "name": "Bajo el Puente #9",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Desafío de vuelo #9 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 608,
+      "y": -1335,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-10",
+    "name": "Bajo el Puente #10",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Desafío de vuelo #10 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 640,
+      "y": -1434,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-11",
+    "name": "Bajo el Puente #11",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Desafío de vuelo #11 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 671,
+      "y": -1742,
+      "z": 20
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-12",
+    "name": "Bajo el Puente #12",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #12 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 651,
+      "y": -2046,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-13",
+    "name": "Bajo el Puente #13",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #13 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 603,
+      "y": -2505,
+      "z": 9
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-14",
+    "name": "Bajo el Puente #14",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #14 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 673,
+      "y": -2582,
+      "z": 4
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-15",
+    "name": "Bajo el Puente #15",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #15 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 728,
+      "y": -2594,
+      "z": 10
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-16",
+    "name": "Bajo el Puente #16",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #16 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 794,
+      "y": -2624,
+      "z": 27
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-17",
+    "name": "Bajo el Puente #17",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "Desafío de vuelo #17 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -2663,
+      "y": 2594,
+      "z": 7.5
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-18",
+    "name": "Bajo el Puente #18",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "Desafío de vuelo #18 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -1902,
+      "y": 4617,
+      "z": 30
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-19",
+    "name": "Bajo el Puente #19",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "Desafío de vuelo #19 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -513,
+      "y": 4427,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-20",
+    "name": "Bajo el Puente #20",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Desafío de vuelo #20 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 126,
+      "y": 3366,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-21",
+    "name": "Bajo el Puente #21",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Desafío de vuelo #21 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 143,
+      "y": 3418,
+      "z": 36
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-22",
+    "name": "Bajo el Puente #22",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Desafío de vuelo #22 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 2822,
+      "y": 4978,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-23",
+    "name": "Bajo el Puente #23",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Desafío de vuelo #23 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -162,
+      "y": 4249,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-24",
+    "name": "Bajo el Puente #24",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "Desafío de vuelo #24 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -408,
+      "y": 2964,
+      "z": 20
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-25",
+    "name": "Bajo el Puente #25",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "Desafío de vuelo #25 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -181,
+      "y": 2862,
+      "z": 38
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-26",
+    "name": "Bajo el Puente #26",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Desafío de vuelo #26 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 2558,
+      "y": 2201,
+      "z": 24
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-27",
+    "name": "Bajo el Puente #27",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Desafío de vuelo #27 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 2950,
+      "y": 803,
+      "z": 8
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-28",
+    "name": "Bajo el Puente #28",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Desafío de vuelo #28 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 2369,
+      "y": -409,
+      "z": 80
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-29",
+    "name": "Bajo el Puente #29",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Desafío de vuelo #29 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 1906,
+      "y": -755,
+      "z": 84
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-30",
+    "name": "Bajo el Puente #30",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #30 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -403,
+      "y": -2333,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-31",
+    "name": "Bajo el Puente #31",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "Desafío de vuelo #31 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -1429,
+      "y": 2649,
+      "z": 10
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-32",
+    "name": "Bajo el Puente #32",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #32 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 219,
+      "y": -2315,
+      "z": 5
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-33",
+    "name": "Bajo el Puente #33",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #33 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 350,
+      "y": -2315,
+      "z": 5
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-34",
+    "name": "Bajo el Puente #34",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Desafío de vuelo #34 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -1848,
+      "y": -333,
+      "z": 75
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-35",
+    "name": "Bajo el Puente #35",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vespucci / Del Perro",
+    "description": "Desafío de vuelo #35 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -693,
+      "y": -608,
+      "z": 69
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-36",
+    "name": "Bajo el Puente #36",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vespucci / Del Perro",
+    "description": "Desafío de vuelo #36 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -1461,
+      "y": -582,
+      "z": 53
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-37",
+    "name": "Bajo el Puente #37",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vespucci / Del Perro",
+    "description": "Desafío de vuelo #37 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -1553,
+      "y": -546,
+      "z": 59
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-38",
+    "name": "Bajo el Puente #38",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #38 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 338,
+      "y": -2758,
+      "z": 23
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-39",
+    "name": "Bajo el Puente #39",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Desafío de vuelo #39 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 1985,
+      "y": 6201,
+      "z": 53
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-40",
+    "name": "Bajo el Puente #40",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vespucci / Del Perro",
+    "description": "Desafío de vuelo #40 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -713,
+      "y": -1538,
+      "z": 13
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-41",
+    "name": "Bajo el Puente #41",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vespucci / Del Perro",
+    "description": "Desafío de vuelo #41 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -659,
+      "y": -1518,
+      "z": 13
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-42",
+    "name": "Bajo el Puente #42",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vespucci / Del Perro",
+    "description": "Desafío de vuelo #42 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -620,
+      "y": -1502,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-43",
+    "name": "Bajo el Puente #43",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Desafío de vuelo #43 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -445,
+      "y": -1575,
+      "z": 26
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-44",
+    "name": "Bajo el Puente #44",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Desafío de vuelo #44 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -373,
+      "y": -1680,
+      "z": 19
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-45",
+    "name": "Bajo el Puente #45",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Desafío de vuelo #45 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -212,
+      "y": -1805,
+      "z": 29
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-46",
+    "name": "Bajo el Puente #46",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Desafío de vuelo #46 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 47,
+      "y": -2040,
+      "z": 18
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-47",
+    "name": "Bajo el Puente #47",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Desafío de vuelo #47 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -3080,
+      "y": 766,
+      "z": 25
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-48",
+    "name": "Bajo el Puente #48",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "Desafío de vuelo #48 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -1478,
+      "y": 2400,
+      "z": 20
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-49",
+    "name": "Bajo el Puente #49",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Desafío de vuelo #49 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 2308,
+      "y": 1124,
+      "z": 78
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-50",
+    "name": "Bajo el Puente #50",
+    "category": "under_the_bridge",
+    "categoryLabel": "Bajo el Puente",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Desafío de vuelo #50 de 50. Pilota un avión o helicóptero y vuela limpiamente por debajo de la estructura del puente sin colisionar ni tocar la superficie. Se requieren 25 para el 100% y los 50 para el logro 'Por un pelo'.",
+    "features": [
+      "50 puentes aéreos en Los Santos y Blaine County",
+      "25 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 2349,
+      "y": 1174,
+      "z": 79
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-knife-flight-1",
+    "name": "Vuelo a Cuchillo #1",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Maniobra aérea a cuchillo #1 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -1186,
+      "y": -365,
+      "z": 46
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-2",
+    "name": "Vuelo a Cuchillo #2",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Maniobra aérea a cuchillo #2 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -916,
+      "y": -407,
+      "z": 93
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-3",
+    "name": "Vuelo a Cuchillo #3",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Maniobra aérea a cuchillo #3 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -726,
+      "y": 235,
+      "z": 105
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-4",
+    "name": "Vuelo a Cuchillo #4",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Maniobra aérea a cuchillo #4 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -774,
+      "y": 286,
+      "z": 112
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-5",
+    "name": "Vuelo a Cuchillo #5",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Maniobra aérea a cuchillo #5 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 271,
+      "y": 134,
+      "z": 125
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-6",
+    "name": "Vuelo a Cuchillo #6",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Maniobra aérea a cuchillo #6 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 377,
+      "y": -28,
+      "z": 125
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-7",
+    "name": "Vuelo a Cuchillo #7",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Maniobra aérea a cuchillo #7 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 121,
+      "y": -703,
+      "z": 150
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-8",
+    "name": "Vuelo a Cuchillo #8",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Maniobra aérea a cuchillo #8 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -204,
+      "y": -784,
+      "z": 74
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-9",
+    "name": "Vuelo a Cuchillo #9",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Maniobra aérea a cuchillo #9 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -287,
+      "y": -774,
+      "z": 72
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-10",
+    "name": "Vuelo a Cuchillo #10",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Maniobra aérea a cuchillo #10 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -272,
+      "y": -824,
+      "z": 71
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-11",
+    "name": "Vuelo a Cuchillo #11",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Maniobra aérea a cuchillo #11 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -230,
+      "y": -723,
+      "z": 80
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-12",
+    "name": "Vuelo a Cuchillo #12",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Maniobra aérea a cuchillo #12 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 1822,
+      "y": 2044,
+      "z": 62
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-13",
+    "name": "Vuelo a Cuchillo #13",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Maniobra aérea a cuchillo #13 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 2410,
+      "y": 2907,
+      "z": 44
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-14",
+    "name": "Vuelo a Cuchillo #14",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Maniobra aérea a cuchillo #14 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": 2686,
+      "y": 4858,
+      "z": 36
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-15",
+    "name": "Vuelo a Cuchillo #15",
+    "category": "knife_flight",
+    "categoryLabel": "Vuelos a Cuchillo",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Desafío Aéreo",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "Maniobra aérea a cuchillo #15 de 15. Vuela con un avión acrobático inclinado a 90 grados entre los dos edificios o rascacielos. Se requieren 8 para el 100% y los 15 para el logro 'Por un pelo'.",
+    "features": [
+      "15 pasos estrechos entre rascacielos de Los Santos",
+      "8 requeridos para el 100% de la historia",
+      "Logro / Trofeo 'Por un pelo' (Close Shave)"
+    ],
+    "position": {
+      "x": -1046,
+      "y": 4751,
+      "z": 244
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-parachute-1",
+    "name": "Salto en Paracaídas #1 - Maze Bank Tower",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Pillbox Hill",
+    "description": "Salto base en paracaídas #1 de 13. Salta al vacío desde las alturas en Pillbox Hill, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": -75,
+      "y": -818.5,
+      "z": 326
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-2",
+    "name": "Salto en Paracaídas #2 - Grúa de Construcción Mile High",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Pillbox Hill",
+    "description": "Salto base en paracaídas #2 de 13. Salta al vacío desde las alturas en Pillbox Hill, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": -140,
+      "y": -950,
+      "z": 270
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-3",
+    "name": "Salto en Paracaídas #3 - Cima de Mount Chiliad",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Mount Chiliad",
+    "description": "Salto base en paracaídas #3 de 13. Salta al vacío desde las alturas en Mount Chiliad, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": 450,
+      "y": 5600,
+      "z": 785
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-4",
+    "name": "Salto en Paracaídas #4 - Teleférico de Mount Chiliad",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Mount Chiliad",
+    "description": "Salto base en paracaídas #4 de 13. Salta al vacío desde las alturas en Mount Chiliad, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": -740,
+      "y": 5590,
+      "z": 800
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-5",
+    "name": "Salto en Paracaídas #5 - Presa Land Act",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Land Act Reservoir",
+    "description": "Salto base en paracaídas #5 de 13. Salta al vacío desde las alturas en Land Act Reservoir, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": 1665,
+      "y": 2,
+      "z": 165
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-6",
+    "name": "Salto en Paracaídas #6 - Torre de Control de LSIA",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Los Santos International Airport",
+    "description": "Salto base en paracaídas #6 de 13. Salta al vacío desde las alturas en Los Santos International Airport, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": -1085,
+      "y": -2940,
+      "z": 15
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-7",
+    "name": "Salto en Paracaídas #7 - Helicóptero de Paleto Bay",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Paleto Bay",
+    "description": "Salto base en paracaídas #7 de 13. Salta al vacío desde las alturas en Paleto Bay, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": -400,
+      "y": 6000,
+      "z": 750
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-8",
+    "name": "Salto en Paracaídas #8 - Puente de Raton Canyon",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Raton Canyon",
+    "description": "Salto base en paracaídas #8 de 13. Salta al vacío desde las alturas en Raton Canyon, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": -1600,
+      "y": 4400,
+      "z": 420
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-9",
+    "name": "Salto en Paracaídas #9 - Rascacielos FIB / IAA",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Downtown Los Santos",
+    "description": "Salto base en paracaídas #9 de 13. Salta al vacío desde las alturas en Downtown Los Santos, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": 110,
+      "y": -740,
+      "z": 260
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-10",
+    "name": "Salto en Paracaídas #10 - Banco Union Depository",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Downtown Los Santos",
+    "description": "Salto base en paracaídas #10 de 13. Salta al vacío desde las alturas en Downtown Los Santos, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": 5,
+      "y": -665,
+      "z": 270
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-11",
+    "name": "Salto en Paracaídas #11 - Parque Eólico Ron Alternates",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Ron Alternates Wind Farm",
+    "description": "Salto base en paracaídas #11 de 13. Salta al vacío desde las alturas en Ron Alternates Wind Farm, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": 2050,
+      "y": 1980,
+      "z": 500
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-12",
+    "name": "Salto en Paracaídas #12 - Cresta de Mount Josiah",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Mount Josiah",
+    "description": "Salto base en paracaídas #12 de 13. Salta al vacío desde las alturas en Mount Josiah, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": -1100,
+      "y": 3500,
+      "z": 620
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-13",
+    "name": "Salto en Paracaídas #13 - Cima de Cassidy Creek",
+    "category": "parachuting",
+    "categoryLabel": "Saltos en Paracaídas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Salto Base",
+    "zone": "Raton Canyon / Cassidy Creek",
+    "description": "Salto base en paracaídas #13 de 13. Salta al vacío desde las alturas en Raton Canyon / Cassidy Creek, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "features": [
+      "13 saltos base de mundo abierto",
+      "Desbloqueado tras misiones de Dom Beasley",
+      "Requisito oficial para el 100%"
+    ],
+    "position": {
+      "x": -800,
+      "y": 4200,
+      "z": 540
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  }
+]

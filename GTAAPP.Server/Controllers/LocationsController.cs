@@ -79,6 +79,13 @@ public class LocationsController : ControllerBase
         return Ok(_service.GetCollectibles(SanitizeCategory(category), SanitizeLang(lang)));
     }
 
+    /// <summary>GET /api/locations/cayo-perico → Puntos de interés y ubicaciones de Cayo Perico</summary>
+    [HttpGet("cayo-perico")]
+    public ActionResult<List<LocationItem>> GetCayoPerico([FromQuery] string? category, [FromQuery] string? lang)
+    {
+        return Ok(_service.GetCayoPericoLocations(SanitizeCategory(category), SanitizeLang(lang)));
+    }
+
     private static string? SanitizeGameMode(string? gameMode)
     {
         if (string.IsNullOrWhiteSpace(gameMode)) return null;

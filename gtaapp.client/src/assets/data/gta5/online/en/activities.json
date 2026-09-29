@@ -1,1 +1,3590 @@
-[]
+[
+  {
+    "id": "activity-golf-1",
+    "name": "Club de Golf de Los Santos",
+    "category": "golf",
+    "categoryLabel": "Golf",
+    "gameMode": "both",
+    "price": 100,
+    "priceFormatted": "$100 per game",
+    "zone": "Richman, Los Santos",
+    "description": "9-hole professional golf course in Richman. Play alone or challenge opponents. Complete 9 holes at or under par for 100% story completion.",
+    "features": [
+      "Complete 9-hole course",
+      "Required for 100% completion",
+      "Singleplayer and multiplayer matches"
+    ],
+    "position": {
+      "x": -1367.6,
+      "y": 114.9,
+      "z": 53.6
+    },
+    "badge": {
+      "icon": "golf",
+      "color": "#22c55e",
+      "symbol": "⛳"
+    }
+  },
+  {
+    "id": "activity-darts-1",
+    "name": "Dardos - Yellow Jack Inn",
+    "category": "darts",
+    "categoryLabel": "Darts",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Grand Senora Desert",
+    "description": "Dart board at the historic Yellow Jack Inn tavern in Grand Senora Desert. Win a 301 match finishing with a double for 100% story completion.",
+    "features": [
+      "Classic 301 rules with double-out",
+      "Required for 100% completion",
+      "Solo or hangout with friends"
+    ],
+    "position": {
+      "x": 1990.2,
+      "y": 3053.4,
+      "z": 47.2
+    },
+    "badge": {
+      "icon": "bullseye",
+      "color": "#f97316",
+      "symbol": "🎯"
+    }
+  },
+  {
+    "id": "activity-tennis-1",
+    "name": "Tennis Courts - Vespucci Beach (Court 1)",
+    "category": "tennis",
+    "categoryLabel": "Tennis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Vespucci Beach",
+    "description": "Regulation tennis court located in Vespucci Beach. Win at least 1 tennis set against any opponent for 100% story completion.",
+    "features": [
+      "1, 3, or 5 set matches",
+      "Required for 100% completion",
+      "Topspin, backspin, lobs and smashes"
+    ],
+    "position": {
+      "x": -1162.6,
+      "y": -1628.4,
+      "z": 3.4
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-2",
+    "name": "Tennis Courts - Vinewood Hotel",
+    "category": "tennis",
+    "categoryLabel": "Tennis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Vinewood",
+    "description": "Regulation tennis court located in Vinewood. Win at least 1 tennis set against any opponent for 100% story completion.",
+    "features": [
+      "1, 3, or 5 set matches",
+      "Required for 100% completion",
+      "Topspin, backspin, lobs and smashes"
+    ],
+    "position": {
+      "x": 479.8,
+      "y": -234.9,
+      "z": 52.8
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-3",
+    "name": "Tennis Court - Michael's Mansion",
+    "category": "tennis",
+    "categoryLabel": "Tennis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Rockford Hills",
+    "description": "Regulation tennis court located in Rockford Hills. Win at least 1 tennis set against any opponent for 100% story completion.",
+    "features": [
+      "1, 3, or 5 set matches",
+      "Required for 100% completion",
+      "Topspin, backspin, lobs and smashes"
+    ],
+    "position": {
+      "x": -774.2,
+      "y": 161.4,
+      "z": 66.5
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-4",
+    "name": "Tennis Courts - Weazel Courts",
+    "category": "tennis",
+    "categoryLabel": "Tennis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Morningwood",
+    "description": "Regulation tennis court located in Morningwood. Win at least 1 tennis set against any opponent for 100% story completion.",
+    "features": [
+      "1, 3, or 5 set matches",
+      "Required for 100% completion",
+      "Topspin, backspin, lobs and smashes"
+    ],
+    "position": {
+      "x": -379.2,
+      "y": 265.4,
+      "z": 83
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-5",
+    "name": "Tennis Courts - The Richman Hotel",
+    "category": "tennis",
+    "categoryLabel": "Tennis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Richman",
+    "description": "Regulation tennis court located in Richman. Win at least 1 tennis set against any opponent for 100% story completion.",
+    "features": [
+      "1, 3, or 5 set matches",
+      "Required for 100% completion",
+      "Topspin, backspin, lobs and smashes"
+    ],
+    "position": {
+      "x": -1227,
+      "y": 285.8,
+      "z": 64.9
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-6",
+    "name": "Tennis Courts - Chumash Pacific Coast",
+    "category": "tennis",
+    "categoryLabel": "Tennis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Chumash",
+    "description": "Regulation tennis court located in Chumash. Win at least 1 tennis set against any opponent for 100% story completion.",
+    "features": [
+      "1, 3, or 5 set matches",
+      "Required for 100% completion",
+      "Topspin, backspin, lobs and smashes"
+    ],
+    "position": {
+      "x": -2863,
+      "y": 44,
+      "z": 11.6
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-7",
+    "name": "Tennis Courts - ULSA University Campus",
+    "category": "tennis",
+    "categoryLabel": "Tennis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Richman / ULSA",
+    "description": "Regulation tennis court located in Richman / ULSA. Win at least 1 tennis set against any opponent for 100% story completion.",
+    "features": [
+      "1, 3, or 5 set matches",
+      "Required for 100% completion",
+      "Topspin, backspin, lobs and smashes"
+    ],
+    "position": {
+      "x": -1742,
+      "y": 167,
+      "z": 64.4
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-tennis-8",
+    "name": "Tennis Courts - Vinewood Hills",
+    "category": "tennis",
+    "categoryLabel": "Tennis",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Free",
+    "zone": "Vinewood Hills",
+    "description": "Regulation tennis court located in Vinewood Hills. Win at least 1 tennis set against any opponent for 100% story completion.",
+    "features": [
+      "1, 3, or 5 set matches",
+      "Required for 100% completion",
+      "Topspin, backspin, lobs and smashes"
+    ],
+    "position": {
+      "x": -234,
+      "y": 504,
+      "z": 120
+    },
+    "badge": {
+      "icon": "tennis",
+      "color": "#eab308",
+      "symbol": "🎾"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-1",
+    "name": "Stunt Jump #1",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "Unique Stunt Jump #1 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 2.1,
+      "y": 1720.5,
+      "z": 224.4
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-2",
+    "name": "Stunt Jump #2",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #2 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -437.4,
+      "y": -1196.3,
+      "z": 53
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-3",
+    "name": "Stunt Jump #3",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Unique Stunt Jump #3 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 466.7,
+      "y": 4319.4,
+      "z": 60
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-4",
+    "name": "Stunt Jump #4",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Unique Stunt Jump #4 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -166.3,
+      "y": 6578.9,
+      "z": 12.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-5",
+    "name": "Stunt Jump #5",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "Unique Stunt Jump #5 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -977.3,
+      "y": 4180.2,
+      "z": 133.4
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-6",
+    "name": "Stunt Jump #6",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #6 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -7.6,
+      "y": -1037.7,
+      "z": 37.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-7",
+    "name": "Stunt Jump #7",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #7 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -268.1,
+      "y": -770.6,
+      "z": 55.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-8",
+    "name": "Stunt Jump #8",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #8 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -86.2,
+      "y": -537.1,
+      "z": 38.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-9",
+    "name": "Stunt Jump #9",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Vespucci / Del Perro",
+    "description": "Unique Stunt Jump #9 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -1594.8,
+      "y": -762.4,
+      "z": 20.9
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-10",
+    "name": "Stunt Jump #10",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Unique Stunt Jump #10 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -248.7,
+      "y": -215.4,
+      "z": 47.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-11",
+    "name": "Stunt Jump #11",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Unique Stunt Jump #11 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -1442.9,
+      "y": 403,
+      "z": 109.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-12",
+    "name": "Stunt Jump #12",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Unique Stunt Jump #12 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 3352,
+      "y": 5156.3,
+      "z": 18.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-13",
+    "name": "Stunt Jump #13",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Unique Stunt Jump #13 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 1687.5,
+      "y": 2340.3,
+      "z": 73.4
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-14",
+    "name": "Stunt Jump #14",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #14 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 307.4,
+      "y": -621,
+      "z": 42.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-15",
+    "name": "Stunt Jump #15",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Vespucci / Del Perro",
+    "description": "Unique Stunt Jump #15 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -882.8,
+      "y": -854.3,
+      "z": 17.6
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-16",
+    "name": "Stunt Jump #16",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #16 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 364.7,
+      "y": -1163,
+      "z": 28.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-17",
+    "name": "Stunt Jump #17",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #17 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 396.1,
+      "y": -1656.2,
+      "z": 48
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-18",
+    "name": "Stunt Jump #18",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #18 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 52.5,
+      "y": -779.2,
+      "z": 42.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-19",
+    "name": "Stunt Jump #19",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Unique Stunt Jump #19 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 32.6,
+      "y": 6526.1,
+      "z": 29.6
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-20",
+    "name": "Stunt Jump #20",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Unique Stunt Jump #20 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 1789,
+      "y": 2049.2,
+      "z": 65.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-21",
+    "name": "Stunt Jump #21",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Unique Stunt Jump #21 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -1070.8,
+      "y": 10.7,
+      "z": 50.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-22",
+    "name": "Stunt Jump #22",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #22 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 84.7,
+      "y": -2196.3,
+      "z": 5.7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-23",
+    "name": "Stunt Jump #23",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Unique Stunt Jump #23 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 1637.9,
+      "y": 3608.3,
+      "z": 33.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-24",
+    "name": "Stunt Jump #24",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Unique Stunt Jump #24 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 566.7,
+      "y": -594.2,
+      "z": 43.9
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-25",
+    "name": "Stunt Jump #25",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #25 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 453,
+      "y": -1374.9,
+      "z": 43
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-26",
+    "name": "Stunt Jump #26",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #26 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -425.6,
+      "y": -1555.6,
+      "z": 22.7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-27",
+    "name": "Stunt Jump #27",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #27 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -963.2,
+      "y": -2778.5,
+      "z": 14.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-28",
+    "name": "Stunt Jump #28",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Unique Stunt Jump #28 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -2009.7,
+      "y": -319.3,
+      "z": 47.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-29",
+    "name": "Stunt Jump #29",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Unique Stunt Jump #29 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 1671.9,
+      "y": 3151.2,
+      "z": 45.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-30",
+    "name": "Stunt Jump #30",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Vespucci / Del Perro",
+    "description": "Unique Stunt Jump #30 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -524.7,
+      "y": -1489.9,
+      "z": 12.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-31",
+    "name": "Stunt Jump #31",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #31 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 787.8,
+      "y": -2912.4,
+      "z": 5.6
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-32",
+    "name": "Stunt Jump #32",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Unique Stunt Jump #32 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 1978.7,
+      "y": 1925.9,
+      "z": 87.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-33",
+    "name": "Stunt Jump #33",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #33 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 672.3,
+      "y": -3003.4,
+      "z": 6
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-34",
+    "name": "Stunt Jump #34",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #34 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 108.2,
+      "y": -2815.1,
+      "z": 9.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-35",
+    "name": "Stunt Jump #35",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #35 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 109.1,
+      "y": -3209.3,
+      "z": 7.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-36",
+    "name": "Stunt Jump #36",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #36 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 124.2,
+      "y": -2954.8,
+      "z": 9.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-37",
+    "name": "Stunt Jump #37",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #37 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 174.6,
+      "y": -2782.5,
+      "z": 7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-38",
+    "name": "Stunt Jump #38",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #38 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 163.7,
+      "y": -2961.3,
+      "z": 7.7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-39",
+    "name": "Stunt Jump #39",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #39 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 285.8,
+      "y": -3014.1,
+      "z": 8.8
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-40",
+    "name": "Stunt Jump #40",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #40 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 371.5,
+      "y": -2635.3,
+      "z": 9.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-41",
+    "name": "Stunt Jump #41",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #41 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -854.3,
+      "y": -2551.8,
+      "z": 20.4
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-42",
+    "name": "Stunt Jump #42",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #42 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -986.5,
+      "y": -2507.2,
+      "z": 20.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-43",
+    "name": "Stunt Jump #43",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Vespucci / Del Perro",
+    "description": "Unique Stunt Jump #43 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -589.3,
+      "y": -1532.2,
+      "z": 3.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-44",
+    "name": "Stunt Jump #44",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Vespucci / Del Perro",
+    "description": "Unique Stunt Jump #44 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -626.6,
+      "y": -1075.9,
+      "z": 21.1
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-45",
+    "name": "Stunt Jump #45",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #45 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -453.6,
+      "y": -1397.4,
+      "z": 30.3
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-46",
+    "name": "Stunt Jump #46",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Unique Stunt Jump #46 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -445.2,
+      "y": -542,
+      "z": 24.5
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-47",
+    "name": "Stunt Jump #47",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Unique Stunt Jump #47 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -594.9,
+      "y": -109.9,
+      "z": 41
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-48",
+    "name": "Stunt Jump #48",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Unique Stunt Jump #48 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": -726.3,
+      "y": -58.8,
+      "z": 39.7
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-49",
+    "name": "Stunt Jump #49",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #49 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 1480.2,
+      "y": -2218.5,
+      "z": 77.8
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-stunt-jump-50",
+    "name": "Stunt Jump #50",
+    "category": "stunt_jump",
+    "categoryLabel": "Stunt Jumps",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "RP Reward",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Unique Stunt Jump #50 of 50. Speed off the ramp with a vehicle or bike and land smoothly on all wheels in the designated zone. 25 needed for 100% and all 50 for the 'Show Off' achievement/trophy.",
+    "features": [
+      "50 unique jumps across San Andreas",
+      "25 required for 100% completion",
+      "Unlocks exclusive LS Customs resprays in Online"
+    ],
+    "position": {
+      "x": 367.2,
+      "y": -2522.3,
+      "z": 6.2
+    },
+    "badge": {
+      "icon": "car",
+      "color": "#ec4899",
+      "symbol": "🏎️"
+    }
+  },
+  {
+    "id": "activity-bridge-1",
+    "name": "Under the Bridge #1",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Aerial flight challenge #1 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 1083,
+      "y": -231,
+      "z": 60
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-2",
+    "name": "Under the Bridge #2",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Aerial flight challenge #2 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 1024,
+      "y": -325,
+      "z": 60
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-3",
+    "name": "Under the Bridge #3",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Aerial flight challenge #3 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 910,
+      "y": -401,
+      "z": 43
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-4",
+    "name": "Under the Bridge #4",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Aerial flight challenge #4 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 721,
+      "y": -457,
+      "z": 26
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-5",
+    "name": "Under the Bridge #5",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Aerial flight challenge #5 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 643,
+      "y": -579,
+      "z": 26
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-6",
+    "name": "Under the Bridge #6",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Aerial flight challenge #6 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 590,
+      "y": -851,
+      "z": 26
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-7",
+    "name": "Under the Bridge #7",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Aerial flight challenge #7 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 590,
+      "y": -1023,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-8",
+    "name": "Under the Bridge #8",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Aerial flight challenge #8 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 582,
+      "y": -1205,
+      "z": 24
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-9",
+    "name": "Under the Bridge #9",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Aerial flight challenge #9 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 608,
+      "y": -1335,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-10",
+    "name": "Under the Bridge #10",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Aerial flight challenge #10 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 640,
+      "y": -1434,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-11",
+    "name": "Under the Bridge #11",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Aerial flight challenge #11 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 671,
+      "y": -1742,
+      "z": 20
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-12",
+    "name": "Under the Bridge #12",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #12 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 651,
+      "y": -2046,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-13",
+    "name": "Under the Bridge #13",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #13 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 603,
+      "y": -2505,
+      "z": 9
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-14",
+    "name": "Under the Bridge #14",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #14 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 673,
+      "y": -2582,
+      "z": 4
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-15",
+    "name": "Under the Bridge #15",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #15 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 728,
+      "y": -2594,
+      "z": 10
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-16",
+    "name": "Under the Bridge #16",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #16 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 794,
+      "y": -2624,
+      "z": 27
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-17",
+    "name": "Under the Bridge #17",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "Aerial flight challenge #17 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -2663,
+      "y": 2594,
+      "z": 7.5
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-18",
+    "name": "Under the Bridge #18",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "Aerial flight challenge #18 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -1902,
+      "y": 4617,
+      "z": 30
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-19",
+    "name": "Under the Bridge #19",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "Aerial flight challenge #19 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -513,
+      "y": 4427,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-20",
+    "name": "Under the Bridge #20",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Aerial flight challenge #20 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 126,
+      "y": 3366,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-21",
+    "name": "Under the Bridge #21",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Aerial flight challenge #21 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 143,
+      "y": 3418,
+      "z": 36
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-22",
+    "name": "Under the Bridge #22",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Aerial flight challenge #22 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 2822,
+      "y": 4978,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-23",
+    "name": "Under the Bridge #23",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "Aerial flight challenge #23 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -162,
+      "y": 4249,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-24",
+    "name": "Under the Bridge #24",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "Aerial flight challenge #24 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -408,
+      "y": 2964,
+      "z": 20
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-25",
+    "name": "Under the Bridge #25",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "Aerial flight challenge #25 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -181,
+      "y": 2862,
+      "z": 38
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-26",
+    "name": "Under the Bridge #26",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Aerial flight challenge #26 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 2558,
+      "y": 2201,
+      "z": 24
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-27",
+    "name": "Under the Bridge #27",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Aerial flight challenge #27 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 2950,
+      "y": 803,
+      "z": 8
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-28",
+    "name": "Under the Bridge #28",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "Aerial flight challenge #28 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 2369,
+      "y": -409,
+      "z": 80
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-29",
+    "name": "Under the Bridge #29",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "Aerial flight challenge #29 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 1906,
+      "y": -755,
+      "z": 84
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-30",
+    "name": "Under the Bridge #30",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #30 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -403,
+      "y": -2333,
+      "z": 40
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-31",
+    "name": "Under the Bridge #31",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "Aerial flight challenge #31 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -1429,
+      "y": 2649,
+      "z": 10
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-32",
+    "name": "Under the Bridge #32",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #32 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 219,
+      "y": -2315,
+      "z": 5
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-33",
+    "name": "Under the Bridge #33",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #33 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 350,
+      "y": -2315,
+      "z": 5
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-34",
+    "name": "Under the Bridge #34",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Aerial flight challenge #34 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -1848,
+      "y": -333,
+      "z": 75
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-35",
+    "name": "Under the Bridge #35",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vespucci / Del Perro",
+    "description": "Aerial flight challenge #35 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -693,
+      "y": -608,
+      "z": 69
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-36",
+    "name": "Under the Bridge #36",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vespucci / Del Perro",
+    "description": "Aerial flight challenge #36 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -1461,
+      "y": -582,
+      "z": 53
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-37",
+    "name": "Under the Bridge #37",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vespucci / Del Perro",
+    "description": "Aerial flight challenge #37 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -1553,
+      "y": -546,
+      "z": 59
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-38",
+    "name": "Under the Bridge #38",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #38 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 338,
+      "y": -2758,
+      "z": 23
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-39",
+    "name": "Under the Bridge #39",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Aerial flight challenge #39 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 1985,
+      "y": 6201,
+      "z": 53
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-40",
+    "name": "Under the Bridge #40",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vespucci / Del Perro",
+    "description": "Aerial flight challenge #40 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -713,
+      "y": -1538,
+      "z": 13
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-41",
+    "name": "Under the Bridge #41",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vespucci / Del Perro",
+    "description": "Aerial flight challenge #41 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -659,
+      "y": -1518,
+      "z": 13
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-42",
+    "name": "Under the Bridge #42",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vespucci / Del Perro",
+    "description": "Aerial flight challenge #42 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -620,
+      "y": -1502,
+      "z": 16
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-43",
+    "name": "Under the Bridge #43",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Aerial flight challenge #43 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -445,
+      "y": -1575,
+      "z": 26
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-44",
+    "name": "Under the Bridge #44",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Aerial flight challenge #44 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -373,
+      "y": -1680,
+      "z": 19
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-45",
+    "name": "Under the Bridge #45",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Aerial flight challenge #45 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -212,
+      "y": -1805,
+      "z": 29
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-46",
+    "name": "Under the Bridge #46",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "Aerial flight challenge #46 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 47,
+      "y": -2040,
+      "z": 18
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-47",
+    "name": "Under the Bridge #47",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Aerial flight challenge #47 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -3080,
+      "y": 766,
+      "z": 25
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-48",
+    "name": "Under the Bridge #48",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "Aerial flight challenge #48 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -1478,
+      "y": 2400,
+      "z": 20
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-49",
+    "name": "Under the Bridge #49",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Aerial flight challenge #49 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 2308,
+      "y": 1124,
+      "z": 78
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-bridge-50",
+    "name": "Under the Bridge #50",
+    "category": "under_the_bridge",
+    "categoryLabel": "Under the Bridge",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Aerial flight challenge #50 of 50. Fly an airplane or helicopter cleanly underneath the bridge structure without crashing or touching the water/road. 25 required for 100% and 50 for the 'Close Shave' achievement.",
+    "features": [
+      "50 aerial bridges across Los Santos and Blaine County",
+      "25 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 2349,
+      "y": 1174,
+      "z": 79
+    },
+    "badge": {
+      "icon": "bridge",
+      "color": "#06b6d4",
+      "symbol": "🌉"
+    }
+  },
+  {
+    "id": "activity-knife-flight-1",
+    "name": "Knife Flight #1",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "Aerial knife flight challenge #1 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -1186,
+      "y": -365,
+      "z": 46
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-2",
+    "name": "Knife Flight #2",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Aerial knife flight challenge #2 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -916,
+      "y": -407,
+      "z": 93
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-3",
+    "name": "Knife Flight #3",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Aerial knife flight challenge #3 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -726,
+      "y": 235,
+      "z": 105
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-4",
+    "name": "Knife Flight #4",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Aerial knife flight challenge #4 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -774,
+      "y": 286,
+      "z": 112
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-5",
+    "name": "Knife Flight #5",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Aerial knife flight challenge #5 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 271,
+      "y": 134,
+      "z": 125
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-6",
+    "name": "Knife Flight #6",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "Aerial knife flight challenge #6 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 377,
+      "y": -28,
+      "z": 125
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-7",
+    "name": "Knife Flight #7",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Aerial knife flight challenge #7 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 121,
+      "y": -703,
+      "z": 150
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-8",
+    "name": "Knife Flight #8",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Aerial knife flight challenge #8 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -204,
+      "y": -784,
+      "z": 74
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-9",
+    "name": "Knife Flight #9",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Aerial knife flight challenge #9 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -287,
+      "y": -774,
+      "z": 72
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-10",
+    "name": "Knife Flight #10",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Aerial knife flight challenge #10 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -272,
+      "y": -824,
+      "z": 71
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-11",
+    "name": "Knife Flight #11",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "Aerial knife flight challenge #11 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -230,
+      "y": -723,
+      "z": 80
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-12",
+    "name": "Knife Flight #12",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Aerial knife flight challenge #12 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 1822,
+      "y": 2044,
+      "z": 62
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-13",
+    "name": "Knife Flight #13",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "Aerial knife flight challenge #13 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 2410,
+      "y": 2907,
+      "z": 44
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-14",
+    "name": "Knife Flight #14",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "Aerial knife flight challenge #14 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": 2686,
+      "y": 4858,
+      "z": 36
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-knife-flight-15",
+    "name": "Knife Flight #15",
+    "category": "knife_flight",
+    "categoryLabel": "Knife Flights",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Aerial Challenge",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "Aerial knife flight challenge #15 of 15. Fly a stunt plane tilted 90 degrees sideways between two narrow buildings/skyscrapers. 8 required for 100% and all 15 for 'Close Shave'.",
+    "features": [
+      "15 narrow gaps between Los Santos skyscrapers",
+      "8 required for 100% story completion",
+      "'Close Shave' trophy/achievement"
+    ],
+    "position": {
+      "x": -1046,
+      "y": 4751,
+      "z": 244
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#8b5cf6",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "activity-parachute-1",
+    "name": "Parachute Jump #1 - Maze Bank Tower",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Pillbox Hill",
+    "description": "Base jump parachute leap #1 of 13. Jump into the void from the heights in Pillbox Hill, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": -75,
+      "y": -818.5,
+      "z": 326
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-2",
+    "name": "Parachute Jump #2 - Mile High Club Crane",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Pillbox Hill",
+    "description": "Base jump parachute leap #2 of 13. Jump into the void from the heights in Pillbox Hill, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": -140,
+      "y": -950,
+      "z": 270
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-3",
+    "name": "Parachute Jump #3 - Mount Chiliad Summit",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Mount Chiliad",
+    "description": "Base jump parachute leap #3 of 13. Jump into the void from the heights in Mount Chiliad, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": 450,
+      "y": 5600,
+      "z": 785
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-4",
+    "name": "Parachute Jump #4 - Mount Chiliad Cable Car",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Mount Chiliad",
+    "description": "Base jump parachute leap #4 of 13. Jump into the void from the heights in Mount Chiliad, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": -740,
+      "y": 5590,
+      "z": 800
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-5",
+    "name": "Parachute Jump #5 - Land Act Dam",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Land Act Reservoir",
+    "description": "Base jump parachute leap #5 of 13. Jump into the void from the heights in Land Act Reservoir, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": 1665,
+      "y": 2,
+      "z": 165
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-6",
+    "name": "Parachute Jump #6 - LSIA Control Tower",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Los Santos International Airport",
+    "description": "Base jump parachute leap #6 of 13. Jump into the void from the heights in Los Santos International Airport, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": -1085,
+      "y": -2940,
+      "z": 15
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-7",
+    "name": "Parachute Jump #7 - Paleto Bay Drop",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Paleto Bay",
+    "description": "Base jump parachute leap #7 of 13. Jump into the void from the heights in Paleto Bay, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": -400,
+      "y": 6000,
+      "z": 750
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-8",
+    "name": "Parachute Jump #8 - Raton Canyon Bridge",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Raton Canyon",
+    "description": "Base jump parachute leap #8 of 13. Jump into the void from the heights in Raton Canyon, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": -1600,
+      "y": 4400,
+      "z": 420
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-9",
+    "name": "Parachute Jump #9 - FIB / IAA Building",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Downtown Los Santos",
+    "description": "Base jump parachute leap #9 of 13. Jump into the void from the heights in Downtown Los Santos, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": 110,
+      "y": -740,
+      "z": 260
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-10",
+    "name": "Parachute Jump #10 - Union Depository",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Downtown Los Santos",
+    "description": "Base jump parachute leap #10 of 13. Jump into the void from the heights in Downtown Los Santos, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": 5,
+      "y": -665,
+      "z": 270
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-11",
+    "name": "Parachute Jump #11 - Ron Alternates Wind Farm",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Ron Alternates Wind Farm",
+    "description": "Base jump parachute leap #11 of 13. Jump into the void from the heights in Ron Alternates Wind Farm, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": 2050,
+      "y": 1980,
+      "z": 500
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-12",
+    "name": "Parachute Jump #12 - Mount Josiah Ridge",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Mount Josiah",
+    "description": "Base jump parachute leap #12 of 13. Jump into the void from the heights in Mount Josiah, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": -1100,
+      "y": 3500,
+      "z": 620
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  },
+  {
+    "id": "activity-parachute-13",
+    "name": "Parachute Jump #13 - Cassidy Creek Leap",
+    "category": "parachuting",
+    "categoryLabel": "Parachuting",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Base Jump",
+    "zone": "Raton Canyon / Cassidy Creek",
+    "description": "Base jump parachute leap #13 of 13. Jump into the void from the heights in Raton Canyon / Cassidy Creek, deploy the chute at the right time and land on the target marker. Required for 100% story completion.",
+    "features": [
+      "13 open-world base jumps",
+      "Unlocked via Dom Beasley missions",
+      "Required for 100% story completion"
+    ],
+    "position": {
+      "x": -800,
+      "y": 4200,
+      "z": 540
+    },
+    "badge": {
+      "icon": "parachute",
+      "color": "#3b82f6",
+      "symbol": "🪂"
+    }
+  }
+]

@@ -44,9 +44,15 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // CATEGORÍAS DE HISTORIA (completamente distintas del Online)
     // -----------------------------------------------------------------------
 
-    // Propiedades en modo historia (Casas de protagonistas y negocios comprables)
+    // Propiedades en modo historia: Casas divididas por protagonista
     readonly storyPropertyKeys = [
-        'safehouse',
+        'safehouse_michael',
+        'safehouse_franklin',
+        'safehouse_trevor'
+    ];
+
+    // Negocios comprables en modo historia
+    readonly storyBusinessKeys = [
         'purchasable_business'
     ];
 
@@ -69,7 +75,15 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     ];
 
     // Actividades y deportes
-    readonly activityKeys = ['activity'];
+    readonly activityKeys = [
+        'golf',
+        'darts',
+        'tennis',
+        'stunt_jump',
+        'under_the_bridge',
+        'knife_flight',
+        'parachuting'
+    ];
 
     // Lugares extraños (presentes también en historia)
     readonly strangeKeys = [
@@ -102,8 +116,11 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // ESTADO DE FILTROS DE CAPAS
     // -----------------------------------------------------------------------
     layerFilters: { [key: string]: boolean } = {
-        // Propiedades historia
-        safehouse:            true,
+        // Casas de protagonistas
+        safehouse_michael:    true,
+        safehouse_franklin:   true,
+        safehouse_trevor:     true,
+        // Negocios comprables historia
         purchasable_business: true,
         // Talleres
         ls_customs:  true,
@@ -119,6 +136,13 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         strip_club:        true,
         // Actividades
         activity: true,
+        golf: true,
+        darts: true,
+        tennis: true,
+        stunt_jump: true,
+        under_the_bridge: true,
+        knife_flight: true,
+        parachuting: true,
         // Lugares extraños
         fake_ufo:   true,
         shipwreck:  true,
@@ -152,6 +176,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     accordion: { [key: string]: boolean } = {
         propiedades: false,
+        negocios:    false,
         vehiculos:   false,
         servicios:   false,
         actividades: false,
@@ -201,8 +226,34 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     private clockInterval: any;
 
     // -----------------------------------------------------------------------
-    // GETTERS DINÁMICOS
+    // GETTERS Y MÉTODOS DINÁMICOS
     // -----------------------------------------------------------------------
+    getSafehouseCharacter(p: LocationItem): 'michael' | 'franklin' | 'trevor' | null {
+        if (p.category !== 'safehouse') return null;
+        const idLower = (p.id || '').toLowerCase();
+        if (idLower.includes('michael')) return 'michael';
+        if (idLower.includes('franklin')) return 'franklin';
+        if (idLower.includes('trevor')) return 'trevor';
+        const ownerLower = (p.owner || '').toLowerCase();
+        if (ownerLower.includes('michael')) return 'michael';
+        if (ownerLower.includes('franklin')) return 'franklin';
+        if (ownerLower.includes('trevor')) return 'trevor';
+        return null;
+    }
+
+    getPropertyFilterKey(p: LocationItem): string {
+        if (p.category === 'safehouse') {
+            const char = this.getSafehouseCharacter(p);
+            if (char) return `safehouse_${char}`;
+        }
+        const isIndividual = p.category === 'character' || p.category === 'animal';
+        return isIndividual ? p.id : p.category;
+    }
+
+    getSafehouseCount(char: 'michael' | 'franklin' | 'trevor'): number {
+        return this.allProperties.filter(p => this.getSafehouseCharacter(p) === char).length;
+    }
+
     get storyCharacters(): LocationItem[] {
         return this.allProperties.filter(p =>
             p.category === 'character' && (p.gameMode === 'both' || p.gameMode === 'story')
@@ -380,8 +431,9 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             next: (properties) => {
                 this.allProperties = properties;
                 this.allProperties.forEach(p => {
-                    if (this.layerFilters[p.category] === undefined) {
-                        this.layerFilters[p.category] = true;
+                    const filterKey = this.getPropertyFilterKey(p);
+                    if (this.layerFilters[filterKey] === undefined) {
+                        this.layerFilters[filterKey] = true;
                     }
                 });
                 this.renderPropertyMarkers();
@@ -419,8 +471,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         this.propertyMarkers = [];
 
         this.allProperties.forEach(p => {
-            const isIndividual = p.category === 'character' || p.category === 'animal';
-            const filterKey = isIndividual ? p.id : p.category;
+            const filterKey = this.getPropertyFilterKey(p);
             if (this.layerFilters[filterKey] === false) return;
 
             const [lat, lng] = this.worldToLatLng(p.position.x, p.position.y);
@@ -432,11 +483,26 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             if (p.category === 'hospital')       pinSymbol = '🏥';
             if (p.category === 'fire_station')   pinSymbol = '🚒';
             if (p.category === 'car_wash')       pinSymbol = '🚿';
+            if (p.category === 'golf')             pinSymbol = '⛳';
+            if (p.category === 'darts')            pinSymbol = '🎯';
+            if (p.category === 'tennis')           pinSymbol = '🎾';
+            if (p.category === 'stunt_jump')       pinSymbol = '🏎️';
+            if (p.category === 'under_the_bridge') pinSymbol = '🌉';
+            if (p.category === 'knife_flight')     pinSymbol = '✈️';
+            if (p.category === 'parachuting')      pinSymbol = '🪂';
+
+            let pinColor = p.badge.color;
+            if (p.category === 'safehouse') {
+                const char = this.getSafehouseCharacter(p);
+                if (char === 'michael') pinColor = '#3498db';
+                else if (char === 'franklin') pinColor = '#2ecc71';
+                else if (char === 'trevor') pinColor = '#e67e22';
+            }
 
             const icon = L.divIcon({
                 className: 'gta-pin-wrapper',
                 html: `
-                    <div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${p.badge.color}">
+                    <div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${pinColor}">
                         <span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span>
                     </div>
                 `,
@@ -454,8 +520,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const popupHtml = `
                 <div class="gta-popup-card">
-                    <div class="popup-banner" style="background: linear-gradient(135deg, ${p.badge.color}33, #0b0f14 85%); border-bottom: 2px solid ${p.badge.color};">
-                        <span class="popup-badge" style="color: ${p.badge.color}; border-color: ${p.badge.color}66">${p.categoryLabel}</span>
+                    <div class="popup-banner" style="background: linear-gradient(135deg, ${pinColor}33, #0b0f14 85%); border-bottom: 2px solid ${pinColor};">
+                        <span class="popup-badge" style="color: ${pinColor}; border-color: ${pinColor}66">${p.categoryLabel}</span>
                         <h4 class="popup-title">${p.name}</h4>
                         <div class="popup-zone">${p.zone}</div>
                     </div>
@@ -794,7 +860,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     updateIconStyle(): void {
         if (!this.map) return;
         const container = this.map.getContainer();
-        container.classList.remove('icon-size-compact','icon-size-standard','icon-size-large','icon-theme-modern','icon-theme-classic');
+        container.classList.remove('icon-size-compact','icon-size-standard','icon-size-large','icon-theme-modern','icon-theme-classic',
+            'icon-theme-standard');
         container.classList.add(`icon-size-${this.iconSize}`, `icon-theme-${this.iconTheme}`);
     }
 }

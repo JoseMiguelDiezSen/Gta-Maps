@@ -52,4 +52,28 @@ export class LocationService {
       })
     );
   }
+
+  /**
+   * Obtiene la lista completa de ubicaciones, vehículos, armas y coleccionables de Cayo Perico.
+   */
+  getCayoPericoLocations(category?: string, lang?: string): Observable<LocationItem[]> {
+    let params = new HttpParams();
+    if (category) params = params.set('category', category);
+
+    const activeLang = lang || this.translationService.currentLanguage() || 'es';
+    params = params.set('lang', activeLang);
+
+    return this.http.get<LocationItem[]>('/api/locations/cayo-perico', { params }).pipe(
+      catchError(() => {
+        // Fallback a archivos JSON locales
+        return this.http.get<LocationItem[]>(`assets/data/gta5/online/${activeLang}/cayo_perico.json`).pipe(
+          catchError(() => this.http.get<LocationItem[]>('assets/data/gta5/online/es/cayo_perico.json')),
+          catchError(err => {
+            console.error('Error al obtener Cayo Perico:', err);
+            return of([]);
+          })
+        );
+      })
+    );
+  }
 }
