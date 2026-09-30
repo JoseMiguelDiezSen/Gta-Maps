@@ -23,6 +23,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     get allMapTypes() {
         return [
             { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
+            { id: 'SatelliteHD', label: '🛰️ Satellite HD (Ultra)' },
             { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap') },
             { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas') },
             { id: 'Juego', label: this.translationService.t('gta5.maps.game') },
@@ -40,7 +41,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.selectedCity === 'cp') {
             return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Juego'].includes(m.id));
         }
-        return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas', 'Juego'].includes(m.id));
+        return this.allMapTypes.filter(m => ['Satellite', 'SatelliteHD', 'Roadmap', 'Atlas', 'Juego'].includes(m.id));
     }
 
     currentMapType = 'Satellite';
@@ -681,6 +682,12 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 if (this.map.getZoom() < minZoom) {
                     this.map.setZoom(minZoom);
                 }
+            } else if (this.currentMapType === 'SatelliteHD') {
+                const minZoom = this.computeHdMinZoom();
+                this.map.setMinZoom(minZoom);
+                if (this.map.getZoom() < minZoom) {
+                    this.map.setZoom(minZoom);
+                }
             } else {
                 this.map.setMinZoom(this.computeMinZoom(this.imageSize));
             }
@@ -690,6 +697,15 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     private computeCayoMinZoom(): number {
         // Permite alejar el mapa con zoom out controlado para ver la isla con holgura
         return 2.3;
+    }
+
+    private computeHdMinZoom(): number {
+        const el = document.getElementById('gta-map');
+        const height = el ? el.clientHeight : 0;
+        if (height <= 0) return 2.6;
+        // La isla mide 96 unidades de alto en proyección HD
+        const targetZoom = Math.log2((height * 0.90) / 96);
+        return Math.max(2.2, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
     }
 
     private computeMinZoom(imageSize: number): number {
@@ -757,6 +773,43 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             this.playerMarkersLayer = L.layerGroup().addTo(this.map);
 
             this.loadCayoPerico();
+        } else if (mapType === 'SatelliteHD') {
+            const lsOceanColor = '#143D6B';
+            if (mapContainer) {
+                mapContainer.style.backgroundColor = lsOceanColor;
+            }
+            const mapBounds = L.latLngBounds([[-96, 0], [0, 64]]);
+            const maxBounds = L.latLngBounds([[-130, -25], [25, 90]]);
+            const hdMinZoom = this.computeHdMinZoom();
+
+            this.map = L.map('gta-map', {
+                crs: L.CRS.Simple,
+                minZoom: hdMinZoom,
+                maxZoom: this.maxZoom,
+                zoom: 3.2,
+                zoomSnap: 0.1,
+                center: [-60, 29.5],
+                maxBounds: maxBounds,
+                maxBoundsViscosity: 0.85,
+                zoomControl: false,
+                attributionControl: false
+            });
+
+            const tileUrl = 'https://assets.gtamap.net/map-tiles/gtamap/v/ls/render/{z}/{x}/{y}.jpg';
+            const tileLayer = L.tileLayer(tileUrl, {
+                tileSize: 128,
+                minZoom: 0,
+                maxNativeZoom: 7,
+                maxZoom: this.maxZoom,
+                noWrap: true,
+                bounds: mapBounds
+            });
+            tileLayer.addTo(this.map);
+
+            this.playerMarkersLayer = L.layerGroup().addTo(this.map);
+
+            this.loadProperties();
+            this.loadCollectibles();
         } else {
             // Tonos RGB exactos muestreados píxel a píxel del océano de Los Santos
             let lsOceanColor = '#143D6B'; // Satellite: RGB(20, 61, 107)
@@ -837,6 +890,12 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             return [lat, lng];
         }
 
+        if (this.currentMapType === 'SatelliteHD') {
+            const lng = 64 * ((x + 4140) / 9000);
+            const lat = - 96 * ((8400 - y) / 13500);
+            return [lat, lng];
+        }
+
         const originX = 3753.6;
         const originY = 5529.6;
         const scale = 0.660; // 0.660 px por metro oficial
@@ -855,6 +914,15 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             const ptY = -lat * 64;
             const x = 3700 + (ptX / 10000) * 2000;
             const y = -4150 - (ptY / 10000) * 2000;
+            return {
+                x: Math.round(x * 10) / 10,
+                y: Math.round(y * 10) / 10
+            };
+        }
+
+        if (this.currentMapType === 'SatelliteHD') {
+            const x = (lng / 64) * 9000 - 4140;
+            const y = 8400 - (-lat / 96) * 13500;
             return {
                 x: Math.round(x * 10) / 10,
                 y: Math.round(y * 10) / 10
@@ -1313,6 +1381,30 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
         if (this.selectedCity === 'cp') {
             this.map.flyTo([-72, 82.5], 2.7, { duration: 1 });
+            return;
+        }
+
+        if (this.currentMapType === 'SatelliteHD') {
+            switch (zone) {
+                case 'city':
+                    this.map.flyTo([-67, 29], 4.2, { duration: 1.2 });
+                    break;
+                case 'sandy':
+                    this.map.flyTo([-45, 42], 4.2, { duration: 1.2 });
+                    break;
+                case 'paleto':
+                    this.map.flyTo([-23, 27.5], 4.4, { duration: 1.2 });
+                    break;
+                case 'blaine':
+                    this.map.flyTo([-43, 35], 3.5, { duration: 1.2 });
+                    break;
+                case 'chumash':
+                    this.map.flyTo([-55, 11], 4.2, { duration: 1.2 });
+                    break;
+                default: // all
+                    this.map.flyTo([-60, 29.5], this.computeHdMinZoom(), { duration: 1 });
+                    break;
+            }
             return;
         }
 
