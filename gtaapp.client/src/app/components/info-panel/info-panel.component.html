@@ -1255,48 +1255,60 @@
           <span>{{ 'transports.mysteries.empty' | translate }}</span>
         </div>
 
-        <!-- LISTA DE MISTERIOS (Estilo de tarjeta con foto, badges y botón de localización) -->
-        <div class="heists-list" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
+        <!-- LISTA DE MISTERIOS (Maquetación dedicada mcard-item: nunca colisiona ni desborda) -->
+        <div class="mysteries-list" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
           <div
             *ngFor="let m of filteredOnlineMysteries"
-            class="heist-card mystery-card"
+            class="mcard-item"
             (click)="openMysteryDetail(m)"
-            [style.--heist-color]="m.badgeColor"
+            [style.--m-color]="m.badgeColor"
           >
-            <div class="heist-card-icon" [style.background]="m.badgeColor + '22'" [style.color]="m.badgeColor">
+            <!-- Badge de orden / número -->
+            <div class="mcard-order-badge">
+              <span class="mcard-order-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+            </div>
+
+            <!-- Icono temático del misterio -->
+            <div class="mcard-icon-box" [style.background]="m.badgeColor + '20'" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '50'">
               <i class="fa-solid" [ngClass]="m.badgeIcon"></i>
             </div>
 
-            <div class="heist-card-info">
-              <div class="heist-card-title-row">
-                <span class="heist-card-order">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
-                <span class="heist-card-name">{{ m.title }}</span>
+            <!-- Contenido principal -->
+            <div class="mcard-content">
+              <!-- Fila 1: Título -->
+              <div class="mcard-title">{{ m.title }}</div>
+
+              <!-- Fila 2: Categoría + Horario -->
+              <div class="mcard-meta-line">
+                <span class="mcard-cat-badge" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '40'">
+                  {{ m.categoryLabel }}
+                </span>
+                <span class="mcard-time-badge" *ngIf="m.schedule">
+                  <i class="fa-regular fa-clock"></i>
+                  <span>{{ m.schedule }}</span>
+                </span>
               </div>
-              <div class="heist-card-sub">
-                <span class="heist-card-cat" [style.color]="m.badgeColor">{{ m.categoryLabel }}</span>
-                <span class="heist-card-sep" *ngIf="m.schedule">•</span>
-                <span class="heist-card-take" *ngIf="m.schedule" style="color: #fbbf24;">
-                  <i class="fa-regular fa-clock"></i> {{ m.schedule }}
-                </span>
-                <span class="heist-card-sep">•</span>
-                <span class="heist-card-players" style="color: #94a3b8;">
-                  <i class="fa-solid fa-location-dot"></i> {{ m.location }}
-                </span>
+
+              <!-- Fila 3: Ubicación (Limpia y con elipsis para evitar que desborde) -->
+              <div class="mcard-loc-line" *ngIf="m.location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="mcard-loc-text">{{ m.location }}</span>
               </div>
             </div>
 
-            <!-- Botón de Localización en el mapa sobre la card -->
-            <button
-              type="button"
-              class="mystery-card-locate-btn"
-              (click)="onLocateMystery(m, $event)"
-              [title]="'transports.mysteries.locateOnMap' | translate"
-            >
-              <i class="fa-solid fa-location-crosshairs"></i>
-            </button>
-
-            <div class="heist-card-arrow">
-              <i class="fa-solid fa-chevron-right"></i>
+            <!-- Acciones a la derecha: Localizar + Flecha -->
+            <div class="mcard-actions">
+              <button
+                type="button"
+                class="mcard-locate-btn"
+                (click)="onLocateMystery(m, $event)"
+                [title]="'transports.mysteries.locateOnMap' | translate"
+              >
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </button>
+              <div class="mcard-chevron">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -1400,6 +1412,16 @@
               <span>{{ 'transports.heists.raid' | translate }}</span>
               <span class="chip-count">{{ getHeistCategoryCount('raid') }}</span>
             </button>
+            <button
+              type="button"
+              class="chip-btn chip-kortz"
+              [class.is-active]="selectedHeistCategoryFilter === 'kortz_center'"
+              (click)="setHeistCategoryFilter('kortz_center')"
+            >
+              <i class="fa-solid fa-palette chip-dot" style="color: #a855f7;"></i>
+              <span>Kortz Center</span>
+              <span class="chip-count">{{ getHeistCategoryCount('kortz_center') }}</span>
+            </button>
           </div>
         </div>
 
@@ -1425,34 +1447,50 @@
           <span>{{ 'transports.heists.empty' | translate }}</span>
         </div>
 
-        <!-- LISTA DE GOLPES (Estilo idéntico a las tarjetas de Vehículos) -->
-        <div class="heists-list" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length > 0">
+        <!-- LISTA DE GOLPES (Maquetación blindada mcard-item: nunca colisiona) -->
+        <div class="mysteries-list" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length > 0">
           <div
             *ngFor="let h of filteredOnlineHeists"
-            class="heist-card"
+            class="mcard-item"
             (click)="openHeistDetail(h)"
-            [style.--heist-color]="h.badgeColor"
+            [style.--m-color]="h.badgeColor"
           >
-            <div class="heist-card-icon">
+            <!-- Badge de orden / número -->
+            <div class="mcard-order-badge">
+              <span class="mcard-order-num">#{{ h.order < 10 ? '0' + h.order : h.order }}</span>
+            </div>
+
+            <!-- Icono temático del golpe -->
+            <div class="mcard-icon-box" [style.background]="h.badgeColor + '20'" [style.color]="h.badgeColor" [style.borderColor]="h.badgeColor + '50'">
               <i class="fa-solid" [ngClass]="h.badgeIcon"></i>
             </div>
 
-            <div class="heist-card-info">
-              <div class="heist-card-title-row">
-                <span class="heist-card-order">#{{ h.order < 10 ? '0' + h.order : h.order }}</span>
-                <span class="heist-card-name">{{ h.title }}</span>
-              </div>
-              <div class="heist-card-sub">
-                <span class="heist-card-cat">{{ h.categoryLabel }}</span>
-                <span class="heist-card-sep">•</span>
-                <span class="heist-card-take"><i class="fa-solid fa-sack-dollar"></i> {{ h.potentialTake.normal }}</span>
-                <span class="heist-card-sep">•</span>
-                <span class="heist-card-players"><i class="fa-solid fa-users"></i> {{ h.players }}</span>
+            <!-- Contenido principal -->
+            <div class="mcard-content">
+              <!-- Fila 1: Título -->
+              <div class="mcard-title">{{ h.title }}</div>
+
+              <!-- Fila 2: Categoría + Botín + Jugadores -->
+              <div class="mcard-meta-line">
+                <span class="mcard-cat-badge" [style.color]="h.badgeColor" [style.borderColor]="h.badgeColor + '40'">
+                  {{ h.categoryLabel }}
+                </span>
+                <span class="mcard-time-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3);">
+                  <i class="fa-solid fa-sack-dollar"></i>
+                  <span>{{ h.potentialTake.normal }}</span>
+                </span>
+                <span class="mcard-time-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3);">
+                  <i class="fa-solid fa-users"></i>
+                  <span>{{ h.players }}</span>
+                </span>
               </div>
             </div>
 
-            <div class="heist-card-arrow">
-              <i class="fa-solid fa-chevron-right"></i>
+            <!-- Flecha derecha -->
+            <div class="mcard-actions">
+              <div class="mcard-chevron">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
             </div>
           </div>
         </div>

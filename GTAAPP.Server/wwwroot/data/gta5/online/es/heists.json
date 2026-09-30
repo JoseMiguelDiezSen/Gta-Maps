@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "id": "fleeca",
     "order": 1,
@@ -784,6 +784,74 @@
     "tips": [
       "Para los novatos o jugadores sin millones en el banco, este golpe no requiere comprar ninguna propiedad ni pagar coste de preparación y entrega $500,000 limpios cada vez.",
       "Si eliges el arsenal de los Profesionales en la preparación 2, obtendrás rifles automáticos pesados y silenciadores ideales para asaltar la fábrica sin que suenen las sirenas."
+    ]
+  },
+  {
+    "id": "kortz_center",
+    "order": 12,
+    "title": "El Golpe al Kortz Center",
+    "titleEn": "The Kortz Center Heist",
+    "category": "kortz_center",
+    "categoryLabel": "Golpe de la Mansión / Colección de Arte",
+    "giver": "Raf De Angelis & Sr. Faber",
+    "players": "1-4 jugadores (Solo o Cooperativo)",
+    "minLevel": 1,
+    "propertyRequired": "Mansión de Lujo con Estudio de Arte (Prix Luxury Real Estate)",
+    "setupCost": 100000,
+    "setupCostFormatted": "$100,000",
+    "potentialTake": {
+      "normal": "$2,200,000",
+      "hard": "$2,650,000",
+      "description": "El golpe más lucrativo del juego. Botín principal: Colección de Arte Albert Crisp ($2.0M - $2.2M en la primera carrera semanal) más botín secundario de antigüedades en galerías."
+    },
+    "target": "Colección de Arte Albert Crisp (Edificio Bell)",
+    "location": "El Kortz Center, Pacific Bluffs",
+    "description": "La mayor operación de robo de arte de alta gama introducida en julio de 2026. Guiados por el marchante de arte Sr. Faber y el facilitador Raf De Angelis desde el Estudio de Arte subterráneo de tu mansión, asaltarás el complejo cultural del Kortz Center para sustraer la incalculable Colección Albert Crisp utilizando falsificaciones y tácticas de infiltración de élite.",
+    "thumbnail": "",
+    "badgeColor": "#8b5cf6",
+    "badgeIcon": "fa-palette",
+    "eliteChallenges": [
+      "Completar en menos de 15:00 minutos",
+      "Sin activar alarmas ni alertar a la seguridad privada",
+      "0 vidas perdidas durante la operación",
+      "Completar la petición especial del comprador (Buyer's Request)"
+    ],
+    "eliteReward": "+$100,000 extra",
+    "unlockedVehicles": [
+      "Enus Paragon S ($1,507,500 / $2,010,000)",
+      "Grotti Stinger TT ($1,785,000 / $2,380,000)"
+    ],
+    "setupMissions": [
+      {
+        "name": "Reconocimiento del Edificio Bell",
+        "type": "recon",
+        "description": "Visita el Kortz Center como turista para fotografiar cámaras, accesos al tejado y vitrinas de la Colección Albert Crisp."
+      },
+      {
+        "name": "Falsificaciones de Arte",
+        "type": "prep",
+        "description": "Contrata a un falsificador en el estudio de arte de la mansión para crear réplicas exactas de los cuadros y esculturas."
+      },
+      {
+        "name": "Inhibidores y Señal de Seguridad",
+        "type": "prep",
+        "description": "Sustrae inhibidores de señal militar a Merryweather para desactivar los sensores de peso y láseres de las vitrinas."
+      },
+      {
+        "name": "Equipamiento Táctico y Armas Silenciadas",
+        "type": "prep",
+        "description": "Consigue trajes de infiltración nocturna y armamento con silenciador para una aproximación 100% sigilosa."
+      },
+      {
+        "name": "Golpe al Kortz Center (Final)",
+        "type": "finale",
+        "description": "Infiltración en el Kortz Center, neutralización limpia de guardias privados, sustitución de obras por réplicas y huida por aire o mar hacia el comprador privado."
+      }
+    ],
+    "tips": [
+      "Es el golpe más rentable de todo GTA Online, superando a Cayo Perico con más de $2.2M en la primera carrera de cada semana.",
+      "Sustituir las obras por falsificaciones evita que la seguridad descubra el robo hasta horas después de tu huida.",
+      "Completar la petición especial del comprador (Buyer's Request) otorga un generoso bonus adicional que se acumula con el Desafío de Élite."
     ]
   }
 ]

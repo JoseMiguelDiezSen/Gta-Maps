@@ -156,4 +156,14 @@ public class GTA5HistoriaController : ControllerBase
     {
         return Ok(_locationsService.GetStoryStrangerMissions(lang).ToList());
     }
+
+    /// <summary>
+    /// GET /api/gta5/historia/mysteries
+    /// Misterios y leyendas urbanas de GTA V Modo Historia.
+    /// </summary>
+    [HttpGet("mysteries")]
+    public ActionResult<List<MysteryItem>> GetStoryMysteries([FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetStoryMysteries(lang).ToList());
+    }
 }

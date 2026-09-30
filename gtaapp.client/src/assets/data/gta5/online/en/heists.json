@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "id": "fleeca",
     "order": 1,
@@ -780,6 +780,74 @@
     "tips": [
       "Perfect for beginner players: requires zero upfront investment, no property purchases, and pays $500,000 guaranteed cash every run.",
       "Choosing The Professionals weapon loadout in setup 2 gives you military rifles with suppressors for a quiet factory breach."
+    ]
+  },
+  {
+    "id": "kortz_center",
+    "order": 12,
+    "title": "The Kortz Center Heist",
+    "titleEn": "The Kortz Center Heist",
+    "category": "kortz_center",
+    "categoryLabel": "Mansion Heist / Art Collection",
+    "giver": "Raf De Angelis & Mr. Faber",
+    "players": "1-4 Players (Solo or Co-op)",
+    "minLevel": 1,
+    "propertyRequired": "Luxury Mansion with Art Studio (Prix Luxury Real Estate)",
+    "setupCost": 100000,
+    "setupCostFormatted": "$100,000",
+    "potentialTake": {
+      "normal": "$2,200,000",
+      "hard": "$2,650,000",
+      "description": "The highest paying heist in GTA Online. Primary Target: The Albert Crisp Art Collection ($2.0M - $2.2M on first weekly run) plus high-value gallery antiquities."
+    },
+    "target": "The Albert Crisp Art Collection (Bell Building)",
+    "location": "The Kortz Center, Pacific Bluffs",
+    "description": "The premier high-end art robbery operation introduced in July 2026. Guided by eccentric art dealer Mr. Faber and fixer Raf De Angelis from your mansion's subterranean Art Studio, infiltrate the cultural complex of the Kortz Center to steal the priceless Albert Crisp Collection using forged replicas and stealth tactics.",
+    "thumbnail": "",
+    "badgeColor": "#8b5cf6",
+    "badgeIcon": "fa-palette",
+    "eliteChallenges": [
+      "Complete in under 15:00 minutes",
+      "No alarms raised / private security undetected",
+      "0 team lives lost",
+      "Complete the Buyer's Request bonus"
+    ],
+    "eliteReward": "+$100,000 bonus",
+    "unlockedVehicles": [
+      "Enus Paragon S ($1,507,500 / $2,010,000)",
+      "Grotti Stinger TT ($1,785,000 / $2,380,000)"
+    ],
+    "setupMissions": [
+      {
+        "name": "Bell Building Reconnaissance",
+        "type": "recon",
+        "description": "Tour the Kortz Center as a tourist to photograph security cameras, roof access routes, and Albert Crisp collection cases."
+      },
+      {
+        "name": "Art Forgery Fabrication",
+        "type": "prep",
+        "description": "Contract a specialist forger in your mansion's art studio to craft exact replica paintings and sculptures."
+      },
+      {
+        "name": "Security Jammers & Feed Hijack",
+        "type": "prep",
+        "description": "Hijack military signal jammers from Merryweather to disable weight sensors and display case lasers."
+      },
+      {
+        "name": "Tactical Gear & Suppressed Arsenal",
+        "type": "prep",
+        "description": "Acquire night-infiltration stealth suits and suppressed firearms for a whisper-quiet heist execution."
+      },
+      {
+        "name": "The Kortz Center Heist (Finale)",
+        "type": "finale",
+        "description": "Infiltrate the Kortz Center, neutralize private security, swap originals for replicas, and exfiltrate by air or sea to the private buyer."
+      }
+    ],
+    "tips": [
+      "Currently the most profitable heist in GTA Online history, overtaking Cayo Perico with over $2.2M on your first weekly run.",
+      "Swapping masterworks with forgeries prevents security from noticing the theft until hours after your clean getaway.",
+      "Fulfilling the Buyer's Request objective awards a massive secondary bonus on top of Elite Challenge payouts."
     ]
   }
 ]

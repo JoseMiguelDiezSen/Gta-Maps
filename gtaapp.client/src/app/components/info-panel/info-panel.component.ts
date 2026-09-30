@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, effect } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, effect } from '@angular/core';
 import { GtaVehicle, DealerCategory } from '../../models/vehicle';
 import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../models/mission';
 import { GtaMystery } from '../../models/mystery';
@@ -12,13 +12,13 @@ import { TranslationService } from '../../i18n';
   styleUrls: ['./info-panel.component.css'],
   standalone: false
 })
-export class InfoPanelComponent {
+export class InfoPanelComponent implements OnChanges {
   @Input() isOpen = false;
   @Input() gameMode: 'story' | 'online' = 'online';
   @Output() closeDrawer = new EventEmitter<void>();
   @Output() locateOnMap = new EventEmitter<any>();
 
-  // Tabs del drawer según el modo de juego (Golpes exclusivo de GTA Online)
+  // Tabs del drawer según el modo de juego
   get drawerTabs(): { id: string; label: string; icon: string }[] {
     if (this.gameMode === 'online') {
       return [
@@ -32,7 +32,7 @@ export class InfoPanelComponent {
       { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
       { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
       { id: 'strangers', label: 'Extraños y Locos', icon: 'fa-mask' },
-      { id: 'item4', label: 'Item4', icon: 'fa-crown' },
+      { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
     ];
   }
   activeDrawerTab = 'vehiculos';
@@ -212,6 +212,9 @@ export class InfoPanelComponent {
         if (this.strangerMissions.length > 0) {
           this.loadStrangerMissions(true, this.selectedStranger?.id);
         }
+        if (this.onlineMysteries.length > 0) {
+          this.loadOnlineMysteries(true, this.selectedMystery?.id);
+        }
       } else {
         if (this.onlineMissions.length > 0) {
           this.loadOnlineMissions(true, this.selectedMission?.id);
@@ -224,6 +227,21 @@ export class InfoPanelComponent {
         }
       }
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['gameMode'] && !changes['gameMode'].firstChange) {
+      this.onlineMysteries = [];
+      this.selectedMystery = null;
+      if (this.activeDrawerTab === 'misterios') {
+        this.loadOnlineMysteries(true);
+      }
+    }
+    if (changes['isOpen'] && changes['isOpen'].currentValue) {
+      if (this.activeDrawerTab === 'misterios' && this.onlineMysteries.length === 0) {
+        this.loadOnlineMysteries();
+      }
+    }
   }
 
   get visibleDealers(): DealerCategory[] {
@@ -353,6 +371,9 @@ export class InfoPanelComponent {
       }
       if (tabId === 'strangers' && this.strangerMissions.length === 0) {
         this.loadStrangerMissions();
+      }
+      if (tabId === 'misterios' && this.onlineMysteries.length === 0) {
+        this.loadOnlineMysteries();
       }
     } else {
       if (tabId === 'misiones' && this.onlineMissions.length === 0) {
@@ -965,7 +986,12 @@ export class InfoPanelComponent {
     if (this.onlineMysteries.length > 0 && !force) return;
     this.mysteriesLoading = true;
     this.mysteriesError = false;
-    this.missionService.getOnlineMysteries().subscribe({
+
+    const mysteries$ = this.gameMode === 'story'
+      ? this.missionService.getStoryMysteries()
+      : this.missionService.getOnlineMysteries();
+
+    mysteries$.subscribe({
       next: (mysteries) => {
         this.onlineMysteries = mysteries;
         if (keepSelectedId) {
@@ -974,7 +1000,7 @@ export class InfoPanelComponent {
         this.mysteriesLoading = false;
       },
       error: (err) => {
-        console.error('Error al cargar misterios de GTA Online:', err);
+        console.error(`Error al cargar misterios (${this.gameMode}):`, err);
         this.mysteriesLoading = false;
         this.mysteriesError = true;
       }

@@ -217,6 +217,7 @@ public class LocationsService
     public IReadOnlyList<LocationItem> GetStoryStrangePlaces(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "strange_places.json", lang);
     public IReadOnlyList<MissionItem> GetStoryMissions(string? lang = null) => LoadJsonFile<MissionItem>("gta5", "historia", "missions.json", lang);
     public IReadOnlyList<StrangerMissionItem> GetStoryStrangerMissions(string? lang = null) => LoadJsonFile<StrangerMissionItem>("gta5", "historia", "strangers_and_freaks.json", lang);
+    public IReadOnlyList<MysteryItem> GetStoryMysteries(string? lang = null) => LoadJsonFile<MysteryItem>("gta5", "historia", "mysteries.json", lang);
 
     public IReadOnlyList<CollectibleItem> GetStoryCollectibles(string? category = null, string? lang = null)
     {

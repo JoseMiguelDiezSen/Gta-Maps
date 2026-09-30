@@ -998,4 +998,73 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         this.renderPropertyMarkers();
         this.renderCollectibleMarkers();
     }
+
+    private mysteryMarker: L.Marker | null = null;
+
+    /**
+     * Centra el mapa sobre la ubicación del misterio, cierra el drawer lateral
+     * y genera un marcador destacado con animación y popup informativo.
+     */
+    focusMysteryLocation(mystery: any): void {
+        if (!this.map || !mystery?.position) return;
+        this.closeProfileDrawer();
+
+        const [lat, lng] = this.worldToLatLng(mystery.position.x, mystery.position.y);
+        const targetZoom = Math.min(this.maxZoom, 5.5);
+
+        this.map.flyTo([lat, lng], targetZoom, {
+            animate: true,
+            duration: 1.2
+        });
+
+        const pinColor = mystery.badgeColor || '#06b6d4';
+        const pinIcon = mystery.badgeIcon || 'fa-dog';
+
+        if (this.mysteryMarker) {
+            this.mysteryMarker.remove();
+            this.mysteryMarker = null;
+        }
+
+        const customIcon = L.divIcon({
+            className: 'gta-pin-mystery-pulse',
+            html: `
+                <div style="position: relative; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; inset: 0; border-radius: 50%; background: ${pinColor}; opacity: 0.4; animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
+                    <div style="position: relative; width: 32px; height: 32px; border-radius: 50%; background: ${pinColor}; border: 2px solid #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px ${pinColor}, 0 4px 10px rgba(0,0,0,0.8); color: #fff; font-size: 15px;">
+                        <i class="fa-solid ${pinIcon}"></i>
+                    </div>
+                </div>
+            `,
+            iconSize: [38, 38],
+            iconAnchor: [19, 19],
+            popupAnchor: [0, -20]
+        });
+
+        const popupHtml = `
+            <div class="gta-popup-card" style="min-width: 260px;">
+                <div class="popup-banner" style="background: linear-gradient(135deg, ${pinColor}44, #0b0f14 85%); border-bottom: 2px solid ${pinColor};">
+                    <span class="popup-badge" style="color: ${pinColor}; border-color: ${pinColor}66">${mystery.categoryLabel || 'Misterio'}</span>
+                    <h4 class="popup-title">${mystery.title}</h4>
+                    <div class="popup-zone">${mystery.zone || mystery.location}</div>
+                </div>
+                <div class="popup-content">
+                    ${mystery.schedule ? `
+                    <div class="popup-row">
+                        <span class="popup-tag-lbl">Horario</span>
+                        <span class="popup-tag-val" style="color: #facc15; font-weight: 700;">${mystery.schedule}</span>
+                    </div>` : ''}
+                    <div class="popup-desc" style="font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 6px; line-height: 1.45;">
+                        ${mystery.description}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        this.mysteryMarker = L.marker([lat, lng], { icon: customIcon }).addTo(this.map);
+        setTimeout(() => {
+            if (this.mysteryMarker) {
+                this.mysteryMarker.bindPopup(popupHtml).openPopup();
+            }
+        }, 850);
+    }
 }
