@@ -801,10 +801,21 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 minZoom: 0,
                 maxNativeZoom: 7,
                 maxZoom: this.maxZoom,
-                errorTileUrl: 'assets/SatelliteHD/empty.jpg',
                 noWrap: true,
                 bounds: mapBounds
             });
+
+            tileLayer.on('tileerror', (error: any) => {
+                const img = error.tile as HTMLImageElement;
+                if (img && !img.dataset['fallback']) {
+                    img.dataset['fallback'] = 'true';
+                    const coords = error.coords;
+                    if (coords) {
+                        img.src = `https://assets.gtamap.net/map-tiles/gtamap/v/ls/render/${coords.z}/${coords.x}/${coords.y}.jpg`;
+                    }
+                }
+            });
+
             tileLayer.addTo(this.map);
 
             this.playerMarkersLayer = L.layerGroup().addTo(this.map);
