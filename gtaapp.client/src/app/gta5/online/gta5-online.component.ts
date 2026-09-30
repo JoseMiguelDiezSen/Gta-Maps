@@ -44,7 +44,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         return this.allMapTypes.filter(m => ['Satellite', 'SatelliteHD', 'Roadmap', 'Atlas', 'Juego'].includes(m.id));
     }
 
-    currentMapType = 'Satellite';
+    currentMapType = 'SatelliteHD';
 
     // Selector de Isla / Zona: 'ls' = Los Santos / San Andreas, 'cp' = Cayo Perico
     selectedCity: 'ls' | 'cp' = 'ls';
@@ -414,7 +414,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             this.selectedCity = 'cp';
         }
         const qLayer = this.route.snapshot.queryParamMap.get('layer');
-        if (qLayer === 'render') this.currentMapType = 'Satellite';
+        if (qLayer === 'render') this.currentMapType = 'SatelliteHD';
         else if (qLayer === 'game') this.currentMapType = 'Juego';
         else if (qLayer === 'print') this.currentMapType = 'Roadmap';
 
@@ -702,10 +702,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     private computeHdMinZoom(): number {
         const el = document.getElementById('gta-map');
         const height = el ? el.clientHeight : 0;
-        if (height <= 0) return 2.6;
-        // La isla mide 96 unidades de alto en proyección HD
-        const targetZoom = Math.log2((height * 0.90) / 96);
-        return Math.max(2.2, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
+        if (height <= 0) return 2.0;
+        // La isla mide 192 unidades de alto en proyección HD con tileSize 256
+        const targetZoom = Math.log2((height * 0.90) / 192);
+        return Math.max(1.8, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
     }
 
     private computeMinZoom(imageSize: number): number {
@@ -774,34 +774,37 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             this.loadCayoPerico();
         } else if (mapType === 'SatelliteHD') {
-            const lsOceanColor = '#0D2B4F'; // SatelliteHD: RGB(13, 43, 79) muestreado píxel a píxel del océano HD
+            const lsOceanColor = '#0D2B4F'; // SatelliteHD: RGB(13, 43, 79) color del océano HD
             if (mapContainer) {
                 mapContainer.style.backgroundColor = lsOceanColor;
             }
-            const mapBounds = L.latLngBounds([[-96, 0], [0, 64]]);
-            const maxBounds = L.latLngBounds([[-130, -25], [25, 90]]);
+            const mapBounds = L.latLngBounds([[-192, 0], [0, 128]]);
+            const maxBounds = L.latLngBounds([[-230, -25], [25, 155]]);
             const hdMinZoom = this.computeHdMinZoom();
 
             this.map = L.map('gta-map', {
                 crs: L.CRS.Simple,
                 minZoom: hdMinZoom,
                 maxZoom: this.maxZoom,
-                zoom: 3.2,
+                zoom: 2.5,
                 zoomSnap: 0.1,
-                center: [-60, 29.5],
+                center: [-120, 59],
                 maxBounds: maxBounds,
                 maxBoundsViscosity: 0.85,
                 zoomControl: false,
                 attributionControl: false
             });
 
-            const tileUrl = 'https://gtamap.net/api/tiles/v/ls/render/{z}/{x}/{y}.jpg';
+            // Mapa oficial de Rockstar Games Social Club en Ultra Alta Resolución (256x256 px, zooms 0-7)
+            // 100% Local: cargado desde assets/SatelliteHD/ sin dependencias externas
+            const tileUrl = 'assets/SatelliteHD/{z}_{x}_{y}.jpg';
             const tileLayer = L.tileLayer(tileUrl, {
-                tileSize: 128,
+                tileSize: 256,
                 minZoom: 0,
                 maxNativeZoom: 7,
                 maxZoom: this.maxZoom,
-                noWrap: true
+                noWrap: true,
+                bounds: mapBounds
             });
             tileLayer.addTo(this.map);
 
@@ -890,8 +893,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         if (this.currentMapType === 'SatelliteHD') {
-            const lng = 64 * ((x + 4140) / 9000);
-            const lat = - 96 * ((8400 - y) / 13500);
+            const lng = 128 * ((x + 4140) / 9000);
+            const lat = - 192 * ((8400 - y) / 13500);
             return [lat, lng];
         }
 
@@ -920,8 +923,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         if (this.currentMapType === 'SatelliteHD') {
-            const x = (lng / 64) * 9000 - 4140;
-            const y = 8400 - (-lat / 96) * 13500;
+            const x = (lng / 128) * 9000 - 4140;
+            const y = 8400 - (-lat / 192) * 13500;
             return {
                 x: Math.round(x * 10) / 10,
                 y: Math.round(y * 10) / 10
@@ -1386,22 +1389,22 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.currentMapType === 'SatelliteHD') {
             switch (zone) {
                 case 'city':
-                    this.map.flyTo([-67, 29], 4.2, { duration: 1.2 });
+                    this.map.flyTo([-134, 58], 4.2, { duration: 1.2 });
                     break;
                 case 'sandy':
-                    this.map.flyTo([-45, 42], 4.2, { duration: 1.2 });
+                    this.map.flyTo([-90, 84], 4.2, { duration: 1.2 });
                     break;
                 case 'paleto':
-                    this.map.flyTo([-23, 27.5], 4.4, { duration: 1.2 });
+                    this.map.flyTo([-46, 55], 4.4, { duration: 1.2 });
                     break;
                 case 'blaine':
-                    this.map.flyTo([-43, 35], 3.5, { duration: 1.2 });
+                    this.map.flyTo([-86, 70], 3.5, { duration: 1.2 });
                     break;
                 case 'chumash':
-                    this.map.flyTo([-55, 11], 4.2, { duration: 1.2 });
+                    this.map.flyTo([-110, 22], 4.2, { duration: 1.2 });
                     break;
                 default: // all
-                    this.map.flyTo([-60, 29.5], this.computeHdMinZoom(), { duration: 1 });
+                    this.map.flyTo([-120, 59], this.computeHdMinZoom(), { duration: 1 });
                     break;
             }
             return;
