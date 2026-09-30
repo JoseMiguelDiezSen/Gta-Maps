@@ -795,7 +795,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 attributionControl: false
             });
 
-            const tileUrl = 'https://assets.gtamap.net/map-tiles/gtamap/v/ls/render/{z}/{x}/{y}.jpg';
+            const tileUrl = 'assets/SatelliteHD/{z}_{x}_{y}.jpg';
             const tileLayer = L.tileLayer(tileUrl, {
                 tileSize: 128,
                 minZoom: 0,
