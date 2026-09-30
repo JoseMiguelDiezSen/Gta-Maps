@@ -5,15 +5,20 @@ using Microsoft.AspNetCore.StaticFiles;
 using GTAAPP.Server.Middleware;
 using GTAAPP.Server.Hubs;
 
+// =========================================================================================
+// PUNTO DE ENTRADA Y CONFIGURACIÓN DEL SERVIDOR WEB ASP.NET CORE (.NET 10)
+// Configura Kestrel, HSTS, CORS, Rate Limiting, Inyección de Dependencias, SignalR y Archivos Estáticos.
+// =========================================================================================
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Eliminar cabecera Server para no exponer detalles de Kestrel
+// 1. Eliminar cabecera 'Server' para no exponer detalles internos del servidor Kestrel a posibles atacantes
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
     serverOptions.AddServerHeader = false;
 });
 
-// Soporte para proxies inversos (Azure App Service TLS termination y balanceadores)
+// 2. Soporte para proxies inversos (Azure App Service TLS termination, Cloudflare o balanceadores de carga)
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
@@ -21,7 +26,7 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
     options.KnownProxies.Clear();
 });
 
-// HSTS estricto para entornos productivos
+// 3. Política HSTS estricta (HTTP Strict Transport Security) para forzar HTTPS en navegadores
 builder.Services.AddHsts(options =>
 {
     options.Preload = true;
@@ -29,11 +34,11 @@ builder.Services.AddHsts(options =>
     options.MaxAge = TimeSpan.FromDays(365);
 });
 
-// Add services to the container.
+// 4. Registro de Controladores de API y SignalR para comunicación en tiempo real
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
 
-// Configuración de CORS basada en entorno y orígenes permitidos
+// 5. Configuración de CORS basada en entorno (desarrollo local vs dominios autorizados en producción)
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
 
 builder.Services.AddCors(options =>
@@ -42,6 +47,7 @@ builder.Services.AddCors(options =>
     {
         if (builder.Environment.IsDevelopment() && allowedOrigins.Length == 0)
         {
+            // En desarrollo local permite conexiones desde loopback (localhost)
             policy.SetIsOriginAllowed(origin => new Uri(origin).IsLoopback)
                   .AllowAnyHeader()
                   .AllowAnyMethod()
@@ -49,6 +55,7 @@ builder.Services.AddCors(options =>
         }
         else
         {
+            // En producción restringe estrictamente a los orígenes definidos en configuración
             policy.WithOrigins(allowedOrigins)
                   .AllowAnyHeader()
                   .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
@@ -57,7 +64,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Rate Limiting nativo de ASP.NET Core (.NET 10) contra scraping masivo y fuerza bruta
+// 6. Rate Limiting nativo (.NET 10) contra fuerza bruta y scraping masivo de datasets
 builder.Services.AddRateLimiter(options =>
 {
     options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
@@ -76,7 +83,7 @@ builder.Services.AddRateLimiter(options =>
         }, cancellationToken: token);
     };
 
-    // 1. Política Global por IP (120 req/minuto)
+    // 6.1 Política Global por IP (máximo 120 peticiones por minuto en ventana deslizante)
     options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
     {
         var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
@@ -92,7 +99,7 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 
-    // 3. Política para endpoints de datos (60 req/minuto) -> Prevención de scraping abusivo
+    // 6.2 Política específica 'data-policy' para endpoints de datasets (máximo 60 req/min)
     options.AddPolicy("data-policy", httpContext =>
     {
         var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
@@ -108,21 +115,27 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 });
+
+// 7. Servicios singleton de negocio (gestión de ubicaciones y vehículos con caché en memoria)
 builder.Services.AddSingleton<GTAAPP.Server.Services.LocationsService>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.VehiclesService>();
 
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+// 8. Documentación interactiva de la API con OpenAPI / Swagger
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Respetar cabeceras de proxy inverso de Azure App Service
+// =========================================================================================
+// PIPELINE DE PROCESAMIENTO HTTP
+// =========================================================================================
+
+// Respetar encabezados reenviados por proxies inversos (X-Forwarded-For, X-Forwarded-Proto)
 app.UseForwardedHeaders();
 
-// Inyectar cabeceras HTTP de seguridad (CSP, X-Frame-Options, X-Content-Type-Options, etc.)
+// Inyectar cabeceras defensivas de seguridad (CSP, X-Frame-Options, X-Content-Type-Options)
 app.UseSecurityHeaders();
 
-// Configure the HTTP request pipeline.
+// Entorno de desarrollo: habilitar interfaz OpenAPI / Swagger
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -132,14 +145,17 @@ else
     app.UseHsts();
 }
 
+// Redirección forzada de HTTP a HTTPS
 app.UseHttpsRedirection();
 
+// Aplicar políticas de CORS y Rate Limiting
 app.UseCors();
-
 app.UseRateLimiter();
 
+// Soporte para archivos por defecto (index.html)
 app.UseDefaultFiles();
 
+// Proveedor de tipos MIME que fuerza explícitamente charset=utf-8 para evitar caracteres corruptos (mojibake)
 var staticContentTypeProvider = new FileExtensionContentTypeProvider();
 staticContentTypeProvider.Mappings[".html"] = "text/html; charset=utf-8";
 staticContentTypeProvider.Mappings[".js"] = "application/javascript; charset=utf-8";
@@ -152,9 +168,12 @@ app.UseStaticFiles(new StaticFileOptions
 });
 app.MapStaticAssets();
 
+// Mapeo de controladores REST y Hubs de SignalR
 app.MapControllers();
 app.MapHub<UsuariosActivosHub>("/hubs/usuarios-activos");
 
+// Enrutamiento fallback SPA (Single Page Application) hacia index.html de Angular
 app.MapFallbackToFile("/index.html");
 
+// Inicio del servidor
 app.Run();
