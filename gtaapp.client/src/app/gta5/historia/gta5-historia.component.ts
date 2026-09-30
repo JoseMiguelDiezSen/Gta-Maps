@@ -552,6 +552,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             if (p.category === 'under_the_bridge') pinSymbol = '🌉';
             if (p.category === 'knife_flight')     pinSymbol = '✈️';
             if (p.category === 'parachuting')      pinSymbol = '🪂';
+            if (p.category === 'service' || p.id.startsWith('ammu-')) pinSymbol = '🔫';
 
             let pinColor = (p.badge?.color || (p as any).color);
             if (p.category === 'safehouse') {
@@ -562,7 +563,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             }
 
             // Icono: FA "simple" o círculo neón según tema seleccionado
-            const faIcon = p.badge?.icon || (p as any).icon || 'location-dot';
+            let faIcon = p.badge?.icon || (p as any).icon || 'location-dot';
+            if (p.category === 'service' || p.id.startsWith('ammu-')) faIcon = 'gun';
             const iconSizeVal: [number, number] = (p.category === 'shipwreck' || p.category === 'fake_ufo') ? [22, 22] : [20, 20];
 
             let htmlContent: string;
@@ -578,6 +580,13 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 iconSize = [26, 26];
                 iconAnchor = [13, 13];
                 popupAnchor = [0, -13];
+            } else if (this.iconTheme === 'standard') {
+                // Estándar se deja vacío sin vincular a nada (a rellenar más adelante)
+                htmlContent = `<div class="gta-pin-standard-empty"></div>`;
+                iconDivClass = 'gta-pin-wrapper-empty';
+                iconSize = [0, 0];
+                iconAnchor = [0, 0];
+                popupAnchor = [0, 0];
             } else if (this.iconTheme === 'simple') {
                 htmlContent = `<div style="color: ${pinColor}; font-size: ${iconSizeVal[0]}px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIcon}"></i></div>`;
                 iconDivClass = 'gta-pin-wrapper-fa';
@@ -655,21 +664,47 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             if (this.layerFilters[item.category] === false) return;
 
             const [lat, lng] = this.worldToLatLng(item.position.x, item.position.y);
+            const colColor = item.badge?.color || (item as any).color || '#ffb833';
             const isEpsilon = item.category === 'epsilon_tract';
-            const pinSymbol = isEpsilon ? '✝' : ((item.badge?.symbol || (item as any).icon) || '•');
+            const pinSymbol = isEpsilon ? '✝' : (item.badge?.symbol || '•');
             const symbolStyle = isEpsilon
                 ? 'color: #ffffff !important; font-size: 14px; font-weight: 900; line-height: 1; text-shadow: 0 0 4px #ffffff, 0 0 8px #38bdf8;'
-                : `color: ${(item.badge?.color || (item as any).color) || '#ffb833'}; font-weight: 700; line-height: 1;`;
-
-            const colColor = item.badge?.color || (item as any).color || '#ffb833';
+                : `color: ${colColor}; font-weight: 700; line-height: 1;`;
             const colFaIcon = item.badge?.icon || (item as any).icon || 'star';
+
+            let htmlContent: string;
+            let iconDivClass: string;
+            let iconSize: [number, number];
+            let iconAnchor: [number, number];
+            let popupAnchor: [number, number];
+
+            if (this.iconTheme === 'standard') {
+                htmlContent = `<div class="gta-pin-collectible-standard-empty"></div>`;
+                iconDivClass = 'gta-pin-collectible-wrapper-empty';
+                iconSize = [0, 0];
+                iconAnchor = [0, 0];
+                popupAnchor = [0, 0];
+            } else if (this.iconTheme === 'simple') {
+                htmlContent = `<div style="color: ${colColor}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIcon}"></i></div>`;
+                iconDivClass = 'gta-pin-collectible-wrapper-fa';
+                iconSize = [16, 16];
+                iconAnchor = [8, 8];
+                popupAnchor = [0, -8];
+            } else {
+                htmlContent = `<div class="gta-pin-collectible" style="background: ${colColor}"><span class="gta-pin-col-symbol" style="${symbolStyle}">${pinSymbol}</span></div>`;
+                iconDivClass = 'gta-pin-collectible-wrapper';
+                iconSize = [16, 16];
+                iconAnchor = [8, 16];
+                popupAnchor = [0, -14];
+            }
+
             const icon = L.divIcon({
-                  className: 'gta-pin-collectible-wrapper-fa',
-                  html: `<div style="color: ${colColor}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIcon}"></i></div>`,
-                  iconSize: [16, 16],
-                  iconAnchor: [8, 8],
-                  popupAnchor: [0, -8]
-              });
+                className: iconDivClass,
+                html: htmlContent,
+                iconSize,
+                iconAnchor,
+                popupAnchor
+            });
 
             const rewardHtml = item.reward
                 ? `<div class="popup-reward-badge" style="display: flex; align-items: center; gap: 6px; font-size: 11px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 6px; padding: 6px 10px; color: #bae6fd; margin-top: 8px;">

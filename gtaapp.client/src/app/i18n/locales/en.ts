@@ -74,7 +74,7 @@ export const en: TranslationSchema = {
       markerTheme: "Theme",
       themeStandard: "Standard",
       themeClassic: "Classic",
-      themeSimple: "Classic (2)",
+      themeSimple: "Font Awesome",
       themeModern: "Neon",
       iconSize: 'Icon Size',
       sizeCompact: 'Compact (80%)',

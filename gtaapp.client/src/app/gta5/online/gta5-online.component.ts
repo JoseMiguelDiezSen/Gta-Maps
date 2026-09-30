@@ -1128,12 +1128,14 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             if (p.category === 'under_the_bridge') pinSymbol = '🌉';
             if (p.category === 'knife_flight') pinSymbol = '✈️';
             if (p.category === 'parachuting') pinSymbol = '🪂';
+            if (p.category === 'service' || p.id.startsWith('ammu-')) pinSymbol = '🔫';
 
             const pinInnerHtml = `<span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span>`;
 
             // Icono: FA "simple" o círculo neón según tema seleccionado
             const pinColor = p.badge?.color || (p as any).color || '#ffb833';
-            const faIconProp = p.badge?.icon || (p as any).icon || 'location-dot';
+            let faIconProp = p.badge?.icon || (p as any).icon || 'location-dot';
+            if (p.category === 'service' || p.id.startsWith('ammu-')) faIconProp = 'gun';
             const iconSizeProp: [number, number] = (p.category === 'shipwreck' || p.category === 'fake_ufo') ? [22, 22] : [20, 20];
 
             let pinHtml: string;
@@ -1149,6 +1151,12 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 pinIconSize = [26, 26];
                 pinIconAnchor = [13, 13];
                 pinPopupAnchor = [0, -13];
+            } else if (this.iconTheme === 'standard') {
+                pinHtml = `<div class="gta-pin-standard-empty"></div>`;
+                pinClass = 'gta-pin-wrapper-empty';
+                pinIconSize = [0, 0];
+                pinIconAnchor = [0, 0];
+                pinPopupAnchor = [0, 0];
             } else if (this.iconTheme === 'simple') {
                 pinHtml = `<div style="color: ${pinColor}; font-size: ${iconSizeProp[0]}px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIconProp}"></i></div>`;
                 pinClass = 'gta-pin-wrapper-fa';
@@ -1250,13 +1258,41 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const colColorOnline = item.badge?.color || (item as any).color || '#ffb833';
             const colFaIconOnline = item.badge?.icon || (item as any).icon || 'star';
+            const pinSymbol = item.badge?.symbol || '•';
+
+            let htmlContent: string;
+            let iconDivClass: string;
+            let iconSize: [number, number];
+            let iconAnchor: [number, number];
+            let popupAnchor: [number, number];
+
+            if (this.iconTheme === 'standard') {
+                htmlContent = `<div class="gta-pin-collectible-standard-empty"></div>`;
+                iconDivClass = 'gta-pin-collectible-wrapper-empty';
+                iconSize = [0, 0];
+                iconAnchor = [0, 0];
+                popupAnchor = [0, 0];
+            } else if (this.iconTheme === 'simple') {
+                htmlContent = `<div style="color: ${colColorOnline}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIconOnline}"></i></div>`;
+                iconDivClass = 'gta-pin-collectible-wrapper-fa';
+                iconSize = [16, 16];
+                iconAnchor = [8, 8];
+                popupAnchor = [0, -8];
+            } else {
+                htmlContent = `<div class="gta-pin-collectible" style="background: ${colColorOnline}"><span class="gta-pin-col-symbol" style="color: ${colColorOnline}; font-weight: 700; line-height: 1;">${pinSymbol}</span></div>`;
+                iconDivClass = 'gta-pin-collectible-wrapper';
+                iconSize = [16, 16];
+                iconAnchor = [8, 16];
+                popupAnchor = [0, -14];
+            }
+
             const icon = L.divIcon({
-                  className: 'gta-pin-collectible-wrapper-fa',
-                  html: `<div style="color: ${colColorOnline}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIconOnline}"></i></div>`,
-                  iconSize: [16, 16],
-                  iconAnchor: [8, 8],
-                  popupAnchor: [0, -8]
-              });
+                className: iconDivClass,
+                html: htmlContent,
+                iconSize,
+                iconAnchor,
+                popupAnchor
+            });
 
             const popupHtml = `
                 <div class="gta-popup-card">
