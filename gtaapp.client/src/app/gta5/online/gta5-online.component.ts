@@ -1040,7 +1040,11 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                     className: 'gta-leaflet-tooltip'
                 });
 
-            marker.addTo(map);
+            if (this.playerMarkersLayer) {
+                marker.addTo(this.playerMarkersLayer);
+            } else {
+                marker.addTo(map);
+            }
             this.cayoPericoMarkers.push({ marker, location: loc });
         });
     }
