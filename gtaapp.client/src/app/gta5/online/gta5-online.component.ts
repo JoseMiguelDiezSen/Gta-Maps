@@ -795,27 +795,14 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 attributionControl: false
             });
 
-            const tileUrl = 'assets/SatelliteHD/{z}_{x}_{y}.jpg';
+            const tileUrl = 'https://assets.gtamap.net/map-tiles/gtamap/v/ls/render/{z}/{x}/{y}.jpg';
             const tileLayer = L.tileLayer(tileUrl, {
                 tileSize: 128,
                 minZoom: 0,
                 maxNativeZoom: 7,
                 maxZoom: this.maxZoom,
-                noWrap: true,
-                bounds: mapBounds
+                noWrap: true
             });
-
-            tileLayer.on('tileerror', (error: any) => {
-                const img = error.tile as HTMLImageElement;
-                if (img && !img.dataset['fallback']) {
-                    img.dataset['fallback'] = 'true';
-                    const coords = error.coords;
-                    if (coords) {
-                        img.src = `https://assets.gtamap.net/map-tiles/gtamap/v/ls/render/${coords.z}/${coords.x}/${coords.y}.jpg`;
-                    }
-                }
-            });
-
             tileLayer.addTo(this.map);
 
             this.playerMarkersLayer = L.layerGroup().addTo(this.map);
