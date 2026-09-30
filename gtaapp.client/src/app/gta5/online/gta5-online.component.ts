@@ -801,6 +801,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 minZoom: 0,
                 maxNativeZoom: 7,
                 maxZoom: this.maxZoom,
+                errorTileUrl: 'assets/SatelliteHD/empty.jpg',
                 noWrap: true,
                 bounds: mapBounds
             });
