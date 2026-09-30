@@ -27,8 +27,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     get allMapTypes() {
         return [
             { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
-            { id: 'SatelliteHD', label: 'Satelite' },
-            { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap') },
+                        { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap') },
             { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas') },
             { id: 'Juego', label: this.translationService.t('gta5.maps.game') },
             { id: 'UV', label: this.translationService.t('gta5.maps.uv') },
@@ -44,10 +43,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.selectedCity === 'cp') {
             return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Juego'].includes(m.id));
         }
-        return this.allMapTypes.filter(m => ['Satellite', 'SatelliteHD', 'Roadmap', 'Atlas', 'Juego'].includes(m.id));
+        return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas', 'Juego', 'UV', 'UV2'].includes(m.id));
     }
 
-    currentMapType = 'SatelliteHD';
+    currentMapType = 'Satellite';
 
     // Selector de Isla / Zona: 'ls' = Los Santos / San Andreas, 'cp' = Cayo Perico
     selectedCity: 'ls' | 'cp' = 'ls';
@@ -426,7 +425,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             this.selectedCity = 'cp';
         }
         const qLayer = this.route.snapshot.queryParamMap.get('layer');
-        if (qLayer === 'render') this.currentMapType = 'SatelliteHD';
+        if (qLayer === 'render') this.currentMapType = 'Satellite';
         else if (qLayer === 'game') this.currentMapType = 'Juego';
         else if (qLayer === 'print') this.currentMapType = 'Roadmap';
 
@@ -698,7 +697,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 if (this.map.getZoom() < minZoom) {
                     this.map.setZoom(minZoom);
                 }
-            } else if (this.currentMapType === 'SatelliteHD') {
+            } else if (this.currentMapType === 'Satellite') {
                 const minZoom = this.computeHdMinZoom();
                 this.map.setMinZoom(minZoom);
                 if (this.map.getZoom() < minZoom) {
@@ -789,7 +788,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             this.playerMarkersLayer = L.layerGroup().addTo(this.map);
 
             this.loadCayoPerico();
-        } else if (mapType === 'SatelliteHD') {
+        } else if (mapType === 'Satellite') {
             const lsOceanColor = '#0D2B4F'; // SatelliteHD: RGB(13, 43, 79) color del océano HD
             if (mapContainer) {
                 mapContainer.style.backgroundColor = lsOceanColor;
@@ -914,7 +913,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         // Conversión para mapa Satélite HD de Los Santos
-        if (this.currentMapType === 'SatelliteHD') {
+        if (this.currentMapType === 'Satellite') {
             const lng = 128 * ((x + 4140) / 9000);
             const lat = - 192 * ((8400 - y) / 13500);
             return [lat, lng];
@@ -951,7 +950,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         // Conversión inversa para Satélite HD
-        if (this.currentMapType === 'SatelliteHD') {
+        if (this.currentMapType === 'Satellite') {
             const x = (lng / 128) * 9000 - 4140;
             const y = 8400 - (-lat / 192) * 13500;
             return {
@@ -981,12 +980,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.selectedCity === city) return;
         this.selectedCity = city;
         if (this.selectedCity === 'cp') {
-            if (this.currentMapType === 'SatelliteHD' || this.currentMapType === 'UV' || this.currentMapType === 'UV2' || this.currentMapType === 'Atlas') {
+            if (this.currentMapType === 'UV' || this.currentMapType === 'UV2' || this.currentMapType === 'Atlas') {
                 this.currentMapType = 'Satellite';
-            }
-        } else {
-            if (this.currentMapType === 'Satellite') {
-                this.currentMapType = 'SatelliteHD';
             }
         }
         this.initMap(this.currentMapType);
@@ -1485,7 +1480,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             return;
         }
 
-        if (this.currentMapType === 'SatelliteHD') {
+        if (this.currentMapType === 'Satellite') {
             switch (zone) {
                 case 'city':
                     this.map.flyTo([-134, 58], 4.2, { duration: 1.2 });
@@ -1631,4 +1626,6 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }, 850);
     }
 }
+
+
 

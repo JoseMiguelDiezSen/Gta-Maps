@@ -30,8 +30,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Selector de mapa base — Historia tiene acceso a todos los mapas (incluido UV blueprint)
     readonly mapTypes = [
-        { id: 'SatelliteHD', label: 'Satelite' },
-        { id: 'Satellite',   label: 'Satélite' },
+        { id: 'Satellite', label: 'Satelite' },
         { id: 'Roadmap',     label: 'Carreteras' },
         { id: 'Atlas',       label: 'Atlas' },
         { id: 'Juego',       label: 'Juego' },
@@ -39,7 +38,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         { id: 'UV2',         label: 'Blueprint Alt.' }
     ];
 
-    currentMapType = 'SatelliteHD';
+    currentMapType = 'Satellite';
 
     // -----------------------------------------------------------------------
     // CATEGORÍAS DE HISTORIA (completamente distintas del Online)
@@ -335,7 +334,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     private initMap(mapType: string): void {
         if (this.map) this.map.remove();
 
-        if (mapType === 'SatelliteHD') {
+        if (mapType === 'Satellite') {
             // ---- Mapa oficial Rockstar Games Social Club — Ultra Alta Resolución ----
             const mapBounds = L.latLngBounds([[-192, 0], [0, 128]]);
             const maxBounds = L.latLngBounds([[-230, -25], [25, 155]]);
@@ -419,7 +418,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private readonly onWindowResize = () => {
         if (!this.map) return;
-        if (this.currentMapType === 'SatelliteHD') {
+        if (this.currentMapType === 'Satellite') {
             this.map.setMinZoom(this.computeHdMinZoom());
         } else {
             this.map.setMinZoom(this.computeMinZoom(this.imageSize));
@@ -453,7 +452,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // CONVERSIÓN COORDENADAS GTA ↔ LEAFLET
     // -----------------------------------------------------------------------
     worldToLatLng(x: number, y: number): [number, number] {
-        if (this.currentMapType === 'SatelliteHD') {
+        if (this.currentMapType === 'Satellite') {
             const lng = 128 * ((x + 4140) / 9000);
             const lat = -192 * ((8400 - y) / 13500);
             return [lat, lng];
@@ -467,7 +466,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     latLngToWorld(lat: number, lng: number): { x: number; y: number } {
-        if (this.currentMapType === 'SatelliteHD') {
+        if (this.currentMapType === 'Satellite') {
             return {
                 x: Math.round(((lng / 128) * 9000 - 4140) * 10) / 10,
                 y: Math.round((8400 - (-lat / 192) * 13500) * 10) / 10
@@ -1068,3 +1067,6 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         }, 850);
     }
 }
+
+
+
