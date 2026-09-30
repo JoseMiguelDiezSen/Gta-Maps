@@ -270,7 +270,8 @@ export const en: TranslationSchema = {
       strangers: 'Strangers & Freaks',
       item3: 'Item 3',
       item4: 'Item4',
-      golpes: 'Heists'
+      golpes: 'Heists',
+      misterios: 'Mysteries'
     },
     catalog: {
       loading: 'Loading catalog for {{ dealer }}...',
@@ -386,6 +387,32 @@ export const en: TranslationSchema = {
       returnToList: 'Return to heists catalog',
       prevHeist: 'Previous heist',
       nextHeist: 'Next heist'
+    },
+    mysteries: {
+      searchPlaceholder: 'Search mystery, urban legend, apparition...',
+      all: 'All Mysteries',
+      paranormal: 'Paranormal',
+      conspiracy: 'Conspiracies',
+      crimes: 'Unsolved Crimes',
+      easterEgg: 'Easter Eggs',
+      loading: 'Loading mysteries archive...',
+      error: 'Error loading mysteries.',
+      retry: 'Retry',
+      empty: 'No mysteries found matching your search.',
+      backToMysteries: 'Back to Mysteries',
+      mysteryNum: 'MYSTERY #{{ order }}',
+      locateOnMap: 'Locate on Map',
+      location: 'Location:',
+      schedule: 'Spawn Schedule:',
+      zone: 'Zone / Region:',
+      synopsis: 'Event Overview',
+      loreTitle: 'History & Real Background',
+      mechanicsTitle: 'How to Witness the Event (Mechanics)',
+      cluesTitle: 'Clues, Archives & Connections',
+      observationTitle: 'Recommended Observation Point',
+      returnToList: 'Return to mysteries list',
+      prevMystery: 'Previous mystery',
+      nextMystery: 'Next mystery'
     }
   }
 };

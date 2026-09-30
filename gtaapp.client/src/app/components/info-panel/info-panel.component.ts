@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, effect } from '@angular/core';
 import { GtaVehicle, DealerCategory } from '../../models/vehicle';
 import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../models/mission';
+import { GtaMystery } from '../../models/mystery';
 import { VehicleService } from '../../services/vehicle.service';
 import { MissionService } from '../../services/mission.service';
 import { TranslationService } from '../../i18n';
@@ -15,6 +16,7 @@ export class InfoPanelComponent {
   @Input() isOpen = false;
   @Input() gameMode: 'story' | 'online' = 'online';
   @Output() closeDrawer = new EventEmitter<void>();
+  @Output() locateOnMap = new EventEmitter<any>();
 
   // Tabs del drawer según el modo de juego (Golpes exclusivo de GTA Online)
   get drawerTabs(): { id: string; label: string; icon: string }[] {
@@ -22,8 +24,8 @@ export class InfoPanelComponent {
       return [
         { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
         { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
-        { id: 'item3', label: 'Item 3', icon: 'fa-box' },
         { id: 'golpes', label: 'Golpes', icon: 'fa-sack-dollar' },
+        { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
       ];
     }
     return [
@@ -71,8 +73,16 @@ export class InfoPanelComponent {
   selectedStranger: GtaStrangerMission | null = null;
   expandedStrangerSeries: { [seriesId: string]: boolean } = {};
 
-  // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail'
-  drawerView: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' = 'tabs';
+  // Misterios GTA Online / San Andreas
+  onlineMysteries: GtaMystery[] = [];
+  mysteriesLoading = false;
+  mysteriesError = false;
+  mysterySearchQuery = '';
+  selectedMysteryCategoryFilter = 'all'; // 'all' | 'paranormal' | 'conspiracy' | 'crimes' | 'easter_egg'
+  selectedMystery: GtaMystery | null = null;
+
+  // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail'
+  drawerView: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' = 'tabs';
   selectedMission: GtaMission | null = null;
 
   // Concesionario actualmente abierto en la vista de grid
@@ -209,6 +219,9 @@ export class InfoPanelComponent {
         if (this.onlineHeists.length > 0) {
           this.loadOnlineHeists(true, this.selectedHeist?.id);
         }
+        if (this.onlineMysteries.length > 0) {
+          this.loadOnlineMysteries(true, this.selectedMystery?.id);
+        }
       }
     });
   }
@@ -325,13 +338,14 @@ export class InfoPanelComponent {
 
   setDrawerTab(tabId: string): void {
     this.activeDrawerTab = tabId;
-    if (this.drawerView === 'dealer-grid' || this.drawerView === 'vehicle-detail' || this.drawerView === 'mission-detail' || this.drawerView === 'stranger-detail' || this.drawerView === 'heist-detail') {
+    if (this.drawerView === 'dealer-grid' || this.drawerView === 'vehicle-detail' || this.drawerView === 'mission-detail' || this.drawerView === 'stranger-detail' || this.drawerView === 'heist-detail' || this.drawerView === 'mystery-detail') {
       this.drawerView = 'tabs';
       this.activeDealerId = null;
       this.selectedVehicle = null;
       this.selectedMission = null;
       this.selectedStranger = null;
       this.selectedHeist = null;
+      this.selectedMystery = null;
     }
     if (this.gameMode === 'story') {
       if (tabId === 'misiones' && this.storyMissions.length === 0) {
@@ -346,6 +360,9 @@ export class InfoPanelComponent {
       }
       if (tabId === 'golpes' && this.onlineHeists.length === 0) {
         this.loadOnlineHeists();
+      }
+      if (tabId === 'misterios' && this.onlineMysteries.length === 0) {
+        this.loadOnlineMysteries();
       }
     }
   }
@@ -939,6 +956,102 @@ export class InfoPanelComponent {
   getHeistAccentColor(h: GtaHeist | null): string {
     if (!h) return '#ffb833';
     return h.badgeColor || '#ffb833';
+  }
+
+  // -------------------------------------------------------------
+  // MISTERIOS Y LEYENDAS URBANAS (GTA ONLINE)
+  // -------------------------------------------------------------
+  loadOnlineMysteries(force = false, keepSelectedId?: string): void {
+    if (this.onlineMysteries.length > 0 && !force) return;
+    this.mysteriesLoading = true;
+    this.mysteriesError = false;
+    this.missionService.getOnlineMysteries().subscribe({
+      next: (mysteries) => {
+        this.onlineMysteries = mysteries;
+        if (keepSelectedId) {
+          this.selectedMystery = mysteries.find(m => m.id === keepSelectedId) || null;
+        }
+        this.mysteriesLoading = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar misterios de GTA Online:', err);
+        this.mysteriesLoading = false;
+        this.mysteriesError = true;
+      }
+    });
+  }
+
+  setMysteryCategoryFilter(cat: string): void {
+    this.selectedMysteryCategoryFilter = cat;
+  }
+
+  get filteredOnlineMysteries(): GtaMystery[] {
+    let list = this.onlineMysteries;
+    const cat = this.selectedMysteryCategoryFilter.toLowerCase();
+    if (cat !== 'all') {
+      list = list.filter(m => m.category.toLowerCase() === cat);
+    }
+    const q = this.mysterySearchQuery.trim().toLowerCase();
+    if (q) {
+      list = list.filter(m =>
+        m.title.toLowerCase().includes(q) ||
+        (m.titleEn && m.titleEn.toLowerCase().includes(q)) ||
+        m.location.toLowerCase().includes(q) ||
+        m.zone.toLowerCase().includes(q) ||
+        m.description.toLowerCase().includes(q) ||
+        m.lore.toLowerCase().includes(q)
+      );
+    }
+    return list;
+  }
+
+  getMysteryCategoryCount(cat: string): number {
+    if (cat === 'all') return this.onlineMysteries.length;
+    return this.onlineMysteries.filter(m => m.category.toLowerCase() === cat.toLowerCase()).length;
+  }
+
+  openMysteryDetail(mystery: GtaMystery): void {
+    this.selectedMystery = mystery;
+    this.drawerView = 'mystery-detail';
+  }
+
+  closeMysteryDetail(): void {
+    this.selectedMystery = null;
+    this.drawerView = 'tabs';
+  }
+
+  get previousMystery(): GtaMystery | null {
+    if (!this.selectedMystery || this.onlineMysteries.length === 0) return null;
+    const idx = this.onlineMysteries.findIndex(m => m.id === this.selectedMystery!.id);
+    return idx > 0 ? this.onlineMysteries[idx - 1] : null;
+  }
+
+  get nextMystery(): GtaMystery | null {
+    if (!this.selectedMystery || this.onlineMysteries.length === 0) return null;
+    const idx = this.onlineMysteries.findIndex(m => m.id === this.selectedMystery!.id);
+    return (idx >= 0 && idx < this.onlineMysteries.length - 1) ? this.onlineMysteries[idx + 1] : null;
+  }
+
+  selectPreviousMystery(): void {
+    const prev = this.previousMystery;
+    if (prev) this.selectedMystery = prev;
+  }
+
+  selectNextMystery(): void {
+    const next = this.nextMystery;
+    if (next) this.selectedMystery = next;
+  }
+
+  onLocateMystery(mystery: GtaMystery, event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    this.locateOnMap.emit(mystery);
+  }
+
+  getMysteryAccentColor(m: GtaMystery | null): string {
+    if (!m) return '#a855f7';
+    return m.badgeColor || '#a855f7';
   }
 }
 

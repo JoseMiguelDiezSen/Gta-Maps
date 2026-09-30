@@ -277,6 +277,7 @@ export interface TranslationSchema {
       item3: string;
       item4: string;
       golpes: string;
+      misterios?: string;
     };
     catalog: {
       loading: string;
@@ -392,6 +393,32 @@ export interface TranslationSchema {
       returnToList: string;
       prevHeist: string;
       nextHeist: string;
+    };
+    mysteries?: {
+      searchPlaceholder: string;
+      all: string;
+      paranormal: string;
+      conspiracy: string;
+      crimes: string;
+      easterEgg: string;
+      loading: string;
+      error: string;
+      retry: string;
+      empty: string;
+      backToMysteries: string;
+      mysteryNum: string;
+      locateOnMap: string;
+      location: string;
+      schedule: string;
+      zone: string;
+      synopsis: string;
+      loreTitle: string;
+      mechanicsTitle: string;
+      cluesTitle: string;
+      observationTitle: string;
+      returnToList: string;
+      prevMystery: string;
+      nextMystery: string;
     };
   };
 }

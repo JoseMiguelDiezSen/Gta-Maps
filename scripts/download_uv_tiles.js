@@ -7,7 +7,7 @@ const MAX_ZOOM = 7;
 const BASE_URL = 'https://tiles.mapgenie.io/games/gta5/los-santos/uv/';
 const OUTPUT_DIR = path.join(__dirname, '../gtaapp.client/src/assets/tiles/uv');
 
-const CONCURRENCY = 10;
+const CONCURRENCY = 3;
 
 async function downloadTile(z, x, y) {
     const url = `${BASE_URL}${z}/${x}/${y}.jpg`;
@@ -19,7 +19,10 @@ async function downloadTile(z, x, y) {
     }
 
     return new Promise((resolve, reject) => {
-        https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+        const req = https.get(url, { 
+            headers: { 'User-Agent': 'Mozilla/5.0' },
+            timeout: 5000 
+        }, (res) => {
             if (res.statusCode === 200) {
                 fs.mkdirSync(destDir, { recursive: true });
                 const file = fs.createWriteStream(destFile);
@@ -31,10 +34,17 @@ async function downloadTile(z, x, y) {
             } else if (res.statusCode === 404 || res.statusCode === 403) {
                 resolve('not_found');
             } else {
-                reject(new Error(`Failed to download ${url}: ${res.statusCode}`));
+                resolve('error'); // Resolving as error to not break Promise.all
             }
-        }).on('error', (err) => {
-            reject(err);
+        });
+        
+        req.on('timeout', () => {
+            req.destroy();
+            resolve('error');
+        });
+
+        req.on('error', (err) => {
+            resolve('error');
         });
     });
 }

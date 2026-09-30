@@ -270,7 +270,8 @@ export const es: TranslationSchema = {
       strangers: 'Extraños y Locos',
       item3: 'Item 3',
       item4: 'Item4',
-      golpes: 'Golpes'
+      golpes: 'Golpes',
+      misterios: 'Misterios'
     },
     catalog: {
       loading: 'Cargando catálogo de {{ dealer }}...',
@@ -386,6 +387,32 @@ export const es: TranslationSchema = {
       returnToList: 'Volver al catálogo de golpes',
       prevHeist: 'Golpe anterior',
       nextHeist: 'Golpe siguiente'
+    },
+    mysteries: {
+      searchPlaceholder: 'Buscar misterio, leyenda urbana, aparición...',
+      all: 'Todos los Misterios',
+      paranormal: 'Paranormal',
+      conspiracy: 'Conspiraciones',
+      crimes: 'Crímenes',
+      easterEgg: 'Easter Eggs',
+      loading: 'Cargando archivo de misterios...',
+      error: 'Error al conectar con el archivo de misterios.',
+      retry: 'Reintentar',
+      empty: 'No se encontraron misterios para este criterio de búsqueda.',
+      backToMysteries: 'Volver a Misterios',
+      mysteryNum: 'MISTERIO #{{ order }}',
+      locateOnMap: 'Localizar en el mapa',
+      location: 'Ubicación:',
+      schedule: 'Horario de Aparición:',
+      zone: 'Zona / Región:',
+      synopsis: 'Descripción del Suceso',
+      loreTitle: 'Historia y Trasfondo Real',
+      mechanicsTitle: 'Cómo Presenciar el Suceso (Mecánicas)',
+      cluesTitle: 'Pistas, Archivos y Conexiones',
+      observationTitle: 'Punto de Observación Recomendado',
+      returnToList: 'Volver a la lista de misterios',
+      prevMystery: 'Misterio anterior',
+      nextMystery: 'Misterio siguiente'
     }
   }
 };

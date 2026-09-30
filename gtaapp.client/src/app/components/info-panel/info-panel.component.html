@@ -63,6 +63,16 @@
         <span class="drawer-breadcrumb-current">{{ selectedHeist?.title }}</span>
       </span>
 
+      <!-- BREADCRUMB dinámico de misterio (GTA Online) -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'mystery-detail'">
+        <button type="button" class="drawer-breadcrumb-back" (click)="closeMysteryDetail()" [title]="'transports.mysteries.backToMysteries' | translate">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="drawer-breadcrumb-link" (click)="closeMysteryDetail()">{{ 'transports.tabs.misterios' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current">{{ selectedMystery?.title }}</span>
+      </span>
+
       <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
         <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
         <span>{{ 'transports.title' | translate }}</span>
@@ -72,6 +82,7 @@
       <h3 class="drawer-title" *ngIf="drawerView === 'mission-detail'">{{ selectedMission?.title }}</h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'stranger-detail'">{{ selectedStranger?.title }}</h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'heist-detail'">{{ selectedHeist?.title }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'mystery-detail'">{{ selectedMystery?.title }}</h3>
     </div>
     <button type="button" class="drawer-close-btn" (click)="onClose()" [title]="'transports.closeTitle' | translate">
       <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
@@ -1141,22 +1152,155 @@
 
       </div>
 
-      <!-- En GTA Online: elemento limpio con la estructura base -->
-      <div class="dealers-tab-scroll" *ngIf="gameMode !== 'story'">
-        <div class="drawer-empty">
-          <i class="fa-solid fa-box drawer-empty-icon"></i>
-          <p class="drawer-empty-text">{{ 'transports.tabs.item3' | translate }}</p>
-        </div>
-      </div>
     </ng-container>
 
-    <!-- ============ TAB: ITEM 3 (GTA ONLINE) ============ -->
-    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'item3'">
-      <div class="dealers-tab-scroll">
-        <div class="drawer-empty">
-          <i class="fa-solid fa-box drawer-empty-icon"></i>
-          <p class="drawer-empty-text">{{ 'transports.tabs.item3' | translate }}</p>
+    <!-- ============ TAB: MISTERIOS / PESTAÑA 4 (GTA ONLINE) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && (activeDrawerTab === 'misterios' || activeDrawerTab === 'item3')">
+      <div class="heists-tab-container">
+        <!-- Toolbar: Búsqueda y Filtros de Categoría -->
+        <div class="heists-toolbar">
+          <!-- Buscador -->
+          <div class="heists-search-box">
+            <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
+            <input
+              type="text"
+              class="heists-search-input"
+              [(ngModel)]="mysterySearchQuery"
+              [placeholder]="'transports.mysteries.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="mysterySearchQuery"
+              type="button"
+              class="heists-search-clear"
+              (click)="mysterySearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Filtros de Categorías con conteos -->
+          <div class="heists-filter-chips">
+            <button
+              type="button"
+              class="chip-btn"
+              [class.is-active]="selectedMysteryCategoryFilter === 'all'"
+              (click)="setMysteryCategoryFilter('all')"
+            >
+              <span>{{ 'transports.mysteries.all' | translate }}</span>
+              <span class="chip-count">{{ getMysteryCategoryCount('all') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-paranormal"
+              [class.is-active]="selectedMysteryCategoryFilter === 'paranormal'"
+              (click)="setMysteryCategoryFilter('paranormal')"
+            >
+              <i class="fa-solid fa-ghost chip-dot" style="color: #a855f7;"></i>
+              <span>{{ 'transports.mysteries.paranormal' | translate }}</span>
+              <span class="chip-count">{{ getMysteryCategoryCount('paranormal') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-conspiracy"
+              [class.is-active]="selectedMysteryCategoryFilter === 'conspiracy'"
+              (click)="setMysteryCategoryFilter('conspiracy')"
+            >
+              <i class="fa-solid fa-eye chip-dot" style="color: #06b6d4;"></i>
+              <span>{{ 'transports.mysteries.conspiracy' | translate }}</span>
+              <span class="chip-count">{{ getMysteryCategoryCount('conspiracy') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-crimes"
+              [class.is-active]="selectedMysteryCategoryFilter === 'crimes'"
+              (click)="setMysteryCategoryFilter('crimes')"
+            >
+              <i class="fa-solid fa-skull-crossbones chip-dot" style="color: #ef4444;"></i>
+              <span>{{ 'transports.mysteries.crimes' | translate }}</span>
+              <span class="chip-count">{{ getMysteryCategoryCount('crimes') }}</span>
+            </button>
+            <button
+              type="button"
+              class="chip-btn chip-easter-egg"
+              [class.is-active]="selectedMysteryCategoryFilter === 'easter_egg'"
+              (click)="setMysteryCategoryFilter('easter_egg')"
+            >
+              <i class="fa-solid fa-dog chip-dot" style="color: #06b6d4;"></i>
+              <span>{{ 'transports.mysteries.easterEgg' | translate }}</span>
+              <span class="chip-count">{{ getMysteryCategoryCount('easter_egg') }}</span>
+            </button>
+          </div>
         </div>
+
+        <!-- Estado de Carga -->
+        <div class="missions-loading" *ngIf="mysteriesLoading">
+          <i class="fa-solid fa-circle-notch fa-spin missions-spinner"></i>
+          <span>{{ 'transports.mysteries.loading' | translate }}</span>
+        </div>
+
+        <!-- Estado de Error -->
+        <div class="missions-error" *ngIf="!mysteriesLoading && mysteriesError">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>{{ 'transports.mysteries.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadOnlineMysteries()">
+            <i class="fa-solid fa-rotate-right"></i>
+            {{ 'transports.mysteries.retry' | translate }}
+          </button>
+        </div>
+
+        <!-- Estado Vacío -->
+        <div class="missions-empty" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length === 0">
+          <i class="fa-solid fa-user-secret"></i>
+          <span>{{ 'transports.mysteries.empty' | translate }}</span>
+        </div>
+
+        <!-- LISTA DE MISTERIOS (Estilo de tarjeta con foto, badges y botón de localización) -->
+        <div class="heists-list" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
+          <div
+            *ngFor="let m of filteredOnlineMysteries"
+            class="heist-card mystery-card"
+            (click)="openMysteryDetail(m)"
+            [style.--heist-color]="m.badgeColor"
+          >
+            <div class="heist-card-icon" [style.background]="m.badgeColor + '22'" [style.color]="m.badgeColor">
+              <i class="fa-solid" [ngClass]="m.badgeIcon"></i>
+            </div>
+
+            <div class="heist-card-info">
+              <div class="heist-card-title-row">
+                <span class="heist-card-order">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+                <span class="heist-card-name">{{ m.title }}</span>
+              </div>
+              <div class="heist-card-sub">
+                <span class="heist-card-cat" [style.color]="m.badgeColor">{{ m.categoryLabel }}</span>
+                <span class="heist-card-sep" *ngIf="m.schedule">•</span>
+                <span class="heist-card-take" *ngIf="m.schedule" style="color: #fbbf24;">
+                  <i class="fa-regular fa-clock"></i> {{ m.schedule }}
+                </span>
+                <span class="heist-card-sep">•</span>
+                <span class="heist-card-players" style="color: #94a3b8;">
+                  <i class="fa-solid fa-location-dot"></i> {{ m.location }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Botón de Localización en el mapa sobre la card -->
+            <button
+              type="button"
+              class="mystery-card-locate-btn"
+              (click)="onLocateMystery(m, $event)"
+              [title]="'transports.mysteries.locateOnMap' | translate"
+            >
+              <i class="fa-solid fa-location-crosshairs"></i>
+            </button>
+
+            <div class="heist-card-arrow">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+
       </div>
     </ng-container>
 
@@ -1540,6 +1684,193 @@
               <button type="button" class="mdetail-return-btn" (click)="closeHeistDetail()">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>{{ 'transports.heists.returnToList' | translate }}</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE MISTERIO (GTA ONLINE) ============ -->
+    <ng-container *ngIf="drawerView === 'mystery-detail' && selectedMystery">
+      <div class="mdetail-container" [style.--m-accent]="getMysteryAccentColor(selectedMystery)">
+
+        <!-- Barra superior de navegación interna -->
+        <div class="mdetail-top-bar is-centered">
+          <div class="mdetail-stepper">
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!previousMystery"
+              (click)="selectPreviousMystery()"
+              [title]="'transports.mysteries.prevMystery' | translate"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="mdetail-step-label">
+              {{ selectedMystery.order }} / {{ onlineMysteries.length }}
+            </span>
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!nextMystery"
+              (click)="selectNextMystery()"
+              [title]="'transports.mysteries.nextMystery' | translate"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenido scrolleable del misterio -->
+        <div class="mdetail-body">
+          <div class="mdetail-main-card">
+
+            <!-- Hero media oficial con imagen y badges -->
+            <div class="stranger-hero-media" *ngIf="selectedMystery.thumbnail">
+              <img [src]="selectedMystery.thumbnail" [alt]="selectedMystery.title" class="stranger-hero-img" />
+              <div class="stranger-hero-overlay"></div>
+              <div class="stranger-hero-badges">
+                <span class="stranger-hero-series-badge" [style.backgroundColor]="selectedMystery.badgeColor">
+                  <i class="fa-solid" [ngClass]="selectedMystery.badgeIcon"></i>
+                  <span>{{ selectedMystery.categoryLabel }}</span>
+                </span>
+                <span class="heist-hero-take-badge" *ngIf="selectedMystery.schedule" style="background: rgba(234, 179, 8, 0.2); border-color: #eab308; color: #fde047;">
+                  <i class="fa-regular fa-clock"></i>
+                  <span>{{ selectedMystery.schedule }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Cabecera del Misterio -->
+            <div class="mdetail-hero">
+              <div class="mdetail-hero-badges">
+                <span class="mdetail-hero-num">{{ 'transports.mysteries.mysteryNum' | translate:{ order: (selectedMystery.order < 10 ? '0' + selectedMystery.order : selectedMystery.order) } }}</span>
+                <span class="mdetail-hero-cat" [style.borderColor]="selectedMystery.badgeColor + '44'" [style.color]="selectedMystery.badgeColor">
+                  <i class="fa-solid" [ngClass]="selectedMystery.badgeIcon"></i>
+                  {{ selectedMystery.categoryLabel }}
+                </span>
+              </div>
+              <h2 class="mdetail-hero-title">{{ selectedMystery.title }}</h2>
+              <div class="mdetail-title-en" *ngIf="selectedMystery.titleEn && selectedMystery.titleEn !== selectedMystery.title">
+                {{ selectedMystery.titleEn }}
+              </div>
+
+              <!-- BOTÓN DESTACADO DE LOCALIZACIÓN -->
+              <div class="mystery-locate-action-bar">
+                <button
+                  type="button"
+                  class="mystery-locate-cta-btn"
+                  (click)="onLocateMystery(selectedMystery)"
+                  [style.--btn-accent]="selectedMystery.badgeColor"
+                >
+                  <i class="fa-solid fa-location-crosshairs"></i>
+                  <span>{{ 'transports.mysteries.locateOnMap' | translate }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Grid de Estadísticas / Claves del Misterio -->
+            <div class="mdetail-grid">
+              <div class="mdetail-box" *ngIf="selectedMystery.schedule">
+                <i class="fa-regular fa-clock box-icon" style="color: #facc15;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.schedule' | translate }}</span>
+                  <span class="box-val" style="color: #fef08a;">{{ selectedMystery.schedule }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedMystery.location">
+                <i class="fa-solid fa-mountain box-icon" style="color: #38bdf8;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.location' | translate }}</span>
+                  <span class="box-val">{{ selectedMystery.location }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedMystery.zone">
+                <i class="fa-solid fa-map-pin box-icon" style="color: #ec4899;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.zone' | translate }}</span>
+                  <span class="box-val">{{ selectedMystery.zone }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedMystery.position">
+                <i class="fa-solid fa-crosshairs box-icon" style="color: #4ade80;"></i>
+                <div class="box-content">
+                  <span class="box-label">Coordenadas XYZ</span>
+                  <span class="box-val" style="font-family: monospace; font-size: 11px;">
+                    X: {{ selectedMystery.position.x }}, Y: {{ selectedMystery.position.y }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Descripción del Suceso -->
+            <div class="mdetail-block" *ngIf="selectedMystery.description">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-align-left"></i>
+                <span>{{ 'transports.mysteries.synopsis' | translate }}</span>
+              </div>
+              <p class="mdetail-desc-text">{{ selectedMystery.description }}</p>
+            </div>
+
+            <!-- Bloque: Historia y Trasfondo Real -->
+            <div class="mdetail-block" *ngIf="selectedMystery.lore">
+              <div class="mdetail-block-head" [style.color]="selectedMystery.badgeColor">
+                <i class="fa-solid fa-book-skull"></i>
+                <span>{{ 'transports.mysteries.loreTitle' | translate }}</span>
+              </div>
+              <p class="mdetail-desc-text" style="border-left: 3px solid var(--m-accent); padding-left: 12px;">{{ selectedMystery.lore }}</p>
+            </div>
+
+            <!-- Bloque: Cómo Presenciar el Suceso (Mecánicas) -->
+            <div class="mdetail-block" *ngIf="selectedMystery.mechanics && selectedMystery.mechanics.length > 0">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-binoculars"></i>
+                <span>{{ 'transports.mysteries.mechanicsTitle' | translate }}</span>
+              </div>
+              <div class="stranger-objectives-list">
+                <div class="stranger-obj-item" *ngFor="let mech of selectedMystery.mechanics">
+                  <i class="fa-solid fa-check" [style.color]="selectedMystery.badgeColor"></i>
+                  <span>{{ mech }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque: Punto de Observación -->
+            <div class="mdetail-block" *ngIf="selectedMystery.observationPoint">
+              <div class="mdetail-block-head" style="color: #38bdf8;">
+                <i class="fa-solid fa-eye"></i>
+                <span>{{ 'transports.mysteries.observationTitle' | translate }}</span>
+              </div>
+              <p class="mdetail-desc-text" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 6px; padding: 10px 12px; color: #bae6fd;">
+                {{ selectedMystery.observationPoint.tip }}
+              </p>
+            </div>
+
+            <!-- Bloque: Pistas y Conexiones -->
+            <div class="mdetail-block" *ngIf="selectedMystery.clues && selectedMystery.clues.length > 0">
+              <div class="mdetail-block-head" style="color: #facc15;">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>{{ 'transports.mysteries.cluesTitle' | translate }}</span>
+              </div>
+              <div class="stranger-objectives-list">
+                <div class="stranger-obj-item" *ngFor="let clue of selectedMystery.clues">
+                  <i class="fa-solid fa-paperclip" style="color: #facc15;"></i>
+                  <span>{{ clue }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de retorno al pie -->
+            <div class="mdetail-bottom-action">
+              <button type="button" class="mdetail-return-btn" (click)="closeMysteryDetail()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>{{ 'transports.mysteries.returnToList' | translate }}</span>
               </button>
             </div>
 

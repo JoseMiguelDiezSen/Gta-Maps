@@ -112,4 +112,14 @@ public class GTA5OnlineController : ControllerBase
     {
         return Ok(_locationsService.GetOnlineMissions(lang).ToList());
     }
+
+    /// <summary>
+    /// GET /api/gta5/online/mysteries
+    /// Archivo de Misterios, Leyendas Urbanas y Sucesos Paranormales de GTA Online.
+    /// </summary>
+    [HttpGet("mysteries")]
+    public ActionResult<List<MysteryItem>> GetMysteries([FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetMysteries(lang).ToList());
+    }
 }

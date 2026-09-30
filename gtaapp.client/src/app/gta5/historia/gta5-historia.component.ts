@@ -384,7 +384,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             let tileClass = '';
 
             if (mapType === 'UV' || mapType === 'UV2') {
-                tileUrl = 'https://tiles.mapgenie.io/games/gta5/los-santos/uv/{z}/{x}/{y}.jpg';
+                tileUrl = 'assets/tiles/uv/{z}/{x}/{y}.jpg';
                 if (mapType === 'UV2') tileClass = 'leaflet-tile-uv2';
             } else if (mapType === 'Juego') {
                 tileUrl = `assets/Roadmap/{z}_{x}_{y}.jpg`;

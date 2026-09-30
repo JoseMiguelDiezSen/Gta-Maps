@@ -1,698 +1,524 @@
 [
-  {
-    "id": "safehouse-franklin-strawberry",
-    "name": "Clinton Residence (Franklin)",
-    "category": "safehouse",
-    "categoryLabel": "Safehouses",
-    "gameMode": "story",
-    "owner": "Franklin Clinton",
-    "price": 0,
-    "priceFormatted": "Initial safehouse",
-    "zone": "Strawberry (Forum Drive)",
-    "description": "Franklin Clinton's initial home shared with his Aunt Denise on Forum Drive. Features a private garage for one vehicle, bed to save game and rest, and back yard where Chop lives.",
-    "features": [
-      "Franklin's initial official safehouse",
-      "Private garage for 1 vehicle and back yard for Chop",
-      "Central neighborhood hub in Strawberry"
-    ],
-    "income": "Safehouse / Save Game",
-    "position": {
-      "x": -13.96,
-      "y": -1440.61,
-      "z": 30.5
+    {
+        "id": "biz-smoke-on-the-water",
+        "name": "Smoke on the Water",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Franklin Clinton",
+        "price": 93000,
+        "priceFormatted": "$93,000",
+        "zone": "Vespucci Beach",
+        "description": "Medical marijuana dispensary located on the Vespucci beachfront. Features occasional delivery side-jobs.",
+        "features": [
+            "Exclusive to Franklin",
+            "Periodic delivery side missions",
+            "Break-even in 10 in-game weeks"
+        ],
+        "income": "$9,300 weekly fixed",
+        "position": {
+            "x": -1172,
+            "y": -1571.9,
+            "z": 4.6
+        },
+        "badge": {
+            "icon": "store",
+            "color": "#2ecc71",
+            "symbol": "$"
+        },
+        "imageUrl": "/assets/data-images/properties/Smoke-on-the-Water-Logo.png"
     },
-    "badge": {
-      "icon": "home",
-      "color": "#2ecc71",
-      "symbol": "🏠"
+    {
+        "id": "biz-tequi-la-la",
+        "name": "Tequi-la-la",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Any protagonist",
+        "price": 2000000,
+        "priceFormatted": "$2,000,000",
+        "zone": "West Vinewood",
+        "description": "Legendary nightclub and rock bar on Eclipse Boulevard. Host to historic rock concerts and biker brawls.",
+        "features": [
+            "Available for Michael, Franklin or Trevor",
+            "Random bar fight brawl events",
+            "Free VIP club admission"
+        ],
+        "income": "$16,500 weekly fixed",
+        "position": {
+            "x": -568.5,
+            "y": 291.1,
+            "z": 79.2
+        },
+        "badge": {
+            "icon": "cocktail",
+            "color": "#9b59b6",
+            "symbol": "🍸"
+        },
+        "imageUrl": "/assets/data-images/properties/Tequilala-GTAV-Logo.png"
     },
-    "imageUrl": "/assets/data-images/properties/Clinton_Residence.jpg"
-  },
-  {
-    "id": "safehouse-franklin-vinewood",
-    "name": "3671 Whispymound Drive (Franklin)",
-    "category": "safehouse",
-    "categoryLabel": "Safehouses",
-    "gameMode": "story",
-    "owner": "Franklin Clinton",
-    "price": 0,
-    "priceFormatted": "Unlocked Safehouse",
-    "zone": "Vinewood Hills",
-    "description": "Stunning contemporary mansion in Vinewood Hills gifted to Franklin by Lester Crest after completing assassination missions. Offers infinity pool, double garage, and panoramic skyline views.",
-    "features": [
-      "Franklin's permanent luxury safehouse",
-      "Garage for 2 high-end vehicles",
-      "Panoramic infinity pool and lounge deck"
-    ],
-    "income": "Luxury Mansion / Save Game",
-    "position": {
-      "x": 7.03,
-      "y": 537.31,
-      "z": 175.5
+    {
+        "id": "biz-pitchers",
+        "name": "Pitchers",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Any protagonist",
+        "price": 750000,
+        "priceFormatted": "$750,000",
+        "zone": "Downtown Vinewood",
+        "description": "Popular cocktail lounge with an outdoor patio in the heart of Vinewood. High nocturnal patron volume.",
+        "features": [
+            "Available for all three protagonists",
+            "Liquor & supply run missions",
+            "Investment return in 107 weeks"
+        ],
+        "income": "$7,000 weekly fixed",
+        "position": {
+            "x": 236.4,
+            "y": 344.2,
+            "z": 105.5
+        },
+        "badge": {
+            "icon": "beer",
+            "color": "#e67e22",
+            "symbol": "🍺"
+        },
+        "imageUrl": "/assets/data-images/properties/Pitchers-GTAV.png"
     },
-    "badge": {
-      "icon": "home",
-      "color": "#2ecc71",
-      "symbol": "🏠"
+    {
+        "id": "biz-the-hen-house",
+        "name": "The Hen House",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Any protagonist",
+        "price": 80000,
+        "priceFormatted": "$80,000",
+        "zone": "Paleto Bay",
+        "description": "Quaint rural tavern in northern Paleto Bay. The most affordable purchasable business in Story Mode.",
+        "features": [
+            "Most affordable property in Story Mode",
+            "Periodic defense against local thieves",
+            "Great starter real estate"
+        ],
+        "income": "$920 weekly fixed",
+        "position": {
+            "x": -305.2,
+            "y": 6265.8,
+            "z": 31.5
+        },
+        "badge": {
+            "icon": "home",
+            "color": "#d35400",
+            "symbol": "🏠"
+        },
+        "imageUrl": "/assets/data-images/properties/TheHenHouse-GTAVee.jpg"
     },
-    "imageUrl": "/assets/data-images/properties/Whispymound_Drive.jpg"
-  },
-  {
-    "id": "safehouse-michael-mansion",
-    "name": "De Santa Residence (Michael)",
-    "category": "safehouse",
-    "categoryLabel": "Safehouses",
-    "gameMode": "story",
-    "owner": "Michael De Santa",
-    "price": 0,
-    "priceFormatted": "Family Residence",
-    "zone": "Rockford Hills",
-    "description": "Luxurious Spanish colonial estate on Spanish Avenue in Rockford Hills. Features regulation tennis court, private pool, wine cellar, home cinema, and double garage for family vehicles.",
-    "features": [
-      "Michael De Santa's primary family safehouse",
-      "Private playable tennis court",
-      "Garage for 2 vehicles and interior bar"
-    ],
-    "income": "Family Estate / Save Game",
-    "position": {
-      "x": -811.27,
-      "y": 179.33,
-      "z": 72.1
+    {
+        "id": "biz-cinema-doppler",
+        "name": "Cinema Doppler",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Michael De Santa",
+        "price": 10000000,
+        "priceFormatted": "$10,000,000",
+        "zone": "Vinewood Boulevard",
+        "description": "Historic Art Deco movie theater on the Vinewood Walk of Fame. Major passive income generator.",
+        "features": [
+            "Exclusive to Michael",
+            "Film reel delivery & VIP protection missions",
+            "Amortization in 76 weeks"
+        ],
+        "income": "$132,200 weekly fixed",
+        "position": {
+            "x": 305.8,
+            "y": 147.2,
+            "z": 103.8
+        },
+        "badge": {
+            "icon": "film",
+            "color": "#f1c40f",
+            "symbol": "🎬"
+        },
+        "imageUrl": "/assets/data-images/properties/DopplerCinema-GTAV-Building.png"
     },
-    "badge": {
-      "icon": "home",
-      "color": "#3498db",
-      "symbol": "🏠"
+    {
+        "id": "biz-ten-cent-theater",
+        "name": "Ten Cent Theater",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Michael De Santa",
+        "price": 20000000,
+        "priceFormatted": "$20,000,000",
+        "zone": "Textile City",
+        "description": "Iconic vintage movie theater in the commercial core of Textile City. Yields one of the highest weekly revenues.",
+        "features": [
+            "Exclusive to Michael",
+            "Weekly revenue over a quarter million",
+            "Investment return in 76 weeks"
+        ],
+        "income": "$264,000 weekly fixed",
+        "position": {
+            "x": 393.2,
+            "y": -710.8,
+            "z": 29.3
+        },
+        "badge": {
+            "icon": "film",
+            "color": "#f1c40f",
+            "symbol": "🎬"
+        },
+        "imageUrl": "/assets/data-images/properties/TenCentTheater-GTAV-OfficialScreenshot.png"
     },
-    "imageUrl": "/assets/data-images/properties/De_Santa_Residence.jpg"
-  },
-  {
-    "id": "safehouse-trevor-trailer",
-    "name": "Trevor's Trailer (Trevor / Michael)",
-    "category": "safehouse",
-    "categoryLabel": "Safehouses",
-    "gameMode": "story",
-    "owner": "Trevor Philips / Michael De Santa",
-    "price": 0,
-    "priceFormatted": "Desert Base",
-    "zone": "Sandy Shores",
-    "description": "Chaotic headquarters of Trevor Philips Enterprises on Zancudo Avenue, Sandy Shores. Also serves as Michael De Santa's secret refuge during his exile in Blaine County.",
-    "features": [
-      "Trevor's safehouse in Sandy Shores",
-      "Michael's refuge during Blaine County exile",
-      "Adjacent garage and parking for Bodhi truck"
-    ],
-    "income": "Operations Base / Save Game",
-    "position": {
-      "x": 1973.81,
-      "y": 3818.55,
-      "z": 33.4
+    {
+        "id": "biz-tivoli-cinema",
+        "name": "Tivoli Cinema",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Michael De Santa",
+        "price": 30000000,
+        "priceFormatted": "$30,000,000",
+        "zone": "Morningwood",
+        "description": "Upscale movie palace in Morningwood. The city's premier and most prestigious cinema.",
+        "features": [
+            "Exclusive to Michael",
+            "Most expensive cinema in San Andreas",
+            "Massive weekly revenue"
+        ],
+        "income": "$142,300 weekly fixed",
+        "position": {
+            "x": -1424.5,
+            "y": -221.8,
+            "z": 46.5
+        },
+        "badge": {
+            "icon": "film",
+            "color": "#f1c40f",
+            "symbol": "🎬"
+        },
+        "imageUrl": "/assets/data-images/properties/TivoliCinema-GTAV.png"
     },
-    "badge": {
-      "icon": "home",
-      "color": "#e67e22",
-      "symbol": "🏠"
+    {
+        "id": "biz-ls-customs-desert",
+        "name": "Los Santos Customs (Route 68)",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Franklin Clinton",
+        "price": 349000,
+        "priceFormatted": "$349,000",
+        "zone": "Grand Senora Desert",
+        "description": "Official mod shop on Route 68. Purchasing it unlocks 100% FREE vehicle mods, armor, and repairs for Franklin!",
+        "features": [
+            "Exclusive to Franklin",
+            "100% FREE vehicle mods & tuning for Franklin for life!",
+            "Passive weekly income"
+        ],
+        "income": "FREE Mods + $1,600 weekly",
+        "position": {
+            "x": 1177,
+            "y": 2640,
+            "z": 37.8
+        },
+        "badge": {
+            "icon": "wrench",
+            "color": "#3498db",
+            "symbol": "🔧"
+        },
+        "imageUrl": "/assets/data-images/properties/GTAV-LSCustoms-Logo.png"
     },
-    "imageUrl": "/assets/data-images/properties/Trevors_Trailer.jpg"
-  },
-  {
-    "id": "safehouse-trevor-floyd",
-    "name": "Floyd's Apartment (Trevor)",
-    "category": "safehouse",
-    "categoryLabel": "Safehouses",
-    "gameMode": "story",
-    "owner": "Trevor Philips",
-    "price": 0,
-    "priceFormatted": "Temporary Safehouse",
-    "zone": "Vespucci Beach",
-    "description": "Beachfront apartment in Vespucci owned by Floyd Hebert and Debra, commandeered by Trevor Philips as his initial forward operating base in Los Santos.",
-    "features": [
-      "Trevor's coastal safehouse in Los Santos",
-      "Heist planning board for Merryweather Heist",
-      "Designated street parking at Vespucci Beach"
-    ],
-    "income": "Coastal Refuge / Save Game",
-    "position": {
-      "x": -1157.13,
-      "y": -1523.03,
-      "z": 10.6
+    {
+        "id": "biz-car-scrapyard",
+        "name": "Salvage Yard Coches",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Any protagonist",
+        "price": 275000,
+        "priceFormatted": "$275,000",
+        "zone": "El Burro Heights",
+        "description": "Vehicle scrap and recycling depot. Generates payout cash for every vehicle destroyed anywhere across San Andreas.",
+        "features": [
+            "Pays $150 cash for every vehicle destroyed on map",
+            "Maximum $5,000 weekly scrap cap",
+            "Available for all 3 protagonists"
+        ],
+        "income": "$150 per destroyed vehicle (hasta $5,000/sem)",
+        "position": {
+            "x": 1289.2,
+            "y": -2072.5,
+            "z": 51.5
+        },
+        "badge": {
+            "icon": "trash",
+            "color": "#7f8c8d",
+            "symbol": "🚗"
+        },
+        "imageUrl": "/assets/data-images/properties/CarScrapyard-GTAV-Warehouse.jpg"
     },
-    "badge": {
-      "icon": "home",
-      "color": "#e67e22",
-      "symbol": "🏠"
+    {
+        "id": "biz-hookies",
+        "name": "Hookies",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Michael or Franklin",
+        "price": 600000,
+        "priceFormatted": "$600,000",
+        "zone": "North Chumash",
+        "description": "Roadside seafood restaurant off the Great Ocean Highway, frequently patronized by The Lost MC.",
+        "features": [
+            "Purchasable by Michael or Franklin",
+            "Defense missions against The Lost MC",
+            "Prime western coastal highway spot"
+        ],
+        "income": "$4,700 weekly fixed",
+        "position": {
+            "x": -2195.4,
+            "y": 4272.5,
+            "z": 48.6
+        },
+        "badge": {
+            "icon": "restaurant",
+            "color": "#e67e22",
+            "symbol": "🦞"
+        },
+        "imageUrl": "/assets/data-images/properties/Hookies-GTAVee.jpg"
     },
-    "imageUrl": "/assets/data-images/properties/Floyds_Apartment.jpg"
-  },
-  {
-    "id": "safehouse-trevor-stripclub",
-    "name": "Vanilla Unicorn Club (Trevor)",
-    "category": "safehouse",
-    "categoryLabel": "Safehouses",
-    "gameMode": "story",
-    "owner": "Trevor Philips",
-    "price": 0,
-    "priceFormatted": "Business & Safehouse",
-    "zone": "Strawberry",
-    "description": "Famous strip club on Elgin Avenue commandeered as Trevor's permanent headquarters in Los Santos. Generates $5,000 weekly profit, free drinks and VIP access, and full safehouse facilities.",
-    "features": [
-      "Trevor's permanent Los Santos safehouse",
-      "Generates $5,000 weekly passive income",
-      "Full VIP club privileges and private office"
-    ],
-    "income": "Safehouse + $5,000 weekly income",
-    "position": {
-      "x": 96.48,
-      "y": -1291.29,
-      "z": 29.2
+    {
+        "id": "biz-sonar-collections",
+        "name": "Sonar Collections Dock",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Any protagonist",
+        "price": 250000,
+        "priceFormatted": "$250,000",
+        "zone": "Paleto Cove",
+        "description": "Submarine dock facility with docked submersible. Unlocks the salvage hunt for 30 nuclear waste barrels.",
+        "features": [
+            "Unlocks submarine for ocean exploration",
+            "30 nuclear waste barrels collectible ($23K each)",
+            "Final $250,000 completion bonus"
+        ],
+        "income": "$23,000 per nuclear waste barrel recovered ($940,000 total)",
+        "position": {
+            "x": -1612.4,
+            "y": 5262.8,
+            "z": 3.9
+        },
+        "badge": {
+            "icon": "anchor",
+            "color": "#1abc9c",
+            "symbol": "⚓"
+        },
+        "imageUrl": "/assets/data-images/properties/SonarCollectionsDock-GTAV.png"
     },
-    "badge": {
-      "icon": "home",
-      "color": "#e67e22",
-      "symbol": "🏠"
+    {
+        "id": "biz-mckenzie-hangar",
+        "name": "McKenzie Field Hangar",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Trevor Philips",
+        "price": 150000,
+        "priceFormatted": "$150,000",
+        "zone": "Grapeseed",
+        "description": "Clandestine dirt airstrip with a hangar for a Cuban 800 and Dune Buggy. Trevor's arms trafficking base.",
+        "features": [
+            "Exclusive to Trevor",
+            "Airborne bombing & smuggling runs with Cuban 800",
+            "Ground arms trafficking in Dune Buggy"
+        ],
+        "income": "$5,000 per ground delivery / $7,000 per air delivery",
+        "position": {
+            "x": 2137.2,
+            "y": 4785.4,
+            "z": 41.1
+        },
+        "badge": {
+            "icon": "plane",
+            "color": "#e74c3c",
+            "symbol": "✈️"
+        },
+        "imageUrl": "/assets/data-images/properties/McKenzieFieldHangar-GTAVee-Signage.jpg"
     },
-    "imageUrl": "/assets/data-images/properties/Vanilla_Unicorn.jpg"
-  },
-  {
-    "id": "biz-smoke-on-the-water",
-    "name": "Smoke on the Water",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Franklin Clinton",
-    "price": 93000,
-    "priceFormatted": "$93,000",
-    "zone": "Vespucci Beach",
-    "description": "Medical marijuana dispensary located on the Vespucci beachfront. Features occasional delivery side-jobs.",
-    "features": [
-      "Exclusive to Franklin",
-      "Periodic delivery side missions",
-      "Break-even in 10 in-game weeks"
-    ],
-    "income": "$9,300 weekly fixed",
-    "position": {
-      "x": -1172,
-      "y": -1571.9,
-      "z": 4.6
+    {
+        "id": "biz-golf-club",
+        "name": "Los Santos Golf Club",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Any protagonist",
+        "price": 150000000,
+        "priceFormatted": "$150,000,000",
+        "zone": "Richman",
+        "description": "The most exclusive and expensive real estate in GTA history ($150M). Supreme symbol of prestige in San Andreas.",
+        "features": [
+            "Most expensive property in GTA history ($150M)",
+            "Free golf rounds for the owner",
+            "Play in any clothing"
+        ],
+        "income": "$264,500 weekly fixed",
+        "position": {
+            "x": -1338.2,
+            "y": 56.4,
+            "z": 54.2
+        },
+        "badge": {
+            "icon": "trophy",
+            "color": "#27ae60",
+            "symbol": "⛳"
+        },
+        "imageUrl": "/assets/data-images/properties/LosSantosGolfClub-GTAO-Logo.png"
     },
-    "badge": {
-      "icon": "store",
-      "color": "#2ecc71",
-      "symbol": "$"
+    {
+        "id": "biz-towing-impound",
+        "name": "Towing Impound Yard",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Franklin Clinton",
+        "price": 150000,
+        "priceFormatted": "$150,000",
+        "zone": "Rancho",
+        "description": "Municipal tow truck impound yard. Unlocked by completing Tonya's towing missions in South Los Santos.",
+        "features": [
+            "Exclusive to Franklin",
+            "Towing missions for illegally parked cars",
+            "Instant cash per car delivered"
+        ],
+        "income": "$500 per towed vehicle",
+        "position": {
+            "x": 408.2,
+            "y": -1638.5,
+            "z": 29.3
+        },
+        "badge": {
+            "icon": "truck",
+            "color": "#e67e22",
+            "symbol": "🚚"
+        },
+        "imageUrl": "/assets/data-images/properties/TowTruckMission-GTA5.png"
     },
-    "imageUrl": "/assets/data-images/properties/Smoke-on-the-Water-Logo.png"
-  },
-  {
-    "id": "biz-tequi-la-la",
-    "name": "Tequi-la-la",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Any protagonist",
-    "price": 2000000,
-    "priceFormatted": "$2,000,000",
-    "zone": "West Vinewood",
-    "description": "Legendary nightclub and rock bar on Eclipse Boulevard. Host to historic rock concerts and biker brawls.",
-    "features": [
-      "Available for Michael, Franklin or Trevor",
-      "Random bar fight brawl events",
-      "Free VIP club admission"
-    ],
-    "income": "$16,500 weekly fixed",
-    "position": {
-      "x": -568.5,
-      "y": 291.1,
-      "z": 79.2
+    {
+        "id": "biz-downtown-cab",
+        "name": "Downtown Cab Co.",
+        "category": "purchasable_business",
+        "categoryLabel": "Purchasable Businesses",
+        "gameMode": "story",
+        "owner": "Franklin Clinton",
+        "price": 200000,
+        "priceFormatted": "$200,000",
+        "zone": "East Vinewood",
+        "description": "Metropolitan taxi cab company. Unlocks 100% free taxi rides and lucrative private VIP chauffeur fares.",
+        "features": [
+            "Exclusive to Franklin",
+            "100% FREE cab rides & destination skips for Franklin!",
+            "VIP passenger dispatch calls with huge tips"
+        ],
+        "income": "FREE Cabs + $2,000 weekly",
+        "position": {
+            "x": 894.5,
+            "y": -179.2,
+            "z": 73.8
+        },
+        "badge": {
+            "icon": "taxi",
+            "color": "#f39c12",
+            "symbol": "🚕"
+        },
+        "imageUrl": "/assets/data-images/properties/DowntownCabCo-GTAV-Logo.png"
     },
-    "badge": {
-      "icon": "cocktail",
-      "color": "#9b59b6",
-      "symbol": "🍸"
+    {
+        "id": "hangar-lsia-a17",
+        "name": "Hangar LSIA A17 (New Empire Way)",
+        "category": "hangar",
+        "categoryLabel": "Hangars",
+        "gameMode": "both",
+        "price": 1378000,
+        "priceFormatted": ",378,000 (Historia) / ,200,000 (Online)",
+        "zone": "Aeropuerto Internacional LSIA",
+        "description": "Civilian hangar at LSIA (New Empire Way). In Story Mode Michael and Franklin can purchase it to store planes; in Online it serves Smuggler's Run.",
+        "features": [
+            "Almacenamiento de hasta 20 aeronaves",
+            "Acceso libre a pistas comerciales de LSIA sin nivel de búsqueda",
+            "Adquirible por Michael y Franklin en Modo Historia"
+        ],
+        "income": "Misiones de contrabando aéreo",
+        "position": {
+            "x": -980,
+            "y": -2990,
+            "z": 13
+        },
+        "badge": {
+            "icon": "plane",
+            "color": "#6c5ce7",
+            "symbol": "✈️"
+        },
+        "imageUrl": "/assets/data-images/properties/Hangars-GTAO-LSIA1.jpg",
+        "owner": "Franklin Clinton / Michael De Santa (Historia) / Jugador (Online)"
     },
-    "imageUrl": "/assets/data-images/properties/Tequilala-GTAV-Logo.png"
-  },
-  {
-    "id": "biz-pitchers",
-    "name": "Pitchers",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Any protagonist",
-    "price": 750000,
-    "priceFormatted": "$750,000",
-    "zone": "Downtown Vinewood",
-    "description": "Popular cocktail lounge with an outdoor patio in the heart of Vinewood. High nocturnal patron volume.",
-    "features": [
-      "Available for all three protagonists",
-      "Liquor & supply run missions",
-      "Investment return in 107 weeks"
-    ],
-    "income": "$7,000 weekly fixed",
-    "position": {
-      "x": 236.4,
-      "y": 344.2,
-      "z": 105.5
+    {
+        "id": "hangar-lsia-1",
+        "name": "Hangar LSIA 1 (New Empire Way)",
+        "category": "hangar",
+        "categoryLabel": "Hangars",
+        "gameMode": "both",
+        "price": 1378000,
+        "priceFormatted": ",378,000 (Historia) / ,525,000 (Online)",
+        "zone": "Aeropuerto Internacional LSIA",
+        "description": "Spacious hangar on New Empire Way at LSIA for storing private jets, bombers, and helicopters.",
+        "features": [
+            "Pistas comerciales directas y despegue frontal",
+            "Guardado de jets militares y aeronaves civiles",
+            "Adquirible por Michael y Franklin en Modo Historia"
+        ],
+        "income": "Misiones de contrabando Smuggler's Run",
+        "position": {
+            "x": -1150,
+            "y": -2480,
+            "z": 14
+        },
+        "badge": {
+            "icon": "plane",
+            "color": "#6c5ce7",
+            "symbol": "✈️"
+        },
+        "imageUrl": "/assets/data-images/properties/Hangars-GTAO-LSIA1.jpg",
+        "owner": "Franklin Clinton / Michael De Santa (Historia) / Jugador (Online)"
     },
-    "badge": {
-      "icon": "beer",
-      "color": "#e67e22",
-      "symbol": "🍺"
-    },
-    "imageUrl": "/assets/data-images/properties/Pitchers-GTAV.png"
-  },
-  {
-    "id": "biz-the-hen-house",
-    "name": "The Hen House",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Any protagonist",
-    "price": 80000,
-    "priceFormatted": "$80,000",
-    "zone": "Paleto Bay",
-    "description": "Quaint rural tavern in northern Paleto Bay. The most affordable purchasable business in Story Mode.",
-    "features": [
-      "Most affordable property in Story Mode",
-      "Periodic defense against local thieves",
-      "Great starter real estate"
-    ],
-    "income": "$920 weekly fixed",
-    "position": {
-      "x": -305.2,
-      "y": 6265.8,
-      "z": 31.5
-    },
-    "badge": {
-      "icon": "home",
-      "color": "#d35400",
-      "symbol": "🏠"
-    },
-    "imageUrl": "/assets/data-images/properties/TheHenHouse-GTAVee.jpg"
-  },
-  {
-    "id": "biz-cinema-doppler",
-    "name": "Cinema Doppler",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Michael De Santa",
-    "price": 10000000,
-    "priceFormatted": "$10,000,000",
-    "zone": "Vinewood Boulevard",
-    "description": "Historic Art Deco movie theater on the Vinewood Walk of Fame. Major passive income generator.",
-    "features": [
-      "Exclusive to Michael",
-      "Film reel delivery & VIP protection missions",
-      "Amortization in 76 weeks"
-    ],
-    "income": "$132,200 weekly fixed",
-    "position": {
-      "x": 305.8,
-      "y": 147.2,
-      "z": 103.8
-    },
-    "badge": {
-      "icon": "film",
-      "color": "#f1c40f",
-      "symbol": "🎬"
-    },
-    "imageUrl": "/assets/data-images/properties/DopplerCinema-GTAV-Building.png"
-  },
-  {
-    "id": "biz-ten-cent-theater",
-    "name": "Ten Cent Theater",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Michael De Santa",
-    "price": 20000000,
-    "priceFormatted": "$20,000,000",
-    "zone": "Textile City",
-    "description": "Iconic vintage movie theater in the commercial core of Textile City. Yields one of the highest weekly revenues.",
-    "features": [
-      "Exclusive to Michael",
-      "Weekly revenue over a quarter million",
-      "Investment return in 76 weeks"
-    ],
-    "income": "$264,000 weekly fixed",
-    "position": {
-      "x": 393.2,
-      "y": -710.8,
-      "z": 29.3
-    },
-    "badge": {
-      "icon": "film",
-      "color": "#f1c40f",
-      "symbol": "🎬"
-    },
-    "imageUrl": "/assets/data-images/properties/TenCentTheater-GTAV-OfficialScreenshot.png"
-  },
-  {
-    "id": "biz-tivoli-cinema",
-    "name": "Tivoli Cinema",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Michael De Santa",
-    "price": 30000000,
-    "priceFormatted": "$30,000,000",
-    "zone": "Morningwood",
-    "description": "Upscale movie palace in Morningwood. The city's premier and most prestigious cinema.",
-    "features": [
-      "Exclusive to Michael",
-      "Most expensive cinema in San Andreas",
-      "Massive weekly revenue"
-    ],
-    "income": "$142,300 weekly fixed",
-    "position": {
-      "x": -1424.5,
-      "y": -221.8,
-      "z": 46.5
-    },
-    "badge": {
-      "icon": "film",
-      "color": "#f1c40f",
-      "symbol": "🎬"
-    },
-    "imageUrl": "/assets/data-images/properties/TivoliCinema-GTAV.png"
-  },
-  {
-    "id": "biz-ls-customs-desert",
-    "name": "Los Santos Customs (Route 68)",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Franklin Clinton",
-    "price": 349000,
-    "priceFormatted": "$349,000",
-    "zone": "Grand Senora Desert",
-    "description": "Official mod shop on Route 68. Purchasing it unlocks 100% FREE vehicle mods, armor, and repairs for Franklin!",
-    "features": [
-      "Exclusive to Franklin",
-      "100% FREE vehicle mods & tuning for Franklin for life!",
-      "Passive weekly income"
-    ],
-    "income": "FREE Mods + $1,600 weekly",
-    "position": {
-      "x": 1177,
-      "y": 2640,
-      "z": 37.8
-    },
-    "badge": {
-      "icon": "wrench",
-      "color": "#3498db",
-      "symbol": "🔧"
-    },
-    "imageUrl": "/assets/data-images/properties/GTAV-LSCustoms-Logo.png"
-  },
-  {
-    "id": "biz-car-scrapyard",
-    "name": "Salvage Yard Coches",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Any protagonist",
-    "price": 275000,
-    "priceFormatted": "$275,000",
-    "zone": "El Burro Heights",
-    "description": "Vehicle scrap and recycling depot. Generates payout cash for every vehicle destroyed anywhere across San Andreas.",
-    "features": [
-      "Pays $150 cash for every vehicle destroyed on map",
-      "Maximum $5,000 weekly scrap cap",
-      "Available for all 3 protagonists"
-    ],
-    "income": "$150 per destroyed vehicle (hasta $5,000/sem)",
-    "position": {
-      "x": 1289.2,
-      "y": -2072.5,
-      "z": 51.5
-    },
-    "badge": {
-      "icon": "trash",
-      "color": "#7f8c8d",
-      "symbol": "🚗"
-    },
-    "imageUrl": "/assets/data-images/properties/CarScrapyard-GTAV-Warehouse.jpg"
-  },
-  {
-    "id": "biz-hookies",
-    "name": "Hookies",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Michael or Franklin",
-    "price": 600000,
-    "priceFormatted": "$600,000",
-    "zone": "North Chumash",
-    "description": "Roadside seafood restaurant off the Great Ocean Highway, frequently patronized by The Lost MC.",
-    "features": [
-      "Purchasable by Michael or Franklin",
-      "Defense missions against The Lost MC",
-      "Prime western coastal highway spot"
-    ],
-    "income": "$4,700 weekly fixed",
-    "position": {
-      "x": -2195.4,
-      "y": 4272.5,
-      "z": 48.6
-    },
-    "badge": {
-      "icon": "restaurant",
-      "color": "#e67e22",
-      "symbol": "🦞"
-    },
-    "imageUrl": "/assets/data-images/properties/Hookies-GTAVee.jpg"
-  },
-  {
-    "id": "biz-sonar-collections",
-    "name": "Sonar Collections Dock",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Any protagonist",
-    "price": 250000,
-    "priceFormatted": "$250,000",
-    "zone": "Paleto Cove",
-    "description": "Submarine dock facility with docked submersible. Unlocks the salvage hunt for 30 nuclear waste barrels.",
-    "features": [
-      "Unlocks submarine for ocean exploration",
-      "30 nuclear waste barrels collectible ($23K each)",
-      "Final $250,000 completion bonus"
-    ],
-    "income": "$23,000 per nuclear waste barrel recovered ($940,000 total)",
-    "position": {
-      "x": -1612.4,
-      "y": 5262.8,
-      "z": 3.9
-    },
-    "badge": {
-      "icon": "anchor",
-      "color": "#1abc9c",
-      "symbol": "⚓"
-    },
-    "imageUrl": "/assets/data-images/properties/SonarCollectionsDock-GTAV.png"
-  },
-  {
-    "id": "biz-mckenzie-hangar",
-    "name": "McKenzie Field Hangar",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Trevor Philips",
-    "price": 150000,
-    "priceFormatted": "$150,000",
-    "zone": "Grapeseed",
-    "description": "Clandestine dirt airstrip with a hangar for a Cuban 800 and Dune Buggy. Trevor's arms trafficking base.",
-    "features": [
-      "Exclusive to Trevor",
-      "Airborne bombing & smuggling runs with Cuban 800",
-      "Ground arms trafficking in Dune Buggy"
-    ],
-    "income": "$5,000 per ground delivery / $7,000 per air delivery",
-    "position": {
-      "x": 2137.2,
-      "y": 4785.4,
-      "z": 41.1
-    },
-    "badge": {
-      "icon": "plane",
-      "color": "#e74c3c",
-      "symbol": "✈️"
-    },
-    "imageUrl": "/assets/data-images/properties/McKenzieFieldHangar-GTAVee-Signage.jpg"
-  },
-  {
-    "id": "biz-golf-club",
-    "name": "Los Santos Golf Club",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Any protagonist",
-    "price": 150000000,
-    "priceFormatted": "$150,000,000",
-    "zone": "Richman",
-    "description": "The most exclusive and expensive real estate in GTA history ($150M). Supreme symbol of prestige in San Andreas.",
-    "features": [
-      "Most expensive property in GTA history ($150M)",
-      "Free golf rounds for the owner",
-      "Play in any clothing"
-    ],
-    "income": "$264,500 weekly fixed",
-    "position": {
-      "x": -1338.2,
-      "y": 56.4,
-      "z": 54.2
-    },
-    "badge": {
-      "icon": "trophy",
-      "color": "#27ae60",
-      "symbol": "⛳"
-    },
-    "imageUrl": "/assets/data-images/properties/LosSantosGolfClub-GTAO-Logo.png"
-  },
-  {
-    "id": "biz-towing-impound",
-    "name": "Towing Impound Yard",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Franklin Clinton",
-    "price": 150000,
-    "priceFormatted": "$150,000",
-    "zone": "Rancho",
-    "description": "Municipal tow truck impound yard. Unlocked by completing Tonya's towing missions in South Los Santos.",
-    "features": [
-      "Exclusive to Franklin",
-      "Towing missions for illegally parked cars",
-      "Instant cash per car delivered"
-    ],
-    "income": "$500 per towed vehicle",
-    "position": {
-      "x": 408.2,
-      "y": -1638.5,
-      "z": 29.3
-    },
-    "badge": {
-      "icon": "truck",
-      "color": "#e67e22",
-      "symbol": "🚚"
-    },
-    "imageUrl": "/assets/data-images/properties/TowTruckMission-GTA5.png"
-  },
-  {
-    "id": "biz-downtown-cab",
-    "name": "Downtown Cab Co.",
-    "category": "purchasable_business",
-    "categoryLabel": "Purchasable Businesses",
-    "gameMode": "story",
-    "owner": "Franklin Clinton",
-    "price": 200000,
-    "priceFormatted": "$200,000",
-    "zone": "East Vinewood",
-    "description": "Metropolitan taxi cab company. Unlocks 100% free taxi rides and lucrative private VIP chauffeur fares.",
-    "features": [
-      "Exclusive to Franklin",
-      "100% FREE cab rides & destination skips for Franklin!",
-      "VIP passenger dispatch calls with huge tips"
-    ],
-    "income": "FREE Cabs + $2,000 weekly",
-    "position": {
-      "x": 894.5,
-      "y": -179.2,
-      "z": 73.8
-    },
-    "badge": {
-      "icon": "taxi",
-      "color": "#f39c12",
-      "symbol": "🚕"
-    },
-    "imageUrl": "/assets/data-images/properties/DowntownCabCo-GTAV-Logo.png"
-  },
-  {
-    "id": "hangar-lsia-a17",
-    "name": "Hangar LSIA A17 (New Empire Way)",
-    "category": "hangar",
-    "categoryLabel": "Hangars",
-    "gameMode": "both",
-    "price": 1378000,
-    "priceFormatted": ",378,000 (Historia) / ,200,000 (Online)",
-    "zone": "Aeropuerto Internacional LSIA",
-    "description": "Civilian hangar at LSIA (New Empire Way). In Story Mode Michael and Franklin can purchase it to store planes; in Online it serves Smuggler's Run.",
-    "features": [
-      "Almacenamiento de hasta 20 aeronaves",
-      "Acceso libre a pistas comerciales de LSIA sin nivel de búsqueda",
-      "Adquirible por Michael y Franklin en Modo Historia"
-    ],
-    "income": "Misiones de contrabando aéreo",
-    "position": {
-      "x": -980,
-      "y": -2990,
-      "z": 13
-    },
-    "badge": {
-      "icon": "plane",
-      "color": "#6c5ce7",
-      "symbol": "✈️"
-    },
-    "imageUrl": "/assets/data-images/properties/Hangars-GTAO-LSIA1.jpg",
-    "owner": "Franklin Clinton / Michael De Santa (Historia) / Jugador (Online)"
-  },
-  {
-    "id": "hangar-lsia-1",
-    "name": "Hangar LSIA 1 (New Empire Way)",
-    "category": "hangar",
-    "categoryLabel": "Hangars",
-    "gameMode": "both",
-    "price": 1378000,
-    "priceFormatted": ",378,000 (Historia) / ,525,000 (Online)",
-    "zone": "Aeropuerto Internacional LSIA",
-    "description": "Spacious hangar on New Empire Way at LSIA for storing private jets, bombers, and helicopters.",
-    "features": [
-      "Pistas comerciales directas y despegue frontal",
-      "Guardado de jets militares y aeronaves civiles",
-      "Adquirible por Michael y Franklin en Modo Historia"
-    ],
-    "income": "Misiones de contrabando Smuggler's Run",
-    "position": {
-      "x": -1150,
-      "y": -2480,
-      "z": 14
-    },
-    "badge": {
-      "icon": "plane",
-      "color": "#6c5ce7",
-      "symbol": "✈️"
-    },
-    "imageUrl": "/assets/data-images/properties/Hangars-GTAO-LSIA1.jpg",
-    "owner": "Franklin Clinton / Michael De Santa (Historia) / Jugador (Online)"
-  },
-  {
-    "id": "hangar-grand-senora-airfield",
-    "name": "Aeródromo de Grand Senora Desert",
-    "category": "hangar",
-    "categoryLabel": "Hangars",
-    "gameMode": "both",
-    "owner": "Trevor Philips (Historia) / Pegasus & Ron (Online)",
-    "price": 0,
-    "priceFormatted": "Activo / Base aérea",
-    "zone": "Grand Senora Desert",
-    "description": "Primary Blaine County airfield with crossed runways, hangars, and helipad. Trevor's operations base and Pegasus drop-off hub.",
-    "features": [
-      "Doble pista de aterrizaje para aeronaves de gran porte",
-      "Hangares principales y zona de repostaje",
-      "Punto neurálgico de entrega Pegasus en Sandy Shores"
-    ],
-    "income": "Acceso libre / Centro de operaciones",
-    "position": {
-      "x": 1730,
-      "y": 3280,
-      "z": 41
-    },
-    "badge": {
-      "icon": "plane",
-      "color": "#6c5ce7",
-      "symbol": "✈️"
-    },
-    "imageUrl": "/assets/data-images/properties/Sandy-shores-airfield.jpg"
-  }
+    {
+        "id": "hangar-grand-senora-airfield",
+        "name": "Aeródromo de Grand Senora Desert",
+        "category": "hangar",
+        "categoryLabel": "Hangars",
+        "gameMode": "both",
+        "owner": "Trevor Philips (Historia) / Pegasus & Ron (Online)",
+        "price": 0,
+        "priceFormatted": "Activo / Base aérea",
+        "zone": "Grand Senora Desert",
+        "description": "Primary Blaine County airfield with crossed runways, hangars, and helipad. Trevor's operations base and Pegasus drop-off hub.",
+        "features": [
+            "Doble pista de aterrizaje para aeronaves de gran porte",
+            "Hangares principales y zona de repostaje",
+            "Punto neurálgico de entrega Pegasus en Sandy Shores"
+        ],
+        "income": "Acceso libre / Centro de operaciones",
+        "position": {
+            "x": 1730,
+            "y": 3280,
+            "z": 41
+        },
+        "badge": {
+            "icon": "plane",
+            "color": "#6c5ce7",
+            "symbol": "✈️"
+        },
+        "imageUrl": "/assets/data-images/properties/Sandy-shores-airfield.jpg"
+    }
 ]

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, catchError, of } from 'rxjs';
 import { GtaMission, GtaStrangerMission, GtaHeist } from '../models/mission';
+import { GtaMystery } from '../models/mystery';
 import { TranslationService } from '../i18n';
 
 @Injectable({ providedIn: 'root' })
@@ -76,6 +77,24 @@ export class MissionService {
     return this.http.get<GtaHeist[]>('/api/gta5/online/heists', { params }).pipe(
       catchError(() => {
         return this.http.get<GtaHeist[]>(`/assets/data/gta5/online/${activeLang}/heists.json`).pipe(
+          catchError(() => of([]))
+        );
+      })
+    );
+  }
+
+  /**
+   * Obtiene el catálogo oficial de Misterios y Leyendas Urbanas de GTA Online
+   * con fallback a los ficheros locales en assets/data/gta5/online/{lang}/mysteries.json.
+   */
+  getOnlineMysteries(lang?: string): Observable<GtaMystery[]> {
+    let params = new HttpParams();
+    const activeLang = lang || this.translationService.currentLanguage();
+    if (activeLang) params = params.set('lang', activeLang);
+
+    return this.http.get<GtaMystery[]>('/api/gta5/online/mysteries', { params }).pipe(
+      catchError(() => {
+        return this.http.get<GtaMystery[]>(`/assets/data/gta5/online/${activeLang}/mysteries.json`).pipe(
           catchError(() => of([]))
         );
       })

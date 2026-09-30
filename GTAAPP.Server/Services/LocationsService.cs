@@ -9,18 +9,45 @@ namespace GTAAPP.Server.Services;
 /// </summary>
 public class LocationsService
 {
+    /// <summary>
+    /// 
+    /// </summary>
     private readonly IWebHostEnvironment _env;
+    
+    /// <summary>
+    /// 
+    /// </summary>
     private readonly ILogger<LocationsService> _logger;
 
+    /// <summary>
+    /// 
+    /// </summary>
     private readonly object _lock = new();
+   
+    /// <summary>
+    /// 
+    /// </summary>
     private readonly Dictionary<string, (DateTime lastModified, object data)> _cache = new();
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="env"></param>
+    /// <param name="logger"></param>
     public LocationsService(IWebHostEnvironment env, ILogger<LocationsService> logger)
     {
         _env = env;
         _logger = logger;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="game"></param>
+    /// <param name="mode"></param>
+    /// <param name="fileName"></param>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     private string GetFilePath(string game, string mode, string fileName, string? lang = null)
     {
         var basePath = _env.WebRootPath ?? Path.Combine(AppContext.BaseDirectory, "wwwroot");
@@ -53,18 +80,86 @@ public class LocationsService
     // ==========================================
     // GTA 5 ONLINE (carpeta: data/gta5/online/{lang}/)
     // ==========================================
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetPropertiesOnly(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "properties.json", lang);
+   
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetBusinesses(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "businesses.json", lang);
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetServices(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "services.json", lang);
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetVehicleShops(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "vehicle_shops.json", lang);
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetRoleplayJobs(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "roleplay_jobs.json", lang);
+    
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetCharacters(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "characters.json", lang);
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetFauna(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "fauna.json", lang);
     public IReadOnlyList<LocationItem> GetActivities(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "activities.json", lang);
     public IReadOnlyList<LocationItem> GetStrangePlaces(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "online", "strange_places.json", lang);
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<HeistItem> GetHeists(string? lang = null) => LoadJsonFile<HeistItem>("gta5", "online", "heists.json", lang);
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<MissionItem> GetOnlineMissions(string? lang = null) => LoadJsonFile<MissionItem>("gta5", "online", "missions.json", lang);
+        
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
+    public IReadOnlyList<MysteryItem> GetMysteries(string? lang = null) => LoadJsonFile<MysteryItem>("gta5", "online", "mysteries.json", lang);
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="category"></param>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<CollectibleItem> GetCollectibles(string? category = null, string? lang = null)
     {
         var list = LoadJsonFile<CollectibleItem>("gta5", "online", "collectibles.json", lang);
@@ -72,6 +167,12 @@ public class LocationsService
         return list.Where(c => c.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="category"></param>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetCayoPericoLocations(string? category = null, string? lang = null)
     {
         var list = LoadJsonFile<LocationItem>("gta5", "online", "cayo_perico.json", lang);
@@ -82,9 +183,34 @@ public class LocationsService
     // ==========================================
     // GTA 5 MODO HISTORIA (carpeta: data/gta5/historia/{lang}/)
     // ==========================================
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetStoryProperties(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "properties.json", lang);
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetStoryCharacters(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "characters.json", lang);
+    
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetStoryServices(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "services.json", lang);
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetStoryVehicleShops(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "vehicle_shops.json", lang);
     public IReadOnlyList<LocationItem> GetStoryFauna(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "fauna.json", lang);
     public IReadOnlyList<LocationItem> GetStoryActivities(string? lang = null) => LoadJsonFile<LocationItem>("gta5", "historia", "activities.json", lang);
@@ -99,9 +225,14 @@ public class LocationsService
         return list.Where(c => c.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
-    // ==========================================
-    // AGREGACIÓN DE UBICACIONES POR MODO E IDIOMA
-    // ==========================================
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gameMode"></param>
+    /// <param name="category"></param>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     public IReadOnlyList<LocationItem> GetAllLocations(string? gameMode = null, string? category = null, string? lang = null)
     {
         var all = new List<LocationItem>();
@@ -139,6 +270,15 @@ public class LocationsService
         return result.ToList();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="game"></param>
+    /// <param name="mode"></param>
+    /// <param name="fileName"></param>
+    /// <param name="lang"></param>
+    /// <returns></returns>
     private IReadOnlyList<T> LoadJsonFile<T>(string game, string mode, string fileName, string? lang = null)
     {
         var fullPath = GetFilePath(game, mode, fileName, lang);

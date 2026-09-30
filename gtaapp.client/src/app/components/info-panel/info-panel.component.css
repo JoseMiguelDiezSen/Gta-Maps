@@ -2954,3 +2954,91 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   padding: 3px 8px;
 }
 
+/* ==========================================
+   MISTERIOS Y LEYENDAS URBANAS
+   ========================================== */
+.mystery-card {
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mystery-card-locate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #c084fc;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: auto;
+  margin-right: 4px;
+}
+
+.mystery-card-locate-btn:hover {
+  background: #a855f7;
+  color: #fff;
+  border-color: #a855f7;
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+.mystery-locate-action-bar {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.mystery-locate-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(147, 51, 234, 0.1));
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  color: #e9d5ff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.mystery-locate-cta-btn:hover {
+  background: linear-gradient(135deg, #a855f7, #7e22ce);
+  border-color: #c084fc;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
+}
+
+.chip-paranormal.is-active {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: #a855f7;
+  color: #e9d5ff;
+}
+
+.chip-conspiracy.is-active {
+  background: rgba(6, 182, 212, 0.25);
+  border-color: #06b6d4;
+  color: #cffafe;
+}
+
+.chip-crimes.is-active {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #ef4444;
+  color: #fee2e2;
+}
+
+.chip-easter-egg.is-active {
+  background: rgba(6, 182, 212, 0.25);
+  border-color: #06b6d4;
+  color: #cffafe;
+}
+
+
