@@ -507,6 +507,9 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // -----------------------------------------------------------------------
     // CARGA DE COLECCIONABLES HISTORIA
     // -----------------------------------------------------------------------
+    /**
+     * Carga los coleccionables exclusivos de Modo Historia (fragmentos de carta, piezas de nave, tratados de Epsilon, etc.).
+     */
     private loadCollectibles(): void {
         this.locationService.getCollectibles(undefined, undefined, 'story').subscribe({
             next: (items) => {
@@ -522,9 +525,9 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
-    // -----------------------------------------------------------------------
-    // RENDER DE MARCADORES
-    // -----------------------------------------------------------------------
+    /**
+     * Dibuja los marcadores de propiedades de Modo Historia (casas de Michael, Franklin, Trevor, negocios, tiendas y servicios).
+     */
     private renderPropertyMarkers(): void {
         const map = this.map;
         if (!map) return;
@@ -647,6 +650,9 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
+    /**
+     * Dibuja los coleccionables del Modo Historia sobre su propia capa de grupo en Leaflet.
+     */
     private renderCollectibleMarkers(): void {
         const map = this.map;
         if (!map) return;
@@ -678,6 +684,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             let iconAnchor: [number, number];
             let popupAnchor: [number, number];
 
+            // 1. Estándar: vacío sin vincular
             if (this.iconTheme === 'standard') {
                 htmlContent = `<div class="gta-pin-collectible-standard-empty"></div>`;
                 iconDivClass = 'gta-pin-collectible-wrapper-empty';
@@ -685,12 +692,14 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 iconAnchor = [0, 0];
                 popupAnchor = [0, 0];
             } else if (this.iconTheme === 'simple') {
+                // 2. Font Awesome: icono fa-solid
                 htmlContent = `<div style="color: ${colColor}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIcon}"></i></div>`;
                 iconDivClass = 'gta-pin-collectible-wrapper-fa';
                 iconSize = [16, 16];
                 iconAnchor = [8, 8];
                 popupAnchor = [0, -8];
             } else {
+                // 3. Clásico: cuadrado o círculo con color de categoría y símbolo/emoji
                 htmlContent = `<div class="gta-pin-collectible" style="background: ${colColor}"><span class="gta-pin-col-symbol" style="${symbolStyle}">${pinSymbol}</span></div>`;
                 iconDivClass = 'gta-pin-collectible-wrapper';
                 iconSize = [16, 16];

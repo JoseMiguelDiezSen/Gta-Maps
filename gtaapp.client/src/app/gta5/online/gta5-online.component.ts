@@ -14,12 +14,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
+    // Mapa Leaflet instanciado
     private map: L.Map | undefined;
 
-    // Mapa base: imagen oficial de 8192x8192 px troceada en tiles de 256px.
+    // Configuración de zoom y dimensiones de la textura original
     private readonly maxZoom = 9;
     private readonly imageSize = 8192;
 
+    /**
+     * Lista completa de capas base de mapas para GTA V.
+     */
     get allMapTypes() {
         return [
             { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
@@ -33,9 +37,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     /**
-     * Mapas base disponibles según el modo de juego activo.
-     * Los mapas UV y UV2 (Blueprint) solo están disponibles en Modo Historia.
-     * El mapa Juego está disponible en ambos modos.
+     * Filtra los mapas disponibles según la isla seleccionada:
+     * Cayo Perico dispone de Satélite, Callejero y Juego.
      */
     get mapTypes() {
         if (this.selectedCity === 'cp') {
@@ -49,7 +52,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     // Selector de Isla / Zona: 'ls' = Los Santos / San Andreas, 'cp' = Cayo Perico
     selectedCity: 'ls' | 'cp' = 'ls';
 
-    // Cayo Perico - Datos y Categorías
+    // Colecciones de marcadores y datos cargados de Cayo Perico
     cayoPericoLocations: LocationItem[] = [];
     private cayoPericoMarkers: { marker: L.Marker; location: LocationItem }[] = [];
 
@@ -93,6 +96,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     // Estado del panel de capas y leyenda (minimizable)
     legendOpen = true;
 
+    // Propiedades comprables de GTA Online (Mansiones, Apartamentos de Lujo/Medios/Baratos y Garajes)
     readonly onlinePropertyKeys = [
         'mansion',
         'luxury_apartment',
@@ -895,7 +899,12 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
+    /**
+     * Convierte coordenadas in-game del mundo de GTA (X, Y) a coordenadas Leaflet [lat, lng].
+     * Soporta tanto Cayo Perico como Los Santos (incluyendo la escala HD de satélite).
+     */
     worldToLatLng(x: number, y: number): [number, number] {
+        // Conversión para Cayo Perico
         if (this.selectedCity === 'cp') {
             const ptX = ((x - 3700) / 2000) * 10000;
             const ptY = ((-4150 - y) / 2000) * 10000;
@@ -904,15 +913,17 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             return [lat, lng];
         }
 
+        // Conversión para mapa Satélite HD de Los Santos
         if (this.currentMapType === 'SatelliteHD') {
             const lng = 128 * ((x + 4140) / 9000);
             const lat = - 192 * ((8400 - y) / 13500);
             return [lat, lng];
         }
 
+        // Proyección estándar oficial (0.660 píxeles por metro in-game)
         const originX = 3753.6;
         const originY = 5529.6;
-        const scale = 0.660; // 0.660 px por metro oficial
+        const scale = 0.660;
 
         const px = originX + (scale * x);
         const py = originY - (scale * y);
@@ -922,7 +933,12 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         return [lat, lng];
     }
 
+    /**
+     * Convierte coordenadas de Leaflet [lat, lng] a coordenadas cartesianas del mundo de GTA V (X, Y).
+     * Se usa en la telemetría en tiempo real al mover el ratón sobre el mapa.
+     */
     latLngToWorld(lat: number, lng: number): { x: number; y: number } {
+        // Conversión inversa para Cayo Perico
         if (this.selectedCity === 'cp') {
             const ptX = lng * 64;
             const ptY = -lat * 64;
@@ -934,6 +950,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             };
         }
 
+        // Conversión inversa para Satélite HD
         if (this.currentMapType === 'SatelliteHD') {
             const x = (lng / 128) * 9000 - 4140;
             const y = 8400 - (-lat / 192) * 13500;
@@ -943,9 +960,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             };
         }
 
+        // Conversión inversa estándar
         const originX = 3753.6;
         const originY = 5529.6;
-        const scale = 0.660; // 0.660 px por metro oficial
+        const scale = 0.660;
 
         const px = lng * 128;
         const py = -lat * 128;
@@ -978,6 +996,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         this.switchCity(this.selectedCity === 'ls' ? 'cp' : 'ls');
     }
 
+    /**
+     * Carga las ubicaciones, armas, vehículos y puntos de reconocimiento de Cayo Perico.
+     */
     private loadCayoPerico(): void {
         this.locationService.getCayoPericoLocations().subscribe({
             next: (locations) => {
@@ -1063,6 +1084,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         return this.cayoPericoLocations.filter(loc => loc.category === categoryKey).length;
     }
 
+    /**
+     * Carga todas las propiedades, negocios y servicios de GTA Online y los dibuja en el mapa.
+     */
     private loadProperties(): void {
         this.locationService.getProperties('online').subscribe({
             next: (properties) => {
@@ -1081,6 +1105,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
+    /**
+     * Carga la colección de coleccionables de GTA Online (figuras, naipes, emisoras, etc.).
+     */
     private loadCollectibles(): void {
         this.locationService.getCollectibles().subscribe({
             next: (collectibles) => {
@@ -1096,6 +1123,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
+    /**
+     * Renderiza los marcadores de propiedades, negocios y servicios en el mapa Leaflet.
+     */
     private renderPropertyMarkers(): void {
         const map = this.map;
         if (!map) return;
@@ -1144,6 +1174,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             let pinIconAnchor: [number, number];
             let pinPopupAnchor: [number, number];
 
+            // 1. Icono especial para OVNI
             if (p.category === 'fake_ufo') {
                 const ufoSymbol = p.badge?.symbol || '🛸';
                 pinHtml = `<div style="font-size: 26px; filter: drop-shadow(0 0 8px ${pinColor}) drop-shadow(0px 2px 4px rgba(0,0,0,0.9)); text-align: center; line-height:1; cursor: pointer;">${ufoSymbol}</div>`;
@@ -1152,18 +1183,21 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 pinIconAnchor = [13, 13];
                 pinPopupAnchor = [0, -13];
             } else if (this.iconTheme === 'standard') {
+                // 2. Tema Estándar: marcador vacío sin vincular (pendiente de definir)
                 pinHtml = `<div class="gta-pin-standard-empty"></div>`;
                 pinClass = 'gta-pin-wrapper-empty';
                 pinIconSize = [0, 0];
                 pinIconAnchor = [0, 0];
                 pinPopupAnchor = [0, 0];
             } else if (this.iconTheme === 'simple') {
+                // 3. Tema Font Awesome: iconos vectoriales limpios
                 pinHtml = `<div style="color: ${pinColor}; font-size: ${iconSizeProp[0]}px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIconProp}"></i></div>`;
                 pinClass = 'gta-pin-wrapper-fa';
                 pinIconSize = iconSizeProp;
                 pinIconAnchor = [iconSizeProp[0] / 2, iconSizeProp[1] / 2];
                 pinPopupAnchor = [0, -iconSizeProp[1] / 2];
             } else {
+                // 4. Tema Clásico: pin circular con color de categoría y emoji o símbolo
                 pinHtml = `<div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${pinColor}"><span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span></div>`;
                 pinClass = 'gta-pin-wrapper';
                 pinIconSize = [30, 30];
@@ -1244,6 +1278,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
+    /**
+     * Dibuja los marcadores de coleccionables en el mapa aplicando el estilo seleccionado (Clásico, Font Awesome o Estándar).
+     */
     private renderCollectibleMarkers(): void {
         const map = this.map;
         if (!map) return;
@@ -1266,6 +1303,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             let iconAnchor: [number, number];
             let popupAnchor: [number, number];
 
+            // 1. Estándar: vacío sin vincular
             if (this.iconTheme === 'standard') {
                 htmlContent = `<div class="gta-pin-collectible-standard-empty"></div>`;
                 iconDivClass = 'gta-pin-collectible-wrapper-empty';
@@ -1273,12 +1311,14 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 iconAnchor = [0, 0];
                 popupAnchor = [0, 0];
             } else if (this.iconTheme === 'simple') {
+                // 2. Font Awesome: icono vectorial fa-solid
                 htmlContent = `<div style="color: ${colColorOnline}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIconOnline}"></i></div>`;
                 iconDivClass = 'gta-pin-collectible-wrapper-fa';
                 iconSize = [16, 16];
                 iconAnchor = [8, 8];
                 popupAnchor = [0, -8];
             } else {
+                // 3. Clásico: cuadrado o círculo con color de categoría y símbolo
                 htmlContent = `<div class="gta-pin-collectible" style="background: ${colColorOnline}"><span class="gta-pin-col-symbol" style="color: ${colColorOnline}; font-weight: 700; line-height: 1;">${pinSymbol}</span></div>`;
                 iconDivClass = 'gta-pin-collectible-wrapper';
                 iconSize = [16, 16];
@@ -1327,6 +1367,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
+    /**
+     * Alterna la visibilidad de una categoría completa en el mapa (activar/desactivar capa).
+     */
     toggleLayer(categoryKey: string): void {
         const current = this.layerFilters[categoryKey] !== false;
         this.layerFilters[categoryKey] = !current;
@@ -1338,6 +1381,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
+    /**
+     * Hace zoom animado hacia la posición de un personaje o contacto y abre su popup informativo.
+     */
     zoomToCharacter(char: LocationItem, event?: MouseEvent): void {
         if (event) {
             event.stopPropagation();
@@ -1365,6 +1411,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }, 850);
     }
 
+    /**
+     * Muestra u oculta el panel lateral de capas y leyenda.
+     */
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
     }

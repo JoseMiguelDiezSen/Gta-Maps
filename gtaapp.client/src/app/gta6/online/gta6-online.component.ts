@@ -15,6 +15,12 @@ interface Gta6LegendCategory {
     items: Gta6LegendItem[];
 }
 
+// ---------------------------------------------------------------------------
+// GTA VI — MODO ONLINE (Basado en filtraciones y canvas interactivo)
+// Componente de visualización con soporte para zoom sobre mapa filtrado,
+// panel de capas preliminares y categorías de Vice City / Leonida.
+// ---------------------------------------------------------------------------
+
 @Component({
     selector: 'app-gta6-online',
     templateUrl: './gta6-online.component.html',
