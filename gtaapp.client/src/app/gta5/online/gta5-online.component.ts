@@ -774,7 +774,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             this.loadCayoPerico();
         } else if (mapType === 'SatelliteHD') {
-            const lsOceanColor = '#143D6B';
+            const lsOceanColor = '#0D2B4F'; // SatelliteHD: RGB(13, 43, 79) muestreado píxel a píxel del océano HD
             if (mapContainer) {
                 mapContainer.style.backgroundColor = lsOceanColor;
             }
