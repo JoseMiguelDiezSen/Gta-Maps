@@ -75,6 +75,7 @@ export const en: TranslationSchema = {
       themeStandard: "Standard",
       themeClassic: "Classic",
       themeModern: "Modern (Neon)",
+      themeSimple: "Classic (Simple)",
       iconSize: 'Icon Size',
       sizeCompact: 'Compact (80%)',
       sizeStandard: 'Standard (100%)',

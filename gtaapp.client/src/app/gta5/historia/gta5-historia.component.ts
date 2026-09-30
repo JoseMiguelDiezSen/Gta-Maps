@@ -203,7 +203,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // Estilo de iconos
-    iconTheme: 'modern' | 'classic' = 'classic';
+    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'simple';
     iconSize: 'compact' | 'standard' | 'large' = 'standard';
 
     // Menú contextual
@@ -477,7 +477,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             const [lat, lng] = this.worldToLatLng(p.position.x, p.position.y);
             const isPurchasable = this.isPurchasable(p);
 
-            let pinSymbol = p.badge.symbol || '•';
+            let pinSymbol = (p.badge?.symbol || (p as any).icon) || '•';
             if (p.category === 'safehouse')      pinSymbol = '🏠';
             if (p.category === 'police_station') pinSymbol = '🚓';
             if (p.category === 'hospital')       pinSymbol = '🏥';
@@ -491,7 +491,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             if (p.category === 'knife_flight')     pinSymbol = '✈️';
             if (p.category === 'parachuting')      pinSymbol = '🪂';
 
-            let pinColor = p.badge.color;
+            let pinColor = (p.badge?.color || (p as any).color);
             if (p.category === 'safehouse') {
                 const char = this.getSafehouseCharacter(p);
                 if (char === 'michael') pinColor = '#3498db';
@@ -499,16 +499,43 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 else if (char === 'trevor') pinColor = '#e67e22';
             }
 
+            // Icono: FA "simple" o círculo neón según tema seleccionado
+            const faIcon = p.badge?.icon || (p as any).icon || 'location-dot';
+            const iconSizeVal: [number, number] = (p.category === 'shipwreck' || p.category === 'fake_ufo') ? [22, 22] : [20, 20];
+
+            let htmlContent: string;
+            let iconDivClass: string;
+            let iconSize: [number, number];
+            let iconAnchor: [number, number];
+            let popupAnchor: [number, number];
+
+            if (p.category === 'fake_ufo') {
+                const ufoSymbol = p.badge?.symbol || '🛸';
+                htmlContent = `<div style="font-size: 26px; filter: drop-shadow(0 0 8px ${pinColor}) drop-shadow(0px 2px 4px rgba(0,0,0,0.9)); text-align: center; line-height:1; cursor: pointer;">${ufoSymbol}</div>`;
+                iconDivClass = 'gta-pin-wrapper-fa';
+                iconSize = [26, 26];
+                iconAnchor = [13, 13];
+                popupAnchor = [0, -13];
+            } else if (this.iconTheme === 'simple') {
+                htmlContent = `<div style="color: ${pinColor}; font-size: ${iconSizeVal[0]}px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIcon}"></i></div>`;
+                iconDivClass = 'gta-pin-wrapper-fa';
+                iconSize = iconSizeVal;
+                iconAnchor = [iconSizeVal[0] / 2, iconSizeVal[1] / 2];
+                popupAnchor = [0, -iconSizeVal[1] / 2];
+            } else {
+                htmlContent = `<div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${pinColor}"><span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span></div>`;
+                iconDivClass = 'gta-pin-wrapper';
+                iconSize = [30, 30];
+                iconAnchor = [15, 30];
+                popupAnchor = [0, -28];
+            }
+
             const icon = L.divIcon({
-                className: 'gta-pin-wrapper',
-                html: `
-                    <div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${pinColor}">
-                        <span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span>
-                    </div>
-                `,
-                iconSize: [30, 30],
-                iconAnchor: [15, 30],
-                popupAnchor: [0, -28]
+                className: iconDivClass,
+                html: htmlContent,
+                iconSize,
+                iconAnchor,
+                popupAnchor
             });
 
             const priceLbl = this.translationService.t('gta5.popups.price');
@@ -567,22 +594,20 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const [lat, lng] = this.worldToLatLng(item.position.x, item.position.y);
             const isEpsilon = item.category === 'epsilon_tract';
-            const pinSymbol = isEpsilon ? '✝' : (item.badge.symbol || '•');
+            const pinSymbol = isEpsilon ? '✝' : ((item.badge?.symbol || (item as any).icon) || '•');
             const symbolStyle = isEpsilon
                 ? 'color: #ffffff !important; font-size: 14px; font-weight: 900; line-height: 1; text-shadow: 0 0 4px #ffffff, 0 0 8px #38bdf8;'
-                : `color: ${item.badge.color || '#ffb833'}; font-weight: 700; line-height: 1;`;
+                : `color: ${(item.badge?.color || (item as any).color) || '#ffb833'}; font-weight: 700; line-height: 1;`;
 
+            const colColor = item.badge?.color || (item as any).color || '#ffb833';
+            const colFaIcon = item.badge?.icon || (item as any).icon || 'star';
             const icon = L.divIcon({
-                className: 'gta-pin-collectible-wrapper',
-                html: `
-                    <div class="gta-pin-collectible gta-pin-col-${item.category}" style="--pin-color: ${item.badge.color}">
-                        <span class="gta-pin-col-symbol" style="${symbolStyle}">${pinSymbol}</span>
-                    </div>
-                `,
-                iconSize: [22, 22],
-                iconAnchor: [11, 11],
-                popupAnchor: [0, -13]
-            });
+                  className: 'gta-pin-collectible-wrapper-fa',
+                  html: `<div style="color: ${colColor}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIcon}"></i></div>`,
+                  iconSize: [16, 16],
+                  iconAnchor: [8, 8],
+                  popupAnchor: [0, -8]
+              });
 
             const rewardHtml = item.reward
                 ? `<div class="popup-reward-badge" style="display: flex; align-items: center; gap: 6px; font-size: 11px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 6px; padding: 6px 10px; color: #bae6fd; margin-top: 8px;">
@@ -593,8 +618,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const popupHtml = `
                 <div class="gta-popup-card">
-                    <div class="popup-banner" style="background: linear-gradient(135deg, ${item.badge.color}33, #0b0f14 85%); border-bottom: 2px solid ${item.badge.color};">
-                        <span class="popup-badge" style="color: ${item.badge.color}; border-color: ${item.badge.color}66">${item.categoryLabel} (#${item.number}/${item.total})</span>
+                    <div class="popup-banner" style="background: linear-gradient(135deg, ${(item.badge?.color || (item as any).color)}33, #0b0f14 85%); border-bottom: 2px solid ${(item.badge?.color || (item as any).color)};">
+                        <span class="popup-badge" style="color: ${(item.badge?.color || (item as any).color)}; border-color: ${(item.badge?.color || (item as any).color)}66">${item.categoryLabel} (#${item.number}/${item.total})</span>
                         <h4 class="popup-title">${item.name}</h4>
                         <div class="popup-zone">${item.zone}</div>
                     </div>
@@ -607,7 +632,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const marker = L.marker([lat, lng], { icon })
                 .bindPopup(popupHtml, { maxWidth: 320, className: 'gta-leaflet-popup' })
-                .bindTooltip(`<b>${item.name}</b><br><span style="color:${item.badge.color}">${item.categoryLabel} (#${item.number}/${item.total})</span>`, {
+                .bindTooltip(`<b>${item.name}</b><br><span style="color:${(item.badge?.color || (item as any).color)}">${item.categoryLabel} (#${item.number}/${item.total})</span>`, {
                     direction: 'top',
                     offset: [0, -12],
                     className: 'gta-leaflet-tooltip'
@@ -861,7 +886,10 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         if (!this.map) return;
         const container = this.map.getContainer();
         container.classList.remove('icon-size-compact','icon-size-standard','icon-size-large','icon-theme-modern','icon-theme-classic',
-            'icon-theme-standard');
+            'icon-theme-standard', 'icon-theme-simple');
         container.classList.add(`icon-size-${this.iconSize}`, `icon-theme-${this.iconTheme}`);
+        // Rerenderizamos para aplicar el nuevo estilo de icono
+        this.renderPropertyMarkers();
+        this.renderCollectibleMarkers();
     }
 }

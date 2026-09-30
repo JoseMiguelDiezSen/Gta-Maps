@@ -488,6 +488,7 @@
             <div class="hud-field">
               <label class="hud-field-label" for="iconThemeHistoria">{{ 'gta5.settings.markerTheme' | translate }}</label>
               <select id="iconThemeHistoria" class="hud-field-select" [(ngModel)]="iconTheme" (change)="updateIconStyle()">
+                <option value="simple">{{ 'gta5.settings.themeSimple' | translate }}</option>
                 <option value="standard">{{ 'gta5.settings.themeStandard' | translate }}</option>
                 <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
                 <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>

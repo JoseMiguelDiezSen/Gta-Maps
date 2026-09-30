@@ -1399,29 +1399,11 @@
 
             <!-- Grid de Estadísticas / Claves del Golpe -->
             <div class="mdetail-grid">
-              <div class="mdetail-box reward-box" *ngIf="selectedHeist.potentialTake">
-                <i class="fa-solid fa-money-bill-wave box-icon"></i>
-                <div class="box-content">
-                  <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
-                  <span class="box-val highlight-gold">{{ selectedHeist.potentialTake.normal }}</span>
-                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.hard">Difícil: {{ selectedHeist.potentialTake.hard }}</span>
-                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.description">{{ selectedHeist.potentialTake.description }}</span>
-                </div>
-              </div>
-
               <div class="mdetail-box" *ngIf="selectedHeist.setupCostFormatted">
                 <i class="fa-solid fa-receipt box-icon"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.setupCost' | translate }}</span>
                   <span class="box-val">{{ selectedHeist.setupCostFormatted }}</span>
-                </div>
-              </div>
-
-              <div class="mdetail-box unlock-box" *ngIf="selectedHeist.propertyRequired">
-                <i class="fa-solid fa-building box-icon"></i>
-                <div class="box-content">
-                  <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
-                  <span class="box-val">{{ selectedHeist.propertyRequired }}</span>
                 </div>
               </div>
 
@@ -1438,6 +1420,24 @@
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.location' | translate }}</span>
                   <span class="box-val">{{ selectedHeist.location }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box reward-box" *ngIf="selectedHeist.potentialTake">
+                <i class="fa-solid fa-money-bill-wave box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
+                  <span class="box-val highlight-gold">{{ selectedHeist.potentialTake.normal }}</span>
+                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.hard">Difícil: {{ selectedHeist.potentialTake.hard }}</span>
+                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.description">{{ selectedHeist.potentialTake.description }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box unlock-box" *ngIf="selectedHeist.propertyRequired">
+                <i class="fa-solid fa-building box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
+                  <span class="box-val">{{ selectedHeist.propertyRequired }}</span>
                 </div>
               </div>
             </div>

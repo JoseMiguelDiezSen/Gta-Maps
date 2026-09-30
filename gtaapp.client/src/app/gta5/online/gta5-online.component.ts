@@ -360,7 +360,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     settingsOpen = true;
 
     // Estilo de Iconos
-    iconTheme: 'modern' | 'classic' = 'classic';
+    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'simple';
     iconSize: 'compact' | 'standard' | 'large' = 'standard';
 
     // Menú contextual y Marcadores de usuario
@@ -487,9 +487,13 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             'icon-size-large',
             'icon-theme-modern',
             'icon-theme-classic',
-            'icon-theme-standard'
+            'icon-theme-standard',
+            'icon-theme-simple'
         );
         container.classList.add(`icon-size-${this.iconSize}`, `icon-theme-${this.iconTheme}`);
+        // Rerenderizamos para aplicar el nuevo estilo de icono
+        this.renderPropertyMarkers();
+        this.renderCollectibleMarkers();
     }
 
     toggleSection(section: string): void {
@@ -684,24 +688,18 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     };
 
     private computeCayoMinZoom(): number {
-        const el = document.getElementById('gta-map');
-        const width = el ? el.clientWidth : 0;
-        const height = el ? el.clientHeight : 0;
-        if (width <= 0) return 3.63;
-        // El mapa de Rockstar mide 155 de ancho y 148 de alto en coordenadas.
-        // zoom mínimo para cubrir siempre el 100% de la pantalla (sin ningún relleno ni a los lados ni arriba/abajo)
-        const zoomForWidth = Math.log2(width / 155);
-        const zoomForHeight = Math.log2(height / 148);
-        return Math.max(1, Math.max(zoomForWidth, zoomForHeight));
+        // Permite alejar el mapa con zoom out controlado para ver la isla con holgura
+        return 2.3;
     }
 
     private computeMinZoom(imageSize: number): number {
         const el = document.getElementById('gta-map');
-        const width = el ? el.clientWidth : 0;
-        if (width <= 0) return 2;
-        const nativeZoom = 7;
-        const min = nativeZoom + Math.log2(width / imageSize);
-        return Math.min(this.maxZoom, Math.max(1, Math.ceil(min)));
+        const height = el ? el.clientHeight : 0;
+        if (height <= 0) return 4.0;
+        // La isla de San Andreas mide 56.5 unidades de alto.
+        // Calculamos el zoom para que la isla entera quepa verticalmente con holgura de océano
+        const targetZoom = Math.log2((height * 0.92) / 56.5);
+        return Math.max(3.5, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
     }
 
     private initMap(mapType: string): void {
@@ -713,13 +711,14 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
         if (this.selectedCity === 'cp') {
             let layerSlug = 'render_island_heist';
-            let oceanColor = '#0C2A47';
+            // Tonos RGB exactos muestreados píxel a píxel del borde de las teselas de Rockstar
+            let oceanColor = '#0D2B4F'; // render_island_heist: RGB(13, 43, 79)
             if (mapType === 'Roadmap' || mapType === 'Atlas') {
                 layerSlug = 'print_island_heist';
-                oceanColor = '#3FA7C4';
+                oceanColor = '#4EB1D0'; // print_island_heist: RGB(78, 177, 208)
             } else if (mapType === 'Juego') {
                 layerSlug = 'game_island_heist';
-                oceanColor = '#2A3B43';
+                oceanColor = '#384950'; // game_island_heist: RGB(56, 73, 80)
             }
 
             if (mapContainer) {
@@ -728,15 +727,16 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const cayoMinZoom = this.computeCayoMinZoom();
             const cayoBounds = L.latLngBounds([[-148, 0], [0, 155]]);
+            const cayoMaxBounds = L.latLngBounds([[-200, -50], [50, 205]]);
             this.map = L.map('gta-map', {
                 crs: L.CRS.Simple,
                 minZoom: cayoMinZoom,
                 maxZoom: 7,
-                zoom: cayoMinZoom,
-                zoomSnap: 0,
-                center: [-74, 77.5],
-                maxBounds: cayoBounds,
-                maxBoundsViscosity: 1.0,
+                zoom: 2.7,
+                zoomSnap: 0.1,
+                center: [-72, 82.5],
+                maxBounds: cayoMaxBounds,
+                maxBoundsViscosity: 0.85,
                 zoomControl: false,
                 attributionControl: false
             });
@@ -758,10 +758,22 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             this.loadCayoPerico();
         } else {
-            if (mapContainer) {
-                mapContainer.style.backgroundColor = '#0b0f14';
+            // Tonos RGB exactos muestreados píxel a píxel del océano de Los Santos
+            let lsOceanColor = '#143D6B'; // Satellite: RGB(20, 61, 107)
+            if (mapType === 'Roadmap') {
+                lsOceanColor = '#1862AD'; // Roadmap: RGB(24, 98, 173)
+            } else if (mapType === 'Atlas') {
+                lsOceanColor = '#16A9D2'; // Atlas: RGB(22, 169, 210)
+            } else if (mapType === 'Juego') {
+                lsOceanColor = '#4a4a4a'; // Radar en escala de grises
+            } else if (mapType === 'UV' || mapType === 'UV2') {
+                lsOceanColor = '#05080c';
             }
-            const mapBounds = L.latLngBounds([-64, 0], [0, 64]);
+
+            if (mapContainer) {
+                mapContainer.style.backgroundColor = lsOceanColor;
+            }
+            const mapBounds = L.latLngBounds([[-90, -25], [26, 89]]);
             const minZoom = this.computeMinZoom(this.imageSize);
 
             this.map = L.map('gta-map', {
@@ -769,8 +781,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 minZoom,
                 maxZoom: this.maxZoom,
                 zoom: minZoom,
-                center: [-36, 30],
+                zoomSnap: 0.1,
+                center: [-33, 29.5],
                 maxBounds: mapBounds,
+                maxBoundsViscosity: 0.85,
                 zoomControl: false,
                 attributionControl: false
             });
@@ -795,7 +809,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 minZoom: 0,
                 maxNativeZoom: 7,
                 maxZoom: this.maxZoom,
-                errorTileUrl: mapType.startsWith('UV') ? undefined : `assets/${mapType === 'Juego' ? 'Roadmap' : mapType}/empty.jpg`,
+                errorTileUrl: undefined,
                 noWrap: true,
                 className: tileClass
             });
@@ -881,9 +895,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             next: (locations) => {
                 this.cayoPericoLocations = locations;
                 locations.forEach(loc => {
-                    if (this.layerFilters[loc.category] === undefined) {
-                        this.layerFilters[loc.category] = true;
-                    }
+                    
                 });
                 this.renderCayoPericoMarkers();
             },
@@ -903,19 +915,25 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const [lat, lng] = this.worldToLatLng(loc.position.x, loc.position.y);
 
-            const badgeColor = loc.badge.color || '#f97316';
-            const badgeSymbol = loc.badge.symbol || '•';
+            const badgeColor = loc.badge?.color || (loc as any).color || '#f97316';
+            let badgeSymbol = loc.badge?.symbol || (loc as any).icon || '•';
+            if ((loc.category as string) === 'spawns_squaddie' || badgeSymbol === '🛻') {
+                badgeSymbol = '🚐';
+            }
+            if ((loc.category as string) === 'grappling_eq') {
+                badgeSymbol = '💼';
+            }
+
+            // Icono estándar: Font Awesome limpio sin neón
+            const faIconCayo = loc.badge?.icon || (loc as any).icon || 'location-dot';
+            const htmlContent = `<div style="color: ${badgeColor}; font-size: 20px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIconCayo}"></i></div>`;
 
             const icon = L.divIcon({
-                className: 'gta-pin-wrapper',
-                html: `
-                    <div class="gta-pin gta-pin-${loc.category}" style="--pin-color: ${badgeColor}; border-color: ${badgeColor};">
-                        <span class="gta-pin-symbol" style="color: ${badgeColor}; font-weight: 800;">${badgeSymbol}</span>
-                    </div>
-                `,
-                iconSize: [30, 30],
-                iconAnchor: [15, 30],
-                popupAnchor: [0, -28]
+                className: 'gta-pin-wrapper-fa',
+                html: htmlContent,
+                iconSize: [20, 20],
+                iconAnchor: [10, 10],
+                popupAnchor: [0, -10]
             });
 
             const featuresHtml = loc.features && loc.features.length > 0
@@ -1013,7 +1031,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             const isPurchasable = this.isPurchasable(p);
             const [lat, lng] = this.worldToLatLng(p.position.x, p.position.y);
 
-            let pinSymbol = p.badge.symbol || '•';
+            let pinSymbol = (p.badge?.symbol || (p as any).icon) || '•';
             if (p.category === 'police_station' && (!pinSymbol || pinSymbol === 'POL')) pinSymbol = '🚓';
             if (p.category === 'hospital' && (!pinSymbol || pinSymbol === 'MED' || pinSymbol === '✚')) pinSymbol = '🏥';
             if (p.category === 'fire_station' && (!pinSymbol || pinSymbol === 'BOM')) pinSymbol = '🚒';
@@ -1029,16 +1047,44 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const pinInnerHtml = `<span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span>`;
 
+            // Icono: FA "simple" o círculo neón según tema seleccionado
+            const pinColor = p.badge?.color || (p as any).color || '#ffb833';
+            const faIconProp = p.badge?.icon || (p as any).icon || 'location-dot';
+            const iconSizeProp: [number, number] = (p.category === 'shipwreck' || p.category === 'fake_ufo') ? [22, 22] : [20, 20];
+
+            let pinHtml: string;
+            let pinClass: string;
+            let pinIconSize: [number, number];
+            let pinIconAnchor: [number, number];
+            let pinPopupAnchor: [number, number];
+
+            if (p.category === 'fake_ufo') {
+                const ufoSymbol = p.badge?.symbol || '🛸';
+                pinHtml = `<div style="font-size: 26px; filter: drop-shadow(0 0 8px ${pinColor}) drop-shadow(0px 2px 4px rgba(0,0,0,0.9)); text-align: center; line-height:1; cursor: pointer;">${ufoSymbol}</div>`;
+                pinClass = 'gta-pin-wrapper-fa';
+                pinIconSize = [26, 26];
+                pinIconAnchor = [13, 13];
+                pinPopupAnchor = [0, -13];
+            } else if (this.iconTheme === 'simple') {
+                pinHtml = `<div style="color: ${pinColor}; font-size: ${iconSizeProp[0]}px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIconProp}"></i></div>`;
+                pinClass = 'gta-pin-wrapper-fa';
+                pinIconSize = iconSizeProp;
+                pinIconAnchor = [iconSizeProp[0] / 2, iconSizeProp[1] / 2];
+                pinPopupAnchor = [0, -iconSizeProp[1] / 2];
+            } else {
+                pinHtml = `<div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${pinColor}"><span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span></div>`;
+                pinClass = 'gta-pin-wrapper';
+                pinIconSize = [30, 30];
+                pinIconAnchor = [15, 30];
+                pinPopupAnchor = [0, -28];
+            }
+
             const icon = L.divIcon({
-                className: 'gta-pin-wrapper',
-                html: `
-                    <div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${p.badge.color}">
-                        ${pinInnerHtml}
-                    </div>
-                `,
-                iconSize: [30, 30],
-                iconAnchor: [15, 30],
-                popupAnchor: [0, -28]
+                className: pinClass,
+                html: pinHtml,
+                iconSize: pinIconSize,
+                iconAnchor: pinIconAnchor,
+                popupAnchor: pinPopupAnchor
             });
 
             const featuresHtml = p.features && p.features.length > 0
@@ -1074,8 +1120,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             const popupHtml = `
                 <div class="gta-popup-card">
                     ${imageHtml}
-                    <div class="popup-banner" style="background: linear-gradient(135deg, ${p.badge.color}33, #0b0f14 85%); border-bottom: 2px solid ${p.badge.color};">
-                        <span class="popup-badge" style="color: ${p.badge.color}; border-color: ${p.badge.color}66">${p.categoryLabel}</span>
+                    <div class="popup-banner" style="background: linear-gradient(135deg, ${p.badge?.color || (p as any).color || '#ffb833'}33, #0b0f14 85%); border-bottom: 2px solid ${p.badge?.color || (p as any).color || '#ffb833'};">
+                        <span class="popup-badge" style="color: ${p.badge?.color || (p as any).color || '#ffb833'}; border-color: ${p.badge?.color || (p as any).color || '#ffb833'}66">${p.categoryLabel}</span>
                         <h4 class="popup-title">${p.name}</h4>
                         <div class="popup-zone">${p.zone}</div>
                     </div>
@@ -1118,22 +1164,20 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const [lat, lng] = this.worldToLatLng(item.position.x, item.position.y);
 
+            const colColorOnline = item.badge?.color || (item as any).color || '#ffb833';
+            const colFaIconOnline = item.badge?.icon || (item as any).icon || 'star';
             const icon = L.divIcon({
-                className: 'gta-pin-collectible-wrapper',
-                html: `
-                    <div class="gta-pin-collectible gta-pin-col-${item.category}" style="--pin-color: ${item.badge.color}">
-                        <span class="gta-pin-col-symbol">${item.badge.symbol || '•'}</span>
-                    </div>
-                `,
-                iconSize: [22, 22],
-                iconAnchor: [11, 11],
-                popupAnchor: [0, -13]
-            });
+                  className: 'gta-pin-collectible-wrapper-fa',
+                  html: `<div style="color: ${colColorOnline}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIconOnline}"></i></div>`,
+                  iconSize: [16, 16],
+                  iconAnchor: [8, 8],
+                  popupAnchor: [0, -8]
+              });
 
             const popupHtml = `
                 <div class="gta-popup-card">
-                    <div class="popup-banner" style="background: linear-gradient(135deg, ${item.badge.color}33, #0b0f14 85%); border-bottom: 2px solid ${item.badge.color};">
-                        <span class="popup-badge" style="color: ${item.badge.color}; border-color: ${item.badge.color}66">${item.categoryLabel} (#${item.number}/${item.total})</span>
+                    <div class="popup-banner" style="background: linear-gradient(135deg, ${(item.badge?.color || (item as any).color)}33, #0b0f14 85%); border-bottom: 2px solid ${(item.badge?.color || (item as any).color)};">
+                        <span class="popup-badge" style="color: ${(item.badge?.color || (item as any).color)}; border-color: ${(item.badge?.color || (item as any).color)}66">${item.categoryLabel} (#${item.number}/${item.total})</span>
                         <h4 class="popup-title">${item.name}</h4>
                         <div class="popup-zone">${item.zone}</div>
                     </div>
@@ -1152,7 +1196,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
             const marker = L.marker([lat, lng], { icon })
                 .bindPopup(popupHtml, { maxWidth: 320, className: 'gta-leaflet-popup' })
-                .bindTooltip(`<b>${item.name}</b><br><span style="color:${item.badge.color}">${item.categoryLabel} (#${item.number}/${item.total})</span>`, {
+                .bindTooltip(`<b>${item.name}</b><br><span style="color:${(item.badge?.color || (item as any).color)}">${item.categoryLabel} (#${item.number}/${item.total})</span>`, {
                     direction: 'top',
                     offset: [0, -12],
                     className: 'gta-leaflet-tooltip'
@@ -1268,7 +1312,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         if (!this.map) return;
 
         if (this.selectedCity === 'cp') {
-            this.map.flyTo([-75, 120], this.computeCayoMinZoom(), { duration: 1 });
+            this.map.flyTo([-72, 82.5], 2.7, { duration: 1 });
             return;
         }
 
@@ -1289,7 +1333,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.map.flyTo([-34, 11], 4.2, { duration: 1.2 });
                 break;
             default: // all
-                this.map.flyTo([-36, 30], this.computeMinZoom(this.imageSize), { duration: 1 });
+                this.map.flyTo([-33, 29.5], this.computeMinZoom(this.imageSize), { duration: 1 });
                 break;
         }
     }
@@ -1320,3 +1364,4 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         this.profileDrawerOpen = false;
     }
 }
+

@@ -1823,6 +1823,7 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 }
 
 .reward-box {
+  grid-column: 1 / -1;
   background: rgba(46, 204, 113, 0.1);
   border: 1px solid rgba(46, 204, 113, 0.3);
 }

@@ -81,6 +81,7 @@ export interface TranslationSchema {
       themeStandard: string;
       themeClassic: string;
       themeModern: string;
+      themeSimple: string;
       iconSize: string;
       sizeCompact: string;
       sizeStandard: string;

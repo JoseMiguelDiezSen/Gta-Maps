@@ -955,7 +955,7 @@
 }
 
 .hud-acc-body {
-  padding: 5px 8px 6px;
+  padding: 6px;
   border-top: 1px solid rgba(255, 165, 0, 0.15);
   display: flex;
   flex-direction: column;
@@ -966,8 +966,7 @@
   /* Scroll general unificado: los acordeones se expanden libremente sin scrolls internos */
   max-height: none;
   overflow-y: visible;
-  padding-right: 0;
-}
+  }
 
 .hud-field {
   display: flex;
