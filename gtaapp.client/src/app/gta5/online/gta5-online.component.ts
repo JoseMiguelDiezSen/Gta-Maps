@@ -788,7 +788,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 maxZoom: this.maxZoom,
                 zoom: 2.5,
                 zoomSnap: 0.1,
-                center: [-120, 59],
+                center: [-96, 59],
                 maxBounds: maxBounds,
                 maxBoundsViscosity: 0.85,
                 zoomControl: false,

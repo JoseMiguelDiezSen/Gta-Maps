@@ -30,15 +30,16 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Selector de mapa base — Historia tiene acceso a todos los mapas (incluido UV blueprint)
     readonly mapTypes = [
-        { id: 'Satellite', label: 'Satélite' },
-        { id: 'Roadmap',   label: 'Carreteras' },
-        { id: 'Atlas',     label: 'Atlas' },
-        { id: 'Juego',     label: 'Juego' },
-        { id: 'UV',        label: 'Blueprint' },
-        { id: 'UV2',       label: 'Blueprint Alt.' }
+        { id: 'SatelliteHD', label: '🛰️ Satellite HD (Ultra)' },
+        { id: 'Satellite',   label: 'Satélite' },
+        { id: 'Roadmap',     label: 'Carreteras' },
+        { id: 'Atlas',       label: 'Atlas' },
+        { id: 'Juego',       label: 'Juego' },
+        { id: 'UV',          label: 'Blueprint' },
+        { id: 'UV2',         label: 'Blueprint Alt.' }
     ];
 
-    currentMapType = 'Satellite';
+    currentMapType = 'SatelliteHD';
 
     // -----------------------------------------------------------------------
     // CATEGORÍAS DE HISTORIA (completamente distintas del Online)
@@ -334,44 +335,76 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     private initMap(mapType: string): void {
         if (this.map) this.map.remove();
 
-        const mapBounds = L.latLngBounds([-64, 0], [0, 64]);
-        const minZoom = this.computeMinZoom(this.imageSize);
+        if (mapType === 'SatelliteHD') {
+            // ---- Mapa oficial Rockstar Games Social Club — Ultra Alta Resolución ----
+            const mapBounds = L.latLngBounds([[-192, 0], [0, 128]]);
+            const maxBounds = L.latLngBounds([[-230, -25], [25, 155]]);
+            const hdMinZoom = this.computeHdMinZoom();
 
-        this.map = L.map('gta-map-historia', {
-            crs: L.CRS.Simple,
-            minZoom,
-            maxZoom: this.maxZoom,
-            zoom: minZoom,
-            center: [-36, 30],
-            maxBounds: mapBounds,
-            zoomControl: false,
-            attributionControl: false
-        });
+            this.map = L.map('gta-map-historia', {
+                crs: L.CRS.Simple,
+                minZoom: hdMinZoom,
+                maxZoom: this.maxZoom,
+                zoom: 2.5,
+                zoomSnap: 0.1,
+                center: [-96, 59],
+                maxBounds: maxBounds,
+                maxBoundsViscosity: 0.85,
+                zoomControl: false,
+                attributionControl: false
+            });
 
-        let tileUrl: string;
-        let tileClass = '';
+            const tileLayer = L.tileLayer('assets/SatelliteHD/{z}_{x}_{y}.jpg', {
+                tileSize: 256,
+                minZoom: 0,
+                maxNativeZoom: 7,
+                maxZoom: this.maxZoom,
+                noWrap: true,
+                bounds: mapBounds
+            });
+            tileLayer.addTo(this.map);
 
-        if (mapType === 'UV' || mapType === 'UV2') {
-            tileUrl = 'https://tiles.mapgenie.io/games/gta5/los-santos/uv/{z}/{x}/{y}.jpg';
-            if (mapType === 'UV2') tileClass = 'leaflet-tile-uv2';
-        } else if (mapType === 'Juego') {
-            tileUrl = `assets/Roadmap/{z}_{x}_{y}.jpg`;
-            tileClass = 'leaflet-tile-juego';
         } else {
-            tileUrl = `assets/${mapType}/{z}_{x}_{y}.jpg`;
+            // ---- Mapas estándar (Satellite, Roadmap, Atlas, Juego, UV) ----
+            const mapBounds = L.latLngBounds([-64, 0], [0, 64]);
+            const minZoom = this.computeMinZoom(this.imageSize);
+
+            this.map = L.map('gta-map-historia', {
+                crs: L.CRS.Simple,
+                minZoom,
+                maxZoom: this.maxZoom,
+                zoom: minZoom,
+                center: [-36, 30],
+                maxBounds: mapBounds,
+                zoomControl: false,
+                attributionControl: false
+            });
+
+            let tileUrl: string;
+            let tileClass = '';
+
+            if (mapType === 'UV' || mapType === 'UV2') {
+                tileUrl = 'https://tiles.mapgenie.io/games/gta5/los-santos/uv/{z}/{x}/{y}.jpg';
+                if (mapType === 'UV2') tileClass = 'leaflet-tile-uv2';
+            } else if (mapType === 'Juego') {
+                tileUrl = `assets/Roadmap/{z}_{x}_{y}.jpg`;
+                tileClass = 'leaflet-tile-juego';
+            } else {
+                tileUrl = `assets/${mapType}/{z}_{x}_{y}.jpg`;
+            }
+
+            const tileLayer = L.tileLayer(tileUrl, {
+                tileSize: 256,
+                minZoom: 0,
+                maxNativeZoom: 7,
+                maxZoom: this.maxZoom,
+                errorTileUrl: mapType.startsWith('UV') ? undefined : `assets/${mapType === 'Juego' ? 'Roadmap' : mapType}/empty.jpg`,
+                noWrap: true,
+                className: tileClass
+            });
+            tileLayer.addTo(this.map);
         }
 
-        const tileLayer = L.tileLayer(tileUrl, {
-            tileSize: 256,
-            minZoom: 0,
-            maxNativeZoom: 7,
-            maxZoom: this.maxZoom,
-            errorTileUrl: mapType.startsWith('UV') ? undefined : `assets/${mapType === 'Juego' ? 'Roadmap' : mapType}/empty.jpg`,
-            noWrap: true,
-            className: tileClass
-        });
-
-        tileLayer.addTo(this.map);
         this.playerMarkersLayer = L.layerGroup().addTo(this.map);
         this.collectibleMarkersLayer = L.layerGroup().addTo(this.map);
 
@@ -385,10 +418,27 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private readonly onWindowResize = () => {
-        if (this.map) {
+        if (!this.map) return;
+        if (this.currentMapType === 'SatelliteHD') {
+            this.map.setMinZoom(this.computeHdMinZoom());
+        } else {
             this.map.setMinZoom(this.computeMinZoom(this.imageSize));
         }
     };
+
+    private computeHdMinZoom(): number {
+        const el = document.getElementById('gta-map-historia');
+        const width  = el ? el.clientWidth  : 0;
+        const height = el ? el.clientHeight : 0;
+        if (width <= 0 || height <= 0) return 2;
+        // El mapa HD mide 128×192 unidades en CRS.Simple a zoom 0
+        const zoomForWidth  = Math.log2(width  / 128);
+        const zoomForHeight = Math.log2(height / 192);
+        const targetZoom = Math.max(zoomForWidth, zoomForHeight);
+        return Math.min(this.maxZoom, Math.max(1, Math.ceil(targetZoom * 10) / 10));
+    }
+
+
 
     private computeMinZoom(imageSize: number): number {
         const el = document.getElementById('gta-map-historia');
@@ -403,6 +453,11 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // CONVERSIÓN COORDENADAS GTA ↔ LEAFLET
     // -----------------------------------------------------------------------
     worldToLatLng(x: number, y: number): [number, number] {
+        if (this.currentMapType === 'SatelliteHD') {
+            const lng = 128 * ((x + 4140) / 9000);
+            const lat = -192 * ((8400 - y) / 13500);
+            return [lat, lng];
+        }
         const originX = 3753.6;
         const originY = 5529.6;
         const scale   = 0.660;
@@ -412,6 +467,12 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     latLngToWorld(lat: number, lng: number): { x: number; y: number } {
+        if (this.currentMapType === 'SatelliteHD') {
+            return {
+                x: Math.round(((lng / 128) * 9000 - 4140) * 10) / 10,
+                y: Math.round((8400 - (-lat / 192) * 13500) * 10) / 10
+            };
+        }
         const originX = 3753.6;
         const originY = 5529.6;
         const scale   = 0.660;
@@ -422,6 +483,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             y: Math.round(((originY - py) / scale) * 10) / 10
         };
     }
+
 
     // -----------------------------------------------------------------------
     // CARGA DE DATOS — Historia filtra solo gameMode 'story' | 'both'
