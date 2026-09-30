@@ -100,4 +100,22 @@ export class MissionService {
       })
     );
   }
+
+  /**
+   * Obtiene el catálogo de Misterios y Easter Eggs de GTA V Modo Historia
+   * con fallback a los ficheros locales en assets/data/gta5/historia/{lang}/mysteries.json.
+   */
+  getStoryMysteries(lang?: string): Observable<GtaMystery[]> {
+    let params = new HttpParams();
+    const activeLang = lang || this.translationService.currentLanguage();
+    if (activeLang) params = params.set('lang', activeLang);
+
+    return this.http.get<GtaMystery[]>('/api/gta5/historia/mysteries', { params }).pipe(
+      catchError(() => {
+        return this.http.get<GtaMystery[]>(`/assets/data/gta5/historia/${activeLang}/mysteries.json`).pipe(
+          catchError(() => of([]))
+        );
+      })
+    );
+  }
 }
