@@ -493,8 +493,12 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         );
         container.classList.add(`icon-size-${this.iconSize}`, `icon-theme-${this.iconTheme}`);
         // Rerenderizamos para aplicar el nuevo estilo de icono
-        this.renderPropertyMarkers();
-        this.renderCollectibleMarkers();
+        if (this.selectedCity === 'cp') {
+            this.renderCayoPericoMarkers();
+        } else {
+            this.renderPropertyMarkers();
+            this.renderCollectibleMarkers();
+        }
     }
 
     toggleSection(section: string): void {
@@ -965,7 +969,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             next: (locations) => {
                 this.cayoPericoLocations = locations;
                 locations.forEach(loc => {
-                    
+                    if (this.layerFilters[loc.category] === undefined) {
+                        this.layerFilters[loc.category] = true;
+                    }
                 });
                 this.renderCayoPericoMarkers();
             },
@@ -986,24 +992,18 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             const [lat, lng] = this.worldToLatLng(loc.position.x, loc.position.y);
 
             const badgeColor = loc.badge?.color || (loc as any).color || '#f97316';
-            let badgeSymbol = loc.badge?.symbol || (loc as any).icon || '•';
-            if ((loc.category as string) === 'spawns_squaddie' || badgeSymbol === '🛻') {
-                badgeSymbol = '🚐';
-            }
-            if ((loc.category as string) === 'grappling_eq') {
-                badgeSymbol = '💼';
-            }
-
-            // Icono estándar: Font Awesome limpio sin neón
-            const faIconCayo = loc.badge?.icon || (loc as any).icon || 'location-dot';
-            const htmlContent = `<div style="color: ${badgeColor}; font-size: 20px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIconCayo}"></i></div>`;
+            const badgeSymbol = loc.badge?.symbol || (loc as any).icon || '•';
 
             const icon = L.divIcon({
-                className: 'gta-pin-wrapper-fa',
-                html: htmlContent,
-                iconSize: [20, 20],
-                iconAnchor: [10, 10],
-                popupAnchor: [0, -10]
+                className: 'gta-pin-wrapper',
+                html: `
+                    <div class="gta-pin gta-pin-${loc.category}" style="--pin-color: ${badgeColor}; border-color: ${badgeColor};">
+                        <span class="gta-pin-symbol" style="color: ${badgeColor}; font-weight: 800;">${badgeSymbol}</span>
+                    </div>
+                `,
+                iconSize: [30, 30],
+                iconAnchor: [15, 30],
+                popupAnchor: [0, -28]
             });
 
             const featuresHtml = loc.features && loc.features.length > 0
@@ -1040,11 +1040,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                     className: 'gta-leaflet-tooltip'
                 });
 
-            if (this.playerMarkersLayer) {
-                marker.addTo(this.playerMarkersLayer);
-            } else {
-                marker.addTo(map);
-            }
+            marker.addTo(map);
             this.cayoPericoMarkers.push({ marker, location: loc });
         });
     }
