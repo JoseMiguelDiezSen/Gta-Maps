@@ -358,124 +358,52 @@
               <span class="legend-count">{{ getCategoryCount('mansion') }}</span>
             </button>
 
-            <!-- Hangares y Aeródromos -->
+            <!-- Apartamentos de Lujo -->
             <button
               type="button"
               class="legend-btn"
-              [class.is-active]="layerFilters['hangar']"
-              (click)="toggleLayer('hangar')"
+              [class.is-active]="layerFilters['luxury_apartment']"
+              (click)="toggleLayer('luxury_apartment')"
             >
-              <i class="legend-dot dot-hangar"></i>
-              <span class="legend-name">{{ 'gta5.layers.hangar' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('hangar') }}</span>
+              <i class="legend-dot dot-luxury-apartment"></i>
+              <span class="legend-name">{{ 'gta5.layers.luxuryApartment' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('luxury_apartment') }}</span>
             </button>
 
-            <!-- Búnkeres -->
+            <!-- Apartamentos Medios -->
             <button
               type="button"
               class="legend-btn"
-              [class.is-active]="layerFilters['bunker']"
-              (click)="toggleLayer('bunker')"
+              [class.is-active]="layerFilters['mid_apartment']"
+              (click)="toggleLayer('mid_apartment')"
             >
-              <i class="legend-dot dot-bunker"></i>
-              <span class="legend-name">{{ 'gta5.layers.bunker' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('bunker') }}</span>
+              <i class="legend-dot dot-mid-apartment"></i>
+              <span class="legend-name">{{ 'gta5.layers.midApartment' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('mid_apartment') }}</span>
             </button>
 
-            <!-- Instalaciones -->
+            <!-- Apartamentos Económicos -->
             <button
               type="button"
               class="legend-btn"
-              [class.is-active]="layerFilters['facility']"
-              (click)="toggleLayer('facility')"
+              [class.is-active]="layerFilters['low_apartment']"
+              (click)="toggleLayer('low_apartment')"
             >
-              <i class="legend-dot dot-facility"></i>
-              <span class="legend-name">{{ 'gta5.layers.facility' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('facility') }}</span>
+              <i class="legend-dot dot-low-apartment"></i>
+              <span class="legend-name">{{ 'gta5.layers.lowApartment' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('low_apartment') }}</span>
             </button>
 
-            <!-- Salas Recreativas -->
+            <!-- Garajes -->
             <button
               type="button"
               class="legend-btn"
-              [class.is-active]="layerFilters['arcade']"
-              (click)="toggleLayer('arcade')"
+              [class.is-active]="layerFilters['garage']"
+              (click)="toggleLayer('garage')"
             >
-              <i class="legend-dot dot-arcade"></i>
-              <span class="legend-name">{{ 'gta5.layers.arcade' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('arcade') }}</span>
-            </button>
-
-            <!-- Talleres Tuners -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['auto_shop']"
-              (click)="toggleLayer('auto_shop')"
-            >
-              <i class="legend-dot dot-autoshop"></i>
-              <span class="legend-name">{{ 'gta5.layers.autoShop' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('auto_shop') }}</span>
-            </button>
-
-            <!-- Agencias The Contract -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['agency']"
-              (click)="toggleLayer('agency')"
-            >
-              <i class="legend-dot dot-agency"></i>
-              <span class="legend-name">{{ 'gta5.layers.agency' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('agency') }}</span>
-            </button>
-
-            <!-- Desguaces The Chop Shop -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['salvage_yard']"
-              (click)="toggleLayer('salvage_yard')"
-            >
-              <i class="legend-dot dot-salvage"></i>
-              <span class="legend-name">{{ 'gta5.layers.salvageYard' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('salvage_yard') }}</span>
-            </button>
-
-            <!-- Taller de la Arena (Arena War) -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['arena_war']"
-              (click)="toggleLayer('arena_war')"
-            >
-              <i class="legend-dot dot-arenawar"></i>
-              <span class="legend-name">{{ 'gta5.layers.arenaWar' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('arena_war') }}</span>
-            </button>
-
-            <!-- Oficinas CEO -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['ceo_office']"
-              (click)="toggleLayer('ceo_office')"
-            >
-              <i class="legend-dot dot-ceo"></i>
-              <span class="legend-name">{{ 'gta5.layers.ceoOffice' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('ceo_office') }}</span>
-            </button>
-
-            <!-- Almacenes de Vehículos (Import / Export) -->
-            <button
-              type="button"
-              class="legend-btn"
-              [class.is-active]="layerFilters['vehicle_warehouse']"
-              (click)="toggleLayer('vehicle_warehouse')"
-            >
-              <i class="legend-dot dot-veh-warehouse"></i>
-              <span class="legend-name">{{ 'gta5.layers.vehicleWarehouse' | translate }}</span>
-              <span class="legend-count">{{ getCategoryCount('vehicle_warehouse') }}</span>
+              <i class="legend-dot dot-garage"></i>
+              <span class="legend-name">{{ 'gta5.layers.garage' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('garage') }}</span>
             </button>
         </div>
       </div>
@@ -580,6 +508,126 @@
               <i class="legend-dot dot-doc"></i>
               <span class="legend-name">{{ 'gta5.layers.docForgery' | translate }}</span>
               <span class="legend-count">{{ getCategoryCount('doc_forgery') }}</span>
+            </button>
+
+            <!-- Hangares y Aeródromos -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['hangar']"
+              (click)="toggleLayer('hangar')"
+            >
+              <i class="legend-dot dot-hangar"></i>
+              <span class="legend-name">{{ 'gta5.layers.hangar' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('hangar') }}</span>
+            </button>
+
+            <!-- Salas Recreativas -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['arcade']"
+              (click)="toggleLayer('arcade')"
+            >
+              <i class="legend-dot dot-arcade"></i>
+              <span class="legend-name">{{ 'gta5.layers.arcade' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('arcade') }}</span>
+            </button>
+
+            <!-- Talleres Tuners -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['auto_shop']"
+              (click)="toggleLayer('auto_shop')"
+            >
+              <i class="legend-dot dot-autoshop"></i>
+              <span class="legend-name">{{ 'gta5.layers.autoShop' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('auto_shop') }}</span>
+            </button>
+
+            <!-- Agencias The Contract -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['agency']"
+              (click)="toggleLayer('agency')"
+            >
+              <i class="legend-dot dot-agency"></i>
+              <span class="legend-name">{{ 'gta5.layers.agency' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('agency') }}</span>
+            </button>
+
+            <!-- Desguaces The Chop Shop -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['salvage_yard']"
+              (click)="toggleLayer('salvage_yard')"
+            >
+              <i class="legend-dot dot-salvage"></i>
+              <span class="legend-name">{{ 'gta5.layers.salvageYard' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('salvage_yard') }}</span>
+            </button>
+
+            <!-- Taller de la Arena (Arena War) -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['arena_war']"
+              (click)="toggleLayer('arena_war')"
+            >
+              <i class="legend-dot dot-arenawar"></i>
+              <span class="legend-name">{{ 'gta5.layers.arenaWar' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('arena_war') }}</span>
+            </button>
+
+            <!-- Oficinas CEO -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['ceo_office']"
+              (click)="toggleLayer('ceo_office')"
+            >
+              <i class="legend-dot dot-ceo"></i>
+              <span class="legend-name">{{ 'gta5.layers.ceoOffice' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('ceo_office') }}</span>
+            </button>
+
+            <!-- Almacenes de Vehículos (Import / Export) -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['vehicle_warehouse']"
+              (click)="toggleLayer('vehicle_warehouse')"
+            >
+              <i class="legend-dot dot-veh-warehouse"></i>
+              <span class="legend-name">{{ 'gta5.layers.vehicleWarehouse' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('vehicle_warehouse') }}</span>
+            </button>
+
+            <!-- Búnkeres -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['bunker']"
+              (click)="toggleLayer('bunker')"
+            >
+              <i class="legend-dot dot-bunker"></i>
+              <span class="legend-name">{{ 'gta5.layers.bunker' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('bunker') }}</span>
+            </button>
+
+            <!-- Instalaciones -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['facility']"
+              (click)="toggleLayer('facility')"
+            >
+              <i class="legend-dot dot-facility"></i>
+              <span class="legend-name">{{ 'gta5.layers.facility' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('facility') }}</span>
             </button>
         </div>
       </div>
@@ -1207,10 +1255,10 @@
                 [(ngModel)]="iconTheme"
                 (change)="updateIconStyle()"
               >
-                <option value="simple">{{ 'gta5.settings.themeSimple' | translate }}</option>
                 <option value="standard">{{ 'gta5.settings.themeStandard' | translate }}</option>
-                  <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
-                  <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>
+                <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
+                <option value="simple">{{ 'gta5.settings.themeSimple' | translate }}</option>
+                <option value="modern">{{ 'gta5.settings.themeModern' | translate }}</option>
               </select>
             </div>
             <div class="hud-field">

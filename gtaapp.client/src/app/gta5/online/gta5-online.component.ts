@@ -23,7 +23,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     get allMapTypes() {
         return [
             { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
-            { id: 'SatelliteHD', label: '🛰️ Satellite HD (Ultra)' },
+            { id: 'SatelliteHD', label: 'Satelite' },
             { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap') },
             { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas') },
             { id: 'Juego', label: this.translationService.t('gta5.maps.game') },
@@ -95,16 +95,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     readonly onlinePropertyKeys = [
         'mansion',
-        'hangar',
-        'bunker',
-        'facility',
-        'arcade',
-        'auto_shop',
-        'agency',
-        'salvage_yard',
-        'arena_war',
-        'ceo_office',
-        'vehicle_warehouse'
+        'luxury_apartment',
+        'mid_apartment',
+        'low_apartment',
+        'garage'
     ];
 
     // Claves de los Negocios
@@ -115,7 +109,17 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         'nightclub',
         'cash_factory',
         'meth_lab',
-        'doc_forgery'
+        'doc_forgery',
+        'hangar',
+        'arcade',
+        'auto_shop',
+        'agency',
+        'salvage_yard',
+        'arena_war',
+        'ceo_office',
+        'vehicle_warehouse',
+        'bunker',
+        'facility'
     ];
 
     // Claves de Lugares Extraños
@@ -241,6 +245,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     // Estado de filtros de categorías
     layerFilters: { [key: string]: boolean } = {
         mansion: true,
+        luxury_apartment: true,
+        mid_apartment: true,
+        low_apartment: true,
+        garage: true,
         purchasable_business: true,
         hangar: true,
         coke_lockup: true,
@@ -361,7 +369,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     settingsOpen = true;
 
     // Estilo de Iconos
-    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'simple';
+    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'classic';
     iconSize: 'compact' | 'standard' | 'large' = 'standard';
 
     // Menú contextual y Marcadores de usuario
@@ -761,8 +769,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 attributionControl: false
             });
 
-            // Mapa oficial de Rockstar Games Social Club (256x256 px, zooms 0-6 nativos)
-            const tileUrl = `https://s.rsg.sc/sc/images/games/GTAV/map/${layerSlug}/{z}/{x}/{y}.jpg`;
+            // Mapa oficial de Rockstar Games Social Club (256x256 px, zooms 0-6 nativos) descargado localmente
+            const tileUrl = `assets/tiles/cayo_perico/${layerSlug}/{z}/{x}/{y}.jpg`;
 
             const tileLayer = L.tileLayer(tileUrl, {
                 tileSize: 256,
@@ -852,7 +860,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             let tileClass = '';
 
             if (mapType === 'UV' || mapType === 'UV2') {
-                tileUrl = 'https://tiles.mapgenie.io/games/gta5/los-santos/uv/{z}/{x}/{y}.jpg';
+                tileUrl = 'assets/tiles/uv/{z}/{x}/{y}.jpg';
                 if (mapType === 'UV2') {
                     tileClass = 'leaflet-tile-uv2';
                 }

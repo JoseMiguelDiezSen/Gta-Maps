@@ -66,7 +66,7 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
         },
         {
             key: 'vehiculos',
-            title: 'Vehículos',
+            title: 'Talleres',
             items: [
                 { id: 'ls_customs', name: 'Los Santos Customs', count: 0, color: '#e67e22' },
                 { id: 'hao_garage', name: 'Garaje de Hao', count: 0, color: '#f1c40f' },
@@ -170,7 +170,7 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     selectedGame = 'gta6';
     selectedGameMode: 'story' | 'online' = 'online';
     currentMapType = 'Satellite';
-    iconTheme = 'modern';
+    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'classic';
     iconSize = 'standard';
     inGameTimeStr = '00:00';
 

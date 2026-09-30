@@ -30,7 +30,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Selector de mapa base — Historia tiene acceso a todos los mapas (incluido UV blueprint)
     readonly mapTypes = [
-        { id: 'SatelliteHD', label: '🛰️ Satellite HD (Ultra)' },
+        { id: 'SatelliteHD', label: 'Satelite' },
         { id: 'Satellite',   label: 'Satélite' },
         { id: 'Roadmap',     label: 'Carreteras' },
         { id: 'Atlas',       label: 'Atlas' },
@@ -204,7 +204,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // Estilo de iconos
-    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'simple';
+    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'classic';
     iconSize: 'compact' | 'standard' | 'large' = 'standard';
 
     // Menú contextual

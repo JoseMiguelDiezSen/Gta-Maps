@@ -119,6 +119,10 @@ export interface TranslationSchema {
     layers: {
       storyBusiness: string;
       mansion: string;
+      luxuryApartment: string;
+      midApartment: string;
+      lowApartment: string;
+      garage: string;
       hangar: string;
       bunker: string;
       facility: string;
