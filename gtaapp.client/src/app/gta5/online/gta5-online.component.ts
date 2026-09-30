@@ -954,8 +954,14 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     switchCity(city: 'ls' | 'cp'): void {
         if (this.selectedCity === city) return;
         this.selectedCity = city;
-        if (this.selectedCity === 'cp' && (this.currentMapType === 'UV' || this.currentMapType === 'UV2')) {
-            this.currentMapType = 'Satellite';
+        if (this.selectedCity === 'cp') {
+            if (this.currentMapType === 'SatelliteHD' || this.currentMapType === 'UV' || this.currentMapType === 'UV2' || this.currentMapType === 'Atlas') {
+                this.currentMapType = 'Satellite';
+            }
+        } else {
+            if (this.currentMapType === 'Satellite') {
+                this.currentMapType = 'SatelliteHD';
+            }
         }
         this.initMap(this.currentMapType);
     }

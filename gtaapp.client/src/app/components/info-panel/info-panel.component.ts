@@ -99,7 +99,7 @@ export class InfoPanelComponent {
       id: 'legendarymotorsport',
       name: 'Legendary Motorsport',
       icon: 'fa-star',
-      logoUrl: 'https://static.wikia.nocookie.net/gtawiki/images/f/fa/LegendaryMotorsport-GTAV-Logo.png/revision/latest',
+      logoUrl: 'assets/data-images/vehicle_shops/LegendaryMotorsport-GTAV-Logo.png',
       color: '#ffb833',
       gameMode: 'both',
       description: 'Superdeportivos, exóticos de competición y vehículos de hiperlujo.'
@@ -108,7 +108,7 @@ export class InfoPanelComponent {
       id: 'superautos',
       name: 'Southern San Andreas',
       icon: 'fa-car',
-      logoUrl: 'https://static.wikia.nocookie.net/degta/images/1/10/SSASA-Logo_2.png/revision/latest',
+      logoUrl: 'assets/data-images/vehicle_shops/SSASA-Logo_2.png',
       color: '#3498db',
       gameMode: 'both',
       description: 'Muscle cars, compactos, sedanes, SUVs, todoterrenos y motos.'
@@ -117,7 +117,7 @@ export class InfoPanelComponent {
       id: 'bennys',
       name: "Benny's Original MW",
       icon: 'fa-wrench',
-      logoUrl: 'https://static.wikia.nocookie.net/public-5city/images/3/31/Benny%27s_logo.png/revision/latest',
+      logoUrl: 'assets/data-images/vehicle_shops/BennysOriginalMotorWorks-GTAO-Logo.png',
       color: '#e67e22',
       gameMode: 'online',
       description: 'Taller de personalización radical, lowriders y conversiones tuners.'
@@ -180,7 +180,7 @@ export class InfoPanelComponent {
       id: 'pegasus',
       name: 'Pegasus',
       icon: 'fa-horse',
-      logoUrl: 'https://static.wikia.nocookie.net/esgta/images/d/d9/Pegasus_Concierge_Logo_GTA-V.png/revision/latest',
+      logoUrl: '',
       color: '#1abc9c',
       gameMode: 'online',
       description: 'Vehículos almacenados en Pegasus: solicítelos por teléfono desde cualquier lugar.'
