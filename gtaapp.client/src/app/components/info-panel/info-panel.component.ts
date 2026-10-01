@@ -103,6 +103,9 @@ export class InfoPanelComponent implements OnChanges {
   // Pestaña de categoría de vehículos activa ('all' o clase específica)
   selectedVehicleClass: string = 'all';
 
+  // Buscador de vehículos dentro del catálogo del concesionario
+  dealerVehicleSearchQuery: string = '';
+
   // Definición centralizada de concesionarios
   readonly dealers: DealerCategory[] = [
     {
@@ -273,10 +276,19 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get filteredDealerVehicles(): GtaVehicle[] {
-    if (this.selectedVehicleClass === 'all') {
-      return this.dealerVehicles;
+    let list = this.dealerVehicles;
+    if (this.selectedVehicleClass !== 'all') {
+      list = list.filter(v => (v.class || 'Otros') === this.selectedVehicleClass);
     }
-    return this.dealerVehicles.filter(v => (v.class || 'Otros') === this.selectedVehicleClass);
+    const q = this.dealerVehicleSearchQuery.trim().toLowerCase();
+    if (q) {
+      list = list.filter(v =>
+        (v.name && v.name.toLowerCase().includes(q)) ||
+        (v.manufacturer && v.manufacturer.toLowerCase().includes(q)) ||
+        (v.class && v.class.toLowerCase().includes(q))
+      );
+    }
+    return list;
   }
 
   // -------------------------------------------------------------
@@ -572,6 +584,26 @@ export class InfoPanelComponent implements OnChanges {
     return '#ffb833';
   }
 
+  getMissionIcon(m: GtaMission | null): string {
+    if (!m) return 'fa-crosshairs';
+    const c = m.character.toLowerCase();
+    const cat = m.category.toLowerCase();
+    if (cat.includes('golpe') || cat.includes('heist')) return 'fa-sack-dollar';
+    if (c.includes('gerald')) return 'fa-pills';
+    if (c.includes('simeon')) return 'fa-car';
+    if (c.includes('lamar')) return 'fa-cannabis';
+    if (c.includes('lester')) return 'fa-laptop-code';
+    if (c.includes('madrazo')) return 'fa-crosshairs';
+    if (c.includes('trevor') || c.includes('ron')) return 'fa-skull';
+    if (c.includes('agatha')) return 'fa-gem';
+    if (c.includes('franklin')) return 'fa-car';
+    if (c.includes('michael')) return 'fa-gun';
+    if (c.includes('vincent')) return 'fa-shield-halved';
+    if (c.includes('dax')) return 'fa-flask';
+    if (c.includes('brendan') || c.includes('agente 14') || c.includes('securoserv')) return 'fa-user-secret';
+    return 'fa-crosshairs';
+  }
+
   // -------------------------------------------------------------
   // EXTRAÑOS Y LOCOS (STRANGERS AND FREAKS) MODO HISTORIA
   // -------------------------------------------------------------
@@ -654,7 +686,11 @@ export class InfoPanelComponent implements OnChanges {
     let list = this.strangerMissions;
     const charFilter = this.selectedStrangerCharacterFilter.toLowerCase();
     if (charFilter !== 'all') {
-      list = list.filter(m => m.character.toLowerCase().includes(charFilter));
+      if (charFilter === '100') {
+        list = list.filter(m => m.requiredFor100);
+      } else {
+        list = list.filter(m => m.character.toLowerCase().includes(charFilter));
+      }
     }
     if (this.selectedStrangerSeriesFilter !== 'all') {
       list = list.filter(m => m.series === this.selectedStrangerSeriesFilter);
@@ -698,6 +734,7 @@ export class InfoPanelComponent implements OnChanges {
   getStrangerCharacterMissionCount(filter: string): number {
     const f = filter.toLowerCase();
     if (f === 'all') return this.strangerMissions.length;
+    if (f === '100') return this.strangerMissions.filter(m => m.requiredFor100).length;
     return this.strangerMissions.filter(m => m.character.toLowerCase().includes(f)).length;
   }
 
@@ -737,6 +774,7 @@ export class InfoPanelComponent implements OnChanges {
     this.activeDealerName = dealerName;
     this.selectedVehicle = null;
     this.selectedVehicleClass = 'all';
+    this.dealerVehicleSearchQuery = '';
     this.drawerView = 'dealer-grid';
     this.loadDealerVehicles(dealerId);
   }
@@ -745,6 +783,7 @@ export class InfoPanelComponent implements OnChanges {
     this.drawerView = 'tabs';
     this.activeDealerId = null;
     this.selectedVehicle = null;
+    this.dealerVehicleSearchQuery = '';
   }
 
   backToDealerGrid(): void {

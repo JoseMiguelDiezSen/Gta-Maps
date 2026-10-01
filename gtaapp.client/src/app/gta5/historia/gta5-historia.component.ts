@@ -1,9 +1,11 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, effect } from '@angular/core';
+import { Router } from '@angular/router';
 import * as L from 'leaflet';
 import { LocationService } from '../../services/location.service';
 import { LocationItem } from '../../models/location';
 import { CollectibleItem } from '../../models/collectible';
 import { TranslationService } from '../../i18n';
+
 
 // ---------------------------------------------------------------------------
 // GTA V — MODO HISTORIA
@@ -28,15 +30,16 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     private readonly maxZoom = 9;
     private readonly imageSize = 8192;
 
-    // Selector de mapa base — Historia tiene acceso a todos los mapas (incluido UV blueprint)
-    readonly mapTypes = [
-        { id: 'Satellite', label: 'Satelite' },
-        { id: 'Roadmap',     label: 'Carreteras' },
-        { id: 'Atlas',       label: 'Atlas' },
-        { id: 'Juego',       label: 'Juego' },
-        { id: 'UV',          label: 'Blueprint' },
-        { id: 'UV2',         label: 'Blueprint Alt.' }
-    ];
+    get mapTypes() {
+        return [
+            { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
+            { id: 'Roadmap',   label: this.translationService.t('gta5.maps.roadmap') },
+            { id: 'Atlas',     label: this.translationService.t('gta5.maps.atlas') },
+            { id: 'Juego',     label: this.translationService.t('gta5.maps.game') },
+            { id: 'UV',        label: this.translationService.t('gta5.maps.uv') },
+            { id: 'UV2',       label: this.translationService.t('gta5.maps.uv2') }
+        ];
+    }
 
     currentMapType = 'Satellite';
 
@@ -168,6 +171,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private playerMarkersLayer: L.LayerGroup | undefined;
 
+
+
     // -----------------------------------------------------------------------
     // ESTADO DE UI
     // -----------------------------------------------------------------------
@@ -184,9 +189,22 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         fauna:       false,
         coleccionables: false,
         lugares:     false,
+        juego:       false,
         mapa:        false,
-        zona:        false
+        zona:        false,
+        marcadores:  false
     };
+
+    selectedGame = 'gta5';
+
+    switchGame(game: string): void {
+        this.selectedGame = game;
+        if (game === 'gta6') {
+            this.router.navigate(['/gta6-historia']);
+        } else {
+            this.router.navigate(['/gta5-historia']);
+        }
+    }
 
     selectedZone = 'all';
 
@@ -203,7 +221,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // Estilo de iconos
-    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'classic';
+    iconTheme: 'neon' | 'classic' | 'standard' | 'simple' = 'classic';
     iconSize: 'compact' | 'standard' | 'large' = 'standard';
 
     // Menú contextual
@@ -211,8 +229,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     ctxX = 0;
     ctxY = 0;
     private ctxLatLng: L.LatLng | null = null;
-    userCustomMarkers: { id: string; name: string; marker: L.Marker; latLng: L.LatLng }[] = [];
-    targetCustomMarker: { id: string; name: string; marker: L.Marker; latLng: L.LatLng } | null = null;
+    userCustomMarkers: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string }[] = [];
+    targetCustomMarker: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string } | null = null;
     isMarkerContext = false;
 
     // Telemetría de coordenadas
@@ -275,7 +293,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // -----------------------------------------------------------------------
     constructor(
         private locationService: LocationService,
-        readonly translationService: TranslationService
+        readonly translationService: TranslationService,
+        private router: Router
     ) {
         effect(() => {
             const lang = this.translationService.currentLanguage();
@@ -293,12 +312,23 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         this.startInGameClock();
 
         (window as any)._gtaRenameMarker = (id: string) => {
+            const el = document.getElementById('custom-marker-title-' + id);
+            if (el) {
+                el.focus();
+                const range = document.createRange();
+                range.selectNodeContents(el);
+                const sel = window.getSelection();
+                sel?.removeAllRanges();
+                sel?.addRange(range);
+            }
+        };
+
+        (window as any)._gtaSaveMarkerName = (id: string, newName: string) => {
             const found = this.userCustomMarkers.find(m => m.id === id);
-            if (found) {
-                const newName = prompt('Introduce el nuevo nombre del marcador:', found.name);
-                if (newName && newName.trim() !== '') {
-                    found.name = newName.trim();
-                    this.updateCustomMarkerPopup(found);
+            if (found && newName && newName.trim() !== '') {
+                found.name = newName.trim();
+                if (this.targetCustomMarker?.id === id) {
+                    this.targetCustomMarker.name = found.name;
                 }
             }
         };
@@ -313,6 +343,16 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
             }
         };
+
+        (window as any)._gtaSetMarkerColor = (id: string, color: string) => {
+            const found = this.userCustomMarkers.find(m => m.id === id);
+            if (found) {
+                found.color = color;
+                found.marker.setIcon(this.createPushpinIcon(color));
+                this.updateCustomMarkerPopup(found);
+                found.marker.openPopup();
+            }
+        };
     }
 
     ngAfterViewInit(): void {
@@ -325,6 +365,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.clockInterval) clearInterval(this.clockInterval);
         delete (window as any)._gtaRenameMarker;
         delete (window as any)._gtaDeleteMarker;
+        delete (window as any)._gtaSetMarkerColor;
+        delete (window as any)._gtaSaveMarkerName;
         if (this.map) this.map.remove();
     }
 
@@ -334,7 +376,13 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     private initMap(mapType: string): void {
         if (this.map) this.map.remove();
 
+        const mapContainer = document.getElementById('gta-map-historia');
+
         if (mapType === 'Satellite') {
+            const lsOceanColor = '#0D2B4F'; // SatelliteHD: RGB(13, 43, 79)
+            if (mapContainer) {
+                mapContainer.style.backgroundColor = lsOceanColor;
+            }
             // ---- Mapa oficial Rockstar Games Social Club — Ultra Alta Resolución ----
             const mapBounds = L.latLngBounds([[-192, 0], [0, 128]]);
             const maxBounds = L.latLngBounds([[-230, -25], [25, 155]]);
@@ -364,6 +412,22 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             tileLayer.addTo(this.map);
 
         } else {
+            // Tonos RGB exactos muestreados píxel a píxel del océano de Los Santos
+            let lsOceanColor = '#143D6B';
+            if (mapType === 'Roadmap') {
+                lsOceanColor = '#1862AD';
+            } else if (mapType === 'Atlas') {
+                lsOceanColor = '#16A9D2';
+            } else if (mapType === 'Juego') {
+                lsOceanColor = '#434343'; // Radar en escala de grises: RGB(67, 67, 67)
+            } else if (mapType === 'UV' || mapType === 'UV2') {
+                lsOceanColor = '#05080c';
+            }
+
+            if (mapContainer) {
+                mapContainer.style.backgroundColor = lsOceanColor;
+            }
+
             // ---- Mapas estándar (Satellite, Roadmap, Atlas, Juego, UV) ----
             const mapBounds = L.latLngBounds([-64, 0], [0, 64]);
             const minZoom = this.computeMinZoom(this.imageSize);
@@ -397,7 +461,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 minZoom: 0,
                 maxNativeZoom: 7,
                 maxZoom: this.maxZoom,
-                errorTileUrl: mapType.startsWith('UV') ? undefined : `assets/${mapType === 'Juego' ? 'Roadmap' : mapType}/empty.jpg`,
+                errorTileUrl: undefined,
                 noWrap: true,
                 className: tileClass
             });
@@ -543,15 +607,17 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
             let pinSymbol = (p.badge?.symbol || (p as any).icon) || '•';
             if (p.category === 'safehouse')      pinSymbol = '🏠';
-            if (p.category === 'police_station') pinSymbol = '🚓';
-            if (p.category === 'hospital')       pinSymbol = '🏥';
+            if (p.category === 'police_station') pinSymbol = '⭐';
+            if (p.category === 'hospital')       pinSymbol = '🩸';
             if (p.category === 'fire_station')   pinSymbol = '🚒';
+            if (p.category === 'bunker')         pinSymbol = '🔻';
+            if (p.category === 'shipwreck')      pinSymbol = '⚓';
             if (p.category === 'car_wash')       pinSymbol = '🚿';
             if (p.category === 'golf')             pinSymbol = '⛳';
             if (p.category === 'darts')            pinSymbol = '🎯';
             if (p.category === 'tennis')           pinSymbol = '🎾';
-            if (p.category === 'stunt_jump')       pinSymbol = '🏎️';
-            if (p.category === 'under_the_bridge') pinSymbol = '🌉';
+            if (p.category === 'stunt_jump')       pinSymbol = '🚧';
+            if (p.category === 'under_the_bridge') pinSymbol = '🛩️';
             if (p.category === 'knife_flight')     pinSymbol = '✈️';
             if (p.category === 'parachuting')      pinSymbol = '🪂';
             if (p.category === 'service' || p.id.startsWith('ammu-')) pinSymbol = '🔫';
@@ -831,6 +897,10 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // MENÚ CONTEXTUAL Y MARCADORES DE USUARIO
     // -----------------------------------------------------------------------
     openContextMenu(event: MouseEvent): void {
+        const target = event.target as HTMLElement;
+        if (target && target.closest('.hud, .profile-drawer, .hud-coords-dev, .gta-custom-ctx-menu')) {
+            return;
+        }
         event.preventDefault();
         this.isMarkerContext = false;
         this.targetCustomMarker = null;
@@ -856,8 +926,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 if (this.ctxLatLng && this.playerMarkersLayer) {
                     const id = 'custom-' + Date.now();
                     const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
-                    const m = L.marker(this.ctxLatLng, { icon: this.createPushpinIcon() });
-                    const item = { id, name, marker: m, latLng: this.ctxLatLng };
+                    const m = L.marker(this.ctxLatLng, { icon: this.createPushpinIcon('red') });
+                    const item = { id, name, marker: m, latLng: this.ctxLatLng, color: 'red' };
                     m.on('contextmenu', (e: L.LeafletMouseEvent) => {
                         L.DomEvent.stopPropagation(e);
                         this.targetCustomMarker = item;
@@ -899,22 +969,43 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private createPushpinIcon(): L.DivIcon {
+    focusCustomMarker(cm: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string }): void {
+        if (!this.map || !cm) return;
+        const targetZoom = Math.max(this.map.getZoom(), 4.5);
+        this.map.flyTo(cm.latLng, targetZoom, { animate: true, duration: 0.8 });
+        setTimeout(() => {
+            cm.marker.openPopup();
+        }, 500);
+    }
+
+    private readonly pushpinPalettes: Record<string, { s0: string; s35: string; s85: string; s100: string }> = {
+        red:    { s0: '#ff7575', s35: '#e61919', s85: '#a80707', s100: '#5a0000' },
+        blue:   { s0: '#60a5fa', s35: '#2563eb', s85: '#1d4ed8', s100: '#1e3a8a' },
+        green:  { s0: '#4ade80', s35: '#16a34a', s85: '#15803d', s100: '#14532d' },
+        yellow: { s0: '#fef08a', s35: '#eab308', s85: '#ca8a04', s100: '#713f12' },
+        orange: { s0: '#fdba74', s35: '#ea580c', s85: '#c2410c', s100: '#7c2d12' },
+        purple: { s0: '#d8b4fe', s35: '#9333ea', s85: '#7e22ce', s100: '#581c87' },
+        white:  { s0: '#ffffff', s35: '#e2e8f0', s85: '#94a3b8', s100: '#475569' }
+    };
+
+    private createPushpinIcon(colorKey = 'red'): L.DivIcon {
+        const pal = this.pushpinPalettes[colorKey] || this.pushpinPalettes['red'];
+        const gradId = 'gtaPinHead_' + colorKey;
         return L.divIcon({
             className: 'gta-classic-pushpin-icon',
             html: `
                 <div class="classic-pushpin-wrapper">
                     <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <radialGradient id="gtaRedHead" cx="35%" cy="30%" r="65%">
-                                <stop offset="0%" stop-color="#ff7575"/>
-                                <stop offset="35%" stop-color="#e61919"/>
-                                <stop offset="85%" stop-color="#a80707"/>
-                                <stop offset="100%" stop-color="#5a0000"/>
+                            <radialGradient id="${gradId}" cx="35%" cy="30%" r="65%">
+                                <stop offset="0%" stop-color="${pal.s0}"/>
+                                <stop offset="35%" stop-color="${pal.s35}"/>
+                                <stop offset="85%" stop-color="${pal.s85}"/>
+                                <stop offset="100%" stop-color="${pal.s100}"/>
                             </radialGradient>
                         </defs>
                         <polygon points="14.8,20 17.2,20 16.3,38 15.7,38" fill="#d6dadf"/>
-                        <ellipse cx="16" cy="7.5" rx="7.8" ry="6.8" fill="url(#gtaRedHead)"/>
+                        <ellipse cx="16" cy="7.5" rx="7.8" ry="6.8" fill="url(#${gradId})"/>
                     </svg>
                 </div>
             `,
@@ -924,17 +1015,49 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
-    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng }): void {
+    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string }): void {
         const editLbl = this.translationService.t('gta5.popups.edit');
         const deleteLbl = this.translationService.t('gta5.popups.delete');
+        const activeColor = item.color || 'red';
+
+        const colors = [
+            { key: 'red', hex: '#e61919', title: 'Rojo' },
+            { key: 'blue', hex: '#2563eb', title: 'Azul' },
+            { key: 'green', hex: '#16a34a', title: 'Verde' },
+            { key: 'yellow', hex: '#eab308', title: 'Amarillo' },
+            { key: 'orange', hex: '#ea580c', title: 'Naranja' },
+            { key: 'purple', hex: '#9333ea', title: 'Morado' },
+            { key: 'white', hex: '#f8fafc', title: 'Blanco' }
+        ];
+
+        const colorSwatchesHtml = colors.map(c => `
+            <button
+                type="button"
+                onclick="window._gtaSetMarkerColor('${item.id}', '${c.key}')"
+                title="${c.title}"
+                style="width: 20px; height: 20px; border-radius: 50%; background: ${c.hex}; border: 2px solid ${c.key === activeColor ? '#ffffff' : 'rgba(255,255,255,0.25)'}; cursor: pointer; box-shadow: ${c.key === activeColor ? '0 0 8px #ffffff' : '0 2px 4px rgba(0,0,0,0.5)'}; transform: ${c.key === activeColor ? 'scale(1.2)' : 'scale(1)'}; transition: all 0.15s ease; padding: 0;"
+            ></button>
+        `).join('');
+
         const html = `
             <div class="custom-marker-popup-card">
-                <div class="custom-marker-title-row">
-                    <h4 class="custom-marker-name">${item.name}</h4>
+                <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin-bottom: 6px;">
+                    <h4 id="custom-marker-title-${item.id}"
+                        class="custom-marker-name"
+                        contenteditable="true"
+                        spellcheck="false"
+                        onkeydown="if(event.key === 'Enter'){ event.preventDefault(); this.blur(); }"
+                        onblur="window._gtaSaveMarkerName('${item.id}', this.innerText)"
+                        title="Haz clic para escribir y pincha fuera para guardar"
+                        style="margin: 0; outline: none; padding: 3px 8px; border-radius: 5px; border: 1px dashed rgba(255,255,255,0.25); cursor: text; text-align: center; width: 100%; transition: all 0.15s ease;">
+                        ${item.name}
+                    </h4>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 10px 0 8px 0; padding: 6px 8px; background: rgba(0,0,0,0.45); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                    ${colorSwatchesHtml}
                 </div>
                 <div class="custom-marker-actions">
-                    <button type="button" class="btn-marker-action btn-marker-edit" onclick="window._gtaRenameMarker('${item.id}')">✏️ ${editLbl}</button>
-                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')">🗑️ ${deleteLbl}</button>
+                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')" style="width: 100%;">🗑️ ${deleteLbl}</button>
                 </div>
             </div>
         `;
@@ -990,7 +1113,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     updateIconStyle(): void {
         if (!this.map) return;
         const container = this.map.getContainer();
-        container.classList.remove('icon-size-compact','icon-size-standard','icon-size-large','icon-theme-modern','icon-theme-classic',
+        container.classList.remove('icon-size-compact','icon-size-standard','icon-size-large','icon-theme-neon','icon-theme-classic',
             'icon-theme-standard', 'icon-theme-simple');
         container.classList.add(`icon-size-${this.iconSize}`, `icon-theme-${this.iconTheme}`);
         // Rerenderizamos para aplicar el nuevo estilo de icono
@@ -1066,7 +1189,5 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             }
         }, 850);
     }
-}
 
-
-
+    }

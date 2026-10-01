@@ -22,6 +22,8 @@ export interface TranslationSchema {
     seconds: string;
     viewGeneral: string;
     recenterMap: string;
+    story: string;
+    online: string;
   };
   home: {
     chooseGame: string;
@@ -94,6 +96,9 @@ export interface TranslationSchema {
       regionBlaine: string;
       regionChumash: string;
       police: string;
+      markers: string;
+      noMarkers: string;
+      locateMarker: string;
     };
     maps: {
       satellite: string;
@@ -265,6 +270,19 @@ export interface TranslationSchema {
       casa_lucia: string;
       casa_jason_lucia: string;
     };
+    police?: {
+      title?: string;
+      weapon?: string;
+      weaponDesc?: string;
+      identity?: string;
+      identityDesc?: string;
+      clothes?: string;
+      clothesDesc?: string;
+      couple?: string;
+      coupleDesc?: string;
+      cctv?: string;
+      cctvDesc?: string;
+    };
   };
   transports: {
     title: string;
@@ -280,6 +298,7 @@ export interface TranslationSchema {
       misterios?: string;
     };
     catalog: {
+      searchPlaceholder?: string;
       loading: string;
       error: string;
       empty: string;
@@ -333,11 +352,13 @@ export interface TranslationSchema {
       playersBadge?: string;
       allCategories?: string;
       allContacts?: string;
+      allCharacters?: string;
     };
     strangers?: {
       title: string;
       searchPlaceholder: string;
       all: string;
+      allCharacters?: string;
       only100: string;
       viewSeries: string;
       viewList: string;

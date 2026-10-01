@@ -1,5 +1,33 @@
 [
     {
+        "id": "animal-ls-tourist",
+        "name": "L.S. Tourist",
+        "category": "animal",
+        "categoryLabel": "Fauna Salvaje",
+        "gameMode": "both",
+        "price": 0,
+        "priceFormatted": "Oficina de Turismo",
+        "zone": "Paleto Forest / Mount Chiliad",
+        "description": "Los Santos Tourist Board. Oficina y panel de información turística oficial donde se activa el reto de fotografía de fauna salvaje.",
+        "features": [
+            "Punto de partida del Reto de Fotografía de Fauna Salvaje",
+            "Desbloquea el Kraken Submarino al registrar la fauna",
+            "Información turística de Los Santos y Blaine County"
+        ],
+        "income": "Reto Fauna Salvaje",
+        "position": {
+            "x": -1496.0,
+            "y": 4940.0,
+            "z": 60.0
+        },
+        "badge": {
+            "icon": "camera",
+            "color": "#f59e0b",
+            "symbol": "📷"
+        },
+        "imageUrl": ""
+    },
+    {
         "id":  "animal-rabbit-hills",
         "name":  "Conejo Salvaje (Hábitat General)",
         "category":  "animal",
@@ -330,7 +358,7 @@
                      },
         "badge":  {
                       "icon":  "fish",
-                      "color":  "#2c3e50",
+                      "color":  "#00a8ff",
                       "symbol":  "🐋"
                   },
         "imageUrl":  "/assets/data-images/fauna/Orca-GTAV.jpg"

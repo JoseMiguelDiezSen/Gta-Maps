@@ -79,7 +79,7 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px 16px 24px;
+  padding: 10px 18px 10px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(0, 0, 0, 0.4);
 }
@@ -87,7 +87,8 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 .drawer-title-group {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
+  min-width: 0;
 }
 
 .drawer-badge {
@@ -101,12 +102,13 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   margin: 0;
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #ffb833;
   display: flex;
   align-items: center;
   gap: 8px;
+  line-height: 1.2;
 }
 
 .drawer-title-icon {
@@ -284,10 +286,10 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 }
 
 .dealer-card:hover {
-  background: linear-gradient(135deg, rgba(255, 184, 51, 0.16) 0%, rgba(18, 25, 36, 0.98) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 25, 36, 0.98) 100%);
   border-color: var(--dealer-color, #ffb833);
   transform: translateX(4px);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6), -2px 0 14px rgba(255, 184, 51, 0.35);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6), -2px 0 14px color-mix(in srgb, var(--dealer-color, #ffb833) 45%, transparent);
 }
 
 .dealer-card-icon {
@@ -303,7 +305,7 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   font-size: 18px;
   flex-shrink: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   padding: 3px;
   box-sizing: border-box;
@@ -354,19 +356,20 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
   flex-shrink: 0;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dealer-card:hover .dealer-card-arrow {
-  background: rgba(255, 184, 51, 0.25);
-  border-color: #ffb833;
-  color: #ffb833;
+  background: var(--dealer-color, #ffb833);
+  border-color: var(--dealer-color, #ffb833);
+  color: #fff;
   transform: translateX(3px);
+  box-shadow: 0 0 12px var(--dealer-color, #ffb833);
 }
 
 /* Separador entre dealers normales y especiales */
@@ -398,8 +401,10 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 }
 
 .dealer-card--special:hover {
-  background: linear-gradient(135deg, rgba(155, 89, 182, 0.2) 0%, rgba(18, 25, 36, 0.98) 100%);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6), -2px 0 14px color-mix(in srgb, var(--dealer-color, #9b59b6) 40%, transparent);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 25, 36, 0.98) 100%);
+  border-color: var(--dealer-color, #9b59b6);
+  transform: translateX(4px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6), -2px 0 14px color-mix(in srgb, var(--dealer-color, #9b59b6) 45%, transparent);
 }
 
 /* ==========================================
@@ -411,7 +416,8 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   gap: 6px;
   max-width: 100%;
   min-width: 0;
-  overflow: hidden;
+  padding: 2px 2px 2px 3px;
+  overflow: visible;
 }
 
 .drawer-breadcrumb-back {
@@ -429,8 +435,8 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 
 .drawer-breadcrumb-back:hover {
   background: rgba(255, 184, 51, 0.35);
+  border-color: #ffb833;
   color: #fff;
-  transform: translateX(-2px);
 }
 
 .drawer-breadcrumb-link {
@@ -565,52 +571,20 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   color: rgba(255, 255, 255, 0.4);
 }
 
-.vcategory-tabs {
+.dealer-vehicles-toolbar {
   flex-shrink: 0;
   display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 2px 2px 8px;
-  margin-bottom: 2px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 2px 2px 6px;
 }
 
-.vcat-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+.dealer-large-select {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.16s ease;
-  user-select: none;
-  flex-shrink: 0;
-}
-
-.vcat-tab:hover {
-  background: rgba(255, 184, 51, 0.1);
-  border-color: rgba(255, 184, 51, 0.4);
-  color: #fff;
-  transform: translateY(-1px);
-}
-
-.vcat-tab.is-active {
-  background: linear-gradient(135deg, rgba(255, 184, 51, 0.22) 0%, rgba(230, 126, 34, 0.15) 100%);
-  border-color: #ffb833;
-  color: #ffb833;
-  font-weight: 800;
-  box-shadow: 0 0 12px rgba(255, 184, 51, 0.25);
-}
-
-.vcat-icon {
-  font-size: 11px;
-  opacity: 0.85;
 }
 
 .vcat-tab.is-active .vcat-icon {
@@ -1134,6 +1108,18 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.missions-dropdowns-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.missions-dropdowns-row .strangers-series-select-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
 .missions-search-box {
   position: relative;
   display: flex;
@@ -1320,9 +1306,9 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 .mission-list-card {
   display: flex;
   align-items: center;
-  min-height: 64px;
+  min-height: 66px;
   padding: 12px 14px;
-  background: linear-gradient(135deg, rgba(255, 165, 0, 0.08) 0%, rgba(13, 19, 26, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(255, 165, 0, 0.08) 0%, rgba(13, 19, 26, 0.92) 100%);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-left: 4px solid var(--m-accent, #ffb833);
   border-radius: 12px;
@@ -1331,7 +1317,7 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   overflow: hidden;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-  gap: 12px;
+  gap: 14px;
   user-select: none;
 }
 
@@ -1343,26 +1329,44 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55), -2px 0 12px color-mix(in srgb, var(--m-accent, #ffb833) 30%, transparent);
 }
 
-.mcard-left {
+.mcard-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid color-mix(in srgb, var(--m-accent, #ffb833) 55%, rgba(255, 255, 255, 0.18));
+  color: var(--m-accent, #ffb833);
+  font-size: 17px;
   flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 0 8px color-mix(in srgb, var(--m-accent, #ffb833) 15%, transparent);
+  transition: all 0.2s ease;
+}
+
+.mission-list-card:hover .mcard-icon-box {
+  transform: scale(1.08);
+  border-color: var(--m-accent, #ffb833);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--m-accent, #ffb833) 45%, transparent);
 }
 
 .mcard-num {
   font-family: 'Consolas', monospace;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
   color: var(--m-accent, #ffb833);
   background: rgba(0, 0, 0, 0.4);
-  padding: 4px 7px;
-  border-radius: 6px;
+  padding: 2px 6px;
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  display: inline-block;
+  flex-shrink: 0;
 }
 
 .mcard-info {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   flex: 1;
   min-width: 0;
 }
@@ -1839,6 +1843,7 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 }
 
 .unlock-box {
+  grid-column: 1 / -1;
   background: rgba(52, 152, 219, 0.1);
   border: 1px solid rgba(52, 152, 219, 0.3);
 }
@@ -1857,6 +1862,7 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  flex: 1;
 }
 
 .box-label {

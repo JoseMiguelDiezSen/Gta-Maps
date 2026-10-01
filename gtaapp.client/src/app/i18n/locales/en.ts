@@ -15,7 +15,9 @@ export const en: TranslationSchema = {
     minutes: 'Min',
     seconds: 'Sec',
     viewGeneral: 'Overview',
-    recenterMap: 'Center Map'
+    recenterMap: 'Center Map',
+    story: 'Story',
+    online: 'Online'
   },
   home: {
     chooseGame: 'Select Game',
@@ -35,8 +37,8 @@ export const en: TranslationSchema = {
       inGameTime: 'In-Game Time',
       inGameTimeTitle: 'In-game time (Los Santos)',
       counterBadgeTitle: 'Purchasable properties and businesses mapped',
-      panelTitle: 'Control Panel',
-      expandPanel: 'Click to expand Control Panel',
+      panelTitle: 'Locations',
+      expandPanel: 'Click to expand Locations',
       collapsePanel: 'Collapse panel',
       settingsTitle: 'Settings',
       expandSettings: 'Click to expand Settings',
@@ -87,7 +89,10 @@ export const en: TranslationSchema = {
       regionPaleto: 'North (Paleto)',
       regionBlaine: 'Blaine County',
       regionChumash: 'West Coast (Chumash)',
-      police: 'Police'
+      police: 'Police',
+      markers: 'Markers',
+      noMarkers: 'No markers',
+      locateMarker: 'Locate marker'
     },
     maps: {
       satellite: 'Satellite',
@@ -239,7 +244,7 @@ export const en: TranslationSchema = {
       inGameTime: 'In-Game Time',
       launchTitle: 'GTA VI Release',
       coordsDev: 'Click to copy coordinates',
-      panelTitle: 'Control Panel'
+      panelTitle: 'Locations'
     },
     canvasHelp: 'Scroll wheel to zoom, drag to pan',
     categories: {
@@ -258,12 +263,25 @@ export const en: TranslationSchema = {
       casa_jason: "Jason's Safehouse",
       casa_lucia: "Lucia's Safehouse",
       casa_jason_lucia: "Jason & Lucia's Safehouse"
+    },
+    police: {
+      title: 'Police Awareness System',
+      weapon: 'Weapon identified',
+      weaponDesc: 'police know what weapon you used',
+      identity: 'Identity known',
+      identityDesc: 'police know your identity',
+      clothes: 'Clothing registered',
+      clothesDesc: 'police know what clothes you wear',
+      couple: 'Lookout for couple',
+      coupleDesc: 'police on the lookout for a couple',
+      cctv: 'Spotted on CCTV',
+      cctvDesc: 'you have been spotted on CCTV'
     }
   },
   transports: {
-    title: 'Transports',
-    closeTitle: 'Close Transports',
-    backToTransports: 'Back to Transports',
+    title: 'Gta Info',
+    closeTitle: 'Close Gta Info',
+    backToTransports: 'Back to Gta Info',
     tabs: {
       vehicles: 'Vehicles',
       missions: 'Missions',
@@ -274,6 +292,7 @@ export const en: TranslationSchema = {
       misterios: 'Mysteries'
     },
     catalog: {
+      searchPlaceholder: 'Search vehicle...',
       loading: 'Loading catalog for {{ dealer }}...',
       error: 'Could not load vehicle catalog. Check your connection.',
       empty: 'No vehicles available for this dealership.',
@@ -326,12 +345,14 @@ export const en: TranslationSchema = {
       rankBadge: 'Rank {{ rank }}+',
       playersBadge: '{{ players }} Players',
       allCategories: 'All Categories',
-      allContacts: 'All Contacts'
+      allContacts: 'All Contacts',
+      allCharacters: 'All Characters'
     },
     strangers: {
       title: 'Strangers & Freaks',
       searchPlaceholder: 'Search mission, series (Epsilon...), character...',
       all: 'All',
+      allCharacters: 'All Characters',
       only100: '100% Required',
       viewSeries: 'By Series',
       viewList: 'Full List',

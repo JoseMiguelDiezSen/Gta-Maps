@@ -15,7 +15,9 @@ export const es: TranslationSchema = {
     minutes: 'Min',
     seconds: 'Seg',
     viewGeneral: 'Vista General',
-    recenterMap: 'Centrar Mapa'
+    recenterMap: 'Centrar Mapa',
+    story: 'Historia',
+    online: 'Online'
   },
   home: {
     chooseGame: 'Elige el juego',
@@ -35,8 +37,8 @@ export const es: TranslationSchema = {
       inGameTime: 'Hora del juego',
       inGameTimeTitle: 'Hora del juego (Los Santos)',
       counterBadgeTitle: 'Inmuebles y negocios comprables mapeados',
-      panelTitle: 'Panel de control',
-      expandPanel: 'Clic para desplegar Panel de control',
+      panelTitle: 'Localizaciones',
+      expandPanel: 'Clic para desplegar Localizaciones',
       collapsePanel: 'Minimizar panel',
       settingsTitle: 'Ajustes',
       expandSettings: 'Clic para desplegar Ajustes',
@@ -87,7 +89,10 @@ export const es: TranslationSchema = {
       regionPaleto: 'Norte',
       regionBlaine: 'Condado',
       regionChumash: 'Costa Oeste',
-      police: 'Policía'
+      police: 'Policía',
+      markers: 'Marcadores',
+      noMarkers: 'Sin marcadores',
+      locateMarker: 'Localizar marcador'
     },
     maps: {
       satellite: 'Satélite',
@@ -239,7 +244,7 @@ export const es: TranslationSchema = {
       inGameTime: 'Hora del juego',
       launchTitle: 'Lanzamiento GTA VI',
       coordsDev: 'Clic para copiar coordenadas',
-      panelTitle: 'Panel de control'
+      panelTitle: 'Localizaciones'
     },
     canvasHelp: 'Rueda del ratón para acercar o alejar, arrastra para mover',
     categories: {
@@ -258,12 +263,25 @@ export const es: TranslationSchema = {
       casa_jason: 'Casa de Jason',
       casa_lucia: 'Casa de Lucía',
       casa_jason_lucia: 'Casa de Jason y Lucía'
+    },
+    police: {
+      title: 'Sistema Policial (Alerta)',
+      weapon: 'Arma utilizada identificada',
+      weaponDesc: 'police know what weapon you used',
+      identity: 'Identidad reconocida',
+      identityDesc: 'police know your identity',
+      clothes: 'Vestimenta registrada',
+      clothesDesc: 'police know what clothes you wear',
+      couple: 'Búsqueda de una pareja',
+      coupleDesc: 'police on the lookout for a couple',
+      cctv: 'Captado por cámaras CCTV',
+      cctvDesc: 'you have been spotted on CCTV'
     }
   },
   transports: {
-    title: 'Transportes',
-    closeTitle: 'Cerrar Transportes',
-    backToTransports: 'Volver a Transportes',
+    title: 'Gta Info',
+    closeTitle: 'Cerrar Gta Info',
+    backToTransports: 'Volver a Gta Info',
     tabs: {
       vehicles: 'Vehículos',
       missions: 'Misiones',
@@ -274,6 +292,7 @@ export const es: TranslationSchema = {
       misterios: 'Misterios'
     },
     catalog: {
+      searchPlaceholder: 'Buscar vehículo...',
       loading: 'Cargando catálogo de {{ dealer }}...',
       error: 'No se pudo cargar el catálogo. Comprueba tu conexión.',
       empty: 'Sin vehículos disponibles para este concesionario.',
@@ -326,12 +345,14 @@ export const es: TranslationSchema = {
       rankBadge: 'Rango {{ rank }}+',
       playersBadge: '{{ players }} Jugadores',
       allCategories: 'Todas las categorías',
-      allContacts: 'Todos los contactos'
+      allContacts: 'Todos los contactos',
+      allCharacters: 'Todos los personajes'
     },
     strangers: {
       title: 'Extraños y Locos',
       searchPlaceholder: 'Buscar misión, serie (Epsilon...), personaje...',
       all: 'Todas',
+      allCharacters: 'Todos los personajes',
       only100: 'Requeridas 100%',
       viewSeries: 'Por Series',
       viewList: 'Lista Completa',

@@ -1,5 +1,33 @@
 [
   {
+    "id": "animal-ls-tourist",
+    "name": "L.S. Tourist",
+    "category": "animal",
+    "categoryLabel": "Wildlife",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Tourist Board",
+    "zone": "Paleto Forest / Mount Chiliad",
+    "description": "Los Santos Tourist Board. Official information board and headquarters of the San Andreas Wildlife Photography Challenge.",
+    "features": [
+      "Wildlife Photography Challenge starting point",
+      "Unlocks the Kraken Sub upon completion",
+      "Tourism info for Los Santos & Blaine County"
+    ],
+    "income": "Wildlife Challenge",
+    "position": {
+      "x": -1496.0,
+      "y": 4940.0,
+      "z": 60.0
+    },
+    "badge": {
+      "icon": "camera",
+      "color": "#f59e0b",
+      "symbol": "📷"
+    },
+    "imageUrl": ""
+  },
+  {
     "id": "animal-rabbit-hills",
     "name": "Wild Rabbit (General Habitat)",
     "category": "animal",
@@ -330,7 +358,7 @@
     },
     "badge": {
       "icon": "fish",
-      "color": "#2c3e50",
+      "color": "#00a8ff",
       "symbol": "🐋"
     },
     "imageUrl": "/assets/data-images/fauna/Orca-GTAV.jpg"

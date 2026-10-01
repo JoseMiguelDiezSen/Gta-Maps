@@ -335,6 +335,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     private collectibleMarkers: { marker: L.Marker; item: CollectibleItem }[] = [];
 
     private playerMarkersLayer: L.LayerGroup | undefined;
+    
 
     // Estado unificado de acordeones
     accordion: { [key: string]: boolean } = {
@@ -351,6 +352,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         mapa: false,
         zona: false,
         juego: false,
+        marcadores: false,
         // Cayo Perico
         cayo_poi: false,
         cayo_scoping: false,
@@ -372,7 +374,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     settingsOpen = true;
 
     // Estilo de Iconos
-    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'classic';
+    iconTheme: 'neon' | 'classic' | 'standard' | 'simple' = 'classic';
     iconSize: 'compact' | 'standard' | 'large' = 'standard';
 
     // Menú contextual y Marcadores de usuario
@@ -380,8 +382,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     ctxX = 0;
     ctxY = 0;
     private ctxLatLng: L.LatLng | null = null;
-    userCustomMarkers: { id: string; name: string; marker: L.Marker; latLng: L.LatLng }[] = [];
-    targetCustomMarker: { id: string; name: string; marker: L.Marker; latLng: L.LatLng } | null = null;
+    userCustomMarkers: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string }[] = [];
+    targetCustomMarker: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string } | null = null;
     isMarkerContext = false;
 
     // Telemetría en tiempo real: Coordenadas mundiales de GTA V bajo el ratón
@@ -439,13 +441,34 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
         this.startInGameClock();
 
-        (window as any)._gtaRenameMarker = (id: string) => {
+        (window as any)._gtaSetMarkerColor = (id: string, color: string) => {
             const found = this.userCustomMarkers.find(m => m.id === id);
             if (found) {
-                const newName = prompt('Introduce el nuevo nombre del marcador:', found.name);
-                if (newName && newName.trim() !== '') {
-                    found.name = newName.trim();
-                    this.updateCustomMarkerPopup(found);
+                found.color = color;
+                found.marker.setIcon(this.createPushpinIcon(color));
+                this.updateCustomMarkerPopup(found);
+                found.marker.openPopup();
+            }
+        };
+
+        (window as any)._gtaRenameMarker = (id: string) => {
+            const el = document.getElementById('custom-marker-title-' + id);
+            if (el) {
+                el.focus();
+                const range = document.createRange();
+                range.selectNodeContents(el);
+                const sel = window.getSelection();
+                sel?.removeAllRanges();
+                sel?.addRange(range);
+            }
+        };
+
+        (window as any)._gtaSaveMarkerName = (id: string, newName: string) => {
+            const found = this.userCustomMarkers.find(m => m.id === id);
+            if (found && newName && newName.trim() !== '') {
+                found.name = newName.trim();
+                if (this.targetCustomMarker?.id === id) {
+                    this.targetCustomMarker.name = found.name;
                 }
             }
         };
@@ -497,7 +520,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             'icon-size-compact',
             'icon-size-standard',
             'icon-size-large',
-            'icon-theme-modern',
+            'icon-theme-neon',
             'icon-theme-classic',
             'icon-theme-standard',
             'icon-theme-simple'
@@ -517,6 +540,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     openContextMenu(event: MouseEvent): void {
+        const target = event.target as HTMLElement;
+        if (target && target.closest('.hud, .profile-drawer, .hud-coords-dev, .gta-custom-ctx-menu')) {
+            return;
+        }
         event.preventDefault();
         this.isMarkerContext = false;
         this.targetCustomMarker = null;
@@ -548,9 +575,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 if (this.ctxLatLng && this.playerMarkersLayer) {
                     const id = 'custom-' + Date.now();
                     const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
-                    const customIcon = this.createPushpinIcon();
+                    const customIcon = this.createPushpinIcon('red');
                     const m = L.marker(this.ctxLatLng, { icon: customIcon });
-                    const item = { id, name, marker: m, latLng: this.ctxLatLng };
+                    const item = { id, name, marker: m, latLng: this.ctxLatLng, color: 'red' };
 
                     m.on('contextmenu', (e: L.LeafletMouseEvent) => {
                         L.DomEvent.stopPropagation(e);
@@ -595,18 +622,30 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private createPushpinIcon(): L.DivIcon {
+    private readonly pushpinPalettes: Record<string, { s0: string; s35: string; s85: string; s100: string; rim1: string; rim2: string }> = {
+        red:    { s0: '#ff7575', s35: '#e61919', s85: '#a80707', s100: '#5a0000', rim1: '#8f0505', rim2: '#ff4444' },
+        blue:   { s0: '#60a5fa', s35: '#2563eb', s85: '#1d4ed8', s100: '#1e3a8a', rim1: '#1e40af', rim2: '#60a5fa' },
+        green:  { s0: '#4ade80', s35: '#16a34a', s85: '#15803d', s100: '#14532d', rim1: '#166534', rim2: '#4ade80' },
+        yellow: { s0: '#fef08a', s35: '#eab308', s85: '#ca8a04', s100: '#713f12', rim1: '#854d0e', rim2: '#fde047' },
+        orange: { s0: '#fdba74', s35: '#ea580c', s85: '#c2410c', s100: '#7c2d12', rim1: '#9a3412', rim2: '#fb923c' },
+        purple: { s0: '#d8b4fe', s35: '#9333ea', s85: '#7e22ce', s100: '#581c87', rim1: '#6b21a8', rim2: '#c084fc' },
+        white:  { s0: '#ffffff', s35: '#e2e8f0', s85: '#94a3b8', s100: '#475569', rim1: '#64748b', rim2: '#f8fafc' }
+    };
+
+    private createPushpinIcon(colorKey = 'red'): L.DivIcon {
+        const pal = this.pushpinPalettes[colorKey] || this.pushpinPalettes['red'];
+        const gradId = 'gtaPinHeadOnline_' + colorKey;
         return L.divIcon({
             className: 'gta-classic-pushpin-icon',
             html: `
                 <div class="classic-pushpin-wrapper">
                     <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <radialGradient id="gtaRedHead" cx="35%" cy="30%" r="65%">
-                                <stop offset="0%" stop-color="#ff7575"/>
-                                <stop offset="35%" stop-color="#e61919"/>
-                                <stop offset="85%" stop-color="#a80707"/>
-                                <stop offset="100%" stop-color="#5a0000"/>
+                            <radialGradient id="${gradId}" cx="35%" cy="30%" r="65%">
+                                <stop offset="0%" stop-color="${pal.s0}"/>
+                                <stop offset="35%" stop-color="${pal.s35}"/>
+                                <stop offset="85%" stop-color="${pal.s85}"/>
+                                <stop offset="100%" stop-color="${pal.s100}"/>
                             </radialGradient>
                             <linearGradient id="gtaSteelNeedle" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="#d6dadf"/>
@@ -621,10 +660,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                         <g filter="url(#gtaPinShadow)">
                             <polygon points="14.8,20 17.2,20 16.3,38 15.7,38" fill="url(#gtaSteelNeedle)"/>
                             <line x1="16" y1="20" x2="16" y2="38" stroke="#ffffff" stroke-width="0.6" opacity="0.9"/>
-                            <path d="M10.5,20 C10.5,15.5 12.5,13.5 16,13.5 C19.5,13.5 21.5,15.5 21.5,20 Z" fill="url(#gtaRedHead)"/>
-                            <ellipse cx="16" cy="13.5" rx="7.2" ry="2.2" fill="#8f0505"/>
-                            <ellipse cx="16" cy="12.8" rx="6.9" ry="1.9" fill="#ff4444"/>
-                            <ellipse cx="16" cy="7.5" rx="7.8" ry="6.8" fill="url(#gtaRedHead)"/>
+                            <path d="M10.5,20 C10.5,15.5 12.5,13.5 16,13.5 C19.5,13.5 21.5,15.5 21.5,20 Z" fill="url(#${gradId})"/>
+                            <ellipse cx="16" cy="13.5" rx="7.2" ry="2.2" fill="${pal.rim1}"/>
+                            <ellipse cx="16" cy="12.8" rx="6.9" ry="1.9" fill="${pal.rim2}"/>
+                            <ellipse cx="16" cy="7.5" rx="7.8" ry="6.8" fill="url(#${gradId})"/>
                             <ellipse cx="13.5" cy="5.2" rx="3.2" ry="1.9" fill="#ffffff" opacity="0.8" transform="rotate(-18 13.5 5.2)"/>
                         </g>
                     </svg>
@@ -646,19 +685,58 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng }): void {
+    focusCustomMarker(cm: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string }): void {
+        if (!this.map || !cm) return;
+        const targetZoom = Math.max(this.map.getZoom(), 4.5);
+        this.map.flyTo(cm.latLng, targetZoom, { animate: true, duration: 0.8 });
+        setTimeout(() => {
+            cm.marker.openPopup();
+        }, 500);
+    }
+
+    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string }): void {
         const editLbl = this.translationService.t('gta5.popups.edit');
         const deleteLbl = this.translationService.t('gta5.popups.delete');
+        const activeColor = item.color || 'red';
+
+        const colors = [
+            { key: 'red', hex: '#e61919', title: 'Rojo' },
+            { key: 'blue', hex: '#2563eb', title: 'Azul' },
+            { key: 'green', hex: '#16a34a', title: 'Verde' },
+            { key: 'yellow', hex: '#eab308', title: 'Amarillo' },
+            { key: 'orange', hex: '#ea580c', title: 'Naranja' },
+            { key: 'purple', hex: '#9333ea', title: 'Morado' },
+            { key: 'white', hex: '#f8fafc', title: 'Blanco' }
+        ];
+
+        const colorSwatchesHtml = colors.map(c => `
+            <button
+                type="button"
+                onclick="window._gtaSetMarkerColor('${item.id}', '${c.key}')"
+                title="${c.title}"
+                style="width: 20px; height: 20px; border-radius: 50%; background: ${c.hex}; border: 2px solid ${c.key === activeColor ? '#ffffff' : 'rgba(255,255,255,0.25)'}; cursor: pointer; box-shadow: ${c.key === activeColor ? '0 0 8px #ffffff' : '0 2px 4px rgba(0,0,0,0.5)'}; transform: ${c.key === activeColor ? 'scale(1.2)' : 'scale(1)'}; transition: all 0.15s ease; padding: 0;"
+            ></button>
+        `).join('');
+
         const html = `
             <div class="custom-marker-popup-card">
-                <div class="custom-marker-title-row">
-                    <h4 class="custom-marker-name">${item.name}</h4>
+                                <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin-bottom: 6px;">
+                    <h4 id="custom-marker-title-${item.id}"
+                        class="custom-marker-name"
+                        contenteditable="true"
+                        spellcheck="false"
+                        onkeydown="if(event.key === 'Enter'){ event.preventDefault(); this.blur(); }"
+                        onblur="window._gtaSaveMarkerName('${item.id}', this.innerText)"
+                        title="Haz clic para escribir y pincha fuera para guardar"
+                        style="margin: 0; outline: none; padding: 3px 8px; border-radius: 5px; border: 1px dashed rgba(255,255,255,0.25); cursor: text; text-align: center; width: 100%; transition: all 0.15s ease;">
+                        ${item.name}
+                    </h4>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 10px 0 8px 0; padding: 6px 8px; background: rgba(0,0,0,0.45); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                    ${colorSwatchesHtml}
                 </div>
                 <div class="custom-marker-actions">
-                    <button type="button" class="btn-marker-action btn-marker-edit" onclick="window._gtaRenameMarker('${item.id}')">
-                        <span>✏️</span> ${editLbl}
-                    </button>
-                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')">
+                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')" style="width: 100%;">
                         <span>🗑️</span> ${deleteLbl}
                     </button>
                 </div>
@@ -684,6 +762,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         delete (window as any)._gtaRenameMarker;
         delete (window as any)._gtaDeleteMarker;
+        delete (window as any)._gtaSetMarkerColor;
+delete (window as any)._gtaSaveMarkerName;
         if (this.map) {
             this.map.remove();
         }
@@ -835,7 +915,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             } else if (mapType === 'Atlas') {
                 lsOceanColor = '#16A9D2'; // Atlas: RGB(22, 169, 210)
             } else if (mapType === 'Juego') {
-                lsOceanColor = '#4a4a4a'; // Radar en escala de grises
+                lsOceanColor = '#434343'; // Radar en escala de grises: RGB(67, 67, 67)
             } else if (mapType === 'UV' || mapType === 'UV2') {
                 lsOceanColor = '#05080c';
             }
@@ -1141,16 +1221,18 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             const [lat, lng] = this.worldToLatLng(p.position.x, p.position.y);
 
             let pinSymbol = (p.badge?.symbol || (p as any).icon) || '•';
-            if (p.category === 'police_station' && (!pinSymbol || pinSymbol === 'POL')) pinSymbol = '🚓';
-            if (p.category === 'hospital' && (!pinSymbol || pinSymbol === 'MED' || pinSymbol === '✚')) pinSymbol = '🏥';
+            if (p.category === 'police_station') pinSymbol = '⭐';
+            if (p.category === 'hospital') pinSymbol = '🩸';
+            if (p.category === 'bunker') pinSymbol = '🔻';
+            if (p.category === 'shipwreck') pinSymbol = '⚓';
             if (p.category === 'fire_station' && (!pinSymbol || pinSymbol === 'BOM')) pinSymbol = '🚒';
             if (p.category === 'car_wash') pinSymbol = '🚿';
             if (p.category === 'arena_war') pinSymbol = '🏟️';
             if (p.category === 'golf') pinSymbol = '⛳';
             if (p.category === 'darts') pinSymbol = '🎯';
             if (p.category === 'tennis') pinSymbol = '🎾';
-            if (p.category === 'stunt_jump') pinSymbol = '🏎️';
-            if (p.category === 'under_the_bridge') pinSymbol = '🌉';
+            if (p.category === 'stunt_jump') pinSymbol = '🚧';
+            if (p.category === 'under_the_bridge') pinSymbol = '🛩️';
             if (p.category === 'knife_flight') pinSymbol = '✈️';
             if (p.category === 'parachuting') pinSymbol = '🪂';
             if (p.category === 'service' || p.id.startsWith('ammu-')) pinSymbol = '🔫';
@@ -1625,7 +1707,5 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             }
         }, 850);
     }
-}
 
-
-
+    }

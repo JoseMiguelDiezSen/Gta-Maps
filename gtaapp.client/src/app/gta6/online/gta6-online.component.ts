@@ -7,6 +7,9 @@ interface Gta6LegendItem {
     name: string;
     count: number;
     color: string;
+    badgeType?: 'weapon' | 'identity' | 'clothes' | 'couple' | 'cctv';
+    descEn?: string;
+    descEs?: string;
 }
 
 interface Gta6LegendCategory {
@@ -146,16 +149,67 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     ];
 
     readonly policiaItems: Gta6LegendItem[] = [
-        { id: 'policia-missionrow', name: 'Comisaría de Mission Row', count: 0, color: '#2980b9' },
-        { id: 'policia-vespucci', name: 'Comisaría de Vespucci', count: 0, color: '#2980b9' },
-        { id: 'policia-vinewood', name: 'Comisaría de Vinewood', count: 0, color: '#2980b9' },
-        { id: 'policia-davis', name: 'Comisaría Sheriff de Davis', count: 0, color: '#2980b9' },
-        { id: 'policia-rockford', name: 'Comisaría de Rockford Hills', count: 0, color: '#2980b9' },
-        { id: 'policia-sandyshores', name: 'Comisaría Sheriff de Sandy Shores', count: 0, color: '#2980b9' },
-        { id: 'policia-paletobay', name: 'Comisaría Sheriff de Paleto Bay', count: 0, color: '#2980b9' }
+        {
+            id: 'policia-weapon',
+            name: 'Arma utilizada identificada',
+            count: 1,
+            color: '#b3262e',
+            badgeType: 'weapon',
+            descEn: 'police know what weapon you used'
+        },
+        {
+            id: 'policia-identity',
+            name: 'Identidad reconocida',
+            count: 1,
+            color: '#b3262e',
+            badgeType: 'identity',
+            descEn: 'police know your identity'
+        },
+        {
+            id: 'policia-clothes',
+            name: 'Vestimenta registrada',
+            count: 1,
+            color: '#b3262e',
+            badgeType: 'clothes',
+            descEn: 'police know what clothes you wear'
+        },
+        {
+            id: 'policia-couple',
+            name: 'Búsqueda de una pareja',
+            count: 2,
+            color: '#b3262e',
+            badgeType: 'couple',
+            descEn: 'police on the lookout for a couple'
+        },
+        {
+            id: 'policia-cctv',
+            name: 'Captado por cámaras CCTV',
+            count: 1,
+            color: '#b3262e',
+            badgeType: 'cctv',
+            descEn: 'you have been spotted on CCTV'
+        }
     ];
 
     readonly policiaKeys: string[] = this.policiaItems.map(i => i.id);
+
+    getPoliceTitle(item: Gta6LegendItem): string {
+        if (!item.badgeType) return item.name;
+        const key = 'gta6.police.' + item.badgeType;
+        const translated = this.translationService.t(key);
+        return translated && translated !== key ? translated : item.name;
+    }
+
+    getPoliceDesc(item: Gta6LegendItem): string {
+        if (!item.badgeType) return item.descEn || '';
+        const key = 'gta6.police.' + item.badgeType + 'Desc';
+        const translated = this.translationService.t(key);
+        return translated && translated !== key ? translated : (item.descEn || '');
+    }
+
+    get hasAnyPoliceAlert(): boolean {
+        return this.policiaItems.some(item => this.layerFilters[item.id]);
+    }
 
     constructor(
         readonly translationService: TranslationService,
@@ -175,7 +229,7 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     selectedGame = 'gta6';
     selectedGameMode: 'story' | 'online' = 'online';
     currentMapType = 'Satellite';
-    iconTheme: 'modern' | 'classic' | 'standard' | 'simple' = 'classic';
+    iconTheme: 'neon' | 'classic' | 'standard' | 'simple' = 'classic';
     iconSize = 'standard';
     inGameTimeStr = '00:00';
 
@@ -192,8 +246,15 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
         policia: false,
         mapa: false,
         zona: false,
-        juego: false
+        juego: false,
+        marcadores: false
     };
+
+    userCustomMarkers: { id: string; name: string; color?: string; x?: number; y?: number }[] = [];
+
+    focusCustomMarker(cm: any): void {
+        // Marcador custom en GTA 6 (canvas zoom/pan o futuro soporte)
+    }
 
     switchGame(game: string): void {
         this.selectedGame = game;

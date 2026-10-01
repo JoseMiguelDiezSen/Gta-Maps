@@ -60,6 +60,8 @@
   align-items: center;
   gap: 14px;
   padding: 8px 16px;
+  box-sizing: border-box;
+  height: 48px;
 }
 
 .hud-tc {
@@ -68,8 +70,10 @@
   transform: translateX(-50%);
   flex-direction: row;
   align-items: center;
-  padding: 5px 8px;
+  padding: 0 6px;
   border-radius: 14px;
+  box-sizing: border-box;
+  height: 48px;
 }
 
 /* Selector de Modo (idéntico a GTA 5) */
@@ -77,7 +81,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 4px;
+  padding: 3px 4px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -88,7 +92,7 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 7px;
   font-size: 11px;
   font-weight: 700;
@@ -295,7 +299,7 @@
 
 .hud-br.hud-collapsed {
   width: 290px;
-  padding: 14px 16px;
+  padding: 12px 16px;
   max-height: none;
 }
 
@@ -309,6 +313,22 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 0 2px 10px rgba(236, 0, 200, 0.4);
+  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.hud-title-sub {
+  font-family: 'Pricedown', system-ui, -apple-system, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ff4fe0;
+  text-shadow: 0 2px 10px rgba(236, 0, 200, 0.4);
+  white-space: nowrap;
   line-height: 1;
 }
 
@@ -449,7 +469,7 @@
   cursor: pointer;
   transition: all 0.15s ease;
   flex-shrink: 0;
-  margin-right: 5px;
+  margin: 0;
 }
 
 .legend-toggle-btn:hover {
@@ -487,7 +507,7 @@
   flex: 1 1 auto;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 6px;
+  padding: 0;
   scrollbar-width: thin;
   scrollbar-color: rgba(236, 0, 200, 0.45) rgba(0, 0, 0, 0.25);
 }
@@ -517,7 +537,7 @@
   max-height: calc(100vh - 175px);
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 4px;
+  padding: 0;
 }
 
 .hud-settings-body::-webkit-scrollbar {
@@ -830,3 +850,245 @@
   text-transform: uppercase;
 }
 
+/* ===== SISTEMA POLICIAL GTA VI (Panel) ===== */
+.hud-police-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 4px 4px 4px;
+}
+
+/* Tira superior de iconos circulares HUD estilo GTA VI dentro del panel */
+.gta6-police-hud-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 6px;
+  background: rgba(12, 14, 20, 0.85);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.police-hud-pill {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 35%, #7a151b 0%, #4d0a0e 70%, #2b0406 100%);
+  border: 1.5px solid #1a0204;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.45;
+  filter: grayscale(0.5);
+}
+
+.police-hud-pill.is-active {
+  opacity: 1;
+  filter: none;
+  background: radial-gradient(circle at 35% 35%, #d32f2f 0%, #8a131b 70%, #54090e 100%);
+  border-color: #ff5252;
+  box-shadow: 0 0 12px rgba(230, 30, 45, 0.75), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.police-hud-pill:hover {
+  opacity: 0.95;
+  transform: scale(1.08);
+}
+
+.police-hud-pill .police-svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* Lista de estados policiales */
+.gta6-police-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.police-alert-btn {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px !important;
+  min-height: 48px !important;
+  background: rgba(18, 22, 30, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.police-alert-btn:hover {
+  background: rgba(30, 36, 48, 0.85) !important;
+  border-color: rgba(220, 38, 38, 0.4) !important;
+  transform: translateX(2px);
+}
+
+.police-alert-btn.is-active {
+  background: rgba(45, 12, 16, 0.6) !important;
+  border-color: rgba(220, 38, 38, 0.6) !important;
+  box-shadow: 0 0 10px rgba(180, 20, 30, 0.3);
+}
+
+.police-alert-btn:not(.is-active) {
+  opacity: 0.42;
+  filter: grayscale(0.7);
+}
+
+.police-badge-icon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 35%, #b71c1c 0%, #7b1016 75%, #420609 100%);
+  border: 1.5px solid #280407;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.police-alert-btn.is-active .police-badge-icon {
+  box-shadow: 0 0 10px rgba(220, 35, 45, 0.7), inset 0 1px 3px rgba(255, 255, 255, 0.4);
+}
+
+.police-badge-icon .police-svg {
+  width: 17px;
+  height: 17px;
+}
+
+.police-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  gap: 2px;
+}
+
+.police-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.3px;
+}
+
+.police-desc {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.police-alert-btn.is-active .police-desc {
+  color: #ff8a80;
+}
+
+.police-status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.police-status-indicator.is-active {
+  background: #ff3344;
+  border-color: #ff8a80;
+  box-shadow: 0 0 8px #ff3344;
+}
+
+.police-svg {
+  display: block;
+}
+
+/* Tema Neón: Fondo sólido con el color del borde — círculo lleno de color con resplandor */
+:host ::ng-deep .icon-theme-neon .gta-pin {
+  background: var(--pin-color, #ffb833) !important;
+}
+
+:host ::ng-deep .icon-theme-neon .gta-pin-collectible {
+  background: var(--pin-color, #ffb833) !important;
+}
+
+.legend-char-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.legend-char-row .legend-btn {
+  flex: 1;
+  min-width: 0;
+}
+
+.char-zoom-btn {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.char-zoom-btn:hover {
+  background: rgba(236, 0, 200, 0.2);
+  border-color: #ec00c8;
+  color: #ec00c8;
+  transform: scale(1.12);
+  box-shadow: 0 0 8px rgba(236, 0, 200, 0.4);
+}
+
+.char-zoom-btn:active {
+  transform: scale(0.95);
+}
+
+.char-zoom-svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.2s ease;
+}
+
+.char-zoom-btn:hover .char-zoom-svg {
+  transform: rotate(90deg);
+}
+
+.marker-color-red    { background: #ef4444 !important; box-shadow: 0 0 6px #ef4444 !important; }
+.marker-color-blue   { background: #3b82f6 !important; box-shadow: 0 0 6px #3b82f6 !important; }
+.marker-color-green  { background: #22c55e !important; box-shadow: 0 0 6px #22c55e !important; }
+.marker-color-yellow { background: #eab308 !important; box-shadow: 0 0 6px #eab308 !important; }
+.marker-color-orange { background: #f97316 !important; box-shadow: 0 0 6px #f97316 !important; }
+.marker-color-purple { background: #a855f7 !important; box-shadow: 0 0 6px #a855f7 !important; }
+.marker-color-white  { background: #ffffff !important; box-shadow: 0 0 6px #ffffff !important; }
