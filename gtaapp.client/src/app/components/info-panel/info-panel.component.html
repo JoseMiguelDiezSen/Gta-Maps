@@ -108,7 +108,9 @@
       class="drawer-tab"
       role="tab"
       [class.is-active]="activeDrawerTab === tab.id"
+      [class.is-icon-only]="tab.id === 'misterios'"
       [attr.aria-selected]="activeDrawerTab === tab.id"
+      [title]="tab.label"
       (click)="setDrawerTab(tab.id)"
     >
       <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>

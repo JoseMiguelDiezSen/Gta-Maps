@@ -898,7 +898,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // -----------------------------------------------------------------------
     openContextMenu(event: MouseEvent): void {
         const target = event.target as HTMLElement;
-        if (target && target.closest('.hud, .profile-drawer, .hud-coords-dev, .gta-custom-ctx-menu')) {
+        if (target && target.closest('.hud, .hud-panel, .hud-profile-drawer, .profile-drawer, .hud-drawer-backdrop, app-info-panel, aside, .hud-coords-dev, .gta-custom-ctx-menu, .hud-ctx, .leaflet-control, .leaflet-popup, .modal, .custom-modal, button, input, select, a')) {
             return;
         }
         event.preventDefault();
