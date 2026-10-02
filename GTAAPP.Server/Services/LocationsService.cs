@@ -170,6 +170,19 @@ public class LocationsService
     public IReadOnlyList<MysteryItem> GetMysteries(string? lang = null) => LoadJsonFile<MysteryItem>("gta5", "online", "mysteries.json", lang);
 
     /// <summary>
+    /// Obtiene el arsenal oficial de armas de GTA Online con filtrado opcional por categoría.
+    /// </summary>
+    /// <param name="category">Categoría de arma opcional.</param>
+    /// <param name="lang">Código de idioma ("es" o "en").</param>
+    /// <returns>Colección de armas de GTA Online.</returns>
+    public IReadOnlyList<WeaponItem> GetWeapons(string? category = null, string? lang = null)
+    {
+        var list = LoadJsonFile<WeaponItem>("gta5", "online", "weapons.json", lang);
+        if (string.IsNullOrWhiteSpace(category) || category.Equals("all", StringComparison.OrdinalIgnoreCase)) return list;
+        return list.Where(w => w.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
+    }
+
+    /// <summary>
     /// Obtiene la lista de coleccionables de GTA Online (figuras de acción, naipes, alijos submarinos, etc.), con filtrado opcional por categoría.
     /// </summary>
     /// <param name="category">Categoría específica del coleccionable o null para obtener todos.</param>
@@ -268,6 +281,19 @@ public class LocationsService
     /// <param name="lang">Código de idioma ("es" o "en").</param>
     /// <returns>Colección de misterios del Modo Historia.</returns>
     public IReadOnlyList<MysteryItem> GetStoryMysteries(string? lang = null) => LoadJsonFile<MysteryItem>("gta5", "historia", "mysteries.json", lang);
+
+    /// <summary>
+    /// Obtiene el arsenal oficial de armas del Modo Historia de GTA V con filtrado opcional por categoría.
+    /// </summary>
+    /// <param name="category">Categoría de arma opcional.</param>
+    /// <param name="lang">Código de idioma ("es" o "en").</param>
+    /// <returns>Colección de armas del Modo Historia.</returns>
+    public IReadOnlyList<WeaponItem> GetStoryWeapons(string? category = null, string? lang = null)
+    {
+        var list = LoadJsonFile<WeaponItem>("gta5", "historia", "weapons.json", lang);
+        if (string.IsNullOrWhiteSpace(category) || category.Equals("all", StringComparison.OrdinalIgnoreCase)) return list;
+        return list.Where(w => w.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
+    }
 
     /// <summary>
     /// Obtiene la colección de coleccionables del Modo Historia (partes de nave espacial, cartas de Leonora Johnson, residuos tóxicos, mosaicos de monos, etc.), con filtrado opcional por categoría.

@@ -1096,6 +1096,32 @@ delete (window as any)._gtaSaveMarkerName;
         this.cayoPericoMarkers.forEach(m => m.marker.remove());
         this.cayoPericoMarkers = [];
 
+        const cayoFaIcons: Record<string, string> = {
+            escape_points: 'plane-departure',
+            infiltration_points: 'plane-arrival',
+            cutting_powder: 'flask',
+            water_tower: 'droplet',
+            grappling_eq: 'anchor',
+            bolt_cutters: 'scissors',
+            control_tower: 'tower-broadcast',
+            power_station: 'bolt',
+            secondary_targets: 'sack-dollar',
+            guard_clothing: 'shirt',
+            supply_truck: 'truck',
+            compound_entry_points: 'door-open',
+            combat_shotgun: 'crosshairs',
+            perico_pistol: 'gun',
+            treasure_chests: 'box-archive',
+            buried_stashes: 'gem',
+            spawns_forklift: 'truck-ramp-box',
+            spawns_verus: 'car',
+            spawns_manchez_scout: 'motorcycle',
+            spawns_winky: 'truck-pickup',
+            spawns_squaddie: 'van-shuttle',
+            spawns_dinghy: 'ship',
+            spawns_weaponized_dinghy: 'shield-halved'
+        };
+
         this.cayoPericoLocations.forEach(loc => {
             if (this.layerFilters[loc.category] === false) return;
 
@@ -1104,16 +1130,43 @@ delete (window as any)._gtaSaveMarkerName;
             const badgeColor = loc.badge?.color || (loc as any).color || '#f97316';
             const badgeSymbol = loc.badge?.symbol || (loc as any).icon || '•';
 
-            const icon = L.divIcon({
-                className: 'gta-pin-wrapper',
-                html: `
+            let pinHtml: string;
+            let pinClass: string;
+            let pinIconSize: [number, number];
+            let pinIconAnchor: [number, number];
+            let pinPopupAnchor: [number, number];
+
+            if (this.iconTheme === 'standard') {
+                pinHtml = `<div class="gta-pin-standard-empty"></div>`;
+                pinClass = 'gta-pin-wrapper-empty';
+                pinIconSize = [0, 0];
+                pinIconAnchor = [0, 0];
+                pinPopupAnchor = [0, 0];
+            } else if (this.iconTheme === 'simple') {
+                const faIcon = cayoFaIcons[loc.category] || loc.badge?.icon || 'location-dot';
+                pinHtml = `<div style="color: ${badgeColor}; font-size: 20px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIcon}"></i></div>`;
+                pinClass = 'gta-pin-wrapper-fa';
+                pinIconSize = [20, 20];
+                pinIconAnchor = [10, 10];
+                pinPopupAnchor = [0, -10];
+            } else {
+                pinHtml = `
                     <div class="gta-pin gta-pin-${loc.category}" style="--pin-color: ${badgeColor}; border-color: ${badgeColor};">
                         <span class="gta-pin-symbol" style="color: ${badgeColor}; font-weight: 800;">${badgeSymbol}</span>
                     </div>
-                `,
-                iconSize: [30, 30],
-                iconAnchor: [15, 30],
-                popupAnchor: [0, -28]
+                `;
+                pinClass = 'gta-pin-wrapper';
+                pinIconSize = [22, 22];
+                pinIconAnchor = [11, 22];
+                pinPopupAnchor = [0, -20];
+            }
+
+            const icon = L.divIcon({
+                className: pinClass,
+                html: pinHtml,
+                iconSize: pinIconSize,
+                iconAnchor: pinIconAnchor,
+                popupAnchor: pinPopupAnchor
             });
 
             const featuresHtml = loc.features && loc.features.length > 0
@@ -1277,9 +1330,9 @@ delete (window as any)._gtaSaveMarkerName;
                 // 4. Tema Clásico: pin circular con color de categoría y emoji o símbolo
                 pinHtml = `<div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${pinColor}"><span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span></div>`;
                 pinClass = 'gta-pin-wrapper';
-                pinIconSize = [30, 30];
-                pinIconAnchor = [15, 30];
-                pinPopupAnchor = [0, -28];
+                pinIconSize = [22, 22];
+            pinIconAnchor = [11, 22];
+            pinPopupAnchor = [0, -20];
             }
 
             const icon = L.divIcon({
@@ -1398,9 +1451,9 @@ delete (window as any)._gtaSaveMarkerName;
                 // 3. Clásico: cuadrado o círculo con color de categoría y símbolo
                 htmlContent = `<div class="gta-pin-collectible" style="background: ${colColorOnline}"><span class="gta-pin-col-symbol" style="color: ${colColorOnline}; font-weight: 700; line-height: 1;">${pinSymbol}</span></div>`;
                 iconDivClass = 'gta-pin-collectible-wrapper';
-                iconSize = [16, 16];
-                iconAnchor = [8, 16];
-                popupAnchor = [0, -14];
+                iconSize = [17, 17];
+                iconAnchor = [8.5, 17];
+                popupAnchor = [0, -15];
             }
 
             const icon = L.divIcon({

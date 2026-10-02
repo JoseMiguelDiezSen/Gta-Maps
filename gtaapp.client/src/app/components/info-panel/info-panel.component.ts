@@ -2,8 +2,10 @@ import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, effec
 import { GtaVehicle, DealerCategory } from '../../models/vehicle';
 import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../models/mission';
 import { GtaMystery } from '../../models/mystery';
+import { GtaWeapon } from '../../models/weapon';
 import { VehicleService } from '../../services/vehicle.service';
 import { MissionService } from '../../services/mission.service';
+import { WeaponService } from '../../services/weapon.service';
 import { TranslationService } from '../../i18n';
 
 @Component({
@@ -23,6 +25,7 @@ export class InfoPanelComponent implements OnChanges {
     if (this.gameMode === 'online') {
       return [
         { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
+        { id: 'armas', label: 'Armas', icon: 'fa-gun' },
         { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
         { id: 'golpes', label: 'Golpes', icon: 'fa-sack-dollar' },
         { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
@@ -30,6 +33,7 @@ export class InfoPanelComponent implements OnChanges {
     }
     return [
       { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
+      { id: 'armas', label: 'Armas', icon: 'fa-gun' },
       { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
       { id: 'strangers', label: 'Extraños y Locos', icon: 'fa-mask' },
       { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
@@ -81,8 +85,17 @@ export class InfoPanelComponent implements OnChanges {
   selectedMysteryCategoryFilter = 'all'; // 'all' | 'paranormal' | 'conspiracy' | 'crimes' | 'easter_egg'
   selectedMystery: GtaMystery | null = null;
 
-  // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail'
-  drawerView: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' = 'tabs';
+  // Armas GTA V / GTA Online
+  weapons: GtaWeapon[] = [];
+  weaponsLoading = false;
+  weaponsError = false;
+  weaponSearchQuery = '';
+  selectedWeaponCategory = 'all';
+  selectedWeaponSort: 'none' | 'damage' | 'fireRate' | 'accuracy' | 'range' | 'price' = 'none';
+  selectedWeapon: GtaWeapon | null = null;
+
+  // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail'
+  drawerView: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' = 'tabs';
   selectedMission: GtaMission | null = null;
 
   // Concesionario actualmente abierto en la vista de grid
@@ -102,6 +115,9 @@ export class InfoPanelComponent implements OnChanges {
 
   // Pestaña de categoría de vehículos activa ('all' o clase específica)
   selectedVehicleClass: string = 'all';
+
+  // Criterio de ordenación / filtro por estadísticas de vehículo ('none' | 'acceleration' | 'speed' | 'braking' | 'handling')
+  selectedVehicleSort: 'none' | 'acceleration' | 'speed' | 'braking' | 'handling' = 'none';
 
   // Buscador de vehículos dentro del catálogo del concesionario
   dealerVehicleSearchQuery: string = '';
@@ -203,6 +219,7 @@ export class InfoPanelComponent implements OnChanges {
   constructor(
     private vehicleService: VehicleService,
     private missionService: MissionService,
+    private weaponService: WeaponService,
     readonly translationService: TranslationService
   ) {
     effect(() => {
@@ -218,6 +235,9 @@ export class InfoPanelComponent implements OnChanges {
         if (this.onlineMysteries.length > 0) {
           this.loadOnlineMysteries(true, this.selectedMystery?.id);
         }
+        if (this.weapons.length > 0) {
+          this.loadWeapons(true, this.selectedWeapon?.id);
+        }
       } else {
         if (this.onlineMissions.length > 0) {
           this.loadOnlineMissions(true, this.selectedMission?.id);
@@ -228,6 +248,9 @@ export class InfoPanelComponent implements OnChanges {
         if (this.onlineMysteries.length > 0) {
           this.loadOnlineMysteries(true, this.selectedMystery?.id);
         }
+        if (this.weapons.length > 0) {
+          this.loadWeapons(true, this.selectedWeapon?.id);
+        }
       }
     });
   }
@@ -236,13 +259,21 @@ export class InfoPanelComponent implements OnChanges {
     if (changes['gameMode'] && !changes['gameMode'].firstChange) {
       this.onlineMysteries = [];
       this.selectedMystery = null;
+      this.weapons = [];
+      this.selectedWeapon = null;
       if (this.activeDrawerTab === 'misterios') {
         this.loadOnlineMysteries(true);
+      }
+      if (this.activeDrawerTab === 'armas') {
+        this.loadWeapons(true);
       }
     }
     if (changes['isOpen'] && changes['isOpen'].currentValue) {
       if (this.activeDrawerTab === 'misterios' && this.onlineMysteries.length === 0) {
         this.loadOnlineMysteries();
+      }
+      if (this.activeDrawerTab === 'armas' && this.weapons.length === 0) {
+        this.loadWeapons();
       }
     }
   }
@@ -287,6 +318,17 @@ export class InfoPanelComponent implements OnChanges {
         (v.manufacturer && v.manufacturer.toLowerCase().includes(q)) ||
         (v.class && v.class.toLowerCase().includes(q))
       );
+    }
+    if (this.selectedVehicleSort !== 'none') {
+      const sortKey = this.selectedVehicleSort;
+      list = [...list].sort((a, b) => {
+        const statA = (a as any)[sortKey] ?? 0;
+        const statB = (b as any)[sortKey] ?? 0;
+        if (statB !== statA) {
+          return statB - statA;
+        }
+        return (a.name || '').localeCompare(b.name || '');
+      });
     }
     return list;
   }
@@ -368,7 +410,7 @@ export class InfoPanelComponent implements OnChanges {
 
   setDrawerTab(tabId: string): void {
     this.activeDrawerTab = tabId;
-    if (this.drawerView === 'dealer-grid' || this.drawerView === 'vehicle-detail' || this.drawerView === 'mission-detail' || this.drawerView === 'stranger-detail' || this.drawerView === 'heist-detail' || this.drawerView === 'mystery-detail') {
+    if (this.drawerView === 'dealer-grid' || this.drawerView === 'vehicle-detail' || this.drawerView === 'mission-detail' || this.drawerView === 'stranger-detail' || this.drawerView === 'heist-detail' || this.drawerView === 'mystery-detail' || this.drawerView === 'weapon-detail') {
       this.drawerView = 'tabs';
       this.activeDealerId = null;
       this.selectedVehicle = null;
@@ -376,6 +418,10 @@ export class InfoPanelComponent implements OnChanges {
       this.selectedStranger = null;
       this.selectedHeist = null;
       this.selectedMystery = null;
+      this.selectedWeapon = null;
+    }
+    if (tabId === 'armas' && this.weapons.length === 0) {
+      this.loadWeapons();
     }
     if (this.gameMode === 'story') {
       if (tabId === 'misiones' && this.storyMissions.length === 0) {
@@ -774,6 +820,7 @@ export class InfoPanelComponent implements OnChanges {
     this.activeDealerName = dealerName;
     this.selectedVehicle = null;
     this.selectedVehicleClass = 'all';
+    this.selectedVehicleSort = 'none';
     this.dealerVehicleSearchQuery = '';
     this.drawerView = 'dealer-grid';
     this.loadDealerVehicles(dealerId);
@@ -783,6 +830,7 @@ export class InfoPanelComponent implements OnChanges {
     this.drawerView = 'tabs';
     this.activeDealerId = null;
     this.selectedVehicle = null;
+    this.selectedVehicleSort = 'none';
     this.dealerVehicleSearchQuery = '';
   }
 
@@ -802,6 +850,10 @@ export class InfoPanelComponent implements OnChanges {
       this.closeStrangerDetail();
     } else if (this.drawerView === 'heist-detail') {
       this.closeHeistDetail();
+    } else if (this.drawerView === 'mystery-detail') {
+      this.closeMysteryDetail();
+    } else if (this.drawerView === 'weapon-detail') {
+      this.closeWeaponDetail();
     }
   }
 
@@ -818,6 +870,10 @@ export class InfoPanelComponent implements OnChanges {
         this.selectedVehicle = null;
       }
     }
+  }
+
+  setVehicleSort(sort: 'none' | 'acceleration' | 'speed' | 'braking' | 'handling'): void {
+    this.selectedVehicleSort = sort;
   }
 
   onDealerLogoError(dealer: DealerCategory): void {
@@ -1117,6 +1173,149 @@ export class InfoPanelComponent implements OnChanges {
   getMysteryAccentColor(m: GtaMystery | null): string {
     if (!m) return '#a855f7';
     return m.badgeColor || '#a855f7';
+  }
+
+  // -------------------------------------------------------------
+  // ARMAS (WEAPONS CATALOG)
+  // -------------------------------------------------------------
+  loadWeapons(force = false, keepSelectedId?: string): void {
+    if (this.weapons.length > 0 && !force) return;
+    this.weaponsLoading = true;
+    this.weaponsError = false;
+
+    this.weaponService.getWeapons(this.gameMode).subscribe({
+      next: (weapons) => {
+        this.weapons = weapons;
+        if (keepSelectedId) {
+          this.selectedWeapon = weapons.find(w => w.id === keepSelectedId) || null;
+        }
+        this.weaponsLoading = false;
+      },
+      error: (err) => {
+        console.error(`Error al cargar arsenal de armas (${this.gameMode}):`, err);
+        this.weaponsLoading = false;
+        this.weaponsError = true;
+      }
+    });
+  }
+
+  setWeaponCategory(cat: string): void {
+    this.selectedWeaponCategory = cat;
+  }
+
+  setWeaponSort(sort: 'none' | 'damage' | 'fireRate' | 'accuracy' | 'range' | 'price'): void {
+    this.selectedWeaponSort = sort;
+  }
+
+  onWeaponImgError(w: GtaWeapon): void {
+    w.imgFailed = true;
+  }
+
+  selectWeapon(weapon: GtaWeapon): void {
+    this.openWeaponDetail(weapon);
+  }
+
+  openWeaponDetail(weapon: GtaWeapon): void {
+    this.selectedWeapon = weapon;
+    this.drawerView = 'weapon-detail';
+  }
+
+  closeWeaponDetail(): void {
+    this.selectedWeapon = null;
+    this.drawerView = 'tabs';
+  }
+
+  get filteredWeapons(): GtaWeapon[] {
+    let list = this.weapons;
+    const cat = this.selectedWeaponCategory.toLowerCase();
+    if (cat !== 'all') {
+      list = list.filter(w => (w.category || '').toLowerCase() === cat);
+    }
+    const q = this.weaponSearchQuery.trim().toLowerCase();
+    if (q) {
+      list = list.filter(w =>
+        (w.name && w.name.toLowerCase().includes(q)) ||
+        (w.nameEn && w.nameEn.toLowerCase().includes(q)) ||
+        (w.manufacturer && w.manufacturer.toLowerCase().includes(q)) ||
+        (w.realCounterpart && w.realCounterpart.toLowerCase().includes(q)) ||
+        (w.categoryLabel && w.categoryLabel.toLowerCase().includes(q)) ||
+        (w.description && w.description.toLowerCase().includes(q))
+      );
+    }
+    if (this.selectedWeaponSort !== 'none') {
+      const sortKey = this.selectedWeaponSort;
+      list = [...list].sort((a, b) => {
+        const statA = (a as any)[sortKey] ?? 0;
+        const statB = (b as any)[sortKey] ?? 0;
+        if (statB !== statA) {
+          return statB - statA;
+        }
+        return (a.name || '').localeCompare(b.name || '');
+      });
+    }
+    return list;
+  }
+
+  get weaponCategoryList(): { id: string; name: string; count: number; icon: string }[] {
+    const counts: { [cat: string]: number } = {};
+    for (const w of this.weapons) {
+      const cat = w.category || 'other';
+      counts[cat] = (counts[cat] || 0) + 1;
+    }
+    const categories: { id: string; nameKey: string; icon: string }[] = [
+      { id: 'all', nameKey: 'transports.weapons.categories.all', icon: 'fa-layer-group' },
+      { id: 'pistols', nameKey: 'transports.weapons.categories.pistols', icon: 'fa-gun' },
+      { id: 'smgs', nameKey: 'transports.weapons.categories.smgs', icon: 'fa-shield-halved' },
+      { id: 'rifles', nameKey: 'transports.weapons.categories.rifles', icon: 'fa-crosshairs' },
+      { id: 'shotguns', nameKey: 'transports.weapons.categories.shotguns', icon: 'fa-fire' },
+      { id: 'snipers', nameKey: 'transports.weapons.categories.snipers', icon: 'fa-bullseye' },
+      { id: 'heavy', nameKey: 'transports.weapons.categories.heavy', icon: 'fa-bomb' },
+      { id: 'melee', nameKey: 'transports.weapons.categories.melee', icon: 'fa-hand-back-fist' },
+      { id: 'throwables', nameKey: 'transports.weapons.categories.throwables', icon: 'fa-burst' },
+    ];
+    return categories.map(c => ({
+      id: c.id,
+      name: this.translationService.t(c.nameKey) || c.id,
+      count: c.id === 'all' ? this.weapons.length : (counts[c.id] || 0),
+      icon: c.icon
+    })).filter(c => c.id === 'all' || c.count > 0);
+  }
+
+  getWeaponCategoryCount(cat: string): number {
+    if (cat === 'all') return this.weapons.length;
+    return this.weapons.filter(w => (w.category || '').toLowerCase() === cat.toLowerCase()).length;
+  }
+
+  get previousWeapon(): GtaWeapon | null {
+    if (!this.selectedWeapon || this.filteredWeapons.length === 0) return null;
+    const idx = this.filteredWeapons.findIndex(w => w.id === this.selectedWeapon!.id);
+    return idx > 0 ? this.filteredWeapons[idx - 1] : null;
+  }
+
+  get nextWeapon(): GtaWeapon | null {
+    if (!this.selectedWeapon || this.filteredWeapons.length === 0) return null;
+    const idx = this.filteredWeapons.findIndex(w => w.id === this.selectedWeapon!.id);
+    return (idx >= 0 && idx < this.filteredWeapons.length - 1) ? this.filteredWeapons[idx + 1] : null;
+  }
+
+  selectPreviousWeapon(): void {
+    const prev = this.previousWeapon;
+    if (prev) this.selectedWeapon = prev;
+  }
+
+  selectNextWeapon(): void {
+    const next = this.nextWeapon;
+    if (next) this.selectedWeapon = next;
+  }
+
+  getWeaponAccentColor(w: GtaWeapon | null): string {
+    if (!w) return '#ffb833';
+    return w.badgeColor || '#ffb833';
+  }
+
+  getWeaponIcon(w: GtaWeapon | null): string {
+    if (!w) return 'fa-gun';
+    return w.icon || 'fa-gun';
   }
 }
 

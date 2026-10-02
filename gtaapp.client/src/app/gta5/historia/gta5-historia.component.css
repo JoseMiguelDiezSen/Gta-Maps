@@ -1127,12 +1127,12 @@
 }
 
 :host ::ng-deep .gta-pin {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: #0b0f14;
-  border: 2px solid var(--pin-color, #ffb833);
-  box-shadow: 0 0 10px var(--pin-color, #ffb833), inset 0 0 6px var(--pin-color, #ffb833);
+  border: 1.5px solid var(--pin-color, #ffb833);
+  box-shadow: 0 0 8px var(--pin-color, #ffb833), inset 0 0 4px var(--pin-color, #ffb833);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1146,7 +1146,7 @@
 }
 
 :host ::ng-deep .gta-pin-symbol {
-  font-size: 13px;
+  font-size: 10.5px;
   line-height: 1;
   color: var(--pin-color, #ffb833);
 }
@@ -1378,12 +1378,12 @@
 }
 
 :host ::ng-deep .gta-pin-collectible {
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
   background: rgba(11, 15, 20, 0.94);
-  border: 1.5px solid var(--pin-color, #ffb833);
-  box-shadow: 0 0 7px var(--pin-color, #ffb833), inset 0 0 4px var(--pin-color, #ffb833);
+  border: 1.2px solid var(--pin-color, #ffb833);
+  box-shadow: 0 0 6px var(--pin-color, #ffb833), inset 0 0 3px var(--pin-color, #ffb833);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1397,7 +1397,7 @@
 }
 
 :host ::ng-deep .gta-pin-col-symbol {
-  font-size: 11px;
+  font-size: 8.5px;
   line-height: 1;
 }
 
@@ -1789,34 +1789,57 @@
 
 /* ===== ESTILO Y TAMAÑO DE ICONOS (Ajustes -> Estilo Iconos) ===== */
 /* Escala de iconos */
+/* 80% (Reducido) */
 :host ::ng-deep .icon-size-compact .gta-pin {
-  width: 22px !important;
-  height: 22px !important;
-}
-:host ::ng-deep .icon-size-compact .gta-pin .gta-pin-symbol {
-  font-size: 10px !important;
-}
-:host ::ng-deep .icon-size-compact .gta-pin-collectible {
   width: 17px !important;
   height: 17px !important;
 }
+:host ::ng-deep .icon-size-compact .gta-pin .gta-pin-symbol {
+  font-size: 8px !important;
+}
+:host ::ng-deep .icon-size-compact .gta-pin-collectible {
+  width: 13px !important;
+  height: 13px !important;
+}
 :host ::ng-deep .icon-size-compact .gta-pin-collectible .gta-pin-col-symbol {
-  font-size: 9px !important;
+  font-size: 7px !important;
 }
 
+/* 120% (Aumentado) */
 :host ::ng-deep .icon-size-large .gta-pin {
-  width: 35px !important;
-  height: 35px !important;
-}
-:host ::ng-deep .icon-size-large .gta-pin .gta-pin-symbol {
-  font-size: 16px !important;
-}
-:host ::ng-deep .icon-size-large .gta-pin-collectible {
   width: 27px !important;
   height: 27px !important;
 }
-:host ::ng-deep .icon-size-large .gta-pin-collectible .gta-pin-col-symbol {
+:host ::ng-deep .icon-size-large .gta-pin .gta-pin-symbol {
   font-size: 13px !important;
+}
+:host ::ng-deep .icon-size-large .gta-pin-collectible {
+  width: 21px !important;
+  height: 21px !important;
+}
+:host ::ng-deep .icon-size-large .gta-pin-collectible .gta-pin-col-symbol {
+  font-size: 10.5px !important;
+}
+
+
+:host ::ng-deep .gta-pin-wrapper-fa,
+:host ::ng-deep .gta-pin-collectible-wrapper-fa,
+:host ::ng-deep .gta-pin-wrapper-empty,
+:host ::ng-deep .gta-pin-collectible-wrapper-empty {
+  background: transparent;
+  border: none;
+}
+
+:host ::ng-deep .icon-size-compact .gta-pin-wrapper-fa > div,
+:host ::ng-deep .icon-size-compact .gta-pin-collectible-wrapper-fa > div {
+  transform: scale(0.8) !important;
+  transform-origin: center center;
+}
+
+:host ::ng-deep .icon-size-large .gta-pin-wrapper-fa > div,
+:host ::ng-deep .icon-size-large .gta-pin-collectible-wrapper-fa > div {
+  transform: scale(1.2) !important;
+  transform-origin: center center;
 }
 
 /* Tema Clásico: Limpio, plano, sin resplandor neón ni pulsaciones agresivas, estilo sobrio GTA */

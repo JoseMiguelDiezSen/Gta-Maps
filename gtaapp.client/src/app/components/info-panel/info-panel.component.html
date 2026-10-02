@@ -73,6 +73,16 @@
         <span class="drawer-breadcrumb-current">{{ selectedMystery?.title }}</span>
       </span>
 
+      <!-- BREADCRUMB dinámico de arma -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'weapon-detail'">
+        <button type="button" class="drawer-breadcrumb-back" (click)="closeWeaponDetail()" [title]="'transports.weapons.backToWeapons' | translate">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="drawer-breadcrumb-link" (click)="closeWeaponDetail()">{{ 'transports.tabs.armas' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current vehicle-crumb-name" [title]="selectedWeapon?.name">{{ selectedWeapon?.name }}</span>
+      </span>
+
       <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
         <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
         <span>{{ 'transports.title' | translate }}</span>
@@ -83,6 +93,7 @@
       <h3 class="drawer-title" *ngIf="drawerView === 'stranger-detail'">{{ selectedStranger?.title }}</h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'heist-detail'">{{ selectedHeist?.title }}</h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'mystery-detail'">{{ selectedMystery?.title }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'weapon-detail'">{{ selectedWeapon?.name }}</h3>
     </div>
     <button type="button" class="drawer-close-btn" (click)="onClose()" [title]="'transports.closeTitle' | translate">
       <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
@@ -101,12 +112,12 @@
       (click)="setDrawerTab(tab.id)"
     >
       <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
-      <span class="drawer-tab-label">{{ ('transports.tabs.' + (tab.id === 'vehiculos' ? 'vehicles' : tab.id === 'misiones' ? 'missions' : tab.id)) | translate }}</span>
+      <span class="drawer-tab-label" *ngIf="tab.id !== 'misterios'">{{ ('transports.tabs.' + (tab.id === 'vehiculos' ? 'vehicles' : tab.id === 'misiones' ? 'missions' : tab.id === 'armas' ? 'armas' : tab.id)) | translate }}</span>
     </button>
   </div>
 
   <!-- ====== CUERPO ====== -->
-  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'" [class.is-stranger-view]="drawerView === 'stranger-detail'" [class.is-heist-view]="drawerView === 'heist-detail'">
+  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'" [class.is-stranger-view]="drawerView === 'stranger-detail'" [class.is-heist-view]="drawerView === 'heist-detail'" [class.is-weapon-view]="drawerView === 'weapon-detail'">
 
     <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'vehiculos'">
@@ -184,8 +195,9 @@
           </span>
         </div>
 
-        <!-- Barra de Búsqueda y Selector Desplegable Grande -->
+        <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo (6/6 Lado a Lado) -->
         <div class="dealer-vehicles-toolbar">
+          <!-- Fila 1: Buscador de vehículo (100% de ancho) -->
           <div class="missions-search-box">
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
             <input
@@ -205,17 +217,41 @@
             </button>
           </div>
 
-          <div class="strangers-series-select-wrap">
-            <select
-              class="strangers-series-select dealer-large-select"
-              [(ngModel)]="selectedVehicleClass"
-              (ngModelChange)="setVehicleCategory($event)"
-            >
-              <option *ngFor="let cat of dealerCategories" [value]="cat.id">
-                {{ cat.id === 'all' ? ('common.all' | translate) : cat.name }} ({{ cat.count }})
-              </option>
-            </select>
+          <!-- Fila 2: Selectores Desplegables Lado a Lado (6/6 = 50% / 50% Ocupando todo el ancho) -->
+          <div class="missions-dropdowns-row">
+            <div class="strangers-series-select-wrap">
+              <select
+                class="strangers-series-select dealer-large-select"
+                [(ngModel)]="selectedVehicleClass"
+                (ngModelChange)="setVehicleCategory($event)"
+              >
+                <option *ngFor="let cat of dealerCategories" [value]="cat.id">
+                  {{ cat.id === 'all' ? ('common.all' | translate) : cat.name }} ({{ cat.count }})
+                </option>
+              </select>
+            </div>
+
+            <div class="strangers-series-select-wrap">
+              <select
+                class="strangers-series-select dealer-large-select"
+                [(ngModel)]="selectedVehicleSort"
+                (ngModelChange)="setVehicleSort($event)"
+              >
+                <option value="none">📊 {{ 'transports.catalog.sortDefault' | translate }}</option>
+                <option value="acceleration">🚀 {{ 'transports.stats.acceleration' | translate }}</option>
+                <option value="speed">⚡ {{ 'transports.stats.speed' | translate }}</option>
+                <option value="braking">🛑 {{ 'transports.stats.braking' | translate }}</option>
+                <option value="handling">🎯 {{ 'transports.stats.handling' | translate }}</option>
+              </select>
+            </div>
           </div>
+        </div>
+
+        <!-- Separador Concesionario con barritas y margen amplio -->
+        <div class="dealer-section-divider dealer-grid-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">Concesionario</span>
+          <div class="dealer-section-divider-line"></div>
         </div>
 
         <!-- GRID DE TARJETAS -->
@@ -240,6 +276,12 @@
                 <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
               </ng-container>
               <span class="vcard-weapon-badge" *ngIf="v.weaponized" [title]="'transports.catalog.weaponized' | translate">🔫</span>
+              <span class="vcard-stat-pill" *ngIf="selectedVehicleSort !== 'none'">
+                <span *ngIf="selectedVehicleSort === 'acceleration'">🚀 {{ v.acceleration }}</span>
+                <span *ngIf="selectedVehicleSort === 'speed'">⚡ {{ v.speed }}</span>
+                <span *ngIf="selectedVehicleSort === 'braking'">🛑 {{ v.braking }}</span>
+                <span *ngIf="selectedVehicleSort === 'handling'">🎯 {{ v.handling }}</span>
+              </span>
             </div>
             <!-- Info del vehículo anexada a la foto -->
             <div class="vcard-info">
@@ -346,6 +388,151 @@
           </div>
 
         </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB: ARMAS (CATÁLOGO DE ARMAMENTO / ARMERÍA) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'armas'">
+
+      <!-- Loading -->
+      <div class="vgrid-loading" *ngIf="weaponsLoading">
+        <div class="vgrid-spinner"></div>
+        <span>{{ 'transports.weapons.loading' | translate }}</span>
+      </div>
+
+      <!-- Error -->
+      <div class="vgrid-error" *ngIf="!weaponsLoading && weaponsError">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>{{ 'transports.weapons.error' | translate }}</span>
+        <button type="button" class="missions-retry-btn" (click)="loadWeapons(true)" style="margin-top: 10px;">
+          <i class="fa-solid fa-rotate-right"></i>
+          {{ 'transports.weapons.retry' | translate }}
+        </button>
+      </div>
+
+      <!-- Sin resultados -->
+      <div class="vgrid-empty" *ngIf="!weaponsLoading && !weaponsError && filteredWeapons.length === 0">
+        <i class="fa-solid fa-gun"></i>
+        <span>{{ 'transports.weapons.empty' | translate }}</span>
+      </div>
+
+      <!-- Grid de Armas -->
+      <div class="vgrid-view-container" *ngIf="!weaponsLoading && weapons.length > 0">
+
+        <!-- CONTADOR -->
+        <div class="vgrid-counter">
+          <div class="vgrid-counter-left">
+            <span class="vgrid-count-num">{{ filteredWeapons.length }}</span>
+            <span class="vgrid-count-lbl">{{ 'transports.weapons.availableCount' | translate }}</span>
+          </div>
+          <span class="vgrid-count-total" *ngIf="selectedWeaponCategory !== 'all' || weaponSearchQuery || selectedWeaponSort !== 'none'">
+            {{ 'transports.weapons.ofCatalog' | translate:{ total: weapons.length } }}
+          </span>
+        </div>
+
+        <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo (6/6 Lado a Lado) -->
+        <div class="dealer-vehicles-toolbar">
+          <!-- Fila 1: Buscador de arma (100% de ancho) -->
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="weaponSearchQuery"
+              [placeholder]="'transports.weapons.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="weaponSearchQuery"
+              type="button"
+              class="missions-search-clear"
+              (click)="weaponSearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Fila 2: Selectores Desplegables Lado a Lado (6/6 = 50% / 50%) -->
+          <div class="missions-dropdowns-row">
+            <div class="strangers-series-select-wrap">
+              <select
+                class="strangers-series-select dealer-large-select"
+                [(ngModel)]="selectedWeaponCategory"
+                (ngModelChange)="setWeaponCategory($event)"
+              >
+                <option *ngFor="let cat of weaponCategoryList" [value]="cat.id">
+                  {{ cat.name }} ({{ cat.count }})
+                </option>
+              </select>
+            </div>
+
+            <div class="strangers-series-select-wrap">
+              <select
+                class="strangers-series-select dealer-large-select"
+                [(ngModel)]="selectedWeaponSort"
+                (ngModelChange)="setWeaponSort($event)"
+              >
+                <option value="none">📊 {{ 'transports.weapons.sortDefault' | translate }}</option>
+                <option value="damage">{{ 'transports.weapons.sortDamage' | translate }}</option>
+                <option value="fireRate">{{ 'transports.weapons.sortFireRate' | translate }}</option>
+                <option value="accuracy">{{ 'transports.weapons.sortAccuracy' | translate }}</option>
+                <option value="range">{{ 'transports.weapons.sortRange' | translate }}</option>
+                <option value="price">{{ 'transports.weapons.sortPrice' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Separador Armería con barritas y margen amplio -->
+        <div class="dealer-section-divider dealer-grid-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">Armería</span>
+          <div class="dealer-section-divider-line"></div>
+        </div>
+
+        <!-- GRID DE TARJETAS DE ARMAS (Estilo idéntico a Concesionario) -->
+        <div class="vgrid-grid">
+          <div
+            *ngFor="let w of filteredWeapons"
+            class="vcard"
+            (click)="selectWeapon(w)"
+          >
+            <!-- Zona imagen / render del arma -->
+            <div class="vcard-img">
+              <span class="vcard-class-badge" [style.borderColor]="getWeaponAccentColor(w) + '80'" [style.color]="getWeaponAccentColor(w)">
+                {{ w.categoryLabel }}
+              </span>
+              <img
+                *ngIf="w.imageUrl && !w.imgFailed"
+                [src]="w.imageUrl"
+                [alt]="w.name"
+                class="vcard-photo"
+                loading="lazy"
+                (error)="onWeaponImgError(w)"
+              />
+              <ng-container *ngIf="!w.imageUrl || w.imgFailed">
+                <i class="fa-solid vcard-img-icon" [ngClass]="getWeaponIcon(w)"></i>
+              </ng-container>
+              <span class="vcard-weapon-badge" *ngIf="w.hasMk2" title="Variante Mk II disponible">⚙️</span>
+              <span class="vcard-stat-pill" *ngIf="selectedWeaponSort !== 'none'">
+                <span *ngIf="selectedWeaponSort === 'damage'">💥 {{ w.damage }}</span>
+                <span *ngIf="selectedWeaponSort === 'fireRate'">⚡ {{ w.fireRate }}</span>
+                <span *ngIf="selectedWeaponSort === 'accuracy'">🎯 {{ w.accuracy }}</span>
+                <span *ngIf="selectedWeaponSort === 'range'">🔭 {{ w.range }}</span>
+                <span *ngIf="selectedWeaponSort === 'price'">💵 {{ w.priceFormatted }}</span>
+              </span>
+            </div>
+            <!-- Info del arma anexada a la foto -->
+            <div class="vcard-info">
+              <span class="vcard-name">{{ w.name }}</span>
+              <div class="vcard-sub-row">
+                <span class="vcard-maker">{{ w.manufacturer }}</span>
+                <span class="vcard-price">{{ w.priceFormatted }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </ng-container>
 
@@ -1759,6 +1946,131 @@
           </div>
         </div>
 
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE ARMA (PANEL LIMPIO ESTILO VEHÍCULOS) ============ -->
+    <ng-container *ngIf="drawerView === 'weapon-detail' && selectedWeapon">
+      <div class="vclean-container">
+        <div class="vclean-card">
+
+          <!-- Showcase de Imagen Grande y Limpia -->
+          <div class="vclean-hero">
+            <span class="vclean-class-badge" [style.borderColor]="getWeaponAccentColor(selectedWeapon) + '80'" [style.color]="getWeaponAccentColor(selectedWeapon)">
+              {{ selectedWeapon.categoryLabel }}
+            </span>
+            <span class="vclean-weapon-badge" *ngIf="selectedWeapon.hasMk2" title="Variante Mk II disponible">
+              ⚙️ Mk II
+            </span>
+            <img
+              *ngIf="selectedWeapon.imageUrl && !selectedWeapon.imgFailed"
+              [src]="selectedWeapon.imageUrl"
+              [alt]="selectedWeapon.name"
+              class="vclean-hero-img"
+              (error)="onWeaponImgError(selectedWeapon)"
+            />
+            <div *ngIf="!selectedWeapon.imageUrl || selectedWeapon.imgFailed" class="vclean-hero-fallback">
+              <i class="fa-solid" [ngClass]="getWeaponIcon(selectedWeapon)"></i>
+            </div>
+          </div>
+
+          <!-- Cabecera de la Ficha -->
+          <div class="vclean-header">
+            <span class="vclean-maker">
+              {{ selectedWeapon.manufacturer }} <span *ngIf="selectedWeapon.realCounterpart">· {{ selectedWeapon.realCounterpart }}</span>
+            </span>
+            <h2 class="vclean-title">{{ selectedWeapon.name }}</h2>
+          </div>
+
+          <!-- Precios / Desbloqueo -->
+          <div class="vclean-prices">
+            <div class="vclean-price-box vclean-price-primary">
+              <span class="vclean-price-lbl">Precio Ammu-Nation</span>
+              <span class="vclean-price-val">{{ selectedWeapon.priceFormatted }}</span>
+            </div>
+            <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedWeapon.rankUnlock > 1">
+              <span class="vclean-price-lbl">Rango requerido</span>
+              <span class="vclean-price-val">Nivel {{ selectedWeapon.rankUnlock }}</span>
+            </div>
+            <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedWeapon.rankUnlock <= 1 && selectedWeapon.clipSize">
+              <span class="vclean-price-lbl">Cargador</span>
+              <span class="vclean-price-val">{{ selectedWeapon.clipSize }}</span>
+            </div>
+          </div>
+
+          <!-- Barras de Especificaciones Balísticas -->
+          <div class="vclean-stats">
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.weapons.damage' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-brake" [style.width.%]="(selectedWeapon.damage || 5) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedWeapon.damage }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.weapons.fireRate' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-speed" [style.width.%]="(selectedWeapon.fireRate || 5) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedWeapon.fireRate }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.weapons.accuracy' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-handling" [style.width.%]="(selectedWeapon.accuracy || 5) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedWeapon.accuracy }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.weapons.range' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-accel" [style.width.%]="(selectedWeapon.range || 5) * 10"></div>
+              </div>
+              <span class="vstat-num">{{ selectedWeapon.range }}</span>
+            </div>
+          </div>
+
+          <!-- Capacidad de cargador cuando hay rango desbloqueo -->
+          <div class="vclean-desc-box" *ngIf="selectedWeapon.rankUnlock > 1 && selectedWeapon.clipSize">
+            <div class="vclean-desc-head">
+              <i class="fa-solid fa-box-archive"></i>
+              <span>Cargador</span>
+            </div>
+            <p class="vclean-desc-text">{{ selectedWeapon.clipSize }}</p>
+          </div>
+
+          <!-- Descripción Oficial -->
+          <div class="vclean-desc-box" *ngIf="selectedWeapon.description">
+            <div class="vclean-desc-head">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>Especificaciones Ammu-Nation</span>
+            </div>
+            <p class="vclean-desc-text">{{ selectedWeapon.description }}</p>
+          </div>
+
+          <!-- Accesorios / Modificaciones -->
+          <div class="vclean-desc-box" *ngIf="selectedWeapon.attachments && selectedWeapon.attachments.length > 0">
+            <div class="vclean-desc-head">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <span>Accesorios Compatibles</span>
+            </div>
+            <div class="heist-vehicles-tags" style="margin-top: 8px;">
+              <span class="heist-vehicle-tag" *ngFor="let att of selectedWeapon.attachments">
+                <i class="fa-solid fa-circle-check" style="color: #38bdf8; font-size: 10px;"></i>
+                {{ att }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Botón de retorno al pie -->
+          <div class="vclean-bottom-action">
+            <button type="button" class="vclean-back-btn" (click)="closeWeaponDetail()">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>Volver a Armería</span>
+            </button>
+          </div>
+
+        </div>
       </div>
     </ng-container>
 

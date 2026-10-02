@@ -1092,3 +1092,64 @@
 .marker-color-orange { background: #f97316 !important; box-shadow: 0 0 6px #f97316 !important; }
 .marker-color-purple { background: #a855f7 !important; box-shadow: 0 0 6px #a855f7 !important; }
 .marker-color-white  { background: #ffffff !important; box-shadow: 0 0 6px #ffffff !important; }
+
+/* ==========================================================================
+   RESPONSIVE TABLET / RESOLUCIONES REDUCIDAS (<= 900px)
+   ========================================================================== */
+@media screen and (max-width: 900px) {
+  /* 1. Selector de modo compacto (S y O) para evitar colisión superior */
+  .mode-switch-btn {
+    padding: 5px 9px;
+    gap: 5px;
+  }
+
+  .mode-switch-btn span {
+    font-size: 0;
+  }
+
+  .mode-historia span::after {
+    content: "S";
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .mode-online span::after {
+    content: "O";
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  /* 2. Coordenadas sutiles y compactas centradas entre los dos acordeones */
+  .hud-coords-dev {
+    bottom: 14px;
+    padding: 3px 8px;
+    gap: 6px;
+    background: rgba(8, 11, 16, 0.94);
+    border: 1px solid rgba(255, 79, 224, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    max-height: none;
+  }
+
+  .hud-coords-dev .coord-axis {
+    font-size: 11px;
+    font-weight: 800;
+    color: #ff4fe0;
+  }
+
+  .hud-coords-dev .coord-val {
+    font-size: 12px;
+    font-weight: 800;
+    color: #ffffff;
+    min-width: 48px;
+  }
+
+  .hud-coords-dev .coord-sep {
+    color: rgba(255, 79, 224, 0.35);
+    font-size: 10px;
+  }
+
+  .hud-coords-dev .coord-copied {
+    font-size: 12px;
+  }
+}

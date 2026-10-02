@@ -664,9 +664,9 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             } else {
                 htmlContent = `<div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${pinColor}"><span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span></div>`;
                 iconDivClass = 'gta-pin-wrapper';
-                iconSize = [30, 30];
-                iconAnchor = [15, 30];
-                popupAnchor = [0, -28];
+                iconSize = [22, 22];
+                iconAnchor = [11, 22];
+                popupAnchor = [0, -20];
             }
 
             const icon = L.divIcon({
@@ -767,9 +767,9 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 // 3. Clásico: cuadrado o círculo con color de categoría y símbolo/emoji
                 htmlContent = `<div class="gta-pin-collectible" style="background: ${colColor}"><span class="gta-pin-col-symbol" style="${symbolStyle}">${pinSymbol}</span></div>`;
                 iconDivClass = 'gta-pin-collectible-wrapper';
-                iconSize = [16, 16];
-                iconAnchor = [8, 16];
-                popupAnchor = [0, -14];
+                iconSize = [17, 17];
+                iconAnchor = [8.5, 17];
+                popupAnchor = [0, -15];
             }
 
             const icon = L.divIcon({

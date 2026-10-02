@@ -149,4 +149,17 @@ public class GTA5OnlineController : ControllerBase
     {
         return Ok(_locationsService.GetMysteries(lang).ToList());
     }
+
+    /// <summary>
+    /// GET /api/gta5/online/weapons → Arsenal oficial y catálogo de armamento de GTA Online
+    /// (pistolas, subfusiles, rifles de asalto, escopetas, francotiradores, armas pesadas, cuerpo a cuerpo y arrojadizas).
+    /// </summary>
+    /// <param name="category">Filtro opcional por categoría concreta.</param>
+    /// <param name="lang">Código de idioma opcional ("es" o "en"). Por defecto "es".</param>
+    /// <returns>Lista de armas con estadísticas de daño, cadencia, precisión, accesorios y precios.</returns>
+    [HttpGet("weapons")]
+    public ActionResult<List<WeaponItem>> GetWeapons([FromQuery] string? category, [FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetWeapons(category, lang).ToList());
+    }
 }

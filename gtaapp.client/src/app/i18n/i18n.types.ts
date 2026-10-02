@@ -296,6 +296,8 @@ export interface TranslationSchema {
       item4: string;
       golpes: string;
       misterios?: string;
+      armas?: string;
+      weapons?: string;
     };
     catalog: {
       searchPlaceholder?: string;
@@ -308,6 +310,8 @@ export interface TranslationSchema {
       buyPrice: string;
       tradePrice: string;
       weaponized: string;
+      sortDefault?: string;
+      sortByStat?: string;
     };
     stats: {
       speed: string;
@@ -358,7 +362,7 @@ export interface TranslationSchema {
       title: string;
       searchPlaceholder: string;
       all: string;
-      allCharacters?: string;
+      allCharacters: string;
       only100: string;
       viewSeries: string;
       viewList: string;
@@ -381,7 +385,7 @@ export interface TranslationSchema {
       nextMission: string;
       req100Badge: string;
       optionalBadge: string;
-      viewGuide: string;
+      viewGuide?: string;
     };
     heists?: {
       searchPlaceholder: string;
@@ -414,6 +418,52 @@ export interface TranslationSchema {
       returnToList: string;
       prevHeist: string;
       nextHeist: string;
+    };
+    weapons?: {
+      searchPlaceholder: string;
+      all: string;
+      allCategories: string;
+      loading: string;
+      error: string;
+      retry: string;
+      empty: string;
+      backToWeapons: string;
+      weaponNum: string;
+      manufacturer: string;
+      realCounterpart: string;
+      buyPrice: string;
+      rankUnlock: string;
+      damage: string;
+      fireRate: string;
+      accuracy: string;
+      range: string;
+      clipSize: string;
+      attachmentsTitle: string;
+      synopsis: string;
+      mk2Badge: string;
+      returnToList: string;
+      prevWeapon: string;
+      nextWeapon: string;
+      sortDefault: string;
+      sortDamage: string;
+      sortFireRate: string;
+      sortAccuracy: string;
+      sortRange: string;
+      sortPrice: string;
+      availableCount?: string;
+      ofCatalog?: string;
+      armeria?: string;
+      categories: {
+        all: string;
+        pistols: string;
+        smgs: string;
+        rifles: string;
+        shotguns: string;
+        snipers: string;
+        heavy: string;
+        melee: string;
+        throwables: string;
+      };
     };
     mysteries?: {
       searchPlaceholder: string;

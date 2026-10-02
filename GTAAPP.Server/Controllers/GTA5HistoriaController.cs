@@ -199,4 +199,17 @@ public class GTA5HistoriaController : ControllerBase
     {
         return Ok(_locationsService.GetStoryMysteries(lang).ToList());
     }
+
+    /// <summary>
+    /// GET /api/gta5/historia/weapons → Arsenal y catálogo de armas de Ammu-Nation del Modo Historia
+    /// (pistolas, subfusiles, rifles de asalto, escopetas, francotiradores, armas pesadas, cuerpo a cuerpo y arrojadizas).
+    /// </summary>
+    /// <param name="category">Filtro opcional por categoría de arma.</param>
+    /// <param name="lang">Código de idioma opcional ("es" o "en"). Por defecto "es".</param>
+    /// <returns>Lista de armas con estadísticas, precios y accesorios.</returns>
+    [HttpGet("weapons")]
+    public ActionResult<List<WeaponItem>> GetStoryWeapons([FromQuery] string? category, [FromQuery] string? lang)
+    {
+        return Ok(_locationsService.GetStoryWeapons(category, lang).ToList());
+    }
 }

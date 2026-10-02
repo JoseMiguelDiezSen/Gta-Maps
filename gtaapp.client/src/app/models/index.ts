@@ -4,3 +4,4 @@ export * from './vehicle';
 export * from './mission';
 export * from './game';
 export * from './mystery';
+export * from './weapon';

@@ -1438,90 +1438,6 @@
         "imageUrl": "/assets/data-images/properties/VehicleWarehouse-GTAO.png"
     },
     {
-        "id": "mansion-tongva",
-        "name": "The Tongva Estate",
-        "price": 11500000,
-        "category": "mansion",
-        "categoryLabel": "Mansión de Lujo",
-        "gameMode": "online",
-        "badge": {
-            "symbol": "🏰",
-            "color": "#d4af37"
-        },
-        "zone": "Tongva Hills",
-        "position": {
-            "x": -2480,
-            "y": 390,
-            "z": 240
-        },
-        "description": "Espectacular finca privada en Tongva Hills con helipuerto particular, vistas panorámicas al océano Pacífico, piscina infinita y garaje para 20 vehículos.",
-        "features": [
-            "Garaje para 20 vehículos",
-            "Helipuerto privado",
-            "Concierge IA personal",
-            "Acceso a Golpe Kortz Center",
-            "Vistas al Pacífico"
-        ],
-        "priceFormatted": "$11,500,000",
-        "imageUrl": "/assets/data-images/properties/Mansions-GTAOe-TheTongvaEstate.png"
-    },
-    {
-        "id": "mansion-vinewood",
-        "name": "The Vinewood Residence",
-        "price": 12200000,
-        "category": "mansion",
-        "categoryLabel": "Mansión de Lujo",
-        "gameMode": "online",
-        "badge": {
-            "symbol": "🏰",
-            "color": "#d4af37"
-        },
-        "zone": "Vinewood Hills",
-        "position": {
-            "x": 720,
-            "y": 1190,
-            "z": 325
-        },
-        "description": "Mansión moderna en las colinas de Vinewood Hills situada justo bajo el legendario cartel de Vinewood, con helipuerto y vistas a todo Los Santos.",
-        "features": [
-            "Garaje para 20 vehículos",
-            "Helipuerto privado",
-            "Salón de belleza y gimnasio",
-            "Estudio de arte",
-            "Vistas sobre el skyline"
-        ],
-        "priceFormatted": "$12,200,000",
-        "imageUrl": "/assets/data-images/properties/Mansions-GTAOe-TheVinewoodResidence.png"
-    },
-    {
-        "id": "mansion-richman",
-        "name": "The Richman Villa",
-        "price": 12800000,
-        "category": "mansion",
-        "categoryLabel": "Mansión de Lujo",
-        "gameMode": "online",
-        "badge": {
-            "symbol": "🏰",
-            "color": "#d4af37"
-        },
-        "zone": "Richman",
-        "position": {
-            "x": -1600,
-            "y": 440,
-            "z": 125
-        },
-        "description": "Villa de estilo neoclásico en la exclusiva urbanización de Richman, colindante con el Kortz Center y el club de golf, con máxima proximidad al centro urbano.",
-        "features": [
-            "Garaje para 20 vehículos",
-            "Helipuerto privado",
-            "Estudio de arte Kortz",
-            "Piscina y spa",
-            "Ubicación premium céntrica"
-        ],
-        "priceFormatted": "$12,800,000",
-        "imageUrl": "/assets/data-images/properties/Mansions-GTAOe-RichmanVilla.png"
-    },
-    {
         "id": "biz-agency-hawick",
         "name": "Agencia F. Clinton and Partner (Hawick)",
         "category": "agency",
@@ -1741,5 +1657,542 @@
             "symbol": "🏟️"
         },
         "imageUrl": "/assets/data-images/properties/MazeBankArena-GTAO-ArenaWar.png"
+    },
+    {
+        "id": "apt-eclipse-towers",
+        "name": "Eclipse Towers",
+        "category": "luxury_apartment",
+        "categoryLabel": "Apartamento de Lujo",
+        "gameMode": "online",
+        "price": 400000,
+        "priceFormatted": "$400,000 - $1,100,000",
+        "zone": "West Vinewood",
+        "description": "El rascacielos residencial más emblemático de Los Santos. Ofrece apartamentos de lujo personalizables y áticos con vistas panorámicas a toda la ciudad.",
+        "features": [
+            "Garaje para 10 vehículos",
+            "Sala de planificación de golpes",
+            "Interiores personalizables en áticos",
+            "Vistas privilegiadas al centro de Los Santos"
+        ],
+        "position": {
+            "x": -775.5,
+            "y": 312,
+            "z": 85.7
+        },
+        "badge": {
+            "icon": "building",
+            "color": "#f1c40f",
+            "symbol": "🏢"
+        },
+        "imageUrl": "/assets/data-images/properties/EclipseTowers-GTAO.png"
+    },
+    {
+        "id": "apt-del-perro-heights",
+        "name": "Del Perro Heights",
+        "category": "luxury_apartment",
+        "categoryLabel": "Apartamento de Lujo",
+        "gameMode": "online",
+        "price": 205000,
+        "priceFormatted": "$200,000 - $468,000",
+        "zone": "Del Perro",
+        "description": "El apartamento de lujo más popular para principiantes. Excelente relación calidad-precio y cercanía al muelle de Del Perro y la playa.",
+        "features": [
+            "Garaje para 10 vehículos",
+            "Sala de planificación de golpes",
+            "El apartamento de gama alta más asequible",
+            "Acceso directo a Del Perro Boulevard"
+        ],
+        "position": {
+            "x": -1450,
+            "y": -540,
+            "z": 74
+        },
+        "badge": {
+            "icon": "building",
+            "color": "#f1c40f",
+            "symbol": "🏢"
+        }
+    },
+    {
+        "id": "apt-3-alta-street",
+        "name": "3 Alta Street Tower",
+        "category": "luxury_apartment",
+        "categoryLabel": "Apartamento de Lujo",
+        "gameMode": "online",
+        "price": 223000,
+        "priceFormatted": "$217,000 - $223,000",
+        "zone": "Downtown Los Santos",
+        "description": "Ubicación céntrica privilegiada junto a Pillbox Hill y a escasos metros de la plaza Legion Square. Conexión rápida con el metro subterráneo.",
+        "features": [
+            "Garaje para 10 vehículos",
+            "Sala de planificación de golpes",
+            "Posición ultra-céntrica en Downtown",
+            "Entrada directa a túneles subterráneos de escape"
+        ],
+        "position": {
+            "x": -270,
+            "y": -950,
+            "z": 31
+        },
+        "badge": {
+            "icon": "building",
+            "color": "#f1c40f",
+            "symbol": "🏢"
+        }
+    },
+    {
+        "id": "apt-4-integrity-way",
+        "name": "4 Integrity Way",
+        "category": "luxury_apartment",
+        "categoryLabel": "Apartamento de Lujo",
+        "gameMode": "online",
+        "price": 476000,
+        "priceFormatted": "$235,000 - $476,000",
+        "zone": "Downtown Los Santos",
+        "description": "Complejo de alto standing situado justo enfrente de la Torre Maze Bank y la sede del FIB. Interiores contemporáneos actualizados.",
+        "features": [
+            "Garaje para 10 vehículos",
+            "Sala de planificación de golpes",
+            "Frente al distrito financiero y Maze Bank",
+            "Interiores de diseño de alta gama"
+        ],
+        "position": {
+            "x": -30,
+            "y": -590,
+            "z": 38
+        },
+        "badge": {
+            "icon": "building",
+            "color": "#f1c40f",
+            "symbol": "🏢"
+        }
+    },
+    {
+        "id": "apt-weazel-plaza",
+        "name": "Weazel Plaza",
+        "category": "luxury_apartment",
+        "categoryLabel": "Apartamento de Lujo",
+        "gameMode": "online",
+        "price": 335000,
+        "priceFormatted": "$319,000 - $335,000",
+        "zone": "Rockford Hills",
+        "description": "Edificio moderno con helipuerto accesible y rampa de garaje inclinada. Famoso por su salida rápida a bulevares principales sin tráfico.",
+        "features": [
+            "Garaje para 10 vehículos",
+            "Sala de planificación de golpes",
+            "Acceso rápido a helipuerto superior",
+            "Entorno exclusivo de Rockford Hills"
+        ],
+        "position": {
+            "x": -1080,
+            "y": -480,
+            "z": 36
+        },
+        "badge": {
+            "icon": "building",
+            "color": "#f1c40f",
+            "symbol": "🏢"
+        }
+    },
+    {
+        "id": "apt-tinsel-towers",
+        "name": "Tinsel Towers",
+        "category": "luxury_apartment",
+        "categoryLabel": "Apartamento de Lujo",
+        "gameMode": "online",
+        "price": 492000,
+        "priceFormatted": "$286,000 - $492,000",
+        "zone": "Rockford Hills",
+        "description": "Residencial señorial sobre Boulevard Del Perro en el corazón de Rockford Hills, con vistas despejadas a Los Santos Custom de Burton.",
+        "features": [
+            "Garaje para 10 vehículos",
+            "Sala de planificación de golpes",
+            "Cercanía a Los Santos Customs Burton",
+            "Zona señorial tranquila"
+        ],
+        "position": {
+            "x": -615,
+            "y": 38,
+            "z": 43
+        },
+        "badge": {
+            "icon": "building",
+            "color": "#f1c40f",
+            "symbol": "🏢"
+        }
+    },
+    {
+        "id": "apt-richards-majestic",
+        "name": "Richards Majestic",
+        "category": "luxury_apartment",
+        "categoryLabel": "Apartamento de Lujo",
+        "gameMode": "online",
+        "price": 253000,
+        "priceFormatted": "$241,000 - $253,000",
+        "zone": "Movie Star Way / Rockford",
+        "description": "Frente a los emblemáticos estudios de cine Richards Majestic. Apartamento de élite con vistas al plató de cine y campos de golf de Richman.",
+        "features": [
+            "Garaje para 10 vehículos",
+            "Sala de planificación de golpes",
+            "Vistas al club de golf de Los Santos",
+            "Ambiente cinematográfico de Vinewood"
+        ],
+        "position": {
+            "x": -1005,
+            "y": -415,
+            "z": 39
+        },
+        "badge": {
+            "icon": "building",
+            "color": "#f1c40f",
+            "symbol": "🏢"
+        }
+    },
+    {
+        "id": "apt-dream-tower",
+        "name": "Dream Tower",
+        "category": "mid_apartment",
+        "categoryLabel": "Apartamento Medio",
+        "gameMode": "online",
+        "price": 134000,
+        "priceFormatted": "$134,000",
+        "zone": "Little Seoul",
+        "description": "Apartamento acogedor y funcional en el animado distrito de Little Seoul, con rápido acceso al centro y a la playa.",
+        "features": [
+            "Garaje para 6 vehículos",
+            "Interior espacioso de gama media",
+            "Cercanía a talleres y tiendas"
+        ],
+        "position": {
+            "x": -750,
+            "y": -800,
+            "z": 24
+        },
+        "badge": {
+            "icon": "house",
+            "color": "#3498db",
+            "symbol": "🏠"
+        }
+    },
+    {
+        "id": "apt-bay-city-ave",
+        "name": "0115 Bay City Avenue",
+        "category": "mid_apartment",
+        "categoryLabel": "Apartamento Medio",
+        "gameMode": "online",
+        "price": 150000,
+        "priceFormatted": "$150,000",
+        "zone": "Vespucci Beach",
+        "description": "Residencia junto a los canales y paseo marítimo de Vespucci Beach. Para los amantes de la costa y el sol.",
+        "features": [
+            "Garaje para 6 vehículos",
+            "A pocos pasos de la arena de Vespucci",
+            "Conexión con canales náuticos"
+        ],
+        "position": {
+            "x": -1280,
+            "y": -1080,
+            "z": 8
+        },
+        "badge": {
+            "icon": "house",
+            "color": "#3498db",
+            "symbol": "🏠"
+        }
+    },
+    {
+        "id": "apt-the-royale",
+        "name": "The Royale",
+        "category": "mid_apartment",
+        "categoryLabel": "Apartamento Medio",
+        "gameMode": "online",
+        "price": 125000,
+        "priceFormatted": "$125,000",
+        "zone": "West Vinewood",
+        "description": "Edificio con encanto art decó en West Vinewood, a los pies de las colinas.",
+        "features": [
+            "Garaje para 6 vehículos",
+            "Ubicación histórica de Vinewood",
+            "Precio muy competitivo"
+        ],
+        "position": {
+            "x": -550,
+            "y": 280,
+            "z": 82
+        },
+        "badge": {
+            "icon": "house",
+            "color": "#3498db",
+            "symbol": "🏠"
+        }
+    },
+    {
+        "id": "apt-mirror-park-blvd",
+        "name": "0897 Mirror Park Blvd",
+        "category": "low_apartment",
+        "categoryLabel": "Apartamento Bajo",
+        "gameMode": "online",
+        "price": 115000,
+        "priceFormatted": "$115,000",
+        "zone": "Mirror Park",
+        "description": "Vivienda económica en el barrio residencial de Mirror Park, cerca del lago artificial y zonas ajardinadas.",
+        "features": [
+            "Garaje para 2 vehículos",
+            "Barrio suburbano tranquilo",
+            "Bajo coste de mantenimiento"
+        ],
+        "position": {
+            "x": 1040,
+            "y": -400,
+            "z": 66
+        },
+        "badge": {
+            "icon": "door-open",
+            "color": "#95a5a6",
+            "symbol": "🚪"
+        }
+    },
+    {
+        "id": "apt-milton-road",
+        "name": "0184 Milton Road",
+        "category": "low_apartment",
+        "categoryLabel": "Apartamento Bajo",
+        "gameMode": "online",
+        "price": 107000,
+        "priceFormatted": "$107,000",
+        "zone": "Vinewood Hills",
+        "description": "Piso económico situado en las faldas de Vinewood Hills con acceso a las carreteras sinuosas de montaña.",
+        "features": [
+            "Garaje para 2 vehículos",
+            "Acceso directo a carreteras de montaña",
+            "Muy asequible para iniciarse"
+        ],
+        "position": {
+            "x": -620,
+            "y": 550,
+            "z": 108
+        },
+        "badge": {
+            "icon": "door-open",
+            "color": "#95a5a6",
+            "symbol": "🚪"
+        }
+    },
+    {
+        "id": "gar-exceptionalists-way",
+        "name": "Garaje Exceptionalists Way (10 plazas)",
+        "category": "garage",
+        "categoryLabel": "Garaje Independiente",
+        "gameMode": "online",
+        "price": 142000,
+        "priceFormatted": "$142,000",
+        "zone": "Aeropuerto LSIA",
+        "description": "Garaje independiente de gran capacidad junto a las pistas y hangares del Aeropuerto Internacional de Los Santos.",
+        "features": [
+            "Capacidad para 10 vehículos",
+            "Espacio para 3 bicicletas",
+            "Próximo a helipuertos y pistas de despegue"
+        ],
+        "position": {
+            "x": -750,
+            "y": -2280,
+            "z": 13
+        },
+        "badge": {
+            "icon": "warehouse",
+            "color": "#1abc9c",
+            "symbol": "🚘"
+        }
+    },
+    {
+        "id": "gar-popular-street",
+        "name": "Garaje Popular Street (10 plazas)",
+        "category": "garage",
+        "categoryLabel": "Garaje Independiente",
+        "gameMode": "online",
+        "price": 147000,
+        "priceFormatted": "$147,000",
+        "zone": "La Mesa",
+        "description": "Garaje para 10 vehículos en el corazón industrial de La Mesa, con salida directa a la autopista Olympic Freeway.",
+        "features": [
+            "Capacidad para 10 vehículos",
+            "Conexión rápida por autopista",
+            "Ubicación industrial estratégica"
+        ],
+        "position": {
+            "x": 820,
+            "y": -800,
+            "z": 26
+        },
+        "badge": {
+            "icon": "warehouse",
+            "color": "#1abc9c",
+            "symbol": "🚘"
+        }
+    },
+    {
+        "id": "gar-south-shambles",
+        "name": "Garaje South Shambles Street (10 plazas)",
+        "category": "garage",
+        "categoryLabel": "Garaje Independiente",
+        "gameMode": "online",
+        "price": 105000,
+        "priceFormatted": "$105,000",
+        "zone": "Terminal / Puerto",
+        "description": "El garaje de 10 plazas más económico de Los Santos, ubicado en el área logística portuaria.",
+        "features": [
+            "Capacidad para 10 vehículos",
+            "El garaje de 10 plazas con mejor precio",
+            "Amplio espacio de maniobra exterior"
+        ],
+        "position": {
+            "x": 730,
+            "y": -1980,
+            "z": 29
+        },
+        "badge": {
+            "icon": "warehouse",
+            "color": "#1abc9c",
+            "symbol": "🚘"
+        }
+    },
+    {
+        "id": "gar-sandy-shores",
+        "name": "Garaje Marina Drive (2 plazas)",
+        "category": "garage",
+        "categoryLabel": "Garaje Independiente",
+        "gameMode": "online",
+        "price": 25000,
+        "priceFormatted": "$25,000",
+        "zone": "Sandy Shores",
+        "description": "Pequeño garaje en el desierto de Grand Senora junto a Alamo Sea. Perfecto como punto de guardado en el norte.",
+        "features": [
+            "Capacidad para 2 vehículos",
+            "Punto de apoyo logístico en el condado de Blaine",
+            "Precio ultra-económico"
+        ],
+        "position": {
+            "x": 1970,
+            "y": 3740,
+            "z": 32
+        },
+        "badge": {
+            "icon": "warehouse",
+            "color": "#1abc9c",
+            "symbol": "🚘"
+        }
+    },
+    {
+        "id": "gar-paleto-bay",
+        "name": "Garaje Paleto Boulevard (2 plazas)",
+        "category": "garage",
+        "categoryLabel": "Garaje Independiente",
+        "gameMode": "online",
+        "price": 26000,
+        "priceFormatted": "$26,000",
+        "zone": "Paleto Bay",
+        "description": "Garaje en el extremo norte del mapa, junto a la costa de Paleto Bay.",
+        "features": [
+            "Capacidad para 2 vehículos",
+            "Extremo norte del mapa",
+            "Ideal para guardar todoterrenos y lanchas"
+        ],
+        "position": {
+            "x": -160,
+            "y": 6310,
+            "z": 31
+        },
+        "badge": {
+            "icon": "warehouse",
+            "color": "#1abc9c",
+            "symbol": "🚘"
+        }
+    },
+    {
+        "id": "mansion-richman",
+        "name": "The Richman Villa",
+        "price": 12800000,
+        "priceFormatted": "$12,800,000",
+        "category": "mansion",
+        "categoryLabel": "Mansión de Lujo",
+        "gameMode": "online",
+        "zone": "Richman",
+        "position": {
+            "x": -1673,
+            "y": 492,
+            "z": 125
+        },
+        "description": "Villa de estilo neoclásico en la exclusiva urbanización de Richman, colindante con el Kortz Center y el club de golf, con máxima proximidad al centro urbano.",
+        "features": [
+            "Garaje para 20 vehículos",
+            "Helipuerto privado",
+            "Estudio de arte Kortz",
+            "Piscina y spa",
+            "Ubicación premium céntrica"
+        ],
+        "badge": {
+            "icon": "landmark",
+            "color": "#d4af37",
+            "symbol": "🏰"
+        },
+        "imageUrl": "/assets/data-images/properties/Mansions-GTAOe-RichmanVilla.png"
+    },
+    {
+        "id": "mansion-vinewood",
+        "name": "The Vinewood Residence",
+        "price": 12200000,
+        "priceFormatted": "$12,200,000",
+        "category": "mansion",
+        "categoryLabel": "Mansión de Lujo",
+        "gameMode": "online",
+        "zone": "Vinewood Hills",
+        "position": {
+            "x": 720,
+            "y": 1190,
+            "z": 325
+        },
+        "description": "Mansión moderna en las colinas de Vinewood Hills situada justo bajo el legendario cartel de Vinewood, con helipuerto y vistas a todo Los Santos.",
+        "features": [
+            "Garaje para 20 vehículos",
+            "Helipuerto privado",
+            "Salón de belleza y gimnasio",
+            "Estudio de arte",
+            "Vistas sobre el skyline"
+        ],
+        "badge": {
+            "icon": "landmark",
+            "color": "#d4af37",
+            "symbol": "🏰"
+        },
+        "imageUrl": "/assets/data-images/properties/Mansions-GTAOe-TheVinewoodResidence.png"
+    },
+    {
+        "id": "mansion-tongva",
+        "name": "The Tongva Estate",
+        "price": 11500000,
+        "priceFormatted": "$11,500,000",
+        "category": "mansion",
+        "categoryLabel": "Mansión de Lujo",
+        "gameMode": "online",
+        "zone": "Tongva Hills",
+        "position": {
+            "x": -2480,
+            "y": 390,
+            "z": 240
+        },
+        "description": "Espectacular finca privada en Tongva Hills con helipuerto particular, vistas panorámicas al océano Pacífico, piscina infinita y garaje para 20 vehículos.",
+        "features": [
+            "Garaje para 20 vehículos",
+            "Helipuerto privado",
+            "Concierge IA personal",
+            "Acceso a Golpe Kortz Center",
+            "Vistas al Pacífico"
+        ],
+        "badge": {
+            "icon": "landmark",
+            "color": "#d4af37",
+            "symbol": "🏰"
+        },
+        "imageUrl": "/assets/data-images/properties/Mansions-GTAOe-TheTongvaEstate.png"
     }
 ]
