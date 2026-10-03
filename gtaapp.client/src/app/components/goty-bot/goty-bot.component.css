@@ -134,9 +134,12 @@
   top: 0;
   left: 80px;
   width: 340px;
+  min-width: 280px;
   max-width: 90vw;
   height: 360px;
-  max-height: 55vh;
+  min-height: 250px;
+  max-height: 85vh;
+  resize: both;
   background: rgba(13, 19, 26, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);

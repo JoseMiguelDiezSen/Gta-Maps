@@ -973,10 +973,67 @@ delete (window as any)._gtaSaveMarkerName;
             this.loadCollectibles();
         }
 
+        this.renderDistrictLabels();
         this.updateIconStyle();
 
         this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
             this.mouseCoords = this.latLngToWorld(e.latlng.lat, e.latlng.lng);
+        });
+    }
+
+    private districtLabelsLayer: L.LayerGroup | null = null;
+    private readonly districts = [
+        { name: 'Los Santos', x: 0, y: -1000, size: 18, isMajor: true },
+        { name: 'Blaine County', x: 800, y: 4000, size: 19, isMajor: true },
+        { name: 'Vinewood Hills', x: 0, y: 700, size: 13, isMajor: false },
+        { name: 'Downtown Los Santos', x: 100, y: -200, size: 14, isMajor: true },
+        { name: 'Vespucci Beach', x: -1100, y: -1300, size: 13, isMajor: false },
+        { name: 'Los Santos Intl Airport', x: -1000, y: -2700, size: 12, isMajor: false },
+        { name: 'Del Perro', x: -1400, y: -600, size: 13, isMajor: false },
+        { name: 'Davis', x: 100, y: -1700, size: 12, isMajor: false },
+        { name: 'Sandy Shores', x: 1700, y: 3600, size: 15, isMajor: true },
+        { name: 'Grapeseed', x: 2300, y: 4800, size: 13, isMajor: false },
+        { name: 'Paleto Bay', x: -300, y: 6200, size: 15, isMajor: true },
+        { name: 'Monte Chiliad', x: 400, y: 5500, size: 14, isMajor: true },
+        { name: 'Chumash', x: -3100, y: 1100, size: 13, isMajor: false },
+        { name: 'Fort Zancudo', x: -2100, y: 3000, size: 13, isMajor: false },
+        { name: 'Great Chaparral', x: -300, y: 1500, size: 13, isMajor: false },
+        { name: 'Harmony', x: 600, y: 2700, size: 13, isMajor: false },
+        { name: 'El Burro Heights', x: 1400, y: -1800, size: 12, isMajor: false },
+        { name: 'Puerto de Los Santos', x: 500, y: -2600, size: 12, isMajor: false },
+        { name: 'Palomino Highlands', x: 2700, y: -1200, size: 13, isMajor: false }
+    ];
+
+    private renderDistrictLabels(): void {
+        if (!this.map) return;
+        if (!this.districtLabelsLayer) {
+            this.districtLabelsLayer = L.layerGroup().addTo(this.map);
+        }
+        this.districtLabelsLayer.clearLayers();
+
+        this.districts.forEach(d => {
+            const [lat, lng] = this.worldToLatLng(d.x, d.y);
+            const icon = L.divIcon({
+                className: 'gta-district-label-pin',
+                html: `<div style="
+                    color: rgba(255, 255, 255, 0.92);
+                    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                    font-size: ${d.size + 1}px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.8);
+                    white-space: nowrap;
+                    pointer-events: none;
+                    user-select: none;
+                    text-align: center;
+                ">${d.name}</div>`,
+                iconSize: [260, 30],
+                iconAnchor: [130, 15]
+            });
+
+            const marker = L.marker([lat, lng], { icon, interactive: false });
+            this.districtLabelsLayer?.addLayer(marker);
         });
     }
 
