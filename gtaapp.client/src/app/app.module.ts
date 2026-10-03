@@ -11,6 +11,7 @@ import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
 import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
 import { HomeComponent }          from './home/home.component';
 import { InfoPanelComponent } from './components/info-panel/info-panel.component';
+import { GotyModule } from './components/goty-bot/goty.module';
 import { AppRoutingModule }       from './app-routing.module';
 import { TranslatePipe }          from './i18n';
 
@@ -30,7 +31,8 @@ import { TranslatePipe }          from './i18n';
         BrowserModule,
         CommonModule,
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        GotyModule
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi())

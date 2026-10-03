@@ -5,6 +5,7 @@ import { LocationItem } from '../../models/location';
 import { CollectibleItem } from '../../models/collectible';
 import { TranslationService } from '../../i18n';
 import { Router, ActivatedRoute } from '@angular/router';
+import { GotyService } from '../../services/goty.service';
 
 @Component({
     selector: 'app-gta5-online',
@@ -397,7 +398,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         private locationService: LocationService,
         readonly translationService: TranslationService,
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        public gotyService: GotyService
     ) {
         effect(() => {
             const lang = this.translationService.currentLanguage();

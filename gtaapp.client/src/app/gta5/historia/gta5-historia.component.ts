@@ -5,6 +5,7 @@ import { LocationService } from '../../services/location.service';
 import { LocationItem } from '../../models/location';
 import { CollectibleItem } from '../../models/collectible';
 import { TranslationService } from '../../i18n';
+import { GotyService } from '../../services/goty.service';
 
 
 // ---------------------------------------------------------------------------
@@ -294,7 +295,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(
         private locationService: LocationService,
         readonly translationService: TranslationService,
-        private router: Router
+        private router: Router,
+        public gotyService: GotyService
     ) {
         effect(() => {
             const lang = this.translationService.currentLanguage();

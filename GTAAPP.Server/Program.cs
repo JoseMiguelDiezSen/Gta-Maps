@@ -11,6 +11,7 @@ using GTAAPP.Server.Hubs;
 // =========================================================================================
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true);
 
 // 1. Eliminar cabecera 'Server' para no exponer detalles internos del servidor Kestrel a posibles atacantes
 builder.WebHost.ConfigureKestrel(serverOptions =>
@@ -119,6 +120,7 @@ builder.Services.AddRateLimiter(options =>
 // 7. Servicios singleton de negocio (gestión de ubicaciones y vehículos con caché en memoria)
 builder.Services.AddSingleton<GTAAPP.Server.Services.LocationsService>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.VehiclesService>();
+builder.Services.AddHttpClient<GTAAPP.Server.Services.IGeminiService, GTAAPP.Server.Services.GeminiService>();
 
 // 8. Documentación interactiva de la API con OpenAPI / Swagger
 builder.Services.AddOpenApi();

@@ -1,0 +1,80 @@
+<div class="goty-wrapper" *ngIf="gotyService.isEnabled" [class.is-gta6]="isGta6" [class.is-angry]="isAngryAvatar" [style.top.px]="wrapperTop" [style.left.px]="wrapperLeft">
+
+  <!-- BOTÓN FLOTANTE AVATAR (Posición 70% de altura lateral) -->
+  <button
+    type="button"
+    class="goty-floating-avatar"
+    [class.is-active]="isOpen"
+    (click)="toggleChat()"
+    [title]="'Hablar con ' + botName"
+  >
+    <div class="goty-avatar-ring"></div>
+    <img [src]="avatarSrc" [alt]="botName" class="goty-avatar-img" />
+  </button>
+
+  <!-- VENTANA POPUP DE CHAT -->
+  <div class="goty-chat-card" *ngIf="isOpen">
+    <!-- Cabecera -->
+    <div class="goty-chat-header" (mousedown)="onDragStart($event)" style="cursor: grab;">
+      <div class="goty-header-left">
+        <img [src]="avatarSrc" [alt]="botName" class="goty-header-avatar" />
+        <div class="goty-header-info">
+          <span class="goty-bot-title">{{ botName }}</span>
+          <span class="goty-bot-subtitle">
+            {{ isGta6 ? 'Asistente de Vice City' : 'Asistente de Los Santos' }}
+          </span>
+        </div>
+      </div>
+      <button type="button" class="goty-close-btn" (click)="closeChat()" title="Cerrar chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Cuerpo de mensajes con autoscroll -->
+    <div class="goty-chat-body" #scrollContainer>
+      <div
+        *ngFor="let msg of messages"
+        class="goty-msg-row"
+        [class.is-user]="msg.sender === 'user'"
+        [class.is-bot]="msg.sender === 'goty'"
+      >
+        <div class="goty-msg-bubble">
+          <div class="goty-msg-text" [innerHTML]="msg.text"></div>
+        </div>
+
+
+      </div>
+
+      <!-- Indicador escribiendo... -->
+      <div class="goty-msg-row is-bot" *ngIf="isTyping">
+        <div class="goty-msg-bubble goty-typing-bubble">
+          <span class="goty-typing-dot"></span>
+          <span class="goty-typing-dot"></span>
+          <span class="goty-typing-dot"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de entrada de texto -->
+    <div class="goty-chat-footer">
+      <input
+        type="text"
+        class="goty-input"
+        [(ngModel)]="userInput"
+        (keydown)="onKeyDown($event)"
+        [placeholder]="'Pregunta a ' + botName + '...'"
+        maxlength="200"
+      />
+      <button
+        type="button"
+        class="goty-send-btn"
+        (click)="sendMessage()"
+        [disabled]="!userInput.trim()"
+        title="Enviar mensaje"
+      >
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+</div>
