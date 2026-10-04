@@ -105,7 +105,7 @@
                 [style.background]="item.color"
                 [style.box-shadow]="'0 0 6px ' + item.color"
               ></i>
-              <span class="legend-name">{{ item.name }}</span>
+              <span class="legend-name">{{ getItemName(item) }}</span>
               <span class="legend-count">{{ item.count }}</span>
             </button>
           </div>
@@ -279,81 +279,11 @@
           </div>
 
           <div class="hud-acc-body hud-police-body" *ngIf="accordion['policia']">
-            <!-- Tira de iconos superiores estilo HUD GTA VI dentro del panel -->
-            <div class="gta6-police-hud-strip" [title]="'GTA VI Police Alert Badges'">
-              <div
-                class="police-hud-pill"
-                [class.is-active]="layerFilters['policia-cctv']"
-                (click)="toggleLayer('policia-cctv')"
-                [title]="getPoliceDesc(policiaItems[4])"
-              >
-                <svg viewBox="0 0 24 24" class="police-svg" fill="currentColor">
-                  <rect x="3" y="6" width="2" height="9" rx="0.8"/>
-                  <path d="M5 9.5h3.2v2H5z"/>
-                  <circle cx="8.5" cy="10.5" r="1.5"/>
-                  <path d="M8.2 8.8l9.4 5.4-1.7 3-9.4-5.4z"/>
-                  <path d="M7.6 7.6l11.8 6.8-.9 1.5-11.8-6.8z"/>
-                  <path d="M17.6 14.2l2.8 1.6-.7 1.3-2.8-1.6z"/>
-                </svg>
-              </div>
-
-              <div
-                class="police-hud-pill"
-                [class.is-active]="layerFilters['policia-couple']"
-                (click)="toggleLayer('policia-couple')"
-                [title]="getPoliceDesc(policiaItems[3])"
-              >
-                <svg viewBox="0 0 24 24" class="police-svg" fill="currentColor">
-                  <circle cx="8.5" cy="7.2" r="2.8"/>
-                  <path d="M3.2 18.5c0-3.2 2.4-5.5 5.3-5.5 1.5 0 2.9.6 3.8 1.7-.2 1.2-.1 2.5.5 3.8H3.2z"/>
-                  <circle cx="15.8" cy="8.2" r="2.5"/>
-                  <path d="M12.7 18.5c.3-2.7 2.1-4.7 4.6-4.7s4.4 2 4.4 4.7h-9z"/>
-                </svg>
-              </div>
-
-              <div
-                class="police-hud-pill"
-                [class.is-active]="layerFilters['policia-clothes']"
-                (click)="toggleLayer('policia-clothes')"
-                [title]="getPoliceDesc(policiaItems[2])"
-              >
-                <svg viewBox="0 0 24 24" class="police-svg" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12 4.2c1.5 0 2.6 1.1 2.6 2.5 0 1-.6 1.8-1.5 2.2l6.8 4.7c.7.5.9 1.4.5 2.1-.3.5-.8.8-1.4.8H5c-.8 0-1.5-.6-1.6-1.4-.1-.5.1-1 .5-1.5l6.8-4.7c-.9-.4-1.5-1.2-1.5-2.2 0-1.4 1.1-2.5 2.6-2.5zm0 5.8L6.2 14.8h11.6L12 10z"/>
-                </svg>
-              </div>
-
-              <div
-                class="police-hud-pill"
-                [class.is-active]="layerFilters['policia-identity']"
-                (click)="toggleLayer('policia-identity')"
-                [title]="getPoliceDesc(policiaItems[1])"
-              >
-                <svg viewBox="0 0 24 24" class="police-svg" fill="currentColor">
-                  <circle cx="12" cy="7.2" r="3.6"/>
-                  <path d="M5 19.2c0-3.8 3.1-6.7 7-6.7s7 2.9 7 6.7H5z"/>
-                </svg>
-              </div>
-
-              <div
-                class="police-hud-pill"
-                [class.is-active]="layerFilters['policia-weapon']"
-                (click)="toggleLayer('policia-weapon')"
-                [title]="getPoliceDesc(policiaItems[0])"
-              >
-                <svg viewBox="0 0 24 24" class="police-svg" fill="currentColor">
-                  <path fill-rule="evenodd" d="M19.5 8H4.2v3.6h5.3v.6c0 1.2.9 2.2 2.1 2.2h1.2l2.3 4.4h3.6l-1.8-6.9h2.6V8zm-7 3.6h-1.6c-.4 0-.7-.3-.7-.7v-.5h2.3v1.2z"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Lista vertical de estados policiales con icono y descripción -->
+            <!-- Lista vertical de estados policiales informativos (no interactivos) -->
             <div class="gta6-police-list">
-              <button
-                type="button"
-                class="legend-btn police-alert-btn"
+              <div
+                class="police-alert-card"
                 *ngFor="let item of policiaItems"
-                [class.is-active]="layerFilters[item.id]"
-                (click)="toggleLayer(item.id)"
               >
                 <!-- Badge circular rojo con icono SVG blanco -->
                 <div class="police-badge-icon" [ngSwitch]="item.badgeType">
@@ -383,15 +313,12 @@
                   </svg>
                 </div>
 
-                <!-- Info con título y descripción (lo que es cada uno) -->
+                <!-- Info con título y descripción (texto completo en multilínea) -->
                 <div class="police-info">
                   <span class="police-name">{{ getPoliceTitle(item) }}</span>
                   <span class="police-desc">{{ getPoliceDesc(item) }}</span>
                 </div>
-
-                <!-- Indicador de estado activo -->
-                <span class="police-status-indicator" [class.is-active]="layerFilters[item.id]"></span>
-              </button>
+              </div>
             </div>
           </div>
         </div>

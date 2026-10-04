@@ -116,7 +116,9 @@ export const es: TranslationSchema = {
       police: 'Policía',
       markers: 'Marcadores',
       noMarkers: 'Sin marcadores',
-      locateMarker: 'Localizar marcador'
+      locateMarker: 'Localizar marcador',
+      gotyAssistant: 'Asistente GOTY',
+      enableGoty: 'Activar GOTY Bot'
     },
     maps: {
       satellite: 'Satélite',
@@ -286,7 +288,41 @@ export const es: TranslationSchema = {
     items: {
       casa_jason: 'Casa de Jason',
       casa_lucia: 'Casa de Lucía',
-      casa_jason_lucia: 'Casa de Jason y Lucía'
+      apartamento_lujo: 'Apartamento de Lujo',
+      apartamento_medio: 'Apartamento Medio',
+      apartamento_barato: 'Apartamento Barato',
+      negocio_1: 'Ítem 1',
+      negocio_2: 'Ítem 2',
+      negocio_3: 'Ítem 3',
+      vehiculo_1: 'Ítem 1',
+      vehiculo_2: 'Ítem 2',
+      vehiculo_3: 'Ítem 3',
+      categoria_3_item_1: 'Ítem 1',
+      categoria_3_item_2: 'Ítem 2',
+      categoria_3_item_3: 'Ítem 3',
+      categoria_4_item_1: 'Ítem 1',
+      categoria_4_item_2: 'Ítem 2',
+      categoria_4_item_3: 'Ítem 3',
+      categoria_5_item_1: 'Ítem 1',
+      categoria_5_item_2: 'Ítem 2',
+      categoria_5_item_3: 'Ítem 3',
+      fauna_caiman: '🐊 Caimán',
+      fauna_ciervo: '🦌 Ciervo',
+      fauna_jabali: '🐗 Jabalí',
+      fauna_zorro: '🦊 Zorro',
+      fauna_bobcat: '🐆 Felino salvaje',
+      fauna_serpientes: '🐍 Serpientes',
+      fauna_tiburon: '🦈 Tiburón',
+      fauna_delfin: '🐬 Delfín',
+      fauna_oso: '🐻 Oso',
+      fauna_coyote: '🐺 Coyote',
+      fauna_pantera: '🐆 Pantera de Florida',
+      coleccionable_1: 'Ítem 1',
+      coleccionable_2: 'Ítem 2',
+      coleccionable_3: 'Ítem 3',
+      lugar_1: 'Ítem 1',
+      lugar_2: 'Ítem 2',
+      lugar_3: 'Ítem 3'
     },
     police: {
       title: 'Sistema Policial (Alerta)',
@@ -509,5 +545,19 @@ export const es: TranslationSchema = {
       prevMystery: 'Misterio anterior',
       nextMystery: 'Misterio siguiente'
     }
+  },
+  seo: {
+    defaultTitle: 'GTA MAPS - Mapas Interactivos de GTA V y GTA VI',
+    defaultDesc: 'Mapas interactivos de GTA V y GTA VI con ubicaciones de misiones, vehículos, coleccionables y secretos en Los Santos y Vice City.',
+    homeTitle: 'GTA MAPS - Mapas Interactivos de GTA V y GTA VI',
+    homeDesc: 'Mapas interactivos de GTA V y GTA VI con ubicaciones de misiones, vehículos, coleccionables y secretos en Los Santos y Vice City.',
+    gta5OnlineTitle: 'Mapa GTA V Online Interactivo - Ubicaciones, Vehículos y Coleccionables | GTA MAPS',
+    gta5OnlineDesc: 'Mapa interactivo de GTA 5 Online con ubicaciones de negocios, propiedades, vehículos, saltos y coleccionables en tiempo real.',
+    gta5HistoriaTitle: 'Mapa GTA V Modo Historia - Misiones al 100%, Saltos y Secretos | GTA MAPS',
+    gta5HistoriaDesc: 'Mapa interactivo y guía completa del modo historia de GTA V para el 100%: misiones principales, secundarios, armas y coleccionables.',
+    gta6OnlineTitle: 'Mapa GTA VI Online Vice City - Ubicaciones y Guía Interactiva | GTA MAPS',
+    gta6OnlineDesc: 'Mapa interactivo de GTA 6 Online en Vice City y Leonida con puntos de interés, ubicaciones, carreteras y novedades.',
+    gta6HistoriaTitle: 'Mapa GTA VI Modo Historia - Misiones Jason y Lucia en Leonida | GTA MAPS',
+    gta6HistoriaDesc: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Exploración de Vice City, misiones, coleccionables y secretos.'
   }
 };

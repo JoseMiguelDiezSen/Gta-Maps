@@ -43,7 +43,11 @@ namespace GTAAPP.Server.Controllers
             var context = string.IsNullOrWhiteSpace(request.Context) ? "gta5-online" : request.Context.Trim().ToLowerInvariant();
             if (context.Length > 30) context = context.Substring(0, 30);
 
-            var responseText = await _geminiService.GetChatResponseAsync(trimmedMessage, context);
+            // Sanitizar idioma (ej: 'es', 'en', 'fr', etc.)
+            var lang = string.IsNullOrWhiteSpace(request.Lang) ? "es" : request.Lang.Trim().ToLowerInvariant();
+            if (lang.Length > 10) lang = lang.Substring(0, 10);
+
+            var responseText = await _geminiService.GetChatResponseAsync(trimmedMessage, context, lang);
 
             // Si la IA falla (cuota, 503, caída de red), devolvemos error 503 al frontend para que active el Fallback
             if (string.IsNullOrEmpty(responseText))

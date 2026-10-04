@@ -858,93 +858,27 @@
   padding: 8px 4px 4px 4px;
 }
 
-/* Tira superior de iconos circulares HUD estilo GTA VI dentro del panel */
-.gta6-police-hud-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 8px 6px;
-  background: rgba(12, 14, 20, 0.85);
-  border: 1px solid rgba(220, 38, 38, 0.3);
-  border-radius: 10px;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
-}
-
-.police-hud-pill {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at 35% 35%, #7a151b 0%, #4d0a0e 70%, #2b0406 100%);
-  border: 1.5px solid #1a0204;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0.45;
-  filter: grayscale(0.5);
-}
-
-.police-hud-pill.is-active {
-  opacity: 1;
-  filter: none;
-  background: radial-gradient(circle at 35% 35%, #d32f2f 0%, #8a131b 70%, #54090e 100%);
-  border-color: #ff5252;
-  box-shadow: 0 0 12px rgba(230, 30, 45, 0.75), inset 0 1px 2px rgba(255, 255, 255, 0.4);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.police-hud-pill:hover {
-  opacity: 0.95;
-  transform: scale(1.08);
-}
-
-.police-hud-pill .police-svg {
-  width: 17px;
-  height: 17px;
-}
-
-/* Lista de estados policiales */
+/* Lista de estados policiales informativos (no interactivos, tarjetas rojas completas) */
 .gta6-police-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
-.police-alert-btn {
-  display: flex !important;
+.police-alert-card {
+  display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 10px !important;
-  min-height: 48px !important;
-  background: rgba(18, 22, 30, 0.7) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
+  width: 100%;
   box-sizing: border-box;
-}
-
-.police-alert-btn:hover {
-  background: rgba(30, 36, 48, 0.85) !important;
-  border-color: rgba(220, 38, 38, 0.4) !important;
-  transform: translateX(2px);
-}
-
-.police-alert-btn.is-active {
-  background: rgba(45, 12, 16, 0.6) !important;
-  border-color: rgba(220, 38, 38, 0.6) !important;
-  box-shadow: 0 0 10px rgba(180, 20, 30, 0.3);
-}
-
-.police-alert-btn:not(.is-active) {
-  opacity: 0.42;
-  filter: grayscale(0.7);
+  padding: 8px 10px;
+  min-height: 48px;
+  background: rgba(45, 12, 16, 0.78);
+  border: 1px solid rgba(220, 38, 38, 0.55);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(180, 20, 30, 0.2);
+  cursor: default;
+  position: relative;
 }
 
 .police-badge-icon {
@@ -955,16 +889,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 35% 35%, #b71c1c 0%, #7b1016 75%, #420609 100%);
-  border: 1.5px solid #280407;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  background: radial-gradient(circle at 35% 35%, #d32f2f 0%, #8a131b 75%, #420609 100%);
+  border: 1.5px solid #ff5252;
+  box-shadow: 0 0 10px rgba(220, 35, 45, 0.6), inset 0 1px 3px rgba(255, 255, 255, 0.4);
   color: #ffffff;
   flex-shrink: 0;
-  transition: all 0.2s ease;
-}
-
-.police-alert-btn.is-active .police-badge-icon {
-  box-shadow: 0 0 10px rgba(220, 35, 45, 0.7), inset 0 1px 3px rgba(255, 255, 255, 0.4);
 }
 
 .police-badge-icon .police-svg {
@@ -978,48 +907,28 @@
   flex: 1;
   min-width: 0;
   text-align: left;
-  gap: 2px;
+  gap: 3px;
 }
 
 .police-name {
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 700;
   color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.3;
   letter-spacing: 0.3px;
 }
 
 .police-desc {
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
+  color: #ffb4ab;
   font-family: 'Segoe UI', system-ui, sans-serif;
   letter-spacing: 0.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.police-alert-btn.is-active .police-desc {
-  color: #ff8a80;
-}
-
-.police-status-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  flex-shrink: 0;
-  transition: all 0.2s ease;
-}
-
-.police-status-indicator.is-active {
-  background: #ff3344;
-  border-color: #ff8a80;
-  box-shadow: 0 0 8px #ff3344;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.35;
 }
 
 .police-svg {

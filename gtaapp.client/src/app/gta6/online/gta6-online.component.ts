@@ -1,6 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../i18n';
+import { GotyService } from '../../services/goty.service';
 
 interface Gta6LegendItem {
     id: string;
@@ -50,63 +51,59 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     private panStartBgX = 0;
     private panStartBgY = 0;
 
-    readonly     categories: Gta6LegendCategory[] = [
+    readonly categories: Gta6LegendCategory[] = [
         {
             key: 'propiedades',
             title: 'Propiedades',
             items: [
-                { id: 'casa_jason', name: 'Casa de Jason', count: 1, color: '#3498db' },
-                { id: 'casa_lucia', name: 'Casa de Lucia', count: 1, color: '#ff5fa2' }
-            ]
-        },
-        {
-            key: 'vehiculos',
-            title: 'Talleres',
-            items: [
-                { id: 'ls_customs', name: 'Los Santos Customs', count: 0, color: '#e67e22' },
-                { id: 'hao_garage', name: 'Garaje de Hao', count: 0, color: '#f1c40f' },
-                { id: 'bennys', name: "Benny's Original Motor Works", count: 0, color: '#c0392b' },
-                { id: 'ls_car_meet', name: 'LS Car Meet (Cypress)', count: 0, color: '#16a085' }
+                { id: 'apartamento_lujo', name: 'Apartamento de Lujo', count: 0, color: '#f39c12' },
+                { id: 'apartamento_medio', name: 'Apartamento Medio', count: 0, color: '#3498db' },
+                { id: 'apartamento_barato', name: 'Apartamento Barato', count: 0, color: '#95a5a6' }
             ]
         },
         {
             key: 'negocios',
             title: 'Negocios',
             items: [
-                { id: 'coke_lockup', name: 'Negocios de Cocaína', count: 0, color: '#7f8c8d' },
-                { id: 'weed_farm', name: 'Negocios de Marihuana', count: 0, color: '#27ae60' },
-                { id: 'warehouse', name: 'Almacenes de Cajas', count: 0, color: '#8e6e3a' },
-                { id: 'nightclub', name: 'Clubes Nocturnos', count: 0, color: '#8e44ad' },
-                { id: 'cash_factory', name: 'Fábricas de Dinero Falso', count: 0, color: '#16a085' },
-                { id: 'meth_lab', name: 'Laboratorios de Metanfetamina', count: 0, color: '#c0392b' },
-                { id: 'doc_forgery', name: 'Falsificación de Documentos', count: 0, color: '#2980b9' }
+                { id: 'negocio_1', name: 'Ítem 1', count: 0, color: '#7f8c8d' },
+                { id: 'negocio_2', name: 'Ítem 2', count: 0, color: '#27ae60' },
+                { id: 'negocio_3', name: 'Ítem 3', count: 0, color: '#8e44ad' }
+            ]
+        },
+        {
+            key: 'vehiculos',
+            title: 'Vehículos',
+            items: [
+                { id: 'vehiculo_1', name: 'Ítem 1', count: 0, color: '#e67e22' },
+                { id: 'vehiculo_2', name: 'Ítem 2', count: 0, color: '#f1c40f' },
+                { id: 'vehiculo_3', name: 'Ítem 3', count: 0, color: '#c0392b' }
             ]
         },
         {
             key: 'categoria_3',
-            title: 'Categoria 3',
+            title: 'Categoría 3',
             items: [
-                { id: 'categoria_3_item_1', name: 'item 1', count: 70, color: '#e67e22' },
-                { id: 'categoria_3_item_2', name: 'item 2', count: 80, color: '#d35400' },
-                { id: 'categoria_3_item_3', name: 'item 3', count: 90, color: '#16a085' }
+                { id: 'categoria_3_item_1', name: 'Ítem 1', count: 0, color: '#e67e22' },
+                { id: 'categoria_3_item_2', name: 'Ítem 2', count: 0, color: '#d35400' },
+                { id: 'categoria_3_item_3', name: 'Ítem 3', count: 0, color: '#16a085' }
             ]
         },
         {
             key: 'categoria_4',
-            title: 'Categoria 4',
+            title: 'Categoría 4',
             items: [
-                { id: 'categoria_4_item_1', name: 'item 1', count: 100, color: '#2980b9' },
-                { id: 'categoria_4_item_2', name: 'item 2', count: 110, color: '#8e44ad' },
-                { id: 'categoria_4_item_3', name: 'item 3', count: 120, color: '#c0392b' }
+                { id: 'categoria_4_item_1', name: 'Ítem 1', count: 0, color: '#2980b9' },
+                { id: 'categoria_4_item_2', name: 'Ítem 2', count: 0, color: '#8e44ad' },
+                { id: 'categoria_4_item_3', name: 'Ítem 3', count: 0, color: '#c0392b' }
             ]
         },
         {
             key: 'categoria_5',
-            title: 'Categoria 5',
+            title: 'Categoría 5',
             items: [
-                { id: 'categoria_5_item_1', name: 'item 1', count: 130, color: '#d4af37' },
-                { id: 'categoria_5_item_2', name: 'item 2', count: 140, color: '#27ae60' },
-                { id: 'categoria_5_item_3', name: 'item 3', count: 150, color: '#95a5a6' }
+                { id: 'categoria_5_item_1', name: 'Ítem 1', count: 0, color: '#d4af37' },
+                { id: 'categoria_5_item_2', name: 'Ítem 2', count: 0, color: '#27ae60' },
+                { id: 'categoria_5_item_3', name: 'Ítem 3', count: 0, color: '#95a5a6' }
             ]
         },
         {
@@ -117,7 +114,7 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
                 { id: 'fauna_ciervo', name: '🦌 Ciervo', count: 0, color: '#8d6e63' },
                 { id: 'fauna_jabali', name: '🐗 Jabalí', count: 0, color: '#5d4037' },
                 { id: 'fauna_zorro', name: '🦊 Zorro', count: 0, color: '#e65100' },
-                { id: 'fauna_bobcat', name: '🐆 Bobcat / Felino salvaje', count: 0, color: '#9e9e9e' },
+                { id: 'fauna_bobcat', name: '🐆 Felino salvaje', count: 0, color: '#9e9e9e' },
                 { id: 'fauna_serpientes', name: '🐍 Serpientes', count: 0, color: '#388e3c' },
                 { id: 'fauna_tiburon', name: '🦈 Tiburón', count: 0, color: '#546e7a' },
                 { id: 'fauna_delfin', name: '🐬 Delfín', count: 0, color: '#0288d1' },
@@ -130,20 +127,18 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
             key: 'coleccionables',
             title: 'Coleccionables',
             items: [
-                { id: 'coleccionable_carta', name: 'Carta de juego', count: 0, color: '#8e24aa' },
-                { id: 'coleccionable_figura', name: 'Figura de acción', count: 0, color: '#5e35b1' },
-                { id: 'coleccionable_jammer', name: 'Jammer de señal', count: 0, color: '#00897b' },
-                { id: 'coleccionable_prop', name: 'Atrezo de cine', count: 0, color: '#d81b60' },
-                { id: 'coleccionable_antena', name: 'Antena de radio', count: 0, color: '#3949ab' }
+                { id: 'coleccionable_1', name: 'Ítem 1', count: 0, color: '#8e24aa' },
+                { id: 'coleccionable_2', name: 'Ítem 2', count: 0, color: '#5e35b1' },
+                { id: 'coleccionable_3', name: 'Ítem 3', count: 0, color: '#00897b' }
             ]
         },
         {
             key: 'lugares',
             title: 'Lugares Extraños',
             items: [
-                { id: 'lugar_ovni', name: 'OVNI falso', count: 0, color: '#7e57c2' },
-                { id: 'lugar_naufragio', name: 'Naufragio', count: 0, color: '#0277bd' },
-                { id: 'lugar_cueva', name: 'Cueva', count: 0, color: '#5d4037' }
+                { id: 'lugar_1', name: 'Ítem 1', count: 0, color: '#7e57c2' },
+                { id: 'lugar_2', name: 'Ítem 2', count: 0, color: '#0277bd' },
+                { id: 'lugar_3', name: 'Ítem 3', count: 0, color: '#5d4037' }
             ]
         }
     ];
@@ -213,6 +208,7 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     constructor(
         readonly translationService: TranslationService,
+        public gotyService: GotyService,
         private router: Router
     ) {}
 
@@ -253,7 +249,8 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
         mapa: false,
         zona: false,
         juego: false,
-        marcadores: false
+        marcadores: false,
+        goty: false
     };
 
     userCustomMarkers: { id: string; name: string; color?: string; x?: number; y?: number }[] = [];
@@ -329,6 +326,12 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     getCategoryTitle(category: Gta6LegendCategory): string {
         return this.translationService.t('gta6.categories.' + category.key) || category.title;
+    }
+
+    getItemName(item: Gta6LegendItem): string {
+        const key = 'gta6.items.' + item.id;
+        const translated = this.translationService.t(key);
+        return translated && translated !== key ? translated : item.name;
     }
 
     toggleLegend(): void {

@@ -107,6 +107,34 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
     return this.gameContext.startsWith('gta6');
   }
 
+  get botSubtitle(): string {
+    const isEn = this.gotyService.currentLang === 'en';
+    if (this.isGta6) {
+      return isEn ? 'Vice City Assistant' : 'Asistente de Vice City';
+    }
+    return isEn ? 'Los Santos Assistant' : 'Asistente de Los Santos';
+  }
+
+  get inputPlaceholder(): string {
+    const isEn = this.gotyService.currentLang === 'en';
+    return isEn ? `Ask ${this.botName}...` : `Pregunta a ${this.botName}...`;
+  }
+
+  get talkTooltip(): string {
+    const isEn = this.gotyService.currentLang === 'en';
+    return isEn ? `Talk to ${this.botName}` : `Hablar con ${this.botName}`;
+  }
+
+  get sendTooltip(): string {
+    const isEn = this.gotyService.currentLang === 'en';
+    return isEn ? 'Send message' : 'Enviar mensaje';
+  }
+
+  get closeTooltip(): string {
+    const isEn = this.gotyService.currentLang === 'en';
+    return isEn ? 'Close chat' : 'Cerrar chat';
+  }
+
   toggleChat(): void {
     this.isOpen = !this.isOpen;
     if (this.isOpen && this.messages.length === 0) {

@@ -8,7 +8,8 @@
     (mousedown)="onDragStart($event)"
     (touchstart)="onDragStart($event)"
     (click)="onAvatarClick($event)"
-    [title]="'Hablar con ' + botName"
+    [title]="talkTooltip"
+    [attr.aria-label]="talkTooltip"
   >
     <div class="goty-avatar-ring"></div>
     <img [src]="avatarSrc" [alt]="botName" class="goty-avatar-img" />
@@ -23,11 +24,11 @@
         <div class="goty-header-info">
           <span class="goty-bot-title">{{ botName }}</span>
           <span class="goty-bot-subtitle">
-            {{ isGta6 ? 'Asistente de Vice City' : 'Asistente de Los Santos' }}
+            {{ botSubtitle }}
           </span>
         </div>
       </div>
-      <button type="button" class="goty-close-btn" (click)="closeChat()" title="Cerrar chat">
+      <button type="button" class="goty-close-btn" (click)="closeChat()" [title]="closeTooltip" [attr.aria-label]="closeTooltip">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
@@ -44,8 +45,6 @@
           <div class="goty-msg-text" *ngIf="msg.sender === 'user'">{{ msg.text }}</div>
           <div class="goty-msg-text" *ngIf="msg.sender === 'goty'" [innerHTML]="formatMarkdown(msg.text)"></div>
         </div>
-
-
       </div>
 
       <!-- Indicador escribiendo... -->
@@ -65,7 +64,7 @@
         class="goty-input"
         [(ngModel)]="userInput"
         (keydown)="onKeyDown($event)"
-        [placeholder]="'Pregunta a ' + botName + '...'"
+        [placeholder]="inputPlaceholder"
         maxlength="200"
       />
       <button
@@ -73,7 +72,8 @@
         class="goty-send-btn"
         (click)="sendMessage()"
         [disabled]="!userInput.trim()"
-        title="Enviar mensaje"
+        [title]="sendTooltip"
+        [attr.aria-label]="sendTooltip"
       >
         <i class="fa-solid fa-paper-plane"></i>
       </button>

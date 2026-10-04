@@ -123,6 +123,8 @@ export interface TranslationSchema {
       markers: string;
       noMarkers: string;
       locateMarker: string;
+      gotyAssistant?: string;
+      enableGoty?: string;
     };
     maps: {
       satellite: string;
@@ -292,7 +294,7 @@ export interface TranslationSchema {
     items: {
       casa_jason: string;
       casa_lucia: string;
-      casa_jason_lucia: string;
+      [key: string]: string | undefined;
     };
     police?: {
       title?: string;
@@ -515,5 +517,19 @@ export interface TranslationSchema {
       prevMystery: string;
       nextMystery: string;
     };
+  };
+  seo?: {
+    defaultTitle: string;
+    defaultDesc: string;
+    homeTitle: string;
+    homeDesc: string;
+    gta5OnlineTitle: string;
+    gta5OnlineDesc: string;
+    gta5HistoriaTitle: string;
+    gta5HistoriaDesc: string;
+    gta6OnlineTitle: string;
+    gta6OnlineDesc: string;
+    gta6HistoriaTitle: string;
+    gta6HistoriaDesc: string;
   };
 }
