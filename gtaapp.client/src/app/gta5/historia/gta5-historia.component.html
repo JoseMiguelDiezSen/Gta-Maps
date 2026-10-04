@@ -586,12 +586,12 @@
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('goty')">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">Asistente GOTY</span>
+              <span class="hud-acc-title">{{ 'gta5.settings.gotyAssistant' | translate }}</span>
             </div>
           </div>
           <div class="hud-acc-body" *ngIf="accordion['goty']" style="padding: 10px 14px;">
             <label class="hud-check-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
-              <span>Activar GOTY Bot</span>
+              <span>{{ 'gta5.settings.enableGoty' | translate }}</span>
               <input type="checkbox" [checked]="gotyService.isEnabled" (change)="gotyService.setBotEnabled($any($event.target).checked)" />
             </label>
           </div>

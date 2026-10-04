@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 2400" width="2400" height="2400">
+  <defs>
+    <!-- Gradiente de fondo oscuro táctico -->
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#141c2e" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#0b101c" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#05070d" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Patrón de cuadrícula pequeña -->
+    <pattern id="smallGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 79, 224, 0.06)" stroke-width="1"/>
+    </pattern>
+
+    <!-- Patrón de cuadrícula principal -->
+    <pattern id="mainGrid" width="200" height="200" patternUnits="userSpaceOnUse">
+      <rect width="200" height="200" fill="url(#smallGrid)"/>
+      <path d="M 200 0 L 0 0 0 200" fill="none" stroke="rgba(0, 240, 255, 0.12)" stroke-width="1.5"/>
+      <!-- Puntos en las esquinas de cada cuadrante -->
+      <circle cx="0" cy="0" r="2.5" fill="rgba(0, 240, 255, 0.35)"/>
+    </pattern>
+
+    <filter id="radar-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- FONDO GENERAL -->
+  <rect width="2400" height="2400" fill="url(#bg-glow)"/>
+  <rect width="2400" height="2400" fill="url(#mainGrid)"/>
+
+  <!-- EJES PRINCIPALES (X, Y) -->
+  <line x1="0" y1="1200" x2="2400" y2="1200" stroke="rgba(0, 240, 255, 0.35)" stroke-width="2" stroke-dasharray="8 4"/>
+  <line x1="1200" y1="0" x2="1200" y2="2400" stroke="rgba(255, 79, 224, 0.35)" stroke-width="2" stroke-dasharray="8 4"/>
+
+  <!-- ANILLOS DE RADAR CENTRALES -->
+  <g transform="translate(1200, 1200)" filter="url(#radar-glow)">
+    <!-- Círculos de distancia -->
+    <circle r="250" fill="none" stroke="rgba(0, 240, 255, 0.18)" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <circle r="500" fill="none" stroke="rgba(255, 79, 224, 0.18)" stroke-width="1.5" stroke-dasharray="10 5"/>
+    <circle r="750" fill="none" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <circle r="1000" fill="none" stroke="rgba(255, 79, 224, 0.15)" stroke-width="2"/>
+
+    <!-- Retícula central -->
+    <circle r="40" fill="none" stroke="#ff4fe0" stroke-width="2"/>
+    <circle r="4" fill="#00f0ff"/>
+    <line x1="-60" y1="0" x2="60" y2="0" stroke="#ff4fe0" stroke-width="1.5"/>
+    <line x1="0" y1="-60" x2="0" y2="60" stroke="#ff4fe0" stroke-width="1.5"/>
+
+    <!-- Marcas de compás -->
+    <text x="0" y="-1020" fill="rgba(0, 240, 255, 0.6)" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">N 000°</text>
+    <text x="1030" y="8" fill="rgba(255, 79, 224, 0.6)" font-family="monospace" font-size="22" font-weight="bold" text-anchor="start">E 090°</text>
+    <text x="0" y="1045" fill="rgba(0, 240, 255, 0.6)" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">S 180°</text>
+    <text x="-1030" y="8" fill="rgba(255, 79, 224, 0.6)" font-family="monospace" font-size="22" font-weight="bold" text-anchor="end">W 270°</text>
+  </g>
+
+  <!-- ROTULACIÓN TÁCTICA SUPERIOR / INFERIOR -->
+  <g font-family="system-ui, -apple-system, sans-serif" letter-spacing="4">
+    <!-- Esquina Superior Izquierda -->
+    <text x="80" y="100" fill="rgba(0, 240, 255, 0.85)" font-size="28" font-weight="800">STATE OF LEONIDA // TACTICAL GRID</text>
+    <text x="80" y="140" fill="rgba(255, 255, 255, 0.45)" font-size="16" font-family="monospace">GRID SECTOR: VC-LEONIDA-01 | COORD SYSTEM: UT-2400</text>
+
+    <!-- Esquina Superior Derecha -->
+    <text x="2320" y="100" fill="rgba(255, 79, 224, 0.85)" font-size="28" font-weight="800" text-anchor="end">FUTURE MAP AREA</text>
+    <text x="2320" y="140" fill="rgba(255, 255, 255, 0.45)" font-size="16" font-family="monospace" text-anchor="end">OFFICIAL SATELLITE MAP COMING SOON</text>
+
+    <!-- Esquina Inferior Izquierda -->
+    <text x="80" y="2300" fill="rgba(255, 255, 255, 0.35)" font-size="16" font-family="monospace">SECURE RADAR SYSTEM // READY FOR LIVE MARKERS</text>
+    <text x="80" y="2330" fill="rgba(0, 240, 255, 0.6)" font-size="14" font-family="monospace">X: 0.0 - 2400.0 | Y: 0.0 - 2400.0</text>
+
+    <!-- Esquina Inferior Derecha -->
+    <text x="2320" y="2300" fill="rgba(255, 79, 224, 0.7)" font-size="18" font-weight="bold" text-anchor="end">GTA VI INTERACTIVE RADAR</text>
+    <text x="2320" y="2330" fill="rgba(255, 255, 255, 0.35)" font-size="14" font-family="monospace" text-anchor="end">CONFIDENTIAL // ROCKSTAR GAMES</text>
+  </g>
+</svg>
