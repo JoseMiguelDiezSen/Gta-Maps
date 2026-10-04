@@ -168,4 +168,20 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
       } catch (err) {}
     }
   }
+
+  formatMarkdown(text: string): string {
+    if (!text) return '';
+    // Escapar caracteres HTML básicos primero para evitar inyección XSS
+    const escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+
+    // Reemplazar markdown en negrita **texto** por <strong>texto</strong>
+    const withBold = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Reemplazar saltos de línea por <br>
+    return withBold.replace(/\n/g, '<br>');
+  }
 }

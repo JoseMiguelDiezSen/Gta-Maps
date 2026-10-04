@@ -41,7 +41,8 @@
         [class.is-bot]="msg.sender === 'goty'"
       >
         <div class="goty-msg-bubble">
-          <div class="goty-msg-text" [innerHTML]="msg.text"></div>
+          <div class="goty-msg-text" *ngIf="msg.sender === 'user'">{{ msg.text }}</div>
+          <div class="goty-msg-text" *ngIf="msg.sender === 'goty'" [innerHTML]="formatMarkdown(msg.text)"></div>
         </div>
 
 

@@ -1,12 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using GTAAPP.Server.Models;
 using GTAAPP.Server.Services;
 using System.Threading.Tasks;
 
 namespace GTAAPP.Server.Controllers
 {
+    /// <summary>
+    /// Controlador del Asistente Virtual Criminal GOTY.
+    /// Protegido con limitación estricta de tasa (rate limiting) y límites de carga útil para prevenir abusos de API o ataques de denegación de servicio.
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
+    [EnableRateLimiting("chat-policy")]
     public class GotyController : ControllerBase
     {
         private readonly IGeminiService _geminiService;
@@ -17,12 +23,27 @@ namespace GTAAPP.Server.Controllers
         }
 
         [HttpPost("chat")]
+        [RequestSizeLimit(16 * 1024)] // Límite estricto de 16 KB en el cuerpo de la petición (anti-DoS)
         public async Task<IActionResult> Chat([FromBody] GotyChatRequest request)
         {
-            if (string.IsNullOrWhiteSpace(request.Message))
-                return BadRequest("El mensaje no puede estar vacío.");
+            if (request == null || string.IsNullOrWhiteSpace(request.Message))
+            {
+                return BadRequest(new { error = "El mensaje no puede estar vacío." });
+            }
 
-            var responseText = await _geminiService.GetChatResponseAsync(request.Message, request.Context);
+            var trimmedMessage = request.Message.Trim();
+
+            // Bloquear mensajes excesivamente largos para evitar ataques de denegación de servicio o saturación
+            if (trimmedMessage.Length > 500)
+            {
+                return BadRequest(new { error = "El mensaje no puede superar los 500 caracteres." });
+            }
+
+            // Sanitizar contexto
+            var context = string.IsNullOrWhiteSpace(request.Context) ? "gta5-online" : request.Context.Trim().ToLowerInvariant();
+            if (context.Length > 30) context = context.Substring(0, 30);
+
+            var responseText = await _geminiService.GetChatResponseAsync(trimmedMessage, context);
 
             // Si la IA falla (cuota, 503, caída de red), devolvemos error 503 al frontend para que active el Fallback
             if (string.IsNullOrEmpty(responseText))

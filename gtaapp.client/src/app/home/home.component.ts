@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular
 import { APP_VERSION } from '../../environments/version';
 import { TranslationService } from '../i18n';
 import { UsuariosActivosService } from '../services/usuarios-activos.service';
+import { CookieService } from '../services/cookie.service';
 
 export interface Language {
     code: 'es' | 'en';
@@ -34,7 +35,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     constructor(
         private readonly elementRef: ElementRef,
         private readonly translationService: TranslationService,
-        public readonly usuariosActivosService: UsuariosActivosService
+        public readonly usuariosActivosService: UsuariosActivosService,
+        public readonly cookieService: CookieService
     ) {}
 
     ngOnInit(): void {

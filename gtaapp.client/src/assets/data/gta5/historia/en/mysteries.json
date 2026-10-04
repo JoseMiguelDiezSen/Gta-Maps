@@ -1,7 +1,48 @@
 [
   {
-    "id": "greyfriars_bobby_dog",
+    "id": "ghost_jolene_cranley",
     "order": 1,
+    "title": "The Ghost of Jolene Cranley-Evans",
+    "titleEn": "The Ghost of Jolene Cranley-Evans",
+    "category": "paranormal",
+    "categoryLabel": "Paranormal",
+    "schedule": "23:00 - 00:00",
+    "location": "Mount Gordo Eastern Peak",
+    "zone": "Mount Gordo, Blaine County",
+    "position": {
+      "x": 3057.94,
+      "y": 5578.43,
+      "z": 197.09
+    },
+    "observationPoint": {
+      "x": 3080,
+      "y": 5545,
+      "z": 200,
+      "tip": "Stand about 40 meters away on the southern ridge and use a sniper rifle scope or phone camera to prevent the ghost from vanishing prematurely."
+    },
+    "description": "Every midnight between 23:00 and 00:00, a spectral figure in white floats above the rocky cliff on Mount Gordo. Approaching too closely causes the apparition to dissolve into the mountain mist, revealing the word 'JOCK' written in fresh blood on the stone.",
+    "lore": "Jolene Cranley-Evans died under suspicious circumstances in March 1978 after falling from Mount Gordo's cliffside. Her husband, John 'Jock' Cranley — a former stuntman pursuing a political career as governor — wanted to move to Los Santos, while Jolene refused in order to care for her parents. Jock pushed her to her death, but local authorities ruled it an accident due to lack of witnesses. Four decades later, Jolene's spirit continues to point out her killer from the summit.",
+    "mechanics": [
+      "Materializes nightly between 23:00 and 00:00 in-game time.",
+      "Approaching within 30-40 meters causes the ghost to vanish immediately.",
+      "A sniper rifle scope or phone camera zoom is required for detailed viewing.",
+      "Upon vanishing, the name 'JOCK' remains visible on the stone written in fresh blood.",
+      "Quietly lingering in the area at midnight plays eerie atmospheric whispers and distant wails."
+    ],
+    "clues": [
+      "In-game newspaper article on www.whokilledleonorajohnson.com titled 'Blood on the Rocks' from 1978.",
+      "Jock Cranley's political billboards and radio campaign advertisements across San Andreas.",
+      "Featured location in community night photography challenges across Los Santos."
+    ],
+    "thumbnail": "assets/data-images/mysteries/jolene_cranley.png",
+    "badgeColor": "#a855f7",
+    "badgeIcon": "fa-ghost",
+    "badgeSymbol": "👻",
+    "gameMode": "story"
+  },
+  {
+    "id": "greyfriars_bobby_dog",
+    "order": 2,
     "title": "El Perro de la Tumba (Homenaje a Bobby)",
     "titleEn": "The Graveyard Dog (Greyfriars Bobby Tribute)",
     "category": "easter_egg",
@@ -15,8 +56,8 @@
       "z": 13.1
     },
     "observationPoint": {
-      "x": -2105.0,
-      "y": -415.0,
+      "x": -2105,
+      "y": -415,
       "z": 13.5,
       "tip": "Arrive around 10:30 AM near the main cemetery gate. If you wait quietly, you will see the little terrier walk in along the gravel path towards the grave."
     },
@@ -42,7 +83,7 @@
   },
   {
     "id": "underwater_lost_hatch",
-    "order": 2,
+    "order": 3,
     "title": "La Escotilla Submarina Secreta (Lost)",
     "titleEn": "The Secret Underwater Hatch (Lost Easter Egg)",
     "category": "easter_egg",
@@ -51,14 +92,14 @@
     "location": "Eastern Coast Seabed (San Chianski / Davis Quartz)",
     "zone": "Eastern Pacific Ocean, San Andreas",
     "position": {
-      "x": 4270.0,
-      "y": 2980.0,
-      "z": -155.0
+      "x": 4270,
+      "y": 2980,
+      "z": -155
     },
     "observationPoint": {
-      "x": 4180.0,
-      "y": 2980.0,
-      "z": -120.0,
+      "x": 4180,
+      "y": 2980,
+      "z": -120,
       "tip": "Descend using a submersible (Submersible or Kraken) or scuba suit. Maintain a safe depth above 140 meters: the hatch sits in the lethal crush depth zone, and getting too close will instantly implode your vehicle or kill your character."
     },
     "description": "Deep on the ocean floor off the eastern coast of San Andreas, lies a sealed circular steel hatch embedded in the seabed over 150 meters down. When approaching, a small rectangular glass window lights up with a warm glow, accompanied by rhythmic metallic tapping sounds originating from within.",
@@ -83,8 +124,8 @@
   },
   {
     "id": "tunnel_heartbeat_mystery",
-    "order": 3,
-    "title": "El Latido de los Túneles Subterráneos",
+    "order": 4,
+    "title": "Subway Tunnels Heartbeat",
     "titleEn": "The Underground Tunnel Heartbeat",
     "category": "paranormal",
     "categoryLabel": "Acoustic Phenomenon / Underground Mystery",
@@ -92,14 +133,14 @@
     "location": "Sewer and Metro Junction beneath Pillbox Hill",
     "zone": "Los Santos Underground Network",
     "position": {
-      "x": 350.0,
-      "y": -620.0,
+      "x": 350,
+      "y": -620,
       "z": -18.5
     },
     "observationPoint": {
-      "x": 345.0,
-      "y": -615.0,
-      "z": -18.0,
+      "x": 345,
+      "y": -615,
+      "z": -18,
       "tip": "Enter on foot with a weapon flashlight. Stop any vehicle, turn off in-game radio, and stand completely still for 10-15 seconds wearing headphones: the rhythmic 'thump-thump... thump-thump' heartbeat will begin echoing distinctly from deep within the concrete walls."
     },
     "description": "Deep beneath the foundations of downtown Los Santos and Pillbox Hill, a forgotten junction connects the subterranean metro lines with the storm drain tunnels. In this humid, pitch-black space, players encounter an unsettling phenomenon: a low-frequency, rhythmic thumping that sounds unmistakably like a massive human heartbeat echoing through the subterranean rock.",
@@ -124,7 +165,7 @@
   },
   {
     "id": "mount_chiliad_mural_ufo",
-    "order": 4,
+    "order": 5,
     "title": "El Mural del Monte Chiliad (El OVNI del 100%)",
     "titleEn": "The Mount Chiliad Mural (The 100% UFO Mystery)",
     "category": "conspiracy",
@@ -133,14 +174,14 @@
     "location": "Mount Chiliad Cable Car Summit Station & Observation Deck",
     "zone": "Mount Chiliad Summit, Blaine County",
     "position": {
-      "x": 446.0,
-      "y": 5575.0,
-      "z": 781.0
+      "x": 446,
+      "y": 5575,
+      "z": 781
     },
     "observationPoint": {
-      "x": 452.0,
-      "y": 5580.0,
-      "z": 782.0,
+      "x": 452,
+      "y": 5580,
+      "z": 782,
       "tip": "Complete 100% of the game. Stand on the wooden observation deck behind the cable car station at 03:00 AM during a rainy or stormy night. Look up into the sky and the colossal holographic FIB mothership will appear humming over the summit."
     },
     "description": "On the weathered concrete wall inside the upper cable car station at the peak of Mount Chiliad sits the most famous and debated mystery mural in video game history: a pyramid topped by the All-Seeing Eye, a network of lines with five 'X' marks, and three base glyphs (a flying saucer UFO, a cracked egg, and a person with a jetpack). On the back of the wooden observation deck outside, an etched inscription reads: 'Come back when your story is complete'.",
@@ -167,8 +208,8 @@
   },
   {
     "id": "thelma_and_louise_cliff",
-    "order": 5,
-    "title": "Thelma y Louise (El Salto al Vacío)",
+    "order": 6,
+    "title": "Thelma & Louise (The Cliff Leap)",
     "titleEn": "Thelma & Louise (The Cliff Jump)",
     "category": "easter_egg",
     "categoryLabel": "Cinematic Homage / Easter Egg",
@@ -176,14 +217,14 @@
     "location": "Cliff overlooking Raton Canyon near the Altruist Camp",
     "zone": "Chiliad Mountain State Wilderness, Blaine County",
     "position": {
-      "x": -1015.0,
-      "y": 4890.0,
-      "z": 260.0
+      "x": -1015,
+      "y": 4890,
+      "z": 260
     },
     "observationPoint": {
-      "x": -980.0,
-      "y": 4860.0,
-      "z": 275.0,
+      "x": -980,
+      "y": 4860,
+      "z": 275,
       "tip": "Arrive before 19:00 and observe from the opposite ridge or via helicopter at a medium distance (standing directly at the spawn point prevents the event from loading). Between 19:00 and 19:45, police cruisers with blaring sirens corner the convertible. At 19:45-20:00, the car guns the engine and plummets into the abyss."
     },
     "description": "At the dead end of a rocky promontory overlooking Raton Canyon, near the Altruist Camp, one of cinema's most famous finales is reenacted daily between 19:00 and 20:00: two women in a classic convertible Declasse Tornado are cornered by Sheriff and state police cruisers. With sirens screaming and officers aiming their weapons, the convertible guns forward off the cliff edge, plummeting into the canyon bottom and exploding.",
@@ -208,7 +249,7 @@
   },
   {
     "id": "ufos_100_percent_story",
-    "order": 6,
+    "order": 7,
     "title": "The 100% UFOs (The Secret Triad)",
     "category": "conspiracy",
     "categoryLabel": "Exclusive Story Mode / Ufology",
@@ -217,14 +258,14 @@
     "zone": "San Andreas Upper Airspace",
     "schedule": "Fort Zancudo & Sandy Shores: 24/7 | Mount Chiliad: 03:00 AM (Rain or Thunderstorm)",
     "position": {
-      "x": -2055.0,
-      "y": 3237.0,
-      "z": 1450.0
+      "x": -2055,
+      "y": 3237,
+      "z": 1450
     },
     "observationPoint": {
-      "x": -2055.0,
-      "y": 3237.0,
-      "z": 1350.0,
+      "x": -2055,
+      "y": 3237,
+      "z": 1350,
       "tip": "Requires 100% story completion. The Fort Zancudo UFO hovers at extreme altitude (~1,450 m). It is an experimental military stealth saucer with rotating panels. It produces deafening electronic hums and an EMP pulse that cuts your aircraft engines if you approach too closely."
     },
     "lore": "Reaching 100% completion in Story Mode unlocks San Andreas' greatest conspiracy: three hovering saucers materialize across the skies:\n1. Mount Chiliad: Appears directly over the observation deck at 03:00 AM during rain or stormy weather. It is a cloaked FIB hologram that dissolves when approached.\n2. Sandy Shores (Beam Me Up): Hovers at ceiling altitude (~1,100 m) above the colorful hippie art installation, displaying FIB stencils and emitting low gravitational hums.\n3. Fort Zancudo: A pitch-black tactical craft featuring a fighter jet cockpit, spinning segmented panels, and blinding strobes. Marked with 'DNR' and the anagram 'SEGREGATE AND REARRANGE' (spelling 'EASTER EGG'). Approaching it triggers an EMP wave that disables any aircraft engines, subjecting players to violent turbulence.",
@@ -249,7 +290,7 @@
   },
   {
     "id": "infinity_killer_merle",
-    "order": 7,
+    "order": 8,
     "title": "The Infinity 8 Killer (Merle Abrahams)",
     "category": "crime",
     "categoryLabel": "True Crime & Macabre Mystery",
@@ -258,14 +299,14 @@
     "zone": "Blaine County / Paleto Bay",
     "schedule": "Visible 24/7",
     "position": {
-      "x": 2434.0,
-      "y": 4966.0,
-      "z": 46.0
+      "x": 2434,
+      "y": 4966,
+      "z": 46
     },
     "observationPoint": {
-      "x": 2434.0,
-      "y": 4966.0,
-      "z": 46.0,
+      "x": 2434,
+      "y": 4966,
+      "z": 46,
       "tip": "Begin by investigating the burnt shack in Sandy Shores covered in '8' graffiti. Then head to the small islands north of Paleto Bay: diving around 20 meters underwater reveals all 8 plastic-wrapped bodies tied to the seabed."
     },
     "lore": "In December 2004, Blaine County was shaken by the disappearance of 8 male joggers. The culprit was Merle Abrahams, an isolated recluse suffering from an obsessive fixation with the number eight and infinity. Captured and incarcerated in Bolingbroke Penitentiary, he died at age 57 awaiting trial without ever confessing where he hid the bodies.\n\nNevertheless, Merle left behind a chilling trail across the state:\n1. His burned-out Sandy Shores house, covered in tally marks and the phrase '8 is just infinity stood up'.\n2. Boulders in Grand Senora Desert inscribed with a sinister nursery rhyme ('1 is done, 2 was fun, 3 tried to run...').\n3. His prison cell and exercise yard at Bolingbroke, featuring a crude map pointing north.\n4. The underwater cemetery: in the deep waters around the islets north of Paleto Bay lie all 8 bodies, wrapped in plastic sheeting and anchored with cinder blocks.",
@@ -289,7 +330,7 @@
   },
   {
     "id": "sasquatch_predator_story",
-    "order": 8,
+    "order": 9,
     "title": "The Sasquatch in 'Predator'",
     "category": "cryptid",
     "categoryLabel": "Exclusive Story Mode / Cryptozoology",
@@ -298,14 +339,14 @@
     "zone": "Raton Canyon",
     "schedule": "During the Story Mode mission 'Predator'",
     "position": {
-      "x": -1550.0,
-      "y": 4470.0,
-      "z": 15.0
+      "x": -1550,
+      "y": 4470,
+      "z": 15
     },
     "observationPoint": {
-      "x": -1550.0,
-      "y": 4470.0,
-      "z": 15.0,
+      "x": -1550,
+      "y": 4470,
+      "z": 15,
       "tip": "During the 'Predator' mission, while sniping from the chopper with Michael's thermal scope, scan the lower-right area among the pines before killing the final O'Neil brother. You will spot a glowing thermal bipedal beast standing upright."
     },
     "lore": "The Sasquatch (Bigfoot) myth has reigned as the ultimate Grand Theft Auto urban legend since the days of GTA San Andreas in the woods of Back O' Beyond. In GTA V, Rockstar Games included explicit, undeniable homages.\n\nThe most famous appears during the Story Mode mission 'Predator'. While Trevor pilots the helicopter and Michael uses an infrared thermal sniper scope to locate the three O'Neil brothers hiding in the dense forest of Raton Canyon, sweeping the lower-right woods reveals the unmistakable silhouette of a giant bipedal ape. If the player centers the crosshairs or fires a shot, the Sasquatch instantly dissolves into thin air without a trace.",
@@ -328,7 +369,7 @@
   },
   {
     "id": "nothing_here_strawberry",
-    "order": 9,
+    "order": 10,
     "title": "'Turn Back' and 'Nothing Here' (Strawberry)",
     "category": "easter_egg",
     "categoryLabel": "Map Secrets / Meta-Humor",
@@ -337,13 +378,13 @@
     "zone": "South Los Santos (Strawberry)",
     "schedule": "Visible 24/7",
     "position": {
-      "x": 298.0,
-      "y": -1080.0,
+      "x": 298,
+      "y": -1080,
       "z": 29.4
     },
     "observationPoint": {
-      "x": 298.0,
-      "y": -1080.0,
+      "x": 298,
+      "y": -1080,
       "z": 29.4,
       "tip": "Walk down the pedestrian service path running beneath the Olympic Freeway overpass in Strawberry. Look down to see 'TURN BACK' stenciled on the pavement, then look at the facing concrete wall to read 'NOTHING HERE' in red paint."
     },
@@ -366,7 +407,7 @@
   },
   {
     "id": "fridgit_snowman",
-    "order": 10,
+    "order": 11,
     "title": "The Fridgit Snowman (La Mesa)",
     "category": "easter_egg",
     "categoryLabel": "Hidden Chambers / Easter Egg",
@@ -375,13 +416,13 @@
     "zone": "East Los Santos (La Mesa)",
     "schedule": "Visible 24/7",
     "position": {
-      "x": 935.0,
-      "y": -2175.0,
+      "x": 935,
+      "y": -2175,
       "z": 30.5
     },
     "observationPoint": {
-      "x": 935.0,
-      "y": -2175.0,
+      "x": 935,
+      "y": -2175,
       "z": 30.5,
       "tip": "Head to the alley beside the Fridgit warehouse in La Mesa. Locate the blue metal sliding bay doors cracked open a few inches. Shoot or blow away the cardboard boxes blocking the slit, then illuminate the interior with a flashlight or sniper scope to spot the snowman."
     },
@@ -405,7 +446,7 @@
   },
   {
     "id": "yellow_jack_blood_footprints",
-    "order": 11,
+    "order": 12,
     "title": "The Yellow Jack Inn Blood Footprints",
     "category": "crime",
     "categoryLabel": "Paranormal & Crime Mystery",
@@ -414,14 +455,14 @@
     "zone": "Grand Senora Desert",
     "schedule": "Visible 24/7 (Accessible Interior)",
     "position": {
-      "x": 2005.0,
+      "x": 2005,
       "y": 3056.4,
-      "z": 47.0
+      "z": 47
     },
     "observationPoint": {
-      "x": 2005.0,
+      "x": 2005,
       "y": 3056.4,
-      "z": 47.0,
+      "z": 47,
       "tip": "Step through the front entrance of the Yellow Jack Inn on Route 68. Walk right toward the green felt pool table. On the wooden floorboards, use weapon flashlight or bar lighting to observe bare bloody footprints abruptly stopping mid-room."
     },
     "lore": "The Yellow Jack Inn is Blaine County's most notorious roadside watering hole, frequented by The Lost MC bikers, truckers, and rural drifters. While celebrated for its easter eggs (including Niko Bellic's brown leather jacket hung behind the bar and framed pictures of Trevor Phillips), it holds a much darker detail.\n\nBeside the pool table on the worn wooden floor lies an undeniable trail of dried bloody footprints. They are not boot treads, but impressions of bare human soles or blood-soaked socks, suggesting a victim fleeing or being dragged across the floor.\n\nStrangely, the trail begins and ends abruptly in the middle of the room without reaching any doorway or counter. Community consensus links these bloody prints to Merle Abrahams (the Infinity 8 Killer), hypothesizing the dive bar was where he ambushed or staged one of his eight victims in late 2004.",

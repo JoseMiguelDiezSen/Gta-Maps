@@ -42,6 +42,11 @@ public class LocationsService
     }
 
     /// <summary>
+    /// Expresión regular compilada para validar estrictamente el código de idioma y blindar contra path traversal.
+    /// </summary>
+    private static readonly System.Text.RegularExpressions.Regex SafeLangRegex = new(@"^[a-z]{2,5}$", System.Text.RegularExpressions.RegexOptions.Compiled);
+
+    /// <summary>
     /// Resuelve la ruta física en disco de un dataset JSON aplicando una estrategia de fallback jerárquica:
     /// 1. Idioma solicitado (ej. data/{game}/{mode}/{lang}/{fileName}).
     /// 2. Fallback a español (data/{game}/{mode}/es/{fileName}).
@@ -55,7 +60,15 @@ public class LocationsService
     private string GetFilePath(string game, string mode, string fileName, string? lang = null)
     {
         var basePath = _env.WebRootPath ?? Path.Combine(AppContext.BaseDirectory, "wwwroot");
-        var activeLang = string.IsNullOrWhiteSpace(lang) ? "es" : lang.Trim().ToLowerInvariant();
+        var activeLang = "es";
+        if (!string.IsNullOrWhiteSpace(lang))
+        {
+            var cleaned = lang.Trim().ToLowerInvariant();
+            if (SafeLangRegex.IsMatch(cleaned))
+            {
+                activeLang = cleaned;
+            }
+        }
 
         // 1. Buscar en la estructura jerárquica con el idioma solicitado: data/{game}/{mode}/{activeLang}/{fileName}
         var targetPath = Path.Combine(basePath, "data", game, mode, activeLang, fileName);

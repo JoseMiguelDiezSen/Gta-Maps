@@ -1,16 +1,3 @@
-<!-- BOTÓN FLOTANTE PARA REABRIR EL PANEL DE COOKIES CUANDO ESTÁ OCULTO -->
-<button
-  *ngIf="!cookieService.isBannerVisible() && cookieService.hasConsented()"
-  type="button"
-  class="cookie-reopen-btn"
-  (click)="cookieService.openBanner()"
-  [title]="'cookies.reopenTooltip' | translate"
-  [attr.aria-label]="'cookies.reopenTooltip' | translate"
->
-  <span class="cookie-reopen-icon">🍪</span>
-  <span class="cookie-reopen-badge"></span>
-</button>
-
 <!-- BANNER PRINCIPAL DE COOKIES -->
 <div
   *ngIf="cookieService.isBannerVisible()"

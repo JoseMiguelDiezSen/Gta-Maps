@@ -1,49 +1,4 @@
 /* ==========================================
-   BOTÓN FLOTANTE RE-APERTURA DE COOKIES
-   ========================================== */
-.cookie-reopen-btn {
-  position: fixed;
-  bottom: 70px;
-  right: 18px;
-  z-index: 9998;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(255, 184, 51, 0.4);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 184, 51, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.cookie-reopen-btn:hover {
-  transform: scale(1.1);
-  background: rgba(22, 33, 62, 0.95);
-  border-color: #ffb833;
-}
-
-.cookie-reopen-icon {
-  font-size: 16px;
-  line-height: 1;
-}
-
-.cookie-reopen-badge {
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  width: 7px;
-  height: 7px;
-  background-color: #22c55e;
-  border-radius: 50%;
-  border: 1.5px solid #0f172a;
-}
-
-/* ==========================================
    WRAPPER Y CARD PRINCIPAL DE COOKIES (MÁS COMPACTO Y ELEVADO)
    ========================================== */
 .cookie-banner-wrapper {
@@ -532,10 +487,5 @@
     flex: 1 1 auto;
     font-size: 11px;
     padding: 5px 10px;
-  }
-
-  .cookie-reopen-btn {
-    bottom: 64px;
-    right: 14px;
   }
 }

@@ -27,7 +27,7 @@ export const es: TranslationSchema = {
     gta6Title: 'GTA VI',
     gta6Sub: 'En Desarrollo...',
     disclaimer: 'Proyecto creado por fans. No afiliado con Rockstar Games.',
-    copyright: '© Copyright 2026 JMD Software, all rights reserved. JMD® and JMD Logo® are trademarks of The JMD Corporation. All rights Reserved.',
+    copyright: '© Copyright 2026 JMD Software, todos los derechos reservados. JMD® y el logotipo JMD® son marcas registradas de The JMD Corporation.',
     onlineUsers: 'usuarios online',
     onlineUser: 'usuario online'
   },
@@ -291,15 +291,15 @@ export const es: TranslationSchema = {
     police: {
       title: 'Sistema Policial (Alerta)',
       weapon: 'Arma utilizada identificada',
-      weaponDesc: 'police know what weapon you used',
+      weaponDesc: 'la policía sabe qué arma has usado',
       identity: 'Identidad reconocida',
-      identityDesc: 'police know your identity',
+      identityDesc: 'la policía conoce tu identidad',
       clothes: 'Vestimenta registrada',
-      clothesDesc: 'police know what clothes you wear',
+      clothesDesc: 'la policía sabe qué ropa llevas',
       couple: 'Búsqueda de una pareja',
-      coupleDesc: 'police on the lookout for a couple',
+      coupleDesc: 'la policía busca a una pareja',
       cctv: 'Captado por cámaras CCTV',
-      cctvDesc: 'you have been spotted on CCTV'
+      cctvDesc: 'te han captado las cámaras de vigilancia'
     }
   },
   transports: {

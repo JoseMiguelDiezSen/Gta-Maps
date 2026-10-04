@@ -361,5 +361,129 @@
     "badgeSymbol": "👣",
     "gameMode": "both",
     "description": "En el interior del bar de moteros Yellow Jack Inn en la Ruta 68, el suelo de madera junto a la mesa de billar muestra huellas de pisadas de pies descalzos impregnadas en sangre que se interrumpen de forma abrupta."
+  },
+  {
+    "id": "greyfriars_bobby_dog",
+    "order": 10,
+    "title": "El Perro de Greyfriars (Homenaje a Bobby)",
+    "titleEn": "Greyfriars Bobby Dog Tribute",
+    "category": "easterEgg",
+    "categoryLabel": "Modo Historia / Homenaje",
+    "summary": "Cada mañana, un pequeño perro acude pacientemente al camposanto de Pacific Bluffs para velar la tumba de su antiguo dueño, recreando la mítica leyenda escocesa de Greyfriars Bobby.",
+    "schedule": "10:00 - 14:00",
+    "location": "Cementerio de Pacific Bluffs / Iglesia de Hill Valley",
+    "zone": "Pacific Bluffs, Los Santos",
+    "position": {
+      "x": -2120.8,
+      "y": -420.2,
+      "z": 13.1
+    },
+    "observationPoint": {
+      "x": -2105,
+      "y": -415,
+      "z": 13.5,
+      "tip": "Llega sobre las 10:30 de la mañana junto a la verja principal del cementerio. Si esperas sin hacer ruido, verás entrar al pequeño terrier recorriendo el sendero de grava hacia la sepultura."
+    },
+    "description": "Cada mañana entre las 10:00 y las 14:00, un pequeño terrier accede al camposanto de la iglesia de Hill Valley en Pacific Bluffs y camina hacia una lápida adornada con flores frescas que reza 'In loving memory'. Permanece quieto junto a ella durante varios minutos en señal de duelo antes de marcharse tranquilamente.",
+    "lore": "Este emotivo suceso es un homenaje directo de Rockstar North a Greyfriars Bobby, el legendario perro Skye Terrier de Edimburgo (Escocia). Durante el siglo XIX, Bobby custodió durante 14 años la sepultura de su dueño John Gray en el cementerio de Greyfriars hasta su muerte en 1872. Rockstar North, con sede principal en Edimburgo a escasa distancia del monumento a Bobby, quiso inmortalizar esta conmovedora historia de lealtad canina en Los Santos.",
+    "mechanics": [
+      "El evento se activa a diario entre las 10:00 y las 14:00 de la tarde (hora in-game).",
+      "El can entra en solitario por las puertas del cementerio en dirección a la tumba florida.",
+      "Se sienta cabizbajo durante varios minutos antes de levantarse y reanudar la marcha.",
+      "Si el jugador lo sigue a pie sin espantarlo, el perro desciende la colina hacia una casa cercana en Pacific Bluffs.",
+      "Evento garantizado y exclusivo del Modo Historia en todas las plataformas."
+    ],
+    "clues": [
+      "Inscripción en la lápida: 'In loving memory' con un jarrón de flores frescas que resalta frente a las sepulturas contiguas.",
+      "Conexión con Edimburgo: Rockstar North desarrolló GTA V desde sus oficinas escocesas, donde Bobby es un icono cultural de primer orden.",
+      "Banco conmemorativo: En el mismo cementerio existe un banco en recuerdo del añorado diseñador Chris Edwards de Rockstar Leeds."
+    ],
+    "thumbnail": "assets/data-images/mysteries/greyfriars_bobby.jpg",
+    "badgeColor": "#06b6d4",
+    "badgeIcon": "fa-dog",
+    "badgeSymbol": "🐶",
+    "gameMode": "story"
+  },
+  {
+    "id": "ufos_100_percent_story",
+    "order": 11,
+    "title": "Los OVNIs del 100% (La Tríada Secreta)",
+    "titleEn": "The 100% UFOs (The Secret Triad)",
+    "category": "conspiracy",
+    "categoryLabel": "Exclusivo Modo Historia / Ufología",
+    "summary": "Tres enigmáticas naves extraterrestres y militares sobrevuelan el espacio aéreo de San Andreas tras alcanzar el 100% del juego: sobre Fort Zancudo, Sandy Shores y Mount Chiliad.",
+    "location": "Fort Zancudo, Sandy Shores (Beam Me Up) y Mount Chiliad",
+    "zone": "Espacio Aéreo Superior de San Andreas",
+    "schedule": "Fort Zancudo y Sandy Shores: 24/7 | Mount Chiliad: 03:00 (Con lluvia o tormenta eléctrica)",
+    "position": {
+      "x": -2055,
+      "y": 3237,
+      "z": 1450
+    },
+    "observationPoint": {
+      "x": -2055,
+      "y": 3237,
+      "z": 1350,
+      "tip": "Requiere completar el 100% del juego. El OVNI de Fort Zancudo flota a gran altitud (~1.450 m). Se trata de un platillo militar experimental con paneles giratorios. Genera zumbidos electrónicos intensos y un pulso PEM que apaga los motores de cualquier aeronave al acercarse."
+    },
+    "lore": "Completar la campaña al 100% desvela la cúspide de las teorías de conspiración de San Andreas:\n1. Mount Chiliad: Aparece sobre la plataforma de observación a las 03:00 con tormenta. Se trata de un holograma óptico del FIB que se desvanece al aproximarse.\n2. Sandy Shores (Beam Me Up): Flota a máxima altitud (~1.100 m) sobre el colorido asentamiento hippie, con inscripciones del FIB y zumbidos de baja frecuencia.\n3. Fort Zancudo: Un artefacto militar táctico de color negro con paneles giratorios, cabina de caza e iluminación cegadora. Lleva el acrónimo 'DNR' y el anagrama 'SEGREGATE AND REARRANGE' ('EASTER EGG'). Acercarse desata un pulso electromagnético que corta los motores y provoca turbulencias extremas.",
+    "mechanics": [
+      "Requisito obligatorio: 100% registrado en el menú de estadísticas del Modo Historia.",
+      "OVNI de Fort Zancudo: Suspendido a gran altitud (~1.450 metros) sobre la base militar. Posee colisión física, campo electromagnético anulador de motores y repulsión gravitatoria.",
+      "OVNI de Sandy Shores: Suspendido a máxima altitud (~1.100 metros) sobre el parque hippie 'Beam Me Up', visible permanentemente tras desbloquear el 100%.",
+      "OVNI de Mount Chiliad: Se materializa a las 03:00 AM exclusivamente si llueve o hay tormenta sobre la plataforma de madera. Se desvanece de cerca al ser una proyección holográfica del FIB.",
+      "Exclusivo del Modo Historia: No aparece en partidas multijugador convencionales de GTA Online."
+    ],
+    "clues": [
+      "Inscripción en la plataforma del Chiliad: 'Come back when your story is complete' (Vuelve cuando tu historia esté completa).",
+      "El mural del teleférico de Mount Chiliad conectando el platillo, el huevo y la mochila propulsora (jetpack).",
+      "Anagrama grabado en el fuselaje de la nave de Fort Zancudo: 'SEGREGATE AND REARRANGE' (ordenado forma 'EASTER EGG').",
+      "Sellos oficiales del FIB estampados en las naves de Chiliad y Sandy Shores, confirmando la implicación de agencias gubernamentales."
+    ],
+    "thumbnail": "assets/data-images/mysteries/ufos_100_percent.jpg",
+    "badgeColor": "#10b981",
+    "badgeIcon": "fa-satellite",
+    "badgeSymbol": "🛸",
+    "gameMode": "story"
+  },
+  {
+    "id": "sasquatch_predator_story",
+    "order": 12,
+    "title": "El Bigfoot en 'Depredador'",
+    "titleEn": "The Sasquatch in 'Predator'",
+    "category": "cryptid",
+    "categoryLabel": "Exclusivo Modo Historia / Criptozoología",
+    "summary": "Durante la misión del modo campaña 'Depredador', la mira térmica del fusil de francotirador de Michael permite avistar fugazmente la silueta luminosa del legendario Bigfoot oculto entre los pinos de Raton Canyon.",
+    "location": "Raton Canyon / Bosques de Cassidy Creek",
+    "zone": "Raton Canyon",
+    "schedule": "Durante la misión 'Depredador' del Modo Historia",
+    "position": {
+      "x": -1550,
+      "y": 4470,
+      "z": 15
+    },
+    "observationPoint": {
+      "x": -1550,
+      "y": 4470,
+      "z": 15,
+      "tip": "Durante la misión 'Depredador', mientras disparas desde el helicóptero con la mira térmica de Michael, enfoca la zona inferior derecha del bosque antes de abatir al último de los hermanos O'Neil. Localizarás una figura bípeda gigante emitiendo calor corporal."
+    },
+    "lore": "El mito del Sasquatch (Bigfoot) ha sido la leyenda urbana por excelencia del universo Grand Theft Auto desde la época de GTA San Andreas en los bosques de Back O' Beyond. En GTA V, Rockstar Games incorporó homenajes claros y deliberados.\n\nEl más emblemático sucede en la misión de la historia 'Depredador'. Mientras Trevor pilota el helicóptero y Michael usa una mira térmica para localizar a los fugitivos entre el frondoso valle de Raton Canyon, al rastrear la esquina inferior derecha aparece la silueta de un homínido gigante erguido. Si centras la retícula o disparas una bala, la criatura se desvanece en una fracción de segundo sin dejar rastro biológico.",
+    "mechanics": [
+      "Accesible únicamente durante la misión de campaña 'Depredador' (o mediante la opción de repetir misión en el menú de pausa).",
+      "Se visualiza como una potente firma térmica humanoide en el cuadrante inferior derecho de la óptica infrarroja.",
+      "Mecánica de desvanecimiento: Mantener el zoom directamente sobre la criatura o abrir fuego provoca su desaparición instantánea.",
+      "Conexión con el 100%: Sirve de anticipo para la misión de Extraños y Locos post-100% 'El último', donde Franklin asiste a la cacería de un cazador obsesionado con el Bigfoot."
+    ],
+    "clues": [
+      "Silueta térmica anatómica: Espalda ancha, brazos desproporcionadamente largos y postura encorvada que coinciden con el clásico críptido.",
+      "Título de la misión: 'Depredador' rinde homenaje a la película de ciencia ficción de 1987 donde el cazador alienígena utiliza visión térmica en la selva.",
+      "Inmunidad balística: Las balas lo atraviesan sin registrar impacto físico ni sangre, provocando la evaporación del modelo."
+    ],
+    "thumbnail": "assets/data-images/mysteries/sasquatch_predator.jpg",
+    "badgeColor": "#059669",
+    "badgeIcon": "fa-paw",
+    "badgeSymbol": "🦧",
+    "gameMode": "story"
   }
 ]

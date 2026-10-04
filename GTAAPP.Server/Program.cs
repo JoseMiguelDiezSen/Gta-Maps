@@ -13,10 +13,13 @@ using GTAAPP.Server.Hubs;
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true);
 
-// 1. Eliminar cabecera 'Server' para no exponer detalles internos del servidor Kestrel a posibles atacantes
+// 1. Eliminar cabecera 'Server' y fijar límites de tamaño y timeouts contra DoS
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
     serverOptions.AddServerHeader = false;
+    serverOptions.Limits.MaxRequestBodySize = 64 * 1024; // Límite estricto de 64 KB por petición (anti-DoS)
+    serverOptions.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
+    serverOptions.Limits.RequestHeadersTimeout = TimeSpan.FromSeconds(15);
 });
 
 // 2. Soporte para proxies inversos (Azure App Service TLS termination, Cloudflare o balanceadores de carga)
@@ -59,7 +62,7 @@ builder.Services.AddCors(options =>
             // En producción restringe estrictamente a los orígenes definidos en configuración
             policy.WithOrigins(allowedOrigins)
                   .AllowAnyHeader()
-                  .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                  .WithMethods("GET", "POST", "OPTIONS")
                   .AllowCredentials();
         }
     });
@@ -115,14 +118,33 @@ builder.Services.AddRateLimiter(options =>
                 QueueLimit = 0
             });
     });
+
+    // 6.3 Política específica 'chat-policy' para el endpoint de IA GOTY Bot (máximo 15 req/min por IP)
+    options.AddPolicy("chat-policy", httpContext =>
+    {
+        var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
+        return RateLimitPartition.GetSlidingWindowLimiter(
+            partitionKey: clientIp,
+            factory: _ => new SlidingWindowRateLimiterOptions
+            {
+                PermitLimit = 15,
+                Window = TimeSpan.FromMinutes(1),
+                SegmentsPerWindow = 3,
+                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+                QueueLimit = 0
+            });
+    });
 });
 
 // 7. Servicios singleton de negocio (gestión de ubicaciones y vehículos con caché en memoria)
 builder.Services.AddSingleton<GTAAPP.Server.Services.LocationsService>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.VehiclesService>();
-builder.Services.AddHttpClient<GTAAPP.Server.Services.IGeminiService, GTAAPP.Server.Services.GeminiService>();
+builder.Services.AddHttpClient<GTAAPP.Server.Services.IGeminiService, GTAAPP.Server.Services.GeminiService>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(8); // Timeout rápido de 8 segundos para evitar bloqueos
+});
 
-// 8. Documentación interactiva de la API con OpenAPI / Swagger
+// 8. Documentación interactiva de la API con OpenAPI / Swagger (solo en desarrollo)
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -134,17 +156,30 @@ var app = builder.Build();
 // Respetar encabezados reenviados por proxies inversos (X-Forwarded-For, X-Forwarded-Proto)
 app.UseForwardedHeaders();
 
-// Inyectar cabeceras defensivas de seguridad (CSP, X-Frame-Options, X-Content-Type-Options)
+// Inyectar cabeceras defensivas de seguridad (CSP, X-Frame-Options, X-Content-Type-Options) y cortafuegos de métodos
 app.UseSecurityHeaders();
 
-// Entorno de desarrollo: habilitar interfaz OpenAPI / Swagger
-if (app.Environment.IsDevelopment())
+// Blindaje de excepciones: En producción nunca se filtran trazas internas ni detalles del servidor
+if (!app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseExceptionHandler(errorApp =>
+    {
+        errorApp.Run(async context =>
+        {
+            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+            context.Response.ContentType = "application/json; charset=utf-8";
+            await context.Response.WriteAsJsonAsync(new
+            {
+                error = "Internal Server Error",
+                message = "Ha ocurrido un error inesperado al procesar la solicitud."
+            });
+        });
+    });
+    app.UseHsts();
 }
 else
 {
-    app.UseHsts();
+    app.MapOpenApi();
 }
 
 // Redirección forzada de HTTP a HTTPS
