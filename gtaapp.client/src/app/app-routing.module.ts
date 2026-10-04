@@ -9,15 +9,53 @@ import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component'
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
+    {
+        path: 'home',
+        component: HomeComponent,
+        data: {
+            title: 'GTA MAPS - Mapas Interactivos de GTA V y GTA VI',
+            description: 'Mapas interactivos de GTA V y GTA VI con ubicaciones de misiones, vehículos, coleccionables y secretos en Los Santos y Vice City.',
+            canonical: 'https://gtamaps.dev/home'
+        }
+    },
 
     // ── GTA V ────────────────────────────────────────────────────────────────
-    // /gta5 y /gta5online van directo al Online — igual que siempre desde la home
-    // Dentro del mapa hay botón para cambiar a Historia (/gta5/historia o /gta5historia)
-    { path: 'gta5-online',   component: Gta5OnlineComponent },
-    { path: 'gta5-historia', component: Gta5HistoriaComponent },
-    { path: 'gta6-online',   component: Gta6OnlineComponent },
-    { path: 'gta6-historia', component: Gta6HistoriaComponent },
+    {
+        path: 'gta5-online',
+        component: Gta5OnlineComponent,
+        data: {
+            title: 'Mapa GTA V Online Interactivo - Ubicaciones, Vehículos y Coleccionables | GTA MAPS',
+            description: 'Mapa interactivo de GTA 5 Online con ubicaciones de negocios, propiedades, vehículos, saltos y coleccionables en tiempo real.',
+            canonical: 'https://gtamaps.dev/gta5-online'
+        }
+    },
+    {
+        path: 'gta5-historia',
+        component: Gta5HistoriaComponent,
+        data: {
+            title: 'Mapa GTA V Modo Historia - Misiones al 100%, Saltos y Secretos | GTA MAPS',
+            description: 'Mapa interactivo y guía completa del modo historia de GTA V para el 100%: misiones principales, secundarios, armas y coleccionables.',
+            canonical: 'https://gtamaps.dev/gta5-historia'
+        }
+    },
+    {
+        path: 'gta6-online',
+        component: Gta6OnlineComponent,
+        data: {
+            title: 'Mapa GTA VI Online Vice City - Ubicaciones y Guía Interactiva | GTA MAPS',
+            description: 'Mapa interactivo de GTA 6 Online en Vice City y Leonida con puntos de interés, ubicaciones, carreteras y novedades.',
+            canonical: 'https://gtamaps.dev/gta6-online'
+        }
+    },
+    {
+        path: 'gta6-historia',
+        component: Gta6HistoriaComponent,
+        data: {
+            title: 'Mapa GTA VI Modo Historia - Misiones Jason y Lucia en Leonida | GTA MAPS',
+            description: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Exploración de Vice City, misiones, coleccionables y secretos.',
+            canonical: 'https://gtamaps.dev/gta6-historia'
+        }
+    },
 
     // Redirecciones por compatibilidad
     { path: 'gta5',          redirectTo: '/gta5-online', pathMatch: 'full' },

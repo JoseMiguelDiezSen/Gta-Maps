@@ -7,9 +7,11 @@ const PROXY_CONFIG = [
   {
     context: [
       "/api",
+      "/hubs"
     ],
     target,
-    secure: false
+    secure: false,
+    ws: true
   }
 ]
 

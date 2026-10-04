@@ -217,12 +217,18 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
         private router: Router
     ) {}
 
+    private _cachedMapTypesGta6H: any[] | null = null;
+    private _lastLangGta6H = '';
     get mapTypes() {
-        return [
-            { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite'), file: '/assets/filtracionesGta6/satelite.jpg', w: 912, h: 1136 },
-            { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 },
-            { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 }
-        ];
+        if (!this._cachedMapTypesGta6H || this._lastLangGta6H !== this.translationService.currentLang) {
+            this._lastLangGta6H = this.translationService.currentLang;
+            this._cachedMapTypesGta6H = [
+                { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite'), file: '/assets/filtracionesGta6/satelite.jpg', w: 912, h: 1136 },
+                { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 },
+                { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 }
+            ];
+        }
+        return this._cachedMapTypesGta6H;
     }
 
     legendOpen = true;

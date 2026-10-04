@@ -20,24 +20,55 @@ export class InfoPanelComponent implements OnChanges {
   @Output() closeDrawer = new EventEmitter<void>();
   @Output() locateOnMap = new EventEmitter<any>();
 
+  // Cache fields to prevent NG0103 Infinite Change Detection
+  private readonly onlineDrawerTabs = [
+    { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
+    { id: 'armas', label: 'Armas', icon: 'fa-gun' },
+    { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
+    { id: 'golpes', label: 'Golpes', icon: 'fa-sack-dollar' },
+    { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
+  ];
+  private readonly storyDrawerTabs = [
+    { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
+    { id: 'armas', label: 'Armas', icon: 'fa-gun' },
+    { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
+    { id: 'strangers', label: 'Extraños y Locos', icon: 'fa-mask' },
+    { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
+  ];
+
+  private _cachedVisDealersKey = '';
+  private _cachedVisDealers: DealerCategory[] = [];
+  private _cachedDealCatKey = '';
+  private _cachedDealCat: { id: string; name: string; count: number; icon: string }[] = [];
+  private _cachedFDVKey = '';
+  private _cachedFDV: GtaVehicle[] = [];
+  private _cachedFSMKey = '';
+  private _cachedFSM: GtaMission[] = [];
+  private _cachedOCLKey = '';
+  private _cachedOCL: { id: string; name: string; count: number; icon: string; color: string }[] = [];
+  private _cachedOCatKey = '';
+  private _cachedOCat: string[] = [];
+  private _cachedFOMKey = '';
+  private _cachedFOM: GtaMission[] = [];
+  private _cachedSSLKey = '';
+  private _cachedSSL: { id: string; name: string; count: number; icon: string; color: string }[] = [];
+  private _cachedFStMKey = '';
+  private _cachedFStM: GtaStrangerMission[] = [];
+  private _cachedFSSGKey = '';
+  private _cachedFSSG: StrangerSeriesGroup[] = [];
+  private _cachedFOHKey = '';
+  private _cachedFOH: GtaHeist[] = [];
+  private _cachedFOMysKey = '';
+  private _cachedFOMys: GtaMystery[] = [];
+  private _cachedFWKey = '';
+  private _cachedFW: GtaWeapon[] = [];
+  private _cachedWCLKey = '';
+  private _cachedWCL: { id: string; name: string; count: number; icon: string }[] = [];
+  private _cachedDealerDesc: { [id: string]: string } = {};
+
   // Tabs del drawer según el modo de juego
   get drawerTabs(): { id: string; label: string; icon: string }[] {
-    if (this.gameMode === 'online') {
-      return [
-        { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
-        { id: 'armas', label: 'Armas', icon: 'fa-gun' },
-        { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
-        { id: 'golpes', label: 'Golpes', icon: 'fa-sack-dollar' },
-        { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
-      ];
-    }
-    return [
-      { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
-      { id: 'armas', label: 'Armas', icon: 'fa-gun' },
-      { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
-      { id: 'strangers', label: 'Extraños y Locos', icon: 'fa-mask' },
-      { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
-    ];
+    return this.gameMode === 'online' ? this.onlineDrawerTabs : this.storyDrawerTabs;
   }
   activeDrawerTab = 'vehiculos';
 
@@ -279,58 +310,74 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get visibleDealers(): DealerCategory[] {
-    return this.dealers.filter(d => d.gameMode === 'both' || d.gameMode === this.gameMode);
+    if (this._cachedVisDealersKey !== this.gameMode) {
+      this._cachedVisDealersKey = this.gameMode;
+      this._cachedVisDealers = this.dealers.filter(d => d.gameMode === 'both' || d.gameMode === this.gameMode);
+    }
+    return this._cachedVisDealers;
   }
 
   get dealerCategories(): { id: string; name: string; count: number; icon: string }[] {
-    if (!this.dealerVehicles || this.dealerVehicles.length === 0) return [];
+    const key = `${this.dealerVehicles ? this.dealerVehicles.length : 0}_${this.dealerVehicles && this.dealerVehicles[0] ? this.dealerVehicles[0].id : ''}`;
+    if (this._cachedDealCatKey !== key) {
+      this._cachedDealCatKey = key;
+      if (!this.dealerVehicles || this.dealerVehicles.length === 0) {
+        this._cachedDealCat = [];
+      } else {
+        const counts: { [cls: string]: number } = {};
+        for (const v of this.dealerVehicles) {
+          const cls = v.class || 'Otros';
+          counts[cls] = (counts[cls] || 0) + 1;
+        }
 
-    const counts: { [cls: string]: number } = {};
-    for (const v of this.dealerVehicles) {
-      const cls = v.class || 'Otros';
-      counts[cls] = (counts[cls] || 0) + 1;
+        const list = Object.keys(counts)
+          .sort((a, b) => counts[b] - counts[a])
+          .map(cls => ({
+            id: cls,
+            name: cls,
+            count: counts[cls],
+            icon: this.getCategoryTabIcon(cls)
+          }));
+
+        this._cachedDealCat = [
+          { id: 'all', name: 'Todos', count: this.dealerVehicles.length, icon: 'fa-layer-group' },
+          ...list
+        ];
+      }
     }
-
-    const list = Object.keys(counts)
-      .sort((a, b) => counts[b] - counts[a])
-      .map(cls => ({
-        id: cls,
-        name: cls,
-        count: counts[cls],
-        icon: this.getCategoryTabIcon(cls)
-      }));
-
-    return [
-      { id: 'all', name: 'Todos', count: this.dealerVehicles.length, icon: 'fa-layer-group' },
-      ...list
-    ];
+    return this._cachedDealCat;
   }
 
   get filteredDealerVehicles(): GtaVehicle[] {
-    let list = this.dealerVehicles;
-    if (this.selectedVehicleClass !== 'all') {
-      list = list.filter(v => (v.class || 'Otros') === this.selectedVehicleClass);
+    const key = `${this.dealerVehicles ? this.dealerVehicles.length : 0}_${this.selectedVehicleClass}_${this.dealerVehicleSearchQuery}_${this.selectedVehicleSort}`;
+    if (this._cachedFDVKey !== key) {
+      this._cachedFDVKey = key;
+      let list = this.dealerVehicles;
+      if (this.selectedVehicleClass !== 'all') {
+        list = list.filter(v => (v.class || 'Otros') === this.selectedVehicleClass);
+      }
+      const q = this.dealerVehicleSearchQuery.trim().toLowerCase();
+      if (q) {
+        list = list.filter(v =>
+          (v.name && v.name.toLowerCase().includes(q)) ||
+          (v.manufacturer && v.manufacturer.toLowerCase().includes(q)) ||
+          (v.class && v.class.toLowerCase().includes(q))
+        );
+      }
+      if (this.selectedVehicleSort !== 'none') {
+        const sortKey = this.selectedVehicleSort;
+        list = [...list].sort((a, b) => {
+          const statA = (a as any)[sortKey] ?? 0;
+          const statB = (b as any)[sortKey] ?? 0;
+          if (statB !== statA) {
+            return statB - statA;
+          }
+          return (a.name || '').localeCompare(b.name || '');
+        });
+      }
+      this._cachedFDV = list;
     }
-    const q = this.dealerVehicleSearchQuery.trim().toLowerCase();
-    if (q) {
-      list = list.filter(v =>
-        (v.name && v.name.toLowerCase().includes(q)) ||
-        (v.manufacturer && v.manufacturer.toLowerCase().includes(q)) ||
-        (v.class && v.class.toLowerCase().includes(q))
-      );
-    }
-    if (this.selectedVehicleSort !== 'none') {
-      const sortKey = this.selectedVehicleSort;
-      list = [...list].sort((a, b) => {
-        const statA = (a as any)[sortKey] ?? 0;
-        const statB = (b as any)[sortKey] ?? 0;
-        if (statB !== statA) {
-          return statB - statA;
-        }
-        return (a.name || '').localeCompare(b.name || '');
-      });
-    }
-    return list;
+    return this._cachedFDV;
   }
 
   // -------------------------------------------------------------
@@ -365,26 +412,31 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get filteredStoryMissions(): GtaMission[] {
-    let list = this.storyMissions;
-    const filter = this.selectedCharacterFilter.toLowerCase();
-    if (filter !== 'all') {
-      if (filter === 'heists') {
-        list = list.filter(m => m.category.toLowerCase().includes('golpe') || m.category.toLowerCase().includes('heist'));
-      } else {
-        list = list.filter(m => m.character.toLowerCase().includes(filter));
+    const key = `${this.storyMissions ? this.storyMissions.length : 0}_${this.selectedCharacterFilter}_${this.missionSearchQuery}`;
+    if (this._cachedFSMKey !== key) {
+      this._cachedFSMKey = key;
+      let list = this.storyMissions;
+      const filter = this.selectedCharacterFilter.toLowerCase();
+      if (filter !== 'all') {
+        if (filter === 'heists') {
+          list = list.filter(m => m.category.toLowerCase().includes('golpe') || m.category.toLowerCase().includes('heist'));
+        } else {
+          list = list.filter(m => m.character.toLowerCase().includes(filter));
+        }
       }
+      const q = this.missionSearchQuery.trim().toLowerCase();
+      if (q) {
+        list = list.filter(m =>
+          m.title.toLowerCase().includes(q) ||
+          m.description.toLowerCase().includes(q) ||
+          m.giver.toLowerCase().includes(q) ||
+          m.character.toLowerCase().includes(q) ||
+          m.category.toLowerCase().includes(q)
+        );
+      }
+      this._cachedFSM = list;
     }
-    const q = this.missionSearchQuery.trim().toLowerCase();
-    if (q) {
-      list = list.filter(m =>
-        m.title.toLowerCase().includes(q) ||
-        m.description.toLowerCase().includes(q) ||
-        m.giver.toLowerCase().includes(q) ||
-        m.character.toLowerCase().includes(q) ||
-        m.category.toLowerCase().includes(q)
-      );
-    }
-    return list;
+    return this._cachedFSM;
   }
 
   getCharacterMissionCount(filter: string): number {
@@ -478,17 +530,22 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get onlineContactsList(): { id: string; name: string; count: number; icon: string; color: string }[] {
-    return [
-      { id: 'all', name: 'Todos', count: this.onlineMissions.length, icon: 'fa-globe', color: '#ffb833' },
-      { id: 'gerald', name: 'Gerald', count: this.getOnlineContactCount('gerald'), icon: 'fa-pills', color: '#9b59b6' },
-      { id: 'simeon', name: 'Simeon', count: this.getOnlineContactCount('simeon'), icon: 'fa-car', color: '#f1c40f' },
-      { id: 'lamar', name: 'Lamar', count: this.getOnlineContactCount('lamar'), icon: 'fa-cannabis', color: '#2ecc71' },
-      { id: 'lester', name: 'Lester', count: this.getOnlineContactCount('lester'), icon: 'fa-laptop-code', color: '#3498db' },
-      { id: 'madrazo', name: 'Madrazo', count: this.getOnlineContactCount('madrazo'), icon: 'fa-crosshairs', color: '#e74c3c' },
-      { id: 'trevor', name: 'Trevor / Ron', count: this.getOnlineContactCount('trevor'), icon: 'fa-skull', color: '#e67e22' },
-      { id: 'agatha', name: 'Agatha Baker', count: this.getOnlineContactCount('agatha'), icon: 'fa-gem', color: '#d4af37' },
-      { id: 'special', name: 'Operaciones Especiales', count: this.getOnlineContactCount('special'), icon: 'fa-shield-halved', color: '#1abc9c' }
-    ];
+    const key = `${this.onlineMissions ? this.onlineMissions.length : 0}`;
+    if (this._cachedOCLKey !== key) {
+      this._cachedOCLKey = key;
+      this._cachedOCL = [
+        { id: 'all', name: 'Todos', count: this.onlineMissions.length, icon: 'fa-globe', color: '#ffb833' },
+        { id: 'gerald', name: 'Gerald', count: this.getOnlineContactCount('gerald'), icon: 'fa-pills', color: '#9b59b6' },
+        { id: 'simeon', name: 'Simeon', count: this.getOnlineContactCount('simeon'), icon: 'fa-car', color: '#f1c40f' },
+        { id: 'lamar', name: 'Lamar', count: this.getOnlineContactCount('lamar'), icon: 'fa-cannabis', color: '#2ecc71' },
+        { id: 'lester', name: 'Lester', count: this.getOnlineContactCount('lester'), icon: 'fa-laptop-code', color: '#3498db' },
+        { id: 'madrazo', name: 'Madrazo', count: this.getOnlineContactCount('madrazo'), icon: 'fa-crosshairs', color: '#e74c3c' },
+        { id: 'trevor', name: 'Trevor / Ron', count: this.getOnlineContactCount('trevor'), icon: 'fa-skull', color: '#e67e22' },
+        { id: 'agatha', name: 'Agatha Baker', count: this.getOnlineContactCount('agatha'), icon: 'fa-gem', color: '#d4af37' },
+        { id: 'special', name: 'Operaciones Especiales', count: this.getOnlineContactCount('special'), icon: 'fa-shield-halved', color: '#1abc9c' }
+      ];
+    }
+    return this._cachedOCL;
   }
 
   getOnlineContactCount(filter: string): number {
@@ -511,48 +568,58 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get onlineCategories(): string[] {
-    const set = new Set<string>();
-    for (const m of this.onlineMissions) {
-      if (m.category) set.add(m.category);
+    const key = `${this.onlineMissions ? this.onlineMissions.length : 0}`;
+    if (this._cachedOCatKey !== key) {
+      this._cachedOCatKey = key;
+      const set = new Set<string>();
+      for (const m of this.onlineMissions) {
+        if (m.category) set.add(m.category);
+      }
+      this._cachedOCat = Array.from(set).sort();
     }
-    return Array.from(set).sort();
+    return this._cachedOCat;
   }
 
   get filteredOnlineMissions(): GtaMission[] {
-    let list = this.onlineMissions;
-    const cf = this.selectedOnlineContactFilter.toLowerCase();
-    if (cf !== 'all') {
-      if (cf === 'trevor') {
-        list = list.filter(m => m.character.toLowerCase().includes('trevor') || m.character.toLowerCase().includes('ron'));
-      } else if (cf === 'special') {
-        list = list.filter(m =>
-          m.character.toLowerCase().includes('brendan') ||
-          m.character.toLowerCase().includes('agente 14') ||
-          m.character.toLowerCase().includes('securoserv') ||
-          m.character.toLowerCase().includes('franklin') ||
-          m.character.toLowerCase().includes('dax') ||
-          m.character.toLowerCase().includes('vincent')
-        );
-      } else {
-        list = list.filter(m => m.character.toLowerCase().includes(cf));
+    const key = `${this.onlineMissions ? this.onlineMissions.length : 0}_${this.selectedOnlineContactFilter}_${this.selectedOnlineCategoryFilter}_${this.onlineMissionSearchQuery}`;
+    if (this._cachedFOMKey !== key) {
+      this._cachedFOMKey = key;
+      let list = this.onlineMissions;
+      const cf = this.selectedOnlineContactFilter.toLowerCase();
+      if (cf !== 'all') {
+        if (cf === 'trevor') {
+          list = list.filter(m => m.character.toLowerCase().includes('trevor') || m.character.toLowerCase().includes('ron'));
+        } else if (cf === 'special') {
+          list = list.filter(m =>
+            m.character.toLowerCase().includes('brendan') ||
+            m.character.toLowerCase().includes('agente 14') ||
+            m.character.toLowerCase().includes('securoserv') ||
+            m.character.toLowerCase().includes('franklin') ||
+            m.character.toLowerCase().includes('dax') ||
+            m.character.toLowerCase().includes('vincent')
+          );
+        } else {
+          list = list.filter(m => m.character.toLowerCase().includes(cf));
+        }
       }
-    }
 
-    if (this.selectedOnlineCategoryFilter !== 'all') {
-      list = list.filter(m => m.category === this.selectedOnlineCategoryFilter);
-    }
+      if (this.selectedOnlineCategoryFilter !== 'all') {
+        list = list.filter(m => m.category === this.selectedOnlineCategoryFilter);
+      }
 
-    const q = this.onlineMissionSearchQuery.trim().toLowerCase();
-    if (q) {
-      list = list.filter(m =>
-        m.title.toLowerCase().includes(q) ||
-        m.description.toLowerCase().includes(q) ||
-        m.giver.toLowerCase().includes(q) ||
-        m.character.toLowerCase().includes(q) ||
-        m.category.toLowerCase().includes(q)
-      );
+      const q = this.onlineMissionSearchQuery.trim().toLowerCase();
+      if (q) {
+        list = list.filter(m =>
+          m.title.toLowerCase().includes(q) ||
+          m.description.toLowerCase().includes(q) ||
+          m.giver.toLowerCase().includes(q) ||
+          m.character.toLowerCase().includes(q) ||
+          m.category.toLowerCase().includes(q)
+        );
+      }
+      this._cachedFOM = list;
     }
-    return list;
+    return this._cachedFOM;
   }
 
   getOnlineContactBadgeClass(char: string): string {
@@ -712,69 +779,84 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get strangerSeriesList(): { id: string; name: string; count: number; icon: string; color: string }[] {
-    const map = new Map<string, { id: string; name: string; count: number; icon: string; color: string }>();
-    for (const m of this.strangerMissions) {
-      if (!map.has(m.series)) {
-        map.set(m.series, {
-          id: m.series,
-          name: m.seriesName,
-          count: 0,
-          icon: m.seriesIcon || 'fa-user-ninja',
-          color: m.seriesColor || '#ffb833'
-        });
+    const key = `${this.strangerMissions ? this.strangerMissions.length : 0}`;
+    if (this._cachedSSLKey !== key) {
+      this._cachedSSLKey = key;
+      const map = new Map<string, { id: string; name: string; count: number; icon: string; color: string }>();
+      for (const m of this.strangerMissions) {
+        if (!map.has(m.series)) {
+          map.set(m.series, {
+            id: m.series,
+            name: m.seriesName,
+            count: 0,
+            icon: m.seriesIcon || 'fa-user-ninja',
+            color: m.seriesColor || '#ffb833'
+          });
+        }
+        map.get(m.series)!.count++;
       }
-      map.get(m.series)!.count++;
+      this._cachedSSL = Array.from(map.values()).sort((a, b) => b.count - a.count);
     }
-    return Array.from(map.values()).sort((a, b) => b.count - a.count);
+    return this._cachedSSL;
   }
 
   get filteredStrangerMissions(): GtaStrangerMission[] {
-    let list = this.strangerMissions;
-    const charFilter = this.selectedStrangerCharacterFilter.toLowerCase();
-    if (charFilter !== 'all') {
-      if (charFilter === '100') {
-        list = list.filter(m => m.requiredFor100);
-      } else {
-        list = list.filter(m => m.character.toLowerCase().includes(charFilter));
+    const key = `${this.strangerMissions ? this.strangerMissions.length : 0}_${this.selectedStrangerCharacterFilter}_${this.selectedStrangerSeriesFilter}_${this.strangerOnly100Filter}_${this.strangerSearchQuery}`;
+    if (this._cachedFStMKey !== key) {
+      this._cachedFStMKey = key;
+      let list = this.strangerMissions;
+      const charFilter = this.selectedStrangerCharacterFilter.toLowerCase();
+      if (charFilter !== 'all') {
+        if (charFilter === '100') {
+          list = list.filter(m => m.requiredFor100);
+        } else {
+          list = list.filter(m => m.character.toLowerCase().includes(charFilter));
+        }
       }
+      if (this.selectedStrangerSeriesFilter !== 'all') {
+        list = list.filter(m => m.series === this.selectedStrangerSeriesFilter);
+      }
+      if (this.strangerOnly100Filter) {
+        list = list.filter(m => m.requiredFor100);
+      }
+      const q = this.strangerSearchQuery.trim().toLowerCase();
+      if (q) {
+        list = list.filter(m =>
+          m.title.toLowerCase().includes(q) ||
+          (m.titleEn && m.titleEn.toLowerCase().includes(q)) ||
+          m.seriesName.toLowerCase().includes(q) ||
+          m.giver.toLowerCase().includes(q) ||
+          m.character.toLowerCase().includes(q) ||
+          m.description.toLowerCase().includes(q)
+        );
+      }
+      this._cachedFStM = list;
     }
-    if (this.selectedStrangerSeriesFilter !== 'all') {
-      list = list.filter(m => m.series === this.selectedStrangerSeriesFilter);
-    }
-    if (this.strangerOnly100Filter) {
-      list = list.filter(m => m.requiredFor100);
-    }
-    const q = this.strangerSearchQuery.trim().toLowerCase();
-    if (q) {
-      list = list.filter(m =>
-        m.title.toLowerCase().includes(q) ||
-        (m.titleEn && m.titleEn.toLowerCase().includes(q)) ||
-        m.seriesName.toLowerCase().includes(q) ||
-        m.giver.toLowerCase().includes(q) ||
-        m.character.toLowerCase().includes(q) ||
-        m.description.toLowerCase().includes(q)
-      );
-    }
-    return list;
+    return this._cachedFStM;
   }
 
   get filteredStrangerSeriesGroups(): StrangerSeriesGroup[] {
     const missions = this.filteredStrangerMissions;
-    const map = new Map<string, StrangerSeriesGroup>();
-    for (const m of missions) {
-      if (!map.has(m.series)) {
-        map.set(m.series, {
-          id: m.series,
-          name: m.seriesName,
-          icon: m.seriesIcon || 'fa-user-ninja',
-          color: m.seriesColor || '#ffb833',
-          missions: [],
-          total: m.seriesTotal
-        });
+    const key = `${missions.length}_${missions[0] ? missions[0].id : ''}`;
+    if (this._cachedFSSGKey !== key) {
+      this._cachedFSSGKey = key;
+      const map = new Map<string, StrangerSeriesGroup>();
+      for (const m of missions) {
+        if (!map.has(m.series)) {
+          map.set(m.series, {
+            id: m.series,
+            name: m.seriesName,
+            icon: m.seriesIcon || 'fa-user-ninja',
+            color: m.seriesColor || '#ffb833',
+            missions: [],
+            total: m.seriesTotal
+          });
+        }
+        map.get(m.series)!.missions.push(m);
       }
-      map.get(m.series)!.missions.push(m);
+      this._cachedFSSG = Array.from(map.values());
     }
-    return Array.from(map.values());
+    return this._cachedFSSG;
   }
 
   getStrangerCharacterMissionCount(filter: string): number {
@@ -929,6 +1011,11 @@ export class InfoPanelComponent implements OnChanges {
    *  Uses i18n keys for the original 6 dealers and falls back
    *  to the static description property for newer ones. */
   getDealerDesc(dealer: DealerCategory): string {
+    const lang = this.translationService.currentLang;
+    const cacheKey = `${dealer.id}_${lang}`;
+    if (this._cachedDealerDesc[cacheKey]) {
+      return this._cachedDealerDesc[cacheKey];
+    }
     const i18nKeyMap: { [id: string]: string } = {
       legendarymotorsport: 'transports.dealers.legendaryDesc',
       superautos: 'transports.dealers.superautosDesc',
@@ -942,11 +1029,15 @@ export class InfoPanelComponent implements OnChanges {
       especiales: 'transports.dealers.especialesDesc',
     };
     const key = i18nKeyMap[dealer.id];
+    let result = dealer.description;
     if (key) {
       const translated = this.translationService.t(key);
-      if (translated && !translated.startsWith('transports.')) return translated;
+      if (translated && !translated.startsWith('transports.')) {
+        result = translated;
+      }
     }
-    return dealer.description;
+    this._cachedDealerDesc[cacheKey] = result;
+    return result;
   }
 
   onClose(): void {
@@ -1012,24 +1103,29 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get filteredOnlineHeists(): GtaHeist[] {
-    let list = this.onlineHeists;
-    const cat = this.selectedHeistCategoryFilter.toLowerCase();
-    if (cat !== 'all') {
-      list = list.filter(h => h.category.toLowerCase() === cat);
+    const key = `${this.onlineHeists ? this.onlineHeists.length : 0}_${this.selectedHeistCategoryFilter}_${this.heistSearchQuery}`;
+    if (this._cachedFOHKey !== key) {
+      this._cachedFOHKey = key;
+      let list = this.onlineHeists;
+      const cat = this.selectedHeistCategoryFilter.toLowerCase();
+      if (cat !== 'all') {
+        list = list.filter(h => h.category.toLowerCase() === cat);
+      }
+      const q = this.heistSearchQuery.trim().toLowerCase();
+      if (q) {
+        list = list.filter(h =>
+          h.title.toLowerCase().includes(q) ||
+          (h.titleEn && h.titleEn.toLowerCase().includes(q)) ||
+          h.giver.toLowerCase().includes(q) ||
+          h.target.toLowerCase().includes(q) ||
+          h.propertyRequired.toLowerCase().includes(q) ||
+          h.description.toLowerCase().includes(q) ||
+          h.categoryLabel.toLowerCase().includes(q)
+        );
+      }
+      this._cachedFOH = list;
     }
-    const q = this.heistSearchQuery.trim().toLowerCase();
-    if (q) {
-      list = list.filter(h =>
-        h.title.toLowerCase().includes(q) ||
-        (h.titleEn && h.titleEn.toLowerCase().includes(q)) ||
-        h.giver.toLowerCase().includes(q) ||
-        h.target.toLowerCase().includes(q) ||
-        h.propertyRequired.toLowerCase().includes(q) ||
-        h.description.toLowerCase().includes(q) ||
-        h.categoryLabel.toLowerCase().includes(q)
-      );
-    }
-    return list;
+    return this._cachedFOH;
   }
 
   getHeistCategoryCount(cat: string): number {
@@ -1107,23 +1203,28 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get filteredOnlineMysteries(): GtaMystery[] {
-    let list = this.onlineMysteries;
-    const cat = this.selectedMysteryCategoryFilter.toLowerCase();
-    if (cat !== 'all') {
-      list = list.filter(m => m.category.toLowerCase() === cat);
+    const key = `${this.onlineMysteries ? this.onlineMysteries.length : 0}_${this.selectedMysteryCategoryFilter}_${this.mysterySearchQuery}`;
+    if (this._cachedFOMysKey !== key) {
+      this._cachedFOMysKey = key;
+      let list = this.onlineMysteries;
+      const cat = this.selectedMysteryCategoryFilter.toLowerCase();
+      if (cat !== 'all') {
+        list = list.filter(m => m.category.toLowerCase() === cat);
+      }
+      const q = this.mysterySearchQuery.trim().toLowerCase();
+      if (q) {
+        list = list.filter(m =>
+          m.title.toLowerCase().includes(q) ||
+          (m.titleEn && m.titleEn.toLowerCase().includes(q)) ||
+          m.location.toLowerCase().includes(q) ||
+          m.zone.toLowerCase().includes(q) ||
+          m.description.toLowerCase().includes(q) ||
+          m.lore.toLowerCase().includes(q)
+        );
+      }
+      this._cachedFOMys = list;
     }
-    const q = this.mysterySearchQuery.trim().toLowerCase();
-    if (q) {
-      list = list.filter(m =>
-        m.title.toLowerCase().includes(q) ||
-        (m.titleEn && m.titleEn.toLowerCase().includes(q)) ||
-        m.location.toLowerCase().includes(q) ||
-        m.zone.toLowerCase().includes(q) ||
-        m.description.toLowerCase().includes(q) ||
-        m.lore.toLowerCase().includes(q)
-      );
-    }
-    return list;
+    return this._cachedFOMys;
   }
 
   getMysteryCategoryCount(cat: string): number {
@@ -1226,59 +1327,70 @@ export class InfoPanelComponent implements OnChanges {
   }
 
   get filteredWeapons(): GtaWeapon[] {
-    let list = this.weapons;
-    const cat = this.selectedWeaponCategory.toLowerCase();
-    if (cat !== 'all') {
-      list = list.filter(w => (w.category || '').toLowerCase() === cat);
+    const key = `${this.weapons ? this.weapons.length : 0}_${this.selectedWeaponCategory}_${this.weaponSearchQuery}_${this.selectedWeaponSort}`;
+    if (this._cachedFWKey !== key) {
+      this._cachedFWKey = key;
+      let list = this.weapons;
+      const cat = this.selectedWeaponCategory.toLowerCase();
+      if (cat !== 'all') {
+        list = list.filter(w => (w.category || '').toLowerCase() === cat);
+      }
+      const q = this.weaponSearchQuery.trim().toLowerCase();
+      if (q) {
+        list = list.filter(w =>
+          (w.name && w.name.toLowerCase().includes(q)) ||
+          (w.nameEn && w.nameEn.toLowerCase().includes(q)) ||
+          (w.manufacturer && w.manufacturer.toLowerCase().includes(q)) ||
+          (w.realCounterpart && w.realCounterpart.toLowerCase().includes(q)) ||
+          (w.categoryLabel && w.categoryLabel.toLowerCase().includes(q)) ||
+          (w.description && w.description.toLowerCase().includes(q))
+        );
+      }
+      if (this.selectedWeaponSort !== 'none') {
+        const sortKey = this.selectedWeaponSort;
+        list = [...list].sort((a, b) => {
+          const statA = (a as any)[sortKey] ?? 0;
+          const statB = (b as any)[sortKey] ?? 0;
+          if (statB !== statA) {
+            return statB - statA;
+          }
+          return (a.name || '').localeCompare(b.name || '');
+        });
+      }
+      this._cachedFW = list;
     }
-    const q = this.weaponSearchQuery.trim().toLowerCase();
-    if (q) {
-      list = list.filter(w =>
-        (w.name && w.name.toLowerCase().includes(q)) ||
-        (w.nameEn && w.nameEn.toLowerCase().includes(q)) ||
-        (w.manufacturer && w.manufacturer.toLowerCase().includes(q)) ||
-        (w.realCounterpart && w.realCounterpart.toLowerCase().includes(q)) ||
-        (w.categoryLabel && w.categoryLabel.toLowerCase().includes(q)) ||
-        (w.description && w.description.toLowerCase().includes(q))
-      );
-    }
-    if (this.selectedWeaponSort !== 'none') {
-      const sortKey = this.selectedWeaponSort;
-      list = [...list].sort((a, b) => {
-        const statA = (a as any)[sortKey] ?? 0;
-        const statB = (b as any)[sortKey] ?? 0;
-        if (statB !== statA) {
-          return statB - statA;
-        }
-        return (a.name || '').localeCompare(b.name || '');
-      });
-    }
-    return list;
+    return this._cachedFW;
   }
 
   get weaponCategoryList(): { id: string; name: string; count: number; icon: string }[] {
-    const counts: { [cat: string]: number } = {};
-    for (const w of this.weapons) {
-      const cat = w.category || 'other';
-      counts[cat] = (counts[cat] || 0) + 1;
+    const lang = this.translationService.currentLang;
+    const key = `${this.weapons ? this.weapons.length : 0}_${lang}`;
+    if (this._cachedWCLKey !== key) {
+      this._cachedWCLKey = key;
+      const counts: { [cat: string]: number } = {};
+      for (const w of this.weapons) {
+        const cat = w.category || 'other';
+        counts[cat] = (counts[cat] || 0) + 1;
+      }
+      const categories: { id: string; nameKey: string; icon: string }[] = [
+        { id: 'all', nameKey: 'transports.weapons.categories.all', icon: 'fa-layer-group' },
+        { id: 'pistols', nameKey: 'transports.weapons.categories.pistols', icon: 'fa-gun' },
+        { id: 'smgs', nameKey: 'transports.weapons.categories.smgs', icon: 'fa-shield-halved' },
+        { id: 'rifles', nameKey: 'transports.weapons.categories.rifles', icon: 'fa-crosshairs' },
+        { id: 'shotguns', nameKey: 'transports.weapons.categories.shotguns', icon: 'fa-fire' },
+        { id: 'snipers', nameKey: 'transports.weapons.categories.snipers', icon: 'fa-bullseye' },
+        { id: 'heavy', nameKey: 'transports.weapons.categories.heavy', icon: 'fa-bomb' },
+        { id: 'melee', nameKey: 'transports.weapons.categories.melee', icon: 'fa-hand-back-fist' },
+        { id: 'throwables', nameKey: 'transports.weapons.categories.throwables', icon: 'fa-burst' },
+      ];
+      this._cachedWCL = categories.map(c => ({
+        id: c.id,
+        name: this.translationService.t(c.nameKey) || c.id,
+        count: c.id === 'all' ? this.weapons.length : (counts[c.id] || 0),
+        icon: c.icon
+      })).filter(c => c.id === 'all' || c.count > 0);
     }
-    const categories: { id: string; nameKey: string; icon: string }[] = [
-      { id: 'all', nameKey: 'transports.weapons.categories.all', icon: 'fa-layer-group' },
-      { id: 'pistols', nameKey: 'transports.weapons.categories.pistols', icon: 'fa-gun' },
-      { id: 'smgs', nameKey: 'transports.weapons.categories.smgs', icon: 'fa-shield-halved' },
-      { id: 'rifles', nameKey: 'transports.weapons.categories.rifles', icon: 'fa-crosshairs' },
-      { id: 'shotguns', nameKey: 'transports.weapons.categories.shotguns', icon: 'fa-fire' },
-      { id: 'snipers', nameKey: 'transports.weapons.categories.snipers', icon: 'fa-bullseye' },
-      { id: 'heavy', nameKey: 'transports.weapons.categories.heavy', icon: 'fa-bomb' },
-      { id: 'melee', nameKey: 'transports.weapons.categories.melee', icon: 'fa-hand-back-fist' },
-      { id: 'throwables', nameKey: 'transports.weapons.categories.throwables', icon: 'fa-burst' },
-    ];
-    return categories.map(c => ({
-      id: c.id,
-      name: this.translationService.t(c.nameKey) || c.id,
-      count: c.id === 'all' ? this.weapons.length : (counts[c.id] || 0),
-      icon: c.icon
-    })).filter(c => c.id === 'all' || c.count > 0);
+    return this._cachedWCL;
   }
 
   getWeaponCategoryCount(cat: string): number {

@@ -1,11 +1,13 @@
-<div class="goty-wrapper" *ngIf="gotyService.isEnabled" [class.is-gta6]="isGta6" [class.is-angry]="isAngryAvatar" [style.top.px]="wrapperTop" [style.left.px]="wrapperLeft">
+<div class="goty-wrapper" *ngIf="gotyService.isEnabled" [class.is-gta6]="isGta6" [class.is-angry]="isAngryAvatar" [class.is-dragging]="isDragging" [style.top.px]="wrapperTop" [style.left.px]="wrapperLeft">
 
-  <!-- BOTÓN FLOTANTE AVATAR (Posición 70% de altura lateral) -->
+  <!-- BOTÓN FLOTANTE AVATAR (Arrastrable y Clickable) -->
   <button
     type="button"
     class="goty-floating-avatar"
     [class.is-active]="isOpen"
-    (click)="toggleChat()"
+    (mousedown)="onDragStart($event)"
+    (touchstart)="onDragStart($event)"
+    (click)="onAvatarClick($event)"
     [title]="'Hablar con ' + botName"
   >
     <div class="goty-avatar-ring"></div>
@@ -15,7 +17,7 @@
   <!-- VENTANA POPUP DE CHAT -->
   <div class="goty-chat-card" *ngIf="isOpen">
     <!-- Cabecera -->
-    <div class="goty-chat-header" (mousedown)="onDragStart($event)" style="cursor: grab;">
+    <div class="goty-chat-header" (mousedown)="onDragStart($event)" (touchstart)="onDragStart($event)">
       <div class="goty-header-left">
         <img [src]="avatarSrc" [alt]="botName" class="goty-header-avatar" />
         <div class="goty-header-info">

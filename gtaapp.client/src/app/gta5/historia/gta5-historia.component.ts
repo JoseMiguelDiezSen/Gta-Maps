@@ -31,15 +31,21 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     private readonly maxZoom = 9;
     private readonly imageSize = 8192;
 
+    private _cachedMapTypesHistoria: { id: string; label: string }[] | null = null;
+    private _lastLangHistoria = '';
     get mapTypes() {
-        return [
-            { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
-            { id: 'Roadmap',   label: this.translationService.t('gta5.maps.roadmap') },
-            { id: 'Atlas',     label: this.translationService.t('gta5.maps.atlas') },
-            { id: 'Juego',     label: this.translationService.t('gta5.maps.game') },
-            { id: 'UV',        label: this.translationService.t('gta5.maps.uv') },
-            { id: 'UV2',       label: this.translationService.t('gta5.maps.uv2') }
-        ];
+        if (!this._cachedMapTypesHistoria || this._lastLangHistoria !== this.translationService.currentLang) {
+            this._lastLangHistoria = this.translationService.currentLang;
+            this._cachedMapTypesHistoria = [
+                { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
+                { id: 'Roadmap',   label: this.translationService.t('gta5.maps.roadmap') },
+                { id: 'Atlas',     label: this.translationService.t('gta5.maps.atlas') },
+                { id: 'Juego',     label: this.translationService.t('gta5.maps.game') },
+                { id: 'UV',        label: this.translationService.t('gta5.maps.uv') },
+                { id: 'UV2',       label: this.translationService.t('gta5.maps.uv2') }
+            ];
+        }
+        return this._cachedMapTypesHistoria;
     }
 
     currentMapType = 'Satellite';
@@ -106,15 +112,24 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         'epsilon_tract'     // 10 tratados de Epsilon
     ];
 
-    // Personajes narrativos de Modo Historia
-    get characterKeys(): string[] {
-        return this.storyCharacters.map(c => c.id);
+    private _storyCharacters: LocationItem[] = [];
+    private _storyAnimals: LocationItem[] = [];
+    private _characterKeys: string[] = [];
+    private _faunaKeys: string[] = [];
+
+    recomputeDerivedLists() {
+        this._storyCharacters = this.allProperties.filter(p =>
+            p.category === 'character' && (p.gameMode === 'both' || p.gameMode === 'story')
+        );
+        this._storyAnimals = this.allProperties.filter(p =>
+            p.category === 'animal' && (p.gameMode === 'both' || p.gameMode === 'story')
+        );
+        this._characterKeys = this._storyCharacters.map(c => c.id);
+        this._faunaKeys = this._storyAnimals.map(a => a.id);
     }
 
-    // Fauna (compartida con Online en datos, pero filtrada por gameMode)
-    get faunaKeys(): string[] {
-        return this.storyAnimals.map(a => a.id);
-    }
+    get characterKeys(): string[] { return this._characterKeys; }
+    get faunaKeys(): string[] { return this._faunaKeys; }
 
     // -----------------------------------------------------------------------
     // ESTADO DE FILTROS DE CAPAS
@@ -274,15 +289,11 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     get storyCharacters(): LocationItem[] {
-        return this.allProperties.filter(p =>
-            p.category === 'character' && (p.gameMode === 'both' || p.gameMode === 'story')
-        );
+        return this._storyCharacters;
     }
 
     get storyAnimals(): LocationItem[] {
-        return this.allProperties.filter(p =>
-            p.category === 'animal' && (p.gameMode === 'both' || p.gameMode === 'story')
-        );
+        return this._storyAnimals;
     }
 
     get purchasablePropertiesCount(): number {
@@ -614,6 +625,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         this.locationService.getProperties('story').subscribe({
             next: (properties) => {
                 this.allProperties = properties;
+                this.recomputeDerivedLists();
                 this.allProperties.forEach(p => {
                     const filterKey = this.getPropertyFilterKey(p);
                     if (this.layerFilters[filterKey] === undefined) {

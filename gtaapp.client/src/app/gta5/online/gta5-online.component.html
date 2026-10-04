@@ -34,10 +34,10 @@
 
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
   <div class="hud hud-tl">
-    <div class="hud-title">
+    <h1 class="hud-title">
       <span>GTA V</span>
       <span class="hud-title-sub">{{ 'common.online' | translate }}</span>
-    </div>
+    </h1>
     <div class="hud-time-badge" [title]="'gta5.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
   </div>
 
@@ -988,7 +988,7 @@
               (click)="toggleLayer(animal.id)"
               [title]="layerFilters[animal.id] ? 'Ocultar ' + animal.name : 'Mostrar ' + animal.name"
             >
-              <img *ngIf="animal.imageUrl" [src]="animal.imageUrl" class="legend-animal-thumb" alt="" onerror="this.style.display='none'" />
+              <img *ngIf="animal.imageUrl" [src]="animal.imageUrl" class="legend-animal-thumb" [alt]="animal.name" onerror="this.style.display='none'" />
               <i *ngIf="!animal.imageUrl" class="legend-dot" [style.background]="animal.badge.color" [style.box-shadow]="'0 0 6px ' + animal.badge.color"></i>
               <span class="legend-name">{{ animal.name }}</span>
               <span class="legend-count">1</span>

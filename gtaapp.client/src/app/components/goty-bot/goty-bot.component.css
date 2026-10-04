@@ -10,9 +10,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  pointer-events: auto;
+  pointer-events: none;
   user-select: none;
   font-family: inherit;
+}
+
+.goty-floating-avatar,
+.goty-chat-card {
+  pointer-events: auto;
 }
 
 /* ==========================================================================
@@ -28,13 +33,23 @@
   border: 2px solid rgba(255, 184, 51, 0.6);
   border-radius: 50%;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(255, 184, 51, 0.35);
-  cursor: pointer;
+  cursor: grab;
+  touch-action: none;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
   animation: goty-bobbing 3.5s ease-in-out infinite;
+}
+
+.goty-wrapper.is-dragging .goty-floating-avatar {
+  cursor: grabbing !important;
+  animation: none !important;
+}
+
+.goty-wrapper.is-dragging .goty-chat-header {
+  cursor: grabbing !important;
 }
 
 .goty-floating-avatar:hover {

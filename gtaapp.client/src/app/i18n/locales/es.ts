@@ -31,6 +31,30 @@ export const es: TranslationSchema = {
     onlineUsers: 'usuarios online',
     onlineUser: 'usuario online'
   },
+  cookies: {
+    title: 'Privacidad y cookies',
+    subtitle: 'Gestión de cookies en GTA Maps',
+    description: 'Utilizamos cookies necesarias para el sitio y opcionales para guardar tus preferencias de mapa.',
+    acceptAll: 'Aceptar todas',
+    rejectOptional: 'Solo necesarias',
+    configure: 'Ajustar',
+    saveSelection: 'Guardar',
+    necessaryTitle: 'Cookies necesarias',
+    necessaryDesc: 'Esenciales para navegación, seguridad e idioma.',
+    analyticsTitle: 'Cookies analíticas',
+    analyticsDesc: 'Estadísticas anónimas para mejorar el rendimiento.',
+    preferencesTitle: 'Cookies de preferencias',
+    preferencesDesc: 'Guardan tus filtros y ajustes del mapa.',
+    badgeRequired: 'Obligatorias',
+    badgeOptional: 'Opcionales',
+    reopenTooltip: 'Ajustes de privacidad y cookies',
+    policyTitle: 'Más información',
+    policyModalTitle: 'Política de cookies y privacidad',
+    closePolicy: 'Entendido',
+    policyTextP1: 'En GTA Maps respetamos tu privacidad. No vendemos tus datos ni realizamos seguimiento publicitario.',
+    policyTextP2: 'Las cookies necesarias garantizan el contador online y tus preferencias de idioma.',
+    policyTextP3: 'Puedes modificar o revocar tu consentimiento en cualquier momento desde el icono de ajustes.'
+  },
   gta5: {
     hud: {
       propertiesCount: '{{ count }} Propiedades · {{ collectibles }} Coleccionables',

@@ -37,6 +37,30 @@ export interface TranslationSchema {
     onlineUsers: string;
     onlineUser: string;
   };
+  cookies: {
+    title: string;
+    subtitle: string;
+    description: string;
+    acceptAll: string;
+    rejectOptional: string;
+    configure: string;
+    saveSelection: string;
+    necessaryTitle: string;
+    necessaryDesc: string;
+    analyticsTitle: string;
+    analyticsDesc: string;
+    preferencesTitle: string;
+    preferencesDesc: string;
+    badgeRequired: string;
+    badgeOptional: string;
+    reopenTooltip: string;
+    policyTitle: string;
+    policyModalTitle: string;
+    closePolicy: string;
+    policyTextP1: string;
+    policyTextP2: string;
+    policyTextP3: string;
+  };
   gta5: {
     hud: {
       propertiesCount: string;

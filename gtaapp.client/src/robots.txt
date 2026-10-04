@@ -1,0 +1,10 @@
+# robots.txt para gtamaps.dev
+User-agent: *
+Allow: /
+
+# Bloquear rutas de servidor y APIs internas
+Disallow: /api/
+Disallow: /hubs/
+
+# Sitemap oficial para Google
+Sitemap: https://gtamaps.dev/sitemap.xml

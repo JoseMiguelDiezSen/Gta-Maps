@@ -22,7 +22,8 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
   // Drag state
   wrapperTop = 120;
   wrapperLeft = 20;
-  private isDragging = false;
+  isDragging = false;
+  hasDragged = false;
   private dragStartX = 0;
   private dragStartY = 0;
   private initialTop = 0;
@@ -30,26 +31,56 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
 
   constructor(public gotyService: GotyService) {}
 
-  onDragStart(event: MouseEvent): void {
-    if (event.button !== 0) return;
+  onDragStart(event: MouseEvent | TouchEvent): void {
+    if ('button' in event && (event as MouseEvent).button !== 0) return;
+
+    const clientX = 'touches' in event ? event.touches[0].clientX : (event as MouseEvent).clientX;
+    const clientY = 'touches' in event ? event.touches[0].clientY : (event as MouseEvent).clientY;
+
     this.isDragging = true;
-    this.dragStartX = event.clientX;
-    this.dragStartY = event.clientY;
+    this.hasDragged = false;
+    this.dragStartX = clientX;
+    this.dragStartY = clientY;
     this.initialTop = this.wrapperTop;
     this.initialLeft = this.wrapperLeft;
-    event.preventDefault();
   }
 
   @HostListener('document:mousemove', ['$event'])
-  onDragMove(event: MouseEvent): void {
+  @HostListener('document:touchmove', ['$event'])
+  onDragMove(event: MouseEvent | TouchEvent): void {
     if (!this.isDragging) return;
-    this.wrapperLeft = this.initialLeft + (event.clientX - this.dragStartX);
-    this.wrapperTop = this.initialTop + (event.clientY - this.dragStartY);
+
+    const clientX = 'touches' in event ? event.touches[0].clientX : (event as MouseEvent).clientX;
+    const clientY = 'touches' in event ? event.touches[0].clientY : (event as MouseEvent).clientY;
+
+    const deltaX = clientX - this.dragStartX;
+    const deltaY = clientY - this.dragStartY;
+
+    if (Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4) {
+      this.hasDragged = true;
+    }
+
+    const maxLeft = Math.max(10, window.innerWidth - 80);
+    const maxTop = Math.max(10, window.innerHeight - 80);
+
+    this.wrapperLeft = Math.max(10, Math.min(maxLeft, this.initialLeft + deltaX));
+    this.wrapperTop = Math.max(10, Math.min(maxTop, this.initialTop + deltaY));
   }
 
   @HostListener('document:mouseup')
+  @HostListener('document:touchend')
   onDragEnd(): void {
     this.isDragging = false;
+  }
+
+  onAvatarClick(event: MouseEvent): void {
+    if (this.hasDragged) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.hasDragged = false;
+      return;
+    }
+    this.toggleChat();
   }
 
   ngOnInit(): void {

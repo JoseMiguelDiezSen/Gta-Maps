@@ -22,29 +22,38 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     private readonly maxZoom = 9;
     private readonly imageSize = 8192;
 
-    /**
-     * Lista completa de capas base de mapas para GTA V.
-     */
+    private _cachedAllMapTypesOnline: { id: string; label: string }[] | null = null;
+    private _lastLangOnline = '';
     get allMapTypes() {
-        return [
-            { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
-                        { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap') },
-            { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas') },
-            { id: 'Juego', label: this.translationService.t('gta5.maps.game') },
-            { id: 'UV', label: this.translationService.t('gta5.maps.uv') },
-            { id: 'UV2', label: this.translationService.t('gta5.maps.uv2') }
-        ];
+        if (!this._cachedAllMapTypesOnline || this._lastLangOnline !== this.translationService.currentLang) {
+            this._lastLangOnline = this.translationService.currentLang;
+            this._cachedAllMapTypesOnline = [
+                { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
+                { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap') },
+                { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas') },
+                { id: 'Juego', label: this.translationService.t('gta5.maps.game') },
+                { id: 'UV', label: this.translationService.t('gta5.maps.uv') },
+                { id: 'UV2', label: this.translationService.t('gta5.maps.uv2') }
+            ];
+        }
+        return this._cachedAllMapTypesOnline;
     }
 
-    /**
-     * Filtra los mapas disponibles según la isla seleccionada:
-     * Cayo Perico dispone de Satélite, Callejero y Juego.
-     */
-    get mapTypes() {
+    private cachedMapTypes: { id: string; label: string }[] | null = null;
+
+    updateMapTypes() {
         if (this.selectedCity === 'cp') {
-            return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Juego'].includes(m.id));
+            this.cachedMapTypes = this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Juego'].includes(m.id));
+        } else {
+            this.cachedMapTypes = this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas', 'Juego', 'UV', 'UV2'].includes(m.id));
         }
-        return this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas', 'Juego', 'UV', 'UV2'].includes(m.id));
+    }
+
+    get mapTypes() {
+        if (!this.cachedMapTypes) {
+            this.updateMapTypes();
+        }
+        return this.cachedMapTypes;
     }
 
     currentMapType = 'Satellite';
@@ -174,49 +183,39 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         'strip_club'
     ];
 
-    // Claves dinámicas de los Trabajos Roleplay
-    get roleplayKeys(): string[] {
-        return this.roleplayJobs.map(j => j.id);
-    }
+    private _roleplayJobs: LocationItem[] = [];
+    private _contactCharacters: LocationItem[] = [];
+    private _faunaAnimals: LocationItem[] = [];
+    private _roleplayKeys: string[] = [];
+    private _characterKeys: string[] = [];
+    private _faunaKeys: string[] = [];
 
-    // Claves dinámicas de Personajes y Contactos
-    get characterKeys(): string[] {
-        return this.contactCharacters.map(c => c.id);
-    }
-
-    // Claves dinámicas de Fauna y Vida Salvaje
-    get faunaKeys(): string[] {
-        return this.faunaAnimals.map(a => a.id);
-    }
-
-    get currentPropertyKeys(): string[] {
-        return this.onlinePropertyKeys;
-    }
-
-    get currentVehicleKeys(): string[] {
-        return this.onlineVehicleKeys;
-    }
-
-    get roleplayJobs(): LocationItem[] {
-        return this.allProperties.filter(p =>
+    recomputeDerivedLists() {
+        this._roleplayJobs = this.allProperties.filter(p =>
             p.category === 'roleplay_job' &&
             (p.gameMode === 'both' || p.gameMode === this.selectedGameMode)
         );
-    }
-
-    get contactCharacters(): LocationItem[] {
-        return this.allProperties.filter(p =>
+        this._contactCharacters = this.allProperties.filter(p =>
             p.category === 'character' &&
             (p.gameMode === 'both' || p.gameMode === this.selectedGameMode)
         );
-    }
-
-    get faunaAnimals(): LocationItem[] {
-        return this.allProperties.filter(p =>
+        this._faunaAnimals = this.allProperties.filter(p =>
             p.category === 'animal' &&
             (p.gameMode === 'both' || p.gameMode === this.selectedGameMode)
         );
+        this._roleplayKeys = this._roleplayJobs.map(j => j.id);
+        this._characterKeys = this._contactCharacters.map(c => c.id);
+        this._faunaKeys = this._faunaAnimals.map(a => a.id);
     }
+
+    get roleplayKeys(): string[] { return this._roleplayKeys; }
+    get characterKeys(): string[] { return this._characterKeys; }
+    get faunaKeys(): string[] { return this._faunaKeys; }
+    get currentPropertyKeys(): string[] { return this.onlinePropertyKeys; }
+    get currentVehicleKeys(): string[] { return this.onlineVehicleKeys; }
+    get roleplayJobs(): LocationItem[] { return this._roleplayJobs; }
+    get contactCharacters(): LocationItem[] { return this._contactCharacters; }
+    get faunaAnimals(): LocationItem[] { return this._faunaAnimals; }
 
     isPurchasable(p: LocationItem | undefined): boolean {
         if (!p) return false;
@@ -1278,6 +1277,7 @@ delete (window as any)._gtaSaveMarkerName;
         this.locationService.getProperties('online').subscribe({
             next: (properties) => {
                 this.allProperties = properties;
+                this.recomputeDerivedLists();
                 properties.forEach(p => {
                     if (this.layerFilters[p.id] === undefined) {
                         this.layerFilters[p.id] = true;

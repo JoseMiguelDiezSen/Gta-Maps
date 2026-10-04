@@ -12,6 +12,10 @@ export class TranslationService {
   // Reactivo con Angular Signals
   readonly currentLanguage = signal<LanguageCode>(this.detectInitialLanguage());
 
+  get currentLang(): LanguageCode {
+    return this.currentLanguage();
+  }
+
   readonly currentLanguageInfo = computed<LanguageInfo>(() => {
     const code = this.currentLanguage();
     return this.supportedLanguages.find(l => l.code === code) || this.supportedLanguages[0];

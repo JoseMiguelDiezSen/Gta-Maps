@@ -1,0 +1,194 @@
+<!-- BOTÓN FLOTANTE PARA REABRIR EL PANEL DE COOKIES CUANDO ESTÁ OCULTO -->
+<button
+  *ngIf="!cookieService.isBannerVisible() && cookieService.hasConsented()"
+  type="button"
+  class="cookie-reopen-btn"
+  (click)="cookieService.openBanner()"
+  [title]="'cookies.reopenTooltip' | translate"
+  [attr.aria-label]="'cookies.reopenTooltip' | translate"
+>
+  <span class="cookie-reopen-icon">🍪</span>
+  <span class="cookie-reopen-badge"></span>
+</button>
+
+<!-- BANNER PRINCIPAL DE COOKIES -->
+<div
+  *ngIf="cookieService.isBannerVisible()"
+  class="cookie-banner-wrapper"
+  role="dialog"
+  aria-live="polite"
+  [attr.aria-label]="'cookies.title' | translate"
+>
+  <div class="cookie-banner-card" [class.is-expanded]="isConfiguring()">
+    <!-- CABECERA DEL BANNER -->
+    <div class="cookie-banner-header">
+      <div class="cookie-title-group">
+        <div class="cookie-icon-box">
+          <svg class="cookie-svg" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 2a10 10 0 1 0 10 10 3.5 3.5 0 0 1-3.5-3.5 3.5 3.5 0 0 1-3.5-3.5A3.5 3.5 0 0 1 12 2z"/>
+            <circle cx="8.5" cy="8.5" r="1.2" fill="currentColor"/>
+            <circle cx="14" cy="14.5" r="1.2" fill="currentColor"/>
+            <circle cx="9" cy="15" r="1.2" fill="currentColor"/>
+            <circle cx="15.5" cy="9.5" r="1.2" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="cookie-title">{{ 'cookies.title' | translate }}</h2>
+          <span class="cookie-subtitle">{{ 'cookies.subtitle' | translate }}</span>
+        </div>
+      </div>
+
+      <button
+        *ngIf="cookieService.hasConsented()"
+        type="button"
+        class="cookie-close-x"
+        (click)="cookieService.closeBanner()"
+        aria-label="Cerrar"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- DESCRIPCIÓN CONCISA -->
+    <p class="cookie-desc">
+      {{ 'cookies.description' | translate }}
+      <button type="button" class="cookie-policy-link" (click)="openPolicy()">
+        {{ 'cookies.policyTitle' | translate }}
+      </button>
+    </p>
+
+    <!-- PANEL DE CONFIGURACIÓN DETALLADA (EXPANDIBLE) -->
+    <div class="cookie-config-panel" *ngIf="isConfiguring()">
+      <!-- CATEGORÍA: NECESARIAS -->
+      <div class="cookie-category-item">
+        <div class="cookie-category-info">
+          <div class="cookie-category-title-row">
+            <span class="cookie-category-name">{{ 'cookies.necessaryTitle' | translate }}</span>
+            <span class="cookie-badge badge-required">{{ 'cookies.badgeRequired' | translate }}</span>
+          </div>
+          <p class="cookie-category-desc">{{ 'cookies.necessaryDesc' | translate }}</p>
+        </div>
+        <div class="cookie-switch-wrapper">
+          <input type="checkbox" checked disabled class="cookie-switch-checkbox" id="chk-necessary" />
+          <label for="chk-necessary" class="cookie-switch-label is-disabled"></label>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA: PREFERENCIAS -->
+      <div class="cookie-category-item">
+        <div class="cookie-category-info">
+          <div class="cookie-category-title-row">
+            <span class="cookie-category-name">{{ 'cookies.preferencesTitle' | translate }}</span>
+            <span class="cookie-badge badge-optional">{{ 'cookies.badgeOptional' | translate }}</span>
+          </div>
+          <p class="cookie-category-desc">{{ 'cookies.preferencesDesc' | translate }}</p>
+        </div>
+        <div class="cookie-switch-wrapper">
+          <input
+            type="checkbox"
+            [checked]="tempPreferences()"
+            (change)="tempPreferences.set(!tempPreferences())"
+            class="cookie-switch-checkbox"
+            id="chk-preferences"
+          />
+          <label for="chk-preferences" class="cookie-switch-label"></label>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA: ANALÍTICAS -->
+      <div class="cookie-category-item">
+        <div class="cookie-category-info">
+          <div class="cookie-category-title-row">
+            <span class="cookie-category-name">{{ 'cookies.analyticsTitle' | translate }}</span>
+            <span class="cookie-badge badge-optional">{{ 'cookies.badgeOptional' | translate }}</span>
+          </div>
+          <p class="cookie-category-desc">{{ 'cookies.analyticsDesc' | translate }}</p>
+        </div>
+        <div class="cookie-switch-wrapper">
+          <input
+            type="checkbox"
+            [checked]="tempAnalytics()"
+            (change)="tempAnalytics.set(!tempAnalytics())"
+            class="cookie-switch-checkbox"
+            id="chk-analytics"
+          />
+          <label for="chk-analytics" class="cookie-switch-label"></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTONES DE ACCIÓN -->
+    <div class="cookie-banner-actions">
+      <ng-container *ngIf="!isConfiguring()">
+        <button type="button" class="cookie-btn cookie-btn-accept" (click)="onAcceptAll()">
+          {{ 'cookies.acceptAll' | translate }}
+        </button>
+        <button type="button" class="cookie-btn cookie-btn-reject" (click)="onRejectOptional()">
+          {{ 'cookies.rejectOptional' | translate }}
+        </button>
+        <button type="button" class="cookie-btn cookie-btn-config" (click)="toggleConfigure()">
+          ⚙️ {{ 'cookies.configure' | translate }}
+        </button>
+      </ng-container>
+
+      <ng-container *ngIf="isConfiguring()">
+        <button type="button" class="cookie-btn cookie-btn-accept" (click)="saveConfig()">
+          ✓ {{ 'cookies.saveSelection' | translate }}
+        </button>
+        <button type="button" class="cookie-btn cookie-btn-secondary" (click)="onAcceptAll()">
+          {{ 'cookies.acceptAll' | translate }}
+        </button>
+        <button type="button" class="cookie-btn cookie-btn-back" (click)="toggleConfigure()">
+          Volver
+        </button>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE POLÍTICA DE COOKIES Y PRIVACIDAD -->
+<div class="cookie-modal-backdrop" *ngIf="showPolicyModal()" (click)="closePolicy()">
+  <div class="cookie-modal-content" (click)="$event.stopPropagation()">
+    <div class="cookie-modal-header">
+      <h3 class="cookie-modal-title">🛡️ {{ 'cookies.policyModalTitle' | translate }}</h3>
+      <button type="button" class="cookie-modal-close" (click)="closePolicy()">✕</button>
+    </div>
+    <div class="cookie-modal-body">
+      <p>{{ 'cookies.policyTextP1' | translate }}</p>
+      <p>{{ 'cookies.policyTextP2' | translate }}</p>
+      <p>{{ 'cookies.policyTextP3' | translate }}</p>
+
+      <div class="cookie-policy-table">
+        <div class="cookie-policy-row header-row">
+          <span>Nombre</span>
+          <span>Tipo</span>
+          <span>Finalidad</span>
+          <span>Duración</span>
+        </div>
+        <div class="cookie-policy-row">
+          <code>gtaapp_cookie_consent_v1</code>
+          <span class="type-tag essential">Necesaria</span>
+          <span>Guarda tus preferencias de cookies de forma local</span>
+          <span>1 año</span>
+        </div>
+        <div class="cookie-policy-row">
+          <code>gtaapp_language</code>
+          <span class="type-tag essential">Necesaria</span>
+          <span>Guarda tu idioma preferido (ES / EN)</span>
+          <span>1 año</span>
+        </div>
+        <div class="cookie-policy-row">
+          <code>gta5_map_settings</code>
+          <span class="type-tag pref">Preferencia</span>
+          <span>Guarda tus capas activas, filtros y nivel de zoom</span>
+          <span>Persistente</span>
+        </div>
+      </div>
+    </div>
+    <div class="cookie-modal-footer">
+      <button type="button" class="cookie-btn cookie-btn-accept" (click)="closePolicy()">
+        {{ 'cookies.closePolicy' | translate }}
+      </button>
+    </div>
+  </div>
+</div>
