@@ -1,14 +1,88 @@
-<div class="map-wrapper">
+<div class="map-wrapper" (click)="closeContextMenu()" (contextmenu)="openContextMenu($event)">
   <div
     class="gta6-canvas"
     [class.is-panning]="isPanning"
     (wheel)="onCanvasWheel($event)"
     (mousedown)="onCanvasMouseDown($event)"
+    (mousemove)="onCanvasMouseMove($event)"
     [style.backgroundImage]="canvasBgImage"
     [style.backgroundSize]="canvasBgSize"
     [style.backgroundPosition]="canvasBgPos"
     [title]="'gta6.canvasHelp' | translate"
-  ></div>
+  >
+    <!-- CAPA DE MARCADORES INTERACTIVOS SOBRE EL CANVAS -->
+    <div class="gta6-markers-container" [style.width.px]="canvasW" [style.height.px]="canvasH">
+      <!-- Marcadores de Categorías -->
+      <div
+        *ngFor="let m of visibleMarkers"
+        class="gta6-marker-pin"
+        [ngStyle]="getMarkerStyle(m)"
+        [title]="m.name"
+        (click)="selectMarker(m, $event)"
+      >
+        <span class="marker-dot-core" [style.backgroundColor]="m.color" [style.boxShadow]="'0 0 10px ' + m.color"></span>
+        <span class="marker-ping-ring" [style.borderColor]="m.color"></span>
+        <span class="marker-hover-label">{{ m.name }}</span>
+      </div>
+
+      <!-- Marcadores Personalizados de Usuario -->
+      <div
+        *ngFor="let cm of userCustomMarkers"
+        class="gta6-marker-pin gta6-custom-pin"
+        [ngStyle]="getMarkerStyle(cm)"
+        [title]="cm.name"
+        (click)="openMarkerContext(cm, $event)"
+        (contextmenu)="openMarkerContext(cm, $event)"
+      >
+        <span class="marker-dot-core marker-custom-core" [style.backgroundColor]="cm.color || '#ff4fe0'" [style.boxShadow]="'0 0 12px ' + (cm.color || '#ff4fe0')">★</span>
+        <span class="marker-hover-label">{{ cm.name }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENU CONTEXTUAL (click derecho sobre el canvas o marcador) -->
+  <div
+    class="hud-ctx"
+    *ngIf="ctxOpen"
+    [style.left.px]="ctxX"
+    [style.top.px]="ctxY"
+    (click)="$event.stopPropagation()"
+  >
+    <ng-container *ngIf="targetCustomMarker">
+      <div class="hud-ctx-header">
+        {{ targetCustomMarker.name }}
+      </div>
+      <button type="button" class="hud-ctx-item" (click)="runCtxAction('editar_marcador')">
+        {{ 'gta5.contextMenu.editMarker' | translate }}
+      </button>
+      <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar_este_marcador')">
+        {{ 'gta5.contextMenu.deleteMarker' | translate }}
+      </button>
+      <div class="hud-ctx-sep"></div>
+    </ng-container>
+
+    <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
+      {{ 'gta5.contextMenu.addMarker' | translate }}
+    </button>
+  </div>
+
+  <!-- MODAL INFORMATIVO DE MARCADOR SELECCIONADO -->
+  <div class="gta6-marker-card-modal" *ngIf="activeMarker" (click)="$event.stopPropagation()">
+    <div class="marker-card-head" [style.borderLeftColor]="activeMarker.color">
+      <div class="marker-card-info">
+        <span class="marker-card-badge" [style.color]="activeMarker.color">{{ activeMarker.categoryKey | uppercase }}</span>
+        <h3 class="marker-card-title">{{ activeMarker.name }}</h3>
+      </div>
+      <button type="button" class="marker-card-close" (click)="closeMarkerModal()">✕</button>
+    </div>
+    <div class="marker-card-body">
+      <p class="marker-card-desc">{{ activeMarker.desc }}</p>
+      <div class="marker-card-coords">
+        <span>COORDENADAS TÁCTICAS:</span>
+        <code>X: {{ activeMarker.x.toFixed(1) }} | Y: {{ activeMarker.y.toFixed(1) }}</code>
+      </div>
+    </div>
+  </div>
 
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
   <div class="hud hud-tl">
@@ -50,7 +124,7 @@
   <!-- ESQUINA INF-IZQ: Panel de control -->
   <div class="hud hud-bl" [class.hud-collapsed]="!legendOpen">
     <div class="hud-panel hud-legend-panel">
-      <!-- Cabecera del Panel de control: SIEMPRE visible, mantiene el ancho y el título -->
+      <!-- Cabecera del Panel de control -->
       <div
         class="hud-panel-head"
         [class.is-collapsed]="!legendOpen"
@@ -244,7 +318,7 @@
                 (click)="focusCustomMarker(cm)"
                 [title]="cm.name"
               >
-                <i class="legend-dot" [ngClass]="'marker-color-' + (cm.color || 'red')"></i>
+                <i class="legend-dot" [style.background]="cm.color || '#ff4fe0'"></i>
                 <span class="legend-name">{{ cm.name }}</span>
               </button>
               <button
@@ -279,13 +353,11 @@
           </div>
 
           <div class="hud-acc-body hud-police-body" *ngIf="accordion['policia']">
-            <!-- Lista vertical de estados policiales informativos (no interactivos) -->
             <div class="gta6-police-list">
               <div
                 class="police-alert-card"
                 *ngFor="let item of policiaItems"
               >
-                <!-- Badge circular rojo con icono SVG blanco -->
                 <div class="police-badge-icon" [ngSwitch]="item.badgeType">
                   <svg *ngSwitchCase="'weapon'" viewBox="0 0 24 24" class="police-svg" fill="currentColor">
                     <path fill-rule="evenodd" d="M19.5 8H4.2v3.6h5.3v.6c0 1.2.9 2.2 2.1 2.2h1.2l2.3 4.4h3.6l-1.8-6.9h2.6V8zm-7 3.6h-1.6c-.4 0-.7-.3-.7-.7v-.5h2.3v1.2z"/>
@@ -313,7 +385,6 @@
                   </svg>
                 </div>
 
-                <!-- Info con título y descripción (texto completo en multilínea) -->
                 <div class="police-info">
                   <span class="police-name">{{ getPoliceTitle(item) }}</span>
                   <span class="police-desc">{{ getPoliceDesc(item) }}</span>
@@ -346,6 +417,29 @@
       </div>
     </div>
   </div>
+
+  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: GTA VI INFO -->
+  <button
+    type="button"
+    class="hud-side-trigger"
+    (click)="toggleInfoDrawer()"
+    title="GTA VI Info"
+  >
+    <div class="side-trigger-content">
+      <i class="fa-solid fa-database side-trigger-icon"></i>
+      <span class="hud-panel-title">GTA VI INFO</span>
+    </div>
+    <div class="side-trigger-toggle-btn" title="GTA VI Info">
+      <i class="fa-solid fa-chevron-left side-trigger-caret"></i>
+    </div>
+  </button>
+
+  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL GTA VI INFO -->
+  <app-gta6-info-panel
+    [isOpen]="infoDrawerOpen"
+    [gameMode]="selectedGameMode"
+    (closeDrawer)="closeInfoDrawer()"
+  ></app-gta6-info-panel>
 
   <!-- BOT ASISTENTE INTELIGENTE: GOTY 6 -->
   <app-goty-bot gameContext="gta6-online"></app-goty-bot>

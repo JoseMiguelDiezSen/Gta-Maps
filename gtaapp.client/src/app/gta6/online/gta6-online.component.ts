@@ -70,39 +70,9 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     // Marcador activo seleccionado
     activeMarker: Gta6MarkerItem | null = null;
-    searchQuery = '';
 
-    // Marcadores de puntos de interés iniciales en Leonida / Vice City (Plataforma táctica)
-    allMarkers: Gta6MarkerItem[] = [
-        // Propiedades
-        { id: 'm_ap_lujo_1', itemId: 'apartamento_lujo', name: 'Ocean Drive Penthouse', categoryKey: 'propiedades', color: '#f39c12', x: 1450, y: 1100, desc: 'Apartamento de lujo frente a Ocean Beach con helipuerto privado.' },
-        { id: 'm_ap_lujo_2', itemId: 'apartamento_lujo', name: 'Downtown Vice Tower Suite', categoryKey: 'propiedades', color: '#f39c12', x: 1280, y: 880, desc: 'Rascacielos céntrico con vistas panorámicas a la bahía de Vice City.' },
-        { id: 'm_ap_med_1', itemId: 'apartamento_medio', name: 'Little Haiti Modern Flat', categoryKey: 'propiedades', color: '#3498db', x: 1050, y: 920, desc: 'Apartamento reformado con garaje de 6 plazas.' },
-        { id: 'm_ap_bar_1', itemId: 'apartamento_barato', name: 'Bayside Studio', categoryKey: 'propiedades', color: '#95a5a6', x: 920, y: 1420, desc: 'Estudio económico cerca de los muelles.' },
-
-        // Negocios
-        { id: 'm_neg_1', itemId: 'negocio_1', name: 'Malibu Club & Lounge', categoryKey: 'negocios', color: '#7f8c8d', x: 1520, y: 1250, desc: 'Club nocturno emblemático de Vice City. Generación pasiva de ingresos.' },
-        { id: 'm_neg_2', itemId: 'negocio_2', name: 'Port Gellhorn Shipping Hub', categoryKey: 'negocios', color: '#27ae60', x: 680, y: 1550, desc: 'Almacén logístico portuario para exportación de mercancías.' },
-        { id: 'm_neg_3', itemId: 'negocio_3', name: 'Vice City Marina & Docks', categoryKey: 'negocios', color: '#8e44ad', x: 1380, y: 1380, desc: 'Amarre de yates de alta gama y lanchas rápidas.' },
-
-        // Vehículos
-        { id: 'm_veh_1', itemId: 'vehiculo_1', name: 'Sunshine Autos Showroom', categoryKey: 'vehiculos', color: '#e67e22', x: 1180, y: 1320, desc: 'Concesionario de vehículos deportivos e importaciones exóticas.' },
-        { id: 'm_veh_2', itemId: 'vehiculo_2', name: 'Vice Custom Garages', categoryKey: 'vehiculos', color: '#f1c40f', x: 1100, y: 1050, desc: 'Taller de modificaciones de carrocería, neones y rendimiento.' },
-
-        // Fauna
-        { id: 'm_fau_1', itemId: 'fauna_caiman', name: 'Avistamiento de Caimán Gigante', categoryKey: 'fauna', color: '#2e7d32', x: 820, y: 750, desc: 'Humedales de los Everglades / Grassrivers. Gran densidad de reptiles.' },
-        { id: 'm_fau_2', itemId: 'fauna_pantera', name: 'Refugio de Pantera de Florida', categoryKey: 'fauna', color: '#f9a825', x: 550, y: 980, desc: 'Zona boscosa protegida. Depredador ágil y escurridizo.' },
-        { id: 'm_fau_3', itemId: 'fauna_delfin', name: 'Cardumen de Delfines', categoryKey: 'fauna', color: '#0288d1', x: 1850, y: 1600, desc: 'Aguas abiertas de los Cayos / Gator Keys.' },
-        { id: 'm_fau_4', itemId: 'fauna_tiburon', name: 'Área de Tiburones Martillo', categoryKey: 'fauna', color: '#546e7a', x: 1950, y: 950, desc: 'Aguas profundas del arrecife este.' },
-
-        // Coleccionables
-        { id: 'm_col_1', itemId: 'coleccionable_1', name: 'Paquete Oculto #01', categoryKey: 'coleccionables', color: '#8e24aa', x: 1420, y: 990, desc: 'Paquete con contrabando secreto oculto en una azotea.' },
-        { id: 'm_col_2', itemId: 'coleccionable_2', name: 'Estatua Tiki Antigua', categoryKey: 'coleccionables', color: '#5e35b1', x: 1680, y: 1820, desc: 'Reliquia oculta en los Gator Keys.' },
-
-        // Lugares Extraños
-        { id: 'm_lug_1', itemId: 'lugar_1', name: 'Pecio Hundido de Contrabandistas', categoryKey: 'lugares', color: '#7e57c2', x: 1750, y: 1350, desc: 'Barco carguero hundido con misteriosos contenedores sellados.' },
-        { id: 'm_lug_2', itemId: 'lugar_2', name: 'Antena Radar Abandonada', categoryKey: 'lugares', color: '#0277bd', x: 420, y: 620, desc: 'Instalación militar secreta en desuso en el norte de Leonida.' }
-    ];
+    // Sin marcadores predefinidos en el mapa según lo solicitado
+    allMarkers: Gta6MarkerItem[] = [];
 
     readonly categories: Gta6LegendCategory[] = [
         {
@@ -249,7 +219,7 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
                     label: this.translationService.currentLang === 'es' ? 'Plataforma Táctica (Próximamente)' : 'Tactical Grid (Coming Soon)',
                     file: '/assets/gta6/tactical-grid.svg',
                     w: 2400,
-                    h: 2400
+                    h: 1350
                 },
                 { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite'), file: '/assets/filtracionesGta6/satelite.jpg', w: 912, h: 1136 },
                 { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 },
@@ -284,10 +254,18 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     };
 
     userCustomMarkers: { id: string; name: string; color?: string; x?: number; y?: number }[] = [];
-
     layerFilters: { [key: string]: boolean } = {};
-
     private clockInterval: ReturnType<typeof setInterval> | undefined;
+
+    infoDrawerOpen = false;
+
+    toggleInfoDrawer(): void {
+        this.infoDrawerOpen = !this.infoDrawerOpen;
+    }
+
+    closeInfoDrawer(): void {
+        this.infoDrawerOpen = false;
+    }
 
     get totalItems(): number {
         return this.allMarkers.length + this.userCustomMarkers.length;
@@ -306,30 +284,23 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     }
 
     get canvasBgSize(): string {
-        if (this.zoom <= this.minZoom || !this.canvasW) {
-            return 'cover';
+        if (this.zoom <= this.minZoom || !this.canvasW || !this.canvasH) {
+            return 'contain';
         }
         const base = this.coverScale();
         return `${this.bgNatural.w * base * this.zoom}px ${this.bgNatural.h * base * this.zoom}px`;
     }
 
     get canvasBgPos(): string {
-        if (this.zoom <= this.minZoom || !this.canvasW) {
+        if (this.zoom <= this.minZoom || !this.canvasW || !this.canvasH) {
             return 'center center';
         }
         return `${this.bgPosX}px ${this.bgPosY}px`;
     }
 
-    // Filtro activo de marcadores
+    // Filtro activo de marcadores según categorías activas
     get visibleMarkers(): Gta6MarkerItem[] {
-        return this.allMarkers.filter(m => {
-            if (!this.layerFilters[m.itemId]) return false;
-            if (this.searchQuery && this.searchQuery.trim().length > 0) {
-                const q = this.searchQuery.toLowerCase().trim();
-                return m.name.toLowerCase().includes(q) || (m.desc && m.desc.toLowerCase().includes(q));
-            }
-            return true;
-        });
+        return this.allMarkers.filter(m => this.layerFilters[m.itemId]);
     }
 
     ngOnInit(): void {
@@ -370,8 +341,10 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
         const base = this.coverScale();
         const curW = this.bgNatural.w * base * this.zoom;
         const curH = this.bgNatural.h * base * this.zoom;
-        const screenX = this.bgPosX + (m.x / this.bgNatural.w) * curW;
-        const screenY = this.bgPosY + (m.y / this.bgNatural.h) * curH;
+        const posX = this.zoom <= this.minZoom ? (this.canvasW - curW) / 2 : this.bgPosX;
+        const posY = this.zoom <= this.minZoom ? (this.canvasH - curH) / 2 : this.bgPosY;
+        const screenX = posX + (m.x / this.bgNatural.w) * curW;
+        const screenY = posY + (m.y / this.bgNatural.h) * curH;
         return {
             left: `${screenX}px`,
             top: `${screenY}px`,
@@ -554,14 +527,18 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
         const el = event.currentTarget as HTMLElement | null;
         if (!el) return;
         const rect = el.getBoundingClientRect();
+        this.canvasW = el.clientWidth;
+        this.canvasH = el.clientHeight;
         const cursorX = event.clientX - rect.left;
         const cursorY = event.clientY - rect.top;
         const base = this.coverScale();
         const curW = this.bgNatural.w * base * this.zoom;
         const curH = this.bgNatural.h * base * this.zoom;
+        const posX = this.zoom <= this.minZoom ? (this.canvasW - curW) / 2 : this.bgPosX;
+        const posY = this.zoom <= this.minZoom ? (this.canvasH - curH) / 2 : this.bgPosY;
         if (curW && curH) {
-            const fracX = (cursorX - this.bgPosX) / curW;
-            const fracY = (cursorY - this.bgPosY) / curH;
+            const fracX = (cursorX - posX) / curW;
+            const fracY = (cursorY - posY) / curH;
             this.mouseCoords.x = Math.round(fracX * this.bgNatural.w * 10) / 10;
             this.mouseCoords.y = Math.round(fracY * this.bgNatural.h * 10) / 10;
         }
@@ -586,29 +563,32 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
         const base = this.coverScale();
         const prevW = this.bgNatural.w * base * this.zoom;
         const prevH = this.bgNatural.h * base * this.zoom;
+        const prevPosX = this.zoom <= this.minZoom ? (cw - prevW) / 2 : this.bgPosX;
+        const prevPosY = this.zoom <= this.minZoom ? (ch - prevH) / 2 : this.bgPosY;
 
-        const fracX = (cursorX - this.bgPosX) / prevW;
-        const fracY = (cursorY - this.bgPosY) / prevH;
+        const fracX = (cursorX - prevPosX) / prevW;
+        const fracY = (cursorY - prevPosY) / prevH;
 
-        const factor = event.deltaY < 0 ? 1.2 : 1 / 1.2;
+        const factor = event.deltaY < 0 ? 1.25 : 1 / 1.25;
         const next = Math.min(this.maxZoom, Math.max(this.minZoom, this.zoom * factor));
         if (next === this.zoom) { return; }
         this.zoom = next;
 
+        const newW = this.bgNatural.w * base * next;
+        const newH = this.bgNatural.h * base * next;
+
         if (next <= this.minZoom) {
-            this.bgPosX = 0;
-            this.bgPosY = 0;
+            this.bgPosX = (cw - newW) / 2;
+            this.bgPosY = (ch - newH) / 2;
             return;
         }
 
-        const newW = this.bgNatural.w * base * next;
-        const newH = this.bgNatural.h * base * next;
         this.bgPosX = this.clampPan(cursorX - fracX * newW, cw, newW);
         this.bgPosY = this.clampPan(cursorY - fracY * newH, ch, newH);
     }
 
     onCanvasMouseDown(event: MouseEvent): void {
-        if (event.button !== 0) return; // solo botón izquierdo para pan
+        if (event.button !== 0) return;
         const el = event.currentTarget as HTMLElement | null;
         if (el) {
             this.canvasW = el.clientWidth;
@@ -647,12 +627,15 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     }
 
     private coverScale(): number {
-        return Math.max(this.canvasW / this.bgNatural.w, this.canvasH / this.bgNatural.h);
+        return Math.min(this.canvasW / this.bgNatural.w, this.canvasH / this.bgNatural.h);
     }
 
     private clampPan(value: number, containerSize: number, imageSize: number): number {
+        if (imageSize <= containerSize) {
+            return (containerSize - imageSize) / 2;
+        }
         const min = containerSize - imageSize;
-        return Math.max(Math.min(0, min), Math.min(0, value));
+        return Math.max(min, Math.min(0, value));
     }
 
     private startInGameClock(): void {

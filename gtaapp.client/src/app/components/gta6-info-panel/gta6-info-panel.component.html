@@ -1,0 +1,117 @@
+<!-- DRAWER / PANEL LATERAL GTA VI INFO -->
+<div
+  class="gta6-info-overlay"
+  [class.is-open]="isOpen"
+  (click)="onClose()"
+></div>
+
+<aside
+  class="gta6-info-drawer"
+  [class.is-open]="isOpen"
+  aria-label="GTA VI Info Panel"
+>
+  <!-- CABECERA DEL PANEL -->
+  <header class="gta6-info-header">
+    <div class="gta6-info-title-group">
+      <div class="gta6-info-logo">
+        <span class="gta-logo-main">GTA VI</span>
+        <span class="gta-logo-sub">INFO</span>
+      </div>
+      <span class="gta6-info-status-badge">
+        <i class="fa-solid fa-satellite-dish status-pulse"></i>
+        <span>DATABASE // LEONIDA</span>
+      </span>
+    </div>
+
+    <button
+      type="button"
+      class="gta6-info-close-btn"
+      (click)="onClose()"
+      title="Cerrar panel"
+      aria-label="Cerrar"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </header>
+
+  <!-- PESTAÑAS / TABS SUPERIORES -->
+  <nav class="gta6-info-tabs" aria-label="Secciones de información">
+    <button
+      type="button"
+      *ngFor="let tab of tabs"
+      class="gta6-tab-btn"
+      [class.is-active]="activeTab === tab.id"
+      (click)="selectTab(tab.id)"
+      [title]="getTabLabel(tab)"
+    >
+      <i [class]="tab.icon"></i>
+      <span class="tab-label">{{ getTabLabel(tab) }}</span>
+    </button>
+  </nav>
+
+  <!-- BARRA DE BÚSQUEDA ESPECÍFICA DE LA PESTAÑA -->
+  <div class="gta6-info-search-bar">
+    <div class="search-input-wrapper">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input
+        type="text"
+        class="search-input"
+        [(ngModel)]="searchQuery"
+        [placeholder]="currentSearchPlaceholder"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button
+        type="button"
+        *ngIf="searchQuery"
+        class="search-clear-btn"
+        (click)="clearSearch()"
+        title="Limpiar búsqueda"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- CUERPO PRINCIPAL / SHELL VACÍO CON ESTILO GTA VI -->
+  <div class="gta6-info-body">
+    <div class="gta6-empty-state-card">
+      <div class="empty-state-radar">
+        <div class="radar-ping-ring ring-1"></div>
+        <div class="radar-ping-ring ring-2"></div>
+        <div class="radar-center-icon">
+          <i [class]="currentTabInfo.icon"></i>
+        </div>
+      </div>
+
+      <div class="empty-state-badge">
+        <i class="fa-solid fa-lock"></i>
+        <span>ACCESO RESTRINGIDO // PRÓXIMAMENTE</span>
+      </div>
+
+      <h3 class="empty-state-title">{{ currentEmptyTitle }}</h3>
+      <p class="empty-state-desc">{{ currentEmptyDesc }}</p>
+
+      <div class="empty-state-meta">
+        <div class="meta-row">
+          <span class="meta-label">ESTADO:</span>
+          <span class="meta-value meta-active">RECONOCIMIENTO ACTIVO</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">SECTOR:</span>
+          <span class="meta-value">STATE OF LEONIDA (USA)</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">PROTOCOLO:</span>
+          <span class="meta-value meta-tag">CLASSIFIED DATA // LEVEL 4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIE DEL PANEL -->
+  <footer class="gta6-info-footer">
+    <span class="footer-tag">GTA VI · VICE CITY &amp; LEONIDA</span>
+    <span class="footer-ver">SYS VER 1.0</span>
+  </footer>
+</aside>

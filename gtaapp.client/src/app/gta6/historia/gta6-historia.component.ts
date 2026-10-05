@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TranslationService } from '../../i18n';
 import { GotyService } from '../../services/goty.service';
 
-interface Gta6LegendItem {
+export interface Gta6LegendItem {
     id: string;
     name: string;
     count: number;
@@ -13,16 +13,25 @@ interface Gta6LegendItem {
     descEs?: string;
 }
 
-interface Gta6LegendCategory {
+export interface Gta6LegendCategory {
     key: string;
     title: string;
     items: Gta6LegendItem[];
 }
 
+export interface Gta6MarkerItem {
+    id: string;
+    itemId: string;
+    name: string;
+    categoryKey: string;
+    color: string;
+    x: number;
+    y: number;
+    desc?: string;
+}
+
 // ---------------------------------------------------------------------------
-// GTA VI — MODO HISTORIA (Basado en filtraciones y canvas interactivo)
-// Componente de visualización con soporte para zoom sobre mapa filtrado,
-// panel de capas preliminares y categorías de Vice City / Leonida.
+// GTA VI — MODO HISTORIA (Plataforma táctica interactiva con sistema de marcadores)
 // ---------------------------------------------------------------------------
 
 @Component({
@@ -33,11 +42,11 @@ interface Gta6LegendCategory {
 })
 export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
-    // Telemetría de coordenadas. GTA6 no tiene mapa, así que se queda en 0,0
-    mouseCoords = { x: 0, y: 0 };
+    // Telemetría de coordenadas X, Y en tiempo real
+    mouseCoords = { x: 1200, y: 1200 };
     coordsCopied = false;
 
-    // Zoom del fondo con la rueda del ratón, anclado al punto donde está el cursor
+    // Zoom del fondo con la rueda del ratón
     readonly minZoom = 1;
     readonly maxZoom = 8;
     zoom = 1;
@@ -50,6 +59,20 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     private panStartY = 0;
     private panStartBgX = 0;
     private panStartBgY = 0;
+
+    // Menú contextual en el canvas
+    ctxOpen = false;
+    ctxX = 0;
+    ctxY = 0;
+    ctxWorldX = 0;
+    ctxWorldY = 0;
+    targetCustomMarker: any = null;
+
+    // Marcador activo seleccionado
+    activeMarker: Gta6MarkerItem | null = null;
+
+    // Sin marcadores predefinidos en el mapa según lo solicitado
+    allMarkers: Gta6MarkerItem[] = [];
 
     readonly categories: Gta6LegendCategory[] = [
         {
@@ -64,45 +87,27 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
             key: 'negocios',
             title: 'Negocios',
             items: [
-                { id: 'negocio_1', name: 'Ítem 1', count: 0, color: '#7f8c8d' },
-                { id: 'negocio_2', name: 'Ítem 2', count: 0, color: '#27ae60' },
-                { id: 'negocio_3', name: 'Ítem 3', count: 0, color: '#8e44ad' }
+                { id: 'negocio_1', name: 'Clubes y Ocio', count: 0, color: '#7f8c8d' },
+                { id: 'negocio_2', name: 'Almacenes', count: 0, color: '#27ae60' },
+                { id: 'negocio_3', name: 'Puertos y Marinas', count: 0, color: '#8e44ad' }
             ]
         },
         {
             key: 'vehiculos',
             title: 'Vehículos',
             items: [
-                { id: 'vehiculo_1', name: 'Ítem 1', count: 0, color: '#e67e22' },
-                { id: 'vehiculo_2', name: 'Ítem 2', count: 0, color: '#f1c40f' },
-                { id: 'vehiculo_3', name: 'Ítem 3', count: 0, color: '#c0392b' }
+                { id: 'vehiculo_1', name: 'Concesionarios', count: 0, color: '#e67e22' },
+                { id: 'vehiculo_2', name: 'Talleres', count: 0, color: '#f1c40f' },
+                { id: 'vehiculo_3', name: 'Helipuertos / Pistas', count: 0, color: '#c0392b' }
             ]
         },
         {
             key: 'categoria_3',
-            title: 'Categoría 3',
+            title: 'Misiones de Historia',
             items: [
-                { id: 'categoria_3_item_1', name: 'Ítem 1', count: 0, color: '#e67e22' },
-                { id: 'categoria_3_item_2', name: 'Ítem 2', count: 0, color: '#d35400' },
-                { id: 'categoria_3_item_3', name: 'Ítem 3', count: 0, color: '#16a085' }
-            ]
-        },
-        {
-            key: 'categoria_4',
-            title: 'Categoría 4',
-            items: [
-                { id: 'categoria_4_item_1', name: 'Ítem 1', count: 0, color: '#2980b9' },
-                { id: 'categoria_4_item_2', name: 'Ítem 2', count: 0, color: '#8e44ad' },
-                { id: 'categoria_4_item_3', name: 'Ítem 3', count: 0, color: '#c0392b' }
-            ]
-        },
-        {
-            key: 'categoria_5',
-            title: 'Categoría 5',
-            items: [
-                { id: 'categoria_5_item_1', name: 'Ítem 1', count: 0, color: '#d4af37' },
-                { id: 'categoria_5_item_2', name: 'Ítem 2', count: 0, color: '#27ae60' },
-                { id: 'categoria_5_item_3', name: 'Ítem 3', count: 0, color: '#95a5a6' }
+                { id: 'mision_1', name: 'Misiones de Jason', count: 0, color: '#e67e22' },
+                { id: 'mision_2', name: 'Misiones de Lucía', count: 0, color: '#d35400' },
+                { id: 'mision_3', name: 'Misiones Conjuntas', count: 0, color: '#16a085' }
             ]
         },
         {
@@ -126,18 +131,18 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
             key: 'coleccionables',
             title: 'Coleccionables',
             items: [
-                { id: 'coleccionable_1', name: 'Ítem 1', count: 0, color: '#8e24aa' },
-                { id: 'coleccionable_2', name: 'Ítem 2', count: 0, color: '#5e35b1' },
-                { id: 'coleccionable_3', name: 'Ítem 3', count: 0, color: '#00897b' }
+                { id: 'coleccionable_1', name: 'Cartas Secretas', count: 0, color: '#8e24aa' },
+                { id: 'coleccionable_2', name: 'Fotografías Turísticas', count: 0, color: '#5e35b1' },
+                { id: 'coleccionable_3', name: 'Reliquias Antiguas', count: 0, color: '#00897b' }
             ]
         },
         {
             key: 'lugares',
             title: 'Lugares Extraños',
             items: [
-                { id: 'lugar_1', name: 'Ítem 1', count: 0, color: '#7e57c2' },
-                { id: 'lugar_2', name: 'Ítem 2', count: 0, color: '#0277bd' },
-                { id: 'lugar_3', name: 'Ítem 3', count: 0, color: '#5d4037' }
+                { id: 'lugar_1', name: 'Bases Militares Ocultas', count: 0, color: '#7e57c2' },
+                { id: 'lugar_2', name: 'Pecios Hundidos', count: 0, color: '#0277bd' },
+                { id: 'lugar_3', name: 'Misterios Paranormales', count: 0, color: '#5d4037' }
             ]
         }
     ];
@@ -217,6 +222,13 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
         if (!this._cachedMapTypesGta6H || this._lastLangGta6H !== this.translationService.currentLang) {
             this._lastLangGta6H = this.translationService.currentLang;
             this._cachedMapTypesGta6H = [
+                {
+                    id: 'Grid',
+                    label: this.translationService.currentLang === 'es' ? 'Plataforma Táctica (Próximamente)' : 'Tactical Grid (Coming Soon)',
+                    file: '/assets/gta6/tactical-grid.svg',
+                    w: 2400,
+                    h: 1350
+                },
                 { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite'), file: '/assets/filtracionesGta6/satelite.jpg', w: 912, h: 1136 },
                 { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 },
                 { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 }
@@ -228,8 +240,8 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     legendOpen = true;
     settingsOpen = true;
     selectedGame = 'gta6';
-    selectedGameMode: 'story' | 'online' = 'online';
-    currentMapType = 'Satellite';
+    selectedGameMode: 'story' | 'online' = 'story';
+    currentMapType = 'Grid';
     iconTheme: 'neon' | 'classic' | 'standard' | 'simple' = 'classic';
     iconSize = 'standard';
     inGameTimeStr = '00:00';
@@ -239,8 +251,6 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
         vehiculos: false,
         negocios: false,
         categoria_3: false,
-        categoria_4: false,
-        categoria_5: false,
         fauna: false,
         coleccionables: false,
         lugares: false,
@@ -253,39 +263,27 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     };
 
     userCustomMarkers: { id: string; name: string; color?: string; x?: number; y?: number }[] = [];
-
-    focusCustomMarker(cm: any): void {
-        // Marcador custom en GTA 6 (canvas zoom/pan o futuro soporte)
-    }
-
-    switchGame(game: string): void {
-        this.selectedGame = game;
-        if (game === 'gta5') {
-            this.router.navigate(['/gta5-online']);
-        } else {
-            this.router.navigate(['/gta6-online']);
-        }
-    }
-
-    layerFilters: { [key: string]: boolean } = [
-        ...this.categories.reduce((acc, category) => acc.concat(category.items), [] as Gta6LegendItem[]),
-        ...this.policiaItems
-    ].reduce((acc, item) => {
-        acc[item.id] = true;
-        return acc;
-    }, {} as { [key: string]: boolean });
-
+    layerFilters: { [key: string]: boolean } = {};
     private clockInterval: ReturnType<typeof setInterval> | undefined;
 
+    infoDrawerOpen = false;
+
+    toggleInfoDrawer(): void {
+        this.infoDrawerOpen = !this.infoDrawerOpen;
+    }
+
+    closeInfoDrawer(): void {
+        this.infoDrawerOpen = false;
+    }
+
     get totalItems(): number {
-        return this.categories.reduce((sum, category) => sum + category.items.length, 0);
+        return this.allMarkers.length + this.userCustomMarkers.length;
     }
 
     get activeMapType() {
         return this.mapTypes.find(t => t.id === this.currentMapType) || this.mapTypes[0];
     }
 
-    /** Medidas reales de la imagen activa: el zoom depende de ellas */
     get bgNatural(): { w: number; h: number } {
         return { w: this.activeMapType.w, h: this.activeMapType.h };
     }
@@ -295,27 +293,103 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     }
 
     get canvasBgSize(): string {
-        if (this.zoom <= this.minZoom || !this.canvasW) {
-            return 'cover';
+        if (this.zoom <= this.minZoom || !this.canvasW || !this.canvasH) {
+            return 'contain';
         }
         const base = this.coverScale();
         return `${this.bgNatural.w * base * this.zoom}px ${this.bgNatural.h * base * this.zoom}px`;
     }
 
     get canvasBgPos(): string {
-        if (this.zoom <= this.minZoom || !this.canvasW) {
+        if (this.zoom <= this.minZoom || !this.canvasW || !this.canvasH) {
             return 'center center';
         }
         return `${this.bgPosX}px ${this.bgPosY}px`;
     }
 
+    // Filtro activo de marcadores según categorías activas
+    get visibleMarkers(): Gta6MarkerItem[] {
+        return this.allMarkers.filter(m => this.layerFilters[m.itemId]);
+    }
+
     ngOnInit(): void {
+        this.initFilters();
+        this.updateItemCounts();
+        this.loadCustomMarkers();
         this.startInGameClock();
     }
 
     ngOnDestroy(): void {
         if (this.clockInterval) {
             clearInterval(this.clockInterval);
+        }
+    }
+
+    private initFilters(): void {
+        const allKeys = [
+            ...this.categories.reduce((acc, category) => acc.concat(category.items), [] as Gta6LegendItem[]),
+            ...this.policiaItems
+        ];
+        allKeys.forEach(item => {
+            this.layerFilters[item.id] = true;
+        });
+    }
+
+    private updateItemCounts(): void {
+        this.categories.forEach(cat => {
+            cat.items.forEach(item => {
+                item.count = this.allMarkers.filter(m => m.itemId === item.id).length;
+            });
+        });
+    }
+
+    getMarkerStyle(m: { x?: number; y?: number }): { [key: string]: string } {
+        if (m.x === undefined || m.y === undefined || !this.canvasW) {
+            return { display: 'none' };
+        }
+        const base = this.coverScale();
+        const curW = this.bgNatural.w * base * this.zoom;
+        const curH = this.bgNatural.h * base * this.zoom;
+        const posX = this.zoom <= this.minZoom ? (this.canvasW - curW) / 2 : this.bgPosX;
+        const posY = this.zoom <= this.minZoom ? (this.canvasH - curH) / 2 : this.bgPosY;
+        const screenX = posX + (m.x / this.bgNatural.w) * curW;
+        const screenY = posY + (m.y / this.bgNatural.h) * curH;
+        return {
+            left: `${screenX}px`,
+            top: `${screenY}px`,
+            transform: 'translate(-50%, -50%)',
+            position: 'absolute'
+        };
+    }
+
+    selectMarker(m: Gta6MarkerItem, event?: MouseEvent): void {
+        if (event) {
+            event.stopPropagation();
+        }
+        this.activeMarker = m;
+    }
+
+    closeMarkerModal(): void {
+        this.activeMarker = null;
+    }
+
+    focusCustomMarker(cm: any): void {
+        if (cm.x !== undefined && cm.y !== undefined && this.canvasW && this.canvasH) {
+            this.zoom = 2.5;
+            const base = this.coverScale();
+            const curW = this.bgNatural.w * base * this.zoom;
+            const curH = this.bgNatural.h * base * this.zoom;
+            this.bgPosX = this.clampPan((this.canvasW / 2) - (cm.x / this.bgNatural.w) * curW, this.canvasW, curW);
+            this.bgPosY = this.clampPan((this.canvasH / 2) - (cm.y / this.bgNatural.h) * curH, this.canvasH, curH);
+        }
+    }
+
+    switchGame(game: string): void {
+        this.selectedGame = game;
+        if (game === 'gta5') {
+            this.router.navigate(['/gta5-historia']);
+        } else {
+            this.router.navigate(['/gta6-historia']);
         }
     }
 
@@ -374,9 +448,12 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
     updateIconStyle(): void { }
 
-    onZoneChange(zone: string): void { }
-
-    recenterMap(): void { }
+    recenterMap(): void {
+        this.zoom = this.minZoom;
+        this.bgPosX = 0;
+        this.bgPosY = 0;
+        this.isPanning = false;
+    }
 
     copyCurrentCoords(): void {
         const text = `X: ${this.mouseCoords.x.toFixed(1)}, Y: ${this.mouseCoords.y.toFixed(1)}`;
@@ -385,6 +462,94 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
                 this.coordsCopied = true;
                 setTimeout(() => this.coordsCopied = false, 1800);
             });
+        }
+    }
+
+    // Context menu handlers
+    openContextMenu(event: MouseEvent): void {
+        event.preventDefault();
+        this.ctxX = event.clientX;
+        this.ctxY = event.clientY;
+        this.ctxWorldX = this.mouseCoords.x;
+        this.ctxWorldY = this.mouseCoords.y;
+        this.targetCustomMarker = null;
+        this.ctxOpen = true;
+    }
+
+    closeContextMenu(): void {
+        this.ctxOpen = false;
+        this.targetCustomMarker = null;
+    }
+
+    openMarkerContext(cm: any, event: MouseEvent): void {
+        event.preventDefault();
+        event.stopPropagation();
+        this.ctxX = event.clientX;
+        this.ctxY = event.clientY;
+        this.targetCustomMarker = cm;
+        this.ctxOpen = true;
+    }
+
+    runCtxAction(action: string): void {
+        if (action === 'marcador') {
+            const name = prompt(this.translationService.currentLang === 'es' ? 'Nombre del nuevo marcador:' : 'New marker name:', 'Punto de Misión');
+            if (name) {
+                const colors = ['#f39c12', '#3498db', '#2ecc71', '#e74c3c', '#9b59b6', '#ff4fe0'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const newMarker = {
+                    id: 'cm_' + Date.now(),
+                    name,
+                    color,
+                    x: this.ctxWorldX || 1200,
+                    y: this.ctxWorldY || 1200
+                };
+                this.userCustomMarkers.push(newMarker);
+                this.saveCustomMarkers();
+            }
+        } else if (action === 'editar_marcador' && this.targetCustomMarker) {
+            const newName = prompt(this.translationService.currentLang === 'es' ? 'Editar nombre del marcador:' : 'Edit marker name:', this.targetCustomMarker.name);
+            if (newName) {
+                this.targetCustomMarker.name = newName;
+                this.saveCustomMarkers();
+            }
+        } else if (action === 'borrar_este_marcador' && this.targetCustomMarker) {
+            this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== this.targetCustomMarker.id);
+            this.saveCustomMarkers();
+        }
+        this.closeContextMenu();
+    }
+
+    saveCustomMarkers(): void {
+        localStorage.setItem('gta6_custom_markers_' + this.selectedGameMode, JSON.stringify(this.userCustomMarkers));
+    }
+
+    loadCustomMarkers(): void {
+        try {
+            const saved = localStorage.getItem('gta6_custom_markers_' + this.selectedGameMode);
+            if (saved) {
+                this.userCustomMarkers = JSON.parse(saved);
+            }
+        } catch { }
+    }
+
+    onCanvasMouseMove(event: MouseEvent): void {
+        const el = event.currentTarget as HTMLElement | null;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        this.canvasW = el.clientWidth;
+        this.canvasH = el.clientHeight;
+        const cursorX = event.clientX - rect.left;
+        const cursorY = event.clientY - rect.top;
+        const base = this.coverScale();
+        const curW = this.bgNatural.w * base * this.zoom;
+        const curH = this.bgNatural.h * base * this.zoom;
+        const posX = this.zoom <= this.minZoom ? (this.canvasW - curW) / 2 : this.bgPosX;
+        const posY = this.zoom <= this.minZoom ? (this.canvasH - curH) / 2 : this.bgPosY;
+        if (curW && curH) {
+            const fracX = (cursorX - posX) / curW;
+            const fracY = (cursorY - posY) / curH;
+            this.mouseCoords.x = Math.round(fracX * this.bgNatural.w * 10) / 10;
+            this.mouseCoords.y = Math.round(fracY * this.bgNatural.h * 10) / 10;
         }
     }
 
@@ -407,29 +572,32 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
         const base = this.coverScale();
         const prevW = this.bgNatural.w * base * this.zoom;
         const prevH = this.bgNatural.h * base * this.zoom;
+        const prevPosX = this.zoom <= this.minZoom ? (cw - prevW) / 2 : this.bgPosX;
+        const prevPosY = this.zoom <= this.minZoom ? (ch - prevH) / 2 : this.bgPosY;
 
-        // Qué punto de la foto hay justo debajo del cursor, para no perderlo al hacer zoom
-        const fracX = (cursorX - this.bgPosX) / prevW;
-        const fracY = (cursorY - this.bgPosY) / prevH;
+        const fracX = (cursorX - prevPosX) / prevW;
+        const fracY = (cursorY - prevPosY) / prevH;
 
-        const factor = event.deltaY < 0 ? 1.2 : 1 / 1.2;
+        const factor = event.deltaY < 0 ? 1.25 : 1 / 1.25;
         const next = Math.min(this.maxZoom, Math.max(this.minZoom, this.zoom * factor));
         if (next === this.zoom) { return; }
         this.zoom = next;
 
+        const newW = this.bgNatural.w * base * next;
+        const newH = this.bgNatural.h * base * next;
+
         if (next <= this.minZoom) {
-            this.bgPosX = 0;
-            this.bgPosY = 0;
+            this.bgPosX = (cw - newW) / 2;
+            this.bgPosY = (ch - newH) / 2;
             return;
         }
 
-        const newW = this.bgNatural.w * base * next;
-        const newH = this.bgNatural.h * base * next;
         this.bgPosX = this.clampPan(cursorX - fracX * newW, cw, newW);
         this.bgPosY = this.clampPan(cursorY - fracY * newH, ch, newH);
     }
 
     onCanvasMouseDown(event: MouseEvent): void {
+        if (event.button !== 0) return;
         const el = event.currentTarget as HTMLElement | null;
         if (el) {
             this.canvasW = el.clientWidth;
@@ -468,12 +636,15 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     }
 
     private coverScale(): number {
-        return Math.max(this.canvasW / this.bgNatural.w, this.canvasH / this.bgNatural.h);
+        return Math.min(this.canvasW / this.bgNatural.w, this.canvasH / this.bgNatural.h);
     }
 
     private clampPan(value: number, containerSize: number, imageSize: number): number {
+        if (imageSize <= containerSize) {
+            return (containerSize - imageSize) / 2;
+        }
         const min = containerSize - imageSize;
-        return Math.max(Math.min(0, min), Math.min(0, value));
+        return Math.max(min, Math.min(0, value));
     }
 
     private startInGameClock(): void {
