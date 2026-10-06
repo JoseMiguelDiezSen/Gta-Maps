@@ -89,6 +89,15 @@ export class SeoService {
 
     // 3. Etiqueta canonical
     this.updateCanonicalUrl(canonicalUrl);
+
+    // 4. Notificar a Google Analytics (GA4) la nueva vista de página en SPA
+    if (isPlatformBrowser(this.platformId) && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', 'page_view', {
+        page_title: title,
+        page_location: window.location.href,
+        page_path: this.router.url
+      });
+    }
   }
 
   /**

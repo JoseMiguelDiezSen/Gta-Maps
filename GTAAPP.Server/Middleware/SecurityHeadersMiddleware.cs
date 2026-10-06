@@ -109,16 +109,16 @@ public class SecurityHeadersMiddleware
             if (!headers.ContainsKey("Content-Security-Policy"))
             {
                 var csp = "default-src 'self'; " +
-                          "script-src 'self' 'unsafe-inline'; " +
+                          "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; " +
                           "style-src 'self' 'unsafe-inline'; " +
                           "font-src 'self' data:; " +
-                          "img-src 'self' data: blob:; " +
-                          "connect-src 'self' ws: wss:; " +
+                          "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com; " +
+                          "connect-src 'self' ws: wss: https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; " +
                           "object-src 'none'; " +
                           "frame-ancestors 'none'; " +
                           "base-uri 'self'; " +
-                          "form-action 'self'; " +
-                          "upgrade-insecure-requests;";
+                          "form-action 'self';" +
+                          (context.Request.IsHttps ? " upgrade-insecure-requests;" : "");
 
                 headers["Content-Security-Policy"] = csp;
             }

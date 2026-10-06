@@ -36,12 +36,14 @@ export class CookieService {
       if (saved) {
         const parsed: CookieConsentState = JSON.parse(saved);
         this.hasConsented.set(parsed.hasConsented);
-        this.preferences.set({
+        const prefs: CookiePreferences = {
           necessary: true,
           analytics: !!parsed.preferences?.analytics,
           preferences: !!parsed.preferences?.preferences
-        });
+        };
+        this.preferences.set(prefs);
         this.isBannerVisible.set(!parsed.hasConsented);
+        this.updateGtagConsent(prefs);
       } else {
         this.hasConsented.set(false);
         this.isBannerVisible.set(true);
@@ -88,6 +90,16 @@ export class CookieService {
     this.preferences.set(prefs);
     this.hasConsented.set(true);
     this.isBannerVisible.set(false);
+    this.updateGtagConsent(prefs);
+  }
+
+  private updateGtagConsent(prefs: CookiePreferences): void {
+    if (typeof (window as any).gtag === 'function') {
+      const status = prefs.analytics ? 'granted' : 'denied';
+      (window as any).gtag('consent', 'update', {
+        'analytics_storage': status
+      });
+    }
   }
 
   openBanner(): void {

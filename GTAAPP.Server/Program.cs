@@ -87,15 +87,28 @@ builder.Services.AddRateLimiter(options =>
         }, cancellationToken: token);
     };
 
-    // 6.1 Política Global por IP (máximo 120 peticiones por minuto en ventana deslizante)
+    // 6.1 Política Global por IP (los archivos estáticos como tiles de mapa, imágenes, css y js quedan 100% EXENTOS)
     options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
     {
+        var path = httpContext.Request.Path.Value ?? string.Empty;
+        if (path.StartsWith("/assets", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".webp", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".svg", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".js", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".css", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase))
+        {
+            return RateLimitPartition.GetNoLimiter("static-assets");
+        }
+
         var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
         return RateLimitPartition.GetSlidingWindowLimiter(
             partitionKey: clientIp,
             factory: _ => new SlidingWindowRateLimiterOptions
             {
-                PermitLimit = 120,
+                PermitLimit = 300,
                 Window = TimeSpan.FromMinutes(1),
                 SegmentsPerWindow = 4,
                 QueueProcessingOrder = QueueProcessingOrder.OldestFirst,

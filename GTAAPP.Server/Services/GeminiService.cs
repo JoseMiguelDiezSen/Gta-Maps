@@ -137,7 +137,7 @@ SISTEMA DE COLABORACIÓN:
             };
 
             // SISTEMA DE ESCALADO EN CASCADA (WATERFALL) CON MODELOS OFICIALES DE GEMINI
-            string[] fallbackModels = { "gemini-3.7-flash", "gemini-3.8-flash" };
+            string[] fallbackModels = { "gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash" };
 
             foreach (var model in fallbackModels)
             {
