@@ -302,6 +302,10 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        if (typeof window !== 'undefined' && window.innerWidth <= 850) {
+            this.legendOpen = false;
+            this.settingsOpen = false;
+        }
         this.initFilters();
         this.updateItemCounts();
         this.loadCustomMarkers();
@@ -389,10 +393,16 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
+        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
+            this.settingsOpen = false;
+        }
     }
 
     toggleSettings(): void {
         this.settingsOpen = !this.settingsOpen;
+        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
+            this.legendOpen = false;
+        }
     }
 
     toggleSection(section: string): void {
@@ -712,8 +722,18 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
         this.isPanning = false;
     }
 
+    @HostListener('window:resize')
+    onWindowResize(): void {
+        const el = document.getElementById('gta6-map-canvas');
+        if (el) {
+            this.canvasW = el.clientWidth;
+            this.canvasH = el.clientHeight;
+        }
+    }
+
     private coverScale(): number {
-        return Math.min(this.canvasW / this.bgNatural.w, this.canvasH / this.bgNatural.h);
+        if (!this.canvasW || !this.canvasH || !this.bgNatural.w || !this.bgNatural.h) return 1;
+        return Math.max(this.canvasW / this.bgNatural.w, this.canvasH / this.bgNatural.h);
     }
 
     private clampPan(value: number, containerSize: number, imageSize: number): number {

@@ -322,7 +322,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // CICLO DE VIDA
     // -----------------------------------------------------------------------
     ngOnInit(): void {
-        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+        if (typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.legendOpen = false;
             this.settingsOpen = false;
         }
@@ -374,6 +374,11 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.initMap(this.currentMapType);
+        setTimeout(() => {
+            if (this.map) {
+                this.map.invalidateSize();
+            }
+        }, 150);
         window.addEventListener('resize', this.onWindowResize);
     }
 
@@ -556,6 +561,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private readonly onWindowResize = () => {
         if (!this.map) return;
+        this.map.invalidateSize();
         if (this.currentMapType === 'Satellite') {
             this.map.setMinZoom(this.computeHdMinZoom());
         } else {
@@ -900,14 +906,14 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
-        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 768) {
+        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.settingsOpen = false;
         }
     }
 
     toggleSettings(): void {
         this.settingsOpen = !this.settingsOpen;
-        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 768) {
+        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.legendOpen = false;
         }
     }

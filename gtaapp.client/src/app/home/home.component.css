@@ -565,13 +565,12 @@
   .home-shell {
     padding: 75px 12px 90px 12px;
     gap: 6px;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .home-title {
     font-size: 34px;
     letter-spacing: 1.5px;
-    margin-top: 10px;
   }
 
   .home-disclaimer {
@@ -637,12 +636,6 @@
     gap: 5px;
   }
 
-  .home-social-btn {
-    bottom: max(46px, calc(env(safe-area-inset-bottom, 0px) + 42px));
-    right: max(10px, env(safe-area-inset-right, 10px));
-    width: 32px;
-    height: 32px;
-  }
 
   .home-footer {
     padding: 8px 12px;

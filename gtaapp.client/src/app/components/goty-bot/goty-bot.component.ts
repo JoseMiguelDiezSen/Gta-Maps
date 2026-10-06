@@ -20,8 +20,8 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
   messages: GotyMessage[] = [];
 
   // Drag state
-  wrapperTop = 120;
-  wrapperLeft = 20;
+  wrapperTop = 100;
+  wrapperLeft = 10;
   isDragging = false;
   hasDragged = false;
   private dragStartX = 0;

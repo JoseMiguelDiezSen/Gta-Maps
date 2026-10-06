@@ -421,7 +421,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+        if (typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.legendOpen = false;
             this.settingsOpen = false;
         }
@@ -515,7 +515,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     toggleSettings(): void {
         this.settingsOpen = !this.settingsOpen;
-        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 768) {
+        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.legendOpen = false;
         }
     }
@@ -759,6 +759,11 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.initMap(this.currentMapType);
+        setTimeout(() => {
+            if (this.map) {
+                this.map.invalidateSize();
+            }
+        }, 150);
         window.addEventListener('resize', this.onWindowResize);
     }
 
@@ -770,7 +775,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         delete (window as any)._gtaRenameMarker;
         delete (window as any)._gtaDeleteMarker;
         delete (window as any)._gtaSetMarkerColor;
-delete (window as any)._gtaSaveMarkerName;
+        delete (window as any)._gtaSaveMarkerName;
         if (this.map) {
             this.map.remove();
         }
@@ -778,6 +783,7 @@ delete (window as any)._gtaSaveMarkerName;
 
     private readonly onWindowResize = () => {
         if (this.map) {
+            this.map.invalidateSize();
             if (this.selectedCity === 'cp') {
                 const minZoom = this.computeCayoMinZoom();
                 this.map.setMinZoom(minZoom);
@@ -797,8 +803,15 @@ delete (window as any)._gtaSaveMarkerName;
     };
 
     private computeCayoMinZoom(): number {
-        // Permite alejar el mapa con zoom out controlado para ver la isla con holgura
-        return 2.3;
+        const el = document.getElementById('gta-map');
+        const height = el ? el.clientHeight : 0;
+        const width = el ? el.clientWidth : 0;
+        if (height <= 0 || width <= 0) return 1.6;
+        // Cayo Perico mide 148 de alto por 155 de ancho en proyección con tileSize 256
+        const zoomH = Math.log2((height * 0.88) / 148);
+        const zoomW = Math.log2((width * 0.88) / 155);
+        const targetZoom = Math.min(zoomH, zoomW);
+        return Math.max(1.2, Math.min(7, Math.round(targetZoom * 10) / 10));
     }
 
     private computeHdMinZoom(): number {
@@ -850,9 +863,9 @@ delete (window as any)._gtaSaveMarkerName;
                 crs: L.CRS.Simple,
                 minZoom: cayoMinZoom,
                 maxZoom: 7,
-                zoom: 2.7,
+                zoom: cayoMinZoom,
                 zoomSnap: 0.1,
-                center: [-72, 82.5],
+                center: [-74, 77.5],
                 maxBounds: cayoMaxBounds,
                 maxBoundsViscosity: 0.85,
                 zoomControl: false,
@@ -1611,7 +1624,7 @@ delete (window as any)._gtaSaveMarkerName;
      */
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
-        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 768) {
+        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.settingsOpen = false;
         }
     }
