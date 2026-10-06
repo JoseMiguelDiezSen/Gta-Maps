@@ -376,6 +376,7 @@ export const de: TranslationSchema = {
       handling: 'Handling'
     },
     dealers: {
+      backTo: 'Zurück zu',
       legendaryDesc: 'Supersportwagen, exotische Rennwagen und Hyper-Luxusfahrzeuge.',
       superautosDesc: 'Muscle Cars, Kompaktwagen, Limousinen, SUVs, Offroader und Motorräder.',
       bennysDesc: 'Radikale Tuning-Werkstatt, Lowrider und Custom-Umbauten.',

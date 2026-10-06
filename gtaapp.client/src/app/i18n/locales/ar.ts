@@ -376,6 +376,7 @@ export const ar: TranslationSchema = {
       handling: 'التحكم'
     },
     dealers: {
+      backTo: 'العودة إلى',
       legendaryDesc: 'سيارات خارقة، سيارات سباق مميزة ومركبات فائقة الفخامة.',
       superautosDesc: 'سيارات عضلية، مدمجة، سيدان، دفع رباعي ودراجات نارية.',
       bennysDesc: 'ورشة تعديل احترافية متطورة، لو رايدرز وتحويلات مخصصة.',

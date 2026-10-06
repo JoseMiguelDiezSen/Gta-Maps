@@ -376,6 +376,7 @@ export const zh: TranslationSchema = {
       handling: '操控转向'
     },
     dealers: {
+      backTo: '返回',
       legendaryDesc: '传奇车业：顶级超跑、赛道狂魔与奢华名车。',
       superautosDesc: '南圣安地列斯超级汽车：肌肉车、轿车、SUV、越野车与摩托车。',
       bennysDesc: '本尼原创工坊：极致低趴改装、跳跳车与深度宽体套件。',

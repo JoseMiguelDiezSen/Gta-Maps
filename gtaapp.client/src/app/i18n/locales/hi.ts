@@ -376,6 +376,7 @@ export const hi: TranslationSchema = {
       handling: 'नियंत्रण'
     },
     dealers: {
+      backTo: 'पर वापस जाएं:',
       legendaryDesc: 'सुपरकार, दुर्लभ रेसिंग कारें और अत्यधिक लक्जरी वाहन।',
       superautosDesc: 'मसल कार, कॉम्पैक्ट, सेडान, एसयूवी, ऑफ-रोड और मोटरसाइकिल।',
       bennysDesc: 'कस्टम लोराइडर्स और ट्यूनर मॉडिफिकेशन की वर्कशॉप।',

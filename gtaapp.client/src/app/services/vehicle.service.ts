@@ -13,15 +13,14 @@ export class VehicleService {
   ) {}
 
   /**
-   * Obtiene el catálogo completo de vehículos o filtrado por concesionario y categoría.
+   * Obtiene el catálogo completo de vehículos o filtrado por concesionario, categoría e idioma.
    * Cuenta con fallback automático al archivo estático en assets/data si /api/vehicles no responde.
    */
   getVehicles(dealership?: string, category?: string, lang?: string): Observable<GtaVehicle[]> {
-    let params = new HttpParams();
+    const activeLang = lang || this.translationService.currentLanguage() || 'es';
+    let params = new HttpParams().set('lang', activeLang);
     if (dealership) params = params.set('dealership', dealership);
     if (category) params = params.set('category', category);
-
-    const activeLang = lang || this.translationService.currentLanguage() || 'es';
 
     return this.http.get<GtaVehicle[]>('/api/vehicles', { params }).pipe(
       catchError(() => {

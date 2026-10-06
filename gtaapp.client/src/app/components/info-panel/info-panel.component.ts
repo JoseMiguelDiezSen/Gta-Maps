@@ -931,6 +931,16 @@ export class InfoPanelComponent implements OnChanges {
           this.selectedWeapon = weapons.find(w => w.id === this.selectedWeapon!.id) || this.selectedWeapon;
         }
       } else {
+        // Reset cached values on language switch
+        this.vehicleCache = {};
+        this._cachedVisDealersKey = '';
+        this._cachedDealCatKey = '';
+        this._cachedFDVKey = '';
+
+        if (this.activeDealerId) {
+          this.loadDealerVehicles(this.activeDealerId);
+        }
+
         if (this.gameMode === 'story') {
           if (this.storyMissions.length > 0) this.loadStoryMissions(true, this.selectedMission?.id);
           if (this.strangerMissions.length > 0) this.loadStrangerMissions(true, this.selectedStranger?.id);
@@ -938,7 +948,9 @@ export class InfoPanelComponent implements OnChanges {
           if (this.weapons.length > 0) this.loadWeapons(true, this.selectedWeapon?.id);
         } else {
           if (this.onlineMissions.length > 0) this.loadOnlineMissions(true, this.selectedMission?.id);
-          if (this.onlineHeists.length > 0) this.loadOnlineHeists(true, this.selectedHeist?.id);
+          if (this.onlineHeists.length > 0 || this.activeDrawerTab === 'golpes' || this.drawerView === 'heist-detail') {
+            this.loadOnlineHeists(true, this.selectedHeist?.id);
+          }
           if (this.onlineMysteries.length > 0) this.loadOnlineMysteries(true, this.selectedMystery?.id);
           if (this.weapons.length > 0) this.loadWeapons(true, this.selectedWeapon?.id);
         }
@@ -1748,6 +1760,10 @@ export class InfoPanelComponent implements OnChanges {
           this.vehicleCache[d].push(v);
         }
         this.dealerVehicles = this.vehicleCache[dealerId] || [];
+        if (this.selectedVehicle) {
+          const fresh = vehicles.find(v => v.id === this.selectedVehicle!.id);
+          if (fresh) this.selectedVehicle = fresh;
+        }
         this.vehiclesLoading = false;
       },
       error: (err) => {

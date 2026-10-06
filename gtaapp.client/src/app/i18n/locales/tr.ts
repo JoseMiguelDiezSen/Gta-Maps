@@ -341,6 +341,7 @@ export const tr: TranslationSchema = {
       handling: 'Yol Tutuşu'
     },
     dealers: {
+      backTo: 'Geri Dön:',
       legendaryDesc: 'Lüks süper spor arabalar ve egzotik araçlar',
       superautosDesc: 'Günlük otomobiller, spor araçlar ve arazi taşıtları',
       bennysDesc: 'Özel modifiye ve lowrider dönüşümleri',

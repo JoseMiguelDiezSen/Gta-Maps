@@ -347,6 +347,7 @@ export interface TranslationSchema {
       handling: string;
     };
     dealers: {
+      backTo?: string;
       legendaryDesc: string;
       superautosDesc: string;
       bennysDesc: string;

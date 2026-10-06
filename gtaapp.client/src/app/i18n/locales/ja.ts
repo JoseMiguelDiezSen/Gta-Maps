@@ -376,6 +376,7 @@ export const ja: TranslationSchema = {
       handling: 'ハンドリング'
     },
     dealers: {
+      backTo: '戻る：',
       legendaryDesc: 'スーパーカー、エキゾチックレーシングカー、最高級ハイパーカー。',
       superautosDesc: 'マッスルカー、コンパクトカー、セダン、SUV、オフロード車、バイク。',
       bennysDesc: '過激なローライダーやチューナーカスタムを専門とする伝説のショップ。',

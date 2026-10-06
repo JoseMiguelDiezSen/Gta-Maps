@@ -341,6 +341,7 @@ export const ko: TranslationSchema = {
       handling: '핸들링'
     },
     dealers: {
+      backTo: '돌아가기:',
       legendaryDesc: '럭셔리 슈퍼카 및 이국적인 하이퍼카',
       superautosDesc: '일상용 세단, 스포츠카 및 오프로드 차량',
       bennysDesc: '커스텀 로우라이더 및 특수 개조 워크샵',
