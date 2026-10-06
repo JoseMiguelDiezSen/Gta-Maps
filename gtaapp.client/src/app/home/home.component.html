@@ -77,6 +77,15 @@
           <circle cx="320" cy="240" r="102" fill="#002776"/>
           <path d="M222,246 Q320,205 418,246" stroke="#ffffff" stroke-width="12" fill="none"/>
         </svg>
+        <!-- Bandera China (简体中文) SVG -->
+        <svg *ngSwitchCase="'zh'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+          <rect width="640" height="480" fill="#de2910"/>
+          <polygon points="107,48 119,85 158,85 126,108 138,145 107,122 75,145 87,108 55,85 94,85" fill="#ffde00"/>
+          <polygon points="213,32 216,42 226,42 218,48 221,58 213,52 205,58 208,48 200,42 210,42" fill="#ffde00" transform="rotate(-30 213 45)"/>
+          <polygon points="256,75 259,85 269,85 261,91 264,101 256,95 248,101 251,91 243,85 253,85" fill="#ffde00" transform="rotate(30 256 88)"/>
+          <polygon points="256,149 259,159 269,159 261,165 264,175 256,169 248,175 251,165 243,159 253,159" fill="#ffde00" transform="rotate(0 256 162)"/>
+          <polygon points="213,203 216,213 226,213 218,219 221,229 213,223 205,229 208,219 200,213 210,213" fill="#ffde00" transform="rotate(20 213 216)"/>
+        </svg>
       </span>
       <span class="language-name">{{ currentLanguage.label }}</span>
       <svg class="language-chevron" [class.is-open]="isOpen" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
@@ -149,6 +158,15 @@
             <polygon points="320,55 580,240 320,425 60,240" fill="#ffdf00"/>
             <circle cx="320" cy="240" r="102" fill="#002776"/>
             <path d="M222,246 Q320,205 418,246" stroke="#ffffff" stroke-width="12" fill="none"/>
+          </svg>
+          <!-- Bandera China (简体中文) SVG -->
+          <svg *ngSwitchCase="'zh'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+            <rect width="640" height="480" fill="#de2910"/>
+            <polygon points="107,48 119,85 158,85 126,108 138,145 107,122 75,145 87,108 55,85 94,85" fill="#ffde00"/>
+            <polygon points="213,32 216,42 226,42 218,48 221,58 213,52 205,58 208,48 200,42 210,42" fill="#ffde00" transform="rotate(-30 213 45)"/>
+            <polygon points="256,75 259,85 269,85 261,91 264,101 256,95 248,101 251,91 243,85 253,85" fill="#ffde00" transform="rotate(30 256 88)"/>
+            <polygon points="256,149 259,159 269,159 261,165 264,175 256,169 248,175 251,165 243,159 253,159" fill="#ffde00" transform="rotate(0 256 162)"/>
+            <polygon points="213,203 216,213 226,213 218,219 221,229 213,223 205,229 208,219 200,213 210,213" fill="#ffde00" transform="rotate(20 213 216)"/>
           </svg>
         </span>
         <span class="language-name">{{ lang.label }}</span>

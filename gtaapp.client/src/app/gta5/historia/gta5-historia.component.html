@@ -336,7 +336,7 @@
                 <span class="legend-name">{{ char.name }}</span>
                 <span class="legend-count">{{ char.badge.symbol }}</span>
               </button>
-              <button type="button" class="char-zoom-btn" (click)="zoomToCharacter(char, $event)" [title]="'Centrar en ' + char.name">
+              <button type="button" class="char-zoom-btn" (click)="zoomToCharacter(char, $event)" [title]="('gta5.settings.locateMarker' | translate) + ': ' + char.name">
                 <svg viewBox="0 0 24 24" class="char-zoom-svg">
                   <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none"/>
                   <circle cx="12" cy="12" r="2" fill="currentColor"/>

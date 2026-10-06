@@ -1,4 +1,4 @@
-export type LanguageCode = 'es' | 'en' | 'pt';
+export type LanguageCode = 'es' | 'en' | 'pt' | 'zh' | 'fr';
 export interface LanguageInfo {
   code: LanguageCode;
   label: string;

@@ -93,7 +93,7 @@ export class TranslationService {
   private detectInitialLanguage(): LanguageCode {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved === 'es' || saved === 'en') {
+      if (saved === 'es' || saved === 'en' || saved === 'pt' || saved === 'zh') {
         return saved;
       }
     } catch {
@@ -104,6 +104,12 @@ export class TranslationService {
       const browserLang = navigator.language.toLowerCase();
       if (browserLang.startsWith('en')) {
         return 'en';
+      }
+      if (browserLang.startsWith('pt')) {
+        return 'pt';
+      }
+      if (browserLang.startsWith('zh')) {
+        return 'zh';
       }
     }
 

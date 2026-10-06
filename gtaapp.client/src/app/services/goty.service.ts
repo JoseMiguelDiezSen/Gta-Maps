@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 import { GotyMessage, GotyGameMode } from '../models/goty';
 import { TranslationService } from '../i18n';
 
@@ -21,9 +20,7 @@ export interface GotyBrain {
 
 /**
  * Servicio del Asistente Virtual Criminal GOTY.
- * Soporta dos modos operativos:
- *  1. Modo Online: Conecta con el backend (/api/goty/chat) comunicando con la IA (Gemini).
- *  2. Modo Local (Fallback): Si la IA o la red fallan, usa el motor JSON local correspondiente al idioma activo.
+ * En modo capado para producción devuelve indefinidamente el mensaje de ajuste en el idioma activo.
  */
 @Injectable({
   providedIn: 'root'
@@ -50,9 +47,15 @@ export class GotyService {
     },
     pt: {
       'gta5-historia': 'Olá, sou o GOTY 5, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
-      'gta5-online': 'Olá, sou o GOTY 5, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
+      'gta5-online': 'Olá, sou o GOTY 5, ainda estão ajustando algunos detalhes em mim. Desculpe o transtorno.',
       'gta6-historia': 'Olá, sou o GOTY 6, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
-      'gta6-online': 'Olá, sou o GOTY 6, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.'
+      'gta6-online': 'Olá, sou o GOTY 6, ainda estão ajustando algunos detalhes em mim. Desculpe o transtorno.'
+    },
+    zh: {
+      'gta5-historia': '你好，我是 GOTY 5，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。',
+      'gta5-online': '你好，我是 GOTY 5，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。',
+      'gta6-historia': '你好，我是 GOTY 6，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。',
+      'gta6-online': '你好，我是 GOTY 6，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。'
     }
   };
 
@@ -69,6 +72,7 @@ export class GotyService {
     this.preloadBrain('es');
     this.preloadBrain('en');
     this.preloadBrain('pt');
+    this.preloadBrain('zh');
   }
 
   get isEnabled(): boolean {
@@ -197,8 +201,8 @@ export class GotyService {
 
     return of({
       id: 'msg-' + Date.now(),
-      sender: 'goty',
-      text: responseText + ' [Local]',
+      sender: 'goty' as const,
+      text: responseText,
       timestamp: new Date(),
       isAngry
     });

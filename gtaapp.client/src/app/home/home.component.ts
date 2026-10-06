@@ -5,7 +5,7 @@ import { UsuariosActivosService } from '../services/usuarios-activos.service';
 import { CookieService } from '../services/cookie.service';
 
 export interface Language {
-    code: 'en' | 'es' | 'pt';
+    code: 'en' | 'es' | 'pt' | 'zh';
     label: string;
 }
 
@@ -17,7 +17,7 @@ export interface Language {
 })
 export class HomeComponent implements OnInit, OnDestroy {
     isOpen = false;
-    selectedCode: 'en' | 'es' | 'pt' = 'en';
+    selectedCode: 'en' | 'es' | 'pt' | 'zh' = 'en';
 
     readonly ultimaActualizacion = APP_VERSION.timestamp;
     readonly buildCommit = APP_VERSION.commit;
@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     readonly languages: Language[] = [
         { code: 'en', label: 'English' },
         { code: 'es', label: 'Español' },
-        { code: 'pt', label: 'Português' }
+        { code: 'pt', label: 'Português' },
+        { code: 'zh', label: '简体中文' }
     ];
 
     constructor(
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         const current = this.translationService.currentLanguage();
-        if (current === 'es' || current === 'en' || current === 'pt') {
+        if (current === 'es' || current === 'en' || current === 'pt' || current === 'zh') {
             this.selectedCode = current;
         }
         this.startCountdown();
@@ -80,7 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.isOpen = !this.isOpen;
     }
 
-    selectLanguage(code: 'en' | 'es' | 'pt', event: Event): void {
+    selectLanguage(code: 'en' | 'es' | 'pt' | 'zh', event: Event): void {
         event.stopPropagation();
         this.selectedCode = code;
         this.isOpen = false;

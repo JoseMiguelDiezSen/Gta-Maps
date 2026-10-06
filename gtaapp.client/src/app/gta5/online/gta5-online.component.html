@@ -931,7 +931,7 @@
               class="legend-btn legend-char-btn"
               [class.is-active]="layerFilters[char.id]"
               (click)="toggleLayer(char.id)"
-              [title]="layerFilters[char.id] ? 'Ocultar ' + char.name : 'Mostrar ' + char.name"
+              [title]="char.name"
             >
               <i class="legend-dot" [style.background]="char.badge.color" [style.box-shadow]="'0 0 6px ' + char.badge.color"></i>
               <span class="legend-name">{{ char.name }}</span>
@@ -943,7 +943,7 @@
               type="button"
               class="char-zoom-btn"
               (click)="zoomToCharacter(char, $event)"
-              [title]="'Centrar mapa y zoom en ' + char.name"
+              [title]="('gta5.settings.locateMarker' | translate) + ': ' + char.name"
             >
               <svg viewBox="0 0 24 24" class="char-zoom-svg">
                 <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none" />
@@ -986,7 +986,7 @@
               class="legend-btn legend-char-btn"
               [class.is-active]="layerFilters[animal.id]"
               (click)="toggleLayer(animal.id)"
-              [title]="layerFilters[animal.id] ? 'Ocultar ' + animal.name : 'Mostrar ' + animal.name"
+              [title]="animal.name"
             >
               <img *ngIf="animal.imageUrl" [src]="animal.imageUrl" class="legend-animal-thumb" [alt]="animal.name" onerror="this.style.display='none'" />
               <i *ngIf="!animal.imageUrl" class="legend-dot" [style.background]="animal.badge.color" [style.box-shadow]="'0 0 6px ' + animal.badge.color"></i>
@@ -1000,7 +1000,7 @@
               type="button"
               class="char-zoom-btn"
               (click)="zoomToCharacter(animal, $event)"
-              [title]="'Centrar mapa y zoom en ' + animal.name"
+              [title]="('gta5.settings.locateMarker' | translate) + ': ' + animal.name"
             >
               <svg viewBox="0 0 24 24" class="char-zoom-svg">
                 <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none" />

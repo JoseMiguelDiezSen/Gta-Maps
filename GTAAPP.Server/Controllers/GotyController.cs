@@ -53,6 +53,7 @@ namespace GTAAPP.Server.Controllers
             {
                 "en" => $"Hello, I'm GOTY {botNum}, I'm still being adjusted. Sorry for the inconvenience.",
                 "pt" => $"Olá, sou o GOTY {botNum}, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.",
+                "zh" => $"你好，我是 GOTY {botNum}，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。",
                 _ => $"Hola, soy GOTY {botNum}, aún me están ajustando algunos detalles. Disculpa las molestias."
             };
 

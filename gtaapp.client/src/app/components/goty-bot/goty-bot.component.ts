@@ -112,10 +112,12 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
     if (this.isGta6) {
       if (lang === 'en') return 'Vice City Assistant';
       if (lang === 'pt') return 'Assistente de Vice City';
+      if (lang === 'zh') return '罪恶都市智能向导';
       return 'Asistente de Vice City';
     }
     if (lang === 'en') return 'Los Santos Assistant';
     if (lang === 'pt') return 'Assistente de Los Santos';
+    if (lang === 'zh') return '洛圣都智能向导';
     return 'Asistente de Los Santos';
   }
 
@@ -123,6 +125,7 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
     const lang = this.gotyService.currentLang;
     if (lang === 'en') return `Ask ${this.botName}...`;
     if (lang === 'pt') return `Pergunte ao ${this.botName}...`;
+    if (lang === 'zh') return `向 ${this.botName} 提问...`;
     return `Pregunta a ${this.botName}...`;
   }
 
@@ -130,6 +133,7 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
     const lang = this.gotyService.currentLang;
     if (lang === 'en') return `Talk to ${this.botName}`;
     if (lang === 'pt') return `Conversar com ${this.botName}`;
+    if (lang === 'zh') return `与 ${this.botName} 交谈`;
     return `Hablar con ${this.botName}`;
   }
 
@@ -137,6 +141,7 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
     const lang = this.gotyService.currentLang;
     if (lang === 'en') return 'Send message';
     if (lang === 'pt') return 'Enviar mensagem';
+    if (lang === 'zh') return '发送消息';
     return 'Enviar mensaje';
   }
 
@@ -144,6 +149,7 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
     const lang = this.gotyService.currentLang;
     if (lang === 'en') return 'Close chat';
     if (lang === 'pt') return 'Fechar chat';
+    if (lang === 'zh') return '关闭聊天';
     return 'Cerrar chat';
   }
 
