@@ -325,6 +325,15 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         if (typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.legendOpen = false;
             this.settingsOpen = false;
+            // Deshabilitar por defecto en baja resolución (móvil) para optimizar drásticamente el rendimiento y fluidez
+            const lowResDisabledKeys = [
+                'letter_scrap', 'spaceship_part', 'nuclear_waste', 'submarine_part', 'epsilon_tract',
+                'fake_ufo', 'shipwreck', 'cave',
+                'activity', 'golf', 'darts', 'tennis', 'stunt_jump', 'under_the_bridge', 'knife_flight', 'parachuting'
+            ];
+            lowResDisabledKeys.forEach(k => {
+                this.layerFilters[k] = false;
+            });
         }
         this.startInGameClock();
 

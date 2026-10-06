@@ -328,11 +328,16 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     }
 
     private initFilters(): void {
-        const allKeys = [
-            ...this.categories.reduce((acc, category) => acc.concat(category.items), [] as Gta6LegendItem[]),
-            ...this.policiaItems
-        ];
-        allKeys.forEach(item => {
+        const isLowRes = typeof window !== 'undefined' && window.innerWidth <= 850;
+        const lowResDisabledCategories = ['coleccionables', 'lugares'];
+
+        this.categories.forEach(cat => {
+            const shouldDisable = isLowRes && lowResDisabledCategories.includes(cat.key);
+            cat.items.forEach(item => {
+                this.layerFilters[item.id] = !shouldDisable;
+            });
+        });
+        this.policiaItems.forEach(item => {
             this.layerFilters[item.id] = true;
         });
     }

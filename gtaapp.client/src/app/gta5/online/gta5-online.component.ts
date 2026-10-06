@@ -424,6 +424,15 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         if (typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.legendOpen = false;
             this.settingsOpen = false;
+            // Deshabilitar por defecto en baja resolución (móvil) para optimizar drásticamente el rendimiento y fluidez
+            const lowResDisabledKeys = [
+                'playing_card', 'action_figure', 'signal_jammer', 'movie_prop', 'radio_antenna',
+                'fake_ufo', 'shipwreck', 'cave', 'treasure_chests', 'buried_stashes',
+                'activity', 'golf', 'darts', 'tennis', 'stunt_jump', 'under_the_bridge', 'knife_flight', 'parachuting'
+            ];
+            lowResDisabledKeys.forEach(k => {
+                this.layerFilters[k] = false;
+            });
         }
 
         const qCity = this.route.snapshot.queryParamMap.get('city');

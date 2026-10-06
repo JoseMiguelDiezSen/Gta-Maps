@@ -148,12 +148,12 @@
   position: absolute;
   top: 0;
   left: 75px;
-  width: 390px;
-  min-width: 280px;
+  width: 330px;
+  min-width: 270px;
   max-width: calc(100vw - 32px);
-  height: 440px;
+  height: 520px;
   min-height: 250px;
-  max-height: 75vh;
+  max-height: 80vh;
   resize: both;
   background: rgba(13, 19, 26, 0.94);
   backdrop-filter: blur(14px);
@@ -474,9 +474,27 @@
   }
 
   .goty-chat-card {
-    width: calc(100vw - 32px);
-    max-width: 420px;
-    height: 460px;
-    max-height: 65vh;
+    position: fixed;
+    top: 168px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(330px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    height: min(520px, calc(100dvh - 190px));
+    min-height: 280px;
+    max-height: calc(100dvh - 190px);
+    transform-origin: top center;
+    animation: goty-slide-down-mobile 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@keyframes goty-slide-down-mobile {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
   }
 }
