@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, of, map } from 'rxjs';
 import { GtaWeapon } from '../models/weapon';
 import { TranslationService } from '../i18n';
@@ -13,34 +13,23 @@ export class WeaponService {
   ) {}
 
   /**
-   * Obtiene el catálogo oficial de armas de GTA V / GTA Online.
-   * Con soporte para filtrado por categoría y fallback a los ficheros locales en assets/data.
+   * Obtiene el catálogo oficial de armas de GTA V / GTA Online leyendo directamente los assets locales en el idioma activo.
    */
   getWeapons(gameMode: 'story' | 'online' = 'online', category?: string, lang?: string): Observable<GtaWeapon[]> {
-    let params = new HttpParams();
-    if (category) params = params.set('category', category);
-
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
-    if (activeLang) params = params.set('lang', activeLang);
+    const mode = gameMode === 'story' ? 'historia' : 'online';
 
-    const apiPath = gameMode === 'story' ? '/api/gta5/historia/weapons' : '/api/gta5/online/weapons';
-    const fallbackMode = gameMode === 'story' ? 'historia' : 'online';
-
-    return this.http.get<GtaWeapon[]>(apiPath, { params }).pipe(
-      catchError(() => {
-        return this.http.get<GtaWeapon[]>(`/assets/data/gta5/${fallbackMode}/${activeLang}/weapons.json`).pipe(
-          map(weapons => {
-            let filtered = weapons || [];
-            if (category && category !== 'all') {
-              filtered = filtered.filter(w => (w.category || '').toLowerCase() === category.toLowerCase());
-            }
-            return filtered;
-          }),
-          catchError(err => {
-            console.error('Error al obtener armas desde fallback local:', err);
-            return of([]);
-          })
-        );
+    return this.http.get<GtaWeapon[]>(`/assets/data/gta5/${mode}/${activeLang}/weapons.json`).pipe(
+      map(weapons => {
+        let filtered = weapons || [];
+        if (category && category !== 'all') {
+          filtered = filtered.filter(w => (w.category || '').toLowerCase() === category.toLowerCase());
+        }
+        return filtered;
+      }),
+      catchError(err => {
+        console.error('Error al obtener armas desde assets locales:', err);
+        return of([]);
       })
     );
   }
