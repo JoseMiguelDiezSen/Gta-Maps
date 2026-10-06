@@ -13,5 +13,10 @@ export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
     code: 'es',
     label: 'Español',
     shortLabel: 'ES'
+  },
+  {
+    code: 'pt',
+    label: 'Português',
+    shortLabel: 'PT'
   }
 ];

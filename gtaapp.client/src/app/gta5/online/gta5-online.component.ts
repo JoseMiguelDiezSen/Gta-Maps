@@ -31,9 +31,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite') },
                 { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap') },
                 { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas') },
-                { id: 'Juego', label: this.translationService.t('gta5.maps.game') },
-                { id: 'UV', label: this.translationService.t('gta5.maps.uv') },
-                { id: 'UV2', label: this.translationService.t('gta5.maps.uv2') }
+                { id: 'Juego', label: this.translationService.t('gta5.maps.game') }
             ];
         }
         return this._cachedAllMapTypesOnline;
@@ -45,7 +43,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.selectedCity === 'cp') {
             this.cachedMapTypes = this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Juego'].includes(m.id));
         } else {
-            this.cachedMapTypes = this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas', 'Juego', 'UV', 'UV2'].includes(m.id));
+            this.cachedMapTypes = this.allMapTypes.filter(m => ['Satellite', 'Roadmap', 'Atlas', 'Juego'].includes(m.id));
         }
     }
 
@@ -715,13 +713,13 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 type="button"
                 onclick="window._gtaSetMarkerColor('${item.id}', '${c.key}')"
                 title="${c.title}"
-                style="width: 20px; height: 20px; border-radius: 50%; background: ${c.hex}; border: 2px solid ${c.key === activeColor ? '#ffffff' : 'rgba(255,255,255,0.25)'}; cursor: pointer; box-shadow: ${c.key === activeColor ? '0 0 8px #ffffff' : '0 2px 4px rgba(0,0,0,0.5)'}; transform: ${c.key === activeColor ? 'scale(1.2)' : 'scale(1)'}; transition: all 0.15s ease; padding: 0;"
+                style="width: 13px; height: 13px; border-radius: 50%; background: ${c.hex}; border: 1.5px solid ${c.key === activeColor ? '#ffffff' : 'rgba(255,255,255,0.25)'}; cursor: pointer; box-shadow: ${c.key === activeColor ? '0 0 6px #ffffff' : '0 1px 3px rgba(0,0,0,0.5)'}; transform: ${c.key === activeColor ? 'scale(1.2)' : 'scale(1)'}; transition: all 0.15s ease; padding: 0;"
             ></button>
         `).join('');
 
         const html = `
             <div class="custom-marker-popup-card">
-                                <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin-bottom: 6px;">
+                <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 16px 4px 16px;">
                     <h4 id="custom-marker-title-${item.id}"
                         class="custom-marker-name"
                         contenteditable="true"
@@ -729,15 +727,15 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                         onkeydown="if(event.key === 'Enter'){ event.preventDefault(); this.blur(); }"
                         onblur="window._gtaSaveMarkerName('${item.id}', this.innerText)"
                         title="Haz clic para escribir y pincha fuera para guardar"
-                        style="margin: 0; outline: none; padding: 3px 8px; border-radius: 5px; border: 1px dashed rgba(255,255,255,0.25); cursor: text; text-align: center; width: 100%; transition: all 0.15s ease;">
+                        style="margin: 0; outline: none; padding: 2px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); cursor: text; text-align: center; max-width: 100%; width: auto; min-width: 60px; transition: all 0.15s ease;">
                         ${item.name}
                     </h4>
                 </div>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 10px 0 8px 0; padding: 6px 8px; background: rgba(0,0,0,0.45); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin: 4px 0 5px 0; padding: 3px 6px; background: rgba(0,0,0,0.45); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
                     ${colorSwatchesHtml}
                 </div>
                 <div class="custom-marker-actions">
-                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')" style="width: 100%;">
+                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')" style="width: 100%; padding: 4px 6px; font-size: 10px;">
                         <span>🗑️</span> ${deleteLbl}
                     </button>
                 </div>
@@ -745,8 +743,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         `;
         item.marker.bindPopup(html, {
             className: 'gta-custom-pin-popup',
-            maxWidth: 240,
-            minWidth: 200,
+            maxWidth: 170,
+            minWidth: 135,
             autoPan: true
         });
     }
@@ -1118,7 +1116,7 @@ delete (window as any)._gtaSaveMarkerName;
         if (this.selectedCity === city) return;
         this.selectedCity = city;
         if (this.selectedCity === 'cp') {
-            if (this.currentMapType === 'UV' || this.currentMapType === 'UV2' || this.currentMapType === 'Atlas') {
+            if (this.currentMapType === 'Atlas') {
                 this.currentMapType = 'Satellite';
             }
         }

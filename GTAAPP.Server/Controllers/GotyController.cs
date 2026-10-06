@@ -47,22 +47,16 @@ namespace GTAAPP.Server.Controllers
             var lang = string.IsNullOrWhiteSpace(request.Lang) ? "es" : request.Lang.Trim().ToLowerInvariant();
             if (lang.Length > 10) lang = lang.Substring(0, 10);
 
-            var responseText = await _geminiService.GetChatResponseAsync(trimmedMessage, context, lang);
-
-            // Si la IA falla (cuota, 503, caída de red), devolvemos error 503 al frontend para que active el Fallback
-            if (string.IsNullOrEmpty(responseText))
+            // Modo capado para producción / subida a la red
+            string botNum = context.StartsWith("gta6") ? "6" : "5";
+            string responseText = lang switch
             {
-                return StatusCode(503, new { error = "AI_UNAVAILABLE" });
-            }
+                "en" => $"Hello, I'm GOTY {botNum}, I'm still being adjusted. Sorry for the inconvenience.",
+                "pt" => $"Olá, sou o GOTY {botNum}, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.",
+                _ => $"Hola, soy GOTY {botNum}, aún me están ajustando algunos detalles. Disculpa las molestias."
+            };
 
-            bool isAngry = false;
-            if (responseText.Contains("[ANGRY]"))
-            {
-                isAngry = true;
-                responseText = responseText.Replace("[ANGRY]", "").Trim();
-            }
-
-            return Ok(new GotyChatResponse { Text = responseText, IsAngry = isAngry });
+            return Ok(new GotyChatResponse { Text = responseText, IsAngry = false });
         }
     }
 }

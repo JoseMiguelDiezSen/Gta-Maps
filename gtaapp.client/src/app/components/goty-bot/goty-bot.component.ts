@@ -108,31 +108,43 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
   }
 
   get botSubtitle(): string {
-    const isEn = this.gotyService.currentLang === 'en';
+    const lang = this.gotyService.currentLang;
     if (this.isGta6) {
-      return isEn ? 'Vice City Assistant' : 'Asistente de Vice City';
+      if (lang === 'en') return 'Vice City Assistant';
+      if (lang === 'pt') return 'Assistente de Vice City';
+      return 'Asistente de Vice City';
     }
-    return isEn ? 'Los Santos Assistant' : 'Asistente de Los Santos';
+    if (lang === 'en') return 'Los Santos Assistant';
+    if (lang === 'pt') return 'Assistente de Los Santos';
+    return 'Asistente de Los Santos';
   }
 
   get inputPlaceholder(): string {
-    const isEn = this.gotyService.currentLang === 'en';
-    return isEn ? `Ask ${this.botName}...` : `Pregunta a ${this.botName}...`;
+    const lang = this.gotyService.currentLang;
+    if (lang === 'en') return `Ask ${this.botName}...`;
+    if (lang === 'pt') return `Pergunte ao ${this.botName}...`;
+    return `Pregunta a ${this.botName}...`;
   }
 
   get talkTooltip(): string {
-    const isEn = this.gotyService.currentLang === 'en';
-    return isEn ? `Talk to ${this.botName}` : `Hablar con ${this.botName}`;
+    const lang = this.gotyService.currentLang;
+    if (lang === 'en') return `Talk to ${this.botName}`;
+    if (lang === 'pt') return `Conversar com ${this.botName}`;
+    return `Hablar con ${this.botName}`;
   }
 
   get sendTooltip(): string {
-    const isEn = this.gotyService.currentLang === 'en';
-    return isEn ? 'Send message' : 'Enviar mensaje';
+    const lang = this.gotyService.currentLang;
+    if (lang === 'en') return 'Send message';
+    if (lang === 'pt') return 'Enviar mensagem';
+    return 'Enviar mensaje';
   }
 
   get closeTooltip(): string {
-    const isEn = this.gotyService.currentLang === 'en';
-    return isEn ? 'Close chat' : 'Cerrar chat';
+    const lang = this.gotyService.currentLang;
+    if (lang === 'en') return 'Close chat';
+    if (lang === 'pt') return 'Fechar chat';
+    return 'Cerrar chat';
   }
 
   toggleChat(): void {

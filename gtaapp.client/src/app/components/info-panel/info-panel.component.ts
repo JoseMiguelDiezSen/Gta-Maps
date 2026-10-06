@@ -1647,9 +1647,13 @@ export class InfoPanelComponent implements OnChanges {
 
   formatPrice(price: number): string {
     if (!price || price <= 0) {
-      return this.translationService.currentLanguage() === 'en' ? 'Price not available' : 'Precio no disponible';
+      const lang = this.translationService.currentLanguage();
+      if (lang === 'en') return 'Price not available';
+      if (lang === 'pt') return 'Preço não disponível';
+      return 'Precio no disponible';
     }
-    const locale = this.translationService.currentLanguage() === 'en' ? 'en-US' : 'es-ES';
+    const lang = this.translationService.currentLanguage();
+    const locale = lang === 'en' ? 'en-US' : lang === 'pt' ? 'pt-BR' : 'es-ES';
     return '$' + price.toLocaleString(locale);
   }
 

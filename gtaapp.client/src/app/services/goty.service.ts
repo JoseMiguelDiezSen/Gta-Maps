@@ -34,19 +34,25 @@ export class GotyService {
   // Caché de cerebros locales por idioma ('es', 'en', etc.)
   private loadedBrains: Record<string, GotyBrain> = {};
 
-  // Diccionario de saludos iniciales multilingües por contexto de juego
-  private readonly greetings: Record<string, Record<GotyGameMode, string>> = {
+  // Mensajes fijos por contexto de juego e idioma (Modo capado para producción)
+  private readonly fixedMessages: Record<string, Record<GotyGameMode, string>> = {
     es: {
-      'gta5-historia': '¡Ey, crack! Soy GOTY 5, tu enlace en Los Santos. ¿En qué te echo un cable hoy?',
-      'gta5-online': '¿Qué pasa, jefe? GOTY 5 al aparato. ¿En qué te echo un cable hoy?',
-      'gta6-historia': '¡Bienvenidos a Vice City! Soy GOTY 6. ¿En qué te echo un cable hoy?',
-      'gta6-online': '¡Bienvenidos a Vice City! Soy GOTY 6. ¿En qué te echo un cable hoy?'
+      'gta5-historia': 'Hola, soy GOTY 5, aún me están ajustando algunos detalles. Disculpa las molestias.',
+      'gta5-online': 'Hola, soy GOTY 5, aún me están ajustando algunos detalles. Disculpa las molestias.',
+      'gta6-historia': 'Hola, soy GOTY 6, aún me están ajustando algunos detalles. Disculpa las molestias.',
+      'gta6-online': 'Hola, soy GOTY 6, aún me están ajustando algunos detalles. Disculpa las molestias.'
     },
     en: {
-      'gta5-historia': "Hey, boss! I'm GOTY 5, your Los Santos insider. What can I help you track down today?",
-      'gta5-online': "What's up, chief? GOTY 5 on the line. What do you need on the map today?",
-      'gta6-historia': "Welcome to Vice City! I'm GOTY 6. What can I help you find today?",
-      'gta6-online': "Welcome to Vice City! I'm GOTY 6. What can I help you find today?"
+      'gta5-historia': "Hello, I'm GOTY 5, I'm still being adjusted. Sorry for the inconvenience.",
+      'gta5-online': "Hello, I'm GOTY 5, I'm still being adjusted. Sorry for the inconvenience.",
+      'gta6-historia': "Hello, I'm GOTY 6, I'm still being adjusted. Sorry for the inconvenience.",
+      'gta6-online': "Hello, I'm GOTY 6, I'm still being adjusted. Sorry for the inconvenience."
+    },
+    pt: {
+      'gta5-historia': 'Olá, sou o GOTY 5, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
+      'gta5-online': 'Olá, sou o GOTY 5, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
+      'gta6-historia': 'Olá, sou o GOTY 6, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
+      'gta6-online': 'Olá, sou o GOTY 6, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.'
     }
   };
 
@@ -62,6 +68,7 @@ export class GotyService {
     // Precargar cerebros de reserva en los idiomas disponibles
     this.preloadBrain('es');
     this.preloadBrain('en');
+    this.preloadBrain('pt');
   }
 
   get isEnabled(): boolean {
@@ -97,8 +104,8 @@ export class GotyService {
    */
   getInitialGreeting(context: GotyGameMode): GotyMessage {
     const currentLang = this.translationService.currentLanguage() || 'es';
-    const langGreetings = this.greetings[currentLang] || this.greetings['es'];
-    const text = langGreetings[context] || langGreetings['gta5-online'];
+    const langMessages = this.fixedMessages[currentLang] || this.fixedMessages['es'];
+    const text = langMessages[context] || langMessages['gta5-online'];
 
     return {
       id: 'msg-' + Date.now(),
@@ -109,30 +116,21 @@ export class GotyService {
   }
 
   /**
-   * Procesa la consulta del usuario enviando el idioma actual al backend para que Gemini conteste en el idioma correcto.
-   * Si la API falla, activa automáticamente el motor de coincidencia local en el idioma seleccionado.
+   * Procesa la consulta del usuario.
+   * En modo capado devuelve indefinidamente el mensaje de ajuste en el idioma activo.
    */
   processUserQuery(query: string, context: GotyGameMode): Observable<GotyMessage> {
     const currentLang = this.translationService.currentLanguage() || 'es';
-    const payload = {
-      Message: query,
-      Context: context,
-      Lang: currentLang
-    };
+    const langMessages = this.fixedMessages[currentLang] || this.fixedMessages['es'];
+    const text = langMessages[context] || langMessages['gta5-online'];
 
-    return this.http.post<{ text: string, isAngry: boolean }>('/api/goty/chat', payload).pipe(
-      map(response => ({
-        id: 'msg-' + Date.now(),
-        sender: 'goty' as const,
-        text: response.text.trim() + ' [Online]',
-        timestamp: new Date(),
-        isAngry: response.isAngry
-      } as GotyMessage)),
-      catchError(() => {
-        // Fallback a motor local en el idioma activo
-        return this.processLocalQuery(query, context, currentLang);
-      })
-    );
+    return of({
+      id: 'msg-' + Date.now(),
+      sender: 'goty' as const,
+      text,
+      timestamp: new Date(),
+      isAngry: false
+    });
   }
 
   private getDaysUntilRelease(): number {

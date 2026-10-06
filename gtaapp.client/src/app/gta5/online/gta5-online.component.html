@@ -1179,30 +1179,6 @@
       </div>
 
       <div class="hud-settings-body" *ngIf="settingsOpen">
-        <!-- DESPLEGABLE: Selector de juego -->
-        <div class="hud-acc" [class.is-open]="accordion['juego']">
-          <div class="hud-acc-head">
-            <div class="hud-acc-toggle" (click)="toggleSection('juego')">
-              <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">{{ 'gta5.settings.gameSelector' | translate }}</span>
-            </div>
-          </div>
-          <div class="hud-acc-body" *ngIf="accordion['juego']">
-            <div class="hud-field">
-              <label class="hud-field-label" for="gameSelect">{{ 'gta5.settings.game' | translate }}</label>
-              <select
-                id="gameSelect"
-                class="hud-field-select"
-                [(ngModel)]="selectedGame"
-                (change)="switchGame($any($event.target).value)"
-              >
-                <option value="gta5">{{ 'gta5.settings.gta5' | translate }}</option>
-                <option value="gta6">{{ 'gta5.settings.gta6' | translate }}</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
         <!-- DESPLEGABLE: Selector de mapa -->
         <div class="hud-acc" [class.is-open]="accordion['mapa']">
           <div class="hud-acc-head">
@@ -1326,14 +1302,22 @@
             </label>
           </div>
         </div>
-
-        <!-- BOTONES DE PIE DE PANEL -->
-        <div class="hud-panel-foot">
-          <a class="hud-panel-btn hud-panel-btn-home" routerLink="/" [title]="'common.backToHome' | translate">{{ 'common.backToHome' | translate }}</a>
-        </div>
       </div>
     </div>
   </div>
+
+  <!-- Botón Home flotante (sutil sobre las coordenadas) -->
+  <a
+    class="hud-floating-home"
+    routerLink="/"
+    [title]="'common.backToHome' | translate"
+  >
+    <svg class="hud-floating-home-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    <span class="hud-floating-home-text">{{ 'common.backToHome' | translate }}</span>
+  </a>
 
   <!-- Telemetría de desarrollo: Coordenadas (X, Y) -->
   <div
