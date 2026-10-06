@@ -66,6 +66,7 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
     ctxY = 0;
     ctxWorldX = 0;
     ctxWorldY = 0;
+    isMarkerContext = false;
     targetCustomMarker: any = null;
 
     // Marcador activo seleccionado
@@ -220,10 +221,7 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
                     file: '/assets/gta6/tactical-grid.svg',
                     w: 2400,
                     h: 1350
-                },
-                { id: 'Satellite', label: this.translationService.t('gta5.maps.satellite'), file: '/assets/filtracionesGta6/satelite.jpg', w: 912, h: 1136 },
-                { id: 'Roadmap', label: this.translationService.t('gta5.maps.roadmap'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 },
-                { id: 'Atlas', label: this.translationService.t('gta5.maps.atlas'), file: '/assets/filtracionesGta6/image.jpg', w: 880, h: 1168 }
+                }
             ];
         }
         return this._cachedMapTypesGta6O;
@@ -364,16 +362,7 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
         this.activeMarker = null;
     }
 
-    focusCustomMarker(cm: any): void {
-        if (cm.x !== undefined && cm.y !== undefined && this.canvasW && this.canvasH) {
-            this.zoom = 2.5;
-            const base = this.coverScale();
-            const curW = this.bgNatural.w * base * this.zoom;
-            const curH = this.bgNatural.h * base * this.zoom;
-            this.bgPosX = this.clampPan((this.canvasW / 2) - (cm.x / this.bgNatural.w) * curW, this.canvasW, curW);
-            this.bgPosY = this.clampPan((this.canvasH / 2) - (cm.y / this.bgNatural.h) * curH, this.canvasH, curH);
-        }
-    }
+
 
     switchGame(game: string): void {
         this.selectedGame = game;
@@ -458,54 +447,151 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     // Context menu handlers
     openContextMenu(event: MouseEvent): void {
+        const target = event.target as HTMLElement;
+        if (target && target.closest('.hud, .hud-panel, .hud-profile-drawer, .profile-drawer, .hud-drawer-backdrop, app-info-panel, aside, .hud-coords-dev, .hud-ctx, .gta6-marker-card-modal, button, input, select, a')) {
+            return;
+        }
         event.preventDefault();
+        this.isMarkerContext = false;
+        this.targetCustomMarker = null;
+        this.ctxOpen = true;
         this.ctxX = event.clientX;
         this.ctxY = event.clientY;
         this.ctxWorldX = this.mouseCoords.x;
         this.ctxWorldY = this.mouseCoords.y;
-        this.targetCustomMarker = null;
-        this.ctxOpen = true;
     }
 
     closeContextMenu(): void {
         this.ctxOpen = false;
+        this.isMarkerContext = false;
         this.targetCustomMarker = null;
+    }
+
+    activeCustomMarker: { id: string; name: string; color?: string; x?: number; y?: number } | null = null;
+
+    readonly pushpinPalettes: Record<string, { s0: string; s35: string; s85: string; s100: string; rim1: string; rim2: string; hex: string }> = {
+        red:    { s0: '#ff7575', s35: '#e61919', s85: '#a80707', s100: '#5a0000', rim1: '#8f0505', rim2: '#ff4444', hex: '#e61919' },
+        blue:   { s0: '#60a5fa', s35: '#2563eb', s85: '#1d4ed8', s100: '#1e3a8a', rim1: '#1e40af', rim2: '#60a5fa', hex: '#2563eb' },
+        green:  { s0: '#4ade80', s35: '#16a34a', s85: '#15803d', s100: '#14532d', rim1: '#166534', rim2: '#4ade80', hex: '#16a34a' },
+        yellow: { s0: '#fef08a', s35: '#eab308', s85: '#ca8a04', s100: '#713f12', rim1: '#854d0e', rim2: '#fde047', hex: '#eab308' },
+        orange: { s0: '#fdba74', s35: '#ea580c', s85: '#c2410c', s100: '#7c2d12', rim1: '#9a3412', rim2: '#fb923c', hex: '#ea580c' },
+        purple: { s0: '#d8b4fe', s35: '#9333ea', s85: '#7e22ce', s100: '#581c87', rim1: '#6b21a8', rim2: '#c084fc', hex: '#9333ea' },
+        white:  { s0: '#ffffff', s35: '#e2e8f0', s85: '#94a3b8', s100: '#475569', rim1: '#64748b', rim2: '#f8fafc', hex: '#f8fafc' }
+    };
+
+    readonly customColorList = [
+        { key: 'red', hex: '#e61919', title: 'Rojo' },
+        { key: 'blue', hex: '#2563eb', title: 'Azul' },
+        { key: 'green', hex: '#16a34a', title: 'Verde' },
+        { key: 'yellow', hex: '#eab308', title: 'Amarillo' },
+        { key: 'orange', hex: '#ea580c', title: 'Naranja' },
+        { key: 'purple', hex: '#9333ea', title: 'Morado' },
+        { key: 'white', hex: '#f8fafc', title: 'Blanco' }
+    ];
+
+    getPushpinColor(color?: string): string {
+        const c = color || 'red';
+        return this.pushpinPalettes[c] ? c : 'red';
+    }
+
+    selectCustomMarker(cm: any, event?: MouseEvent): void {
+        if (event) {
+            event.stopPropagation();
+        }
+        this.activeCustomMarker = cm;
+        this.activeMarker = null;
+    }
+
+    closeCustomMarkerPopup(): void {
+        this.activeCustomMarker = null;
+    }
+
+    setCustomMarkerColor(cm: any, colorKey: string): void {
+        cm.color = colorKey;
+        this.saveCustomMarkers();
+    }
+
+    updateCustomMarkerName(cm: any, newName: string): void {
+        if (newName && newName.trim() !== '') {
+            cm.name = newName.trim();
+            this.saveCustomMarkers();
+        }
+    }
+
+    deleteCustomMarker(cm: any): void {
+        this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== cm.id);
+        if (this.activeCustomMarker?.id === cm.id) {
+            this.activeCustomMarker = null;
+        }
+        if (this.targetCustomMarker?.id === cm.id) {
+            this.targetCustomMarker = null;
+        }
+        this.saveCustomMarkers();
+    }
+
+    getMarkerPopupStyle(m: { x?: number; y?: number }): { [key: string]: string } {
+        if (m.x === undefined || m.y === undefined || !this.canvasW) {
+            return { display: 'none' };
+        }
+        const base = this.coverScale();
+        const curW = this.bgNatural.w * base * this.zoom;
+        const curH = this.bgNatural.h * base * this.zoom;
+        const posX = this.zoom <= this.minZoom ? (this.canvasW - curW) / 2 : this.bgPosX;
+        const posY = this.zoom <= this.minZoom ? (this.canvasH - curH) / 2 : this.bgPosY;
+        const screenX = posX + (m.x / this.bgNatural.w) * curW;
+        const screenY = posY + (m.y / this.bgNatural.h) * curH - 24;
+        return {
+            left: `${screenX}px`,
+            top: `${screenY}px`,
+            transform: 'translate(-50%, -100%)',
+            position: 'absolute',
+            zIndex: '1500'
+        };
+    }
+
+    focusCustomMarker(cm: any): void {
+        if (cm.x !== undefined && cm.y !== undefined && this.canvasW && this.canvasH) {
+            this.zoom = 2.5;
+            const base = this.coverScale();
+            const curW = this.bgNatural.w * base * this.zoom;
+            const curH = this.bgNatural.h * base * this.zoom;
+            this.bgPosX = this.clampPan((this.canvasW / 2) - (cm.x / this.bgNatural.w) * curW, this.canvasW, curW);
+            this.bgPosY = this.clampPan((this.canvasH / 2) - (cm.y / this.bgNatural.h) * curH, this.canvasH, curH);
+            this.activeCustomMarker = cm;
+            this.activeMarker = null;
+        }
     }
 
     openMarkerContext(cm: any, event: MouseEvent): void {
         event.preventDefault();
         event.stopPropagation();
+        this.targetCustomMarker = cm;
+        this.isMarkerContext = true;
         this.ctxX = event.clientX;
         this.ctxY = event.clientY;
-        this.targetCustomMarker = cm;
         this.ctxOpen = true;
     }
 
     runCtxAction(action: string): void {
         if (action === 'marcador') {
-            const name = prompt(this.translationService.currentLang === 'es' ? 'Nombre del nuevo marcador:' : 'New marker name:', 'Punto Táctico');
-            if (name) {
-                const colors = ['#f39c12', '#3498db', '#2ecc71', '#e74c3c', '#9b59b6', '#ff4fe0'];
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const newMarker = {
-                    id: 'cm_' + Date.now(),
-                    name,
-                    color,
-                    x: this.ctxWorldX || 1200,
-                    y: this.ctxWorldY || 1200
-                };
-                this.userCustomMarkers.push(newMarker);
-                this.saveCustomMarkers();
-            }
-        } else if (action === 'editar_marcador' && this.targetCustomMarker) {
-            const newName = prompt(this.translationService.currentLang === 'es' ? 'Editar nombre del marcador:' : 'Edit marker name:', this.targetCustomMarker.name);
-            if (newName) {
-                this.targetCustomMarker.name = newName;
-                this.saveCustomMarkers();
-            }
-        } else if (action === 'borrar_este_marcador' && this.targetCustomMarker) {
-            this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== this.targetCustomMarker.id);
+            const num = this.userCustomMarkers.length + 1;
+            const defaultName = (this.translationService.currentLang === 'es' ? 'Marcador ' : 'Marker ') + num;
+            const newMarker = {
+                id: 'cm_' + Date.now(),
+                name: defaultName,
+                color: 'red',
+                x: this.ctxWorldX !== undefined ? this.ctxWorldX : 1200,
+                y: this.ctxWorldY !== undefined ? this.ctxWorldY : 675
+            };
+            this.userCustomMarkers.push(newMarker);
             this.saveCustomMarkers();
+            this.activeCustomMarker = newMarker;
+            this.activeMarker = null;
+        } else if (action === 'editar_marcador' && this.targetCustomMarker) {
+            this.activeCustomMarker = this.targetCustomMarker;
+            this.activeMarker = null;
+        } else if (action === 'borrar_este_marcador' && this.targetCustomMarker) {
+            this.deleteCustomMarker(this.targetCustomMarker);
         }
         this.closeContextMenu();
     }

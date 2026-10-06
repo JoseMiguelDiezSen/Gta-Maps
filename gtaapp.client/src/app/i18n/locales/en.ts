@@ -383,7 +383,13 @@ export const en: TranslationSchema = {
       pegasusDesc: 'Pegasus-stored vehicles: request them by phone from anywhere.',
       pedalAndMetalDesc: 'Bicycles, mopeds and pedal-powered vehicles of Los Santos.',
       arenaWarDesc: 'Combat-modified vehicles for the Los Santos Arena.',
-      especialesDesc: 'Unique, mission, event or special-access vehicles.'
+      especialesDesc: 'Unique, mission, event or special-access vehicles.',
+      viceLuxuryDesc: 'Modern exotic supercars, luxury cabriolets and hyper-luxury hypercars.',
+      sunshineAutosDesc: 'The legendary Vice City dealership: sports cars, vintage muscle and timeless classics.',
+      oceanDriveDesc: 'Radical custom shop, hydraulic suspensions and street modifications in Ocean Beach.',
+      evergladesMarineDesc: 'Swamp airboats, high-speed contraband watercraft and lifted 4x4 off-road pickups.',
+      leonidaAviationDesc: 'Corporate executive jets, VIP helicopters and tactical transport aircraft in Leonida.',
+      leonidaSpecialDesc: 'Unique event vehicles, co-op heist transports and prototype customs exclusive to Vice City.'
     },
     missions: {
       searchPlaceholder: 'Search mission, character, contact...',

@@ -168,14 +168,10 @@
   height: auto;
   object-fit: contain;
   z-index: 100;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.45)) blur(0.3px);
+  opacity: 0.88;
   user-select: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.home-logo:hover {
-  transform: scale(1.03);
-  opacity: 0.95;
+  pointer-events: none;
 }
 
 @media (max-width: 600px) {

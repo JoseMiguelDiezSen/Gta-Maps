@@ -1131,56 +1131,84 @@
   color: #fff;
 }
 
-/* Menú contextual click derecho */
+/* ===== MENÚ CONTEXTUAL ===== */
 .hud-ctx {
   position: fixed;
   z-index: 2000;
-  background: rgba(14, 18, 28, 0.96);
-  border: 1px solid rgba(255, 79, 224, 0.45);
-  border-radius: 8px;
+  min-width: 140px;
+  width: max-content;
+  max-width: 190px;
   padding: 4px;
-  min-width: 160px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(12px);
+  border-radius: 8px;
+  background-color: rgba(12, 16, 26, 0.96);
+  background-image:
+    linear-gradient(rgba(255, 79, 224, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 79, 224, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px;
+  border: 1px solid rgba(255, 79, 224, 0.45);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.8), 0 0 14px rgba(255, 79, 224, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-family: inherit;
+  user-select: none;
 }
 
 .hud-ctx-header {
   padding: 6px 10px;
   font-size: 11px;
   font-weight: 800;
-  color: #ffb833;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ff4fe0;
+  text-shadow: 0 0 8px rgba(255, 79, 224, 0.4);
+  border-bottom: 1px solid rgba(255, 79, 224, 0.2);
   margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hud-ctx-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 7px;
   width: 100%;
-  padding: 6px 10px;
+  padding: 6px 9px;
+  color: rgba(255, 255, 255, 0.9);
   background: transparent;
   border: none;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 12px;
-  text-align: left;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
   cursor: pointer;
-  transition: background 0.15s ease;
+  text-align: left;
+  transition: all 0.15s ease;
 }
 
 .hud-ctx-item:hover {
-  background: rgba(255, 79, 224, 0.2);
+  background: rgba(255, 79, 224, 0.18);
   color: #ff4fe0;
+  box-shadow: inset 0 0 8px rgba(255, 79, 224, 0.2);
+}
+
+.hud-ctx-ico {
+  font-size: 13px;
+}
+
+.hud-ctx-item-danger {
+  color: #ff7675;
 }
 
 .hud-ctx-item-danger:hover {
-  background: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
+  background: rgba(239, 68, 68, 0.22);
+  color: #ff4d4d;
+  box-shadow: inset 0 0 8px rgba(239, 68, 68, 0.25);
 }
 
 .hud-ctx-sep {
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  margin: 4px 0;
+  margin: 4px 6px;
+  background: rgba(255, 79, 224, 0.25);
 }
 
 /* Modal Popup de detalle del marcador */
@@ -1433,4 +1461,145 @@
   border-color: #ff4fe0;
   color: #fff;
 }
+
+/* ==========================================================================
+   MARCADORES PERSONALIZADOS Y POPUP DE EDICIÓN (ADAPTADO DE GTA 5)
+   ========================================================================== */
+.gta6-custom-pushpin {
+  cursor: pointer;
+  z-index: 1200;
+  transform: translate(-50%, -100%) !important;
+}
+
+.classic-pushpin-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.75));
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gta6-custom-pushpin:hover .classic-pushpin-wrapper {
+  transform: scale(1.22) translateY(-2px);
+}
+
+.gta-custom-pin-popup-container {
+  position: absolute;
+  z-index: 2500;
+  pointer-events: auto;
+  transform: translate(-50%, -100%);
+  margin-top: -12px;
+}
+
+.custom-marker-popup-card {
+  position: relative;
+  background: rgba(12, 16, 23, 0.96);
+  background-image:
+    linear-gradient(rgba(255, 79, 224, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 79, 224, 0.06) 1px, transparent 1px);
+  background-size: 14px 14px;
+  border: 1px solid rgba(255, 79, 224, 0.5);
+  border-top: 2px solid #ff4fe0;
+  border-radius: 10px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 16px rgba(255, 79, 224, 0.3);
+  padding: 12px 14px;
+  font-family: inherit;
+  color: #fff;
+  min-width: 190px;
+  backdrop-filter: blur(12px);
+}
+
+.custom-marker-popup-close-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.custom-marker-popup-close-btn:hover {
+  color: #ff4fe0;
+  background: rgba(255, 79, 224, 0.15);
+}
+
+.custom-marker-title-row {
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.15s ease;
+}
+
+.custom-marker-title-row:hover {
+  opacity: 0.85;
+}
+
+.custom-marker-title-row:hover .custom-marker-name {
+  color: #ff4fe0;
+}
+
+.custom-marker-name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  line-height: 1.25;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.custom-marker-name:focus {
+  border-color: #ff4fe0 !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0 10px rgba(255, 79, 224, 0.4) !important;
+  color: #ff4fe0 !important;
+}
+
+.custom-marker-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-marker-action {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.btn-marker-delete {
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #f87171;
+}
+
+.btn-marker-delete:hover {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: #ef4444;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.marker-color-red    { background: #ef4444 !important; box-shadow: 0 0 6px #ef4444 !important; }
+.marker-color-blue   { background: #3b82f6 !important; box-shadow: 0 0 6px #3b82f6 !important; }
+.marker-color-green  { background: #22c55e !important; box-shadow: 0 0 6px #22c55e !important; }
+.marker-color-yellow { background: #eab308 !important; box-shadow: 0 0 6px #eab308 !important; }
+.marker-color-orange { background: #f97316 !important; box-shadow: 0 0 6px #f97316 !important; }
+.marker-color-purple { background: #a855f7 !important; box-shadow: 0 0 6px #a855f7 !important; }
+.marker-color-white  { background: #ffffff !important; box-shadow: 0 0 6px #ffffff !important; }
+
 

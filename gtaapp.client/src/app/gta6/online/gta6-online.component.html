@@ -25,16 +25,45 @@
         <span class="marker-hover-label">{{ m.name }}</span>
       </div>
 
-      <!-- Marcadores Personalizados de Usuario -->
+      <!-- Marcadores Personalizados de Usuario (Pushpins idénticos a GTA 5) -->
       <div
         *ngFor="let cm of userCustomMarkers"
-        class="gta6-marker-pin gta6-custom-pin"
+        class="gta6-marker-pin gta6-custom-pushpin"
         [ngStyle]="getMarkerStyle(cm)"
         [title]="cm.name"
-        (click)="openMarkerContext(cm, $event)"
+        (click)="selectCustomMarker(cm, $event)"
         (contextmenu)="openMarkerContext(cm, $event)"
       >
-        <span class="marker-dot-core marker-custom-core" [style.backgroundColor]="cm.color || '#ff4fe0'" [style.boxShadow]="'0 0 12px ' + (cm.color || '#ff4fe0')">★</span>
+        <div class="classic-pushpin-wrapper">
+          <svg width="28" height="35" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient [id]="'gta6PinO_' + cm.id" cx="35%" cy="30%" r="65%">
+                <stop offset="0%" [attr.stop-color]="pushpinPalettes[getPushpinColor(cm.color)].s0"/>
+                <stop offset="35%" [attr.stop-color]="pushpinPalettes[getPushpinColor(cm.color)].s35"/>
+                <stop offset="85%" [attr.stop-color]="pushpinPalettes[getPushpinColor(cm.color)].s85"/>
+                <stop offset="100%" [attr.stop-color]="pushpinPalettes[getPushpinColor(cm.color)].s100"/>
+              </radialGradient>
+              <linearGradient id="gta6SteelNeedleO" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#d6dadf"/>
+                <stop offset="45%" stop-color="#ffffff"/>
+                <stop offset="75%" stop-color="#8c939a"/>
+                <stop offset="100%" stop-color="#4d5156"/>
+              </linearGradient>
+              <filter [id]="'gta6PinShadowO_' + cm.id" x="0" y="0" width="32" height="40" filterUnits="userSpaceOnUse">
+                <feDropShadow dx="1" dy="3" stdDeviation="1.8" flood-color="#000000" flood-opacity="0.65"/>
+              </filter>
+            </defs>
+            <g [attr.filter]="'url(#gta6PinShadowO_' + cm.id + ')'">
+              <polygon points="14.8,20 17.2,20 16.3,38 15.7,38" fill="url(#gta6SteelNeedleO)"/>
+              <line x1="16" y1="20" x2="16" y2="38" stroke="#ffffff" stroke-width="0.6" opacity="0.9"/>
+              <path d="M10.5,20 C10.5,15.5 12.5,13.5 16,13.5 C19.5,13.5 21.5,15.5 21.5,20 Z" [attr.fill]="'url(#gta6PinO_' + cm.id + ')'"/>
+              <ellipse cx="16" cy="13.5" rx="7.2" ry="2.2" [attr.fill]="pushpinPalettes[getPushpinColor(cm.color)].rim1"/>
+              <ellipse cx="16" cy="12.8" rx="6.9" ry="1.9" [attr.fill]="pushpinPalettes[getPushpinColor(cm.color)].rim2"/>
+              <ellipse cx="16" cy="7.5" rx="7.8" ry="6.8" [attr.fill]="'url(#gta6PinO_' + cm.id + ')'"/>
+              <ellipse cx="13.5" cy="5.2" rx="3.2" ry="1.9" fill="#ffffff" opacity="0.8" transform="rotate(-18 13.5 5.2)"/>
+            </g>
+          </svg>
+        </div>
         <span class="marker-hover-label">{{ cm.name }}</span>
       </div>
     </div>
@@ -48,7 +77,8 @@
     [style.top.px]="ctxY"
     (click)="$event.stopPropagation()"
   >
-    <ng-container *ngIf="targetCustomMarker">
+    <!-- Opciones específicas cuando se hace clic derecho sobre un marcador de usuario -->
+    <ng-container *ngIf="isMarkerContext && targetCustomMarker">
       <div class="hud-ctx-header">
         {{ targetCustomMarker.name }}
       </div>
@@ -64,6 +94,58 @@
     <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
       {{ 'gta5.contextMenu.addMarker' | translate }}
     </button>
+  </div>
+
+  <!-- POPUP DE EDICIÓN DE MARCADOR PERSONALIZADO (IDÉNTICO A GTA 5 SIN ALERTS) -->
+  <div
+    class="gta-custom-pin-popup-container"
+    *ngIf="activeCustomMarker"
+    [ngStyle]="getMarkerPopupStyle(activeCustomMarker)"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="custom-marker-popup-card">
+      <div class="custom-marker-popup-close-btn" (click)="closeCustomMarkerPopup()" title="Cerrar">✕</div>
+      <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin-bottom: 6px;">
+        <h4
+          id="custom-marker-title-{{activeCustomMarker.id}}"
+          class="custom-marker-name"
+          contenteditable="true"
+          spellcheck="false"
+          (keydown.enter)="$event.preventDefault(); $any($event.target).blur()"
+          (blur)="updateCustomMarkerName(activeCustomMarker, $any($event.target).innerText)"
+          [title]="'gta5.popups.edit' | translate"
+          style="margin: 0; outline: none; padding: 3px 8px; border-radius: 5px; border: 1px dashed rgba(255,255,255,0.25); cursor: text; text-align: center; width: 100%; transition: all 0.15s ease;"
+        >
+          {{ activeCustomMarker.name }}
+        </h4>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 10px 0 8px 0; padding: 6px 8px; background: rgba(0,0,0,0.45); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+        <button
+          *ngFor="let c of customColorList"
+          type="button"
+          (click)="setCustomMarkerColor(activeCustomMarker, c.key)"
+          [title]="c.title"
+          [style.width.px]="20"
+          [style.height.px]="20"
+          [style.borderRadius]="'50%'"
+          [style.background]="c.hex"
+          [style.border]="(activeCustomMarker.color || 'red') === c.key ? '2px solid #ffffff' : '2px solid rgba(255,255,255,0.25)'"
+          [style.boxShadow]="(activeCustomMarker.color || 'red') === c.key ? '0 0 8px #ffffff' : '0 2px 4px rgba(0,0,0,0.5)'"
+          [style.transform]="(activeCustomMarker.color || 'red') === c.key ? 'scale(1.2)' : 'scale(1)'"
+          style="cursor: pointer; transition: all 0.15s ease; padding: 0;"
+        ></button>
+      </div>
+      <div class="custom-marker-actions">
+        <button
+          type="button"
+          class="btn-marker-action btn-marker-delete"
+          (click)="deleteCustomMarker(activeCustomMarker)"
+          style="width: 100%;"
+        >
+          <span>🗑️</span> {{ 'gta5.popups.delete' | translate }}
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- MODAL INFORMATIVO DE MARCADOR SELECCIONADO -->
@@ -151,8 +233,8 @@
           *ngFor="let category of categories"
           [class.is-open]="accordion[category.key]"
         >
-          <div class="hud-acc-head">
-            <div class="hud-acc-toggle" (click)="toggleSection(category.key)">
+          <div class="hud-acc-head" (click)="toggleSection(category.key)">
+            <div class="hud-acc-toggle">
               <span class="hud-acc-caret"></span>
               <span class="hud-acc-title">{{ getCategoryTitle(category) }}</span>
             </div>
@@ -235,14 +317,15 @@
           </div>
         </div>
 
+
         <!-- DESPLEGABLE: Selector de mapa -->
         <div class="hud-acc" [class.is-open]="accordion['mapa']">
           <div class="hud-acc-head">
-              <div class="hud-acc-toggle" (click)="toggleSection('mapa')">
-                <span class="hud-acc-caret"></span>
-                <span class="hud-acc-title">{{ 'gta5.settings.mapSelector' | translate }}</span>
-              </div>
+            <div class="hud-acc-toggle" (click)="toggleSection('mapa')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.settings.mapSelector' | translate }}</span>
             </div>
+          </div>
           <div class="hud-acc-body" *ngIf="accordion['mapa']">
             <div class="hud-field">
               <label class="hud-field-label" for="mapTypeSelect">{{ 'gta5.settings.baseMap' | translate }}</label>
@@ -318,7 +401,7 @@
                 (click)="focusCustomMarker(cm)"
                 [title]="cm.name"
               >
-                <i class="legend-dot" [style.background]="cm.color || '#ff4fe0'"></i>
+                <i class="legend-dot" [ngClass]="'marker-color-' + (cm.color || 'red')"></i>
                 <span class="legend-name">{{ cm.name }}</span>
               </button>
               <button
@@ -418,28 +501,29 @@
     </div>
   </div>
 
-  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: GTA VI INFO -->
+  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: PERFIL Y PROGRESO (Idéntico a GTA V) -->
   <button
     type="button"
     class="hud-side-trigger"
     (click)="toggleInfoDrawer()"
-    title="GTA VI Info"
+    [title]="'transports.title' | translate"
   >
     <div class="side-trigger-content">
-      <i class="fa-solid fa-database side-trigger-icon"></i>
-      <span class="hud-panel-title">GTA VI INFO</span>
+      <i class="fa-solid fa-mobile-screen-button side-trigger-icon"></i>
+      <span class="hud-panel-title">{{ 'transports.title' | translate }}</span>
     </div>
-    <div class="side-trigger-toggle-btn" title="GTA VI Info">
+    <div class="side-trigger-toggle-btn" [title]="'transports.title' | translate">
       <i class="fa-solid fa-chevron-left side-trigger-caret"></i>
     </div>
   </button>
 
-  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL GTA VI INFO -->
-  <app-gta6-info-panel
+  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO (Unificado 100% con GTA V y detalles fucsia) -->
+  <app-info-panel
     [isOpen]="infoDrawerOpen"
+    [game]="'gta6'"
     [gameMode]="selectedGameMode"
     (closeDrawer)="closeInfoDrawer()"
-  ></app-gta6-info-panel>
+  ></app-info-panel>
 
   <!-- BOT ASISTENTE INTELIGENTE: GOTY 6 -->
   <app-goty-bot gameContext="gta6-online"></app-goty-bot>

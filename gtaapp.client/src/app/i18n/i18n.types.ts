@@ -356,6 +356,12 @@ export interface TranslationSchema {
       pedalAndMetalDesc: string;
       arenaWarDesc: string;
       especialesDesc: string;
+      viceLuxuryDesc?: string;
+      sunshineAutosDesc?: string;
+      oceanDriveDesc?: string;
+      evergladesMarineDesc?: string;
+      leonidaAviationDesc?: string;
+      leonidaSpecialDesc?: string;
     };
     missions: {
       searchPlaceholder: string;

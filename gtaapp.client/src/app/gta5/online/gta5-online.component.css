@@ -888,6 +888,15 @@
   user-select: none;
   transition: background 0.12s ease;
   box-sizing: border-box;
+  cursor: pointer;
+}
+
+.hud-acc-head:hover {
+  background: rgba(255, 165, 0, 0.12);
+}
+
+.hud-acc-head:hover .hud-acc-title {
+  color: #ffb833;
 }
 
 .hud-acc-head-btn {
@@ -895,22 +904,13 @@
   text-align: left;
 }
 
-.hud-acc-head-btn:hover {
-  background: rgba(255, 165, 0, 0.12);
-}
-
 .hud-acc-toggle {
   display: flex;
   align-items: center;
   gap: 8px;
   flex: 1;
-  cursor: pointer;
   min-width: 0;
   padding: 2px 0;
-}
-
-.hud-acc-toggle:hover .hud-acc-title {
-  color: #ffb833;
 }
 
 .hud-acc-check {

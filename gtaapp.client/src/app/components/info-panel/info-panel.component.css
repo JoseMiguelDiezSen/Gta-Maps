@@ -48,6 +48,92 @@
 }
 
 /* ==========================================
+   TEMA VICE CITY // GTA VI (FUCSIA NEÓN & CYAN)
+   ========================================== */
+.hud-profile-drawer.is-gta6 {
+  background-image:
+    linear-gradient(rgba(255, 79, 224, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 79, 224, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 90% 10%, rgba(255, 79, 224, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(0, 206, 201, 0.06) 0%, transparent 45%);
+  border-color: rgba(255, 79, 224, 0.45);
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 79, 224, 0.12);
+}
+
+.hud-profile-drawer.is-gta6 .drawer-badge,
+.hud-profile-drawer.is-gta6 .drawer-title-icon,
+.hud-profile-drawer.is-gta6 .drawer-breadcrumb-current,
+.hud-profile-drawer.is-gta6 .drawer-title {
+  color: #ff4fe0;
+}
+
+.hud-profile-drawer.is-gta6 .drawer-close-btn {
+  border-color: rgba(255, 79, 224, 0.35);
+  color: #ff4fe0;
+}
+
+.hud-profile-drawer.is-gta6 .drawer-close-btn:hover {
+  background: rgba(255, 79, 224, 0.25);
+  border-color: rgba(255, 79, 224, 0.7);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 79, 224, 0.4);
+}
+
+.hud-profile-drawer.is-gta6 .drawer-tab.is-active {
+  color: #ff4fe0;
+  border-color: rgba(255, 79, 224, 0.85);
+  background: rgba(255, 79, 224, 0.15);
+  box-shadow: 0 0 12px rgba(255, 79, 224, 0.35);
+}
+
+.hud-profile-drawer.is-gta6 .drawer-tab:hover:not(.is-active) {
+  border-color: rgba(255, 79, 224, 0.4);
+  color: #ffb8f6;
+}
+
+.hud-profile-drawer.is-gta6 .dealer-card:hover {
+  border-color: rgba(255, 79, 224, 0.5);
+  background: rgba(255, 79, 224, 0.08);
+}
+
+.hud-profile-drawer.is-gta6 aside *::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 79, 224, 0.6);
+}
+
+.hud-profile-drawer.is-gta6 .vgrid-category-tab.is-active,
+.hud-profile-drawer.is-gta6 .char-tab.is-active,
+.hud-profile-drawer.is-gta6 .heist-cat-pill.is-active,
+.hud-profile-drawer.is-gta6 .mystery-cat-btn.is-active,
+.hud-profile-drawer.is-gta6 .weapon-cat-pill.is-active {
+  color: #fff;
+  background: rgba(255, 79, 224, 0.3);
+  border-color: #ff4fe0;
+  box-shadow: 0 0 10px rgba(255, 79, 224, 0.4);
+}
+
+.hud-profile-drawer.is-gta6 .vgrid-search-input:focus,
+.hud-profile-drawer.is-gta6 .mission-search-input:focus,
+.hud-profile-drawer.is-gta6 .stranger-search-input:focus,
+.hud-profile-drawer.is-gta6 .heist-search-input:focus,
+.hud-profile-drawer.is-gta6 .mystery-search-input:focus,
+.hud-profile-drawer.is-gta6 .weapon-search-input:focus {
+  border-color: #ff4fe0;
+  box-shadow: 0 0 0 2px rgba(255, 79, 224, 0.2);
+}
+
+.hud-profile-drawer.is-gta6 .dealer-section-divider-label {
+  color: #ff4fe0;
+}
+
+.hud-profile-drawer.is-gta6 .dealer-section-divider-line {
+  background: rgba(255, 79, 224, 0.3);
+}
+
+.hud-profile-drawer.is-gta6 .vgrid-count-num {
+  color: #ff4fe0;
+}
+
+/* ==========================================
    SCROLLBAR UNIFICADO PARA TODO EL DRAWER
    ========================================== */
 aside.hud-profile-drawer * {
@@ -1300,6 +1386,8 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 .dot-franklin { color: #2ecc71; text-shadow: 0 0 6px #2ecc71; }
 .dot-michael  { color: #3498db; text-shadow: 0 0 6px #3498db; }
 .dot-trevor   { color: #e67e22; text-shadow: 0 0 6px #e67e22; }
+.dot-lucia    { color: #ff4fe0; text-shadow: 0 0 6px #ff4fe0; }
+.dot-jason    { color: #00cec9; text-shadow: 0 0 6px #00cec9; }
 .chip-icon-gold { color: #f1c40f; }
 
 .chip-count {
@@ -1548,6 +1636,24 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   background: rgba(230, 126, 34, 0.15);
   color: #e67e22;
   border: 1px solid rgba(230, 126, 34, 0.35);
+}
+
+.badge-lucia {
+  background: rgba(255, 79, 224, 0.15);
+  color: #ff4fe0;
+  border: 1px solid rgba(255, 79, 224, 0.35);
+}
+
+.badge-jason {
+  background: rgba(0, 206, 201, 0.15);
+  color: #00cec9;
+  border: 1px solid rgba(0, 206, 201, 0.35);
+}
+
+.badge-duo-gta6 {
+  background: rgba(255, 79, 224, 0.15);
+  color: #ff4fe0;
+  border: 1px solid rgba(0, 206, 201, 0.35);
 }
 
 .badge-trio,

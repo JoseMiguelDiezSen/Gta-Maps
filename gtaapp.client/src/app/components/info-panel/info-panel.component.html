@@ -2,7 +2,7 @@
 <div class="hud-drawer-backdrop" *ngIf="isOpen" (click)="onClose()"></div>
 
 <!-- ASIDE DRAWER -->
-<aside class="hud-profile-drawer" [class.is-open]="isOpen">
+<aside class="hud-profile-drawer" [class.is-open]="isOpen" [class.is-gta6]="game === 'gta6'">
 
   <!-- ====== CABECERA (siempre visible) ====== -->
   <div class="drawer-header">
@@ -85,7 +85,7 @@
 
       <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
         <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
-        <span>{{ 'transports.title' | translate }}</span>
+        <span>{{ game === 'gta6' ? 'GTA VI INFO' : ('transports.title' | translate) }}</span>
       </h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
       <h3 class="drawer-title vehicle-detail-header-title" *ngIf="drawerView === 'vehicle-detail'">{{ selectedVehicle?.name }}</h3>
@@ -576,46 +576,74 @@
               <span>{{ 'transports.missions.all' | translate }}</span>
               <span class="chip-count">{{ getCharacterMissionCount('all') }}</span>
             </button>
-            <button
-              type="button"
-              class="chip-btn chip-franklin"
-              [class.is-active]="selectedCharacterFilter === 'franklin'"
-              (click)="setCharacterFilter('franklin')"
-            >
-              <i class="fa-solid fa-circle chip-dot dot-franklin"></i>
-              <span>Franklin</span>
-              <span class="chip-count">{{ getCharacterMissionCount('franklin') }}</span>
-            </button>
-            <button
-              type="button"
-              class="chip-btn chip-michael"
-              [class.is-active]="selectedCharacterFilter === 'michael'"
-              (click)="setCharacterFilter('michael')"
-            >
-              <i class="fa-solid fa-circle chip-dot dot-michael"></i>
-              <span>Michael</span>
-              <span class="chip-count">{{ getCharacterMissionCount('michael') }}</span>
-            </button>
-            <button
-              type="button"
-              class="chip-btn chip-trevor"
-              [class.is-active]="selectedCharacterFilter === 'trevor'"
-              (click)="setCharacterFilter('trevor')"
-            >
-              <i class="fa-solid fa-circle chip-dot dot-trevor"></i>
-              <span>Trevor</span>
-              <span class="chip-count">{{ getCharacterMissionCount('trevor') }}</span>
-            </button>
-            <button
-              type="button"
-              class="chip-btn chip-heists"
-              [class.is-active]="selectedCharacterFilter === 'heists'"
-              (click)="setCharacterFilter('heists')"
-            >
-              <i class="fa-solid fa-sack-dollar chip-icon-gold"></i>
-              <span>{{ 'transports.missions.heists' | translate }}</span>
-              <span class="chip-count">{{ getCharacterMissionCount('heists') }}</span>
-            </button>
+
+            <!-- GTA 5 Story Protagonists -->
+            <ng-container *ngIf="game !== 'gta6'">
+              <button
+                type="button"
+                class="chip-btn chip-franklin"
+                [class.is-active]="selectedCharacterFilter === 'franklin'"
+                (click)="setCharacterFilter('franklin')"
+              >
+                <i class="fa-solid fa-circle chip-dot dot-franklin"></i>
+                <span>Franklin</span>
+                <span class="chip-count">{{ getCharacterMissionCount('franklin') }}</span>
+              </button>
+              <button
+                type="button"
+                class="chip-btn chip-michael"
+                [class.is-active]="selectedCharacterFilter === 'michael'"
+                (click)="setCharacterFilter('michael')"
+              >
+                <i class="fa-solid fa-circle chip-dot dot-michael"></i>
+                <span>Michael</span>
+                <span class="chip-count">{{ getCharacterMissionCount('michael') }}</span>
+              </button>
+              <button
+                type="button"
+                class="chip-btn chip-trevor"
+                [class.is-active]="selectedCharacterFilter === 'trevor'"
+                (click)="setCharacterFilter('trevor')"
+              >
+                <i class="fa-solid fa-circle chip-dot dot-trevor"></i>
+                <span>Trevor</span>
+                <span class="chip-count">{{ getCharacterMissionCount('trevor') }}</span>
+              </button>
+              <button
+                type="button"
+                class="chip-btn chip-heists"
+                [class.is-active]="selectedCharacterFilter === 'heists'"
+                (click)="setCharacterFilter('heists')"
+              >
+                <i class="fa-solid fa-sack-dollar chip-icon-gold"></i>
+                <span>{{ 'transports.missions.heists' | translate }}</span>
+                <span class="chip-count">{{ getCharacterMissionCount('heists') }}</span>
+              </button>
+            </ng-container>
+
+            <!-- GTA 6 Story Protagonists -->
+            <ng-container *ngIf="game === 'gta6'">
+              <button
+                type="button"
+                class="chip-btn chip-lucia"
+                [class.is-active]="selectedCharacterFilter === 'lucia'"
+                (click)="setCharacterFilter('lucia')"
+              >
+                <i class="fa-solid fa-circle chip-dot dot-lucia"></i>
+                <span>Lucia</span>
+                <span class="chip-count">{{ getCharacterMissionCount('lucia') }}</span>
+              </button>
+              <button
+                type="button"
+                class="chip-btn chip-jason"
+                [class.is-active]="selectedCharacterFilter === 'jason'"
+                (click)="setCharacterFilter('jason')"
+              >
+                <i class="fa-solid fa-circle chip-dot dot-jason"></i>
+                <span>Jason</span>
+                <span class="chip-count">{{ getCharacterMissionCount('jason') }}</span>
+              </button>
+            </ng-container>
           </div>
         </div>
 

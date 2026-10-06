@@ -14,6 +14,7 @@ export interface GtaVehicle {
   braking: number;
   handling: number;
   weaponized: boolean;
+  seats?: number;
   gameMode: 'both' | 'online' | 'story';
   imageUrl: string;
   imgFailed?: boolean;
