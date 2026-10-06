@@ -471,8 +471,9 @@
    ========================================== */
 @media (max-width: 600px) {
   .cookie-banner-wrapper {
-    width: 94%;
-    bottom: 64px;
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+    bottom: max(56px, calc(env(safe-area-inset-bottom, 0px) + 48px));
   }
 
   .cookie-banner-card {
@@ -481,11 +482,23 @@
 
   .cookie-banner-actions {
     flex-wrap: wrap;
+    gap: 6px;
   }
 
   .cookie-btn {
-    flex: 1 1 auto;
+    flex: 1 1 45%;
     font-size: 11px;
-    padding: 5px 10px;
+    padding: 5px 8px;
+    height: 30px;
+  }
+
+  .cookie-modal-content {
+    max-width: calc(100vw - 24px);
+    max-height: 85vh;
+  }
+
+  .cookie-policy-row {
+    grid-template-columns: 1fr 1fr;
+    font-size: 10.5px;
   }
 }

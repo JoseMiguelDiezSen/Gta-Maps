@@ -421,6 +421,11 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+            this.legendOpen = false;
+            this.settingsOpen = false;
+        }
+
         const qCity = this.route.snapshot.queryParamMap.get('city');
         if (qCity === 'cp') {
             this.selectedCity = 'cp';
@@ -510,6 +515,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     toggleSettings(): void {
         this.settingsOpen = !this.settingsOpen;
+        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 768) {
+            this.legendOpen = false;
+        }
     }
 
     updateIconStyle(): void {
@@ -1603,6 +1611,9 @@ delete (window as any)._gtaSaveMarkerName;
      */
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
+        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 768) {
+            this.settingsOpen = false;
+        }
     }
 
     getCategoryCount(categoryKey: string): number {

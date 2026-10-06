@@ -420,3 +420,43 @@
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.4);
 }
+
+/* ==========================================================================
+   RESPONSIVE MÓVIL (<= 600px)
+   ========================================================================== */
+@media screen and (max-width: 600px) {
+  .gta6-info-drawer {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .gta6-info-header {
+    padding: max(12px, env(safe-area-inset-top, 12px)) 14px 10px 14px;
+  }
+
+  .gta6-info-nav {
+    padding: 0 10px 8px 10px;
+    gap: 6px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gta6-nav-tab {
+    padding: 6px 10px;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .gta6-info-body {
+    padding: 12px;
+  }
+}

@@ -460,11 +460,41 @@
   cursor: not-allowed;
 }
 
-.goty-wrapper.is-gta6 .goty-send-btn {
-  background: #ec4899;
-  color: #fff;
-}
-
 .goty-wrapper.is-gta6 .goty-send-btn:hover:not(:disabled) {
   background: #db2777;
+}
+
+/* ==========================================
+   RESPONSIVE MÓVIL (<= 600px)
+   ========================================== */
+@media screen and (max-width: 600px) {
+  .goty-wrapper {
+    top: 92px;
+    left: 8px;
+  }
+
+  .goty-floating-avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .goty-floating-avatar svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .goty-chat-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+    z-index: 10000;
+  }
 }

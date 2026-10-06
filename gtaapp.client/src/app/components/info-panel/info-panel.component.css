@@ -3395,4 +3395,86 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   color: #ede9fe;
 }
 
+/* ==========================================================================
+   RESPONSIVE MÓVIL Y TABLET PARA EL DRAWER (<= 600px)
+   ========================================================================== */
+@media screen and (max-width: 600px) {
+  .hud-profile-drawer {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .drawer-header {
+    padding: max(10px, env(safe-area-inset-top, 10px)) 12px 8px 12px;
+  }
+
+  .drawer-title {
+    font-size: 17px;
+  }
+
+  .drawer-tabs {
+    padding: 0 10px 8px 10px;
+    gap: 5px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .drawer-tab {
+    padding: 5px 9px;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .dealer-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .dealer-card {
+    padding: 10px 8px;
+  }
+
+  .dealer-card-name {
+    font-size: 12px;
+  }
+
+  .vgrid-list {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .vgrid-card-thumb-wrap {
+    height: 75px;
+  }
+
+  .mission-grid,
+  .stranger-grid,
+  .heist-list,
+  .mystery-grid,
+  .weapon-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .vehicle-preview-modal-box {
+    width: 95vw;
+    max-height: 85vh;
+    padding: 12px;
+    overflow-y: auto;
+  }
+}
+
 

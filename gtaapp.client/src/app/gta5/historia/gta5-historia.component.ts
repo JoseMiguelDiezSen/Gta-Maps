@@ -322,6 +322,10 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // CICLO DE VIDA
     // -----------------------------------------------------------------------
     ngOnInit(): void {
+        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+            this.legendOpen = false;
+            this.settingsOpen = false;
+        }
         this.startInGameClock();
 
         (window as any)._gtaRenameMarker = (id: string) => {
@@ -894,8 +898,19 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         this.renderCollectibleMarkers();
     }
 
-    toggleLegend(): void { this.legendOpen = !this.legendOpen; }
-    toggleSettings(): void { this.settingsOpen = !this.settingsOpen; }
+    toggleLegend(): void {
+        this.legendOpen = !this.legendOpen;
+        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 768) {
+            this.settingsOpen = false;
+        }
+    }
+
+    toggleSettings(): void {
+        this.settingsOpen = !this.settingsOpen;
+        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 768) {
+            this.legendOpen = false;
+        }
+    }
     toggleSection(section: string): void { this.accordion[section] = !this.accordion[section]; }
 
     isSectionAllActive(keys: string[]): boolean {

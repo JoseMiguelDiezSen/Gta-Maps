@@ -2047,10 +2047,9 @@
 .marker-color-white  { background: #ffffff !important; box-shadow: 0 0 6px #ffffff !important; }
 
 /* ==========================================================================
-   RESPONSIVE TABLET / RESOLUCIONES REDUCIDAS (<= 900px)
+   RESPONSIVE TABLET Y MÓVIL (<= 900px, <= 600px, <= 420px)
    ========================================================================== */
 @media screen and (max-width: 900px) {
-  /* 1. Selector de modo compacto (S y O) para evitar colisión superior */
   .mode-switch-btn {
     padding: 5px 9px;
     gap: 5px;
@@ -2072,7 +2071,6 @@
     font-weight: 800;
   }
 
-  /* 2. Coordenadas sutiles y compactas centradas entre los dos acordeones */
   .hud-floating-home {
     bottom: 38px;
     padding: 2px 8px;
@@ -2094,13 +2092,285 @@
     font-size: 10.5px;
     min-width: 38px;
   }
+}
 
-  .hud-coords-dev .coord-sep {
-    font-size: 8px;
+@media screen and (max-width: 850px) {
+  /* 1. TOP BAR: COMPACTA, ELEGANTE Y SIN COLISIONES */
+  .hud-tl {
+    position: absolute !important;
+    top: max(8px, env(safe-area-inset-top, 8px)) !important;
+    left: max(8px, env(safe-area-inset-left, 8px)) !important;
+    padding: 0 8px !important;
+    gap: 6px !important;
+    height: 38px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    z-index: 1200 !important;
+    border-radius: 8px !important;
   }
 
-  .hud-coords-dev .coord-copied {
-    font-size: 12px;
+  .hud-title {
+    font-size: 16px !important;
+    letter-spacing: 0.5px !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .hud-title-sub {
+    display: none !important;
+  }
+
+  .hud-time-badge {
+    font-size: 10px !important;
+    padding: 2px 4px !important;
+    min-width: 32px !important;
+    line-height: 1.2 !important;
+  }
+
+  .hud-tc {
+    position: absolute !important;
+    top: max(8px, env(safe-area-inset-top, 8px)) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    height: 38px !important;
+    padding: 0 3px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    z-index: 1200 !important;
+    border-radius: 8px !important;
+  }
+
+  .mode-switch-track {
+    padding: 2px !important;
+    gap: 2px !important;
+  }
+
+  .mode-switch-btn {
+    padding: 4px 6px !important;
+    font-size: 10.5px !important;
+  }
+
+  /* BOTÓN DERECHO COMPACTO CUADRADO (38px x 38px) */
+  .hud-side-trigger {
+    position: absolute !important;
+    top: max(8px, env(safe-area-inset-top, 8px)) !important;
+    right: max(8px, env(safe-area-inset-right, 8px)) !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 165, 0, 0.4) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    z-index: 1200 !important;
+  }
+
+  .hud-side-trigger .hud-panel-title,
+  .hud-side-trigger .side-trigger-toggle-btn {
+    display: none !important;
+  }
+
+  .hud-side-trigger .side-trigger-content {
+    gap: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+  }
+
+  .side-trigger-icon {
+    font-size: 16px !important;
+    margin: 0 !important;
+  }
+
+  /* 2. BARRA INFERIOR FLOTANTE TIPO DOCK (3 BOTONES SIN NINGÚN SOLAPAMIENTO) */
+  .hud-bl.hud-collapsed,
+  .hud-br.hud-collapsed {
+    position: fixed !important;
+    bottom: max(8px, env(safe-area-inset-bottom, 8px)) !important;
+    height: 38px !important;
+    padding: 0 !important;
+    z-index: 1100 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    width: calc(50vw - 30px) !important;
+    max-width: 135px !important;
+  }
+
+  .hud-bl.hud-collapsed {
+    left: max(8px, env(safe-area-inset-left, 8px)) !important;
+    right: auto !important;
+  }
+
+  .hud-br.hud-collapsed {
+    right: max(8px, env(safe-area-inset-right, 8px)) !important;
+    left: auto !important;
+  }
+
+  .hud-bl.hud-collapsed .hud-panel,
+  .hud-br.hud-collapsed .hud-panel {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hud-bl.hud-collapsed .hud-panel-head,
+  .hud-br.hud-collapsed .hud-panel-head {
+    height: 100% !important;
+    padding: 0 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
+    border-radius: 8px !important;
+  }
+
+  .hud-bl.hud-collapsed .hud-panel-title,
+  .hud-br.hud-collapsed .hud-panel-title {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .hud-bl.hud-collapsed .legend-toggle-btn,
+  .hud-br.hud-collapsed .legend-toggle-btn {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    border-radius: 4px !important;
+  }
+
+  .hud-floating-home {
+    position: fixed !important;
+    bottom: max(8px, env(safe-area-inset-bottom, 8px)) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    z-index: 1105 !important;
+    box-sizing: border-box !important;
+  }
+
+  .hud-floating-home-text {
+    display: none !important;
+  }
+
+  .hud-floating-home-icon {
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 !important;
+  }
+
+  .hud-coords-dev {
+    display: none !important;
+  }
+
+  /* PANELES CUANDO SE ABREN (BOTTOM SHEETS MODALES A PANTALLA INFERIOR) */
+  .hud-bl:not(.hud-collapsed),
+  .hud-br:not(.hud-collapsed) {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    max-height: 60vh !important;
+    border-radius: 16px 16px 0 0 !important;
+    border: 1px solid rgba(255, 165, 0, 0.45) !important;
+    border-bottom: none !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.9) !important;
+    z-index: 2000 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-panel-head,
+  .hud-br:not(.hud-collapsed) .hud-panel-head {
+    padding: 10px 14px !important;
+    height: 44px !important;
+    border-radius: 16px 16px 0 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-panel-title,
+  .hud-br:not(.hud-collapsed) .hud-panel-title {
+    font-size: 11.5px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .legend-toggle-btn,
+  .hud-br:not(.hud-collapsed) .legend-toggle-btn {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-legend-panel,
+  .hud-br:not(.hud-collapsed) .hud-legend-panel,
+  .hud-bl:not(.hud-collapsed) .hud-panel,
+  .hud-br:not(.hud-collapsed) .hud-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-legend-body,
+  .hud-br:not(.hud-collapsed) .hud-legend-body,
+  .hud-bl:not(.hud-collapsed) .hud-settings-body,
+  .hud-br:not(.hud-collapsed) .hud-settings-body {
+    max-height: calc(60vh - 44px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 10px 14px !important;
+  }
+
+  /* 3. TARJETAS POPUP EN MÓVIL */
+  .gta-leaflet-popup {
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  .gta-leaflet-popup .leaflet-popup-content-wrapper {
+    max-width: calc(100vw - 24px) !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+  }
+
+  .gta-popup-card {
+    max-width: calc(100vw - 24px) !important;
+    max-height: 65vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .popup-title {
+    font-size: 15px !important;
+  }
+
+  .popup-desc {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
   }
 }
 
