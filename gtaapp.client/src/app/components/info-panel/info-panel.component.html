@@ -5,13 +5,22 @@
 <aside class="hud-profile-drawer" [class.is-open]="isOpen" [class.is-gta6]="game === 'gta6'">
 
   <!-- ====== CABECERA (siempre visible) ====== -->
-  <div class="drawer-header">
+  <div class="drawer-header" [class.has-subview-nav]="drawerView !== 'tabs'">
+
+    <!-- Botón de retorno GRANDE que aprovecha toda la altura izquierda en sub-vistas -->
+    <button
+      *ngIf="drawerView !== 'tabs'"
+      type="button"
+      class="drawer-large-back-btn"
+      (click)="onBreadcrumbBack()"
+      [title]="'common.back' | translate"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
     <div class="drawer-title-group">
       <!-- BREADCRUMB dinámico de concesionario y vehículo -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid' || drawerView === 'vehicle-detail'">
-        <button type="button" class="drawer-breadcrumb-back" (click)="onBreadcrumbBack()" [title]="'transports.backToTransports' | translate">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
         <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">{{ 'transports.title' | translate }}</span>
         <span class="drawer-breadcrumb-sep">›</span>
         <span
@@ -28,9 +37,6 @@
 
       <!-- BREADCRUMB dinámico de misión -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'mission-detail'">
-        <button type="button" class="drawer-breadcrumb-back" (click)="closeMissionDetail()" [title]="'transports.missions.backToMissions' | translate">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
         <span class="drawer-breadcrumb-link" (click)="closeMissionDetail()">{{ 'transports.tabs.missions' | translate }}</span>
         <span class="drawer-breadcrumb-sep">›</span>
         <span class="drawer-breadcrumb-current">{{ selectedMission?.title }}</span>
@@ -38,9 +44,6 @@
 
       <!-- BREADCRUMB dinámico de misión secundaria (Extraños y Locos) -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'stranger-detail'">
-        <button type="button" class="drawer-breadcrumb-back" (click)="closeStrangerDetail()" [title]="'transports.strangers.backToStrangers' | translate">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
         <span class="drawer-breadcrumb-link" (click)="closeStrangerDetail()">{{ 'transports.strangers.title' | translate }}</span>
         <span class="drawer-breadcrumb-sep">›</span>
         <span
@@ -55,9 +58,6 @@
 
       <!-- BREADCRUMB dinámico de golpe (GTA Online) -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'heist-detail'">
-        <button type="button" class="drawer-breadcrumb-back" (click)="closeHeistDetail()" [title]="'transports.heists.backToHeists' | translate">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
         <span class="drawer-breadcrumb-link" (click)="closeHeistDetail()">{{ 'transports.tabs.golpes' | translate }}</span>
         <span class="drawer-breadcrumb-sep">›</span>
         <span class="drawer-breadcrumb-current">{{ selectedHeist?.title }}</span>
@@ -65,9 +65,6 @@
 
       <!-- BREADCRUMB dinámico de misterio (GTA Online) -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'mystery-detail'">
-        <button type="button" class="drawer-breadcrumb-back" (click)="closeMysteryDetail()" [title]="'transports.mysteries.backToMysteries' | translate">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
         <span class="drawer-breadcrumb-link" (click)="closeMysteryDetail()">{{ 'transports.tabs.misterios' | translate }}</span>
         <span class="drawer-breadcrumb-sep">›</span>
         <span class="drawer-breadcrumb-current">{{ selectedMystery?.title }}</span>
@@ -75,9 +72,6 @@
 
       <!-- BREADCRUMB dinámico de arma -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'weapon-detail'">
-        <button type="button" class="drawer-breadcrumb-back" (click)="closeWeaponDetail()" [title]="'transports.weapons.backToWeapons' | translate">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
         <span class="drawer-breadcrumb-link" (click)="closeWeaponDetail()">{{ 'transports.tabs.armas' | translate }}</span>
         <span class="drawer-breadcrumb-sep">›</span>
         <span class="drawer-breadcrumb-current vehicle-crumb-name" [title]="selectedWeapon?.name">{{ selectedWeapon?.name }}</span>
@@ -1372,45 +1366,64 @@
           <span>{{ 'transports.mysteries.empty' | translate }}</span>
         </div>
 
-        <!-- LISTA DE MISTERIOS (Maquetación dedicada mcard-item: nunca colisiona ni desborda) -->
+        <!-- LISTA DE MISTERIOS (Maquetación moderna y estilizada con foto, badges y sinopsis) -->
         <div class="mysteries-list" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
           <div
             *ngFor="let m of filteredOnlineMysteries"
-            class="mcard-item"
+            class="mcard-item mystery-card-premium"
             (click)="openMysteryDetail(m)"
             [style.--m-color]="m.badgeColor"
           >
             <!-- Badge de orden / número -->
-            <div class="mcard-order-badge">
+            <div class="mcard-order-badge mystery-order-badge">
               <span class="mcard-order-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
             </div>
 
-            <!-- Icono temático del misterio -->
-            <div class="mcard-icon-box" [style.background]="m.badgeColor + '20'" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '50'">
-              <i class="fa-solid" [ngClass]="m.badgeIcon"></i>
+            <!-- Thumbnail con foto del misterio + fallback elegante -->
+            <div class="mcard-thumb-wrap" [style.borderColor]="m.badgeColor + '55'">
+              <img
+                *ngIf="m.thumbnail"
+                [src]="m.thumbnail"
+                [alt]="m.title"
+                class="mcard-thumb-img"
+                loading="lazy"
+                (error)="$any($event.target).style.display='none'"
+              />
+              <div class="mcard-thumb-overlay"></div>
+              <div class="mcard-thumb-fallback" [style.color]="m.badgeColor" [style.background]="m.badgeColor + '18'">
+                <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-ghost'"></i>
+              </div>
             </div>
 
             <!-- Contenido principal -->
             <div class="mcard-content">
               <!-- Fila 1: Título -->
-              <div class="mcard-title">{{ m.title }}</div>
+              <div class="mcard-title-row">
+                <div class="mcard-title mystery-title">{{ m.title }}</div>
+              </div>
 
               <!-- Fila 2: Categoría + Horario -->
               <div class="mcard-meta-line">
-                <span class="mcard-cat-badge" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '40'">
-                  {{ m.categoryLabel }}
+                <span class="mcard-cat-badge mystery-cat-pill" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '55'" [style.background]="m.badgeColor + '18'">
+                  <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-eye'"></i>
+                  <span>{{ m.categoryLabel }}</span>
                 </span>
-                <span class="mcard-time-badge" *ngIf="m.schedule">
+                <span class="mcard-time-badge mystery-time-pill" *ngIf="m.schedule">
                   <i class="fa-regular fa-clock"></i>
                   <span>{{ m.schedule }}</span>
                 </span>
               </div>
 
-              <!-- Fila 3: Ubicación (Limpia y con elipsis para evitar que desborde) -->
-              <div class="mcard-loc-line" *ngIf="m.location">
-                <i class="fa-solid fa-location-dot"></i>
-                <span class="mcard-loc-text">{{ m.location }}</span>
+              <!-- Fila 3: Ubicación / Zona -->
+              <div class="mcard-loc-line" *ngIf="m.zone || m.location">
+                <i class="fa-solid fa-location-dot" [style.color]="m.badgeColor"></i>
+                <span class="mcard-loc-text">{{ m.zone || m.location }}</span>
               </div>
+
+              <!-- Fila 4: Sinopsis / Pequeño texto descriptivo -->
+              <p class="mcard-desc-snippet" *ngIf="m.description">
+                {{ m.description }}
+              </p>
             </div>
 
             <!-- Acciones a la derecha: Localizar + Flecha -->

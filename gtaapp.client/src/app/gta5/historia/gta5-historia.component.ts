@@ -322,6 +322,13 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // CICLO DE VIDA
     // -----------------------------------------------------------------------
     ngOnInit(): void {
+        if (typeof window !== 'undefined') {
+            (window as any)._closeGtaMapPopup = () => {
+                if (this.map) {
+                    this.map.closePopup();
+                }
+            };
+        }
         if (typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.legendOpen = false;
             this.settingsOpen = false;
@@ -544,17 +551,22 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         this.districtLabelsLayer.clearLayers();
 
+        const isNarrow = typeof window !== 'undefined' && window.innerWidth <= 850;
+        const scale = isNarrow ? 0.62 : 1.0;
+        const letterSpacing = isNarrow ? '1.5px' : '3px';
+
         this.districts.forEach(d => {
             const [lat, lng] = this.worldToLatLng(d.x, d.y);
+            const calculatedSize = Math.max(8, Math.round((d.size + 1) * scale));
             const icon = L.divIcon({
                 className: 'gta-district-label-pin',
-                html: `<div style="
+                html: `<div class="gta-district-label-text ${d.isMajor ? 'is-major' : 'is-minor'}" style="
                     color: rgba(255, 255, 255, 0.92);
                     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-                    font-size: ${d.size + 1}px;
+                    font-size: ${calculatedSize}px;
                     font-weight: 700;
                     text-transform: uppercase;
-                    letter-spacing: 3px;
+                    letter-spacing: ${letterSpacing};
                     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.8);
                     white-space: nowrap;
                     pointer-events: none;
@@ -586,6 +598,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.map.setZoom(minZoom);
             }
         }
+        this.renderDistrictLabels();
     };
 
     private computeHdMinZoom(): number {
@@ -1243,8 +1256,27 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             duration: 1.2
         });
 
-        const pinColor = mystery.badgeColor || '#06b6d4';
-        const pinIcon = mystery.badgeIcon || 'fa-dog';
+        // Determinar tema según categoría
+        let themeClass = 'mystery-theme-paranormal';
+        let bgGradient = 'linear-gradient(180deg, #18092c 0%, #0d0417 100%)';
+        let accentColor = mystery.badgeColor || '#a855f7';
+
+        if (mystery.category === 'easter_egg' || (mystery.id && mystery.id.includes('underwater'))) {
+            themeClass = 'mystery-theme-ocean';
+            bgGradient = 'linear-gradient(180deg, #062238 0%, #03101c 100%)';
+            accentColor = '#0ea5e9';
+        } else if (mystery.category === 'conspiracy') {
+            themeClass = 'mystery-theme-conspiracy';
+            bgGradient = 'linear-gradient(180deg, #05262e 0%, #031217 100%)';
+            accentColor = '#06b6d4';
+        } else if (mystery.category === 'crimes') {
+            themeClass = 'mystery-theme-crimes';
+            bgGradient = 'linear-gradient(180deg, #2a0a10 0%, #120306 100%)';
+            accentColor = '#ef4444';
+        }
+
+        const pinColor = accentColor;
+        const pinIcon = mystery.badgeIcon || 'fa-ghost';
 
         if (this.mysteryMarker) {
             this.mysteryMarker.remove();
@@ -1267,19 +1299,55 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         });
 
         const popupHtml = `
-            <div class="gta-popup-card" style="min-width: 260px;">
-                <div class="popup-banner" style="background: linear-gradient(135deg, ${pinColor}44, #0b0f14 85%); border-bottom: 2px solid ${pinColor};">
-                    <span class="popup-badge" style="color: ${pinColor}; border-color: ${pinColor}66">${mystery.categoryLabel || this.translationService.t('transports.tabs.misterios') || 'Misterio'}</span>
-                    <h4 class="popup-title">${mystery.title}</h4>
-                    <div class="popup-zone">${mystery.zone || mystery.location}</div>
+            <div class="gta-popup-card" style="width: 100%; box-sizing: border-box; background: ${bgGradient}; color: #fff; overflow: hidden; border-radius: 11px;">
+                ${mystery.thumbnail ? `
+                <div style="position: relative; width: 100%; height: 115px; overflow: hidden; background: #000; border-bottom: 2px solid ${pinColor};">
+                    <img src="${mystery.thumbnail}" alt="${mystery.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.style.display='none'" />
+                    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(5,10,18,0.95) 100%);"></div>
+                    <span class="popup-badge" style="position: absolute; top: 8px; left: 8px; color: ${pinColor}; border: 1px solid ${pinColor}88; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); font-size: 9.5px; font-weight: 800; text-transform: uppercase; padding: 2px 7px; border-radius: 4px;">
+                        <i class="fa-solid ${pinIcon}" style="margin-right: 4px;"></i>${mystery.categoryLabel || this.translationService.t('transports.tabs.misterios') || 'Misterio'}
+                    </span>
+                    <button
+                        type="button"
+                        onclick="window._closeGtaMapPopup()"
+                        class="popup-card-close-btn"
+                        title="Cerrar"
+                        style="position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; background: rgba(0,0,0,0.75); border: 1px solid rgba(255,255,255,0.35); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 12px; padding: 0;"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div style="position: absolute; bottom: 8px; left: 10px; right: 10px;">
+                        <h4 class="popup-title" style="margin: 0; font-size: 13.5px; font-weight: 800; line-height: 1.25; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.95);">${mystery.title}</h4>
+                    </div>
                 </div>
-                <div class="popup-content">
+                ` : `
+                <div class="popup-banner" style="position: relative; background: linear-gradient(135deg, ${pinColor}44, rgba(5,10,18,0.95) 85%); border-bottom: 2px solid ${pinColor}; padding: 10px 12px 8px;">
+                    <span class="popup-badge" style="color: ${pinColor}; border: 1px solid ${pinColor}88; background: rgba(0,0,0,0.6); font-size: 9.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">
+                        <i class="fa-solid ${pinIcon}" style="margin-right: 4px;"></i>${mystery.categoryLabel || this.translationService.t('transports.tabs.misterios') || 'Misterio'}
+                    </span>
+                    <button
+                        type="button"
+                        onclick="window._closeGtaMapPopup()"
+                        class="popup-card-close-btn"
+                        title="Cerrar"
+                        style="position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; background: rgba(0,0,0,0.75); border: 1px solid rgba(255,255,255,0.35); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 12px; padding: 0;"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h4 class="popup-title" style="margin: 6px 0 0; font-size: 13.5px; font-weight: 800; color: #fff;">${mystery.title}</h4>
+                </div>
+                `}
+                <div class="popup-content" style="padding: 10px 14px 14px 14px; display: flex; flex-direction: column; gap: 7px; background: transparent; width: 100%; box-sizing: border-box;">
+                    <div class="popup-zone" style="font-size: 11px; color: #94a3b8; display: flex; align-items: center; gap: 5px;">
+                        <i class="fa-solid fa-location-dot" style="color: #ec4899; font-size: 10px;"></i>
+                        <span style="color: #e2e8f0; font-weight: 600;">${mystery.zone || mystery.location}</span>
+                    </div>
                     ${mystery.schedule ? `
-                    <div class="popup-row">
-                        <span class="popup-tag-lbl">${this.translationService.t('transports.mysteries.schedule') || 'Horario'}</span>
-                        <span class="popup-tag-val" style="color: #facc15; font-weight: 700;">${mystery.schedule}</span>
+                    <div class="popup-row" style="display: inline-flex; align-items: center; gap: 6px; background: rgba(234, 179, 8, 0.15); border: 1px solid rgba(234, 179, 8, 0.35); border-radius: 4px; padding: 3px 8px; width: fit-content; max-width: 100%; box-sizing: border-box;">
+                        <span class="popup-tag-lbl" style="font-size: 9.5px; color: #fde047; font-weight: 700; text-transform: uppercase;"><i class="fa-regular fa-clock" style="margin-right: 4px;"></i>${this.translationService.t('transports.mysteries.schedule') || 'Horario'}</span>
+                        <span class="popup-tag-val" style="color: #fef08a; font-size: 10.5px; font-weight: 800;">${mystery.schedule}</span>
                     </div>` : ''}
-                    <div class="popup-desc" style="font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 6px; line-height: 1.45;">
+                    <div class="popup-desc" style="font-size: 11.5px; color: rgba(255,255,255,0.92); line-height: 1.48; margin-top: 2px; word-break: normal; overflow-wrap: break-word; white-space: normal; width: 100%; box-sizing: border-box;">
                         ${mystery.description}
                     </div>
                 </div>
@@ -1289,7 +1357,12 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         this.mysteryMarker = L.marker([lat, lng], { icon: customIcon }).addTo(this.map);
         setTimeout(() => {
             if (this.mysteryMarker) {
-                this.mysteryMarker.bindPopup(popupHtml).openPopup();
+                this.mysteryMarker.bindPopup(popupHtml, {
+                    className: `gta-leaflet-popup gta-mystery-popup ${themeClass}`,
+                    maxWidth: 320,
+                    minWidth: 260,
+                    closeButton: false
+                }).openPopup();
             }
         }, 850);
     }
