@@ -409,12 +409,14 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             const mapBounds = L.latLngBounds([[-192, 0], [0, 128]]);
             const maxBounds = L.latLngBounds([[-230, -25], [25, 155]]);
             const hdMinZoom = this.computeHdMinZoom();
+            const isNarrow = typeof window !== 'undefined' && window.innerWidth <= 850;
+            const initialZoom = isNarrow ? hdMinZoom : 2.5;
 
             this.map = L.map('gta-map-historia', {
                 crs: L.CRS.Simple,
                 minZoom: hdMinZoom,
                 maxZoom: this.maxZoom,
-                zoom: 2.5,
+                zoom: initialZoom,
                 zoomSnap: 0.1,
                 center: [-96, 59],
                 maxBounds: maxBounds,
@@ -563,9 +565,17 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         if (!this.map) return;
         this.map.invalidateSize();
         if (this.currentMapType === 'Satellite') {
-            this.map.setMinZoom(this.computeHdMinZoom());
+            const minZoom = this.computeHdMinZoom();
+            this.map.setMinZoom(minZoom);
+            if (this.map.getZoom() < minZoom) {
+                this.map.setZoom(minZoom);
+            }
         } else {
-            this.map.setMinZoom(this.computeMinZoom(this.imageSize));
+            const minZoom = this.computeMinZoom(this.imageSize);
+            this.map.setMinZoom(minZoom);
+            if (this.map.getZoom() < minZoom) {
+                this.map.setZoom(minZoom);
+            }
         }
     };
 
@@ -573,23 +583,23 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         const el = document.getElementById('gta-map-historia');
         const width  = el ? el.clientWidth  : 0;
         const height = el ? el.clientHeight : 0;
-        if (width <= 0 || height <= 0) return 2;
+        if (width <= 0 || height <= 0) return 2.0;
         // El mapa HD mide 128×192 unidades en CRS.Simple a zoom 0
-        const zoomForWidth  = Math.log2(width  / 128);
-        const zoomForHeight = Math.log2(height / 192);
-        const targetZoom = Math.max(zoomForWidth, zoomForHeight);
-        return Math.min(this.maxZoom, Math.max(1, Math.ceil(targetZoom * 10) / 10));
+        const zoomForWidth  = Math.log2((width * 0.88) / 128);
+        const zoomForHeight = Math.log2((height * 0.88) / 192);
+        const targetZoom = Math.min(zoomForWidth, zoomForHeight);
+        return Math.max(1.2, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
     }
-
-
 
     private computeMinZoom(imageSize: number): number {
         const el = document.getElementById('gta-map-historia');
         const width = el ? el.clientWidth : 0;
-        if (width <= 0) return 2;
-        const nativeZoom = 7;
-        const min = nativeZoom + Math.log2(width / imageSize);
-        return Math.min(this.maxZoom, Math.max(1, Math.ceil(min)));
+        const height = el ? el.clientHeight : 0;
+        if (width <= 0 || height <= 0) return 2.0;
+        const zoomForWidth = Math.log2((width * 0.88) / 64);
+        const zoomForHeight = Math.log2((height * 0.88) / 64);
+        const min = Math.min(zoomForWidth, zoomForHeight);
+        return Math.max(1.2, Math.min(this.maxZoom, Math.round(min * 10) / 10));
     }
 
     // -----------------------------------------------------------------------
@@ -906,16 +916,10 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
-        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
-            this.settingsOpen = false;
-        }
     }
 
     toggleSettings(): void {
         this.settingsOpen = !this.settingsOpen;
-        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
-            this.legendOpen = false;
-        }
     }
     toggleSection(section: string): void { this.accordion[section] = !this.accordion[section]; }
 

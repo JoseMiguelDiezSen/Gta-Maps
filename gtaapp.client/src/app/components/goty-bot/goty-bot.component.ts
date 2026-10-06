@@ -19,9 +19,9 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
   isAngryAvatar = false;
   messages: GotyMessage[] = [];
 
-  // Drag state
-  wrapperTop = 100;
-  wrapperLeft = 10;
+  // Drag state (Desktop default)
+  wrapperTop = 135;
+  wrapperLeft = 18;
   isDragging = false;
   hasDragged = false;
   private dragStartX = 0;
@@ -84,6 +84,10 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
+    if (typeof window !== 'undefined' && window.innerWidth <= 850) {
+      this.wrapperTop = 96;
+      this.wrapperLeft = 10;
+    }
     this.messages = [this.gotyService.getInitialGreeting(this.gameContext)];
   }
 

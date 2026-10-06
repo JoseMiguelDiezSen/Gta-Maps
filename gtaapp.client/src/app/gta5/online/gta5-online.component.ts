@@ -515,9 +515,6 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     toggleSettings(): void {
         this.settingsOpen = !this.settingsOpen;
-        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
-            this.legendOpen = false;
-        }
     }
 
     updateIconStyle(): void {
@@ -817,20 +814,25 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     private computeHdMinZoom(): number {
         const el = document.getElementById('gta-map');
         const height = el ? el.clientHeight : 0;
-        if (height <= 0) return 2.0;
-        // La isla mide 192 unidades de alto en proyección HD con tileSize 256
-        const targetZoom = Math.log2((height * 0.90) / 192);
-        return Math.max(1.8, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
+        const width = el ? el.clientWidth : 0;
+        if (height <= 0 || width <= 0) return 2.0;
+        // La isla mide 192 unidades de alto y 128 de ancho en proyección HD con tileSize 256
+        const zoomH = Math.log2((height * 0.88) / 192);
+        const zoomW = Math.log2((width * 0.88) / 128);
+        const targetZoom = Math.min(zoomH, zoomW);
+        return Math.max(1.2, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
     }
 
     private computeMinZoom(imageSize: number): number {
         const el = document.getElementById('gta-map');
         const height = el ? el.clientHeight : 0;
-        if (height <= 0) return 4.0;
-        // La isla de San Andreas mide 56.5 unidades de alto.
-        // Calculamos el zoom para que la isla entera quepa verticalmente con holgura de océano
-        const targetZoom = Math.log2((height * 0.92) / 56.5);
-        return Math.max(3.5, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
+        const width = el ? el.clientWidth : 0;
+        if (height <= 0 || width <= 0) return 3.5;
+        // La isla de San Andreas mide 56.5 unidades de alto x ~40 de ancho.
+        const zoomH = Math.log2((height * 0.88) / 56.5);
+        const zoomW = Math.log2((width * 0.88) / 40);
+        const targetZoom = Math.min(zoomH, zoomW);
+        return Math.max(2.0, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
     }
 
     private initMap(mapType: string): void {
@@ -896,12 +898,14 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             const mapBounds = L.latLngBounds([[-192, 0], [0, 128]]);
             const maxBounds = L.latLngBounds([[-230, -25], [25, 155]]);
             const hdMinZoom = this.computeHdMinZoom();
+            const isNarrow = typeof window !== 'undefined' && window.innerWidth <= 850;
+            const initialZoom = isNarrow ? hdMinZoom : 2.5;
 
             this.map = L.map('gta-map', {
                 crs: L.CRS.Simple,
                 minZoom: hdMinZoom,
                 maxZoom: this.maxZoom,
-                zoom: 2.5,
+                zoom: initialZoom,
                 zoomSnap: 0.1,
                 center: [-96, 59],
                 maxBounds: maxBounds,
@@ -1624,9 +1628,6 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
      */
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
-        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
-            this.settingsOpen = false;
-        }
     }
 
     getCategoryCount(categoryKey: string): number {

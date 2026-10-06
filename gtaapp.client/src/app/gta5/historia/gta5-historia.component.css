@@ -2339,7 +2339,8 @@
   .hud-br:not(.hud-collapsed) {
     position: fixed !important;
     bottom: max(10px, env(safe-area-inset-bottom, 10px)) !important;
-    max-height: 48vh !important;
+    max-height: calc(100dvh - 60px) !important;
+    max-height: calc(100vh - 60px) !important;
     border-radius: 8px !important;
     border: 1px solid rgba(255, 165, 0, 0.5) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
@@ -2415,7 +2416,8 @@
   .hud-br:not(.hud-collapsed) .hud-legend-body,
   .hud-bl:not(.hud-collapsed) .hud-settings-body,
   .hud-br:not(.hud-collapsed) .hud-settings-body {
-    max-height: calc(48vh - 40px) !important;
+    max-height: calc(100dvh - 105px) !important;
+    max-height: calc(100vh - 105px) !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     padding: 8px 8px 14px 8px !important;

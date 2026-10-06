@@ -393,16 +393,10 @@ export class Gta6OnlineComponent implements OnInit, OnDestroy {
 
     toggleLegend(): void {
         this.legendOpen = !this.legendOpen;
-        if (this.legendOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
-            this.settingsOpen = false;
-        }
     }
 
     toggleSettings(): void {
         this.settingsOpen = !this.settingsOpen;
-        if (this.settingsOpen && typeof window !== 'undefined' && window.innerWidth <= 850) {
-            this.legendOpen = false;
-        }
     }
 
     toggleSection(section: string): void {
