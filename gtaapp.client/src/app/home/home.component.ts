@@ -4,8 +4,10 @@ import { TranslationService } from '../i18n';
 import { UsuariosActivosService } from '../services/usuarios-activos.service';
 import { CookieService } from '../services/cookie.service';
 
+import { LanguageCode } from '../i18n';
+
 export interface Language {
-    code: 'en' | 'es' | 'pt' | 'zh';
+    code: LanguageCode;
     label: string;
 }
 
@@ -17,7 +19,7 @@ export interface Language {
 })
 export class HomeComponent implements OnInit, OnDestroy {
     isOpen = false;
-    selectedCode: 'en' | 'es' | 'pt' | 'zh' = 'en';
+    selectedCode: LanguageCode = 'en';
 
     readonly ultimaActualizacion = APP_VERSION.timestamp;
     readonly buildCommit = APP_VERSION.commit;
@@ -31,7 +33,16 @@ export class HomeComponent implements OnInit, OnDestroy {
         { code: 'en', label: 'English' },
         { code: 'es', label: 'Español' },
         { code: 'pt', label: 'Português' },
-        { code: 'zh', label: '简体中文' }
+        { code: 'zh', label: '简体中文' },
+        { code: 'fr', label: 'Français' },
+        { code: 'de', label: 'Deutsch' },
+        { code: 'it', label: 'Italiano' },
+        { code: 'ru', label: 'Русский' },
+        { code: 'ar', label: 'العربية' },
+        { code: 'ja', label: '日本語' },
+        { code: 'hi', label: 'हिन्दी' },
+        { code: 'tr', label: 'Türkçe' },
+        { code: 'ko', label: '한국어' }
     ];
 
     constructor(
@@ -43,7 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         const current = this.translationService.currentLanguage();
-        if (current === 'es' || current === 'en' || current === 'pt' || current === 'zh') {
+        if (current) {
             this.selectedCode = current;
         }
         this.startCountdown();
@@ -81,7 +92,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.isOpen = !this.isOpen;
     }
 
-    selectLanguage(code: 'en' | 'es' | 'pt' | 'zh', event: Event): void {
+    selectLanguage(code: LanguageCode, event: Event): void {
         event.stopPropagation();
         this.selectedCode = code;
         this.isOpen = false;

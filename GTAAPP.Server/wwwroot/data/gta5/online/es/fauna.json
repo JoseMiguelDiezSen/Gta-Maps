@@ -1,338 +1,338 @@
 [
-    {
-        "id":  "animal-rabbit-hills",
-        "name":  "Conejo Salvaje (Hábitat General)",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Vinewood Hills \u0026 Territorio Rural",
-        "description":  "El conejo salvaje es la especie animal más extendida de San Andreas. Aunque este punto marca su presencia habitual en las colinas de Vinewood, aparece de forma espontánea por prácticamente todo el mapa: Mount Chiliad, Paleto Forest, Senora Desert, Tataviam y Tongva Valley.",
-        "features":  [
-                         "Especie del reto de Fotografía de Fauna Salvaje",
-                         "Presencia en casi todas las zonas de hierba y monte del mapa",
-                         "Muy rápido y sensible al ruido de pasos o motores"
-                     ],
-        "income":  "Animal fotografiable para recompensa del Kraken Sub",
-        "position":  {
-                         "x":  -420,
-                         "y":  1200,
-                         "z":  325
-                     },
-        "badge":  {
-                      "icon":  "paw",
-                      "color":  "#1abc9c",
-                      "symbol":  "🐇"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Rabbit-GTAVe.png"
+  {
+    "id": "animal-rabbit-hills",
+    "name": "Wild Rabbit (General Habitat)",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Vinewood Hills & Countryside",
+    "description": "The wild rabbit is the most common native mammal across San Andreas. Spawns naturally in Vinewood Hills, Mount Chiliad, Paleto Forest, and Tongva Valley.",
+    "features": [
+      "Target animal for Wildlife Photography Challenge",
+      "Common throughout hilly and brush vegetation",
+      "Fast-moving and easily scared by footsteps or vehicles"
+    ],
+    "income": "Photograph target for Kraken Submersible reward",
+    "position": {
+      "x": -420,
+      "y": 1200,
+      "z": 325
     },
-    {
-        "id":  "animal-deer-chiliad",
-        "name":  "Ciervo / Cierva de Cola Blanca",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Reserva Estatal de Mount Chiliad",
-        "description":  "Manadas de ciervos que pastan en las laderas boscosas de Mount Chiliad y en el bosque de Paleto. Especie clásica de caza de Trevor.",
-        "features":  [
-                         "Reto de fotografía y misiones de caza de Trevor",
-                         "Habita densamente en los bosques boreales del norte",
-                         "Huye al menor sonido o disparo"
-                     ],
-        "income":  "Caza deportiva y fotografía",
-        "position":  {
-                         "x":  -650,
-                         "y":  4520,
-                         "z":  140
-                     },
-        "badge":  {
-                      "icon":  "paw",
-                      "color":  "#27ae60",
-                      "symbol":  "🦌"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Deer-GTAV.png"
+    "badge": {
+      "icon": "paw",
+      "color": "#1abc9c",
+      "symbol": "🐇"
     },
-    {
-        "id":  "animal-cougar-tongva",
-        "name":  "Puma / León de Montaña",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Tongva Hills / Banham Canyon",
-        "description":  "El depredador más peligroso de tierra firme en San Andreas. Acecha en las colinas y cañones escarpados atacando por sorpresa.",
-        "features":  [
-                         "Depredador alfa agresivo con ataque letal de un golpe",
-                         "Emite rugidos característicos antes de abalanzarse",
-                         "Fotografiable a distancia de seguridad"
-                     ],
-        "income":  "Fotografía de naturaleza de riesgo",
-        "position":  {
-                         "x":  -1520,
-                         "y":  1540,
-                         "z":  110
-                     },
-        "badge":  {
-                      "icon":  "paw",
-                      "color":  "#e67e22",
-                      "symbol":  "🐆"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Cougar-GTAV.png"
+    "imageUrl": "/assets/data-images/fauna/Rabbit-GTAVe.png"
+  },
+  {
+    "id": "animal-deer-chiliad",
+    "name": "White-Tailed Deer / Doe",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Mount Chiliad State Wilderness",
+    "description": "Herds of deer grazing along the wooded slopes of Mount Chiliad and Paleto Forest. Trevor's classic hunting prey.",
+    "features": [
+      "Trevor hunting missions and photography challenge",
+      "Dense population in the northern boreal forests",
+      "Flees immediately at any gunshot or noise"
+    ],
+    "income": "Sport hunting & photography target",
+    "position": {
+      "x": -650,
+      "y": 4520,
+      "z": 140
     },
-    {
-        "id":  "animal-coyote-senora",
-        "name":  "Coyote del Desierto",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Grand Senora Desert",
-        "description":  "Cánido salvaje carroñero característico del desierto de Grand Senora y las inmediaciones del aeródromo de Sandy Shores.",
-        "features":  [
-                         "Aúlla durante la noche en el desierto",
-                         "Suele deambular en solitario o parejas cerca de carreteras",
-                         "Menos agresivo que el puma, huye de vehículos"
-                     ],
-        "income":  "Fotografía de fauna",
-        "position":  {
-                         "x":  1240,
-                         "y":  3100,
-                         "z":  40
-                     },
-        "badge":  {
-                      "icon":  "paw",
-                      "color":  "#d35400",
-                      "symbol":  "🐺"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Coyote-GTAV.jpg"
+    "badge": {
+      "icon": "paw",
+      "color": "#27ae60",
+      "symbol": "🦌"
     },
-    {
-        "id":  "animal-boar-bolingbroke",
-        "name":  "Jabalí Salvaje",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Colinas de Bolingbroke / Senora",
-        "description":  "Jabalí robusto que habita en las colinas que rodean la prisión de Bolingbroke y el parque nacional de Senora.",
-        "features":  [
-                         "Embestida potente si se siente acorralado",
-                         "Habitual en matorrales y zonas de cactus",
-                         "Objetivo del reto de naturaleza"
-                     ],
-        "income":  "Fotografía de fauna",
-        "position":  {
-                         "x":  1820,
-                         "y":  2650,
-                         "z":  46
-                     },
-        "badge":  {
-                      "icon":  "paw",
-                      "color":  "#795548",
-                      "symbol":  "🐗"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Boar-GTAVe.png"
+    "imageUrl": "/assets/data-images/fauna/Deer-GTAV.png"
+  },
+  {
+    "id": "animal-cougar-tongva",
+    "name": "Mountain Lion / Cougar",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Tongva Hills / Banham Canyon",
+    "description": "The deadliest land apex predator in San Andreas. Stalks the rocky ravines and attacks by surprise with lethal speed.",
+    "features": [
+      "Aggressive apex predator with a one-hit kill bite",
+      "Distinctive low growls before pouncing",
+      "Photographable from a safe distance"
+    ],
+    "income": "High-risk wildlife photography target",
+    "position": {
+      "x": -1520,
+      "y": 1540,
+      "z": 110
     },
-    {
-        "id":  "animal-hawk-vinewood",
-        "name":  "Halcón de Cola Roja",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Cresta de Vinewood Hills",
-        "description":  "Ave rapaz que planea en las corrientes térmicas sobre el famoso letrero de Vinewood y el observatorio Galileo.",
-        "features":  [
-                         "Vuelo circular majestuoso sobre colinas",
-                         "Emite chillidos agudos audibles en el aire",
-                         "Se puede posar sobre rocas y postes"
-                     ],
-        "income":  "Fotografía de aves",
-        "position":  {
-                         "x":  710,
-                         "y":  1195,
-                         "z":  350
-                     },
-        "badge":  {
-                      "icon":  "feather",
-                      "color":  "#f39c12",
-                      "symbol":  "🦅"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Hawk-GTAV.jpg"
+    "badge": {
+      "icon": "paw",
+      "color": "#e67e22",
+      "symbol": "🐆"
     },
-    {
-        "id":  "animal-cormorant-zancudo",
-        "name":  "Cormorán Neotropical",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Humedales de Lago Zancudo",
-        "description":  "Ave acuática de plumaje oscuro que bucea para pescar en los meandros pantanosos de Lago Zancudo.",
-        "features":  [
-                         "Habitual en riberas, ríos y costas de agua dulce",
-                         "Se seca con las alas abiertas sobre rocas",
-                         "Especie del catálogo de fotografía"
-                     ],
-        "income":  "Fotografía de aves acuáticas",
-        "position":  {
-                         "x":  -2250,
-                         "y":  2600,
-                         "z":  4
-                     },
-        "badge":  {
-                      "icon":  "feather",
-                      "color":  "#3498db",
-                      "symbol":  "🦆"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Great_Cormorant-GTAV.png"
+    "imageUrl": "/assets/data-images/fauna/Cougar-GTAV.png"
+  },
+  {
+    "id": "animal-coyote-senora",
+    "name": "Desert Coyote",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Grand Senora Desert",
+    "description": "Wild desert canine scavenger typical of the Grand Senora Desert and Sandy Shores Airfield surroundings.",
+    "features": [
+      "Howls across the desert plains at night",
+      "Roams solo or in pairs near rural roads",
+      "Less aggressive than cougars, runs from vehicles"
+    ],
+    "income": "Wildlife photography target",
+    "position": {
+      "x": 1240,
+      "y": 3100,
+      "z": 40
     },
-    {
-        "id":  "animal-seagull-pier",
-        "name":  "Gaviota Plateada",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Del Perro Pier \u0026 Playa Vespucci",
-        "description":  "Inconfundible ave costera que sobrevuela el parque de atracciones de Del Perro Pier y las playas de Los Santos.",
-        "features":  [
-                         "Posadas en barandillas del muelle y noria",
-                         "Muy fáciles de avistar a pie de playa",
-                         "Fotografía rápida"
-                     ],
-        "income":  "Fotografía costera",
-        "position":  {
-                         "x":  -1680,
-                         "y":  -1070,
-                         "z":  13
-                     },
-        "badge":  {
-                      "icon":  "feather",
-                      "color":  "#00bcd4",
-                      "symbol":  "🕊️"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Seagull-GTAV.png"
+    "badge": {
+      "icon": "paw",
+      "color": "#d35400",
+      "symbol": "🐺"
     },
-    {
-        "id":  "animal-shark-paleto",
-        "name":  "Gran Tiburón Blanco",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Aguas Profundas de Paleto Bay",
-        "description":  "Tiburón letal que patrulla las aguas profundas del océano norte. Ataca y destruye lanchas inflables y devora buceadores sin jaula.",
-        "features":  [
-                         "Depredador marino supremo con animación de muerte única",
-                         "Aparece marcado como punto rojo en el minimapa en alta mar",
-                         "Fotografiable desde embarcaciones"
-                     ],
-        "income":  "Fauna marina de alta mar",
-        "position":  {
-                         "x":  -500,
-                         "y":  6700,
-                         "z":  -10
-                     },
-        "badge":  {
-                      "icon":  "fish",
-                      "color":  "#2980b9",
-                      "symbol":  "🦈"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Tiger_shark-GTAV.png"
+    "imageUrl": "/assets/data-images/fauna/Coyote-GTAV.jpg"
+  },
+  {
+    "id": "animal-boar-bolingbroke",
+    "name": "Wild Boar",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Bolingbroke Hills / Senora",
+    "description": "Stout wild boar foraging in the scrub hills surrounding Bolingbroke Penitentiary and Senora National Park.",
+    "features": [
+      "Powerful charge if startled or cornered",
+      "Common in dry brush and cactus clusters",
+      "Wildlife photography target"
+    ],
+    "income": "Wildlife photography target",
+    "position": {
+      "x": 1820,
+      "y": 2650,
+      "z": 46
     },
-    {
-        "id":  "animal-farm-grapeseed",
-        "name":  "Vaca \u0026 Cerdo de Granja",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Doméstica",
-        "zone":  "Granjas Agrícolas de Grapeseed",
-        "description":  "Animales de granja domesticados que pastan en los corrales agrícolas de Grapeseed, a las faldas del monte Chiliad.",
-        "features":  [
-                         "Ambas especies están en los mismos corrales de Grapeseed",
-                         "Fáciles de fotografiar sin peligro alguno",
-                         "Entorno rural idílico"
-                     ],
-        "income":  "Reto de fotografía completable al instante",
-        "position":  {
-                         "x":  2440,
-                         "y":  4970,
-                         "z":  46
-                     },
-        "badge":  {
-                      "icon":  "paw",
-                      "color":  "#8d6e63",
-                      "symbol":  "🐄"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Cow-GTAV.jpg"
+    "badge": {
+      "icon": "paw",
+      "color": "#795548",
+      "symbol": "🐗"
     },
-    {
-        "id":  "animal-dolphin-pacific",
-        "name":  "Delfín del Pacífico",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Océano Pacífico (Pacific Bluffs \u0026 Chumash)",
-        "description":  "Mamífero marino sociable e inteligente. Suele nadar y saltar en pequeños grupos por las aguas abiertas del oeste, frente a las costas de Pacific Bluffs y Chumash.",
-        "features":  [
-                         "Mamífero acuático pacífico que salta y juega en la superficie",
-                         "Visible en manadas en aguas oceánicas abiertas",
-                         "Animal jugable a través de peyote submarino en modo historia"
-                     ],
-        "income":  "Fauna marina y observación oceánica",
-        "position":  {
-                         "x":  -3150,
-                         "y":  600,
-                         "z":  -15
-                     },
-        "badge":  {
-                      "icon":  "fish",
-                      "color":  "#00a8ff",
-                      "symbol":  "🐬"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Dolphin_GTASA.png"
+    "imageUrl": "/assets/data-images/fauna/Boar-GTAVe.png"
+  },
+  {
+    "id": "animal-hawk-vinewood",
+    "name": "Red-Tailed Hawk",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Vinewood Hills Crest",
+    "description": "Raptor gliding on thermal currents high above the iconic Vinewood Sign and the Galileo Observatory.",
+    "features": [
+      "Majestic circular soaring flight pattern",
+      "Sharp high-pitched screech audible from below",
+      "Perches on boulders, fences, and power poles"
+    ],
+    "income": "Avian photography target",
+    "position": {
+      "x": 710,
+      "y": 1195,
+      "z": 350
     },
-    {
-        "id":  "animal-orca-ocean",
-        "name":  "Orca / Ballena Asesina",
-        "category":  "animal",
-        "categoryLabel":  "Fauna Salvaje",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Fauna Silvestre",
-        "zone":  "Alta Mar del Norte (Faro El Gordo \u0026 Mt. Chiliad)",
-        "description":  "El cetáceo depredador más grande de las aguas de San Andreas. Habita en las profundidades del océano al norte y noreste, emergiendo majestuosamente para respirar con sus inconfundibles marcas blancas y negras.",
-        "features":  [
-                         "Gran mamífero oceánico de nado rápido en aguas profundas",
-                         "Especie marina emblemática visible en alta mar",
-                         "Animal controlable mediante plantas de peyote submarinas"
-                     ],
-        "income":  "Fauna marina de alta mar",
-        "position":  {
-                         "x":  3400,
-                         "y":  5100,
-                         "z":  -20
-                     },
-        "badge":  {
-                      "icon":  "fish",
-                      "color":  "#2c3e50",
-                      "symbol":  "🐋"
-                  },
-        "imageUrl":  "/assets/data-images/fauna/Orca-GTAV.jpg"
-    }
+    "badge": {
+      "icon": "feather",
+      "color": "#f39c12",
+      "symbol": "🦅"
+    },
+    "imageUrl": "/assets/data-images/fauna/Hawk-GTAV.jpg"
+  },
+  {
+    "id": "animal-cormorant-zancudo",
+    "name": "Neotropical Cormorant",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Lago Zancudo Wetlands",
+    "description": "Dark-feathered waterfowl diving for fish in the shallow estuaries and swampland of Lago Zancudo.",
+    "features": [
+      "Common along wetlands, rivers, and coastal inlets",
+      "Dries plumage with outstretched wings on rocks",
+      "Official wildlife photography entry"
+    ],
+    "income": "Waterfowl photography target",
+    "position": {
+      "x": -2250,
+      "y": 2600,
+      "z": 4
+    },
+    "badge": {
+      "icon": "feather",
+      "color": "#3498db",
+      "symbol": "🦆"
+    },
+    "imageUrl": "/assets/data-images/fauna/Great_Cormorant-GTAV.png"
+  },
+  {
+    "id": "animal-seagull-pier",
+    "name": "Silver Gull / Seagull",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Del Perro Pier & Vespucci Beach",
+    "description": "Ubiquitous coastal bird wheeling above Del Perro Pier boardwalk and the busy beaches of Vespucci.",
+    "features": [
+      "Perches on pier handrails and the Ferris wheel",
+      "Extremely easy to spot and photograph on the sand",
+      "Quick photo target"
+    ],
+    "income": "Coastal wildlife photo target",
+    "position": {
+      "x": -1680,
+      "y": -1070,
+      "z": 13
+    },
+    "badge": {
+      "icon": "feather",
+      "color": "#00bcd4",
+      "symbol": "🕊️"
+    },
+    "imageUrl": "/assets/data-images/fauna/Seagull-GTAV.png"
+  },
+  {
+    "id": "animal-shark-paleto",
+    "name": "Great White Shark",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Deep Water of Paleto Bay",
+    "description": "Apex ocean predator patrolling deep coastal waters. Will breach, attack inflatable boats, and devour unprotected divers.",
+    "features": [
+      "Supreme marine predator with unique kill animations",
+      "Appears as an active red blip on the minimap in deep water",
+      "Photographable safely from watercraft"
+    ],
+    "income": "Deep ocean marine wildlife",
+    "position": {
+      "x": -500,
+      "y": 6700,
+      "z": -10
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#2980b9",
+      "symbol": "🦈"
+    },
+    "imageUrl": "/assets/data-images/fauna/Tiger_shark-GTAV.png"
+  },
+  {
+    "id": "animal-farm-grapeseed",
+    "name": "Farm Cow & Pig",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Domestic Livestock",
+    "zone": "Grapeseed Farmlands",
+    "description": "Domestic livestock grazing in the agricultural corrals of Grapeseed at the base of Mount Chiliad.",
+    "features": [
+      "Both farm species located in the same Grapeseed pens",
+      "Completely harmless and simple to photograph",
+      "Idyllic rural setting"
+    ],
+    "income": "Instantly completable photo target",
+    "position": {
+      "x": 2440,
+      "y": 4970,
+      "z": 46
+    },
+    "badge": {
+      "icon": "paw",
+      "color": "#8d6e63",
+      "symbol": "🐄"
+    },
+    "imageUrl": "/assets/data-images/fauna/Cow-GTAV.jpg"
+  },
+  {
+    "id": "animal-dolphin-pacific",
+    "name": "Pacific Dolphin",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Pacific Ocean (Pacific Bluffs & Chumash)",
+    "description": "Intelligent and playful marine mammal. Swims and leaps in small pods in the open coastal waters off Pacific Bluffs and Chumash.",
+    "features": [
+      "Playful aquatic mammal leaping across the water surface",
+      "Visible in pods across open ocean swells",
+      "Playable animal via underwater peyote plants in Story Mode"
+    ],
+    "income": "Marine life & ocean sighting",
+    "position": {
+      "x": -3150,
+      "y": 600,
+      "z": -15
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐬"
+    },
+    "imageUrl": "/assets/data-images/fauna/Dolphin_GTASA.png"
+  },
+  {
+    "id": "animal-orca-ocean",
+    "name": "Orca / Killer Whale",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Northern High Seas (El Gordo Lighthouse & Mt. Chiliad)",
+    "description": "The largest predatory cetacean off the shores of San Andreas. Glides through deep waters and surfaces to breach with unmistakable black-and-white patterns.",
+    "features": [
+      "Massive oceanic mammal swimming in northern deep waters",
+      "Iconic marine species visible offshore",
+      "Controllable animal via underwater peyote plant in Story Mode"
+    ],
+    "income": "Deep ocean marine wildlife",
+    "position": {
+      "x": 3400,
+      "y": 5100,
+      "z": -20
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#2c3e50",
+      "symbol": "🐋"
+    },
+    "imageUrl": "/assets/data-images/fauna/Orca-GTAV.jpg"
+  }
 ]

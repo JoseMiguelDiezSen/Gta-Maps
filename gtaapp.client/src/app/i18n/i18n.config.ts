@@ -28,5 +28,45 @@ export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
     code: 'fr',
     label: 'Français',
     shortLabel: 'FR'
+  },
+  {
+    code: 'de',
+    label: 'Deutsch',
+    shortLabel: 'DE'
+  },
+  {
+    code: 'it',
+    label: 'Italiano',
+    shortLabel: 'IT'
+  },
+  {
+    code: 'ru',
+    label: 'Русский',
+    shortLabel: 'RU'
+  },
+  {
+    code: 'ar',
+    label: 'العربية',
+    shortLabel: 'AR'
+  },
+  {
+    code: 'ja',
+    label: '日本語',
+    shortLabel: 'JA'
+  },
+  {
+    code: 'hi',
+    label: 'हिन्दी',
+    shortLabel: 'HI'
+  },
+  {
+    code: 'tr',
+    label: 'Türkçe',
+    shortLabel: 'TR'
+  },
+  {
+    code: 'ko',
+    label: '한국어',
+    shortLabel: 'KO'
   }
 ];

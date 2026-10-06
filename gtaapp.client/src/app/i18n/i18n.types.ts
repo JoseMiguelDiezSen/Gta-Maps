@@ -1,4 +1,4 @@
-export type LanguageCode = 'es' | 'en' | 'pt' | 'zh' | 'fr';
+export type LanguageCode = 'es' | 'en' | 'pt' | 'zh' | 'fr' | 'de' | 'it' | 'ru' | 'ar' | 'ja' | 'hi' | 'tr' | 'ko';
 export interface LanguageInfo {
   code: LanguageCode;
   label: string;
@@ -89,6 +89,7 @@ export interface TranslationSchema {
       reward: string;
       edit: string;
       delete: string;
+      coordinates: string;
     };
     settings: {
       gameMode: string;

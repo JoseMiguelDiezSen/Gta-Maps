@@ -56,6 +56,60 @@ export class GotyService {
       'gta5-online': '你好，我是 GOTY 5，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。',
       'gta6-historia': '你好，我是 GOTY 6，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。',
       'gta6-online': '你好，我是 GOTY 6，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。'
+    },
+    fr: {
+      'gta5-historia': "Bonjour, je suis GOTY 5, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée.",
+      'gta5-online': "Bonjour, je suis GOTY 5, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée.",
+      'gta6-historia': "Bonjour, je suis GOTY 6, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée.",
+      'gta6-online': "Bonjour, je suis GOTY 6, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée."
+    },
+    de: {
+      'gta5-historia': 'Hallo, ich bin GOTY 5, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.',
+      'gta5-online': 'Hallo, ich bin GOTY 5, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.',
+      'gta6-historia': 'Hallo, ich bin GOTY 6, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.',
+      'gta6-online': 'Hallo, ich bin GOTY 6, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.'
+    },
+    it: {
+      'gta5-historia': 'Ciao, sono GOTY 5, stiamo ancora perfezionando alcuni dettagli. Ci scusiamo per l\'inconveniente.',
+      'gta5-online': 'Ciao, sono GOTY 5, stiamo ancora perfezionando alcuni dettagli. Ci scusiamo per l\'inconveniente.',
+      'gta6-historia': 'Ciao, sono GOTY 6, stiamo ancora perfezionando alcuni dettagli. Ci scusiamo per l\'inconveniente.',
+      'gta6-online': 'Ciao, sono GOTY 6, stiamo ancora perfezionando alcuni dettagli. Ci scusiamo per l\'inconveniente.'
+    },
+    ru: {
+      'gta5-historia': 'Привет, я GOTY 5, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.',
+      'gta5-online': 'Привет, я GOTY 5, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.',
+      'gta6-historia': 'Привет, я GOTY 6, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.',
+      'gta6-online': 'Привет, я GOTY 6, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.'
+    },
+    ar: {
+      'gta5-historia': 'مرحبًا، أنا GOTY 5، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.',
+      'gta5-online': 'مرحبًا، أنا GOTY 5، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.',
+      'gta6-historia': 'مرحبًا، أنا GOTY 6، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.',
+      'gta6-online': 'مرحبًا، أنا GOTY 6، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.'
+    },
+    ja: {
+      'gta5-historia': 'こんにちは、GOTY 5です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。',
+      'gta5-online': 'こんにちは、GOTY 5です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。',
+      'gta6-historia': 'こんにちは、GOTY 6です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。',
+      'gta6-online': 'こんにちは、GOTY 6です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。'
+    },
+    hi: {
+      'gta5-historia': 'नमस्ते, मैं GOTY 5 हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।',
+      'gta5-online': 'नमस्ते, मैं GOTY 5 हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।',
+      'gta6-historia': 'नमस्ते, मैं GOTY 6 हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।',
+      'gta6-online': 'नमस्ते, मैं GOTY 6 हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।'
+    },
+    tr: {
+      'gta5-historia': 'Merhaba, ben GOTY 5, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.',
+      'gta5-online': 'Merhaba, ben GOTY 5, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.',
+      'gta6-historia': 'Merhaba, ben GOTY 6, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.',
+      'gta6-online': 'Merhaba, ben GOTY 6, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.'
+    },
+    ko: {
+      'gta5-historia': '안녕하세요, 저는 GOTY 5입니다. 현재 세부 사항을 조율 중입니다. 불편을 끼쳐 드려 죄송합니다.',
+      'gta5-online': '안녕하세요, 저는 GOTY 5입니다. 현재 세부 사항을 조율 중입니다. 불편을 끼쳐 드려 죄송합니다.',
+      'gta6-historia': '안녕하세요, 저는 GOTY 6입니다. 현재 세부 사항을 조율 중입니다. 불편을 끼쳐 드려 죄송합니다.',
+      'gta6-online': '안녕하세요, 저는 GOTY 6입니다. 현재 세부 사항을 조율 중입니다. 불편을 끼쳐 드려 죄송합니다.'
     }
   };
 
@@ -73,6 +127,15 @@ export class GotyService {
     this.preloadBrain('en');
     this.preloadBrain('pt');
     this.preloadBrain('zh');
+    this.preloadBrain('fr');
+    this.preloadBrain('de');
+    this.preloadBrain('it');
+    this.preloadBrain('ru');
+    this.preloadBrain('ar');
+    this.preloadBrain('ja');
+    this.preloadBrain('hi');
+    this.preloadBrain('tr');
+    this.preloadBrain('ko');
   }
 
   get isEnabled(): boolean {

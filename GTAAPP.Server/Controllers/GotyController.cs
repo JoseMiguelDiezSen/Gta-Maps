@@ -54,6 +54,15 @@ namespace GTAAPP.Server.Controllers
                 "en" => $"Hello, I'm GOTY {botNum}, I'm still being adjusted. Sorry for the inconvenience.",
                 "pt" => $"Olá, sou o GOTY {botNum}, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.",
                 "zh" => $"你好，我是 GOTY {botNum}，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。",
+                "fr" => $"Bonjour, je suis GOTY {botNum}, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée.",
+                "de" => $"Hallo, ich bin GOTY {botNum}, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.",
+                "it" => $"Ciao, sono GOTY {botNum}, stiamo ancora perfezionando alcuni dettagli. Ci scusiamo per l'inconveniente.",
+                "ru" => $"Привет, я GOTY {botNum}, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.",
+                "ar" => $"مرحبًا، أنا GOTY {botNum}، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.",
+                "ja" => $"こんにちは、GOTY {botNum}です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。",
+                "hi" => $"नमस्ते, मैं GOTY {botNum} हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।",
+                "tr" => $"Merhaba, ben GOTY {botNum}, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.",
+                "ko" => $"안녕하세요, 저는 GOTY {botNum}입니다. 현재 세부 사항을 조율 중입니다. 불편을 끼쳐 드려 죄송합니다.",
                 _ => $"Hola, soy GOTY {botNum}, aún me están ajustando algunos detalles. Disculpa las molestias."
             };
 

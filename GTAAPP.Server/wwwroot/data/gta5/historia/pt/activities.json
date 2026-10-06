@@ -6,13 +6,13 @@
     "categoryLabel": "Golfe",
     "gameMode": "both",
     "price": 100,
-    "priceFormatted": "$100 por partida",
+    "priceFormatted": "$100 por jogo",
     "zone": "Richman, Los Santos",
-    "description": "Campo de golfe profissional de 9 buracos. Jogue sozinho ou contra rivais (Michael, Franklin, Trevor). Conclua 9 buracos no par ou abaixo do par para 100% no Modo História.",
+    "description": "Campo de golfe profissional de 9 buracos em Richman. Jogue sozinho ou desafie oponentes. Complete 9 buracos no par ou abaixo para 100% do jogo.",
     "features": [
-      "Percurso completo de 9 buracos",
-      "Requisito oficial para os 100%",
-      "Disponível individualmente ou com amigos"
+      "Complete o percurso de 9 buracos",
+      "Necessário para 100% de conclusão",
+      "Partidas solo e multijogador"
     ],
     "position": {
       "x": -1367.6,
@@ -23,7 +23,9 @@
       "icon": "golf",
       "color": "#22c55e",
       "symbol": "⛳"
-    }
+    },
+    "number": 1,
+    "total": 1
   },
   {
     "id": "activity-darts-1",
@@ -34,11 +36,11 @@
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Grand Senora Desert",
-    "description": "Alvo de dardos no clássico bar Yellow Jack Inn no deserto de Senora. Vença uma partida de 301 fechando em dobro para o requisito de 100%.",
+    "description": "Alvo de dardos na histórica taverna Yellow Jack Inn no Deserto de Grand Senora. Vença uma partida de 301 finalizando com duplo para 100%.",
     "features": [
-      "Modalidade de jogo 301 com saída em dobro",
-      "Requisito oficial para os 100%",
-      "Partidas individuais e com acompanhantes"
+      "Regras clássicas 301 com saída dupla",
+      "Necessário para 100% de conclusão",
+      "Solo ou com amigos"
     ],
     "position": {
       "x": 1990.2,
@@ -49,22 +51,24 @@
       "icon": "bullseye",
       "color": "#f97316",
       "symbol": "🎯"
-    }
+    },
+    "number": 1,
+    "total": 1
   },
   {
     "id": "activity-tennis-1",
-    "name": "Quadras de Tênis - Vespucci Beach (Corte 1)",
+    "name": "Quadras de Tênis - Praia de Vespucci (Quadra 1)",
     "category": "tennis",
     "categoryLabel": "Tênis",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Vespucci Beach",
-    "description": "Quadra de tênis regulamentar. Vença uma partida completa para o progresso de 100%.",
+    "description": "Quadra de tênis regulamentar localizada em Vespucci Beach. Vença pelo menos 1 set de tênis contra qualquer oponente para 100% de conclusão.",
     "features": [
       "Partidas de 1, 3 ou 5 sets",
-      "Requisito de 100%",
-      "Disponível para Michael e Trevor"
+      "Necessário para 100% de conclusão",
+      "Topspin, backspin, lobs e smashes"
     ],
     "position": {
       "x": -1162.6,
@@ -75,7 +79,9 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 1,
+    "total": 1
   },
   {
     "id": "activity-tennis-2",
@@ -86,11 +92,11 @@
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Vinewood",
-    "description": "Quadra de tênis regulamentar. Vença uma partida completa para o progresso de 100%.",
+    "description": "Quadra de tênis regulamentar localizada em Vinewood. Vença pelo menos 1 set de tênis contra qualquer oponente para 100% de conclusão.",
     "features": [
       "Partidas de 1, 3 ou 5 sets",
-      "Requisito de 100%",
-      "Disponível para Michael e Trevor"
+      "Necessário para 100% de conclusão",
+      "Topspin, backspin, lobs e smashes"
     ],
     "position": {
       "x": 479.8,
@@ -101,22 +107,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 2,
+    "total": 1
   },
   {
     "id": "activity-tennis-3",
-    "name": "Quadra de Tênis - Mansión Michael",
+    "name": "Quadra de Tênis - Mansão do Michael",
     "category": "tennis",
     "categoryLabel": "Tênis",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Rockford Hills",
-    "description": "Quadra de tênis regulamentar. Vença uma partida completa para o progresso de 100%.",
+    "description": "Quadra de tênis regulamentar localizada em Rockford Hills. Vença pelo menos 1 set de tênis contra qualquer oponente para 100% de conclusão.",
     "features": [
       "Partidas de 1, 3 ou 5 sets",
-      "Requisito de 100%",
-      "Disponível para Michael e Trevor"
+      "Necessário para 100% de conclusão",
+      "Topspin, backspin, lobs e smashes"
     ],
     "position": {
       "x": -774.2,
@@ -127,7 +135,9 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 3,
+    "total": 1
   },
   {
     "id": "activity-tennis-4",
@@ -138,11 +148,11 @@
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Morningwood",
-    "description": "Quadra de tênis regulamentar. Vença uma partida completa para o progresso de 100%.",
+    "description": "Quadra de tênis regulamentar localizada em Morningwood. Vença pelo menos 1 set de tênis contra qualquer oponente para 100% de conclusão.",
     "features": [
       "Partidas de 1, 3 ou 5 sets",
-      "Requisito de 100%",
-      "Disponível para Michael e Trevor"
+      "Necessário para 100% de conclusão",
+      "Topspin, backspin, lobs e smashes"
     ],
     "position": {
       "x": -379.2,
@@ -153,22 +163,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 4,
+    "total": 1
   },
   {
     "id": "activity-tennis-5",
-    "name": "Quadras de Tênis - Hotel Richman",
+    "name": "Quadras de Tênis - Hotel The Richman",
     "category": "tennis",
     "categoryLabel": "Tênis",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Richman",
-    "description": "Quadra de tênis regulamentar. Vença uma partida completa para o progresso de 100%.",
+    "description": "Quadra de tênis regulamentar localizada em Richman. Vença pelo menos 1 set de tênis contra qualquer oponente para 100% de conclusão.",
     "features": [
       "Partidas de 1, 3 ou 5 sets",
-      "Requisito de 100%",
-      "Disponível para Michael e Trevor"
+      "Necessário para 100% de conclusão",
+      "Topspin, backspin, lobs e smashes"
     ],
     "position": {
       "x": -1227,
@@ -179,22 +191,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 5,
+    "total": 1
   },
   {
     "id": "activity-tennis-6",
-    "name": "Quadras de Tênis - Chumash Pacific",
+    "name": "Quadras de Tênis - Costa do Pacífico de Chumash",
     "category": "tennis",
     "categoryLabel": "Tênis",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Chumash",
-    "description": "Quadra de tênis regulamentar. Vença uma partida completa para o progresso de 100%.",
+    "description": "Quadra de tênis regulamentar localizada em Chumash. Vença pelo menos 1 set de tênis contra qualquer oponente para 100% de conclusão.",
     "features": [
       "Partidas de 1, 3 ou 5 sets",
-      "Requisito de 100%",
-      "Disponível para Michael e Trevor"
+      "Necessário para 100% de conclusão",
+      "Topspin, backspin, lobs e smashes"
     ],
     "position": {
       "x": -2863,
@@ -205,22 +219,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 6,
+    "total": 1
   },
   {
     "id": "activity-tennis-7",
-    "name": "Quadras de Tênis - Universidad ULSA",
+    "name": "Quadras de Tênis - Campus da Universidade ULSA",
     "category": "tennis",
     "categoryLabel": "Tênis",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Richman / ULSA",
-    "description": "Quadra de tênis regulamentar. Vença uma partida completa para o progresso de 100%.",
+    "description": "Quadra de tênis regulamentar localizada em Richman / ULSA. Vença pelo menos 1 set de tênis contra qualquer oponente para 100% de conclusão.",
     "features": [
       "Partidas de 1, 3 ou 5 sets",
-      "Requisito de 100%",
-      "Disponível para Michael e Trevor"
+      "Necessário para 100% de conclusão",
+      "Topspin, backspin, lobs e smashes"
     ],
     "position": {
       "x": -1742,
@@ -231,22 +247,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 7,
+    "total": 1
   },
   {
     "id": "activity-tennis-8",
-    "name": "Quadras de Tênis - Vinewood Hills",
+    "name": "Quadras de Tênis - Colinas de Vinewood",
     "category": "tennis",
     "categoryLabel": "Tênis",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Grátis",
     "zone": "Vinewood Hills",
-    "description": "Quadra de tênis regulamentar. Vença uma partida completa para o progresso de 100%.",
+    "description": "Quadra de tênis regulamentar localizada em Vinewood Hills. Vença pelo menos 1 set de tênis contra qualquer oponente para 100% de conclusão.",
     "features": [
       "Partidas de 1, 3 ou 5 sets",
-      "Requisito de 100%",
-      "Disponível para Michael e Trevor"
+      "Necessário para 100% de conclusão",
+      "Topspin, backspin, lobs e smashes"
     ],
     "position": {
       "x": -234,
@@ -257,7 +275,9 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 8,
+    "total": 1
   },
   {
     "id": "activity-stunt-jump-1",
@@ -266,13 +286,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Sandy Shores / Alamo Sea",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #1 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 2.1,
@@ -283,7 +303,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 1,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-2",
@@ -292,13 +314,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #2 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -437.4,
@@ -309,7 +331,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 2,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-3",
@@ -318,13 +342,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Grapeseed / Mount Chiliad",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #3 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 466.7,
@@ -335,7 +359,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 3,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-4",
@@ -344,13 +370,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Grapeseed / Mount Chiliad",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #4 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -166.3,
@@ -361,7 +387,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 4,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-5",
@@ -370,13 +398,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Paleto Bay / Mount Chiliad",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #5 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -977.3,
@@ -387,7 +415,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 5,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-6",
@@ -396,13 +426,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #6 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -7.6,
@@ -413,7 +443,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 6,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-7",
@@ -422,13 +454,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #7 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -268.1,
@@ -439,7 +471,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 7,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-8",
@@ -448,13 +482,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #8 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -86.2,
@@ -465,7 +499,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 8,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-9",
@@ -474,13 +510,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Vespucci / Del Perro",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #9 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -1594.8,
@@ -491,7 +527,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 9,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-10",
@@ -500,13 +538,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Vinewood Hills / Rockford Hills",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #10 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -248.7,
@@ -517,7 +555,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 10,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-11",
@@ -526,13 +566,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Pacific Bluffs / Richman",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #11 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -1442.9,
@@ -543,7 +583,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 11,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-12",
@@ -552,13 +594,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Mount Gordo / Catfish View",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #12 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 3352,
@@ -569,7 +611,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 12,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-13",
@@ -578,13 +622,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Grand Senora Desert / Ron Alternates",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #13 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 1687.5,
@@ -595,7 +639,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 13,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-14",
@@ -604,13 +650,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #14 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 307.4,
@@ -621,7 +667,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 14,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-15",
@@ -630,13 +678,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Vespucci / Del Perro",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #15 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -882.8,
@@ -647,7 +695,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 15,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-16",
@@ -656,13 +706,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #16 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 364.7,
@@ -673,7 +723,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 16,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-17",
@@ -682,13 +734,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #17 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 396.1,
@@ -699,7 +751,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 17,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-18",
@@ -708,13 +762,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #18 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 52.5,
@@ -725,7 +779,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 18,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-19",
@@ -734,13 +790,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Grapeseed / Mount Chiliad",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #19 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 32.6,
@@ -751,7 +807,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 19,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-20",
@@ -760,13 +818,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Grand Senora Desert / Ron Alternates",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #20 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 1789,
@@ -777,7 +835,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 20,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-21",
@@ -786,13 +846,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Pacific Bluffs / Richman",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #21 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -1070.8,
@@ -803,7 +863,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 21,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-22",
@@ -812,13 +874,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #22 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 84.7,
@@ -829,7 +891,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 22,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-23",
@@ -838,13 +902,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Mount Gordo / Catfish View",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #23 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 1637.9,
@@ -855,7 +919,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 23,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-24",
@@ -864,13 +930,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #24 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 566.7,
@@ -881,7 +947,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 24,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-25",
@@ -890,13 +958,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #25 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 453,
@@ -907,7 +975,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 25,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-26",
@@ -916,13 +986,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #26 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -425.6,
@@ -933,7 +1003,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 26,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-27",
@@ -942,13 +1014,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #27 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -963.2,
@@ -959,7 +1031,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 27,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-28",
@@ -968,13 +1042,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Pacific Bluffs / Richman",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #28 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -2009.7,
@@ -985,7 +1059,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 28,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-29",
@@ -994,13 +1070,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Mount Gordo / Catfish View",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #29 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 1671.9,
@@ -1011,7 +1087,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 29,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-30",
@@ -1020,13 +1098,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Vespucci / Del Perro",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #30 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -524.7,
@@ -1037,7 +1115,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 30,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-31",
@@ -1046,13 +1126,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #31 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 787.8,
@@ -1063,7 +1143,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 31,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-32",
@@ -1072,13 +1154,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Grand Senora Desert / Ron Alternates",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #32 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 1978.7,
@@ -1089,7 +1171,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 32,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-33",
@@ -1098,13 +1182,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #33 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 672.3,
@@ -1115,7 +1199,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 33,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-34",
@@ -1124,13 +1210,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #34 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 108.2,
@@ -1141,7 +1227,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 34,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-35",
@@ -1150,13 +1238,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #35 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 109.1,
@@ -1167,7 +1255,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 35,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-36",
@@ -1176,13 +1266,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #36 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 124.2,
@@ -1193,7 +1283,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 36,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-37",
@@ -1202,13 +1294,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #37 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 174.6,
@@ -1219,7 +1311,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 37,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-38",
@@ -1228,13 +1322,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #38 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 163.7,
@@ -1245,7 +1339,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 38,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-39",
@@ -1254,13 +1350,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #39 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 285.8,
@@ -1271,7 +1367,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 39,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-40",
@@ -1280,13 +1378,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #40 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 371.5,
@@ -1297,7 +1395,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 40,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-41",
@@ -1306,13 +1406,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #41 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -854.3,
@@ -1323,7 +1423,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 41,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-42",
@@ -1332,13 +1434,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #42 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -986.5,
@@ -1349,7 +1451,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 42,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-43",
@@ -1358,13 +1462,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Vespucci / Del Perro",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #43 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -589.3,
@@ -1375,7 +1479,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 43,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-44",
@@ -1384,13 +1490,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Vespucci / Del Perro",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #44 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -626.6,
@@ -1401,7 +1507,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 44,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-45",
@@ -1410,13 +1518,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #45 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -453.6,
@@ -1427,7 +1535,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 45,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-46",
@@ -1436,13 +1546,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #46 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -445.2,
@@ -1453,7 +1563,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 46,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-47",
@@ -1462,13 +1574,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Vinewood Hills / Rockford Hills",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #47 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -594.9,
@@ -1479,7 +1591,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 47,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-48",
@@ -1488,13 +1602,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Vinewood Hills / Rockford Hills",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #48 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": -726.3,
@@ -1505,7 +1619,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 48,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-49",
@@ -1514,13 +1630,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #49 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 1480.2,
@@ -1531,7 +1647,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 49,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-50",
@@ -1540,13 +1658,13 @@
     "categoryLabel": "Saltos Únicos",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Desafio de Condução",
+    "priceFormatted": "Recompensa de RP",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Rampa de salto único espalhada por San Andreas. É necessário aterrissar perfeitamente sobre as quatro rodas na zona designada para contar.",
+    "description": "Salto único #50 de 50. Acelere pela rampa com um carro ou moto e pouse suavemente sobre as rodas na área designada. 25 necessários para 100% e 50 para a conquista 'Exibido'.",
     "features": [
-      "Câmera cinematográfica em câmera lenta",
-      "50 saltos únicos no total",
-      "25 saltos necessários para os 100%"
+      "50 saltos únicos por San Andreas",
+      "25 necessários para 100% de conclusão",
+      "Desbloqueia pinturas exclusivas na LS Customs (Online)"
     ],
     "position": {
       "x": 367.2,
@@ -1557,7 +1675,9 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 50,
+    "total": 50
   },
   {
     "id": "activity-bridge-1",
@@ -1568,11 +1688,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Tataviam Mountains / Palmer-Taylor",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #1 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 1083,
@@ -1583,7 +1703,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 1,
+    "total": 50
   },
   {
     "id": "activity-bridge-2",
@@ -1594,11 +1716,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Tataviam Mountains / Palmer-Taylor",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #2 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 1024,
@@ -1609,7 +1731,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 2,
+    "total": 50
   },
   {
     "id": "activity-bridge-3",
@@ -1620,11 +1744,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Tataviam Mountains / Palmer-Taylor",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #3 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 910,
@@ -1635,7 +1759,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 3,
+    "total": 50
   },
   {
     "id": "activity-bridge-4",
@@ -1646,11 +1772,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Tataviam Mountains / Palmer-Taylor",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #4 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 721,
@@ -1661,7 +1787,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 4,
+    "total": 50
   },
   {
     "id": "activity-bridge-5",
@@ -1672,11 +1800,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #5 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 643,
@@ -1687,7 +1815,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 5,
+    "total": 50
   },
   {
     "id": "activity-bridge-6",
@@ -1698,11 +1828,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #6 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 590,
@@ -1713,7 +1843,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 6,
+    "total": 50
   },
   {
     "id": "activity-bridge-7",
@@ -1724,11 +1856,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #7 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 590,
@@ -1739,7 +1871,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 7,
+    "total": 50
   },
   {
     "id": "activity-bridge-8",
@@ -1750,11 +1884,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #8 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 582,
@@ -1765,7 +1899,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 8,
+    "total": 50
   },
   {
     "id": "activity-bridge-9",
@@ -1776,11 +1912,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #9 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 608,
@@ -1791,7 +1927,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 9,
+    "total": 50
   },
   {
     "id": "activity-bridge-10",
@@ -1802,11 +1940,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #10 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 640,
@@ -1817,7 +1955,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 10,
+    "total": 50
   },
   {
     "id": "activity-bridge-11",
@@ -1828,11 +1968,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #11 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 671,
@@ -1843,7 +1983,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 11,
+    "total": 50
   },
   {
     "id": "activity-bridge-12",
@@ -1854,11 +1996,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #12 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 651,
@@ -1869,7 +2011,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 12,
+    "total": 50
   },
   {
     "id": "activity-bridge-13",
@@ -1880,11 +2024,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #13 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 603,
@@ -1895,7 +2039,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 13,
+    "total": 50
   },
   {
     "id": "activity-bridge-14",
@@ -1906,11 +2052,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #14 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 673,
@@ -1921,7 +2067,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 14,
+    "total": 50
   },
   {
     "id": "activity-bridge-15",
@@ -1932,11 +2080,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #15 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 728,
@@ -1947,7 +2095,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 15,
+    "total": 50
   },
   {
     "id": "activity-bridge-16",
@@ -1958,11 +2108,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #16 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 794,
@@ -1973,7 +2123,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 16,
+    "total": 50
   },
   {
     "id": "activity-bridge-17",
@@ -1984,11 +2136,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Zancudo River / Fort Zancudo",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #17 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -2663,
@@ -1999,7 +2151,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 17,
+    "total": 50
   },
   {
     "id": "activity-bridge-18",
@@ -2010,11 +2164,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Paleto Bay / Mount Chiliad",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #18 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -1902,
@@ -2025,7 +2179,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 18,
+    "total": 50
   },
   {
     "id": "activity-bridge-19",
@@ -2036,11 +2192,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Paleto Bay / Mount Chiliad",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #19 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -513,
@@ -2051,7 +2207,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 19,
+    "total": 50
   },
   {
     "id": "activity-bridge-20",
@@ -2062,11 +2220,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Grapeseed / Mount Chiliad",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #20 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 126,
@@ -2077,7 +2235,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 20,
+    "total": 50
   },
   {
     "id": "activity-bridge-21",
@@ -2088,11 +2248,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Grapeseed / Mount Chiliad",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #21 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 143,
@@ -2103,7 +2263,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 21,
+    "total": 50
   },
   {
     "id": "activity-bridge-22",
@@ -2114,11 +2276,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Mount Gordo / Catfish View",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #22 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 2822,
@@ -2129,7 +2291,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 22,
+    "total": 50
   },
   {
     "id": "activity-bridge-23",
@@ -2140,11 +2304,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Grapeseed / Mount Chiliad",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #23 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -162,
@@ -2155,7 +2319,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 23,
+    "total": 50
   },
   {
     "id": "activity-bridge-24",
@@ -2166,11 +2332,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Sandy Shores / Alamo Sea",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #24 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -408,
@@ -2181,7 +2347,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 24,
+    "total": 50
   },
   {
     "id": "activity-bridge-25",
@@ -2192,11 +2360,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Sandy Shores / Alamo Sea",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #25 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -181,
@@ -2207,7 +2375,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 25,
+    "total": 50
   },
   {
     "id": "activity-bridge-26",
@@ -2218,11 +2388,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Grand Senora Desert / Ron Alternates",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #26 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 2558,
@@ -2233,7 +2403,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 26,
+    "total": 50
   },
   {
     "id": "activity-bridge-27",
@@ -2244,11 +2416,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Tataviam Mountains / Palmer-Taylor",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #27 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 2950,
@@ -2259,7 +2431,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 27,
+    "total": 50
   },
   {
     "id": "activity-bridge-28",
@@ -2270,11 +2444,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Tataviam Mountains / Palmer-Taylor",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #28 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 2369,
@@ -2285,7 +2459,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 28,
+    "total": 50
   },
   {
     "id": "activity-bridge-29",
@@ -2296,11 +2472,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "East Los Santos / El Burro Heights",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #29 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 1906,
@@ -2311,7 +2487,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 29,
+    "total": 50
   },
   {
     "id": "activity-bridge-30",
@@ -2322,11 +2500,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #30 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -403,
@@ -2337,7 +2515,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 30,
+    "total": 50
   },
   {
     "id": "activity-bridge-31",
@@ -2348,11 +2528,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Zancudo River / Fort Zancudo",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #31 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -1429,
@@ -2363,7 +2543,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 31,
+    "total": 50
   },
   {
     "id": "activity-bridge-32",
@@ -2374,11 +2556,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #32 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 219,
@@ -2389,7 +2571,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 32,
+    "total": 50
   },
   {
     "id": "activity-bridge-33",
@@ -2400,11 +2584,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #33 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 350,
@@ -2415,7 +2599,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 33,
+    "total": 50
   },
   {
     "id": "activity-bridge-34",
@@ -2426,11 +2612,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Pacific Bluffs / Richman",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #34 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -1848,
@@ -2441,7 +2627,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 34,
+    "total": 50
   },
   {
     "id": "activity-bridge-35",
@@ -2452,11 +2640,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vespucci / Del Perro",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #35 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -693,
@@ -2467,7 +2655,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 35,
+    "total": 50
   },
   {
     "id": "activity-bridge-36",
@@ -2478,11 +2668,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vespucci / Del Perro",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #36 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -1461,
@@ -2493,7 +2683,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 36,
+    "total": 50
   },
   {
     "id": "activity-bridge-37",
@@ -2504,11 +2696,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vespucci / Del Perro",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #37 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -1553,
@@ -2519,7 +2711,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 37,
+    "total": 50
   },
   {
     "id": "activity-bridge-38",
@@ -2530,11 +2724,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #38 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 338,
@@ -2545,7 +2739,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 38,
+    "total": 50
   },
   {
     "id": "activity-bridge-39",
@@ -2556,11 +2752,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Mount Gordo / Catfish View",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #39 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 1985,
@@ -2571,7 +2767,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 39,
+    "total": 50
   },
   {
     "id": "activity-bridge-40",
@@ -2582,11 +2780,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vespucci / Del Perro",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #40 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -713,
@@ -2597,7 +2795,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 40,
+    "total": 50
   },
   {
     "id": "activity-bridge-41",
@@ -2608,11 +2808,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vespucci / Del Perro",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #41 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -659,
@@ -2623,7 +2823,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 41,
+    "total": 50
   },
   {
     "id": "activity-bridge-42",
@@ -2634,11 +2836,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vespucci / Del Perro",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #42 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -620,
@@ -2649,7 +2851,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 42,
+    "total": 50
   },
   {
     "id": "activity-bridge-43",
@@ -2660,11 +2864,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #43 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -445,
@@ -2675,7 +2879,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 43,
+    "total": 50
   },
   {
     "id": "activity-bridge-44",
@@ -2686,11 +2892,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #44 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -373,
@@ -2701,7 +2907,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 44,
+    "total": 50
   },
   {
     "id": "activity-bridge-45",
@@ -2712,11 +2920,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #45 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -212,
@@ -2727,7 +2935,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 45,
+    "total": 50
   },
   {
     "id": "activity-bridge-46",
@@ -2738,11 +2948,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Los Santos Port / Elysian Island / LSIA",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #46 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 47,
@@ -2753,7 +2963,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 46,
+    "total": 50
   },
   {
     "id": "activity-bridge-47",
@@ -2764,11 +2976,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Pacific Bluffs / Richman",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #47 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -3080,
@@ -2779,7 +2991,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 47,
+    "total": 50
   },
   {
     "id": "activity-bridge-48",
@@ -2790,11 +3004,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Zancudo River / Fort Zancudo",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #48 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -1478,
@@ -2805,7 +3019,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 48,
+    "total": 50
   },
   {
     "id": "activity-bridge-49",
@@ -2816,11 +3032,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Grand Senora Desert / Ron Alternates",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #49 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 2308,
@@ -2831,7 +3047,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 49,
+    "total": 50
   },
   {
     "id": "activity-bridge-50",
@@ -2842,11 +3060,11 @@
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Grand Senora Desert / Ron Alternates",
-    "description": "Passe voando com um avião ou helicóptero por baixo da estrutura da ponte sem colidir com os pilares.",
+    "description": "Desafio aéreo #50 de 50. Voe com um avião ou helicóptero sob a estrutura da ponte sem bater ou tocar na água/estrada. 25 necessários para 100% e 50 para a conquista 'Por um Triz'.",
     "features": [
-      "50 pontes no total",
-      "25 necessárias para os 100%",
-      "Recomenda-se helicóptero Buzzard ou avião Mallard"
+      "50 pontes aéreas por Los Santos e Blaine County",
+      "25 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 2349,
@@ -2857,22 +3075,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 50,
+    "total": 50
   },
   {
     "id": "activity-knife-flight-1",
     "name": "Voo de Faca #1",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Pacific Bluffs / Richman",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #1 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -1186,
@@ -2883,22 +3103,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 1,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-2",
     "name": "Voo de Faca #2",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vinewood Hills / Rockford Hills",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #2 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -916,
@@ -2909,22 +3131,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 2,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-3",
     "name": "Voo de Faca #3",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vinewood Hills / Rockford Hills",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #3 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -726,
@@ -2935,22 +3159,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 3,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-4",
     "name": "Voo de Faca #4",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vinewood Hills / Rockford Hills",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #4 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -774,
@@ -2961,22 +3187,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 4,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-5",
     "name": "Voo de Faca #5",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vinewood Hills / Rockford Hills",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #5 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 271,
@@ -2987,22 +3215,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 5,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-6",
     "name": "Voo de Faca #6",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Vinewood Hills / Rockford Hills",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #6 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 377,
@@ -3013,22 +3243,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 6,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-7",
     "name": "Voo de Faca #7",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #7 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 121,
@@ -3039,22 +3271,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 7,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-8",
     "name": "Voo de Faca #8",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #8 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -204,
@@ -3065,22 +3299,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 8,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-9",
     "name": "Voo de Faca #9",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #9 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -287,
@@ -3091,22 +3327,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 9,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-10",
     "name": "Voo de Faca #10",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #10 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -272,
@@ -3117,22 +3355,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 10,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-11",
     "name": "Voo de Faca #11",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Downtown Los Santos / Pillbox Hill",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #11 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -230,
@@ -3143,22 +3383,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 11,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-12",
     "name": "Voo de Faca #12",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Grand Senora Desert / Ron Alternates",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #12 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 1822,
@@ -3169,22 +3411,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 12,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-13",
     "name": "Voo de Faca #13",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Grand Senora Desert / Ron Alternates",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #13 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 2410,
@@ -3195,22 +3439,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 13,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-14",
     "name": "Voo de Faca #14",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Mount Gordo / Catfish View",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #14 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": 2686,
@@ -3221,22 +3467,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 14,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-15",
     "name": "Voo de Faca #15",
     "category": "knife_flight",
-    "categoryLabel": "Voos de Faca",
+    "categoryLabel": "Voo de Faca",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Desafio Aéreo",
     "zone": "Paleto Bay / Mount Chiliad",
-    "description": "Voe lateralmente na vertical (voo de faca com leme) entre os prédios designados de Los Santos.",
+    "description": "Desafio de voo de faca #15 de 15. Voe com um avião acrobático inclinado 90 graus lateralmente entre dois prédios estreitos. 8 necessários para 100% e 15 para 'Por um Triz'.",
     "features": [
-      "15 voos de faca no total",
-      "8 necessários para os 100%",
-      "Requer avião acrobático Mallard ou caça P-996 Lazer"
+      "15 vãos estreitos entre arranha-céus de Los Santos",
+      "8 necessários para 100% do modo história",
+      "Troféu/Conquista 'Por um Triz'"
     ],
     "position": {
       "x": -1046,
@@ -3247,22 +3495,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 15,
+    "total": 15
   },
   {
     "id": "activity-parachute-1",
-    "name": "Salto en Paracaídas #1 - Maze Bank Tower",
+    "name": "Salto de Paraquedas #1",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Pillbox Hill",
-    "description": "Salto base en paracaídas #1 de 13. Salta al vacío desde las alturas en Pillbox Hill, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #1 de 13. Salte no vazio das alturas em Pillbox Hill, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": -75,
@@ -3273,22 +3523,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 1,
+    "total": 13
   },
   {
     "id": "activity-parachute-2",
-    "name": "Salto en Paracaídas #2 - Grúa de Construcción Mile High",
+    "name": "Salto de Paraquedas #2",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Pillbox Hill",
-    "description": "Salto base en paracaídas #2 de 13. Salta al vacío desde las alturas en Pillbox Hill, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #2 de 13. Salte no vazio das alturas em Pillbox Hill, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": -140,
@@ -3299,22 +3551,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 2,
+    "total": 13
   },
   {
     "id": "activity-parachute-3",
-    "name": "Salto en Paracaídas #3 - Cima de Mount Chiliad",
+    "name": "Salto de Paraquedas #3",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Mount Chiliad",
-    "description": "Salto base en paracaídas #3 de 13. Salta al vacío desde las alturas en Mount Chiliad, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #3 de 13. Salte no vazio das alturas em Mount Chiliad, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": 450,
@@ -3325,22 +3579,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 3,
+    "total": 13
   },
   {
     "id": "activity-parachute-4",
-    "name": "Salto en Paracaídas #4 - Teleférico de Mount Chiliad",
+    "name": "Salto de Paraquedas #4",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Mount Chiliad",
-    "description": "Salto base en paracaídas #4 de 13. Salta al vacío desde las alturas en Mount Chiliad, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #4 de 13. Salte no vazio das alturas em Mount Chiliad, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": -740,
@@ -3351,22 +3607,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 4,
+    "total": 13
   },
   {
     "id": "activity-parachute-5",
-    "name": "Salto en Paracaídas #5 - Presa Land Act",
+    "name": "Salto de Paraquedas #5",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Land Act Reservoir",
-    "description": "Salto base en paracaídas #5 de 13. Salta al vacío desde las alturas en Land Act Reservoir, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #5 de 13. Salte no vazio das alturas em Land Act Reservoir, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": 1665,
@@ -3377,22 +3635,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 5,
+    "total": 13
   },
   {
     "id": "activity-parachute-6",
-    "name": "Salto en Paracaídas #6 - Torre de Control de LSIA",
+    "name": "Salto de Paraquedas #6",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Los Santos International Airport",
-    "description": "Salto base en paracaídas #6 de 13. Salta al vacío desde las alturas en Los Santos International Airport, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #6 de 13. Salte no vazio das alturas em Los Santos International Airport, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": -1085,
@@ -3403,22 +3663,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 6,
+    "total": 13
   },
   {
     "id": "activity-parachute-7",
-    "name": "Salto en Paracaídas #7 - Helicóptero de Paleto Bay",
+    "name": "Salto de Paraquedas #7",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Paleto Bay",
-    "description": "Salto base en paracaídas #7 de 13. Salta al vacío desde las alturas en Paleto Bay, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #7 de 13. Salte no vazio das alturas em Paleto Bay, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": -400,
@@ -3429,22 +3691,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 7,
+    "total": 13
   },
   {
     "id": "activity-parachute-8",
-    "name": "Salto en Paracaídas #8 - Puente de Raton Canyon",
+    "name": "Salto de Paraquedas #8",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Raton Canyon",
-    "description": "Salto base en paracaídas #8 de 13. Salta al vacío desde las alturas en Raton Canyon, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #8 de 13. Salte no vazio das alturas em Raton Canyon, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": -1600,
@@ -3455,22 +3719,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 8,
+    "total": 13
   },
   {
     "id": "activity-parachute-9",
-    "name": "Salto en Paracaídas #9 - Rascacielos FIB / IAA",
+    "name": "Salto de Paraquedas #9",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Downtown Los Santos",
-    "description": "Salto base en paracaídas #9 de 13. Salta al vacío desde las alturas en Downtown Los Santos, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #9 de 13. Salte no vazio das alturas em Downtown Los Santos, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": 110,
@@ -3481,22 +3747,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 9,
+    "total": 13
   },
   {
     "id": "activity-parachute-10",
-    "name": "Salto en Paracaídas #10 - Banco Union Depository",
+    "name": "Salto de Paraquedas #10",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Downtown Los Santos",
-    "description": "Salto base en paracaídas #10 de 13. Salta al vacío desde las alturas en Downtown Los Santos, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #10 de 13. Salte no vazio das alturas em Downtown Los Santos, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": 5,
@@ -3507,22 +3775,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 10,
+    "total": 13
   },
   {
     "id": "activity-parachute-11",
-    "name": "Salto en Paracaídas #11 - Parque Eólico Ron Alternates",
+    "name": "Salto de Paraquedas #11",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Ron Alternates Wind Farm",
-    "description": "Salto base en paracaídas #11 de 13. Salta al vacío desde las alturas en Ron Alternates Wind Farm, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #11 de 13. Salte no vazio das alturas em Ron Alternates Wind Farm, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": 2050,
@@ -3533,22 +3803,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 11,
+    "total": 13
   },
   {
     "id": "activity-parachute-12",
-    "name": "Salto en Paracaídas #12 - Cresta de Mount Josiah",
+    "name": "Salto de Paraquedas #12",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Mount Josiah",
-    "description": "Salto base en paracaídas #12 de 13. Salta al vacío desde las alturas en Mount Josiah, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #12 de 13. Salte no vazio das alturas em Mount Josiah, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": -1100,
@@ -3559,22 +3831,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 12,
+    "total": 13
   },
   {
     "id": "activity-parachute-13",
-    "name": "Salto en Paracaídas #13 - Cima de Cassidy Creek",
+    "name": "Salto de Paraquedas #13",
     "category": "parachuting",
-    "categoryLabel": "Salto de Paraquedas",
+    "categoryLabel": "Paraquedismo",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Salto Base",
+    "priceFormatted": "Base Jump",
     "zone": "Raton Canyon / Cassidy Creek",
-    "description": "Salto base en paracaídas #13 de 13. Salta al vacío desde las alturas en Raton Canyon / Cassidy Creek, abre el paracaídas en el momento óptimo y planea hasta aterrizar en el centro de la diana objetivo. Requisito para el 100% de la historia.",
+    "description": "Salto base de paraquedas #13 de 13. Salte no vazio das alturas em Raton Canyon / Cassidy Creek, abra o paraquedas no momento certo e pouse no alvo marcado. Necessário para 100%.",
     "features": [
-      "13 saltos base de mundo abierto",
-      "Desbloqueado tras misiones de Dom Beasley",
-      "Requisito oficial para el 100%"
+      "13 saltos base em mundo aberto",
+      "Desbloqueado nas missões de Dom Beasley",
+      "Necessário para 100% do modo história"
     ],
     "position": {
       "x": -800,
@@ -3585,6 +3859,8 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 13,
+    "total": 13
   }
 ]

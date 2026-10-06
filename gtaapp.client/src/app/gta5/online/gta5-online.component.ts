@@ -1245,7 +1245,7 @@ delete (window as any)._gtaSaveMarkerName;
                         <p class="popup-desc">${loc.description}</p>
                         ${featuresHtml}
                         <div class="popup-row" style="margin-top: 8px; opacity: 0.7; font-size: 11px;">
-                            <span>Coordenadas:</span> <span>X: ${loc.position.x.toFixed(1)}, Y: ${loc.position.y.toFixed(1)}</span>
+                            <span>${this.translationService.t('gta5.popups.coordinates') || 'Coordenadas'}:</span> <span>X: ${loc.position.x.toFixed(1)}, Y: ${loc.position.y.toFixed(1)}</span>
                         </div>
                     </div>
                 </div>
@@ -1793,14 +1793,14 @@ delete (window as any)._gtaSaveMarkerName;
         const popupHtml = `
             <div class="gta-popup-card" style="min-width: 260px;">
                 <div class="popup-banner" style="background: linear-gradient(135deg, ${pinColor}44, #0b0f14 85%); border-bottom: 2px solid ${pinColor};">
-                    <span class="popup-badge" style="color: ${pinColor}; border-color: ${pinColor}66">${mystery.categoryLabel || 'Misterio'}</span>
+                    <span class="popup-badge" style="color: ${pinColor}; border-color: ${pinColor}66">${mystery.categoryLabel || this.translationService.t('transports.tabs.misterios') || 'Misterio'}</span>
                     <h4 class="popup-title">${mystery.title}</h4>
                     <div class="popup-zone">${mystery.zone || mystery.location}</div>
                 </div>
                 <div class="popup-content">
                     ${mystery.schedule ? `
                     <div class="popup-row">
-                        <span class="popup-tag-lbl">Horario</span>
+                        <span class="popup-tag-lbl">${this.translationService.t('transports.mysteries.schedule') || 'Horario'}</span>
                         <span class="popup-tag-val" style="color: #facc15; font-weight: 700;">${mystery.schedule}</span>
                     </div>` : ''}
                     <div class="popup-desc" style="font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 6px; line-height: 1.45;">

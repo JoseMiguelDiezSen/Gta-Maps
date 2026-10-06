@@ -3,16 +3,16 @@
     "id": "activity-golf-1",
     "name": "洛圣都高尔夫俱乐部",
     "category": "golf",
-    "categoryLabel": "高尔夫",
+    "categoryLabel": "高尔夫球",
     "gameMode": "both",
     "price": 100,
-    "priceFormatted": "$100 / 每场",
-    "zone": "理查曼, Los Santos",
-    "description": "9 洞专业高尔夫球场。可单人游玩或与对手比拼。平标准杆或低于标准杆完成 9 洞为故事模式 100% 通关要求。",
+    "priceFormatted": "每局 $100",
+    "zone": "Richman, Los Santos",
+    "description": "位于里奇曼的 9 洞职业高尔夫球场。可单独游玩或向对手发起挑战。以标准杆或低于标准杆完成 9 洞以达成 100% 进度。",
     "features": [
-      "完整 9 洞球场体验",
-      "100% 通关官方必做要求",
-      "支持单人与好友切磋"
+      "完成 9 洞标准高尔夫球场",
+      "达成 100% 进度必备",
+      "支持单人与多人对战"
     ],
     "position": {
       "x": -1367.6,
@@ -23,22 +23,24 @@
       "icon": "golf",
       "color": "#22c55e",
       "symbol": "⛳"
-    }
+    },
+    "number": 1,
+    "total": 1
   },
   {
     "id": "activity-darts-1",
-    "name": "飞镖 - 黄杰克酒吧",
+    "name": "飞镖 - 黄杰克旅馆",
     "category": "darts",
     "categoryLabel": "飞镖",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠",
-    "description": "经典塞诺拉沙漠黄杰克酒吧内的飞镖游戏。赢得一场 301 分双倍结镖比赛是 100% 达成要求。",
+    "zone": "Grand Senora Desert",
+    "description": "位于塞诺拉大沙漠历史悠久的黄杰克旅馆飞镖盘。以双倍区收尾赢得一场 301 比赛即可计入 100% 达成度。",
     "features": [
-      "301 分双倍结镖赛制",
-      "100% 达成官方要求",
-      "单人与好友对战"
+      "经典 301 规则 (以双倍区收尾)",
+      "达成 100% 进度必备",
+      "可单人游玩或与好友聚会"
     ],
     "position": {
       "x": 1990.2,
@@ -49,22 +51,24 @@
       "icon": "bullseye",
       "color": "#f97316",
       "symbol": "🎯"
-    }
+    },
+    "number": 1,
+    "total": 1
   },
   {
     "id": "activity-tennis-1",
-    "name": "Tennis 球场s - Vespucci Beach (球场 1)",
+    "name": "网球场 - 威斯普奇海滩 (1号场)",
     "category": "tennis",
     "categoryLabel": "网球",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
-    "zone": "威斯普奇 Beach",
-    "description": "标准比赛网球场。击败任何对手赢得至少 1 盘比赛为 100% 达成要求。",
+    "zone": "Vespucci Beach",
+    "description": "位于 Vespucci Beach 的标准网球场。击败任意对手赢得至少 1 盘网球比赛以达成 100% 游戏进度。",
     "features": [
-      "1盘、3盘或5盘赛制",
-      "100% 达成要求",
-      "上旋、挑高球与强力扣杀"
+      "1、3 或 5 盘制比赛",
+      "达成 100% 进度必备",
+      "上旋、下旋、高吊球和扣杀"
     ],
     "position": {
       "x": -1162.6,
@@ -75,22 +79,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 1,
+    "total": 1
   },
   {
     "id": "activity-tennis-2",
-    "name": "Tennis 球场s - Vinewood Hotel",
+    "name": "网球场 - 好莱坞酒店",
     "category": "tennis",
     "categoryLabel": "网球",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
     "zone": "Vinewood",
-    "description": "标准比赛网球场。击败任何对手赢得至少 1 盘比赛为 100% 达成要求。",
+    "description": "位于 Vinewood 的标准网球场。击败任意对手赢得至少 1 盘网球比赛以达成 100% 游戏进度。",
     "features": [
-      "1盘、3盘或5盘赛制",
-      "100% 达成要求",
-      "上旋、挑高球与强力扣杀"
+      "1、3 或 5 盘制比赛",
+      "达成 100% 进度必备",
+      "上旋、下旋、高吊球和扣杀"
     ],
     "position": {
       "x": 479.8,
@@ -101,22 +107,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 2,
+    "total": 1
   },
   {
     "id": "activity-tennis-3",
-    "name": "Tennis 球场 - Michael's Mansion",
+    "name": "网球场 - 麦克的豪宅",
     "category": "tennis",
     "categoryLabel": "网球",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
-    "zone": "罗克福德山",
-    "description": "标准比赛网球场。击败任何对手赢得至少 1 盘比赛为 100% 达成要求。",
+    "zone": "Rockford Hills",
+    "description": "位于 Rockford Hills 的标准网球场。击败任意对手赢得至少 1 盘网球比赛以达成 100% 游戏进度。",
     "features": [
-      "1盘、3盘或5盘赛制",
-      "100% 达成要求",
-      "上旋、挑高球与强力扣杀"
+      "1、3 或 5 盘制比赛",
+      "达成 100% 进度必备",
+      "上旋、下旋、高吊球和扣杀"
     ],
     "position": {
       "x": -774.2,
@@ -127,22 +135,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 3,
+    "total": 1
   },
   {
     "id": "activity-tennis-4",
-    "name": "Tennis 球场s - Weazel 球场s",
+    "name": "网球场 - 威索网球场",
     "category": "tennis",
     "categoryLabel": "网球",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
     "zone": "Morningwood",
-    "description": "标准比赛网球场。击败任何对手赢得至少 1 盘比赛为 100% 达成要求。",
+    "description": "位于 Morningwood 的标准网球场。击败任意对手赢得至少 1 盘网球比赛以达成 100% 游戏进度。",
     "features": [
-      "1盘、3盘或5盘赛制",
-      "100% 达成要求",
-      "上旋、挑高球与强力扣杀"
+      "1、3 或 5 盘制比赛",
+      "达成 100% 进度必备",
+      "上旋、下旋、高吊球和扣杀"
     ],
     "position": {
       "x": -379.2,
@@ -153,22 +163,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 4,
+    "total": 1
   },
   {
     "id": "activity-tennis-5",
-    "name": "Tennis 球场s - The Richman Hotel",
+    "name": "网球场 - 豪门大酒店",
     "category": "tennis",
     "categoryLabel": "网球",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
-    "zone": "理查曼",
-    "description": "标准比赛网球场。击败任何对手赢得至少 1 盘比赛为 100% 达成要求。",
+    "zone": "Richman",
+    "description": "位于 Richman 的标准网球场。击败任意对手赢得至少 1 盘网球比赛以达成 100% 游戏进度。",
     "features": [
-      "1盘、3盘或5盘赛制",
-      "100% 达成要求",
-      "上旋、挑高球与强力扣杀"
+      "1、3 或 5 盘制比赛",
+      "达成 100% 进度必备",
+      "上旋、下旋、高吊球和扣杀"
     ],
     "position": {
       "x": -1227,
@@ -179,22 +191,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 5,
+    "total": 1
   },
   {
     "id": "activity-tennis-6",
-    "name": "Tennis 球场s - Chumash Pacific Coast",
+    "name": "网球场 - 丘马什太平洋海岸",
     "category": "tennis",
     "categoryLabel": "网球",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
-    "zone": "丘马什",
-    "description": "标准比赛网球场。击败任何对手赢得至少 1 盘比赛为 100% 达成要求。",
+    "zone": "Chumash",
+    "description": "位于 Chumash 的标准网球场。击败任意对手赢得至少 1 盘网球比赛以达成 100% 游戏进度。",
     "features": [
-      "1盘、3盘或5盘赛制",
-      "100% 达成要求",
-      "上旋、挑高球与强力扣杀"
+      "1、3 或 5 盘制比赛",
+      "达成 100% 进度必备",
+      "上旋、下旋、高吊球和扣杀"
     ],
     "position": {
       "x": -2863,
@@ -205,22 +219,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 6,
+    "total": 1
   },
   {
     "id": "activity-tennis-7",
-    "name": "Tennis 球场s - ULSA University Campus",
+    "name": "网球场 - ULSA 大学园区",
     "category": "tennis",
     "categoryLabel": "网球",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
-    "zone": "理查曼 / ULSA",
-    "description": "标准比赛网球场。击败任何对手赢得至少 1 盘比赛为 100% 达成要求。",
+    "zone": "Richman / ULSA",
+    "description": "位于 Richman / ULSA 的标准网球场。击败任意对手赢得至少 1 盘网球比赛以达成 100% 游戏进度。",
     "features": [
-      "1盘、3盘或5盘赛制",
-      "100% 达成要求",
-      "上旋、挑高球与强力扣杀"
+      "1、3 或 5 盘制比赛",
+      "达成 100% 进度必备",
+      "上旋、下旋、高吊球和扣杀"
     ],
     "position": {
       "x": -1742,
@@ -231,22 +247,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 7,
+    "total": 1
   },
   {
     "id": "activity-tennis-8",
-    "name": "Tennis 球场s - Vinewood Hills",
+    "name": "网球场 - 好莱坞山",
     "category": "tennis",
     "categoryLabel": "网球",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "免费",
-    "zone": "好麦坞山",
-    "description": "标准比赛网球场。击败任何对手赢得至少 1 盘比赛为 100% 达成要求。",
+    "zone": "Vinewood Hills",
+    "description": "位于 Vinewood Hills 的标准网球场。击败任意对手赢得至少 1 盘网球比赛以达成 100% 游戏进度。",
     "features": [
-      "1盘、3盘或5盘赛制",
-      "100% 达成要求",
-      "上旋、挑高球与强力扣杀"
+      "1、3 或 5 盘制比赛",
+      "达成 100% 进度必备",
+      "上旋、下旋、高吊球和扣杀"
     ],
     "position": {
       "x": -234,
@@ -257,22 +275,24 @@
       "icon": "tennis",
       "color": "#eab308",
       "symbol": "🎾"
-    }
+    },
+    "number": 8,
+    "total": 1
   },
   {
     "id": "activity-stunt-jump-1",
-    "name": "飞车特技 #1",
+    "name": "特技飞车跳跃 #1",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "沙滩海岸 / 阿拉莫海",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "特技飞车跳跃 #1/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 2.1,
@@ -283,22 +303,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 1,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-2",
-    "name": "飞车特技 #2",
+    "name": "特技飞车跳跃 #2",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #2/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -437.4,
@@ -309,22 +331,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 2,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-3",
-    "name": "飞车特技 #3",
+    "name": "特技飞车跳跃 #3",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "葡萄籽 / 奇力耶德山",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "特技飞车跳跃 #3/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 466.7,
@@ -335,22 +359,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 3,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-4",
-    "name": "飞车特技 #4",
+    "name": "特技飞车跳跃 #4",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "葡萄籽 / 奇力耶德山",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "特技飞车跳跃 #4/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -166.3,
@@ -361,22 +387,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 4,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-5",
-    "name": "飞车特技 #5",
+    "name": "特技飞车跳跃 #5",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "佩立托湾 / 奇力耶德山",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "特技飞车跳跃 #5/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -977.3,
@@ -387,22 +415,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 5,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-6",
-    "name": "飞车特技 #6",
+    "name": "特技飞车跳跃 #6",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #6/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -7.6,
@@ -413,22 +443,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 6,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-7",
-    "name": "飞车特技 #7",
+    "name": "特技飞车跳跃 #7",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #7/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -268.1,
@@ -439,22 +471,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 7,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-8",
-    "name": "飞车特技 #8",
+    "name": "特技飞车跳跃 #8",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #8/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -86.2,
@@ -465,22 +499,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 8,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-9",
-    "name": "飞车特技 #9",
+    "name": "特技飞车跳跃 #9",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Vespucci / Del Perro",
+    "description": "特技飞车跳跃 #9/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -1594.8,
@@ -491,22 +527,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 9,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-10",
-    "name": "飞车特技 #10",
+    "name": "特技飞车跳跃 #10",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "好麦坞山 / 罗克福德山",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "特技飞车跳跃 #10/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -248.7,
@@ -517,22 +555,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 10,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-11",
-    "name": "飞车特技 #11",
+    "name": "特技飞车跳跃 #11",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "太平洋断崖 / 理查曼",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "特技飞车跳跃 #11/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -1442.9,
@@ -543,22 +583,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 11,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-12",
-    "name": "飞车特技 #12",
+    "name": "特技飞车跳跃 #12",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "戈多山 / Catfish View",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "特技飞车跳跃 #12/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 3352,
@@ -569,22 +611,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 12,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-13",
-    "name": "飞车特技 #13",
+    "name": "特技飞车跳跃 #13",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠 / Ron Alternates",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "特技飞车跳跃 #13/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 1687.5,
@@ -595,22 +639,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 13,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-14",
-    "name": "飞车特技 #14",
+    "name": "特技飞车跳跃 #14",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #14/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 307.4,
@@ -621,22 +667,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 14,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-15",
-    "name": "飞车特技 #15",
+    "name": "特技飞车跳跃 #15",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Vespucci / Del Perro",
+    "description": "特技飞车跳跃 #15/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -882.8,
@@ -647,22 +695,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 15,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-16",
-    "name": "飞车特技 #16",
+    "name": "特技飞车跳跃 #16",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #16/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 364.7,
@@ -673,22 +723,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 16,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-17",
-    "name": "飞车特技 #17",
+    "name": "特技飞车跳跃 #17",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #17/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 396.1,
@@ -699,22 +751,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 17,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-18",
-    "name": "飞车特技 #18",
+    "name": "特技飞车跳跃 #18",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #18/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 52.5,
@@ -725,22 +779,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 18,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-19",
-    "name": "飞车特技 #19",
+    "name": "特技飞车跳跃 #19",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "葡萄籽 / 奇力耶德山",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "特技飞车跳跃 #19/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 32.6,
@@ -751,22 +807,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 19,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-20",
-    "name": "飞车特技 #20",
+    "name": "特技飞车跳跃 #20",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠 / Ron Alternates",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "特技飞车跳跃 #20/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 1789,
@@ -777,22 +835,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 20,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-21",
-    "name": "飞车特技 #21",
+    "name": "特技飞车跳跃 #21",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "太平洋断崖 / 理查曼",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "特技飞车跳跃 #21/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -1070.8,
@@ -803,22 +863,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 21,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-22",
-    "name": "飞车特技 #22",
+    "name": "特技飞车跳跃 #22",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #22/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 84.7,
@@ -829,22 +891,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 22,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-23",
-    "name": "飞车特技 #23",
+    "name": "特技飞车跳跃 #23",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "戈多山 / Catfish View",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "特技飞车跳跃 #23/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 1637.9,
@@ -855,22 +919,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 23,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-24",
-    "name": "飞车特技 #24",
+    "name": "特技飞车跳跃 #24",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "特技飞车跳跃 #24/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 566.7,
@@ -881,22 +947,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 24,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-25",
-    "name": "飞车特技 #25",
+    "name": "特技飞车跳跃 #25",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #25/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 453,
@@ -907,22 +975,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 25,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-26",
-    "name": "飞车特技 #26",
+    "name": "特技飞车跳跃 #26",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #26/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -425.6,
@@ -933,22 +1003,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 26,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-27",
-    "name": "飞车特技 #27",
+    "name": "特技飞车跳跃 #27",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #27/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -963.2,
@@ -959,22 +1031,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 27,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-28",
-    "name": "飞车特技 #28",
+    "name": "特技飞车跳跃 #28",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "太平洋断崖 / 理查曼",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "特技飞车跳跃 #28/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -2009.7,
@@ -985,22 +1059,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 28,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-29",
-    "name": "飞车特技 #29",
+    "name": "特技飞车跳跃 #29",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "戈多山 / Catfish View",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "特技飞车跳跃 #29/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 1671.9,
@@ -1011,22 +1087,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 29,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-30",
-    "name": "飞车特技 #30",
+    "name": "特技飞车跳跃 #30",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Vespucci / Del Perro",
+    "description": "特技飞车跳跃 #30/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -524.7,
@@ -1037,22 +1115,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 30,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-31",
-    "name": "飞车特技 #31",
+    "name": "特技飞车跳跃 #31",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #31/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 787.8,
@@ -1063,22 +1143,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 31,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-32",
-    "name": "飞车特技 #32",
+    "name": "特技飞车跳跃 #32",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠 / Ron Alternates",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "特技飞车跳跃 #32/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 1978.7,
@@ -1089,22 +1171,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 32,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-33",
-    "name": "飞车特技 #33",
+    "name": "特技飞车跳跃 #33",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #33/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 672.3,
@@ -1115,22 +1199,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 33,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-34",
-    "name": "飞车特技 #34",
+    "name": "特技飞车跳跃 #34",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #34/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 108.2,
@@ -1141,22 +1227,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 34,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-35",
-    "name": "飞车特技 #35",
+    "name": "特技飞车跳跃 #35",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #35/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 109.1,
@@ -1167,22 +1255,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 35,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-36",
-    "name": "飞车特技 #36",
+    "name": "特技飞车跳跃 #36",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #36/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 124.2,
@@ -1193,22 +1283,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 36,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-37",
-    "name": "飞车特技 #37",
+    "name": "特技飞车跳跃 #37",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #37/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 174.6,
@@ -1219,22 +1311,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 37,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-38",
-    "name": "飞车特技 #38",
+    "name": "特技飞车跳跃 #38",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #38/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 163.7,
@@ -1245,22 +1339,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 38,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-39",
-    "name": "飞车特技 #39",
+    "name": "特技飞车跳跃 #39",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #39/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 285.8,
@@ -1271,22 +1367,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 39,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-40",
-    "name": "飞车特技 #40",
+    "name": "特技飞车跳跃 #40",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #40/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 371.5,
@@ -1297,22 +1395,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 40,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-41",
-    "name": "飞车特技 #41",
+    "name": "特技飞车跳跃 #41",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #41/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -854.3,
@@ -1323,22 +1423,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 41,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-42",
-    "name": "飞车特技 #42",
+    "name": "特技飞车跳跃 #42",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #42/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -986.5,
@@ -1349,22 +1451,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 42,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-43",
-    "name": "飞车特技 #43",
+    "name": "特技飞车跳跃 #43",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Vespucci / Del Perro",
+    "description": "特技飞车跳跃 #43/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -589.3,
@@ -1375,22 +1479,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 43,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-44",
-    "name": "飞车特技 #44",
+    "name": "特技飞车跳跃 #44",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Vespucci / Del Perro",
+    "description": "特技飞车跳跃 #44/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -626.6,
@@ -1401,22 +1507,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 44,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-45",
-    "name": "飞车特技 #45",
+    "name": "特技飞车跳跃 #45",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #45/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -453.6,
@@ -1427,22 +1535,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 45,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-46",
-    "name": "飞车特技 #46",
+    "name": "特技飞车跳跃 #46",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "特技飞车跳跃 #46/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -445.2,
@@ -1453,22 +1563,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 46,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-47",
-    "name": "飞车特技 #47",
+    "name": "特技飞车跳跃 #47",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "好麦坞山 / 罗克福德山",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "特技飞车跳跃 #47/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -594.9,
@@ -1479,22 +1591,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 47,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-48",
-    "name": "飞车特技 #48",
+    "name": "特技飞车跳跃 #48",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "好麦坞山 / 罗克福德山",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "特技飞车跳跃 #48/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": -726.3,
@@ -1505,22 +1619,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 48,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-49",
-    "name": "飞车特技 #49",
+    "name": "特技飞车跳跃 #49",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #49/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 1480.2,
@@ -1531,22 +1647,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 49,
+    "total": 50
   },
   {
     "id": "activity-stunt-jump-50",
-    "name": "飞车特技 #50",
+    "name": "特技飞车跳跃 #50",
     "category": "stunt_jump",
-    "categoryLabel": "飞车特技",
+    "categoryLabel": "特技飞车跳跃",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾车冲刺腾空并平稳四轮着地以完成特技挑战。完成 25 处飞车特技为故事模式 100% 要求，线上完成全部 50 处可解锁专属喷漆与改装。",
+    "priceFormatted": "经验值奖励 (RP)",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "特技飞车跳跃 #50/50。驾驶汽车或摩托车加速冲上跳台，并在指定区域平稳着陆。达成 100% 达成度需要完成 25 处，全部 50 处可解锁“炫耀狂”成就/奖杯。",
     "features": [
-      "需要高速平稳着地",
-      "慢动作特技运镜",
-      "100% 统计与载具改装解锁"
+      "遍布全圣安地列斯的 50 处特技跳跃",
+      "达成 100% 达成度需要 25 处",
+      "在在线模式中解锁洛圣都改车王专属喷漆"
     ],
     "position": {
       "x": 367.2,
@@ -1557,22 +1675,24 @@
       "icon": "car",
       "color": "#ec4899",
       "symbol": "🏎️"
-    }
+    },
+    "number": 50,
+    "total": 50
   },
   {
     "id": "activity-bridge-1",
-    "name": "穿桥引线 #1",
+    "name": "穿桥引线飞行 #1",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塔塔维阿姆山脉 / Palmer-Taylor",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "穿桥引线飞行挑战 #1/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 1083,
@@ -1583,22 +1703,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 1,
+    "total": 50
   },
   {
     "id": "activity-bridge-2",
-    "name": "穿桥引线 #2",
+    "name": "穿桥引线飞行 #2",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塔塔维阿姆山脉 / Palmer-Taylor",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "穿桥引线飞行挑战 #2/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 1024,
@@ -1609,22 +1731,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 2,
+    "total": 50
   },
   {
     "id": "activity-bridge-3",
-    "name": "穿桥引线 #3",
+    "name": "穿桥引线飞行 #3",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塔塔维阿姆山脉 / Palmer-Taylor",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "穿桥引线飞行挑战 #3/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 910,
@@ -1635,22 +1759,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 3,
+    "total": 50
   },
   {
     "id": "activity-bridge-4",
-    "name": "穿桥引线 #4",
+    "name": "穿桥引线飞行 #4",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塔塔维阿姆山脉 / Palmer-Taylor",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "穿桥引线飞行挑战 #4/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 721,
@@ -1661,22 +1787,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 4,
+    "total": 50
   },
   {
     "id": "activity-bridge-5",
-    "name": "穿桥引线 #5",
+    "name": "穿桥引线飞行 #5",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "穿桥引线飞行挑战 #5/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 643,
@@ -1687,22 +1815,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 5,
+    "total": 50
   },
   {
     "id": "activity-bridge-6",
-    "name": "穿桥引线 #6",
+    "name": "穿桥引线飞行 #6",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "穿桥引线飞行挑战 #6/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 590,
@@ -1713,22 +1843,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 6,
+    "total": 50
   },
   {
     "id": "activity-bridge-7",
-    "name": "穿桥引线 #7",
+    "name": "穿桥引线飞行 #7",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "穿桥引线飞行挑战 #7/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 590,
@@ -1739,22 +1871,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 7,
+    "total": 50
   },
   {
     "id": "activity-bridge-8",
-    "name": "穿桥引线 #8",
+    "name": "穿桥引线飞行 #8",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "穿桥引线飞行挑战 #8/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 582,
@@ -1765,22 +1899,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 8,
+    "total": 50
   },
   {
     "id": "activity-bridge-9",
-    "name": "穿桥引线 #9",
+    "name": "穿桥引线飞行 #9",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "穿桥引线飞行挑战 #9/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 608,
@@ -1791,22 +1927,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 9,
+    "total": 50
   },
   {
     "id": "activity-bridge-10",
-    "name": "穿桥引线 #10",
+    "name": "穿桥引线飞行 #10",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "穿桥引线飞行挑战 #10/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 640,
@@ -1817,22 +1955,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 10,
+    "total": 50
   },
   {
     "id": "activity-bridge-11",
-    "name": "穿桥引线 #11",
+    "name": "穿桥引线飞行 #11",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "穿桥引线飞行挑战 #11/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 671,
@@ -1843,22 +1983,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 11,
+    "total": 50
   },
   {
     "id": "activity-bridge-12",
-    "name": "穿桥引线 #12",
+    "name": "穿桥引线飞行 #12",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #12/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 651,
@@ -1869,22 +2011,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 12,
+    "total": 50
   },
   {
     "id": "activity-bridge-13",
-    "name": "穿桥引线 #13",
+    "name": "穿桥引线飞行 #13",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #13/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 603,
@@ -1895,22 +2039,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 13,
+    "total": 50
   },
   {
     "id": "activity-bridge-14",
-    "name": "穿桥引线 #14",
+    "name": "穿桥引线飞行 #14",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #14/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 673,
@@ -1921,22 +2067,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 14,
+    "total": 50
   },
   {
     "id": "activity-bridge-15",
-    "name": "穿桥引线 #15",
+    "name": "穿桥引线飞行 #15",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #15/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 728,
@@ -1947,22 +2095,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 15,
+    "total": 50
   },
   {
     "id": "activity-bridge-16",
-    "name": "穿桥引线 #16",
+    "name": "穿桥引线飞行 #16",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #16/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 794,
@@ -1973,22 +2123,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 16,
+    "total": 50
   },
   {
     "id": "activity-bridge-17",
-    "name": "穿桥引线 #17",
+    "name": "穿桥引线飞行 #17",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Zancudo River / 桑库多堡垒",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "穿桥引线飞行挑战 #17/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -2663,
@@ -1999,22 +2151,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 17,
+    "total": 50
   },
   {
     "id": "activity-bridge-18",
-    "name": "穿桥引线 #18",
+    "name": "穿桥引线飞行 #18",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "佩立托湾 / 奇力耶德山",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "穿桥引线飞行挑战 #18/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -1902,
@@ -2025,22 +2179,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 18,
+    "total": 50
   },
   {
     "id": "activity-bridge-19",
-    "name": "穿桥引线 #19",
+    "name": "穿桥引线飞行 #19",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "佩立托湾 / 奇力耶德山",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "穿桥引线飞行挑战 #19/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -513,
@@ -2051,22 +2207,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 19,
+    "total": 50
   },
   {
     "id": "activity-bridge-20",
-    "name": "穿桥引线 #20",
+    "name": "穿桥引线飞行 #20",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "葡萄籽 / 奇力耶德山",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "穿桥引线飞行挑战 #20/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 126,
@@ -2077,22 +2235,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 20,
+    "total": 50
   },
   {
     "id": "activity-bridge-21",
-    "name": "穿桥引线 #21",
+    "name": "穿桥引线飞行 #21",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "葡萄籽 / 奇力耶德山",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "穿桥引线飞行挑战 #21/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 143,
@@ -2103,22 +2263,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 21,
+    "total": 50
   },
   {
     "id": "activity-bridge-22",
-    "name": "穿桥引线 #22",
+    "name": "穿桥引线飞行 #22",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "戈多山 / Catfish View",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "穿桥引线飞行挑战 #22/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 2822,
@@ -2129,22 +2291,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 22,
+    "total": 50
   },
   {
     "id": "activity-bridge-23",
-    "name": "穿桥引线 #23",
+    "name": "穿桥引线飞行 #23",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "葡萄籽 / 奇力耶德山",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Grapeseed / Mount Chiliad",
+    "description": "穿桥引线飞行挑战 #23/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -162,
@@ -2155,22 +2319,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 23,
+    "total": 50
   },
   {
     "id": "activity-bridge-24",
-    "name": "穿桥引线 #24",
+    "name": "穿桥引线飞行 #24",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "沙滩海岸 / 阿拉莫海",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "穿桥引线飞行挑战 #24/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -408,
@@ -2181,22 +2347,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 24,
+    "total": 50
   },
   {
     "id": "activity-bridge-25",
-    "name": "穿桥引线 #25",
+    "name": "穿桥引线飞行 #25",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "沙滩海岸 / 阿拉莫海",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Sandy Shores / Alamo Sea",
+    "description": "穿桥引线飞行挑战 #25/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -181,
@@ -2207,22 +2375,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 25,
+    "total": 50
   },
   {
     "id": "activity-bridge-26",
-    "name": "穿桥引线 #26",
+    "name": "穿桥引线飞行 #26",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠 / Ron Alternates",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "穿桥引线飞行挑战 #26/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 2558,
@@ -2233,22 +2403,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 26,
+    "total": 50
   },
   {
     "id": "activity-bridge-27",
-    "name": "穿桥引线 #27",
+    "name": "穿桥引线飞行 #27",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塔塔维阿姆山脉 / Palmer-Taylor",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "穿桥引线飞行挑战 #27/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 2950,
@@ -2259,22 +2431,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 27,
+    "total": 50
   },
   {
     "id": "activity-bridge-28",
-    "name": "穿桥引线 #28",
+    "name": "穿桥引线飞行 #28",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塔塔维阿姆山脉 / Palmer-Taylor",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Tataviam Mountains / Palmer-Taylor",
+    "description": "穿桥引线飞行挑战 #28/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 2369,
@@ -2285,22 +2459,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 28,
+    "total": 50
   },
   {
     "id": "activity-bridge-29",
-    "name": "穿桥引线 #29",
+    "name": "穿桥引线飞行 #29",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "东洛圣都 / 布罗高地",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "East Los Santos / El Burro Heights",
+    "description": "穿桥引线飞行挑战 #29/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 1906,
@@ -2311,22 +2487,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 29,
+    "total": 50
   },
   {
     "id": "activity-bridge-30",
-    "name": "穿桥引线 #30",
+    "name": "穿桥引线飞行 #30",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #30/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -403,
@@ -2337,22 +2515,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 30,
+    "total": 50
   },
   {
     "id": "activity-bridge-31",
-    "name": "穿桥引线 #31",
+    "name": "穿桥引线飞行 #31",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Zancudo River / 桑库多堡垒",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "穿桥引线飞行挑战 #31/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -1429,
@@ -2363,22 +2543,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 31,
+    "total": 50
   },
   {
     "id": "activity-bridge-32",
-    "name": "穿桥引线 #32",
+    "name": "穿桥引线飞行 #32",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #32/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 219,
@@ -2389,22 +2571,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 32,
+    "total": 50
   },
   {
     "id": "activity-bridge-33",
-    "name": "穿桥引线 #33",
+    "name": "穿桥引线飞行 #33",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #33/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 350,
@@ -2415,22 +2599,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 33,
+    "total": 50
   },
   {
     "id": "activity-bridge-34",
-    "name": "穿桥引线 #34",
+    "name": "穿桥引线飞行 #34",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "太平洋断崖 / 理查曼",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "穿桥引线飞行挑战 #34/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -1848,
@@ -2441,22 +2627,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 34,
+    "total": 50
   },
   {
     "id": "activity-bridge-35",
-    "name": "穿桥引线 #35",
+    "name": "穿桥引线飞行 #35",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vespucci / Del Perro",
+    "description": "穿桥引线飞行挑战 #35/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -693,
@@ -2467,22 +2655,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 35,
+    "total": 50
   },
   {
     "id": "activity-bridge-36",
-    "name": "穿桥引线 #36",
+    "name": "穿桥引线飞行 #36",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vespucci / Del Perro",
+    "description": "穿桥引线飞行挑战 #36/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -1461,
@@ -2493,22 +2683,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 36,
+    "total": 50
   },
   {
     "id": "activity-bridge-37",
-    "name": "穿桥引线 #37",
+    "name": "穿桥引线飞行 #37",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vespucci / Del Perro",
+    "description": "穿桥引线飞行挑战 #37/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -1553,
@@ -2519,22 +2711,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 37,
+    "total": 50
   },
   {
     "id": "activity-bridge-38",
-    "name": "穿桥引线 #38",
+    "name": "穿桥引线飞行 #38",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #38/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 338,
@@ -2545,22 +2739,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 38,
+    "total": 50
   },
   {
     "id": "activity-bridge-39",
-    "name": "穿桥引线 #39",
+    "name": "穿桥引线飞行 #39",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "戈多山 / Catfish View",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "穿桥引线飞行挑战 #39/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 1985,
@@ -2571,22 +2767,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 39,
+    "total": 50
   },
   {
     "id": "activity-bridge-40",
-    "name": "穿桥引线 #40",
+    "name": "穿桥引线飞行 #40",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vespucci / Del Perro",
+    "description": "穿桥引线飞行挑战 #40/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -713,
@@ -2597,22 +2795,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 40,
+    "total": 50
   },
   {
     "id": "activity-bridge-41",
-    "name": "穿桥引线 #41",
+    "name": "穿桥引线飞行 #41",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vespucci / Del Perro",
+    "description": "穿桥引线飞行挑战 #41/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -659,
@@ -2623,22 +2823,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 41,
+    "total": 50
   },
   {
     "id": "activity-bridge-42",
-    "name": "穿桥引线 #42",
+    "name": "穿桥引线飞行 #42",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "威斯普奇 / 德尔佩罗",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vespucci / Del Perro",
+    "description": "穿桥引线飞行挑战 #42/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -620,
@@ -2649,22 +2851,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 42,
+    "total": 50
   },
   {
     "id": "activity-bridge-43",
-    "name": "穿桥引线 #43",
+    "name": "穿桥引线飞行 #43",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "穿桥引线飞行挑战 #43/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -445,
@@ -2675,22 +2879,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 43,
+    "total": 50
   },
   {
     "id": "activity-bridge-44",
-    "name": "穿桥引线 #44",
+    "name": "穿桥引线飞行 #44",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "穿桥引线飞行挑战 #44/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -373,
@@ -2701,22 +2907,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 44,
+    "total": 50
   },
   {
     "id": "activity-bridge-45",
-    "name": "穿桥引线 #45",
+    "name": "穿桥引线飞行 #45",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "穿桥引线飞行挑战 #45/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -212,
@@ -2727,22 +2935,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 45,
+    "total": 50
   },
   {
     "id": "activity-bridge-46",
-    "name": "穿桥引线 #46",
+    "name": "穿桥引线飞行 #46",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Los Santos Port / 极乐岛 / 洛圣都国际机场 (LSIA)",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Los Santos Port / Elysian Island / LSIA",
+    "description": "穿桥引线飞行挑战 #46/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 47,
@@ -2753,22 +2963,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 46,
+    "total": 50
   },
   {
     "id": "activity-bridge-47",
-    "name": "穿桥引线 #47",
+    "name": "穿桥引线飞行 #47",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "太平洋断崖 / 理查曼",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "穿桥引线飞行挑战 #47/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -3080,
@@ -2779,22 +2991,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 47,
+    "total": 50
   },
   {
     "id": "activity-bridge-48",
-    "name": "穿桥引线 #48",
+    "name": "穿桥引线飞行 #48",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "Zancudo River / 桑库多堡垒",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Zancudo River / Fort Zancudo",
+    "description": "穿桥引线飞行挑战 #48/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -1478,
@@ -2805,22 +3019,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 48,
+    "total": 50
   },
   {
     "id": "activity-bridge-49",
-    "name": "穿桥引线 #49",
+    "name": "穿桥引线飞行 #49",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠 / Ron Alternates",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "穿桥引线飞行挑战 #49/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 2308,
@@ -2831,22 +3047,24 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 49,
+    "total": 50
   },
   {
     "id": "activity-bridge-50",
-    "name": "穿桥引线 #50",
+    "name": "穿桥引线飞行 #50",
     "category": "under_the_bridge",
-    "categoryLabel": "穿桥引线",
+    "categoryLabel": "穿桥引线飞行",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠 / Ron Alternates",
-    "description": "驾驶飞机或直升机从桥梁下方穿过且不发生任何刮蹭。全图共有 50 处穿桥点。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "穿桥引线飞行挑战 #50/50。驾驶飞机或直升机平稳穿过桥下结构，不得发生碰撞或触碰水面/路面。100% 达成度需要 25 处，全部 50 处可解锁“毫发无损”成就。",
     "features": [
-      "飞行特技挑战",
-      "100% 统计要求",
-      "需要精准飞行操控"
+      "穿梭洛圣都与布雷恩郡的 50 座桥梁",
+      "故事模式 100% 达成度需要 25 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 2349,
@@ -2857,7 +3075,9 @@
       "icon": "bridge",
       "color": "#06b6d4",
       "symbol": "🌉"
-    }
+    },
+    "number": 50,
+    "total": 50
   },
   {
     "id": "activity-knife-flight-1",
@@ -2866,13 +3086,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "太平洋断崖 / 理查曼",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Pacific Bluffs / Richman",
+    "description": "侧飞飞行挑战 #1/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -1186,
@@ -2883,7 +3103,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 1,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-2",
@@ -2892,13 +3114,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "好麦坞山 / 罗克福德山",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "侧飞飞行挑战 #2/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -916,
@@ -2909,7 +3131,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 2,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-3",
@@ -2918,13 +3142,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "好麦坞山 / 罗克福德山",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "侧飞飞行挑战 #3/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -726,
@@ -2935,7 +3159,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 3,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-4",
@@ -2944,13 +3170,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "好麦坞山 / 罗克福德山",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "侧飞飞行挑战 #4/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -774,
@@ -2961,7 +3187,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 4,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-5",
@@ -2970,13 +3198,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "好麦坞山 / 罗克福德山",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "侧飞飞行挑战 #5/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 271,
@@ -2987,7 +3215,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 5,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-6",
@@ -2996,13 +3226,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "好麦坞山 / 罗克福德山",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Vinewood Hills / Rockford Hills",
+    "description": "侧飞飞行挑战 #6/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 377,
@@ -3013,7 +3243,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 6,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-7",
@@ -3022,13 +3254,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "侧飞飞行挑战 #7/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 121,
@@ -3039,7 +3271,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 7,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-8",
@@ -3048,13 +3282,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "侧飞飞行挑战 #8/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -204,
@@ -3065,7 +3299,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 8,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-9",
@@ -3074,13 +3310,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "侧飞飞行挑战 #9/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -287,
@@ -3091,7 +3327,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 9,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-10",
@@ -3100,13 +3338,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "侧飞飞行挑战 #10/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -272,
@@ -3117,7 +3355,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 10,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-11",
@@ -3126,13 +3366,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos / 圆丘",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Downtown Los Santos / Pillbox Hill",
+    "description": "侧飞飞行挑战 #11/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -230,
@@ -3143,7 +3383,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 11,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-12",
@@ -3152,13 +3394,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠 / Ron Alternates",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "侧飞飞行挑战 #12/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 1822,
@@ -3169,7 +3411,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 12,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-13",
@@ -3178,13 +3422,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "塞诺拉大沙漠 / Ron Alternates",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Grand Senora Desert / Ron Alternates",
+    "description": "侧飞飞行挑战 #13/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 2410,
@@ -3195,7 +3439,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 13,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-14",
@@ -3204,13 +3450,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "戈多山 / Catfish View",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Mount Gordo / Catfish View",
+    "description": "侧飞飞行挑战 #14/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": 2686,
@@ -3221,7 +3467,9 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 14,
+    "total": 15
   },
   {
     "id": "activity-knife-flight-15",
@@ -3230,13 +3478,13 @@
     "categoryLabel": "侧飞挑战",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "佩立托湾 / 奇力耶德山",
-    "description": "驾驶固定翼特技飞机在两座高楼狭窄空间之间保持 90 度侧飞穿过。全图共 15 处。",
+    "priceFormatted": "飞行挑战",
+    "zone": "Paleto Bay / Mount Chiliad",
+    "description": "侧飞飞行挑战 #15/15。驾驶特技飞机侧倾 90 度从两座高楼狭缝间穿过。100% 达成度需要 8 处，全部 15 处可解锁“毫发无损”成就。",
     "features": [
-      "高难度大楼间侧飞",
-      "100% 达成要求",
-      "建议使用特技飞机 (Mallard)"
+      "洛圣都摩天大楼间的 15 处极窄缝隙",
+      "故事模式 100% 达成度需要 8 处",
+      "“毫发无损”成就/奖杯"
     ],
     "position": {
       "x": -1046,
@@ -3247,22 +3495,24 @@
       "icon": "plane",
       "color": "#8b5cf6",
       "symbol": "✈️"
-    }
+    },
+    "number": 15,
+    "total": 15
   },
   {
     "id": "activity-parachute-1",
-    "name": "跳伞点 - 圆丘",
+    "name": "定点跳伞 #1",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "圆丘",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Pillbox Hill",
+    "description": "定点跳伞挑战 #1/13。在 Pillbox Hill 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": -75,
@@ -3273,22 +3523,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 1,
+    "total": 13
   },
   {
     "id": "activity-parachute-2",
-    "name": "跳伞点 - 圆丘",
+    "name": "定点跳伞 #2",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "圆丘",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Pillbox Hill",
+    "description": "定点跳伞挑战 #2/13。在 Pillbox Hill 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": -140,
@@ -3299,22 +3551,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 2,
+    "total": 13
   },
   {
     "id": "activity-parachute-3",
-    "name": "跳伞点 - 奇力耶德山",
+    "name": "定点跳伞 #3",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "奇力耶德山",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Mount Chiliad",
+    "description": "定点跳伞挑战 #3/13。在 Mount Chiliad 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": 450,
@@ -3325,22 +3579,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 3,
+    "total": 13
   },
   {
     "id": "activity-parachute-4",
-    "name": "跳伞点 - 奇力耶德山",
+    "name": "定点跳伞 #4",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "奇力耶德山",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Mount Chiliad",
+    "description": "定点跳伞挑战 #4/13。在 Mount Chiliad 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": -740,
@@ -3351,22 +3607,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 4,
+    "total": 13
   },
   {
     "id": "activity-parachute-5",
-    "name": "跳伞点 - 水陆公约水库",
+    "name": "定点跳伞 #5",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "水陆公约水库",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Land Act Reservoir",
+    "description": "定点跳伞挑战 #5/13。在 Land Act Reservoir 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": 1665,
@@ -3377,22 +3635,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 5,
+    "total": 13
   },
   {
     "id": "activity-parachute-6",
-    "name": "跳伞点 - 洛圣都国际机场 (洛圣都国际机场 (洛圣都国际机场 (LSIA)))",
+    "name": "定点跳伞 #6",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "洛圣都国际机场 (洛圣都国际机场 (LSIA))",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Los Santos International Airport",
+    "description": "定点跳伞挑战 #6/13。在 Los Santos International Airport 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": -1085,
@@ -3403,22 +3663,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 6,
+    "total": 13
   },
   {
     "id": "activity-parachute-7",
-    "name": "跳伞点 - 佩立托湾",
+    "name": "定点跳伞 #7",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "佩立托湾",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Paleto Bay",
+    "description": "定点跳伞挑战 #7/13。在 Paleto Bay 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": -400,
@@ -3429,22 +3691,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 7,
+    "total": 13
   },
   {
     "id": "activity-parachute-8",
-    "name": "跳伞点 - 雷通峡谷",
+    "name": "定点跳伞 #8",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "雷通峡谷",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Raton Canyon",
+    "description": "定点跳伞挑战 #8/13。在 Raton Canyon 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": -1600,
@@ -3455,22 +3719,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 8,
+    "total": 13
   },
   {
     "id": "activity-parachute-9",
-    "name": "跳伞点 - 市中心 Los Santos",
+    "name": "定点跳伞 #9",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Downtown Los Santos",
+    "description": "定点跳伞挑战 #9/13。在 Downtown Los Santos 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": 110,
@@ -3481,22 +3747,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 9,
+    "total": 13
   },
   {
     "id": "activity-parachute-10",
-    "name": "跳伞点 - 市中心 Los Santos",
+    "name": "定点跳伞 #10",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "市中心 Los Santos",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Downtown Los Santos",
+    "description": "定点跳伞挑战 #10/13。在 Downtown Los Santos 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": 5,
@@ -3507,22 +3775,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 10,
+    "total": 13
   },
   {
     "id": "activity-parachute-11",
-    "name": "跳伞点 - Ron Alternates Wind Farm",
+    "name": "定点跳伞 #11",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
+    "priceFormatted": "Base Jump",
     "zone": "Ron Alternates Wind Farm",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "description": "定点跳伞挑战 #11/13。在 Ron Alternates Wind Farm 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": 2050,
@@ -3533,22 +3803,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 11,
+    "total": 13
   },
   {
     "id": "activity-parachute-12",
-    "name": "跳伞点 - 约西亚山",
+    "name": "定点跳伞 #12",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "约西亚山",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Mount Josiah",
+    "description": "定点跳伞挑战 #12/13。在 Mount Josiah 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": -1100,
@@ -3559,22 +3831,24 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 12,
+    "total": 13
   },
   {
     "id": "activity-parachute-13",
-    "name": "跳伞点 - 雷通峡谷 / 卡西迪溪",
+    "name": "定点跳伞 #13",
     "category": "parachuting",
-    "categoryLabel": "高空跳伞",
+    "categoryLabel": "定点跳伞",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "免费",
-    "zone": "雷通峡谷 / 卡西迪溪",
-    "description": "高空极限跳伞挑战。精准穿过空中光圈并安全降落在目标靶心。",
+    "priceFormatted": "Base Jump",
+    "zone": "Raton Canyon / Cassidy Creek",
+    "description": "定点跳伞挑战 #13/13。在 Raton Canyon / Cassidy Creek 的高空一跃而下，在适当时机打开降落伞并精准落在目标靶心上。达成 100% 进度必须完成。",
     "features": [
-      "高空定点降落",
-      "极限运动挑战",
-      "100% 达成要求"
+      "开放世界中的 13 处定点跳伞",
+      "通过多姆·比斯利（Dom Beasley）任务解锁",
+      "故事模式 100% 达成度必须完成"
     ],
     "position": {
       "x": -800,
@@ -3585,6 +3859,8 @@
       "icon": "parachute",
       "color": "#3b82f6",
       "symbol": "🪂"
-    }
+    },
+    "number": 13,
+    "total": 13
   }
 ]

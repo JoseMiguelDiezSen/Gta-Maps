@@ -2,7 +2,7 @@
   {
     "id": "pistol",
     "order": 1,
-    "name": "Pistol",
+    "name": "手枪",
     "nameEn": "Pistol",
     "category": "pistols",
     "categoryLabel": "Handguns",
@@ -16,12 +16,12 @@
     "accuracy": 4,
     "range": 3,
     "clipSize": "12 rounds (16 extended)",
-    "description": "Standard issue 9mm semi-automatic pistol. Compact, lightweight, and dependable for close-quarters engagements.",
+    "description": "标准 9 毫米半自动手枪。紧凑、轻便且可靠，适用于近距离交火。",
     "attachments": [
-      "Extended Magazine",
-      "Flashlight",
-      "Suppressor",
-      "Yusuf Amir Luxury Finish"
+      "扩容弹匣",
+      "战术手电筒",
+      "消音器",
+      "尤素夫·阿米尔奢华涂装"
     ],
     "icon": "fa-gun",
     "badgeColor": "#ffb833",
@@ -32,7 +32,7 @@
   {
     "id": "combat_pistol",
     "order": 2,
-    "name": "Combat Pistol",
+    "name": "战斗手枪",
     "nameEn": "Combat Pistol",
     "category": "pistols",
     "categoryLabel": "Handguns",
@@ -46,12 +46,12 @@
     "accuracy": 5,
     "range": 3.5,
     "clipSize": "12 rounds (16 extended)",
-    "description": "A compact, lightweight polymer pistol designed for law enforcement and personal defense with improved accuracy and rate of fire.",
+    "description": "一款紧凑轻便的高强度聚合物手枪，专为执法部门与自卫设计，具备优异的精准度与高射速。",
     "attachments": [
-      "Extended Magazine",
-      "Flashlight",
-      "Suppressor",
-      "Platinum Finish"
+      "扩容弹匣",
+      "战术手电筒",
+      "消音器",
+      "铂金涂层皮肤"
     ],
     "icon": "fa-gun",
     "badgeColor": "#ffb833",
@@ -62,7 +62,7 @@
   {
     "id": "ap_pistol",
     "order": 3,
-    "name": "AP Pistol",
+    "name": "穿甲手枪 (AP)",
     "nameEn": "AP Pistol",
     "category": "pistols",
     "categoryLabel": "Handguns",
@@ -78,9 +78,9 @@
     "clipSize": "18 rounds (36 extended)",
     "description": "High-rate-of-fire armor-piercing automatic pistol. Empty a 36-round clip in seconds during high-speed drive-by shootings.",
     "attachments": [
-      "Extended Magazine",
-      "Flashlight",
-      "Suppressor",
+      "扩容弹匣",
+      "战术手电筒",
+      "消音器",
       "Luxury Finish"
     ],
     "icon": "fa-gun",
@@ -92,7 +92,7 @@
   {
     "id": "heavy_revolver",
     "order": 4,
-    "name": "Heavy Revolver",
+    "name": "重型左轮手枪",
     "nameEn": "Heavy Revolver",
     "category": "pistols",
     "categoryLabel": "Handguns",
@@ -201,7 +201,7 @@
   {
     "id": "micro_smg",
     "order": 8,
-    "name": "Micro SMG",
+    "name": "微型冲锋枪",
     "nameEn": "Micro SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -217,10 +217,10 @@
     "clipSize": "16 rounds (30 extended)",
     "description": "The quintessential drive-by weapon. Compact frame with an aggressive cyclic rate to overwhelm targets on the move.",
     "attachments": [
-      "Extended Magazine",
-      "Flashlight",
-      "Suppressor",
-      "Scope",
+      "扩容弹匣",
+      "战术手电筒",
+      "消音器",
+      "瞄准镜",
       "Luxury Finish"
     ],
     "icon": "fa-shield-halved",
@@ -232,7 +232,7 @@
   {
     "id": "smg",
     "order": 9,
-    "name": "SMG",
+    "name": "冲锋枪",
     "nameEn": "SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -248,10 +248,10 @@
     "clipSize": "30 rounds (60 drum)",
     "description": "The world's premier tactical submachine gun. Delivers flawless recoil control, precision handling, and sustained cyclic fire.",
     "attachments": [
-      "Extended Magazine",
-      "Drum Magazine",
-      "Flashlight",
-      "Suppressor",
+      "扩容弹匣",
+      "弹鼓",
+      "战术手电筒",
+      "消音器",
       "Holographic Sight"
     ],
     "icon": "fa-shield-halved",
@@ -280,8 +280,8 @@
     "description": "Heavy squad automatic weapon with a massive belt capacity, capable of shredding enemy squads and disabling air support.",
     "attachments": [
       "200-Round Box Magazine",
-      "Scope",
-      "Grip",
+      "瞄准镜",
+      "前握把",
       "Gold Luxury Tint"
     ],
     "icon": "fa-shield-halved",
@@ -320,7 +320,7 @@
   {
     "id": "assault_rifle",
     "order": 12,
-    "name": "Assault Rifle",
+    "name": "突击步枪",
     "nameEn": "Assault Rifle",
     "category": "rifles",
     "categoryLabel": "Assault Rifles",
@@ -336,11 +336,11 @@
     "clipSize": "30 rounds (60 extended)",
     "description": "The most widely recognized assault rifle on earth. Legendary durability firing heavy 7.62mm cartridges with extreme lethality.",
     "attachments": [
-      "Extended Magazine",
-      "Drum Magazine",
-      "Scope",
-      "Suppressor",
-      "Grip",
+      "扩容弹匣",
+      "弹鼓",
+      "瞄准镜",
+      "消音器",
+      "前握把",
       "Yusuf Amir Gold Finish"
     ],
     "icon": "fa-crosshairs",
@@ -352,7 +352,7 @@
   {
     "id": "carbine_rifle",
     "order": 13,
-    "name": "Carbine Rifle",
+    "name": "卡宾步枪",
     "nameEn": "Carbine Rifle",
     "category": "rifles",
     "categoryLabel": "Assault Rifles",
@@ -368,12 +368,12 @@
     "clipSize": "30 rounds (60 extended)",
     "description": "All-around military workhorse rifle with full Picatinny rail modularity, crisp handling, and controllable recoil patterns.",
     "attachments": [
-      "Extended Magazine",
+      "扩容弹匣",
       "Box Drum",
       "Holographic Sight",
       "Tactical Flashlight",
-      "Suppressor",
-      "Grip"
+      "消音器",
+      "前握把"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
@@ -384,7 +384,7 @@
   {
     "id": "special_carbine",
     "order": 14,
-    "name": "Special Carbine",
+    "name": "特种卡宾枪",
     "nameEn": "Special Carbine",
     "category": "rifles",
     "categoryLabel": "Assault Rifles",
@@ -400,10 +400,10 @@
     "clipSize": "30 rounds (60 extended)",
     "description": "German engineered lightweight polymer rifle. Renowned across Los Santos for laser precision and minimal recoil bloom.",
     "attachments": [
-      "Extended Magazine",
+      "扩容弹匣",
       "100-Round Drum",
       "Optical Scope",
-      "Suppressor",
+      "消音器",
       "Ergonomic Grip"
     ],
     "icon": "fa-crosshairs",
@@ -431,10 +431,10 @@
     "clipSize": "30 rounds (60 extended)",
     "description": "Iconic military service rifle delivering reliable sustained damage for urban tactical operations throughout San Andreas.",
     "attachments": [
-      "Extended Magazine",
+      "扩容弹匣",
       "Telescopic Scope",
-      "Suppressor",
-      "Grip",
+      "消音器",
+      "前握把",
       "Tactical Light"
     ],
     "icon": "fa-crosshairs",
@@ -446,7 +446,7 @@
   {
     "id": "pump_shotgun",
     "order": 16,
-    "name": "Pump Shotgun",
+    "name": "泵动式霰弹枪",
     "nameEn": "Pump Shotgun",
     "category": "shotguns",
     "categoryLabel": "Shotguns",
@@ -462,7 +462,7 @@
     "clipSize": "8 shells",
     "description": "Classic 12-gauge law enforcement pump action shotgun. Devastating point-blank stopping power with dense buckshot spread.",
     "attachments": [
-      "Flashlight",
+      "战术手电筒",
       "Shotgun Suppressor",
       "Luxury Engraving"
     ],
@@ -475,7 +475,7 @@
   {
     "id": "assault_shotgun",
     "order": 17,
-    "name": "Assault Shotgun",
+    "name": "突击霰弹枪",
     "nameEn": "Assault Shotgun",
     "category": "shotguns",
     "categoryLabel": "Shotguns",
@@ -493,8 +493,8 @@
     "attachments": [
       "32-Shell Drum Magazine",
       "Tactical Flashlight",
-      "Grip",
-      "Suppressor"
+      "前握把",
+      "消音器"
     ],
     "icon": "fa-fire",
     "badgeColor": "#ea580c",
@@ -533,7 +533,7 @@
   {
     "id": "sniper_rifle",
     "order": 19,
-    "name": "Sniper Rifle",
+    "name": "狙击步枪",
     "nameEn": "Sniper Rifle",
     "category": "snipers",
     "categoryLabel": "Sniper Rifles",
@@ -550,7 +550,7 @@
     "description": "Precision bolt-action long range marksman rifle engineered to eliminate threats from hundreds of yards away.",
     "attachments": [
       "Advanced High-Power Scope",
-      "Suppressor",
+      "消音器",
       "Luxury Engraving"
     ],
     "icon": "fa-bullseye",
@@ -562,7 +562,7 @@
   {
     "id": "heavy_sniper",
     "order": 20,
-    "name": "Heavy Sniper",
+    "name": "重型狙击步枪",
     "nameEn": "Heavy Sniper",
     "category": "snipers",
     "categoryLabel": "Sniper Rifles",
@@ -578,7 +578,7 @@
     "clipSize": "6 rounds",
     "description": "Massive .50 BMG anti-materiel sniper rifle. Capable of disabling helicopter rotors, piercing vehicle armor, and eliminating targets across extreme render distances.",
     "attachments": [
-      "Advanced Scope",
+      "高级瞄准镜",
       "Thermal / Night Vision Scope (Mk II)",
       "Explosive Rounds (Mk II)"
     ],
@@ -591,10 +591,10 @@
   {
     "id": "rpg",
     "order": 21,
-    "name": "RPG",
+    "name": "火箭筒 (RPG)",
     "nameEn": "RPG",
     "category": "heavy",
-    "categoryLabel": "Heavy Weapons",
+    "categoryLabel": "重型武器",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "RPG-7 (85mm Rocket)",
     "price": 26250,
@@ -618,10 +618,10 @@
   {
     "id": "homing_launcher",
     "order": 22,
-    "name": "Homing Launcher",
+    "name": "制导火箭发射器",
     "nameEn": "Homing Launcher",
     "category": "heavy",
-    "categoryLabel": "Heavy Weapons",
+    "categoryLabel": "重型武器",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "FIM-92 Stinger / SA-7 Grail",
     "price": 75000,
@@ -645,10 +645,10 @@
   {
     "id": "minigun",
     "order": 23,
-    "name": "Minigun",
+    "name": "加特林机枪 (Minigun)",
     "nameEn": "Minigun",
     "category": "heavy",
-    "categoryLabel": "Heavy Weapons",
+    "categoryLabel": "重型武器",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "M134 Vulcan (6-barrel 7.62mm rotary)",
     "price": 47000,
@@ -675,7 +675,7 @@
     "name": "Railgun",
     "nameEn": "Railgun",
     "category": "heavy",
-    "categoryLabel": "Heavy Weapons",
+    "categoryLabel": "重型武器",
     "manufacturer": "Coil",
     "realCounterpart": "Experimental Electromagnetic Kinetic Cannon",
     "price": 730000,
@@ -702,7 +702,7 @@
     "name": "Knife",
     "nameEn": "Knife",
     "category": "melee",
-    "categoryLabel": "Melee Weapons",
+    "categoryLabel": "近战格斗武器",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Ka-Bar USMC 7-inch Carbon Steel Knife",
     "price": 100,
@@ -729,7 +729,7 @@
     "name": "Stone Hatchet",
     "nameEn": "Stone Hatchet",
     "category": "melee",
-    "categoryLabel": "Melee Weapons",
+    "categoryLabel": "近战格斗武器",
     "manufacturer": "Native American / RDR2",
     "realCounterpart": "Sacred Stone Tomahawk",
     "price": 0,
@@ -753,7 +753,7 @@
   {
     "id": "sticky_bomb",
     "order": 27,
-    "name": "Sticky Bomb",
+    "name": "感应粘弹 (C4)",
     "nameEn": "Sticky Bomb",
     "category": "throwables",
     "categoryLabel": "Throwables & Explosives",

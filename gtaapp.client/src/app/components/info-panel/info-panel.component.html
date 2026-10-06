@@ -133,7 +133,7 @@
             <div class="dealer-section-divider"
                  *ngIf="d.id === 'pedal_and_metal'">
               <div class="dealer-section-divider-line"></div>
-              <span class="dealer-section-divider-label">Vehículos Especiales</span>
+              <span class="dealer-section-divider-label">{{ 'transports.tabs.pegasus' | translate }}</span>
               <div class="dealer-section-divider-line"></div>
             </div>
 
@@ -252,7 +252,7 @@
         <!-- Separador Concesionario con barritas y margen amplio -->
         <div class="dealer-section-divider dealer-grid-divider">
           <div class="dealer-section-divider-line"></div>
-          <span class="dealer-section-divider-label">Concesionario</span>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.concesionarios' | translate }}</span>
           <div class="dealer-section-divider-line"></div>
         </div>
 
@@ -385,7 +385,7 @@
           <div class="vclean-bottom-action">
             <button type="button" class="vclean-back-btn" (click)="backToDealerGrid()">
               <i class="fa-solid fa-arrow-left"></i>
-              <span>Volver a {{ activeDealerName }}</span>
+              <span>{{ 'transports.dealers.backTo' | translate }} {{ activeDealerName }}</span>
             </button>
           </div>
 
@@ -488,7 +488,7 @@
         <!-- Separador Armería con barritas y margen amplio -->
         <div class="dealer-section-divider dealer-grid-divider">
           <div class="dealer-section-divider-line"></div>
-          <span class="dealer-section-divider-label">Armería</span>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.armeria' | translate }}</span>
           <div class="dealer-section-divider-line"></div>
         </div>
 
@@ -1900,7 +1900,7 @@
               <div class="mdetail-box" *ngIf="selectedMystery.position">
                 <i class="fa-solid fa-crosshairs box-icon" style="color: #4ade80;"></i>
                 <div class="box-content">
-                  <span class="box-label">Coordenadas XYZ</span>
+                  <span class="box-label">{{ 'gta5.popups.coordinates' | translate }} XYZ</span>
                   <span class="box-val" style="font-family: monospace; font-size: 11px;">
                     X: {{ selectedMystery.position.x }}, Y: {{ selectedMystery.position.y }}
                   </span>
@@ -2015,15 +2015,15 @@
           <!-- Precios / Desbloqueo -->
           <div class="vclean-prices">
             <div class="vclean-price-box vclean-price-primary">
-              <span class="vclean-price-lbl">Precio Ammu-Nation</span>
+              <span class="vclean-price-lbl">{{ 'transports.weapons.buyPrice' | translate }}</span>
               <span class="vclean-price-val">{{ selectedWeapon.priceFormatted }}</span>
             </div>
             <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedWeapon.rankUnlock > 1">
-              <span class="vclean-price-lbl">Rango requerido</span>
-              <span class="vclean-price-val">Nivel {{ selectedWeapon.rankUnlock }}</span>
+              <span class="vclean-price-lbl">{{ 'transports.weapons.rankUnlock' | translate }}</span>
+              <span class="vclean-price-val">{{ selectedWeapon.rankUnlock }}</span>
             </div>
             <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedWeapon.rankUnlock <= 1 && selectedWeapon.clipSize">
-              <span class="vclean-price-lbl">Cargador</span>
+              <span class="vclean-price-lbl">{{ 'transports.weapons.clipSize' | translate }}</span>
               <span class="vclean-price-val">{{ selectedWeapon.clipSize }}</span>
             </div>
           </div>
@@ -2064,7 +2064,7 @@
           <div class="vclean-desc-box" *ngIf="selectedWeapon.rankUnlock > 1 && selectedWeapon.clipSize">
             <div class="vclean-desc-head">
               <i class="fa-solid fa-box-archive"></i>
-              <span>Cargador</span>
+              <span>{{ 'transports.weapons.clipSize' | translate }}</span>
             </div>
             <p class="vclean-desc-text">{{ selectedWeapon.clipSize }}</p>
           </div>
@@ -2073,7 +2073,7 @@
           <div class="vclean-desc-box" *ngIf="selectedWeapon.description">
             <div class="vclean-desc-head">
               <i class="fa-solid fa-circle-info"></i>
-              <span>Especificaciones Ammu-Nation</span>
+              <span>{{ 'transports.weapons.synopsis' | translate }}</span>
             </div>
             <p class="vclean-desc-text">{{ selectedWeapon.description }}</p>
           </div>
@@ -2082,7 +2082,7 @@
           <div class="vclean-desc-box" *ngIf="selectedWeapon.attachments && selectedWeapon.attachments.length > 0">
             <div class="vclean-desc-head">
               <i class="fa-solid fa-screwdriver-wrench"></i>
-              <span>Accesorios Compatibles</span>
+              <span>{{ 'transports.weapons.attachmentsTitle' | translate }}</span>
             </div>
             <div class="heist-vehicles-tags" style="margin-top: 8px;">
               <span class="heist-vehicle-tag" *ngFor="let att of selectedWeapon.attachments">
@@ -2096,7 +2096,7 @@
           <div class="vclean-bottom-action">
             <button type="button" class="vclean-back-btn" (click)="closeWeaponDetail()">
               <i class="fa-solid fa-arrow-left"></i>
-              <span>Volver a Armería</span>
+              <span>{{ 'transports.weapons.returnToList' | translate }}</span>
             </button>
           </div>
 
