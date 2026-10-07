@@ -579,5 +579,22 @@ export const en: TranslationSchema = {
     submit: 'Access',
     cancel: 'Cancel',
     error: 'Incorrect password'
+  },
+  feedback: {
+    buttonTitle: 'Send feedback or suggestions',
+    modalTitle: 'Suggestions & Feedback',
+    modalSubtitle: 'Have an idea or spotted a bug? Let us know!',
+    nameLabel: 'Your Name (optional)',
+    namePlaceholder: 'e.g. Alex or Anonymous',
+    messageLabel: 'Your Message',
+    messagePlaceholder: 'Write your suggestion, feedback, or report here...',
+    sendButton: 'Send Feedback',
+    sending: 'Sending...',
+    successTitle: 'Thank you for your feedback!',
+    successMessage: 'Your message has been received. It helps us keep improving.',
+    errorTitle: 'Failed to send',
+    errorMessage: 'Could not send feedback. Please try again in a few moments.',
+    close: 'Close',
+    sendAnother: 'Send another message'
   }
 };

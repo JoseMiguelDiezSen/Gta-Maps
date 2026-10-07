@@ -579,5 +579,22 @@ export const es: TranslationSchema = {
     submit: 'Acceder',
     cancel: 'Cancelar',
     error: 'Contraseña incorrecta'
+  },
+  feedback: {
+    buttonTitle: 'Enviar sugerencia o comentarios',
+    modalTitle: 'Sugerencias y Comentarios',
+    modalSubtitle: '¿Tienes alguna idea o has encontrado algún fallo? ¡Cuéntanoslo!',
+    nameLabel: 'Tu Nombre (opcional)',
+    namePlaceholder: 'Ej: Carlos o Anónimo',
+    messageLabel: 'Tu Mensaje',
+    messagePlaceholder: 'Escribe aquí tu sugerencia, comentario o reporte...',
+    sendButton: 'Enviar Sugerencia',
+    sending: 'Enviando...',
+    successTitle: '¡Gracias por tu mensaje!',
+    successMessage: 'Tu sugerencia ha sido recibida correctamente. Nos ayuda a seguir mejorando.',
+    errorTitle: 'Error al enviar',
+    errorMessage: 'No se pudo enviar la sugerencia. Por favor, inténtalo de nuevo en unos momentos.',
+    close: 'Cerrar',
+    sendAnother: 'Enviar otra sugerencia'
   }
 };

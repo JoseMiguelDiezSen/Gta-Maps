@@ -580,5 +580,22 @@ export const pt: TranslationSchema = {
     submit: 'Acessar',
     cancel: 'Cancelar',
     error: 'Senha incorreta'
+  },
+  feedback: {
+    buttonTitle: 'Enviar sugestão ou comentários',
+    modalTitle: 'Sugestões e Comentários',
+    modalSubtitle: 'Tem alguma ideia ou encontrou um erro? Conte-nos!',
+    nameLabel: 'Seu Nome (opcional)',
+    namePlaceholder: 'Ex: Carlos ou Anônimo',
+    messageLabel: 'Sua Mensagem',
+    messagePlaceholder: 'Escreva aqui sua sugestão, comentário ou relato...',
+    sendButton: 'Enviar Sugestão',
+    sending: 'Enviando...',
+    successTitle: 'Obrigado pela sua mensagem!',
+    successMessage: 'Sua sugestão foi recebida com sucesso. Isso nos ajuda a continuar melhorando.',
+    errorTitle: 'Erro ao enviar',
+    errorMessage: 'Não foi possível enviar a sugestão. Por favor, tente novamente em alguns momentos.',
+    close: 'Fechar',
+    sendAnother: 'Enviar outra sugestão'
   }
 };

@@ -553,4 +553,21 @@ export interface TranslationSchema {
     cancel: string;
     error: string;
   };
+  feedback?: {
+    buttonTitle: string;
+    modalTitle: string;
+    modalSubtitle: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    sendButton: string;
+    sending: string;
+    successTitle: string;
+    successMessage: string;
+    errorTitle: string;
+    errorMessage: string;
+    close: string;
+    sendAnother: string;
+  };
 }

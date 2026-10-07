@@ -4,198 +4,15 @@
 
   <!-- SELECTOR DE IDIOMA PERSONALIZADO CON BANDERAS VECTORIALES (SVG) -->
   <div class="language-selector" [class.is-open]="isOpen">
-    <button
-      type="button"
-      class="language-trigger"
-      (click)="toggleDropdown($event)"
-      [attr.aria-expanded]="isOpen"
-      aria-haspopup="listbox"
-      [title]="'home.changeLanguage' | translate"
-    >
-      <span class="flag-icon-box" [ngSwitch]="currentLanguage.code">
-        <!-- Bandera España SVG -->
-        <svg *ngSwitchCase="'es'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <path fill="#c60b1e" d="M0 0h640v480H0z"/>
-          <path fill="#ffc400" d="M0 120h640v240H0z"/>
-          <g transform="translate(180, 240) scale(1.6)">
-            <path fill="#c60b1e" d="M-18-36h36v40a18 18 0 0 1-36 0z"/>
-            <path fill="#ffc400" d="M-13-31h26v34a13 13 0 0 1-26 0z"/>
-            <path fill="#c60b1e" d="M-9-27h18v13h-18zM-9-9h18v13h-18z"/>
-            <circle cx="0" cy="-43" r="7" fill="#ffc400"/>
-          </g>
-        </svg>
-        <!-- Bandera Estados Unidos (EEUU) SVG -->
-        <svg *ngSwitchCase="'en'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="480" fill="#b22234"/>
-          <path stroke="#ffffff" stroke-width="36.923" d="M0,55.38H640M0,129.23H640M0,203.08H640M0,276.92H640M0,350.77H640M0,424.62H640"/>
-          <rect width="260" height="258.46" fill="#3c3b6e"/>
-          <g fill="#ffffff">
-            <g id="us-star-trig-r1">
-              <circle cx="28" cy="28" r="8"/>
-              <circle cx="74" cy="28" r="8"/>
-              <circle cx="120" cy="28" r="8"/>
-              <circle cx="166" cy="28" r="8"/>
-              <circle cx="212" cy="28" r="8"/>
-              <circle cx="238" cy="28" r="8"/>
-            </g>
-            <g id="us-star-trig-r2">
-              <circle cx="51" cy="74" r="8"/>
-              <circle cx="97" cy="74" r="8"/>
-              <circle cx="143" cy="74" r="8"/>
-              <circle cx="189" cy="74" r="8"/>
-              <circle cx="230" cy="74" r="8"/>
-            </g>
-            <g id="us-star-trig-r3">
-              <circle cx="28" cy="120" r="8"/>
-              <circle cx="74" cy="120" r="8"/>
-              <circle cx="120" cy="120" r="8"/>
-              <circle cx="166" cy="120" r="8"/>
-              <circle cx="212" cy="120" r="8"/>
-              <circle cx="238" cy="120" r="8"/>
-            </g>
-            <g id="us-star-trig-r4">
-              <circle cx="51" cy="166" r="8"/>
-              <circle cx="97" cy="166" r="8"/>
-              <circle cx="143" cy="166" r="8"/>
-              <circle cx="189" cy="166" r="8"/>
-              <circle cx="230" cy="166" r="8"/>
-            </g>
-            <g id="us-star-trig-r5">
-              <circle cx="28" cy="212" r="8"/>
-              <circle cx="74" cy="212" r="8"/>
-              <circle cx="120" cy="212" r="8"/>
-              <circle cx="166" cy="212" r="8"/>
-              <circle cx="212" cy="212" r="8"/>
-              <circle cx="238" cy="212" r="8"/>
-            </g>
-          </g>
-        </svg>
-        <!-- Bandera Brasil (Português) SVG -->
-        <svg *ngSwitchCase="'pt'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="480" fill="#009c3b"/>
-          <polygon points="320,55 580,240 320,425 60,240" fill="#ffdf00"/>
-          <circle cx="320" cy="240" r="102" fill="#002776"/>
-          <path d="M222,246 Q320,205 418,246" stroke="#ffffff" stroke-width="12" fill="none"/>
-        </svg>
-        <!-- Bandera China (简体中文) SVG -->
-        <svg *ngSwitchCase="'zh'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="480" fill="#de2910"/>
-          <polygon points="107,48 119,85 158,85 126,108 138,145 107,122 75,145 87,108 55,85 94,85" fill="#ffde00"/>
-          <polygon points="213,32 216,42 226,42 218,48 221,58 213,52 205,58 208,48 200,42 210,42" fill="#ffde00" transform="rotate(-30 213 45)"/>
-          <polygon points="256,75 259,85 269,85 261,91 264,101 256,95 248,101 251,91 243,85 253,85" fill="#ffde00" transform="rotate(30 256 88)"/>
-          <polygon points="256,149 259,159 269,159 261,165 264,175 256,169 248,175 251,165 243,159 253,159" fill="#ffde00" transform="rotate(0 256 162)"/>
-          <polygon points="213,203 216,213 226,213 218,219 221,229 213,223 205,229 208,219 200,213 210,213" fill="#ffde00" transform="rotate(20 213 216)"/>
-        </svg>
-        <!-- Bandera Francia (Français) SVG -->
-        <svg *ngSwitchCase="'fr'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="213.3" height="480" fill="#002654"/>
-          <rect x="213.3" width="213.4" height="480" fill="#ffffff"/>
-          <rect x="426.7" width="213.3" height="480" fill="#ce1126"/>
-        </svg>
-        <!-- Bandera Alemania (Deutsch) SVG -->
-        <svg *ngSwitchCase="'de'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="160" fill="#000000"/>
-          <rect y="160" width="640" height="160" fill="#dd0000"/>
-          <rect y="320" width="640" height="160" fill="#ffce00"/>
-        </svg>
-        <!-- Bandera Italia (Italiano) SVG -->
-        <svg *ngSwitchCase="'it'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="213.3" height="480" fill="#009246"/>
-          <rect x="213.3" width="213.4" height="480" fill="#ffffff"/>
-          <rect x="426.7" width="213.3" height="480" fill="#ce2b37"/>
-        </svg>
-        <!-- Bandera Rusia (Русский) SVG -->
-        <svg *ngSwitchCase="'ru'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="160" fill="#ffffff"/>
-          <rect y="160" width="640" height="160" fill="#0039a6"/>
-          <rect y="320" width="640" height="160" fill="#d52b1e"/>
-        </svg>
-        <!-- Bandera Árabe (العربية) SVG -->
-        <svg *ngSwitchCase="'ar'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="480" fill="#006c35"/>
-          <path d="M140,325 L500,325 L490,340 L140,340 Z" fill="#ffffff"/>
-          <path d="M165,305 L165,360 L145,360 L145,305 Z" fill="#ffffff"/>
-          <circle cx="135" cy="332" r="10" fill="#ffffff"/>
-          <path d="M160,200 Q200,160 240,200 Q280,160 320,200 Q360,160 400,200 Q440,160 480,200" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/>
-          <path d="M200,240 Q260,210 320,240 Q380,210 440,240" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
-        </svg>
-        <!-- Bandera Japón (日本語) SVG -->
-        <svg *ngSwitchCase="'ja'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="480" fill="#ffffff"/>
-          <circle cx="320" cy="240" r="144" fill="#bc002d"/>
-        </svg>
-        <!-- Bandera India (हिन्दी) SVG -->
-        <svg *ngSwitchCase="'hi'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="160" fill="#ff9933"/>
-          <rect y="160" width="640" height="160" fill="#ffffff"/>
-          <rect y="320" width="640" height="160" fill="#138808"/>
-          <circle cx="320" cy="240" r="48" fill="none" stroke="#000080" stroke-width="6"/>
-          <circle cx="320" cy="240" r="8" fill="#000080"/>
-        </svg>
-        <!-- Bandera Turquía (Türkçe) SVG -->
-        <svg *ngSwitchCase="'tr'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="480" fill="#e30a17"/>
-          <circle cx="270" cy="240" r="120" fill="#ffffff"/>
-          <circle cx="300" cy="240" r="96" fill="#e30a17"/>
-          <g fill="#ffffff" transform="translate(375, 240) rotate(-18) scale(0.6)">
-            <polygon points="0,-60 17.6,-18.5 57.1,-18.5 25.1,6.5 37.1,48.5 0,20 -37.1,48.5 -25.1,6.5 -57.1,-18.5 -17.6,-18.5"/>
-          </g>
-        </svg>
-        <!-- Bandera Corea del Sur (한국어) SVG -->
-        <svg *ngSwitchCase="'ko'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
-          <rect width="640" height="480" fill="#ffffff"/>
-          <g transform="translate(320, 240) rotate(-33.7)">
-            <path d="M-100,0 A100,100 0 0,1 100,0 A50,50 0 0,1 0,0 A50,50 0 0,0 -100,0" fill="#cd2e3a"/>
-            <path d="M100,0 A100,100 0 0,1 -100,0 A50,50 0 0,1 0,0 A50,50 0 0,0 100,0" fill="#0047a0"/>
-          </g>
-          <g fill="#000000">
-            <g transform="translate(160, 120) rotate(56.3)">
-              <rect x="-35" y="-18" width="70" height="8" rx="1"/>
-              <rect x="-35" y="-4" width="70" height="8" rx="1"/>
-              <rect x="-35" y="10" width="70" height="8" rx="1"/>
-            </g>
-            <g transform="translate(480, 360) rotate(56.3)">
-              <rect x="-35" y="-18" width="32" height="8" rx="1"/>
-              <rect x="3" y="-18" width="32" height="8" rx="1"/>
-              <rect x="-35" y="-4" width="32" height="8" rx="1"/>
-              <rect x="3" y="-4" width="32" height="8" rx="1"/>
-              <rect x="-35" y="10" width="32" height="8" rx="1"/>
-              <rect x="3" y="10" width="32" height="8" rx="1"/>
-            </g>
-            <g transform="translate(480, 120) rotate(-56.3)">
-              <rect x="-35" y="-18" width="32" height="8" rx="1"/>
-              <rect x="3" y="-18" width="32" height="8" rx="1"/>
-              <rect x="-35" y="-4" width="70" height="8" rx="1"/>
-              <rect x="-35" y="10" width="32" height="8" rx="1"/>
-              <rect x="3" y="10" width="32" height="8" rx="1"/>
-            </g>
-            <g transform="translate(160, 360) rotate(-56.3)">
-              <rect x="-35" y="-18" width="70" height="8" rx="1"/>
-              <rect x="-35" y="-4" width="32" height="8" rx="1"/>
-              <rect x="3" y="-4" width="32" height="8" rx="1"/>
-              <rect x="-35" y="10" width="70" height="8" rx="1"/>
-            </g>
-          </g>
-        </svg>
-      </span>
-      <span class="language-name">{{ currentLanguage.label }}</span>
-      <svg class="language-chevron" [class.is-open]="isOpen" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
-        <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-
-    <!-- MENÚ DESPLEGABLE CON BANDERAS VECTORIALES -->
-    <div class="language-menu" *ngIf="isOpen" role="listbox">
       <button
-        *ngFor="let lang of languages"
         type="button"
-        class="language-option"
-        [class.is-selected]="lang.code === selectedCode"
-        (click)="selectLanguage(lang.code, $event)"
-        role="option"
-        [attr.aria-selected]="lang.code === selectedCode"
+        class="language-trigger"
+        (click)="toggleDropdown($event)"
+        [attr.aria-expanded]="isOpen"
+        aria-haspopup="listbox"
+        [title]="'home.changeLanguage' | translate"
       >
-        <span class="flag-icon-box" [ngSwitch]="lang.code">
+        <span class="flag-icon-box" [ngSwitch]="currentLanguage.code">
           <!-- Bandera España SVG -->
           <svg *ngSwitchCase="'es'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
             <path fill="#c60b1e" d="M0 0h640v480H0z"/>
@@ -213,34 +30,44 @@
             <path stroke="#ffffff" stroke-width="36.923" d="M0,55.38H640M0,129.23H640M0,203.08H640M0,276.92H640M0,350.77H640M0,424.62H640"/>
             <rect width="260" height="258.46" fill="#3c3b6e"/>
             <g fill="#ffffff">
-              <circle cx="28" cy="28" r="8"/>
-              <circle cx="74" cy="28" r="8"/>
-              <circle cx="120" cy="28" r="8"/>
-              <circle cx="166" cy="28" r="8"/>
-              <circle cx="212" cy="28" r="8"/>
-              <circle cx="238" cy="28" r="8"/>
-              <circle cx="51" cy="74" r="8"/>
-              <circle cx="97" cy="74" r="8"/>
-              <circle cx="143" cy="74" r="8"/>
-              <circle cx="189" cy="74" r="8"/>
-              <circle cx="230" cy="74" r="8"/>
-              <circle cx="28" cy="120" r="8"/>
-              <circle cx="74" cy="120" r="8"/>
-              <circle cx="120" cy="120" r="8"/>
-              <circle cx="166" cy="120" r="8"/>
-              <circle cx="212" cy="120" r="8"/>
-              <circle cx="238" cy="120" r="8"/>
-              <circle cx="51" cy="166" r="8"/>
-              <circle cx="97" cy="166" r="8"/>
-              <circle cx="143" cy="166" r="8"/>
-              <circle cx="189" cy="166" r="8"/>
-              <circle cx="230" cy="166" r="8"/>
-              <circle cx="28" cy="212" r="8"/>
-              <circle cx="74" cy="212" r="8"/>
-              <circle cx="120" cy="212" r="8"/>
-              <circle cx="166" cy="212" r="8"/>
-              <circle cx="212" cy="212" r="8"/>
-              <circle cx="238" cy="212" r="8"/>
+              <g id="us-star-trig-r1">
+                <circle cx="28" cy="28" r="8"/>
+                <circle cx="74" cy="28" r="8"/>
+                <circle cx="120" cy="28" r="8"/>
+                <circle cx="166" cy="28" r="8"/>
+                <circle cx="212" cy="28" r="8"/>
+                <circle cx="238" cy="28" r="8"/>
+              </g>
+              <g id="us-star-trig-r2">
+                <circle cx="51" cy="74" r="8"/>
+                <circle cx="97" cy="74" r="8"/>
+                <circle cx="143" cy="74" r="8"/>
+                <circle cx="189" cy="74" r="8"/>
+                <circle cx="230" cy="74" r="8"/>
+              </g>
+              <g id="us-star-trig-r3">
+                <circle cx="28" cy="120" r="8"/>
+                <circle cx="74" cy="120" r="8"/>
+                <circle cx="120" cy="120" r="8"/>
+                <circle cx="166" cy="120" r="8"/>
+                <circle cx="212" cy="120" r="8"/>
+                <circle cx="238" cy="120" r="8"/>
+              </g>
+              <g id="us-star-trig-r4">
+                <circle cx="51" cy="166" r="8"/>
+                <circle cx="97" cy="166" r="8"/>
+                <circle cx="143" cy="166" r="8"/>
+                <circle cx="189" cy="166" r="8"/>
+                <circle cx="230" cy="166" r="8"/>
+              </g>
+              <g id="us-star-trig-r5">
+                <circle cx="28" cy="212" r="8"/>
+                <circle cx="74" cy="212" r="8"/>
+                <circle cx="120" cy="212" r="8"/>
+                <circle cx="166" cy="212" r="8"/>
+                <circle cx="212" cy="212" r="8"/>
+                <circle cx="238" cy="212" r="8"/>
+              </g>
             </g>
           </svg>
           <!-- Bandera Brasil (Português) SVG -->
@@ -351,12 +178,184 @@
             </g>
           </svg>
         </span>
-        <span class="language-name">{{ lang.label }}</span>
-        <span class="language-check" *ngIf="lang.code === selectedCode">✓</span>
+        <span class="language-name">{{ currentLanguage.label }}</span>
+        <svg class="language-chevron" [class.is-open]="isOpen" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+          <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </button>
-    </div>
-  </div>
 
+      <!-- MENÚ DESPLEGABLE CON BANDERAS VECTORIALES -->
+      <div class="language-menu" *ngIf="isOpen" role="listbox">
+        <button
+          *ngFor="let lang of languages"
+          type="button"
+          class="language-option"
+          [class.is-selected]="lang.code === selectedCode"
+          (click)="selectLanguage(lang.code, $event)"
+          role="option"
+          [attr.aria-selected]="lang.code === selectedCode"
+        >
+          <span class="flag-icon-box" [ngSwitch]="lang.code">
+            <!-- Bandera España SVG -->
+            <svg *ngSwitchCase="'es'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <path fill="#c60b1e" d="M0 0h640v480H0z"/>
+              <path fill="#ffc400" d="M0 120h640v240H0z"/>
+              <g transform="translate(180, 240) scale(1.6)">
+                <path fill="#c60b1e" d="M-18-36h36v40a18 18 0 0 1-36 0z"/>
+                <path fill="#ffc400" d="M-13-31h26v34a13 13 0 0 1-26 0z"/>
+                <path fill="#c60b1e" d="M-9-27h18v13h-18zM-9-9h18v13h-18z"/>
+                <circle cx="0" cy="-43" r="7" fill="#ffc400"/>
+              </g>
+            </svg>
+            <!-- Bandera Estados Unidos (EEUU) SVG -->
+            <svg *ngSwitchCase="'en'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="480" fill="#b22234"/>
+              <path stroke="#ffffff" stroke-width="36.923" d="M0,55.38H640M0,129.23H640M0,203.08H640M0,276.92H640M0,350.77H640M0,424.62H640"/>
+              <rect width="260" height="258.46" fill="#3c3b6e"/>
+              <g fill="#ffffff">
+                <circle cx="28" cy="28" r="8"/>
+                <circle cx="74" cy="28" r="8"/>
+                <circle cx="120" cy="28" r="8"/>
+                <circle cx="166" cy="28" r="8"/>
+                <circle cx="212" cy="28" r="8"/>
+                <circle cx="238" cy="28" r="8"/>
+                <circle cx="51" cy="74" r="8"/>
+                <circle cx="97" cy="74" r="8"/>
+                <circle cx="143" cy="74" r="8"/>
+                <circle cx="189" cy="74" r="8"/>
+                <circle cx="230" cy="74" r="8"/>
+                <circle cx="28" cy="120" r="8"/>
+                <circle cx="74" cy="120" r="8"/>
+                <circle cx="120" cy="120" r="8"/>
+                <circle cx="166" cy="120" r="8"/>
+                <circle cx="212" cy="120" r="8"/>
+                <circle cx="238" cy="120" r="8"/>
+                <circle cx="51" cy="166" r="8"/>
+                <circle cx="97" cy="166" r="8"/>
+                <circle cx="143" cy="166" r="8"/>
+                <circle cx="189" cy="166" r="8"/>
+                <circle cx="230" cy="166" r="8"/>
+                <circle cx="28" cy="212" r="8"/>
+                <circle cx="74" cy="212" r="8"/>
+                <circle cx="120" cy="212" r="8"/>
+                <circle cx="166" cy="212" r="8"/>
+                <circle cx="212" cy="212" r="8"/>
+                <circle cx="238" cy="212" r="8"/>
+              </g>
+            </svg>
+            <!-- Bandera Brasil (Português) SVG -->
+            <svg *ngSwitchCase="'pt'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="480" fill="#009c3b"/>
+              <polygon points="320,55 580,240 320,425 60,240" fill="#ffdf00"/>
+              <circle cx="320" cy="240" r="102" fill="#002776"/>
+              <path d="M222,246 Q320,205 418,246" stroke="#ffffff" stroke-width="12" fill="none"/>
+            </svg>
+            <!-- Bandera China (简体中文) SVG -->
+            <svg *ngSwitchCase="'zh'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="480" fill="#de2910"/>
+              <polygon points="107,48 119,85 158,85 126,108 138,145 107,122 75,145 87,108 55,85 94,85" fill="#ffde00"/>
+              <polygon points="213,32 216,42 226,42 218,48 221,58 213,52 205,58 208,48 200,42 210,42" fill="#ffde00" transform="rotate(-30 213 45)"/>
+              <polygon points="256,75 259,85 269,85 261,91 264,101 256,95 248,101 251,91 243,85 253,85" fill="#ffde00" transform="rotate(30 256 88)"/>
+              <polygon points="256,149 259,159 269,159 261,165 264,175 256,169 248,175 251,165 243,159 253,159" fill="#ffde00" transform="rotate(0 256 162)"/>
+              <polygon points="213,203 216,213 226,213 218,219 221,229 213,223 205,229 208,219 200,213 210,213" fill="#ffde00" transform="rotate(20 213 216)"/>
+            </svg>
+            <!-- Bandera Francia (Français) SVG -->
+            <svg *ngSwitchCase="'fr'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="213.3" height="480" fill="#002654"/>
+              <rect x="213.3" width="213.4" height="480" fill="#ffffff"/>
+              <rect x="426.7" width="213.3" height="480" fill="#ce1126"/>
+            </svg>
+            <!-- Bandera Alemania (Deutsch) SVG -->
+            <svg *ngSwitchCase="'de'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="160" fill="#000000"/>
+              <rect y="160" width="640" height="160" fill="#dd0000"/>
+              <rect y="320" width="640" height="160" fill="#ffce00"/>
+            </svg>
+            <!-- Bandera Italia (Italiano) SVG -->
+            <svg *ngSwitchCase="'it'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="213.3" height="480" fill="#009246"/>
+              <rect x="213.3" width="213.4" height="480" fill="#ffffff"/>
+              <rect x="426.7" width="213.3" height="480" fill="#ce2b37"/>
+            </svg>
+            <!-- Bandera Rusia (Русский) SVG -->
+            <svg *ngSwitchCase="'ru'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="160" fill="#ffffff"/>
+              <rect y="160" width="640" height="160" fill="#0039a6"/>
+              <rect y="320" width="640" height="160" fill="#d52b1e"/>
+            </svg>
+            <!-- Bandera Árabe (العربية) SVG -->
+            <svg *ngSwitchCase="'ar'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="480" fill="#006c35"/>
+              <path d="M140,325 L500,325 L490,340 L140,340 Z" fill="#ffffff"/>
+              <path d="M165,305 L165,360 L145,360 L145,305 Z" fill="#ffffff"/>
+              <circle cx="135" cy="332" r="10" fill="#ffffff"/>
+              <path d="M160,200 Q200,160 240,200 Q280,160 320,200 Q360,160 400,200 Q440,160 480,200" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/>
+              <path d="M200,240 Q260,210 320,240 Q380,210 440,240" stroke="#ffffff" stroke-width="10" fill="none" stroke-linecap="round"/>
+            </svg>
+            <!-- Bandera Japón (日本語) SVG -->
+            <svg *ngSwitchCase="'ja'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="480" fill="#ffffff"/>
+              <circle cx="320" cy="240" r="144" fill="#bc002d"/>
+            </svg>
+            <!-- Bandera India (हिन्दी) SVG -->
+            <svg *ngSwitchCase="'hi'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="160" fill="#ff9933"/>
+              <rect y="160" width="640" height="160" fill="#ffffff"/>
+              <rect y="320" width="640" height="160" fill="#138808"/>
+              <circle cx="320" cy="240" r="48" fill="none" stroke="#000080" stroke-width="6"/>
+              <circle cx="320" cy="240" r="8" fill="#000080"/>
+            </svg>
+            <!-- Bandera Turquía (Türkçe) SVG -->
+            <svg *ngSwitchCase="'tr'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="480" fill="#e30a17"/>
+              <circle cx="270" cy="240" r="120" fill="#ffffff"/>
+              <circle cx="300" cy="240" r="96" fill="#e30a17"/>
+              <g fill="#ffffff" transform="translate(375, 240) rotate(-18) scale(0.6)">
+                <polygon points="0,-60 17.6,-18.5 57.1,-18.5 25.1,6.5 37.1,48.5 0,20 -37.1,48.5 -25.1,6.5 -57.1,-18.5 -17.6,-18.5"/>
+              </g>
+            </svg>
+            <!-- Bandera Corea del Sur (한국어) SVG -->
+            <svg *ngSwitchCase="'ko'" class="lang-flag" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">
+              <rect width="640" height="480" fill="#ffffff"/>
+              <g transform="translate(320, 240) rotate(-33.7)">
+                <path d="M-100,0 A100,100 0 0,1 100,0 A50,50 0 0,1 0,0 A50,50 0 0,0 -100,0" fill="#cd2e3a"/>
+                <path d="M100,0 A100,100 0 0,1 -100,0 A50,50 0 0,1 0,0 A50,50 0 0,0 100,0" fill="#0047a0"/>
+              </g>
+              <g fill="#000000">
+                <g transform="translate(160, 120) rotate(56.3)">
+                  <rect x="-35" y="-18" width="70" height="8" rx="1"/>
+                  <rect x="-35" y="-4" width="70" height="8" rx="1"/>
+                  <rect x="-35" y="10" width="70" height="8" rx="1"/>
+                </g>
+                <g transform="translate(480, 360) rotate(56.3)">
+                  <rect x="-35" y="-18" width="32" height="8" rx="1"/>
+                  <rect x="3" y="-18" width="32" height="8" rx="1"/>
+                  <rect x="-35" y="-4" width="32" height="8" rx="1"/>
+                  <rect x="3" y="-4" width="32" height="8" rx="1"/>
+                  <rect x="-35" y="10" width="32" height="8" rx="1"/>
+                  <rect x="3" y="10" width="32" height="8" rx="1"/>
+                </g>
+                <g transform="translate(480, 120) rotate(-56.3)">
+                  <rect x="-35" y="-18" width="32" height="8" rx="1"/>
+                  <rect x="3" y="-18" width="32" height="8" rx="1"/>
+                  <rect x="-35" y="-4" width="70" height="8" rx="1"/>
+                  <rect x="-35" y="10" width="32" height="8" rx="1"/>
+                  <rect x="3" y="10" width="32" height="8" rx="1"/>
+                </g>
+                <g transform="translate(160, 360) rotate(-56.3)">
+                  <rect x="-35" y="-18" width="70" height="8" rx="1"/>
+                  <rect x="-35" y="-4" width="32" height="8" rx="1"/>
+                  <rect x="3" y="-4" width="32" height="8" rx="1"/>
+                  <rect x="-35" y="10" width="70" height="8" rx="1"/>
+                </g>
+              </g>
+            </svg>
+          </span>
+          <span class="language-name">{{ lang.label }}</span>
+          <span class="language-check" *ngIf="lang.code === selectedCode">✓</span>
+        </button>
+      </div>
+    </div>
   <h1 class="home-title">GTA Maps</h1>
   <hr class="home-divider" />
   <p class="home-disclaimer">{{ 'home.disclaimer' | translate }}</p>
@@ -455,4 +454,81 @@
 
   <!-- BANNER ELEGANTE Y FUNCIONAL DE COOKIES -->
   <app-cookie-banner></app-cookie-banner>
+
+  <!-- BOTÓN FLOTANTE DE SUGERENCIAS (ESQUINA INFERIOR DERECHA - SOBRIO Y PEQUEÑO) -->
+  <button
+    type="button"
+    class="feedback-fab"
+    (click)="toggleFeedbackPanel($event)"
+    [title]="'feedback.buttonTitle' | translate"
+    aria-label="Enviar sugerencias"
+  >
+    <svg class="feedback-fab-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
+  </button>
+
+  <!-- PANEL FLOTANTE DE SUGERENCIAS (SALE JUNTO AL BOTÓN Y SE OCULTA AL ENVIAR) -->
+  <div class="feedback-floating-panel" *ngIf="isFeedbackModalOpen" (click)="$event.stopPropagation()">
+    <div class="feedback-panel-header">
+      <div class="feedback-panel-title-group">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <h4 class="feedback-panel-title">{{ 'feedback.modalTitle' | translate }}</h4>
+      </div>
+      <button type="button" class="feedback-panel-close" (click)="closeFeedbackModal()" aria-label="Close">✕</button>
+    </div>
+
+    <form (ngSubmit)="sendFeedback()" class="feedback-panel-body">
+      <div class="feedback-field-group">
+        <label for="feedback-name-input" class="feedback-label">{{ 'feedback.nameLabel' | translate }}</label>
+        <input
+          id="feedback-name-input"
+          type="text"
+          class="feedback-input"
+          [(ngModel)]="feedbackName"
+          name="feedbackName"
+          [placeholder]="'feedback.namePlaceholder' | translate"
+          maxLength="100"
+          autocomplete="name"
+        />
+      </div>
+
+      <div class="feedback-field-group">
+        <label for="feedback-message-input" class="feedback-label">
+          {{ 'feedback.messageLabel' | translate }} <span class="feedback-required">*</span>
+        </label>
+        <textarea
+          id="feedback-message-input"
+          class="feedback-textarea"
+          [(ngModel)]="feedbackMessage"
+          name="feedbackMessage"
+          [placeholder]="'feedback.messagePlaceholder' | translate"
+          rows="3"
+          maxLength="2000"
+          required
+        ></textarea>
+      </div>
+
+      <p *ngIf="feedbackError" class="feedback-error-msg">
+        {{ 'feedback.errorMessage' | translate }}
+      </p>
+
+      <div class="feedback-panel-actions">
+        <button type="button" class="feedback-btn-cancel" (click)="closeFeedbackModal()" [disabled]="isSendingFeedback">
+          {{ 'gta6Modal.cancel' | translate }}
+        </button>
+        <button type="submit" class="feedback-btn-submit" [disabled]="!feedbackMessage.trim() || isSendingFeedback">
+          <span *ngIf="!isSendingFeedback">{{ 'feedback.sendButton' | translate }}</span>
+          <span *ngIf="isSendingFeedback" class="feedback-spinner-box">
+            <span class="feedback-spinner"></span>
+            <span>{{ 'feedback.sending' | translate }}</span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

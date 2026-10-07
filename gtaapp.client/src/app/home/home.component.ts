@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { APP_VERSION } from '../../environments/version';
 import { TranslationService } from '../i18n';
 import { UsuariosActivosService } from '../services/usuarios-activos.service';
@@ -26,6 +27,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     isGta6ModalOpen = false;
     gta6Password = '';
     gta6PasswordError = false;
+
+    // Feedback Modal State
+    isFeedbackModalOpen = false;
+    feedbackName = '';
+    feedbackMessage = '';
+    isSendingFeedback = false;
+    feedbackSuccess = false;
+    feedbackError = false;
 
     readonly ultimaActualizacion = APP_VERSION.timestamp;
     readonly buildCommit = APP_VERSION.commit;
@@ -57,7 +66,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         public readonly usuariosActivosService: UsuariosActivosService,
         public readonly cookieService: CookieService,
         private readonly router: Router,
-        private readonly route: ActivatedRoute
+        private readonly route: ActivatedRoute,
+        private readonly http: HttpClient
     ) {}
 
     ngOnInit(): void {
@@ -145,6 +155,51 @@ export class HomeComponent implements OnInit, OnDestroy {
         return localStorage.getItem('gta6_unlocked') === 'true';
     }
 
+    toggleFeedbackPanel(event?: Event): void {
+        if (event) {
+            event.stopPropagation();
+        }
+        this.isFeedbackModalOpen = !this.isFeedbackModalOpen;
+        this.feedbackError = false;
+    }
+
+    closeFeedbackModal(): void {
+        this.isFeedbackModalOpen = false;
+    }
+
+    sendFeedback(): void {
+        if (!this.feedbackMessage.trim() || this.isSendingFeedback) {
+            return;
+        }
+
+        this.isSendingFeedback = true;
+        this.feedbackError = false;
+
+        const payload = {
+            name: this.feedbackName.trim(),
+            message: this.feedbackMessage.trim()
+        };
+
+        this.http.post('/api/feedback', payload).subscribe({
+            next: () => {
+                this.isSendingFeedback = false;
+                this.isFeedbackModalOpen = false; // Se oculta automáticamente al enviar
+                this.feedbackName = '';
+                this.feedbackMessage = '';
+            },
+            error: () => {
+                this.isSendingFeedback = false;
+                this.feedbackError = true;
+            }
+        });
+    }
+
+    resetFeedbackForm(): void {
+        this.feedbackError = false;
+        this.feedbackName = '';
+        this.feedbackMessage = '';
+    }
+
     @HostListener('document:click', ['$event'])
     onDocumentClick(event: MouseEvent): void {
         if (!this.elementRef.nativeElement.contains(event.target)) {
@@ -157,6 +212,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.isOpen = false;
         if (this.isGta6ModalOpen) {
             this.closeGta6Modal();
+        }
+        if (this.isFeedbackModalOpen) {
+            this.closeFeedbackModal();
         }
     }
 }
