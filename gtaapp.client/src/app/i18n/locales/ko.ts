@@ -545,5 +545,22 @@ export const ko: TranslationSchema = {
     submit: '접속',
     cancel: '취소',
     error: '잘못된 비밀번호'
+  },
+  feedback: {
+    buttonTitle: '제안 또는 피드백 보내기',
+    modalTitle: '제안 및 피드백',
+    modalSubtitle: '좋은 아이디어가 있거나 버그를 발견하셨나요? 알려주세요!',
+    nameLabel: '이름 (선택 사항)',
+    namePlaceholder: '예: 홍길동 또는 익명',
+    messageLabel: '메시지',
+    messagePlaceholder: '여기에 제안, 피드백 또는 버그 리포트를 입력하세요...',
+    sendButton: '제안 보내기',
+    sending: '전송 중...',
+    successTitle: '메시지를 보내주셔서 감사합니다!',
+    successMessage: '제안이 성공적으로 접수되었습니다. 서비스 개선에 큰 도움이 됩니다.',
+    errorTitle: '전송 실패',
+    errorMessage: '제안을 전송하지 못했습니다. 잠시 후 다시 시도해 주세요.',
+    close: '닫기',
+    sendAnother: '다른 제안 보내기'
   }
 };
