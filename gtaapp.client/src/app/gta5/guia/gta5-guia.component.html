@@ -1,17 +1,26 @@
-<div class="wiki-shell gta5-theme">
+<div class="wiki-shell gta5-theme" [class.font-large]="fontSizeMode === 'large'">
   <!-- CABECERA PRINCIPAL DE LA WIKI -->
   <header class="wiki-header">
     <div class="wiki-header-container">
       <div class="wiki-brand">
+        <button type="button" class="mobile-menu-btn" (click)="toggleMobileSidebar()" aria-label="Abrir menú de capítulos">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
         <a routerLink="/home" class="wiki-back-btn" title="Volver a la portada">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
-          <span>Inicio</span>
+          <span class="back-text">Inicio</span>
         </a>
+
         <div class="wiki-title-group">
-          <span class="wiki-badge">WIKI OFICIAL</span>
-          <h1 class="wiki-title">GTA V GUÍA & ENCICLOPEDIA</h1>
+          <span class="wiki-badge">ENCICLOPEDIA & GUÍA</span>
+          <h1 class="wiki-title">GTA V NARRATIVA</h1>
         </div>
       </div>
 
@@ -26,7 +35,7 @@
           class="wiki-search-input"
           [(ngModel)]="searchQuery"
           (input)="onSearch()"
-          placeholder="Buscar misiones, golpes, trucos, personajes..."
+          placeholder="Buscar misiones, golpes, bolsa, trucos, personajes..."
         />
         <button *ngIf="searchQuery" (click)="limpiarBusqueda()" class="search-clear-btn" aria-label="Limpiar búsqueda">✕</button>
 
@@ -37,91 +46,149 @@
             class="search-result-item"
             (click)="seleccionarArticulo(res.id); limpiarBusqueda()"
           >
-            <span class="search-result-title">{{ res.titulo }}</span>
+            <div class="search-result-header">
+              <span class="search-result-title">{{ res.titulo }}</span>
+              <span *ngIf="res.badge" class="search-result-badge">{{ res.badge }}</span>
+            </div>
             <span class="search-result-sub">{{ res.subtitulo }}</span>
           </div>
         </div>
       </div>
 
-      <!-- Acceso Rápido al Mapa -->
+      <!-- Acciones de Cabecera (Lectura y Mapa) -->
       <div class="wiki-header-actions">
-        <a routerLink="/gta5-historia" class="wiki-map-link">
+        <button
+          type="button"
+          class="wiki-font-toggle"
+          (click)="toggleFontSize()"
+          [title]="fontSizeMode === 'normal' ? 'Aumentar tamaño de letra para lectura' : 'Tamaño de letra estándar'"
+        >
+          <span>{{ fontSizeMode === 'normal' ? 'A+' : 'A-' }}</span>
+        </button>
+
+        <a routerLink="/gta5-historia" class="wiki-map-link" title="Abrir el mapa interactivo de GTA V">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
             <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
             <line x1="8" y1="2" x2="8" y2="18"></line>
             <line x1="16" y1="6" x2="16" y2="22"></line>
           </svg>
-          <span>Abrir Mapa Interactivo</span>
+          <span class="map-text">Mapa Interactivo</span>
         </a>
+      </div>
+    </div>
+
+    <!-- Barra de Pestañas de Secciones (Scroll Horizontal) -->
+    <div class="wiki-categories-bar">
+      <div class="wiki-categories-container">
+        <button
+          type="button"
+          class="category-tab-btn"
+          [class.is-active]="selectedSeccionId === 'todas'"
+          (click)="filtrarPorSeccion('todas')"
+        >
+          🌟 Todos los Capítulos
+        </button>
+        <button
+          *ngFor="let s of secciones"
+          type="button"
+          class="category-tab-btn"
+          [class.is-active]="selectedSeccionId === s.id"
+          (click)="filtrarPorSeccion(s.id)"
+        >
+          {{ s.titulo }}
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- CUERPO PRINCIPAL DE LA WIKI (SIDEBAR + CONTENIDO) -->
+  <!-- CUERPO PRINCIPAL DE LA WIKI -->
   <div class="wiki-body-layout">
-    <!-- BARRA LATERAL (SECCIONES Y ARTÍCULOS) -->
-    <aside class="wiki-sidebar">
+    <!-- Overlay móvil -->
+    <div
+      class="mobile-sidebar-backdrop"
+      *ngIf="isSidebarOpenMobile"
+      (click)="toggleMobileSidebar()"
+    ></div>
+
+    <!-- BARRA LATERAL (ÍNDICE DE CAPÍTULOS Y ARTÍCULOS) -->
+    <aside class="wiki-sidebar" [class.is-mobile-open]="isSidebarOpenMobile">
       <div class="sidebar-header">
         <h3>Índice de Contenidos</h3>
+        <button type="button" class="sidebar-close-mobile" (click)="toggleMobileSidebar()">✕</button>
       </div>
 
       <nav class="sidebar-nav">
-        <div *ngFor="let seccion of secciones" class="sidebar-section">
-          <div class="sidebar-section-title">
-            <span>{{ seccion.titulo }}</span>
-            <span class="section-count">{{ seccion.articulos.length }}</span>
+        <ng-container *ngFor="let seccion of secciones">
+          <div
+            class="sidebar-section"
+            *ngIf="selectedSeccionId === 'todas' || selectedSeccionId === seccion.id"
+          >
+            <div class="sidebar-section-title">
+              <span>{{ seccion.titulo }}</span>
+              <span class="section-count">{{ seccion.articulos.length }}</span>
+            </div>
+            <ul class="sidebar-article-list">
+              <li
+                *ngFor="let art of seccion.articulos"
+                [class.is-active]="selectedArticulo?.id === art.id"
+                (click)="seleccionarArticulo(art.id)"
+                class="sidebar-article-item"
+              >
+                <span class="article-item-title">{{ art.titulo }}</span>
+                <span *ngIf="art.badge" class="article-badge">{{ art.badge }}</span>
+              </li>
+            </ul>
           </div>
-          <ul class="sidebar-article-list">
-            <li
-              *ngFor="let art of seccion.articulos"
-              [class.is-active]="selectedArticulo?.id === art.id"
-              (click)="seleccionarArticulo(art.id)"
-              class="sidebar-article-item"
-            >
-              <span class="article-item-title">{{ art.titulo }}</span>
-              <span *ngIf="art.badge" class="article-badge">{{ art.badge }}</span>
-            </li>
-          </ul>
-        </div>
+        </ng-container>
       </nav>
     </aside>
 
-    <!-- ÁREA CENTRAL DE LECTURA DEL ARTÍCULO -->
+    <!-- ÁREA CENTRAL DE LECTURA NARRATIVA -->
     <main class="wiki-content">
       <!-- Loading State -->
       <div *ngIf="isLoadingArticulo" class="wiki-loading">
         <div class="spinner"></div>
-        <p>Cargando artículo...</p>
+        <p>Cargando archivo de Los Santos...</p>
       </div>
 
       <!-- Artículo Seleccionado -->
       <article *ngIf="!isLoadingArticulo && selectedArticulo" class="article-card">
+        <!-- Banner del Artículo -->
         <header class="article-header">
-          <div class="article-meta">
+          <div class="article-meta-row">
             <span *ngIf="selectedArticulo.badge" class="article-pill-badge">{{ selectedArticulo.badge }}</span>
             <span class="article-read-time">⏱️ {{ selectedArticulo.tiempoLecturaMinutos }} min de lectura</span>
+            <span *ngIf="selectedArticulo.tags?.length" class="article-tags-chip">
+              🏷️ {{ selectedArticulo.tags.join(' · ') }}
+            </span>
           </div>
+
           <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
           <p class="article-lead">{{ selectedArticulo.subtitulo }}</p>
           <hr class="article-divider" />
         </header>
 
-        <!-- Contenido renderizado -->
+        <!-- Cuerpo del Artículo con Tipografía de Lectura -->
         <div class="article-body">
-          <pre class="article-markdown-view">{{ selectedArticulo.contenidoMarkdown }}</pre>
+          <div class="narrative-markdown-content">
+            <pre class="article-text-block">{{ selectedArticulo.contenidoMarkdown }}</pre>
+          </div>
         </div>
 
-        <!-- Artículos Relacionados -->
+        <!-- Pie de Artículo & Enlaces Relacionados -->
         <footer *ngIf="selectedArticulo.relacionados?.length" class="article-footer">
-          <h4>Artículos y Guías Relacionadas:</h4>
+          <h4 class="related-section-title">Capítulos y Guías Relacionadas</h4>
           <div class="related-cards-grid">
             <div
               *ngFor="let rel of selectedArticulo.relacionados"
               class="related-card"
               (click)="seleccionarArticulo(rel.id)"
             >
-              <span class="related-card-title">{{ rel.titulo }}</span>
-              <span class="related-card-arrow">Leer guía →</span>
+              <div class="related-card-content">
+                <span class="related-card-badge">Guía Oficial</span>
+                <span class="related-card-title">{{ rel.titulo }}</span>
+              </div>
+              <span class="related-card-arrow">Leer capítulo →</span>
             </div>
           </div>
         </footer>

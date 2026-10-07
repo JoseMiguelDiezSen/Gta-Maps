@@ -18,6 +18,8 @@ export class Gta5GuiaComponent implements OnInit {
   searchResults: GuiaArticuloResumen[] = [];
   isLoading: boolean = true;
   isLoadingArticulo: boolean = false;
+  isSidebarOpenMobile: boolean = false;
+  fontSizeMode: 'normal' | 'large' = 'normal';
 
   constructor(
     private guiaService: GuiaService,
@@ -43,7 +45,6 @@ export class Gta5GuiaComponent implements OnInit {
         this.secciones = data.secciones || [];
         this.isLoading = false;
         
-        // Cargar por defecto el primer artículo si existe
         if (this.secciones.length > 0 && this.secciones[0].articulos.length > 0) {
           this.seleccionarArticulo(this.secciones[0].articulos[0].id);
         }
@@ -55,12 +56,19 @@ export class Gta5GuiaComponent implements OnInit {
     });
   }
 
-  seleccionarSeccion(seccionId: string): void {
+  filtrarPorSeccion(seccionId: string): void {
     this.selectedSeccionId = seccionId;
+    if (seccionId !== 'todas') {
+      const seccion = this.secciones.find(s => s.id === seccionId);
+      if (seccion && seccion.articulos.length > 0) {
+        this.seleccionarArticulo(seccion.articulos[0].id);
+      }
+    }
   }
 
   seleccionarArticulo(articuloId: string): void {
     this.isLoadingArticulo = true;
+    this.isSidebarOpenMobile = false;
     this.guiaService.getArticulo('gta5', articuloId).subscribe({
       next: (articulo) => {
         this.selectedArticulo = articulo;
@@ -93,5 +101,13 @@ export class Gta5GuiaComponent implements OnInit {
   limpiarBusqueda(): void {
     this.searchQuery = '';
     this.searchResults = [];
+  }
+
+  toggleMobileSidebar(): void {
+    this.isSidebarOpenMobile = !this.isSidebarOpenMobile;
+  }
+
+  toggleFontSize(): void {
+    this.fontSizeMode = this.fontSizeMode === 'normal' ? 'large' : 'normal';
   }
 }
