@@ -30,10 +30,16 @@ namespace GTAAPP.Server.Services
                 var host = _configuration["Smtp:Host"] ?? "smtp.gmail.com";
                 var portStr = _configuration["Smtp:Port"];
                 int port = int.TryParse(portStr, out var p) ? p : 587;
-                var username = _configuration["Smtp:Username"] ?? "jsm198969@gmail.com";
-                var password = _configuration["Smtp:Password"] ?? "prlrnmctuqrnpdgu";
-                var toEmail = _configuration["Smtp:ToEmail"] ?? "jsm198969@gmail.com";
-                var fromEmail = !string.IsNullOrWhiteSpace(username) ? username : "jsm198969@gmail.com";
+                var username = _configuration["Smtp:Username"] ?? string.Empty;
+                var password = _configuration["Smtp:Password"] ?? string.Empty;
+                var toEmail = _configuration["Smtp:ToEmail"] ?? username;
+                var fromEmail = !string.IsNullOrWhiteSpace(username) ? username : "noreply@gtamaps.dev";
+
+                if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(toEmail))
+                {
+                    _logger.LogWarning("No se han configurado credenciales SMTP válidas en la configuración (Smtp:Username / Smtp:Password).");
+                    return false;
+                }
 
                 using var mail = new MailMessage();
                 mail.From = new MailAddress(fromEmail, "GTA MAPS Feedback");
