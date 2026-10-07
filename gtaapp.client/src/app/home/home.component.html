@@ -390,9 +390,9 @@
 
   <!-- BOTONES SECUNDARIOS: GUÍAS Y WIKI OFICIAL DE GTA 5 Y GTA 6 -->
   <div class="home-guide-actions">
-    <a class="home-guide-btn home-guide-btn-gta5" routerLink="/gta5-guia">
+    <button type="button" class="home-guide-btn home-guide-btn-gta5" (click)="goToGta5Guia($event)">
       <span class="home-guide-btn-text">GUIA GTA 5</span>
-    </a>
+    </button>
     <button type="button" class="home-guide-btn home-guide-btn-gta6" (click)="openGta6Modal('/gta6-guia', $event)">
       <span class="home-guide-btn-text">GUIA GTA 6</span>
     </button>

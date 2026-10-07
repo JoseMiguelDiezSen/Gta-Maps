@@ -187,6 +187,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.translationService.setLanguage(code);
     }
 
+    goToGta5Guia(event?: Event): void {
+        if (event) {
+            event.preventDefault();
+        }
+        this.router.navigate(['/gta5-guia']);
+    }
+
     gta6TargetRoute = '/gta6-online';
 
     openGta6Modal(eventOrRoute?: Event | string, maybeEvent?: Event): void {

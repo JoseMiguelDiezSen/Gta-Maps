@@ -6,7 +6,8 @@ import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '..
 @Component({
   selector: 'app-gta5-guia',
   templateUrl: './gta5-guia.component.html',
-  styleUrls: ['./gta5-guia.component.css']
+  styleUrls: ['./gta5-guia.component.css'],
+  standalone: false
 })
 export class Gta5GuiaComponent implements OnInit {
   manifest: GuiaManifest | null = null;

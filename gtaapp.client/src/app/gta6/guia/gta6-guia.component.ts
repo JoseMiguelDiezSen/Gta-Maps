@@ -6,7 +6,8 @@ import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '..
 @Component({
   selector: 'app-gta6-guia',
   templateUrl: './gta6-guia.component.html',
-  styleUrls: ['./gta6-guia.component.css']
+  styleUrls: ['./gta6-guia.component.css'],
+  standalone: false
 })
 export class Gta6GuiaComponent implements OnInit {
   manifest: GuiaManifest | null = null;
