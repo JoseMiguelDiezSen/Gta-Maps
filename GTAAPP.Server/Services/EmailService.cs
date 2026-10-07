@@ -47,7 +47,16 @@ namespace GTAAPP.Server.Services
 
                 using var smtpClient = new SmtpClient();
                 smtpClient.Timeout = 10000;
-                await smtpClient.ConnectAsync(host, 587, SecureSocketOptions.StartTls);
+
+                try
+                {
+                    await smtpClient.ConnectAsync(host, 587, SecureSocketOptions.StartTls);
+                }
+                catch (Exception)
+                {
+                    await smtpClient.ConnectAsync(host, 465, SecureSocketOptions.SslOnConnect);
+                }
+
                 await smtpClient.AuthenticateAsync(userName, passwordApp);
                 await smtpClient.SendAsync(message);
                 await smtpClient.DisconnectAsync(true);
