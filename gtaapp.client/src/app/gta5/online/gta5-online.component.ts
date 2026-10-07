@@ -431,11 +431,21 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         if (typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.legendOpen = false;
             this.settingsOpen = false;
-            // Deshabilitar por defecto en baja resolución (móvil) para optimizar drásticamente el rendimiento y fluidez
+            // Deshabilitar por defecto en baja resolución (móvil) según configuración:
+            // Negocios, Servicios, Actividades y Coleccionables.
             const lowResDisabledKeys = [
-                'playing_card', 'action_figure', 'signal_jammer', 'movie_prop', 'radio_antenna',
-                'fake_ufo', 'shipwreck', 'cave', 'treasure_chests', 'buried_stashes',
-                'activity', 'golf', 'darts', 'tennis', 'stunt_jump', 'under_the_bridge', 'knife_flight', 'parachuting'
+                // Negocios
+                ...this.businessKeys,
+                'purchasable_business',
+                // Servicios
+                ...this.serviceKeys,
+                // Actividades
+                ...this.activityKeys,
+                'activity',
+                // Coleccionables
+                ...this.collectibleKeys,
+                'treasure_chests',
+                'buried_stashes'
             ];
             lowResDisabledKeys.forEach(k => {
                 this.layerFilters[k] = false;

@@ -329,7 +329,7 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
 
     private initFilters(): void {
         const isLowRes = typeof window !== 'undefined' && window.innerWidth <= 850;
-        const lowResDisabledCategories = ['coleccionables', 'lugares'];
+        const lowResDisabledCategories = ['negocios', 'servicios', 'actividades', 'coleccionables'];
 
         this.categories.forEach(cat => {
             const shouldDisable = isLowRes && lowResDisabledCategories.includes(cat.key);
