@@ -151,7 +151,7 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 
-    // 6.4 Política específica 'feedback-policy' para sugerencias y mensajes de usuario (máximo 5 req/min por IP)
+    // 6.4 Política específica 'feedback-policy' para sugerencias y mensajes de usuario (máximo 60 req/min por IP)
     options.AddPolicy("feedback-policy", httpContext =>
     {
         var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
@@ -159,9 +159,9 @@ builder.Services.AddRateLimiter(options =>
             partitionKey: clientIp,
             factory: _ => new SlidingWindowRateLimiterOptions
             {
-                PermitLimit = 5,
+                PermitLimit = 60,
                 Window = TimeSpan.FromMinutes(1),
-                SegmentsPerWindow = 2,
+                SegmentsPerWindow = 4,
                 QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
                 QueueLimit = 0
             });

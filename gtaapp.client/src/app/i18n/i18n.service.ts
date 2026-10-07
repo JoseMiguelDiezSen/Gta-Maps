@@ -107,8 +107,11 @@ export class TranslationService {
       }
     }
 
-    // 2. Preferencia previamente guardada en localStorage
+    // 2. Preferencia previamente guardada en localStorage (clave v2)
     try {
+      if (localStorage.getItem('gta_lang')) {
+        localStorage.removeItem('gta_lang'); // Limpieza automática de clave antigua v1
+      }
       const saved = localStorage.getItem(STORAGE_KEY) as LanguageCode | null;
       if (saved && SUPPORTED_LANGUAGES.some(l => l.code === saved)) {
         return saved;

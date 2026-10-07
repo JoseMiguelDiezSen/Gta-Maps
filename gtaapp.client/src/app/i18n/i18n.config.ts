@@ -1,7 +1,7 @@
 import { LanguageCode, LanguageInfo } from './i18n.types';
 
 export const DEFAULT_LANGUAGE: LanguageCode = 'en';
-export const STORAGE_KEY = 'gta_lang';
+export const STORAGE_KEY = 'gta_user_lang_v2';
 
 export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
   {
