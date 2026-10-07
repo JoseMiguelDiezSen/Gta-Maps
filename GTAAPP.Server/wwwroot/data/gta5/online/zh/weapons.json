@@ -2,10 +2,10 @@
   {
     "id": "pistol",
     "order": 1,
-    "name": "手枪",
+    "name": "9毫米制式手枪",
     "nameEn": "Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "手枪",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Beretta 92FS / Taurus PT92",
     "price": 350,
@@ -16,7 +16,7 @@
     "accuracy": 4,
     "range": 3,
     "clipSize": "12 发（扩容 16 发）",
-    "description": "标准 9 毫米半自动手枪。紧凑、轻便且可靠，适用于近距离交火。",
+    "description": "武装国度官方上架武器（制造商：Vom Feuer）。基础属性：杀伤力 2.6/10，精准度 4/10，射速 4/10。",
     "attachments": [
       "扩容弹匣",
       "战术手电筒",
@@ -35,7 +35,7 @@
     "name": "战斗手枪",
     "nameEn": "Combat Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "手枪",
     "manufacturer": "Hawk & Little",
     "realCounterpart": "Glock 17 (9x19mm)",
     "price": 550,
@@ -46,7 +46,7 @@
     "accuracy": 5,
     "range": 3.5,
     "clipSize": "12 发（扩容 16 发）",
-    "description": "一款紧凑轻便的高强度聚合物手枪，专为执法部门与自卫设计，具备优异的精准度与高射速。",
+    "description": "武装国度官方上架武器（制造商：Hawk & Little）。基础属性：杀伤力 3.2/10，精准度 5/10，射速 4.5/10。",
     "attachments": [
       "扩容弹匣",
       "战术手电筒",
@@ -65,7 +65,7 @@
     "name": "穿甲手枪 (AP)",
     "nameEn": "AP Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "手枪",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt SCAMP / OTs-33 Pernach",
     "price": 5000,
@@ -76,7 +76,7 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "18 发（扩容 36 发）",
-    "description": "High-rate-of-fire armor-piercing automatic pistol. Empty a 36-round clip in seconds during high-speed drive-by shootings.",
+    "description": "武装国度官方上架武器（制造商：Vom Feuer）。基础属性：杀伤力 3/10，精准度 3.5/10，射速 8/10。",
     "attachments": [
       "扩容弹匣",
       "战术手电筒",
@@ -95,7 +95,7 @@
     "name": "重型左轮手枪",
     "nameEn": "Heavy Revolver",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "手枪",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Taurus Raging Bull (.44 Magnum)",
     "price": 5900,
@@ -106,7 +106,7 @@
     "accuracy": 6.5,
     "range": 5.5,
     "clipSize": "6 发",
-    "description": "A colossal handgun packing devastating stopping power. Capable of dropping armored targets with a single, well-placed round.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 8.5/10，精准度 6.5/10，射速 2/10。",
     "attachments": [
       "VIP Luxury Finish",
       "Collector Engraving"
@@ -120,10 +120,10 @@
   {
     "id": "perico_pistol",
     "order": 5,
-    "name": "Perico Pistol",
+    "name": "佩里科黄金手枪",
     "nameEn": "Perico Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "手枪",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Custom Engraved Gold Walther PPK",
     "price": 0,
@@ -134,7 +134,7 @@
     "accuracy": 5.5,
     "range": 4,
     "clipSize": "单发装填",
-    "description": "Handcrafted solid gold pistol recovered from El Rubio's private office safe in the fortified Cayo Perico compound.",
+    "description": "佩里科岛金发老大私人办公桌保险箱内珍藏的定制纯金手枪。",
     "attachments": [
       "Native 24K Gold Inlay"
     ],
@@ -147,10 +147,10 @@
   {
     "id": "up_n_atomizer",
     "order": 6,
-    "name": "Up-n-Atomizer",
+    "name": "原子堡手枪 (充能冲击波手枪)",
     "nameEn": "Up-n-Atomizer",
     "category": "pistols",
-    "categoryLabel": "Special Weapons",
+    "categoryLabel": "手枪",
     "manufacturer": "Republic Space Rangers",
     "realCounterpart": "Alien Electromagnetic Ray Gun",
     "price": 399000,
@@ -161,7 +161,7 @@
     "accuracy": 7,
     "range": 4.5,
     "clipSize": "Infinite ammo (Heat cooldown)",
-    "description": "Sci-fi weapon projecting high-impact energy shockwaves that launch vehicles and sentries into the air.",
+    "description": "发射高能量排斥冲击波的未来科幻手枪，可瞬间将卡住的载具震飞解困。",
     "attachments": [
       "Themed Futuristic Tints"
     ],
@@ -177,7 +177,7 @@
     "name": "Stun Gun",
     "nameEn": "Stun Gun",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "手枪",
     "manufacturer": "Coil",
     "realCounterpart": "Taser X26",
     "price": 375000,
@@ -188,7 +188,7 @@
     "accuracy": 4,
     "range": 2,
     "clipSize": "High-voltage probes (4s recharge)",
-    "description": "Non-lethal electrical conductive device firing twin electrified probes to incapacitate any target instantly.",
+    "description": "武装国度官方上架武器（制造商：Coil）。基础属性：杀伤力 1/10，精准度 4/10，射速 1/10。",
     "attachments": [
       "Tactical Polymer Finish"
     ],
@@ -201,7 +201,7 @@
   {
     "id": "micro_smg",
     "order": 8,
-    "name": "微型冲锋枪",
+    "name": "微型冲锋枪 (乌兹)",
     "nameEn": "Micro SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -215,7 +215,7 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "16 发（扩容 30 发）",
-    "description": "The quintessential drive-by weapon. Compact frame with an aggressive cyclic rate to overwhelm targets on the move.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 3.5/10，精准度 3.5/10，射速 7.5/10。",
     "attachments": [
       "扩容弹匣",
       "战术手电筒",
@@ -232,7 +232,7 @@
   {
     "id": "smg",
     "order": 9,
-    "name": "冲锋枪",
+    "name": "制式冲锋枪 (MP5)",
     "nameEn": "SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -246,13 +246,13 @@
     "accuracy": 5.5,
     "range": 4.5,
     "clipSize": "30 发",
-    "description": "The world's premier tactical submachine gun. Delivers flawless recoil control, precision handling, and sustained cyclic fire.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 4.2/10，精准度 5.5/10，射速 7/10。",
     "attachments": [
       "扩容弹匣",
       "弹鼓",
       "战术手电筒",
       "消音器",
-      "Holographic Sight"
+      "全息瞄准镜"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
@@ -277,7 +277,7 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "100 发",
-    "description": "Heavy squad automatic weapon with a massive belt capacity, capable of shredding enemy squads and disabling air support.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 7.5/10，精准度 5.5/10，射速 6.5/10。",
     "attachments": [
       "200-Round Box Magazine",
       "瞄准镜",
@@ -307,7 +307,7 @@
     "accuracy": 4.5,
     "range": 4,
     "clipSize": "30 发",
-    "description": "Prohibition era icon featuring iconic circular drum magazines and an unmistakable firing signature.",
+    "description": "武装国度官方上架武器（制造商：Vom Feuer）。基础属性：杀伤力 5/10，精准度 4.5/10，射速 7.5/10。",
     "attachments": [
       "50-Round Drum Magazine"
     ],
@@ -320,10 +320,10 @@
   {
     "id": "assault_rifle",
     "order": 12,
-    "name": "突击步枪",
+    "name": "突击步枪 (AK-47)",
     "nameEn": "Assault Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "突击步枪",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "AK-47 / Norinco Type 56",
     "price": 8550,
@@ -334,7 +334,7 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "30 发（扩容 60 发）",
-    "description": "The most widely recognized assault rifle on earth. Legendary durability firing heavy 7.62mm cartridges with extreme lethality.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 6.2/10，精准度 5.5/10，射速 6/10。",
     "attachments": [
       "扩容弹匣",
       "弹鼓",
@@ -352,10 +352,10 @@
   {
     "id": "carbine_rifle",
     "order": 13,
-    "name": "卡宾步枪",
+    "name": "卡宾步枪 (M4A1)",
     "nameEn": "Carbine Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "突击步枪",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M4A1 (5.56x45mm NATO)",
     "price": 13000,
@@ -366,11 +366,11 @@
     "accuracy": 6.5,
     "range": 6.5,
     "clipSize": "30 发（扩容 60 发）",
-    "description": "All-around military workhorse rifle with full Picatinny rail modularity, crisp handling, and controllable recoil patterns.",
+    "description": "武装国度官方上架武器（制造商：Vom Feuer）。基础属性：杀伤力 6.5/10，精准度 6.5/10，射速 7/10。",
     "attachments": [
       "扩容弹匣",
       "Box Drum",
-      "Holographic Sight",
+      "全息瞄准镜",
       "Tactical Flashlight",
       "消音器",
       "前握把"
@@ -384,10 +384,10 @@
   {
     "id": "special_carbine",
     "order": 14,
-    "name": "特种卡宾枪",
+    "name": "特制卡宾步枪 (G36C)",
     "nameEn": "Special Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "突击步枪",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Heckler & Koch G36C",
     "price": 14750,
@@ -398,7 +398,7 @@
     "accuracy": 7,
     "range": 6.5,
     "clipSize": "30 发（扩容 60 发）",
-    "description": "German engineered lightweight polymer rifle. Renowned across Los Santos for laser precision and minimal recoil bloom.",
+    "description": "武装国度官方上架武器（制造商：Vom Feuer）。基础属性：杀伤力 6.7/10，精准度 7/10，射速 7/10。",
     "attachments": [
       "扩容弹匣",
       "100-Round Drum",
@@ -418,7 +418,7 @@
     "name": "Service Carbine",
     "nameEn": "Service Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "突击步枪",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M16A4 / M16",
     "price": 370000,
@@ -429,7 +429,7 @@
     "accuracy": 6.8,
     "range": 6.5,
     "clipSize": "30 发（扩容 60 发）",
-    "description": "Iconic military service rifle delivering reliable sustained damage for urban tactical operations throughout San Andreas.",
+    "description": "武装国度官方上架武器（制造商：Vom Feuer）。基础属性：杀伤力 6.8/10，精准度 6.8/10，射速 6.8/10。",
     "attachments": [
       "扩容弹匣",
       "Telescopic Scope",
@@ -449,7 +449,7 @@
     "name": "泵动式霰弹枪",
     "nameEn": "Pump Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "霰弹枪",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Mossberg 590 (12 Gauge)",
     "price": 3500,
@@ -460,7 +460,7 @@
     "accuracy": 3,
     "range": 2.5,
     "clipSize": "8 shells",
-    "description": "Classic 12-gauge law enforcement pump action shotgun. Devastating point-blank stopping power with dense buckshot spread.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 7.8/10，精准度 3/10，射速 2/10。",
     "attachments": [
       "战术手电筒",
       "Shotgun Suppressor",
@@ -475,10 +475,10 @@
   {
     "id": "assault_shotgun",
     "order": 17,
-    "name": "突击霰弹枪",
+    "name": "突击霰弹枪 (连喷)",
     "nameEn": "Assault Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "霰弹枪",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "UTAS UTS-15 / Fostech Origin-12",
     "price": 10000,
@@ -489,7 +489,7 @@
     "accuracy": 4,
     "range": 3.5,
     "clipSize": "8 shells (32 drum)",
-    "description": "Fully automatic combat shotgun equipped with a 32-round drum magazine, creating an impenetrable wall of lead in close quarters.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 8.2/10，精准度 4/10，射速 6.5/10。",
     "attachments": [
       "32-Shell Drum Magazine",
       "Tactical Flashlight",
@@ -505,10 +505,10 @@
   {
     "id": "combat_shotgun",
     "order": 18,
-    "name": "Combat Shotgun",
+    "name": "战斗霰弹枪 (SPAS-12)",
     "nameEn": "Combat Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "霰弹枪",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Franchi SPAS-12 (12 Gauge)",
     "price": 295000,
@@ -519,7 +519,7 @@
     "accuracy": 4.5,
     "range": 3,
     "clipSize": "6 shells",
-    "description": "Italian designed combat shotgun with folding stock, recovered from the personal elite security guards of Cayo Perico.",
+    "description": "武装国度官方上架武器（制造商：Vom Feuer）。基础属性：杀伤力 8/10，精准度 4.5/10，射速 4.5/10。",
     "attachments": [
       "Tactical Light",
       "Shotgun Suppressor"
@@ -533,10 +533,10 @@
   {
     "id": "sniper_rifle",
     "order": 19,
-    "name": "狙击步枪",
+    "name": "制式狙击步枪",
     "nameEn": "Sniper Rifle",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "狙击步枪",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Accuracy International AWP (7.62x51mm)",
     "price": 20000,
@@ -547,7 +547,7 @@
     "accuracy": 8.5,
     "range": 9,
     "clipSize": "10 发",
-    "description": "Precision bolt-action long range marksman rifle engineered to eliminate threats from hundreds of yards away.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 8.8/10，精准度 8.5/10，射速 2/10。",
     "attachments": [
       "Advanced High-Power Scope",
       "消音器",
@@ -562,10 +562,10 @@
   {
     "id": "heavy_sniper",
     "order": 20,
-    "name": "重型狙击步枪",
+    "name": "重型狙击步枪 (大炮)",
     "nameEn": "Heavy Sniper",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "狙击步枪",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Barrett M82A1 (.50 BMG Anti-Materiel)",
     "price": 38150,
@@ -576,7 +576,7 @@
     "accuracy": 9.5,
     "range": 10,
     "clipSize": "6 发",
-    "description": "Massive .50 BMG anti-materiel sniper rifle. Capable of disabling helicopter rotors, piercing vehicle armor, and eliminating targets across extreme render distances.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 9.8/10，精准度 9.5/10，射速 2/10。",
     "attachments": [
       "高级瞄准镜",
       "Thermal / Night Vision Scope (Mk II)",
@@ -591,10 +591,10 @@
   {
     "id": "rpg",
     "order": 21,
-    "name": "火箭筒 (RPG)",
+    "name": "RPG 火箭推进榴弹发射器",
     "nameEn": "RPG",
     "category": "heavy",
-    "categoryLabel": "重型武器",
+    "categoryLabel": "重型重火器",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "RPG-7 (85mm Rocket)",
     "price": 26250,
@@ -605,7 +605,7 @@
     "accuracy": 3,
     "range": 7,
     "clipSize": "1 rocket (20 capacity)",
-    "description": "Unguided shoulder-fired anti-tank rocket launcher. Engineered to vaporize tanks, convoys, and fortified positions with catastrophic blast shockwaves.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 10/10，精准度 3/10，射速 1/10。",
     "attachments": [
       "VIP Gold Plated Finish"
     ],
@@ -618,10 +618,10 @@
   {
     "id": "homing_launcher",
     "order": 22,
-    "name": "制导火箭发射器",
+    "name": "追踪导弹发射器 (毒刺)",
     "nameEn": "Homing Launcher",
     "category": "heavy",
-    "categoryLabel": "重型武器",
+    "categoryLabel": "重型重火器",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "FIM-92 Stinger / SA-7 Grail",
     "price": 75000,
@@ -632,7 +632,7 @@
     "accuracy": 8,
     "range": 8.5,
     "clipSize": "1 heat-seeking missile (10 capacity)",
-    "description": "Portable surface-to-air missile system featuring infrared lock-on capabilities that track airborne and high-velocity ground targets.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 9.5/10，精准度 8/10，射速 1.2/10。",
     "attachments": [
       "Special Edition Military Finish"
     ],
@@ -645,10 +645,10 @@
   {
     "id": "minigun",
     "order": 23,
-    "name": "加特林机枪 (Minigun)",
+    "name": "加特林火神机枪",
     "nameEn": "Minigun",
     "category": "heavy",
-    "categoryLabel": "重型武器",
+    "categoryLabel": "重型重火器",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "M134 Vulcan (6-barrel 7.62mm rotary)",
     "price": 47000,
@@ -659,7 +659,7 @@
     "accuracy": 4.5,
     "range": 6.5,
     "clipSize": "999 发",
-    "description": "The ultimate infantry fire-support weapon. Six rotating electrically driven barrels unleashing relentless suppressing fire.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 9.2/10，精准度 4.5/10，射速 10/10。",
     "attachments": [
       "Gold Luxury Finish"
     ],
@@ -672,10 +672,10 @@
   {
     "id": "railgun",
     "order": 24,
-    "name": "Railgun",
+    "name": "电磁轨道步枪 (Railgun)",
     "nameEn": "Railgun",
     "category": "heavy",
-    "categoryLabel": "重型武器",
+    "categoryLabel": "重型重火器",
     "manufacturer": "Coil",
     "realCounterpart": "Experimental Electromagnetic Kinetic Cannon",
     "price": 730000,
@@ -686,7 +686,7 @@
     "accuracy": 9.5,
     "range": 9,
     "clipSize": "1 kinetic slug (20 capacity)",
-    "description": "Experimental military prototype using electromagnetic acceleration to propel solid metallic slugs at hypersonic velocity with instant lethal impact.",
+    "description": "利用高压电磁轨道将实心弹丸加速至超高音速的毁灭性军用级电磁轨道步枪。",
     "attachments": [
       "Custom Coil Metallic Tints"
     ],
@@ -713,7 +713,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Close combat bladed weapon",
-    "description": "7-inch carbon steel fixed blade combat knife. Silent and deadly for stealth takedowns from behind.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 2/10，精准度 1/10，射速 3/10。",
     "attachments": [
       "Forged Steel Finish"
     ],
@@ -740,7 +740,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Passive: Stone Rage Mode",
-    "description": "Ancient Native American stone hatchet. Slashing an opponent triggers 'Stone Rage Mode', granting temporary ballistic invulnerability.",
+    "description": "武装国度官方上架武器（制造商：Native American / RDR2）。基础属性：杀伤力 5/10，精准度 1/10，射速 2.5/10。",
     "attachments": [
       "Traditional Leather Wraps"
     ],
@@ -756,7 +756,7 @@
     "name": "感应粘弹 (C4)",
     "nameEn": "Sticky Bomb",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "投掷武器与爆炸物",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "C4 Plastic Explosive with Remote Cellphone Detonator",
     "price": 600,
@@ -767,7 +767,7 @@
     "accuracy": 2,
     "range": 2.5,
     "clipSize": "Up to 25 remote charges",
-    "description": "C4 plastic explosive block with adhesive backing. Attach to any surface or vehicle and detonate on command via cellular trigger.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 9.5/10，精准度 2/10，射速 1.5/10。",
     "attachments": [
       "Remote Cellular Trigger"
     ],
@@ -783,7 +783,7 @@
     "name": "Proximity Mine",
     "nameEn": "Proximity Mine",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "投掷武器与爆炸物",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Laser-Tripped Tactical Landmine",
     "price": 1000,
@@ -794,7 +794,7 @@
     "accuracy": 2,
     "range": 2,
     "clipSize": "Up to 5 active deployed mines",
-    "description": "Anti-personnel and anti-vehicle mine with laser proximity sensors, triggering instantly when movement is detected.",
+    "description": "武装国度官方上架武器（制造商：Shrewsbury）。基础属性：杀伤力 9.5/10，精准度 2/10，射速 1/10。",
     "attachments": [
       "Thermal Motion Trigger"
     ],

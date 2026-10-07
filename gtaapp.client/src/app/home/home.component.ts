@@ -174,6 +174,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         this.isSendingFeedback = true;
         this.feedbackError = false;
+        this.feedbackSuccess = false;
 
         const payload = {
             name: this.feedbackName.trim(),
@@ -183,9 +184,15 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.http.post('/api/feedback', payload).subscribe({
             next: () => {
                 this.isSendingFeedback = false;
-                this.isFeedbackModalOpen = false; // Se oculta automáticamente al enviar
+                this.feedbackSuccess = true;
                 this.feedbackName = '';
                 this.feedbackMessage = '';
+                setTimeout(() => {
+                    if (this.feedbackSuccess) {
+                        this.isFeedbackModalOpen = false;
+                        this.feedbackSuccess = false;
+                    }
+                }, 2500);
             },
             error: () => {
                 this.isSendingFeedback = false;

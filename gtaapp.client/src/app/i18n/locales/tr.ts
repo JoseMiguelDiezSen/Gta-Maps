@@ -545,5 +545,22 @@ export const tr: TranslationSchema = {
     submit: 'Giriş',
     cancel: 'İptal',
     error: 'Hatalı şifre'
+  },
+  feedback: {
+    buttonTitle: 'Öneri veya Geri Bildirim Gönder',
+    modalTitle: 'Öneri ve Geri Bildirim',
+    modalSubtitle: 'Bir fikriniz mi var veya bir hata mı buldunuz? Bize bildirin!',
+    nameLabel: 'Adınız (isteğe bağlı)',
+    namePlaceholder: 'Örn: Ahmet veya Anonim',
+    messageLabel: 'Mesajınız',
+    messagePlaceholder: 'Önerinizi, yorumunuzu veya hata bildirimini buraya yazın...',
+    sendButton: 'Öneriyi Gönder',
+    sending: 'Gönderiliyor...',
+    successTitle: 'Mesajınız için teşekkürler!',
+    successMessage: 'Geri bildiriminiz başarıyla alındı. Platformu geliştirmemize yardımcı oluyor.',
+    errorTitle: 'Gönderme Hatası',
+    errorMessage: 'Öneri gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin.',
+    close: 'Kapat',
+    sendAnother: 'Başka Bir Öneri Gönder'
   }
 };

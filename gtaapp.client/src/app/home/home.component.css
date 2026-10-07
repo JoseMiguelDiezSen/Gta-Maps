@@ -1050,6 +1050,35 @@
   animation: shakeError 0.3s ease-in-out;
 }
 
+.feedback-success-box {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  animation: fbPanelPop 0.25s ease-out;
+}
+
+.feedback-success-icon {
+  background: rgba(0, 230, 118, 0.12);
+  border-radius: 50%;
+  padding: 6px;
+  border: 1px solid rgba(0, 230, 118, 0.35);
+  box-shadow: 0 0 12px rgba(0, 230, 118, 0.25);
+}
+
+.feedback-success-msg {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #00e676;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+}
+
 .feedback-panel-actions {
   display: flex;
   justify-content: flex-end;

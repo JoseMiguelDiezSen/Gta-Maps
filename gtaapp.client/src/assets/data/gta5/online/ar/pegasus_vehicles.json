@@ -4,7 +4,7 @@
     "name": "Barracks",
     "manufacturer": "HVY",
     "dealership": "pegasus",
-    "class": "Military",
+    "class": "آليات عسكرية مسلحة",
     "category": "military",
     "price": 450000,
     "priceTrade": 0,
@@ -16,14 +16,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/barracks.png",
-    "description": "Military troop transport truck available via Pegasus. Rugged and capable of navigating any off-road terrain."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة آليات عسكرية مسلحة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "مركبات ودبابات عسكرية مسلحة",
+    "deliveryFee": "$200"
   },
   {
     "id": "crusader",
     "name": "Crusader",
     "manufacturer": "HVY",
     "dealership": "pegasus",
-    "class": "Military",
+    "class": "آليات عسكرية مسلحة",
     "category": "military",
     "price": 225000,
     "priceTrade": 0,
@@ -35,14 +37,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/crusader.png",
-    "description": "Four-seater military all-terrain vehicle. Rugged build with solid traction across all surfaces."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة آليات عسكرية مسلحة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "مركبات ودبابات عسكرية مسلحة",
+    "deliveryFee": "$200"
   },
   {
     "id": "airbus",
-    "name": "Airport Bus",
+    "name": "حافلة المطار",
     "manufacturer": "Brute",
     "dealership": "pegasus",
-    "class": "Utility",
+    "class": "Utilitario",
     "category": "utility",
     "price": 550000,
     "priceTrade": 0,
@@ -54,14 +58,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/airbus.png",
-    "description": "Passenger transfer shuttle from Los Santos International Airport. High passenger capacity with slow cruise speed."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Utilitario. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات خدمات وبلدية (Utility)",
+    "deliveryFee": "$200"
   },
   {
     "id": "journey",
     "name": "Journey",
     "manufacturer": "Zirconium",
     "dealership": "pegasus",
-    "class": "Vans",
+    "class": "فانات وشاحنات صغيرة",
     "category": "van",
     "price": 15000,
     "priceTrade": 0,
@@ -73,14 +79,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/journey.png",
-    "description": "Classic Los Santos motorhome. Slow but spacious, perfect for leisurely explorations of Blaine County."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة فانات وشاحنات صغيرة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "van",
+    "deliveryFee": "$200"
   },
   {
     "id": "dashound",
     "name": "Dashound",
     "manufacturer": "Dashound",
     "dealership": "pegasus",
-    "class": "Utility",
+    "class": "Utilitario",
     "category": "utility",
     "price": 525000,
     "priceTrade": 0,
@@ -92,14 +100,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/dashound.png",
-    "description": "Interstate long-distance coach bus. An iconic fixture of regular passenger transit across San Andreas."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Utilitario. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات خدمات وبلدية (Utility)",
+    "deliveryFee": "$200"
   },
   {
     "id": "festival_bus",
-    "name": "Festival Bus",
+    "name": "حافلة الحفلات والمهرجانات",
     "manufacturer": "Brute",
     "dealership": "pegasus",
-    "class": "Utility",
+    "class": "Utilitario",
     "category": "utility",
     "price": 1842050,
     "priceTrade": 1350000,
@@ -111,14 +121,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/festival_bus.png",
-    "description": "Nightclub promotional party bus equipped with giant speakers. Unlocked after completing the Nightclub setup mission."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Utilitario. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات خدمات وبلدية (Utility)",
+    "deliveryFee": "$200"
   },
   {
     "id": "bus",
-    "name": "Bus",
+    "name": "Autobús",
     "manufacturer": "Brute",
     "dealership": "pegasus",
-    "class": "Utility",
+    "class": "Utilitario",
     "category": "utility",
     "price": 500000,
     "priceTrade": 0,
@@ -130,14 +142,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/bus.png",
-    "description": "Urban public transit bus of Los Santos. Bulky and slow, yet a true city icon."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Utilitario. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات خدمات وبلدية (Utility)",
+    "deliveryFee": "$200"
   },
   {
     "id": "marshall",
     "name": "Marshall",
     "manufacturer": "Vapid",
     "dealership": "pegasus",
-    "class": "Off-Road",
+    "class": "مركبات الطرق الوعرة",
     "category": "off_road",
     "price": 500000,
     "priceTrade": 0,
@@ -149,14 +163,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/marshall.png",
-    "description": "Heavy-duty monster truck. Crushes anything in its path with massive oversized tires. Free for returning players."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مركبات الطرق الوعرة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "off_road",
+    "deliveryFee": "$200"
   },
   {
     "id": "mule",
     "name": "Mule",
     "manufacturer": "Brute",
     "dealership": "pegasus",
-    "class": "Commercial",
+    "class": "شاحنات تجارية",
     "category": "commercial",
     "price": 27000,
     "priceTrade": 0,
@@ -168,14 +184,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/mule.png",
-    "description": "Commercial cargo delivery truck. Generous storage capacity but sluggish cornering performance."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة شاحنات تجارية. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات تجارية ثقيلة",
+    "deliveryFee": "$200"
   },
   {
     "id": "mule_custom",
-    "name": "Mule Custom",
+    "name": "Mule personalizado",
     "manufacturer": "Brute",
     "dealership": "pegasus",
-    "class": "Commercial",
+    "class": "شاحنات تجارية",
     "category": "commercial",
     "price": 43225,
     "priceTrade": 32500,
@@ -187,14 +205,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/mule_custom.png",
-    "description": "Upgraded custom variant of the Mule delivery truck. Trade price unlocked after completing Series A Funding."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة شاحنات تجارية. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات تجارية ثقيلة",
+    "deliveryFee": "$200"
   },
   {
     "id": "rental_bus",
-    "name": "Rental Shuttle Bus",
+    "name": "Autobús Rentable",
     "manufacturer": "Brute",
     "dealership": "pegasus",
-    "class": "Utility",
+    "class": "Utilitario",
     "category": "utility",
     "price": 30000,
     "priceTrade": 0,
@@ -206,14 +226,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/rental_bus.png",
-    "description": "Standard airport and tour rental shuttle bus available through Pegasus."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Utilitario. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات خدمات وبلدية (Utility)",
+    "deliveryFee": "$200"
   },
   {
     "id": "dumper",
-    "name": "HVY Dump",
+    "name": "Dump",
     "manufacturer": "HVY",
     "dealership": "pegasus",
-    "class": "Utility",
+    "class": "Utilitario",
     "category": "utility",
     "price": 1000000,
     "priceTrade": 0,
@@ -225,14 +247,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/dumper.png",
-    "description": "Colossal quarry mining dump truck. Virtually indestructible due to its massive steel tonnage, though steering demands foresight."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Utilitario. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات خدمات وبلدية (Utility)",
+    "deliveryFee": "$200"
   },
   {
     "id": "stretch",
     "name": "Dundreary Stretch",
     "manufacturer": "Dundreary",
     "dealership": "pegasus",
-    "class": "Sedans",
+    "class": "سيارات سيدان عائلية",
     "category": "sedan",
     "price": 30000,
     "priceTrade": 0,
@@ -244,14 +268,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/stretch.png",
-    "description": "Classic luxury limousine. The quintessential Los Santos status symbol, though parking requires patience."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة سيارات سيدان عائلية. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "sedan",
+    "deliveryFee": "$200"
   },
   {
     "id": "insurgent",
     "name": "Insurgent",
     "manufacturer": "HVY",
     "dealership": "pegasus",
-    "class": "Off-Road",
+    "class": "مركبات الطرق الوعرة",
     "category": "off_road",
     "price": 1795000,
     "priceTrade": 1350000,
@@ -263,14 +289,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/insurgent.png",
-    "description": "Heavy-duty armored all-terrain transport. Virtually bulletproof. Trade price unlocked by completing the Humane Labs Raid finale."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مركبات الطرق الوعرة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "off_road",
+    "deliveryFee": "$200"
   },
   {
     "id": "liberator",
-    "name": "The Liberator",
+    "name": "شاحنة الوحش The Liberator",
     "manufacturer": "Vapid",
     "dealership": "pegasus",
-    "class": "Off-Road",
+    "class": "مركبات الطرق الوعرة",
     "category": "off_road",
     "price": 742000,
     "priceTrade": 0,
@@ -282,14 +310,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/liberator.png",
-    "description": "All-American patriotic Stars and Stripes monster truck. Built to crush obstacles under enormous off-road suspension."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مركبات الطرق الوعرة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "off_road",
+    "deliveryFee": "$200"
   },
   {
     "id": "brickade",
     "name": "Brickade",
     "manufacturer": "HVY",
     "dealership": "pegasus",
-    "class": "Vans",
+    "class": "فانات وشاحنات صغيرة",
     "category": "van",
     "price": 1110000,
     "priceTrade": 0,
@@ -301,14 +331,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/brickade.png",
-    "description": "High-security armored transport truck. Ideal for moving high-value contraband and cargo safely."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة فانات وشاحنات صغيرة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "van",
+    "deliveryFee": "$200"
   },
   {
     "id": "stretch_e",
-    "name": "Turreted Limo",
+    "name": "ليموزين مصفح ببرج رشاش",
     "manufacturer": "Dundreary",
     "dealership": "pegasus",
-    "class": "Sedans",
+    "class": "سيارات سيدان عائلية",
     "category": "sedan",
     "price": 1650000,
     "priceTrade": 0,
@@ -320,14 +352,16 @@
     "weaponized": true,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/stretch_e.png",
-    "description": "Armored luxury stretch limousine fitted with a roof-mounted .50 caliber minigun turret. The summit of armed executive defense."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة سيارات سيدان عائلية. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "sedan",
+    "deliveryFee": "$200"
   },
   {
     "id": "dune",
     "name": "Dune",
     "manufacturer": "BF",
     "dealership": "pegasus",
-    "class": "Off-Road",
+    "class": "مركبات الطرق الوعرة",
     "category": "off_road",
     "price": 1300000,
     "priceTrade": 0,
@@ -339,14 +373,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/dune.png",
-    "description": "High-traction all-terrain rally truck. Available in official Globe Oil and Fukaru Rally editions."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مركبات الطرق الوعرة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "off_road",
+    "deliveryFee": "$200"
   },
   {
     "id": "boxville",
     "name": "Boxville",
     "manufacturer": "Brute",
     "dealership": "pegasus",
-    "class": "Vans",
+    "class": "فانات وشاحنات صغيرة",
     "category": "van",
     "price": 59850,
     "priceTrade": 45000,
@@ -358,14 +394,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/boxville.png",
-    "description": "Los Santos Post delivery van. Trade price unlocked by completing Pacific Standard - Vans setup."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة فانات وشاحنات صغيرة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "van",
+    "deliveryFee": "$200"
   },
   {
     "id": "prison_bus",
-    "name": "Prison Bus",
+    "name": "Autobús de la prisión",
     "manufacturer": "Brute",
     "dealership": "pegasus",
-    "class": "Utility",
+    "class": "Utilitario",
     "category": "utility",
     "price": 731500,
     "priceTrade": 550000,
@@ -377,14 +415,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/prison_bus.png",
-    "description": "San Andreas Department of Corrections high-security penitentiary bus. Trade price unlocked by completing the Prison Break finale."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Utilitario. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "شاحنات خدمات وبلدية (Utility)",
+    "deliveryFee": "$200"
   },
   {
     "id": "technical",
     "name": "Technical",
     "manufacturer": "Canis",
     "dealership": "pegasus",
-    "class": "Off-Road",
+    "class": "مركبات الطرق الوعرة",
     "category": "off_road",
     "price": 1263500,
     "priceTrade": 950000,
@@ -396,14 +436,16 @@
     "weaponized": true,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/technical.png",
-    "description": "Rugged pickup truck armed with a mounted heavy machine gun. Trade price unlocked by completing Series A Funding."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مركبات الطرق الوعرة. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "off_road",
+    "deliveryFee": "$200"
   },
   {
     "id": "speeder",
     "name": "Speeder",
     "manufacturer": "Speedophile",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 325000,
     "priceTrade": 0,
@@ -415,14 +457,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/speeder.png",
-    "description": "High-speed classic motorboat. Sleek Italian styling with outstanding handling on open water."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "marquis",
     "name": "Marquis",
     "manufacturer": "Marquis",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 413990,
     "priceTrade": 0,
@@ -434,14 +478,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/marquis.png",
-    "description": "Velero de crucero de alta gama. Lento pero elegante, perfecto para navegar en calma."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "kraken",
     "name": "Kraken",
     "manufacturer": "Kraken",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 1325000,
     "priceTrade": 0,
@@ -453,14 +499,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/kraken.png",
-    "description": "Deep-sea exploration submersible. Compact, agile, and pressurized for deep abyss diving. Free for returning players."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "jetmax",
     "name": "Jetmax",
     "manufacturer": "Speedophile",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 299000,
     "priceTrade": 0,
@@ -472,14 +520,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/jetmax.png",
-    "description": "High-end offshore racing boat. The fastest unarmed vessel available in the Pegasus maritime fleet."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "squalo",
     "name": "Squalo",
     "manufacturer": "Pegassi",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 196621,
     "priceTrade": 0,
@@ -491,14 +541,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/squalo.png",
-    "description": "Sleek European-style speedboat. A balanced blend of vintage aesthetics and brisk sea performance."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "suntrap",
     "name": "Suntrap",
     "manufacturer": "Suntrap",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 25160,
     "priceTrade": 0,
@@ -510,14 +562,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/suntrap.png",
-    "description": "Compact pleasure speedboat. Comfortable for relaxed cruising along the coastline of Los Santos."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "tropic",
     "name": "Tropic",
     "manufacturer": "Tropic",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 22000,
     "priceTrade": 0,
@@ -529,14 +583,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/tropic.png",
-    "description": "Classic day cruiser cabin boat. The most accessible entry-level nautical craft in the Pegasus catalog."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "seashark",
     "name": "Seashark",
     "manufacturer": "Speedophile",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 16899,
     "priceTrade": 0,
@@ -548,14 +604,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/seashark.png",
-    "description": "High-performance personal watercraft. The most agile and responsive watercraft in the Pegasus lineup."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "toro",
     "name": "Toro",
     "manufacturer": "Pegassi",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 1750000,
     "priceTrade": 0,
@@ -567,14 +625,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/toro.png",
-    "description": "Luxury wooden speedboat from Pegassi. Premium craftmanship and top-tier open-water speed."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "tug_boat",
-    "name": "Tug",
+    "name": "Remolcador",
     "manufacturer": "HVY",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 1250000,
     "priceTrade": 0,
@@ -586,14 +646,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/tug.png",
-    "description": "Industrial harbor tugboat. Extremely slow, but packs tremendous displacement to push heavy marine traffic."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "dinghy",
     "name": "Dinghy",
     "manufacturer": "Nagasaki",
     "dealership": "pegasus",
-    "class": "Boats",
+    "class": "Embarcación",
     "category": "boat",
     "price": 166250,
     "priceTrade": 125000,
@@ -605,14 +667,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/dinghy.png",
-    "description": "Rigid inflatable boat, fast and responsive. Trade price unlocked by completing the Humane Labs Raid finale."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة Embarcación. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "boat",
+    "deliveryFee": "$200"
   },
   {
     "id": "vestra",
     "name": "Vestra",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 950000,
     "priceTrade": 0,
@@ -624,14 +688,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/vestra.png",
-    "description": "High-speed executive light aircraft with responsive handling. One of the nimble twin-engine planes in Pegasus."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "duster",
     "name": "Duster",
     "manufacturer": "Mammoth",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 275000,
     "priceTrade": 0,
@@ -643,14 +709,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/duster.png",
-    "description": "Vintage biplane crop duster. Low cruise speed but exceptional maneuverability at ground-skimming altitude."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "dodo",
     "name": "Dodo",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 500000,
     "priceTrade": 0,
@@ -662,14 +730,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/dodo.png",
-    "description": "Amphibious floatplane capable of landing effortlessly on both land and water. Free for returning players."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "shamal",
     "name": "Shamal",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 1150000,
     "priceTrade": 0,
@@ -681,14 +751,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/shamal.png",
-    "description": "Luxury twin-turbofan private jet. One of the fastest executive aircraft available through Pegasus."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "cuban800",
     "name": "Cuban 800",
     "manufacturer": "Mammoth",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 240000,
     "priceTrade": 0,
@@ -700,14 +772,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/cuban800.png",
-    "description": "Light twin-engine cargo plane with versatile handling. Long favored for discreet aerial smuggling runs."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "savage",
     "name": "Savage",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Helicopter",
+    "class": "مروحيات",
     "category": "helicopter",
     "price": 2593500,
     "priceTrade": 1950000,
@@ -719,14 +793,16 @@
     "weaponized": true,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/savage.png",
-    "description": "Heavy military attack helicopter equipped with guided missiles and explosive cannon. Trade price unlocked via Pacific Standard - Convoy."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مروحيات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "helicopter",
+    "deliveryFee": "$200"
   },
   {
     "id": "dirigible",
-    "name": "Blimp",
+    "name": "Dirigible",
     "manufacturer": "Atomic",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 1190350,
     "priceTrade": 895000,
@@ -738,14 +814,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/blimp.png",
-    "description": "Atomic-branded promotional blimp. Slow-moving yet iconic skybox fixture. Trade price unlocked after 10 Nightclub management missions."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "luxor",
     "name": "Luxor",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 1625000,
     "priceTrade": 0,
@@ -757,14 +835,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/luxor.png",
-    "description": "High-end corporate executive jet. The gold standard of business travel throughout Southern San Andreas."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "mallard",
     "name": "Mallard",
     "manufacturer": "Western Company",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 250000,
     "priceTrade": 0,
@@ -776,14 +856,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/mallard.png",
-    "description": "Ultralight stunt biplane. The single most agile and responsive aerobatic aircraft in the entire Pegasus fleet."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "frogger",
     "name": "Frogger",
     "manufacturer": "FH-1",
     "dealership": "pegasus",
-    "class": "Helicopter",
+    "class": "مروحيات",
     "category": "helicopter",
     "price": 1300000,
     "priceTrade": 0,
@@ -795,14 +877,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/frogger.png",
-    "description": "Compact, highly agile civilian helicopter. Included free for owners of the Criminal Enterprise Starter Pack."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مروحيات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "helicopter",
+    "deliveryFee": "$200"
   },
   {
     "id": "maverick",
     "name": "Maverick",
     "manufacturer": "Bell",
     "dealership": "pegasus",
-    "class": "Helicopter",
+    "class": "مروحيات",
     "category": "helicopter",
     "price": 780000,
     "priceTrade": 0,
@@ -814,14 +898,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/maverick.png",
-    "description": "Classic utility helicopter. The most dependable all-rounder in the Pegasus roster for price and ease of flight."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مروحيات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "helicopter",
+    "deliveryFee": "$200"
   },
   {
     "id": "annihilator",
     "name": "Annihilator",
     "manufacturer": "Western Company",
     "dealership": "pegasus",
-    "class": "Helicopter",
+    "class": "مروحيات",
     "category": "helicopter",
     "price": 1825000,
     "priceTrade": 0,
@@ -833,14 +919,16 @@
     "weaponized": true,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/annihilator.png",
-    "description": "Four-minigun armed police tactical transport helicopter. Available via Pegasus for aerial law enforcement deterrence."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مروحيات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "helicopter",
+    "deliveryFee": "$200"
   },
   {
     "id": "mammatus",
     "name": "Mammatus",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 300000,
     "priceTrade": 0,
@@ -852,14 +940,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/mammatus.png",
-    "description": "High-wing civil touring monoplane with good range. Excellent for scenic flights across San Andreas airspace."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "titan",
     "name": "Titan",
     "manufacturer": "Jobuilt",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 2000000,
     "priceTrade": 0,
@@ -871,14 +961,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/titan.png",
-    "description": "Four-engine heavy military transport turboprop. The largest aircraft available via the Pegasus logistics network."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "cargobob",
     "name": "Cargobob",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Helicopter",
+    "class": "مروحيات",
     "category": "helicopter",
     "price": 1790000,
     "priceTrade": 0,
@@ -890,14 +982,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/cargobob.png",
-    "description": "Heavy-lift military cargo helicopter equipped with a ventral winch hook for transporting vehicles and containers."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مروحيات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "helicopter",
+    "deliveryFee": "$200"
   },
   {
     "id": "volatus",
     "name": "Volatus",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Helicopter",
+    "class": "مروحيات",
     "category": "helicopter",
     "price": 2978000,
     "priceTrade": 0,
@@ -909,14 +1003,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/volatus.png",
-    "description": "Ultra-luxury executive helicopter from Buckingham. Sleek futuristic lines and high-velocity transit."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مروحيات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "helicopter",
+    "deliveryFee": "$200"
   },
   {
     "id": "conada",
     "name": "Conada",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Helicopter",
+    "class": "مروحيات",
     "category": "helicopter",
     "price": 965000,
     "priceTrade": 0,
@@ -928,14 +1024,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/conada.png",
-    "description": "Lightweight utility training helicopter. Nimble, low profile, and efficient for swift transit across Southern San Andreas."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة مروحيات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "helicopter",
+    "deliveryFee": "$200"
   },
   {
     "id": "luxor_deluxe",
     "name": "Luxor Deluxe",
     "manufacturer": "Buckingham",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 10000000,
     "priceTrade": 0,
@@ -947,14 +1045,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/luxor_deluxe.png",
-    "description": "The solid 22-carat gold luxury executive jet. The most opulent and expensive aircraft in GTA Online, complete with champagne and cigars."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "pyro",
     "name": "Pyro",
     "manufacturer": "Western Company",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 4455500,
     "priceTrade": 3341500,
@@ -966,14 +1066,16 @@
     "weaponized": true,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/pyro.png",
-    "description": "Twin-boom interceptor jet inspired by early Cold War designs. Exceptional climb rate, turning agility, and weapon hardpoints."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "howard",
     "name": "Howard NX-25",
     "manufacturer": "Western Company",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 1296750,
     "priceTrade": 975000,
@@ -985,14 +1087,16 @@
     "weaponized": false,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/howard.png",
-    "description": "Modernized vintage air racing monoplane. Retro aesthetics paired with aerobatic responsiveness."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "bombushka",
     "name": "Bombushka",
     "manufacturer": "Rogue",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 5918500,
     "priceTrade": 4450000,
@@ -1004,14 +1108,16 @@
     "weaponized": true,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/bombushka.png",
-    "description": "Heavily armored Soviet-era strategic cargo bomber. Incredible defensive payload and turret placements."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "rogue",
     "name": "Rogue",
     "manufacturer": "Western Company",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 1596000,
     "priceTrade": 1200000,
@@ -1023,14 +1129,16 @@
     "weaponized": true,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/rogue.png",
-    "description": "Lightweight single-engine military trainer and ground attack turboprop. Armed with machine guns, explosive bombs, and countermeasures."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   },
   {
     "id": "starling",
     "name": "Starling",
     "manufacturer": "Western Company",
     "dealership": "pegasus",
-    "class": "Plane",
+    "class": "طائرات",
     "category": "plane",
     "price": 3657500,
     "priceTrade": 2750000,
@@ -1042,6 +1150,8 @@
     "weaponized": true,
     "gameMode": "online",
     "imageUrl": "/assets/data-images/vehicles/starling.png",
-    "description": "Experimental rocket-assisted tailless interceptor. Blistering rocket-boosted climb rates and deadly glide agility."
+    "description": "آلية متخصصة تابعة لخدمة Pegasus Lifestyle Management من فئة طائرات. تسليم فوري بالاتصال الهاتفي عند أقرب مهبط أو مدرج أو مرسى.",
+    "categoryLabel": "plane",
+    "deliveryFee": "$200"
   }
 ]

@@ -580,5 +580,22 @@ export const hi: TranslationSchema = {
     submit: 'प्रवेश करें',
     cancel: 'रद्द करें',
     error: 'गलत पासवर्ड'
+  },
+  feedback: {
+    buttonTitle: 'सुझाव या प्रतिक्रिया भेजें',
+    modalTitle: 'सुझाव और प्रतिक्रिया',
+    modalSubtitle: 'क्या आपके पास कोई विचार है या कोई बग मिला? हमें बताएं!',
+    nameLabel: 'आपका नाम (वैकल्पिक)',
+    namePlaceholder: 'उदा: राहुल या अज्ञात',
+    messageLabel: 'आपका संदेश',
+    messagePlaceholder: 'यहाँ अपना सुझाव, प्रतिक्रिया या बग रिपोर्ट लिखें...',
+    sendButton: 'सुझाव भेजें',
+    sending: 'भेजा जा रहा है...',
+    successTitle: 'आपके संदेश के लिए धन्यवाद!',
+    successMessage: 'आपका सुझाव सफलतापूर्वक प्राप्त हो गया है। यह हमें सुधार जारी रखने में मदद करता है।',
+    errorTitle: 'भेजने में त्रुटि',
+    errorMessage: 'सुझाव भेजा नहीं जा सका। कृपया कुछ क्षणों बाद पुनः प्रयास करें।',
+    close: 'बंद करें',
+    sendAnother: 'एक और सुझाव भेजें'
   }
 };

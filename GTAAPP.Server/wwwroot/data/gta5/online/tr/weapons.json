@@ -2,10 +2,10 @@
   {
     "id": "pistol",
     "order": 1,
-    "name": "Tabanca",
+    "name": "9mm Tabanca",
     "nameEn": "Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Tabancalar",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Beretta 92FS / Taurus PT92",
     "price": 350,
@@ -16,7 +16,7 @@
     "accuracy": 4,
     "range": 3,
     "clipSize": "12 mermi (16 uzatılmış)",
-    "description": "Standart 9mm yarı otomatik tabanca. Yakın mesafe çatışmalar için hafif ve güvenilir.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Vom Feuer). Hasar: 2.6/10, İsabet: 4/10, Atış Hızı: 4/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "Fener",
@@ -32,10 +32,10 @@
   {
     "id": "combat_pistol",
     "order": 2,
-    "name": "Dövüş Tabancası",
+    "name": "Savaş Tabancası (Combat Pistol)",
     "nameEn": "Combat Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Tabancalar",
     "manufacturer": "Hawk & Little",
     "realCounterpart": "Glock 17 (9x19mm)",
     "price": 550,
@@ -46,7 +46,7 @@
     "accuracy": 5,
     "range": 3.5,
     "clipSize": "12 mermi (16 uzatılmış)",
-    "description": "Kolluk kuvvetleri ve kişisel savunma için geliştirilmiş, yüksek isabet oranı ve atış hızına sahip kompakt polimer tabanca.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Hawk & Little). Hasar: 3.2/10, İsabet: 5/10, Atış Hızı: 4.5/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "Fener",
@@ -65,7 +65,7 @@
     "name": "AP Tabanca",
     "nameEn": "AP Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Tabancalar",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt SCAMP / OTs-33 Pernach",
     "price": 5000,
@@ -76,7 +76,7 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "18 mermi (36 uzatılmış)",
-    "description": "High-rate-of-fire armor-piercing automatic pistol. Empty a 36-round clip in seconds during high-speed drive-by shootings.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Vom Feuer). Hasar: 3/10, İsabet: 3.5/10, Atış Hızı: 8/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "Fener",
@@ -95,7 +95,7 @@
     "name": "Ağır Revolver",
     "nameEn": "Heavy Revolver",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Tabancalar",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Taurus Raging Bull (.44 Magnum)",
     "price": 5900,
@@ -106,7 +106,7 @@
     "accuracy": 6.5,
     "range": 5.5,
     "clipSize": "6 mermi",
-    "description": "A colossal handgun packing devastating stopping power. Capable of dropping armored targets with a single, well-placed round.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 8.5/10, İsabet: 6.5/10, Atış Hızı: 2/10.",
     "attachments": [
       "VIP Luxury Finish",
       "Collector Engraving"
@@ -120,10 +120,10 @@
   {
     "id": "perico_pistol",
     "order": 5,
-    "name": "Perico Pistol",
+    "name": "Altın Perico Tabancası",
     "nameEn": "Perico Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Tabancalar",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Custom Engraved Gold Walther PPK",
     "price": 0,
@@ -134,7 +134,7 @@
     "accuracy": 5.5,
     "range": 4,
     "clipSize": "Tek atış",
-    "description": "Handcrafted solid gold pistol recovered from El Rubio's private office safe in the fortified Cayo Perico compound.",
+    "description": "Cayo Perico'da El Rubio'nun ofisindeki kasadan ele geçirilen som altın işlemeli el yapımı tabanca.",
     "attachments": [
       "Native 24K Gold Inlay"
     ],
@@ -147,10 +147,10 @@
   {
     "id": "up_n_atomizer",
     "order": 6,
-    "name": "Up-n-Atomizer",
+    "name": "Up-n-Atomizer Enerji Tabancası",
     "nameEn": "Up-n-Atomizer",
     "category": "pistols",
-    "categoryLabel": "Special Weapons",
+    "categoryLabel": "Tabancalar",
     "manufacturer": "Republic Space Rangers",
     "realCounterpart": "Alien Electromagnetic Ray Gun",
     "price": 399000,
@@ -161,7 +161,7 @@
     "accuracy": 7,
     "range": 4.5,
     "clipSize": "Infinite ammo (Heat cooldown)",
-    "description": "Sci-fi weapon projecting high-impact energy shockwaves that launch vehicles and sentries into the air.",
+    "description": "Sıkışan araçları fırlatarak kurtarabilen fütüristik şok dalgası enerji tabancası.",
     "attachments": [
       "Themed Futuristic Tints"
     ],
@@ -177,7 +177,7 @@
     "name": "Stun Gun",
     "nameEn": "Stun Gun",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Tabancalar",
     "manufacturer": "Coil",
     "realCounterpart": "Taser X26",
     "price": 375000,
@@ -188,7 +188,7 @@
     "accuracy": 4,
     "range": 2,
     "clipSize": "High-voltage probes (4s recharge)",
-    "description": "Non-lethal electrical conductive device firing twin electrified probes to incapacitate any target instantly.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Coil). Hasar: 1/10, İsabet: 4/10, Atış Hızı: 1/10.",
     "attachments": [
       "Tactical Polymer Finish"
     ],
@@ -215,7 +215,7 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "16 mermi (30 uzatılmış)",
-    "description": "The quintessential drive-by weapon. Compact frame with an aggressive cyclic rate to overwhelm targets on the move.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 3.5/10, İsabet: 3.5/10, Atış Hızı: 7.5/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "Fener",
@@ -232,7 +232,7 @@
   {
     "id": "smg",
     "order": 9,
-    "name": "SMG",
+    "name": "SMG (Hafif Makineli)",
     "nameEn": "SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -246,13 +246,13 @@
     "accuracy": 5.5,
     "range": 4.5,
     "clipSize": "30 mermi",
-    "description": "The world's premier tactical submachine gun. Delivers flawless recoil control, precision handling, and sustained cyclic fire.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 4.2/10, İsabet: 5.5/10, Atış Hızı: 7/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "Tambur Şarjör",
       "Fener",
       "Susturucu",
-      "Holographic Sight"
+      "Holografik Nişangah"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
@@ -277,7 +277,7 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "100 mermi",
-    "description": "Heavy squad automatic weapon with a massive belt capacity, capable of shredding enemy squads and disabling air support.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 7.5/10, İsabet: 5.5/10, Atış Hızı: 6.5/10.",
     "attachments": [
       "200-Round Box Magazine",
       "Dürbün",
@@ -307,7 +307,7 @@
     "accuracy": 4.5,
     "range": 4,
     "clipSize": "30 mermi",
-    "description": "Prohibition era icon featuring iconic circular drum magazines and an unmistakable firing signature.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Vom Feuer). Hasar: 5/10, İsabet: 4.5/10, Atış Hızı: 7.5/10.",
     "attachments": [
       "50-Round Drum Magazine"
     ],
@@ -320,10 +320,10 @@
   {
     "id": "assault_rifle",
     "order": 12,
-    "name": "Saldırı Tüfeği",
+    "name": "Saldırı Tüfeği (AK-47)",
     "nameEn": "Assault Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Saldırı Tüfekleri",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "AK-47 / Norinco Type 56",
     "price": 8550,
@@ -334,7 +334,7 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "30 mermi (60 uzatılmış)",
-    "description": "The most widely recognized assault rifle on earth. Legendary durability firing heavy 7.62mm cartridges with extreme lethality.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 6.2/10, İsabet: 5.5/10, Atış Hızı: 6/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "Tambur Şarjör",
@@ -352,10 +352,10 @@
   {
     "id": "carbine_rifle",
     "order": 13,
-    "name": "Karabina Tüfeği",
+    "name": "Karabin Tüfeği (M4A1)",
     "nameEn": "Carbine Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Saldırı Tüfekleri",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M4A1 (5.56x45mm NATO)",
     "price": 13000,
@@ -366,11 +366,11 @@
     "accuracy": 6.5,
     "range": 6.5,
     "clipSize": "30 mermi (60 uzatılmış)",
-    "description": "All-around military workhorse rifle with full Picatinny rail modularity, crisp handling, and controllable recoil patterns.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Vom Feuer). Hasar: 6.5/10, İsabet: 6.5/10, Atış Hızı: 7/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "Box Drum",
-      "Holographic Sight",
+      "Holografik Nişangah",
       "Tactical Flashlight",
       "Susturucu",
       "Tutamak"
@@ -384,10 +384,10 @@
   {
     "id": "special_carbine",
     "order": 14,
-    "name": "Özel Karabina",
+    "name": "Özel Karabin Tüfeği",
     "nameEn": "Special Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Saldırı Tüfekleri",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Heckler & Koch G36C",
     "price": 14750,
@@ -398,7 +398,7 @@
     "accuracy": 7,
     "range": 6.5,
     "clipSize": "30 mermi (60 uzatılmış)",
-    "description": "German engineered lightweight polymer rifle. Renowned across Los Santos for laser precision and minimal recoil bloom.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Vom Feuer). Hasar: 6.7/10, İsabet: 7/10, Atış Hızı: 7/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "100-Round Drum",
@@ -418,7 +418,7 @@
     "name": "Service Carbine",
     "nameEn": "Service Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Saldırı Tüfekleri",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M16A4 / M16",
     "price": 370000,
@@ -429,7 +429,7 @@
     "accuracy": 6.8,
     "range": 6.5,
     "clipSize": "30 mermi (60 uzatılmış)",
-    "description": "Iconic military service rifle delivering reliable sustained damage for urban tactical operations throughout San Andreas.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Vom Feuer). Hasar: 6.8/10, İsabet: 6.8/10, Atış Hızı: 6.8/10.",
     "attachments": [
       "Uzatılmış Şarjör",
       "Telescopic Scope",
@@ -449,7 +449,7 @@
     "name": "Pompalı Tüfek",
     "nameEn": "Pump Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Pompalı Tüfekler",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Mossberg 590 (12 Gauge)",
     "price": 3500,
@@ -460,7 +460,7 @@
     "accuracy": 3,
     "range": 2.5,
     "clipSize": "8 shells",
-    "description": "Classic 12-gauge law enforcement pump action shotgun. Devastating point-blank stopping power with dense buckshot spread.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 7.8/10, İsabet: 3/10, Atış Hızı: 2/10.",
     "attachments": [
       "Fener",
       "Shotgun Suppressor",
@@ -475,10 +475,10 @@
   {
     "id": "assault_shotgun",
     "order": 17,
-    "name": "Saldırı Pompalısı",
+    "name": "Otomatik Saldırı Tüfeği",
     "nameEn": "Assault Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Pompalı Tüfekler",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "UTAS UTS-15 / Fostech Origin-12",
     "price": 10000,
@@ -489,7 +489,7 @@
     "accuracy": 4,
     "range": 3.5,
     "clipSize": "8 shells (32 drum)",
-    "description": "Fully automatic combat shotgun equipped with a 32-round drum magazine, creating an impenetrable wall of lead in close quarters.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 8.2/10, İsabet: 4/10, Atış Hızı: 6.5/10.",
     "attachments": [
       "32-Shell Drum Magazine",
       "Tactical Flashlight",
@@ -505,10 +505,10 @@
   {
     "id": "combat_shotgun",
     "order": 18,
-    "name": "Combat Shotgun",
+    "name": "Savaş Pompalı Tüfeği",
     "nameEn": "Combat Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Pompalı Tüfekler",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Franchi SPAS-12 (12 Gauge)",
     "price": 295000,
@@ -519,7 +519,7 @@
     "accuracy": 4.5,
     "range": 3,
     "clipSize": "6 shells",
-    "description": "Italian designed combat shotgun with folding stock, recovered from the personal elite security guards of Cayo Perico.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Vom Feuer). Hasar: 8/10, İsabet: 4.5/10, Atış Hızı: 4.5/10.",
     "attachments": [
       "Tactical Light",
       "Shotgun Suppressor"
@@ -536,7 +536,7 @@
     "name": "Keskin Nişancı Tüfeği",
     "nameEn": "Sniper Rifle",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "Keskin Nişancı Tüfekleri",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Accuracy International AWP (7.62x51mm)",
     "price": 20000,
@@ -547,7 +547,7 @@
     "accuracy": 8.5,
     "range": 9,
     "clipSize": "10 mermi",
-    "description": "Precision bolt-action long range marksman rifle engineered to eliminate threats from hundreds of yards away.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 8.8/10, İsabet: 8.5/10, Atış Hızı: 2/10.",
     "attachments": [
       "Advanced High-Power Scope",
       "Susturucu",
@@ -562,10 +562,10 @@
   {
     "id": "heavy_sniper",
     "order": 20,
-    "name": "Ağır Keskin Nişancı Tüfeği",
+    "name": "Ağır Keskin Nişancı Tüfeği (.50)",
     "nameEn": "Heavy Sniper",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "Keskin Nişancı Tüfekleri",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Barrett M82A1 (.50 BMG Anti-Materiel)",
     "price": 38150,
@@ -576,7 +576,7 @@
     "accuracy": 9.5,
     "range": 10,
     "clipSize": "6 mermi",
-    "description": "Massive .50 BMG anti-materiel sniper rifle. Capable of disabling helicopter rotors, piercing vehicle armor, and eliminating targets across extreme render distances.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 9.8/10, İsabet: 9.5/10, Atış Hızı: 2/10.",
     "attachments": [
       "Gelişmiş Dürbün",
       "Thermal / Night Vision Scope (Mk II)",
@@ -591,10 +591,10 @@
   {
     "id": "rpg",
     "order": 21,
-    "name": "Roketatar (RPG)",
+    "name": "RPG Roketatar",
     "nameEn": "RPG",
     "category": "heavy",
-    "categoryLabel": "Ağır Silahlar",
+    "categoryLabel": "Ağır Silahlar ve Patlayıcılar",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "RPG-7 (85mm Rocket)",
     "price": 26250,
@@ -605,7 +605,7 @@
     "accuracy": 3,
     "range": 7,
     "clipSize": "1 rocket (20 capacity)",
-    "description": "Unguided shoulder-fired anti-tank rocket launcher. Engineered to vaporize tanks, convoys, and fortified positions with catastrophic blast shockwaves.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 10/10, İsabet: 3/10, Atış Hızı: 1/10.",
     "attachments": [
       "VIP Gold Plated Finish"
     ],
@@ -618,10 +618,10 @@
   {
     "id": "homing_launcher",
     "order": 22,
-    "name": "Güdümlü Füze Atıcı",
+    "name": "Güdümlü Füze Fırlatıcı",
     "nameEn": "Homing Launcher",
     "category": "heavy",
-    "categoryLabel": "Ağır Silahlar",
+    "categoryLabel": "Ağır Silahlar ve Patlayıcılar",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "FIM-92 Stinger / SA-7 Grail",
     "price": 75000,
@@ -632,7 +632,7 @@
     "accuracy": 8,
     "range": 8.5,
     "clipSize": "1 heat-seeking missile (10 capacity)",
-    "description": "Portable surface-to-air missile system featuring infrared lock-on capabilities that track airborne and high-velocity ground targets.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 9.5/10, İsabet: 8/10, Atış Hızı: 1.2/10.",
     "attachments": [
       "Special Edition Military Finish"
     ],
@@ -645,10 +645,10 @@
   {
     "id": "minigun",
     "order": 23,
-    "name": "Döner Namlulu Minigun",
+    "name": "Minigun Döner Namlulu Makineli",
     "nameEn": "Minigun",
     "category": "heavy",
-    "categoryLabel": "Ağır Silahlar",
+    "categoryLabel": "Ağır Silahlar ve Patlayıcılar",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "M134 Vulcan (6-barrel 7.62mm rotary)",
     "price": 47000,
@@ -659,7 +659,7 @@
     "accuracy": 4.5,
     "range": 6.5,
     "clipSize": "999 mermi",
-    "description": "The ultimate infantry fire-support weapon. Six rotating electrically driven barrels unleashing relentless suppressing fire.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 9.2/10, İsabet: 4.5/10, Atış Hızı: 10/10.",
     "attachments": [
       "Gold Luxury Finish"
     ],
@@ -672,10 +672,10 @@
   {
     "id": "railgun",
     "order": 24,
-    "name": "Railgun",
+    "name": "Railgun Elektromanyetik Top",
     "nameEn": "Railgun",
     "category": "heavy",
-    "categoryLabel": "Ağır Silahlar",
+    "categoryLabel": "Ağır Silahlar ve Patlayıcılar",
     "manufacturer": "Coil",
     "realCounterpart": "Experimental Electromagnetic Kinetic Cannon",
     "price": 730000,
@@ -686,7 +686,7 @@
     "accuracy": 9.5,
     "range": 9,
     "clipSize": "1 kinetic slug (20 capacity)",
-    "description": "Experimental military prototype using electromagnetic acceleration to propel solid metallic slugs at hypersonic velocity with instant lethal impact.",
+    "description": "Mermileri ses hızının katbekat üzerinde fırlatarak hedefleri anında yok eden elektromanyetik silah.",
     "attachments": [
       "Custom Coil Metallic Tints"
     ],
@@ -713,7 +713,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Close combat bladed weapon",
-    "description": "7-inch carbon steel fixed blade combat knife. Silent and deadly for stealth takedowns from behind.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 2/10, İsabet: 1/10, Atış Hızı: 3/10.",
     "attachments": [
       "Forged Steel Finish"
     ],
@@ -740,7 +740,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Passive: Stone Rage Mode",
-    "description": "Ancient Native American stone hatchet. Slashing an opponent triggers 'Stone Rage Mode', granting temporary ballistic invulnerability.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Native American / RDR2). Hasar: 5/10, İsabet: 1/10, Atış Hızı: 2.5/10.",
     "attachments": [
       "Traditional Leather Wraps"
     ],
@@ -756,7 +756,7 @@
     "name": "Yapışkan Bomba",
     "nameEn": "Sticky Bomb",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "Fırlatılabilir Silahlar / Bombalar",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "C4 Plastic Explosive with Remote Cellphone Detonator",
     "price": 600,
@@ -767,7 +767,7 @@
     "accuracy": 2,
     "range": 2.5,
     "clipSize": "Up to 25 remote charges",
-    "description": "C4 plastic explosive block with adhesive backing. Attach to any surface or vehicle and detonate on command via cellular trigger.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 9.5/10, İsabet: 2/10, Atış Hızı: 1.5/10.",
     "attachments": [
       "Remote Cellular Trigger"
     ],
@@ -783,7 +783,7 @@
     "name": "Proximity Mine",
     "nameEn": "Proximity Mine",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "Fırlatılabilir Silahlar / Bombalar",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Laser-Tripped Tactical Landmine",
     "price": 1000,
@@ -794,7 +794,7 @@
     "accuracy": 2,
     "range": 2,
     "clipSize": "Up to 5 active deployed mines",
-    "description": "Anti-personnel and anti-vehicle mine with laser proximity sensors, triggering instantly when movement is detected.",
+    "description": "Ammu-Nation onaylı resmi ateşli silah (Üretici: Shrewsbury). Hasar: 9.5/10, İsabet: 2/10, Atış Hızı: 1/10.",
     "attachments": [
       "Thermal Motion Trigger"
     ],

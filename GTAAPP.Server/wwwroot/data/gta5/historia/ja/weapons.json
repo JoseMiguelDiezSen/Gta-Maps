@@ -2,10 +2,10 @@
   {
     "id": "pistol",
     "order": 1,
-    "name": "ピストル",
+    "name": "9mmピストル",
     "nameEn": "Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "ハンドガン・ピストル",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Beretta 92FS / Taurus PT92",
     "price": 350,
@@ -16,7 +16,7 @@
     "accuracy": 4,
     "range": 3,
     "clipSize": "12 発（拡張 16 発）",
-    "description": "標準的な9mmセミオートマチックピストル。近距離戦において軽量で信頼性の高い定番武器。",
+    "description": "アミュネーション認可の正規武器（メーカー: Vom Feuer）。威力: 2.6/10、命中率: 4/10、連射速度: 4/10。",
     "attachments": [
       "拡張マガジン",
       "フラッシュライト",
@@ -35,7 +35,7 @@
     "name": "コンバットピストル",
     "nameEn": "Combat Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "ハンドガン・ピストル",
     "manufacturer": "Hawk & Little",
     "realCounterpart": "Glock 17 (9x19mm)",
     "price": 550,
@@ -46,7 +46,7 @@
     "accuracy": 5,
     "range": 3.5,
     "clipSize": "12 発（拡張 16 発）",
-    "description": "法執行機関および護身用に設計された軽量ポリマー製コンパクトピストル。高い命中精度と連射性能を誇ります。",
+    "description": "アミュネーション認可の正規武器（メーカー: Hawk & Little）。威力: 3.2/10、命中率: 5/10、連射速度: 4.5/10。",
     "attachments": [
       "拡張マガジン",
       "フラッシュライト",
@@ -65,7 +65,7 @@
     "name": "APピストル",
     "nameEn": "AP Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "ハンドガン・ピストル",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt SCAMP / OTs-33 Pernach",
     "price": 5000,
@@ -76,7 +76,7 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "18 発（拡張 36 発）",
-    "description": "High-rate-of-fire armor-piercing automatic pistol. Empty a 36-round clip in seconds during high-speed drive-by shootings.",
+    "description": "アミュネーション認可の正規武器（メーカー: Vom Feuer）。威力: 3/10、命中率: 3.5/10、連射速度: 8/10。",
     "attachments": [
       "拡張マガジン",
       "フラッシュライト",
@@ -95,7 +95,7 @@
     "name": "ヘビーリボルバー",
     "nameEn": "Heavy Revolver",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "ハンドガン・ピストル",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Taurus Raging Bull (.44 Magnum)",
     "price": 5900,
@@ -106,7 +106,7 @@
     "accuracy": 6.5,
     "range": 5.5,
     "clipSize": "6 発",
-    "description": "A colossal handgun packing devastating stopping power. Capable of dropping armored targets with a single, well-placed round.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 8.5/10、命中率: 6.5/10、連射速度: 2/10。",
     "attachments": [
       "VIP Luxury Finish",
       "Collector Engraving"
@@ -120,10 +120,10 @@
   {
     "id": "perico_pistol",
     "order": 5,
-    "name": "Perico Pistol",
+    "name": "ペリコピストル（純金製）",
     "nameEn": "Perico Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "ハンドガン・ピストル",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Custom Engraved Gold Walther PPK",
     "price": 0,
@@ -134,7 +134,7 @@
     "accuracy": 5.5,
     "range": 4,
     "clipSize": "単発",
-    "description": "Handcrafted solid gold pistol recovered from El Rubio's private office safe in the fortified Cayo Perico compound.",
+    "description": "カヨ・ペリコのエル・ルビオ邸宅の金庫から回収した純金ハンドクラフトピストル。",
     "attachments": [
       "Native 24K Gold Inlay"
     ],
@@ -147,10 +147,10 @@
   {
     "id": "up_n_atomizer",
     "order": 6,
-    "name": "Up-n-Atomizer",
+    "name": "アプ・ン・アトマイザー（光線銃）",
     "nameEn": "Up-n-Atomizer",
     "category": "pistols",
-    "categoryLabel": "Special Weapons",
+    "categoryLabel": "ハンドガン・ピストル",
     "manufacturer": "Republic Space Rangers",
     "realCounterpart": "Alien Electromagnetic Ray Gun",
     "price": 399000,
@@ -161,7 +161,7 @@
     "accuracy": 7,
     "range": 4.5,
     "clipSize": "Infinite ammo (Heat cooldown)",
-    "description": "Sci-fi weapon projecting high-impact energy shockwaves that launch vehicles and sentries into the air.",
+    "description": "スタックした車両を吹き飛ばして脱出させることができる未来型パルス光線銃。",
     "attachments": [
       "Themed Futuristic Tints"
     ],
@@ -177,7 +177,7 @@
     "name": "Stun Gun",
     "nameEn": "Stun Gun",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "ハンドガン・ピストル",
     "manufacturer": "Coil",
     "realCounterpart": "Taser X26",
     "price": 375000,
@@ -188,7 +188,7 @@
     "accuracy": 4,
     "range": 2,
     "clipSize": "High-voltage probes (4s recharge)",
-    "description": "Non-lethal electrical conductive device firing twin electrified probes to incapacitate any target instantly.",
+    "description": "アミュネーション認可の正規武器（メーカー: Coil）。威力: 1/10、命中率: 4/10、連射速度: 1/10。",
     "attachments": [
       "Tactical Polymer Finish"
     ],
@@ -215,7 +215,7 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "16 発（拡張 30 発）",
-    "description": "The quintessential drive-by weapon. Compact frame with an aggressive cyclic rate to overwhelm targets on the move.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 3.5/10、命中率: 3.5/10、連射速度: 7.5/10。",
     "attachments": [
       "拡張マガジン",
       "フラッシュライト",
@@ -232,7 +232,7 @@
   {
     "id": "smg",
     "order": 9,
-    "name": "SMG",
+    "name": "SMG（サブマシンガン）",
     "nameEn": "SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -246,13 +246,13 @@
     "accuracy": 5.5,
     "range": 4.5,
     "clipSize": "30 発",
-    "description": "The world's premier tactical submachine gun. Delivers flawless recoil control, precision handling, and sustained cyclic fire.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 4.2/10、命中率: 5.5/10、連射速度: 7/10。",
     "attachments": [
       "拡張マガジン",
       "ドラムマガジン",
       "フラッシュライト",
       "サプレッサー（消音器）",
-      "Holographic Sight"
+      "ホログラフィックサイト"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
@@ -277,7 +277,7 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "100 発",
-    "description": "Heavy squad automatic weapon with a massive belt capacity, capable of shredding enemy squads and disabling air support.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 7.5/10、命中率: 5.5/10、連射速度: 6.5/10。",
     "attachments": [
       "200-Round Box Magazine",
       "スコープ",
@@ -307,7 +307,7 @@
     "accuracy": 4.5,
     "range": 4,
     "clipSize": "30 発",
-    "description": "Prohibition era icon featuring iconic circular drum magazines and an unmistakable firing signature.",
+    "description": "アミュネーション認可の正規武器（メーカー: Vom Feuer）。威力: 5/10、命中率: 4.5/10、連射速度: 7.5/10。",
     "attachments": [
       "50-Round Drum Magazine"
     ],
@@ -320,10 +320,10 @@
   {
     "id": "assault_rifle",
     "order": 12,
-    "name": "アサルトライフル",
+    "name": "アサルトライフル（AK-47）",
     "nameEn": "Assault Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "アサルトライフル",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "AK-47 / Norinco Type 56",
     "price": 8550,
@@ -334,7 +334,7 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "30 発（拡張 60 発）",
-    "description": "The most widely recognized assault rifle on earth. Legendary durability firing heavy 7.62mm cartridges with extreme lethality.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 6.2/10、命中率: 5.5/10、連射速度: 6/10。",
     "attachments": [
       "拡張マガジン",
       "ドラムマガジン",
@@ -352,10 +352,10 @@
   {
     "id": "carbine_rifle",
     "order": 13,
-    "name": "カービンライフル",
+    "name": "カービンライフル（M4A1）",
     "nameEn": "Carbine Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "アサルトライフル",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M4A1 (5.56x45mm NATO)",
     "price": 13000,
@@ -366,11 +366,11 @@
     "accuracy": 6.5,
     "range": 6.5,
     "clipSize": "30 発（拡張 60 発）",
-    "description": "All-around military workhorse rifle with full Picatinny rail modularity, crisp handling, and controllable recoil patterns.",
+    "description": "アミュネーション認可の正規武器（メーカー: Vom Feuer）。威力: 6.5/10、命中率: 6.5/10、連射速度: 7/10。",
     "attachments": [
       "拡張マガジン",
       "Box Drum",
-      "Holographic Sight",
+      "ホログラフィックサイト",
       "Tactical Flashlight",
       "サプレッサー（消音器）",
       "グリップ"
@@ -387,7 +387,7 @@
     "name": "スペシャルカービン",
     "nameEn": "Special Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "アサルトライフル",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Heckler & Koch G36C",
     "price": 14750,
@@ -398,7 +398,7 @@
     "accuracy": 7,
     "range": 6.5,
     "clipSize": "30 発（拡張 60 発）",
-    "description": "German engineered lightweight polymer rifle. Renowned across Los Santos for laser precision and minimal recoil bloom.",
+    "description": "アミュネーション認可の正規武器（メーカー: Vom Feuer）。威力: 6.7/10、命中率: 7/10、連射速度: 7/10。",
     "attachments": [
       "拡張マガジン",
       "100-Round Drum",
@@ -418,7 +418,7 @@
     "name": "Service Carbine",
     "nameEn": "Service Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "アサルトライフル",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M16A4 / M16",
     "price": 370000,
@@ -429,7 +429,7 @@
     "accuracy": 6.8,
     "range": 6.5,
     "clipSize": "30 発（拡張 60 発）",
-    "description": "Iconic military service rifle delivering reliable sustained damage for urban tactical operations throughout San Andreas.",
+    "description": "アミュネーション認可の正規武器（メーカー: Vom Feuer）。威力: 6.8/10、命中率: 6.8/10、連射速度: 6.8/10。",
     "attachments": [
       "拡張マガジン",
       "Telescopic Scope",
@@ -449,7 +449,7 @@
     "name": "ポンプショットガン",
     "nameEn": "Pump Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "ショットガン",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Mossberg 590 (12 Gauge)",
     "price": 3500,
@@ -460,7 +460,7 @@
     "accuracy": 3,
     "range": 2.5,
     "clipSize": "8 shells",
-    "description": "Classic 12-gauge law enforcement pump action shotgun. Devastating point-blank stopping power with dense buckshot spread.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 7.8/10、命中率: 3/10、連射速度: 2/10。",
     "attachments": [
       "フラッシュライト",
       "Shotgun Suppressor",
@@ -475,10 +475,10 @@
   {
     "id": "assault_shotgun",
     "order": 17,
-    "name": "アサルトショットガン",
+    "name": "アサルトショットガン（フルオート）",
     "nameEn": "Assault Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "ショットガン",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "UTAS UTS-15 / Fostech Origin-12",
     "price": 10000,
@@ -489,7 +489,7 @@
     "accuracy": 4,
     "range": 3.5,
     "clipSize": "8 shells (32 drum)",
-    "description": "Fully automatic combat shotgun equipped with a 32-round drum magazine, creating an impenetrable wall of lead in close quarters.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 8.2/10、命中率: 4/10、連射速度: 6.5/10。",
     "attachments": [
       "32-Shell Drum Magazine",
       "Tactical Flashlight",
@@ -505,10 +505,10 @@
   {
     "id": "combat_shotgun",
     "order": 18,
-    "name": "Combat Shotgun",
+    "name": "コンバットショットガン",
     "nameEn": "Combat Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "ショットガン",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Franchi SPAS-12 (12 Gauge)",
     "price": 295000,
@@ -519,7 +519,7 @@
     "accuracy": 4.5,
     "range": 3,
     "clipSize": "6 shells",
-    "description": "Italian designed combat shotgun with folding stock, recovered from the personal elite security guards of Cayo Perico.",
+    "description": "アミュネーション認可の正規武器（メーカー: Vom Feuer）。威力: 8/10、命中率: 4.5/10、連射速度: 4.5/10。",
     "attachments": [
       "Tactical Light",
       "Shotgun Suppressor"
@@ -536,7 +536,7 @@
     "name": "スナイパーライフル",
     "nameEn": "Sniper Rifle",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "スナイパーライフル",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Accuracy International AWP (7.62x51mm)",
     "price": 20000,
@@ -547,7 +547,7 @@
     "accuracy": 8.5,
     "range": 9,
     "clipSize": "10 発",
-    "description": "Precision bolt-action long range marksman rifle engineered to eliminate threats from hundreds of yards away.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 8.8/10、命中率: 8.5/10、連射速度: 2/10。",
     "attachments": [
       "Advanced High-Power Scope",
       "サプレッサー（消音器）",
@@ -562,10 +562,10 @@
   {
     "id": "heavy_sniper",
     "order": 20,
-    "name": "ヘビースナイパー",
+    "name": "ヘビースナイパー（.50口径）",
     "nameEn": "Heavy Sniper",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "スナイパーライフル",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Barrett M82A1 (.50 BMG Anti-Materiel)",
     "price": 38150,
@@ -576,7 +576,7 @@
     "accuracy": 9.5,
     "range": 10,
     "clipSize": "6 発",
-    "description": "Massive .50 BMG anti-materiel sniper rifle. Capable of disabling helicopter rotors, piercing vehicle armor, and eliminating targets across extreme render distances.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 9.8/10、命中率: 9.5/10、連射速度: 2/10。",
     "attachments": [
       "アドバンススコープ",
       "Thermal / Night Vision Scope (Mk II)",
@@ -591,10 +591,10 @@
   {
     "id": "rpg",
     "order": 21,
-    "name": "ロケットランチャー（RPG）",
+    "name": "RPG（ロケットランチャー）",
     "nameEn": "RPG",
     "category": "heavy",
-    "categoryLabel": "重火器",
+    "categoryLabel": "重火器・爆発物",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "RPG-7 (85mm Rocket)",
     "price": 26250,
@@ -605,7 +605,7 @@
     "accuracy": 3,
     "range": 7,
     "clipSize": "1 rocket (20 capacity)",
-    "description": "Unguided shoulder-fired anti-tank rocket launcher. Engineered to vaporize tanks, convoys, and fortified positions with catastrophic blast shockwaves.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 10/10、命中率: 3/10、連射速度: 1/10。",
     "attachments": [
       "VIP Gold Plated Finish"
     ],
@@ -618,10 +618,10 @@
   {
     "id": "homing_launcher",
     "order": 22,
-    "name": "ホーミングランチャー",
+    "name": "ホーミングランチャー（誘導ミサイル）",
     "nameEn": "Homing Launcher",
     "category": "heavy",
-    "categoryLabel": "重火器",
+    "categoryLabel": "重火器・爆発物",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "FIM-92 Stinger / SA-7 Grail",
     "price": 75000,
@@ -632,7 +632,7 @@
     "accuracy": 8,
     "range": 8.5,
     "clipSize": "1 heat-seeking missile (10 capacity)",
-    "description": "Portable surface-to-air missile system featuring infrared lock-on capabilities that track airborne and high-velocity ground targets.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 9.5/10、命中率: 8/10、連射速度: 1.2/10。",
     "attachments": [
       "Special Edition Military Finish"
     ],
@@ -645,10 +645,10 @@
   {
     "id": "minigun",
     "order": 23,
-    "name": "ミニガン",
+    "name": "ミニガン（ガトリング砲）",
     "nameEn": "Minigun",
     "category": "heavy",
-    "categoryLabel": "重火器",
+    "categoryLabel": "重火器・爆発物",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "M134 Vulcan (6-barrel 7.62mm rotary)",
     "price": 47000,
@@ -659,7 +659,7 @@
     "accuracy": 4.5,
     "range": 6.5,
     "clipSize": "999 発",
-    "description": "The ultimate infantry fire-support weapon. Six rotating electrically driven barrels unleashing relentless suppressing fire.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 9.2/10、命中率: 4.5/10、連射速度: 10/10。",
     "attachments": [
       "Gold Luxury Finish"
     ],
@@ -672,10 +672,10 @@
   {
     "id": "railgun",
     "order": 24,
-    "name": "Railgun",
+    "name": "レールガン（電磁加速砲）",
     "nameEn": "Railgun",
     "category": "heavy",
-    "categoryLabel": "重火器",
+    "categoryLabel": "重火器・爆発物",
     "manufacturer": "Coil",
     "realCounterpart": "Experimental Electromagnetic Kinetic Cannon",
     "price": 730000,
@@ -686,7 +686,7 @@
     "accuracy": 9.5,
     "range": 9,
     "clipSize": "1 kinetic slug (20 capacity)",
-    "description": "Experimental military prototype using electromagnetic acceleration to propel solid metallic slugs at hypersonic velocity with instant lethal impact.",
+    "description": "超音速で弾丸を撃ち出し、ターゲットを一撃で粉砕する電磁加速兵器。",
     "attachments": [
       "Custom Coil Metallic Tints"
     ],
@@ -702,7 +702,7 @@
     "name": "Knife",
     "nameEn": "Knife",
     "category": "melee",
-    "categoryLabel": "近接格闘武器",
+    "categoryLabel": "近接武器",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Ka-Bar USMC 7-inch Carbon Steel Knife",
     "price": 100,
@@ -713,7 +713,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Close combat bladed weapon",
-    "description": "7-inch carbon steel fixed blade combat knife. Silent and deadly for stealth takedowns from behind.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 2/10、命中率: 1/10、連射速度: 3/10。",
     "attachments": [
       "Forged Steel Finish"
     ],
@@ -729,7 +729,7 @@
     "name": "Stone Hatchet",
     "nameEn": "Stone Hatchet",
     "category": "melee",
-    "categoryLabel": "近接格闘武器",
+    "categoryLabel": "近接武器",
     "manufacturer": "Native American / RDR2",
     "realCounterpart": "Sacred Stone Tomahawk",
     "price": 0,
@@ -740,7 +740,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Passive: Stone Rage Mode",
-    "description": "Ancient Native American stone hatchet. Slashing an opponent triggers 'Stone Rage Mode', granting temporary ballistic invulnerability.",
+    "description": "アミュネーション認可の正規武器（メーカー: Native American / RDR2）。威力: 5/10、命中率: 1/10、連射速度: 2.5/10。",
     "attachments": [
       "Traditional Leather Wraps"
     ],
@@ -756,7 +756,7 @@
     "name": "粘着爆弾",
     "nameEn": "Sticky Bomb",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "投擲武器・グレネード",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "C4 Plastic Explosive with Remote Cellphone Detonator",
     "price": 600,
@@ -767,7 +767,7 @@
     "accuracy": 2,
     "range": 2.5,
     "clipSize": "Up to 25 remote charges",
-    "description": "C4 plastic explosive block with adhesive backing. Attach to any surface or vehicle and detonate on command via cellular trigger.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 9.5/10、命中率: 2/10、連射速度: 1.5/10。",
     "attachments": [
       "Remote Cellular Trigger"
     ],
@@ -783,7 +783,7 @@
     "name": "Proximity Mine",
     "nameEn": "Proximity Mine",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "投擲武器・グレネード",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Laser-Tripped Tactical Landmine",
     "price": 1000,
@@ -794,7 +794,7 @@
     "accuracy": 2,
     "range": 2,
     "clipSize": "Up to 5 active deployed mines",
-    "description": "Anti-personnel and anti-vehicle mine with laser proximity sensors, triggering instantly when movement is detected.",
+    "description": "アミュネーション認可の正規武器（メーカー: Shrewsbury）。威力: 9.5/10、命中率: 2/10、連射速度: 1/10。",
     "attachments": [
       "Thermal Motion Trigger"
     ],

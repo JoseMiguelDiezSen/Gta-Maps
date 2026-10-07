@@ -580,5 +580,22 @@ export const ja: TranslationSchema = {
     submit: 'アクセス',
     cancel: 'キャンセル',
     error: 'パスワードが違います'
+  },
+  feedback: {
+    buttonTitle: 'ご意見・フィードバックを送信',
+    modalTitle: 'ご意見とフィードバック',
+    modalSubtitle: 'アイデアやバグ報告がありましたら、ぜひお聞かせください！',
+    nameLabel: 'お名前（任意）',
+    namePlaceholder: '例: 匿名 または ニックネーム',
+    messageLabel: 'メッセージ',
+    messagePlaceholder: 'ご提案、コメント、不具合の報告などをこちらにご記入ください...',
+    sendButton: '送信する',
+    sending: '送信中...',
+    successTitle: 'メッセージありがとうございます！',
+    successMessage: 'フィードバックを受信しました。今後の改善に役立てさせていただきます。',
+    errorTitle: '送信エラー',
+    errorMessage: '送信に失敗しました。しばらくしてからもう一度お試しください。',
+    close: '閉じる',
+    sendAnother: '別のフィードバックを送信'
   }
 };

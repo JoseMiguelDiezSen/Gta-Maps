@@ -17,14 +17,17 @@ namespace GTAAPP.Server.Controllers
     public class FeedbackController : ControllerBase
     {
         private readonly ILogger<FeedbackController> _logger;
-        private readonly IConfiguration _configuration;
         private readonly IHostEnvironment _env;
+        private readonly GTAAPP.Server.Services.IEmailService _emailService;
 
-        public FeedbackController(ILogger<FeedbackController> logger, IConfiguration configuration, IHostEnvironment env)
+        public FeedbackController(
+            ILogger<FeedbackController> logger,
+            IHostEnvironment env,
+            GTAAPP.Server.Services.IEmailService emailService)
         {
             _logger = logger;
-            _configuration = configuration;
             _env = env;
+            _emailService = emailService;
         }
 
         [HttpPost]
@@ -81,41 +84,10 @@ namespace GTAAPP.Server.Controllers
                 _logger.LogError(ex, "Error al guardar sugerencia localmente en disco.");
             }
 
-            // 2. Intento opcional de envío por email vía SMTP si está configurado
+            // 2. Envío por email vía SMTP con plantilla HTML
             try
             {
-                var smtpHost = _configuration["Smtp:Host"];
-                var toEmail = _configuration["Smtp:ToEmail"];
-
-                if (!string.IsNullOrWhiteSpace(smtpHost) && !string.IsNullOrWhiteSpace(toEmail))
-                {
-                    var portStr = _configuration["Smtp:Port"];
-                    int port = int.TryParse(portStr, out var p) ? p : 587;
-                    var username = _configuration["Smtp:Username"];
-                    var password = _configuration["Smtp:Password"];
-                    var enableSslStr = _configuration["Smtp:EnableSsl"];
-                    bool enableSsl = !bool.TryParse(enableSslStr, out var ssl) || ssl;
-
-                    using var mail = new MailMessage();
-                    mail.From = new MailAddress(!string.IsNullOrWhiteSpace(username) ? username : "noreply@gtamaps.dev", "GTA MAPS Feedback");
-                    mail.To.Add(toEmail);
-                    mail.Subject = $"[GTA MAPS Feedback] Sugerencia de {name}";
-                    mail.Body = $"Ha recibido una nueva sugerencia desde GTA MAPS:\n\n" +
-                                $"Fecha: {now:yyyy-MM-dd HH:mm:ss} UTC\n" +
-                                $"Nombre: {name}\n" +
-                                $"IP: {ip}\n\n" +
-                                $"Mensaje:\n{trimmedMessage}\n";
-
-                    using var smtp = new SmtpClient(smtpHost, port);
-                    smtp.EnableSsl = enableSsl;
-                    if (!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(password))
-                    {
-                        smtp.Credentials = new NetworkCredential(username, password);
-                    }
-
-                    await smtp.SendMailAsync(mail);
-                    _logger.LogInformation("Sugerencia enviada por email a {ToEmail}", toEmail);
-                }
+                await _emailService.EnviarFeedbackAsync(name, trimmedMessage, ip, userAgent);
             }
             catch (Exception ex)
             {

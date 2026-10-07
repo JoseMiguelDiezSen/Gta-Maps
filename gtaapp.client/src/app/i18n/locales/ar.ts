@@ -580,5 +580,22 @@ export const ar: TranslationSchema = {
     submit: 'دخول',
     cancel: 'إلغاء',
     error: 'كلمة المرور غير صحيحة'
+  },
+  feedback: {
+    buttonTitle: 'إرسال اقتراح أو ملاحظات',
+    modalTitle: 'الاقتراحات والملاحظات',
+    modalSubtitle: 'هل لديك فكرة أو واجهت خطأ ما؟ أخبرنا بذلك!',
+    nameLabel: 'اسمك (اختياري)',
+    namePlaceholder: 'مثال: أحمد أو مجهول',
+    messageLabel: 'رسالتك',
+    messagePlaceholder: 'اكتب اقتراحك، ملاحظتك أو تقريرك هنا...',
+    sendButton: 'إرسال الاقتراح',
+    sending: 'جار الإرسال...',
+    successTitle: 'شكراً على رسالتك!',
+    successMessage: 'تم استلام اقتراحك بنجاح. يساعدنا ذلك على الاستمرار في التحسين.',
+    errorTitle: 'خطأ في الإرسال',
+    errorMessage: 'تعذر إرسال الاقتراح. يرجى المحاولة مرة أخرى بعد قليل.',
+    close: 'إغلاق',
+    sendAnother: 'إرسال اقتراح آخر'
   }
 };

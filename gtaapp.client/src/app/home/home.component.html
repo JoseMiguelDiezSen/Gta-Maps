@@ -482,7 +482,14 @@
       <button type="button" class="feedback-panel-close" (click)="closeFeedbackModal()" aria-label="Close">✕</button>
     </div>
 
-    <form (ngSubmit)="sendFeedback()" class="feedback-panel-body">
+    <div *ngIf="feedbackSuccess" class="feedback-success-box">
+      <svg class="feedback-success-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <p class="feedback-success-msg">{{ 'feedback.successMessage' | translate }}</p>
+    </div>
+
+    <form *ngIf="!feedbackSuccess" (ngSubmit)="sendFeedback()" class="feedback-panel-body">
       <div class="feedback-field-group">
         <label for="feedback-name-input" class="feedback-label">{{ 'feedback.nameLabel' | translate }}</label>
         <input
