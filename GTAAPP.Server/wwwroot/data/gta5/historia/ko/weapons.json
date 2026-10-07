@@ -2,10 +2,10 @@
   {
     "id": "pistol",
     "order": 1,
-    "name": "피스톨",
+    "name": "9mm 피스톨",
     "nameEn": "Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "권총",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Beretta 92FS / Taurus PT92",
     "price": 350,
@@ -16,7 +16,7 @@
     "accuracy": 4,
     "range": 3,
     "clipSize": "12발 (16발 확장)",
-    "description": "표준 9mm 반자동 권총입니다. 가볍고 휴대성이 우수하며 근거리 교전에서 신뢰할 수 있습니다.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Vom Feuer). 데미지: 2.6/10, 명중률: 4/10, 연사력: 4/10.",
     "attachments": [
       "대용량 탄창",
       "전술 손전등",
@@ -35,7 +35,7 @@
     "name": "컴뱃 피스톨",
     "nameEn": "Combat Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "권총",
     "manufacturer": "Hawk & Little",
     "realCounterpart": "Glock 17 (9x19mm)",
     "price": 550,
@@ -46,7 +46,7 @@
     "accuracy": 5,
     "range": 3.5,
     "clipSize": "12발 (16발 확장)",
-    "description": "법 집행 기관 및 개인 호신용으로 설계된 가볍고 견고한 컴팩트 폴리머 권총입니다. 뛰어난 정확도와 빠른 연사 속도를 제공합니다.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Hawk & Little). 데미지: 3.2/10, 명중률: 5/10, 연사력: 4.5/10.",
     "attachments": [
       "대용량 탄창",
       "전술 손전등",
@@ -65,7 +65,7 @@
     "name": "AP 피스톨",
     "nameEn": "AP Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "권총",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt SCAMP / OTs-33 Pernach",
     "price": 5000,
@@ -76,7 +76,7 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "18발 (36발 확장)",
-    "description": "High-rate-of-fire armor-piercing automatic pistol. Empty a 36-round clip in seconds during high-speed drive-by shootings.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Vom Feuer). 데미지: 3/10, 명중률: 3.5/10, 연사력: 8/10.",
     "attachments": [
       "대용량 탄창",
       "전술 손전등",
@@ -95,7 +95,7 @@
     "name": "헤비 리볼버",
     "nameEn": "Heavy Revolver",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "권총",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Taurus Raging Bull (.44 Magnum)",
     "price": 5900,
@@ -106,7 +106,7 @@
     "accuracy": 6.5,
     "range": 5.5,
     "clipSize": "6발",
-    "description": "A colossal handgun packing devastating stopping power. Capable of dropping armored targets with a single, well-placed round.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 8.5/10, 명중률: 6.5/10, 연사력: 2/10.",
     "attachments": [
       "VIP Luxury Finish",
       "Collector Engraving"
@@ -120,10 +120,10 @@
   {
     "id": "perico_pistol",
     "order": 5,
-    "name": "Perico Pistol",
+    "name": "황금 페리코 피스톨",
     "nameEn": "Perico Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "권총",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Custom Engraved Gold Walther PPK",
     "price": 0,
@@ -134,7 +134,7 @@
     "accuracy": 5.5,
     "range": 4,
     "clipSize": "단발",
-    "description": "Handcrafted solid gold pistol recovered from El Rubio's private office safe in the fortified Cayo Perico compound.",
+    "description": "카요 페리코 엘 루비오 저택 집무실 금고에서 회수한 순금 수제 피스톨.",
     "attachments": [
       "Native 24K Gold Inlay"
     ],
@@ -147,10 +147,10 @@
   {
     "id": "up_n_atomizer",
     "order": 6,
-    "name": "Up-n-Atomizer",
+    "name": "업 앤 아토마이저 에너지 건",
     "nameEn": "Up-n-Atomizer",
     "category": "pistols",
-    "categoryLabel": "Special Weapons",
+    "categoryLabel": "권총",
     "manufacturer": "Republic Space Rangers",
     "realCounterpart": "Alien Electromagnetic Ray Gun",
     "price": 399000,
@@ -161,7 +161,7 @@
     "accuracy": 7,
     "range": 4.5,
     "clipSize": "Infinite ammo (Heat cooldown)",
-    "description": "Sci-fi weapon projecting high-impact energy shockwaves that launch vehicles and sentries into the air.",
+    "description": "끼인 차량을 충격파로 튕겨내어 탈출시킬 수 있는 미래형 펄스 에너지 건.",
     "attachments": [
       "Themed Futuristic Tints"
     ],
@@ -177,7 +177,7 @@
     "name": "Stun Gun",
     "nameEn": "Stun Gun",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "권총",
     "manufacturer": "Coil",
     "realCounterpart": "Taser X26",
     "price": 375000,
@@ -188,7 +188,7 @@
     "accuracy": 4,
     "range": 2,
     "clipSize": "High-voltage probes (4s recharge)",
-    "description": "Non-lethal electrical conductive device firing twin electrified probes to incapacitate any target instantly.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Coil). 데미지: 1/10, 명중률: 4/10, 연사력: 1/10.",
     "attachments": [
       "Tactical Polymer Finish"
     ],
@@ -215,7 +215,7 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "16발 (30발 확장)",
-    "description": "The quintessential drive-by weapon. Compact frame with an aggressive cyclic rate to overwhelm targets on the move.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 3.5/10, 명중률: 3.5/10, 연사력: 7.5/10.",
     "attachments": [
       "대용량 탄창",
       "전술 손전등",
@@ -232,7 +232,7 @@
   {
     "id": "smg",
     "order": 9,
-    "name": "SMG",
+    "name": "SMG (기관단총)",
     "nameEn": "SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -246,13 +246,13 @@
     "accuracy": 5.5,
     "range": 4.5,
     "clipSize": "30발",
-    "description": "The world's premier tactical submachine gun. Delivers flawless recoil control, precision handling, and sustained cyclic fire.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 4.2/10, 명중률: 5.5/10, 연사력: 7/10.",
     "attachments": [
       "대용량 탄창",
       "드럼 탄창",
       "전술 손전등",
       "소음기",
-      "Holographic Sight"
+      "홀로그래픽 조준경"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
@@ -277,7 +277,7 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "100발",
-    "description": "Heavy squad automatic weapon with a massive belt capacity, capable of shredding enemy squads and disabling air support.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 7.5/10, 명중률: 5.5/10, 연사력: 6.5/10.",
     "attachments": [
       "200-Round Box Magazine",
       "조준경",
@@ -307,7 +307,7 @@
     "accuracy": 4.5,
     "range": 4,
     "clipSize": "30발",
-    "description": "Prohibition era icon featuring iconic circular drum magazines and an unmistakable firing signature.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Vom Feuer). 데미지: 5/10, 명중률: 4.5/10, 연사력: 7.5/10.",
     "attachments": [
       "50-Round Drum Magazine"
     ],
@@ -320,10 +320,10 @@
   {
     "id": "assault_rifle",
     "order": 12,
-    "name": "어설트 라이플",
+    "name": "어설트 라이플 (AK-47)",
     "nameEn": "Assault Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "돌격소총 / 라이플",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "AK-47 / Norinco Type 56",
     "price": 8550,
@@ -334,7 +334,7 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "30발 (60발 확장)",
-    "description": "The most widely recognized assault rifle on earth. Legendary durability firing heavy 7.62mm cartridges with extreme lethality.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 6.2/10, 명중률: 5.5/10, 연사력: 6/10.",
     "attachments": [
       "대용량 탄창",
       "드럼 탄창",
@@ -352,10 +352,10 @@
   {
     "id": "carbine_rifle",
     "order": 13,
-    "name": "카빈 라이플",
+    "name": "카빈 소총 (M4A1)",
     "nameEn": "Carbine Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "돌격소총 / 라이플",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M4A1 (5.56x45mm NATO)",
     "price": 13000,
@@ -366,11 +366,11 @@
     "accuracy": 6.5,
     "range": 6.5,
     "clipSize": "30발 (60발 확장)",
-    "description": "All-around military workhorse rifle with full Picatinny rail modularity, crisp handling, and controllable recoil patterns.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Vom Feuer). 데미지: 6.5/10, 명중률: 6.5/10, 연사력: 7/10.",
     "attachments": [
       "대용량 탄창",
       "Box Drum",
-      "Holographic Sight",
+      "홀로그래픽 조준경",
       "Tactical Flashlight",
       "소음기",
       "손잡이 (그립)"
@@ -387,7 +387,7 @@
     "name": "스페셜 카빈",
     "nameEn": "Special Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "돌격소총 / 라이플",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Heckler & Koch G36C",
     "price": 14750,
@@ -398,7 +398,7 @@
     "accuracy": 7,
     "range": 6.5,
     "clipSize": "30발 (60발 확장)",
-    "description": "German engineered lightweight polymer rifle. Renowned across Los Santos for laser precision and minimal recoil bloom.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Vom Feuer). 데미지: 6.7/10, 명중률: 7/10, 연사력: 7/10.",
     "attachments": [
       "대용량 탄창",
       "100-Round Drum",
@@ -418,7 +418,7 @@
     "name": "Service Carbine",
     "nameEn": "Service Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "돌격소총 / 라이플",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M16A4 / M16",
     "price": 370000,
@@ -429,7 +429,7 @@
     "accuracy": 6.8,
     "range": 6.5,
     "clipSize": "30발 (60발 확장)",
-    "description": "Iconic military service rifle delivering reliable sustained damage for urban tactical operations throughout San Andreas.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Vom Feuer). 데미지: 6.8/10, 명중률: 6.8/10, 연사력: 6.8/10.",
     "attachments": [
       "대용량 탄창",
       "Telescopic Scope",
@@ -449,7 +449,7 @@
     "name": "펌프 샷건",
     "nameEn": "Pump Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "산탄총 / 샷건",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Mossberg 590 (12 Gauge)",
     "price": 3500,
@@ -460,7 +460,7 @@
     "accuracy": 3,
     "range": 2.5,
     "clipSize": "8 shells",
-    "description": "Classic 12-gauge law enforcement pump action shotgun. Devastating point-blank stopping power with dense buckshot spread.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 7.8/10, 명중률: 3/10, 연사력: 2/10.",
     "attachments": [
       "전술 손전등",
       "Shotgun Suppressor",
@@ -475,10 +475,10 @@
   {
     "id": "assault_shotgun",
     "order": 17,
-    "name": "어설트 샷건",
+    "name": "어설트 샷건 (자동 산탄총)",
     "nameEn": "Assault Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "산탄총 / 샷건",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "UTAS UTS-15 / Fostech Origin-12",
     "price": 10000,
@@ -489,7 +489,7 @@
     "accuracy": 4,
     "range": 3.5,
     "clipSize": "8 shells (32 drum)",
-    "description": "Fully automatic combat shotgun equipped with a 32-round drum magazine, creating an impenetrable wall of lead in close quarters.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 8.2/10, 명중률: 4/10, 연사력: 6.5/10.",
     "attachments": [
       "32-Shell Drum Magazine",
       "Tactical Flashlight",
@@ -505,10 +505,10 @@
   {
     "id": "combat_shotgun",
     "order": 18,
-    "name": "Combat Shotgun",
+    "name": "컴뱃 샷건",
     "nameEn": "Combat Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "산탄총 / 샷건",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Franchi SPAS-12 (12 Gauge)",
     "price": 295000,
@@ -519,7 +519,7 @@
     "accuracy": 4.5,
     "range": 3,
     "clipSize": "6 shells",
-    "description": "Italian designed combat shotgun with folding stock, recovered from the personal elite security guards of Cayo Perico.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Vom Feuer). 데미지: 8/10, 명중률: 4.5/10, 연사력: 4.5/10.",
     "attachments": [
       "Tactical Light",
       "Shotgun Suppressor"
@@ -536,7 +536,7 @@
     "name": "스나이퍼 라이플",
     "nameEn": "Sniper Rifle",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "저격소총 / 스나이퍼 라이플",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Accuracy International AWP (7.62x51mm)",
     "price": 20000,
@@ -547,7 +547,7 @@
     "accuracy": 8.5,
     "range": 9,
     "clipSize": "10발",
-    "description": "Precision bolt-action long range marksman rifle engineered to eliminate threats from hundreds of yards away.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 8.8/10, 명중률: 8.5/10, 연사력: 2/10.",
     "attachments": [
       "Advanced High-Power Scope",
       "소음기",
@@ -562,10 +562,10 @@
   {
     "id": "heavy_sniper",
     "order": 20,
-    "name": "헤비 스나이퍼",
+    "name": "헤비 스나이퍼 (.50)",
     "nameEn": "Heavy Sniper",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "저격소총 / 스나이퍼 라이플",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Barrett M82A1 (.50 BMG Anti-Materiel)",
     "price": 38150,
@@ -576,7 +576,7 @@
     "accuracy": 9.5,
     "range": 10,
     "clipSize": "6발",
-    "description": "Massive .50 BMG anti-materiel sniper rifle. Capable of disabling helicopter rotors, piercing vehicle armor, and eliminating targets across extreme render distances.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 9.8/10, 명중률: 9.5/10, 연사력: 2/10.",
     "attachments": [
       "고급 조준경",
       "Thermal / Night Vision Scope (Mk II)",
@@ -594,7 +594,7 @@
     "name": "RPG 로켓 런처",
     "nameEn": "RPG",
     "category": "heavy",
-    "categoryLabel": "중화기",
+    "categoryLabel": "중화기 및 폭발물",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "RPG-7 (85mm Rocket)",
     "price": 26250,
@@ -605,7 +605,7 @@
     "accuracy": 3,
     "range": 7,
     "clipSize": "1 rocket (20 capacity)",
-    "description": "Unguided shoulder-fired anti-tank rocket launcher. Engineered to vaporize tanks, convoys, and fortified positions with catastrophic blast shockwaves.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 10/10, 명중률: 3/10, 연사력: 1/10.",
     "attachments": [
       "VIP Gold Plated Finish"
     ],
@@ -621,7 +621,7 @@
     "name": "호밍 런처 (유도 미사일)",
     "nameEn": "Homing Launcher",
     "category": "heavy",
-    "categoryLabel": "중화기",
+    "categoryLabel": "중화기 및 폭발물",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "FIM-92 Stinger / SA-7 Grail",
     "price": 75000,
@@ -632,7 +632,7 @@
     "accuracy": 8,
     "range": 8.5,
     "clipSize": "1 heat-seeking missile (10 capacity)",
-    "description": "Portable surface-to-air missile system featuring infrared lock-on capabilities that track airborne and high-velocity ground targets.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 9.5/10, 명중률: 8/10, 연사력: 1.2/10.",
     "attachments": [
       "Special Edition Military Finish"
     ],
@@ -645,10 +645,10 @@
   {
     "id": "minigun",
     "order": 23,
-    "name": "미니건",
+    "name": "미니건 (회전식 기관총)",
     "nameEn": "Minigun",
     "category": "heavy",
-    "categoryLabel": "중화기",
+    "categoryLabel": "중화기 및 폭발물",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "M134 Vulcan (6-barrel 7.62mm rotary)",
     "price": 47000,
@@ -659,7 +659,7 @@
     "accuracy": 4.5,
     "range": 6.5,
     "clipSize": "999발",
-    "description": "The ultimate infantry fire-support weapon. Six rotating electrically driven barrels unleashing relentless suppressing fire.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 9.2/10, 명중률: 4.5/10, 연사력: 10/10.",
     "attachments": [
       "Gold Luxury Finish"
     ],
@@ -672,10 +672,10 @@
   {
     "id": "railgun",
     "order": 24,
-    "name": "Railgun",
+    "name": "레일건 (전자기 가속포)",
     "nameEn": "Railgun",
     "category": "heavy",
-    "categoryLabel": "중화기",
+    "categoryLabel": "중화기 및 폭발물",
     "manufacturer": "Coil",
     "realCounterpart": "Experimental Electromagnetic Kinetic Cannon",
     "price": 730000,
@@ -686,7 +686,7 @@
     "accuracy": 9.5,
     "range": 9,
     "clipSize": "1 kinetic slug (20 capacity)",
-    "description": "Experimental military prototype using electromagnetic acceleration to propel solid metallic slugs at hypersonic velocity with instant lethal impact.",
+    "description": "음속을 초월한 속도로 탄환을 발사하여 목표를 일격에 분쇄하는 전자기 무기.",
     "attachments": [
       "Custom Coil Metallic Tints"
     ],
@@ -713,7 +713,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Close combat bladed weapon",
-    "description": "7-inch carbon steel fixed blade combat knife. Silent and deadly for stealth takedowns from behind.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 2/10, 명중률: 1/10, 연사력: 3/10.",
     "attachments": [
       "Forged Steel Finish"
     ],
@@ -740,7 +740,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Passive: Stone Rage Mode",
-    "description": "Ancient Native American stone hatchet. Slashing an opponent triggers 'Stone Rage Mode', granting temporary ballistic invulnerability.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Native American / RDR2). 데미지: 5/10, 명중률: 1/10, 연사력: 2.5/10.",
     "attachments": [
       "Traditional Leather Wraps"
     ],
@@ -756,7 +756,7 @@
     "name": "점착 폭탄",
     "nameEn": "Sticky Bomb",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "투척 무기 / 수류탄",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "C4 Plastic Explosive with Remote Cellphone Detonator",
     "price": 600,
@@ -767,7 +767,7 @@
     "accuracy": 2,
     "range": 2.5,
     "clipSize": "Up to 25 remote charges",
-    "description": "C4 plastic explosive block with adhesive backing. Attach to any surface or vehicle and detonate on command via cellular trigger.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 9.5/10, 명중률: 2/10, 연사력: 1.5/10.",
     "attachments": [
       "Remote Cellular Trigger"
     ],
@@ -783,7 +783,7 @@
     "name": "Proximity Mine",
     "nameEn": "Proximity Mine",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "투척 무기 / 수류탄",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Laser-Tripped Tactical Landmine",
     "price": 1000,
@@ -794,7 +794,7 @@
     "accuracy": 2,
     "range": 2,
     "clipSize": "Up to 5 active deployed mines",
-    "description": "Anti-personnel and anti-vehicle mine with laser proximity sensors, triggering instantly when movement is detected.",
+    "description": "아뮤네이션 인증 정품 총기 (제조사: Shrewsbury). 데미지: 9.5/10, 명중률: 2/10, 연사력: 1/10.",
     "attachments": [
       "Thermal Motion Trigger"
     ],

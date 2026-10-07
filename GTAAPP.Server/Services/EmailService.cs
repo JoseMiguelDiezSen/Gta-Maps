@@ -1,5 +1,7 @@
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
 using System.Net;
-using System.Net.Mail;
 
 namespace GTAAPP.Server.Services
 {
@@ -9,8 +11,7 @@ namespace GTAAPP.Server.Services
     }
 
     /// <summary>
-    /// Servicio para el envío de correos electrónicos vía SMTP (Gmail u otros proveedores).
-    /// Adaptado con las credenciales y configuración segura de GestionEmail.
+    /// Servicio moderno de envío de correos electrónicos vía MailKit (compatible con Gmail, TLS 1.2/1.3 y STARTTLS).
     /// </summary>
     public class EmailService : IEmailService
     {
@@ -41,18 +42,19 @@ namespace GTAAPP.Server.Services
                     return false;
                 }
 
-                using var mail = new MailMessage();
-                mail.From = new MailAddress(fromEmail, "GTA MAPS Feedback");
-                mail.To.Add(new MailAddress(toEmail));
-                mail.Subject = $"[GTA MAPS] Nueva sugerencia de {nombre}";
-                mail.IsBodyHtml = true;
-
                 var safeName = WebUtility.HtmlEncode(nombre);
                 var safeMessage = WebUtility.HtmlEncode(mensaje);
                 var safeIp = WebUtility.HtmlEncode(ip);
                 var safeUserAgent = WebUtility.HtmlEncode(userAgent);
 
-                mail.Body = $@"
+                var emailMessage = new MimeMessage();
+                emailMessage.From.Add(new MailboxAddress("GTA MAPS Feedback", fromEmail));
+                emailMessage.To.Add(new MailboxAddress("Admin", toEmail));
+                emailMessage.Subject = $"[GTA MAPS] Nueva sugerencia de {nombre}";
+
+                var bodyBuilder = new BodyBuilder
+                {
+                    HtmlBody = $@"
 <div style=""font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #141414; color: #f0f0f0; border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5);"">
     <div style=""background: linear-gradient(135deg, #1f1f1f, #111111); padding: 24px; border-bottom: 2px solid #00e676;"">
         <h1 style=""margin: 0; font-size: 22px; color: #ffffff; letter-spacing: 0.5px;"">📬 Nueva Sugerencia / Reporte</h1>
@@ -79,23 +81,26 @@ namespace GTAAPP.Server.Services
     <div style=""background-color: #0d0d0d; padding: 16px 24px; font-size: 11px; color: #555555; text-align: center; border-top: 1px solid #222222;"">
         Notificación automática generada por el sistema de feedback de GTA MAPS.
     </div>
-</div>";
-
-                using var smtpClient = new SmtpClient(host, port)
-                {
-                    Credentials = new NetworkCredential(username, password),
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Timeout = 10000 // 10 segundos de timeout
+</div>"
                 };
 
-                await smtpClient.SendMailAsync(mail);
+                emailMessage.Body = bodyBuilder.ToMessageBody();
+
+                using var smtpClient = new SmtpClient();
+                smtpClient.Timeout = 10000; // 10 segundos
+
+                var secureOptions = port == 465 ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.StartTls;
+                await smtpClient.ConnectAsync(host, port, secureOptions);
+                await smtpClient.AuthenticateAsync(username, password);
+                await smtpClient.SendAsync(emailMessage);
+                await smtpClient.DisconnectAsync(true);
+
                 _logger.LogInformation("Email de sugerencia enviado con éxito a {ToEmail} desde {FromEmail}", toEmail, fromEmail);
                 return true;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al enviar email de sugerencia vía SMTP.");
+                _logger.LogError(ex, "Error al enviar email de sugerencia vía MailKit.");
                 return false;
             }
         }
