@@ -6,14 +6,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   background: #0b0f14 url('/assets/home-bg.jpg') center center / cover no-repeat;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 80px 16px 85px 16px;
+  padding: 35px 16px 115px 16px;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .home-shell::before {
@@ -188,6 +189,53 @@
   }
 }
 
+/* ==========================================
+   MASCOTAS OFICIALES GOTY 5 & GOTY 6
+   ========================================== */
+.home-mascots-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  margin-bottom: -10px;
+  animation: gotyIdleFloat 4s ease-in-out infinite;
+  user-select: none;
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.home-mascots-box:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+.home-mascots-img {
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.8))
+          drop-shadow(-10px 4px 20px rgba(0, 230, 118, 0.22))
+          drop-shadow(10px 4px 20px rgba(255, 64, 129, 0.22));
+  transition: filter 0.3s ease;
+}
+
+.home-mascots-box:hover .home-mascots-img {
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.85))
+          drop-shadow(-14px 4px 26px rgba(0, 230, 118, 0.38))
+          drop-shadow(14px 4px 26px rgba(255, 64, 129, 0.38));
+}
+
+@keyframes gotyIdleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .home-title {
   margin: 0;
   color: #fff;
@@ -231,6 +279,15 @@
 }
 
 @media (max-width: 600px) {
+  .home-mascots-box {
+    margin-bottom: -4px;
+  }
+
+  .home-mascots-img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
   .home-title {
     font-size: 40px;
   }
@@ -312,6 +369,83 @@
   background: rgba(236, 72, 153, 0.4);
   border-color: #ec4899;
   transform: translateY(-2px);
+}
+
+/* ==========================================
+   BOTONES GUÍA (GTA 5 Y GTA 6)
+   - Mitad de altura (50px), igual de anchos
+   - Tonos negros neutros
+   - Tipografía Pricedown en tamaño ajustado
+   ========================================== */
+.home-guide-actions {
+  display: flex;
+  gap: 16px;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.home-guide-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  width: 100%;
+  max-width: 200px;
+  min-width: 130px;
+  height: 50px;
+  box-sizing: border-box !important;
+  padding: 6px 14px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  background: rgba(11, 14, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.home-guide-btn-text {
+  font-family: 'Pricedown', system-ui, -apple-system, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  transition: color 0.18s ease, text-shadow 0.18s ease;
+}
+
+.home-guide-btn-gta5:hover {
+  background: rgba(13, 20, 16, 0.95);
+  border-color: rgba(34, 197, 94, 0.55);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), 0 0 12px rgba(34, 197, 94, 0.2);
+  transform: translateY(-2px);
+}
+
+.home-guide-btn-gta5:hover .home-guide-btn-text {
+  color: #4ade80;
+  text-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+.home-guide-btn-gta6:hover {
+  background: rgba(20, 13, 20, 0.95);
+  border-color: rgba(236, 72, 153, 0.55);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), 0 0 12px rgba(236, 72, 153, 0.2);
+  transform: translateY(-2px);
+}
+
+.home-guide-btn-gta6:hover .home-guide-btn-text {
+  color: #f472b6;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
 }
 
 /* Marca de última actualización debajo de los botones: sin panel, limpia y centrada */

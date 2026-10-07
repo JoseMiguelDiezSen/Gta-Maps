@@ -80,11 +80,76 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (this.route.snapshot.queryParams['gta6locked']) {
             this.openGta6Modal();
         }
+
+        this.lockMobileZoom();
     }
 
     ngOnDestroy(): void {
         if (this.countdownInterval) {
             clearInterval(this.countdownInterval);
+        }
+        this.unlockMobileZoom();
+    }
+
+    private originalViewportContent: string | null = null;
+    private preventTouchHandler?: (e: TouchEvent) => void;
+    private preventGestureHandler?: (e: Event) => void;
+    private handleDoubleTapHandler?: (e: TouchEvent) => void;
+    private lastTouchEnd = 0;
+
+    private lockMobileZoom(): void {
+        if (typeof document === 'undefined') return;
+
+        // 1. Bloqueo en etiqueta meta viewport
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        if (viewportMeta) {
+            this.originalViewportContent = viewportMeta.getAttribute('content');
+            viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover');
+        }
+
+        // 2. Prevenir pellizco nativo en Safari iOS (gesturestart)
+        this.preventGestureHandler = (e: Event): void => {
+            e.preventDefault();
+        };
+        document.addEventListener('gesturestart', this.preventGestureHandler, { passive: false });
+
+        // 3. Prevenir multitouch (pellizco)
+        this.preventTouchHandler = (e: TouchEvent): void => {
+            if (e.touches && e.touches.length > 1) {
+                e.preventDefault();
+            }
+        };
+        document.addEventListener('touchstart', this.preventTouchHandler, { passive: false });
+
+        // 4. Prevenir zoom por doble pulsación rápida
+        this.handleDoubleTapHandler = (e: TouchEvent): void => {
+            const now = Date.now();
+            if (now - this.lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            this.lastTouchEnd = now;
+        };
+        document.addEventListener('touchend', this.handleDoubleTapHandler, { passive: false });
+    }
+
+    private unlockMobileZoom(): void {
+        if (typeof document === 'undefined') return;
+
+        if (this.originalViewportContent) {
+            const viewportMeta = document.querySelector('meta[name="viewport"]');
+            if (viewportMeta) {
+                viewportMeta.setAttribute('content', this.originalViewportContent);
+            }
+        }
+
+        if (this.preventGestureHandler) {
+            document.removeEventListener('gesturestart', this.preventGestureHandler);
+        }
+        if (this.preventTouchHandler) {
+            document.removeEventListener('touchstart', this.preventTouchHandler);
+        }
+        if (this.handleDoubleTapHandler) {
+            document.removeEventListener('touchend', this.handleDoubleTapHandler);
         }
     }
 
@@ -122,12 +187,23 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.translationService.setLanguage(code);
     }
 
-    openGta6Modal(event?: Event): void {
-        if (event) {
-            event.preventDefault();
+    gta6TargetRoute = '/gta6-online';
+
+    openGta6Modal(eventOrRoute?: Event | string, maybeEvent?: Event): void {
+        if (eventOrRoute instanceof Event) {
+            eventOrRoute.preventDefault();
+            this.gta6TargetRoute = '/gta6-online';
+        } else if (typeof eventOrRoute === 'string') {
+            this.gta6TargetRoute = eventOrRoute;
+            if (maybeEvent) {
+                maybeEvent.preventDefault();
+            }
+        } else {
+            this.gta6TargetRoute = '/gta6-online';
         }
+
         if (this.isGta6Unlocked()) {
-            this.router.navigate(['/gta6-online']);
+            this.router.navigate([this.gta6TargetRoute]);
             return;
         }
         this.isGta6ModalOpen = true;
@@ -145,7 +221,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (this.gta6Password.trim() === '1989') {
             localStorage.setItem('gta6_unlocked', 'true');
             this.isGta6ModalOpen = false;
-            this.router.navigate(['/gta6-online']);
+            this.router.navigate([this.gta6TargetRoute || '/gta6-online']);
         } else {
             this.gta6PasswordError = true;
         }

@@ -356,6 +356,22 @@
         </button>
       </div>
     </div>
+
+  <!-- MASCOTAS OFICIALES: GOTY 5 & GOTY 6 -->
+  <div class="home-mascots-box" title="GOTY 5 (Los Santos) & GOTY 6 (Vice City)">
+    <picture>
+      <source srcset="assets/images/goty_duo.webp" type="image/webp">
+      <img
+        src="assets/images/goty_duo.png"
+        alt="GOTY 5 y GOTY 6 - Mascotas de GTA Maps"
+        class="home-mascots-img"
+        width="210"
+        height="210"
+        loading="eager"
+      />
+    </picture>
+  </div>
+
   <h1 class="home-title">GTA Maps</h1>
   <hr class="home-divider" />
   <p class="home-disclaimer">{{ 'home.disclaimer' | translate }}</p>
@@ -369,6 +385,16 @@
     <button type="button" class="home-btn home-btn-gta6" (click)="openGta6Modal($event)">
       <span class="home-btn-title">{{ 'home.gta6Title' | translate }}</span>
       <span class="home-btn-sub">{{ 'home.gta6Sub' | translate }}</span>
+    </button>
+  </div>
+
+  <!-- BOTONES SECUNDARIOS: GUÍAS GTA 5 Y GTA 6 -->
+  <div class="home-guide-actions">
+    <a class="home-guide-btn home-guide-btn-gta5" routerLink="/gta5-historia">
+      <span class="home-guide-btn-text">GUIA GTA 5</span>
+    </a>
+    <button type="button" class="home-guide-btn home-guide-btn-gta6" (click)="openGta6Modal('/gta6-historia', $event)">
+      <span class="home-guide-btn-text">GUIA GTA 6</span>
     </button>
   </div>
 
