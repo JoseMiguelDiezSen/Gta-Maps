@@ -311,14 +311,18 @@ export const tr: TranslationSchema = {
     backToTransports: 'Araç Kataloğuna Dön',
     tabs: {
       vehicles: 'Araçlar',
+      concesionarios: 'Galeriler',
+      specialVehicles: 'Özel Araçlar',
       missions: 'Görevler',
       strangers: 'Yabancılar & Tuhaflar',
+      armas: 'Silahlar',
+      weapons: 'Silahlar',
+      armeria: 'Silahçı',
       item3: 'Mülkler',
       item4: 'Hizmetler',
       golpes: 'Soygunlar',
       misterios: 'Gizemler',
-      armas: 'Silahlar',
-      weapons: 'Silahlar'
+      pegasus: 'Özel Araçlar'
     },
     catalog: {
       searchPlaceholder: 'Araç ara (model, marka, sınıf)...',

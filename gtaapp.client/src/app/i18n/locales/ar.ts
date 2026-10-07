@@ -346,14 +346,18 @@ export const ar: TranslationSchema = {
     backToTransports: 'العودة إلى Gta Info',
     tabs: {
       vehicles: 'المركبات',
+      concesionarios: 'معارض السيارات',
+      specialVehicles: 'مركبات خاصة',
       missions: 'المهمات',
       strangers: 'الغرباء والمجانين',
       armas: 'الأسلحة',
       weapons: 'الأسلحة',
+      armeria: 'متجر الأسلحة',
       item3: 'عنصر 3',
       item4: 'عنصر 4',
       golpes: 'عمليات السطو',
-      misterios: 'الألغاز'
+      misterios: 'الألغاز',
+      pegasus: 'مركبات خاصة'
     },
     catalog: {
       searchPlaceholder: 'بحث عن مركبة...',

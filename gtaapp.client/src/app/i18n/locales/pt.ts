@@ -346,14 +346,18 @@ export const pt: TranslationSchema = {
     backToTransports: 'Voltar ao Gta Info',
     tabs: {
       vehicles: 'Veículos',
+      concesionarios: 'Concessionárias',
+      specialVehicles: 'Veículos Especiais',
       missions: 'Missões',
       strangers: 'Estranhos e Doidos',
       armas: 'Armas',
       weapons: 'Armas',
+      armeria: 'Armaria',
       item3: 'Item 3',
       item4: 'Item 4',
       golpes: 'Golpes',
-      misterios: 'Mistérios'
+      misterios: 'Mistérios',
+      pegasus: 'Veículos Especiais'
     },
     catalog: {
       searchPlaceholder: 'Pesquisar veículo...',

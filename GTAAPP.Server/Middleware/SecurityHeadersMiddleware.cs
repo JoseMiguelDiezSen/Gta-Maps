@@ -86,7 +86,8 @@ public class SecurityHeadersMiddleware
             {
                 if (ct.StartsWith("text/", StringComparison.OrdinalIgnoreCase) ||
                     ct.Contains("json", StringComparison.OrdinalIgnoreCase) ||
-                    ct.Contains("javascript", StringComparison.OrdinalIgnoreCase))
+                    ct.Contains("javascript", StringComparison.OrdinalIgnoreCase) ||
+                    ct.Contains("xml", StringComparison.OrdinalIgnoreCase))
                 {
                     context.Response.ContentType = $"{ct}; charset=utf-8";
                 }

@@ -346,14 +346,18 @@ export const zh: TranslationSchema = {
     backToTransports: '返回 GTA 资料库',
     tabs: {
       vehicles: '载具大全',
+      concesionarios: '车行展厅',
+      specialVehicles: '特殊载具',
       missions: '主线任务',
       strangers: '陌生人与怪咖',
       armas: '武器军火',
       weapons: '武器军火',
+      armeria: '武装国度',
       item3: '项目 3',
       item4: '项目 4',
       golpes: '抢劫差事',
-      misterios: '谜团与秘密'
+      misterios: '谜团与秘密',
+      pegasus: '特殊载具'
     },
     catalog: {
       searchPlaceholder: '搜索载具名称、型号或品牌...',

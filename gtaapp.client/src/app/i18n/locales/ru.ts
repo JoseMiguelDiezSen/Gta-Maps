@@ -346,14 +346,18 @@ export const ru: TranslationSchema = {
     backToTransports: 'Назад в Gta Info',
     tabs: {
       vehicles: 'Транспорт',
+      concesionarios: 'Автосалоны',
+      specialVehicles: 'Специальный транспорт',
       missions: 'Задания',
       strangers: 'Чудаки и незнакомцы',
       armas: 'Оружие',
       weapons: 'Оружие',
+      armeria: 'Оружейная',
       item3: 'Элемент 3',
       item4: 'Элемент 4',
       golpes: 'Ограбления',
-      misterios: 'Тайны'
+      misterios: 'Тайны',
+      pegasus: 'Специальный транспорт'
     },
     catalog: {
       searchPlaceholder: 'Поиск транспорта...',

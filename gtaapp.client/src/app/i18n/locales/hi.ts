@@ -346,14 +346,18 @@ export const hi: TranslationSchema = {
     backToTransports: 'Gta Info पर वापस जाएं',
     tabs: {
       vehicles: 'वाहन',
+      concesionarios: 'डीलरशिप',
+      specialVehicles: 'विशेष वाहन',
       missions: 'मिशन',
       strangers: 'अजनबी और सिरफिरे',
       armas: 'हथियार',
       weapons: 'हथियार',
+      armeria: 'शस्त्रागार',
       item3: 'आइटम 3',
       item4: 'आइटम 4',
       golpes: 'डकैती',
-      misterios: 'रहस्य'
+      misterios: 'रहस्य',
+      pegasus: 'विशेष वाहन'
     },
     catalog: {
       searchPlaceholder: 'वाहन खोजें...',

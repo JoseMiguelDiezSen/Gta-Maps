@@ -208,14 +208,15 @@ app.UseRateLimiter();
 // Soporte para archivos por defecto (index.html)
 app.UseDefaultFiles();
 
-// Proveedor de tipos MIME que fuerza explícitamente charset=utf-8 para evitar caracteres corruptos (mojibake)
+// Proveedor de tipos MIME estándar
 var staticContentTypeProvider = new FileExtensionContentTypeProvider();
-staticContentTypeProvider.Mappings[".html"] = "text/html; charset=utf-8";
-staticContentTypeProvider.Mappings[".js"] = "application/javascript; charset=utf-8";
-staticContentTypeProvider.Mappings[".json"] = "application/json; charset=utf-8";
-staticContentTypeProvider.Mappings[".css"] = "text/css; charset=utf-8";
-staticContentTypeProvider.Mappings[".xml"] = "application/xml; charset=utf-8";
-staticContentTypeProvider.Mappings[".txt"] = "text/plain; charset=utf-8";
+staticContentTypeProvider.Mappings[".html"] = "text/html";
+staticContentTypeProvider.Mappings[".js"] = "application/javascript";
+staticContentTypeProvider.Mappings[".json"] = "application/json";
+staticContentTypeProvider.Mappings[".css"] = "text/css";
+staticContentTypeProvider.Mappings[".xml"] = "application/xml";
+staticContentTypeProvider.Mappings[".txt"] = "text/plain";
+staticContentTypeProvider.Mappings[".ico"] = "image/x-icon";
 
 app.UseStaticFiles(new StaticFileOptions
 {

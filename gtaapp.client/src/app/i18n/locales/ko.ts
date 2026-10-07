@@ -311,14 +311,18 @@ export const ko: TranslationSchema = {
     backToTransports: '차량 카탈로그로 돌아가기',
     tabs: {
       vehicles: '차량',
+      concesionarios: '대리점',
+      specialVehicles: '특수 차량',
       missions: '미션',
       strangers: '낯선 사람 & 괴짜',
+      armas: '무기',
+      weapons: '무기',
+      armeria: '무기점',
       item3: '부동산',
       item4: '서비스',
       golpes: '습격',
       misterios: '미스터리',
-      armas: '무기',
-      weapons: '무기'
+      pegasus: '특수 차량'
     },
     catalog: {
       searchPlaceholder: '차량 검색 (모델명, 제조사, 차종)...',

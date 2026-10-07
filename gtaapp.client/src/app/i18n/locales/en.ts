@@ -345,14 +345,18 @@ export const en: TranslationSchema = {
     backToTransports: 'Back to Gta Info',
     tabs: {
       vehicles: 'Vehicles',
+      concesionarios: 'Dealerships',
+      specialVehicles: 'Special Vehicles',
       missions: 'Missions',
       strangers: 'Strangers & Freaks',
       armas: 'Weapons',
       weapons: 'Weapons',
+      armeria: 'Armory',
       item3: 'Item 3',
       item4: 'Item4',
       golpes: 'Heists',
-      misterios: 'Mysteries'
+      misterios: 'Mysteries',
+      pegasus: 'Special Vehicles'
     },
     catalog: {
       searchPlaceholder: 'Search vehicle...',

@@ -346,14 +346,18 @@ export const fr: TranslationSchema = {
     backToTransports: 'Retour à Gta Info',
     tabs: {
       vehicles: 'Véhicules',
+      concesionarios: 'Concessionnaires',
+      specialVehicles: 'Véhicules Spéciaux',
       missions: 'Missions',
       strangers: 'Inconnus et Détraqués',
       armas: 'Armes',
       weapons: 'Armes',
+      armeria: 'Armurerie',
       item3: 'Élément 3',
       item4: 'Élément 4',
       golpes: 'Braquages',
-      misterios: 'Mystères'
+      misterios: 'Mystères',
+      pegasus: 'Véhicules Spéciaux'
     },
     catalog: {
       searchPlaceholder: 'Rechercher un véhicule...',

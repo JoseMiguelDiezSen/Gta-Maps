@@ -120,6 +120,13 @@
       <div class="dealers-tab-scroll">
         <div class="dealer-list">
 
+          <!-- Separador superior: Concesionarios -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.concesionarios' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
           <!-- Dealers normales -->
           <ng-container *ngFor="let d of visibleDealers">
 
@@ -127,7 +134,7 @@
             <div class="dealer-section-divider"
                  *ngIf="d.id === 'pedal_and_metal'">
               <div class="dealer-section-divider-line"></div>
-              <span class="dealer-section-divider-label">{{ 'transports.tabs.pegasus' | translate }}</span>
+              <span class="dealer-section-divider-label">{{ 'transports.tabs.specialVehicles' | translate }}</span>
               <div class="dealer-section-divider-line"></div>
             </div>
 
@@ -662,6 +669,13 @@
           <span>{{ 'transports.missions.empty' | translate }}</span>
         </div>
 
+        <!-- Separador Misiones con barritas -->
+        <div class="dealer-section-divider dealer-grid-divider" *ngIf="!missionsLoading && filteredStoryMissions.length > 0">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
+        </div>
+
         <!-- Lista de misiones (Cards altas con flecha de entrada) -->
         <div class="missions-list" *ngIf="!missionsLoading && filteredStoryMissions.length > 0">
           <div
@@ -774,6 +788,13 @@
         <div class="missions-state-empty" *ngIf="!onlineMissionsLoading && !onlineMissionsError && filteredOnlineMissions.length === 0">
           <i class="fa-solid fa-crosshairs empty-icon"></i>
           <span>{{ 'transports.missions.empty' | translate }}</span>
+        </div>
+
+        <!-- Separador Misiones con barritas -->
+        <div class="dealer-section-divider dealer-grid-divider" *ngIf="!onlineMissionsLoading && filteredOnlineMissions.length > 0">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
         </div>
 
         <!-- Lista de misiones de GTA Online (Cards altas con flecha de entrada) -->
@@ -1022,6 +1043,13 @@
           <div class="missions-state-empty" *ngIf="!strangersLoading && !strangersError && filteredStrangerMissions.length === 0">
             <i class="fa-solid fa-mask empty-icon"></i>
             <span>{{ 'transports.strangers.empty' | translate }}</span>
+          </div>
+
+          <!-- Separador Extraños y Locos con barritas -->
+          <div class="dealer-section-divider dealer-grid-divider" *ngIf="!strangersLoading && !strangersError && filteredStrangerMissions.length > 0">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.strangers' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
           </div>
 
           <!-- VISTA POR SERIES (Agrupadas jerárquicamente) -->
@@ -1366,6 +1394,13 @@
           <span>{{ 'transports.mysteries.empty' | translate }}</span>
         </div>
 
+        <!-- Separador Misterios con barritas -->
+        <div class="dealer-section-divider dealer-grid-divider" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.misterios' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
+        </div>
+
         <!-- LISTA DE MISTERIOS (Maquetación moderna y estilizada con foto, badges y sinopsis) -->
         <div class="mysteries-list" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
           <div
@@ -1519,6 +1554,13 @@
         <div class="missions-empty" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length === 0">
           <i class="fa-solid fa-sack-dollar"></i>
           <span>{{ 'transports.heists.empty' | translate }}</span>
+        </div>
+
+        <!-- Separador Golpes con barritas -->
+        <div class="dealer-section-divider dealer-grid-divider" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length > 0">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.golpes' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
         </div>
 
         <!-- LISTA DE GOLPES (Maquetación blindada mcard-item: nunca colisiona) -->

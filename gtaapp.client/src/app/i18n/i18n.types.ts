@@ -317,6 +317,9 @@ export interface TranslationSchema {
     backToTransports: string;
     tabs: {
       vehicles: string;
+      dealerships?: string;
+      concesionarios?: string;
+      specialVehicles?: string;
       missions: string;
       strangers?: string;
       item3: string;
@@ -325,6 +328,8 @@ export interface TranslationSchema {
       misterios?: string;
       armas?: string;
       weapons?: string;
+      armeria?: string;
+      pegasus?: string;
     };
     catalog: {
       searchPlaceholder?: string;

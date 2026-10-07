@@ -346,14 +346,18 @@ export const ja: TranslationSchema = {
     backToTransports: 'Gta Info に戻る',
     tabs: {
       vehicles: '乗り物',
+      concesionarios: 'ディーラー',
+      specialVehicles: '特殊車両',
       missions: 'ミッション',
       strangers: '不審者と変質者',
       armas: '武器',
       weapons: '武器',
+      armeria: 'アミュネーション',
       item3: 'アイテム 3',
       item4: 'アイテム 4',
       golpes: '強盗ミッション',
-      misterios: 'ミステリー'
+      misterios: 'ミステリー',
+      pegasus: '特殊車両'
     },
     catalog: {
       searchPlaceholder: '乗り物を検索...',
