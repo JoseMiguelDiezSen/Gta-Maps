@@ -388,14 +388,14 @@
     </button>
   </div>
 
-  <!-- BOTONES SECUNDARIOS: GUÍAS GTA 5 Y GTA 6 -->
+  <!-- BOTONES SECUNDARIOS NEGROS (MISTERIOSOS / EN DESARROLLO) -->
   <div class="home-guide-actions">
-    <a class="home-guide-btn home-guide-btn-gta5" routerLink="/gta5-historia">
-      <span class="home-guide-btn-text">GUIA GTA 5</span>
+    <a class="home-guide-btn" href="#" (click)="$event.preventDefault()">
+      <span class="home-guide-btn-text">XXXX XXX XXX</span>
     </a>
-    <button type="button" class="home-guide-btn home-guide-btn-gta6" (click)="openGta6Modal('/gta6-historia', $event)">
-      <span class="home-guide-btn-text">GUIA GTA 6</span>
-    </button>
+    <a class="home-guide-btn" href="#" (click)="$event.preventDefault()">
+      <span class="home-guide-btn-text">XXXX XXX XXX</span>
+    </a>
   </div>
 
   <div class="home-last-update" [title]="('common.lastUpdate' | translate) + ': ' + ultimaActualizacion + ' (' + ('common.commit' | translate) + ' ' + buildCommit + ')'">
