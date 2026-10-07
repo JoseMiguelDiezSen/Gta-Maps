@@ -92,8 +92,8 @@ export class TranslationService {
    */
   private detectInitialLanguage(): LanguageCode {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved === 'es' || saved === 'en' || saved === 'pt' || saved === 'zh') {
+      const saved = localStorage.getItem(STORAGE_KEY) as LanguageCode | null;
+      if (saved && SUPPORTED_LANGUAGES.some(l => l.code === saved)) {
         return saved;
       }
     } catch {
@@ -102,14 +102,9 @@ export class TranslationService {
 
     if (typeof navigator !== 'undefined' && navigator.language) {
       const browserLang = navigator.language.toLowerCase();
-      if (browserLang.startsWith('en')) {
-        return 'en';
-      }
-      if (browserLang.startsWith('pt')) {
-        return 'pt';
-      }
-      if (browserLang.startsWith('zh')) {
-        return 'zh';
+      const match = SUPPORTED_LANGUAGES.find(l => browserLang.startsWith(l.code));
+      if (match) {
+        return match.code;
       }
     }
 
@@ -119,6 +114,9 @@ export class TranslationService {
   private applyDocumentLang(code: string): void {
     if (typeof document !== 'undefined' && document.documentElement) {
       document.documentElement.lang = code;
+      const isRtl = code === 'ar';
+      document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+      document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
     }
   }
 

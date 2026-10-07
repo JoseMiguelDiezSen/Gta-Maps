@@ -47,7 +47,8 @@ export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
   {
     code: 'ar',
     label: 'العربية',
-    shortLabel: 'AR'
+    shortLabel: 'AR',
+    dir: 'rtl'
   },
   {
     code: 'ja',

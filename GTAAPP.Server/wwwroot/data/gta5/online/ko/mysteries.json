@@ -6,9 +6,9 @@
     "titleEn": "The Ghost of Jolene Cranley-Evans",
     "category": "paranormal",
     "categoryLabel": "초자연 현상 및 심령",
-    "schedule": "23:00 - 00:00 (인게임 시간)",
-    "location": "고르도 산 (Mount Gordo) 동쪽 정상 절벽 바위",
-    "zone": "블레인 카운티 고르도 산",
+    "schedule": "23:00 - 00:00",
+    "location": "Pico oriental del Monte Gordo",
+    "zone": "Monte Gordo, Condado de Blaine",
     "position": {
       "x": 3057.94,
       "y": 5578.43,
@@ -18,28 +18,28 @@
       "x": 3080,
       "y": 5545,
       "z": 200,
-      "tip": "남쪽 능선에서 약 40m 떨어진 위치에서 스나이퍼 라이플 스코프나 스마트폰 카메라 줌을 사용해 관찰하세요. 너무 가까이 다가가면 사라집니다."
+      "tip": "Stand about 40 meters away on the southern ridge and use a sniper rifle scope or phone camera to prevent the ghost from vanishing prematurely."
     },
-    "description": "매일 밤 23:00부터 자정 00:00 사이에 고르도 산 정상 절벽의 평평한 바위 위에 흰 드레스를 입은 여성의 유령이 공중에 떠서 나타납니다. 플레이어가 접근하면 허공으로 사라지며, 바위 위에 피로 쓴 'JOCK'이라는 글자가 남겨집니다.",
-    "lore": "졸린 크랜리-에반스는 1978년 3월 고르도 산 절벽에서 추락해 의문의 죽음을 맞이했습니다. 전직 스턴트맨이자 주지사 후보인 남편 조크 크랜리는 로스 산토스 이주를 원했으나, 부모님 간병을 위해 거부한 졸린을 절벽 아래로 밀쳐 살해했습니다. 목격자가 없어 단순 사고사로 종결되었지만, 40년이 지난 지금도 그녀의 영혼은 정상에서 진범을 고발하고 있습니다.",
+    "description": "Between 23:00 and 0:00 every night, the floating apparition of a woman in white appears above a flat rock on Mount Gordo. When approached, she vanishes into thin air, leaving the word 'JOCK' written in fresh blood on the rock.",
+    "lore": "Jolene Cranley-Evans died under suspicious circumstances in March 1978 after falling from Mount Gordo's cliffside. Her husband, John 'Jock' Cranley — a former stuntman pursuing a political career as governor — wanted to move to Los Santos, while Jolene refused in order to care for her parents. Jock pushed her to her death, but local authorities ruled it an accident due to lack of witnesses. Four decades later, Jolene's spirit continues to point out her killer from the summit.",
     "mechanics": [
-      "인게임 시간으로 매일 밤 23:00 정각에 나타나 00:00에 사라집니다.",
-      "플레이어가 약 30~40m 이내로 접근하면 즉시 사라집니다.",
-      "얼굴 표정을 자세히 보려면 저격총 스코프나 스마트폰 줌 기능이 필요합니다.",
-      "유령이 사라진 후 바닥 바위에 선명한 핏자국으로 'JOCK' 글자가 남습니다.",
-      "심야 산 정상에서는 기괴한 속삭임과 바람 소리가 들립니다."
+      "Materializes nightly between 23:00 and 00:00 in-game time.",
+      "Approaching within 30-40 meters causes the ghost to vanish immediately.",
+      "A sniper rifle scope or phone camera zoom is required for detailed viewing.",
+      "Upon vanishing, the name 'JOCK' remains visible on the stone written in fresh blood.",
+      "Quietly lingering in the area at midnight plays eerie atmospheric whispers and distant wails."
     ],
     "clues": [
-      "게임 내 웹사이트 www.whokilledleonorajohnson.com의 1978년 기사 'Blood on the Rocks'.",
-      "산 안드레아스 전역에 걸린 조크 크랜리의 주지사 선거 포스터와 라디오 광고.",
-      "커뮤니티의 심야 사진 촬영 명소."
+      "In-game newspaper article on www.whokilledleonorajohnson.com titled 'Blood on the Rocks' from 1978.",
+      "Jock Cranley's political billboards and radio campaign advertisements across San Andreas.",
+      "Featured location in community night photography challenges across Los Santos."
     ],
-    "summary": "매일 밤 23:00~00:00에 고르도 산 정상에 나타나는 흰 드레스의 유령. 사라진 자리에 'JOCK' 혈흔을 남김.",
     "thumbnail": "assets/data-images/mysteries/jolene_cranley.png",
     "badgeColor": "#a855f7",
     "badgeIcon": "fa-ghost",
     "badgeSymbol": "👻",
-    "gameMode": "online"
+    "gameMode": "online",
+    "summary": "Between 23:00 and 0:00 every night, the floating apparition of a woman in white appears above a flat rock on Mount Gordo. When approached, she vanishes into thin air, leaving the word 'JOCK' written in fresh blood on the rock."
   },
   {
     "id": "underwater_lost_hatch",
@@ -48,310 +48,330 @@
     "titleEn": "The Secret Underwater Hatch (Lost Easter Egg)",
     "category": "easter_egg",
     "categoryLabel": "이스터 에그 및 비밀",
-    "schedule": "상시 확인 가능 (24시간 활성화)",
-    "location": "동쪽 해안 깊은 해저 바닥 (산 치안스키 산맥 동쪽 심해)",
-    "zone": "산 안드레아스 동부 태평양 심해",
+    "schedule": "Visible 24/7 (Siempre activa)",
+    "location": "Lecho marino de la Costa Este (San Chianski / Davis Quartz)",
+    "zone": "Océano Pacífico Oriental, San Andreas",
     "position": {
-      "x": 4274.85,
-      "y": 2977.85,
-      "z": -165
+      "x": 4270,
+      "y": 2980,
+      "z": -155
     },
     "observationPoint": {
-      "x": 4250,
-      "y": 2960,
-      "z": -140,
-      "tip": "크라켄이나 잠수정을 이용해 해저로 잠수하세요. 해치 창문에서 깜빡이는 불빛이 모스 부호 메시지를 전송합니다."
+      "x": 4180,
+      "y": 2980,
+      "z": -120,
+      "tip": "Descend using a submersible (Submersible or Kraken) or scuba suit. Maintain a safe depth above 140 meters: the hatch sits in the lethal crush depth zone, and getting too close will instantly implode your vehicle or kill your character."
     },
-    "description": "수심 약 165m의 깊은 해저 바닥에 둥근 금속 해치가 묻혀 있으며, 작은 창문에서 노란 불빛이 깜빡입니다. 유명 미드 'LOST'의 해치를 오마주한 대표적인 이스터 에그입니다.",
-    "lore": "극심한 수압으로 인해 일반 잠수복으로는 도달할 수 없습니다. 창문에서 깜빡이는 불빛은 모스 부호로 메시지를 전송하는데, 해독하면 'Hey, you never call, how'd you fancy going bowling?'이라는 GTA IV 로만 벨릭의 유명 대사가 나옵니다.",
+    "description": "Deep on the ocean floor off the eastern coast of San Andreas, lies a sealed circular steel hatch embedded in the seabed over 150 meters down. When approaching, a small rectangular glass window lights up with a warm glow, accompanied by rhythmic metallic tapping sounds originating from within.",
+    "lore": "This structure is a legendary double Easter egg by Rockstar Games. On one hand, it faithfully replicates 'The Hatch' from the Swan station in the TV show Lost. On the other hand, the rhythmic metallic knocking sounds form a message encoded in Tap Code that translates to: 'Hey, you never call, how'd you fancy going bowling?'—an iconic nod to Roman Bellic's persistent phone calls in GTA IV.",
     "mechanics": [
-      "수심 -165m 해저에 위치 (잠수정 압력 한계선 직전).",
-      "해치에 가까이 가면 모스 부호 불빛과 신호음이 발생합니다.",
-      "너무 깊이 접근하면 잠수정이 수압을 견디지 못하고 파괴될 수 있습니다."
+      "Located over 150 meters underwater at the eastern edge of the map.",
+      "Approaching via submersible or diving causes the top window to illuminate.",
+      "Rhythmic underwater metallic taps play periodically, encoding Roman Bellic's bowling invitation in tap code.",
+      "Cannot be opened, penetrated, or entered.",
+      "Extreme water pressure danger: Descending too close triggers the crush depth kill boundary, instantly destroying any submersible and killing the player."
     ],
     "clues": [
-      "미드 'LOST'의 스완 스테이션 해치.",
-      "GTA IV 로만 벨릭의 볼링 제안 전화 패러디."
+      "Decoded Tap Code message: 'Hey, you never call, how'd you fancy going bowling?'—a tribute to Niko's cousin Roman from GTA IV.",
+      "Lost TV series reference: Modeled closely after the Dharma Initiative's underground hatch discovered by Locke and Boone.",
+      "Crush depth hazard: Strategically placed right on the edge of the game's maximum survivable ocean depth."
     ],
-    "summary": "해저 바닥에 묻혀 모스 부호로 로만의 볼링 메시지를 전송하는 비밀 해치.",
-    "thumbnail": "assets/data-images/mysteries/underwater_hatch.png",
-    "badgeColor": "#06b6d4",
+    "thumbnail": "assets/data-images/mysteries/underwater_hatch.jpg",
+    "badgeColor": "#38bdf8",
     "badgeIcon": "fa-water",
     "badgeSymbol": "🌊",
-    "gameMode": "online"
+    "gameMode": "online",
+    "summary": "Deep on the ocean floor off the eastern coast of San Andreas, lies a sealed circular steel hatch embedded in the seabed over 150 meters down. When approaching, a small rectangular glass window lights up with a warm glow, accompanied by rhythmic metallic tapping sounds originating from within."
   },
   {
-    "id": "infinite_8_killer",
+    "id": "tunnel_heartbeat_mystery",
     "order": 3,
-    "title": "인피니티 8 연쇄살인마 (머를 에이브러햄스)",
-    "titleEn": "The Infinity 8 Serial Killer (Merle Abrahams)",
-    "category": "crimes",
-    "categoryLabel": "미제 사건 및 연쇄살인",
-    "schedule": "상시 확인 가능 (24시간 활성화)",
-    "location": "샌디 해안의 불탄 집 및 팔레토 베이 북쪽 바다",
-    "zone": "샌디 해안 / 팔레토 베이",
+    "title": "지하 터널의 심장 박동 소리",
+    "titleEn": "The Underground Tunnel Heartbeat",
+    "category": "paranormal",
+    "categoryLabel": "초자연 현상 및 심령",
+    "schedule": "Audible 24/7 (En silencio ambiental)",
+    "location": "Bifurcación de Cloacas y Metro bajo Pillbox Hill",
+    "zone": "Red Subterránea de Los Santos",
     "position": {
-      "x": 2434.12,
-      "y": 4967.34,
-      "z": 45.32
+      "x": 350,
+      "y": -620,
+      "z": -18.5
     },
     "observationPoint": {
-      "x": 2430,
-      "y": 4960,
-      "z": 46,
-      "tip": "샌디 해안의 폐가 벽에 적힌 8편의 시를 읽은 후, 팔레토 베이 북쪽 바다로 가서 수중에 유기된 8구의 시신을 확인하세요."
+      "x": 345,
+      "y": -615,
+      "z": -18,
+      "tip": "Enter on foot with a weapon flashlight. Stop any vehicle, turn off in-game radio, and stand completely still for 10-15 seconds wearing headphones: the rhythmic 'thump-thump... thump-thump' heartbeat will begin echoing distinctly from deep within the concrete walls."
     },
-    "description": "1999년 머를 에이브러햄스라는 정신이상자가 8명의 남성을 납치 살해하고, 시신을 흰 천에 감싸 팔레토 베이 북쪽 깊은 바다에 수중 유기했습니다.",
-    "lore": "머를 에이브러햄스는 숫자 8과 무한대(Infinity) 기호에 광적으로 집착했습니다. 그는 2004년 볼링브로크 교도소에서 재판을 기다리던 중 사망했으며, 교도소 벽과 자신의 불탄 집에 암호 같은 시와 단서를 남겼습니다.",
+    "description": "Deep beneath the foundations of downtown Los Santos and Pillbox Hill, a forgotten junction connects the subterranean metro lines with the storm drain tunnels. In this humid, pitch-black space, players encounter an unsettling phenomenon: a low-frequency, rhythmic thumping that sounds unmistakably like a massive human heartbeat echoing through the subterranean rock.",
+    "lore": "Far below the hustle of the streets above, the Los Santos underground conceals an eerie atmosphere that sparked one of San Andreas's most enduring urban legends. On the damp concrete walls near this junction, red graffiti hearts and cryptic tags suggest that the city itself harbors an organic pulse beneath the concrete. Mystery hunters believe an undiscovered entity nests in the abandoned maintenance vaults, while others claim the city was conceived as a living organism breathing in the dark.",
     "mechanics": [
-      "샌디 해안 폐가 벽에 적힌 숫자 8과 수수께끼 시 단서.",
-      "볼링브로크 교도소 운동장 바위 벽에 새겨진 시신 위치 약도.",
-      "팔레토 베이 북쪽 해저에서 비닐과 줄로 꽁꽁 묶여 가라앉아 있는 8구의 시신 발견 가능."
+      "Active 24/7 in the underground maintenance network beneath Pillbox Hill.",
+      "Originates from an ambient low-frequency sound emitter ('HEARTBEAT_LOW_LOOP') embedded at the intersection.",
+      "Requires standing motionless without gunshots, engines, or radios for the pulse to emerge over ambient water dripping.",
+      "The pulse maintains a steady cadence of roughly 55-60 beats per minute, matching a resting human heart."
     ],
     "clues": [
-      "볼링브로크 교도소 운동장 벽의 낙서.",
-      "샌디 해안의 불탄 집 벽면 단서.",
-      "북부 해저 바닥에 비닐로 싸인 8구의 유해."
+      "Access Route 1 (Los Santos River Storm Drain): The massive concrete outfall at Murrieta Heights (the iconic bike getaway tunnel from the Jewel Store Job). Ride straight into the canal tunnel until reaching the first major underground intersection.",
+      "Access Route 2 (Strawberry / Pillbox South Subway): Walk down the station escalators to the subway tracks and head north along the tracks into the maintenance shafts.",
+      "Access Route 3 (Olympic Freeway Maintenance Tunnel): Direct entrance via the underground construction excavation shafts near the Mile High Club.",
+      "Graffiti on concrete: Red spray-painted heart emblems and ominous tags adorn the damp walls near the sound emitter."
     ],
-    "summary": "숫자 8에 집착하여 8명을 살해하고 북부 바다에 수중 유기한 희대의 연쇄살인 사건.",
-    "thumbnail": "assets/data-images/mysteries/infinity_killer.png",
+    "thumbnail": "assets/data-images/mysteries/tunnel_heartbeat.jpg",
     "badgeColor": "#ef4444",
-    "badgeIcon": "fa-skull-crossbones",
-    "badgeSymbol": "💀",
-    "gameMode": "online"
+    "badgeIcon": "fa-heart-pulse",
+    "badgeSymbol": "❤️",
+    "gameMode": "online",
+    "summary": "Deep beneath the foundations of downtown Los Santos and Pillbox Hill, a forgotten junction connects the subterranean metro lines with the storm drain tunnels. In this humid, pitch-black space, players encounter an unsettling phenomenon: a low-frequency, rhythmic thumping that sounds unmistakably like a massive human heartbeat echoing through the subterranean rock."
   },
   {
-    "id": "leonora_johnson_murder",
+    "id": "mount_chiliad_mural_ufo",
     "order": 4,
-    "title": "레오노라 존슨 살인 사건 (블랙 달리아 미스터리)",
-    "titleEn": "The Murder of Leonora Johnson",
-    "category": "crimes",
-    "categoryLabel": "역사적 미제 살인 사건",
-    "schedule": "상시 진행 가능",
-    "location": "산 안드레아스 전역에 흩어진 편지 조각 50개 및 락포드 힐즈",
-    "zone": "산 안드레아스 / 락포드 힐즈",
-    "position": {
-      "x": -374.3,
-      "y": 420.5,
-      "z": 110.2
-    },
-    "observationPoint": {
-      "x": -370,
-      "y": 415,
-      "z": 111,
-      "tip": "편지 조각 50개를 모두 수집한 후 프랭클린으로 피터 드레이퍼스의 저택을 방문하세요."
-    },
-    "description": "1975년 바인우드의 유망한 젊은 여배우 레오노라 존슨이 참혹하게 살해당한 사건. 50개의 편지 조각을 모으면 영화감독 피터 드레이퍼스의 자백 편지가 완성됩니다.",
-    "lore": "현실의 '블랙 달리아(엘리자베스 쇼트) 살인 사건'을 모티브로 제작되었습니다. 유명 영화감독 피터 드레이퍼스는 '예술적 영감'을 핑계로 잔혹한 고문 살인을 저지른 후 자백 편지를 찢어 전역에 숨겼습니다.",
-    "mechanics": [
-      "산 안드레아스 전역에 숨겨진 편지 조각 50개를 모두 수집합니다.",
-      "편지가 완성되면 '바인우드의 신인 여배우' 낯선 사람 미션이 해금됩니다.",
-      "프랭클린으로 살인마 피터 드레이퍼스를 응징하고 처단할 수 있습니다."
-    ],
-    "clues": [
-      "게임 내 웹사이트 www.whokilledleonorajohnson.com의 사건 파일.",
-      "수집 시 내용이 합쳐지는 50개의 편지 조각."
-    ],
-    "summary": "1975년 발생한 미제 살인 사건으로, 편지 50장을 모아 진범 피터 드레이퍼스를 심판하는 미스터리.",
-    "thumbnail": "assets/data-images/mysteries/leonora_johnson.png",
-    "badgeColor": "#f59e0b",
-    "badgeIcon": "fa-feather",
-    "badgeSymbol": "📜",
-    "gameMode": "online"
-  },
-  {
-    "id": "sunken_ufo_paleto",
-    "order": 5,
-    "title": "팔레토 베이의 침몰한 UFO (Sunken UFO)",
-    "titleEn": "The Sunken UFO of Paleto Bay",
+    "title": "칠리아드 산 벽화와 100% 달성 UFO",
+    "titleEn": "The Mount Chiliad Mural (The 100% UFO Mystery)",
     "category": "conspiracy",
-    "categoryLabel": "외계인 및 UFO 음모론",
-    "schedule": "상시 확인 가능 (24시간 활성화)",
-    "location": "팔레토 베이 북쪽 바다 깊은 해저 바닥",
-    "zone": "팔레토 베이 북부 해역",
+    "categoryLabel": "비밀 음모론",
+    "schedule": "03:00 AM (Con lluvia o tormenta eléctrica)",
+    "location": "Estación Superior del Teleférico y Mirador del Monte Chiliad",
+    "zone": "Cumbre del Monte Chiliad, Blaine County",
     "position": {
-      "x": -3158.4,
-      "y": 6895.8,
-      "z": -100
+      "x": 446,
+      "y": 5575,
+      "z": 781
     },
     "observationPoint": {
-      "x": -3150,
-      "y": 6880,
-      "z": -85,
-      "tip": "잠수정이나 스쿠버 장비를 착용하세요. UFO는 해초와 해양 생물로 뒤덮여 있습니다."
-    },
-    "description": "팔레토 베이 북쪽 수심 100m 해저 바닥에 추락한 거대한 비행접시(UFO)가 가라앉아 있습니다. 수십 년 동안 바닷속에 방치된 것으로 보입니다.",
-    "lore": "칠리아드 산이나 포트 잔쿠도의 홀로그램 UFO와 달리, 물리적 실체가 존재하는 실제 추락 비행접시입니다. 외벽 전체가 해초와 따개비로 덮여 있어 오래전 추락했음을 알 수 있습니다.",
-    "mechanics": [
-      "100% 게임 완료 조건 없이 언제든지 관찰 가능합니다.",
-      "잠수정 헤드라이트를 비추면 원반 형태의 거대한 외계 우주선 구조가 뚜렷이 보입니다."
-    ],
-    "clues": [
-      "GTA V 컬렉터스 에디션 블루프린트 지도 UV 라이트 좌표.",
-      "칠리아드 산 벽화의 비행접시 문양."
-    ],
-    "summary": "팔레토 베이 북쪽 해저에 해초로 뒤덮인 채 가라앉아 있는 실제 외계 비행접시 잔해.",
-    "thumbnail": "assets/data-images/mysteries/sunken_ufo.png",
-    "badgeColor": "#10b981",
-    "badgeIcon": "fa-user-astronaut",
-    "badgeSymbol": "🛸",
-    "gameMode": "online"
-  },
-  {
-    "id": "mount_chiliad_ufo",
-    "order": 6,
-    "title": "칠리아드 산의 UFO와 벽화 미스터리",
-    "titleEn": "The Mount Chiliad Mystery & UFO",
-    "category": "conspiracy",
-    "categoryLabel": "칠리아드 산 벽화 및 UFO",
-    "schedule": "새벽 03:00 + 폭풍우 (게임 100% 달성 시)",
-    "location": "칠리아드 산 정상 목재 전망대 플랫폼 상공",
-    "zone": "블레인 카운티 칠리아드 산",
-    "position": {
-      "x": 450,
-      "y": 5600,
-      "z": 800
-    },
-    "observationPoint": {
-      "x": 450,
+      "x": 452,
       "y": 5580,
-      "z": 780,
-      "tip": "게임 100% 완료 후 비와 천둥번개가 치는 폭풍우 날씨에 새벽 03:00 정각 정상 플랫폼에 서 계세요."
+      "z": 782,
+      "tip": "Complete 100% of the game. Stand on the wooden observation deck behind the cable car station at 03:00 AM during a rainy or stormy night. Look up into the sky and the colossal holographic FIB mothership will appear humming over the summit."
     },
-    "description": "GTA V 역사상 가장 거대한 미스터리. 케이블카 승강장 벽에 그려진 수수께끼 벽화(제트팩, 외계인 알, 비행접시)의 조건을 만족하면 상공에 거대한 FIB UFO가 나타납니다.",
-    "lore": "칠리아드 산의 벽화는 수년간 전 세계 게이머들의 최대 관심사였습니다. 새벽 3시 폭풍우 속에서 나타나는 이 UFO는 실제 외계 비행선이 아니라 정부 기관 FIB의 스텔스 홀로그램 실험 장치입니다.",
+    "description": "On the weathered concrete wall inside the upper cable car station at the peak of Mount Chiliad sits the most famous and debated mystery mural in video game history: a pyramid topped by the All-Seeing Eye, a network of lines with five 'X' marks, and three base glyphs (a flying saucer UFO, a cracked egg, and a person with a jetpack). On the back of the wooden observation deck outside, an etched inscription reads: 'Come back when your story is complete'.",
+    "lore": "For over a decade, the r/ChiliadMystery community theorized about secret mountain tunnels hiding a flyable jetpack or alien egg. In 2025, creator and researcher Gator Keys proposed what is now considered the 'most widely accepted theory' among fans: the mural was never a puzzle to unlock an interior door, but a symbolic roadmap and instruction summarizing the ultimate 100% completion reward. In this interpretation: the egg represents the player's birth and progression from novice to full 100% mastery; the jetpack symbolizes the instruction to 'fly high' into the upper atmosphere; and the UFO represents discovering the FIB and alien crafts monitoring San Andreas, crowned by the All-Seeing Eye—the peak sighting atop Mount Chiliad. While Rockstar Games has never officially confirmed it, Gator Keys' theory stands as the most coherent explanation of the mural's intent.",
     "mechanics": [
-      "게임 100% 달성이 필수 조건입니다.",
-      "발생 시간: 새벽 정확히 03:00.",
-      "날씨 조건: 비와 천둥이 치는 폭풍우 (치트키로 설정 가능).",
-      "홀로그램 프로젝션이므로 너무 가까이 다가가면 사라집니다."
+      "Prerequisite for UFO manifestation: 100% official game progression in single-player stats.",
+      "Weather requirement: Rain or severe thunderstorm active.",
+      "Time window: The UFO only spawns at precisely 03:00 AM in-game.",
+      "Observation point: The wooden summit observation deck overlooking the northern wilderness.",
+      "UFO nature: Features FIB markings on its hull and projects a light beam; flying directly toward it causes it to vanish, proving it is a holographic cloaking projection or experimental stealth technology.",
+      "The physical wall mural inside the cable car summit station is visible 24/7 without prerequisites in both Story Mode and GTA Online."
     ],
     "clues": [
-      "케이블카 정상 승강장 벽면의 피라미드형 미스터리 벽화.",
-      "플랫폼 바닥 뒤편에 적힌 문구: 'Come back when your story is complete'."
+      "Carved wooden platform inscription: 'Come back when your story is complete'—Rockstar's direct developer hint to achieve 100% completion before searching.",
+      "The 3 San Andreas UFOs: Mount Chiliad (holographic at 03:00 AM), Fort Zancudo (high-altitude military stealth craft), and Sandy Shores (FIB-badged craft above the Beam Me Up monument).",
+      "Gator Keys Theory (2025 - 'Most Accepted Theory'): Outlines the mural as a metaphorical manual for 100%: Egg (player growth), Jetpack (fly high), and UFO (summit reward). Not officially confirmed by Rockstar.",
+      "Five Red Mountain Glyphs: Hidden across the crags of Mount Chiliad are 5 glyphs matching the mural's 5 'X' marks, showing the eye, crescent moon, and rain needed to trigger the event."
     ],
-    "summary": "100% 완료 후 새벽 3시 폭풍우 속 칠리아드 산 정상 상공에 나타나는 FIB 홀로그램 UFO.",
-    "thumbnail": "assets/data-images/mysteries/chiliad_ufo.png",
-    "badgeColor": "#6366f1",
-    "badgeIcon": "fa-mountain",
-    "badgeSymbol": "⛰️",
-    "gameMode": "historia"
+    "thumbnail": "assets/data-images/mysteries/chiliad_mural.jpg",
+    "badgeColor": "#06b6d4",
+    "badgeIcon": "fa-eye",
+    "badgeSymbol": "👁️",
+    "gameMode": "online",
+    "summary": "On the weathered concrete wall inside the upper cable car station at the peak of Mount Chiliad sits the most famous and debated mystery mural in video game history: a pyramid topped by the All-Seeing Eye, a network of lines with five 'X' marks, and three base glyphs (a flying saucer UFO, a cracked egg, and a person with a jetpack). On the back of the wooden observation deck outside, an etched inscription reads: 'Come back when your story is complete'."
   },
   {
-    "id": "altruist_cult_sacrifice",
+    "id": "thelma_and_louise_cliff",
+    "order": 5,
+    "title": "델마와 루이스 (절벽 다이브)",
+    "titleEn": "Thelma & Louise (The Cliff Jump)",
+    "category": "easter_egg",
+    "categoryLabel": "이스터 에그 및 비밀",
+    "schedule": "19:00 - 20:00 (Atardecer)",
+    "location": "Acantilado junto al Campamento Altruista (Raton Canyon)",
+    "zone": "Chiliad Mountain State Wilderness, Blaine County",
+    "position": {
+      "x": -1015,
+      "y": 4890,
+      "z": 260
+    },
+    "observationPoint": {
+      "x": -980,
+      "y": 4860,
+      "z": 275,
+      "tip": "Arrive before 19:00 and observe from the opposite ridge or via helicopter at a medium distance (standing directly at the spawn point prevents the event from loading). Between 19:00 and 19:45, police cruisers with blaring sirens corner the convertible. At 19:45-20:00, the car guns the engine and plummets into the abyss."
+    },
+    "description": "At the dead end of a rocky promontory overlooking Raton Canyon, near the Altruist Camp, one of cinema's most famous finales is reenacted daily between 19:00 and 20:00: two women in a classic convertible Declasse Tornado are cornered by Sheriff and state police cruisers. With sirens screaming and officers aiming their weapons, the convertible guns forward off the cliff edge, plummeting into the canyon bottom and exploding.",
+    "lore": "This scripted random encounter is a shot-for-shot homage to the climactic final scene of Ridley Scott's 1991 movie 'Thelma & Louise', starring Susan Sarandon and Geena Davis. In the film, the two outlaw friends accelerate their convertible into the Grand Canyon rather than face capture. Rockstar Games recreated the sequence with meticulous detail, including two acoustic guitars and a sombrero resting in the convertible's back seat (the iconic 'Mariachi Tornado'). Mystery hunters discovered that by sniping the driver from a long distance before the car accelerates, or blocking the ledge with a helicopter, players can claim and preserve this unique vehicle.",
+    "mechanics": [
+      "Triggers daily between 19:00 and 20:00 in-game time during the golden hour sunset.",
+      "Requires maintaining visual distance from the cliff edge prior to 19:00 to let the police script and Tornado spawn.",
+      "Around 19:45-20:00, the driver guns the throttle, sending the vehicle over the precipice into Cassidy Creek below.",
+      "Unique vehicle obtainable: The Tornado Mariachi features two acoustic guitars and distinct rear props. Sniping the driver from long range allows players to steal and keep the vehicle.",
+      "Present and functional in both Story Mode and GTA Online sessions."
+    ],
+    "clues": [
+      "Backseat vehicle props: Two acoustic guitars and a Mexican sombrero placed in the convertible's rear seat.",
+      "Golden hour lighting: The warm sunset lighting deliberately mirrors the cinematography of the 1991 movie finale.",
+      "Sheriff response team: Multiple cruisers with officers taking cover behind open doors demanding surrender."
+    ],
+    "thumbnail": "assets/data-images/mysteries/thelma_and_louise.jpg",
+    "badgeColor": "#f59e0b",
+    "badgeIcon": "fa-car",
+    "badgeSymbol": "🚗",
+    "gameMode": "online",
+    "summary": "At the dead end of a rocky promontory overlooking Raton Canyon, near the Altruist Camp, one of cinema's most famous finales is reenacted daily between 19:00 and 20:00: two women in a classic convertible Declasse Tornado are cornered by Sheriff and state police cruisers. With sirens screaming and officers aiming their weapons, the convertible guns forward off the cliff edge, plummeting into the canyon bottom and exploding."
+  },
+  {
+    "id": "infinity_killer_merle",
+    "order": 6,
+    "title": "인피니티 8 연쇄살인마 (머를 에이브러햄스)",
+    "category": "crime",
+    "categoryLabel": "미제 사건 및 연쇄살인",
+    "summary": "Merle Abrahams, a sadistic serial killer obsessed with the number 8 and infinity, murdered 8 victims in 2004, leaving cryptic clues across San Andreas leading to their submerged bodies north of Paleto Bay.",
+    "location": "Sandy Shores (Casa), Desierto de Senora (Rocas), Prisión de Bolingbroke y Paleto Bay (Cuerpos sumergidos)",
+    "zone": "Blaine County / Paleto Bay",
+    "schedule": "Visible las 24 horas del día",
+    "position": {
+      "x": 2434,
+      "y": 4966,
+      "z": 46
+    },
+    "observationPoint": {
+      "x": 2434,
+      "y": 4966,
+      "z": 46,
+      "tip": "Begin by investigating the burnt shack in Sandy Shores covered in '8' graffiti. Then head to the small islands north of Paleto Bay: diving around 20 meters underwater reveals all 8 plastic-wrapped bodies tied to the seabed."
+    },
+    "lore": "In December 2004, Blaine County was shaken by the disappearance of 8 male joggers. The culprit was Merle Abrahams, an isolated recluse suffering from an obsessive fixation with the number eight and infinity. Captured and incarcerated in Bolingbroke Penitentiary, he died at age 57 awaiting trial without ever confessing where he hid the bodies.\n\nNevertheless, Merle left behind a chilling trail across the state:\n1. His burned-out Sandy Shores house, covered in tally marks and the phrase '8 is just infinity stood up'.\n2. Boulders in Grand Senora Desert inscribed with a sinister nursery rhyme ('1 is done, 2 was fun, 3 tried to run...').\n3. His prison cell and exercise yard at Bolingbroke, featuring a crude map pointing north.\n4. The underwater cemetery: in the deep waters around the islets north of Paleto Bay lie all 8 bodies, wrapped in plastic sheeting and anchored with cinder blocks.",
+    "mechanics": [
+      "All four clue sites (house, rocks, prison wall, and ocean grave) exist in both Story Mode and GTA Online.",
+      "The 8 submerged corpses lie 20-25 meters deep off the northern islands of Paleto Bay; a scuba suit or submersible is recommended.",
+      "In Bolingbroke Penitentiary's exercise yard, chalk writing reads: 'Where water meets land and fire once spewed forth. There the infinite 8 shall stay. Until I return'.",
+      "One of the most extensive and intricate environmental crime mysteries crafted by Rockstar Games."
+    ],
+    "clues": [
+      "The rock rhyme: 'One is done. Two was fun. Three tried to run. Four called mom. Fives not alive. Six is nix. Sevens in heaven. 8 won't wait'.",
+      "Sandy Shores graffiti: 'Go away Merle Abrahams. You're a wrong 'un' painted by outraged neighbors.",
+      "Prison yard map: Clearly outlines the distinct coastal archipelago of Paleto Cove.",
+      "The sunken bodies: Each plastic-wrapped bundle on the ocean floor has the number '8' drawn in marker on the duct tape."
+    ],
+    "thumbnail": "assets/data-images/mysteries/infinity_killer_8.jpg",
+    "badgeColor": "#dc2626",
+    "badgeIcon": "fa-skull-crossbones",
+    "badgeSymbol": "♾️",
+    "gameMode": "both",
+    "description": "La investigación forense de uno de los criminales más siniestros de Blaine County: Merle Abrahams, el 'Asesino del Infinito 8', quien dejó una serie de pistas, poemas crípticos y coordenadas ocultas en su casa quemada, rocas del desierto y en la prisión de Bolingbroke.",
+    "titleEn": "The Infinity 8 Killer (Merle Abrahams)"
+  },
+  {
+    "id": "nothing_here_strawberry",
     "order": 7,
-    "title": "이타주의자 교단과 인신공양 미스터리",
-    "titleEn": "The Altruist Cult Camp & Sacrifices",
-    "category": "conspiracy",
-    "categoryLabel": "사교 집단 및 비밀 결사",
-    "schedule": "상시 활성화 (이벤트 컷신은 4명 희생자 필요)",
-    "location": "칠리아드 산맥 깊은 숲속 이타주의자 마을",
-    "zone": "칠리아드 산 야생동물 보호구역",
+    "title": "'Turn Back' 및 'Nothing Here' (스트로베리)",
+    "category": "easter_egg",
+    "categoryLabel": "이스터 에그 및 비밀",
+    "summary": "In a secluded underpass alley beneath the Olympic Freeway in Strawberry, Rockstar developers left spray-painted messages trolling curious explorers: 'Turn Back' and 'Nothing Here'.",
+    "location": "Paso inferior de la Olympic Freeway, Strawberry",
+    "zone": "South Los Santos (Strawberry)",
+    "schedule": "Visible las 24 horas del día",
     "position": {
-      "x": -1110,
-      "y": 4930,
-      "z": 218
+      "x": 298,
+      "y": -1080,
+      "z": 29.4
     },
     "observationPoint": {
-      "x": -1100,
-      "y": 4920,
-      "z": 220,
-      "tip": "트레버로 랜덤 이벤트 승객 4명을 교단에 넘기세요. 마지막 이벤트에서 마을 전체와의 대규모 총격전과 $100,000의 보상을 얻습니다."
+      "x": 298,
+      "y": -1080,
+      "z": 29.4,
+      "tip": "Walk down the pedestrian service path running beneath the Olympic Freeway overpass in Strawberry. Look down to see 'TURN BACK' stenciled on the pavement, then look at the facing concrete wall to read 'NOTHING HERE' in red paint."
     },
-    "description": "칠리아드 산맥에 고립되어 기술과 젊은 세대를 증오하며 태양신을 숭배하는 광신도 노인 집단. 인신공양과 식인 풍습을 행합니다.",
-    "lore": "이타주의자들은 현대 사회와 청년들이 세상을 타락시켰다고 믿으며, 태양신 '자포(Lord Zapho)'에게 바치기 위해 인간을 제물로 삼습니다. 트레버는 히치하이커 승객들을 돈을 받고 이들에게 넘길 수 있습니다.",
+    "lore": "Ever since Grand Theft Auto III (featuring the iconic 'You weren't supposed to be able to get here you know' sign) and GTA San Andreas (atop the Gant Bridge: 'There are no Easter Eggs up here. Go away.'), Rockstar North has maintained a tradition of mocking players who venture into out-of-the-way dead ends.\n\nIn GTA V, this joke is tucked away under the freeway in Strawberry. Walking down a narrow concrete pathway leads to a dead end where 'TURN BACK' is boldly painted across the tarmac. Turning toward the end wall reveals 'NOTHING HERE' in dripping red spray paint.\n\nTo complete the gag in the Enhanced editions (PC/PS4/PS5/Xbox One/Series), Rockstar added 'Sorry, I Lied' alongside one of the 50 collectible Space Monkey Mosaics.",
     "mechanics": [
-      "트레버로 무작위 승객 4명을 마을로 수송합니다.",
-      "4번째 희생자를 넘길 때 교단이 트레버마저 제물로 삼으려 하여 총격전이 시작됩니다.",
-      "마을을 소탕하면 각 테라스에서 총 $100,000의 현금 가방 4개, RPG, 저격총을 획득합니다."
+      "Embedded in static map geometry, freely accessible on foot in both Story Mode and GTA Online.",
+      "Located in the pedestrian pathway connecting the Olympic Freeway service embankment and Strawberry Avenue.",
+      "In Enhanced versions, includes an exclusive Story Mode Monkey Mosaic beside the 'Sorry, I Lied' graffiti."
     ],
     "clues": [
-      "인게임 브라우저 웹사이트 www.altruistsunite.com (전체 모스 부호).",
-      "캠프 내부 바위와 벽면에 그려진 태양과 피의 제단 벽화."
+      "Ground stencil: Large white painted text reading 'TURN BACK' aligned with player movement.",
+      "Wall lettering: 'NOTHING HERE' written in blood-red paint.",
+      "Rockstar's metanarrative humor: Openly rewarding explorers with confirmation that their search was entirely futile."
     ],
-    "summary": "칠리아드 산속에 숨어 무고한 여행자들을 인신공양하는 식인 광신도 교단 마을.",
-    "thumbnail": "assets/data-images/mysteries/altruist_cult.png",
-    "badgeColor": "#f97316",
-    "badgeIcon": "fa-sun",
-    "badgeSymbol": "☀️",
-    "gameMode": "historia"
+    "thumbnail": "assets/data-images/mysteries/nothing_here_strawberry.jpg",
+    "badgeColor": "#6366f1",
+    "badgeIcon": "fa-ban",
+    "badgeSymbol": "🛑",
+    "gameMode": "both",
+    "description": "En un estrecho pasaje de servicio peatonal bajo el viaducto de la Olympic Freeway, los diseñadores del mapa dejaron pintadas que rompen la cuarta pared advirtiendo a los exploradores curiosos de que han llegado a un callejón sin salida.",
+    "titleEn": "'Turn Back' and 'Nothing Here' (Strawberry)"
   },
   {
-    "id": "fort_zancudo_ufo",
+    "id": "fridgit_snowman",
     "order": 8,
-    "title": "포트 잔쿠도의 군용 UFO와 그린 라이트",
-    "titleEn": "Fort Zancudo Bunker Green Light & High Altitude UFO",
-    "category": "conspiracy",
-    "categoryLabel": "군사 비밀 음모론",
-    "schedule": "새벽 03:00 - 04:00 초록색 빛 + 최고 고도 비행 UFO",
-    "location": "포트 잔쿠도 군사 기지 벙커 상공",
-    "zone": "포트 잔쿠도 군사 기지",
+    "title": "프리짓 냉동창고의 눈사람 (라 메사)",
+    "category": "easter_egg",
+    "categoryLabel": "이스터 에그 및 비밀",
+    "summary": "Inside the Fridgit Cold Storage facility in La Mesa, a slightly ajar sliding door blocked by cardboard boxes conceals a chillingly cheerful giant snowman in the dark freezer.",
+    "location": "Almacén Fridgit Cold Storage, La Mesa / Cypress Flats",
+    "zone": "East Los Santos (La Mesa)",
+    "schedule": "Visible las 24 horas del día",
     "position": {
-      "x": -2050,
-      "y": 3230,
-      "z": 1400
+      "x": 935,
+      "y": -2175,
+      "z": 30.5
     },
     "observationPoint": {
-      "x": -2050,
-      "y": 3230,
-      "z": 1300,
-      "tip": "헬기나 제트기로 최대 고도(약 3,000ft 이상)까지 상승하세요. 기지 벙커에는 새벽 3시에 초록색 빔 조명이 비칩니다."
+      "x": 935,
+      "y": -2175,
+      "z": 30.5,
+      "tip": "Head to the alley beside the Fridgit warehouse in La Mesa. Locate the blue metal sliding bay doors cracked open a few inches. Shoot or blow away the cardboard boxes blocking the slit, then illuminate the interior with a flashlight or sniper scope to spot the snowman."
     },
-    "description": "포트 잔쿠도 군사 기지 상공 최고 고도에 인류가 군사 기술로 제작한 스텔스 비행접시가 떠 있습니다. 기지 벙커에는 새벽에 미스터리한 초록빛이 비칩니다.",
-    "lore": "'Segregate and Rearrange' 로고가 새겨진 군사용 첨단 반중력 스텔스 기체입니다. 가까이 접근하면 강력한 EMP 전자기 펄스가 방출되어 비행기 엔진이 꺼지고 추락하게 됩니다.",
+    "lore": "Located in the industrial district of La Mesa and Cypress Flats stands the cold storage warehouse 'Fridgit', whose roof slogan ironically proclaims 'Stay frosty!'.\n\nWhile the interior is entirely inaccessible during normal play, one set of blue industrial rolling doors at the rear loading bay remains stuck open with a gap of roughly 30 centimeters. Stacked cardboard boxes obscure the opening from casual view. If players shoot away or explode the boxes, they can aim through the slit with a sniper rifle or flashlight: looming inside the pitch-black freezer room is an enormous eight-foot snowman sporting coal eyes, a carrot nose, and a red scarf with an unblinking grin.\n\nThis static Easter egg has been present since the game's 2013 launch, placed by level designers as a playful hidden surprise.",
     "mechanics": [
-      "게임 100% 달성 후 출현합니다.",
-      "잔쿠도 기지 상공 극한의 고도에 고정 비행하고 있습니다.",
-      "너무 가까이 접근하면 EMP 충격파로 엔진이 정지되어 지상으로 추락합니다."
+      "Accessible 24/7 in both Story Mode and GTA Online.",
+      "Requires clearing the cardboard boxes with gunfire or minor explosives to establish a clear sightline.",
+      "The snowman features fixed physical textures with shimmering ice shaders, but the freezer room itself lacks navigable collision.",
+      "Distinct from the 25 destroyable festive snowmen from the GTA Online Christmas event; the Fridgit snowman is a permanent map secret."
     ],
     "clues": [
-      "기지 벙커 위에 새벽 3시~4시 사이에 나타나는 춤추는 초록색 빛줄기.",
-      "기체 표면에 새겨진 미군 경고 라벨."
+      "Roof motto: 'Fridgit - Stay Frosty!', an overt hint at the cold secret within.",
+      "Ajar blue doors: The only loading bay door across the entire facility that is not completely shut.",
+      "Doorway frost: Small icicles hang from the rusted steel door frame."
     ],
-    "summary": "포트 잔쿠도 초고고도에 숨겨진 미군 제작 스텔스 극비 비행접시.",
-    "thumbnail": "assets/data-images/mysteries/zancudo_ufo.png",
-    "badgeColor": "#22c55e",
-    "badgeIcon": "fa-shield-halved",
-    "badgeSymbol": "🛡️",
-    "gameMode": "historia"
+    "thumbnail": "assets/data-images/mysteries/fridgit_snowman.jpg",
+    "badgeColor": "#0ea5e9",
+    "badgeIcon": "fa-snowflake",
+    "badgeSymbol": "⛄",
+    "gameMode": "both",
+    "description": "En el complejo industrial de Fridgit Cold Storage, un muelle de carga con compuertas correderas entreabiertas esconde en su interior una figura helada de más de dos metros de altura con bufanda y mirada fija.",
+    "titleEn": "The Fridgit Snowman (La Mesa)"
   },
   {
-    "id": "mine_shaft_corpse",
+    "id": "yellow_jack_blood_footprints",
     "order": 9,
-    "title": "버려진 폐광산의 비밀 시신 (L.A. Noire 미스터리)",
-    "titleEn": "The Abandoned Mine Shaft & Isaac Murder Mystery",
-    "category": "crimes",
-    "categoryLabel": "고전 미제 사건 및 누아르 비밀",
-    "schedule": "상시 확인 가능",
-    "location": "그레이트 채퍼럴의 버려진 금광 폐광산",
-    "zone": "그레이트 채퍼럴, 로스 산토스 카운티",
+    "title": "옐로우 잭 여관의 핏자국 발자국",
+    "category": "crime",
+    "categoryLabel": "미제 사건 및 연쇄살인",
+    "summary": "Inside the remote Yellow Jack Inn biker saloon in Senora Desert, a trail of bare bloody footprints traverses the floorboards beside the pool table and abruptly vanishes.",
+    "location": "Yellow Jack Inn (Intersección de Route 68 y Panorama Drive)",
+    "zone": "Grand Senora Desert",
+    "schedule": "Visible las 24 horas del día (interior accesible)",
     "position": {
-      "x": -595,
-      "y": 2090,
-      "z": 131
+      "x": 2005,
+      "y": 3056.4,
+      "z": 47
     },
     "observationPoint": {
-      "x": -590,
-      "y": 2085,
-      "z": 131,
-      "tip": "폐광산 입구의 나무 문을 수류탄이나 RPG로 폭파하고 들어가 손전등을 켜고 탐색하세요."
+      "x": 2005,
+      "y": 3056.4,
+      "z": 47,
+      "tip": "Step through the front entrance of the Yellow Jack Inn on Route 68. Walk right toward the green felt pool table. On the wooden floorboards, use weapon flashlight or bar lighting to observe bare bloody footprints abruptly stopping mid-room."
     },
-    "description": "버려진 폐광산 깊은 어둠 속에 1940년대 정장 차림의 사업가(아이작) 유골이 의자에 묶인 채 발견됩니다. 락스타의 명작 'L.A. Noire' 스타일의 살인 사건입니다.",
-    "lore": "마이클은 바인우드 전역의 벽에 새겨진 4개의 비밀 단서를 추적하여 1940년대의 살인 사건을 해결할 수 있습니다. 영화 제작자 프레드 퀸이 동업자 아이작을 살해하고 광산 깊숙이 은폐했습니다.",
+    "lore": "The Yellow Jack Inn is Blaine County's most notorious roadside watering hole, frequented by The Lost MC bikers, truckers, and rural drifters. While celebrated for its easter eggs (including Niko Bellic's brown leather jacket hung behind the bar and framed pictures of Trevor Phillips), it holds a much darker detail.\n\nBeside the pool table on the worn wooden floor lies an undeniable trail of dried bloody footprints. They are not boot treads, but impressions of bare human soles or blood-soaked socks, suggesting a victim fleeing or being dragged across the floor.\n\nStrangely, the trail begins and ends abruptly in the middle of the room without reaching any doorway or counter. Community consensus links these bloody prints to Merle Abrahams (the Infinity 8 Killer), hypothesizing the dive bar was where he ambushed or staged one of his eight victims in late 2004.",
     "mechanics": [
-      "바인우드에 숨겨진 벽면 암호 단서 4개를 발견합니다.",
-      "광산 나무 문을 폭발물로 파괴하고 진입합니다.",
-      "어두운 터널 끝에서 시신을 발견하면 빈티지 흑백 필름 모드가 해금됩니다."
+      "The bar interior is permanently unlocked and accessible in both Story Mode and GTA Online.",
+      "The footprints are a permanent decal baked directly into the interior geometry textures.",
+      "Also contains other lore easter eggs including Niko Bellic's jacket and framed bills featuring Rochell'le from GTA San Andreas."
     ],
     "clues": [
-      "바인우드 벽면에 새겨진 4개의 고전 암호 조각.",
-      "리차즈 마제스틱 영화 스튜디오의 옛 비밀 기록."
+      "Barefoot pattern: Clearly outlines individual toes and heel impressions without boot soles.",
+      "Sudden trail interruption: Indicates the victim was lifted, finished off, or dragged out.",
+      "Geographic proximity: The bar sits just down the highway from Merle Abrahams' house and the Senora Desert rhyme rocks."
     ],
-    "summary": "버려진 금광 깊은 곳에 묶인 채 방치된 1940년대 시신과 흑백 필터 해금 미스터리.",
-    "thumbnail": "assets/data-images/mysteries/mine_corpse.png",
-    "badgeColor": "#78716c",
-    "badgeIcon": "fa-skull",
-    "badgeSymbol": "🪓",
-    "gameMode": "historia"
+    "thumbnail": "assets/data-images/mysteries/yellow_jack_blood.jpg",
+    "badgeColor": "#b91c1c",
+    "badgeIcon": "fa-shoe-prints",
+    "badgeSymbol": "👣",
+    "gameMode": "both",
+    "description": "En el interior del bar de moteros Yellow Jack Inn en la Ruta 68, el suelo de madera junto a la mesa de billar muestra huellas de pisadas de pies descalzos impregnadas en sangre que se interrumpen de forma abrupta.",
+    "titleEn": "The Yellow Jack Inn Blood Footprints"
   }
 ]

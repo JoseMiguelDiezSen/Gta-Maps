@@ -98,7 +98,7 @@
       ]
     }
   ],
-  "historia": [
+  "gta5-historia": [
     {
       "id": "personajes_principales",
       "keywords": [
@@ -171,7 +171,7 @@
       ]
     }
   ],
-  "online": [
+  "gta5-online": [
     {
       "id": "cayo_perico_heist",
       "keywords": [
@@ -235,6 +235,196 @@
       "responses": [
         "최고의 사업장 추천: 1. 나이트클럽 (완전 자동 패시브 수입), 2. 벙커 (무기 제작 및 판매), 3. 사무소 (Dr. Dre $1M 계약 + 이마니 테크), 4. 환각제 연구소.",
         "나이트클럽 수익을 극대화하려면 벙커, 코카인, 필로폰, 스페셜 카고 창고를 모두 연동하세요!"
+      ]
+    }
+  ],
+  "gta6-historia": [
+    {
+      "id": "armas",
+      "keywords": [
+        "weapon",
+        "gun",
+        "pistol",
+        "rifle",
+        "arsenal",
+        "shotgun",
+        "damage",
+        "fire rate",
+        "shoot",
+        "ammunation",
+        "ammu",
+        "ammo",
+        "shop",
+        "buy"
+      ],
+      "responses": [
+        "The game isn't even out yet, smartass! The Vice City weapon catalog will be unlocked when the game launches in **{days} days**. Grab a squirt gun for now.",
+        "Weapons in Vice City? Hold your horses, there are still **{days} days** until launch. Don't get ahead of yourself."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealership",
+        "fast",
+        "armored",
+        "motorcycle",
+        "bike",
+        "drive",
+        "garage",
+        "engine",
+        "speed"
+      ],
+      "responses": [
+        "Cars in Vice City? The game isn't out yet! Still **{days} days** until we can hit the gas across Leonida.",
+        "Easy there, speed demon. Driving around Vice City is still **{days} days** away on the countdown clock."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "heist",
+        "heists",
+        "robbery",
+        "payout",
+        "take",
+        "loot",
+        "score"
+      ],
+      "responses": [
+        "Heists in Vice City? Cool your jets, the game isn't released yet. You've got **{days} days** of waiting ahead.",
+        "We'll plan out Leonida's biggest scores once the game drops in **{days} days**."
+      ]
+    },
+    {
+      "id": "novedades",
+      "keywords": [
+        "news",
+        "new",
+        "map",
+        "leonida",
+        "vice",
+        "city",
+        "lucia",
+        "jason"
+      ],
+      "responses": [
+        "Welcome to Leonida, partner. The Vice City map is massive. Check the side panels to start getting your bearings."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": [
+        "countdown",
+        "release",
+        "launch",
+        "date",
+        "days left",
+        "when",
+        "out",
+        "available",
+        "play"
+      ],
+      "responses": [
+        "It's not out yet, daydreamer! Exactly **{days} days** left until official launch.",
+        "**{days} days** left until GTA VI. The game isn't out yet, be patient!",
+        "Still **{days} days** on the clock, boss. Not released yet, so we wait while exploring the map."
+      ]
+    }
+  ],
+  "gta6-online": [
+    {
+      "id": "armas",
+      "keywords": [
+        "weapon",
+        "gun",
+        "pistol",
+        "rifle",
+        "arsenal",
+        "shotgun",
+        "damage",
+        "fire rate",
+        "shoot",
+        "ammunation",
+        "ammu",
+        "ammo",
+        "shop",
+        "buy"
+      ],
+      "responses": [
+        "The game isn't even out yet, smartass! The Vice City weapon catalog will be unlocked when the game launches in **{days} days**. Grab a squirt gun for now.",
+        "Weapons in Vice City? Hold your horses, there are still **{days} days** until launch. Don't get ahead of yourself."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealership",
+        "fast",
+        "armored",
+        "motorcycle",
+        "bike",
+        "drive",
+        "garage",
+        "engine",
+        "speed"
+      ],
+      "responses": [
+        "Cars in Vice City? The game isn't out yet! Still **{days} days** until we can hit the gas across Leonida.",
+        "Easy there, speed demon. Driving around Vice City is still **{days} days** away on the countdown clock."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "heist",
+        "heists",
+        "robbery",
+        "payout",
+        "take",
+        "loot",
+        "score"
+      ],
+      "responses": [
+        "Heists in Vice City? Cool your jets, the game isn't released yet. You've got **{days} days** of waiting ahead.",
+        "We'll plan out Leonida's biggest scores once the game drops in **{days} days**."
+      ]
+    },
+    {
+      "id": "negocios",
+      "keywords": [
+        "business",
+        "money",
+        "cash",
+        "empire",
+        "dirty money",
+        "passive income"
+      ],
+      "responses": [
+        "To make bank in Vice City, keep an eye on the side panel. We're still setting up the criminal network."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": [
+        "countdown",
+        "release",
+        "launch",
+        "date",
+        "days left",
+        "when",
+        "out",
+        "available",
+        "play"
+      ],
+      "responses": [
+        "It's not out yet, daydreamer! Exactly **{days} days** left until official launch.",
+        "**{days} days** left until GTA VI. The game isn't out yet, be patient!",
+        "Still **{days} days** on the clock, boss. Not released yet, so we wait while exploring the map."
       ]
     }
   ]

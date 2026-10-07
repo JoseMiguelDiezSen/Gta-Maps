@@ -3,6 +3,7 @@ export interface LanguageInfo {
   code: LanguageCode;
   label: string;
   shortLabel: string;
+  dir?: 'ltr' | 'rtl';
 }
 export type TranslationParams = Record<string, string | number>;
 export interface TranslationSchema {
