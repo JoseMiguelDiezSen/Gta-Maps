@@ -8,6 +8,7 @@ export interface LanguageInfo {
 export type TranslationParams = Record<string, string | number>;
 export interface TranslationSchema {
   common: {
+    back: string;
     backToHome: string;
     lastUpdate: string;
     commit: string;
