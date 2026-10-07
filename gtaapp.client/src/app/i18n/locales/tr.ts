@@ -2,6 +2,7 @@ import { TranslationSchema } from '../i18n.types';
 
 export const tr: TranslationSchema = {
   common: {
+    back: 'Geri',
     backToHome: 'Ana Sayfaya Dön',
     lastUpdate: 'Son Güncelleme',
     commit: 'Commit',
@@ -285,7 +286,7 @@ export const tr: TranslationSchema = {
       fauna: 'Leonida Vahşi Yaşamı',
       coleccionables: 'Koleksiyonlar ve Sırlar',
       lugares: 'Önemli Simgesel Yapılar',
-      toggleAll: 'Tüm Katmanları Göster/Gizle'
+      toggleAll: '{{ title }} içindeki tüm öğeleri aç/kapat'
     },
     items: {
       casa_jason: "Jason'ın Güvenli Evi",
@@ -361,11 +362,11 @@ export const tr: TranslationSchema = {
     },
     catalog: {
       searchPlaceholder: 'Araç ara (model, marka, sınıf)...',
-      loading: 'Araçlar yükleniyor...',
+      loading: '{{ dealer }} kataloğu yükleniyor...',
       error: 'Araç kataloğu yüklenirken hata oluştu',
       empty: 'Arama kriterlerine uygun araç bulunamadı',
       availableCount: 'Mevcut Araçlar',
-      ofCatalog: 'Katalogdaki toplam',
+      ofCatalog: 'Katalogdaki {{ total }} araç arasından',
       specsTitle: 'Teknik Özellikler',
       buyPrice: 'Satın Alma Fiyatı',
       tradePrice: 'Takas Fiyatı',
@@ -409,7 +410,7 @@ export const tr: TranslationSchema = {
       retry: 'Yeniden Dene',
       empty: 'Görev bulunamadı',
       backToMissions: 'Görev Listesine Dön',
-      missionBadge: 'Görev',
+      missionBadge: 'GÖREV #{{ order }}',
       contact: 'Veren Kişi',
       synopsis: 'Görev Özeti',
       reward: 'Ödül',
@@ -419,8 +420,8 @@ export const tr: TranslationSchema = {
       returnToList: 'Görevlere Dön',
       prevMission: 'Önceki Görev',
       nextMission: 'Sonraki Görev',
-      rankBadge: 'Seviye',
-      playersBadge: 'Oyuncu Sayısı',
+      rankBadge: 'Seviye {{ rank }}+',
+      playersBadge: '{{ players }} Oyuncu',
       allCategories: 'Tüm Kategoriler',
       allContacts: 'Tüm Kişiler',
       allCharacters: 'Tüm Karakterler'
@@ -440,7 +441,7 @@ export const tr: TranslationSchema = {
       empty: 'Yabancı görevi bulunamadı',
       backToStrangers: 'Yabancılar Listesine Dön',
       seriesBadge: 'Seri',
-      missionNum: 'Görev #',
+      missionNum: 'GÖREV #{{ order }}',
       contact: 'Karakter',
       synopsis: 'Açıklama',
       reward: 'Ödül',
@@ -467,7 +468,7 @@ export const tr: TranslationSchema = {
       retry: 'Yeniden Dene',
       empty: 'Soygun bulunamadı',
       backToHeists: 'Soygunlar Listesine Dön',
-      heistNum: 'Soygun #',
+      heistNum: 'SOYGUN #{{ order }}',
       organizer: 'Organizatör',
       players: 'Gereken Oyuncu',
       minLevel: 'Minimum Seviye',
@@ -495,7 +496,7 @@ export const tr: TranslationSchema = {
       retry: 'Yeniden Dene',
       empty: 'Silah bulunamadı',
       backToWeapons: 'Silah Listesine Dön',
-      weaponNum: 'Silah #',
+      weaponNum: 'SİLAH #{{ order }}',
       manufacturer: 'Üretici',
       realCounterpart: 'Gerçek Karşılığı',
       buyPrice: 'Ammu-Nation Fiyatı',
@@ -518,7 +519,7 @@ export const tr: TranslationSchema = {
       sortRange: 'Menzile Göre Sırala',
       sortPrice: 'Fiyata Göre Sırala',
       availableCount: 'Mevcut Silahlar',
-      ofCatalog: 'Katalogdaki toplam',
+      ofCatalog: 'Toplam {{ total }}',
       armeria: 'Ammu-Nation Cephaneliği',
       categories: {
         all: 'Tüm Silahlar',
@@ -544,7 +545,7 @@ export const tr: TranslationSchema = {
       retry: 'Yeniden Dene',
       empty: 'Gizem bulunamadı',
       backToMysteries: 'Gizemler Listesine Dön',
-      mysteryNum: 'Gizem #',
+      mysteryNum: 'GİZEM #{{ order }}',
       locateOnMap: 'Haritada Göster',
       location: 'Konum',
       schedule: 'Zaman / Hava Durumu',

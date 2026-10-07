@@ -88,9 +88,26 @@ export class TranslationService {
   }
 
   /**
-   * Detecta idioma inicial desde localStorage o desde navigator.language del navegador.
+   * Detecta idioma inicial desde parámetro de URL, localStorage o preferencias del navegador (navigator.languages / navigator.language).
    */
   private detectInitialLanguage(): LanguageCode {
+    // 1. Parámetro explícito de URL (?lang=es o ?lang=en) para depuración y enlaces directos
+    if (typeof window !== 'undefined' && window.location) {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const urlLang = params.get('lang')?.toLowerCase().trim() as LanguageCode | undefined;
+        if (urlLang && SUPPORTED_LANGUAGES.some(l => l.code === urlLang)) {
+          try {
+            localStorage.setItem(STORAGE_KEY, urlLang);
+          } catch {}
+          return urlLang;
+        }
+      } catch {
+        // Ignorar fallo de URLSearchParams
+      }
+    }
+
+    // 2. Preferencia previamente guardada en localStorage
     try {
       const saved = localStorage.getItem(STORAGE_KEY) as LanguageCode | null;
       if (saved && SUPPORTED_LANGUAGES.some(l => l.code === saved)) {
@@ -100,11 +117,39 @@ export class TranslationService {
       // Ignorar fallo de localStorage (modo incógnito estricto / sandbox)
     }
 
-    if (typeof navigator !== 'undefined' && navigator.language) {
-      const browserLang = navigator.language.toLowerCase();
-      const match = SUPPORTED_LANGUAGES.find(l => browserLang.startsWith(l.code));
-      if (match) {
-        return match.code;
+    // 3. Detección automática según idiomas configurados en el navegador del usuario
+    if (typeof navigator !== 'undefined') {
+      const candidates: string[] = [];
+      if (Array.isArray(navigator.languages)) {
+        candidates.push(...navigator.languages);
+      }
+      if (navigator.language) {
+        candidates.push(navigator.language);
+      }
+      const navAny = navigator as any;
+      if (navAny.userLanguage) {
+        candidates.push(navAny.userLanguage);
+      }
+      if (navAny.browserLanguage) {
+        candidates.push(navAny.browserLanguage);
+      }
+
+      for (const raw of candidates) {
+        if (!raw || typeof raw !== 'string') continue;
+        const normalized = raw.toLowerCase().trim();
+
+        // Coincidencia exacta (ej. 'es', 'pt', 'en', 'zh')
+        const exactMatch = SUPPORTED_LANGUAGES.find(l => l.code === normalized);
+        if (exactMatch) {
+          return exactMatch.code;
+        }
+
+        // Coincidencia por prefijo base (ej. 'es-ES' -> 'es', 'pt-BR' -> 'pt', 'zh-CN' -> 'zh')
+        const basePrefix = normalized.split(/[-_]/)[0];
+        const prefixMatch = SUPPORTED_LANGUAGES.find(l => l.code === basePrefix);
+        if (prefixMatch) {
+          return prefixMatch.code;
+        }
       }
     }
 

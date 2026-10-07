@@ -2,6 +2,7 @@ import { TranslationSchema } from '../i18n.types';
 
 export const it: TranslationSchema = {
   common: {
+    back: 'Indietro',
     backToHome: 'Home',
     lastUpdate: 'Ultimo aggiornamento',
     commit: 'Commit',
@@ -132,7 +133,7 @@ export const it: TranslationSchema = {
     },
     categories: {
       properties: 'Proprietà',
-      businesses: 'Attività',
+      businesses: 'Attività commerciali',
       strangePlaces: 'Luoghi Curiosi',
       activities: 'Attività',
       vehicles: 'Officine',

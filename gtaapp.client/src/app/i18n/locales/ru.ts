@@ -2,6 +2,7 @@ import { TranslationSchema } from '../i18n.types';
 
 export const ru: TranslationSchema = {
   common: {
+    back: 'Назад',
     backToHome: 'Главная',
     lastUpdate: 'Последнее обновление',
     commit: 'Коммит',

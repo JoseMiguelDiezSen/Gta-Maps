@@ -2,6 +2,7 @@ import { TranslationSchema } from '../i18n.types';
 
 export const ko: TranslationSchema = {
   common: {
+    back: '뒤로',
     backToHome: '홈으로 돌아가기',
     lastUpdate: '최종 업데이트',
     commit: '커밋',
@@ -285,7 +286,7 @@ export const ko: TranslationSchema = {
       fauna: '레오니다 야생 동물',
       coleccionables: '수집품 및 비밀',
       lugares: '주요 랜드마크',
-      toggleAll: '모든 레이어 표시/숨기기'
+      toggleAll: '{{ title }}의 모든 항목 켜기/끄기'
     },
     items: {
       casa_jason: '제이슨의 은신처',
@@ -361,11 +362,11 @@ export const ko: TranslationSchema = {
     },
     catalog: {
       searchPlaceholder: '차량 검색 (모델명, 제조사, 차종)...',
-      loading: '차량 목록 로딩 중...',
+      loading: '{{ dealer }} 카탈로그 로딩 중...',
       error: '차량 카탈로그 로드 중 오류 발생',
       empty: '일치하는 차량이 없습니다',
       availableCount: '이용 가능한 차량',
-      ofCatalog: '카탈로그 총계',
+      ofCatalog: '카탈로그 내 {{ total }}개 중',
       specsTitle: '성능 사양',
       buyPrice: '구매 가격',
       tradePrice: '할인가 (Trade Price)',
@@ -409,7 +410,7 @@ export const ko: TranslationSchema = {
       retry: '다시 시도',
       empty: '미션을 찾을 수 없습니다',
       backToMissions: '미션 목록으로 돌아가기',
-      missionBadge: '미션',
+      missionBadge: '미션 #{{ order }}',
       contact: '의뢰인',
       synopsis: '임무 개요',
       reward: '보상',
@@ -419,8 +420,8 @@ export const ko: TranslationSchema = {
       returnToList: '임무 목록으로 돌아가기',
       prevMission: '이전 미션',
       nextMission: '다음 미션',
-      rankBadge: '랭크',
-      playersBadge: '플레이어 수',
+      rankBadge: '랭크 {{ rank }}+',
+      playersBadge: '{{ players }}명의 플레이어',
       allCategories: '모든 카테고리',
       allContacts: '모든 연락처',
       allCharacters: '모든 캐릭터'
@@ -440,7 +441,7 @@ export const ko: TranslationSchema = {
       empty: '항목을 찾을 수 없습니다',
       backToStrangers: '낯선 사람 목록으로 돌아가기',
       seriesBadge: '시리즈',
-      missionNum: '미션 #',
+      missionNum: '미션 #{{ order }}',
       contact: '인물',
       synopsis: '개요',
       reward: '보상',
@@ -467,7 +468,7 @@ export const ko: TranslationSchema = {
       retry: '다시 시도',
       empty: '습격을 찾을 수 없습니다',
       backToHeists: '습격 목록으로 돌아가기',
-      heistNum: '습격 #',
+      heistNum: '습격 #{{ order }}',
       organizer: '계획자',
       players: '필요 인원',
       minLevel: '최소 랭크',
@@ -495,7 +496,7 @@ export const ko: TranslationSchema = {
       retry: '다시 시도',
       empty: '무기를 찾을 수 없습니다',
       backToWeapons: '무기 목록으로 돌아가기',
-      weaponNum: '무기 #',
+      weaponNum: '무기 #{{ order }}',
       manufacturer: '제조사',
       realCounterpart: '실제 모델',
       buyPrice: '아뮤네이션 가격',
@@ -518,7 +519,7 @@ export const ko: TranslationSchema = {
       sortRange: '사거리순 정렬',
       sortPrice: '가격순 정렬',
       availableCount: '보유 무기',
-      ofCatalog: '카탈로그 총계',
+      ofCatalog: '총 {{ total }}개',
       armeria: '아뮤네이션 무기고',
       categories: {
         all: '모든 무기',
@@ -544,7 +545,7 @@ export const ko: TranslationSchema = {
       retry: '다시 시도',
       empty: '미스터리를 찾을 수 없습니다',
       backToMysteries: '미스터리 목록으로 돌아가기',
-      mysteryNum: '미스터리 #',
+      mysteryNum: '미스터리 #{{ order }}',
       locateOnMap: '지도에서 위치 확인',
       location: '위치',
       schedule: '시간 및 기상 조건',

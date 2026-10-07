@@ -1,6 +1,7 @@
 import { TranslationSchema } from '../i18n.types';
 export const en: TranslationSchema = {
   common: {
+    back: 'Back',
     backToHome: 'Home',
     lastUpdate: 'Last update',
     commit: 'Commit',
@@ -171,10 +172,10 @@ export const en: TranslationSchema = {
       haoGarage: "Hao's Special Works (HSW)",
       lsCarMeet: 'LS Car Meet (Cypress)',
       policeStation: 'Police Stations',
-      policeStationShort: 'Police Stations',
+      policeStationShort: 'Police',
       hospital: 'Hospitals',
       fireStation: 'Fire Stations',
-      fireStationShort: 'Fire Stations',
+      fireStationShort: 'Fire',
       ammuNation: 'Ammu-Nation Gun Stores',
       ammuNationShort: 'Ammu-Nation',
       convenienceStore: '24/7 Supermarkets (Robbable)',

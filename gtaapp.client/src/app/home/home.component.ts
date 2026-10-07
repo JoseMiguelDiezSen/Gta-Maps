@@ -68,13 +68,12 @@ export class HomeComponent implements OnInit, OnDestroy {
         private readonly router: Router,
         private readonly route: ActivatedRoute,
         private readonly http: HttpClient
-    ) {}
+    ) {
+        this.selectedCode = this.translationService.currentLang;
+    }
 
     ngOnInit(): void {
-        const current = this.translationService.currentLanguage();
-        if (current) {
-            this.selectedCode = current;
-        }
+        this.selectedCode = this.translationService.currentLang;
         this.startCountdown();
 
         // Si intentó entrar a una ruta protegida de GTA 6, abrir modal
@@ -107,7 +106,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     get currentLanguage(): Language {
-        return this.languages.find(l => l.code === this.selectedCode) || this.languages[0];
+        const code = this.translationService.currentLang;
+        return this.languages.find(l => l.code === code) || this.languages[0];
     }
 
     toggleDropdown(event: Event): void {

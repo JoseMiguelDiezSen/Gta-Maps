@@ -2,6 +2,7 @@ import { TranslationSchema } from '../i18n.types';
 
 export const zh: TranslationSchema = {
   common: {
+    back: '返回',
     backToHome: '返回首页',
     lastUpdate: '最后更新',
     commit: '提交',

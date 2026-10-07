@@ -2,6 +2,7 @@ import { TranslationSchema } from '../i18n.types';
 
 export const hi: TranslationSchema = {
   common: {
+    back: 'वापस',
     backToHome: 'होम',
     lastUpdate: 'अंतिम अपडेट',
     commit: 'कमिट',
