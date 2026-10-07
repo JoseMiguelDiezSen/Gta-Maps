@@ -1,5 +1,5 @@
 <div class="wiki-shell gta5-theme" [class.font-large]="fontSizeMode === 'large'">
-  <!-- CABECERA PRINCIPAL DE LA WIKI -->
+  <!-- CABECERA PRINCIPAL ESTILO HUD GTA -->
   <header class="wiki-header">
     <div class="wiki-header-container">
       <div class="wiki-brand">
@@ -12,19 +12,19 @@
         </button>
 
         <a routerLink="/home" class="wiki-back-btn" title="Volver a la portada">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
           <span class="back-text">Inicio</span>
         </a>
 
         <div class="wiki-title-group">
-          <span class="wiki-badge">ENCICLOPEDIA & GUÍA</span>
-          <h1 class="wiki-title">GTA V NARRATIVA</h1>
+          <span class="wiki-badge">⚡ BASE DE DATOS LOS SANTOS</span>
+          <h1 class="wiki-title">GTA V GUÍA & ENCICLOPEDIA</h1>
         </div>
       </div>
 
-      <!-- Barra de Búsqueda Integrada -->
+      <!-- Barra de Búsqueda Integrada HUD -->
       <div class="wiki-search-box">
         <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"></circle>
@@ -61,7 +61,7 @@
           type="button"
           class="wiki-font-toggle"
           (click)="toggleFontSize()"
-          [title]="fontSizeMode === 'normal' ? 'Aumentar tamaño de letra para lectura' : 'Tamaño de letra estándar'"
+          [title]="fontSizeMode === 'normal' ? 'Modo lectura grande' : 'Modo lectura estándar'"
         >
           <span>{{ fontSizeMode === 'normal' ? 'A+' : 'A-' }}</span>
         </button>
@@ -72,12 +72,12 @@
             <line x1="8" y1="2" x2="8" y2="18"></line>
             <line x1="16" y1="6" x2="16" y2="22"></line>
           </svg>
-          <span class="map-text">Mapa Interactivo</span>
+          <span class="map-text">Abrir Mapa</span>
         </a>
       </div>
     </div>
 
-    <!-- Barra de Pestañas de Secciones (Scroll Horizontal) -->
+    <!-- Pestañas de Secciones Temáticas -->
     <div class="wiki-categories-bar">
       <div class="wiki-categories-container">
         <button
@@ -86,7 +86,7 @@
           [class.is-active]="selectedSeccionId === 'todas'"
           (click)="filtrarPorSeccion('todas')"
         >
-          🌟 Todos los Capítulos
+          <span class="tab-icon">🌟</span> Todos los Capítulos
         </button>
         <button
           *ngFor="let s of secciones"
@@ -95,13 +95,28 @@
           [class.is-active]="selectedSeccionId === s.id"
           (click)="filtrarPorSeccion(s.id)"
         >
-          {{ s.titulo }}
+          <span class="tab-icon">📁</span> {{ s.titulo }}
         </button>
       </div>
     </div>
   </header>
 
-  <!-- CUERPO PRINCIPAL DE LA WIKI -->
+  <!-- BANNER HERO DE LA GUÍA -->
+  <section class="wiki-hero-banner">
+    <div class="hero-content">
+      <div class="hero-badges">
+        <span class="hero-chip hero-chip-green">MODO HISTORIA AL 100%</span>
+        <span class="hero-chip hero-chip-gold">GUÍA MAESTRA DE NEGOCIOS & BOLSA</span>
+        <span class="hero-chip hero-chip-cyan">MISTERIOS & OVNIS</span>
+      </div>
+      <h2 class="hero-title">CRÓNICAS DE LOS SANTOS</h2>
+      <p class="hero-desc">
+        Enciclopedia y compendio narrativo de Grand Theft Auto V. Guías paso a paso de los 6 Golpes, inversiones millonarias de Lester, árboles de personajes y análisis de secretos.
+      </p>
+    </div>
+  </section>
+
+  <!-- CUERPO PRINCIPAL DE LA WIKI (SIDEBAR + LECTOR HUD) -->
   <div class="wiki-body-layout">
     <!-- Overlay móvil -->
     <div
@@ -113,7 +128,10 @@
     <!-- BARRA LATERAL (ÍNDICE DE CAPÍTULOS Y ARTÍCULOS) -->
     <aside class="wiki-sidebar" [class.is-mobile-open]="isSidebarOpenMobile">
       <div class="sidebar-header">
-        <h3>Índice de Contenidos</h3>
+        <div class="sidebar-title-box">
+          <span class="sidebar-badge">ÍNDICE GENERAL</span>
+          <h3>Capítulos Disponibles</h3>
+        </div>
         <button type="button" class="sidebar-close-mobile" (click)="toggleMobileSidebar()">✕</button>
       </div>
 
@@ -134,7 +152,10 @@
                 (click)="seleccionarArticulo(art.id)"
                 class="sidebar-article-item"
               >
-                <span class="article-item-title">{{ art.titulo }}</span>
+                <div class="article-item-main">
+                  <span class="article-item-title">{{ art.titulo }}</span>
+                  <span class="article-item-sub">{{ art.subtitulo }}</span>
+                </div>
                 <span *ngIf="art.badge" class="article-badge">{{ art.badge }}</span>
               </li>
             </ul>
@@ -153,22 +174,27 @@
 
       <!-- Artículo Seleccionado -->
       <article *ngIf="!isLoadingArticulo && selectedArticulo" class="article-card">
-        <!-- Banner del Artículo -->
+        <!-- Cabecera del Artículo -->
         <header class="article-header">
           <div class="article-meta-row">
             <span *ngIf="selectedArticulo.badge" class="article-pill-badge">{{ selectedArticulo.badge }}</span>
-            <span class="article-read-time">⏱️ {{ selectedArticulo.tiempoLecturaMinutos }} min de lectura</span>
-            <span *ngIf="selectedArticulo.tags?.length" class="article-tags-chip">
+            <span class="article-meta-item">⏱️ {{ selectedArticulo.tiempoLecturaMinutos }} min de lectura</span>
+            <span *ngIf="selectedArticulo.tags?.length" class="article-meta-item">
               🏷️ {{ selectedArticulo.tags.join(' · ') }}
             </span>
           </div>
 
           <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
           <p class="article-lead">{{ selectedArticulo.subtitulo }}</p>
-          <hr class="article-divider" />
+
+          <div class="article-divider-box">
+            <span class="divider-line"></span>
+            <span class="divider-diamond">◆</span>
+            <span class="divider-line"></span>
+          </div>
         </header>
 
-        <!-- Cuerpo del Artículo con Tipografía de Lectura -->
+        <!-- Cuerpo del Artículo -->
         <div class="article-body">
           <div class="narrative-markdown-content">
             <pre class="article-text-block">{{ selectedArticulo.contenidoMarkdown }}</pre>
@@ -177,7 +203,10 @@
 
         <!-- Pie de Artículo & Enlaces Relacionados -->
         <footer *ngIf="selectedArticulo.relacionados?.length" class="article-footer">
-          <h4 class="related-section-title">Capítulos y Guías Relacionadas</h4>
+          <div class="related-header">
+            <span class="related-tag">CONTINUAR LEYENDO</span>
+            <h4 class="related-section-title">Capítulos y Guías Relacionadas</h4>
+          </div>
           <div class="related-cards-grid">
             <div
               *ngFor="let rel of selectedArticulo.relacionados"
