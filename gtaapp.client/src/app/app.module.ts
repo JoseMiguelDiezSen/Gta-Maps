@@ -7,8 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent }           from './app.component';
 import { Gta5OnlineComponent }    from './gta5/online/gta5-online.component';
 import { Gta5HistoriaComponent }  from './gta5/historia/gta5-historia.component';
+import { Gta5GuiaComponent }      from './gta5/guia/gta5-guia.component';
 import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
 import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
+import { Gta6GuiaComponent }      from './gta6/guia/gta6-guia.component';
 import { HomeComponent }          from './home/home.component';
 import { InfoPanelComponent } from './components/info-panel/info-panel.component';
 import { Gta6InfoPanelComponent } from './components/gta6-info-panel/gta6-info-panel.component';
@@ -22,8 +24,10 @@ import { TranslatePipe }          from './i18n';
         AppComponent,
         Gta5OnlineComponent,
         Gta5HistoriaComponent,
+        Gta5GuiaComponent,
         Gta6OnlineComponent,
         Gta6HistoriaComponent,
+        Gta6GuiaComponent,
         HomeComponent,
         InfoPanelComponent,
         Gta6InfoPanelComponent,

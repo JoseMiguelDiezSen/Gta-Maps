@@ -431,9 +431,24 @@
   transform: translateY(-2px);
 }
 
-.home-guide-btn:hover .home-guide-btn-text {
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+.home-guide-btn-gta5:hover {
+  border-color: rgba(34, 197, 94, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(34, 197, 94, 0.25);
+}
+
+.home-guide-btn-gta5:hover .home-guide-btn-text {
+  color: #4ade80;
+  text-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+.home-guide-btn-gta6:hover {
+  border-color: rgba(236, 72, 153, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 14px rgba(236, 72, 153, 0.25);
+}
+
+.home-guide-btn-gta6:hover .home-guide-btn-text {
+  color: #f472b6;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
 }
 
 /* Marca de última actualización debajo de los botones: sin panel, limpia y centrada */

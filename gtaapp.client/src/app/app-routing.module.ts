@@ -4,8 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent }           from './home/home.component';
 import { Gta5OnlineComponent }     from './gta5/online/gta5-online.component';
 import { Gta5HistoriaComponent }   from './gta5/historia/gta5-historia.component';
+import { Gta5GuiaComponent }       from './gta5/guia/gta5-guia.component';
 import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
 import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
+import { Gta6GuiaComponent }      from './gta6/guia/gta6-guia.component';
 
 import { Gta6AuthGuard }       from './services/gta6-auth.guard';
 
@@ -47,6 +49,15 @@ const routes: Routes = [
         }
     },
     {
+        path: 'gta5-guia',
+        component: Gta5GuiaComponent,
+        data: {
+            title: 'Guía Oficial & Wiki GTA V - Modo Historia al 100%, Golpes y Misterios | GTA MAPS',
+            description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía de golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
+            canonical: 'https://gtamaps.dev/gta5-guia'
+        }
+    },
+    {
         path: 'gta6-online',
         component: Gta6OnlineComponent,
         canActivate: [Gta6AuthGuard],
@@ -70,6 +81,16 @@ const routes: Routes = [
             canonical: 'https://gtamaps.dev/gta6-historia'
         }
     },
+    {
+        path: 'gta6-guia',
+        component: Gta6GuiaComponent,
+        canActivate: [Gta6AuthGuard],
+        data: {
+            title: 'Base de Datos & Guía Oficial GTA VI - Vice City y Estado de Leonida | GTA MAPS',
+            description: 'Enciclopedia interactiva de GTA VI: análisis de regiones de Leonida, Jason & Lucia, vehículos, armas e inventario físico confirmado.',
+            canonical: 'https://gtamaps.dev/gta6-guia'
+        }
+    },
 
     // Redirecciones por compatibilidad
     { path: 'gta5',          redirectTo: '/gta5-online', pathMatch: 'full' },
@@ -77,12 +98,16 @@ const routes: Routes = [
     { path: 'gta5/online',   redirectTo: '/gta5-online', pathMatch: 'full' },
     { path: 'gta5/historia', redirectTo: '/gta5-historia', pathMatch: 'full' },
     { path: 'gta5historia',  redirectTo: '/gta5-historia', pathMatch: 'full' },
+    { path: 'gta5/guia',     redirectTo: '/gta5-guia', pathMatch: 'full' },
+    { path: 'gta5guia',      redirectTo: '/gta5-guia', pathMatch: 'full' },
     { path: 'gt5',           redirectTo: '/gta5-online', pathMatch: 'full' },
     { path: 'gta6',          redirectTo: '/gta6-online', pathMatch: 'full' },
     { path: 'gta6online',    redirectTo: '/gta6-online', pathMatch: 'full' },
     { path: 'gta6/online',   redirectTo: '/gta6-online', pathMatch: 'full' },
     { path: 'gta6/historia', redirectTo: '/gta6-historia', pathMatch: 'full' },
     { path: 'gta6historia',  redirectTo: '/gta6-historia', pathMatch: 'full' },
+    { path: 'gta6/guia',     redirectTo: '/gta6-guia', pathMatch: 'full' },
+    { path: 'gta6guia',      redirectTo: '/gta6-guia', pathMatch: 'full' },
 
     { path: '**', redirectTo: '/home' }
 ];

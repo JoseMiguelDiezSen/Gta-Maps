@@ -388,14 +388,14 @@
     </button>
   </div>
 
-  <!-- BOTONES SECUNDARIOS (GUÍAS GTA 5 Y GTA 6 - DESHABILITADOS) -->
+  <!-- BOTONES SECUNDARIOS: GUÍAS Y WIKI OFICIAL DE GTA 5 Y GTA 6 -->
   <div class="home-guide-actions">
-    <a class="home-guide-btn" href="#" (click)="$event.preventDefault()">
+    <a class="home-guide-btn home-guide-btn-gta5" routerLink="/gta5-guia">
       <span class="home-guide-btn-text">GUIA GTA 5</span>
     </a>
-    <a class="home-guide-btn" href="#" (click)="$event.preventDefault()">
+    <button type="button" class="home-guide-btn home-guide-btn-gta6" (click)="openGta6Modal('/gta6-guia', $event)">
       <span class="home-guide-btn-text">GUIA GTA 6</span>
-    </a>
+    </button>
   </div>
 
   <div class="home-last-update" [title]="('common.lastUpdate' | translate) + ': ' + ultimaActualizacion + ' (' + ('common.commit' | translate) + ' ' + buildCommit + ')'">

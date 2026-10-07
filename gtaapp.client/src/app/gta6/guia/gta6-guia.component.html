@@ -1,0 +1,131 @@
+<div class="wiki-shell gta6-theme">
+  <!-- CABECERA PRINCIPAL DE LA WIKI GTA 6 -->
+  <header class="wiki-header">
+    <div class="wiki-header-container">
+      <div class="wiki-brand">
+        <a routerLink="/home" class="wiki-back-btn" title="Volver a la portada">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Inicio</span>
+        </a>
+        <div class="wiki-title-group">
+          <span class="wiki-badge">BASE DE DATOS LEONIDA</span>
+          <h1 class="wiki-title">GTA VI GUÍA & WIKI</h1>
+        </div>
+      </div>
+
+      <!-- Barra de Búsqueda Integrada -->
+      <div class="wiki-search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="text"
+          class="wiki-search-input"
+          [(ngModel)]="searchQuery"
+          (input)="onSearch()"
+          placeholder="Buscar Lucia, Jason, Vice City, armas, coches..."
+        />
+        <button *ngIf="searchQuery" (click)="limpiarBusqueda()" class="search-clear-btn" aria-label="Limpiar búsqueda">✕</button>
+
+        <!-- Dropdown de Resultados de Búsqueda -->
+        <div *ngIf="searchResults.length > 0" class="search-results-dropdown">
+          <div
+            *ngFor="let res of searchResults"
+            class="search-result-item"
+            (click)="seleccionarArticulo(res.id); limpiarBusqueda()"
+          >
+            <span class="search-result-title">{{ res.titulo }}</span>
+            <span class="search-result-sub">{{ res.subtitulo }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acceso Rápido al Mapa -->
+      <div class="wiki-header-actions">
+        <a routerLink="/gta6-historia" class="wiki-map-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+            <line x1="8" y1="2" x2="8" y2="18"></line>
+            <line x1="16" y1="6" x2="16" y2="22"></line>
+          </svg>
+          <span>Abrir Mapa Vice City</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CUERPO PRINCIPAL DE LA WIKI (SIDEBAR + CONTENIDO) -->
+  <div class="wiki-body-layout">
+    <!-- BARRA LATERAL (SECCIONES Y ARTÍCULOS) -->
+    <aside class="wiki-sidebar">
+      <div class="sidebar-header">
+        <h3>Archivos de Leonida</h3>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div *ngFor="let seccion of secciones" class="sidebar-section">
+          <div class="sidebar-section-title">
+            <span>{{ seccion.titulo }}</span>
+            <span class="section-count">{{ seccion.articulos.length }}</span>
+          </div>
+          <ul class="sidebar-article-list">
+            <li
+              *ngFor="let art of seccion.articulos"
+              [class.is-active]="selectedArticulo?.id === art.id"
+              (click)="seleccionarArticulo(art.id)"
+              class="sidebar-article-item"
+            >
+              <span class="article-item-title">{{ art.titulo }}</span>
+              <span *ngIf="art.badge" class="article-badge">{{ art.badge }}</span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ÁREA CENTRAL DE LECTURA DEL ARTÍCULO -->
+    <main class="wiki-content">
+      <!-- Loading State -->
+      <div *ngIf="isLoadingArticulo" class="wiki-loading">
+        <div class="spinner"></div>
+        <p>Descifrando archivo...</p>
+      </div>
+
+      <!-- Artículo Seleccionado -->
+      <article *ngIf="!isLoadingArticulo && selectedArticulo" class="article-card">
+        <header class="article-header">
+          <div class="article-meta">
+            <span *ngIf="selectedArticulo.badge" class="article-pill-badge">{{ selectedArticulo.badge }}</span>
+            <span class="article-read-time">⏱️ {{ selectedArticulo.tiempoLecturaMinutos }} min de lectura</span>
+          </div>
+          <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
+          <p class="article-lead">{{ selectedArticulo.subtitulo }}</p>
+          <hr class="article-divider" />
+        </header>
+
+        <!-- Contenido renderizado -->
+        <div class="article-body">
+          <pre class="article-markdown-view">{{ selectedArticulo.contenidoMarkdown }}</pre>
+        </div>
+
+        <!-- Artículos Relacionados -->
+        <footer *ngIf="selectedArticulo.relacionados?.length" class="article-footer">
+          <h4>Archivos Relacionados:</h4>
+          <div class="related-cards-grid">
+            <div
+              *ngFor="let rel of selectedArticulo.relacionados"
+              class="related-card"
+              (click)="seleccionarArticulo(rel.id)"
+            >
+              <span class="related-card-title">{{ rel.titulo }}</span>
+              <span class="related-card-arrow">Ver archivo →</span>
+            </div>
+          </div>
+        </footer>
+      </article>
+    </main>
+  </div>
+</div>
