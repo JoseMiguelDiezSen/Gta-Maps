@@ -1970,6 +1970,12 @@ export class InfoPanelComponent implements OnChanges {
     this.locateOnMap.emit(mystery);
   }
 
+  getMysteryImage(m: GtaMystery | null | undefined): string {
+    if (!m || !m.thumbnail) return '';
+    const src = m.thumbnail.trim();
+    return src.startsWith('/') ? src : '/' + src;
+  }
+
   getMysteryAccentColor(m: GtaMystery | null): string {
     if (!m) return '#a855f7';
     return m.badgeColor || '#a855f7';

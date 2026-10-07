@@ -801,11 +801,18 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             const poiLbl = this.translationService.t('gta5.popups.pointOfInterest');
 
             const priceSectionHtml = isPurchasable
-                ? `<div class="popup-price-box"><span class="price-title">${priceLbl}</span><span class="price-num">${p.priceFormatted}</span></div>`
+                ? `<div class="popup-price-box"><span class="price-title">${priceLbl}</span> <span class="price-num">${p.priceFormatted}</span></div>`
                 : `<div class="popup-service-tag-box"><span class="service-type-badge">${p.categoryLabel}</span><span class="service-status-text">${p.priceFormatted || poiLbl}</span></div>`;
+
+            const rawImg = p.imageUrl || (p as any).thumbnail || (p as any).image;
+            const finalImg = rawImg ? (rawImg.startsWith('/') ? rawImg : '/' + rawImg) : '';
+            const imageHtml = finalImg
+                ? `<div class="popup-image-box"><img src="${finalImg}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
+                : '';
 
             const popupHtml = `
                 <div class="gta-popup-card">
+                    ${imageHtml}
                     <div class="popup-banner" style="background: linear-gradient(135deg, ${pinColor}33, #0b0f14 85%); border-bottom: 2px solid ${pinColor};">
                         <span class="popup-badge" style="color: ${pinColor}; border-color: ${pinColor}66">${p.categoryLabel}</span>
                         <h4 class="popup-title">${p.name}</h4>
@@ -823,7 +830,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 : `<br><span style="color:#3498db">${p.categoryLabel}</span>`;
 
             const marker = L.marker([lat, lng], { icon })
-                .bindPopup(popupHtml, { maxWidth: 300, className: 'gta-leaflet-popup' })
+                .bindPopup(popupHtml, { maxWidth: 300, minWidth: 280, className: 'gta-leaflet-popup' })
                 .bindTooltip(`<b>${p.name}</b>${tooltipPrice}`, {
                     direction: 'top',
                     offset: [0, -26],

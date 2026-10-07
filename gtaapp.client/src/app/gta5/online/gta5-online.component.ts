@@ -1286,8 +1286,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 ? `<ul class="popup-features">${loc.features.map(f => `<li>${f}</li>`).join('')}</ul>`
                 : '';
 
-            const imageHtml = loc.imageUrl
-                ? `<div class="popup-image-box"><img src="${loc.imageUrl}" alt="${loc.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
+            const rawCayoImg = loc.imageUrl || (loc as any).thumbnail || (loc as any).image;
+            const finalCayoImg = rawCayoImg ? (rawCayoImg.startsWith('/') ? rawCayoImg : '/' + rawCayoImg) : '';
+            const imageHtml = finalCayoImg
+                ? `<div class="popup-image-box"><img src="${finalCayoImg}" alt="${loc.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
                 : '';
 
             const popupHtml = `
@@ -1469,8 +1471,10 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 ? `<div class="popup-row"><span class="popup-tag-lbl">${this.translationService.t('gta5.popups.buyer')}</span> <span class="popup-tag-val">${p.owner}</span></div>`
                 : '';
 
-            const imageHtml = p.imageUrl
-                ? `<div class="popup-image-box"><img src="${p.imageUrl}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
+            const rawImg = p.imageUrl || (p as any).thumbnail || (p as any).image;
+            const finalImg = rawImg ? (rawImg.startsWith('/') ? rawImg : '/' + rawImg) : '';
+            const imageHtml = finalImg
+                ? `<div class="popup-image-box"><img src="${finalImg}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
                 : '';
 
             const priceSectionHtml = isPurchasable
@@ -1510,7 +1514,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 : `<br><span style="color:#3498db">${p.categoryLabel}</span>`;
 
             const marker = L.marker([lat, lng], { icon })
-                .bindPopup(popupHtml, { maxWidth: 300, className: 'gta-leaflet-popup' })
+                .bindPopup(popupHtml, { maxWidth: 300, minWidth: 280, className: 'gta-leaflet-popup' })
                 .bindTooltip(`<b>${p.name}</b>${tooltipPrice}`, {
                     direction: 'top',
                     offset: [0, -26],

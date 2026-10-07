@@ -256,10 +256,18 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  flex: 1 1 140px;
+  flex: 1 1 0;
+  width: 100%;
   max-width: 200px;
   min-width: 130px;
   height: 110px;
+  box-sizing: border-box !important;
+  padding: 10px 12px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
   color: #fff;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.08);
@@ -587,12 +595,18 @@
 
   .home-actions {
     gap: 10px;
+    width: 100%;
+    max-width: 360px;
   }
 
   .home-btn {
-    height: 96px;
-    min-width: 120px;
-    padding: 6px;
+    flex: 1 1 0 !important;
+    width: 50% !important;
+    max-width: 160px !important;
+    min-width: 0 !important;
+    height: 96px !important;
+    padding: 6px !important;
+    box-sizing: border-box !important;
     gap: 4px;
   }
 

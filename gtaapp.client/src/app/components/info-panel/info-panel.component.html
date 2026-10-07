@@ -187,17 +187,6 @@
       <!-- Grid de vehículos -->
       <div class="vgrid-view-container" *ngIf="!vehiclesLoading && dealerVehicles.length > 0">
 
-        <!-- CONTADOR -->
-        <div class="vgrid-counter">
-          <div class="vgrid-counter-left">
-            <span class="vgrid-count-num">{{ filteredDealerVehicles.length }}</span>
-            <span class="vgrid-count-lbl">{{ 'transports.catalog.availableCount' | translate }}</span>
-          </div>
-          <span class="vgrid-count-total" *ngIf="selectedVehicleClass !== 'all' || dealerVehicleSearchQuery">
-            {{ 'transports.catalog.ofCatalog' | translate:{ total: dealerVehicles.length } }}
-          </span>
-        </div>
-
         <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo (6/6 Lado a Lado) -->
         <div class="dealer-vehicles-toolbar">
           <!-- Fila 1: Buscador de vehículo (100% de ancho) -->
@@ -224,7 +213,7 @@
           <div class="missions-dropdowns-row">
             <div class="strangers-series-select-wrap">
               <select
-                class="strangers-series-select dealer-large-select"
+                class="strangers-series-select"
                 [(ngModel)]="selectedVehicleClass"
                 (ngModelChange)="setVehicleCategory($event)"
               >
@@ -236,7 +225,7 @@
 
             <div class="strangers-series-select-wrap">
               <select
-                class="strangers-series-select dealer-large-select"
+                class="strangers-series-select"
                 [(ngModel)]="selectedVehicleSort"
                 (ngModelChange)="setVehicleSort($event)"
               >
@@ -250,48 +239,51 @@
           </div>
         </div>
 
-        <!-- Separador Concesionario con barritas y margen amplio -->
-        <div class="dealer-section-divider dealer-grid-divider">
-          <div class="dealer-section-divider-line"></div>
-          <span class="dealer-section-divider-label">{{ 'transports.tabs.concesionarios' | translate }}</span>
-          <div class="dealer-section-divider-line"></div>
-        </div>
+        <!-- Área de scroll unificada con separador y grid -->
+        <div class="vgrid-scroll-area">
+          <!-- Separador Concesionario -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.concesionarios' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
-        <!-- GRID DE TARJETAS -->
-        <div class="vgrid-grid">
-          <div
-            *ngFor="let v of filteredDealerVehicles"
-            class="vcard"
-            (click)="selectVehicle(v)"
-          >
-            <!-- Zona imagen / foto -->
-            <div class="vcard-img">
-              <span class="vcard-class-badge">{{ v.class }}</span>
-              <img
-                *ngIf="v.imageUrl && !v.imgFailed"
-                [src]="v.imageUrl"
-                [alt]="v.name"
-                class="vcard-photo"
-                loading="lazy"
-                (error)="onVehicleImgError(v)"
-              />
-              <ng-container *ngIf="!v.imageUrl || v.imgFailed">
-                <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
-              </ng-container>
-              <span class="vcard-weapon-badge" *ngIf="v.weaponized" [title]="'transports.catalog.weaponized' | translate">🔫</span>
-              <span class="vcard-stat-pill" *ngIf="selectedVehicleSort !== 'none'">
-                <span *ngIf="selectedVehicleSort === 'acceleration'">🚀 {{ v.acceleration }}</span>
-                <span *ngIf="selectedVehicleSort === 'speed'">⚡ {{ v.speed }}</span>
-                <span *ngIf="selectedVehicleSort === 'braking'">🛑 {{ v.braking }}</span>
-                <span *ngIf="selectedVehicleSort === 'handling'">🎯 {{ v.handling }}</span>
-              </span>
-            </div>
-            <!-- Info del vehículo anexada a la foto -->
-            <div class="vcard-info">
-              <span class="vcard-name">{{ v.name }}</span>
-              <div class="vcard-sub-row">
-                <span class="vcard-maker">{{ v.manufacturer }}</span>
-                <span class="vcard-price">{{ v.priceFormatted }}</span>
+          <!-- GRID DE TARJETAS -->
+          <div class="vgrid-grid">
+            <div
+              *ngFor="let v of filteredDealerVehicles"
+              class="vcard"
+              (click)="selectVehicle(v)"
+            >
+              <!-- Zona imagen / foto -->
+              <div class="vcard-img">
+                <span class="vcard-class-badge">{{ v.class }}</span>
+                <img
+                  *ngIf="v.imageUrl && !v.imgFailed"
+                  [src]="v.imageUrl"
+                  [alt]="v.name"
+                  class="vcard-photo"
+                  loading="lazy"
+                  (error)="onVehicleImgError(v)"
+                />
+                <ng-container *ngIf="!v.imageUrl || v.imgFailed">
+                  <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
+                </ng-container>
+                <span class="vcard-weapon-badge" *ngIf="v.weaponized" [title]="'transports.catalog.weaponized' | translate">🔫</span>
+                <span class="vcard-stat-pill" *ngIf="selectedVehicleSort !== 'none'">
+                  <span *ngIf="selectedVehicleSort === 'acceleration'">🚀 {{ v.acceleration }}</span>
+                  <span *ngIf="selectedVehicleSort === 'speed'">⚡ {{ v.speed }}</span>
+                  <span *ngIf="selectedVehicleSort === 'braking'">🛑 {{ v.braking }}</span>
+                  <span *ngIf="selectedVehicleSort === 'handling'">🎯 {{ v.handling }}</span>
+                </span>
+              </div>
+              <!-- Info del vehículo anexada a la foto -->
+              <div class="vcard-info">
+                <span class="vcard-name">{{ v.name }}</span>
+                <div class="vcard-sub-row">
+                  <span class="vcard-maker">{{ v.manufacturer }}</span>
+                  <span class="vcard-price">{{ v.priceFormatted }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -422,17 +414,6 @@
       <!-- Grid de Armas -->
       <div class="vgrid-view-container" *ngIf="!weaponsLoading && weapons.length > 0">
 
-        <!-- CONTADOR -->
-        <div class="vgrid-counter">
-          <div class="vgrid-counter-left">
-            <span class="vgrid-count-num">{{ filteredWeapons.length }}</span>
-            <span class="vgrid-count-lbl">{{ 'transports.weapons.availableCount' | translate }}</span>
-          </div>
-          <span class="vgrid-count-total" *ngIf="selectedWeaponCategory !== 'all' || weaponSearchQuery || selectedWeaponSort !== 'none'">
-            {{ 'transports.weapons.ofCatalog' | translate:{ total: weapons.length } }}
-          </span>
-        </div>
-
         <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo (6/6 Lado a Lado) -->
         <div class="dealer-vehicles-toolbar">
           <!-- Fila 1: Buscador de arma (100% de ancho) -->
@@ -459,7 +440,7 @@
           <div class="missions-dropdowns-row">
             <div class="strangers-series-select-wrap">
               <select
-                class="strangers-series-select dealer-large-select"
+                class="strangers-series-select"
                 [(ngModel)]="selectedWeaponCategory"
                 (ngModelChange)="setWeaponCategory($event)"
               >
@@ -471,7 +452,7 @@
 
             <div class="strangers-series-select-wrap">
               <select
-                class="strangers-series-select dealer-large-select"
+                class="strangers-series-select"
                 [(ngModel)]="selectedWeaponSort"
                 (ngModelChange)="setWeaponSort($event)"
               >
@@ -486,51 +467,54 @@
           </div>
         </div>
 
-        <!-- Separador Armería con barritas y margen amplio -->
-        <div class="dealer-section-divider dealer-grid-divider">
-          <div class="dealer-section-divider-line"></div>
-          <span class="dealer-section-divider-label">{{ 'transports.tabs.armeria' | translate }}</span>
-          <div class="dealer-section-divider-line"></div>
-        </div>
+        <!-- Área de scroll unificada con separador y grid -->
+        <div class="vgrid-scroll-area">
+          <!-- Separador Armería -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.armeria' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
-        <!-- GRID DE TARJETAS DE ARMAS (Estilo idéntico a Concesionario) -->
-        <div class="vgrid-grid">
-          <div
-            *ngFor="let w of filteredWeapons"
-            class="vcard"
-            (click)="selectWeapon(w)"
-          >
-            <!-- Zona imagen / render del arma -->
-            <div class="vcard-img">
-              <span class="vcard-class-badge" [style.borderColor]="getWeaponAccentColor(w) + '80'" [style.color]="getWeaponAccentColor(w)">
-                {{ w.categoryLabel }}
-              </span>
-              <img
-                *ngIf="w.imageUrl && !w.imgFailed"
-                [src]="w.imageUrl"
-                [alt]="w.name"
-                class="vcard-photo"
-                loading="lazy"
-                (error)="onWeaponImgError(w)"
-              />
-              <ng-container *ngIf="!w.imageUrl || w.imgFailed">
-                <i class="fa-solid vcard-img-icon" [ngClass]="getWeaponIcon(w)"></i>
-              </ng-container>
-              <span class="vcard-weapon-badge" *ngIf="w.hasMk2" title="Variante Mk II disponible">⚙️</span>
-              <span class="vcard-stat-pill" *ngIf="selectedWeaponSort !== 'none'">
-                <span *ngIf="selectedWeaponSort === 'damage'">💥 {{ w.damage }}</span>
-                <span *ngIf="selectedWeaponSort === 'fireRate'">⚡ {{ w.fireRate }}</span>
-                <span *ngIf="selectedWeaponSort === 'accuracy'">🎯 {{ w.accuracy }}</span>
-                <span *ngIf="selectedWeaponSort === 'range'">🔭 {{ w.range }}</span>
-                <span *ngIf="selectedWeaponSort === 'price'">💵 {{ w.priceFormatted }}</span>
-              </span>
-            </div>
-            <!-- Info del arma anexada a la foto -->
-            <div class="vcard-info">
-              <span class="vcard-name">{{ w.name }}</span>
-              <div class="vcard-sub-row">
-                <span class="vcard-maker">{{ w.manufacturer }}</span>
-                <span class="vcard-price">{{ w.priceFormatted }}</span>
+          <!-- GRID DE TARJETAS DE ARMAS (Estilo idéntico a Concesionario) -->
+          <div class="vgrid-grid">
+            <div
+              *ngFor="let w of filteredWeapons"
+              class="vcard"
+              (click)="selectWeapon(w)"
+            >
+              <!-- Zona imagen / render del arma -->
+              <div class="vcard-img">
+                <span class="vcard-class-badge" [style.borderColor]="getWeaponAccentColor(w) + '80'" [style.color]="getWeaponAccentColor(w)">
+                  {{ w.categoryLabel }}
+                </span>
+                <img
+                  *ngIf="w.imageUrl && !w.imgFailed"
+                  [src]="w.imageUrl"
+                  [alt]="w.name"
+                  class="vcard-photo"
+                  loading="lazy"
+                  (error)="onWeaponImgError(w)"
+                />
+                <ng-container *ngIf="!w.imageUrl || w.imgFailed">
+                  <i class="fa-solid vcard-img-icon" [ngClass]="getWeaponIcon(w)"></i>
+                </ng-container>
+                <span class="vcard-weapon-badge" *ngIf="w.hasMk2" title="Variante Mk II disponible">⚙️</span>
+                <span class="vcard-stat-pill" *ngIf="selectedWeaponSort !== 'none'">
+                  <span *ngIf="selectedWeaponSort === 'damage'">💥 {{ w.damage }}</span>
+                  <span *ngIf="selectedWeaponSort === 'fireRate'">⚡ {{ w.fireRate }}</span>
+                  <span *ngIf="selectedWeaponSort === 'accuracy'">🎯 {{ w.accuracy }}</span>
+                  <span *ngIf="selectedWeaponSort === 'range'">🔭 {{ w.range }}</span>
+                  <span *ngIf="selectedWeaponSort === 'price'">💵 {{ w.priceFormatted }}</span>
+                </span>
+              </div>
+              <!-- Info del arma anexada a la foto -->
+              <div class="vcard-info">
+                <span class="vcard-name">{{ w.name }}</span>
+                <div class="vcard-sub-row">
+                  <span class="vcard-maker">{{ w.manufacturer }}</span>
+                  <span class="vcard-price">{{ w.priceFormatted }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -669,44 +653,47 @@
           <span>{{ 'transports.missions.empty' | translate }}</span>
         </div>
 
-        <!-- Separador Misiones con barritas -->
-        <div class="dealer-section-divider dealer-grid-divider" *ngIf="!missionsLoading && filteredStoryMissions.length > 0">
-          <div class="dealer-section-divider-line"></div>
-          <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
-          <div class="dealer-section-divider-line"></div>
-        </div>
+        <!-- Área de scroll unificada con separador y lista -->
+        <div class="missions-scroll-area" *ngIf="!missionsLoading && !missionsError && filteredStoryMissions.length > 0">
+          <!-- Separador Misiones -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
-        <!-- Lista de misiones (Cards altas con flecha de entrada) -->
-        <div class="missions-list" *ngIf="!missionsLoading && filteredStoryMissions.length > 0">
-          <div
-            *ngFor="let m of filteredStoryMissions"
-            class="mission-list-card"
-            (click)="openMissionDetail(m)"
-            [style.--m-accent]="getMissionAccentColor(m)"
-          >
-            <!-- Icono temático distintivo como en vehículos -->
-            <div class="mcard-icon-box">
-              <i class="fa-solid" [ngClass]="getMissionIcon(m)"></i>
-            </div>
-
-            <!-- Información central limpia con espacio para respirar -->
-            <div class="mcard-info">
-              <div class="mcard-title-row">
-                <span class="mcard-title">{{ m.title }}</span>
-                <span class="mcard-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+          <!-- Lista de misiones (Cards altas con flecha de entrada) -->
+          <div class="missions-list">
+            <div
+              *ngFor="let m of filteredStoryMissions"
+              class="mission-list-card"
+              (click)="openMissionDetail(m)"
+              [style.--m-accent]="getMissionAccentColor(m)"
+            >
+              <!-- Icono temático distintivo como en vehículos -->
+              <div class="mcard-icon-box">
+                <i class="fa-solid" [ngClass]="getMissionIcon(m)"></i>
               </div>
-              <div class="mcard-meta-row">
-                <span class="mcard-cat">{{ m.category }}</span>
-                <span class="mcard-char-badge" [ngClass]="getCharacterBadgeClass(m.character)">
-                  <i class="fa-solid fa-circle char-mini-dot"></i>
-                  <span>{{ m.character }}</span>
-                </span>
-              </div>
-            </div>
 
-            <!-- Flecha de entrada a la derecha -->
-            <div class="mcard-arrow-box">
-              <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+              <!-- Información central limpia con espacio para respirar -->
+              <div class="mcard-info">
+                <div class="mcard-title-row">
+                  <span class="mcard-title">{{ m.title }}</span>
+                  <span class="mcard-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+                </div>
+                <div class="mcard-meta-row">
+                  <span class="mcard-cat">{{ m.category }}</span>
+                  <span class="mcard-char-badge" [ngClass]="getCharacterBadgeClass(m.character)">
+                    <i class="fa-solid fa-circle char-mini-dot"></i>
+                    <span>{{ m.character }}</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Flecha de entrada a la derecha -->
+              <div class="mcard-arrow-box">
+                <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -790,44 +777,47 @@
           <span>{{ 'transports.missions.empty' | translate }}</span>
         </div>
 
-        <!-- Separador Misiones con barritas -->
-        <div class="dealer-section-divider dealer-grid-divider" *ngIf="!onlineMissionsLoading && filteredOnlineMissions.length > 0">
-          <div class="dealer-section-divider-line"></div>
-          <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
-          <div class="dealer-section-divider-line"></div>
-        </div>
+        <!-- Área de scroll unificada con separador y lista -->
+        <div class="missions-scroll-area" *ngIf="!onlineMissionsLoading && !onlineMissionsError && filteredOnlineMissions.length > 0">
+          <!-- Separador Misiones -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
-        <!-- Lista de misiones de GTA Online (Cards altas con flecha de entrada) -->
-        <div class="missions-list" *ngIf="!onlineMissionsLoading && filteredOnlineMissions.length > 0">
-          <div
-            *ngFor="let m of filteredOnlineMissions"
-            class="mission-list-card"
-            (click)="openMissionDetail(m)"
-            [style.--m-accent]="getMissionAccentColor(m)"
-          >
-            <!-- Icono temático distintivo como en vehículos -->
-            <div class="mcard-icon-box">
-              <i class="fa-solid" [ngClass]="getMissionIcon(m)"></i>
-            </div>
-
-            <!-- Información central limpia con espacio para respirar -->
-            <div class="mcard-info">
-              <div class="mcard-title-row">
-                <span class="mcard-title">{{ m.title }}</span>
-                <span class="mcard-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+          <!-- Lista de misiones de GTA Online (Cards altas con flecha de entrada) -->
+          <div class="missions-list">
+            <div
+              *ngFor="let m of filteredOnlineMissions"
+              class="mission-list-card"
+              (click)="openMissionDetail(m)"
+              [style.--m-accent]="getMissionAccentColor(m)"
+            >
+              <!-- Icono temático distintivo como en vehículos -->
+              <div class="mcard-icon-box">
+                <i class="fa-solid" [ngClass]="getMissionIcon(m)"></i>
               </div>
-              <div class="mcard-meta-row">
-                <span class="mcard-cat">{{ m.category }}</span>
-                <span class="mcard-char-badge" [ngClass]="getOnlineContactBadgeClass(m.character)">
-                  <i class="fa-solid fa-circle char-mini-dot"></i>
-                  <span>{{ m.character }}</span>
-                </span>
-              </div>
-            </div>
 
-            <!-- Flecha de entrada a la derecha -->
-            <div class="mcard-arrow-box">
-              <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+              <!-- Información central limpia con espacio para respirar -->
+              <div class="mcard-info">
+                <div class="mcard-title-row">
+                  <span class="mcard-title">{{ m.title }}</span>
+                  <span class="mcard-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+                </div>
+                <div class="mcard-meta-row">
+                  <span class="mcard-cat">{{ m.category }}</span>
+                  <span class="mcard-char-badge" [ngClass]="getOnlineContactBadgeClass(m.character)">
+                    <i class="fa-solid fa-circle char-mini-dot"></i>
+                    <span>{{ m.character }}</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Flecha de entrada a la derecha -->
+              <div class="mcard-arrow-box">
+                <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -1394,85 +1384,83 @@
           <span>{{ 'transports.mysteries.empty' | translate }}</span>
         </div>
 
-        <!-- Separador Misterios con barritas -->
-        <div class="dealer-section-divider dealer-grid-divider" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
-          <div class="dealer-section-divider-line"></div>
-          <span class="dealer-section-divider-label">{{ 'transports.tabs.misterios' | translate }}</span>
-          <div class="dealer-section-divider-line"></div>
-        </div>
+        <!-- Área de scroll unificada con separador y lista -->
+        <div class="mysteries-scroll-area" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
+          <!-- Separador Misterios -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.misterios' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
-        <!-- LISTA DE MISTERIOS (Maquetación moderna y estilizada con foto, badges y sinopsis) -->
-        <div class="mysteries-list" *ngIf="!mysteriesLoading && !mysteriesError && filteredOnlineMysteries.length > 0">
-          <div
-            *ngFor="let m of filteredOnlineMysteries"
-            class="mcard-item mystery-card-premium"
-            (click)="openMysteryDetail(m)"
-            [style.--m-color]="m.badgeColor"
-          >
-            <!-- Badge de orden / número -->
-            <div class="mcard-order-badge mystery-order-badge">
-              <span class="mcard-order-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
-            </div>
-
-            <!-- Thumbnail con foto del misterio + fallback elegante -->
-            <div class="mcard-thumb-wrap" [style.borderColor]="m.badgeColor + '55'">
-              <img
-                *ngIf="m.thumbnail"
-                [src]="m.thumbnail"
-                [alt]="m.title"
-                class="mcard-thumb-img"
-                loading="lazy"
-                (error)="$any($event.target).style.display='none'"
-              />
-              <div class="mcard-thumb-overlay"></div>
-              <div class="mcard-thumb-fallback" [style.color]="m.badgeColor" [style.background]="m.badgeColor + '18'">
-                <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-ghost'"></i>
-              </div>
-            </div>
-
-            <!-- Contenido principal -->
-            <div class="mcard-content">
-              <!-- Fila 1: Título -->
-              <div class="mcard-title-row">
-                <div class="mcard-title mystery-title">{{ m.title }}</div>
+          <!-- LISTA DE MISTERIOS (Maquetación moderna y estilizada con foto, badges y sinopsis) -->
+          <div class="mysteries-list">
+            <div
+              *ngFor="let m of filteredOnlineMysteries"
+              class="mcard-item mystery-card-premium"
+              (click)="openMysteryDetail(m)"
+              [style.--m-color]="m.badgeColor"
+            >
+              <!-- Badge de orden / número -->
+              <div class="mcard-order-badge mystery-order-badge">
+                <span class="mcard-order-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
               </div>
 
-              <!-- Fila 2: Categoría + Horario -->
-              <div class="mcard-meta-line">
-                <span class="mcard-cat-badge mystery-cat-pill" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '55'" [style.background]="m.badgeColor + '18'">
-                  <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-eye'"></i>
-                  <span>{{ m.categoryLabel }}</span>
-                </span>
-                <span class="mcard-time-badge mystery-time-pill" *ngIf="m.schedule">
-                  <i class="fa-regular fa-clock"></i>
-                  <span>{{ m.schedule }}</span>
-                </span>
+              <!-- Thumbnail con foto del misterio + fallback elegante -->
+              <div class="mcard-thumb-wrap" [style.borderColor]="m.badgeColor + '55'">
+                <img
+                  *ngIf="m.thumbnail"
+                  [src]="getMysteryImage(m)"
+                  [alt]="m.title"
+                  class="mcard-thumb-img"
+                  loading="lazy"
+                  (error)="$any($event.target).style.display='none'"
+                />
+                <div class="mcard-thumb-overlay"></div>
+                <div class="mcard-thumb-fallback" [style.color]="m.badgeColor" [style.background]="m.badgeColor + '18'">
+                  <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-ghost'"></i>
+                </div>
               </div>
 
-              <!-- Fila 3: Ubicación / Zona -->
-              <div class="mcard-loc-line" *ngIf="m.zone || m.location">
-                <i class="fa-solid fa-location-dot" [style.color]="m.badgeColor"></i>
-                <span class="mcard-loc-text">{{ m.zone || m.location }}</span>
+              <!-- Contenido principal -->
+              <div class="mcard-content">
+                <!-- Fila 1: Título -->
+                <div class="mcard-title-row">
+                  <div class="mcard-title mystery-title">{{ m.title }}</div>
+                </div>
+
+                <!-- Fila 2: Categoría + Horario -->
+                <div class="mcard-meta-line">
+                  <span class="mcard-cat-badge mystery-cat-pill" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '55'" [style.background]="m.badgeColor + '18'">
+                    <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-eye'"></i>
+                    <span>{{ m.categoryLabel }}</span>
+                  </span>
+                  <span class="mcard-time-badge mystery-time-pill" *ngIf="m.schedule">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>{{ m.schedule }}</span>
+                  </span>
+                </div>
+
+                <!-- Fila 3: Ubicación / Zona -->
+                <div class="mcard-loc-line" *ngIf="m.zone || m.location">
+                  <i class="fa-solid fa-location-dot" [style.color]="m.badgeColor"></i>
+                  <span class="mcard-loc-text">{{ m.zone || m.location }}</span>
+                </div>
               </div>
 
-              <!-- Fila 4: Sinopsis / Pequeño texto descriptivo -->
-              <p class="mcard-desc-snippet" *ngIf="m.description">
-                {{ m.description }}
-              </p>
-            </div>
-
-            <!-- Acciones a la derecha: Localizar + Flecha -->
-            <div class="mcard-actions">
-              <button
-                type="button"
-                class="mcard-locate-btn"
-                (click)="onLocateMystery(m, $event)"
-                [title]="'transports.mysteries.locateOnMap' | translate"
-              >
-                <i class="fa-solid fa-location-crosshairs"></i>
-              </button>
-              <div class="mcard-chevron">
-                <i class="fa-solid fa-chevron-right"></i>
+              <!-- Acciones a la derecha: Localizar + Flecha -->
+              <div class="mcard-actions">
+                <button
+                  type="button"
+                  class="mcard-locate-btn"
+                  (click)="onLocateMystery(m, $event)"
+                  [title]="'transports.mysteries.locateOnMap' | translate"
+                >
+                  <i class="fa-solid fa-location-crosshairs"></i>
+                </button>
+                <div class="mcard-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -1556,56 +1544,59 @@
           <span>{{ 'transports.heists.empty' | translate }}</span>
         </div>
 
-        <!-- Separador Golpes con barritas -->
-        <div class="dealer-section-divider dealer-grid-divider" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length > 0">
-          <div class="dealer-section-divider-line"></div>
-          <span class="dealer-section-divider-label">{{ 'transports.tabs.golpes' | translate }}</span>
-          <div class="dealer-section-divider-line"></div>
-        </div>
+        <!-- Área de scroll unificada con separador y lista -->
+        <div class="heists-scroll-area" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length > 0">
+          <!-- Separador Golpes -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.golpes' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
-        <!-- LISTA DE GOLPES (Maquetación blindada mcard-item: nunca colisiona) -->
-        <div class="mysteries-list" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length > 0">
-          <div
-            *ngFor="let h of filteredOnlineHeists"
-            class="mcard-item"
-            (click)="openHeistDetail(h)"
-            [style.--m-color]="h.badgeColor"
-          >
-            <!-- Badge de orden / número -->
-            <div class="mcard-order-badge">
-              <span class="mcard-order-num">#{{ h.order < 10 ? '0' + h.order : h.order }}</span>
-            </div>
-
-            <!-- Icono temático del golpe -->
-            <div class="mcard-icon-box" [style.background]="h.badgeColor + '20'" [style.color]="h.badgeColor" [style.borderColor]="h.badgeColor + '50'">
-              <i class="fa-solid" [ngClass]="h.badgeIcon"></i>
-            </div>
-
-            <!-- Contenido principal -->
-            <div class="mcard-content">
-              <!-- Fila 1: Título -->
-              <div class="mcard-title">{{ h.title }}</div>
-
-              <!-- Fila 2: Categoría + Botín + Jugadores -->
-              <div class="mcard-meta-line">
-                <span class="mcard-cat-badge" [style.color]="h.badgeColor" [style.borderColor]="h.badgeColor + '40'">
-                  {{ h.categoryLabel }}
-                </span>
-                <span class="mcard-time-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3);">
-                  <i class="fa-solid fa-sack-dollar"></i>
-                  <span>{{ h.potentialTake.normal }}</span>
-                </span>
-                <span class="mcard-time-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3);">
-                  <i class="fa-solid fa-users"></i>
-                  <span>{{ h.players }}</span>
-                </span>
+          <!-- LISTA DE GOLPES (Maquetación blindada mcard-item: nunca colisiona) -->
+          <div class="mysteries-list">
+            <div
+              *ngFor="let h of filteredOnlineHeists"
+              class="mcard-item"
+              (click)="openHeistDetail(h)"
+              [style.--m-color]="h.badgeColor"
+            >
+              <!-- Badge de orden / número -->
+              <div class="mcard-order-badge">
+                <span class="mcard-order-num">#{{ h.order < 10 ? '0' + h.order : h.order }}</span>
               </div>
-            </div>
 
-            <!-- Flecha derecha -->
-            <div class="mcard-actions">
-              <div class="mcard-chevron">
-                <i class="fa-solid fa-chevron-right"></i>
+              <!-- Icono temático del golpe -->
+              <div class="mcard-icon-box" [style.background]="h.badgeColor + '20'" [style.color]="h.badgeColor" [style.borderColor]="h.badgeColor + '50'">
+                <i class="fa-solid" [ngClass]="h.badgeIcon"></i>
+              </div>
+
+              <!-- Contenido principal -->
+              <div class="mcard-content">
+                <!-- Fila 1: Título -->
+                <div class="mcard-title">{{ h.title }}</div>
+
+                <!-- Fila 2: Categoría + Botín + Jugadores -->
+                <div class="mcard-meta-line">
+                  <span class="mcard-cat-badge" [style.color]="h.badgeColor" [style.borderColor]="h.badgeColor + '40'">
+                    {{ h.categoryLabel }}
+                  </span>
+                  <span class="mcard-time-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3);">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span>{{ h.potentialTake.normal }}</span>
+                  </span>
+                  <span class="mcard-time-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3);">
+                    <i class="fa-solid fa-users"></i>
+                    <span>{{ h.players }}</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Flecha derecha -->
+              <div class="mcard-actions">
+                <div class="mcard-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -1884,7 +1875,7 @@
 
             <!-- Hero media oficial con imagen y badges -->
             <div class="stranger-hero-media" *ngIf="selectedMystery.thumbnail">
-              <img [src]="selectedMystery.thumbnail" [alt]="selectedMystery.title" class="stranger-hero-img" />
+              <img [src]="getMysteryImage(selectedMystery)" [alt]="selectedMystery.title" class="stranger-hero-img" />
               <div class="stranger-hero-overlay"></div>
               <div class="stranger-hero-badges">
                 <span class="stranger-hero-series-badge" [style.backgroundColor]="selectedMystery.badgeColor">
