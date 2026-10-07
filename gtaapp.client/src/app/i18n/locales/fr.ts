@@ -580,5 +580,23 @@ export const fr: TranslationSchema = {
     submit: 'Accéder',
     cancel: 'Annuler',
     error: 'Mot de passe incorrect'
+  },
+  feedback: {
+    buttonTitle: 'Envoyer une suggestion ou un commentaire',
+    modalTitle: 'Suggestions et Commentaires',
+    modalSubtitle: 'Vous avez une idée ou avez trouvé un bug ? Dites-le nous !',
+    nameLabel: 'Votre Nom (optionnel)',
+    namePlaceholder: 'Ex : Thomas ou Anonyme',
+    messageLabel: 'Votre Message',
+    messagePlaceholder: 'Écrivez ici votre suggestion, remarque ou rapport de bug...',
+    sendButton: 'Envoyer la Suggestion',
+    sending: 'Envoi en cours...',
+    successTitle: 'Merci pour votre message !',
+    successMessage: 'Votre suggestion a été bien reçue. Cela nous aide à continuer d\'améliorer le site.',
+    errorTitle: 'Erreur lors de l\'envoi',
+    errorMessage: 'Impossible d\'envoyer votre suggestion. Veuillez réessayer dans quelques instants.',
+    close: 'Fermer',
+    sendAnother: 'Envoyer une autre suggestion'
   }
 };
+

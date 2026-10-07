@@ -580,5 +580,22 @@ export const it: TranslationSchema = {
     submit: 'Accedi',
     cancel: 'Annulla',
     error: 'Password non corretta'
+  },
+  feedback: {
+    buttonTitle: 'Invia suggerimenti o commenti',
+    modalTitle: 'Suggerimenti e Commenti',
+    modalSubtitle: 'Hai un\'idea o hai riscontrato un errore? Faccelo sapere!',
+    nameLabel: 'Il tuo Nome (opzionale)',
+    namePlaceholder: 'Es: Marco o Anonimo',
+    messageLabel: 'Il tuo Messaggio',
+    messagePlaceholder: 'Scrivi qui il tuo suggerimento, commento o segnalazione...',
+    sendButton: 'Invia Suggerimento',
+    sending: 'Invio in corso...',
+    successTitle: 'Grazie per il tuo messaggio!',
+    successMessage: 'Il tuo suggerimento è stato ricevuto correttamente. Ci aiuta a continuare a migliorare.',
+    errorTitle: 'Errore durante l\'invio',
+    errorMessage: 'Impossibile inviare il suggerimento. Riprova tra qualche istante.',
+    close: 'Chiudi',
+    sendAnother: 'Invia un altro suggerimento'
   }
 };

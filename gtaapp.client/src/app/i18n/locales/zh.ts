@@ -580,5 +580,22 @@ export const zh: TranslationSchema = {
     submit: '进入',
     cancel: '取消',
     error: '密码错误'
+  },
+  feedback: {
+    buttonTitle: '发送建议或反馈',
+    modalTitle: '意见与反馈',
+    modalSubtitle: '您有新想法或发现了 Bug？欢迎告诉我们！',
+    nameLabel: '您的昵称 (可选)',
+    namePlaceholder: '例如: 小李 或 匿名',
+    messageLabel: '反馈内容',
+    messagePlaceholder: '在此输入您的建议、反馈或问题报告...',
+    sendButton: '发送反馈',
+    sending: '发送中...',
+    successTitle: '感谢您的反馈！',
+    successMessage: '您的建议已成功送达，感谢您帮助我们做得更好。',
+    errorTitle: '发送失败',
+    errorMessage: '无法发送反馈，请稍后重试。',
+    close: '关闭',
+    sendAnother: '发送另一条反馈'
   }
 };

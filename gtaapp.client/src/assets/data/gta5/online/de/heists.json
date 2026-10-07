@@ -5,849 +5,852 @@
     "title": "Der Fleeca-Überfall",
     "titleEn": "The Fleeca Job",
     "category": "classic",
-    "categoryLabel": "Apartment-Raubüberfall",
+    "categoryLabel": "Klassische Raubüberfälle",
     "giver": "Lester Crest",
-    "players": "2 Spieler",
+    "players": "2 jugadores",
     "minLevel": 12,
-    "propertyRequired": "Luxusapartment",
+    "propertyRequired": "Apartamento de Lujo",
     "setupCost": 11500,
     "setupCostFormatted": "$11,500",
     "potentialTake": {
       "normal": "$143,750",
       "hard": "$177,500",
-      "description": "The loot is stored in safety deposit box #153 inside the Fleeca Bank branch."
+      "description": "El botín se encuentra dentro de la caja de seguridad #153 de la sucursal de Fleeca Bank."
     },
-    "target": "Schließfach Nr. 153",
-    "location": "Western Highway, Banham Canyon",
-    "description": "Der erste kooperative Raubüberfall in GTA Online, geplant von Lester Crest. Ein schneller 2-Spieler-Job, um eine kleine Fleeca-Filiale am Western Highway auszurauben.",
+    "target": "Schließfachtresor der Fleeca Bank",
+    "location": "Western Highway, Banham-Canyon",
+    "description": "Einführungs-Heist für zwei Spieler. Infiltriere die Fleeca-Bank-Filiale am Western Highway, bohre den Schließfachtresor auf und fliehe über die Brücke mit dem Magnethaken des Cargobobs.",
     "thumbnail": "",
     "badgeColor": "#2ecc71",
     "badgeIcon": "fa-building-columns",
     "eliteChallenges": [
-      "Complete in under 05:20 minutes",
-      "Vehicle damage under 6%",
-      "Nobody gets wasted"
+      "Completar en menos de 05:20 minutos",
+      "Daño al vehículo inferior al 6%",
+      "Nadie resulta abatido en la huida"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 extra",
     "unlockedVehicles": [
       "Karin Kuruma ($95,000 / $126,350)",
-      "Armored Karin Kuruma ($525,000 / $698,250)"
+      "Karin Kuruma Blindado ($525,000 / $698,250)"
     ],
     "setupMissions": [
       {
-        "name": "Scope Out",
+        "name": "Examen previo (Reconocimiento)",
         "type": "recon",
-        "description": "Drive with Lester in his Asea to the Fleeca Bank branch, examine the cameras, and complete the firewall hack mini-game."
+        "description": "Trayecto de inspección con Lester para estudiar la disposición de las cámaras, ensayar la ruta de evacuación y probar la herramienta de intrusión digital."
       },
       {
-        "name": "Kuruma",
+        "name": "Robo del Kuruma",
         "type": "prep",
-        "description": "Raid the top floor of a guarded parking garage in Little Seoul controlled by Korean mobsters to steal the armored Karin Kuruma."
+        "description": "Asalto en la azotea de un estacionamiento en Little Seoul para neutralizar a la escolta armada y sustraer el Kuruma blindado de huida."
       },
       {
-        "name": "The Fleeca Job (Finale)",
+        "name": "Golpe al Fleeca (Final)",
         "type": "finale",
-        "description": "Arrive at the branch, neutralize the security cameras, intimidate the tellers, drill safe box 153, and escape to the bridge where an electro-magnet Cargobob lifts your car."
+        "description": "Ejecución del atraco: acceso con disfraces, contención del personal, taladrado de la caja #153 y extracción por carretera hasta ser izados por el electroimán de un Cargobob."
       }
     ],
     "tips": [
-      "Push the drill forward smoothly and gently to prevent it from overheating while opening the deposit box.",
-      "The driver should immediately destroy the security cameras and fire near the tellers to maintain intimidation."
+      "Mantén una presión moderada y uniforme con el taladro; empujar con demasiada fuerza sobrecalienta la broca y añade segundos decisivos.",
+      "El rol de conductor debe romper las cámaras del techo al entrar y mantener el nivel de intimidación disparando cerca de los rehenes sin causar bajas."
     ]
   },
   {
     "id": "prison_break",
     "order": 2,
-    "title": "The Prison Break",
+    "title": "Gefängnisausbruch",
     "titleEn": "The Prison Break",
     "category": "classic",
-    "categoryLabel": "Apartment-Raubüberfall",
-    "giver": "Agent 14",
-    "players": "4 Spieler",
+    "categoryLabel": "Klassische Raubüberfälle",
+    "giver": "Agente 14",
+    "players": "4 jugadores",
     "minLevel": 12,
-    "propertyRequired": "Luxusapartment",
+    "propertyRequired": "Apartamento de Lujo",
     "setupCost": 40000,
     "setupCostFormatted": "$40,000",
     "potentialTake": {
       "normal": "$400,000",
       "hard": "$500,000",
-      "description": "Government contract payout for the live extraction of Professor Maxim Rashkovsky."
+      "description": "Fondos gubernamentales reservados transferidos por la extracción con vida del profesor Maxim Rashkovsky."
     },
-    "target": "Professor Maxim Rashkovsky",
-    "location": "Bolingbroke Penitentiary, Grand Senora Desert",
-    "description": "A daring breakout from Bolingbroke maximum security prison coordinated by Agent 14. The team takes on four distinct roles: Prison Officer, Inmate, Velum pilot, and Demolition operator in a Buzzard chopper to extract chemistry professor Maxim Rashkovsky.",
+    "target": "Befreiung von Professor Maxim Rashkovsky",
+    "location": "Penitenciaría Bolingbroke, Grand-Senora-Wüste",
+    "description": "Spektakulärer Gefängnisausbruch für vier Spieler. Infiltriert als Wärter und Gefangene getarnt die Bolingbroke-Strafanstalt, um Professor Rashkovsky per Flugzeug zu befreien.",
     "thumbnail": "",
     "badgeColor": "#3498db",
     "badgeIcon": "fa-handcuffs",
     "eliteChallenges": [
-      "Rashkovsky takes under 1% damage",
-      "Extraction under 04:40 minutes",
-      "Nobody gets wasted"
+      "Rashkovsky recibe menos del 1% de daño",
+      "Extracción en menos de 04:40 minutos",
+      "Nadie resulta abatido"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 extra",
     "unlockedVehicles": [
       "Lampadati Casco ($680,000 / $904,400)",
-      "Prison Bus ($550,000 / $731,500)",
-      "Mammoth 5-seater Velum ($995,000 / $1,323,350)"
+      "Autobús de Prisión ($550,000 / $731,500)",
+      "Mammoth Velum de 5 plazas ($995,000 / $1,323,350)"
     ],
     "setupMissions": [
       {
-        "name": "Plane",
+        "name": "Avión",
         "type": "prep",
-        "description": "Steal the smuggler Velum aircraft from Vagos gang members at McKenzie Airfield."
+        "description": "Incursión en el aeródromo de McKenzie para expulsar a los contrabandistas de los Vagos y llevar el Velum de cinco plazas al hangar convenido."
       },
       {
-        "name": "Bus",
+        "name": "Autobús",
         "type": "prep",
-        "description": "Hijack an official prison transport bus on the highway, lose the police heat, and stash it in Sandy Shores."
+        "description": "Asalto en carretera a un autobús penitenciario en tránsito, eludiendo el cerco policial para ocultarlo en un depósito de chatarra."
       },
       {
-        "name": "Station",
+        "name": "Estación de policía",
         "type": "prep",
-        "description": "One team disguised as cops steals the prisoner transfer schedule from a police station, while the other team steals the Casco from a cargo ship."
+        "description": "Dos agentes camuflados requisan el cuadrante de turnos en comisaría mientras el resto recupera el vehículo deportivo Casco en los muelles."
       },
       {
-        "name": "Wet Work",
+        "name": "Trabajo sucio",
         "type": "prep",
-        "description": "Simultaneously assassinate Rashkovsky's corrupt business partners and defense attorney at City Hall and a private mansion."
+        "description": "Eliminación coordinada de los antiguos socios de Rashkovsky y su letrado en dependencias oficiales y una villa de Vinewood."
       },
       {
-        "name": "The Prison Break (Finale)",
+        "name": "Fuga de prisión (Final)",
         "type": "finale",
-        "description": "Infiltrate Bolingbroke in the prison bus, fight through prison guards, extract Rashkovsky into the Velum, dodge fighter jets, and parachute down to the beach."
+        "description": "Entrada a Bolingbroke en el autobús sustraído, combate en los módulos carcelarios, extracción de Rashkovsky en el Velum y salto conjunto a la orilla."
       }
     ],
     "tips": [
-      "The Velum pilot can fly right behind military jets to prevent them from firing homing missiles without needing the Buzzard to destroy them.",
-      "Demolition should protect the prison bus before boarding the Buzzard."
+      "El piloto del avión puede colocarse detrás del caza militar para permanecer fuera de su rango de fuego mientras la demolición asegura el perímetro.",
+      "Destruir el autobús original de traslado antes de tomar el helicóptero de apoyo evita atraer refuerzos policiales anticipados."
     ]
   },
   {
     "id": "humane_labs",
     "order": 3,
-    "title": "The Humane Labs Raid",
+    "title": "Humane-Labs-Überfall",
     "titleEn": "The Humane Labs Raid",
     "category": "classic",
-    "categoryLabel": "Apartment-Raubüberfall",
-    "giver": "Agent 14",
-    "players": "4 Spieler",
+    "categoryLabel": "Klassische Raubüberfälle",
+    "giver": "Agente 14",
+    "players": "4 jugadores",
     "minLevel": 12,
-    "propertyRequired": "Luxusapartment",
+    "propertyRequired": "Apartamento de Lujo",
     "setupCost": 54000,
     "setupCostFormatted": "$54,000",
     "potentialTake": {
       "normal": "$540,000",
       "hard": "$675,000",
-      "description": "Classified biological and chemical warfare research files."
+      "description": "Pago clasificado por la recuperación de datos sobre armas biológicas y químicas de última generación."
     },
-    "target": "Biological research files",
-    "location": "Humane Labs, San Chianski Mountain Range",
-    "description": "High-tech paramilitar raid on the underground laboratories of Humane Labs. Involves triggering a mid-air EMP pulse to black out the compound, night-vision tactical assault, swimming through coolant tunnels, and an explosive helicopter extraction aboard a military Valkyrie gunship.",
+    "target": "Geheime Forschungsdateien der IAA",
+    "location": "Laboratorios Humane, Costa este de San Chianski",
+    "description": "Militärische High-Tech-Infiltration. Springt nachts mit Nachtsichtgeräten per Fallschirm über Humane Labs ab und stehlt vertrauliche Forschungsdaten der IAA.",
     "thumbnail": "",
     "badgeColor": "#9b59b6",
     "badgeIcon": "fa-flask-vial",
     "eliteChallenges": [
-      "Complete in under 11:00 minutes",
-      "Valkyrie takes under 2% damage",
-      "Nobody gets wasted"
+      "Completar en menos de 11:00 minutos",
+      "Daño al helicóptero Valkyrie inferior al 2%",
+      "Nadie resulta abatido"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 extra",
     "unlockedVehicles": [
       "Mammoth Hydra ($3,000,000 / $3,990,000)",
       "Buckingham Valkyrie ($2,850,000 / $3,790,500)",
       "HVY Insurgent ($675,000 / $897,750)",
-      "HVY Insurgent Pick-Up ($1,350,000 / $1,795,500)"
+      "HVY Insurgent Pick-Up ($1,350,000 / $1,795,500)",
+      "Nagasaki Dinghy de 4 plazas ($125,000)"
     ],
     "setupMissions": [
       {
-        "name": "Key Codes",
+        "name": "Códigos clave",
         "type": "prep",
-        "description": "Meet the contact in a downtown alleyway to obtain security keycards under heavy FIB ambush."
+        "description": "Punto de encuentro en un callejón urbano para adquirir credenciales biométricas, repeliendo la emboscada montada por el FIB."
       },
       {
-        "name": "Insurgents",
+        "name": "Blindados Insurgent",
         "type": "prep",
-        "description": "Steal two heavy armored Insurgent military vehicles from Merryweather at Davis Quartz quarry."
+        "description": "Ataque al centro de pruebas de Merryweather en las canteras para confiscar dos transportes Insurgent dotados de blindaje pesado."
       },
       {
-        "name": "EMP",
+        "name": "Pulso Electromagnético (PEM)",
         "type": "prep",
-        "description": "Infiltrate the aircraft carrier USS Luxington at sea, steal the Hydra VTOL jet carrying the EMP, and dogfight enemy fighter jets."
+        "description": "Abordaje al portaaviones militar fondeado en alta mar, sustracción del caza avanzado Hydra y repliegue tras combate aéreo."
       },
       {
         "name": "Valkyrie",
         "type": "prep",
-        "description": "Raid the Merryweather naval base at Terminal docks to steal the heavy Valkyrie gunship helicopter."
+        "description": "Asalto a la dársena privada de Merryweather para requisar el helicóptero de asalto artillado con cañones automáticos."
       },
       {
-        "name": "Deliver EMP",
+        "name": "Entrega de PEM",
         "type": "prep",
-        "description": "Pure stealth mission: sneak an Insurgent disguised as a delivery truck into Humane Labs without triggering any alarms."
+        "description": "Infiltración sin ser detectado: estacionar el blindado portador del PEM en el interior de los laboratorios sin levantar la alarma."
       },
       {
-        "name": "The Humane Labs Raid (Finale)",
+        "name": "Asalto a Laboratorios Humane (Final)",
         "type": "finale",
-        "description": "EMP blackout, night-vision parachute drop, data extraction inside the lab, underwater scuba escape through coolant pipes, and an epic aerial gunship dogfight."
+        "description": "Detonación del pulso electromagnético, salto en paracaídas en plena oscuridad, extracción de los discos duros y salida buceando por el canal de refrigeración."
       }
     ],
     "tips": [
-      "In Deliver EMP, synchronize suppressed shots with your teammates to drop pairs of scientists simultaneously.",
-      "The ground team should equip Rebreathers before diving into the water coolant pipes."
+      "En la entrega de la furgoneta PEM, coordinar cada disparo silenciado en parejas simultáneas para abatir a los centinelas sin margen de reacción.",
+      "Colocarse los respiradores submarinos antes de sumergirse en la tubería inundada evita ahogamientos durante el escape marítimo."
     ]
   },
   {
     "id": "series_a",
     "order": 4,
-    "title": "Series A Funding",
+    "title": "Serie A Finanzierung",
     "titleEn": "Series A Funding",
     "category": "classic",
-    "categoryLabel": "Apartment-Raubüberfall",
+    "categoryLabel": "Klassische Raubüberfälle",
     "giver": "Trevor Philips",
-    "players": "4 Spieler",
+    "players": "4 jugadores",
     "minLevel": 12,
-    "propertyRequired": "Luxusapartment",
+    "propertyRequired": "Apartamento de Lujo",
     "setupCost": 40400,
     "setupCostFormatted": "$40,400",
     "potentialTake": {
       "normal": "$404,000",
       "hard": "$505,000",
-      "description": "Profits generated from bulk wholesale distribution of acquired contraband."
+      "description": "Beneficios íntegros por la colocación masiva en el mercado negro de toda la mercancía confiscada a las bandas rivales."
     },
-    "target": "Rival gang drug shipments",
-    "location": "El Burro Heights warehouse / Sandy Shores",
-    "description": "Trevor Philips recruits your crew to pillage drug stashes from every rival faction in San Andreas: the Ballas, Vagos, Lost MC bikers, and the O'Neil brothers to launch Trevor Philips Enterprises into wholesale crime.",
+    "target": "Geschmuggelte Drogenbestände",
+    "location": "Almacén de El Burro Heights / Sandy Shores",
+    "description": "Trevor Philips rekrutiert deine Crew, um Drogendepots aller rivalisierenden Gangs in San Andreas zu plündern und die Ware beim Showdown am El-Gordo-Leuchtturm zu verteidigen.",
     "thumbnail": "",
     "badgeColor": "#e67e22",
     "badgeIcon": "fa-cannabis",
     "eliteChallenges": [
-      "Complete in under 06:30 minutes",
-      "75 enemies killed",
-      "Nobody gets wasted"
+      "Completar en menos de 06:30 minutos",
+      "75 enemigos abatidos",
+      "Nadie resulta abatido"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 extra",
     "unlockedVehicles": [
       "Karin Technical ($950,000 / $1,263,500)",
-      "Brute Armored Mule ($32,500 / $43,225)"
+      "Brute Mule Blindado ($32,500 / $43,225)"
     ],
     "setupMissions": [
       {
-        "name": "Coke",
+        "name": "Cocaína",
         "type": "prep",
-        "description": "Raid a luxury yacht anchored off Del Perro to steal packages of cocaine and escape in helicopters and speedboats."
+        "description": "Asalto marítimo a un megayate en las aguas de Del Perro para arrebatar los cargamentos a los guardias de seguridad privada."
       },
       {
-        "name": "Trash Truck",
+        "name": "Basura",
         "type": "prep",
-        "description": "Use a Trashmaster garbage truck to collect bags of pills across Vagos turf while enduring intense gang gunfire."
+        "description": "Recorrido en camión de recogida urbana recogiendo paquetes ocultos en barrios controlados por bandas bajo continuos disparos."
       },
       {
-        "name": "Bikers",
+        "name": "Moteros",
         "type": "prep",
-        "description": "Night stealth infiltration into the Lost MC camp at Stab City with silenced AP pistols to steal loaded vans."
+        "description": "Incursión con silenciador en el campamento motero de Stab City para neutralizar patrullas y sustraer las furgonetas cargadas."
       },
       {
-        "name": "Weed",
+        "name": "Hierba",
         "type": "prep",
-        "description": "Frontal assault on the Paleto Forest sawmill controlled by the Ballas to secure flatbed trucks with mounted machine guns."
+        "description": "Asalto a la explotación maderera de Paleto Forest y protección de los camiones de transporte frente al hostigamiento enemigo."
       },
       {
-        "name": "Steal Meth",
+        "name": "Metanfetamina",
         "type": "prep",
-        "description": "Attack the O'Neil brothers' meth farm in Grapeseed and drive away with an explosive fuel tanker."
+        "description": "Ataque a la granja de elaboración de los O'Neil en Grapeseed para requisar el camión cisterna con los componentes químicos."
       },
       {
-        "name": "Series A Funding (Finale)",
+        "name": "Financiación Inicial (Final)",
         "type": "finale",
-        "description": "Defend Trevor's warehouse in El Burro Heights from incoming gang hit squads and escort the technical trucks down the freeway."
+        "description": "Resistencia en el almacén de El Burro Heights ante el asedio conjunto de todas las facciones y convoy blindado de escape hacia el faro."
       }
     ],
     "tips": [
-      "In the Trash Truck setup, collectors should consume snacks from the weapon wheel constantly while carrying bags in the open.",
-      "Place proximity mines in spawn alleys around the warehouse before triggering the finale shootout."
+      "En la ruta del camión de basuras, quienes cargan las bolsas deben reponer chalecos balísticos frecuentemente al estar expuestos en callejones estrechos.",
+      "Colocar minas adhesivas en los accesos del almacén antes de que comience el asedio frena eficazmente a las camionetas enemigas."
     ]
   },
   {
     "id": "pacific_standard",
     "order": 5,
-    "title": "The Pacific Standard Job",
+    "title": "Pacific-Standard-Überfall",
     "titleEn": "The Pacific Standard Job",
     "category": "classic",
-    "categoryLabel": "Apartment-Raubüberfall",
+    "categoryLabel": "Klassische Raubüberfälle",
     "giver": "Lester Crest",
-    "players": "4 Spieler",
+    "players": "4 jugadores",
     "minLevel": 12,
-    "propertyRequired": "Luxusapartment",
+    "propertyRequired": "Apartamento de Lujo",
     "setupCost": 100000,
     "setupCostFormatted": "$100,000",
     "potentialTake": {
       "normal": "$1,000,000",
       "hard": "$1,250,000",
-      "description": "Main bank vault cash. Taking hits while carrying money bags reduces the payout."
+      "description": "Cámara acorazada principal del banco central. Nota: recibir impactos de bala durante la huida daña las bolsas y reduce el dinero recuperado."
     },
-    "target": "Pacific Standard Bank flagship vault",
-    "location": "Vinewood Boulevard / Downtown Los Santos",
-    "description": "The crown jewel of the original GTA Online heists. Storm the Pacific Standard Bank on Vinewood Boulevard, blast open the vault door with thermal charges, pack bags full of cash, and fight your way through police barricades in an intense motorcycle escape into the canyon.",
+    "target": "Zentraler Tresorraum der Pacific Standard Bank",
+    "location": "Vinewood Boulevard / Innenstadt (Downtown) Los Santos",
+    "description": "Der größte klassische Bankraub von Los Santos. Dringe in die zentrale Schatzkammer der Pacific Standard Bank in Vinewood ein und fliehe auf Lectro-Motorrädern durch die Canyons.",
     "thumbnail": "",
     "badgeColor": "#f1c40f",
     "badgeIcon": "fa-vault",
     "eliteChallenges": [
-      "Complete in under 10:15 minutes",
-      "No NOOSE called (no alarms or teller alerts)",
-      "Nobody gets wasted"
+      "Completar en menos de 10:15 minutos",
+      "No alertar al NOOSE (sin llamadas al 911 ni alarmas en cámara)",
+      "Nadie resulta abatido"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 extra",
     "unlockedVehicles": [
-      "Principe Lectro ($750,000 / $997,500)",
-      "Savage Gunship ($1,950,000 / $2,593,500)",
+      "Principe Lectro con KERS ($750,000 / $997,500)",
+      "Savage militar ($1,950,000 / $2,593,500)",
       "Declasse Gang Burrito ($65,000 / $86,450)"
     ],
     "setupMissions": [
       {
-        "name": "Vans",
+        "name": "Furgonetas",
         "type": "prep",
-        "description": "Photograph license plates of Post OP vans across the city to track down the Pacific Standard transponder."
+        "description": "Búsqueda fotográfica de vehículos de reparto por la ciudad para identificar la matrícula que esconde el repetidor bancario."
       },
       {
-        "name": "Signal",
+        "name": "Señal",
         "type": "prep",
-        "description": "Rescue signal expert Avi Schwartzman on an isolated island off Chumash surrounded by police boats."
+        "description": "Extracción del experto Avi Schwartzman de un islote vigilado por patrullas y evacuación por mar en lancha rápida."
       },
       {
-        "name": "Hack",
+        "name": "Hackeo",
         "type": "prep",
-        "description": "Steal a decryption module from a rival gang in Vinewood and use a decoy van to mislead bank investigators."
+        "description": "Ataque a una célula armada en Vinewood para capturar el equipo de desencriptación e intercambio de furgonetas de despiste."
       },
       {
         "name": "Convoy",
         "type": "prep",
-        "description": "Ambush a heavily armed Merryweather military convoy crossing the Raton Canyon bridge to seize the thermal charges."
+        "description": "Interceptación de un destacamento de Merryweather en el puente del Cañón de Raton para conseguir las cargas térmicas de la bóveda."
       },
       {
-        "name": "Bikes",
+        "name": "Motos",
         "type": "prep",
-        "description": "Steal four high-performance Principe Lectro motorcycles with KERS boost from the Lost MC clubhouse."
+        "description": "Golpe en la sede del club motero The Lost para arrebatar cuatro motos Lectro provistas de sobrealimentación KERS."
       },
       {
-        "name": "The Pacific Standard Job (Finale)",
+        "name": "Golpe al Pacific Standard (Final)",
         "type": "finale",
-        "description": "Bank robbery with crowd intimidation, vault breach, alleyway firefight against cops, motorcycle canyon chase, and cliff parachute jump to the getaway boat."
+        "description": "Control de la antesala bancaria, perforación térmica de las verjas, escape entre callejones y descenso en moto hacia el barranco del río."
       }
     ],
     "tips": [
-      "To preserve the maximum payout, have a single player pick up all the money and stay protected behind the team during the street shootout.",
-      "Do not shoot any bank tellers to avoid triggering NOOSE tactical response units."
+      "Para evitar pérdidas en el botín, es recomendable que un solo integrante recoja todo el efectivo y permanezca cubierto en retaguardia en el exterior.",
+      "Evitar abatir al personal civil en el vestíbulo impide el despliegue inmediato de las furgonetas pesadas del NOOSE."
     ]
   },
   {
     "id": "doomsday_act1",
     "order": 6,
-    "title": "The Doomsday Heist: Act I - The Data Breaches",
+    "title": "Weltuntergangs-Heist: Akt I - Datenlecks",
     "titleEn": "The Doomsday Heist: Act I - The Data Breaches",
     "category": "doomsday",
-    "categoryLabel": "The Doomsday Heist",
+    "categoryLabel": "Weltuntergangs-Raubüberfälle",
     "giver": "Lester Crest & Avon Hertz",
-    "players": "2-4 Players",
+    "players": "2-4 jugadores",
     "minLevel": 1,
-    "propertyRequired": "Underground Facility",
+    "propertyRequired": "Instalaciones Subterráneas (Facility)",
     "setupCost": 65000,
     "setupCostFormatted": "$65,000",
     "potentialTake": {
       "normal": "$650,000",
       "hard": "$812,500",
-      "description": "Government defense payout for stopping foreign intrusion into IAA defense servers."
+      "description": "Honorarios gubernamentales asignados por repeler el asalto cibernético a los servidores secretos de la agencia."
     },
-    "target": "IAA national defense server network",
-    "location": "IAA Satellite Facility, Tataviam Mountains",
-    "description": "Tech billionaire Avon Hertz and his AI neural network Clifford detect a cyber attack on national defense. The team investigates morgues, hacks flying Deluxo cars, and pilots an Akula stealth chopper to repel the assault on the IAA underground network.",
+    "target": "Zentrale Datenserver der IAA",
+    "location": "Instalaciones gubernamentales de la IAA, Cordillera de Tataviam",
+    "description": "Infiltriere eine unterirdische IAA-Basis unter Söldnerbeschuss und rette die Datenserver an der Seite von Avon Hertz und KI Cliffford.",
     "thumbnail": "",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-shield-halved",
     "eliteChallenges": [
-      "Complete in under 05:30 minutes",
-      "78 enemy kills",
-      "Nobody gets wasted"
+      "Completar en menos de 05:30 minutos",
+      "78 bajas enemigas",
+      "Nadie resulta abatido"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 extra",
     "unlockedVehicles": [
       "Imponte Deluxo ($3,550,000 / $4,721,500)",
-      "Akula Stealth Chopper ($2,785,000 / $3,704,050)",
+      "Helicóptero Akula ($2,785,000 / $3,704,050)",
       "HVY Chernobog ($2,490,000 / $3,311,700)"
     ],
     "setupMissions": [
       {
-        "name": "Freemode Preps: Deluxo & Akula",
+        "name": "Preliminares: Pariah, Deluxo y Akula",
         "type": "preliminary",
-        "description": "Acquire tactical hardware and vehicles in public or private freemode lobbies."
+        "description": "Adquisición y traslado a las instalaciones de los vehículos tácticos necesarios para las fases preparatorias."
       },
       {
-        "name": "Setup: Dead Courier",
+        "name": "Preparación: Cadáveres",
         "type": "prep",
-        "description": "Infiltrate the city coroner's morgue disguised as paramedics to extract hard drive data."
+        "description": "Infiltración en la morgue pública con disfraces sanitarios para recuperar unidades de memoria con información sensible."
       },
       {
-        "name": "Setup: Signal Intercepts",
+        "name": "Preparación: Señales en Deluxos",
         "type": "prep",
-        "description": "Hack trucks, speedboats, and a military cargo plane using amphibious hovercraft Deluxos."
+        "description": "Rastreo y descarga de frecuencias en tierra, mar y aire empleando las capacidades de vuelo del Deluxo."
       },
       {
-        "name": "Setup: Server Farm",
+        "name": "Preparación: Servidores en Akula",
         "type": "prep",
-        "description": "Fly a stealth Akula to the government server facility and steal classified target lists."
+        "description": "Vuelo en modo furtivo con el helicóptero Akula para descargar archivos de la torre de control de Fort Zancudo."
       },
       {
-        "name": "The Data Breaches (Finale)",
+        "name": "Fugas de datos (Final)",
         "type": "finale",
-        "description": "Assault the overrun IAA underground facility, deploy automated defense turrets, and contain the digital breach."
+        "description": "Asalto armado a las instalaciones tomadas de la IAA, reconexión de sistemas y defensa de la sala principal de servidores."
       }
     ],
     "tips": [
-      "Use tear gas or rocket launchers on the elevated catwalks to eliminate heavy shotgun agents before accessing server terminals."
+      "En el vestíbulo de servidores, aprovechar las coberturas altas y usar proyectiles pesados para neutralizar a los asaltantes armados con escopetas."
     ]
   },
   {
     "id": "doomsday_act2",
     "order": 7,
-    "title": "The Doomsday Heist: Act II - The Bogdan Problem",
+    "title": "Weltuntergangs-Heist: Akt II - Das Bogdan-Problem",
     "titleEn": "The Doomsday Heist: Act II - The Bogdan Problem",
     "category": "doomsday",
-    "categoryLabel": "The Doomsday Heist",
+    "categoryLabel": "Weltuntergangs-Raubüberfälle",
     "giver": "Lester Crest & Avon Hertz",
-    "players": "2-4 Players",
+    "players": "2-4 jugadores",
     "minLevel": 1,
-    "propertyRequired": "Underground Facility",
+    "propertyRequired": "Instalaciones Subterráneas (Facility)",
     "setupCost": 95000,
     "setupCostFormatted": "$95,000",
     "potentialTake": {
       "normal": "$950,000",
       "hard": "$1,187,500",
-      "description": "Agency compensation after uncovering the Russian submarine espionage network."
+      "description": "Compensación de la agencia gubernamental tras neutralizar la supuesta red de sabotaje naval internacional."
     },
-    "target": "Russian nuclear submarine Ramyus",
-    "location": "Paleto Bay, Pacific Ocean",
-    "description": "A high-stakes operation culminating in boarding the Russian nuclear submarine Ramyus off the coast of Paleto Bay. The team splits between the submarine boarding crew and the Avenger aircraft team dogfighting attack helicopters.",
+    "target": "Geheimes Atom-U-Boot Ramius",
+    "location": "Bahía de Paleto Bay, Pazifischer Ozean",
+    "description": "Stürmt ein russisches Atom-U-Boot vor Paleto Bay, verhört Agent Bogdan und deckt die wahre Bedrohung für San Andreas auf.",
     "thumbnail": "",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-water",
     "eliteChallenges": [
-      "Complete in under 15:00 minutes",
-      "Avenger takes under 5% damage",
-      "Nobody gets wasted"
+      "Completar en menos de 15:00 minutos",
+      "Daño al avión Avenger inferior al 5%",
+      "Nadie resulta abatido"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 extra",
     "unlockedVehicles": [
-      "Pegassi Stromberg Submarine ($2,395,000 / $3,185,350)",
+      "Pegassi Stromberg anfibio ($2,395,000 / $3,185,350)",
       "Mammoth Avenger ($3,450,000 / $4,787,500)",
-      "RCV Riot Control Vehicle ($2,350,000 / $3,125,500)"
+      "RCV antidisturbios ($2,350,000 / $3,125,500)"
     ],
     "setupMissions": [
       {
-        "name": "Freemode Preps: Stromberg & Torpedoes",
+        "name": "Preliminares: ULP, Stromberg y Torpedos",
         "type": "preliminary",
-        "description": "Retrieve military technology across San Andreas."
+        "description": "Obtención de equipos especializados y vehículos anfibios en distintos puntos de San Andreas."
       },
       {
-        "name": "Setup: Rescue ULP",
+        "name": "Preparación: Rescate del agente ULP",
         "type": "prep",
-        "description": "Storm an oil refinery to rescue captured government agent ULP under heavy enemy siege."
+        "description": "Asalto bajo fuego a una refinería fuertemente protegida para liberar al agente gubernamental cautivo."
       },
       {
-        "name": "Setup: Salvage Hard Drives",
+        "name": "Preparación: Recuperación de discos duros",
         "type": "prep",
-        "description": "Extinguish fires and recover sensitive hard drives using the armored water cannon RCV."
+        "description": "Extinción de incendios y salvamento de terminales informáticos empleando el cañón de agua del furgón RCV."
       },
       {
-        "name": "Setup: Submarine Recon",
+        "name": "Preparación: Submarinos Stromberg",
         "type": "prep",
-        "description": "Underwater combat destroying sea mines using submersible Stromberg sports cars."
+        "description": "Incursión submarina para destruir convoyes sumergidos y desactivar minas acuáticas con deportivos anfibios."
       },
       {
-        "name": "The Bogdan Problem (Finale)",
+        "name": "El problema Bogdan (Final)",
         "type": "finale",
-        "description": "Board the Ramyus submarine to confront Commander Bogdan while the Avenger provides coastal air defense."
+        "description": "Infiltración por los pasillos del submarino Ramyus hasta llegar al comandante mientras el Avenger despeja el cielo exterior."
       }
     ],
     "tips": [
-      "The Avenger team can engage auto-pilot at high altitude to operate the heavy turrets without danger of crashing."
+      "Fijar el piloto automático del Avenger a buena altura permite usar las torretas defensivas con total puntería y sin peligro de estrellarse."
     ]
   },
   {
     "id": "doomsday_act3",
     "order": 8,
-    "title": "The Doomsday Heist: Act III - The Doomsday Scenario",
+    "title": "Weltuntergangs-Heist: Akt III - Das Weltuntergangs-Szenario",
     "titleEn": "The Doomsday Heist: Act III - The Doomsday Scenario",
     "category": "doomsday",
-    "categoryLabel": "The Doomsday Heist",
+    "categoryLabel": "Weltuntergangs-Raubüberfälle",
     "giver": "Lester Crest & Bogdan",
-    "players": "2-4 Players",
+    "players": "2-4 jugadores",
     "minLevel": 1,
-    "propertyRequired": "Underground Facility",
+    "propertyRequired": "Instalaciones Subterráneas (Facility)",
     "setupCost": 120000,
     "setupCostFormatted": "$120,000",
     "potentialTake": {
       "normal": "$1,200,000",
       "hard": "$1,500,000",
-      "description": "Maximum reward for saving the world from nuclear obliteration orchestrated by Clifford."
+      "description": "Recompensa máxima del estado por neutralizar la amenaza nuclear y salvar el continente de la aniquilación cibernética."
     },
-    "target": "Mount Chiliad nuclear missile launch silo",
-    "location": "Secret bunker inside Mount Chiliad",
-    "description": "The most challenging co-op raid in GTA Online. Avon Hertz and Clifford attempt to trigger a global nuclear launch. Drive a stealth Khanjali tank into the mountain, battle cybernetic clones, hack four missile silos under fire, and chase Avon on Thruster Jetpacks.",
+    "target": "Atomraketen-Abschusssilo im Mount Chiliad",
+    "location": "Geheimer Bunker im Inneren des Mount Chiliad",
+    "description": "Finaler Sturm auf die geheime Raketenbasis unter dem Mount Chiliad. Fliege mit dem Jetpack Thruster ein, um den von Cliffford gestarteten Atomraketen-Countdown zu stoppen.",
     "thumbnail": "",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-radiation",
     "eliteChallenges": [
-      "Complete in under 30:00 minutes",
-      "0 hack failures in terminals",
-      "150 headshots",
-      "Nobody gets wasted"
+      "Completar en menos de 30:00 minutos",
+      "0 fallos de hackeo en los terminales",
+      "150 disparos a la cabeza",
+      "Nadie resulta abatido"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 extra",
     "unlockedVehicles": [
-      "TM-02 Khanjali Tank ($2,895,000 / $3,850,350)",
+      "TM-02 Khanjali ($2,895,000 / $3,850,350)",
       "Mammoth Thruster Jetpack ($2,750,000 / $3,657,500)",
-      "Volatol Bomber ($2,800,000 / $3,724,000)",
-      "Barrage Off-Roader ($1,595,000 / $2,121,350)"
+      "Bombardero Volatol ($2,800,000 / $3,724,000)",
+      "Barrage todoterreno ($1,595,000 / $2,121,350)"
     ],
     "setupMissions": [
       {
-        "name": "Freemode Preps: Khanjali, Volatol & Jetpack",
+        "name": "Preliminares: Tanque Khanjali, Volatol y Mochilas",
         "type": "preliminary",
-        "description": "Secure experimental military hardware across the map."
+        "description": "Captura y aprovisionamiento del material acorazado y propulsores individuales de última hornada."
       },
       {
-        "name": "Setup: Rescue Agent 14",
+        "name": "Preparación: Rescate del Agente 14",
         "type": "prep",
-        "description": "Battle cloaked soldiers using active optical camouflage at an abandoned shipyard."
+        "description": "Combate en los muelles industriales contra fuerzas de élite equipadas con trajes de invisibilidad óptica."
       },
       {
-        "name": "Setup: Escort ULP / Chernobog",
+        "name": "Preparación: Escolta del Chernobog",
         "type": "prep",
-        "description": "Defend the mobile ballistic missile system from military air strikes."
+        "description": "Protección y traslado del camión lanzamisiles antibalístico frente al ataque de columnas mecanizadas."
       },
       {
-        "name": "Setup: Barrage & Khanjali",
+        "name": "Preparación: Asalto aéreo en Volatol",
         "type": "prep",
-        "description": "Raid military air bases to secure the heavy armored ground vehicles."
+        "description": "Misión de bombardeo en altura con el avión Volatol para demoler torretas y baterías en las crestas de Chiliad."
       },
       {
-        "name": "The Doomsday Scenario (Finale)",
+        "name": "El escenario del Juicio Final (Final)",
         "type": "finale",
-        "description": "Khanjali tank breach into Mount Chiliad, intense command center firefight, 4-terminal orbital hack mini-game, and Thruster jetpack aerial duel."
+        "description": "Avance en tanque por el túnel del silo, anulación manual del código de los cuatro misiles y caza aérea del objetivo en Jetpack."
       }
     ],
     "tips": [
-      "During the 4-terminal hack mini-game, teammates must hold the perimeter with Mk II Combat MGs and incendiary heavy rifles."
+      "Al piratear los terminales de lanzamiento, los compañeros deben blindar los accesos usando rifles automáticos y fuego defensivo continuo.",
+      "El proyectil de riel del tanque Khanjali destruye bloqueos y obstáculos blindados de forma contundente en el túnel de entrada."
     ]
   },
   {
     "id": "diamond_casino",
     "order": 9,
-    "title": "The Diamond Casino Heist",
+    "title": "Der Diamond Casino Heist",
     "titleEn": "The Diamond Casino Heist",
     "category": "casino",
-    "categoryLabel": "The Diamond Casino",
+    "categoryLabel": "Casino-Raubüberfälle",
     "giver": "Lester Crest & Georgina Cheng",
-    "players": "2-4 Players",
+    "players": "2-4 jugadores",
     "minLevel": 1,
-    "propertyRequired": "Spielhalle",
+    "propertyRequired": "Salón Recreativo (Arcade)",
     "setupCost": 25000,
     "setupCostFormatted": "$25,000",
     "potentialTake": {
       "normal": "$2,115,000 - $3,290,000",
       "hard": "$2,326,500 - $3,619,000",
-      "description": "Dynamic vault loot: Cash ($2.1M), Artwork ($2.3M), Gold ($2.5M), or Diamonds ($3.6M during special event weeks)."
+      "description": "El contenido de la bóveda varía en cada golpe: Dinero en efectivo ($2.1M), Obras de arte ($2.3M), Lingotes de oro ($2.5M) o Diamantes ($3.6M en temporadas especiales)."
     },
-    "target": "Underground maximum security casino vault",
-    "location": "The Diamond Casino & Resort, East Vinewood",
-    "description": "The most versatile and replayable heist in Los Santos. Planned from a retro arcade basement. Choose between three distinct tactical approaches (Silent & Sneaky, The Big Con, or Aggressive), hire your support crew (Gunman, Driver, Hacker), and loot the Duggan vault.",
+    "target": "Gepanzerter Tresorraum des Diamond Casinos",
+    "location": "The Diamond Casino & Resort, Vinewood Este",
+    "description": "Plane den raffiniertesten Coup der Casino-Geschichte. Wähle dein Vorgehen: Tarnung (Gruppe Sechs), Lautlos & Kaltblütig oder Aggressiv, um Gold, Diamanten oder Kunstwerke aus dem Tresor zu räumen.",
     "thumbnail": "",
     "badgeColor": "#f39c12",
     "badgeIcon": "fa-dice",
     "eliteChallenges": [
-      "Complete in under 15:00 minutes",
-      "0 hack failures on vault keypads",
-      "Nobody gets wasted",
-      "Undetected before vault (Stealth/Big Con) or 80 headshots (Aggressive)"
+      "Completar en menos de 15:00 minutos",
+      "0 fallos de pirateo en las puertas de la cámara",
+      "Nadie resulta abatido",
+      "Sin ser detectado antes de la cámara (en Sigilo y Engaño) u 80 bajas en la cabeza (en Agresivo)"
     ],
-    "eliteReward": "+$100,000 bonus (Hard) / +$50,000 bonus (Normal)",
+    "eliteReward": "+$100,000 extra (Difícil) / +$50,000 extra (Normal)",
     "unlockedVehicles": [
       "Gruppe Sechs Stockade ($1,680,000 / $2,240,000)",
       "Bugstars Burrito ($450,000 / $598,500)",
       "Lampadati Komoda ($1,275,000 / $1,700,000)",
-      "Ubermacht Rebla GTS ($881,250 / $1,175,000)"
+      "Ubermacht Rebla GTS ($881,250 / $1,175,000)",
+      "Karin Sultan Classic ($1,288,500 / $1,718,000)"
     ],
     "setupMissions": [
       {
-        "name": "Casino & Vault Scoping",
+        "name": "Reconocimiento del Casino y Bóveda",
         "type": "recon",
-        "description": "Photograph security doors, sewer access, and tap into cameras to reveal the vault target."
+        "description": "Inspección fotográfica de entradas y conductos, enlazando con la señal de vigilancia interior para confirmar el botín en cámara."
       },
       {
-        "name": "Support Crew & Weapons",
+        "name": "Equipo de apoyo y Armas",
         "type": "prep",
-        "description": "Hire a gunman (Chester McCoy, Gustavo Mota, Packie McReary) and steal suitable weapons."
+        "description": "Selección del especialista en tiro y requisa del lote de armas adaptado al plan de entrada acordado."
       },
       {
-        "name": "Getaway Vehicles",
+        "name": "Vehículos de huida",
         "type": "prep",
-        "description": "Hire a getaway driver (Karim Denz, Eddie Toh) and steal customized getaway vehicles."
+        "description": "Elección del piloto de fuga y adquisición de los turismos modificados para la escapada por carretera."
       },
       {
-        "name": "Hacking Device & Keycards",
+        "name": "Dispositivos de hackeo y Tarjetas",
         "type": "prep",
-        "description": "Hire an expert hacker (Avi Schwartzman or Paige Harris) to maximize vault time before nerve gas is released."
+        "description": "Contratación de un hacker experto para prolongar el margen de estancia en la cámara antes del cierre hermético."
       },
       {
-        "name": "Approach-Specific Equipment",
+        "name": "Misiones preparatorias específicas del enfoque",
         "type": "prep",
-        "description": "Gruppe Sechs outfits, Bugstars gear, thermal charges, EMP devices, or reinforced armor."
+        "description": "Asegurar indumentarias de Gruppe Sechs o Bugstars, perforadoras térmicas, cargas de demolición o blindajes reforzados."
       },
       {
-        "name": "The Diamond Casino Heist (Finale)",
+        "name": "Golpe a The Diamond Casino (Final)",
         "type": "finale",
-        "description": "Infiltration via selected method, fingerprint keypad hack, timed vault looting, and escape through sewers to the police rooftop helicopter."
+        "description": "Incursión según el plan fijado, desbloqueo de las rejas de la bóveda, recolección del botín contrarreloj y huida hacia el comprador."
       }
     ],
     "approaches": [
       {
         "id": "sneaky",
-        "name": "Silent & Sneaky",
-        "description": "Night stealth with silenced weapons, camera stunners, EMP blackout, and rappel ropes."
+        "name": "Lautlos & Kaltblütig y Astucia (Silent & Sneaky)",
+        "description": "Infiltración limpia sin generar alertas con silenciadores, desactivación de circuitos de cámaras, pistolas táser y trajes oscuros."
       },
       {
         "id": "big_con",
-        "name": "The Big Con",
-        "description": "Walk right through the front door disguised as Gruppe Sechs armored guards or Bugstars exterminators."
+        "name": "El Gran Tarnung (Gruppe Sechs) (The Big Con)",
+        "description": "El método más cómodo: cruzar el control de acceso vestidos como transportistas de caudales Gruppe Sechs o fumigadores Bugstars."
       },
       {
         "id": "aggressive",
-        "name": "Aggressive",
-        "description": "Frontal brute force with thermal charges, reinforced ballistic suits, and heavy firepower."
+        "name": "Aggressiv (Aggressive)",
+        "description": "Entrada directa a base de fuerza. Voladura de las puertas con cargas pesadas, chalecos reforzados y fuego abierto contra los guardias."
       }
     ],
     "tips": [
-      "Recommended hacker: Avi Schwartzman (unlocked by destroying all 50 signal jammers) or Paige Harris grants 3 minutes and 30 seconds inside the vault.",
-      "For the easiest getaway, exit through the staff lobby, steal the police helicopter from the nearby station roof, and fly straight to the buyer."
+      "Contar con hackers de prestigio como Paige Harris o Avi Schwartzman extiende el tiempo dentro de la cámara hasta 3 minutos y medio sin alarma.",
+      "Para evacuar rápidamente hacia el comprador, tomar la salida de servicio, cruzar al tejado del cuartel policial cercano y utilizar el helicóptero en plataforma."
     ]
   },
   {
     "id": "cayo_perico",
     "order": 10,
-    "title": "The Cayo Perico Heist",
+    "title": "Der Cayo Perico Heist",
     "titleEn": "The Cayo Perico Heist",
     "category": "cayo_perico",
-    "categoryLabel": "Cayo Perico",
+    "categoryLabel": "Insel-Raubüberfälle",
     "giver": "Miguel Madrazo & Pavel",
-    "players": "1-4 Players (Fully Solo Friendly!)",
+    "players": "1-4 jugadores (Â¡Jugable en solitario!)",
     "minLevel": 1,
-    "propertyRequired": "Kosatka-U-Boot",
+    "propertyRequired": "Submarino Kosatka",
     "setupCost": 25000,
     "setupCostFormatted": "$25,000",
     "potentialTake": {
       "normal": "$1,070,000 - $2,090,000+",
       "hard": "$1,180,000 - $2,550,000+",
-      "description": "Primary Target (Panther Statue $1.9M-$2.09M, Pink Diamond $1.3M-$1.43M, Bearer Bonds $1.1M-$1.21M, Ruby Necklace $1M-$1.1M, Tequila $900k-$990k) + Secondary Targets (Gold, Cocaine, Paintings, Weed, Cash)."
+      "description": "Botín Principal (Estatua de pantera $1.9M-$2.09M, Diamante rosa $1.3M-$1.43M, Bonos al portador $1.1M-$1.21M, Collar de rubíes $1M-$1.1M, Tequila $900k-$990k) más botín secundario acumulable (Oro, Cocaína, Cuadros, Marihuana y Dinero)."
     },
-    "target": "Juan 'El Rubio' Strickland's fortified compound",
-    "location": "Private island of Cayo Perico, Caribbean Sea",
-    "description": "The most lucrative and flexible heist in Grand Theft Auto Online history. Planned from the decommissioned Soviet submarine Kosatka with helmsman Pavel. The first heist playable 100% solo or with up to 4 players, featuring limitless approach methods, infiltration gear, and escape routes.",
+    "target": "Haupttresor in El Rubios Anwesen",
+    "location": "Isla privada de Cayo Perico, Mar Caribe",
+    "description": "Infiltriere die tropische Festung von Drogenbaron El Rubio. Komplett solo oder mit bis zu 4 Spielern spielbar, mit freier Wahl der Infiltrationspunkte (Abwassergitter, Flugzeug, Boot) und Beutezielen.",
     "thumbnail": "",
     "badgeColor": "#1abc9c",
     "badgeIcon": "fa-umbrella-beach",
     "eliteChallenges": [
-      "Complete in under 15:00 minutes",
-      "0 hack failures on compound fingerprint scanner",
-      "Full secondary loot bags",
-      "Nobody gets wasted"
+      "Completar en menos de 15:00 minutos",
+      "0 fallos de pirateo en el lector de huellas",
+      "Bolsas de botín secundario llenas al 100%",
+      "Nadie resulta abatido"
     ],
-    "eliteReward": "+$100,000 bonus (Hard) / +$50,000 bonus (Normal)",
+    "eliteReward": "+$100,000 extra (Difícil) / +$50,000 extra (Normal)",
     "unlockedVehicles": [
-      "Kosatka Submarine ($2,200,000)",
-      "Sparrow Helicopter ($1,815,000)",
+      "Submarino Kosatka ($2,200,000)",
+      "Helicóptero Sparrow ($1,815,000)",
       "Pegassi Toreador ($3,750,000 / $4,250,000)",
-      "Longfin Powerboat ($1,593,750 / $2,125,000)",
-      "Kurtz 31 Patrol Boat ($2,216,250 / $2,955,000)"
+      "Lancha Longfin ($1,593,750 / $2,125,000)",
+      "Patrullera Kurtz 31 ($2,216,250 / $2,955,000)",
+      "Bombardero Alkonost ($3,262,500 / $4,350,000)"
     ],
     "setupMissions": [
       {
-        "name": "Cayo Perico Scoping",
+        "name": "Reconocimiento de Cayo Perico",
         "type": "recon",
-        "description": "Fly to the island disguised as a tour musician, sneak to the radio communication tower, and hack security cameras to identify loot."
+        "description": "Llegada encubierta a la isla con el séquito musical, elusión de patrullas hasta el repetidor y acceso remoto a las cámaras para catalogar el objetivo."
       },
       {
-        "name": "Approach Vehicle",
+        "name": "Vehículo de aproximación",
         "type": "prep",
-        "description": "Secure entry method: Kosatka torpedoes (drainage tunnel), Longfin boat, Alkonost stealth HALO jump, or smuggler Velum."
+        "description": "Asegurar el medio de transporte: torpedos del Kosatka para el desagüe, lancha Longfin, salto paracaidista desde Alkonost o avioneta Velum."
       },
       {
-        "name": "Weapons & Suppressors",
+        "name": "Armamento y Silenciadores",
         "type": "prep",
-        "description": "Raid an agency or gang office to steal loadouts (Conspirator, Crack Shot, Aggressor) with night suppressors."
+        "description": "Ataque a un almacén clandestino en Los Santos para capturar el set de armas elegido y acoplar silenciadores."
       },
       {
-        "name": "Equipment",
+        "name": "Equipo táctico",
         "type": "prep",
-        "description": "Steal the plasma cutter, fingerprint cloner, and cutting torch."
+        "description": "Requisar el soplete submarino, el duplicador de huellas y la herramienta de corte para la vitrina del sótano."
       },
       {
-        "name": "The Cayo Perico Heist (Finale)",
+        "name": "Golpe a Cayo Perico (Final)",
         "type": "finale",
-        "description": "Underwater drainage tunnel infiltration, silent guard kills, office fingerprint hack, vault extraction, and ocean swim escape."
+        "description": "Entrada acuática por la rejilla de desagüe, avance silencioso por el patio, apertura de la cámara en el despacho y evacuación a nado."
       }
     ],
     "approaches": [
       {
         "id": "drainage",
-        "name": "Drainage Pipe (Kosatka)",
-        "description": "The fastest speedrun method: enter directly inside El Rubio's courtyard by cutting underwater iron bars."
+        "name": "Infiltration por Túnel de Desagüe (Kosatka)",
+        "description": "El itinerario más directo: inserción con respirador en el patio de la hacienda cortando los barrotes sumergidos con el soplete."
       },
       {
         "id": "longfin",
-        "name": "Longfin Speedboat",
-        "description": "Top solo strategy: land at the North Dock or Airstrip to fill loot bags with cocaine or paintings before hitting the compound."
+        "name": "Aproximación en Lancha Longfin",
+        "description": "Opción ideal para jugar en solitario: permite fondear en muelles o pista para llenar petates antes de dirigirse al desagüe."
       },
       {
         "id": "halo_jump",
-        "name": "HALO Parachute Jump (Alkonost)",
-        "description": "High-altitude military stealth drop with flares to bypass El Rubio's radar."
+        "name": "Salto HALO desde Bombardero Alkonost",
+        "description": "Inserción paracaidista a gran altitud empleando contramedidas electrónicas para rebasar la cobertura de radar de la isla."
       }
     ],
     "tips": [
-      "To escape in under 10 minutes: exit through the front gate, shoot the guard with the motorbike on the left, ride off the southern cliff, and swim underwater away from the island.",
-      "The cutting torch cuts warehouse padlocks silently without needing guard keys."
+      "Para evacuar en menos de diez minutos, abandonar la villa por la puerta principal, tomar la moto del centinela y lanzarse al mar nadando bajo el agua hacia el suroeste.",
+      "El soplete de plasma revienta las cerraduras de las verjas de mercancía secundaria al instante sin activar avisos ni requerir llaves."
     ]
   },
   {
     "id": "cluckin_bell",
     "order": 11,
-    "title": "The Cluckin' Bell Farm Raid",
+    "title": "Überfall auf die Cluckin'-Bell-Fabrik",
     "titleEn": "The Cluckin' Bell Farm Raid",
     "category": "raid",
-    "categoryLabel": "Police Raid",
+    "categoryLabel": "Taktische Raubzüge",
     "giver": "Vincent Effenburger",
-    "players": "1-4 Players (Solo or Co-op)",
+    "players": "1-4 jugadores (En solitario o cooperativo)",
     "minLevel": 1,
-    "propertyRequired": "None (Free)",
+    "propertyRequired": "Ninguna (Gratuito)",
     "setupCost": 0,
-    "setupCostFormatted": "$0 (Free)",
+    "setupCostFormatted": "$0 (Gratis)",
     "potentialTake": {
       "normal": "$500,000",
       "hard": "$500,000 + $250,000",
-      "description": "$500,000 flat leader payout (+$250,000 bonus on your first completion)."
+      "description": "$500,000 fijos garantizados para el ejecutor (+$250,000 de bonificación por completarlo por primera vez)."
     },
-    "target": "Cartel cocaine processing factory in Paleto Bay",
-    "location": "Cluckin' Bell processing factory, Paleto Bay",
-    "description": "A high-action 2024 raid series. Former casino head of security Vincent Effenburger, now an LSPD rookie officer, contacts you to dismantle a corrupt cartel drug ring operating out of the Cluckin' Bell chicken factory in Paleto Bay.",
+    "target": "Geheimes Drogenlabor in der Cluckin'-Bell-Fabrik",
+    "location": "Planta procesadora de Cluckin' Bell, Paleto Bay",
+    "description": "Schließe dich mit Vincent Effenburger zusammen, um ein korruptes Drogenkartell in der Cluckin'-Bell-Großfabrik in Paleto Bay zu zerschlagen.",
     "thumbnail": "",
     "badgeColor": "#f39c12",
     "badgeIcon": "fa-drumstick-bite",
     "eliteChallenges": [
-      "Complete in under 45:00 minutes total",
-      "0 team lives lost",
-      "Getaway train takes no critical damage"
+      "Completar en menos de 45:00 minutos en total",
+      "0 vidas perdidas durante la operación",
+      "Completar sin que el tren de huida sufra daños críticos"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 extra",
     "unlockedVehicles": [
-      "Bravado Gauntlet Interceptor Cruiser ($4,065,000 / $5,420,000)",
-      "Canis Terminus 4x4 ($1,408,125 / $1,877,500)"
+      "Bravado Gauntlet Interceptor patrulla ($4,065,000 / $5,420,000)",
+      "Canis Terminus todoterreno ($1,408,125 / $1,877,500)"
     ],
     "setupMissions": [
       {
-        "name": "Slush Fund",
+        "name": "Fondos para sobornos",
         "type": "prep",
-        "description": "Raid cartel money laundering businesses in Los Santos to acquire funding."
+        "description": "Golpear dos centros de lavado de dinero en la ciudad para asegurar el presupuesto operativo necesario."
       },
       {
-        "name": "Breaking and Entering",
+        "name": "Rompiendo las reglas",
         "type": "prep",
-        "description": "Steal weapons and military tactical equipment from Marabunta Grande, The Professionals, or Merryweather."
+        "description": "Confiscar armamento táctico asaltando a una facción enemiga: Marabunta Grande, Los Profesionales o soldados de Merryweather."
       },
       {
-        "name": "Concealed Carry",
+        "name": "Ocultando huellas",
         "type": "prep",
-        "description": "Steal a suitable getaway vehicle from local street gangs."
+        "description": "Robar un vehículo adaptado para la huida a las organizaciones que operan en los polígonos industriales."
       },
       {
-        "name": "Hit and Run",
+        "name": "Allanamiento de morada",
         "type": "prep",
-        "description": "Infiltrate the LS Railway depot and hijack a freight locomotive."
+        "description": "Infiltrarse en el centro logístico ferroviario para apoderarse de un tren de carga y sus frecuencias de control."
       },
       {
-        "name": "Scene of the Crime (Finale)",
+        "name": "Escena del crimen (Final)",
         "type": "finale",
-        "description": "Full assault on the Paleto Bay Cluckin' Bell processing plant, destroy the drug lab, crack the cartel safe, and escape on the freight train."
+        "description": "Asalto al complejo fabril de Cluckin' Bell, desmantelamiento del laboratorio, apertura de la caja fuerte y escape por vía férrea."
       }
     ],
     "tips": [
-      "Perfect for beginner players: requires zero upfront investment, no property purchases, and pays $500,000 guaranteed cash every run.",
-      "Choosing The Professionals weapon loadout in setup 2 gives you military rifles with suppressors for a quiet factory breach."
+      "Esta incursión no exige adquirir propiedades previas ni desembolsar costes de preparación, siendo ideal para generar saldo limpio constante.",
+      "Escoger el paquete armamentístico de Los Profesionales en la segunda tarea proporciona rifles con silenciador idóneos para la infiltración."
     ]
   },
   {
     "id": "kortz_center",
     "order": 12,
-    "title": "The Kortz Center Heist",
+    "title": "Der Kortz-Center-Überfall",
     "titleEn": "The Kortz Center Heist",
     "category": "kortz_center",
-    "categoryLabel": "Mansion Heist / Art Collection",
-    "giver": "Raf De Angelis & Mr. Faber",
-    "players": "1-4 Players (Solo or Co-op)",
+    "categoryLabel": "Taktische Raubzüge",
+    "giver": "Raf De Angelis & Sr. Faber",
+    "players": "1-4 jugadores (Solo o Cooperativo)",
     "minLevel": 1,
-    "propertyRequired": "Luxury Mansion with Art Studio (Prix Luxury Real Estate)",
+    "propertyRequired": "Luxus-Villa mit Kunstatelier (Prix Luxury Real Estate)",
     "setupCost": 100000,
     "setupCostFormatted": "$100,000",
     "potentialTake": {
       "normal": "$2,200,000",
       "hard": "$2,650,000",
-      "description": "The highest paying heist in GTA Online. Primary Target: The Albert Crisp Art Collection ($2.0M - $2.2M on first weekly run) plus high-value gallery antiquities."
+      "description": "Operación de gran rendimiento. Botín principal: Colección de Arte Albert Crisp ($2.0M - $2.2M en la primera carrera de cada semana) junto a piezas secundarias en vitrinas."
     },
-    "target": "The Albert Crisp Art Collection (Bell Building)",
-    "location": "The Kortz Center, Pacific Bluffs",
-    "description": "The premier high-end art robbery operation introduced in July 2026. Guided by eccentric art dealer Mr. Faber and fixer Raf De Angelis from your mansion's subterranean Art Studio, infiltrate the cultural complex of the Kortz Center to steal the priceless Albert Crisp Collection using forged replicas and stealth tactics.",
+    "target": "Geheime FIB-Archive im Kortz Center",
+    "location": "El Kortz Center, Pacific Bluffs",
+    "description": "Taktischer Dreiparteien-Schusswechsel in den Gärten und Kunstgalerien des Kortz-Center-Komplexes.",
     "thumbnail": "",
     "badgeColor": "#8b5cf6",
     "badgeIcon": "fa-palette",
     "eliteChallenges": [
-      "Complete in under 15:00 minutes",
-      "No alarms raised / private security undetected",
-      "0 team lives lost",
-      "Complete the Buyer's Request bonus"
+      "Completar en menos de 15:00 minutos",
+      "Sin activar alarmas ni alertar a la seguridad privada",
+      "0 vidas perdidas durante la operación",
+      "Completar la petición especial del comprador (Buyer's Request)"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 extra",
     "unlockedVehicles": [
       "Enus Paragon S ($1,507,500 / $2,010,000)",
       "Grotti Stinger TT ($1,785,000 / $2,380,000)"
     ],
     "setupMissions": [
       {
-        "name": "Bell Building Reconnaissance",
+        "name": "Reconocimiento del Edificio Bell",
         "type": "recon",
-        "description": "Tour the Kortz Center as a tourist to photograph security cameras, roof access routes, and Albert Crisp collection cases."
+        "description": "Inspección fotográfica de las galerías para documentar dispositivos de alarma, sensores de peso y la vitrina de las obras clave."
       },
       {
-        "name": "Art Forgery Fabrication",
+        "name": "Falsificaciones de Arte",
         "type": "prep",
-        "description": "Contract a specialist forger in your mansion's art studio to craft exact replica paintings and sculptures."
+        "description": "Producción en el taller de copias fidedignas para sustituir los lienzos originales sin levantar sospechas inmediatas."
       },
       {
-        "name": "Security Jammers & Feed Hijack",
+        "name": "Inhibidores y Señal de Seguridad",
         "type": "prep",
-        "description": "Hijack military signal jammers from Merryweather to disable weight sensors and display case lasers."
+        "description": "Asegurar bloqueadores de frecuencia a contratistas de Merryweather para desactivar los campos láser de las salas."
       },
       {
-        "name": "Tactical Gear & Suppressed Arsenal",
+        "name": "Equipamiento Táctico y Armas Silenciadas",
         "type": "prep",
-        "description": "Acquire night-infiltration stealth suits and suppressed firearms for a whisper-quiet heist execution."
+        "description": "Preparación de vestuario de infiltración nocturna y armamento con supresores para completar la tarea en absoluto sigilo."
       },
       {
-        "name": "The Kortz Center Heist (Finale)",
+        "name": "Golpe al Kortz Center (Final)",
         "type": "finale",
-        "description": "Infiltrate the Kortz Center, neutralize private security, swap originals for replicas, and exfiltrate by air or sea to the private buyer."
+        "description": "Incursión nocturna en las salas de exposición, reemplazo de los cuadros por las réplicas y evacuación limpia hacia la entrega privada."
       }
     ],
     "tips": [
-      "Currently the most profitable heist in GTA Online history, overtaking Cayo Perico with over $2.2M on your first weekly run.",
-      "Swapping masterworks with forgeries prevents security from noticing the theft until hours after your clean getaway.",
-      "Fulfilling the Buyer's Request objective awards a massive secondary bonus on top of Elite Challenge payouts."
+      "Colocar cada falsificación en su peana exacta retrasa el descubrimiento de la sustracción por parte de la vigilancia privada.",
+      "Atender la solicitud singular del cliente genera una prima económica acumulable con el Desafío de Élite."
     ]
   }
 ]

@@ -580,5 +580,23 @@ export const de: TranslationSchema = {
     submit: 'Zugriff',
     cancel: 'Abbrechen',
     error: 'Falsches Passwort'
+  },
+  feedback: {
+    buttonTitle: 'Feedback oder Vorschlag senden',
+    modalTitle: 'Vorschläge und Feedback',
+    modalSubtitle: 'Hast du eine Idee oder einen Fehler gefunden? Lass es uns wissen!',
+    nameLabel: 'Dein Name (optional)',
+    namePlaceholder: 'Z. B.: Max oder Anonym',
+    messageLabel: 'Deine Nachricht',
+    messagePlaceholder: 'Schreibe hier deinen Vorschlag, dein Feedback oder deinen Fehlerbericht...',
+    sendButton: 'Vorschlag senden',
+    sending: 'Wird gesendet...',
+    successTitle: 'Vielen Dank für deine Nachricht!',
+    successMessage: 'Dein Vorschlag ist erfolgreich eingegangen. Das hilft uns, die Plattform weiter zu verbessern.',
+    errorTitle: 'Fehler beim Senden',
+    errorMessage: 'Der Vorschlag konnte nicht gesendet werden. Bitte versuche es in Kürze erneut.',
+    close: 'Schließen',
+    sendAnother: 'Einen weiteren Vorschlag senden'
   }
 };
+

@@ -5,7 +5,7 @@
     "title": "Le Fantôme de Jolene Cranley-Evans",
     "titleEn": "The Ghost of Jolene Cranley-Evans",
     "category": "paranormal",
-    "categoryLabel": "Paranormal et surnaturel",
+    "categoryLabel": "Paranormal et Surnaturel",
     "schedule": "23:00 - 00:00",
     "location": "Pic oriental du Mont Gordo",
     "zone": "Mont Gordo, Comté de Blaine",
@@ -18,37 +18,358 @@
       "x": 3080,
       "y": 5545,
       "z": 200,
-      "tip": "Stand about 40 meters away on the southern ridge and use a sniper rifle scope or phone camera to prevent the ghost from vanishing prematurely."
+      "tip": "Placez-vous à environ 40 mètres sur la crête sud et utilisez la lunette d'un fusil de précision pour ne pas provoquer sa disparition."
     },
-    "description": "Entre 23h00 et 0h00 chaque nuit, l'apparition flottante d'une femme en blanc se manifeste sur un rocher plat du Mont Gordo. À l'approche, elle s'évanouit en laissant le mot 'JOCK' écrit en sang frais sur la roche.",
-    "lore": "Jolene Cranley-Evans died under suspicious circumstances in March 1978 after falling from Mount Gordo's cliffside. Her husband, John 'Jock' Cranley — a former stuntman pursuing a political career as governor — wanted to move to Los Santos, while Jolene refused in order to care for her parents. Jock pushed her to her death, but local authorities ruled it an accident due to lack of witnesses. Four decades later, Jolene's spirit continues to point out her killer from the summit.",
+    "description": "Chaque nuit entre 23h00 et 00h00, l'apparition flottante d'une femme vêtue de blanc se manifeste au sommet d'un rocher plat du Mont Gordo. Si vous vous approchez trop, elle s'évanouit en laissant le nom 'JOCK' tracé en sang frais sur la pierre.",
+    "lore": "Jolene Cranley-Evans est décédée dans des circonstances mystérieuses en mars 1978 après avoir chuté du haut des falaises du Mont Gordo. Son époux, John 'Jock' Cranley — ancien cascadeur devenu candidat politique au poste de gouverneur —, souhaitait déménager à Los Santos alors que Jolene s'y opposait pour rester auprès de ses parents. Jock l'a poussée dans le vide, mais la police a classé l'affaire comme un tragique accident par manque de témoins. Quatre décennies plus tard, le spectre de Jolene continue de dénoncer son assassin depuis les hauteurs.",
     "mechanics": [
-      "Materializes nightly between 23:00 and 00:00 in-game time.",
-      "Approaching within 30-40 meters causes the ghost to vanish immediately.",
-      "A sniper rifle scope or phone camera zoom is required for detailed viewing.",
-      "Upon vanishing, the name 'JOCK' remains visible on the stone written in fresh blood.",
-      "Quietly lingering in the area at midnight plays eerie atmospheric whispers and distant wails."
+      "Apparaît chaque nuit en jeu exactement entre 23h00 et 00h00.",
+      "Si le joueur s'approche à moins de 30-40 mètres, le fantôme disparaît instantanément.",
+      "Pour l'observer distinctement, il est nécessaire d'utiliser la lunette d'un fusil de sniper ou le zoom de l'appareil photo du smartphone.",
+      "Après sa disparition, le nom 'JOCK' reste nettement lisible sur le rocher, inscrit en sang frais.",
+      "En restant silencieux dans la zone à minuit, on peut entendre des lamentations glaçantes et des chuchotements d'outre-tombe."
     ],
     "clues": [
-      "In-game newspaper article on www.whokilledleonorajohnson.com titled 'Blood on the Rocks' from 1978.",
-      "Jock Cranley's political billboards and radio campaign advertisements across San Andreas.",
-      "Featured location in community night photography challenges across Los Santos."
+      "Article de journal sur le site web in-game www.whokilledleonorajohnson.com intitulé 'Blood on the Rocks' datant de 1978.",
+      "Panneaux d'affichage et spots radio de la campagne électorale de Jock Cranley pour le poste de gouverneur de San Andreas.",
+      "Lieu vedette mis en avant lors des défis photo nocturnes de la communauté à Los Santos."
     ],
     "thumbnail": "assets/data-images/mysteries/jolene_cranley.png",
     "badgeColor": "#a855f7",
     "badgeIcon": "fa-ghost",
     "badgeSymbol": "👻",
-    "gameMode": "story"
+    "gameMode": "online",
+    "summary": "Chaque nuit entre 23h00 et 00h00, l'apparition flottante d'une femme vêtue de blanc se manifeste au sommet d'un rocher plat du Mont Gordo. Si vous vous approchez trop, elle s'évanouit en laissant le nom 'JOCK' tracé en sang frais sur la pierre."
+  },
+  {
+    "id": "underwater_lost_hatch",
+    "order": 2,
+    "title": "L'Écoutille Sous-Marine Secrète (Lost)",
+    "titleEn": "The Secret Underwater Hatch (Lost Easter Egg)",
+    "category": "easter_egg",
+    "categoryLabel": "Easter Eggs et Secrets",
+    "schedule": "Visible 24h/24 et 7j/7 (Toujours active)",
+    "location": "Fond marin de la côte Est (San Chianski / Davis Quartz)",
+    "zone": "Océan Pacifique oriental, San Andreas",
+    "position": {
+      "x": 4270,
+      "y": 2980,
+      "z": -155
+    },
+    "observationPoint": {
+      "x": 4180,
+      "y": 2980,
+      "z": -120,
+      "tip": "Descendez en submersible (Kraken Avisa, Stromberg ou Toreador) ou en combinaison de plongée. Maintenez une altitude prudente au-dessus de 140 mètres de profondeur, car la pression écrasera tout appareil descendant plus bas."
+    },
+    "description": "Sur le plancher océanique oriental de San Andreas, à plus de 150 mètres de profondeur au large de San Chianski, repose une mystérieuse trappe circulaire blindée encastrée dans les fonds marins. En s'en approchant, son hublot s'illumine d'un éclat doré et émet des frappements métalliques rythmés vers l'extérieur.",
+    "lore": "Un double clin d'œil légendaire conçu par Rockstar North. D'une part, la structure reproduit fidèlement la trappe de la station 'Le Cygne' de la série culte Lost. D'autre part, les signaux sonores émis en code de frappe (Tap Code) forment la phrase : 'Hey, you never call, how'd you fancy going bowling?', hommage aux appels téléphoniques incessants de Roman Bellic dans GTA IV invitant son cousin à jouer au bowling.",
+    "mechanics": [
+      "Totalement accessible et fonctionnel en plongeant ou via des véhicules submersibles (Kraken Avisa, Toreador, Stromberg ou combinaison de plongée).",
+      "Situé à plus de 150 mètres de profondeur à la frontière maritime orientale de San Andreas.",
+      "En s'approchant, le hublot supérieur s'illumine d'une lumière dorée étincelante.",
+      "Des bruits métalliques rythmés résonnent sous l'eau, traduisant la célèbre réplique de Roman Bellic en Tap Code.",
+      "Danger mortel dû à la pression extrême : si le joueur ou son véhicule franchit le seuil critique de profondeur, la pression provoque une implosion ou la mort immédiate."
+    ],
+    "clues": [
+      "Message acoustique décrypté : séquence rythmique reproduisant la célèbre proposition de Roman Bellic dans GTA IV.",
+      "Hommage à l'Initiative Dharma et au mystère de l'écoutille de la série Lost.",
+      "Emplacement extrême à la limite de résistance structurelle sous-marine du moteur de jeu."
+    ],
+    "thumbnail": "assets/data-images/mysteries/underwater_hatch.jpg",
+    "badgeColor": "#38bdf8",
+    "badgeIcon": "fa-water",
+    "badgeSymbol": "🌊",
+    "gameMode": "online",
+    "summary": "Sur le plancher océanique oriental de San Andreas, à plus de 150 mètres de profondeur au large de San Chianski, repose une mystérieuse trappe circulaire blindée encastrée dans les fonds marins. En s'en approchant, son hublot s'illumine d'un éclat doré et émet des frappements métalliques rythmés vers l'extérieur."
+  },
+  {
+    "id": "tunnel_heartbeat_mystery",
+    "order": 3,
+    "title": "Le Battement de Cœur des Tunnels Souterrains",
+    "titleEn": "The Underground Tunnel Heartbeat",
+    "category": "paranormal",
+    "categoryLabel": "Paranormal et Surnaturel",
+    "schedule": "Audible 24h/24 et 7j/7 (Dans le silence ambiant)",
+    "location": "Bifurcation des Égouts et du Métro sous Pillbox Hill",
+    "zone": "Réseau Souterrain de Los Santos",
+    "position": {
+      "x": 350,
+      "y": -620,
+      "z": -18.5
+    },
+    "observationPoint": {
+      "x": 345,
+      "y": -625,
+      "z": -18.5,
+      "tip": "Accédez à pied avec une lampe torche, coupez les moteurs et la musique, et écoutez attentivement au casque : un battement sourd et grave commence à résonner nettement depuis les parois en béton."
+    },
+    "description": "Sous les fondations des gratte-ciel de Pillbox Hill, au croisement des voies de métro et du collecteur d'eaux pluviales souterrain, règne un phénomène acoustique déconcertant : un battement rythmique, profond et régulier résonne à travers les murs de béton, simulant les pulsations cardiaques d'une créature aux dimensions colossales.",
+    "lore": "Cet enregistrement sonore a suscité d'innombrables théories depuis le lancement du jeu. Certains joueurs y ont vu une référence au cœur battant de la Statue de l'Hilarité de GTA IV à Liberty City, tandis que d'autres suspectent la présence d'une entité monstrueuse ou d'une machinerie secrète enfouie sous le centre-ville de Los Santos.",
+    "mechanics": [
+      "Le son est perceptible en permanence à pied dans cette portion précise des tunnels.",
+      "Le volume augmente à mesure que l'on se rapproche de l'intersection centrale de Pillbox Hill.",
+      "Recommandé avec un casque audio stéréo pour apprécier la réverbération basse fréquence."
+    ],
+    "clues": [
+      "Plan du réseau souterrain de drainage de Los Santos.",
+      "Connexion stylistique avec le cœur mécanique caché dans la Statue du Bonheur de GTA IV.",
+      "Vibrations audibles lors des traversées nocturnes en véhicule souterrain."
+    ],
+    "thumbnail": "assets/data-images/mysteries/tunnel_heartbeat.jpg",
+    "badgeColor": "#e11d48",
+    "badgeIcon": "fa-heart-pulse",
+    "badgeSymbol": "💓",
+    "gameMode": "online",
+    "summary": "Sous les fondations des gratte-ciel de Pillbox Hill, au croisement des voies de métro et du collecteur d'eaux pluviales souterrain, règne un phénomène acoustique déconcertant : un battement rythmique, profond et régulier résonne à travers les murs de béton, simulant les pulsations cardiaques d'une créature aux dimensions colossales."
+  },
+  {
+    "id": "mount_chiliad_mural_ufo",
+    "order": 4,
+    "title": "La Fresque du Mont Chiliad (L'OVNI des 100%)",
+    "titleEn": "Mount Chiliad Mural & The 100% UFO",
+    "category": "conspiracy",
+    "categoryLabel": "Conspirations Secrètes",
+    "schedule": "03:00 (Par temps de pluie ou d'orage)",
+    "location": "Gare supérieure du Téléphérique et Belvédère du Mont Chiliad",
+    "zone": "Sommet du Mont Chiliad, Comté de Blaine",
+    "position": {
+      "x": 450,
+      "y": 5600,
+      "z": 783
+    },
+    "observationPoint": {
+      "x": 450,
+      "y": 5580,
+      "z": 785,
+      "tip": "Atteignez 100% de progression dans le mode Histoire. Rendez-vous sur la plateforme d'observation en bois à 03h00 précises sous une pluie battante ou un orage pour apercevoir l'OVNI flottant au-dessus du pic."
+    },
+    "description": "À l'intérieur de la station supérieure du téléphérique du Mont Chiliad se trouve l'énigme la plus discutée de l'histoire de San Andreas : une fresque murale gravée représentant une pyramide surmontée d'un œil, cinq croix et trois icônes à la base : une soucoupe volante, un œuf fêlé et un personnage muni d'un jetpack. Au dos de la plateforme d'observation extérieure, une inscription avertit : 'Come back when your story is complete'.",
+    "lore": "Le mystère du Mont Chiliad a mobilisé des millions de passionnés à travers le monde. Il relie les expériences secrètes du FIB, les bases de Fort Zancudo et les cultes de la région. À 100% d'accomplissement, un véritable OVNI holographique arborant les inscriptions 'FIB' se matérialise dans les nuages au-dessus du sommet.",
+    "mechanics": [
+      "Nécessite impérativement d'avoir validé les 100% de complétion du jeu en solo.",
+      "Se manifeste à 03h00 pile par météo pluvieuse ou orageuse.",
+      "L'OVNI est un hologramme projeté depuis les installations gouvernementales : tirer dessus ou s'approcher en hélicoptère ne produit aucun impact physique.",
+      "Des éclairs et des distorsions électromagnétiques accompagnent son apparition."
+    ],
+    "clues": [
+      "La fresque murale de la station du téléphérique.",
+      "L'inscription 'Come back when your story is complete' au dos de la terrasse panoramique.",
+      "Symboles d'yeux rouges peints sous la plateforme d'observation et sur les falaises environnantes."
+    ],
+    "thumbnail": "assets/data-images/mysteries/chiliad_mural.jpg",
+    "badgeColor": "#8b5cf6",
+    "badgeIcon": "fa-ufo",
+    "badgeSymbol": "🛸",
+    "gameMode": "online",
+    "summary": "À l'intérieur de la station supérieure du téléphérique du Mont Chiliad se trouve l'énigme la plus discutée de l'histoire de San Andreas : une fresque murale gravée représentant une pyramide surmontée d'un œil, cinq croix et trois icônes à la base : une soucoupe volante, un œuf fêlé et un personnage muni d'un jetpack. Au dos de la plateforme d'observation extérieure, une inscription avertit : 'Come back when your story is complete'."
+  },
+  {
+    "id": "thelma_and_louise_cliff",
+    "order": 5,
+    "title": "Thelma & Louise (Le Saut dans le Vide)",
+    "titleEn": "Thelma & Louise Cliff Jump Easter Egg",
+    "category": "easter_egg",
+    "categoryLabel": "Easter Eggs et Secrets",
+    "schedule": "19:00 - 20:00 (Au coucher du soleil)",
+    "location": "Falaise près du Camp des Altruistes (Raton Canyon)",
+    "zone": "Zone sauvage du Mont Chiliad, Comté de Blaine",
+    "position": {
+      "x": -1980,
+      "y": 4280,
+      "z": 150
+    },
+    "observationPoint": {
+      "x": -1940,
+      "y": 4270,
+      "z": 160,
+      "tip": "Arrivez avant 19h00 et observez depuis la crête opposée à l'aide d'un hélicoptère ou d'un fusil à lunette. Vers 19h45, les gyrophares de police illuminent la falaise avant que la voiture ne plonge dans le précipice vers 19h50."
+    },
+    "description": "En fin d'après-midi, entre 19h00 et 20h00, sur les hauteurs vertigineuses de Raton Canyon à proximité du camp des Altruistes, une scène cinématographique mythique prend vie : deux femmes à bord d'un cabriolet vintage décapotable sont encerclées par des voitures de police de la LSPD aux sirènes hurlantes. Après un moment d'arrêt poignant, le cabriolet accélère brutalement et s'élance dans le vide vers le canyon.",
+    "lore": "Un hommage parfait et poignant au chef-d'œuvre cinématographique 'Thelma & Louise' (1991) réalisé par Ridley Scott. La scène reproduit le dénouement culte du film, avec le cabriolet classique, les guitares et les chapeaux de cow-boy posés sur la banquette arrière, ainsi que les négociateurs de police déployés sur les falaises.",
+    "mechanics": [
+      "L'événement se produit quotidiennement entre 19h00 et 20h00 in-game.",
+      "Une décapotable Tornado délavée se tient au bord de la falaise avec deux occupantes et des bagages à l'arrière.",
+      "Des patrouilles de police et un hélicoptère encerclent le véhicule à la tombée de la nuit.",
+      "Le véhicule accélère dans le ravin sans qu'aucune balle ne soit tirée par les forces de l'ordre.",
+      "Il est possible d'intercepter la Tornado avant le saut pour la conserver dans son garage !"
+    ],
+    "clues": [
+      "Hommage officiel au film Thelma & Louise (1991).",
+      "Bagages, guitare et accessoires rétro disposés sur la banquette arrière de la décapotable.",
+      "Emplacement spectaculaire surplombant les gorges sauvages de Raton Canyon."
+    ],
+    "thumbnail": "assets/data-images/mysteries/thelma_louise.jpg",
+    "badgeColor": "#f59e0b",
+    "badgeIcon": "fa-car-side",
+    "badgeSymbol": "🎬",
+    "gameMode": "online",
+    "summary": "En fin d'après-midi, entre 19h00 et 20h00, sur les hauteurs vertigineuses de Raton Canyon à proximité du camp des Altruistes, une scène cinématographique mythique prend vie : deux femmes à bord d'un cabriolet vintage décapotable sont encerclées par des voitures de police de la LSPD aux sirènes hurlantes. Après un moment d'arrêt poignant, le cabriolet accélère brutalement et s'élance dans le vide vers le canyon."
+  },
+  {
+    "id": "infinity_killer_merle",
+    "order": 6,
+    "title": "Le Tueur de l'Infini 8 (Merle Abrahams)",
+    "titleEn": "The Infinity 8 Killer (Merle Abrahams)",
+    "category": "crimes",
+    "categoryLabel": "Crimes Réels et Mystère Macabre",
+    "schedule": "Visible 24h/24 et 7j/7",
+    "location": "Sandy Shores (Maison incendiée), Désert de Senora, Prison de Bolingbroke et Paleto Bay",
+    "zone": "Comté de Blaine / Paleto Bay",
+    "position": {
+      "x": 1690,
+      "y": 3580,
+      "z": 35.6
+    },
+    "observationPoint": {
+      "x": 1685,
+      "y": 3575,
+      "z": 35.6,
+      "tip": "Explorez d'abord la maison brûlée de Sandy Shores, déchiffrez les poèmes inscrits sur les rochers du désert et la cour de la prison de Bolingbroke, puis plongez au nord des îles de Paleto Bay pour retrouver les 8 corps ligotés au fond de l'eau."
+    },
+    "description": "L'enquête criminelle la plus sombre et méticuleuse de San Andreas : celle de Merle Abrahams, surnommé le 'Tueur de l'Infini 8', qui a assassiné 8 victimes en 1999 et a disséminé des poèmes cryptiques, des dessins d'arbres et des coordonnées à travers le désert avant de mourir en prison.",
+    "lore": "Merle Abrahams était obsédé par le chiffre 8 et le symbole de l'infini. Après avoir mis le feu à son domicile, il fut incarcéré à la prison de Bolingbroke où il laissa des inscriptions énigmatiques sur les murs de la cour d'exercice. En suivant ses indices, les enquêteurs peuvent localiser les 8 corps emballés dans des draps et lestés sous l'océan au nord de Paleto Bay.",
+    "mechanics": [
+      "Tous les indices sont visibles et permanents en jeu en solo comme en multijoueur.",
+      "Le poème du 8 est inscrit sur les rochers du désert de Senora et sur les murs de la maison calcinée.",
+      "Les 8 corps sont immergés à des coordonnées précises au nord de l'archipel de Paleto Bay.",
+      "Utilisation recommandée d'un sous-marin ou d'un équipement de plongée sous-marine autonome pour inspecter les corps sous l'eau."
+    ],
+    "clues": [
+      "Poème macabre du chiffre 8 : '1 is done, 2 was fun, 3 tried to run...'.",
+      "Graffitis gravés dans la cour de promenade de la prison de Bolingbroke.",
+      "Cartographie marine reliant les 8 corps sous-marins au large de Paleto Bay."
+    ],
+    "thumbnail": "assets/data-images/mysteries/infinity_killer.jpg",
+    "badgeColor": "#ef4444",
+    "badgeIcon": "fa-skull-crossbones",
+    "badgeSymbol": "💀",
+    "gameMode": "online",
+    "summary": "L'enquête criminelle la plus sombre et méticuleuse de San Andreas : celle de Merle Abrahams, surnommé le 'Tueur de l'Infini 8', qui a assassiné 8 victimes en 1999 et a disséminé des poèmes cryptiques, des dessins d'arbres et des coordonnées à travers le désert avant de mourir en prison."
+  },
+  {
+    "id": "nothing_here_strawberry",
+    "order": 7,
+    "title": "'Turn Back' et 'Nothing Here' (Strawberry)",
+    "titleEn": "'Turn Back' & 'Nothing Here' (Strawberry Easter Egg)",
+    "category": "easter_egg",
+    "categoryLabel": "Easter Eggs et Secrets",
+    "schedule": "Visible 24h/24 et 7j/7",
+    "location": "Passage inférieur de l'Olympic Freeway, Strawberry",
+    "zone": "Los Santos Sud (Strawberry)",
+    "position": {
+      "x": 288,
+      "y": -1095,
+      "z": 29.4
+    },
+    "observationPoint": {
+      "x": 285,
+      "y": -1090,
+      "z": 29.4,
+      "tip": "Parcourez à pied la passerelle piétonne sous le viaduc de l'Olympic Freeway à Strawberry : au sol vous découvrirez 'TURN BACK' et sur le mur du fond la phrase 'NOTHING HERE'."
+    },
+    "description": "Dans un étroit passage technique sous le grand viaduc autoroutier de Strawberry, les concepteurs de Rockstar ont laissé des messages peints brisant le quatrième mur pour taquiner les explorateurs curieux en leur annonçant qu'ils sont arrivés dans une impasse.",
+    "lore": "Un trait d'humour classique des développeurs de jeux en monde ouvert, adressé aux joueurs fouillant chaque recoin sombre de la carte à la recherche de secrets cachés.",
+    "mechanics": [
+      "Accessible librement à pied à tout moment.",
+      "Inscriptions en peinture blanche clairement visibles avec une lampe de poche ou la lumière du jour."
+    ],
+    "clues": [
+      "Inscription peinte au pochoir sur le béton.",
+      "Passage sous l'infrastructure de l'Olympic Freeway."
+    ],
+    "thumbnail": "assets/data-images/mysteries/nothing_here.jpg",
+    "badgeColor": "#64748b",
+    "badgeIcon": "fa-ban",
+    "badgeSymbol": "🚫",
+    "gameMode": "online",
+    "summary": "Dans un étroit passage technique sous le grand viaduc autoroutier de Strawberry, les concepteurs de Rockstar ont laissé des messages peints brisant le quatrième mur pour taquiner les explorateurs curieux en leur annonçant qu'ils sont arrivés dans une impasse."
+  },
+  {
+    "id": "fridgit_snowman",
+    "order": 8,
+    "title": "Le Bonhomme de Neige de Fridgit (La Mesa)",
+    "titleEn": "The Fridgit Cold Storage Snowman",
+    "category": "easter_egg",
+    "categoryLabel": "Easter Eggs et Secrets",
+    "schedule": "Visible 24h/24 et 7j/7",
+    "location": "Entrepôt Fridgit Cold Storage, La Mesa / Cypress Flats",
+    "zone": "Los Santos Est (La Mesa)",
+    "position": {
+      "x": 885,
+      "y": -2085,
+      "z": 30.5
+    },
+    "observationPoint": {
+      "x": 880,
+      "y": -2080,
+      "z": 30.5,
+      "tip": "Approchez-vous du quai arrière de Fridgit à La Mesa, détruisez les cartons empilés dans l'entrebâillement des portes bleues coulissantes et éclairez l'intérieur avec une arme ou une lampe torche."
+    },
+    "description": "Dans le complexe industriel de l'entrepôt frigorifique Fridgit Cold Storage, un quai de chargement aux portes coulissantes entreouvertes abrite un immense bonhomme de neige géant de plus de deux mètres de haut coiffé d'un chapeau et portant une écharpe rouge vif.",
+    "lore": "Clin d'œil humoristique aux entrepôts frigorifiques où la température glaciale préserve ce bonhomme de neige tout au long de l'année sous le soleil écrasant de Los Santos.",
+    "mechanics": [
+      "Détruire au préalable les cartons bloquant la vue entre les portes coulissantes.",
+      "Utiliser une arme avec lampe torche pour illuminer le visage souriant du bonhomme de neige."
+    ],
+    "clues": [
+      "Enseigne de l'entreprise Fridgit Cold Storage.",
+      "Quai de chargement frigorifique numéro 3."
+    ],
+    "thumbnail": "assets/data-images/mysteries/fridgit_snowman.jpg",
+    "badgeColor": "#38bdf8",
+    "badgeIcon": "fa-snowman",
+    "badgeSymbol": "⛄",
+    "gameMode": "online",
+    "summary": "Dans le complexe industriel de l'entrepôt frigorifique Fridgit Cold Storage, un quai de chargement aux portes coulissantes entreouvertes abrite un immense bonhomme de neige géant de plus de deux mètres de haut coiffé d'un chapeau et portant une écharpe rouge vif."
+  },
+  {
+    "id": "yellow_jack_blood_footprints",
+    "order": 9,
+    "title": "Les Empreintes de Sang du Yellow Jack Inn",
+    "titleEn": "The Yellow Jack Inn Blood Footprints",
+    "category": "crimes",
+    "categoryLabel": "Événements Paranormaux et Crimes",
+    "schedule": "Visible 24h/24 et 7j/7 (Intérieur accessible)",
+    "location": "Yellow Jack Inn (Croisement de la Route 68 et de Panorama Drive)",
+    "zone": "Désert de Grand Senora",
+    "position": {
+      "x": 1985,
+      "y": 3050,
+      "z": 47.2
+    },
+    "observationPoint": {
+      "x": 1985,
+      "y": 3052,
+      "z": 47.2,
+      "tip": "Entrez dans le bar de motards Yellow Jack Inn sur la Route 68, marchez vers la table de billard et inspectez les planches en bois du sol pour repérer la traînée de pas sanglants qui s'arrête brusquement."
+    },
+    "description": "À l'intérieur du célèbre repaire de motards Yellow Jack Inn sur la Route 68, le plancher en bois situé à côté de la table de billard révèle des traces de pas de pieds nus imprégnées de sang frais qui s'interrompent subitement au milieu de la pièce sans laisser d'issue.",
+    "lore": "Le Yellow Jack Inn est le théâtre régulier d'affrontements violents entre le gang des Lost MC et les trafiquants du désert. Les traces suggèrent une agression nocturne brutale dont le corps semble avoir disparu mystérieusement dans les airs.",
+    "mechanics": [
+      "Entrez librement dans le bar pendant les heures d'ouverture.",
+      "Baissez la caméra vers le sol près du coin billard pour observer les détails des empreintes de pas ensanglantées."
+    ],
+    "clues": [
+      "Bar emblématique des motards de Blaine County.",
+      "Empreintes de pas nets et gouttes de sang séché sur le parquet."
+    ],
+    "thumbnail": "assets/data-images/mysteries/yellow_jack_inn.jpg",
+    "badgeColor": "#b91c1c",
+    "badgeIcon": "fa-shoe-prints",
+    "badgeSymbol": "👣",
+    "gameMode": "online",
+    "summary": "À l'intérieur du célèbre repaire de motards Yellow Jack Inn sur la Route 68, le plancher en bois situé à côté de la table de billard révèle des traces de pas de pieds nus imprégnées de sang frais qui s'interrompent subitement au milieu de la pièce sans laisser d'issue."
   },
   {
     "id": "greyfriars_bobby_dog",
-    "order": 2,
-    "title": "El Perro de la Tumba (Homenaje a Bobby)",
+    "order": 10,
+    "title": "Le Chien du Cimetière (Hommage à Bobby)",
     "titleEn": "The Graveyard Dog (Greyfriars Bobby Tribute)",
     "category": "easter_egg",
-    "categoryLabel": "Easter eggs et secrets",
+    "categoryLabel": "Mode Histoire / Hommage",
     "schedule": "10:00 - 14:00",
-    "location": "Pacific Bluffs Cemetery / Hill Valley Church",
+    "location": "Cimetière de Pacific Bluffs / Église de Hill Valley",
     "zone": "Pacific Bluffs, Los Santos",
     "position": {
       "x": -2120.8,
@@ -59,427 +380,106 @@
       "x": -2105,
       "y": -415,
       "z": 13.5,
-      "tip": "Arrive around 10:30 AM near the main cemetery gate. If you wait quietly, you will see the little terrier walk in along the gravel path towards the grave."
+      "tip": "Arrivez vers 10h30 près de la grille principale du cimetière. En attendant paisiblement, vous verrez un petit terrier pénétrer dans l'allée en gravier et se recueillir sur une tombe fleurie."
     },
-    "description": "Every morning between 10:00 and 14:00, a small terrier enters the cemetery of Hill Valley Church in Pacific Bluffs and walks up to a grave adorned with fresh flowers that simply reads 'In loving memory'. It sits patiently beside it for several minutes in mourning before walking away peacefully.",
-    "lore": "This touching event is a direct tribute by Rockstar North to Greyfriars Bobby, the legendary Skye Terrier from Edinburgh, Scotland. In the 19th century, Bobby spent 14 years guarding the grave of his master John Gray at Greyfriars Kirkyard until his death in 1872. Rockstar North, located in Edinburgh just minutes away from Bobby's statue and cemetery, immortalized this famous story of canine loyalty within the world of Los Santos.",
+    "description": "Chaque matin entre 10h00 et 14h00, un petit chien terrier pénètre seul dans le cimetière de l'église de Hill Valley à Pacific Bluffs et marche jusqu'à une sépulture ornée de fleurs fraîches portant la mention 'In loving memory'. Il reste assis auprès d'elle en signe de deuil pendant plusieurs minutes avant de repartir paisiblement.",
+    "lore": "Un hommage émouvant conçu par Rockstar North à Greyfriars Bobby, le célèbre Skye Terrier d'Édimbourg en Écosse, qui passa 14 années à veiller sur la tombe de son maître au XIXe siècle. Rockstar North, dont le siège historique se trouve à Édimbourg tout près de la statue de Bobby, a immortalisé cette légende de fidélité canine dans les collines de Los Santos.",
     "mechanics": [
-      "The event triggers daily between 10:00 and 14:00 in-game time.",
-      "The dog walks alone through the cemetery gates towards the flower-covered headstone.",
-      "It sits calmly with its head down for several minutes before getting up and leaving.",
-      "If followed peacefully on foot, the dog walks down the hill toward a nearby house in Pacific Bluffs before stopping.",
-      "Exclusive and guaranteed in Story Mode (single player campaign) on all platforms."
+      "L'événement se déclenche quotidiennement entre 10h00 et 14h00 in-game en mode Histoire.",
+      "Le chien marche calmement le long des allées jusqu'à la tombe fleurie.",
+      "Il s'assoit la tête basse et reste immobile pendant un long moment de recueillement.",
+      "Si vous le suivez à distance sans l'effrayer, il redescend la colline vers une maison voisine de Pacific Bluffs."
     ],
     "clues": [
-      "Headstone inscription: 'In loving memory' with a vase of fresh flowers that stands out against older surrounding graves.",
-      "Edinburgh connection: Rockstar North developed GTA V from its headquarters in Edinburgh, where Bobby is a beloved historical icon.",
-      "Memorial bench: Nearby in the same cemetery stands a memorial bench dedicated to late Rockstar Leeds artist Chris Edwards."
+      "Tombe arborant un vase de fleurs fraîches et l'épitaphe 'In loving memory'.",
+      "Connexion avec Édimbourg et le studio Rockstar North.",
+      "Banc commémoratif situé à proximité dédié à un artiste disparu de Rockstar Leeds."
     ],
     "thumbnail": "assets/data-images/mysteries/greyfriars_bobby.jpg",
     "badgeColor": "#06b6d4",
     "badgeIcon": "fa-dog",
     "badgeSymbol": "🐶",
-    "gameMode": "story"
-  },
-  {
-    "id": "underwater_lost_hatch",
-    "order": 3,
-    "title": "La Escotilla Submarina Secreta (Lost)",
-    "titleEn": "The Secret Underwater Hatch (Lost Easter Egg)",
-    "category": "easter_egg",
-    "categoryLabel": "Easter eggs et secrets",
-    "schedule": "Visible 24/7 (Always Active)",
-    "location": "Eastern Coast Seabed (San Chianski / Davis Quartz)",
-    "zone": "Eastern Pacific Ocean, San Andreas",
-    "position": {
-      "x": 4270,
-      "y": 2980,
-      "z": -155
-    },
-    "observationPoint": {
-      "x": 4180,
-      "y": 2980,
-      "z": -120,
-      "tip": "Descend using a submersible (Submersible or Kraken) or scuba suit. Maintain a safe depth above 140 meters: the hatch sits in the lethal crush depth zone, and getting too close will instantly implode your vehicle or kill your character."
-    },
-    "description": "Deep on the ocean floor off the eastern coast of San Andreas, lies a sealed circular steel hatch embedded in the seabed over 150 meters down. When approaching, a small rectangular glass window lights up with a warm glow, accompanied by rhythmic metallic tapping sounds originating from within.",
-    "lore": "This structure is a legendary double Easter egg by Rockstar Games. On one hand, it faithfully replicates 'The Hatch' from the Swan station in the TV show Lost. On the other hand, the rhythmic metallic knocking sounds form a message encoded in Tap Code that translates to: 'Hey, you never call, how'd you fancy going bowling?'—an iconic nod to Roman Bellic's persistent phone calls in GTA IV.",
-    "mechanics": [
-      "Located over 150 meters underwater at the eastern edge of the map.",
-      "Approaching via submersible or diving causes the top window to illuminate.",
-      "Rhythmic underwater metallic taps play periodically, encoding Roman Bellic's bowling invitation in tap code.",
-      "Cannot be opened, penetrated, or entered.",
-      "Extreme water pressure danger: Descending too close triggers the crush depth kill boundary, instantly destroying any submersible and killing the player."
-    ],
-    "clues": [
-      "Decoded Tap Code message: 'Hey, you never call, how'd you fancy going bowling?'—a tribute to Niko's cousin Roman from GTA IV.",
-      "Lost TV series reference: Modeled closely after the Dharma Initiative's underground hatch discovered by Locke and Boone.",
-      "Crush depth hazard: Strategically placed right on the edge of the game's maximum survivable ocean depth."
-    ],
-    "thumbnail": "assets/data-images/mysteries/underwater_hatch.jpg",
-    "badgeColor": "#38bdf8",
-    "badgeIcon": "fa-water",
-    "badgeSymbol": "🌊",
-    "gameMode": "story"
-  },
-  {
-    "id": "tunnel_heartbeat_mystery",
-    "order": 4,
-    "title": "Subway Tunnels Heartbeat",
-    "titleEn": "The Underground Tunnel Heartbeat",
-    "category": "paranormal",
-    "categoryLabel": "Paranormal et surnaturel",
-    "schedule": "Audible 24/7 (In ambient silence)",
-    "location": "Sewer and Metro Junction beneath Pillbox Hill",
-    "zone": "Los Santos Underground Network",
-    "position": {
-      "x": 350,
-      "y": -620,
-      "z": -18.5
-    },
-    "observationPoint": {
-      "x": 345,
-      "y": -615,
-      "z": -18,
-      "tip": "Enter on foot with a weapon flashlight. Stop any vehicle, turn off in-game radio, and stand completely still for 10-15 seconds wearing headphones: the rhythmic 'thump-thump... thump-thump' heartbeat will begin echoing distinctly from deep within the concrete walls."
-    },
-    "description": "Deep beneath the foundations of downtown Los Santos and Pillbox Hill, a forgotten junction connects the subterranean metro lines with the storm drain tunnels. In this humid, pitch-black space, players encounter an unsettling phenomenon: a low-frequency, rhythmic thumping that sounds unmistakably like a massive human heartbeat echoing through the subterranean rock.",
-    "lore": "Far below the hustle of the streets above, the Los Santos underground conceals an eerie atmosphere that sparked one of San Andreas's most enduring urban legends. On the damp concrete walls near this junction, red graffiti hearts and cryptic tags suggest that the city itself harbors an organic pulse beneath the concrete. Mystery hunters believe an undiscovered entity nests in the abandoned maintenance vaults, while others claim the city was conceived as a living organism breathing in the dark.",
-    "mechanics": [
-      "Active 24/7 in the underground maintenance network beneath Pillbox Hill.",
-      "Originates from an ambient low-frequency sound emitter ('HEARTBEAT_LOW_LOOP') embedded at the intersection.",
-      "Requires standing motionless without gunshots, engines, or radios for the pulse to emerge over ambient water dripping.",
-      "The pulse maintains a steady cadence of roughly 55-60 beats per minute, matching a resting human heart."
-    ],
-    "clues": [
-      "Access Route 1 (Los Santos River Storm Drain): The massive concrete outfall at Murrieta Heights (the iconic bike getaway tunnel from the Jewel Store Job). Ride straight into the canal tunnel until reaching the first major underground intersection.",
-      "Access Route 2 (Strawberry / Pillbox South Subway): Walk down the station escalators to the subway tracks and head north along the tracks into the maintenance shafts.",
-      "Access Route 3 (Olympic Freeway Maintenance Tunnel): Direct entrance via the underground construction excavation shafts near the Mile High Club.",
-      "Graffiti on concrete: Red spray-painted heart emblems and ominous tags adorn the damp walls near the sound emitter."
-    ],
-    "thumbnail": "assets/data-images/mysteries/tunnel_heartbeat.jpg",
-    "badgeColor": "#ef4444",
-    "badgeIcon": "fa-heart-pulse",
-    "badgeSymbol": "❤️",
-    "gameMode": "story"
-  },
-  {
-    "id": "mount_chiliad_mural_ufo",
-    "order": 5,
-    "title": "El Mural del Monte Chiliad (El OVNI del 100%)",
-    "titleEn": "The Mount Chiliad Mural (The 100% UFO Mystery)",
-    "category": "conspiracy",
-    "categoryLabel": "Conspirations secrètes",
-    "schedule": "03:00 AM (During rain or thunderstorm)",
-    "location": "Mount Chiliad Cable Car Summit Station & Observation Deck",
-    "zone": "Mount Chiliad Summit, Blaine County",
-    "position": {
-      "x": 446,
-      "y": 5575,
-      "z": 781
-    },
-    "observationPoint": {
-      "x": 452,
-      "y": 5580,
-      "z": 782,
-      "tip": "Complete 100% of the game. Stand on the wooden observation deck behind the cable car station at 03:00 AM during a rainy or stormy night. Look up into the sky and the colossal holographic FIB mothership will appear humming over the summit."
-    },
-    "description": "On the weathered concrete wall inside the upper cable car station at the peak of Mount Chiliad sits the most famous and debated mystery mural in video game history: a pyramid topped by the All-Seeing Eye, a network of lines with five 'X' marks, and three base glyphs (a flying saucer UFO, a cracked egg, and a person with a jetpack). On the back of the wooden observation deck outside, an etched inscription reads: 'Come back when your story is complete'.",
-    "lore": "For over a decade, the r/ChiliadMystery community theorized about secret mountain tunnels hiding a flyable jetpack or alien egg. In 2025, creator and researcher Gator Keys proposed what is now considered the 'most widely accepted theory' among fans: the mural was never a puzzle to unlock an interior door, but a symbolic roadmap and instruction summarizing the ultimate 100% completion reward. In this interpretation: the egg represents the player's birth and progression from novice to full 100% mastery; the jetpack symbolizes the instruction to 'fly high' into the upper atmosphere; and the UFO represents discovering the FIB and alien crafts monitoring San Andreas, crowned by the All-Seeing Eye—the peak sighting atop Mount Chiliad. While Rockstar Games has never officially confirmed it, Gator Keys' theory stands as the most coherent explanation of the mural's intent.",
-    "mechanics": [
-      "Prerequisite for UFO manifestation: 100% official game progression in single-player stats.",
-      "Weather requirement: Rain or severe thunderstorm active.",
-      "Time window: The UFO only spawns at precisely 03:00 AM in-game.",
-      "Observation point: The wooden summit observation deck overlooking the northern wilderness.",
-      "UFO nature: Features FIB markings on its hull and projects a light beam; flying directly toward it causes it to vanish, proving it is a holographic cloaking projection or experimental stealth technology.",
-      "The physical wall mural inside the cable car summit station is visible 24/7 without prerequisites in both Story Mode and GTA Online."
-    ],
-    "clues": [
-      "Carved wooden platform inscription: 'Come back when your story is complete'—Rockstar's direct developer hint to achieve 100% completion before searching.",
-      "The 3 San Andreas UFOs: Mount Chiliad (holographic at 03:00 AM), Fort Zancudo (high-altitude military stealth craft), and Sandy Shores (FIB-badged craft above the Beam Me Up monument).",
-      "Gator Keys Theory (2025 - 'Most Accepted Theory'): Outlines the mural as a metaphorical manual for 100%: Egg (player growth), Jetpack (fly high), and UFO (summit reward). Not officially confirmed by Rockstar.",
-      "Five Red Mountain Glyphs: Hidden across the crags of Mount Chiliad are 5 glyphs matching the mural's 5 'X' marks, showing the eye, crescent moon, and rain needed to trigger the event."
-    ],
-    "thumbnail": "assets/data-images/mysteries/chiliad_mural.jpg",
-    "badgeColor": "#06b6d4",
-    "badgeIcon": "fa-eye",
-    "badgeSymbol": "👁️",
-    "gameMode": "story"
-  },
-  {
-    "id": "thelma_and_louise_cliff",
-    "order": 6,
-    "title": "Thelma & Louise (The Cliff Leap)",
-    "titleEn": "Thelma & Louise (The Cliff Jump)",
-    "category": "easter_egg",
-    "categoryLabel": "Easter eggs et secrets",
-    "schedule": "19:00 - 20:00 (Sunset)",
-    "location": "Cliff overlooking Raton Canyon near the Altruist Camp",
-    "zone": "Chiliad Mountain State Wilderness, Blaine County",
-    "position": {
-      "x": -1015,
-      "y": 4890,
-      "z": 260
-    },
-    "observationPoint": {
-      "x": -980,
-      "y": 4860,
-      "z": 275,
-      "tip": "Arrive before 19:00 and observe from the opposite ridge or via helicopter at a medium distance (standing directly at the spawn point prevents the event from loading). Between 19:00 and 19:45, police cruisers with blaring sirens corner the convertible. At 19:45-20:00, the car guns the engine and plummets into the abyss."
-    },
-    "description": "At the dead end of a rocky promontory overlooking Raton Canyon, near the Altruist Camp, one of cinema's most famous finales is reenacted daily between 19:00 and 20:00: two women in a classic convertible Declasse Tornado are cornered by Sheriff and state police cruisers. With sirens screaming and officers aiming their weapons, the convertible guns forward off the cliff edge, plummeting into the canyon bottom and exploding.",
-    "lore": "This scripted random encounter is a shot-for-shot homage to the climactic final scene of Ridley Scott's 1991 movie 'Thelma & Louise', starring Susan Sarandon and Geena Davis. In the film, the two outlaw friends accelerate their convertible into the Grand Canyon rather than face capture. Rockstar Games recreated the sequence with meticulous detail, including two acoustic guitars and a sombrero resting in the convertible's back seat (the iconic 'Mariachi Tornado'). Mystery hunters discovered that by sniping the driver from a long distance before the car accelerates, or blocking the ledge with a helicopter, players can claim and preserve this unique vehicle.",
-    "mechanics": [
-      "Triggers daily between 19:00 and 20:00 in-game time during the golden hour sunset.",
-      "Requires maintaining visual distance from the cliff edge prior to 19:00 to let the police script and Tornado spawn.",
-      "Around 19:45-20:00, the driver guns the throttle, sending the vehicle over the precipice into Cassidy Creek below.",
-      "Unique vehicle obtainable: The Tornado Mariachi features two acoustic guitars and distinct rear props. Sniping the driver from long range allows players to steal and keep the vehicle.",
-      "Present and functional in both Story Mode and GTA Online sessions."
-    ],
-    "clues": [
-      "Backseat vehicle props: Two acoustic guitars and a Mexican sombrero placed in the convertible's rear seat.",
-      "Golden hour lighting: The warm sunset lighting deliberately mirrors the cinematography of the 1991 movie finale.",
-      "Sheriff response team: Multiple cruisers with officers taking cover behind open doors demanding surrender."
-    ],
-    "thumbnail": "assets/data-images/mysteries/thelma_and_louise.jpg",
-    "badgeColor": "#f59e0b",
-    "badgeIcon": "fa-car",
-    "badgeSymbol": "🚗",
-    "gameMode": "story"
+    "gameMode": "story",
+    "summary": "Chaque matin entre 10h00 et 14h00, un petit chien terrier pénètre seul dans le cimetière de l'église de Hill Valley à Pacific Bluffs et marche jusqu'à une sépulture ornée de fleurs fraîches portant la mention 'In loving memory'. Il reste assis auprès d'elle en signe de deuil pendant plusieurs minutes avant de repartir paisiblement."
   },
   {
     "id": "ufos_100_percent_story",
-    "order": 7,
-    "title": "The 100% UFOs (The Secret Triad)",
+    "order": 11,
+    "title": "Les OVNIs des 100% (La Triade Secrète)",
+    "titleEn": "The 100% UFO Triad (Fort Zancudo, Sandy Shores & Chiliad)",
     "category": "conspiracy",
-    "categoryLabel": "Conspirations secrètes",
-    "summary": "Three mysterious extraterrestrial and military aircraft appear across San Andreas skies exclusively after reaching 100% game completion. Located above Fort Zancudo, Sandy Shores, and Mount Chiliad.",
-    "location": "Fort Zancudo, Sandy Shores (Beam Me Up), and Mount Chiliad",
-    "zone": "San Andreas Upper Airspace",
-    "schedule": "Fort Zancudo & Sandy Shores: 24/7 | Mount Chiliad: 03:00 AM (Rain or Thunderstorm)",
+    "categoryLabel": "Conspirations Secrètes",
+    "schedule": "Fort Zancudo et Sandy Shores : 24h/24 | Mont Chiliad : 03:00 (Par temps de pluie/orage)",
+    "location": "Fort Zancudo, Sandy Shores (Beam Me Up) et Mont Chiliad",
+    "zone": "Haute Atmosphère de San Andreas",
     "position": {
-      "x": -2055,
-      "y": 3237,
+      "x": -2050,
+      "y": 3230,
       "z": 1450
     },
     "observationPoint": {
-      "x": -2055,
-      "y": 3237,
-      "z": 1350,
-      "tip": "Requires 100% story completion. The Fort Zancudo UFO hovers at extreme altitude (~1,450 m). It is an experimental military stealth saucer with rotating panels. It produces deafening electronic hums and an EMP pulse that cuts your aircraft engines if you approach too closely."
+      "x": -2050,
+      "y": 3230,
+      "z": 1400,
+      "tip": "Nécessite impérativement de terminer le jeu à 100%. L'OVNI expérimental de Fort Zancudo plane à très haute altitude (~1 450 m). Il génère des bourdonnements intenses et une impulsion EMP qui coupe les moteurs des avions s'en approchant trop près."
     },
-    "lore": "Reaching 100% completion in Story Mode unlocks San Andreas' greatest conspiracy: three hovering saucers materialize across the skies:\n1. Mount Chiliad: Appears directly over the observation deck at 03:00 AM during rain or stormy weather. It is a cloaked FIB hologram that dissolves when approached.\n2. Sandy Shores (Beam Me Up): Hovers at ceiling altitude (~1,100 m) above the colorful hippie art installation, displaying FIB stencils and emitting low gravitational hums.\n3. Fort Zancudo: A pitch-black tactical craft featuring a fighter jet cockpit, spinning segmented panels, and blinding strobes. Marked with 'DNR' and the anagram 'SEGREGATE AND REARRANGE' (spelling 'EASTER EGG'). Approaching it triggers an EMP wave that disables any aircraft engines, subjecting players to violent turbulence.",
+    "description": "Une fois les 100% de complétion atteints, trois immenses vaisseaux extraterrestres deviennent observables à très haute altitude au-dessus de San Andreas : la soucoupe militaire furtive de Fort Zancudo avec ses panneaux tournants, le vaisseau du FIB au-dessus du monument hippie de Sandy Shores, et l'hologramme du Mont Chiliad.",
+    "lore": "Ces vaisseaux confirment la conspiration gouvernementale liant le FIB et les forces armées américaines dans l'expérimentation de technologies extraterrestres rétro-conçues, dissimulées sous le couvert d'opérations militaires secrètes.",
     "mechanics": [
-      "Mandatory requirement: 100% completion in the Story Mode stats checklist.",
-      "Fort Zancudo UFO: Hovers at extreme altitude (~1,450 meters) over the military base. Fully solid with physics collision, EMP engine-kill radius, and strong gravitational repulsion.",
-      "Sandy Shores UFO: Hovers at maximum height (~1,100 meters) above the 'Beam Me Up' hippie park, present 24/7 once 100% is unlocked.",
-      "Mount Chiliad UFO: Appears exclusively at 03:00 AM during rain or thunderstorm over the wooden deck. Fades out upon close inspection due to being an FIB holographic projection.",
-      "Story Mode Exclusive: Does not exist in standard GTA Online multiplayer sessions."
+      "Accessibles uniquement après avoir débloqué le succès/trophée des 100% en mode Histoire.",
+      "Pilotez un avion rapide ou un hélicoptère jusqu'au plafond maximal d'altitude du jeu.",
+      "L'OVNI de Zancudo produit un champ EMP qui neutralise temporairement les instruments de vol et désactive les moteurs."
     ],
     "clues": [
-      "Mount Chiliad observation deck carving: 'Come back when your story is complete'.",
-      "The Mount Chiliad cable car mural connecting the saucer, egg, and jetpack.",
-      "The stealth saucer anagram on Fort Zancudo's hull: 'SEGREGATE AND REARRANGE' ('EASTER EGG').",
-      "Official FIB markings stamped on both the Chiliad and Sandy Shores saucers, implicating federal government agencies."
+      "Symbole 'Beam Me Up' peint sur la colline hippie de Sandy Shores.",
+      "Logos officiels du FIB inscrits sur la coque des soucoupes volantes.",
+      "Rapports d'observations célestes enregistrés par l'observatoire Galileo."
     ],
-    "thumbnail": "assets/data-images/mysteries/ufos_100_percent.jpg",
+    "thumbnail": "assets/data-images/mysteries/ufo_triad.jpg",
     "badgeColor": "#10b981",
     "badgeIcon": "fa-satellite",
     "badgeSymbol": "🛸",
-    "gameMode": "story"
-  },
-  {
-    "id": "infinity_killer_merle",
-    "order": 8,
-    "title": "The Infinity 8 Killer (Merle Abrahams)",
-    "category": "crime",
-    "categoryLabel": "True Crime & Macabre Mystery",
-    "summary": "Merle Abrahams, a sadistic serial killer obsessed with the number 8 and infinity, murdered 8 victims in 2004, leaving cryptic clues across San Andreas leading to their submerged bodies north of Paleto Bay.",
-    "location": "Sandy Shores (House), Senora Desert (Rocks), Bolingbroke Penitentiary & Paleto Bay (Sunken Bodies)",
-    "zone": "Blaine County / Paleto Bay",
-    "schedule": "Visible 24/7",
-    "position": {
-      "x": 2434,
-      "y": 4966,
-      "z": 46
-    },
-    "observationPoint": {
-      "x": 2434,
-      "y": 4966,
-      "z": 46,
-      "tip": "Begin by investigating the burnt shack in Sandy Shores covered in '8' graffiti. Then head to the small islands north of Paleto Bay: diving around 20 meters underwater reveals all 8 plastic-wrapped bodies tied to the seabed."
-    },
-    "lore": "In December 2004, Blaine County was shaken by the disappearance of 8 male joggers. The culprit was Merle Abrahams, an isolated recluse suffering from an obsessive fixation with the number eight and infinity. Captured and incarcerated in Bolingbroke Penitentiary, he died at age 57 awaiting trial without ever confessing where he hid the bodies.\n\nNevertheless, Merle left behind a chilling trail across the state:\n1. His burned-out Sandy Shores house, covered in tally marks and the phrase '8 is just infinity stood up'.\n2. Boulders in Grand Senora Desert inscribed with a sinister nursery rhyme ('1 is done, 2 was fun, 3 tried to run...').\n3. His prison cell and exercise yard at Bolingbroke, featuring a crude map pointing north.\n4. The underwater cemetery: in the deep waters around the islets north of Paleto Bay lie all 8 bodies, wrapped in plastic sheeting and anchored with cinder blocks.",
-    "mechanics": [
-      "All four clue sites (house, rocks, prison wall, and ocean grave) exist in both Story Mode and GTA Online.",
-      "The 8 submerged corpses lie 20-25 meters deep off the northern islands of Paleto Bay; a scuba suit or submersible is recommended.",
-      "In Bolingbroke Penitentiary's exercise yard, chalk writing reads: 'Where water meets land and fire once spewed forth. There the infinite 8 shall stay. Until I return'.",
-      "One of the most extensive and intricate environmental crime mysteries crafted by Rockstar Games."
-    ],
-    "clues": [
-      "The rock rhyme: 'One is done. Two was fun. Three tried to run. Four called mom. Fives not alive. Six is nix. Sevens in heaven. 8 won't wait'.",
-      "Sandy Shores graffiti: 'Go away Merle Abrahams. You're a wrong 'un' painted by outraged neighbors.",
-      "Prison yard map: Clearly outlines the distinct coastal archipelago of Paleto Cove.",
-      "The sunken bodies: Each plastic-wrapped bundle on the ocean floor has the number '8' drawn in marker on the duct tape."
-    ],
-    "thumbnail": "assets/data-images/mysteries/infinity_killer_8.jpg",
-    "badgeColor": "#dc2626",
-    "badgeIcon": "fa-skull-crossbones",
-    "badgeSymbol": "♾️",
-    "gameMode": "both"
+    "gameMode": "story",
+    "summary": "Une fois les 100% de complétion atteints, trois immenses vaisseaux extraterrestres deviennent observables à très haute altitude au-dessus de San Andreas : la soucoupe militaire furtive de Fort Zancudo avec ses panneaux tournants, le vaisseau du FIB au-dessus du monument hippie de Sandy Shores, et l'hologramme du Mont Chiliad."
   },
   {
     "id": "sasquatch_predator_story",
-    "order": 9,
-    "title": "The Sasquatch in 'Predator'",
+    "order": 12,
+    "title": "Le Bigfoot dans la mission 'Prédateur'",
+    "titleEn": "The Sasquatch in 'Predator' Mission",
     "category": "cryptid",
-    "categoryLabel": "Exclusive Story Mode / Cryptozoology",
-    "summary": "During the Story Mode mission 'Predator', Michael's thermal sniper scope briefly captures the luminous silhouette of the mythical Bigfoot hidden among Raton Canyon's pine trees.",
-    "location": "Raton Canyon / Cassidy Creek Woods",
-    "zone": "Raton Canyon",
-    "schedule": "During the Story Mode mission 'Predator'",
+    "categoryLabel": "Exclusivité Mode Histoire / Cryptozoologie",
+    "schedule": "Pendant la mission 'Prédateur' du Mode Histoire",
+    "location": "Canyon de Raton / Forêts de Cassidy Creek",
+    "zone": "Canyon de Raton",
     "position": {
-      "x": -1550,
-      "y": 4470,
-      "z": 15
+      "x": -1470,
+      "y": 4480,
+      "z": 45
     },
     "observationPoint": {
-      "x": -1550,
-      "y": 4470,
-      "z": 15,
-      "tip": "During the 'Predator' mission, while sniping from the chopper with Michael's thermal scope, scan the lower-right area among the pines before killing the final O'Neil brother. You will spot a glowing thermal bipedal beast standing upright."
+      "x": -1450,
+      "y": 4450,
+      "z": 120,
+      "tip": "Pendant la mission 'Prédateur', lorsque vous visez depuis l'hélicoptère avec la lunette thermique de Michael, regardez en bas à droite de la forêt avant d'éliminer le dernier frère O'Neil : vous repérerez une silhouette bipède massive émettant de la chaleur corporelle."
     },
-    "lore": "The Sasquatch (Bigfoot) myth has reigned as the ultimate Grand Theft Auto urban legend since the days of GTA San Andreas in the woods of Back O' Beyond. In GTA V, Rockstar Games included explicit, undeniable homages.\n\nThe most famous appears during the Story Mode mission 'Predator'. While Trevor pilots the helicopter and Michael uses an infrared thermal sniper scope to locate the three O'Neil brothers hiding in the dense forest of Raton Canyon, sweeping the lower-right woods reveals the unmistakable silhouette of a giant bipedal ape. If the player centers the crosshairs or fires a shot, the Sasquatch instantly dissolves into thin air without a trace.",
+    "description": "Lors de la traque nocturne des frères O'Neil dans les forêts denses de Raton Canyon, la lunette thermique de Michael permet d'apercevoir une imposante silhouette bipède couverte de poils dressée entre les sapins. Si vous zoomez sur elle, elle vous regarde brièvement avant de s'évanouir dans les sous-bois.",
+    "lore": "Le Sasquatch (Bigfoot) est la légende urbaine la plus emblématique de la saga GTA depuis San Andreas. Rockstar a officialisé sa présence à travers cette apparition thermique et lors de la mission secrète finale 'Espèce menacée' avec Franklin à 100% de jeu.",
     "mechanics": [
-      "Only accessible during the Story Mode mission 'Predator' (or via mission replay from the pause menu).",
-      "Appears as a bulky humanoid heat signature in the lower-right sector of the thermal optic.",
-      "Vanish mechanic: Staring directly through high zoom or firing any round causes the 3D model to disappear within a single frame.",
-      "Connection to 100%: Previews the post-100% Strangers and Freaks mission 'The Last One', where Franklin tracks down an obsessive Bigfoot hunter."
+      "Visible exclusivement lors de la séquence de tir thermique dans l'hélicoptère de la mission 'Prédateur'.",
+      "La signature thermique est plus large et plus trapue que celle des fugitifs humains.",
+      "Tirer sur la silhouette ne l'élimine pas, elle s'évapore instantanément dans la nuit."
     ],
     "clues": [
-      "Accurate thermal silhouette: Broad shoulders, elongated dangling arms, and slouched posture unmistakably match a Sasquatch.",
-      "Mission title reference: 'Predator' pays direct tribute to the 1987 sci-fi film where the extraterrestrial hunter scans the jungle with thermal vision.",
-      "Ballistic immunity: Bullets pass through without hit markers or blood, triggering instantaneous evaporation."
+      "Mission 'Prédateur' de la campagne solo.",
+      "Mission secrète du 100% 'Espèce menacée' (The Last One) avec Franklin.",
+      "Peyotl doré spécial permettant d'incarner le Sasquatch dans San Andreas."
     ],
     "thumbnail": "assets/data-images/mysteries/sasquatch_predator.jpg",
-    "badgeColor": "#059669",
+    "badgeColor": "#d97706",
     "badgeIcon": "fa-paw",
-    "badgeSymbol": "🦧",
-    "gameMode": "story"
-  },
-  {
-    "id": "nothing_here_strawberry",
-    "order": 10,
-    "title": "'Turn Back' and 'Nothing Here' (Strawberry)",
-    "category": "easter_egg",
-    "categoryLabel": "Easter eggs et secrets",
-    "summary": "In a secluded underpass alley beneath the Olympic Freeway in Strawberry, Rockstar developers left spray-painted messages trolling curious explorers: 'Turn Back' and 'Nothing Here'.",
-    "location": "Olympic Freeway Underpass, Strawberry",
-    "zone": "South Los Santos (Strawberry)",
-    "schedule": "Visible 24/7",
-    "position": {
-      "x": 298,
-      "y": -1080,
-      "z": 29.4
-    },
-    "observationPoint": {
-      "x": 298,
-      "y": -1080,
-      "z": 29.4,
-      "tip": "Walk down the pedestrian service path running beneath the Olympic Freeway overpass in Strawberry. Look down to see 'TURN BACK' stenciled on the pavement, then look at the facing concrete wall to read 'NOTHING HERE' in red paint."
-    },
-    "lore": "Ever since Grand Theft Auto III (featuring the iconic 'You weren't supposed to be able to get here you know' sign) and GTA San Andreas (atop the Gant Bridge: 'There are no Easter Eggs up here. Go away.'), Rockstar North has maintained a tradition of mocking players who venture into out-of-the-way dead ends.\n\nIn GTA V, this joke is tucked away under the freeway in Strawberry. Walking down a narrow concrete pathway leads to a dead end where 'TURN BACK' is boldly painted across the tarmac. Turning toward the end wall reveals 'NOTHING HERE' in dripping red spray paint.\n\nTo complete the gag in the Enhanced editions (PC/PS4/PS5/Xbox One/Series), Rockstar added 'Sorry, I Lied' alongside one of the 50 collectible Space Monkey Mosaics.",
-    "mechanics": [
-      "Embedded in static map geometry, freely accessible on foot in both Story Mode and GTA Online.",
-      "Located in the pedestrian pathway connecting the Olympic Freeway service embankment and Strawberry Avenue.",
-      "In Enhanced versions, includes an exclusive Story Mode Monkey Mosaic beside the 'Sorry, I Lied' graffiti."
-    ],
-    "clues": [
-      "Ground stencil: Large white painted text reading 'TURN BACK' aligned with player movement.",
-      "Wall lettering: 'NOTHING HERE' written in blood-red paint.",
-      "Rockstar's metanarrative humor: Openly rewarding explorers with confirmation that their search was entirely futile."
-    ],
-    "thumbnail": "assets/data-images/mysteries/nothing_here_strawberry.jpg",
-    "badgeColor": "#6366f1",
-    "badgeIcon": "fa-ban",
-    "badgeSymbol": "🛑",
-    "gameMode": "both"
-  },
-  {
-    "id": "fridgit_snowman",
-    "order": 11,
-    "title": "The Fridgit Snowman (La Mesa)",
-    "category": "easter_egg",
-    "categoryLabel": "Easter eggs et secrets",
-    "summary": "Inside the Fridgit Cold Storage facility in La Mesa, a slightly ajar sliding door blocked by cardboard boxes conceals a chillingly cheerful giant snowman in the dark freezer.",
-    "location": "Fridgit Cold Storage Warehouse, La Mesa / Cypress Flats",
-    "zone": "East Los Santos (La Mesa)",
-    "schedule": "Visible 24/7",
-    "position": {
-      "x": 935,
-      "y": -2175,
-      "z": 30.5
-    },
-    "observationPoint": {
-      "x": 935,
-      "y": -2175,
-      "z": 30.5,
-      "tip": "Head to the alley beside the Fridgit warehouse in La Mesa. Locate the blue metal sliding bay doors cracked open a few inches. Shoot or blow away the cardboard boxes blocking the slit, then illuminate the interior with a flashlight or sniper scope to spot the snowman."
-    },
-    "lore": "Located in the industrial district of La Mesa and Cypress Flats stands the cold storage warehouse 'Fridgit', whose roof slogan ironically proclaims 'Stay frosty!'.\n\nWhile the interior is entirely inaccessible during normal play, one set of blue industrial rolling doors at the rear loading bay remains stuck open with a gap of roughly 30 centimeters. Stacked cardboard boxes obscure the opening from casual view. If players shoot away or explode the boxes, they can aim through the slit with a sniper rifle or flashlight: looming inside the pitch-black freezer room is an enormous eight-foot snowman sporting coal eyes, a carrot nose, and a red scarf with an unblinking grin.\n\nThis static Easter egg has been present since the game's 2013 launch, placed by level designers as a playful hidden surprise.",
-    "mechanics": [
-      "Accessible 24/7 in both Story Mode and GTA Online.",
-      "Requires clearing the cardboard boxes with gunfire or minor explosives to establish a clear sightline.",
-      "The snowman features fixed physical textures with shimmering ice shaders, but the freezer room itself lacks navigable collision.",
-      "Distinct from the 25 destroyable festive snowmen from the GTA Online Christmas event; the Fridgit snowman is a permanent map secret."
-    ],
-    "clues": [
-      "Roof motto: 'Fridgit - Stay Frosty!', an overt hint at the cold secret within.",
-      "Ajar blue doors: The only loading bay door across the entire facility that is not completely shut.",
-      "Doorway frost: Small icicles hang from the rusted steel door frame."
-    ],
-    "thumbnail": "assets/data-images/mysteries/fridgit_snowman.jpg",
-    "badgeColor": "#0ea5e9",
-    "badgeIcon": "fa-snowflake",
-    "badgeSymbol": "⛄",
-    "gameMode": "both"
-  },
-  {
-    "id": "yellow_jack_blood_footprints",
-    "order": 12,
-    "title": "The Yellow Jack Inn Blood Footprints",
-    "category": "crime",
-    "categoryLabel": "Paranormal & Crime Mystery",
-    "summary": "Inside the remote Yellow Jack Inn biker saloon in Senora Desert, a trail of bare bloody footprints traverses the floorboards beside the pool table and abruptly vanishes.",
-    "location": "Yellow Jack Inn (Intersection of Route 68 & Panorama Drive)",
-    "zone": "Grand Senora Desert",
-    "schedule": "Visible 24/7 (Accessible Interior)",
-    "position": {
-      "x": 2005,
-      "y": 3056.4,
-      "z": 47
-    },
-    "observationPoint": {
-      "x": 2005,
-      "y": 3056.4,
-      "z": 47,
-      "tip": "Step through the front entrance of the Yellow Jack Inn on Route 68. Walk right toward the green felt pool table. On the wooden floorboards, use weapon flashlight or bar lighting to observe bare bloody footprints abruptly stopping mid-room."
-    },
-    "lore": "The Yellow Jack Inn is Blaine County's most notorious roadside watering hole, frequented by The Lost MC bikers, truckers, and rural drifters. While celebrated for its easter eggs (including Niko Bellic's brown leather jacket hung behind the bar and framed pictures of Trevor Phillips), it holds a much darker detail.\n\nBeside the pool table on the worn wooden floor lies an undeniable trail of dried bloody footprints. They are not boot treads, but impressions of bare human soles or blood-soaked socks, suggesting a victim fleeing or being dragged across the floor.\n\nStrangely, the trail begins and ends abruptly in the middle of the room without reaching any doorway or counter. Community consensus links these bloody prints to Merle Abrahams (the Infinity 8 Killer), hypothesizing the dive bar was where he ambushed or staged one of his eight victims in late 2004.",
-    "mechanics": [
-      "The bar interior is permanently unlocked and accessible in both Story Mode and GTA Online.",
-      "The footprints are a permanent decal baked directly into the interior geometry textures.",
-      "Also contains other lore easter eggs including Niko Bellic's jacket and framed bills featuring Rochell'le from GTA San Andreas."
-    ],
-    "clues": [
-      "Barefoot pattern: Clearly outlines individual toes and heel impressions without boot soles.",
-      "Sudden trail interruption: Indicates the victim was lifted, finished off, or dragged out.",
-      "Geographic proximity: The bar sits just down the highway from Merle Abrahams' house and the Senora Desert rhyme rocks."
-    ],
-    "thumbnail": "assets/data-images/mysteries/yellow_jack_blood.jpg",
-    "badgeColor": "#b91c1c",
-    "badgeIcon": "fa-shoe-prints",
-    "badgeSymbol": "👣",
-    "gameMode": "both"
+    "badgeSymbol": "🦶",
+    "gameMode": "story",
+    "summary": "Lors de la traque nocturne des frères O'Neil dans les forêts denses de Raton Canyon, la lunette thermique de Michael permet d'apercevoir une imposante silhouette bipède couverte de poils dressée entre les sapins. Si vous zoomez sur elle, elle vous regarde brièvement avant de s'évanouir dans les sous-bois."
   }
 ]

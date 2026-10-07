@@ -2,10 +2,10 @@
   {
     "id": "pistol",
     "order": 1,
-    "name": "Pistolet",
+    "name": "Pistolet 9mm",
     "nameEn": "Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolets",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Beretta 92FS / Taurus PT92",
     "price": 350,
@@ -15,11 +15,11 @@
     "fireRate": 4,
     "accuracy": 4,
     "range": 3,
-    "clipSize": "12 balles (16 étendu)",
-    "description": "Pistolet semi-automatique 9 mm standard. Compact, léger et fiable pour les engagements rapprochés.",
+    "clipSize": "12 cartouches (16 grande capacité)",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Vom Feuer). Dégâts : 2.6/10, Précision : 4/10, Cadence de tir : 4/10.",
     "attachments": [
       "Chargeur grande capacité",
-      "Lampe torche",
+      "Lampe torche tactique",
       "Silencieux",
       "Finition de luxe Yusuf Amir"
     ],
@@ -32,10 +32,10 @@
   {
     "id": "combat_pistol",
     "order": 2,
-    "name": "Pistolet de combat",
+    "name": "Pistolet de Combat",
     "nameEn": "Combat Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolets",
     "manufacturer": "Hawk & Little",
     "realCounterpart": "Glock 17 (9x19mm)",
     "price": 550,
@@ -45,13 +45,13 @@
     "fireRate": 4.5,
     "accuracy": 5,
     "range": 3.5,
-    "clipSize": "12 balles (16 étendu)",
-    "description": "Pistolet compact et léger en polymère conçu pour les forces de l'ordre et l'autodéfense avec une précision et une cadence de tir accrues.",
+    "clipSize": "12 cartouches (16 grande capacité)",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Hawk & Little). Dégâts : 3.2/10, Précision : 5/10, Cadence de tir : 4.5/10.",
     "attachments": [
       "Chargeur grande capacité",
-      "Lampe torche",
+      "Lampe torche tactique",
       "Silencieux",
-      "Finition platine"
+      "Acabado platino"
     ],
     "icon": "fa-gun",
     "badgeColor": "#ffb833",
@@ -62,10 +62,10 @@
   {
     "id": "ap_pistol",
     "order": 3,
-    "name": "Pistolet perforant (AP)",
+    "name": "Pistola Perforante (AP)",
     "nameEn": "AP Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolets",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt SCAMP / OTs-33 Pernach",
     "price": 5000,
@@ -75,11 +75,11 @@
     "fireRate": 8,
     "accuracy": 3.5,
     "range": 3,
-    "clipSize": "18 balles (36 étendu)",
-    "description": "High-rate-of-fire armor-piercing automatic pistol. Empty a 36-round clip in seconds during high-speed drive-by shootings.",
+    "clipSize": "18 cartouches (36 grande capacité)",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Vom Feuer). Dégâts : 3/10, Précision : 3.5/10, Cadence de tir : 8/10.",
     "attachments": [
       "Chargeur grande capacité",
-      "Lampe torche",
+      "Lampe torche tactique",
       "Silencieux",
       "Luxury Finish"
     ],
@@ -92,10 +92,10 @@
   {
     "id": "heavy_revolver",
     "order": 4,
-    "name": "Revolver lourd",
+    "name": "Revólver Pesado",
     "nameEn": "Heavy Revolver",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolets",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Taurus Raging Bull (.44 Magnum)",
     "price": 5900,
@@ -105,8 +105,8 @@
     "fireRate": 2,
     "accuracy": 6.5,
     "range": 5.5,
-    "clipSize": "6 balles",
-    "description": "A colossal handgun packing devastating stopping power. Capable of dropping armored targets with a single, well-placed round.",
+    "clipSize": "6 cartouches",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 8.5/10, Précision : 6.5/10, Cadence de tir : 2/10.",
     "attachments": [
       "VIP Luxury Finish",
       "Collector Engraving"
@@ -120,10 +120,10 @@
   {
     "id": "perico_pistol",
     "order": 5,
-    "name": "Perico Pistol",
+    "name": "Pistolet de Cayo Perico",
     "nameEn": "Perico Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolets",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Custom Engraved Gold Walther PPK",
     "price": 0,
@@ -133,8 +133,8 @@
     "fireRate": 3.5,
     "accuracy": 5.5,
     "range": 4,
-    "clipSize": "Coup par coup",
-    "description": "Handcrafted solid gold pistol recovered from El Rubio's private office safe in the fortified Cayo Perico compound.",
+    "clipSize": "Un solo disparo",
+    "description": "Pistolet artisanal en or massif récupéré dans le coffre privé d'El Rubio au cœur du complexe de Cayo Perico.",
     "attachments": [
       "Native 24K Gold Inlay"
     ],
@@ -147,10 +147,10 @@
   {
     "id": "up_n_atomizer",
     "order": 6,
-    "name": "Up-n-Atomizer",
+    "name": "Dézingueur Atomique (Up-n-Atomizer)",
     "nameEn": "Up-n-Atomizer",
     "category": "pistols",
-    "categoryLabel": "Special Weapons",
+    "categoryLabel": "Pistolets",
     "manufacturer": "Republic Space Rangers",
     "realCounterpart": "Alien Electromagnetic Ray Gun",
     "price": 399000,
@@ -161,7 +161,7 @@
     "accuracy": 7,
     "range": 4.5,
     "clipSize": "Infinite ammo (Heat cooldown)",
-    "description": "Sci-fi weapon projecting high-impact energy shockwaves that launch vehicles and sentries into the air.",
+    "description": "Pistolet d'énergie futuriste projetant de puissantes ondes de choc capables de propulser et dégager tout véhicule bloqué.",
     "attachments": [
       "Themed Futuristic Tints"
     ],
@@ -177,7 +177,7 @@
     "name": "Stun Gun",
     "nameEn": "Stun Gun",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolets",
     "manufacturer": "Coil",
     "realCounterpart": "Taser X26",
     "price": 375000,
@@ -188,7 +188,7 @@
     "accuracy": 4,
     "range": 2,
     "clipSize": "High-voltage probes (4s recharge)",
-    "description": "Non-lethal electrical conductive device firing twin electrified probes to incapacitate any target instantly.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Coil). Dégâts : 1/10, Précision : 4/10, Cadence de tir : 1/10.",
     "attachments": [
       "Tactical Polymer Finish"
     ],
@@ -201,7 +201,7 @@
   {
     "id": "micro_smg",
     "order": 8,
-    "name": "Micro mitraillette",
+    "name": "Pistolet Mitrailleur Micro-SMG",
     "nameEn": "Micro SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -214,11 +214,11 @@
     "fireRate": 7.5,
     "accuracy": 3.5,
     "range": 3,
-    "clipSize": "16 balles (30 étendu)",
-    "description": "The quintessential drive-by weapon. Compact frame with an aggressive cyclic rate to overwhelm targets on the move.",
+    "clipSize": "16 cartouches (30 grande capacité)",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 3.5/10, Précision : 3.5/10, Cadence de tir : 7.5/10.",
     "attachments": [
       "Chargeur grande capacité",
-      "Lampe torche",
+      "Lampe torche tactique",
       "Silencieux",
       "Lunette de visée",
       "Luxury Finish"
@@ -232,7 +232,7 @@
   {
     "id": "smg",
     "order": 9,
-    "name": "Mitraillette standard",
+    "name": "Mitraillette SMG",
     "nameEn": "SMG",
     "category": "smgs",
     "categoryLabel": "Submachine Guns",
@@ -245,14 +245,14 @@
     "fireRate": 7,
     "accuracy": 5.5,
     "range": 4.5,
-    "clipSize": "30 balles",
-    "description": "The world's premier tactical submachine gun. Delivers flawless recoil control, precision handling, and sustained cyclic fire.",
+    "clipSize": "30 cartouches",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 4.2/10, Précision : 5.5/10, Cadence de tir : 7/10.",
     "attachments": [
       "Chargeur grande capacité",
-      "Chargeur tambour",
-      "Lampe torche",
+      "Cargador de tambor",
+      "Lampe torche tactique",
       "Silencieux",
-      "Holographic Sight"
+      "Viseur holographique"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
@@ -276,12 +276,12 @@
     "fireRate": 6.5,
     "accuracy": 5.5,
     "range": 6,
-    "clipSize": "100 balles",
-    "description": "Heavy squad automatic weapon with a massive belt capacity, capable of shredding enemy squads and disabling air support.",
+    "clipSize": "100 cartouches",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 7.5/10, Précision : 5.5/10, Cadence de tir : 6.5/10.",
     "attachments": [
       "200-Round Box Magazine",
       "Lunette de visée",
-      "Poignée",
+      "Poignée ergonomique",
       "Gold Luxury Tint"
     ],
     "icon": "fa-shield-halved",
@@ -306,8 +306,8 @@
     "fireRate": 7.5,
     "accuracy": 4.5,
     "range": 4,
-    "clipSize": "30 balles",
-    "description": "Prohibition era icon featuring iconic circular drum magazines and an unmistakable firing signature.",
+    "clipSize": "30 cartouches",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Vom Feuer). Dégâts : 5/10, Précision : 4.5/10, Cadence de tir : 7.5/10.",
     "attachments": [
       "50-Round Drum Magazine"
     ],
@@ -320,10 +320,10 @@
   {
     "id": "assault_rifle",
     "order": 12,
-    "name": "Fusil d'assaut",
+    "name": "Fusil d'Assaut",
     "nameEn": "Assault Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Fusils d'assaut",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "AK-47 / Norinco Type 56",
     "price": 8550,
@@ -333,14 +333,14 @@
     "fireRate": 6,
     "accuracy": 5.5,
     "range": 6,
-    "clipSize": "30 balles (60 étendu)",
-    "description": "The most widely recognized assault rifle on earth. Legendary durability firing heavy 7.62mm cartridges with extreme lethality.",
+    "clipSize": "30 cartouches (60 grande capacité)",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 6.2/10, Précision : 5.5/10, Cadence de tir : 6/10.",
     "attachments": [
       "Chargeur grande capacité",
-      "Chargeur tambour",
+      "Cargador de tambor",
       "Lunette de visée",
       "Silencieux",
-      "Poignée",
+      "Poignée ergonomique",
       "Yusuf Amir Gold Finish"
     ],
     "icon": "fa-crosshairs",
@@ -352,10 +352,10 @@
   {
     "id": "carbine_rifle",
     "order": 13,
-    "name": "Carabine",
+    "name": "Carabine Militaire",
     "nameEn": "Carbine Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Fusils d'assaut",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M4A1 (5.56x45mm NATO)",
     "price": 13000,
@@ -365,15 +365,15 @@
     "fireRate": 7,
     "accuracy": 6.5,
     "range": 6.5,
-    "clipSize": "30 balles (60 étendu)",
-    "description": "All-around military workhorse rifle with full Picatinny rail modularity, crisp handling, and controllable recoil patterns.",
+    "clipSize": "30 cartouches (60 grande capacité)",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Vom Feuer). Dégâts : 6.5/10, Précision : 6.5/10, Cadence de tir : 7/10.",
     "attachments": [
       "Chargeur grande capacité",
       "Box Drum",
-      "Holographic Sight",
+      "Viseur holographique",
       "Tactical Flashlight",
       "Silencieux",
-      "Poignée"
+      "Poignée ergonomique"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
@@ -384,10 +384,10 @@
   {
     "id": "special_carbine",
     "order": 14,
-    "name": "Carabine spéciale",
+    "name": "Carabine Spéciale",
     "nameEn": "Special Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Fusils d'assaut",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Heckler & Koch G36C",
     "price": 14750,
@@ -397,8 +397,8 @@
     "fireRate": 7,
     "accuracy": 7,
     "range": 6.5,
-    "clipSize": "30 balles (60 étendu)",
-    "description": "German engineered lightweight polymer rifle. Renowned across Los Santos for laser precision and minimal recoil bloom.",
+    "clipSize": "30 cartouches (60 grande capacité)",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Vom Feuer). Dégâts : 6.7/10, Précision : 7/10, Cadence de tir : 7/10.",
     "attachments": [
       "Chargeur grande capacité",
       "100-Round Drum",
@@ -418,7 +418,7 @@
     "name": "Service Carbine",
     "nameEn": "Service Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Fusils d'assaut",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M16A4 / M16",
     "price": 370000,
@@ -428,13 +428,13 @@
     "fireRate": 6.8,
     "accuracy": 6.8,
     "range": 6.5,
-    "clipSize": "30 balles (60 étendu)",
-    "description": "Iconic military service rifle delivering reliable sustained damage for urban tactical operations throughout San Andreas.",
+    "clipSize": "30 cartouches (60 grande capacité)",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Vom Feuer). Dégâts : 6.8/10, Précision : 6.8/10, Cadence de tir : 6.8/10.",
     "attachments": [
       "Chargeur grande capacité",
       "Telescopic Scope",
       "Silencieux",
-      "Poignée",
+      "Poignée ergonomique",
       "Tactical Light"
     ],
     "icon": "fa-crosshairs",
@@ -446,10 +446,10 @@
   {
     "id": "pump_shotgun",
     "order": 16,
-    "name": "Fusil à pompe classique",
+    "name": "Fusil à Pompe",
     "nameEn": "Pump Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Fusils à pompe",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Mossberg 590 (12 Gauge)",
     "price": 3500,
@@ -460,9 +460,9 @@
     "accuracy": 3,
     "range": 2.5,
     "clipSize": "8 shells",
-    "description": "Classic 12-gauge law enforcement pump action shotgun. Devastating point-blank stopping power with dense buckshot spread.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 7.8/10, Précision : 3/10, Cadence de tir : 2/10.",
     "attachments": [
-      "Lampe torche",
+      "Lampe torche tactique",
       "Shotgun Suppressor",
       "Luxury Engraving"
     ],
@@ -475,10 +475,10 @@
   {
     "id": "assault_shotgun",
     "order": 17,
-    "name": "Fusil à pompe d'assaut",
+    "name": "Fusil à Pompe d'Assaut",
     "nameEn": "Assault Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Fusils à pompe",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "UTAS UTS-15 / Fostech Origin-12",
     "price": 10000,
@@ -489,11 +489,11 @@
     "accuracy": 4,
     "range": 3.5,
     "clipSize": "8 shells (32 drum)",
-    "description": "Fully automatic combat shotgun equipped with a 32-round drum magazine, creating an impenetrable wall of lead in close quarters.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 8.2/10, Précision : 4/10, Cadence de tir : 6.5/10.",
     "attachments": [
       "32-Shell Drum Magazine",
       "Tactical Flashlight",
-      "Poignée",
+      "Poignée ergonomique",
       "Silencieux"
     ],
     "icon": "fa-fire",
@@ -505,10 +505,10 @@
   {
     "id": "combat_shotgun",
     "order": 18,
-    "name": "Combat Shotgun",
+    "name": "Fusil à Pompe de Combat",
     "nameEn": "Combat Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Fusils à pompe",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Franchi SPAS-12 (12 Gauge)",
     "price": 295000,
@@ -519,7 +519,7 @@
     "accuracy": 4.5,
     "range": 3,
     "clipSize": "6 shells",
-    "description": "Italian designed combat shotgun with folding stock, recovered from the personal elite security guards of Cayo Perico.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Vom Feuer). Dégâts : 8/10, Précision : 4.5/10, Cadence de tir : 4.5/10.",
     "attachments": [
       "Tactical Light",
       "Shotgun Suppressor"
@@ -533,10 +533,10 @@
   {
     "id": "sniper_rifle",
     "order": 19,
-    "name": "Fusil de précision",
+    "name": "Fusil de Précision Sniper",
     "nameEn": "Sniper Rifle",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "Fusils de précision",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Accuracy International AWP (7.62x51mm)",
     "price": 20000,
@@ -546,8 +546,8 @@
     "fireRate": 2,
     "accuracy": 8.5,
     "range": 9,
-    "clipSize": "10 balles",
-    "description": "Precision bolt-action long range marksman rifle engineered to eliminate threats from hundreds of yards away.",
+    "clipSize": "10 cartouches",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 8.8/10, Précision : 8.5/10, Cadence de tir : 2/10.",
     "attachments": [
       "Advanced High-Power Scope",
       "Silencieux",
@@ -562,10 +562,10 @@
   {
     "id": "heavy_sniper",
     "order": 20,
-    "name": "Fusil de précision lourd",
+    "name": "Fusil de Précision Lourd",
     "nameEn": "Heavy Sniper",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "Fusils de précision",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Barrett M82A1 (.50 BMG Anti-Materiel)",
     "price": 38150,
@@ -575,10 +575,10 @@
     "fireRate": 2,
     "accuracy": 9.5,
     "range": 10,
-    "clipSize": "6 balles",
-    "description": "Massive .50 BMG anti-materiel sniper rifle. Capable of disabling helicopter rotors, piercing vehicle armor, and eliminating targets across extreme render distances.",
+    "clipSize": "6 cartouches",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 9.8/10, Précision : 9.5/10, Cadence de tir : 2/10.",
     "attachments": [
-      "Lunette avancée",
+      "Mira avanzada",
       "Thermal / Night Vision Scope (Mk II)",
       "Explosive Rounds (Mk II)"
     ],
@@ -591,7 +591,7 @@
   {
     "id": "rpg",
     "order": 21,
-    "name": "Lance-roquettes (RPG)",
+    "name": "Lance-Roquettes RPG",
     "nameEn": "RPG",
     "category": "heavy",
     "categoryLabel": "Armes lourdes",
@@ -605,7 +605,7 @@
     "accuracy": 3,
     "range": 7,
     "clipSize": "1 rocket (20 capacity)",
-    "description": "Unguided shoulder-fired anti-tank rocket launcher. Engineered to vaporize tanks, convoys, and fortified positions with catastrophic blast shockwaves.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 10/10, Précision : 3/10, Cadence de tir : 1/10.",
     "attachments": [
       "VIP Gold Plated Finish"
     ],
@@ -618,7 +618,7 @@
   {
     "id": "homing_launcher",
     "order": 22,
-    "name": "Lance-missiles guidé",
+    "name": "Lance-Missiles Guidé",
     "nameEn": "Homing Launcher",
     "category": "heavy",
     "categoryLabel": "Armes lourdes",
@@ -632,7 +632,7 @@
     "accuracy": 8,
     "range": 8.5,
     "clipSize": "1 heat-seeking missile (10 capacity)",
-    "description": "Portable surface-to-air missile system featuring infrared lock-on capabilities that track airborne and high-velocity ground targets.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 9.5/10, Précision : 8/10, Cadence de tir : 1.2/10.",
     "attachments": [
       "Special Edition Military Finish"
     ],
@@ -645,7 +645,7 @@
   {
     "id": "minigun",
     "order": 23,
-    "name": "Minigun rotatif",
+    "name": "Minigun Rotatif",
     "nameEn": "Minigun",
     "category": "heavy",
     "categoryLabel": "Armes lourdes",
@@ -658,8 +658,8 @@
     "fireRate": 10,
     "accuracy": 4.5,
     "range": 6.5,
-    "clipSize": "999 balles",
-    "description": "The ultimate infantry fire-support weapon. Six rotating electrically driven barrels unleashing relentless suppressing fire.",
+    "clipSize": "999 cartouches",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 9.2/10, Précision : 4.5/10, Cadence de tir : 10/10.",
     "attachments": [
       "Gold Luxury Finish"
     ],
@@ -672,7 +672,7 @@
   {
     "id": "railgun",
     "order": 24,
-    "name": "Railgun",
+    "name": "Canon Électrique (Railgun)",
     "nameEn": "Railgun",
     "category": "heavy",
     "categoryLabel": "Armes lourdes",
@@ -686,7 +686,7 @@
     "accuracy": 9.5,
     "range": 9,
     "clipSize": "1 kinetic slug (20 capacity)",
-    "description": "Experimental military prototype using electromagnetic acceleration to propel solid metallic slugs at hypersonic velocity with instant lethal impact.",
+    "description": "Arme militaire dévastatrice accélérant des projectiles métalliques à vitesse hypersonique via des rails électromagnétiques.",
     "attachments": [
       "Custom Coil Metallic Tints"
     ],
@@ -702,7 +702,7 @@
     "name": "Knife",
     "nameEn": "Knife",
     "category": "melee",
-    "categoryLabel": "Corps à corps",
+    "categoryLabel": "Armes de corps à corps",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Ka-Bar USMC 7-inch Carbon Steel Knife",
     "price": 100,
@@ -713,7 +713,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Close combat bladed weapon",
-    "description": "7-inch carbon steel fixed blade combat knife. Silent and deadly for stealth takedowns from behind.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 2/10, Précision : 1/10, Cadence de tir : 3/10.",
     "attachments": [
       "Forged Steel Finish"
     ],
@@ -729,7 +729,7 @@
     "name": "Stone Hatchet",
     "nameEn": "Stone Hatchet",
     "category": "melee",
-    "categoryLabel": "Corps à corps",
+    "categoryLabel": "Armes de corps à corps",
     "manufacturer": "Native American / RDR2",
     "realCounterpart": "Sacred Stone Tomahawk",
     "price": 0,
@@ -740,7 +740,7 @@
     "accuracy": 1,
     "range": 1,
     "clipSize": "Passive: Stone Rage Mode",
-    "description": "Ancient Native American stone hatchet. Slashing an opponent triggers 'Stone Rage Mode', granting temporary ballistic invulnerability.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Native American / RDR2). Dégâts : 5/10, Précision : 1/10, Cadence de tir : 2.5/10.",
     "attachments": [
       "Traditional Leather Wraps"
     ],
@@ -753,10 +753,10 @@
   {
     "id": "sticky_bomb",
     "order": 27,
-    "name": "Bombe collante (C4)",
+    "name": "Bomba Adhesiva",
     "nameEn": "Sticky Bomb",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "Armes de jet",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "C4 Plastic Explosive with Remote Cellphone Detonator",
     "price": 600,
@@ -767,7 +767,7 @@
     "accuracy": 2,
     "range": 2.5,
     "clipSize": "Up to 25 remote charges",
-    "description": "C4 plastic explosive block with adhesive backing. Attach to any surface or vehicle and detonate on command via cellular trigger.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 9.5/10, Précision : 2/10, Cadence de tir : 1.5/10.",
     "attachments": [
       "Remote Cellular Trigger"
     ],
@@ -783,7 +783,7 @@
     "name": "Proximity Mine",
     "nameEn": "Proximity Mine",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "Armes de jet",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Laser-Tripped Tactical Landmine",
     "price": 1000,
@@ -794,7 +794,7 @@
     "accuracy": 2,
     "range": 2,
     "clipSize": "Up to 5 active deployed mines",
-    "description": "Anti-personnel and anti-vehicle mine with laser proximity sensors, triggering instantly when movement is detected.",
+    "description": "Arme officielle de Los Santos répertoriée chez Ammu-Nation (Shrewsbury). Dégâts : 9.5/10, Précision : 2/10, Cadence de tir : 1/10.",
     "attachments": [
       "Thermal Motion Trigger"
     ],

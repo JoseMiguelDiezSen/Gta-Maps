@@ -41,7 +41,8 @@ public class SecurityHeadersMiddleware
         // =========================================================================
         if (HttpMethods.IsPost(method))
         {
-            var isAllowedPost = path.Equals("/api/goty/chat", StringComparison.OrdinalIgnoreCase) ||
+            var isAllowedPost = path.Equals("/api/feedback", StringComparison.OrdinalIgnoreCase) ||
+                                path.Equals("/api/goty/chat", StringComparison.OrdinalIgnoreCase) ||
                                 path.StartsWith("/hubs/usuarios-activos", StringComparison.OrdinalIgnoreCase);
 
             if (!isAllowedPost)

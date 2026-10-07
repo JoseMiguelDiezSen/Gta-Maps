@@ -1,0 +1,854 @@
+{
+  "common": [
+    {
+      "id": "saludo",
+      "keywords": [
+        "bonjour",
+        "salut",
+        "coucou",
+        "qui es tu",
+        "qui es-tu",
+        "ça va",
+        "ca va",
+        "wesh",
+        "yo",
+        "bonsoir",
+        "bonne nuit",
+        "ami",
+        "pote",
+        "boss",
+        "s'il te plait",
+        "sil te plait",
+        "merci",
+        "salutations",
+        "quoi de neuf",
+        "re",
+        "hey"
+      ],
+      "responses": [
+        "Quoi de neuf, l'ami ! Je suis GOTY. En quoi puis-je t'aider aujourd'hui dans les rues ?",
+        "Salut ! Module d'assistance opérationnel. Que cherches-tu à localiser sur la carte ?",
+        "GOTY à l'appareil. Dis-moi ce que tu cherches avant que les flics ne débarquent !",
+        "Yo ! N'hésite pas à me poser des questions sur les armes, les concessions, les braquages ou les mystères non élucidés."
+      ]
+    },
+    {
+      "id": "insulto",
+      "keywords": [
+        "idiot",
+        "imbecile",
+        "inutile",
+        "nul",
+        "dechet",
+        "clown",
+        "stupide",
+        "merde",
+        "connard",
+        "salaud",
+        "fils de pute",
+        "fdp",
+        "con",
+        "debile",
+        "abruti",
+        "naze",
+        "ferme la",
+        "ferme-la",
+        "degage",
+        "casse toi",
+        "ta gueule"
+      ],
+      "responses": [
+        "Doucement sur les insultes, l'ami. Mes circuits ont plus de style que ta meilleure caisse !",
+        "Tranquille ! Garde cette énergie pour fuir les 5 étoiles de police de Los Santos.",
+        "Si tu continues à me parler comme ça, je vais hacker ton GPS pour t'envoyer directement chez les Altruistes...",
+        "Moins de bavardages agressifs et plus de braquages réussis. On a du boulot !"
+      ]
+    },
+    {
+      "id": "oppressor_kd_humor",
+      "keywords": [
+        "oppressor",
+        "oppressor mk2",
+        "oppressor mkii",
+        "mk2",
+        "mkii",
+        "tryhard",
+        "kd",
+        "ratio",
+        "k/d",
+        "griefer",
+        "balle dans la tete",
+        "poney volant",
+        "balai volant",
+        "noob",
+        "cancer"
+      ],
+      "responses": [
+        "Ah, la fameuse Oppressor Mk II... Le balai volant préféré de ceux qui n'ont jamais appris à viser !",
+        "Attention dans le ciel ! Si tu entends un bip de verrouillage de missile, saute sans te retourner.",
+        "Prends un fusil à pompe lourd avec des cartouches explosives ou sors un Toreador, et renvoie ce griefeur à la casse !",
+        "Ici, on s'en fiche du ratio K/D : ce qui compte, ce sont les billets verts à la banque et les braquages propres."
+      ]
+    },
+    {
+      "id": "info_general",
+      "keywords": [
+        "carte",
+        "points",
+        "filtres",
+        "comment utiliser",
+        "guide",
+        "marquage",
+        "zoom",
+        "commandes",
+        "sauvegarder",
+        "progression",
+        "aide",
+        "infos"
+      ],
+      "responses": [
+        "Utilise le panneau latéral pour filtrer les icônes sur la carte (armes, sauts, missions, easter eggs...). Tu peux aussi cocher ce que tu as déjà complété !",
+        "Tu peux zoomer et déplacer la carte librement. Clique sur n'importe quel marqueur pour voir ses détails, prix, récompenses et astuces.",
+        "Ta progression et tes préférences sont sauvegardées automatiquement sur ton appareil pour que tu ne perdes jamais le fil."
+      ]
+    },
+    {
+      "id": "ocultar_bot",
+      "keywords": [
+        "cacher",
+        "fermer",
+        "minimiser",
+        "disparaitre",
+        "au revoir",
+        "bye",
+        "a plus",
+        "tais toi",
+        "tais-toi",
+        "silence",
+        "fermer chat",
+        "quitter"
+      ],
+      "responses": [
+        "Compris ! Je me mets en veille. Clique sur mon icône dès que tu auras besoin d'aide.",
+        "Ça marche, je retourne dans l'ombre. Reste prudent dans les rues de San Andreas !",
+        "À plus tard ! Je reste en embuscade si les flics te coincent."
+      ]
+    },
+    {
+      "id": "ocultarse_huir",
+      "keywords": [
+        "fuir",
+        "echapper",
+        "police",
+        "etoiles",
+        "cachette",
+        "se cacher",
+        "echapper flics",
+        "lester flics",
+        "tunnels",
+        "echappatoire",
+        "poursuite"
+      ],
+      "responses": [
+        "Pour semer 5 étoiles rapidement : plonge dans les tunnels du métro souterrain sous Pillbox Hill ou dans le réseau des égouts du canal !",
+        "N'oublie pas d'appeler Lester pour faire sauter ton indice de recherche si tu es en pleine urgence.",
+        "Dans la nature, monte dans les collines escarpées de Tongva Hills : les voitures de police de la LSPD galèrent en hors-piste."
+      ]
+    },
+    {
+      "id": "niko_bellic_roman",
+      "keywords": [
+        "niko bellic",
+        "niko",
+        "roman",
+        "bowling",
+        "liberty city",
+        "gta iv",
+        "gta 4",
+        "cousin"
+      ],
+      "responses": [
+        "« Hey Niko, it's Roman! Let's go bowling! »... Rockstar lui a même dédié un easter egg en code sous-marin sur la côte Est de GTA V !",
+        "Niko Bellic coule des jours tranquilles quelque part à Liberty City... ou du moins, c'est ce que Lester nous a laissé entendre.",
+        "Ah, l'époque de Liberty City et des taxis de Roman... Toute une légende du crime."
+      ]
+    },
+    {
+      "id": "cj_big_smoke_grove",
+      "keywords": [
+        "cj",
+        "carl johnson",
+        "big smoke",
+        "grove street",
+        "san andreas",
+        "gta sa",
+        "cluckin bell",
+        "commande",
+        "famille",
+        "ballas",
+        "numero 9"
+      ],
+      "responses": [
+        "« I'll have two number 9s, a number 9 large, a number 6 with extra dip... » Une commande d'anthologie signée Big Smoke !",
+        "Grove Street est désormais sous le contrôle des Ballas dans GTA V... Mais le souvenir des Families de CJ reste légendaire.",
+        "« Ah shit, here we go again. » La phrase culte qui ne prendra jamais une ride !"
+      ]
+    },
+    {
+      "id": "tommy_vercetti",
+      "keywords": [
+        "tommy vercetti",
+        "vercetti",
+        "vice city",
+        "ocean view",
+        "chemise hawaïenne",
+        "chemise hawaienne",
+        "malibu club",
+        "gta vc"
+      ],
+      "responses": [
+        "Tommy Vercetti, le roi incontesté de Vice City ! Ses chemises hawaïennes et son manoir de Starfish Island manquent à tout le monde.",
+        "« Tommy Vercetti... Huh, shit. » En route pour Vice City dans GTA VI, nous garderons toujours une pensée pour lui !"
+      ]
+    },
+    {
+      "id": "default",
+      "keywords": [],
+      "responses": [
+        "Je ne suis pas sûr d'avoir saisi, l'ami. Essaie de me demander où trouver des 'armes', des 'braquages', des 'véhicules', des 'garages' ou des 'mystères' !",
+        "Mes capteurs de Los Santos sont flous sur ce point. Tu veux localiser des magasins, des propriétés ou des sauts uniques ?",
+        "Pose-moi une question sur le mode Histoire ou Online de GTA V, ou sur les nouveautés de GTA VI !"
+      ]
+    }
+  ],
+  "gta5-historia": [
+    {
+      "id": "talleres_mecanicos",
+      "keywords": [
+        "garage",
+        "los santos customs",
+        "lsc",
+        "customs",
+        "ameliorer",
+        "tunage",
+        "tuning",
+        "reparer",
+        "voiture",
+        "peinture",
+        "moteur",
+        "beeker"
+      ],
+      "responses": [
+        "Il y a 4 ateliers Los Santos Customs à Los Santos (Burton, LSIA, La Mesa) plus le Beeker's Garage tout au nord à Paleto Bay.",
+        "Astuce Franklin : Si tu achètes l'atelier Los Santos Customs du désert de Grand Senora, toutes les modifications et réparations sur les voitures de Franklin deviennent 100% GRATUITES !"
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "vehicule",
+        "vehicules",
+        "voiture",
+        "voitures",
+        "supercar",
+        "adder",
+        "t20",
+        "zentorno",
+        "avion",
+        "helico",
+        "helicoptere",
+        "bateau",
+        "moto",
+        "concessionnaire",
+        "legendary",
+        "achat"
+      ],
+      "responses": [
+        "Tu cherches la mythique Truffade Adder gratuite ? Elle spawn souvent garée sur Portola Drive à Rockford Hills !",
+        "Pour acheter des supercars en mode Histoire, utilise le téléphone et rends-toi sur les sites web Legendary Motorsport et Southern San Andreas Super Autos.",
+        "Pense à acheter un garage à 4 places pour chaque personnage afin de stocker tes bolides sans risquer de les perdre à la fourrière."
+      ]
+    },
+    {
+      "id": "fauna_animales",
+      "keywords": [
+        "animaux",
+        "faune",
+        "peyo",
+        "peyotl",
+        "chasse",
+        "cerf",
+        "puma",
+        "coyote",
+        "sanglier",
+        "requin",
+        "merle",
+        "oiseau",
+        "plante",
+        "hallucination",
+        "chop"
+      ],
+      "responses": [
+        "Il y a 27 plantes de Peyotl disséminées dans tout San Andreas ! En les mangeant, tu te transformes temporairement en animal (aigle, requin, cerf, pigeon, et même Bigfoot).",
+        "Pour la chasse avec Trevor, rends-toi dans les forêts de Raton Canyon et du Mont Chiliad pour traquer le gibier et gagner de l'argent.",
+        "Prends garde aux pumas (couguars) dans les collines de Tongva Hills : ils attaquent par surprise et peuvent t'éliminer d'un seul coup !"
+      ]
+    },
+    {
+      "id": "misiones_historia",
+      "keywords": [
+        "missions",
+        "histoire",
+        "campagne",
+        "michael",
+        "franklin",
+        "trevor",
+        "100%",
+        "or",
+        "medaille",
+        "epilogue",
+        "coup du siecle",
+        "fin c",
+        "lester assassinat"
+      ],
+      "responses": [
+        "Le mode Histoire compte 69 missions principales. Pour obtenir la médaille d'or, tu peux les rejouer à tout moment depuis le menu Pause sans risquer ta sauvegarde.",
+        "Conseil en or pour devenir milliardaire : garde les missions d'assassinat de Lester pour Franklin pour la toute fin de l'histoire, après le Coup du Siècle, afin d'investir tout ton capital en bourse (BAWSAQ et LCN) !",
+        "Pour le choix final : l'Option C ('Sauver les deux') est la vraie fin canonique où Michael, Franklin et Trevor s'allient pour éliminer tous leurs ennemis."
+      ]
+    },
+    {
+      "id": "extranos_locos",
+      "keywords": [
+        "inconnus et detraques",
+        "inconnus",
+        "detraques",
+        "strangers",
+        "freaks",
+        "omega",
+        "abigail",
+        "mary ann",
+        "epsilon",
+        "dom",
+        "barry",
+        "tonya",
+        "lettres",
+        "vaisseau"
+      ],
+      "responses": [
+        "Les missions d'Inconnus et Détraqués sont indiquées par des points d'interrogation '?' sur la carte.",
+        "Récupère les 50 pièces de vaisseau spatial pour Omega afin de débloquer le Space Docker, un véhicule tout-terrain extraterrestre unique !",
+        "Trouve les 50 morceaux de lettre pour résoudre le mystère du meurtre de Leonora Johnson et démasquer le tueur d'Hollywood."
+      ]
+    },
+    {
+      "id": "armas",
+      "keywords": [
+        "armes",
+        "ammu-nation",
+        "ammu nation",
+        "fusil",
+        "pistolet",
+        "sniper",
+        "rpg",
+        "lance-roquettes",
+        "c4",
+        "explosifs",
+        "blindage",
+        "gilet",
+        "minigun"
+      ],
+      "responses": [
+        "Toutes les armureries Ammu-Nation proposent des armes et des améliorations (silencieux, lampes, lunettes de visée, chargeurs grande capacité).",
+        "Les magasins équipés d'un stand de tir (comme Pillbox Hill ou Cypress Flats) te permettent de monter ta compétence de Tir à 100% très rapidement et d'obtenir des réductions permanentes.",
+        "Le Minigun se débloque chez Ammu-Nation après la mission 'Plan de vol' ou peut être ramassé gratuitement au sommet de la tour de contrôle de Fort Zancudo !"
+      ]
+    },
+    {
+      "id": "barrio_davis",
+      "keywords": [
+        "davis",
+        "quartier davis",
+        "ballas davis",
+        "gangs davis",
+        "territoire ballas",
+        "hopital davis"
+      ],
+      "responses": [
+        "Davis est le quartier historique des Ballas dans le sud de Los Santos. Si tu t'y balades avec Franklin en portant du vert, prépare-toi à des tirs de riposte !",
+        "On y trouve la caserne de pompiers de Davis et le Central Los Santos Medical Center."
+      ]
+    },
+    {
+      "id": "altruistas",
+      "keywords": [
+        "altruistes",
+        "camp altruiste",
+        "secte altruiste",
+        "culte",
+        "chiliad altruistes",
+        "sacrifices"
+      ],
+      "responses": [
+        "Le camp de la secte des Altruistes se trouve sur les crêtes escarpées du Mont Chiliad State Wilderness.",
+        "Avec Trevor, tu peux leur livrer certains auto-stoppeurs et cibles d'événements aléatoires contre de l'argent facile. Après 4 livraisons, ils tenteront de sacrifier Trevor, ce qui déclenchera une fusillade mythique pour piller leur camp et leurs valises de billets !"
+      ]
+    },
+    {
+      "id": "fort_zancudo",
+      "keywords": [
+        "fort zancudo",
+        "base militaire",
+        "zancudo",
+        "voler avion de chasse",
+        "lazer",
+        "rhino",
+        "char",
+        "base"
+      ],
+      "responses": [
+        "Fort Zancudo est la base militaire hautement sécurisée de San Andreas. Pénétrer dans son périmètre déclenche immédiatement un indice de recherche de 4 étoiles.",
+        "Pour voler un avion de chasse P-996 Lazer : utilise un véhicule rapide ou un hélicoptère, fonce vers les hangars ouverts sur la piste et décolle au ras du sol pour esquiver les missiles guidés antiaériens !"
+      ]
+    },
+    {
+      "id": "zonas_tranquilas_peligrosas",
+      "keywords": [
+        "quartiers calmes",
+        "quartiers dangereux",
+        "zones sures",
+        "zones chaudes",
+        "securite",
+        "criminalite"
+      ],
+      "responses": [
+        "Zones calmes et luxueuses : Rockford Hills, Vinewood Hills et Pacific Bluffs. Idéal pour admirer les villas sans risquer de se faire tirer dessus.",
+        "Zones dangereuses et armées : Rancho, Davis, Chamberlain Hills (guerres de gangs) et le camp des Lost MC à Stab City dans le désert."
+      ]
+    },
+    {
+      "id": "barrios_iconicos",
+      "keywords": [
+        "quartiers emblematiques",
+        "quartiers connus",
+        "vinewood",
+        "rockford hills",
+        "del perro",
+        "vespucci",
+        "sandy shores"
+      ],
+      "responses": [
+        "Vinewood : Le coeur du cinéma avec son Walk of Fame et ses théâtres.",
+        "Del Perro & Vespucci : La plage, les canaux et la grande roue du Pleasure Pier.",
+        "Sandy Shores : La capitale du désert de Senora, fief de Trevor Philips et des trafics en tout genre."
+      ]
+    },
+    {
+      "id": "leyendas_secretas",
+      "keywords": [
+        "mythes",
+        "legendes urbaines",
+        "bigfoot",
+        "monstre marin",
+        "fantome",
+        "secrets",
+        "conspirations"
+      ],
+      "responses": [
+        "Le Bigfoot (Sasquatch) apparaît dans la mission 'Prédateur' avec la lunette thermique et dans la mission secrète du 100% 'Espèce menacée' !",
+        "Un squelette de monstre marin géant repose au fond de l'océan Pacifique sur la côte Est de San Andreas.",
+        "Le fantôme de Jolene Cranley hante le Mont Gordo chaque nuit entre 23h00 et minuit."
+      ]
+    },
+    {
+      "id": "misterios",
+      "keywords": [
+        "mysteres",
+        "chiliad",
+        "fresque",
+        "ovni",
+        "ufo",
+        "tueur a l'infini",
+        "merle abrahams",
+        "mine abandonnee"
+      ],
+      "responses": [
+        "La Fresque du Mont Chiliad : À 100% de progression, par temps d'orage à 3h00 du matin au sommet, un véritable OVNI holographique apparaît dans le ciel !",
+        "Le Tueur des 8 (Merle Abrahams) : Découvre ses poèmes morbides inscrits sur les rochers de Sandy Shores et retrouve ses 8 victimes immergées au nord de Paleto Bay.",
+        "La mine abandonnée de Great Chaparral : Fais sauter les planches à l'explosif pour explorer ses galeries sombres et découvrir le corps d'un cadavre des années 1940 lié à une vieille affaire de meurtre !"
+      ]
+    }
+  ],
+  "gta5-online": [
+    {
+      "id": "fauna_animales",
+      "keywords": [
+        "animaux online",
+        "faune online",
+        "photographie animaliere",
+        "animaux lswc",
+        "tourisme animaux"
+      ],
+      "responses": [
+        "Sur les versions PS5, Xbox Series et PC avancées, le Concours de Photographie de la Faune de l'Office de Tourisme de Los Santos (LSWC) propose de photographier 3 animaux par jour pour gagner 100 000 $ et le sous-marin Kraken !"
+      ]
+    },
+    {
+      "id": "negocios_rentables",
+      "keywords": [
+        "argent rapide",
+        "meilleur business",
+        "business rentable",
+        "rentable",
+        "boite de nuit",
+        "bunker",
+        "agence",
+        "atelier auto",
+        "recuperation",
+        "coke",
+        "faux papiers",
+        "meth"
+      ],
+      "responses": [
+        "La Boîte de Nuit (Nightclub) : Le meilleur business passif du jeu ! Elle génère automatiquement des marchandises sans réapprovisionnement si tu possèdes un bunker et des ateliers de motards.",
+        "L'Agence (The Contract) : Excellente source de revenus directs avec le contrat VIP de Dr. Dre (1 000 000 $ garanti) et les contrats de sécurité réguliers.",
+        "Le Bunker de Chumash : Indispensable pour la recherche d'équipements militaires Mk II et la vente d'armes à très haut rendement."
+      ]
+    },
+    {
+      "id": "talleres_mecanicos",
+      "keywords": [
+        "garage online",
+        "ls customs online",
+        "bennys",
+        "hao",
+        "hsw",
+        "ls car meet",
+        "salon auto",
+        "ameliorations hsw"
+      ],
+      "responses": [
+        "Benny's Original Motor Works (Strawberry) : Spécialisé dans les conversions Lowrider, les suspensions hydrauliques et les supercars customs (Elegy Retro, Sultan RS...).",
+        "Salon Auto de LS (LS Car Meet à Cypress Flats) : Idéal pour tester des véhicules sur piste privée, monter sa réputation et profiter des modifications Hao's Special Works (HSW) ultra rapides !",
+        "L'Atelier Auto (Auto Shop) : Permet de modifier ses véhicules à prix réduit, de réparer les voitures des clients et de lancer des contrats de braquage de mini-banques."
+      ]
+    },
+    {
+      "id": "casino_apuestas",
+      "keywords": [
+        "casino",
+        "diamond casino",
+        "roue de la fortune",
+        "jetons",
+        "blackjack",
+        "penthouse",
+        "courses de chevaux"
+      ],
+      "responses": [
+        "Le Diamond Casino & Resort : Tourne la Roue de la Fortune gratuitement 1 fois par jour pour tenter de gagner la voiture d'exposition sur le podium !",
+        "Récupère tes 1 000 jetons quotidiens offerts à la caisse du casino pour tenter ta chance au Blackjack, à la Roulette ou aux courses hippiques.",
+        "Le Penthouse du Casino débloque les missions de contact d'Agatha Baker et des caméras d'espionnage pour préparer le Braquage du Casino."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "vehicules online",
+        "voitures online",
+        "oppressor",
+        "deluxo",
+        "toreador",
+        "krieger",
+        "emerus",
+        "pegasi",
+        "kosatka",
+        "terrobyte",
+        "avenger",
+        "centre d'operations"
+      ],
+      "responses": [
+        "Le Toreador : Le véhicule tout-terrain par excellence ! Submersible, équipé d'un turbo infini, de missiles guidés illimités et résistant à plusieurs tirs de roquettes.",
+        "Le Kosatka : Le sous-marin militaire indispensable pour lancer le Braquage de Cayo Perico en solo ou en équipe.",
+        "La Pegassi Oppressor Mk II : Très pratique pour se déplacer vite en mission, mais attention à la réputation auprès des autres joueurs de la session !"
+      ]
+    },
+    {
+      "id": "armas",
+      "keywords": [
+        "armes online",
+        "armurerie mobile",
+        "gun van",
+        "armes mk2",
+        "up n atomizer",
+        "railgun",
+        "fusil lourd",
+        "canon electrique"
+      ],
+      "responses": [
+        "L'Armurerie Mobile (Gun Van) : Change d'emplacement chaque jour sur la carte et vend des armes exclusives sans restriction de niveau (Railgun/Canon Électrique, EMP, armes rares) avec de grosses réductions !",
+        "Les armes Mk II : Transforme tes armes de base dans un atelier d'armes (Bunker, Agence, Terrorbyte, Kosatka) pour leur équiper des munitions incendiaires, perforantes ou explosives."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "braquages",
+        "braquage",
+        "heists",
+        "cayo perico",
+        "braquage casino",
+        "diamond heist",
+        "doomsday",
+        "fleeca",
+        "pacific standard",
+        "fin du monde",
+        "lester braquage"
+      ],
+      "responses": [
+        "Braquage de Cayo Perico : Le braquage le plus rentable et le plus accessible en solo du jeu ! Avec le sous-marin Kosatka, infiltre la propriété d'El Rubio par la grille sous-marine pour repartir avec plus d'1,3 million $ en moins de 15 minutes.",
+        "Braquage du Diamond Casino : L'un des plus funs en duo (Approche Furtive, Ruse avec les tenues Gruppe Sechs, ou Force Brute).",
+        "Le Braquage de la Fin du Monde (Doomsday) : Recommandé pour débloquer les réductions sur l'Avenger, le Deluxo et l'Orbital Cannon."
+      ]
+    },
+    {
+      "id": "barrio_davis",
+      "keywords": [
+        "davis online",
+        "ballas online",
+        "survie davis",
+        "fourriere davis"
+      ],
+      "responses": [
+        "À Davis, la fourrière municipale de la police retient tes véhicules confisqués si tu te fais éliminer par la police. Tu peux payer 250 $ ou les récupérer de force en sautant la clôture !"
+      ]
+    },
+    {
+      "id": "altruistas",
+      "keywords": [
+        "altruistes online",
+        "reapprovisionnement altruiste",
+        "secte altruiste online"
+      ],
+      "responses": [
+        "Le camp des Altruistes sert d'objectif pour certaines missions de réapprovisionnement du Bunker, de contrats de club de motards et d'événements aléatoires dans GTA Online."
+      ]
+    },
+    {
+      "id": "fort_zancudo",
+      "keywords": [
+        "hangar zancudo",
+        "fort zancudo online",
+        "base militaire online",
+        "acces zancudo"
+      ],
+      "responses": [
+        "Si tu achètes un Hangar pour avions à Fort Zancudo (Hangar 3499 ou 3497), tu obtiens un laissez-passer militaire permanent ! Tu pourras entrer et survoler la base sans jamais obtenir d'étoiles de police."
+      ]
+    },
+    {
+      "id": "zonas_tranquilas_peligrosas",
+      "keywords": [
+        "zones sures online",
+        "mode passif",
+        "session sur invitation",
+        "griefers",
+        "securite online"
+      ],
+      "responses": [
+        "Pour jouer tranquillement sans te faire attaquer par d'autres joueurs : lance une 'Session sur invitation' depuis le menu en ligne, toutes les ventes de business y sont désormais 100% réalisables !",
+        "Dans une session publique, active le Mode Passif si tu veux te déplacer sans être ciblé par les armes des autres joueurs."
+      ]
+    },
+    {
+      "id": "negocios_avanzados",
+      "keywords": [
+        "salvage yard",
+        "casse",
+        "bail enforcement",
+        "caution",
+        "acid lab",
+        "labo d'acide",
+        "brickade 6x6"
+      ],
+      "responses": [
+        "Le Laboratoire d'Acide (Acid Lab - Freakshop) : Installé dans le camion blindé Brickade 6x6, c'est l'un des business solos les plus rapides et rentables à installer après les missions 'First Dose'.",
+        "La Casse (Salvage Yard) : Permet de réaliser 3 vols de véhicules ciblés par semaine avec de superbes primes à la revente.",
+        "L'Agence de Caution (Bail Enforcement) : Traque les criminels les plus recherchés de San Andreas avec Maude et Jenette pour toucher de belles primes !"
+      ]
+    },
+    {
+      "id": "barrios_iconicos",
+      "keywords": [
+        "quartiers online",
+        "plages online",
+        "vinewood online",
+        "los santos online"
+      ],
+      "responses": [
+        "De Vinewood Boulevard à Vespucci Beach, Los Santos regorge d'activités, de guerres commerciales et d'événements dynamiques en mode libre."
+      ]
+    },
+    {
+      "id": "leyendas_secretas",
+      "keywords": [
+        "mysteres online",
+        "slasher",
+        "tueur en serie los santos",
+        "navy revolver",
+        "revolver navy",
+        "fantomes online",
+        "sightseeing"
+      ],
+      "responses": [
+        "Le Tueur en Série de Los Santos : Trouve les 5 indices sur la carte pour affronter le slasher, récupérer le Navy Revolver et réussir le défi de 50 tirs à la tête pour empocher 250 000 $ (avec arme débloquée dans RDR2) !",
+        "Événements d'Halloween : Les apparitions de fantômes, le camion fou du film Duel et les OVNIs envahissent Los Santos chaque mois d'octobre !"
+      ]
+    },
+    {
+      "id": "misterios",
+      "keywords": [
+        "collectibles online",
+        "figurines",
+        "cartes a jouer",
+        "brouilleurs",
+        "accessoires film",
+        "antennes",
+        "animaux marins"
+      ],
+      "responses": [
+        "54 Cartes à Jouer : Débloquent des jetons, des RP, la tenue 'High Roller' et des récompenses exclusives.",
+        "100 Figurines d'action : Rapportent 150 000 $, 100 000 RP et la tenue du super-héros 'Impotent Rage' !",
+        "50 Brouilleurs de signaux : Détruis-les pour débloquer Avi Schwartzman, le meilleur pirate informatique pour le Braquage du Casino !"
+      ]
+    }
+  ],
+  "gta6-historia": [
+    {
+      "id": "armas",
+      "keywords": [
+        "armes gta 6",
+        "armes gta vi",
+        "arsenal gta 6",
+        "armes jason lucia",
+        "inventaire gta 6"
+      ],
+      "responses": [
+        "GTA VI introduit un système d'inventaire plus réaliste inspiré de Red Dead Redemption 2, où Jason et Lucia portent un nombre limité d'armes sur eux et stockent leur arsenal lourd dans le coffre de leur véhicule !"
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "vehicules gta 6",
+        "voitures gta 6",
+        "bateaux gta 6",
+        "airboats",
+        "vice city voitures"
+      ],
+      "responses": [
+        "Vice City et l'État de Leonida regorgeront de supercars modernes, de lowriders classiques, de hors-bords de luxe et d'hydroglisseurs (airboats) pour naviguer dans les marécages des Keys !"
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "braquages gta 6",
+        "braquage banque gta 6",
+        "vols gta 6",
+        "histoire jason lucia braquage"
+      ],
+      "responses": [
+        "L'histoire de Jason et Lucia s'inspire du duo mythique Bonnie & Clyde, avec des braquages de stations-service, de commerces de luxe, de banques et de réseaux de contrebande à travers tout Leonida."
+      ]
+    },
+    {
+      "id": "novedades",
+      "keywords": [
+        "nouveautes gta 6",
+        "vice city",
+        "leonida",
+        "lucia",
+        "jason",
+        "details gta 6",
+        "moteur graphique gta 6"
+      ],
+      "responses": [
+        "GTA VI se déroule dans l'État de Leonida (inspiré de la Floride) avec Vice City, les marécages de Grassrivers, les îles Keys et une faune ultra vivante (alligators, flamants roses, requins...).",
+        "Les réseaux sociaux in-game joueront un rôle majeur dans l'immersion et la narration du monde ouvert."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": [
+        "date sortie gta 6",
+        "quand sort gta 6",
+        "sortie gta vi",
+        "compte a rebours gta 6",
+        "date gta 6"
+      ],
+      "responses": [
+        "Grand Theft Auto VI est officiellement prévu pour l'automne 2025 sur PlayStation 5 et Xbox Series X/S. Consulte le compte à rebours interactif sur la page d'accueil de notre application !"
+      ]
+    }
+  ],
+  "gta6-online": [
+    {
+      "id": "armas",
+      "keywords": [
+        "armes gta 6 online",
+        "arsenal online gta 6",
+        "personnalisation armes gta 6"
+      ],
+      "responses": [
+        "Le mode en ligne de GTA VI proposera un système avancé de personnalisation balistique, de peintures et d'accessoires tactiques à débloquer au fil de ta progression criminelle à Vice City."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "vehicules gta 6 online",
+        "garages gta 6 online",
+        "yachts vice city online",
+        "avions vice city online"
+      ],
+      "responses": [
+        "Attends-toi à des concessions nautiques immenses, des garages multi-niveaux personnalisables et des hélicoptères modernes pour dominer le ciel de Vice City en multijoueur."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "braquages gta 6 online",
+        "heists gta 6 online",
+        "coop gta 6 online",
+        "missions equipe gta 6"
+      ],
+      "responses": [
+        "Les braquages en coopération dans GTA VI Online tireront parti des nouvelles mécaniques de crochetage, de piratage et de fuites maritimes dans les eaux de Leonida."
+      ]
+    },
+    {
+      "id": "negocios",
+      "keywords": [
+        "business gta 6 online",
+        "empires gta 6 online",
+        "proprietes gta 6 online",
+        "nightclubs vice city"
+      ],
+      "responses": [
+        "De la gestion de clubs branchés à Ocean Drive aux empires de contrebande dans les îles environnantes, les opportunités de business seront gigantesques dans GTA VI Online."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": [
+        "date gta 6 online",
+        "lancement gta 6 online",
+        "sortie online gta 6"
+      ],
+      "responses": [
+        "Le mode en ligne de GTA VI devrait être déployé peu après le lancement de la campagne principale à l'automne 2025. Reste connecté sur notre carte pour toutes les annonces en temps réel !"
+      ]
+    }
+  ]
+}
