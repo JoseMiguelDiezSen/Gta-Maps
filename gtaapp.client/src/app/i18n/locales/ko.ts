@@ -533,5 +533,13 @@ export const ko: TranslationSchema = {
     gta6OnlineDesc: '바이스 시티와 레오니다 지역을 탐색할 수 있는 차세대 GTA VI 온라인 인터랙티브 지도.',
     gta6HistoriaTitle: 'GTA VI 스토리 모드 인터랙티브 지도 - 바이스 시티 및 미션',
     gta6HistoriaDesc: '제이슨과 루시아의 미션, 랜드마크 및 숨겨진 비밀을 탐험하는 GTA VI 스토리 모드 지도.'
+  },
+  gta6Modal: {
+    title: 'GTA VI — 개발 중',
+    description: '이 섹션은 현재 개발 중입니다.',
+    placeholder: '비밀번호 입력...',
+    submit: '접속',
+    cancel: '취소',
+    error: '잘못된 비밀번호'
   }
 };

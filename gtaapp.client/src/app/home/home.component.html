@@ -367,10 +367,10 @@
       <span class="home-btn-title">{{ 'home.gta5Title' | translate }}</span>
       <span class="home-btn-sub">{{ 'home.gta5Sub' | translate }}</span>
     </a>
-    <a class="home-btn home-btn-gta6" routerLink="/gta6-online">
+    <button type="button" class="home-btn home-btn-gta6" (click)="openGta6Modal($event)">
       <span class="home-btn-title">{{ 'home.gta6Title' | translate }}</span>
       <span class="home-btn-sub">{{ 'home.gta6Sub' | translate }}</span>
-    </a>
+    </button>
   </div>
 
   <div class="home-last-update" [title]="('common.lastUpdate' | translate) + ': ' + ultimaActualizacion + ' (' + ('common.commit' | translate) + ' ' + buildCommit + ')'">
@@ -419,6 +419,39 @@
     </p>
   </footer>
 
+  <!-- MODAL PROTEGIDO DE GTA VI (EN DESARROLLO) -->
+  <div class="gta6-modal-backdrop" *ngIf="isGta6ModalOpen" (click)="closeGta6Modal()">
+    <div class="gta6-modal-card" (click)="$event.stopPropagation()">
+      <div class="gta6-modal-header">
+        <h3 class="gta6-modal-title">{{ 'gta6Modal.title' | translate }}</h3>
+        <button type="button" class="gta6-modal-close" (click)="closeGta6Modal()" aria-label="Close">✕</button>
+      </div>
+      <div class="gta6-modal-body">
+        <p class="gta6-modal-desc">{{ 'gta6Modal.description' | translate }}</p>
+        <form (ngSubmit)="submitGta6Password()" class="gta6-modal-form">
+          <div class="gta6-input-group">
+            <input
+              type="password"
+              class="gta6-password-input"
+              [(ngModel)]="gta6Password"
+              name="gta6Password"
+              [placeholder]="'gta6Modal.placeholder' | translate"
+              autocomplete="off"
+            />
+          </div>
+          <p *ngIf="gta6PasswordError" class="gta6-error-msg">{{ 'gta6Modal.error' | translate }}</p>
+          <div class="gta6-modal-actions">
+            <button type="button" class="gta6-btn-cancel" (click)="closeGta6Modal()">
+              {{ 'gta6Modal.cancel' | translate }}
+            </button>
+            <button type="submit" class="gta6-btn-submit">
+              {{ 'gta6Modal.submit' | translate }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- BANNER ELEGANTE Y FUNCIONAL DE COOKIES -->
   <app-cookie-banner></app-cookie-banner>

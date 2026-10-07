@@ -567,5 +567,13 @@ export const es: TranslationSchema = {
     gta6OnlineDesc: 'Mapa interactivo de GTA 6 Online en Vice City y Leonida con puntos de interés, ubicaciones, carreteras y novedades.',
     gta6HistoriaTitle: 'Mapa GTA VI Modo Historia - Misiones Jason y Lucia en Leonida | GTA MAPS',
     gta6HistoriaDesc: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Exploración de Vice City, misiones, coleccionables y secretos.'
+  },
+  gta6Modal: {
+    title: 'GTA VI — En desarrollo',
+    description: 'Esta sección se encuentra actualmente en fase de desarrollo.',
+    placeholder: 'Introduce la contraseña...',
+    submit: 'Acceder',
+    cancel: 'Cancelar',
+    error: 'Contraseña incorrecta'
   }
 };

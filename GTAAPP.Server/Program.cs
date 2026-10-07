@@ -98,6 +98,9 @@ builder.Services.AddRateLimiter(options =>
             path.EndsWith(".svg", StringComparison.OrdinalIgnoreCase) ||
             path.EndsWith(".js", StringComparison.OrdinalIgnoreCase) ||
             path.EndsWith(".css", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".xml", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) ||
+            path.EndsWith(".ico", StringComparison.OrdinalIgnoreCase) ||
             path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase))
         {
             return RateLimitPartition.GetNoLimiter("static-assets");
@@ -211,6 +214,8 @@ staticContentTypeProvider.Mappings[".html"] = "text/html; charset=utf-8";
 staticContentTypeProvider.Mappings[".js"] = "application/javascript; charset=utf-8";
 staticContentTypeProvider.Mappings[".json"] = "application/json; charset=utf-8";
 staticContentTypeProvider.Mappings[".css"] = "text/css; charset=utf-8";
+staticContentTypeProvider.Mappings[".xml"] = "application/xml; charset=utf-8";
+staticContentTypeProvider.Mappings[".txt"] = "text/plain; charset=utf-8";
 
 app.UseStaticFiles(new StaticFileOptions
 {

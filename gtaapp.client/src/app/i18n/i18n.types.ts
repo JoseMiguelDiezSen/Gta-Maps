@@ -540,4 +540,12 @@ export interface TranslationSchema {
     gta6HistoriaTitle: string;
     gta6HistoriaDesc: string;
   };
+  gta6Modal?: {
+    title: string;
+    description: string;
+    placeholder: string;
+    submit: string;
+    cancel: string;
+    error: string;
+  };
 }

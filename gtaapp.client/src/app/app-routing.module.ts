@@ -7,6 +7,8 @@ import { Gta5HistoriaComponent }   from './gta5/historia/gta5-historia.component
 import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
 import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
 
+import { Gta6AuthGuard }       from './services/gta6-auth.guard';
+
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     {
@@ -47,6 +49,7 @@ const routes: Routes = [
     {
         path: 'gta6-online',
         component: Gta6OnlineComponent,
+        canActivate: [Gta6AuthGuard],
         data: {
             titleKey: 'seo.gta6OnlineTitle',
             descriptionKey: 'seo.gta6OnlineDesc',
@@ -58,6 +61,7 @@ const routes: Routes = [
     {
         path: 'gta6-historia',
         component: Gta6HistoriaComponent,
+        canActivate: [Gta6AuthGuard],
         data: {
             titleKey: 'seo.gta6HistoriaTitle',
             descriptionKey: 'seo.gta6HistoriaDesc',

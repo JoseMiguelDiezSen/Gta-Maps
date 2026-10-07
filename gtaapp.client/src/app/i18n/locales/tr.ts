@@ -533,5 +533,13 @@ export const tr: TranslationSchema = {
     gta6OnlineDesc: 'Vice City ve Leonida bölgesini keşfetmek için GTA VI Online interaktif haritası.',
     gta6HistoriaTitle: 'GTA VI Hikaye Modu İnteraktif Harita - Vice City ve Görevler',
     gta6HistoriaDesc: 'Jason ve Lucia görevleri, konumlar ve sırlar içeren GTA VI Hikaye Modu haritası.'
+  },
+  gta6Modal: {
+    title: 'GTA VI — Geliştirme Aşamasında',
+    description: 'Bu bölüm şu anda geliştirme aşamasındadır.',
+    placeholder: 'Şifreyi girin...',
+    submit: 'Giriş',
+    cancel: 'İptal',
+    error: 'Hatalı şifre'
   }
 };

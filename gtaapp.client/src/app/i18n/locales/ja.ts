@@ -568,5 +568,13 @@ export const ja: TranslationSchema = {
     gta6OnlineDesc: 'バイスシティおよびレオニダ州を舞台とするGTA6オンラインの注目スポット、道路、最新情報を網羅したマップ。',
     gta6HistoriaTitle: 'GTA VI ストーリーマップ - ジェイソン＆ルシアのレオニダ攻略 | GTA MAPS',
     gta6HistoriaDesc: 'ジェイソンとルシアによるGTA6ストーリーモード攻略マップ。バイスシティの探索、ミッション、隠し要素。'
+  },
+  gta6Modal: {
+    title: 'GTA VI — 開発中',
+    description: 'このセクションは現在開発中です。',
+    placeholder: 'パスワードを入力...',
+    submit: 'アクセス',
+    cancel: 'キャンセル',
+    error: 'パスワードが違います'
   }
 };

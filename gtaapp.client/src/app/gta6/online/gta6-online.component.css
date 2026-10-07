@@ -70,11 +70,11 @@
 
 .hud-tl {
   top: 4px;
-  left: 14px;
+  left: 4px;
   flex-direction: row;
   align-items: center;
-  gap: 14px;
-  padding: 8px 16px;
+  gap: 12px;
+  padding: 6px 14px;
   box-sizing: border-box;
   height: 48px;
 }
@@ -219,56 +219,15 @@
   background: rgba(255, 79, 224, 0.35);
 }
 
-/* ===== Botón Home Flotante Sutil y Translúcido (encima de coordenadas) ===== */
+/* Botón Home Flotante para móvil (oculto en desktop) */
 .hud-floating-home {
-  position: absolute;
-  bottom: 44px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 10px;
-  background: rgba(8, 12, 18, 0.4);
-  border: 1px solid rgba(255, 79, 224, 0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(8px) saturate(140%);
-  -webkit-backdrop-filter: blur(8px) saturate(140%);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  color: rgba(230, 237, 243, 0.7);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-decoration: none;
-  text-transform: uppercase;
-  user-select: none;
-  z-index: 1000;
-  opacity: 0.75;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hud-floating-home:hover {
-  opacity: 1;
-  background: rgba(16, 20, 32, 0.9);
-  border-color: rgba(255, 79, 224, 0.6);
-  color: #ff4fe0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 79, 224, 0.3);
-  transform: translateX(-50%) translateY(-1px);
-}
-
-.hud-floating-home:active {
-  transform: translateX(-50%) scale(0.97);
-}
-
-.hud-floating-home-icon {
-  flex-shrink: 0;
-  stroke: currentColor;
+  display: none;
 }
 
 /* Telemetría de Coordenadas (X, Y) sutil y moderna */
 .hud-coords-dev {
   position: absolute;
-  bottom: 14px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
   display: inline-flex;
@@ -345,7 +304,7 @@
 
 .hud-bl {
   bottom: 14px;
-  left: 14px;
+  left: 4px;
   top: auto;
   width: 290px;
   max-width: 90vw;
@@ -357,8 +316,8 @@
 }
 
 .hud-br {
-  bottom: 14px;
-  right: 14px;
+  bottom: 4px;
+  right: 4px;
   width: 290px;
   max-width: 90vw;
   max-height: calc(100vh - 100px);
@@ -423,47 +382,29 @@
 }
 
 .hud-time-badge {
-  padding: 3px 10px;
+  padding: 3px 8px;
   font-size: 20px;
   font-weight: 800;
   color: #ff4fe0;
   background: rgba(255, 79, 224, 0.15);
   border: 1px solid rgba(255, 79, 224, 0.5);
   border-radius: 8px;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   font-family: 'Pricedown', monospace, system-ui;
   text-shadow: 0 0 10px rgba(255, 79, 224, 0.6);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 72px;
+  min-width: 72px;
+  max-width: 72px;
+  box-sizing: border-box;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
   white-space: nowrap;
   line-height: 1.1;
-}
-
-.hud-home-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 12px;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.hud-home-btn:hover {
-  background: rgba(236, 0, 200, 0.25);
-  border-color: #ff4fe0;
-  color: #ff4fe0;
-  box-shadow: 0 0 10px rgba(236, 0, 200, 0.5);
-  transform: translateY(-1px);
+  flex-shrink: 0;
 }
 
 /* ===== BARRA SEGMENTADA (Online / Historia) ===== */
@@ -1787,6 +1728,10 @@
     text-shadow: 0 0 8px rgba(255, 79, 224, 0.6) !important;
   }
 
+  .hud-tl .hud-home-btn {
+    display: none !important;
+  }
+
   /* 2. SUPERIOR CENTRAL: [ • S | • O ] */
   .hud-tc {
     position: absolute !important;
@@ -2134,5 +2079,44 @@
     line-height: 1.3 !important;
   }
 }
+
+/* ===== BOTÓN HOME (Integrado en HUD superior izquierdo junto al reloj) ===== */
+.hud-home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 42, 127, 0.4);
+  color: #ff2a7f;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.hud-home-btn:hover {
+  background: rgba(255, 42, 127, 0.22);
+  border-color: #ff2a7f;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 42, 127, 0.6);
+  transform: translateY(-1px);
+}
+
+.hud-home-btn:active {
+  transform: scale(0.92);
+}
+
+.hud-home-btn-icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
+
 
 

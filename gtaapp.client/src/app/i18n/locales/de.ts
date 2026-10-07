@@ -568,5 +568,13 @@ export const de: TranslationSchema = {
     gta6OnlineDesc: 'Interaktive Karte für GTA 6 Online in Vice City und Leonida mit Sehenswürdigkeiten, Straßennetz und Multiplayer-Features.',
     gta6HistoriaTitle: 'GTA VI Story-Modus Karte - Jason & Lucia Missionen | GTA MAPS',
     gta6HistoriaDesc: 'Interaktive Karte für den Story-Modus von GTA VI mit Jason und Lucia. Erkundung von Vice City, Quests, Sammelobjekte und Geheimnisse.'
+  },
+  gta6Modal: {
+    title: 'GTA VI — In Entwicklung',
+    description: 'Dieser Bereich befindet sich derzeit in Entwicklung.',
+    placeholder: 'Passwort eingeben...',
+    submit: 'Zugriff',
+    cancel: 'Abbrechen',
+    error: 'Falsches Passwort'
   }
 };

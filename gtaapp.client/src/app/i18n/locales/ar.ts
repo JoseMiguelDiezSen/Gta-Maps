@@ -568,5 +568,13 @@ export const ar: TranslationSchema = {
     gta6OnlineDesc: 'خريطة تفاعلية لـ GTA 6 Online في فايس سيتي وليونيدا مع نقاط الاهتمام والمواقع والطرق وأحدث الميزات.',
     gta6HistoriaTitle: 'خريطة قصة GTA VI - مهمات جيسون ولوسيا في ليونيدا | GTA MAPS',
     gta6HistoriaDesc: 'خريطة تفاعلية لنمط القصة في GTA VI مع جيسون ولوسيا. استكشاف فايس سيتي، المهمات والمقتنيات والأسرار.'
+  },
+  gta6Modal: {
+    title: 'GTA VI — قيد التطوير',
+    description: 'هذا القسم قيد التطوير حالياً.',
+    placeholder: 'أدخل كلمة المرور...',
+    submit: 'دخول',
+    cancel: 'إلغاء',
+    error: 'كلمة المرور غير صحيحة'
   }
 };

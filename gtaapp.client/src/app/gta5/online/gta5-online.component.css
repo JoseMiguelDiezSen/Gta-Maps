@@ -61,17 +61,17 @@
 
 .hud-tl {
   top: 4px;
-  left: 14px;
+  left: 4px;
   flex-direction: row;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   padding: 8px 16px;
   box-sizing: border-box;
   height: 48px;
 }
-.hud-tr { top: 14px; right: 14px; align-items: flex-end; }
-.hud-bl { bottom: 14px; left: 14px; top: auto; align-items: flex-start; max-height: calc(100vh - 76px); }
-.hud-br { bottom: 14px; right: 14px; align-items: flex-end; }
+.hud-tr { top: 4px; right: 4px; align-items: flex-end; }
+.hud-bl { bottom: 4px; left: 4px; top: auto; align-items: flex-start; max-height: calc(100vh - 76px); }
+.hud-br { bottom: 4px; right: 4px; align-items: flex-end; }
 
 /* ===== PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante con estética HUD) ===== */
 .hud-tc {
@@ -216,47 +216,29 @@
 }
 
 .hud-time-badge {
-  padding: 3px 10px;
+  padding: 3px 8px;
   font-size: 20px;
   font-weight: 800;
   color: #ffb833;
   background: rgba(255, 184, 51, 0.15);
   border: 1px solid rgba(255, 184, 51, 0.5);
   border-radius: 8px;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   font-family: 'Pricedown', monospace, system-ui;
   text-shadow: 0 0 10px rgba(255, 184, 51, 0.6);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 72px;
+  min-width: 72px;
+  max-width: 72px;
+  box-sizing: border-box;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
   white-space: nowrap;
   line-height: 1.1;
-}
-
-.hud-home-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 12px;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.hud-home-btn:hover {
-  background: rgba(255, 165, 0, 0.25);
-  border-color: #ffb833;
-  color: #ffb833;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
-  transform: translateY(-1px);
+  flex-shrink: 0;
 }
 
 /* Botón de cambio a Modo Historia — acento verde */
@@ -463,8 +445,8 @@
 
 /* ===== ESQUINA INF-IZQ: Panel de control (antigua Leyenda) ===== */
 .hud-bl {
-  bottom: 14px;
-  left: 14px;
+  bottom: 4px;
+  left: 4px;
   top: auto;
   width: 290px;
   max-width: 90vw;
@@ -799,8 +781,8 @@
 
 /* ===== ESQUINA INF-DER: Ajustes ===== */
 .hud-br {
-  bottom: 14px;
-  right: 14px;
+  bottom: 4px;
+  right: 4px;
   width: 290px;
   max-width: 90vw;
   max-height: calc(100vh - 100px);
@@ -1882,56 +1864,53 @@
   background: var(--pin-color, #ffb833) !important;
 }
 
-/* ===== Botón Home Flotante Sutil y Translúcido (encima de coordenadas) ===== */
-.hud-floating-home {
-  position: absolute;
-  bottom: 44px;
-  left: 50%;
-  transform: translateX(-50%);
+/* ===== BOTÓN HOME (Integrado en HUD superior izquierdo junto al reloj) ===== */
+.hud-home-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 3px 10px;
-  background: rgba(8, 12, 18, 0.4);
-  border: 1px solid rgba(255, 184, 51, 0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(8px) saturate(140%);
-  -webkit-backdrop-filter: blur(8px) saturate(140%);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  color: rgba(230, 237, 243, 0.7);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-decoration: none;
-  text-transform: uppercase;
-  user-select: none;
-  z-index: 1000;
-  opacity: 0.75;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hud-floating-home:hover {
-  opacity: 1;
-  background: rgba(12, 18, 28, 0.9);
-  border-color: rgba(255, 184, 51, 0.6);
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 184, 51, 0.35);
   color: #ffb833;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 184, 51, 0.3);
-  transform: translateX(-50%) translateY(-1px);
-}
-
-.hud-floating-home:active {
-  transform: translateX(-50%) scale(0.97);
-}
-
-.hud-floating-home-icon {
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.hud-home-btn:hover {
+  background: rgba(255, 184, 51, 0.22);
+  border-color: #ffb833;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 184, 51, 0.55);
+  transform: translateY(-1px);
+}
+
+.hud-home-btn:active {
+  transform: scale(0.92);
+}
+
+.hud-home-btn-icon {
+  width: 18px;
+  height: 18px;
   stroke: currentColor;
+  stroke-width: 2.2;
+}
+
+/* Botón Home Flotante para móvil (oculto en desktop) */
+.hud-floating-home {
+  display: none;
 }
 
 /* ===== Telemetría de coordenadas moderna y sutil (X, Y) ===== */
 .hud-coords-dev {
   position: absolute;
-  bottom: 14px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
   display: inline-flex;
@@ -1997,7 +1976,7 @@
 /* ===== SELECTOR DE ISLA / ZONA: Los Santos vs Cayo Perico (Esquina sup-izq debajo de GTA V) ===== */
 .hud-island-selector {
   top: 62px;
-  left: 14px;
+  left: 4px;
   flex-direction: row;
   align-items: center;
   gap: 6px;
@@ -2138,12 +2117,6 @@
     content: "O";
     font-size: 11px;
     font-weight: 800;
-  }
-
-  .hud-floating-home {
-    bottom: 38px;
-    padding: 2px 8px;
-    font-size: 9.5px;
   }
 
   .hud-coords-dev {
@@ -2388,6 +2361,12 @@
     color: #ffb833 !important;
   }
 
+  /* Ocultar el botón home del header en móvil */
+  .hud-tl .hud-home-btn {
+    display: none !important;
+  }
+
+  /* Mostrar la casita en el centro de la barra inferior en móvil */
   .hud-floating-home {
     position: fixed !important;
     bottom: max(10px, env(safe-area-inset-bottom, 10px)) !important;

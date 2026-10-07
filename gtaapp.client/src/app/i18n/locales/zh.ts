@@ -568,5 +568,13 @@ export const zh: TranslationSchema = {
     gta6OnlineDesc: 'GTA 6 在线模式罪城互动地图：探索佛罗里达/雷欧尼达、打卡兴趣点、全新商业资产与载具。',
     gta6HistoriaTitle: 'GTA 6 故事模式互动地图 - 杰森与露西亚罪城冒险 | GTA MAPS',
     gta6HistoriaDesc: 'GTA 6 故事模式双主角全地图指南：探索罪恶都市全境、任务全解、野生动植物与隐藏彩蛋。'
+  },
+  gta6Modal: {
+    title: 'GTA VI — 开发中',
+    description: '该部分目前正在开发中。',
+    placeholder: '输入密码...',
+    submit: '进入',
+    cancel: '取消',
+    error: '密码错误'
   }
 };
