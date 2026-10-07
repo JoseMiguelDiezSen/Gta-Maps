@@ -644,11 +644,13 @@
   }
 
   .home-online-widget {
-    bottom: max(46px, calc(env(safe-area-inset-bottom, 0px) + 42px));
-    left: max(10px, env(safe-area-inset-left, 10px));
-    padding: 5px 9px;
-    font-size: 10.5px;
-    gap: 5px;
+    bottom: max(70px, calc(env(safe-area-inset-bottom, 0px) + 64px));
+    left: max(12px, env(safe-area-inset-left, 12px));
+    height: 36px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 11px;
+    gap: 6px;
   }
 
 
@@ -1156,15 +1158,15 @@
 
 @media (max-width: 600px) {
   .feedback-fab {
-    bottom: max(100px, calc(env(safe-area-inset-bottom, 0px) + 95px));
-    right: 16px;
+    bottom: max(70px, calc(env(safe-area-inset-bottom, 0px) + 64px));
+    right: max(16px, env(safe-area-inset-right, 16px));
     width: 36px;
     height: 36px;
   }
 
   .feedback-floating-panel {
-    bottom: max(144px, calc(env(safe-area-inset-bottom, 0px) + 138px));
-    right: 16px;
+    bottom: max(114px, calc(env(safe-area-inset-bottom, 0px) + 108px));
+    right: max(16px, env(safe-area-inset-right, 16px));
   }
 }
 
