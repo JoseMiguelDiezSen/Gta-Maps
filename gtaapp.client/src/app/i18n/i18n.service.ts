@@ -160,11 +160,16 @@ export class TranslationService {
   }
 
   private applyDocumentLang(code: string): void {
-    if (typeof document !== 'undefined' && document.documentElement) {
-      document.documentElement.lang = code;
-      const isRtl = code === 'ar';
-      document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
-      document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
+    if (typeof document !== 'undefined') {
+      if (document.documentElement) {
+        document.documentElement.lang = code;
+        document.documentElement.dir = 'ltr';
+        document.documentElement.setAttribute('dir', 'ltr');
+      }
+      if (document.body) {
+        document.body.dir = 'ltr';
+        document.body.setAttribute('dir', 'ltr');
+      }
     }
   }
 

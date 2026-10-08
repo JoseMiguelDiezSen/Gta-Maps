@@ -1,208 +1,218 @@
-<div class="wiki-shell gta5-theme" [class.font-large]="fontSizeMode === 'large'">
-  <!-- CABECERA PRINCIPAL ESTILO HUD GTA -->
-  <header class="wiki-header">
-    <div class="wiki-header-container">
-      <div class="wiki-brand">
-        <button type="button" class="mobile-menu-btn" (click)="toggleMobileSidebar()" aria-label="Abrir menú de capítulos">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-
-        <a routerLink="/home" class="wiki-back-btn" title="Volver a la portada">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-          <span class="back-text">Inicio</span>
+<div #wikiShell class="wiki-shell gta5-theme" [class.mode-day]="themeMode === 'day'" (scroll)="onShellScroll()">
+  
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR HUD -->
+  <nav class="wiki-top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <!-- LOGO DE LA HOME CON TAMAÑO FIJADO -->
+        <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
+          <img src="assets/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
-        <div class="wiki-title-group">
-          <span class="wiki-badge">⚡ BASE DE DATOS LOS SANTOS</span>
-          <h1 class="wiki-title">GTA V GUÍA & ENCICLOPEDIA</h1>
+        <div class="nav-brand">
+          <span class="nav-brand-sep">/</span>
+          <span class="nav-brand-title">GUÍA GTA V</span>
         </div>
       </div>
 
-      <!-- Barra de Búsqueda Integrada HUD -->
-      <div class="wiki-search-box">
-        <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input
-          type="text"
-          class="wiki-search-input"
-          [(ngModel)]="searchQuery"
-          (input)="onSearch()"
-          placeholder="Buscar misiones, golpes, bolsa, trucos, personajes..."
-        />
-        <button *ngIf="searchQuery" (click)="limpiarBusqueda()" class="search-clear-btn" aria-label="Limpiar búsqueda">✕</button>
-
-        <!-- Dropdown de Resultados de Búsqueda Rápida -->
-        <div *ngIf="searchResults.length > 0" class="search-results-dropdown">
-          <div
-            *ngFor="let res of searchResults"
-            class="search-result-item"
-            (click)="seleccionarArticulo(res.id); limpiarBusqueda()"
-          >
-            <div class="search-result-header">
-              <span class="search-result-title">{{ res.titulo }}</span>
-              <span *ngIf="res.badge" class="search-result-badge">{{ res.badge }}</span>
-            </div>
-            <span class="search-result-sub">{{ res.subtitulo }}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Acciones de Cabecera (Lectura y Mapa) -->
-      <div class="wiki-header-actions">
+      <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE -->
+      <div class="nav-right">
         <button
           type="button"
-          class="wiki-font-toggle"
-          (click)="toggleFontSize()"
-          [title]="fontSizeMode === 'normal' ? 'Modo lectura grande' : 'Modo lectura estándar'"
+          class="theme-toggle-switch"
+          [class.is-day]="themeMode === 'day'"
+          (click)="toggleThemeMode()"
+          [title]="themeMode === 'night' ? 'Cambiar a Modo Día' : 'Cambiar a Modo Noche'"
+          aria-label="Cambiar entre modo día y noche"
         >
-          <span>{{ fontSizeMode === 'normal' ? 'A+' : 'A-' }}</span>
+          <span class="switch-icon switch-icon-moon">🌙</span>
+          <span class="switch-icon switch-icon-sun">☀️</span>
+          <span class="switch-thumb"></span>
         </button>
-
-        <a routerLink="/gta5-historia" class="wiki-map-link" title="Abrir el mapa interactivo de GTA V">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
-            <line x1="8" y1="2" x2="8" y2="18"></line>
-            <line x1="16" y1="6" x2="16" y2="22"></line>
-          </svg>
-          <span class="map-text">Abrir Mapa</span>
-        </a>
       </div>
     </div>
+  </nav>
 
-    <!-- Pestañas de Secciones Temáticas -->
-    <div class="wiki-categories-bar">
-      <div class="wiki-categories-container">
-        <button
-          type="button"
-          class="category-tab-btn"
-          [class.is-active]="selectedSeccionId === 'todas'"
-          (click)="filtrarPorSeccion('todas')"
-        >
-          <span class="tab-icon">🌟</span> Todos los Capítulos
-        </button>
-        <button
-          *ngFor="let s of secciones"
-          type="button"
-          class="category-tab-btn"
-          [class.is-active]="selectedSeccionId === s.id"
-          (click)="filtrarPorSeccion(s.id)"
-        >
-          <span class="tab-icon">📁</span> {{ s.titulo }}
-        </button>
+  <!-- BARRA DE PROGRESO DE LECTURA -->
+  <div class="reading-progress-track" aria-hidden="true">
+    <div class="reading-progress-bar" [style.width.%]="readingProgress"></div>
+  </div>
+
+  <!-- BANNER HERO DE LOS SANTOS (CIUDAD DE FONDO) -->
+  <header class="wiki-hero-banner">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content-inner">
+      <div class="hero-tag-row">
+        <span class="hero-location-text">LOS SANTOS & BLAINE COUNTY</span>
       </div>
+      <h2 class="hero-main-title">GRAND THEFT AUTO V</h2>
+      <p class="hero-description">
+        Compendio del Modo Historia al 100%, planificación táctica de Golpes, bolsa de valores con Lester y secretos de San Andreas.
+      </p>
     </div>
   </header>
 
-  <!-- BANNER HERO DE LA GUÍA -->
-  <section class="wiki-hero-banner">
-    <div class="hero-content">
-      <div class="hero-badges">
-        <span class="hero-chip hero-chip-green">MODO HISTORIA AL 100%</span>
-        <span class="hero-chip hero-chip-gold">GUÍA MAESTRA DE NEGOCIOS & BOLSA</span>
-        <span class="hero-chip hero-chip-cyan">MISTERIOS & OVNIS</span>
-      </div>
-      <h2 class="hero-title">CRÓNICAS DE LOS SANTOS</h2>
-      <p class="hero-desc">
-        Enciclopedia y compendio narrativo de Grand Theft Auto V. Guías paso a paso de los 6 Golpes, inversiones millonarias de Lester, árboles de personajes y análisis de secretos.
-      </p>
-    </div>
-  </section>
-
-  <!-- CUERPO PRINCIPAL DE LA WIKI (SIDEBAR + LECTOR HUD) -->
+  <!-- CUERPO PRINCIPAL (PANEL LATERAL + LECTOR EDITORIAL) -->
   <div class="wiki-body-layout">
-    <!-- Overlay móvil -->
-    <div
-      class="mobile-sidebar-backdrop"
-      *ngIf="isSidebarOpenMobile"
-      (click)="toggleMobileSidebar()"
-    ></div>
-
-    <!-- BARRA LATERAL (ÍNDICE DE CAPÍTULOS Y ARTÍCULOS) -->
-    <aside class="wiki-sidebar" [class.is-mobile-open]="isSidebarOpenMobile">
-      <div class="sidebar-header">
-        <div class="sidebar-title-box">
-          <span class="sidebar-badge">ÍNDICE GENERAL</span>
-          <h3>Capítulos Disponibles</h3>
+    
+    <!-- PANEL LATERAL DE CAPÍTULOS -->
+    <aside class="wiki-sidebar">
+      <!-- Buscador en tiempo real -->
+      <div class="sidebar-search-box">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="text"
+            class="sidebar-search-input"
+            [(ngModel)]="searchQuery"
+            (input)="onSearch()"
+            placeholder="Buscar en la guía de GTA V..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button
+            *ngIf="searchQuery"
+            type="button"
+            class="search-clear-btn"
+            (click)="limpiarBusqueda()"
+            aria-label="Limpiar búsqueda"
+          >
+            ✕
+          </button>
         </div>
-        <button type="button" class="sidebar-close-mobile" (click)="toggleMobileSidebar()">✕</button>
+
+        <!-- Dropdown de resultados de búsqueda -->
+        <div *ngIf="searchResults.length > 0" class="search-dropdown-menu">
+          <div
+            *ngFor="let res of searchResults"
+            class="search-dropdown-item"
+            (click)="seleccionarArticulo(res.id); limpiarBusqueda()"
+          >
+            <span class="search-item-title">{{ res.titulo }}</span>
+            <span class="search-item-sub">{{ res.subtitulo }}</span>
+          </div>
+        </div>
       </div>
 
-      <nav class="sidebar-nav">
-        <ng-container *ngFor="let seccion of secciones">
-          <div
-            class="sidebar-section"
-            *ngIf="selectedSeccionId === 'todas' || selectedSeccionId === seccion.id"
-          >
-            <div class="sidebar-section-title">
-              <span>{{ seccion.titulo }}</span>
-              <span class="section-count">{{ seccion.articulos.length }}</span>
-            </div>
-            <ul class="sidebar-article-list">
-              <li
-                *ngFor="let art of seccion.articulos"
-                [class.is-active]="selectedArticulo?.id === art.id"
-                (click)="seleccionarArticulo(art.id)"
-                class="sidebar-article-item"
-              >
-                <div class="article-item-main">
-                  <span class="article-item-title">{{ art.titulo }}</span>
-                  <span class="article-item-sub">{{ art.subtitulo }}</span>
-                </div>
-                <span *ngIf="art.badge" class="article-badge">{{ art.badge }}</span>
-              </li>
-            </ul>
+      <!-- Cabecera del Sidebar -->
+      <div class="sidebar-header-bar">
+        <span class="sidebar-header-title">ÍNDICE DE CONTENIDOS</span>
+        <span class="sidebar-header-count" *ngIf="manifest">{{ todosLosArticulos.length }} caps</span>
+      </div>
+
+      <!-- Grupos temáticos verticales -->
+      <nav class="sidebar-sections-container">
+        <div *ngFor="let seccion of secciones" class="sidebar-section-group">
+          <div class="section-group-header">
+            <span class="section-group-title">{{ seccion.titulo }}</span>
+            <span class="section-group-badge">{{ seccion.articulos.length }}</span>
           </div>
-        </ng-container>
+
+          <ul class="sidebar-chapters-list">
+            <li
+              *ngFor="let art of seccion.articulos"
+              class="chapter-item"
+              [class.is-active]="selectedArticulo?.id === art.id"
+              (click)="seleccionarArticulo(art.id)"
+            >
+              <div class="chapter-info">
+                <span class="chapter-title">{{ art.titulo }}</span>
+                <span class="chapter-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+              </div>
+              <span *ngIf="art.badge" class="chapter-badge">{{ art.badge }}</span>
+            </li>
+          </ul>
+        </div>
       </nav>
     </aside>
 
-    <!-- ÁREA CENTRAL DE LECTURA NARRATIVA -->
-    <main class="wiki-content">
-      <!-- Loading State -->
-      <div *ngIf="isLoadingArticulo" class="wiki-loading">
-        <div class="spinner"></div>
-        <p>Cargando archivo de Los Santos...</p>
+    <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
+    <main class="wiki-content-area">
+      <!-- Estado de carga -->
+      <div *ngIf="isLoadingArticulo" class="wiki-loading-state">
+        <div class="wiki-spinner"></div>
+        <p class="wiki-loading-text">Cargando archivo de Los Santos...</p>
       </div>
 
-      <!-- Artículo Seleccionado -->
-      <article *ngIf="!isLoadingArticulo && selectedArticulo" class="article-card">
-        <!-- Cabecera del Artículo -->
+      <!-- Lector del Artículo Seleccionado -->
+      <article *ngIf="!isLoadingArticulo && selectedArticulo" class="wiki-article-card">
         <header class="article-header">
           <div class="article-meta-row">
-            <span *ngIf="selectedArticulo.badge" class="article-pill-badge">{{ selectedArticulo.badge }}</span>
-            <span class="article-meta-item">⏱️ {{ selectedArticulo.tiempoLecturaMinutos }} min de lectura</span>
-            <span *ngIf="selectedArticulo.tags?.length" class="article-meta-item">
-              🏷️ {{ selectedArticulo.tags.join(' · ') }}
+            <span *ngIf="selectedArticulo.badge" class="article-chip-badge">{{ selectedArticulo.badge }}</span>
+            <span class="article-read-meta">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>{{ selectedArticulo.tiempoLecturaMinutos }} min de lectura</span>
             </span>
           </div>
 
           <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
           <p class="article-lead">{{ selectedArticulo.subtitulo }}</p>
 
-          <div class="article-divider-box">
-            <span class="divider-line"></span>
-            <span class="divider-diamond">◆</span>
-            <span class="divider-line"></span>
+
+          <!-- Índice Dinámico Rápido del Capítulo (TOC) -->
+          <div class="article-toc-box" *ngIf="articleToc.length > 1">
+            <div class="toc-header">
+              <span class="toc-icon">📑</span>
+              <span class="toc-title">En este capítulo:</span>
+            </div>
+            <div class="toc-chips-list">
+              <button
+                type="button"
+                *ngFor="let item of articleToc"
+                class="toc-chip-btn"
+                (click)="scrollToSection(item.id)"
+              >
+                <span>{{ item.text }}</span>
+              </button>
+            </div>
           </div>
+
+          <div class="article-header-divider"></div>
         </header>
 
-        <!-- Cuerpo del Artículo -->
+        <!-- Contenido Formateado Editorialmente (Adiós al pre) -->
         <div class="article-body">
-          <div class="narrative-markdown-content">
-            <pre class="article-text-block">{{ selectedArticulo.contenidoMarkdown }}</pre>
-          </div>
+          <div class="narrative-editorial-body" [innerHTML]="renderedContent" (click)="onContentClick($event)"></div>
         </div>
 
-        <!-- Pie de Artículo & Enlaces Relacionados -->
-        <footer *ngIf="selectedArticulo.relacionados?.length" class="article-footer">
+        <!-- Navegación Capítulo Anterior / Siguiente -->
+        <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
+          <button
+            type="button"
+            class="pagination-btn pagination-prev"
+            *ngIf="capituloAnterior"
+            (click)="seleccionarArticulo(capituloAnterior.id)"
+          >
+            <span class="pagination-arrow">←</span>
+            <div class="pagination-text">
+              <span class="pagination-label">Capítulo anterior</span>
+              <span class="pagination-title">{{ capituloAnterior.titulo }}</span>
+            </div>
+          </button>
+          <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
+
+          <button
+            type="button"
+            class="pagination-btn pagination-next"
+            *ngIf="capituloSiguiente"
+            (click)="seleccionarArticulo(capituloSiguiente.id)"
+          >
+            <div class="pagination-text pagination-text-right">
+              <span class="pagination-label">Siguiente capítulo</span>
+              <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
+            </div>
+            <span class="pagination-arrow">→</span>
+          </button>
+        </nav>
+
+        <!-- Capítulos Relacionados -->
+        <footer *ngIf="selectedArticulo.relacionados && selectedArticulo.relacionados.length" class="article-footer">
           <div class="related-header">
             <span class="related-tag">CONTINUAR LEYENDO</span>
             <h4 class="related-section-title">Capítulos y Guías Relacionadas</h4>
@@ -214,14 +224,57 @@
               (click)="seleccionarArticulo(rel.id)"
             >
               <div class="related-card-content">
-                <span class="related-card-badge">Guía Oficial</span>
                 <span class="related-card-title">{{ rel.titulo }}</span>
               </div>
               <span class="related-card-arrow">Leer capítulo →</span>
             </div>
           </div>
         </footer>
+
+        <!-- Banner contextual: Enlace al Mapa Interactivo (Abajo del todo separado) -->
+        <div class="article-map-prompt">
+          <div class="map-prompt-text">
+            <h4 class="map-prompt-title">¿Buscas ubicaciones de esta guía?</h4>
+            <p class="map-prompt-sub">Explora coleccionables, misterios y golpes marcados en el mapa interactivo de Los Santos.</p>
+          </div>
+          <a routerLink="/gta5-historia" class="map-prompt-btn">
+            <span>Abrir Mapa</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
       </article>
     </main>
+  </div>
+
+  <!-- FOOTER IDÉNTICO AL DE LA HOME -->
+  <footer class="home-footer">
+    <p class="home-footer-text">
+      {{ 'home.copyright' | translate }}
+      <span class="home-footer-sep" aria-hidden="true">·</span>
+      <button type="button" class="home-footer-link" (click)="cookieService.openBanner()">{{ 'cookies.reopenTooltip' | translate }}</button>
+    </p>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE VOLVER ARRIBA -->
+  <button
+    type="button"
+    class="scroll-top-btn"
+    *ngIf="showScrollTop"
+    (click)="scrollToTop()"
+    title="Volver al inicio del capítulo"
+    aria-label="Volver al inicio"
+  >
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+    <span class="scroll-top-text">Subir</span>
+  </button>
+
+  <!-- TOAST DE COPIADO RÁPIDO -->
+  <div class="wiki-toast" *ngIf="toastMessage" role="status">
+    <span class="toast-icon">✓</span>
+    <span class="toast-text">{{ toastMessage }}</span>
   </div>
 </div>

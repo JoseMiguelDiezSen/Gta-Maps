@@ -9,7 +9,7 @@ import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
 import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
 import { Gta6GuiaComponent }      from './gta6/guia/gta6-guia.component';
 
-import { Gta6AuthGuard }       from './services/gta6-auth.guard';
+import { DevAccessGuard }       from './services/dev-access.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -51,8 +51,9 @@ const routes: Routes = [
     {
         path: 'gta5-guia',
         component: Gta5GuiaComponent,
+        canActivate: [DevAccessGuard],
         data: {
-            title: 'Guía Oficial & Wiki GTA V - Modo Historia al 100%, Golpes y Misterios | GTA MAPS',
+            title: 'Guía GTA V - Modo Historia al 100%, Golpes y Misterios | GTA MAPS',
             description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía de golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
             canonical: 'https://gtamaps.dev/gta5-guia'
         }
@@ -60,7 +61,7 @@ const routes: Routes = [
     {
         path: 'gta6-online',
         component: Gta6OnlineComponent,
-        canActivate: [Gta6AuthGuard],
+        canActivate: [DevAccessGuard],
         data: {
             titleKey: 'seo.gta6OnlineTitle',
             descriptionKey: 'seo.gta6OnlineDesc',
@@ -72,7 +73,7 @@ const routes: Routes = [
     {
         path: 'gta6-historia',
         component: Gta6HistoriaComponent,
-        canActivate: [Gta6AuthGuard],
+        canActivate: [DevAccessGuard],
         data: {
             titleKey: 'seo.gta6HistoriaTitle',
             descriptionKey: 'seo.gta6HistoriaDesc',
@@ -84,9 +85,9 @@ const routes: Routes = [
     {
         path: 'gta6-guia',
         component: Gta6GuiaComponent,
-        canActivate: [Gta6AuthGuard],
+        canActivate: [DevAccessGuard],
         data: {
-            title: 'Base de Datos & Guía Oficial GTA VI - Vice City y Estado de Leonida | GTA MAPS',
+            title: 'Base de Datos & Guía GTA VI - Vice City y Estado de Leonida | GTA MAPS',
             description: 'Enciclopedia interactiva de GTA VI: análisis de regiones de Leonida, Jason & Lucia, vehículos, armas e inventario físico confirmado.',
             canonical: 'https://gtamaps.dev/gta6-guia'
         }

@@ -359,17 +359,15 @@
 
   <!-- MASCOTAS OFICIALES: GOTY 5 & GOTY 6 -->
   <div class="home-mascots-box" title="GOTY 5 (Los Santos) & GOTY 6 (Vice City)">
-    <picture>
-      <source srcset="assets/images/goty_duo.webp" type="image/webp">
-      <img
-        src="assets/images/goty_duo.png"
-        alt="GOTY 5 y GOTY 6 - Mascotas de GTA Maps"
-        class="home-mascots-img"
-        width="210"
-        height="210"
-        loading="eager"
-      />
-    </picture>
+    <img
+      src="assets/images/goty_duo.png"
+      alt="GOTY 5 y GOTY 6 - Mascotas de GTA Maps"
+      class="home-mascots-img"
+      width="200"
+      height="200"
+      loading="eager"
+      decoding="async"
+    />
   </div>
 
   <h1 class="home-title">GTA Maps</h1>
@@ -382,18 +380,39 @@
       <span class="home-btn-title">{{ 'home.gta5Title' | translate }}</span>
       <span class="home-btn-sub">{{ 'home.gta5Sub' | translate }}</span>
     </a>
-    <button type="button" class="home-btn home-btn-gta6" (click)="openGta6Modal($event)">
+    <button
+      type="button"
+      class="home-btn home-btn-gta6"
+      [class.is-disabled]="!isDevAllowed"
+      [disabled]="!isDevAllowed"
+      (click)="goToGta6($event)"
+      [title]="!isDevAllowed ? ('common.comingSoon' | translate) : ('home.gta6Title' | translate)"
+    >
       <span class="home-btn-title">{{ 'home.gta6Title' | translate }}</span>
       <span class="home-btn-sub">{{ 'home.gta6Sub' | translate }}</span>
     </button>
   </div>
 
-  <!-- BOTONES SECUNDARIOS: GUÍAS Y WIKI OFICIAL DE GTA 5 Y GTA 6 -->
+  <!-- BOTONES SECUNDARIOS: GUÍAS DE GTA 5 Y GTA 6 -->
   <div class="home-guide-actions">
-    <button type="button" class="home-guide-btn home-guide-btn-gta5" (click)="goToGta5Guia($event)">
+    <button
+      type="button"
+      class="home-guide-btn home-guide-btn-gta5"
+      [class.is-disabled]="!isDevAllowed"
+      [disabled]="!isDevAllowed"
+      (click)="goToGta5Guia($event)"
+      [title]="!isDevAllowed ? ('common.comingSoon' | translate) : 'Guía GTA V'"
+    >
       <span class="home-guide-btn-text">GUIA GTA 5</span>
     </button>
-    <button type="button" class="home-guide-btn home-guide-btn-gta6" (click)="openGta6Modal('/gta6-guia', $event)">
+    <button
+      type="button"
+      class="home-guide-btn home-guide-btn-gta6"
+      [class.is-disabled]="!isDevAllowed"
+      [disabled]="!isDevAllowed"
+      (click)="goToGta6Guia($event)"
+      [title]="!isDevAllowed ? ('common.comingSoon' | translate) : 'Guía GTA VI'"
+    >
       <span class="home-guide-btn-text">GUIA GTA 6</span>
     </button>
   </div>
@@ -444,39 +463,6 @@
     </p>
   </footer>
 
-  <!-- MODAL PROTEGIDO DE GTA VI (EN DESARROLLO) -->
-  <div class="gta6-modal-backdrop" *ngIf="isGta6ModalOpen" (click)="closeGta6Modal()">
-    <div class="gta6-modal-card" (click)="$event.stopPropagation()">
-      <div class="gta6-modal-header">
-        <h3 class="gta6-modal-title">{{ 'gta6Modal.title' | translate }}</h3>
-        <button type="button" class="gta6-modal-close" (click)="closeGta6Modal()" aria-label="Close">✕</button>
-      </div>
-      <div class="gta6-modal-body">
-        <p class="gta6-modal-desc">{{ 'gta6Modal.description' | translate }}</p>
-        <form (ngSubmit)="submitGta6Password()" class="gta6-modal-form">
-          <div class="gta6-input-group">
-            <input
-              type="password"
-              class="gta6-password-input"
-              [(ngModel)]="gta6Password"
-              name="gta6Password"
-              [placeholder]="'gta6Modal.placeholder' | translate"
-              autocomplete="off"
-            />
-          </div>
-          <p *ngIf="gta6PasswordError" class="gta6-error-msg">{{ 'gta6Modal.error' | translate }}</p>
-          <div class="gta6-modal-actions">
-            <button type="button" class="gta6-btn-cancel" (click)="closeGta6Modal()">
-              {{ 'gta6Modal.cancel' | translate }}
-            </button>
-            <button type="submit" class="gta6-btn-submit">
-              {{ 'gta6Modal.submit' | translate }}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
   <!-- BANNER ELEGANTE Y FUNCIONAL DE COOKIES -->
   <app-cookie-banner></app-cookie-banner>

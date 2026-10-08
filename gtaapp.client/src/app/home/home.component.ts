@@ -6,6 +6,7 @@ import { TranslationService } from '../i18n';
 import { UsuariosActivosService } from '../services/usuarios-activos.service';
 import { CookieService } from '../services/cookie.service';
 
+import { isDevAccessAllowed } from '../services/dev-access.guard';
 import { LanguageCode } from '../i18n';
 
 export interface Language {
@@ -23,10 +24,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     isOpen = false;
     selectedCode: LanguageCode = 'en';
 
-    // GTA 6 Protected Access State
-    isGta6ModalOpen = false;
-    gta6Password = '';
-    gta6PasswordError = false;
+    // Interruptor de acceso a funciones en desarrollo (GTA 6 y guías)
+    readonly isDevAllowed = isDevAccessAllowed();
 
     // Feedback Modal State
     isFeedbackModalOpen = false;
@@ -75,11 +74,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.selectedCode = this.translationService.currentLang;
         this.startCountdown();
-
-        // Si intentó entrar a una ruta protegida de GTA 6, abrir modal
-        if (this.route.snapshot.queryParams['gta6locked']) {
-            this.openGta6Modal();
-        }
 
         this.lockMobileZoom();
     }
@@ -187,55 +181,34 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.translationService.setLanguage(code);
     }
 
+    goToGta6(event?: Event): void {
+        if (event) {
+            event.preventDefault();
+        }
+        if (!this.isDevAllowed) {
+            return;
+        }
+        this.router.navigate(['/gta6-online']);
+    }
+
     goToGta5Guia(event?: Event): void {
         if (event) {
             event.preventDefault();
         }
+        if (!this.isDevAllowed) {
+            return;
+        }
         this.router.navigate(['/gta5-guia']);
     }
 
-    gta6TargetRoute = '/gta6-online';
-
-    openGta6Modal(eventOrRoute?: Event | string, maybeEvent?: Event): void {
-        if (eventOrRoute instanceof Event) {
-            eventOrRoute.preventDefault();
-            this.gta6TargetRoute = '/gta6-online';
-        } else if (typeof eventOrRoute === 'string') {
-            this.gta6TargetRoute = eventOrRoute;
-            if (maybeEvent) {
-                maybeEvent.preventDefault();
-            }
-        } else {
-            this.gta6TargetRoute = '/gta6-online';
+    goToGta6Guia(event?: Event): void {
+        if (event) {
+            event.preventDefault();
         }
-
-        if (this.isGta6Unlocked()) {
-            this.router.navigate([this.gta6TargetRoute]);
+        if (!this.isDevAllowed) {
             return;
         }
-        this.isGta6ModalOpen = true;
-        this.gta6Password = '';
-        this.gta6PasswordError = false;
-    }
-
-    closeGta6Modal(): void {
-        this.isGta6ModalOpen = false;
-        this.gta6Password = '';
-        this.gta6PasswordError = false;
-    }
-
-    submitGta6Password(): void {
-        if (this.gta6Password.trim() === '1989') {
-            localStorage.setItem('gta6_unlocked', 'true');
-            this.isGta6ModalOpen = false;
-            this.router.navigate([this.gta6TargetRoute || '/gta6-online']);
-        } else {
-            this.gta6PasswordError = true;
-        }
-    }
-
-    isGta6Unlocked(): boolean {
-        return localStorage.getItem('gta6_unlocked') === 'true';
+        this.router.navigate(['/gta6-guia']);
     }
 
     toggleFeedbackPanel(event?: Event): void {
@@ -300,9 +273,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     @HostListener('document:keydown.escape')
     onEscape(): void {
         this.isOpen = false;
-        if (this.isGta6ModalOpen) {
-            this.closeGta6Modal();
-        }
         if (this.isFeedbackModalOpen) {
             this.closeFeedbackModal();
         }

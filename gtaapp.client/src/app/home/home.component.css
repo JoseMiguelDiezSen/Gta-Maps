@@ -201,11 +201,12 @@
   animation: gotyIdleFloat 4s ease-in-out infinite;
   user-select: none;
   cursor: default;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.home-mascots-box:hover {
-  transform: translateY(-6px) scale(1.05);
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .home-mascots-img {
@@ -215,24 +216,42 @@
   max-height: 200px;
   display: block;
   object-fit: contain;
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.8))
           drop-shadow(-10px 4px 20px rgba(0, 230, 118, 0.22))
           drop-shadow(10px 4px 20px rgba(255, 64, 129, 0.22));
-  transition: filter 0.3s ease;
 }
 
-.home-mascots-box:hover .home-mascots-img {
-  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.85))
-          drop-shadow(-14px 4px 26px rgba(0, 230, 118, 0.38))
-          drop-shadow(14px 4px 26px rgba(255, 64, 129, 0.38));
+/* Solo aplicar efectos de :hover en pantallas con puntero/ratón (escritorio) */
+@media (hover: hover) and (pointer: fine) {
+  .home-mascots-box {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .home-mascots-box:hover {
+    transform: translateY(-6px) scale(1.05);
+  }
+
+  .home-mascots-img {
+    transition: filter 0.3s ease;
+  }
+
+  .home-mascots-box:hover .home-mascots-img {
+    filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.85))
+            drop-shadow(-14px 4px 26px rgba(0, 230, 118, 0.38))
+            drop-shadow(14px 4px 26px rgba(255, 64, 129, 0.38));
+  }
 }
 
 @keyframes gotyIdleFloat {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translate3d(0, 0px, 0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translate3d(0, -8px, 0);
   }
 }
 
@@ -286,6 +305,8 @@
   .home-mascots-img {
     max-width: 150px;
     max-height: 150px;
+    /* Sombra optimizada y limpia en móvil para eliminar cualquier fallo de textura GPU */
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.75));
   }
 
   .home-title {
@@ -371,6 +392,15 @@
   transform: translateY(-2px);
 }
 
+.home-btn.is-disabled,
+.home-btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  filter: grayscale(0.6);
+  transform: none !important;
+}
+
 /* ==========================================
    BOTONES GUÍA (GTA 5 Y GTA 6)
    - Mitad de altura (50px), igual de anchos
@@ -449,6 +479,16 @@
 .home-guide-btn-gta6:hover .home-guide-btn-text {
   color: #f472b6;
   text-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+}
+
+.home-guide-btn.is-disabled,
+.home-guide-btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  filter: grayscale(0.6);
+  transform: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Marca de última actualización debajo de los botones: sin panel, limpia y centrada */
