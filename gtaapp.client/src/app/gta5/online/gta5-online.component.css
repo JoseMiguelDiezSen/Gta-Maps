@@ -1510,6 +1510,17 @@
   box-sizing: border-box;
 }
 
+:host ::ng-deep .popup-service-tag-box.popup-shipwreck-box {
+  justify-content: center;
+  text-align: center;
+}
+
+:host ::ng-deep .popup-service-tag-box.popup-shipwreck-box .service-type-badge {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
 :host ::ng-deep .service-type-badge {
   font-size: 10px;
   font-weight: 800;
@@ -1535,15 +1546,18 @@
 :host ::ng-deep .popup-tag-lbl {
   color: rgba(255, 255, 255, 0.55);
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 :host ::ng-deep .popup-tag-val {
   color: #fff;
-  font-weight: 700;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 :host ::ng-deep .val-income {
   color: #f1c40f;
+  font-weight: 400;
 }
 
 :host ::ng-deep .popup-desc {
@@ -2616,6 +2630,17 @@
     padding: 3px 6px !important;
     width: 100% !important;
     box-sizing: border-box !important;
+  }
+
+  .popup-service-tag-box.popup-shipwreck-box {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .popup-service-tag-box.popup-shipwreck-box .service-type-badge {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
   }
 
   .service-type-badge {

@@ -762,4 +762,10 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
         tick();
         this.clockInterval = setInterval(tick, 30000);
     }
+
+    ngOnDestroy(): void {
+        if (this.clockInterval) {
+            clearInterval(this.clockInterval);
+        }
+    }
 }

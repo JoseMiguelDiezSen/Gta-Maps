@@ -23,4 +23,14 @@
     </ProjectReference>
   </ItemGroup>
 
+  <!-- Sincronización automática de datos: La única fuente de verdad es gtaapp.client/src/assets/data -->
+  <Target Name="SyncClientDataToWwwroot" BeforeTargets="Build">
+    <ItemGroup>
+      <ClientDataFiles Include="..\gtaapp.client\src\assets\data\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ClientDataFiles)"
+          DestinationFiles="@(ClientDataFiles->'wwwroot\data\%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true" />
+  </Target>
+
 </Project>

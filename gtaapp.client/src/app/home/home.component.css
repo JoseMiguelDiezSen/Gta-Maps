@@ -190,7 +190,7 @@
 }
 
 /* ==========================================
-   MASCOTAS OFICIALES GOTY 5 & GOTY 6
+   MASCOTAS OFICIALES GOTY 5 & GOTY 6 (POSICIÓN FIJA)
    ========================================== */
 .home-mascots-box {
   display: flex;
@@ -198,15 +198,10 @@
   align-items: center;
   z-index: 2;
   margin-bottom: -10px;
-  animation: gotyIdleFloat 4s ease-in-out infinite;
   user-select: none;
   cursor: default;
   background: transparent !important;
   -webkit-tap-highlight-color: transparent !important;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
 }
 
 .home-mascots-img {
@@ -218,41 +213,7 @@
   object-fit: contain;
   background: transparent !important;
   -webkit-tap-highlight-color: transparent !important;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.8))
-          drop-shadow(-10px 4px 20px rgba(0, 230, 118, 0.22))
-          drop-shadow(10px 4px 20px rgba(255, 64, 129, 0.22));
-}
-
-/* Solo aplicar efectos de :hover en pantallas con puntero/ratón (escritorio) */
-@media (hover: hover) and (pointer: fine) {
-  .home-mascots-box {
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .home-mascots-box:hover {
-    transform: translateY(-6px) scale(1.05);
-  }
-
-  .home-mascots-img {
-    transition: filter 0.3s ease;
-  }
-
-  .home-mascots-box:hover .home-mascots-img {
-    filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.85))
-            drop-shadow(-14px 4px 26px rgba(0, 230, 118, 0.38))
-            drop-shadow(14px 4px 26px rgba(255, 64, 129, 0.38));
-  }
-}
-
-@keyframes gotyIdleFloat {
-  0%, 100% {
-    transform: translate3d(0, 0px, 0);
-  }
-  50% {
-    transform: translate3d(0, -8px, 0);
-  }
+  pointer-events: none;
 }
 
 .home-title {
@@ -305,8 +266,6 @@
   .home-mascots-img {
     max-width: 150px;
     max-height: 150px;
-    /* Sombra optimizada y limpia en móvil para eliminar cualquier fallo de textura GPU */
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.75));
   }
 
   .home-title {

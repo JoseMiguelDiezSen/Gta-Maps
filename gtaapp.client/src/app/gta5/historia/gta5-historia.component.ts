@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, effect } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import * as L from 'leaflet';
 import { LocationService } from '../../services/location.service';
@@ -24,6 +25,9 @@ import { GotyService } from '../../services/goty.service';
     standalone: false
 })
 export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
+
+    private propertiesSub?: Subscription;
+    private collectiblesSub?: Subscription;
 
     private map: L.Map | undefined;
 
@@ -406,12 +410,15 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
+        this.propertiesSub?.unsubscribe();
+        this.collectiblesSub?.unsubscribe();
         window.removeEventListener('resize', this.onWindowResize);
         if (this.clockInterval) clearInterval(this.clockInterval);
         delete (window as any)._gtaRenameMarker;
         delete (window as any)._gtaDeleteMarker;
         delete (window as any)._gtaSetMarkerColor;
         delete (window as any)._gtaSaveMarkerName;
+        delete (window as any)._closeGtaMapPopup;
         if (this.map) this.map.remove();
     }
 
@@ -671,7 +678,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     // CARGA DE DATOS — Historia filtra solo gameMode 'story' | 'both'
     // -----------------------------------------------------------------------
     private loadProperties(): void {
-        this.locationService.getProperties('story').subscribe({
+        this.propertiesSub?.unsubscribe();
+        this.propertiesSub = this.locationService.getProperties('story').subscribe({
             next: (properties) => {
                 this.allProperties = properties;
                 this.recomputeDerivedLists();
@@ -694,7 +702,8 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
      * Carga los coleccionables exclusivos de Modo Historia (fragmentos de carta, piezas de nave, tratados de Epsilon, etc.).
      */
     private loadCollectibles(): void {
-        this.locationService.getCollectibles(undefined, undefined, 'story').subscribe({
+        this.collectiblesSub?.unsubscribe();
+        this.collectiblesSub = this.locationService.getCollectibles(undefined, undefined, 'story').subscribe({
             next: (items) => {
                 this.allCollectibles = items;
                 this.allCollectibles.forEach(c => {
@@ -800,7 +809,11 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             const priceLbl = this.translationService.t('gta5.popups.price');
             const poiLbl = this.translationService.t('gta5.popups.pointOfInterest');
 
-            const priceSectionHtml = isPurchasable
+            const isShipwreck = p.category === 'shipwreck';
+
+            const priceSectionHtml = isShipwreck
+                ? `<div class="popup-service-tag-box popup-shipwreck-box"><span class="service-type-badge">${p.categoryLabel}</span></div>`
+                : isPurchasable
                 ? `<div class="popup-price-box"><span class="price-title">${priceLbl}</span> <span class="price-num">${p.priceFormatted}</span></div>`
                 : `<div class="popup-service-tag-box"><span class="service-type-badge">${p.categoryLabel}</span><span class="service-status-text">${p.priceFormatted || poiLbl}</span></div>`;
 

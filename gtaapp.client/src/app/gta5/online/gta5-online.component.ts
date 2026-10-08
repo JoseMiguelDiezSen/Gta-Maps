@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, effect } from '@angular/core';
+import { Subscription } from 'rxjs';
 import * as L from 'leaflet';
 import { LocationService } from '../../services/location.service';
 import { LocationItem } from '../../models/location';
@@ -14,6 +15,11 @@ import { GotyService } from '../../services/goty.service';
     standalone: false
 })
 export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
+
+    // Subscripciones para evitar fugas de memoria y condiciones de carrera
+    private propertiesSub?: Subscription;
+    private collectiblesSub?: Subscription;
+    private cayoSub?: Subscription;
 
     // Mapa Leaflet instanciado
     private map: L.Map | undefined;
@@ -791,6 +797,9 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
+        this.propertiesSub?.unsubscribe();
+        this.collectiblesSub?.unsubscribe();
+        this.cayoSub?.unsubscribe();
         window.removeEventListener('resize', this.onWindowResize);
         if (this.clockInterval) {
             clearInterval(this.clockInterval);
@@ -799,6 +808,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         delete (window as any)._gtaDeleteMarker;
         delete (window as any)._gtaSetMarkerColor;
         delete (window as any)._gtaSaveMarkerName;
+        delete (window as any)._closeGtaMapPopup;
         if (this.map) {
             this.map.remove();
         }
@@ -1188,7 +1198,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
      * Carga las ubicaciones, armas, vehículos y puntos de reconocimiento de Cayo Perico.
      */
     private loadCayoPerico(): void {
-        this.locationService.getCayoPericoLocations().subscribe({
+        this.cayoSub?.unsubscribe();
+        this.cayoSub = this.locationService.getCayoPericoLocations().subscribe({
             next: (locations) => {
                 this.cayoPericoLocations = locations;
                 locations.forEach(loc => {
@@ -1331,7 +1342,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
      * Carga todas las propiedades, negocios y servicios de GTA Online y los dibuja en el mapa.
      */
     private loadProperties(): void {
-        this.locationService.getProperties('online').subscribe({
+        this.propertiesSub?.unsubscribe();
+        this.propertiesSub = this.locationService.getProperties('online').subscribe({
             next: (properties) => {
                 this.allProperties = properties;
                 this.recomputeDerivedLists();
@@ -1353,7 +1365,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
      * Carga la colección de coleccionables de GTA Online (figuras, naipes, emisoras, etc.).
      */
     private loadCollectibles(): void {
-        this.locationService.getCollectibles().subscribe({
+        this.collectiblesSub?.unsubscribe();
+        this.collectiblesSub = this.locationService.getCollectibles().subscribe({
             next: (collectibles) => {
                 this.allCollectibles = collectibles;
                 collectibles.forEach(c => {
@@ -1459,7 +1472,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 popupAnchor: pinPopupAnchor
             });
 
-            const featuresHtml = p.features && p.features.length > 0
+            const challengeCategories = ['knife_flight', 'stunt_jump', 'parachuting', 'under_the_bridge', 'tennis'];
+            const featuresHtml = (p.features && p.features.length > 0 && !challengeCategories.includes(p.category))
                 ? `<ul class="popup-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>`
                 : '';
 
@@ -1477,7 +1491,15 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
                 ? `<div class="popup-image-box"><img src="${finalImg}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
                 : '';
 
-            const priceSectionHtml = isPurchasable
+            const isShipwreck = p.category === 'shipwreck';
+
+            const priceSectionHtml = isShipwreck
+                ? `
+                    <div class="popup-service-tag-box popup-shipwreck-box">
+                        <span class="service-type-badge">${p.categoryLabel}</span>
+                    </div>
+                  `
+                : isPurchasable
                 ? `
                     <div class="popup-price-box">
                         <span class="price-title">${this.translationService.t('gta5.popups.price')}</span>
