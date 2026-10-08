@@ -79,10 +79,10 @@
     </button>
   </div>
 
-  <!-- ====== TABS (solo en vista de lista) ====== -->
+  <!-- ====== TABS (solo en vista principal) ====== -->
   <div class="drawer-tabs" role="tablist" *ngIf="drawerView === 'tabs'">
     <button
-      *ngFor="let tab of drawerTabs"
+      *ngFor="let tab of drawerTabs; trackBy: trackByTabId"
       type="button"
       class="drawer-tab"
       role="tab"
@@ -98,9 +98,16 @@
   </div>
 
   <!-- ====== CUERPO ====== -->
-  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'" [class.is-heist-view]="drawerView === 'heist-detail'" [class.is-weapon-view]="drawerView === 'weapon-detail'">
+  <div class="drawer-body"
+    [class.is-dealer-view]="drawerView === 'dealer-grid'"
+    [class.is-vehicle-view]="drawerView === 'vehicle-detail'"
+    [class.is-mission-view]="drawerView === 'mission-detail'"
+    [class.is-heist-view]="drawerView === 'heist-detail'"
+    [class.is-weapon-view]="drawerView === 'weapon-detail'"
+    [class.is-mystery-view]="drawerView === 'mystery-detail'"
+  >
 
-    <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
+    <!-- ============ TAB 1: VEHÍCULOS (LISTA DE CONCESIONARIOS) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'vehiculos'">
       <div class="dealers-tab-scroll">
         <div class="dealer-list">
@@ -113,7 +120,7 @@
           </div>
 
           <!-- Dealers de Leonida -->
-          <ng-container *ngFor="let d of dealers">
+          <ng-container *ngFor="let d of dealers; trackBy: trackById">
 
             <!-- Separador antes de la sección especial -->
             <div class="dealer-section-divider" *ngIf="d.id === 'gta6_especiales'">
@@ -146,9 +153,8 @@
       </div>
     </ng-container>
 
-    <!-- ============ VISTA: GRID DE VEHÍCULOS ============ -->
+    <!-- ============ VISTA: GRID DE VEHÍCULOS DE CONCESIONARIO ============ -->
     <ng-container *ngIf="drawerView === 'dealer-grid'">
-
       <div class="vgrid-view-container">
 
         <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo -->
@@ -179,7 +185,7 @@
                 [(ngModel)]="selectedVehicleClass"
                 (ngModelChange)="setVehicleCategory($event)"
               >
-                <option *ngFor="let cat of dealerCategories" [value]="cat.id">
+                <option *ngFor="let cat of dealerCategories; trackBy: trackById" [value]="cat.id">
                   {{ cat.id === 'all' ? ('common.all' | translate) : cat.name }} ({{ cat.count }})
                 </option>
               </select>
@@ -211,7 +217,7 @@
 
           <div class="vgrid-grid">
             <div
-              *ngFor="let v of filteredDealerVehicles"
+              *ngFor="let v of filteredDealerVehicles; trackBy: trackById"
               class="vcard"
               (click)="selectVehicle(v)"
             >
@@ -249,7 +255,7 @@
       </div>
     </ng-container>
 
-    <!-- ============ VISTA: DETALLE DE VEHÍCULO (PANEL LIMPIO VCLEAN) ============ -->
+    <!-- ============ VISTA: DETALLE DE VEHÍCULO (VCLEAN CARD) ============ -->
     <ng-container *ngIf="drawerView === 'vehicle-detail' && selectedVehicle">
       <div class="vclean-container">
         <div class="vclean-card">
@@ -334,9 +340,206 @@
       </div>
     </ng-container>
 
-    <!-- ============ VISTA: MISIONES ============ -->
+    <!-- ============ TAB 2: ARMAS (CATÁLOGO DE ARMAMENTO / VCARD GRID) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'armas'">
+      <div class="vgrid-view-container">
+
+        <!-- Toolbar de Búsqueda y Filtros de Categoría/Ordenación -->
+        <div class="dealer-vehicles-toolbar">
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="weaponSearchQuery"
+              [placeholder]="'transports.weapons.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="weaponSearchQuery"
+              type="button"
+              class="missions-search-clear"
+              (click)="weaponSearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="missions-dropdowns-row">
+            <div class="strangers-series-select-wrap">
+              <select
+                class="strangers-series-select"
+                [(ngModel)]="selectedWeaponCategory"
+                (ngModelChange)="setWeaponCategory($event)"
+              >
+                <option *ngFor="let cat of weaponCategoryList; trackBy: trackById" [value]="cat.id">
+                  {{ cat.name }} ({{ cat.count }})
+                </option>
+              </select>
+            </div>
+
+            <div class="strangers-series-select-wrap">
+              <select
+                class="strangers-series-select"
+                [(ngModel)]="selectedWeaponSort"
+                (ngModelChange)="setWeaponSort($event)"
+              >
+                <option value="none">📊 {{ 'transports.weapons.sortDefault' | translate }}</option>
+                <option value="damage">{{ 'transports.weapons.sortDamage' | translate }}</option>
+                <option value="fireRate">{{ 'transports.weapons.sortFireRate' | translate }}</option>
+                <option value="accuracy">{{ 'transports.weapons.sortAccuracy' | translate }}</option>
+                <option value="range">{{ 'transports.weapons.sortRange' | translate }}</option>
+                <option value="price">{{ 'transports.weapons.sortPrice' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll area con grid de tarjetas vcard idénticas a GTA 5 -->
+        <div class="vgrid-scroll-area">
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.armeria' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
+          <div class="vgrid-grid">
+            <div
+              *ngFor="let w of filteredWeapons; trackBy: trackById"
+              class="vcard"
+              (click)="selectWeapon(w)"
+            >
+              <div class="vcard-img">
+                <span class="vcard-class-badge" [style.borderColor]="getWeaponAccentColor(w) + '80'" [style.color]="getWeaponAccentColor(w)">
+                  {{ w.categoryLabel || w.category }}
+                </span>
+                <img
+                  *ngIf="w.imageUrl && !w.imgFailed"
+                  [src]="w.imageUrl"
+                  [alt]="w.name"
+                  class="vcard-photo"
+                  loading="lazy"
+                  (error)="onWeaponImgError(w)"
+                />
+                <ng-container *ngIf="!w.imageUrl || w.imgFailed">
+                  <i class="fa-solid vcard-img-icon" [ngClass]="getWeaponIcon(w)"></i>
+                </ng-container>
+                <span class="vcard-stat-pill" *ngIf="selectedWeaponSort !== 'none'">
+                  <span *ngIf="selectedWeaponSort === 'damage'">💥 {{ w.damage }}</span>
+                  <span *ngIf="selectedWeaponSort === 'fireRate'">⚡ {{ w.fireRate }}</span>
+                  <span *ngIf="selectedWeaponSort === 'accuracy'">🎯 {{ w.accuracy }}</span>
+                  <span *ngIf="selectedWeaponSort === 'range'">🔭 {{ w.range }}</span>
+                  <span *ngIf="selectedWeaponSort === 'price'">💵 {{ w.priceFormatted }}</span>
+                </span>
+              </div>
+              <div class="vcard-info">
+                <span class="vcard-name">{{ w.name }}</span>
+                <div class="vcard-sub-row">
+                  <span class="vcard-maker">{{ w.manufacturer || 'Leonida Armory' }}</span>
+                  <span class="vcard-price">{{ w.priceFormatted || formatPrice(w.price) }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE ARMA (VCLEAN CARD) ============ -->
+    <ng-container *ngIf="drawerView === 'weapon-detail' && selectedWeapon">
+      <div class="vclean-container">
+        <div class="vclean-card">
+
+          <div class="vclean-hero">
+            <span class="vclean-class-badge" [style.borderColor]="getWeaponAccentColor(selectedWeapon) + '80'" [style.color]="getWeaponAccentColor(selectedWeapon)">
+              {{ selectedWeapon.categoryLabel || selectedWeapon.category }}
+            </span>
+            <img
+              *ngIf="selectedWeapon.imageUrl && !selectedWeapon.imgFailed"
+              [src]="selectedWeapon.imageUrl"
+              [alt]="selectedWeapon.name"
+              class="vclean-hero-img"
+              (error)="onWeaponImgError(selectedWeapon)"
+            />
+            <div *ngIf="!selectedWeapon.imageUrl || selectedWeapon.imgFailed" class="vclean-hero-fallback">
+              <i class="fa-solid" [ngClass]="getWeaponIcon(selectedWeapon)"></i>
+            </div>
+          </div>
+
+          <div class="vclean-header">
+            <span class="vclean-maker">
+              {{ selectedWeapon.manufacturer }} <span *ngIf="selectedWeapon.realCounterpart">· {{ selectedWeapon.realCounterpart }}</span>
+            </span>
+            <h2 class="vclean-title">{{ selectedWeapon.name }}</h2>
+          </div>
+
+          <div class="vclean-prices">
+            <div class="vclean-price-box vclean-price-primary">
+              <span class="vclean-price-lbl">{{ 'transports.weapons.buyPrice' | translate }}</span>
+              <span class="vclean-price-val">{{ selectedWeapon.priceFormatted || formatPrice(selectedWeapon.price) }}</span>
+            </div>
+            <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedWeapon.clipSize">
+              <span class="vclean-price-lbl">{{ 'transports.weapons.clipSize' | translate }}</span>
+              <span class="vclean-price-val">{{ selectedWeapon.clipSize }} Balas</span>
+            </div>
+          </div>
+
+          <div class="vclean-stats">
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.weapons.damage' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-brake" [style.width.%]="selectedWeapon.damage || 60"></div>
+              </div>
+              <span class="vstat-num">{{ selectedWeapon.damage || 60 }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.weapons.fireRate' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-speed" [style.width.%]="selectedWeapon.fireRate || 65"></div>
+              </div>
+              <span class="vstat-num">{{ selectedWeapon.fireRate || 65 }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.weapons.accuracy' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-handling" [style.width.%]="selectedWeapon.accuracy || 75"></div>
+              </div>
+              <span class="vstat-num">{{ selectedWeapon.accuracy || 75 }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.weapons.range' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-accel" [style.width.%]="selectedWeapon.range || 50"></div>
+              </div>
+              <span class="vstat-num">{{ selectedWeapon.range || 50 }}</span>
+            </div>
+          </div>
+
+          <div class="vclean-desc-box" *ngIf="selectedWeapon.description">
+            <div class="vclean-desc-head">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>{{ 'transports.weapons.synopsis' | translate }}</span>
+            </div>
+            <p class="vclean-desc-text">{{ selectedWeapon.description }}</p>
+          </div>
+
+          <div class="vclean-bottom-action">
+            <button type="button" class="vclean-back-btn" (click)="closeWeaponDetail()">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>{{ 'transports.weapons.returnToList' | translate }}</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB 3: MISIONES (MAQUETACIÓN MCARD-ITEM) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
-      <div class="missions-container">
+      <div class="missions-tab-container">
+
+        <!-- Toolbar de Búsqueda y Filtros de Protagonista -->
         <div class="missions-toolbar">
           <div class="missions-search-box">
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
@@ -356,182 +559,679 @@
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
+
+          <div class="missions-tabs-scroll">
+            <div class="missions-char-tabs">
+              <button
+                type="button"
+                class="char-tab"
+                [class.is-active]="selectedMissionChar === 'all'"
+                (click)="setMissionChar('all')"
+              >
+                <span>{{ 'common.all' | translate }}</span>
+              </button>
+              <button
+                type="button"
+                class="char-tab"
+                [class.is-active]="selectedMissionChar === 'Lucia'"
+                (click)="setMissionChar('Lucia')"
+              >
+                <i class="fa-solid fa-circle char-mini-dot" style="color: #ff4fe0;"></i>
+                <span>Lucia</span>
+              </button>
+              <button
+                type="button"
+                class="char-tab"
+                [class.is-active]="selectedMissionChar === 'Jason'"
+                (click)="setMissionChar('Jason')"
+              >
+                <i class="fa-solid fa-circle char-mini-dot" style="color: #00cec9;"></i>
+                <span>Jason</span>
+              </button>
+            </div>
+          </div>
         </div>
 
+        <!-- Área de scroll con lista de misiones mcard-item -->
         <div class="missions-scroll-area">
-          <div class="mission-grid">
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
+          <div class="mysteries-list">
             <div
-              *ngFor="let m of filteredStoryMissions"
-              class="mission-card"
+              *ngFor="let m of filteredStoryMissions; trackBy: trackById"
+              class="mcard-item"
               (click)="selectMission(m)"
+              [style.--m-color]="getMissionAccentColor(m)"
             >
-              <div class="mcard-top-row">
-                <span class="mcard-char-badge">{{ m.protagonist || 'Jason / Lucia' }}</span>
-                <span class="mcard-cat-badge">{{ m.type || 'Misión' }}</span>
+              <div class="mcard-order-badge">
+                <span class="mcard-order-num">#0{{ m.order || 1 }}</span>
               </div>
-              <h4 class="mcard-title">{{ m.title }}</h4>
-              <p class="mcard-desc-snippet">{{ m.description }}</p>
+
+              <div class="mcard-icon-box" [style.background]="getMissionAccentColor(m) + '20'" [style.color]="getMissionAccentColor(m)" [style.borderColor]="getMissionAccentColor(m) + '50'">
+                <i class="fa-solid" [ngClass]="getMissionIcon(m)"></i>
+              </div>
+
+              <div class="mcard-content">
+                <div class="mcard-title">{{ m.title }}</div>
+                <div class="mcard-meta-line">
+                  <span class="mcard-cat-badge" [style.color]="getMissionAccentColor(m)" [style.borderColor]="getMissionAccentColor(m) + '40'">
+                    {{ m.category || m.type }}
+                  </span>
+                  <span class="mcard-time-badge" style="color: #ffb8f6; background: rgba(255, 79, 224, 0.15); border-color: rgba(255, 79, 224, 0.3);">
+                    <i class="fa-solid fa-user"></i>
+                    <span>{{ m.protagonist }}</span>
+                  </span>
+                  <span class="mcard-time-badge" style="color: #00cec9; background: rgba(0, 206, 201, 0.15); border-color: rgba(0, 206, 201, 0.3);" *ngIf="m.location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>{{ m.location }}</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="mcard-actions">
+                <div class="mcard-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </ng-container>
 
-    <!-- ============ VISTA: DETALLE DE MISIÓN ============ -->
+    <!-- ============ VISTA: DETALLE DE MISIÓN (MDETAIL CARD) ============ -->
     <ng-container *ngIf="drawerView === 'mission-detail' && selectedMission">
-      <div class="missions-scroll-area">
-        <div class="mdetail-card">
-          <span class="mdetail-char-badge">{{ selectedMission.protagonist }}</span>
-          <h2 class="mdetail-title">{{ selectedMission.title }}</h2>
-          <p class="mdetail-desc">{{ selectedMission.description }}</p>
-          <div class="mdetail-gold-box" *ngIf="selectedMission.goldRequirements && selectedMission.goldRequirements.length > 0">
-            <h5 class="mdetail-gold-title"><i class="fa-solid fa-medal"></i> Requisitos Medalla de Oro</h5>
-            <ul class="mdetail-gold-list">
-              <li *ngFor="let req of selectedMission.goldRequirements">{{ req }}</li>
-            </ul>
+      <div class="mdetail-container" [style.--m-accent]="getMissionAccentColor(selectedMission)">
+
+        <!-- Barra de navegación interna (Anterior / Siguiente) -->
+        <div class="mdetail-top-bar is-centered">
+          <div class="mdetail-stepper">
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!previousMission"
+              (click)="selectPreviousMission()"
+              [title]="'transports.missions.prevMission' | translate"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="mdetail-step-label">
+              {{ selectedMission.order || 1 }} / {{ storyMissions.length }}
+            </span>
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!nextMission"
+              (click)="selectNextMission()"
+              [title]="'transports.missions.nextMission' | translate"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
         </div>
+
+        <div class="mdetail-body">
+          <div class="mdetail-main-card">
+
+            <!-- Hero Image Oficial si existe -->
+            <div class="stranger-hero-media" *ngIf="selectedMission.thumbnail">
+              <img [src]="selectedMission.thumbnail" [alt]="selectedMission.title" class="stranger-hero-img" />
+              <div class="stranger-hero-overlay"></div>
+              <div class="stranger-hero-badges">
+                <span class="stranger-hero-series-badge" [style.backgroundColor]="getMissionAccentColor(selectedMission)">
+                  <i class="fa-solid" [ngClass]="getMissionIcon(selectedMission)"></i>
+                  <span>{{ selectedMission.type }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Cabecera de la Misión -->
+            <div class="mdetail-hero">
+              <div class="mdetail-hero-badges">
+                <span class="mdetail-hero-num">{{ 'transports.missions.missionNum' | translate:{ order: ('0' + (selectedMission.order || 1)) } }}</span>
+                <span class="mdetail-hero-cat" [style.borderColor]="getMissionAccentColor(selectedMission) + '44'" [style.color]="getMissionAccentColor(selectedMission)">
+                  <i class="fa-solid" [ngClass]="getMissionIcon(selectedMission)"></i>
+                  {{ selectedMission.type }}
+                </span>
+              </div>
+              <h2 class="mdetail-hero-title">{{ selectedMission.title }}</h2>
+
+              <div class="mdetail-hero-chars">
+                <span class="mdetail-char-pill badge-duo-gta6">
+                  <i class="fa-solid fa-circle char-mini-dot"></i>
+                  <span>{{ selectedMission.protagonist }}</span>
+                </span>
+                <span class="mdetail-giver-pill" *ngIf="selectedMission.giver">
+                  <i class="fa-solid fa-user-secret"></i>
+                  <span>{{ 'transports.missions.contact' | translate }} <strong>{{ selectedMission.giver }}</strong></span>
+                </span>
+                <span class="mdetail-giver-pill" *ngIf="selectedMission.location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>{{ selectedMission.location }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Sinopsis -->
+            <div class="mdetail-block" *ngIf="selectedMission.description">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-book-open"></i>
+                <span>{{ 'transports.missions.synopsis' | translate }}</span>
+              </div>
+              <div class="mdetail-synopsis">
+                <p>{{ selectedMission.description }}</p>
+              </div>
+            </div>
+
+            <!-- Requisitos Medalla de Oro -->
+            <div class="mdetail-block gold-block" *ngIf="selectedMission.goldRequirements && selectedMission.goldRequirements.length > 0">
+              <div class="mdetail-block-head gold-head">
+                <i class="fa-solid fa-medal"></i>
+                <span>{{ 'transports.missions.goldTitle' | translate }}</span>
+              </div>
+              <div class="mdetail-gold-list">
+                <div class="gold-goal-item" *ngFor="let req of selectedMission.goldRequirements; trackBy: trackByIndex">
+                  <div class="gold-goal-check">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ req }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de retorno al pie -->
+            <div class="mdetail-bottom-action">
+              <button type="button" class="mdetail-return-btn" (click)="closeMissionDetail()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>{{ 'transports.missions.returnToList' | translate }}</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </ng-container>
 
-    <!-- ============ VISTA: GOLPES ============ -->
+    <!-- ============ TAB 4: GOLPES (MAQUETACIÓN MCARD-ITEM) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'golpes'">
-      <div class="heists-container">
+      <div class="heists-tab-container">
+
+        <!-- Toolbar de Búsqueda -->
         <div class="heists-toolbar">
-          <div class="missions-search-box">
-            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+          <div class="heists-search-box">
+            <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
             <input
               type="text"
-              class="missions-search-input"
+              class="heists-search-input"
               [(ngModel)]="heistSearchQuery"
-              placeholder="Buscar golpes..."
+              placeholder="Buscar golpes y operaciones de Leonida..."
             />
-          </div>
-        </div>
-
-        <div class="heists-scroll-area">
-          <div class="heist-list">
-            <div
-              *ngFor="let h of filteredHeists"
-              class="heist-card"
-              (click)="selectHeist(h)"
+            <button
+              *ngIf="heistSearchQuery"
+              type="button"
+              class="heists-search-clear"
+              (click)="heistSearchQuery = ''"
+              title="Borrar búsqueda"
             >
-              <div class="hcard-banner">
-                <span class="hcard-type-tag">OPERACIÓN ESPECIAL</span>
-                <h4 class="hcard-title">{{ h.title }}</h4>
-                <span class="hcard-payout-num">{{ h.payout }}</span>
-              </div>
-              <p class="hcard-desc">{{ h.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-
-    <!-- ============ VISTA: DETALLE DE GOLPE ============ -->
-    <ng-container *ngIf="drawerView === 'heist-detail' && selectedHeist">
-      <div class="heists-scroll-area">
-        <div class="hdetail-card">
-          <span class="hdetail-tag">OPERACIÓN // LEONIDA</span>
-          <h2 class="hdetail-title">{{ selectedHeist.title }}</h2>
-          <span class="hdetail-payout">{{ selectedHeist.payout }}</span>
-          <p class="hdetail-desc">{{ selectedHeist.description }}</p>
-          <div class="hdetail-approaches" *ngIf="selectedHeist.approaches">
-            <h5 class="hdetail-sub">Enfoques Tácticos Disponibles</h5>
-            <div class="hdetail-approach-pills">
-              <span *ngFor="let app of selectedHeist.approaches" class="hdetail-pill">{{ app }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-
-    <!-- ============ VISTA: ARMAS ============ -->
-    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'armas'">
-      <div class="weapons-container">
-        <div class="weapons-toolbar">
-          <div class="missions-search-box">
-            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
-            <input
-              type="text"
-              class="missions-search-input"
-              [(ngModel)]="weaponSearchQuery"
-              placeholder="Buscar armas..."
-            />
+              <i class="fa-solid fa-xmark"></i>
+            </button>
           </div>
         </div>
 
-        <div class="dealers-tab-scroll">
-          <div class="weapon-grid">
-            <div
-              *ngFor="let w of filteredWeapons"
-              class="weapon-card"
-              (click)="selectWeapon(w)"
-            >
-              <span class="wcard-cat">{{ w.category }}</span>
-              <h4 class="wcard-name">{{ w.name }}</h4>
-              <span class="wcard-price">{{ w.priceFormatted || formatPrice(w.price) }}</span>
-              <p class="wcard-desc">{{ w.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-
-    <!-- ============ VISTA: DETALLE DE ARMA ============ -->
-    <ng-container *ngIf="drawerView === 'weapon-detail' && selectedWeapon">
-      <div class="dealers-tab-scroll">
-        <div class="wdetail-card">
-          <span class="wdetail-cat">{{ selectedWeapon.category }}</span>
-          <h2 class="wdetail-name">{{ selectedWeapon.name }}</h2>
-          <span class="wdetail-price">{{ selectedWeapon.priceFormatted || formatPrice(selectedWeapon.price) }}</span>
-          <p class="wdetail-desc">{{ selectedWeapon.description }}</p>
-        </div>
-      </div>
-    </ng-container>
-
-    <!-- ============ VISTA: MISTERIOS ============ -->
-    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misterios'">
-      <div class="mysteries-container">
-        <div class="mysteries-toolbar">
-          <div class="missions-search-box">
-            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
-            <input
-              type="text"
-              class="missions-search-input"
-              [(ngModel)]="mysterySearchQuery"
-              placeholder="Buscar misterios..."
-            />
-          </div>
-        </div>
-
+        <!-- Área de scroll con lista de golpes mcard-item -->
         <div class="mysteries-scroll-area">
-          <div class="mystery-grid">
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.golpes' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
+          <div class="mysteries-list">
             <div
-              *ngFor="let mys of filteredMysteries"
-              class="mystery-card-premium"
-              (click)="selectMystery(mys)"
+              *ngFor="let h of filteredHeists; trackBy: trackById"
+              class="mcard-item"
+              (click)="selectHeist(h)"
+              [style.--m-color]="getHeistAccentColor(h)"
             >
-              <div class="mystery-order-badge">{{ mys.orderNum || '#' }}</div>
-              <div class="mcard-info-col">
-                <span class="mystery-location-tag">{{ mys.locationName || mys.category }}</span>
-                <h4 class="mystery-title">{{ mys.title }}</h4>
-                <p class="mcard-desc-snippet">{{ mys.descriptionSnippet }}</p>
+              <div class="mcard-order-badge">
+                <span class="mcard-order-num">#0{{ h.order || 1 }}</span>
+              </div>
+
+              <div class="mcard-icon-box" [style.background]="getHeistAccentColor(h) + '20'" [style.color]="getHeistAccentColor(h)" [style.borderColor]="getHeistAccentColor(h) + '50'">
+                <i class="fa-solid" [ngClass]="h.badgeIcon || 'fa-sack-dollar'"></i>
+              </div>
+
+              <div class="mcard-content">
+                <div class="mcard-title">{{ h.title }}</div>
+                <div class="mcard-meta-line">
+                  <span class="mcard-cat-badge" [style.color]="getHeistAccentColor(h)" [style.borderColor]="getHeistAccentColor(h) + '40'">
+                    {{ h.categoryLabel || 'Operación Especial' }}
+                  </span>
+                  <span class="mcard-time-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3);">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span>{{ h.payout }}</span>
+                  </span>
+                  <span class="mcard-time-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3);" *ngIf="h.players">
+                    <i class="fa-solid fa-users"></i>
+                    <span>{{ h.players }}</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="mcard-actions">
+                <div class="mcard-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </ng-container>
 
-    <!-- ============ VISTA: DETALLE DE MISTERIO ============ -->
-    <ng-container *ngIf="drawerView === 'mystery-detail' && selectedMystery">
-      <div class="mysteries-scroll-area">
-        <div class="mydetail-card">
-          <span class="mydetail-loc">{{ selectedMystery.locationName }}</span>
-          <h2 class="mydetail-title">{{ selectedMystery.title }}</h2>
-          <p class="mydetail-story">{{ selectedMystery.fullStory || selectedMystery.descriptionSnippet }}</p>
+    <!-- ============ VISTA: DETALLE DE GOLPE (MDETAIL CARD) ============ -->
+    <ng-container *ngIf="drawerView === 'heist-detail' && selectedHeist">
+      <div class="mdetail-container" [style.--m-accent]="getHeistAccentColor(selectedHeist)">
+
+        <!-- Barra de navegación interna -->
+        <div class="mdetail-top-bar is-centered">
+          <div class="mdetail-stepper">
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!previousHeist"
+              (click)="selectPreviousHeist()"
+              [title]="'transports.heists.prevHeist' | translate"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="mdetail-step-label">
+              {{ selectedHeist.order || 1 }} / {{ heists.length }}
+            </span>
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!nextHeist"
+              (click)="selectNextHeist()"
+              [title]="'transports.heists.nextHeist' | translate"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
+
+        <div class="mdetail-body">
+          <div class="mdetail-main-card">
+
+            <!-- Hero Image Oficial -->
+            <div class="stranger-hero-media" *ngIf="selectedHeist.thumbnail">
+              <img [src]="selectedHeist.thumbnail" [alt]="selectedHeist.title" class="stranger-hero-img" />
+              <div class="stranger-hero-overlay"></div>
+              <div class="stranger-hero-badges">
+                <span class="stranger-hero-series-badge" [style.backgroundColor]="getHeistAccentColor(selectedHeist)">
+                  <i class="fa-solid" [ngClass]="selectedHeist.badgeIcon || 'fa-sack-dollar'"></i>
+                  <span>{{ selectedHeist.categoryLabel }}</span>
+                </span>
+                <span class="heist-hero-take-badge">
+                  <i class="fa-solid fa-sack-dollar"></i>
+                  <span>{{ selectedHeist.payout }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Cabecera del Golpe -->
+            <div class="mdetail-hero">
+              <div class="mdetail-hero-badges">
+                <span class="mdetail-hero-num">{{ 'transports.heists.heistNum' | translate:{ order: ('0' + (selectedHeist.order || 1)) } }}</span>
+                <span class="mdetail-hero-cat" [style.borderColor]="getHeistAccentColor(selectedHeist) + '44'" [style.color]="getHeistAccentColor(selectedHeist)">
+                  <i class="fa-solid" [ngClass]="selectedHeist.badgeIcon || 'fa-sack-dollar'"></i>
+                  {{ selectedHeist.categoryLabel }}
+                </span>
+              </div>
+              <h2 class="mdetail-hero-title">{{ selectedHeist.title }}</h2>
+
+              <div class="mdetail-hero-chars">
+                <span class="mdetail-char-pill heist-players-pill" *ngIf="selectedHeist.players">
+                  <i class="fa-solid fa-users"></i>
+                  <span>{{ selectedHeist.players }}</span>
+                </span>
+                <span class="mdetail-giver-pill" *ngIf="selectedHeist.giver">
+                  <i class="fa-solid fa-user-secret"></i>
+                  <span>{{ 'transports.heists.organizer' | translate }} <strong>{{ selectedHeist.giver }}</strong></span>
+                </span>
+                <span class="mdetail-giver-pill" *ngIf="selectedHeist.location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>{{ selectedHeist.location }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Grid de Estadísticas -->
+            <div class="mdetail-grid">
+              <div class="mdetail-box reward-box" *ngIf="selectedHeist.potentialTake">
+                <i class="fa-solid fa-money-bill-wave box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
+                  <span class="box-val highlight-gold">{{ selectedHeist.potentialTake.normal }}</span>
+                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.hard">Difícil: {{ selectedHeist.potentialTake.hard }}</span>
+                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.description">{{ selectedHeist.potentialTake.description }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedHeist.location">
+                <i class="fa-solid fa-location-dot box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.location' | translate }}</span>
+                  <span class="box-val">{{ selectedHeist.location }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sinopsis -->
+            <div class="mdetail-block" *ngIf="selectedHeist.description">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-book-open"></i>
+                <span>{{ 'transports.heists.synopsis' | translate }}</span>
+              </div>
+              <div class="mdetail-synopsis">
+                <p>{{ selectedHeist.description }}</p>
+              </div>
+            </div>
+
+            <!-- Enfoques Tácticos -->
+            <div class="mdetail-block" *ngIf="selectedHeist.approaches && selectedHeist.approaches.length > 0">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-masks-theater"></i>
+                <span>{{ 'transports.heists.approachesTitle' | translate }}</span>
+              </div>
+              <div class="heist-approaches-list">
+                <div class="heist-approach-card" *ngFor="let app of selectedHeist.approaches; trackBy: trackByIndex">
+                  <div class="heist-approach-title">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>{{ app.name || app }}</span>
+                  </div>
+                  <p class="heist-approach-desc" *ngIf="app.description">{{ app.description }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de retorno al pie -->
+            <div class="mdetail-bottom-action">
+              <button type="button" class="mdetail-return-btn" (click)="closeHeistDetail()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>{{ 'transports.heists.returnToList' | translate }}</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ TAB 5: MISTERIOS (MAQUETACIÓN PREMIUM MCARD-ITEM) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misterios'">
+      <div class="heists-tab-container">
+
+        <!-- Toolbar: Búsqueda y Filtros de Categoría -->
+        <div class="heists-toolbar">
+          <div class="heists-search-box">
+            <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
+            <input
+              type="text"
+              class="heists-search-input"
+              [(ngModel)]="mysterySearchQuery"
+              [placeholder]="'transports.mysteries.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="mysterySearchQuery"
+              type="button"
+              class="heists-search-clear"
+              (click)="mysterySearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="strangers-series-select-wrap">
+            <select
+              class="strangers-series-select"
+              [(ngModel)]="selectedMysteryCategoryFilter"
+              (ngModelChange)="setMysteryCategoryFilter($event)"
+            >
+              <option value="all">⭐ {{ 'transports.mysteries.all' | translate }} ({{ getMysteryCategoryCount('all') }})</option>
+              <option value="paranormal">{{ 'transports.mysteries.paranormal' | translate }} ({{ getMysteryCategoryCount('paranormal') }})</option>
+              <option value="cryptozoology">🦎 Criptozoología ({{ getMysteryCategoryCount('cryptozoology') }})</option>
+              <option value="conspiracy">{{ 'transports.mysteries.conspiracy' | translate }} ({{ getMysteryCategoryCount('conspiracy') }})</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Área de scroll con lista de misterios mcard-item con foto -->
+        <div class="mysteries-scroll-area">
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.misterios' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
+          <div class="mysteries-list">
+            <div
+              *ngFor="let m of filteredMysteries; trackBy: trackById"
+              class="mcard-item mystery-card-premium"
+              (click)="selectMystery(m)"
+              [style.--m-color]="getMysteryAccentColor(m)"
+            >
+              <div class="mcard-order-badge mystery-order-badge">
+                <span class="mcard-order-num">#0{{ m.order || m.orderNum || 1 }}</span>
+              </div>
+
+              <!-- Thumbnail con foto del misterio + fallback elegante -->
+              <div class="mcard-thumb-wrap" [style.borderColor]="getMysteryAccentColor(m) + '55'">
+                <img
+                  *ngIf="m.thumbnail || m.thumbnailUrl"
+                  [src]="getMysteryImage(m)"
+                  [alt]="m.title"
+                  class="mcard-thumb-img"
+                  loading="lazy"
+                  (error)="$any($event.target).style.display='none'"
+                />
+                <div class="mcard-thumb-overlay"></div>
+                <div class="mcard-thumb-fallback" [style.color]="getMysteryAccentColor(m)" [style.background]="getMysteryAccentColor(m) + '18'">
+                  <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-ghost'"></i>
+                </div>
+              </div>
+
+              <!-- Contenido principal -->
+              <div class="mcard-content">
+                <div class="mcard-title-row">
+                  <div class="mcard-title mystery-title">{{ m.title }}</div>
+                </div>
+
+                <div class="mcard-meta-line">
+                  <span class="mcard-cat-badge mystery-cat-pill" [style.color]="getMysteryAccentColor(m)" [style.borderColor]="getMysteryAccentColor(m) + '55'" [style.background]="getMysteryAccentColor(m) + '18'">
+                    <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-eye'"></i>
+                    <span>{{ m.categoryLabel || m.category }}</span>
+                  </span>
+                  <span class="mcard-time-badge mystery-time-pill" *ngIf="m.schedule">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>{{ m.schedule }}</span>
+                  </span>
+                </div>
+
+                <div class="mcard-loc-line" *ngIf="m.zone || m.location || m.locationName">
+                  <i class="fa-solid fa-location-dot" [style.color]="getMysteryAccentColor(m)"></i>
+                  <span class="mcard-loc-text">{{ m.zone || m.location || m.locationName }}</span>
+                </div>
+              </div>
+
+              <div class="mcard-actions">
+                <div class="mcard-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE MISTERIO (MDETAIL CARD) ============ -->
+    <ng-container *ngIf="drawerView === 'mystery-detail' && selectedMystery">
+      <div class="mdetail-container" [style.--m-accent]="getMysteryAccentColor(selectedMystery)">
+
+        <!-- Barra de navegación interna -->
+        <div class="mdetail-top-bar is-centered">
+          <div class="mdetail-stepper">
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!previousMystery"
+              (click)="selectPreviousMystery()"
+              [title]="'transports.mysteries.prevMystery' | translate"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="mdetail-step-label">
+              {{ selectedMystery.order || selectedMystery.orderNum || 1 }} / {{ mysteries.length }}
+            </span>
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!nextMystery"
+              (click)="selectNextMystery()"
+              [title]="'transports.mysteries.nextMystery' | translate"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="mdetail-body">
+          <div class="mdetail-main-card">
+
+            <!-- Hero Image Oficial con imagen y badges -->
+            <div class="stranger-hero-media" *ngIf="selectedMystery.thumbnail || selectedMystery.thumbnailUrl">
+              <img [src]="getMysteryImage(selectedMystery)" [alt]="selectedMystery.title" class="stranger-hero-img" />
+              <div class="stranger-hero-overlay"></div>
+              <div class="stranger-hero-badges">
+                <span class="stranger-hero-series-badge" [style.backgroundColor]="getMysteryAccentColor(selectedMystery)">
+                  <i class="fa-solid" [ngClass]="selectedMystery.badgeIcon || 'fa-eye'"></i>
+                  <span>{{ selectedMystery.categoryLabel || selectedMystery.category }}</span>
+                </span>
+                <span class="heist-hero-take-badge" *ngIf="selectedMystery.schedule" style="background: rgba(255, 79, 224, 0.2); border-color: #ff4fe0; color: #ffcdf9;">
+                  <i class="fa-regular fa-clock"></i>
+                  <span>{{ selectedMystery.schedule }}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Cabecera del Misterio -->
+            <div class="mdetail-hero">
+              <div class="mdetail-hero-badges">
+                <span class="mdetail-hero-num">{{ 'transports.mysteries.mysteryNum' | translate:{ order: ('0' + (selectedMystery.order || selectedMystery.orderNum || 1)) } }}</span>
+                <span class="mdetail-hero-cat" [style.borderColor]="getMysteryAccentColor(selectedMystery) + '44'" [style.color]="getMysteryAccentColor(selectedMystery)">
+                  <i class="fa-solid" [ngClass]="selectedMystery.badgeIcon || 'fa-eye'"></i>
+                  {{ selectedMystery.categoryLabel || selectedMystery.category }}
+                </span>
+              </div>
+              <h2 class="mdetail-hero-title">{{ selectedMystery.title }}</h2>
+
+              <!-- Botón destacado de localización en mapa -->
+              <div class="mystery-locate-action-bar">
+                <button
+                  type="button"
+                  class="mystery-locate-cta-btn"
+                  (click)="onLocateMystery(selectedMystery, $event)"
+                  [style.--btn-accent]="getMysteryAccentColor(selectedMystery)"
+                >
+                  <i class="fa-solid fa-location-crosshairs"></i>
+                  <span>{{ 'transports.mysteries.locateOnMap' | translate }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Grid de Estadísticas / Claves -->
+            <div class="mdetail-grid">
+              <div class="mdetail-box" *ngIf="selectedMystery.schedule">
+                <i class="fa-regular fa-clock box-icon" style="color: #ff4fe0;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.schedule' | translate }}</span>
+                  <span class="box-val" style="color: #ffb8f6;">{{ selectedMystery.schedule }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedMystery.location || selectedMystery.locationName">
+                <i class="fa-solid fa-mountain box-icon" style="color: #00cec9;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.location' | translate }}</span>
+                  <span class="box-val">{{ selectedMystery.location || selectedMystery.locationName }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedMystery.zone">
+                <i class="fa-solid fa-map-pin box-icon" style="color: #e84393;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.zone' | translate }}</span>
+                  <span class="box-val">{{ selectedMystery.zone }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Descripción / Sinopsis -->
+            <div class="mdetail-block" *ngIf="selectedMystery.description || selectedMystery.descriptionSnippet">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-align-left"></i>
+                <span>{{ 'transports.mysteries.synopsis' | translate }}</span>
+              </div>
+              <p class="mdetail-desc-text">{{ selectedMystery.description || selectedMystery.descriptionSnippet }}</p>
+            </div>
+
+            <!-- Historia y Lore -->
+            <div class="mdetail-block" *ngIf="selectedMystery.lore || selectedMystery.fullStory">
+              <div class="mdetail-block-head" [style.color]="getMysteryAccentColor(selectedMystery)">
+                <i class="fa-solid fa-book-skull"></i>
+                <span>{{ 'transports.mysteries.loreTitle' | translate }}</span>
+              </div>
+              <p class="mdetail-desc-text" style="border-left: 3px solid var(--m-accent); padding-left: 12px;">
+                {{ selectedMystery.lore || selectedMystery.fullStory }}
+              </p>
+            </div>
+
+            <!-- Mecánicas de Resolución -->
+            <div class="mdetail-block" *ngIf="selectedMystery.mechanics && selectedMystery.mechanics.length > 0">
+              <div class="mdetail-block-head">
+                <i class="fa-solid fa-binoculars"></i>
+                <span>{{ 'transports.mysteries.mechanicsTitle' | translate }}</span>
+              </div>
+              <div class="stranger-objectives-list">
+                <div class="stranger-obj-item" *ngFor="let mech of selectedMystery.mechanics; trackBy: trackByIndex">
+                  <i class="fa-solid fa-check" [style.color]="getMysteryAccentColor(selectedMystery)"></i>
+                  <span>{{ mech }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de retorno al pie -->
+            <div class="mdetail-bottom-action">
+              <button type="button" class="mdetail-return-btn" (click)="closeMysteryDetail()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>{{ 'transports.mysteries.returnToList' | translate }}</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </ng-container>
 

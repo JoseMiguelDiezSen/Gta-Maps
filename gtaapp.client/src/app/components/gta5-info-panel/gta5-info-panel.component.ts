@@ -9,16 +9,18 @@ import { MissionService } from '../../services/gta5/mission.service';
 import { WeaponService } from '../../services/gta5/weapon.service';
 import { TranslationService } from '../../i18n';
 import { CONCESIONARIOS_GTA5, SPECIAL_DEALER_IDS } from './vehiculos.config';
+import { GTA6_DEALERS_ES, GTA6_DEALERS_EN } from '../gta6-info-panel/gta6.config';
 
 @Component({
-  selector: 'app-info-panel',
-  templateUrl: './info-panel.component.html',
-  styleUrls: ['./info-panel.component.css'],
+  selector: 'app-gta5-info-panel',
+  templateUrl: './gta5-info-panel.component.html',
+  styleUrls: ['./gta5-info-panel.component.css'],
   standalone: false
 })
-export class InfoPanelComponent implements OnChanges, OnDestroy {
+export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   @Input() isOpen = false;
   @Input() gameMode: 'story' | 'online' = 'online';
+  @Input() game: 'gta5' | 'gta6' = 'gta5';
   @Output() closeDrawer = new EventEmitter<void>();
   @Output() locateOnMap = new EventEmitter<any>();
 
@@ -240,8 +242,8 @@ export class InfoPanelComponent implements OnChanges, OnDestroy {
 
   get visibleDealers(): DealerCategory[] {
     if (this.game === 'gta6') {
-      const isEs = this.translationService.currentLanguage() === 'es';
-      return isEs ? GTA6_DEALERS_ES : GTA6_DEALERS_EN;
+      const isEs = (this.translationService.currentLang || 'es') === 'es';
+      return isEs ? (GTA6_DEALERS_ES as any) : (GTA6_DEALERS_EN as any);
     }
     if (this._cachedVisDealersKey !== this.gameMode) {
       this._cachedVisDealersKey = this.gameMode;

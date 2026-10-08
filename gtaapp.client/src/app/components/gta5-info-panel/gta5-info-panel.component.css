@@ -1,0 +1,15 @@
+/* ==========================================================================
+   GTA 5 INFO PANEL - HOJA DE ESTILOS MODULAR
+   Arquitectura desacoplada por dominios:
+   - gta5-info-panel.layout.css    -> Drawer base, header, tabs, scrolls y responsive
+   - gta5-info-panel.vehiculos.css -> Concesionarios, grid de vehículos y panel detalle
+   - gta5-info-panel.misiones.css  -> Misiones de historia, extraños y locos y detalle
+   - gta5-info-panel.golpes.css    -> Golpes de GTA Online y preparaciones
+   - gta5-info-panel.misterios.css -> Misterios, easter eggs y leyendas urbanas
+   ========================================================================== */
+
+@import './gta5-info-panel.layout.css';
+@import './gta5-info-panel.vehiculos.css';
+@import './gta5-info-panel.misiones.css';
+@import './gta5-info-panel.golpes.css';
+@import './gta5-info-panel.misterios.css';

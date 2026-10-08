@@ -1360,12 +1360,12 @@
   </button>
 
   <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO DE VEHÍCULOS -->
-  <app-info-panel
+  <app-gta5-info-panel
     [isOpen]="profileDrawerOpen"
     [gameMode]="selectedGameMode"
     (closeDrawer)="closeProfileDrawer()"
     (locateOnMap)="focusMysteryLocation($event)"
-  ></app-info-panel>
+  ></app-gta5-info-panel>
 
   <!-- BOT ASISTENTE INTELIGENTE: GOTY 5 -->
   <app-goty-bot gameContext="gta5-online"></app-goty-bot>

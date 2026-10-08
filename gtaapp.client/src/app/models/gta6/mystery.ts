@@ -1,13 +1,22 @@
 export interface Gta6Mystery {
   id: string;
+  order?: number;
   orderNum?: number;
   title: string;
-  category?: string;
+  titleEn?: string;
+  category: string;
+  categoryLabel?: string;
   locationName?: string;
-  coords?: { x: number; y: number };
+  location?: string;
+  zone?: string;
+  schedule?: string;
+  description?: string;
   descriptionSnippet?: string;
   fullStory?: string;
+  lore?: string;
+  mechanics?: string[];
+  thumbnail?: string;
   thumbnailUrl?: string;
-  prerequisites?: string[];
-  rewards?: string;
+  badgeColor?: string;
+  badgeIcon?: string;
 }

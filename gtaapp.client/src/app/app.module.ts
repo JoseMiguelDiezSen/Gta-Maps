@@ -12,7 +12,7 @@ import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
 import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
 import { Gta6GuiaComponent }      from './gta6/guia/gta6-guia.component';
 import { HomeComponent }          from './home/home.component';
-import { InfoPanelComponent } from './components/info-panel/info-panel.component';
+import { Gta5InfoPanelComponent } from './components/gta5-info-panel/gta5-info-panel.component';
 import { Gta6InfoPanelComponent } from './components/gta6-info-panel/gta6-info-panel.component';
 import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
 import { GotyModule } from './components/goty-bot/goty.module';
@@ -29,7 +29,7 @@ import { TranslatePipe }          from './i18n';
         Gta6HistoriaComponent,
         Gta6GuiaComponent,
         HomeComponent,
-        InfoPanelComponent,
+        Gta5InfoPanelComponent,
         Gta6InfoPanelComponent,
         CookieBannerComponent,
         TranslatePipe
