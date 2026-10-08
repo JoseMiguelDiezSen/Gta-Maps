@@ -512,13 +512,12 @@
     </div>
   </button>
 
-  <!-- COMPONENTE REUTILIZABLE: DRAWER LATERAL DE TRANSPORTES Y CATÁLOGO (Unificado 100% con GTA V y detalles fucsia) -->
-  <app-info-panel
+  <!-- COMPONENTE DEDICADO: DRAWER LATERAL GTA VI (CON ESTILOS Y MAQUETACIÓN DE GTA 5 Y TEMA FUCSIA) -->
+  <app-gta6-info-panel
     [isOpen]="infoDrawerOpen"
-    [game]="'gta6'"
     [gameMode]="selectedGameMode"
     (closeDrawer)="closeInfoDrawer()"
-  ></app-info-panel>
+  ></app-gta6-info-panel>
 
   <!-- BOT ASISTENTE INTELIGENTE: GOTY 6 -->
   <app-goty-bot gameContext="gta6-online"></app-goty-bot>

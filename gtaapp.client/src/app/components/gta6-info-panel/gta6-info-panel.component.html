@@ -1,117 +1,540 @@
-<!-- DRAWER / PANEL LATERAL GTA VI INFO -->
-<div
-  class="gta6-info-overlay"
-  [class.is-open]="isOpen"
-  (click)="onClose()"
-></div>
+<!-- BACKDROP -->
+<div class="hud-drawer-backdrop" *ngIf="isOpen" (click)="onClose()"></div>
 
-<aside
-  class="gta6-info-drawer"
-  [class.is-open]="isOpen"
-  aria-label="GTA VI Info Panel"
->
-  <!-- CABECERA DEL PANEL -->
-  <header class="gta6-info-header">
-    <div class="gta6-info-title-group">
-      <div class="gta6-info-logo">
-        <span class="gta-logo-main">GTA VI</span>
-        <span class="gta-logo-sub">INFO</span>
-      </div>
-      <span class="gta6-info-status-badge">
-        <i class="fa-solid fa-satellite-dish status-pulse"></i>
-        <span>DATABASE // LEONIDA</span>
+<!-- ASIDE DRAWER GTA VI -->
+<aside class="hud-profile-drawer is-gta6" [class.is-open]="isOpen">
+
+  <!-- ====== CABECERA (siempre visible) ====== -->
+  <div class="drawer-header" [class.has-subview-nav]="drawerView !== 'tabs'">
+
+    <!-- Botón de retorno GRANDE que aprovecha toda la altura izquierda en sub-vistas -->
+    <button
+      *ngIf="drawerView !== 'tabs'"
+      type="button"
+      class="drawer-large-back-btn"
+      (click)="onBreadcrumbBack()"
+      [title]="'common.back' | translate"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
+    <div class="drawer-title-group">
+      <!-- BREADCRUMB dinámico de concesionario y vehículo -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid' || drawerView === 'vehicle-detail'">
+        <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">{{ 'transports.title' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span
+          class="drawer-breadcrumb-link"
+          [class.drawer-breadcrumb-current]="drawerView === 'dealer-grid'"
+          (click)="backToDealerGrid()"
+          [title]="activeDealerName"
+        >{{ activeDealerName }}</span>
+        <ng-container *ngIf="drawerView === 'vehicle-detail' && selectedVehicle">
+          <span class="drawer-breadcrumb-sep">›</span>
+          <span class="drawer-breadcrumb-current vehicle-crumb-name" [title]="selectedVehicle.name">{{ selectedVehicle.name }}</span>
+        </ng-container>
       </span>
+
+      <!-- BREADCRUMB dinámico de misión -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'mission-detail'">
+        <span class="drawer-breadcrumb-link" (click)="closeMissionDetail()">{{ 'transports.tabs.missions' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current">{{ selectedMission?.title }}</span>
+      </span>
+
+      <!-- BREADCRUMB dinámico de golpe -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'heist-detail'">
+        <span class="drawer-breadcrumb-link" (click)="closeHeistDetail()">{{ 'transports.tabs.golpes' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current">{{ selectedHeist?.title }}</span>
+      </span>
+
+      <!-- BREADCRUMB dinámico de misterio -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'mystery-detail'">
+        <span class="drawer-breadcrumb-link" (click)="closeMysteryDetail()">{{ 'transports.tabs.misterios' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current">{{ selectedMystery?.title }}</span>
+      </span>
+
+      <!-- BREADCRUMB dinámico de arma -->
+      <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'weapon-detail'">
+        <span class="drawer-breadcrumb-link" (click)="closeWeaponDetail()">{{ 'transports.tabs.armas' | translate }}</span>
+        <span class="drawer-breadcrumb-sep">›</span>
+        <span class="drawer-breadcrumb-current vehicle-crumb-name" [title]="selectedWeapon?.name">{{ selectedWeapon?.name }}</span>
+      </span>
+
+      <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
+        <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
+        <span>GTA VI INFO</span>
+      </h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
+      <h3 class="drawer-title vehicle-detail-header-title" *ngIf="drawerView === 'vehicle-detail'">{{ selectedVehicle?.name }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'mission-detail'">{{ selectedMission?.title }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'heist-detail'">{{ selectedHeist?.title }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'mystery-detail'">{{ selectedMystery?.title }}</h3>
+      <h3 class="drawer-title" *ngIf="drawerView === 'weapon-detail'">{{ selectedWeapon?.name }}</h3>
     </div>
-
-    <button
-      type="button"
-      class="gta6-info-close-btn"
-      (click)="onClose()"
-      title="Cerrar panel"
-      aria-label="Cerrar"
-    >
-      <i class="fa-solid fa-xmark"></i>
+    <button type="button" class="drawer-close-btn" (click)="onClose()" [title]="'transports.closeTitle' | translate">
+      <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
     </button>
-  </header>
-
-  <!-- PESTAÑAS / TABS SUPERIORES -->
-  <nav class="gta6-info-tabs" aria-label="Secciones de información">
-    <button
-      type="button"
-      *ngFor="let tab of tabs"
-      class="gta6-tab-btn"
-      [class.is-active]="activeTab === tab.id"
-      (click)="selectTab(tab.id)"
-      [title]="getTabLabel(tab)"
-    >
-      <i [class]="tab.icon"></i>
-      <span class="tab-label">{{ getTabLabel(tab) }}</span>
-    </button>
-  </nav>
-
-  <!-- BARRA DE BÚSQUEDA ESPECÍFICA DE LA PESTAÑA -->
-  <div class="gta6-info-search-bar">
-    <div class="search-input-wrapper">
-      <i class="fa-solid fa-magnifying-glass search-icon"></i>
-      <input
-        type="text"
-        class="search-input"
-        [(ngModel)]="searchQuery"
-        [placeholder]="currentSearchPlaceholder"
-        autocomplete="off"
-        spellcheck="false"
-      />
-      <button
-        type="button"
-        *ngIf="searchQuery"
-        class="search-clear-btn"
-        (click)="clearSearch()"
-        title="Limpiar búsqueda"
-      >
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
   </div>
 
-  <!-- CUERPO PRINCIPAL / SHELL VACÍO CON ESTILO GTA VI -->
-  <div class="gta6-info-body">
-    <div class="gta6-empty-state-card">
-      <div class="empty-state-radar">
-        <div class="radar-ping-ring ring-1"></div>
-        <div class="radar-ping-ring ring-2"></div>
-        <div class="radar-center-icon">
-          <i [class]="currentTabInfo.icon"></i>
-        </div>
-      </div>
-
-      <div class="empty-state-badge">
-        <i class="fa-solid fa-lock"></i>
-        <span>ACCESO RESTRINGIDO // PRÓXIMAMENTE</span>
-      </div>
-
-      <h3 class="empty-state-title">{{ currentEmptyTitle }}</h3>
-      <p class="empty-state-desc">{{ currentEmptyDesc }}</p>
-
-      <div class="empty-state-meta">
-        <div class="meta-row">
-          <span class="meta-label">ESTADO:</span>
-          <span class="meta-value meta-active">RECONOCIMIENTO ACTIVO</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">SECTOR:</span>
-          <span class="meta-value">STATE OF LEONIDA (USA)</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">PROTOCOLO:</span>
-          <span class="meta-value meta-tag">CLASSIFIED DATA // LEVEL 4</span>
-        </div>
-      </div>
-    </div>
+  <!-- ====== TABS (solo en vista de lista) ====== -->
+  <div class="drawer-tabs" role="tablist" *ngIf="drawerView === 'tabs'">
+    <button
+      *ngFor="let tab of drawerTabs"
+      type="button"
+      class="drawer-tab"
+      role="tab"
+      [class.is-active]="activeDrawerTab === tab.id"
+      [class.is-icon-only]="tab.id === 'misterios'"
+      [attr.aria-selected]="activeDrawerTab === tab.id"
+      [title]="tab.label"
+      (click)="setDrawerTab(tab.id)"
+    >
+      <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
+      <span class="drawer-tab-label" *ngIf="tab.id !== 'misterios'">{{ tab.label }}</span>
+    </button>
   </div>
 
-  <!-- PIE DEL PANEL -->
-  <footer class="gta6-info-footer">
-    <span class="footer-tag">GTA VI · VICE CITY &amp; LEONIDA</span>
-    <span class="footer-ver">SYS VER 1.0</span>
-  </footer>
+  <!-- ====== CUERPO ====== -->
+  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'" [class.is-heist-view]="drawerView === 'heist-detail'" [class.is-weapon-view]="drawerView === 'weapon-detail'">
+
+    <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'vehiculos'">
+      <div class="dealers-tab-scroll">
+        <div class="dealer-list">
+
+          <!-- Separador superior: Concesionarios -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.concesionarios' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
+          <!-- Dealers de Leonida -->
+          <ng-container *ngFor="let d of dealers">
+
+            <!-- Separador antes de la sección especial -->
+            <div class="dealer-section-divider" *ngIf="d.id === 'gta6_especiales'">
+              <div class="dealer-section-divider-line"></div>
+              <span class="dealer-section-divider-label">{{ 'transports.tabs.specialVehicles' | translate }}</span>
+              <div class="dealer-section-divider-line"></div>
+            </div>
+
+            <div
+              class="dealer-card"
+              [class.dealer-card--special]="d.id === 'gta6_especiales'"
+              (click)="openDealerGrid(d.id, d.name)"
+              [style.--dealer-color]="d.color"
+            >
+              <div class="dealer-card-icon">
+                <i class="fa-solid" [ngClass]="d.icon"></i>
+              </div>
+              <div class="dealer-card-info">
+                <span class="dealer-card-name">{{ d.name }}</span>
+                <span class="dealer-card-sub">{{ d.description }}</span>
+              </div>
+              <div class="dealer-card-arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+
+          </ng-container>
+
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: GRID DE VEHÍCULOS ============ -->
+    <ng-container *ngIf="drawerView === 'dealer-grid'">
+
+      <div class="vgrid-view-container">
+
+        <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo -->
+        <div class="dealer-vehicles-toolbar">
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="dealerVehicleSearchQuery"
+              [placeholder]="'transports.catalog.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="dealerVehicleSearchQuery"
+              type="button"
+              class="missions-search-clear"
+              (click)="dealerVehicleSearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="missions-dropdowns-row">
+            <div class="strangers-series-select-wrap">
+              <select
+                class="strangers-series-select"
+                [(ngModel)]="selectedVehicleClass"
+                (ngModelChange)="setVehicleCategory($event)"
+              >
+                <option *ngFor="let cat of dealerCategories" [value]="cat.id">
+                  {{ cat.id === 'all' ? ('common.all' | translate) : cat.name }} ({{ cat.count }})
+                </option>
+              </select>
+            </div>
+
+            <div class="strangers-series-select-wrap">
+              <select
+                class="strangers-series-select"
+                [(ngModel)]="selectedVehicleSort"
+                (ngModelChange)="setVehicleSort($event)"
+              >
+                <option value="none">📊 {{ 'transports.catalog.sortDefault' | translate }}</option>
+                <option value="acceleration">🚀 {{ 'transports.stats.acceleration' | translate }}</option>
+                <option value="speed">⚡ {{ 'transports.stats.speed' | translate }}</option>
+                <option value="braking">🛑 {{ 'transports.stats.braking' | translate }}</option>
+                <option value="handling">🎯 {{ 'transports.stats.handling' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll area con grid de tarjetas vcard idénticas a GTA 5 -->
+        <div class="vgrid-scroll-area">
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ activeDealerName }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
+          <div class="vgrid-grid">
+            <div
+              *ngFor="let v of filteredDealerVehicles"
+              class="vcard"
+              (click)="selectVehicle(v)"
+            >
+              <div class="vcard-img">
+                <span class="vcard-class-badge">{{ v.class }}</span>
+                <img
+                  *ngIf="v.images && v.images[0] && !v.imgFailed"
+                  [src]="v.images[0]"
+                  [alt]="v.name"
+                  class="vcard-photo"
+                  loading="lazy"
+                  (error)="onVehicleImgError(v)"
+                />
+                <ng-container *ngIf="!v.images || !v.images[0] || v.imgFailed">
+                  <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
+                </ng-container>
+                <span class="vcard-stat-pill" *ngIf="selectedVehicleSort !== 'none'">
+                  <span *ngIf="selectedVehicleSort === 'speed'">⚡ {{ v.topSpeedMph || v.speed }}</span>
+                  <span *ngIf="selectedVehicleSort === 'acceleration'">🚀 {{ v.acceleration }}</span>
+                  <span *ngIf="selectedVehicleSort === 'braking'">🛑 {{ v.braking }}</span>
+                  <span *ngIf="selectedVehicleSort === 'handling'">🎯 {{ v.handling }}</span>
+                </span>
+              </div>
+              <div class="vcard-info">
+                <span class="vcard-name">{{ v.name }}</span>
+                <div class="vcard-sub-row">
+                  <span class="vcard-maker">{{ v.manufacturer || 'Leonida' }}</span>
+                  <span class="vcard-price">{{ v.priceFormatted || formatPrice(v.price) }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE VEHÍCULO (PANEL LIMPIO VCLEAN) ============ -->
+    <ng-container *ngIf="drawerView === 'vehicle-detail' && selectedVehicle">
+      <div class="vclean-container">
+        <div class="vclean-card">
+
+          <div class="vclean-hero">
+            <span class="vclean-class-badge">{{ selectedVehicle.class }}</span>
+            <img
+              *ngIf="selectedVehicle.images && selectedVehicle.images[0] && !selectedVehicle.imgFailed"
+              [src]="selectedVehicle.images[0]"
+              [alt]="selectedVehicle.name"
+              class="vclean-hero-img"
+              (error)="onVehicleImgError(selectedVehicle)"
+            />
+            <div *ngIf="!selectedVehicle.images || !selectedVehicle.images[0] || selectedVehicle.imgFailed" class="vclean-hero-fallback">
+              <i class="fa-solid" [ngClass]="getVehicleIcon(selectedVehicle)"></i>
+            </div>
+          </div>
+
+          <div class="vclean-header">
+            <span class="vclean-maker">{{ selectedVehicle.manufacturer || 'Leonida' }}</span>
+            <h2 class="vclean-title">{{ selectedVehicle.name }}</h2>
+          </div>
+
+          <div class="vclean-prices">
+            <div class="vclean-price-box vclean-price-primary">
+              <span class="vclean-price-lbl">{{ 'transports.catalog.buyPrice' | translate }}</span>
+              <span class="vclean-price-val">{{ selectedVehicle.priceFormatted || formatPrice(selectedVehicle.price) }}</span>
+            </div>
+            <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedVehicle.priceTrade && selectedVehicle.priceTrade > 0">
+              <span class="vclean-price-lbl">{{ 'transports.catalog.tradePrice' | translate }}</span>
+              <span class="vclean-price-val">{{ formatPrice(selectedVehicle.priceTrade) }}</span>
+            </div>
+          </div>
+
+          <div class="vclean-stats">
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.stats.speed' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-speed" [style.width.%]="(selectedVehicle.speed || (selectedVehicle.topSpeedMph ? selectedVehicle.topSpeedMph / 1.5 : 85))"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.speed || selectedVehicle.topSpeedMph || 88 }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.stats.acceleration' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-accel" [style.width.%]="(selectedVehicle.acceleration || 82)"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.acceleration || 82 }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.stats.braking' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-brake" [style.width.%]="(selectedVehicle.braking || 78)"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.braking || 78 }}</span>
+            </div>
+            <div class="vstat-row">
+              <span class="vstat-lbl">{{ 'transports.stats.handling' | translate }}</span>
+              <div class="vstat-bar-track">
+                <div class="vstat-bar-fill fill-handling" [style.width.%]="(selectedVehicle.handling || 85)"></div>
+              </div>
+              <span class="vstat-num">{{ selectedVehicle.handling || 85 }}</span>
+            </div>
+          </div>
+
+          <div class="vclean-desc-box" *ngIf="selectedVehicle.description">
+            <div class="vclean-desc-head">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>{{ 'transports.catalog.specsTitle' | translate }}</span>
+            </div>
+            <p class="vclean-desc-text">{{ selectedVehicle.description }}</p>
+          </div>
+
+          <div class="vclean-bottom-action">
+            <button type="button" class="vclean-back-btn" (click)="backToDealerGrid()">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>{{ 'transports.dealers.backTo' | translate }} {{ activeDealerName }}</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: MISIONES ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
+      <div class="missions-container">
+        <div class="missions-toolbar">
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="missionSearchQuery"
+              [placeholder]="'transports.missions.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="missionSearchQuery"
+              type="button"
+              class="missions-search-clear"
+              (click)="missionSearchQuery = ''"
+              title="Borrar búsqueda"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="missions-scroll-area">
+          <div class="mission-grid">
+            <div
+              *ngFor="let m of filteredStoryMissions"
+              class="mission-card"
+              (click)="selectMission(m)"
+            >
+              <div class="mcard-top-row">
+                <span class="mcard-char-badge">{{ m.protagonist || 'Jason / Lucia' }}</span>
+                <span class="mcard-cat-badge">{{ m.type || 'Misión' }}</span>
+              </div>
+              <h4 class="mcard-title">{{ m.title }}</h4>
+              <p class="mcard-desc-snippet">{{ m.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE MISIÓN ============ -->
+    <ng-container *ngIf="drawerView === 'mission-detail' && selectedMission">
+      <div class="missions-scroll-area">
+        <div class="mdetail-card">
+          <span class="mdetail-char-badge">{{ selectedMission.protagonist }}</span>
+          <h2 class="mdetail-title">{{ selectedMission.title }}</h2>
+          <p class="mdetail-desc">{{ selectedMission.description }}</p>
+          <div class="mdetail-gold-box" *ngIf="selectedMission.goldRequirements && selectedMission.goldRequirements.length > 0">
+            <h5 class="mdetail-gold-title"><i class="fa-solid fa-medal"></i> Requisitos Medalla de Oro</h5>
+            <ul class="mdetail-gold-list">
+              <li *ngFor="let req of selectedMission.goldRequirements">{{ req }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: GOLPES ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'golpes'">
+      <div class="heists-container">
+        <div class="heists-toolbar">
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="heistSearchQuery"
+              placeholder="Buscar golpes..."
+            />
+          </div>
+        </div>
+
+        <div class="heists-scroll-area">
+          <div class="heist-list">
+            <div
+              *ngFor="let h of filteredHeists"
+              class="heist-card"
+              (click)="selectHeist(h)"
+            >
+              <div class="hcard-banner">
+                <span class="hcard-type-tag">OPERACIÓN ESPECIAL</span>
+                <h4 class="hcard-title">{{ h.title }}</h4>
+                <span class="hcard-payout-num">{{ h.payout }}</span>
+              </div>
+              <p class="hcard-desc">{{ h.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE GOLPE ============ -->
+    <ng-container *ngIf="drawerView === 'heist-detail' && selectedHeist">
+      <div class="heists-scroll-area">
+        <div class="hdetail-card">
+          <span class="hdetail-tag">OPERACIÓN // LEONIDA</span>
+          <h2 class="hdetail-title">{{ selectedHeist.title }}</h2>
+          <span class="hdetail-payout">{{ selectedHeist.payout }}</span>
+          <p class="hdetail-desc">{{ selectedHeist.description }}</p>
+          <div class="hdetail-approaches" *ngIf="selectedHeist.approaches">
+            <h5 class="hdetail-sub">Enfoques Tácticos Disponibles</h5>
+            <div class="hdetail-approach-pills">
+              <span *ngFor="let app of selectedHeist.approaches" class="hdetail-pill">{{ app }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: ARMAS ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'armas'">
+      <div class="weapons-container">
+        <div class="weapons-toolbar">
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="weaponSearchQuery"
+              placeholder="Buscar armas..."
+            />
+          </div>
+        </div>
+
+        <div class="dealers-tab-scroll">
+          <div class="weapon-grid">
+            <div
+              *ngFor="let w of filteredWeapons"
+              class="weapon-card"
+              (click)="selectWeapon(w)"
+            >
+              <span class="wcard-cat">{{ w.category }}</span>
+              <h4 class="wcard-name">{{ w.name }}</h4>
+              <span class="wcard-price">{{ w.priceFormatted || formatPrice(w.price) }}</span>
+              <p class="wcard-desc">{{ w.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE ARMA ============ -->
+    <ng-container *ngIf="drawerView === 'weapon-detail' && selectedWeapon">
+      <div class="dealers-tab-scroll">
+        <div class="wdetail-card">
+          <span class="wdetail-cat">{{ selectedWeapon.category }}</span>
+          <h2 class="wdetail-name">{{ selectedWeapon.name }}</h2>
+          <span class="wdetail-price">{{ selectedWeapon.priceFormatted || formatPrice(selectedWeapon.price) }}</span>
+          <p class="wdetail-desc">{{ selectedWeapon.description }}</p>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: MISTERIOS ============ -->
+    <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misterios'">
+      <div class="mysteries-container">
+        <div class="mysteries-toolbar">
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="mysterySearchQuery"
+              placeholder="Buscar misterios..."
+            />
+          </div>
+        </div>
+
+        <div class="mysteries-scroll-area">
+          <div class="mystery-grid">
+            <div
+              *ngFor="let mys of filteredMysteries"
+              class="mystery-card-premium"
+              (click)="selectMystery(mys)"
+            >
+              <div class="mystery-order-badge">{{ mys.orderNum || '#' }}</div>
+              <div class="mcard-info-col">
+                <span class="mystery-location-tag">{{ mys.locationName || mys.category }}</span>
+                <h4 class="mystery-title">{{ mys.title }}</h4>
+                <p class="mcard-desc-snippet">{{ mys.descriptionSnippet }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- ============ VISTA: DETALLE DE MISTERIO ============ -->
+    <ng-container *ngIf="drawerView === 'mystery-detail' && selectedMystery">
+      <div class="mysteries-scroll-area">
+        <div class="mydetail-card">
+          <span class="mydetail-loc">{{ selectedMystery.locationName }}</span>
+          <h2 class="mydetail-title">{{ selectedMystery.title }}</h2>
+          <p class="mydetail-story">{{ selectedMystery.fullStory || selectedMystery.descriptionSnippet }}</p>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+
 </aside>

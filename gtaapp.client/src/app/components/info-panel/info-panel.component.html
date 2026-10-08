@@ -2,7 +2,7 @@
 <div class="hud-drawer-backdrop" *ngIf="isOpen" (click)="onClose()"></div>
 
 <!-- ASIDE DRAWER -->
-<aside class="hud-profile-drawer" [class.is-open]="isOpen" [class.is-gta6]="game === 'gta6'">
+<aside class="hud-profile-drawer" [class.is-open]="isOpen">
 
   <!-- ====== CABECERA (siempre visible) ====== -->
   <div class="drawer-header" [class.has-subview-nav]="drawerView !== 'tabs'">
@@ -79,7 +79,7 @@
 
       <h3 class="drawer-title" *ngIf="drawerView === 'tabs'">
         <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
-        <span>{{ game === 'gta6' ? 'GTA VI INFO' : ('transports.title' | translate) }}</span>
+        <span>{{ 'transports.title' | translate }}</span>
       </h3>
       <h3 class="drawer-title" *ngIf="drawerView === 'dealer-grid'">{{ activeDealerName }}</h3>
       <h3 class="drawer-title vehicle-detail-header-title" *ngIf="drawerView === 'vehicle-detail'">{{ selectedVehicle?.name }}</h3>

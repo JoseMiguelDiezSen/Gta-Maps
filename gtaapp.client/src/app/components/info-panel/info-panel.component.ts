@@ -9,20 +9,6 @@ import { MissionService } from '../../services/gta5/mission.service';
 import { WeaponService } from '../../services/gta5/weapon.service';
 import { TranslationService } from '../../i18n';
 import { CONCESIONARIOS_GTA5, SPECIAL_DEALER_IDS } from './vehiculos.config';
-import {
-  GTA6_DEALERS,
-  GTA6_DEALERS_EN,
-  GTA6_DEALERS_ES,
-  GTA6_VEHICLES_BY_DEALER,
-  GTA6_STORY_MISSIONS_EN,
-  GTA6_STORY_MISSIONS_ES,
-  GTA6_HEISTS_EN,
-  GTA6_HEISTS_ES,
-  GTA6_MYSTERIES_EN,
-  GTA6_MYSTERIES_ES,
-  GTA6_WEAPONS_EN,
-  GTA6_WEAPONS_ES
-} from './gta6.config';
 
 @Component({
   selector: 'app-info-panel',
@@ -32,7 +18,6 @@ import {
 })
 export class InfoPanelComponent implements OnChanges, OnDestroy {
   @Input() isOpen = false;
-  @Input() game: 'gta5' | 'gta6' = 'gta5';
   @Input() gameMode: 'story' | 'online' = 'online';
   @Output() closeDrawer = new EventEmitter<void>();
   @Output() locateOnMap = new EventEmitter<any>();
@@ -187,8 +172,6 @@ export class InfoPanelComponent implements OnChanges, OnDestroy {
   // Definición centralizada de concesionarios (extraída a vehiculos.config.ts)
   readonly dealers: DealerCategory[] = CONCESIONARIOS_GTA5;
 
-  readonly gta6Dealers: DealerCategory[] = GTA6_DEALERS;
-
   constructor(
     private vehicleService: VehicleService,
     private missionService: MissionService,
@@ -196,65 +179,34 @@ export class InfoPanelComponent implements OnChanges, OnDestroy {
     readonly translationService: TranslationService
   ) {
     effect(() => {
-      const lang = this.translationService.currentLanguage();
-      if (this.game === 'gta6') {
-        const isEs = lang === 'es';
-        const missions = isEs ? GTA6_STORY_MISSIONS_ES : GTA6_STORY_MISSIONS_EN;
-        const heists = isEs ? GTA6_HEISTS_ES : GTA6_HEISTS_EN;
-        const mysteries = isEs ? GTA6_MYSTERIES_ES : GTA6_MYSTERIES_EN;
-        const weapons = isEs ? GTA6_WEAPONS_ES : GTA6_WEAPONS_EN;
+      // Reset cached values on language switch
+      this.vehicleCache = {};
+      this._cachedVisDealersKey = '';
+      this._cachedDealCatKey = '';
+      this._cachedFDVKey = '';
 
-        if (this.gameMode === 'story') {
-          this.storyMissions = missions;
-        } else {
-          this.onlineMissions = missions;
-          this.onlineHeists = heists;
-        }
-        this.onlineMysteries = mysteries;
-        this.weapons = weapons;
+      if (this.activeDealerId) {
+        this.loadDealerVehicles(this.activeDealerId);
+      }
 
-        if (this.selectedMission) {
-          this.selectedMission = missions.find(m => m.id === this.selectedMission!.id) || this.selectedMission;
-        }
-        if (this.selectedHeist) {
-          this.selectedHeist = heists.find(h => h.id === this.selectedHeist!.id) || this.selectedHeist;
-        }
-        if (this.selectedMystery) {
-          this.selectedMystery = mysteries.find(mys => mys.id === this.selectedMystery!.id) || this.selectedMystery;
-        }
-        if (this.selectedWeapon) {
-          this.selectedWeapon = weapons.find(w => w.id === this.selectedWeapon!.id) || this.selectedWeapon;
-        }
+      if (this.gameMode === 'story') {
+        if (this.storyMissions.length > 0) this.loadStoryMissions(true, this.selectedMission?.id);
+        if (this.strangerMissions.length > 0) this.loadStrangerMissions(true, this.selectedStranger?.id);
+        if (this.onlineMysteries.length > 0) this.loadOnlineMysteries(true, this.selectedMystery?.id);
+        if (this.weapons.length > 0) this.loadWeapons(true, this.selectedWeapon?.id);
       } else {
-        // Reset cached values on language switch
-        this.vehicleCache = {};
-        this._cachedVisDealersKey = '';
-        this._cachedDealCatKey = '';
-        this._cachedFDVKey = '';
-
-        if (this.activeDealerId) {
-          this.loadDealerVehicles(this.activeDealerId);
+        if (this.onlineMissions.length > 0) this.loadOnlineMissions(true, this.selectedMission?.id);
+        if (this.onlineHeists.length > 0 || this.activeDrawerTab === 'golpes' || this.drawerView === 'heist-detail') {
+          this.loadOnlineHeists(true, this.selectedHeist?.id);
         }
-
-        if (this.gameMode === 'story') {
-          if (this.storyMissions.length > 0) this.loadStoryMissions(true, this.selectedMission?.id);
-          if (this.strangerMissions.length > 0) this.loadStrangerMissions(true, this.selectedStranger?.id);
-          if (this.onlineMysteries.length > 0) this.loadOnlineMysteries(true, this.selectedMystery?.id);
-          if (this.weapons.length > 0) this.loadWeapons(true, this.selectedWeapon?.id);
-        } else {
-          if (this.onlineMissions.length > 0) this.loadOnlineMissions(true, this.selectedMission?.id);
-          if (this.onlineHeists.length > 0 || this.activeDrawerTab === 'golpes' || this.drawerView === 'heist-detail') {
-            this.loadOnlineHeists(true, this.selectedHeist?.id);
-          }
-          if (this.onlineMysteries.length > 0) this.loadOnlineMysteries(true, this.selectedMystery?.id);
-          if (this.weapons.length > 0) this.loadWeapons(true, this.selectedWeapon?.id);
-        }
+        if (this.onlineMysteries.length > 0) this.loadOnlineMysteries(true, this.selectedMystery?.id);
+        if (this.weapons.length > 0) this.loadWeapons(true, this.selectedWeapon?.id);
       }
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['game'] || changes['gameMode']) {
+    if (changes['gameMode']) {
       this.onlineMysteries = [];
       this.selectedMystery = null;
       this.weapons = [];
@@ -1044,11 +996,6 @@ export class InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   private loadDealerVehicles(dealerId: string): void {
-    if (this.game === 'gta6') {
-      this.dealerVehicles = GTA6_VEHICLES_BY_DEALER[dealerId] || [];
-      return;
-    }
-
     if (this.vehicleCache[dealerId]) {
       this.dealerVehicles = this.vehicleCache[dealerId];
       return;
