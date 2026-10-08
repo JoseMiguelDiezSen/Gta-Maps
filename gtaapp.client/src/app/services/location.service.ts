@@ -17,7 +17,7 @@ export class LocationService {
    * Fusiona elementos canónicos (fuente de verdad espacial/métrica) con traducciones idiomáticas.
    * Garantiza que las coordenadas x/y/z y los identificadores siempre provengan de la base canónica.
    */
-  private mergeLocalizedItems<T extends { id: string; position?: any }>(baseItems: T[], localizedItems: any[]): T[] {
+  private mergeLocalizedItems<T extends { id: string; position?: any; badge?: any }>(baseItems: T[], localizedItems: any[]): T[] {
     if (!baseItems || baseItems.length === 0) return (localizedItems as T[]) || [];
     if (!localizedItems || localizedItems.length === 0) return baseItems;
 

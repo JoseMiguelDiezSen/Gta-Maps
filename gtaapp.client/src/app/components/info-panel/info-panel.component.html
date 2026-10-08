@@ -132,7 +132,7 @@
 
             <!-- Separador antes de la sección especial -->
             <div class="dealer-section-divider"
-                 *ngIf="d.id === 'pedal_and_metal'">
+                 *ngIf="isSpecialDivider(d)">
               <div class="dealer-section-divider-line"></div>
               <span class="dealer-section-divider-label">{{ 'transports.tabs.specialVehicles' | translate }}</span>
               <div class="dealer-section-divider-line"></div>
@@ -140,7 +140,7 @@
 
             <div
               class="dealer-card"
-              [class.dealer-card--special]="d.id === 'pegasus' || d.id === 'especiales' || d.id === 'arena_war' || d.id === 'pedal_and_metal'"
+              [class.dealer-card--special]="d.id === 'pegasus' || d.id === 'arena_war'"
               (click)="openDealerGrid(d.id, d.name)"
               [style.--dealer-color]="d.color"
             >

@@ -1,8 +1,9 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../services/guia.service';
 import { CookieService } from '../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../../models/guia';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-gta6-guia',
@@ -10,7 +11,7 @@ import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '..
   styleUrls: ['./gta6-guia.component.css'],
   standalone: false
 })
-export class Gta6GuiaComponent implements OnInit, AfterViewInit {
+export class Gta6GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
   selectedArticulo: GuiaArticulo | null = null;
@@ -28,6 +29,10 @@ export class Gta6GuiaComponent implements OnInit, AfterViewInit {
   toastMessage: string | null = null;
   private toastTimeout: any = null;
 
+  private manifestSub?: Subscription;
+  private articuloSub?: Subscription;
+  private searchSub?: Subscription;
+
   constructor(
     private guiaService: GuiaService,
     public cookieService: CookieService,
@@ -35,6 +40,16 @@ export class Gta6GuiaComponent implements OnInit, AfterViewInit {
     private metaService: Meta,
     private sanitizer: DomSanitizer
   ) {}
+
+  ngOnDestroy(): void {
+    if (this.toastTimeout) {
+      clearTimeout(this.toastTimeout);
+      this.toastTimeout = null;
+    }
+    this.manifestSub?.unsubscribe();
+    this.articuloSub?.unsubscribe();
+    this.searchSub?.unsubscribe();
+  }
 
   ngOnInit(): void {
     if ('scrollRestoration' in history) {
@@ -146,7 +161,8 @@ export class Gta6GuiaComponent implements OnInit, AfterViewInit {
 
   cargarGuia(): void {
     this.isLoading = true;
-    this.guiaService.getManifest('gta6').subscribe({
+    this.manifestSub?.unsubscribe();
+    this.manifestSub = this.guiaService.getManifest('gta6').subscribe({
       next: (data) => {
         this.manifest = data;
         this.secciones = data.secciones || [];
@@ -169,7 +185,8 @@ export class Gta6GuiaComponent implements OnInit, AfterViewInit {
 
   seleccionarArticulo(articuloId: string): void {
     this.isLoadingArticulo = true;
-    this.guiaService.getArticulo('gta6', articuloId).subscribe({
+    this.articuloSub?.unsubscribe();
+    this.articuloSub = this.guiaService.getArticulo('gta6', articuloId).subscribe({
       next: (articulo) => {
         this.selectedArticulo = articulo;
         this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '');
@@ -192,7 +209,8 @@ export class Gta6GuiaComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.guiaService.buscarArticulos('gta6', this.searchQuery).subscribe({
+    this.searchSub?.unsubscribe();
+    this.searchSub = this.guiaService.buscarArticulos('gta6', this.searchQuery).subscribe({
       next: (results) => {
         this.searchResults = results;
       },

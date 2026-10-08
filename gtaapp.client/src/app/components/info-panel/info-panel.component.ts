@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, effect } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, OnDestroy, SimpleChanges, effect } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { GtaVehicle, DealerCategory } from '../../models/vehicle';
 import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../models/mission';
 import { GtaMystery } from '../../models/mystery';
@@ -7,6 +8,21 @@ import { VehicleService } from '../../services/vehicle.service';
 import { MissionService } from '../../services/mission.service';
 import { WeaponService } from '../../services/weapon.service';
 import { TranslationService } from '../../i18n';
+import { CONCESIONARIOS_GTA5, SPECIAL_DEALER_IDS } from './vehiculos.config';
+import {
+  GTA6_DEALERS,
+  GTA6_DEALERS_EN,
+  GTA6_DEALERS_ES,
+  GTA6_VEHICLES_BY_DEALER,
+  GTA6_STORY_MISSIONS_EN,
+  GTA6_STORY_MISSIONS_ES,
+  GTA6_HEISTS_EN,
+  GTA6_HEISTS_ES,
+  GTA6_MYSTERIES_EN,
+  GTA6_MYSTERIES_ES,
+  GTA6_WEAPONS_EN,
+  GTA6_WEAPONS_ES
+} from './gta6.config';
 
 @Component({
   selector: 'app-info-panel',
@@ -14,28 +30,24 @@ import { TranslationService } from '../../i18n';
   styleUrls: ['./info-panel.component.css'],
   standalone: false
 })
-export class InfoPanelComponent implements OnChanges {
+export class InfoPanelComponent implements OnChanges, OnDestroy {
   @Input() isOpen = false;
   @Input() game: 'gta5' | 'gta6' = 'gta5';
   @Input() gameMode: 'story' | 'online' = 'online';
   @Output() closeDrawer = new EventEmitter<void>();
   @Output() locateOnMap = new EventEmitter<any>();
 
+  // Subscripciones RxJS para evitar fugas y peticiones huérfanas
+  private vehiclesSub?: Subscription;
+  private missionsSub?: Subscription;
+  private strangersSub?: Subscription;
+  private heistsSub?: Subscription;
+  private mysteriesSub?: Subscription;
+  private weaponsSub?: Subscription;
+
   // Cache fields to prevent NG0103 Infinite Change Detection
-  private readonly onlineDrawerTabs = [
-    { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
-    { id: 'armas', label: 'Armas', icon: 'fa-gun' },
-    { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
-    { id: 'golpes', label: 'Golpes', icon: 'fa-sack-dollar' },
-    { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
-  ];
-  private readonly storyDrawerTabs = [
-    { id: 'vehiculos', label: 'Vehículos', icon: 'fa-car-side' },
-    { id: 'armas', label: 'Armas', icon: 'fa-gun' },
-    { id: 'misiones', label: 'Misiones', icon: 'fa-bullseye' },
-    { id: 'strangers', label: 'Extraños y Locos', icon: 'fa-mask' },
-    { id: 'misterios', label: 'Misterios', icon: 'fa-user-secret' },
-  ];
+  private _cachedTabsKey = '';
+  private _cachedDrawerTabs: { id: string; label: string; icon: string }[] = [];
 
   private _cachedVisDealersKey = '';
   private _cachedVisDealers: DealerCategory[] = [];
@@ -67,9 +79,27 @@ export class InfoPanelComponent implements OnChanges {
   private _cachedWCL: { id: string; name: string; count: number; icon: string }[] = [];
   private _cachedDealerDesc: { [id: string]: string } = {};
 
-  // Tabs del drawer según el modo de juego
+  // Tabs del drawer traducidas dinámicamente según idioma activo y modo de juego
   get drawerTabs(): { id: string; label: string; icon: string }[] {
-    return this.gameMode === 'online' ? this.onlineDrawerTabs : this.storyDrawerTabs;
+    const key = `${this.gameMode}_${this.translationService.currentLang}`;
+    if (this._cachedTabsKey !== key) {
+      this._cachedTabsKey = key;
+      const isOnline = this.gameMode === 'online';
+      this._cachedDrawerTabs = isOnline ? [
+        { id: 'vehiculos', label: this.translationService.t('transports.tabs.vehicles') || 'Vehículos', icon: 'fa-car-side' },
+        { id: 'armas', label: this.translationService.t('transports.tabs.armas') || 'Armas', icon: 'fa-gun' },
+        { id: 'misiones', label: this.translationService.t('transports.tabs.missions') || 'Misiones', icon: 'fa-bullseye' },
+        { id: 'golpes', label: this.translationService.t('transports.tabs.golpes') || 'Golpes', icon: 'fa-sack-dollar' },
+        { id: 'misterios', label: this.translationService.t('transports.tabs.misterios') || 'Misterios', icon: 'fa-user-secret' }
+      ] : [
+        { id: 'vehiculos', label: this.translationService.t('transports.tabs.vehicles') || 'Vehículos', icon: 'fa-car-side' },
+        { id: 'armas', label: this.translationService.t('transports.tabs.armas') || 'Armas', icon: 'fa-gun' },
+        { id: 'misiones', label: this.translationService.t('transports.tabs.missions') || 'Misiones', icon: 'fa-bullseye' },
+        { id: 'strangers', label: this.translationService.t('transports.tabs.strangers') || 'Extraños y Locos', icon: 'fa-mask' },
+        { id: 'misterios', label: this.translationService.t('transports.tabs.misterios') || 'Misterios', icon: 'fa-user-secret' }
+      ];
+    }
+    return this._cachedDrawerTabs;
   }
   activeDrawerTab = 'vehiculos';
 
@@ -154,215 +184,10 @@ export class InfoPanelComponent implements OnChanges {
   // Buscador de vehículos dentro del catálogo del concesionario
   dealerVehicleSearchQuery: string = '';
 
-  // Definición centralizada de concesionarios
-  readonly dealers: DealerCategory[] = [
-    {
-      id: 'legendarymotorsport',
-      name: 'Legendary Motorsport',
-      icon: 'fa-star',
-      logoUrl: 'assets/data-images/vehicle_shops/LegendaryMotorsport-GTAV-Logo.png',
-      color: '#ffb833',
-      gameMode: 'both',
-      description: 'Superdeportivos, exóticos de competición y vehículos de hiperlujo.'
-    },
-    {
-      id: 'superautos',
-      name: 'Southern San Andreas',
-      icon: 'fa-car',
-      logoUrl: 'assets/data-images/vehicle_shops/SSASA-Logo_2.png',
-      color: '#3498db',
-      gameMode: 'both',
-      description: 'Muscle cars, compactos, sedanes, SUVs, todoterrenos y motos.'
-    },
-    {
-      id: 'bennys',
-      name: "Benny's Original MW",
-      icon: 'fa-wrench',
-      logoUrl: 'assets/data-images/vehicle_shops/BennysOriginalMotorWorks-GTAO-Logo.png',
-      color: '#e67e22',
-      gameMode: 'online',
-      description: 'Taller de personalización radical, lowriders y conversiones tuners.'
-    },
-    {
-      id: 'elitas',
-      name: 'Elitas Travel',
-      icon: 'fa-plane',
-      logoUrl: '',
-      color: '#8e44ad',
-      gameMode: 'both',
-      description: 'Aeronaves privadas, jets de negocios y helicópteros ejecutivos.'
-    },
-    {
-      id: 'docktease',
-      name: 'DockTease',
-      icon: 'fa-ship',
-      logoUrl: '',
-      color: '#2980b9',
-      gameMode: 'both',
-      description: 'Embarcaciones náuticas, yates, lanchas rápidas y motos de agua.'
-    },
-    {
-      id: 'warstock',
-      name: 'Warstock C&C',
-      icon: 'fa-bomb',
-      logoUrl: '',
-      color: '#c0392b',
-      gameMode: 'both',
-      description: 'Vehículos blindados, armamento militar pesado y maquinaria táctica.'
-    },
-    {
-      id: 'pedal_and_metal',
-      name: 'Pedal and Metal Cycles',
-      icon: 'fa-bicycle',
-      logoUrl: '',
-      color: '#27ae60',
-      gameMode: 'both',
-      description: 'Bicicletas, ciclomotores y vehículos de pedal de Los Santos.'
-    },
-    {
-      id: 'arena_war',
-      name: 'Arena War',
-      icon: 'fa-skull-crossbones',
-      logoUrl: '',
-      color: '#e74c3c',
-      gameMode: 'online',
-      description: 'Vehículos modificados de combate para la Arena de Los Santos.'
-    },
-    {
-      id: 'especiales',
-      name: 'Vehículos Especiales',
-      icon: 'fa-wand-magic-sparkles',
-      logoUrl: '',
-      color: '#9b59b6',
-      gameMode: 'both',
-      description: 'Vehículos únicos, de misión, de evento o de acceso especial.'
-    },
-    {
-      id: 'pegasus',
-      name: 'Pegasus',
-      icon: 'fa-horse',
-      logoUrl: '',
-      color: '#1abc9c',
-      gameMode: 'online',
-      description: 'Vehículos almacenados en Pegasus: solicítelos por teléfono desde cualquier lugar.'
-    },
-  ];
+  // Definición centralizada de concesionarios (extraída a vehiculos.config.ts)
+  readonly dealers: DealerCategory[] = CONCESIONARIOS_GTA5;
 
-  readonly gta6DealersEn: DealerCategory[] = [
-    {
-      id: 'vice_luxury',
-      name: 'Vice Luxury Autos',
-      icon: 'fa-gem',
-      logoUrl: '',
-      color: '#ff4fe0',
-      gameMode: 'both',
-      description: 'Modern exotic supercars, luxury cabriolets and hyper-luxury hypercars.'
-    },
-    {
-      id: 'sunshine_autos',
-      name: 'Sunshine Autos',
-      icon: 'fa-car-side',
-      logoUrl: '',
-      color: '#00cec9',
-      gameMode: 'both',
-      description: 'The legendary Vice City dealership: sports cars, vintage muscle and timeless classics.'
-    },
-    {
-      id: 'ocean_drive_customs',
-      name: 'Ocean Drive Customs',
-      icon: 'fa-wrench',
-      logoUrl: '',
-      color: '#e84393',
-      gameMode: 'both',
-      description: 'Radical custom shop, hydraulic suspensions and street modifications in Ocean Beach.'
-    },
-    {
-      id: 'everglades_marine',
-      name: 'Everglades Marine & Off-Road',
-      icon: 'fa-ship',
-      logoUrl: '',
-      color: '#00b894',
-      gameMode: 'both',
-      description: 'Swamp airboats, high-speed contraband watercraft and lifted 4x4 off-road pickups.'
-    },
-    {
-      id: 'leonida_aviation',
-      name: 'Leonida Aviation & Military',
-      icon: 'fa-plane',
-      logoUrl: '',
-      color: '#6c5ce7',
-      gameMode: 'both',
-      description: 'Corporate executive jets, VIP helicopters and tactical transport aircraft in Leonida.'
-    },
-    {
-      id: 'gta6_especiales',
-      name: 'Leonida Special Vehicles',
-      icon: 'fa-wand-magic-sparkles',
-      logoUrl: '',
-      color: '#fd79a8',
-      gameMode: 'both',
-      description: 'Unique event vehicles, co-op heist transports and prototype customs exclusive to Vice City.'
-    }
-  ];
-
-  readonly gta6DealersEs: DealerCategory[] = [
-    {
-      id: 'vice_luxury',
-      name: 'Vice Luxury Autos',
-      icon: 'fa-gem',
-      logoUrl: '',
-      color: '#ff4fe0',
-      gameMode: 'both',
-      description: 'Superdeportivos exóticos modernos, descapotables de alta gama y bólidos de hiperlujo.'
-    },
-    {
-      id: 'sunshine_autos',
-      name: 'Sunshine Autos',
-      icon: 'fa-car-side',
-      logoUrl: '',
-      color: '#00cec9',
-      gameMode: 'both',
-      description: 'El concesionario legendario de Vice City: deportivos, muscle cars y clásicos de época.'
-    },
-    {
-      id: 'ocean_drive_customs',
-      name: 'Ocean Drive Customs',
-      icon: 'fa-wrench',
-      logoUrl: '',
-      color: '#e84393',
-      gameMode: 'both',
-      description: 'Taller de personalización radical, suspensiones hidráulicas y modificaciones en Ocean Beach.'
-    },
-    {
-      id: 'everglades_marine',
-      name: 'Everglades Marine & Off-Road',
-      icon: 'fa-ship',
-      logoUrl: '',
-      color: '#00b894',
-      gameMode: 'both',
-      description: 'Hidrodeslizadores de pantano, lanchas rápidas de contrabando y pickups todoterreno.'
-    },
-    {
-      id: 'leonida_aviation',
-      name: 'Leonida Aviation & Military',
-      icon: 'fa-plane',
-      logoUrl: '',
-      color: '#6c5ce7',
-      gameMode: 'both',
-      description: 'Aeronaves de negocios, helicópteros ejecutivos y transportes tácticos de Leonida.'
-    },
-    {
-      id: 'gta6_especiales',
-      name: 'Vehículos Especiales de Leonida',
-      icon: 'fa-wand-magic-sparkles',
-      logoUrl: '',
-      color: '#fd79a8',
-      gameMode: 'both',
-      description: 'Vehículos únicos de eventos, atracos cooperativos y prototipos exclusivos de Vice City.'
-    }
-  ];
-
-  readonly gta6Dealers: DealerCategory[] = this.gta6DealersEn;
+  readonly gta6Dealers: DealerCategory[] = GTA6_DEALERS;
 
   private readonly gta6VehiclesByDealer: { [dealerId: string]: GtaVehicle[] } = {
     vice_luxury: [
@@ -1072,7 +897,8 @@ export class InfoPanelComponent implements OnChanges {
     if (this.storyMissions.length > 0 && !force) return;
     this.missionsLoading = true;
     this.missionsError = false;
-    this.missionService.getStoryMissions().subscribe({
+    this.missionsSub?.unsubscribe();
+    this.missionsSub = this.missionService.getStoryMissions().subscribe({
       next: (missions) => {
         this.storyMissions = missions;
         if (keepSelectedId) {
@@ -1192,7 +1018,8 @@ export class InfoPanelComponent implements OnChanges {
     if (this.onlineMissions.length > 0 && !force) return;
     this.onlineMissionsLoading = true;
     this.onlineMissionsError = false;
-    this.missionService.getOnlineMissions().subscribe({
+    this.missionsSub?.unsubscribe();
+    this.missionsSub = this.missionService.getOnlineMissions().subscribe({
       next: (missions) => {
         this.onlineMissions = missions;
         if (keepSelectedId) {
@@ -1415,7 +1242,8 @@ export class InfoPanelComponent implements OnChanges {
     if (this.strangerMissions.length > 0 && !force) return;
     this.strangersLoading = true;
     this.strangersError = false;
-    this.missionService.getStoryStrangers().subscribe({
+    this.strangersSub?.unsubscribe();
+    this.strangersSub = this.missionService.getStoryStrangers().subscribe({
       next: (missions) => {
         this.strangerMissions = missions;
         if (keepSelectedId) {
@@ -1735,6 +1563,11 @@ export class InfoPanelComponent implements OnChanges {
     return result;
   }
 
+  isSpecialDivider(d: DealerCategory): boolean {
+    const specials = this.visibleDealers.filter(x => (SPECIAL_DEALER_IDS as readonly string[]).includes(x.id));
+    return specials.length > 0 && specials[0].id === d.id;
+  }
+
   onClose(): void {
     this.closeDrawer.emit();
   }
@@ -1749,11 +1582,13 @@ export class InfoPanelComponent implements OnChanges {
     this.vehiclesError = false;
     this.dealerVehicles = [];
 
-    this.vehicleService.getVehicles().subscribe({
+    this.vehiclesSub?.unsubscribe();
+    this.vehiclesSub = this.vehicleService.getVehicles().subscribe({
       next: (vehicles) => {
         this.vehicleCache = {};
         for (const v of vehicles) {
-          const d = v.dealership || 'superautos';
+          let d = v.dealership || 'superautos';
+          if (d === 'especiales') d = 'pegasus';
           if (!this.vehicleCache[d]) {
             this.vehicleCache[d] = [];
           }
@@ -1781,7 +1616,8 @@ export class InfoPanelComponent implements OnChanges {
     if (this.onlineHeists.length > 0 && !force) return;
     this.heistsLoading = true;
     this.heistsError = false;
-    this.missionService.getOnlineHeists().subscribe({
+    this.heistsSub?.unsubscribe();
+    this.heistsSub = this.missionService.getOnlineHeists().subscribe({
       next: (heists) => {
         this.onlineHeists = heists;
         if (keepSelectedId) {
@@ -1881,7 +1717,8 @@ export class InfoPanelComponent implements OnChanges {
       ? this.missionService.getStoryMysteries()
       : this.missionService.getOnlineMysteries();
 
-    mysteries$.subscribe({
+    this.mysteriesSub?.unsubscribe();
+    this.mysteriesSub = mysteries$.subscribe({
       next: (mysteries) => {
         this.onlineMysteries = mysteries;
         if (keepSelectedId) {
@@ -1989,7 +1826,8 @@ export class InfoPanelComponent implements OnChanges {
     this.weaponsLoading = true;
     this.weaponsError = false;
 
-    this.weaponService.getWeapons(this.gameMode).subscribe({
+    this.weaponsSub?.unsubscribe();
+    this.weaponsSub = this.weaponService.getWeapons(this.gameMode).subscribe({
       next: (weapons) => {
         this.weapons = weapons;
         if (keepSelectedId) {
@@ -2133,6 +1971,15 @@ export class InfoPanelComponent implements OnChanges {
   getWeaponIcon(w: GtaWeapon | null): string {
     if (!w) return 'fa-gun';
     return w.icon || 'fa-gun';
+  }
+
+  ngOnDestroy(): void {
+    this.vehiclesSub?.unsubscribe();
+    this.missionsSub?.unsubscribe();
+    this.strangersSub?.unsubscribe();
+    this.heistsSub?.unsubscribe();
+    this.mysteriesSub?.unsubscribe();
+    this.weaponsSub?.unsubscribe();
   }
 }
 

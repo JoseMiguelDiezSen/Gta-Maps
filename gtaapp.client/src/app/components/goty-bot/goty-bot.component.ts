@@ -1,6 +1,8 @@
-import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewChecked, HostListener } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked, HostListener, effect } from '@angular/core';
 import { GotyService } from '../../services/goty.service';
+import { TranslationService } from '../../i18n';
 import { GotyMessage, GotyGameMode } from '../../models/goty';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-goty-bot',
@@ -8,7 +10,7 @@ import { GotyMessage, GotyGameMode } from '../../models/goty';
   styleUrls: ['./goty-bot.component.css'],
   standalone: false
 })
-export class GotyBotComponent implements OnInit, AfterViewChecked {
+export class GotyBotComponent implements OnInit, OnDestroy, AfterViewChecked {
   @Input() gameContext: GotyGameMode = 'gta5-online';
 
   @ViewChild('scrollContainer') private scrollContainer?: ElementRef;
@@ -29,7 +31,61 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
   private initialTop = 0;
   private initialLeft = 0;
 
-  constructor(public gotyService: GotyService) {}
+  private timers: any[] = [];
+  private replySub?: Subscription;
+
+  private static readonly SUBTITLES: Record<string, { gta5: string; gta6: string }> = {
+    es: { gta5: 'Asistente de Los Santos', gta6: 'Asistente de Vice City' },
+    en: { gta5: 'Los Santos Assistant', gta6: 'Vice City Assistant' },
+    pt: { gta5: 'Assistente de Los Santos', gta6: 'Assistente de Vice City' },
+    zh: { gta5: '洛圣都智能向导', gta6: '罪恶都市智能向导' },
+    fr: { gta5: 'Assistant de Los Santos', gta6: 'Assistant de Vice City' },
+    de: { gta5: 'Los Santos Assistent', gta6: 'Vice City Assistent' },
+    it: { gta5: 'Assistente di Los Santos', gta6: 'Assistente di Vice City' },
+    ru: { gta5: 'Ассистент Лос-Сантоса', gta6: 'Ассистент Вайс-Сити' },
+    ar: { gta5: 'مساعد لوس سانتوس', gta6: 'مساعد فايس سيتي' },
+    ja: { gta5: 'ロスサントス・アシスタント', gta6: 'バイスシティ・アシスタント' },
+    hi: { gta5: 'लॉस सैंटोस सहायक', gta6: 'वाइस सिटी सहायक' },
+    tr: { gta5: 'Los Santos Asistanı', gta6: 'Vice City Asistanı' },
+    ko: { gta5: '로스 산토스 어시스턴트', gta6: '바이스 시티 어시스턴트' }
+  };
+
+  private static readonly UI_STRINGS: Record<string, { placeholder: (b: string) => string; talk: (b: string) => string; send: string; close: string }> = {
+    es: { placeholder: (b) => `Pregunta a ${b}...`, talk: (b) => `Hablar con ${b}`, send: 'Enviar mensaje', close: 'Cerrar chat' },
+    en: { placeholder: (b) => `Ask ${b}...`, talk: (b) => `Talk to ${b}`, send: 'Send message', close: 'Close chat' },
+    pt: { placeholder: (b) => `Pergunte ao ${b}...`, talk: (b) => `Conversar com ${b}`, send: 'Enviar mensagem', close: 'Fechar chat' },
+    zh: { placeholder: (b) => `向 ${b} 提问...`, talk: (b) => `与 ${b} 交谈`, send: '发送消息', close: '关闭聊天' },
+    fr: { placeholder: (b) => `Demander à ${b}...`, talk: (b) => `Parler avec ${b}`, send: 'Envoyer le message', close: 'Fermer le chat' },
+    de: { placeholder: (b) => `Frage an ${b}...`, talk: (b) => `Mit ${b} sprechen`, send: 'Nachricht senden', close: 'Chat schließen' },
+    it: { placeholder: (b) => `Chiedi a ${b}...`, talk: (b) => `Parla con ${b}`, send: 'Invia messaggio', close: 'Chiudi chat' },
+    ru: { placeholder: (b) => `Спросить у ${b}...`, talk: (b) => `Поговорить с ${b}`, send: 'Отправить сообщение', close: 'Закрыть чат' },
+    ar: { placeholder: (b) => `اسأل ${b}...`, talk: (b) => `التحدث مع ${b}`, send: 'إرسال الرسالة', close: 'إغلاق الدردشة' },
+    ja: { placeholder: (b) => `${b} に質問...`, talk: (b) => `${b} と話す`, send: 'メッセージを送信', close: 'チャットを閉じる' },
+    hi: { placeholder: (b) => `${b} से पूछें...`, talk: (b) => `${b} से बात करें`, send: 'संदेश भेजें', close: 'चैट बंद करें' },
+    tr: { placeholder: (b) => `${b}'e sor...`, talk: (b) => `${b} ile konuş`, send: 'Mesaj gönder', close: 'Sohbeti kapat' },
+    ko: { placeholder: (b) => `${b}에게 질문...`, talk: (b) => `${b}와 대화하기`, send: '메시지 전송', close: '채팅 닫기' }
+  };
+
+  constructor(
+    public gotyService: GotyService,
+    private translationService: TranslationService
+  ) {
+    effect(() => {
+      // Reacciona en tiempo real si el usuario cambia el idioma en la aplicación
+      this.translationService.currentLanguage();
+      if (this.messages.length <= 1 && (this.messages.length === 0 || this.messages[0].sender === 'goty')) {
+        this.messages = [this.gotyService.getInitialGreeting(this.gameContext)];
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.timers.forEach(t => clearTimeout(t));
+    this.timers = [];
+    if (this.replySub) {
+      this.replySub.unsubscribe();
+    }
+  }
 
   onDragStart(event: MouseEvent | TouchEvent): void {
     if ('button' in event && (event as MouseEvent).button !== 0) return;
@@ -113,48 +169,32 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
 
   get botSubtitle(): string {
     const lang = this.gotyService.currentLang;
-    if (this.isGta6) {
-      if (lang === 'en') return 'Vice City Assistant';
-      if (lang === 'pt') return 'Assistente de Vice City';
-      if (lang === 'zh') return '罪恶都市智能向导';
-      return 'Asistente de Vice City';
-    }
-    if (lang === 'en') return 'Los Santos Assistant';
-    if (lang === 'pt') return 'Assistente de Los Santos';
-    if (lang === 'zh') return '洛圣都智能向导';
-    return 'Asistente de Los Santos';
+    const sub = GotyBotComponent.SUBTITLES[lang] || GotyBotComponent.SUBTITLES['en'] || GotyBotComponent.SUBTITLES['es'];
+    return this.isGta6 ? sub.gta6 : sub.gta5;
   }
 
   get inputPlaceholder(): string {
     const lang = this.gotyService.currentLang;
-    if (lang === 'en') return `Ask ${this.botName}...`;
-    if (lang === 'pt') return `Pergunte ao ${this.botName}...`;
-    if (lang === 'zh') return `向 ${this.botName} 提问...`;
-    return `Pregunta a ${this.botName}...`;
+    const ui = GotyBotComponent.UI_STRINGS[lang] || GotyBotComponent.UI_STRINGS['en'] || GotyBotComponent.UI_STRINGS['es'];
+    return ui.placeholder(this.botName);
   }
 
   get talkTooltip(): string {
     const lang = this.gotyService.currentLang;
-    if (lang === 'en') return `Talk to ${this.botName}`;
-    if (lang === 'pt') return `Conversar com ${this.botName}`;
-    if (lang === 'zh') return `与 ${this.botName} 交谈`;
-    return `Hablar con ${this.botName}`;
+    const ui = GotyBotComponent.UI_STRINGS[lang] || GotyBotComponent.UI_STRINGS['en'] || GotyBotComponent.UI_STRINGS['es'];
+    return ui.talk(this.botName);
   }
 
   get sendTooltip(): string {
     const lang = this.gotyService.currentLang;
-    if (lang === 'en') return 'Send message';
-    if (lang === 'pt') return 'Enviar mensagem';
-    if (lang === 'zh') return '发送消息';
-    return 'Enviar mensaje';
+    const ui = GotyBotComponent.UI_STRINGS[lang] || GotyBotComponent.UI_STRINGS['en'] || GotyBotComponent.UI_STRINGS['es'];
+    return ui.send;
   }
 
   get closeTooltip(): string {
     const lang = this.gotyService.currentLang;
-    if (lang === 'en') return 'Close chat';
-    if (lang === 'pt') return 'Fechar chat';
-    if (lang === 'zh') return '关闭聊天';
-    return 'Cerrar chat';
+    const ui = GotyBotComponent.UI_STRINGS[lang] || GotyBotComponent.UI_STRINGS['en'] || GotyBotComponent.UI_STRINGS['es'];
+    return ui.close;
   }
 
   toggleChat(): void {
@@ -184,24 +224,28 @@ export class GotyBotComponent implements OnInit, AfterViewChecked {
     });
     this.userInput = '';
     this.isTyping = true;
-    setTimeout(() => this.scrollToBottom(), 50);
+    const tScroll1 = setTimeout(() => this.scrollToBottom(), 50);
+    this.timers.push(tScroll1);
 
     // Process reply
-    setTimeout(() => {
-      this.gotyService.processUserQuery(q, this.gameContext).subscribe(reply => {
+    const tReply = setTimeout(() => {
+      this.replySub = this.gotyService.processUserQuery(q, this.gameContext).subscribe(reply => {
         this.isTyping = false;
         if (reply.isAngry) {
           this.isAngryAvatar = true;
-          setTimeout(() => {
+          const tAngry = setTimeout(() => {
             this.isAngryAvatar = false;
           }, 3000);
+          this.timers.push(tAngry);
         } else {
           this.isAngryAvatar = false;
         }
         this.messages.push(reply);
-        setTimeout(() => this.scrollToBottom(), 50);
+        const tScroll2 = setTimeout(() => this.scrollToBottom(), 50);
+        this.timers.push(tScroll2);
       });
     }, 400);
+    this.timers.push(tReply);
   }
 
   onKeyDown(event: KeyboardEvent): void {

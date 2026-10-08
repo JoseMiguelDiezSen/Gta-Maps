@@ -42,6 +42,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     readonly countdownTarget = new Date(2026, 10, 19, 0, 0, 0);
     countdown = { days: '00', hours: '00', minutes: '00', seconds: '00' };
     private countdownInterval: ReturnType<typeof setInterval> | undefined;
+    private feedbackSub?: import('rxjs').Subscription;
+    private feedbackTimeout?: any;
 
     readonly languages: Language[] = [
         { code: 'en', label: 'English' },
@@ -81,6 +83,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         if (this.countdownInterval) {
             clearInterval(this.countdownInterval);
+        }
+        if (this.feedbackTimeout) {
+            clearTimeout(this.feedbackTimeout);
+        }
+        if (this.feedbackSub) {
+            this.feedbackSub.unsubscribe();
         }
         this.unlockMobileZoom();
     }
@@ -237,13 +245,14 @@ export class HomeComponent implements OnInit, OnDestroy {
             message: this.feedbackMessage.trim()
         };
 
-        this.http.post('/api/feedback', payload).subscribe({
+        this.feedbackSub?.unsubscribe();
+        this.feedbackSub = this.http.post('/api/feedback', payload).subscribe({
             next: () => {
                 this.isSendingFeedback = false;
                 this.feedbackSuccess = true;
                 this.feedbackName = '';
                 this.feedbackMessage = '';
-                setTimeout(() => {
+                this.feedbackTimeout = setTimeout(() => {
                     if (this.feedbackSuccess) {
                         this.isFeedbackModalOpen = false;
                         this.feedbackSuccess = false;

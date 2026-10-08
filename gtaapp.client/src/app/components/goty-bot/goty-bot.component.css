@@ -151,9 +151,9 @@
   width: 330px;
   min-width: 270px;
   max-width: calc(100vw - 32px);
-  height: 520px;
+  height: 350px;
   min-height: 250px;
-  max-height: 80vh;
+  max-height: calc(100vh - 280px);
   resize: both;
   background: rgba(13, 19, 26, 0.94);
   backdrop-filter: blur(14px);

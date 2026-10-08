@@ -121,21 +121,6 @@ export class GotyService {
     if (saved !== null) {
       this.isBotEnabled = saved === 'true';
     }
-
-    // Precargar cerebros de reserva en los idiomas disponibles
-    this.preloadBrain('es');
-    this.preloadBrain('en');
-    this.preloadBrain('pt');
-    this.preloadBrain('zh');
-    this.preloadBrain('fr');
-    this.preloadBrain('de');
-    this.preloadBrain('it');
-    this.preloadBrain('ru');
-    this.preloadBrain('ar');
-    this.preloadBrain('ja');
-    this.preloadBrain('hi');
-    this.preloadBrain('tr');
-    this.preloadBrain('ko');
   }
 
   get isEnabled(): boolean {

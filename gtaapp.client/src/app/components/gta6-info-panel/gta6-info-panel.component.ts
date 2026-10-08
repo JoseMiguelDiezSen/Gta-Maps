@@ -102,6 +102,20 @@ export class Gta6InfoPanelComponent {
   }
 
   getTabLabel(tab: Gta6InfoTab): string {
+    const tabKeyMap: Record<string, string> = {
+      vehiculos: 'vehicles',
+      armas: 'armas',
+      misiones: 'missions',
+      golpes: 'golpes',
+      misterios: 'misterios'
+    };
+    const key = tabKeyMap[tab.id];
+    if (key) {
+      const translated = this.translationService.t('transports.tabs.' + key);
+      if (translated && !translated.startsWith('transports.')) {
+        return translated;
+      }
+    }
     return this.currentLang === 'es' ? tab.labelEs : tab.labelEn;
   }
 
