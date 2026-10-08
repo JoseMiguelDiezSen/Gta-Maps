@@ -1,0 +1,576 @@
+/* ==========================================================================
+   MAP RESPONSIVE & MOBILE HUD (GTA V - HISTORIA & ONLINE)
+   Breakpoint system:
+   - <= 900px: Tablet & compact indicators
+   - <= 850px: Full mobile rectangular HUD, bottom drawers, mobile floating home,
+               touch-optimized popup cards and responsive Leaflet overrides
+   ========================================================================== */
+
+/* ==========================================================================
+   1. TABLET Y PANTALLAS MEDIANAS (<= 900px)
+   ========================================================================== */
+@media screen and (max-width: 900px) {
+  .mode-switch-btn {
+    padding: 5px 9px;
+    gap: 5px;
+  }
+
+  .mode-switch-btn span {
+    font-size: 0;
+  }
+
+  .mode-historia span::after {
+    content: "S";
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .mode-online span::after {
+    content: "O";
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .hud-coords-dev {
+    bottom: 12px;
+    padding: 2.5px 8px;
+    gap: 5px;
+    background: rgba(8, 12, 18, 0.88);
+  }
+
+  .hud-coords-dev .coord-axis {
+    font-size: 9.5px;
+  }
+
+  .hud-coords-dev .coord-val {
+    font-size: 10.5px;
+    min-width: 38px;
+  }
+}
+
+/* ==========================================================================
+   2. HUD MÓVIL GTA V (<= 850px)
+   Estética rectangular HUD original, limpia y adaptada a safe-areas
+   ========================================================================== */
+@media screen and (max-width: 850px) {
+
+  /* --------------------------------------------------------------------------
+     A. ESQUINA SUPERIOR IZQUIERDA: [ GTA V | 13:55 ]
+     -------------------------------------------------------------------------- */
+  .hud-tl {
+    position: absolute !important;
+    top: max(8px, env(safe-area-inset-top, 8px)) !important;
+    left: max(8px, env(safe-area-inset-left, 8px)) !important;
+    height: 38px !important;
+    padding: 0 10px !important;
+    gap: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    z-index: 1200 !important;
+    border-radius: 8px !important;
+    background: rgba(12, 16, 23, 0.92) !important;
+    border: 1px solid rgba(255, 165, 0, 0.45) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+  }
+
+  .hud-title {
+    font-size: 16px !important;
+    letter-spacing: 0.8px !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    color: #ffb833 !important;
+  }
+
+  .hud-title-sub {
+    display: none !important;
+  }
+
+  .hud-time-badge {
+    font-size: 14.5px !important;
+    font-weight: 800 !important;
+    padding: 2px 7px !important;
+    min-width: 44px !important;
+    line-height: 1.2 !important;
+    border-radius: 6px !important;
+    color: #ffb833 !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+    border: 1px solid rgba(255, 184, 51, 0.6) !important;
+    letter-spacing: 1.2px !important;
+    text-shadow: 0 0 8px rgba(255, 184, 51, 0.6) !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     B. SUPERIOR CENTRAL: [ • S | • O ]
+     -------------------------------------------------------------------------- */
+  .hud-tc {
+    position: absolute !important;
+    top: max(8px, env(safe-area-inset-top, 8px)) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    height: 38px !important;
+    padding: 0 4px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    z-index: 1200 !important;
+    border-radius: 8px !important;
+    background: rgba(12, 16, 23, 0.92) !important;
+    border: 1px solid rgba(255, 165, 0, 0.45) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+  }
+
+  .mode-switch-track {
+    padding: 2px !important;
+    gap: 3px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .mode-switch-btn {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    border-radius: 5px !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     C. ESQUINA SUPERIOR DERECHA: [ 📱 ]
+     -------------------------------------------------------------------------- */
+  .hud-side-trigger {
+    position: absolute !important;
+    top: max(8px, env(safe-area-inset-top, 8px)) !important;
+    right: max(8px, env(safe-area-inset-right, 8px)) !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    background: rgba(12, 16, 23, 0.92) !important;
+    border: 1px solid rgba(255, 165, 0, 0.45) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    z-index: 1200 !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+  }
+
+  .hud-side-trigger .hud-panel-title,
+  .hud-side-trigger .side-trigger-toggle-btn {
+    display: none !important;
+  }
+
+  .hud-side-trigger .side-trigger-content {
+    gap: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+  }
+
+  .side-trigger-icon {
+    font-size: 17px !important;
+    margin: 0 !important;
+    color: #ffb833 !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     D. BARRA INFERIOR RECTANGULAR: [ LOCATIONS ^ ]  [ 🏠 ]  [ SETTINGS ^ ]
+     -------------------------------------------------------------------------- */
+  .hud-bl.hud-collapsed,
+  .hud-br.hud-collapsed {
+    position: fixed !important;
+    bottom: max(10px, env(safe-area-inset-bottom, 10px)) !important;
+    height: 40px !important;
+    padding: 0 !important;
+    z-index: 1100 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    width: calc(50vw - max(10px, env(safe-area-inset-left, 10px)) - 26px) !important;
+    border-radius: 8px !important;
+    background: rgba(12, 16, 23, 0.94) !important;
+    border: 1px solid rgba(255, 165, 0, 0.45) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+  }
+
+  .hud-bl.hud-collapsed {
+    left: max(10px, env(safe-area-inset-left, 10px)) !important;
+    right: auto !important;
+  }
+
+  .hud-br.hud-collapsed {
+    right: max(10px, env(safe-area-inset-right, 10px)) !important;
+    left: auto !important;
+  }
+
+  .hud-bl.hud-collapsed .hud-panel,
+  .hud-br.hud-collapsed .hud-panel {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hud-bl.hud-collapsed .hud-panel-head,
+  .hud-br.hud-collapsed .hud-panel-head {
+    height: 100% !important;
+    padding: 0 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+  }
+
+  .hud-bl.hud-collapsed .hud-panel-title,
+  .hud-br.hud-collapsed .hud-panel-title {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.6px !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    color: #ffb833 !important;
+  }
+
+  .hud-bl.hud-collapsed .legend-toggle-btn,
+  .hud-br.hud-collapsed .legend-toggle-btn {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    border-radius: 5px !important;
+    background: rgba(255, 184, 51, 0.15) !important;
+    border: 1px solid rgba(255, 184, 51, 0.35) !important;
+    color: #ffb833 !important;
+  }
+
+  /* Ocultar el botón home del header en móvil */
+  .hud-tl .hud-home-btn {
+    display: none !important;
+  }
+
+  /* Botón flotante Home en el centro inferior */
+  .hud-floating-home {
+    position: fixed !important;
+    bottom: max(10px, env(safe-area-inset-bottom, 10px)) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    z-index: 1105 !important;
+    box-sizing: border-box !important;
+    background: rgba(12, 16, 23, 0.94) !important;
+    border: 1px solid rgba(255, 165, 0, 0.45) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    color: #ffb833 !important;
+  }
+
+  .hud-floating-home-text {
+    display: none !important;
+  }
+
+  .hud-floating-home-icon {
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 !important;
+  }
+
+  .hud-coords-dev {
+    display: none !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     E. PANELES DESPLEGADOS HACIA ARRIBA
+     -------------------------------------------------------------------------- */
+  .hud-bl:not(.hud-collapsed),
+  .hud-br:not(.hud-collapsed) {
+    position: fixed !important;
+    bottom: max(10px, env(safe-area-inset-bottom, 10px)) !important;
+    max-height: calc(100dvh - 60px) !important;
+    max-height: calc(100vh - 60px) !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 165, 0, 0.5) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+    z-index: 1200 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: rgba(12, 16, 23, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) {
+    left: max(10px, env(safe-area-inset-left, 10px)) !important;
+    right: auto !important;
+    width: calc(50vw - max(10px, env(safe-area-inset-left, 10px)) - 26px) !important;
+  }
+
+  .hud-br:not(.hud-collapsed) {
+    right: max(10px, env(safe-area-inset-right, 10px)) !important;
+    left: auto !important;
+    width: calc(50vw - max(10px, env(safe-area-inset-right, 10px)) - 26px) !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-panel-head,
+  .hud-br:not(.hud-collapsed) .hud-panel-head {
+    padding: 0 10px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-bottom: 1px solid rgba(255, 165, 0, 0.2) !important;
+    cursor: pointer !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-panel-title,
+  .hud-br:not(.hud-collapsed) .hud-panel-title {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.6px !important;
+    text-transform: uppercase !important;
+    color: #ffb833 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .legend-toggle-btn,
+  .hud-br:not(.hud-collapsed) .legend-toggle-btn {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    border-radius: 5px !important;
+    background: rgba(255, 184, 51, 0.15) !important;
+    border: 1px solid rgba(255, 184, 51, 0.35) !important;
+    color: #ffb833 !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-legend-panel,
+  .hud-br:not(.hud-collapsed) .hud-legend-panel,
+  .hud-bl:not(.hud-collapsed) .hud-panel,
+  .hud-br:not(.hud-collapsed) .hud-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-legend-body,
+  .hud-br:not(.hud-collapsed) .hud-legend-body,
+  .hud-bl:not(.hud-collapsed) .hud-settings-body,
+  .hud-br:not(.hud-collapsed) .hud-settings-body {
+    max-height: calc(100dvh - 105px) !important;
+    max-height: calc(100vh - 105px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 8px 8px 14px 8px !important;
+  }
+
+  /* --------------------------------------------------------------------------
+     F. TARJETAS POPUP LEAFLET EN MÓVIL
+     -------------------------------------------------------------------------- */
+  :host ::ng-deep .gta-leaflet-popup {
+    min-width: 0 !important;
+    max-width: min(250px, calc(100vw - 32px)) !important;
+    width: min(250px, calc(100vw - 32px)) !important;
+  }
+
+  :host ::ng-deep .gta-leaflet-popup .leaflet-popup-content-wrapper {
+    min-width: 0 !important;
+    max-width: min(250px, calc(100vw - 32px)) !important;
+    width: 100% !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .gta-leaflet-popup .leaflet-popup-content {
+    margin: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    line-height: normal !important;
+  }
+
+  :host ::ng-deep .gta-popup-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 52vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  :host ::ng-deep .popup-image-box {
+    height: 85px !important;
+    max-height: 85px !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .popup-banner {
+    padding: 7px 30px 5px 9px !important;
+    gap: 2px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .popup-badge {
+    font-size: 8px !important;
+    padding: 1px 4px !important;
+    max-width: calc(100% - 10px) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .popup-title {
+    font-size: 12.5px !important;
+    margin: 2px 0 0 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+  }
+
+  :host ::ng-deep .popup-zone {
+    font-size: 9.5px !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  :host ::ng-deep .popup-content {
+    padding: 6px 9px 9px !important;
+    gap: 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .popup-price-box {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    padding: 3px 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .price-title {
+    font-size: 8px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  :host ::ng-deep .price-num {
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    text-align: right !important;
+  }
+
+  :host ::ng-deep .popup-service-tag-box {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
+    padding: 3px 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .popup-service-tag-box.popup-shipwreck-box {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  :host ::ng-deep .popup-service-tag-box.popup-shipwreck-box .service-type-badge {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  :host ::ng-deep .service-type-badge {
+    font-size: 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+  }
+
+  .service-status-text {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    text-align: right !important;
+    flex-shrink: 0 !important;
+  }
+
+  :host ::ng-deep .popup-desc {
+    font-size: 10.5px !important;
+    line-height: 1.3 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  :host ::ng-deep .popup-features {
+    font-size: 9px !important;
+    padding-left: 12px !important;
+    margin: 2px 0 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  :host ::ng-deep .popup-features li {
+    margin-bottom: 1px !important;
+  }
+
+  :host ::ng-deep .popup-action-row {
+    margin-top: 5px !important;
+    padding-top: 5px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  :host ::ng-deep .popup-card-action-btn {
+    padding: 5px 8px !important;
+    font-size: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked, HostListener, effect } from '@angular/core';
 import { GotyService } from '../../services/goty.service';
 import { TranslationService } from '../../i18n';
-import { GotyMessage, GotyGameMode } from '../../models/goty';
+import { GotyMessage, GotyGameMode } from '../../models/gta5/goty';
 import { Subscription } from 'rxjs';
 
 @Component({

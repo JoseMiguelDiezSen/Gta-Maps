@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output, OnChanges, OnDestroy, SimpleChanges, effect } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { GtaVehicle, DealerCategory } from '../../models/vehicle';
-import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../models/mission';
-import { GtaMystery } from '../../models/mystery';
-import { GtaWeapon } from '../../models/weapon';
-import { VehicleService } from '../../services/vehicle.service';
-import { MissionService } from '../../services/mission.service';
-import { WeaponService } from '../../services/weapon.service';
+import { GtaVehicle, DealerCategory } from '../../models/gta5/vehicle';
+import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../models/gta5/mission';
+import { GtaMystery } from '../../models/gta5/mystery';
+import { GtaWeapon } from '../../models/gta5/weapon';
+import { VehicleService } from '../../services/gta5/vehicle.service';
+import { MissionService } from '../../services/gta5/mission.service';
+import { WeaponService } from '../../services/gta5/weapon.service';
 import { TranslationService } from '../../i18n';
 import { CONCESIONARIOS_GTA5, SPECIAL_DEALER_IDS } from './vehiculos.config';
 import {

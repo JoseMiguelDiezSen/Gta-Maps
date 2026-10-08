@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { GotyMessage, GotyGameMode } from '../models/goty';
+import { GotyMessage, GotyGameMode } from '../models/gta5/goty';
 import { TranslationService } from '../i18n';
 
 export interface GotyIntent {

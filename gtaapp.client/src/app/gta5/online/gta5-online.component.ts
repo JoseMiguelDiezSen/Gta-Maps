@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, effect } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as L from 'leaflet';
-import { LocationService } from '../../services/location.service';
-import { LocationItem } from '../../models/location';
-import { CollectibleItem } from '../../models/collectible';
+import { LocationService } from '../../services/gta5/location.service';
+import { LocationItem } from '../../models/gta5/location';
+import { CollectibleItem } from '../../models/gta5/collectible';
 import { TranslationService } from '../../i18n';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GotyService } from '../../services/goty.service';
