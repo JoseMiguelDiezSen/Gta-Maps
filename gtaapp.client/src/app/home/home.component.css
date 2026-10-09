@@ -754,6 +754,27 @@
     font-size: 11.5px;
   }
 
+  .home-guide-actions {
+    gap: 10px;
+    width: 100%;
+    max-width: 360px;
+    margin-top: 6px;
+  }
+
+  .home-guide-btn {
+    flex: 1 1 0 !important;
+    width: 50% !important;
+    max-width: 160px !important;
+    min-width: 0 !important;
+    height: 44px !important;
+    padding: 6px 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-guide-btn-text {
+    font-size: 16px;
+  }
+
   .hud-gta6-launch {
     padding: 6px 10px;
     gap: 8px;
@@ -812,6 +833,10 @@
 
   .home-btn-sub {
     font-size: 10.5px;
+  }
+
+  .home-guide-btn-text {
+    font-size: 14px;
   }
 
   .hud-gta6-launch .hud-title {

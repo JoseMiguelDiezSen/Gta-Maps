@@ -375,6 +375,9 @@
     width: 100% !important;
     max-width: 100% !important;
     height: 100% !important;
+    min-height: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
   }
@@ -383,9 +386,12 @@
   .hud-br:not(.hud-collapsed) .hud-legend-body,
   .hud-bl:not(.hud-collapsed) .hud-settings-body,
   .hud-br:not(.hud-collapsed) .hud-settings-body {
-    max-height: calc(100dvh - 105px) !important;
-    max-height: calc(100vh - 105px) !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: calc(100dvh - 145px) !important;
+    max-height: calc(100vh - 145px) !important;
     overflow-y: auto !important;
+    overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
     padding: 8px 8px 14px 8px !important;
   }
