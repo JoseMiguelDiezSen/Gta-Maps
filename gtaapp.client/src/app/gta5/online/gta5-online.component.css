@@ -182,7 +182,7 @@
   top: auto;
   width: 290px;
   max-width: 90vw;
-  max-height: calc(100vh - 76px);
+  max-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -251,7 +251,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  max-height: calc(100vh - 140px);
+  max-height: calc(100vh - 185px);
   min-height: 0;
   flex: 1 1 auto;
   overflow-y: auto;
@@ -1064,5 +1064,16 @@
 
   .island-btn-icon {
     font-size: 12px !important;
+  }
+
+  /* Evitar que el panel desplegado tape el botón de Cayo Perico en móvil */
+  .hud-bl:not(.hud-collapsed) {
+    max-height: calc(100dvh - 95px) !important;
+    max-height: calc(100vh - 95px) !important;
+  }
+
+  .hud-bl:not(.hud-collapsed) .hud-legend-body {
+    max-height: calc(100dvh - 145px) !important;
+    max-height: calc(100vh - 145px) !important;
   }
 }
