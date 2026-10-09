@@ -561,18 +561,18 @@ export const pt: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - Mapas Interativos de GTA V e GTA VI',
-    defaultDesc: 'Mapas interativos de GTA V e GTA VI com localizações de missões, veículos, colecionáveis e segredos em Los Santos e Vice City.',
-    homeTitle: 'GTA MAPS - Mapas Interativos de GTA V e GTA VI',
-    homeDesc: 'Mapas interativos de GTA V e GTA VI com localizações de missões, veículos, colecionáveis e segredos em Los Santos e Vice City.',
-    gta5OnlineTitle: 'Mapa Interativo GTA V Online - Localizações, Veículos e Colecionáveis | GTA MAPS',
-    gta5OnlineDesc: 'Mapa interativo do GTA 5 Online com localizações de negócios, propriedades, veículos, saltos e colecionáveis em tempo real.',
-    gta5HistoriaTitle: 'Mapa GTA V Modo História - Missões 100%, Saltos e Segredos | GTA MAPS',
-    gta5HistoriaDesc: 'Mapa interativo e guia completo do modo história de GTA V para os 100%: missões principais, secundárias, armas e colecionáveis.',
-    gta6OnlineTitle: 'Mapa GTA VI Online Vice City - Localizações e Guia Interativo | GTA MAPS',
-    gta6OnlineDesc: 'Mapa interativo do GTA 6 Online em Vice City e Leonida com pontos de interesse, localizações, estradas e novidades.',
-    gta6HistoriaTitle: 'Mapa GTA VI Modo História - Missões Jason e Lucia em Leonida | GTA MAPS',
-    gta6HistoriaDesc: 'Mapa interativo do modo história de GTA VI com Jason e Lucia. Exploração de Vice City, missões, colecionáveis e segredos.'
+    defaultTitle: 'GTA MAPS - Mapas Interativos Ultra HD e Assistente IA para GTA V e GTA VI (Sem Anúncios)',
+    defaultDesc: 'Mapas interativos em Ultra HD de GTA V, GTA Online, Cayo Perico e GTA VI Vice City. 100% sem anúncios, com Assistente IA, guia 100%, mistérios e veículos em tempo real.',
+    homeTitle: 'GTA MAPS - Mapas Interativos Ultra HD e Assistente IA para GTA V e GTA VI (Sem Anúncios)',
+    homeDesc: 'Mapas interativos em Ultra HD de GTA V, GTA Online, Cayo Perico e GTA VI Vice City. 100% sem anúncios, com Assistente IA, guia 100%, mistérios e veículos em tempo real.',
+    gta5OnlineTitle: 'Mapa GTA V Online Ultra HD - Negócios, Cayo Perico e Assistente IA (Sem Anúncios) | GTA MAPS',
+    gta5OnlineDesc: 'Mapa interativo em Ultra HD do GTA 5 Online e Cayo Perico 100% sem anúncios. Negócios, propriedades, golpes, veículos, armas e assistente inteligente em tempo real.',
+    gta5HistoriaTitle: 'Mapa GTA V Modo História 100% - Guia Completo, Mistérios e Mapa UV (Sem Anúncios) | GTA MAPS',
+    gta5HistoriaDesc: 'Guia interativo 100% do modo história de GTA V em Ultra HD e sem anúncios: missões, cartas, peças de ovni, saltos, mistérios e mapa UV secreto.',
+    gta6OnlineTitle: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interativo e Novidades (Sem Anúncios) | GTA MAPS',
+    gta6OnlineDesc: 'Primeiro mapa interativo em Ultra HD do GTA 6 Online em Vice City e Leonida 100% sem anúncios. Pontos de interesse, estradas, segredos e novidades.',
+    gta6HistoriaTitle: 'Mapa GTA VI Modo História - Guia de Vice City, Jason e Lucia (Sem Anúncios) | GTA MAPS',
+    gta6HistoriaDesc: 'Mapa interativo do modo história de GTA VI sem anúncios com Jason e Lucia. Exploração em Ultra HD de Vice City, missões, colecionáveis e segredos.'
   },
   gta6Modal: {
     title: 'GTA VI — Em desenvolvimento',

@@ -561,18 +561,18 @@ export const ko: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA Maps - GTA V & GTA VI 인터랙티브 지도',
-    defaultDesc: '부동산, 사업장, 수집품, 습격 및 비밀이 포함된 인터랙티브 GTA V 및 GTA VI 지도.',
-    homeTitle: 'GTA Maps - GTA V & GTA VI 인터랙티브 맵',
-    homeDesc: '모든 부동산, 사업장, 이동수단 및 수집품을 확인하고 탐색할 수 있는 인터랙티브 GTA 지도.',
-    gta5OnlineTitle: 'GTA V 온라인 인터랙티브 지도 - 사업장, 습격 및 미션',
-    gta5OnlineDesc: '사업장, 습격, 부동산 및 수집품 위치를 제공하는 완전한 GTA V 온라인 지도.',
-    gta5HistoriaTitle: 'GTA V 스토리 모드 인터랙티브 지도 - 미션, 비밀 & 100%',
-    gta5HistoriaDesc: '스토리 미션, 낯선 사람, 우주선 부품 및 비밀을 포함하는 GTA V 스토리 지도.',
-    gta6OnlineTitle: 'GTA VI 온라인 인터랙티브 지도 - 바이스 시티 & 레오니다',
-    gta6OnlineDesc: '바이스 시티와 레오니다 지역을 탐색할 수 있는 차세대 GTA VI 온라인 인터랙티브 지도.',
-    gta6HistoriaTitle: 'GTA VI 스토리 모드 인터랙티브 지도 - 바이스 시티 및 미션',
-    gta6HistoriaDesc: '제이슨과 루시아의 미션, 랜드마크 및 숨겨진 비밀을 탐험하는 GTA VI 스토리 모드 지도.'
+    defaultTitle: 'GTA MAPS - 100% 광고 없는 GTA V 및 GTA VI 울트라 HD 인터랙티브 지도 & AI 어시스턴트',
+    defaultDesc: 'GTA V, GTA 온라인, 카요 페리코 및 GTA VI 바이스 시티 100% 광고 없는 울트라 HD 지도. AI 어시스턴트, 100% 수집 가이드, 미스터리 및 이동수단 실시간 제공.',
+    homeTitle: 'GTA MAPS - 100% 광고 없는 GTA V 및 GTA VI 울트라 HD 인터랙티브 맵 & AI 어시스턴트',
+    homeDesc: 'GTA V, GTA 온라인, 카요 페리코 및 GTA VI 바이스 시티 100% 광고 없는 울트라 HD 지도. AI 어시스턴트, 100% 수집 가이드, 미스터리 및 이동수단 실시간 제공.',
+    gta5OnlineTitle: 'GTA 5 온라인 울트라 HD 지도 (광고 없음) - 사업장, 카요 페리코 & AI 어시스턴트 | GTA MAPS',
+    gta5OnlineDesc: 'GTA 5 온라인 및 카요 페리코 100% 광고 없는 울트라 HD 인터랙티브 지도. 사업장, 습격, 부동산, 차량, 무기 및 실시간 AI 어시스턴트 지원.',
+    gta5HistoriaTitle: 'GTA V 스토리 모드 100% 지도 (광고 없음) - 완벽 공략, 미스터리 & UV 지도 | GTA MAPS',
+    gta5HistoriaDesc: 'GTA V 스토리 모드 100% 완벽 공략 광고 없는 가이드: 메인 미션, 우주선 부품, 편지 조각, 스턴트 점프, 미스터리 및 비밀 UV 지도.',
+    gta6OnlineTitle: 'GTA VI 온라인 바이스 시티 울트라 HD 지도 (광고 없음) - 인터랙티브 가이드 | GTA MAPS',
+    gta6OnlineDesc: '바이스 시티와 레오니다를 탐험하는 차세대 GTA 6 온라인 100% 광고 없는 울트라 HD 지도. 주요 지점, 도로 및 최신 멀티플레이어 정보.',
+    gta6HistoriaTitle: 'GTA VI 스토리 모드 지도 (광고 없음) - 바이스 시티 가이드, 제이슨 & 루시아 | GTA MAPS',
+    gta6HistoriaDesc: '제이슨과 루시아와 함께하는 GTA VI 스토리 모드 광고 없는 지도. 바이스 시티 울트라 HD 탐험, 미션, 수집품 및 숨겨진 비밀.'
   },
   gta6Modal: {
     title: 'GTA VI — 개발 중',

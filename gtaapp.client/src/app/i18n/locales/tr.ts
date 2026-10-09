@@ -561,18 +561,18 @@ export const tr: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA Maps - GTA V & GTA VI İnteraktif Haritaları',
-    defaultDesc: 'Mülkler, işletmeler, koleksiyonlar, soygunlar ve sırlar içeren GTA V ve GTA VI interaktif haritaları.',
-    homeTitle: 'GTA Maps - GTA V ve GTA VI İnteraktif Haritaları',
-    homeDesc: 'Tüm mülkleri, işletmeleri, araçları ve koleksiyonları içeren interaktif GTA V ve GTA VI haritalarını keşfedin.',
-    gta5OnlineTitle: 'GTA V Online İnteraktif Harita - Mülkler, İşletmeler ve Görevler',
-    gta5OnlineDesc: 'İşletmeler, soygunlar, mülkler ve koleksiyonlar içeren kapsamlı GTA V Online interaktif haritası.',
-    gta5HistoriaTitle: 'GTA V Hikaye Modu İnteraktif Harita - Görevler, Sırlar ve %100',
-    gta5HistoriaDesc: 'Görevler, yabancılar, uzay gemisi parçaları ve sırlar içeren GTA V Hikaye Modu haritası.',
-    gta6OnlineTitle: 'GTA VI Online İnteraktif Harita - Vice City ve Leonida',
-    gta6OnlineDesc: 'Vice City ve Leonida bölgesini keşfetmek için GTA VI Online interaktif haritası.',
-    gta6HistoriaTitle: 'GTA VI Hikaye Modu İnteraktif Harita - Vice City ve Görevler',
-    gta6HistoriaDesc: 'Jason ve Lucia görevleri, konumlar ve sırlar içeren GTA VI Hikaye Modu haritası.'
+    defaultTitle: 'GTA MAPS - %100 Reklamsız GTA V ve GTA VI Ultra HD İnteraktif Haritaları & Yapay Zeka',
+    defaultDesc: 'GTA V, GTA Online, Cayo Perico ve GTA VI Vice City için %100 reklamsız Ultra HD interaktif haritalar. Yapay Zeka Asistanı, %100 rehber, gizemler ve araçlar.',
+    homeTitle: 'GTA MAPS - %100 Reklamsız GTA V ve GTA VI Ultra HD İnteraktif Haritaları & Yapay Zeka',
+    homeDesc: 'GTA V, GTA Online, Cayo Perico ve GTA VI Vice City için %100 reklamsız Ultra HD interaktif haritalar. Yapay Zeka Asistanı, %100 rehber, gizemler ve araçlar.',
+    gta5OnlineTitle: 'GTA 5 Online Ultra HD Harita (Reklamsız) - İşletmeler, Cayo Perico & Yapay Zeka | GTA MAPS',
+    gta5OnlineDesc: 'GTA 5 Online ve Cayo Perico %100 reklamsız Ultra HD haritası. İşletmeler, soygunlar, mülkler, araçlar, silahlar ve gerçek zamanlı yapay zeka asistanı.',
+    gta5HistoriaTitle: 'GTA V %100 Hikaye Modu Haritası (Reklamsız) - Tam Rehber, Gizemler ve UV Haritası | GTA MAPS',
+    gta5HistoriaDesc: 'Ultra HD ile GTA V %100 hikaye modu reklamsız rehberi: ana görevler, mektup parçaları, uzay gemisi parçaları, akrobasi atlayışları ve gizli UV haritası.',
+    gta6OnlineTitle: 'GTA VI Online Vice City Ultra HD Harita (Reklamsız) - İnteraktif Rehber | GTA MAPS',
+    gta6OnlineDesc: 'Vice City ve Leonida için ilk GTA 6 Online %100 reklamsız Ultra HD interaktif haritası. İlgi çekici noktalar, yollar, sırlar ve güncellemeler.',
+    gta6HistoriaTitle: 'GTA VI Hikaye Modu Haritası (Reklamsız) - Vice City Rehberi, Jason ve Lucia | GTA MAPS',
+    gta6HistoriaDesc: 'Jason ve Lucia ile GTA VI hikaye modu reklamsız haritası. Vice City ve Leonida Ultra HD keşfi, görevler, koleksiyonlar ve sırlar.'
   },
   gta6Modal: {
     title: 'GTA VI — Geliştirme Aşamasında',

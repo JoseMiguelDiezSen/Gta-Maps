@@ -561,18 +561,18 @@ export const zh: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - GTA V 和 GTA VI 全高清互动地图',
-    defaultDesc: '包含洛圣都与罪恶都市的全方位互动地图，涵盖任务、载具、收集品、房产以及 GTA V 和 GTA VI 隐藏秘密。',
-    homeTitle: 'GTA MAPS - GTA V 与 GTA VI 中文高清互动地图',
-    homeDesc: 'GTA V 与 GTA VI 互动地图与全收集向导，提供洛圣都、佩里科岛与罪城全要素互动标记。',
-    gta5OnlineTitle: 'GTA 5 在线模式互动地图 - 资产、载具与全收集品 | GTA MAPS',
-    gta5OnlineDesc: 'GTA 5 在线模式中文全要素互动地图：地堡、制造厂、特技飞车、收集品实时定位向导。',
-    gta5HistoriaTitle: 'GTA 5 故事模式 100% 互动地图 - 全主线支线任务与彩蛋 | GTA MAPS',
-    gta5HistoriaDesc: 'GTA 5 故事模式 100% 达成向导：全主线与陌生人任务、50个飞碟碎片、信件残页及紫外线地图。',
-    gta6OnlineTitle: 'GTA 6 在线模式罪恶都市互动地图 - 探索雷欧尼达全境 | GTA MAPS',
-    gta6OnlineDesc: 'GTA 6 在线模式罪城互动地图：探索佛罗里达/雷欧尼达、打卡兴趣点、全新商业资产与载具。',
-    gta6HistoriaTitle: 'GTA 6 故事模式互动地图 - 杰森与露西亚罪城冒险 | GTA MAPS',
-    gta6HistoriaDesc: 'GTA 6 故事模式双主角全地图指南：探索罪恶都市全境、任务全解、野生动植物与隐藏彩蛋。'
+    defaultTitle: 'GTA MAPS - 100%无广告 GTA V & GTA VI 全高清4K互动地图与AI助手',
+    defaultDesc: 'GTA V、GTA Online、佩里科岛与 GTA VI 罪城100%无广告超高清互动地图。搭载智能AI助手，提供洛圣都与罪恶都市全要素标记及100%全收集攻略。',
+    homeTitle: 'GTA MAPS - 100%无广告 GTA V & GTA VI 中文高清互动地图与AI助手',
+    homeDesc: 'GTA V、GTA Online、佩里科岛与 GTA VI 罪城100%无广告超高清互动地图。搭载智能AI助手，提供洛圣都与罪恶都市全要素标记及100%全收集攻略。',
+    gta5OnlineTitle: 'GTA 5 在线模式4K高清地图 (无广告) - 商业资产、佩里科岛与AI助手 | GTA MAPS',
+    gta5OnlineDesc: 'GTA 5 在线模式与佩里科岛100%无广告超清互动地图：地堡、制造厂、抢劫任务、特技跳跃、收集品与AI助手实时定位。',
+    gta5HistoriaTitle: 'GTA 5 故事模式 100% 达成地图 (无广告) - 完整攻略、隐藏彩蛋与UV地图 | GTA MAPS',
+    gta5HistoriaDesc: 'GTA 5 故事模式 100% 全要素无广告指南：主线支线任务、50个飞碟碎片、信件残页、特技飞车、超自然神秘彩蛋与紫外线地图。',
+    gta6OnlineTitle: 'GTA 6 在线模式罪恶都市4K高清地图 (无广告) - 探索雷欧尼达全境 | GTA MAPS',
+    gta6OnlineDesc: '首款 GTA 6 在线模式罪城100%无广告4K超高清互动地图：探索佛罗里达/雷欧尼达、打卡兴趣点、商业资产与实时路网。',
+    gta6HistoriaTitle: 'GTA 6 故事模式互动地图 (无广告) - 杰森与露西亚罪城冒险全指南 | GTA MAPS',
+    gta6HistoriaDesc: 'GTA 6 故事模式双主角100%无广告全地图指南：超高清探索罪恶都市全境、主线任务全解、动植物收集与隐藏彩蛋。'
   },
   gta6Modal: {
     title: 'GTA VI — 开发中',

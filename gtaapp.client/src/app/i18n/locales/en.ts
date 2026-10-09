@@ -560,18 +560,18 @@ export const en: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - Interactive Maps for GTA V & GTA VI',
-    defaultDesc: 'Interactive maps for GTA V and GTA VI with locations of missions, vehicles, collectibles and secrets across Los Santos and Vice City.',
-    homeTitle: 'GTA MAPS - Interactive Maps for GTA V & GTA VI',
-    homeDesc: 'Interactive maps for GTA V and GTA VI with locations of missions, vehicles, collectibles and secrets across Los Santos and Vice City.',
-    gta5OnlineTitle: 'Interactive GTA 5 Online Map - Locations, Vehicles & Collectibles | GTA MAPS',
-    gta5OnlineDesc: 'Interactive GTA 5 Online map with real-time locations of businesses, properties, vehicles, jumps and collectibles.',
-    gta5HistoriaTitle: 'GTA V Story Mode Map - 100% Missions, Jumps & Secrets | GTA MAPS',
-    gta5HistoriaDesc: 'Interactive map and complete 100% GTA V story mode guide: main missions, strangers, weapons and collectibles.',
-    gta6OnlineTitle: 'Interactive GTA VI Online Vice City Map - Locations & Guide | GTA MAPS',
-    gta6OnlineDesc: 'Interactive GTA 6 Online map in Vice City and Leonida featuring points of interest, locations, roads and updates.',
-    gta6HistoriaTitle: 'GTA VI Story Mode Map - Jason & Lucia Missions in Leonida | GTA MAPS',
-    gta6HistoriaDesc: 'Interactive GTA VI story mode map featuring Jason & Lucia. Exploration of Vice City, missions, collectibles and secrets.'
+    defaultTitle: 'GTA MAPS - 100% Ad-Free Ultra HD Interactive Maps & AI Assistant for GTA V & GTA VI',
+    defaultDesc: 'Ultra HD interactive maps for GTA V, GTA Online, Cayo Perico & GTA VI Vice City. 100% Ad-Free, featuring an AI Assistant, 100% collectibles guide, mysteries and vehicles.',
+    homeTitle: 'GTA MAPS - 100% Ad-Free Ultra HD Interactive Maps & AI Assistant for GTA V & GTA VI',
+    homeDesc: 'Ultra HD interactive maps for GTA V, GTA Online, Cayo Perico & GTA VI Vice City. 100% Ad-Free, featuring an AI Assistant, 100% collectibles guide, mysteries and vehicles.',
+    gta5OnlineTitle: 'GTA 5 Online Ultra HD Map - Businesses, Cayo Perico & AI Assistant (Ad-Free) | GTA MAPS',
+    gta5OnlineDesc: 'Ultra HD interactive map for GTA 5 Online and Cayo Perico 100% ad-free. Real-time tracking of businesses, heists, properties, vehicles, weapons and AI assistant.',
+    gta5HistoriaTitle: 'GTA V 100% Story Mode Map - Complete Guide, Mysteries & UV Map (Ad-Free) | GTA MAPS',
+    gta5HistoriaDesc: 'Complete 100% GTA V story mode interactive guide in Ultra HD and ad-free: main missions, spaceship parts, letter scraps, stunt jumps, mysteries and secret UV map.',
+    gta6OnlineTitle: 'GTA VI Online Vice City Ultra HD Map - Interactive Guide & Updates (Ad-Free) | GTA MAPS',
+    gta6OnlineDesc: 'First Ultra HD interactive map for GTA 6 Online in Vice City & Leonida 100% ad-free. Points of interest, roads, locations and real-time multiplayer updates.',
+    gta6HistoriaTitle: 'GTA VI Story Mode Map - Vice City Guide, Jason & Lucia (Ad-Free) | GTA MAPS',
+    gta6HistoriaDesc: 'Interactive GTA VI story mode map featuring Jason & Lucia, 100% ad-free. Ultra HD exploration of Vice City and Leonida with missions, secrets and collectibles.'
   },
   gta6Modal: {
     title: 'GTA VI — Under Development',

@@ -19,8 +19,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.homeTitle',
             descriptionKey: 'seo.homeDesc',
-            title: 'GTA MAPS - Mapas Interactivos de GTA V y GTA VI',
-            description: 'Mapas interactivos de GTA V y GTA VI con ubicaciones de misiones, vehículos, coleccionables y secretos en Los Santos y Vice City.',
+            title: 'GTA MAPS - Mapas Interactivos Ultra HD y Asistente IA para GTA V & GTA VI (Sin Anuncios)',
+            description: 'Mapas interactivos en Ultra HD de GTA V, GTA Online, Cayo Perico y GTA VI Vice City. 100% sin anuncios, con Asistente IA, guía de coleccionables al 100%, misterios y vehículos en tiempo real.',
             canonical: 'https://gtamaps.dev/home'
         }
     },
@@ -32,8 +32,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.gta5OnlineTitle',
             descriptionKey: 'seo.gta5OnlineDesc',
-            title: 'Mapa GTA V Online Interactivo - Ubicaciones, Vehículos y Coleccionables | GTA MAPS',
-            description: 'Mapa interactivo de GTA 5 Online con ubicaciones de negocios, propiedades, vehículos, saltos y coleccionables en tiempo real.',
+            title: 'Mapa GTA V Online Ultra HD - Negocios, Cayo Perico y Asistente IA (Sin Anuncios) | GTA MAPS',
+            description: 'Mapa interactivo en Ultra HD de GTA 5 Online y Cayo Perico 100% sin anuncios. Negocios, propiedades, golpes, vehículos, armas y asistente IA en tiempo real.',
             canonical: 'https://gtamaps.dev/gta5-online'
         }
     },
@@ -43,8 +43,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.gta5HistoriaTitle',
             descriptionKey: 'seo.gta5HistoriaDesc',
-            title: 'Mapa GTA V Modo Historia - Misiones al 100%, Saltos y Secretos | GTA MAPS',
-            description: 'Mapa interactivo y guía completa del modo historia de GTA V para el 100%: misiones principales, secundarios, armas y coleccionables.',
+            title: 'Mapa GTA V 100% Modo Historia - Guía Completa, Misterios y Mapa UV (Sin Anuncios) | GTA MAPS',
+            description: 'Guía interactiva 100% de GTA V en Ultra HD y sin anuncios: misiones principales, cartas, piezas de ovni, saltos, misterios paranormales y mapa UV secreto.',
             canonical: 'https://gtamaps.dev/gta5-historia'
         }
     },
@@ -65,8 +65,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.gta6OnlineTitle',
             descriptionKey: 'seo.gta6OnlineDesc',
-            title: 'Mapa GTA VI Online Vice City - Ubicaciones y Guía Interactiva | GTA MAPS',
-            description: 'Mapa interactivo de GTA 6 Online en Vice City y Leonida con puntos de interés, ubicaciones, carreteras y novedades.',
+            title: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades (Sin Anuncios) | GTA MAPS',
+            description: 'Primer mapa interactivo en Ultra HD de GTA 6 Online en Vice City y Leonida 100% sin anuncios. Puntos de interés, carreteras, secretos y novedades.',
             canonical: 'https://gtamaps.dev/gta6-online'
         }
     },
@@ -77,8 +77,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.gta6HistoriaTitle',
             descriptionKey: 'seo.gta6HistoriaDesc',
-            title: 'Mapa GTA VI Modo Historia - Misiones Jason y Lucia en Leonida | GTA MAPS',
-            description: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Exploración de Vice City, misiones, coleccionables y secretos.',
+            title: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia (Sin Anuncios) | GTA MAPS',
+            description: 'Mapa interactivo del modo historia de GTA VI sin anuncios con Jason y Lucia. Exploración en Ultra HD de Vice City, misiones, coleccionables y secretos.',
             canonical: 'https://gtamaps.dev/gta6-historia'
         }
     },

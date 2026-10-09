@@ -561,18 +561,18 @@ export const ja: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - GTA V & GTA VI インタラクティブマップ',
-    defaultDesc: 'ロスサントスとバイスシティのミッション、乗り物、収集物、隠し要素を完全網羅したGTA VおよびGTA VIのインタラクティブマップ。',
-    homeTitle: 'GTA MAPS - GTA V & GTA VI インタラクティブマップ',
-    homeDesc: 'ロスサントスとバイスシティのミッション、乗り物、収集物、隠し要素を完全網羅したGTA VおよびGTA VIのインタラクティブマップ。',
-    gta5OnlineTitle: 'GTA V オンライン インタラクティブマップ - 物件・車両・収集要素 | GTA MAPS',
-    gta5OnlineDesc: 'GTA5オンラインの事業物件、不動産、乗り物、スタントジャンプ、収集アイテムの位置をリアルタイムで確認できるインタラクティブマップ。',
-    gta5HistoriaTitle: 'GTA V ストーリーモードマップ - 100%クリア・ジャンプ・隠し要素 | GTA MAPS',
-    gta5HistoriaDesc: 'GTA5ストーリーモードを100%達成するための完全攻略マップ: メインミッション、サブミッション、武器、収集アイテム。',
-    gta6OnlineTitle: 'GTA VI オンライン バイスシティマップ - ロケーション＆インタラクティブガイド | GTA MAPS',
-    gta6OnlineDesc: 'バイスシティおよびレオニダ州を舞台とするGTA6オンラインの注目スポット、道路、最新情報を網羅したマップ。',
-    gta6HistoriaTitle: 'GTA VI ストーリーマップ - ジェイソン＆ルシアのレオニダ攻略 | GTA MAPS',
-    gta6HistoriaDesc: 'ジェイソンとルシアによるGTA6ストーリーモード攻略マップ。バイスシティの探索、ミッション、隠し要素。'
+    defaultTitle: 'GTA MAPS - 完全広告なし GTA V & GTA VI ウルトラHDインタラクティブマップ＆AIアシスタント',
+    defaultDesc: 'GTA V、GTAオンライン、カヨ・ペリコ、GTA VIバイスシティの100%完全広告なしウルトラHDマップ。AIアシスタント、100%コンプリートガイド、秘密要素を網羅。',
+    homeTitle: 'GTA MAPS - 完全広告なし GTA V & GTA VI ウルトラHDインタラクティブマップ＆AIアシスタント',
+    homeDesc: 'GTA V、GTAオンライン、カヨ・ペリコ、GTA VIバイスシティの100%完全広告なしウルトラHDマップ。AIアシスタント、100%コンプリートガイド、秘密要素を網羅。',
+    gta5OnlineTitle: 'GTA 5 オンライン ウルトラHDマップ (広告なし) - 物件・カヨペリコ・AIアシスタント | GTA MAPS',
+    gta5OnlineDesc: 'GTA5オンライン＆カヨ・ペリコの完全広告なし超高画質マップ。事業物件、強盗、不動産、車両、武器、スタントジャンプをAIアシスタントでリアルタイム検索。',
+    gta5HistoriaTitle: 'GTA V 100%ストーリー攻略マップ (広告なし) - 完全ガイド・謎・UVマップ | GTA MAPS',
+    gta5HistoriaDesc: 'GTA5ストーリー100%達成・広告なし攻略マップ: メインミッション、宇宙船パーツ、手紙の切れ端、スタントジャンプ、オカルトミステリー、UVマップ。',
+    gta6OnlineTitle: 'GTA VI オンライン バイスシティ Ultra HDマップ (広告なし) - ガイド＆最新情報 | GTA MAPS',
+    gta6OnlineDesc: 'バイスシティとレオニダ州を巡る初のGTA6オンライン100%広告なしウルトラHDマップ。注目スポット、道路網、マルチプレイヤー最新情報。',
+    gta6HistoriaTitle: 'GTA VI ストーリーマップ (広告なし) - バイスシティガイド・ジェイソン＆ルシア | GTA MAPS',
+    gta6HistoriaDesc: 'ジェイソンとルシアのGTA6ストーリーモード広告なし攻略マップ。ウルトラHDで巡るバイスシティ探索、ミッション、収集要素、秘密。'
   },
   gta6Modal: {
     title: 'GTA VI — 開発中',
