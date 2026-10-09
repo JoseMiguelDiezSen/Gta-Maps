@@ -19,7 +19,9 @@ export const zh: TranslationSchema = {
     viewGeneral: '总览视图',
     recenterMap: '居中地图',
     story: '故事模式',
-    online: '在线模式'
+    online: '在线模式',
+    storyShort: '故',
+    onlineShort: '线'
   },
   home: {
     chooseGame: '选择游戏',

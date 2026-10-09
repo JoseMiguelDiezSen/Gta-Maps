@@ -19,7 +19,9 @@ export const ar: TranslationSchema = {
     viewGeneral: 'نظرة عامة',
     recenterMap: 'إعادة توسيط الخريطة',
     story: 'القصة',
-    online: 'أونلاين'
+    online: 'أونلاين',
+    storyShort: 'ق',
+    onlineShort: 'أ'
   },
   home: {
     chooseGame: 'اختر اللعبة',

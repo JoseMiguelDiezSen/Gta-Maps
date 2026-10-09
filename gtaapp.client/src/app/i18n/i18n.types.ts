@@ -26,6 +26,8 @@ export interface TranslationSchema {
     recenterMap: string;
     story: string;
     online: string;
+    storyShort: string;
+    onlineShort: string;
   };
   home: {
     chooseGame: string;

@@ -19,7 +19,9 @@ export const tr: TranslationSchema = {
     viewGeneral: 'Genel Görünüm',
     recenterMap: 'Haritayı Ortala',
     story: 'Hikaye Modu',
-    online: 'Online'
+    online: 'Online',
+    storyShort: 'H',
+    onlineShort: 'O'
   },
   home: {
     chooseGame: 'Oyunu seçin',

@@ -19,7 +19,9 @@ export const ja: TranslationSchema = {
     viewGeneral: '全体表示',
     recenterMap: 'マップを中央に配置',
     story: 'ストーリー',
-    online: 'オンライン'
+    online: 'オンライン',
+    storyShort: '話',
+    onlineShort: 'オ'
   },
   home: {
     chooseGame: 'ゲームを選択',

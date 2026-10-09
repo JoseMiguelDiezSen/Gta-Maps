@@ -190,11 +190,13 @@
     <div class="mode-switch-track">
       <div class="mode-switch-btn mode-historia is-active" title="Modo Historia activo">
         <i class="mode-indicator dot-historia"></i>
-        <span>{{ 'common.story' | translate }}</span>
+        <span class="mode-text-desktop">{{ 'common.story' | translate }}</span>
+        <span class="mode-text-mobile">{{ 'common.storyShort' | translate }}</span>
       </div>
       <a class="mode-switch-btn mode-online" routerLink="/gta6-online" title="Cambiar a GTA Online">
         <i class="mode-indicator dot-online"></i>
-        <span>{{ 'common.online' | translate }}</span>
+        <span class="mode-text-desktop">{{ 'common.online' | translate }}</span>
+        <span class="mode-text-mobile">{{ 'common.onlineShort' | translate }}</span>
       </a>
     </div>
   </div>
@@ -487,7 +489,8 @@
           </div>
           <div class="hud-acc-body" *ngIf="accordion['goty']" style="padding: 10px 14px;">
             <label class="hud-check-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
-              <span>{{ 'gta5.settings.enableGoty' | translate }}</span>
+              <span class="goty-label-desktop">{{ 'gta5.settings.enableGoty' | translate }}</span>
+              <span class="goty-label-mobile">GOTY 6</span>
               <input type="checkbox" [checked]="gotyService.isEnabled" (change)="gotyService.setBotEnabled($any($event.target).checked)" />
             </label>
           </div>

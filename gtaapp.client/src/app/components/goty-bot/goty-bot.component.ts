@@ -141,7 +141,7 @@ export class GotyBotComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   ngOnInit(): void {
     if (typeof window !== 'undefined' && window.innerWidth <= 850) {
-      this.wrapperTop = 96;
+      this.wrapperTop = 105;
       this.wrapperLeft = 10;
     }
     this.messages = [this.gotyService.getInitialGreeting(this.gameContext)];

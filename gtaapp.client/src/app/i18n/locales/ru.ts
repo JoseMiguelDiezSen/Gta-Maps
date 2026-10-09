@@ -19,7 +19,9 @@ export const ru: TranslationSchema = {
     viewGeneral: 'Общий обзор',
     recenterMap: 'Центрировать карту',
     story: 'Сюжет',
-    online: 'Онлайн'
+    online: 'Онлайн',
+    storyShort: 'С',
+    onlineShort: 'О'
   },
   home: {
     chooseGame: 'Выберите игру',

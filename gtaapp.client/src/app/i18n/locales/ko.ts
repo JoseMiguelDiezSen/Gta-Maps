@@ -19,7 +19,9 @@ export const ko: TranslationSchema = {
     viewGeneral: '전체 보기',
     recenterMap: '지도 중앙 맞춤',
     story: '스토리 모드',
-    online: '온라인'
+    online: '온라인',
+    storyShort: '스',
+    onlineShort: '온'
   },
   home: {
     chooseGame: '게임 선택',

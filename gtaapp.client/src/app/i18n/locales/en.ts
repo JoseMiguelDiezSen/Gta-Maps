@@ -18,7 +18,9 @@ export const en: TranslationSchema = {
     viewGeneral: 'Overview',
     recenterMap: 'Center Map',
     story: 'Story',
-    online: 'Online'
+    online: 'Online',
+    storyShort: 'S',
+    onlineShort: 'O'
   },
   home: {
     chooseGame: 'Select Game',

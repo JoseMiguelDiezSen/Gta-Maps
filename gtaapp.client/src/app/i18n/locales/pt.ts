@@ -19,7 +19,9 @@ export const pt: TranslationSchema = {
     viewGeneral: 'Visão Geral',
     recenterMap: 'Centralizar Mapa',
     story: 'História',
-    online: 'Online'
+    online: 'Online',
+    storyShort: 'H',
+    onlineShort: 'O'
   },
   home: {
     chooseGame: 'Escolha o jogo',

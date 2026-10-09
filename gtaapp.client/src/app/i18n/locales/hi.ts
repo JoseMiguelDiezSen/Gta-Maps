@@ -19,7 +19,9 @@ export const hi: TranslationSchema = {
     viewGeneral: 'सामान्य दृश्य',
     recenterMap: 'नक्शा पुनः केंद्रित करें',
     story: 'स्टोरी',
-    online: 'ऑनलाइन'
+    online: 'ऑनलाइन',
+    storyShort: 'क',
+    onlineShort: 'ऑ'
   },
   home: {
     chooseGame: 'गेम चुनें',

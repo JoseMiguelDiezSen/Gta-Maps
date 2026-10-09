@@ -474,8 +474,8 @@
    ========================================== */
 @media screen and (max-width: 850px) {
   .goty-wrapper {
-    top: 96px;
-    left: 10px;
+    top: max(105px, calc(env(safe-area-inset-top, 8px) + 95px));
+    left: max(10px, env(safe-area-inset-left, 10px));
   }
 
   .goty-chat-card {
