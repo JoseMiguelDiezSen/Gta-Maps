@@ -223,6 +223,7 @@ export interface TranslationSchema {
       safehouseTrevor: string;
       emptyCollectiblesStory: string;
       emptyCharacters: string;
+      roleplayPizza: string;
       escapePoints: string;
       infiltrationPoints: string;
       compoundEntryPoints: string;

@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, effect } from '@angular/co
 import { Subscription } from 'rxjs';
 import * as L from 'leaflet';
 import { LocationService } from '../../services/gta5/location.service';
-import { LocationItem } from '../../models/gta5/location';
+import { LocationItem, RoleplayJobGroup } from '../../models/gta5/location';
 import { CollectibleItem } from '../../models/gta5/collectible';
 import { TranslationService } from '../../i18n';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -188,6 +188,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     ];
 
     private _roleplayJobs: LocationItem[] = [];
+    private _roleplayGroups: RoleplayJobGroup[] = [];
     private _contactCharacters: LocationItem[] = [];
     private _faunaAnimals: LocationItem[] = [];
     private _roleplayKeys: string[] = [];
@@ -210,9 +211,41 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
         this._roleplayKeys = this._roleplayJobs.map(j => j.id);
         this._characterKeys = this._contactCharacters.map(c => c.id);
         this._faunaKeys = this._faunaAnimals.map(a => a.id);
+
+        this.updateRoleplayGroups();
+    }
+
+    private updateRoleplayGroups(): void {
+        const pizzaJobs = this._roleplayJobs.filter(j => j.id.startsWith('job-pizza-'));
+        const nonPizzaJobs = this._roleplayJobs.filter(j => !j.id.startsWith('job-pizza-'));
+
+        const groups: RoleplayJobGroup[] = [];
+        if (pizzaJobs.length > 0) {
+            groups.push({
+                id: 'job-pizza-group',
+                nameKey: 'gta5.layers.roleplayPizza',
+                name: this.translationService.t('gta5.layers.roleplayPizza'),
+                keys: pizzaJobs.map(j => j.id),
+                color: pizzaJobs[0].badge?.color || '#e67e22',
+                count: pizzaJobs.length
+            });
+        }
+
+        nonPizzaJobs.forEach(j => {
+            groups.push({
+                id: j.id,
+                name: j.name,
+                keys: [j.id],
+                color: j.badge?.color || '#e74c3c',
+                count: 1
+            });
+        });
+
+        this._roleplayGroups = groups;
     }
 
     get roleplayKeys(): string[] { return this._roleplayKeys; }
+    get roleplayGroups(): RoleplayJobGroup[] { return this._roleplayGroups; }
     get characterKeys(): string[] { return this._characterKeys; }
     get faunaKeys(): string[] { return this._faunaKeys; }
     get currentPropertyKeys(): string[] { return this.onlinePropertyKeys; }
@@ -220,6 +253,19 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     get roleplayJobs(): LocationItem[] { return this._roleplayJobs; }
     get contactCharacters(): LocationItem[] { return this._contactCharacters; }
     get faunaAnimals(): LocationItem[] { return this._faunaAnimals; }
+
+    isRoleplayGroupActive(keys: string[]): boolean {
+        return keys.length > 0 && keys.some(k => this.layerFilters[k] !== false);
+    }
+
+    toggleRoleplayGroup(keys: string[]): void {
+        const isActive = this.isRoleplayGroupActive(keys);
+        const newState = !isActive;
+        keys.forEach(k => {
+            this.layerFilters[k] = newState;
+        });
+        this.renderPropertyMarkers();
+    }
 
     isPurchasable(p: LocationItem | undefined): boolean {
         if (!p) return false;

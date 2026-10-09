@@ -217,6 +217,7 @@ export const ar: TranslationSchema = {
       safehouseTrevor: 'منازل تريفور',
       emptyCollectiblesStory: 'المقتنيات متاحة في نمط GTA Online. يمكنك تغييره في الإعدادات.',
       emptyCharacters: 'لم يتم تحميل شخصيات نمط القصة بعد.',
+      roleplayPizza: 'بيتزا',
       escapePoints: 'نقاط الهروب',
       infiltrationPoints: 'نقاط التسلل',
       compoundEntryPoints: 'مداخل مجمع إل روبيو',

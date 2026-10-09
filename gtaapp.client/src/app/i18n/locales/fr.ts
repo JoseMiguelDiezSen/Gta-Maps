@@ -217,6 +217,7 @@ export const fr: TranslationSchema = {
       safehouseTrevor: 'Caravane et Appartement de Trevor',
       emptyCollectiblesStory: 'Les objets de collection sont principalement disponibles dans GTA Online. Vous pouvez changer de mode dans les paramètres.',
       emptyCharacters: 'Aucun personnage disponible pour le mode histoire.',
+      roleplayPizza: 'Pizza',
       escapePoints: 'Points d\'Évacuation (Cayo Perico)',
       infiltrationPoints: 'Points d\'Infiltration',
       compoundEntryPoints: 'Accès à la Résidence d\'El Rubio',

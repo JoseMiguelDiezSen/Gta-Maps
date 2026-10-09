@@ -902,15 +902,16 @@
 
         <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['roleplay']">
           <button
-            *ngFor="let job of roleplayJobs"
+            *ngFor="let group of roleplayGroups"
             type="button"
             class="legend-btn"
-            [class.is-active]="layerFilters[job.id]"
-            (click)="toggleLayer(job.id)"
+            [class.is-active]="isRoleplayGroupActive(group.keys)"
+            (click)="toggleRoleplayGroup(group.keys)"
           >
-            <i class="legend-dot" [style.background]="job.badge.color" [style.box-shadow]="'0 0 6px ' + job.badge.color"></i>
-            <span class="legend-name">{{ job.name }}</span>
-            <span class="legend-count">1</span>
+            <i class="legend-dot" [style.background]="group.color" [style.box-shadow]="'0 0 6px ' + group.color"></i>
+            <span class="legend-name" *ngIf="group.nameKey">{{ group.nameKey | translate }}</span>
+            <span class="legend-name" *ngIf="!group.nameKey">{{ group.name }}</span>
+            <span class="legend-count">{{ group.count }}</span>
           </button>
         </div>
       </div>

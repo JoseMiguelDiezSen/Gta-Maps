@@ -216,6 +216,7 @@ export const es: TranslationSchema = {
       safehouseTrevor: 'Casas de Trevor',
       emptyCollectiblesStory: 'Los coleccionables están disponibles en el modo GTA Online. Cámbialo en Ajustes.',
       emptyCharacters: 'Sin personajes de Historia cargados todavía.',
+      roleplayPizza: 'Pizza',
       escapePoints: 'Puntos de Huida (Escape)',
       infiltrationPoints: 'Puntos de Infiltración',
       compoundEntryPoints: 'Accesos al Complejo de El Rubio',

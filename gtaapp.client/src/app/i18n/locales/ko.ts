@@ -217,6 +217,7 @@ export const ko: TranslationSchema = {
       safehouseTrevor: '트레버의 트레일러 및 아파트',
       emptyCollectiblesStory: '수집품은 GTA 온라인 모드에서 이용 가능합니다. 설정에서 변경하세요.',
       emptyCharacters: '스토리 캐릭터가 아직 로드되지 않았습니다',
+      roleplayPizza: '피자',
       escapePoints: '탈출 지점',
       infiltrationPoints: '침투 지점',
       compoundEntryPoints: '저택 진입 지점',

@@ -217,6 +217,7 @@ export const ru: TranslationSchema = {
       safehouseTrevor: 'Дома Тревора',
       emptyCollectiblesStory: 'Коллекционные предметы доступны в режиме GTA Online. Переключите в Настройках.',
       emptyCharacters: 'Персонажи сюжетного режима пока не загружены.',
+      roleplayPizza: 'Пицца',
       escapePoints: 'Точки отхода (Побег)',
       infiltrationPoints: 'Точки проникновения',
       compoundEntryPoints: 'Входы в особняк Эль Рубио',

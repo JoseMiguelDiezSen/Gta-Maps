@@ -217,6 +217,7 @@ export const zh: TranslationSchema = {
       safehouseTrevor: '崔佛的拖车与公寓',
       emptyCollectiblesStory: '收集品主要在 GTA 在线模式中展示。可在设置面板中切换。',
       emptyCharacters: '尚未加载故事模式角色。',
+      roleplayPizza: '披萨',
       escapePoints: '逃离点 (撤离路线)',
       infiltrationPoints: '潜入点',
       compoundEntryPoints: '金庄园入口',

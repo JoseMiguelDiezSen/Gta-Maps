@@ -217,6 +217,7 @@ export const tr: TranslationSchema = {
       safehouseTrevor: "Trevor'ın Karavanı ve Apartmanı",
       emptyCollectiblesStory: 'Koleksiyonlar GTA Online modunda mevcuttur. Ayarlardan geçiş yapın.',
       emptyCharacters: 'Hikaye modu karakterleri henüz yüklenmedi.',
+      roleplayPizza: 'Pizza',
       escapePoints: 'Kaçış Noktaları',
       infiltrationPoints: 'Sızma Noktaları',
       compoundEntryPoints: 'Malikane Girişleri',

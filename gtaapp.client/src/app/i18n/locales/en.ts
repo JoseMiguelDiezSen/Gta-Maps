@@ -216,6 +216,7 @@ export const en: TranslationSchema = {
       safehouseTrevor: "Trevor's Safehouses",
       emptyCollectiblesStory: 'Collectibles are available in GTA Online mode. Switch in Settings.',
       emptyCharacters: 'No Story characters loaded yet.',
+      roleplayPizza: 'Pizza',
       escapePoints: 'Escape Points',
       infiltrationPoints: 'Infiltration Points',
       compoundEntryPoints: 'Compound Entry Points',

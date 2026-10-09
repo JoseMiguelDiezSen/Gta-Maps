@@ -217,6 +217,7 @@ export const ja: TranslationSchema = {
       safehouseTrevor: 'トレバーのトレーラー',
       emptyCollectiblesStory: '収集アイテムはGTAオンラインモードで利用可能です。設定から切り替えてください。',
       emptyCharacters: 'ストーリーモードのキャラクターはまだ読み込まれていません。',
+      roleplayPizza: 'ピザ',
       escapePoints: '脱出ポイント',
       infiltrationPoints: '侵入ポイント',
       compoundEntryPoints: '屋敷への侵入経路',

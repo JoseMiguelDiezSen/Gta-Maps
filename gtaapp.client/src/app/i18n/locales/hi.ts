@@ -217,6 +217,7 @@ export const hi: TranslationSchema = {
       safehouseTrevor: 'ट्रेवर का ट्रेलर',
       emptyCollectiblesStory: 'संग्रहणीय वस्तुएं GTA ऑनलाइन मोड में उपलब्ध हैं। सेटिंग्स से बदलें।',
       emptyCharacters: 'स्टोरी मोड के पात्र अभी लोड नहीं हुए हैं।',
+      roleplayPizza: 'पिज़्ज़ा',
       escapePoints: 'भागने के बिंदु',
       infiltrationPoints: 'घुसपैठ के बिंदु',
       compoundEntryPoints: 'एल रुबियो के परिसर के प्रवेश द्वार',

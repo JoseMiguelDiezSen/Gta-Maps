@@ -83,3 +83,13 @@ export type PropertyLocation = LocationItem;
 export type PropertyCategory = LocationCategory;
 export type PropertyPosition = MapPosition;
 export type PropertyBadge = MapBadge;
+
+export interface RoleplayJobGroup {
+  id: string;
+  nameKey?: string;
+  name: string;
+  keys: string[];
+  color: string;
+  count: number;
+}
+
