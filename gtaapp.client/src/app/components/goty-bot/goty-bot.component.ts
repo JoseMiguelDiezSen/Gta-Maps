@@ -153,9 +153,9 @@ export class GotyBotComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   get avatarSrc(): string {
     if (this.gameContext.startsWith('gta6')) {
-      return '/assets/images/goty_gta6.png';
+      return '/assets/images/goty/goty_gta6.png';
     } else {
-      return this.isAngryAvatar ? '/assets/images/goty_gta5_angry.png' : '/assets/images/goty_gta5.png';
+      return this.isAngryAvatar ? '/assets/images/goty/goty_gta5_angry.png' : '/assets/images/goty/goty_gta5.png';
     }
   }
 

@@ -138,12 +138,12 @@ export class GotyService {
 
   /**
    * Carga y cachea el archivo JSON del cerebro local para el idioma solicitado.
-   * Escalable para futuros idiomas: solo se requiere añadir 'goty-brain-{lang}.json' en assets/data/
+   * Escalable para futuros idiomas: solo se requiere añadir 'goty-brain-{lang}.json' en assets/data/goty-brain/
    */
   private preloadBrain(lang: string): void {
     if (this.loadedBrains[lang]) return;
 
-    this.http.get<GotyBrain>(`assets/data/goty-brain-${lang}.json`).subscribe({
+    this.http.get<GotyBrain>(`assets/data/goty-brain/goty-brain-${lang}.json`).subscribe({
       next: (data) => {
         this.loadedBrains[lang] = data;
       },

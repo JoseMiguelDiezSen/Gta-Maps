@@ -455,7 +455,7 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
                 attributionControl: false
             });
 
-            const tileLayer = L.tileLayer('assets/SatelliteHD/{z}_{x}_{y}.jpg', {
+            const tileLayer = L.tileLayer('assets/mapas/gta5/SatelliteHD/{z}_{x}_{y}.jpg', {
                 tileSize: 256,
                 minZoom: 0,
                 maxNativeZoom: 7,
@@ -501,13 +501,13 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
             let tileClass = '';
 
             if (mapType === 'UV' || mapType === 'UV2') {
-                tileUrl = 'assets/tiles/uv/{z}/{x}/{y}.jpg';
+                tileUrl = 'assets/mapas/gta5/tiles/uv/{z}/{x}/{y}.jpg';
                 if (mapType === 'UV2') tileClass = 'leaflet-tile-uv2';
             } else if (mapType === 'Juego') {
-                tileUrl = `assets/Roadmap/{z}_{x}_{y}.jpg`;
+                tileUrl = `assets/mapas/gta5/Roadmap/{z}_{x}_{y}.jpg`;
                 tileClass = 'leaflet-tile-juego';
             } else {
-                tileUrl = `assets/${mapType}/{z}_{x}_{y}.jpg`;
+                tileUrl = `assets/mapas/gta5/${mapType}/{z}_{x}_{y}.jpg`;
             }
 
             const tileLayer = L.tileLayer(tileUrl, {

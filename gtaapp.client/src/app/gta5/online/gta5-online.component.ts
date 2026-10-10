@@ -958,7 +958,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             });
 
             // Mapa oficial de Rockstar Games Social Club (256x256 px, zooms 0-6 nativos) descargado localmente
-            const tileUrl = `assets/tiles/cayo_perico/${layerSlug}/{z}/{x}/{y}.jpg`;
+            const tileUrl = `assets/mapas/gta5/tiles/cayo_perico/${layerSlug}/{z}/{x}/{y}.jpg`;
 
             const tileLayer = L.tileLayer(tileUrl, {
                 tileSize: 256,
@@ -998,8 +998,8 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             });
 
             // Mapa oficial de Rockstar Games Social Club en Ultra Alta Resolución (256x256 px, zooms 0-7)
-            // 100% Local: cargado desde assets/SatelliteHD/ sin dependencias externas
-            const tileUrl = 'assets/SatelliteHD/{z}_{x}_{y}.jpg';
+            // 100% Local: cargado desde assets/mapas/gta5/SatelliteHD/ sin dependencias externas
+            const tileUrl = 'assets/mapas/gta5/SatelliteHD/{z}_{x}_{y}.jpg';
             const tileLayer = L.tileLayer(tileUrl, {
                 tileSize: 256,
                 minZoom: 0,
@@ -1050,15 +1050,15 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             let tileClass = '';
 
             if (mapType === 'UV' || mapType === 'UV2') {
-                tileUrl = 'assets/tiles/uv/{z}/{x}/{y}.jpg';
+                tileUrl = 'assets/mapas/gta5/tiles/uv/{z}/{x}/{y}.jpg';
                 if (mapType === 'UV2') {
                     tileClass = 'leaflet-tile-uv2';
                 }
             } else if (mapType === 'Juego') {
-                tileUrl = `assets/Roadmap/{z}_{x}_{y}.jpg`;
+                tileUrl = `assets/mapas/gta5/Roadmap/{z}_{x}_{y}.jpg`;
                 tileClass = 'leaflet-tile-juego';
             } else {
-                tileUrl = `assets/${mapType}/{z}_{x}_{y}.jpg`;
+                tileUrl = `assets/mapas/gta5/${mapType}/{z}_{x}_{y}.jpg`;
             }
 
             const tileLayer = L.tileLayer(tileUrl, {
