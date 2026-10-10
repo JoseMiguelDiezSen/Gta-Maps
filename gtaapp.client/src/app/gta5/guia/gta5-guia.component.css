@@ -590,7 +590,7 @@
 .wiki-sidebar {
   width: 330px;
   height: fit-content;
-  max-height: 100%;
+  max-height: 680px;
   background: rgba(15, 21, 32, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -1721,6 +1721,37 @@
   box-shadow: 0 0 12px var(--cat-accent, #ffb833);
 }
 
+.guide-cat-card.is-locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: grayscale(0.2);
+}
+
+.guide-cat-card.is-locked:hover {
+  transform: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.guide-cat-card.is-locked:hover .guide-cat-icon {
+  transform: none;
+  box-shadow: none;
+}
+
+.guide-cat-card.is-locked:hover .guide-cat-arrow {
+  transform: none;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+}
+
+.guide-cat-badge--locked {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  color: #f87171 !important;
+}
+
 /* ====== VISTA 2: DETALLE DE SECCIÓN & CAPÍTULOS ====== */
 .guide-section-detail-view {
   flex: 1;
@@ -1811,6 +1842,30 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   margin: 2px 0;
+}
+
+.guide-subcategories-intro {
+  padding: 4px 4px 10px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.guide-subcategories-intro .guide-intro-title {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--cat-accent, #ffb833);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.guide-subcategories-intro .guide-intro-desc {
+  margin: 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.35;
+  font-weight: 400;
 }
 
 /* LISTADO DE CAPÍTULOS (CON SCROLL INTERNO) */

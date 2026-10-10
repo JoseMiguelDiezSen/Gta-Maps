@@ -203,9 +203,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (event) {
             event.preventDefault();
         }
-        if (!this.isDevAllowed) {
-            return;
-        }
         this.router.navigate(['/gta5-guia']);
     }
 

@@ -51,7 +51,6 @@ const routes: Routes = [
     {
         path: 'gta5-guia',
         component: Gta5GuiaComponent,
-        canActivate: [DevAccessGuard],
         data: {
             title: 'Guía GTA V - Modo Historia al 100%, Golpes y Misterios | GTA MAPS',
             description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía de golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',

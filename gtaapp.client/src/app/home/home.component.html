@@ -398,10 +398,8 @@
     <button
       type="button"
       class="home-guide-btn home-guide-btn-gta5"
-      [class.is-disabled]="!isDevAllowed"
-      [disabled]="!isDevAllowed"
       (click)="goToGta5Guia($event)"
-      [title]="!isDevAllowed ? ('common.comingSoon' | translate) : 'Guía GTA V'"
+      title="Guía GTA V"
     >
       <span class="home-guide-btn-text">GUIA GTA 5</span>
     </button>
