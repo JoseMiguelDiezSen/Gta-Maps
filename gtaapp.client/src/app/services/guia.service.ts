@@ -39,7 +39,13 @@ export class GuiaService {
    */
   getArticulo(juegoId: 'gta5' | 'gta6', articuloId: string): Observable<GuiaArticulo> {
     if (juegoId === 'gta5') {
-      return this.http.get<GuiaArticulo[]>('assets/data/gta5/guia/misiones-historia.json?t=' + new Date().getTime()).pipe(
+      // Logic to determine which JSON to load
+      const isExtranos = articuloId.startsWith('eyl-');
+      const jsonUrl = isExtranos 
+          ? 'assets/data/gta5/guia/extranos-locos.json?t=' + new Date().getTime()
+          : 'assets/data/gta5/guia/misiones-historia.json?t=' + new Date().getTime();
+          
+      return this.http.get<GuiaArticulo[]>(jsonUrl).pipe(
         map(misiones => {
           const found = misiones.find(m => m.id === articuloId || m.slug === articuloId);
           if (found) {
@@ -200,8 +206,8 @@ export class GuiaService {
           },
           {
             id: 'negocios-economia',
-            titulo: 'Negocios, Propiedades & Bolsa',
-            icono: 'trending-up',
+            titulo: 'Negocios y Bolsa',
+            icono: 'briefcase',
             descripcion: 'Inversiones en bolsa con Lester y compra de propiedades en Los Santos.',
             orden: 3,
             articulos: [
@@ -212,7 +218,7 @@ export class GuiaService {
           {
             id: 'secretos-misterios',
             titulo: 'Secretos & Misterios',
-            icono: 'sparkles',
+            icono: 'eye',
             descripcion: 'El misterio de Mount Chiliad, los 4 OVNIs y el asesino de los 8 infinitos.',
             orden: 4,
             articulos: [

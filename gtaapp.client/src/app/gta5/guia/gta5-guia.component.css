@@ -2,6 +2,7 @@
    ESTILOS WIKI & GUÍA GTA V (LOS SANTOS ATMOSPHERE & FROSTED GLASS HUD)
    ========================================================================== */
 
+/* Define los colores, fondos y estética de el elemento: :host. */
 :host {
   display: block;
   width: 100%;
@@ -11,6 +12,7 @@
   background-color: #0b0f14;
 }
 
+/* Contenedor envolvente principal (incluye un patrón sutil de cuadrícula de fondo) */
 .wiki-shell {
   width: 100%;
   height: 100%;
@@ -44,122 +46,150 @@
   color: #0f172a;
 }
 
+/* Define los colores, fondos y estética de la barra de navegación superior. */
 .wiki-shell.mode-day .wiki-top-nav {
   background: #ffffff;
   border-bottom-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
+/* Establece el diseño general de la barra de navegación superior. */
 .wiki-shell.mode-day .nav-brand-sep {
   color: rgba(0, 0, 0, 0.3);
 }
 
+/* Configura la tipografía y los textos de la barra de navegación superior. */
 .wiki-shell.mode-day .nav-brand-title {
   color: #0f172a;
   text-shadow: none;
 }
 
-.wiki-shell.mode-day .wiki-sidebar {
+.wiki-shell.mode-day /* =========================================
+   PANEL LATERAL (CONTENEDOR GLOBAL)
+   ========================================= */
+/* Caja global oscura que envuelve al menú izquierdo */
+.wiki-sidebar {
   background-color: #ffffff;
   border-color: #e2e8f0;
   color: #1e293b;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
+/* Establece el diseño general de el menú lateral (índice de contenidos). */
 .wiki-shell.mode-day .sidebar-header-bar {
   border-bottom-color: #e2e8f0;
 }
 
+/* Establece el diseño general de el menú lateral (índice de contenidos). */
 .wiki-shell.mode-day .sidebar-header-title {
   color: #0f172a;
 }
 
+/* Define los colores, fondos y estética de la barra de búsqueda del menú lateral. */
 .wiki-shell.mode-day .sidebar-search-input {
   background: #f8fafc;
   color: #0f172a;
   border-color: #cbd5e1;
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 .wiki-shell.mode-day .section-group-header {
   background: rgba(0, 0, 0, 0.03);
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 .wiki-shell.mode-day .section-group-title {
   color: #334155;
 }
 
-.wiki-shell.mode-day .chapter-item {
+.wiki-shell.mode-day /* Cada uno de los capítulos individuales dentro de un acordeón abierto */
+.chapter-item {
   background: #f8fafc;
   border-color: #e2e8f0;
 }
 
+/* Define los colores, fondos y estética de cada capítulo individual en la lista del menú al pasar el ratón por encima. */
 .wiki-shell.mode-day .chapter-item:hover {
   background: #f1f5f9;
   border-color: #cbd5e1;
 }
 
+/* Define los colores, fondos y estética de cada capítulo individual en la lista del menú cuando el elemento está activo o seleccionado. */
 .wiki-shell.mode-day .chapter-item.is-active {
   background: rgba(34, 197, 94, 0.1);
   border-color: #22c55e;
 }
 
+/* Establece el diseño general de cada capítulo individual en la lista del menú. */
 .wiki-shell.mode-day .chapter-title {
   color: #1e293b;
 }
 
+/* Establece el diseño general de cada capítulo individual en la lista del menú cuando el elemento está activo o seleccionado. */
 .wiki-shell.mode-day .chapter-item.is-active .chapter-title {
   color: #16a34a;
 }
 
-.wiki-shell.mode-day .wiki-article-card {
+.wiki-shell.mode-day /* La tarjeta gigante central donde se muestra todo el texto y datos del capítulo */
+.wiki-article-card {
   background: #ffffff;
   color: #1e293b;
   border-color: #e2e8f0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
+/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
 .wiki-shell.mode-day .article-main-title {
   color: #0f172a;
   text-shadow: none;
 }
 
+/* Establece el diseño general de la tarjeta central donde se lee el artículo. */
 .wiki-shell.mode-day .article-lead {
   color: #475569;
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body {
   color: #1e293b;
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body .guide-h2 {
   color: #0f172a;
   border-bottom-color: #cbd5e1;
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body .guide-p {
   color: #334155;
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body .guide-strong {
   color: #0f172a;
 }
 
-.wiki-shell.mode-day .article-chapter-banner {
+.wiki-shell.mode-day /* Caja destacada en la cabecera del artículo que muestra su título y subtítulo */
+.article-chapter-banner {
   background: #ffffff;
   border-color: #cbd5e1;
   border-left-color: #d97706;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
+/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
 .wiki-shell.mode-day .article-chapter-banner .article-main-title {
   color: #0f172a;
   text-shadow: none;
 }
 
+/* Establece el diseño general de la tarjeta central donde se lee el artículo. */
 .wiki-shell.mode-day .article-chapter-banner .article-lead {
   color: #475569;
 }
 
+/* Establece el diseño general de la tarjeta central donde se lee el artículo. */
 .wiki-shell.mode-day .article-map-prompt {
   background: #ffffff;
   border: 1px solid #cbd5e1;
@@ -167,24 +197,29 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 .wiki-shell.mode-day .map-prompt-title {
   color: #0f172a;
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 .wiki-shell.mode-day .map-prompt-sub {
   color: #64748b;
 }
 
+/* Define los colores, fondos y estética de el pie de página de la aplicación. */
 .wiki-shell.mode-day .home-footer {
   background: #f8fafc;
   border-top-color: #cbd5e1;
 }
 
+/* Configura la tipografía y los textos de el pie de página de la aplicación. */
 .wiki-shell.mode-day .home-footer-text {
   color: #475569;
   text-shadow: none;
 }
 
+/* Establece el diseño general de el pie de página de la aplicación. */
 .wiki-shell.mode-day .home-footer-link {
   color: #0f172a;
 }
@@ -203,6 +238,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
+/* Estructura la posición y alineación de la barra de navegación superior. */
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -213,6 +249,7 @@
   gap: 18px;
 }
 
+/* Estructura la posición y alineación de la barra de navegación superior. */
 .nav-left {
   display: flex;
   align-items: center;
@@ -220,6 +257,7 @@
   flex-shrink: 0;
 }
 
+/* Configura la tipografía y los textos de el elemento: .wiki-logo-link. */
 .wiki-logo-link {
   display: inline-flex;
   align-items: center;
@@ -227,6 +265,7 @@
   margin: 0 16px;
 }
 
+/* Ajusta las dimensiones y espaciados de la barra de navegación superior. */
 .wiki-nav-logo {
   height: 38px;
   width: auto;
@@ -236,6 +275,7 @@
   display: block;
 }
 
+/* Ajusta las dimensiones y espaciados de la barra de navegación superior. */
 .nav-spike-divider {
   display: block;
   width: 1px;
@@ -246,17 +286,20 @@
   flex-shrink: 0;
 }
 
+/* Establece el diseño general de la barra de navegación superior. */
 .wiki-shell.mode-day .nav-spike-divider {
   background: linear-gradient(180deg, transparent 0%, rgba(217, 119, 6, 0.85) 50%, transparent 100%);
   box-shadow: none;
 }
 
+/* Estructura la posición y alineación de la barra de navegación superior. */
 .nav-brand {
   display: flex;
   align-items: center;
   margin-left: 14px;
 }
 
+/* Controla las animaciones visuales de la barra de navegación superior. */
 .nav-brand-title {
   margin: 0;
   font-size: 32px;
@@ -271,11 +314,13 @@
   transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
+/* Configura la tipografía y los textos de la barra de navegación superior. */
 .wiki-shell.mode-day .nav-brand-title {
   color: #000000;
   text-shadow: none;
 }
 
+/* Estructura la posición y alineación de la barra de navegación superior. */
 .nav-right {
   display: flex;
   align-items: center;
@@ -283,6 +328,7 @@
   flex-shrink: 0;
 }
 
+/* Estructura la posición y alineación de el interruptor para cambiar entre modo día/noche. */
 .theme-toggle-switch {
   position: relative;
   width: 58px;
@@ -300,11 +346,13 @@
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
+/* Define los colores, fondos y estética de el interruptor para cambiar entre modo día/noche. */
 .theme-toggle-switch.is-day {
   background: #38bdf8;
   border-color: #0284c7;
 }
 
+/* Controla las animaciones visuales de el elemento: .switch-icon. */
 .switch-icon {
   font-size: 13px;
   line-height: 1;
@@ -313,22 +361,27 @@
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+/* Establece el diseño general de el elemento: .switch-icon-moon. */
 .switch-icon-moon {
   opacity: 1;
 }
 
+/* Establece el diseño general de el interruptor para cambiar entre modo día/noche. */
 .theme-toggle-switch.is-day .switch-icon-moon {
   opacity: 0.3;
 }
 
+/* Establece el diseño general de el elemento: .switch-icon-sun. */
 .switch-icon-sun {
   opacity: 0.3;
 }
 
+/* Establece el diseño general de el interruptor para cambiar entre modo día/noche. */
 .theme-toggle-switch.is-day .switch-icon-sun {
   opacity: 1;
 }
 
+/* Fija la posición en la pantalla de el elemento: .switch-thumb. */
 .switch-thumb {
   position: absolute;
   top: 3px;
@@ -341,6 +394,7 @@
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
 }
 
+/* Establece el diseño general de el interruptor para cambiar entre modo día/noche. */
 .theme-toggle-switch.is-day .switch-thumb {
   transform: translateX(28px);
   background: #fef08a;
@@ -358,6 +412,7 @@
   z-index: 99;
 }
 
+/* Controla las animaciones visuales de la barra de progreso de lectura superior. */
 .reading-progress-bar {
   height: 100%;
   background: linear-gradient(90deg, #22c55e, #ffb833);
@@ -368,6 +423,10 @@
 /* ==========================================================================
    2. BANNER HERO CINEMÁTICO (LOS SANTOS)
    ========================================================================== */
+/* =========================================
+   BANNER SUPERIOR (FOTO DE LOS SANTOS)
+   ========================================= */
+/* La imagen panorámica que encabeza toda la página */
 .wiki-hero-banner {
   position: relative;
   width: 100%;
@@ -383,6 +442,7 @@
   flex-shrink: 0;
 }
 
+/* Fija la posición en la pantalla de el banner superior con la imagen de fondo. */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
@@ -395,6 +455,7 @@
   pointer-events: none;
 }
 
+/* Estructura la posición y alineación de el banner superior con la imagen de fondo. */
 .hero-content-inner {
   position: relative;
   z-index: 2;
@@ -408,6 +469,7 @@
   justify-content: center;
 }
 
+/* Estructura la posición y alineación de el banner superior con la imagen de fondo. */
 .hero-tag-row {
   display: flex;
   align-items: center;
@@ -415,6 +477,7 @@
   margin-bottom: 8px;
 }
 
+/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
 .hero-location-text {
   font-size: 11px;
   font-weight: 700;
@@ -424,6 +487,7 @@
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
+/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
 .hero-main-title {
   margin: 0 0 8px 0;
   font-size: 34px;
@@ -436,6 +500,7 @@
   line-height: 1.1;
 }
 
+/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
 .hero-description {
   margin: 0;
   font-size: 14px;
@@ -483,36 +548,43 @@
   scrollbar-color: rgba(255, 184, 51, 0.45) rgba(0, 0, 0, 0.25);
 }
 
+/* Ajusta las dimensiones y espaciados de el menú lateral (índice de contenidos). */
 .wiki-sidebar::-webkit-scrollbar {
   width: 5px;
 }
 
+/* Establece el diseño general de el menú lateral (índice de contenidos). */
 .wiki-sidebar::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.25);
   border-radius: 4px;
 }
 
+/* Establece el diseño general de el menú lateral (índice de contenidos). */
 .wiki-sidebar::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, rgba(255, 184, 51, 0.55), rgba(34, 197, 94, 0.45));
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+/* Establece el diseño general de el menú lateral (índice de contenidos) al pasar el ratón por encima. */
 .wiki-sidebar::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #ffb833, #22c55e);
 }
 
 /* Buscador en el Sidebar */
+/* Contenedor de la barra de búsqueda superior del menú */
 .sidebar-search-box {
   position: relative;
   width: 100%;
 }
 
+/* Ajusta las dimensiones y espaciados de la barra de búsqueda del menú lateral. */
 .search-input-wrapper {
   position: relative;
   width: 100%;
 }
 
+/* Fija la posición en la pantalla de la barra de búsqueda del menú lateral. */
 .sidebar-search-box .search-icon {
   position: absolute;
   left: 12px;
@@ -522,6 +594,7 @@
   pointer-events: none;
 }
 
+/* Define los colores, fondos y estética de la barra de búsqueda del menú lateral. */
 .sidebar-search-input {
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
@@ -535,12 +608,14 @@
   box-sizing: border-box;
 }
 
+/* Define los colores, fondos y estética de la barra de búsqueda del menú lateral al hacer clic o estar enfocado. */
 .sidebar-search-input:focus {
   border-color: rgba(34, 197, 94, 0.5);
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 12px rgba(34, 197, 94, 0.2);
 }
 
+/* Fija la posición en la pantalla de la barra de búsqueda del menú lateral. */
 .search-clear-btn {
   position: absolute;
   right: 10px;
@@ -553,6 +628,7 @@
   font-size: 12px;
 }
 
+/* Fija la posición en la pantalla de la barra de búsqueda del menú lateral. */
 .search-dropdown-menu {
   position: absolute;
   top: calc(100% + 6px);
@@ -567,6 +643,7 @@
   z-index: 50;
 }
 
+/* Controla las animaciones visuales de la barra de búsqueda del menú lateral. */
 .search-dropdown-item {
   padding: 10px 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -574,10 +651,12 @@
   transition: background 0.15s ease;
 }
 
+/* Establece el diseño general de la barra de búsqueda del menú lateral al pasar el ratón por encima. */
 .search-dropdown-item:hover {
   background: rgba(34, 197, 94, 0.15);
 }
 
+/* Configura la tipografía y los textos de la barra de búsqueda del menú lateral. */
 .search-item-title {
   display: block;
   font-size: 13px;
@@ -585,6 +664,7 @@
   color: #ffffff;
 }
 
+/* Configura la tipografía y los textos de la barra de búsqueda del menú lateral. */
 .search-item-sub {
   display: block;
   font-size: 11px;
@@ -600,6 +680,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Configura la tipografía y los textos de el menú lateral (índice de contenidos). */
 .sidebar-header-title {
   font-size: 11px;
   font-weight: 800;
@@ -608,6 +689,7 @@
   text-transform: uppercase;
 }
 
+/* Define los colores, fondos y estética de el menú lateral (índice de contenidos). */
 .sidebar-header-count {
   font-size: 11px;
   font-weight: 700;
@@ -623,10 +705,12 @@
   flex: 1;
 }
 
+/* Grupo completo de una categoría (incluye el botón de acordeón y su lista de capítulos desplegable) */
 .sidebar-section-group {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
+/* Estructura la posición y alineación de el elemento: .section-group-header. */
 .section-group-header {
   display: flex;
   align-items: center;
@@ -642,6 +726,7 @@
   margin-bottom: 6px;
 }
 
+/* Define los colores, fondos y estética de las etiquetas que muestran el número de misiones. */
 .section-group-badge {
   font-size: 10px;
   background: rgba(255, 255, 255, 0.08);
@@ -650,12 +735,14 @@
   border-radius: 8px;
 }
 
+/* Ajusta las dimensiones y espaciados de cada capítulo individual en la lista del menú. */
 .sidebar-chapters-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Estructura la posición y alineación de cada capítulo individual en la lista del menú. */
 .chapter-item {
   padding: 8px 10px;
   border-radius: 6px;
@@ -671,6 +758,7 @@
   transition: all 0.18s ease;
 }
 
+/* Define los colores, fondos y estética de cada capítulo individual en la lista del menú al pasar el ratón por encima. */
 .chapter-item:hover {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.15);
@@ -678,12 +766,14 @@
   transform: translateX(2px);
 }
 
+/* Define los colores, fondos y estética de cada capítulo individual en la lista del menú cuando el elemento está activo o seleccionado. */
 .chapter-item.is-active {
   background: rgba(34, 197, 94, 0.12);
   border-color: rgba(34, 197, 94, 0.35);
   border-left-color: #22c55e;
 }
 
+/* Estructura la posición y alineación de cada capítulo individual en la lista del menú. */
 .chapter-info {
   display: flex;
   flex-direction: column;
@@ -692,6 +782,7 @@
   flex: 1;
 }
 
+/* Configura la tipografía y los textos de cada capítulo individual en la lista del menú. */
 .chapter-title {
   font-size: 12.5px;
   font-weight: 700;
@@ -701,10 +792,12 @@
   text-overflow: ellipsis;
 }
 
+/* Establece el diseño general de cada capítulo individual en la lista del menú cuando el elemento está activo o seleccionado. */
 .chapter-item.is-active .chapter-title {
   color: #4ade80;
 }
 
+/* Configura la tipografía y los textos de cada capítulo individual en la lista del menú. */
 .chapter-sub {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.45);
@@ -713,6 +806,7 @@
   text-overflow: ellipsis;
 }
 
+/* Define los colores, fondos y estética de las etiquetas que muestran el número de misiones. */
 .chapter-badge {
   font-size: 9px;
   font-weight: 800;
@@ -728,11 +822,16 @@
 /* ==========================================================================
    4. ÁREA DE LECTURA EDITORIAL (CARD HUD)
    ========================================================================== */
+/* =========================================
+   ÁREA CENTRAL DE LECTURA (CONTENIDO DEL ARTÍCULO)
+   ========================================= */
+/* Contenedor principal que aloja el artículo a la derecha del menú */
 .wiki-content-area {
   flex: 1;
   min-width: 0;
 }
 
+/* Ajusta las dimensiones y espaciados de la tarjeta central donde se lee el artículo. */
 .wiki-article-card {
   background: rgba(15, 21, 32, 0.88);
   backdrop-filter: blur(16px);
@@ -743,6 +842,7 @@
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.6);
 }
 
+/* Estructura la posición y alineación de la tarjeta central donde se lee el artículo. */
 .article-meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -751,6 +851,7 @@
   margin-bottom: 14px;
 }
 
+/* Define los colores, fondos y estética de las etiquetas que muestran el número de misiones. */
 .article-chip-badge {
   background: #22c55e;
   color: #000;
@@ -762,6 +863,7 @@
   letter-spacing: 0.5px;
 }
 
+/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
 .article-read-meta {
   display: inline-flex;
   align-items: center;
@@ -787,6 +889,7 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
+/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
 .article-chapter-banner .article-main-title {
   margin: 0;
   font-size: 26px;
@@ -799,6 +902,7 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
+/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
 .article-chapter-banner .article-lead {
   margin: 0;
   font-size: 14.5px;
@@ -816,6 +920,7 @@
   line-height: 1.8;
 }
 
+/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-h2. */
 :host ::ng-deep .narrative-editorial-body .guide-h2 {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 20px;
@@ -827,6 +932,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Estructura la posición y alineación de el elemento: :host ::ng-deep .narrative-editorial-body .guide-h3. */
 :host ::ng-deep .narrative-editorial-body .guide-h3 {
   display: flex;
   align-items: center;
@@ -838,6 +944,7 @@
   letter-spacing: 0.3px;
 }
 
+/* Ajusta las dimensiones y espaciados de el elemento: :host ::ng-deep .narrative-editorial-body .guide-h3-accent. */
 :host ::ng-deep .narrative-editorial-body .guide-h3-accent {
   display: inline-block;
   width: 4px;
@@ -856,10 +963,12 @@
   box-sizing: border-box;
 }
 
+/* Ajusta las dimensiones y espaciados de el elemento: :host ::ng-deep .guide-heading-divider:first-of-type. */
 :host ::ng-deep .guide-heading-divider:first-of-type {
   margin-top: 6px;
 }
 
+/* Ajusta las dimensiones y espaciados de el elemento: :host ::ng-deep .guide-heading-line. */
 :host ::ng-deep .guide-heading-line {
   flex: 1;
   height: 1px;
@@ -867,10 +976,12 @@
   border-radius: 1px;
 }
 
+/* Establece el diseño general de el elemento: :host ::ng-deep .guide-heading-line--right. */
 :host ::ng-deep .guide-heading-line--right {
   background: linear-gradient(90deg, rgba(255, 184, 51, 0.75) 0%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
 }
 
+/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .guide-heading-title. */
 :host ::ng-deep .guide-heading-title {
   margin: 0;
   font-size: 13px;
@@ -889,15 +1000,18 @@
   background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.75) 100%);
 }
 
+/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .guide-heading-line--right {
   background: linear-gradient(90deg, rgba(217, 119, 6, 0.75) 0%, rgba(217, 119, 6, 0.25) 75%, transparent 100%);
 }
 
+/* Configura la tipografía y los textos de el modo claro (tema de día) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .guide-heading-title {
   color: #b45309;
   text-shadow: none;
 }
 
+/* Ajusta las dimensiones y espaciados de el elemento: :host ::ng-deep .narrative-editorial-body .guide-p. */
 :host ::ng-deep .narrative-editorial-body .guide-p {
   margin: 0 0 16px 0;
   line-height: 1.75;
@@ -915,6 +1029,7 @@
   gap: 8px;
 }
 
+/* Estructura la posición y alineación de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-item. */
 :host ::ng-deep .narrative-editorial-body .guide-list-item {
   list-style: none !important;
   list-style-type: none !important;
@@ -924,6 +1039,7 @@
   line-height: 1.65;
 }
 
+/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-bullet. */
 :host ::ng-deep .narrative-editorial-body .guide-list-bullet {
   color: #4ade80;
   font-size: 16px;
@@ -932,26 +1048,31 @@
   flex-shrink: 0;
 }
 
+/* Establece el diseño general de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-text. */
 :host ::ng-deep .narrative-editorial-body .guide-list-text {
   flex: 1;
 }
 
+/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-strong. */
 :host ::ng-deep .narrative-editorial-body .guide-strong {
   color: #ffffff;
   font-weight: 700;
 }
 
+/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-em. */
 :host ::ng-deep .narrative-editorial-body .guide-em {
   color: #ffb833;
   font-style: normal;
   font-weight: 600;
 }
 
+/* Ajusta las dimensiones y espaciados de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-subitem. */
 :host ::ng-deep .narrative-editorial-body .guide-list-subitem {
   margin-left: 20px;
   opacity: 0.92;
 }
 
+/* Define los colores, fondos y estética de el elemento: :host ::ng-deep .narrative-editorial-body .guide-chip-code. */
 :host ::ng-deep .narrative-editorial-body .guide-chip-code {
   display: inline-block;
   background: rgba(15, 23, 42, 0.9);
@@ -968,6 +1089,7 @@
   user-select: all;
 }
 
+/* Define los colores, fondos y estética de el elemento: :host ::ng-deep .narrative-editorial-body .guide-chip-code:hover al pasar el ratón por encima. */
 :host ::ng-deep .narrative-editorial-body .guide-chip-code:hover {
   background: rgba(34, 197, 94, 0.22);
   border-color: #22c55e;
@@ -975,6 +1097,7 @@
   box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
 }
 
+/* Ajusta las dimensiones y espaciados de el elemento: :host ::ng-deep .narrative-editorial-body .guide-divider-line. */
 :host ::ng-deep .narrative-editorial-body .guide-divider-line {
   border: none;
   height: 1px;
@@ -1002,6 +1125,7 @@
   box-sizing: border-box;
 }
 
+/* Configura la tipografía y los textos de el elemento: .map-prompt-title. */
 .map-prompt-title {
   margin: 0 0 3px 0;
   font-size: 14.5px;
@@ -1009,6 +1133,7 @@
   color: #ffffff;
 }
 
+/* Configura la tipografía y los textos de el elemento: .map-prompt-sub. */
 .map-prompt-sub {
   margin: 0;
   font-size: 12px;
@@ -1016,6 +1141,7 @@
   line-height: 1.4;
 }
 
+/* Define los colores, fondos y estética de el elemento: .map-prompt-btn. */
 .map-prompt-btn {
   display: inline-flex;
   align-items: center;
@@ -1032,6 +1158,7 @@
   transition: all 0.2s ease;
 }
 
+/* Define los colores, fondos y estética de el elemento: .map-prompt-btn:hover al pasar el ratón por encima. */
 .map-prompt-btn:hover {
   background: #16a34a;
   color: #ffffff;
@@ -1049,6 +1176,7 @@
   flex-wrap: wrap;
 }
 
+/* Estructura la posición y alineación de el elemento: .pagination-btn. */
 .pagination-btn {
   flex: 1;
   min-width: 200px;
@@ -1066,6 +1194,7 @@
   transition: all 0.2s ease;
 }
 
+/* Define los colores, fondos y estética de el elemento: .pagination-btn:hover al pasar el ratón por encima. */
 .pagination-btn:hover {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(255, 255, 255, 0.2);
@@ -1073,16 +1202,19 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Configura la tipografía y los textos de el elemento: .pagination-next. */
 .pagination-next {
   justify-content: flex-end;
   text-align: right;
   margin-left: auto;
 }
 
+/* Establece el diseño general de el elemento: .pagination-spacer. */
 .pagination-spacer {
   flex: 1;
 }
 
+/* Controla las animaciones visuales de el elemento: .pagination-arrow. */
 .pagination-arrow {
   font-size: 18px;
   color: #ffb833;
@@ -1091,14 +1223,17 @@
   transition: transform 0.2s ease;
 }
 
+/* Establece el diseño general de el elemento: .pagination-prev:hover .pagination-arrow al pasar el ratón por encima. */
 .pagination-prev:hover .pagination-arrow {
   transform: translateX(-3px);
 }
 
+/* Establece el diseño general de el elemento: .pagination-next:hover .pagination-arrow al pasar el ratón por encima. */
 .pagination-next:hover .pagination-arrow {
   transform: translateX(3px);
 }
 
+/* Estructura la posición y alineación de el elemento: .pagination-text. */
 .pagination-text {
   display: flex;
   flex-direction: column;
@@ -1106,10 +1241,12 @@
   min-width: 0;
 }
 
+/* Establece el diseño general de el elemento: .pagination-text-right. */
 .pagination-text-right {
   align-items: flex-end;
 }
 
+/* Configura la tipografía y los textos de el elemento: .pagination-label. */
 .pagination-label {
   font-size: 10.5px;
   text-transform: uppercase;
@@ -1118,6 +1255,7 @@
   font-weight: 700;
 }
 
+/* Configura la tipografía y los textos de el elemento: .pagination-title. */
 .pagination-title {
   font-size: 13.5px;
   font-weight: 700;
@@ -1136,10 +1274,12 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Ajusta las dimensiones y espaciados de el elemento: .related-header. */
 .related-header {
   margin-bottom: 16px;
 }
 
+/* Configura la tipografía y los textos de el elemento: .related-tag. */
 .related-tag {
   font-size: 9.5px;
   font-weight: 800;
@@ -1148,6 +1288,7 @@
   text-transform: uppercase;
 }
 
+/* Configura la tipografía y los textos de el elemento: .related-section-title. */
 .related-section-title {
   margin: 2px 0 0 0;
   font-size: 14px;
@@ -1157,12 +1298,14 @@
   font-weight: 800;
 }
 
+/* Estructura la posición y alineación de el elemento: .related-cards-grid. */
 .related-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 14px;
 }
 
+/* Estructura la posición y alineación de el elemento: .related-card. */
 .related-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1176,6 +1319,7 @@
   transition: all 0.2s ease;
 }
 
+/* Define los colores, fondos y estética de el elemento: .related-card:hover al pasar el ratón por encima. */
 .related-card:hover {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(255, 255, 255, 0.2);
@@ -1183,6 +1327,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* Configura la tipografía y los textos de el elemento: .related-card-title. */
 .related-card-title {
   display: block;
   font-size: 14px;
@@ -1190,6 +1335,7 @@
   color: #ffffff;
 }
 
+/* Configura la tipografía y los textos de el elemento: .related-card-arrow. */
 .related-card-arrow {
   font-size: 12px;
   color: #4ade80;
@@ -1202,6 +1348,7 @@
   padding: 80px 0;
 }
 
+/* Controla las animaciones visuales de el elemento: .wiki-spinner. */
 .wiki-spinner {
   width: 40px;
   height: 40px;
@@ -1212,6 +1359,7 @@
   margin: 0 auto 14px auto;
 }
 
+/* Configura la tipografía y los textos de el elemento: .wiki-loading-text. */
 .wiki-loading-text {
   font-size: 14px;
   color: #4ade80;
@@ -1239,6 +1387,7 @@
   margin-top: auto;
 }
 
+/* Configura la tipografía y los textos de el pie de página de la aplicación. */
 .home-footer-text {
   margin: 0;
   color: #ffffff;
@@ -1251,11 +1400,13 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* Ajusta las dimensiones y espaciados de el pie de página de la aplicación. */
 .home-footer-sep {
   margin: 0 6px;
   opacity: 0.6;
 }
 
+/* Define los colores, fondos y estética de el pie de página de la aplicación. */
 .home-footer-link {
   background: none;
   border: none;
@@ -1268,6 +1419,7 @@
   transition: color 0.2s ease;
 }
 
+/* Establece el diseño general de el pie de página de la aplicación al pasar el ratón por encima. */
 .home-footer-link:hover {
   color: #ffb833;
 }
@@ -1298,6 +1450,7 @@
   animation: fadeIn 0.25s ease;
 }
 
+/* Define los colores, fondos y estética de el botón flotante para subir arriba del todo al pasar el ratón por encima. */
 .scroll-top-btn:hover {
   background: rgba(34, 197, 94, 0.2);
   border-color: #22c55e;
@@ -1306,6 +1459,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(34, 197, 94, 0.3);
 }
 
+/* Estructura la posición y alineación de las notificaciones emergentes inferiores. */
 .wiki-toast {
   position: fixed;
   bottom: 32px;
@@ -1325,6 +1479,7 @@
   animation: toastFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Define los colores, fondos y estética de las notificaciones emergentes inferiores. */
 .wiki-toast .toast-icon {
   display: inline-flex;
   align-items: center;
@@ -1338,6 +1493,7 @@
   font-weight: 900;
 }
 
+/* Configura la tipografía y los textos de las notificaciones emergentes inferiores. */
 .wiki-toast .toast-text {
   font-size: 13.5px;
   font-weight: 600;
@@ -1358,81 +1514,120 @@
 /* ==========================================================================
    RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================== */
-@media (max-width: 900px) {
-  .wiki-body-layout {
-    flex-direction: column;
-    padding: 18px 16px;
-    gap: 20px;
-  }
 
-  .wiki-sidebar {
-    width: 100%;
-    position: static;
-    max-height: 480px;
-  }
 
-  .wiki-article-card {
-    padding: 24px 20px;
-  }
-
-  .wiki-hero-banner {
-    height: 190px;
-  }
-
-  .hero-main-title {
-    font-size: 28px;
-  }
-
-  .article-main-title {
-    font-size: 26px;
-  }
-
-  .article-pagination-nav {
-    flex-direction: column;
-  }
-
-  .pagination-btn {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .pagination-next {
-    margin-left: 0;
-  }
+/* ==========================================================================
+   ESTILOS DEL ACORDEÓN DEL MENÚ LATERAL (AÑADIDOS RECIENTEMENTE)
+   ========================================================================== */
+/* Botón principal de cada categoría del menú (el que se clickea para abrir) */
+.section-accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: var(--bg-surface-2, #1e2025);
+  border: 1px solid var(--border-color, #2d3038);
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  margin-bottom: 2px;
 }
 
-@media (max-width: 600px) {
-  .wiki-hero-banner {
-    height: 155px;
-  }
-
-  .hero-content-inner {
-    padding: 0 16px 12px 16px;
-  }
-
-  .hero-main-title {
-    font-size: 22px;
-  }
-
-  .hero-description {
-    font-size: 12.5px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .article-main-title {
-    font-size: 22px;
-  }
-
-  .article-map-prompt {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .map-prompt-btn {
-    width: 100%;
-    justify-content: center;
-  }
+/* Efecto visual al pasar el ratón por encima del botón del acordeón */
+.section-accordion-trigger:hover {
+  background: var(--bg-surface-3, #2a2d35);
+  border-color: var(--primary-color, #00d26a);
 }
+
+/* Contenedor izquierdo del botón (agrupa el icono y el texto del título) */
+.trigger-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Estilos del icono de la categoría (fijado a 24px para mantener alineación vertical) */
+.trigger-icon {
+  color: var(--primary-color, #00d26a);
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Texto del título de la categoría (ej. Misiones de la Historia) */
+.trigger-title {
+  color: var(--text-primary, #ffffff);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: none;
+}
+
+/* Contenedor derecho del botón (agrupa el número de capítulos y la flechita) */
+.trigger-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* La píldora/círculo que muestra cuántos capítulos tiene la categoría */
+.trigger-badge {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary, #9ba1a6);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: none;
+  white-space: nowrap;
+}
+
+/* Icono de la flecha que indica si el acordeón se puede desplegar */
+.trigger-chevron {
+  color: var(--text-secondary, #9ba1a6);
+  transition: transform 0.3s ease;
+  font-size: 0.9rem;
+}
+
+/* Modificación del botón principal cuando el acordeón está ABIERTO (se le quita el borde inferior) */
+.sidebar-section-group.is-expanded .section-accordion-trigger {
+  border-color: var(--primary-color, #00d26a);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+}
+
+/* Rotación de 180 grados de la flechita cuando el acordeón está abierto */
+.sidebar-section-group.is-expanded .trigger-chevron {
+  transform: rotate(180deg);
+  color: var(--primary-color, #00d26a);
+}
+
+/* Cuerpo interior del acordeón que contiene la lista de capítulos (por defecto oculto) */
+.section-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, opacity 0.3s ease;
+  background: var(--bg-surface-1, #13151a);
+  border: 1px solid var(--primary-color, #00d26a);
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-bottom: 4px;
+  opacity: 0;
+  padding: 0 8px;
+}
+
+/* Animación de apertura del cuerpo del acordeón (se estira hasta un límite seguro de 8000px) */
+.section-accordion-body.open {
+  max-height: 8000px; /* Safe upper limit for 100+ items */
+  padding: 12px 8px;
+  opacity: 1;
+}
+
+/* Ocultamos la cabecera antigua que ya no se usa, reemplazada por el botón del acordeón */
+.section-group-header { display: none; }
+
+@import './guia-gta5-responsive.css';

@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
+  expandedSections: Set<string> = new Set<string>();
   selectedArticulo: GuiaArticulo | null = null;
   selectedSeccionId: string = 'todas';
   
@@ -166,6 +167,9 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
       next: (data) => {
         this.manifest = data;
         this.secciones = data.secciones || [];
+          if (this.secciones.length > 0) {
+            this.expandedSections.add(this.secciones[0].id);
+          }
         this.isLoading = false;
         
         if (this.secciones.length > 0 && this.secciones[0].articulos.length > 0) {
@@ -177,6 +181,15 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
         this.isLoading = false;
       }
     });
+  }
+
+  
+  toggleSection(seccionId: string): void {
+    if (this.expandedSections.has(seccionId)) {
+      this.expandedSections.delete(seccionId);
+    } else {
+      this.expandedSections.add(seccionId);
+    }
   }
 
   seleccionarSeccion(seccionId: string): void {

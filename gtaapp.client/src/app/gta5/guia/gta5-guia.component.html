@@ -38,10 +38,7 @@
     </div>
   </nav>
 
-  <!-- BARRA DE PROGRESO DE LECTURA -->
-  <div class="reading-progress-track" aria-hidden="true">
-    <div class="reading-progress-bar" [style.width.%]="readingProgress"></div>
-  </div>
+  
 
   <!-- BANNER HERO DE LOS SANTOS (CIUDAD DE FONDO) -->
   <header class="wiki-hero-banner">
@@ -110,13 +107,20 @@
 
       <!-- Grupos temáticos verticales -->
       <nav class="sidebar-sections-container">
-        <div *ngFor="let seccion of secciones" class="sidebar-section-group">
-          <div class="section-group-header">
-            <span class="section-group-title">{{ seccion.titulo }}</span>
-            <span class="section-group-badge">{{ seccion.articulos.length }}</span>
-          </div>
+        <div *ngFor="let seccion of secciones" class="sidebar-section-group" [class.is-expanded]="expandedSections.has(seccion.id)">
+          <button class="section-accordion-trigger" (click)="toggleSection(seccion.id)">
+            <div class="trigger-content">
+              <span class="trigger-icon"><i class="fas fa-{{ seccion.icono || 'folder' }}"></i></span>
+              <span class="trigger-title">{{ seccion.titulo }}</span>
+            </div>
+            <div class="trigger-actions">
+              <span class="trigger-badge">{{ seccion.articulos.length }}</span>
+              <span class="trigger-chevron"><i class="fas fa-chevron-down"></i></span>
+            </div>
+          </button>
 
-          <ul class="sidebar-chapters-list">
+          <div class="section-accordion-body" [class.open]="expandedSections.has(seccion.id)">
+            <ul class="sidebar-chapters-list">
             <li
               *ngFor="let art of seccion.articulos"
               class="chapter-item"
@@ -130,20 +134,17 @@
               <span *ngIf="art.badge" class="chapter-badge">{{ art.badge }}</span>
             </li>
           </ul>
+          </div>
         </div>
-      </nav>
+        </nav>
     </aside>
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
     <main class="wiki-content-area">
-      <!-- Estado de carga -->
-      <div *ngIf="isLoadingArticulo" class="wiki-loading-state">
-        <div class="wiki-spinner"></div>
-        <p class="wiki-loading-text">Cargando archivo de Los Santos...</p>
-      </div>
+      
 
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="!isLoadingArticulo && selectedArticulo" class="wiki-article-card">
+      <article *ngIf="selectedArticulo" class="wiki-article-card">
         <header class="article-header">
           <div class="article-meta-row">
             <span *ngIf="selectedArticulo.badge" class="article-chip-badge">{{ selectedArticulo.badge }}</span>
