@@ -18,6 +18,54 @@
         <div class="nav-brand">
           <span class="nav-brand-title">GUIA GTA MAPS</span>
         </div>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón INICIO -->
+        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GTA 5 MAP -->
+        <a routerLink="/gta5" class="nav-link-item" title="Ir al Mapa de GTA 5">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 5 MAP</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GTA 6 MAP -->
+        <a routerLink="/gta6" class="nav-link-item" title="Ir al Mapa de GTA 6">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 6 MAP</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GUIA GTA 6 -->
+        <a routerLink="/gta6-guia" class="nav-link-item" title="Ir a la Guía de GTA 6">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 6</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón NOTICIAS -->
+        <a routerLink="/noticias" class="nav-link-item" title="Ir a Noticias">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>NOTICIAS</span>
+        </a>
+
+        <!-- Separador final de cierre -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
       </div>
 
       <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE -->
@@ -38,18 +86,13 @@
     </div>
   </nav>
 
-  
-
   <!-- BANNER HERO DE LOS SANTOS (CIUDAD DE FONDO) -->
   <header class="wiki-hero-banner">
     <div class="hero-bg-overlay"></div>
     <div class="hero-content-inner">
-      <div class="hero-tag-row">
-        <span class="hero-location-text">LOS SANTOS & BLAINE COUNTY</span>
-      </div>
-      <h2 class="hero-main-title">GRAND THEFT AUTO V</h2>
+      <h2 class="hero-main-title">LOS SANTOS & BLAINE COUNTY</h2>
       <p class="hero-description">
-        Compendio del Modo Historia al 100%, planificación táctica de Golpes, bolsa de valores con Lester y secretos de San Andreas.
+        Guía del Modo Historia al 100%, planificación táctica de Golpes, bolsa de valores con Lester y secretos de San Andreas.
       </p>
     </div>
   </header>
@@ -99,50 +142,92 @@
         </div>
       </div>
 
-      <!-- Cabecera del Sidebar -->
-      <div class="sidebar-header-bar">
+      <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
+      <div class="sidebar-header-bar" *ngIf="!currentSection">
         <span class="sidebar-header-title">ÍNDICE DE CONTENIDOS</span>
-        <span class="sidebar-header-count" *ngIf="manifest">{{ todosLosArticulos.length }} caps</span>
       </div>
 
-      <!-- Grupos temáticos verticales -->
-      <nav class="sidebar-sections-container">
-        <div *ngFor="let seccion of secciones" class="sidebar-section-group" [class.is-expanded]="expandedSections.has(seccion.id)">
-          <button class="section-accordion-trigger" (click)="toggleSection(seccion.id)">
-            <div class="trigger-content">
-              <span class="trigger-chevron"><i class="fas fa-chevron-right"></i></span>
-              <span class="trigger-icon"><i class="fas fa-{{ seccion.icono || 'folder' }}"></i></span>
-              <span class="trigger-title">{{ seccion.titulo }}</span>
-            </div>
-            <div class="trigger-actions">
-              <span class="trigger-badge">{{ seccion.articulos.length }}</span>
-            </div>
-          </button>
+      <!-- VISTA 1: LISTA DE CATEGORÍAS (DRILL-DOWN NIVEL 1) -->
+      <nav class="guide-categories-list" *ngIf="!currentSection">
+        <div
+          *ngFor="let seccion of secciones"
+          class="guide-cat-card"
+          [style.--cat-accent]="getSectionColor(seccion.id)"
+          (click)="openSection(seccion)"
+        >
+          <!-- Icono encapsulado con borde neón -->
+          <div class="guide-cat-icon">
+            <i class="fas fa-{{ seccion.icono || 'folder' }}"></i>
+          </div>
 
-          <div class="section-accordion-body" [class.open]="expandedSections.has(seccion.id)">
-            <ul class="sidebar-chapters-list">
-            <li
-              *ngFor="let art of seccion.articulos"
-              class="chapter-item"
-              [class.is-active]="selectedArticulo?.id === art.id"
-              (click)="seleccionarArticulo(art.id)"
-            >
-              <div class="chapter-info">
-                <span class="chapter-title">{{ art.titulo }}</span>
-                <span class="chapter-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
-              </div>
-              <span *ngIf="art.badge" class="chapter-badge">{{ art.badge }}</span>
-            </li>
-          </ul>
+          <!-- Info central -->
+          <div class="guide-cat-info">
+            <span class="guide-cat-title">{{ seccion.titulo }}</span>
+          </div>
+
+          <!-- Badge con número de capítulos -->
+          <span class="guide-cat-badge">{{ seccion.articulos.length }}</span>
+
+          <!-- Flecha circular a la derecha -->
+          <div class="guide-cat-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
           </div>
         </div>
-        </nav>
+      </nav>
+
+      <!-- VISTA 2: LISTADO DE CAPÍTULOS DE LA CATEGORÍA (DRILL-DOWN NIVEL 2) -->
+      <div class="guide-section-detail-view" *ngIf="currentSection" [style.--cat-accent]="getSectionColor(currentSection.id)">
+        <!-- Barra de navegación para volver -->
+        <div class="guide-detail-toolbar">
+          <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Categorías</span>
+          </button>
+          <span class="guide-detail-badge">{{ currentSection.articulos.length }} caps</span>
+        </div>
+
+        <!-- Cabecera de la sección activa -->
+        <div class="guide-section-banner">
+          <div class="guide-cat-icon mini">
+            <i class="fas fa-{{ currentSection.icono || 'folder' }}"></i>
+          </div>
+          <div class="guide-section-banner-info">
+            <h3 class="guide-section-banner-title">{{ currentSection.titulo }}</h3>
+            <span class="guide-section-banner-desc" *ngIf="currentSection.descripcion">{{ currentSection.descripcion }}</span>
+          </div>
+        </div>
+
+        <!-- Separador sutil -->
+        <div class="guide-section-divider"></div>
+
+        <!-- Lista de capítulos -->
+        <div class="guide-chapters-list">
+          <div
+            *ngFor="let art of currentSection.articulos; let idx = index"
+            class="guide-chapter-card"
+            [class.is-active]="selectedArticulo?.id === art.id"
+            (click)="seleccionarArticulo(art.id)"
+          >
+            <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+            
+            <div class="chapter-card-info">
+              <span class="chapter-card-title">{{ art.titulo }}</span>
+              <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+            </div>
+
+            <div class="chapter-card-meta">
+              <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
+              <span class="chapter-card-time" *ngIf="art.tiempoLecturaMinutos">
+                <i class="fa-regular fa-clock"></i> {{ art.tiempoLecturaMinutos }}m
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </aside>
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
     <main class="wiki-content-area">
-      
-
       <!-- Lector del Artículo Seleccionado -->
       <article *ngIf="selectedArticulo" class="wiki-article-card">
         <header class="article-header">
@@ -157,16 +242,70 @@
             </span>
           </div>
 
-          <!-- Panel estilizado del capítulo: Título y Subtítulo integrados -->
-          <div class="article-chapter-banner">
-            <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
-            <p class="article-lead" *ngIf="selectedArticulo.subtitulo">{{ selectedArticulo.subtitulo }}</p>
+          <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) -->
+          <div class="article-chapter-banner" [class.has-image]="getArticuloImage(selectedArticulo)">
+            <div class="chapter-banner-text">
+              <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
+              <p class="article-lead" *ngIf="selectedArticulo.subtitulo">{{ selectedArticulo.subtitulo }}</p>
+            </div>
+            <div class="chapter-banner-media" *ngIf="getArticuloImage(selectedArticulo)">
+              <img [src]="getArticuloImage(selectedArticulo)" [alt]="selectedArticulo.titulo" class="chapter-banner-img" (error)="onImageError(selectedArticulo.id)" />
+            </div>
           </div>
         </header>
 
-        <!-- Contenido Formateado Editorialmente (Adiós al pre) -->
+        <!-- Contenido Formateado Editorialmente -->
         <div class="article-body">
+          <!-- Bloque: Sinopsis de la misión -->
+          <div class="guide-synopsis-block" *ngIf="selectedArticulo.sinopsis">
+            <div class="guide-synopsis-head">
+              <i class="fa-solid fa-book-open"></i>
+              <span>Sinopsis de la misión</span>
+            </div>
+            <div class="guide-synopsis-body">
+              <p>{{ selectedArticulo.sinopsis }}</p>
+            </div>
+          </div>
+
           <div class="narrative-editorial-body" [innerHTML]="renderedContent" (click)="onContentClick($event)"></div>
+
+          <!-- Bloque: Tarjetas HUD de Recompensa, Desbloqueo y Medalla de Oro -->
+          <div class="guide-mission-hud-section" *ngIf="selectedArticulo.recompensa || selectedArticulo.desbloqueadoTras || (selectedArticulo.requisitosOro && selectedArticulo.requisitosOro.length > 0)">
+            <!-- Grid de Recompensa y Desbloqueo -->
+            <div class="guide-hud-grid" *ngIf="selectedArticulo.recompensa || selectedArticulo.desbloqueadoTras">
+              <div class="guide-hud-box reward-box" *ngIf="selectedArticulo.recompensa">
+                <i class="fa-solid fa-trophy box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">Recompensa</span>
+                  <span class="box-val">{{ selectedArticulo.recompensa }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box unlock-box" *ngIf="selectedArticulo.desbloqueadoTras">
+                <i class="fa-solid fa-lock-open box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">Desbloqueado tras</span>
+                  <span class="box-val">{{ selectedArticulo.desbloqueadoTras }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Caja de Medalla de Oro 100% -->
+            <div class="guide-hud-gold-block" *ngIf="selectedArticulo.requisitosOro && selectedArticulo.requisitosOro.length > 0">
+              <div class="guide-hud-gold-head">
+                <i class="fa-solid fa-medal"></i>
+                <span>Objetivos de Medalla de Oro (100%)</span>
+              </div>
+              <div class="guide-hud-gold-list">
+                <div class="gold-goal-item" *ngFor="let req of selectedArticulo.requisitosOro">
+                  <div class="gold-goal-check">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ req }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Navegación Capítulo Anterior / Siguiente -->
@@ -234,10 +373,9 @@
     title="Volver al inicio del capítulo"
     aria-label="Volver al inicio"
   >
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
-    <span class="scroll-top-text">Subir</span>
   </button>
 
   <!-- TOAST DE COPIADO RÁPIDO -->

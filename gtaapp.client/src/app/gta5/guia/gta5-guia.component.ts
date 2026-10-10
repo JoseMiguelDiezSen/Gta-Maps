@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../services/guia.service';
 import { CookieService } from '../../services/cookie.service';
@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
+  currentSection: GuiaSeccion | null = null;
   expandedSections: Set<string> = new Set<string>();
   selectedArticulo: GuiaArticulo | null = null;
   selectedSeccionId: string = 'todas';
@@ -96,18 +97,61 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     return todos;
   }
 
+  get articulosSeccionActual(): GuiaArticuloResumen[] {
+    if (this.currentSection) {
+      return this.currentSection.articulos || [];
+    }
+    if (this.selectedArticulo) {
+      const sec = this.secciones.find(s => s.articulos?.some(a => a.id === this.selectedArticulo?.id));
+      if (sec) {
+        return sec.articulos || [];
+      }
+    }
+    return [];
+  }
+
   get capituloAnterior(): GuiaArticuloResumen | null {
     if (!this.selectedArticulo) return null;
-    const todos = this.todosLosArticulos;
-    const idx = todos.findIndex(a => a.id === this.selectedArticulo?.id);
-    return idx > 0 ? todos[idx - 1] : null;
+    const articulos = this.articulosSeccionActual;
+    const idx = articulos.findIndex(a => a.id === this.selectedArticulo?.id);
+    return idx > 0 ? articulos[idx - 1] : null;
   }
 
   get capituloSiguiente(): GuiaArticuloResumen | null {
     if (!this.selectedArticulo) return null;
-    const todos = this.todosLosArticulos;
-    const idx = todos.findIndex(a => a.id === this.selectedArticulo?.id);
-    return idx >= 0 && idx < todos.length - 1 ? todos[idx + 1] : null;
+    const articulos = this.articulosSeccionActual;
+    const idx = articulos.findIndex(a => a.id === this.selectedArticulo?.id);
+    return idx >= 0 && idx < articulos.length - 1 ? articulos[idx + 1] : null;
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardNavigation(event: KeyboardEvent): void {
+    const target = event.target as HTMLElement;
+    if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+      return;
+    }
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      if (this.capituloSiguiente) {
+        event.preventDefault();
+        this.seleccionarArticulo(this.capituloSiguiente.id);
+        this.scrollActiveChapterIntoView();
+      }
+    } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      if (this.capituloAnterior) {
+        event.preventDefault();
+        this.seleccionarArticulo(this.capituloAnterior.id);
+        this.scrollActiveChapterIntoView();
+      }
+    }
+  }
+
+  private scrollActiveChapterIntoView(): void {
+    setTimeout(() => {
+      const activeEl = document.querySelector('.guide-chapter-card.is-active') as HTMLElement;
+      if (activeEl) {
+        activeEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }, 50);
   }
 
   @ViewChild('wikiShell') wikiShellRef?: ElementRef<HTMLDivElement>;
@@ -167,9 +211,9 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
       next: (data) => {
         this.manifest = data;
         this.secciones = data.secciones || [];
-          if (this.secciones.length > 0) {
-            this.expandedSections.add(this.secciones[0].id);
-          }
+        if (this.secciones.length > 0) {
+          this.expandedSections.add(this.secciones[0].id);
+        }
         this.isLoading = false;
         
         if (this.secciones.length > 0 && this.secciones[0].articulos.length > 0) {
@@ -183,7 +227,54 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  
+  openSection(sec: GuiaSeccion): void {
+    this.currentSection = sec;
+    this.selectedSeccionId = sec.id;
+  }
+
+  backToSections(): void {
+    this.currentSection = null;
+  }
+
+  failedImageArticleIds: Set<string> = new Set<string>();
+
+  getArticuloImage(art: GuiaArticulo | null): string | null {
+    if (!art || this.failedImageArticleIds.has(art.id)) return null;
+    
+    // Si viene definida una imagen explícita en los datos
+    if (art.imagen) {
+      return art.imagen;
+    }
+    if (art.imagenPrincipalUrl) {
+      return art.imagenPrincipalUrl;
+    }
+    
+    // Convención automática para misiones principales
+    if (art.categoria === 'misiones-historia' || art.id.startsWith('mision-')) {
+      return `assets/images/gta5/guia/historia/misiones-principales/${art.slug}.jpg`;
+    }
+    
+    return null;
+  }
+
+  onImageError(articuloId: string): void {
+    this.failedImageArticleIds.add(articuloId);
+  }
+
+  getSectionColor(secId?: string): string {
+    if (!secId) return '#ffb833';
+    const s = secId.toLowerCase();
+    if (s.includes('prologo')) return '#3b82f6';
+    if (s.includes('mision')) return '#ffb833';
+    if (s.includes('extrano') || s.includes('loco')) return '#ec4899';
+    if (s.includes('100') || s.includes('historia')) return '#22c55e';
+    if (s.includes('personaje') || s.includes('protagonista')) return '#f97316';
+    if (s.includes('negocio') || s.includes('economia')) return '#06b6d4';
+    if (s.includes('secreto') || s.includes('misterio')) return '#a855f7';
+    if (s.includes('truco') || s.includes('codigo')) return '#10b981';
+    return '#ffb833';
+  }
+
   toggleSection(seccionId: string): void {
     if (this.expandedSections.has(seccionId)) {
       this.expandedSections.delete(seccionId);
@@ -269,7 +360,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
 
       if (line.startsWith('### ')) {
         const rawText = line.substring(4).trim();
-        // Quitar emojis para mantener una estética limpia y profesional
         const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
         const heading = this.formatInline(noEmoji);
         const secId = `sec-${sectionCounter++}`;
@@ -288,15 +378,13 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
         const heading = this.formatInline(noEmoji);
         out.push(`<h2 class="guide-h2">${heading}</h2>`);
       } else if (line.startsWith('> ')) {
-        // Tarjetas y callouts prohibidos: se integran limpiamente como un punto más
         if (!inList) {
           out.push('<ul class="guide-list">');
           inList = true;
         }
         const text = this.formatInline(line.substring(2).trim());
-        out.push(`<li class="guide-list-item"><span class="guide-list-bullet">›</span><span class="guide-list-text">${text}</span></li>`);
+        out.push(`<li class="guide-list-item"><span class="guide-list-bullet">&#x203A;</span><span class="guide-list-text">${text}</span></li>`);
       } else if (line.trim() === '---') {
-        // Los separadores de título con barras ya estructuran el contenido
         continue;
       } else if (isBullet) {
         if (!inList) {
@@ -306,7 +394,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
         const match = line.match(/^\s*[\*\-]\s+(.*)$/);
         const text = match ? this.formatInline(match[1]) : '';
         const subClass = isSubBullet ? ' guide-list-subitem' : '';
-        out.push(`<li class="guide-list-item${subClass}"><span class="guide-list-bullet">›</span><span class="guide-list-text">${text}</span></li>`);
+        out.push(`<li class="guide-list-item${subClass}"><span class="guide-list-bullet">&#x203A;</span><span class="guide-list-text">${text}</span></li>`);
       } else if (line.trim().length > 0) {
         const p = this.formatInline(line);
         out.push(`<p class="guide-p">${p}</p>`);

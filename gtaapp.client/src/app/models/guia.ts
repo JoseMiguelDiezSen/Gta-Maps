@@ -34,8 +34,15 @@ export interface GuiaArticuloRelacionado {
 
 export interface GuiaArticulo extends GuiaArticuloResumen {
   contenidoMarkdown: string;
+  imagen?: string;
   imagenPrincipalUrl?: string;
   tags: string[];
   ultimaActualizacion: string;
   relacionados: GuiaArticuloRelacionado[];
+  sinopsis?: string;
+  recompensa?: string;
+  desbloqueadoTras?: string;
+  requisitosOro?: string[];
+  contacto?: string;
+  protagonistas?: string[];
 }

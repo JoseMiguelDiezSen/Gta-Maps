@@ -7,4 +7,9 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\gtaapp.client\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\assets\images\gta5\online\" />
+    <Folder Include="src\assets\images\gta6\historia\" />
+    <Folder Include="src\assets\images\gta6\online\" />
+  </ItemGroup>
 </Project>

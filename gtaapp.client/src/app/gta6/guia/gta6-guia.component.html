@@ -4,15 +4,68 @@
   <nav class="wiki-top-nav">
     <div class="nav-container">
       <div class="nav-left">
+        <!-- Separador vertical espigado izquierdo -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
         <!-- LOGO DE LA HOME CON TAMAÑO FIJADO -->
         <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
           <img src="assets/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
+        <!-- Separador vertical espigado derecho -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
         <div class="nav-brand">
-          <span class="nav-brand-sep">/</span>
-          <span class="nav-brand-title">GUÍA GTA VI</span>
+          <span class="nav-brand-title">GUIA GTA MAPS</span>
         </div>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón INICIO -->
+        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GTA 5 MAP -->
+        <a routerLink="/gta5" class="nav-link-item" title="Ir al Mapa de GTA 5">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 5 MAP</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GTA 6 MAP -->
+        <a routerLink="/gta6" class="nav-link-item" title="Ir al Mapa de GTA 6">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 6 MAP</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GUIA GTA 5 -->
+        <a routerLink="/gta5-guia" class="nav-link-item" title="Ir a la Guía de GTA 5">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 5</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón NOTICIAS -->
+        <a routerLink="/noticias" class="nav-link-item" title="Ir a Noticias">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>NOTICIAS</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
       </div>
 
       <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE -->
@@ -42,10 +95,7 @@
   <header class="wiki-hero-banner">
     <div class="hero-bg-overlay"></div>
     <div class="hero-content-inner">
-      <div class="hero-tag-row">
-        <span class="hero-location-text">VICE CITY & ESTADO DE LEONIDA</span>
-      </div>
-      <h2 class="hero-main-title">GRAND THEFT AUTO VI</h2>
+      <h2 class="hero-main-title">VICE CITY & ESTADO DE LEONIDA</h2>
       <p class="hero-description">
         Base de datos de Leonida: protagonistas Jason & Lucia, distritos urbanos, Grassrivers y sistema táctico de inventario.
       </p>
@@ -97,36 +147,69 @@
         </div>
       </div>
 
-      <!-- Cabecera del Sidebar -->
-      <div class="sidebar-header-bar">
+      <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
+      <div class="sidebar-header-bar" *ngIf="!currentSection">
         <span class="sidebar-header-title">ÍNDICE DE CONTENIDOS</span>
-        <span class="sidebar-header-count" *ngIf="manifest">{{ todosLosArticulos.length }} caps</span>
       </div>
 
-      <!-- Grupos temáticos verticales -->
-      <nav class="sidebar-sections-container">
-        <div *ngFor="let seccion of secciones" class="sidebar-section-group">
-          <div class="section-group-header">
-            <span class="section-group-title">{{ seccion.titulo }}</span>
-            <span class="section-group-badge">{{ seccion.articulos.length }}</span>
+      <!-- VISTA 1: LISTA DE CATEGORÍAS (DRILL-DOWN NIVEL 1) -->
+      <nav class="guide-categories-list" *ngIf="!currentSection">
+        <div
+          *ngFor="let seccion of secciones"
+          class="guide-cat-card"
+          [style.--cat-accent]="getSectionColor(seccion.id)"
+          (click)="openSection(seccion)"
+        >
+          <div class="guide-cat-icon">
+            <i class="fas fa-{{ seccion.icono || 'folder' }}"></i>
           </div>
-
-          <ul class="sidebar-chapters-list">
-            <li
-              *ngFor="let art of seccion.articulos"
-              class="chapter-item"
-              [class.is-active]="selectedArticulo?.id === art.id"
-              (click)="seleccionarArticulo(art.id)"
-            >
-              <div class="chapter-info">
-                <span class="chapter-title">{{ art.titulo }}</span>
-                <span class="chapter-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
-              </div>
-              <span *ngIf="art.badge" class="chapter-badge">{{ art.badge }}</span>
-            </li>
-          </ul>
+          <div class="guide-cat-info">
+            <span class="guide-cat-title">{{ seccion.titulo }}</span>
+          </div>
+          <span class="guide-cat-badge">{{ seccion.articulos.length }}</span>
+          <div class="guide-cat-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
         </div>
       </nav>
+
+      <!-- VISTA 2: LISTADO DE CAPÍTULOS DE LA CATEGORÍA (DRILL-DOWN NIVEL 2) -->
+      <div class="guide-section-detail-view" *ngIf="currentSection" [style.--cat-accent]="getSectionColor(currentSection.id)">
+        <div class="guide-detail-toolbar">
+          <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>Categorías</span>
+          </button>
+          <span class="guide-detail-badge">{{ currentSection.articulos.length }}</span>
+        </div>
+
+        <div class="guide-section-banner">
+          <div class="guide-cat-icon mini">
+            <i class="fas fa-{{ currentSection.icono || 'folder' }}"></i>
+          </div>
+          <div class="guide-section-banner-info">
+            <h3 class="guide-section-banner-title">{{ currentSection.titulo }}</h3>
+            <span class="guide-section-banner-desc" *ngIf="currentSection.descripcion">{{ currentSection.descripcion }}</span>
+          </div>
+        </div>
+
+        <div class="guide-section-divider"></div>
+
+        <div class="guide-chapters-list">
+          <div
+            *ngFor="let art of currentSection.articulos; let idx = index"
+            class="guide-chapter-card"
+            [class.is-active]="selectedArticulo?.id === art.id"
+            (click)="seleccionarArticulo(art.id)"
+          >
+            <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+            <div class="chapter-card-info">
+              <span class="chapter-card-title">{{ art.titulo }}</span>
+              <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </aside>
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
@@ -228,10 +311,9 @@
     title="Volver al inicio del capítulo"
     aria-label="Volver al inicio"
   >
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
-    <span class="scroll-top-text">Subir</span>
   </button>
 
   <!-- TOAST DE COPIADO RÁPIDO -->

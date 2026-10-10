@@ -1,4 +1,4 @@
-﻿@import './guia-gta5-responsive.css';
+@import './guia-gta5-responsive.css';
 /* ==========================================================================
    ESTILOS WIKI & GUÃA GTA V (LOS SANTOS ATMOSPHERE & FROSTED GLASS HUD)
    ========================================================================== */
@@ -321,6 +321,64 @@
   text-shadow: none;
 }
 
+/* ==========================================================================
+   ENLACES DE NAVEGACIÓN HUD (TIPOGRAFÍA GTA)
+   ========================================================================== */
+.nav-link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 6px;
+  color: #ffb833;
+  text-decoration: none;
+  font-family: 'Pricedown', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 184, 51, 0.25);
+  transition: color 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link-item i {
+  font-size: 13px;
+  color: #ffb833;
+  transition: transform 0.2s ease, color 0.2s ease;
+  transform: translateY(-1px);
+}
+
+.nav-link-item:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+  text-shadow: 0 0 12px rgba(255, 184, 51, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.nav-link-item:hover i {
+  transform: translateY(-1px) scale(1.15);
+  color: #ffffff;
+}
+
+/* Modo día */
+.wiki-shell.mode-day .nav-link-item {
+  color: #d97706;
+  text-shadow: none;
+}
+
+.wiki-shell.mode-day .nav-link-item i {
+  color: #d97706;
+}
+
+.wiki-shell.mode-day .nav-link-item:hover {
+  color: #b45309;
+  text-shadow: 0 0 6px rgba(217, 119, 6, 0.3);
+}
+
+.wiki-shell.mode-day .nav-link-item:hover i {
+  color: #b45309;
+}
+
 /* Estructura la posiciÃ³n y alineaciÃ³n de la barra de navegaciÃ³n superior. */
 .nav-right {
   display: flex;
@@ -431,32 +489,32 @@
 .wiki-hero-banner {
   position: relative;
   width: 100%;
-  height: 180px;
-  min-height: 180px;
+  height: 125px;
+  min-height: 125px;
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: #0b0f14 url('/assets/home-bg.jpg') left center / cover no-repeat;
+  background: #0b0f14 url('/assets/images/gta5/guia/banner-los-santos.jpg') center center / cover no-repeat;
   border-bottom: 1px solid rgba(255, 184, 51, 0.35);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   z-index: 10;
   flex-shrink: 0;
 }
 
-/* Fija la posiciÃ³n en la pantalla de el banner superior con la imagen de fondo. */
+/* Fija la posición en la pantalla de el banner superior con la imagen de fondo. */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(11, 15, 20, 0.94) 0%,
-    rgba(11, 15, 20, 0.82) 40%,
-    rgba(11, 15, 20, 0.5) 100%
+    rgba(11, 15, 20, 0.75) 0%,
+    rgba(11, 15, 20, 0.45) 50%,
+    rgba(11, 15, 20, 0.15) 100%
   );
   pointer-events: none;
 }
 
-/* Estructura la posiciÃ³n y alineaciÃ³n de el banner superior con la imagen de fondo. */
+/* Estructura la posición y alineación de el banner superior con la imagen de fondo. */
 .hero-content-inner {
   position: relative;
   z-index: 2;
@@ -470,17 +528,17 @@
   justify-content: center;
 }
 
-/* Estructura la posiciÃ³n y alineaciÃ³n de el banner superior con la imagen de fondo. */
+/* Estructura la posición y alineación de el banner superior con la imagen de fondo. */
 .hero-tag-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 8px;
+  margin-bottom: 3px;
 }
 
-/* Configura la tipografÃ­a y los textos de el banner superior con la imagen de fondo. */
+/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
 .hero-location-text {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   color: #ffb833;
   letter-spacing: 1.2px;
@@ -488,26 +546,26 @@
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
-/* Configura la tipografÃ­a y los textos de el banner superior con la imagen de fondo. */
+/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
 .hero-main-title {
-  margin: 0 0 8px 0;
-  font-size: 34px;
+  margin: 0 0 4px 0;
+  font-size: 27px;
   font-weight: 900;
   font-family: 'Pricedown', system-ui, sans-serif;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   color: #ffffff;
   text-transform: uppercase;
   text-shadow: 0 3px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9);
   line-height: 1.1;
 }
 
-/* Configura la tipografÃ­a y los textos de el banner superior con la imagen de fondo. */
+/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
 .hero-description {
   margin: 0;
-  font-size: 14px;
-  color: rgba(226, 232, 240, 0.9);
-  max-width: 700px;
-  line-height: 1.5;
+  font-size: 13px;
+  color: rgba(226, 232, 240, 0.85);
+  max-width: 750px;
+  line-height: 1.4;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 
@@ -516,6 +574,7 @@
    ========================================================================== */
 .wiki-body-layout {
   display: flex;
+  align-items: stretch;
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
@@ -527,9 +586,11 @@
   z-index: 1;
 }
 
-/* Sidebar de CapÃ­tulos */
+/* Sidebar de Capítulos */
 .wiki-sidebar {
   width: 330px;
+  height: fit-content;
+  max-height: 100%;
   background: rgba(15, 21, 32, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -537,16 +598,12 @@
   border-radius: 12px;
   padding: 16px;
   box-sizing: border-box;
-  overflow-y: auto;
-  max-height: calc(100vh - 120px);
-  position: sticky;
-  top: 76px;
+  position: relative;
+  overflow: hidden;
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   gap: 14px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 184, 51, 0.45) rgba(0, 0, 0, 0.25);
 }
 
 /* Ajusta las dimensiones y espaciados de el menÃº lateral (Ã­ndice de contenidos). */
@@ -830,6 +887,8 @@
 .wiki-content-area {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Ajusta las dimensiones y espaciados de la tarjeta central donde se lee el artÃ­culo. */
@@ -885,9 +944,37 @@
   padding: 18px 24px;
   margin: 16px 0 24px 0;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.chapter-banner-text {
+  flex: 1;
+  display: flex;
   flex-direction: column;
   gap: 8px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  min-width: 0;
+}
+
+.chapter-banner-media {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.chapter-banner-img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 
 /* Configura la tipografÃ­a y los textos de la tarjeta central donde se lee el artÃ­culo. */
@@ -1430,28 +1517,28 @@
    ========================================================================== */
 .scroll-top-btn {
   position: fixed;
-  bottom: 28px;
+  bottom: 58px;
   right: 28px;
   z-index: 90;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   background: rgba(15, 21, 32, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 30px;
+  border-radius: 50%;
   color: #ffffff;
-  font-size: 13px;
-  font-weight: 700;
   cursor: pointer;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeIn 0.25s ease;
 }
 
-/* Define los colores, fondos y estÃ©tica de el botÃ³n flotante para subir arriba del todo al pasar el ratÃ³n por encima. */
+/* Define los colores, fondos y estética de el botón flotante para subir arriba del todo al pasar el ratón por encima. */
 .scroll-top-btn:hover {
   background: rgba(34, 197, 94, 0.2);
   border-color: #22c55e;
@@ -1460,7 +1547,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(34, 197, 94, 0.3);
 }
 
-/* Estructura la posiciÃ³n y alineaciÃ³n de las notificaciones emergentes inferiores. */
+/* Estructura la posición y alineación de las notificaciones emergentes inferiores. */
 .wiki-toast {
   position: fixed;
   bottom: 32px;
@@ -1480,7 +1567,7 @@
   animation: toastFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Define los colores, fondos y estÃ©tica de las notificaciones emergentes inferiores. */
+/* Define los colores, fondos y estética de las notificaciones emergentes inferiores. */
 .wiki-toast .toast-icon {
   display: inline-flex;
   align-items: center;
@@ -1494,7 +1581,7 @@
   font-weight: 900;
 }
 
-/* Configura la tipografÃ­a y los textos de las notificaciones emergentes inferiores. */
+/* Configura la tipografía y los textos de las notificaciones emergentes inferiores. */
 .wiki-toast .toast-text {
   font-size: 13.5px;
   font-weight: 600;
@@ -1513,121 +1600,628 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ESTILOS DRILL-DOWN DEL ÍNDICE LATERAL (CATEGORÍAS Y CAPÍTULOS)
    ========================================================================== */
 
-
-/* ==========================================================================
-   ESTILOS DEL ACORDEÃ“N DEL MENÃš LATERAL (AÃ‘ADIDOS RECIENTEMENTE)
-   ========================================================================== */
-/* BotÃ³n principal de cada categorÃ­a del menÃº (el que se clickea para abrir) */
-.section-accordion-trigger {
+/* ====== VISTA 1: LISTADO DE CATEGORÍAS ====== */
+.guide-categories-list {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 184, 51, 0.45) rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.22s ease-out;
+}
+
+.guide-cat-card {
+  display: flex;
   align-items: center;
-  width: 100%;
-  background: var(--bg-surface-2, #1e2025);
-  border: 1px solid var(--border-color, #2d3038);
-  border-radius: 8px;
-  padding: 10px 16px;
+  gap: 14px;
+  padding: 13px 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 19, 26, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--cat-accent, #ffb833);
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: left;
-  margin-bottom: 2px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Efecto visual al pasar el ratÃ³n por encima del botÃ³n del acordeÃ³n */
-.section-accordion-trigger:hover {
-  background: var(--bg-surface-3, #2a2d35);
-  border-color: var(--primary-color, #00d26a);
+.guide-cat-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 25, 36, 0.98) 100%);
+  border-color: var(--cat-accent, #ffb833);
+  transform: translateX(4px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55), -2px 0 14px color-mix(in srgb, var(--cat-accent, #ffb833) 45%, transparent);
 }
 
-/* Contenedor izquierdo del botÃ³n (agrupa el icono y el texto del tÃ­tulo) */
-.trigger-content {
+.guide-cat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--cat-accent, #ffb833);
+  color: var(--cat-accent, #ffb833);
+  font-size: 17px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Estilos del icono de la categorÃ­a (fijado a 24px para mantener alineaciÃ³n vertical) */
-.trigger-icon {
-  color: var(--primary-color, #00d26a);
-  font-size: 1.1rem;
-  width: 24px;
-  text-align: center;
+.guide-cat-icon.mini {
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+.guide-cat-card:hover .guide-cat-icon {
+  transform: scale(1.08);
+  box-shadow: 0 0 14px var(--cat-accent, #ffb833);
+}
+
+.guide-cat-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.guide-cat-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.2px;
+}
+
+.guide-cat-badge {
+  font-family: 'Consolas', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--cat-accent, #ffb833);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 3px 7px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--cat-accent, #ffb833) 35%, transparent);
   flex-shrink: 0;
 }
 
-/* Texto del tÃ­tulo de la categorÃ­a (ej. Misiones de la Historia) */
-.trigger-title {
-  color: var(--text-primary, #ffffff);
-  font-weight: 500;
-  font-size: 0.85rem;
-  text-transform: none;
+.guide-cat-arrow {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Contenedor derecho del botÃ³n (agrupa el nÃºmero de capÃ­tulos y la flechita) */
-.trigger-actions {
+.guide-cat-card:hover .guide-cat-arrow {
+  background: var(--cat-accent, #ffb833);
+  border-color: var(--cat-accent, #ffb833);
+  color: #0b0f14;
+  transform: translateX(3px);
+  box-shadow: 0 0 12px var(--cat-accent, #ffb833);
+}
+
+/* ====== VISTA 2: DETALLE DE SECCIÓN & CAPÍTULOS ====== */
+.guide-section-detail-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  min-height: 0;
+  animation: fadeIn 0.22s ease-out;
+}
+
+.guide-detail-toolbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 2px;
+}
+
+.guide-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guide-back-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--cat-accent, #ffb833);
+  color: var(--cat-accent, #ffb833);
+  transform: translateX(-2px);
+}
+
+.guide-detail-badge {
+  font-family: 'Consolas', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--cat-accent, #ffb833);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--cat-accent, #ffb833) 40%, transparent);
+}
+
+.guide-section-banner {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--cat-accent, #ffb833);
+  border-radius: 10px;
 }
 
-/* La pÃ­ldora/cÃ­rculo que muestra cuÃ¡ntos capÃ­tulos tiene la categorÃ­a */
-.trigger-badge {
+.guide-section-banner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.guide-section-banner-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.guide-section-banner-desc {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.3;
+}
+
+.guide-section-divider {
+  flex-shrink: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin: 2px 0;
+}
+
+/* LISTADO DE CAPÍTULOS (CON SCROLL INTERNO) */
+.guide-chapters-list {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cat-accent, rgba(255, 184, 51, 0.45)) rgba(0, 0, 0, 0.25);
+}
+
+.guide-categories-list::-webkit-scrollbar,
+.guide-chapters-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.guide-categories-list::-webkit-scrollbar-track,
+.guide-chapters-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.guide-categories-list::-webkit-scrollbar-thumb,
+.guide-chapters-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255, 184, 51, 0.55), rgba(34, 197, 94, 0.45));
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.guide-categories-list::-webkit-scrollbar-thumb:hover,
+.guide-chapters-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffb833, #22c55e);
+}
+
+.guide-chapter-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(15, 21, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  user-select: none;
+}
+
+.guide-chapter-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(3px);
+}
+
+.guide-chapter-card.is-active {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--cat-accent, #ffb833) 15%, transparent) 0%, rgba(13, 19, 26, 0.95) 100%);
+  border-color: var(--cat-accent, #ffb833);
+  border-left: 3px solid var(--cat-accent, #ffb833);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--cat-accent, #ffb833) 30%, transparent);
+}
+
+.chapter-card-num {
+  font-family: 'Consolas', monospace;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--cat-accent, #ffb833);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 2px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.chapter-card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.chapter-card-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #e2e8f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.guide-chapter-card.is-active .chapter-card-title {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.chapter-card-sub {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chapter-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.chapter-card-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
   background: rgba(255, 255, 255, 0.08);
-  color: var(--text-secondary, #9ba1a6);
-  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.chapter-card-time {
+  font-size: 10px;
   font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 12px;
-  border: none;
+  color: rgba(255, 255, 255, 0.4);
   white-space: nowrap;
 }
 
-/* Icono de la flecha que indica si el acordeÃ³n se puede desplegar */
-.trigger-chevron {
-  color: var(--text-secondary, #9ba1a6);
-  transition: transform 0.3s ease;
-  font-size: 0.9rem;
+/* ====== MODO DÍA ====== */
+.wiki-shell.mode-day .guide-cat-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* ModificaciÃ³n del botÃ³n principal cuando el acordeÃ³n estÃ¡ ABIERTO (se le quita el borde inferior) */
-.sidebar-section-group.is-expanded .section-accordion-trigger {
-  border-color: var(--primary-color, #00d26a);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-bottom: 0;
+.wiki-shell.mode-day .guide-cat-card:hover {
+  background: #f8fafc;
+  border-color: var(--cat-accent, #d97706);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-/* RotaciÃ³n de 180 grados de la flechita cuando el acordeÃ³n estÃ¡ abierto */
-.sidebar-section-group.is-expanded .trigger-chevron {
-  transform: rotate(90deg);
-  color: var(--primary-color, #00d26a);
+.wiki-shell.mode-day .guide-cat-icon {
+  background: #f1f5f9;
 }
 
-/* Cuerpo interior del acordeÃ³n que contiene la lista de capÃ­tulos (por defecto oculto) */
-.section-accordion-body {
-  max-height: 0;
+.wiki-shell.mode-day .guide-cat-title {
+  color: #0f172a;
+}
+
+.wiki-shell.mode-day .guide-cat-sub {
+  color: #64748b;
+}
+
+.wiki-shell.mode-day .guide-cat-arrow {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #64748b;
+}
+
+.wiki-shell.mode-day .guide-back-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.wiki-shell.mode-day .guide-section-banner {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.wiki-shell.mode-day .guide-section-banner-title {
+  color: #0f172a;
+}
+
+.wiki-shell.mode-day .guide-section-banner-desc {
+  color: #64748b;
+}
+
+.wiki-shell.mode-day .guide-chapter-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.wiki-shell.mode-day .guide-chapter-card:hover {
+  background: #f8fafc;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.is-active {
+  background: #f0fdf4;
+}
+
+.wiki-shell.mode-day .chapter-card-title {
+  color: #1e293b;
+}
+
+.wiki-shell.mode-day .chapter-card-sub {
+  color: #64748b;
+}
+
+/* ==========================================================================
+   ESTILOS DE SINOPSIS Y TARJETAS HUD DE MISIÓN (RECOMPENSA, DESBLOQUEO, ORO)
+   ========================================================================== */
+
+/* Bloque Sinopsis de la misión (Arriba) */
+.guide-synopsis-block {
+  margin-bottom: 24px;
+  background: rgba(14, 20, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, opacity 0.3s ease;
-  background: var(--bg-surface-1, #13151a);
-  border: 1px solid var(--primary-color, #00d26a);
-  border-top: none;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  margin-bottom: 4px;
-  opacity: 0;
-  padding: 0 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* AnimaciÃ³n de apertura del cuerpo del acordeÃ³n (se estira hasta un lÃ­mite seguro de 8000px) */
-.section-accordion-body.open {
-  max-height: 8000px; /* Safe upper limit for 100+ items */
-  padding: 12px 8px;
-  opacity: 1;
+.guide-synopsis-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ffb833;
 }
 
-/* Ocultamos la cabecera antigua que ya no se usa, reemplazada por el botÃ³n del acordeÃ³n */
-.section-group-header { display: none; }
+.guide-synopsis-body {
+  padding: 14px 18px;
+  border-left: 3px solid #ffb833;
+}
+
+.guide-synopsis-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Sección de Tarjetas HUD al pie del artículo */
+.guide-mission-hud-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.guide-hud-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.guide-hud-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 9px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.guide-hud-box.reward-box {
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.35);
+}
+
+.guide-hud-box.reward-box .box-icon {
+  color: #2ecc71;
+  font-size: 18px;
+}
+
+.guide-hud-box.reward-box .box-val {
+  color: #2ecc71;
+  font-weight: 700;
+  font-size: 13.5px;
+}
+
+.guide-hud-box.unlock-box {
+  background: rgba(52, 152, 219, 0.1);
+  border: 1px solid rgba(52, 152, 219, 0.35);
+}
+
+.guide-hud-box.unlock-box .box-icon {
+  color: #3498db;
+  font-size: 18px;
+}
+
+.guide-hud-box.unlock-box .box-val {
+  color: #3498db;
+  font-weight: 700;
+  font-size: 13.5px;
+}
+
+.guide-hud-box .box-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.guide-hud-box .box-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Caja de Objetivos de Medalla de Oro */
+.guide-hud-gold-block {
+  background: rgba(241, 196, 15, 0.06);
+  border: 1px solid rgba(241, 196, 15, 0.3);
+  border-radius: 9px;
+  padding: 14px 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.guide-hud-gold-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #f1c40f;
+  margin-bottom: 12px;
+}
+
+.guide-hud-gold-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.guide-hud-gold-list .gold-goal-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-hud-gold-list .gold-goal-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(241, 196, 15, 0.2);
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  flex-shrink: 0;
+}
+
+.guide-hud-gold-list .gold-goal-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.4;
+}
+
+/* Modo Día */
+.wiki-shell.mode-day .guide-synopsis-block {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.wiki-shell.mode-day .guide-synopsis-head {
+  background: #f8fafc;
+  border-bottom-color: #e2e8f0;
+  color: #d97706;
+}
+
+.wiki-shell.mode-day .guide-synopsis-body p {
+  color: #1e293b;
+}
+
+.wiki-shell.mode-day .guide-hud-box.reward-box {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.wiki-shell.mode-day .guide-hud-box.reward-box .box-label {
+  color: #15803d;
+}
+
+.wiki-shell.mode-day .guide-hud-box.unlock-box {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.wiki-shell.mode-day .guide-hud-box.unlock-box .box-label {
+  color: #1d4ed8;
+}
+
+.wiki-shell.mode-day .guide-hud-gold-block {
+  background: #fefce8;
+  border-color: #fde047;
+}
+
+.wiki-shell.mode-day .guide-hud-gold-head {
+  color: #ca8a04;
+}
+
+.wiki-shell.mode-day .guide-hud-gold-list .gold-goal-text {
+  color: #1e293b;
+}
 

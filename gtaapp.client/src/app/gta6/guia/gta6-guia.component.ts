@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../services/guia.service';
 import { CookieService } from '../../services/cookie.service';
@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class Gta6GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
+  currentSection: GuiaSeccion | null = null;
   selectedArticulo: GuiaArticulo | null = null;
   selectedSeccionId: string = 'todas';
   
@@ -95,18 +96,61 @@ export class Gta6GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     return todos;
   }
 
+  get articulosSeccionActual(): GuiaArticuloResumen[] {
+    if (this.currentSection) {
+      return this.currentSection.articulos || [];
+    }
+    if (this.selectedArticulo) {
+      const seccionDelArticulo = this.secciones.find(s => s.articulos?.some(a => a.id === this.selectedArticulo?.id));
+      if (seccionDelArticulo) {
+        return seccionDelArticulo.articulos || [];
+      }
+    }
+    return [];
+  }
+
   get capituloAnterior(): GuiaArticuloResumen | null {
     if (!this.selectedArticulo) return null;
-    const todos = this.todosLosArticulos;
-    const idx = todos.findIndex(a => a.id === this.selectedArticulo?.id);
-    return idx > 0 ? todos[idx - 1] : null;
+    const articulos = this.articulosSeccionActual;
+    const idx = articulos.findIndex(a => a.id === this.selectedArticulo?.id);
+    return idx > 0 ? articulos[idx - 1] : null;
   }
 
   get capituloSiguiente(): GuiaArticuloResumen | null {
     if (!this.selectedArticulo) return null;
-    const todos = this.todosLosArticulos;
-    const idx = todos.findIndex(a => a.id === this.selectedArticulo?.id);
-    return idx >= 0 && idx < todos.length - 1 ? todos[idx + 1] : null;
+    const articulos = this.articulosSeccionActual;
+    const idx = articulos.findIndex(a => a.id === this.selectedArticulo?.id);
+    return idx >= 0 && idx < articulos.length - 1 ? articulos[idx + 1] : null;
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardNavigation(event: KeyboardEvent): void {
+    const target = event.target as HTMLElement;
+    if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+      return;
+    }
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      if (this.capituloSiguiente) {
+        event.preventDefault();
+        this.seleccionarArticulo(this.capituloSiguiente.id);
+        this.scrollActiveChapterIntoView();
+      }
+    } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      if (this.capituloAnterior) {
+        event.preventDefault();
+        this.seleccionarArticulo(this.capituloAnterior.id);
+        this.scrollActiveChapterIntoView();
+      }
+    }
+  }
+
+  private scrollActiveChapterIntoView(): void {
+    setTimeout(() => {
+      const activeEl = document.querySelector('.guide-chapter-card.is-active') as HTMLElement;
+      if (activeEl) {
+        activeEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }, 50);
   }
 
   @ViewChild('wikiShell') wikiShellRef?: ElementRef<HTMLDivElement>;
@@ -181,6 +225,25 @@ export class Gta6GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   seleccionarSeccion(seccionId: string): void {
     this.selectedSeccionId = seccionId;
+  }
+
+  openSection(sec: GuiaSeccion): void {
+    this.currentSection = sec;
+    this.selectedSeccionId = sec.id;
+  }
+
+  backToSections(): void {
+    this.currentSection = null;
+  }
+
+  getSectionColor(secId?: string): string {
+    if (!secId) return '#ec4899';
+    const s = secId.toLowerCase();
+    if (s.includes('protagonista')) return '#ec4899';
+    if (s.includes('mundo') || s.includes('leonida')) return '#38bdf8';
+    if (s.includes('mecanica')) return '#a855f7';
+    if (s.includes('policial') || s.includes('ia-')) return '#f97316';
+    return '#ec4899';
   }
 
   seleccionarArticulo(articuloId: string): void {

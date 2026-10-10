@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -103,8 +103,21 @@ export class GuiaService {
         bannerUrl: 'assets/home-bg.jpg',
         secciones: [
             {
+              id: 'prologo',
+              titulo: 'Prólogo',
+              icono: 'book-open',
+              descripcion: 'Introducción a la guía interactiva de Grand Theft Auto V y perfiles de los protagonistas.',
+              orden: 0,
+              articulos: [
+                { id: 'prologo-introduccion-guia', slug: 'prologo-introduccion-guia', titulo: 'Introducción a la Guía de GTA V', subtitulo: 'Estructura de la enciclopedia, consejos esenciales y primeros pasos', categoria: 'prologo', badge: 'Introducción', tiempoLecturaMinutos: 4 },
+                { id: 'michael-de-santa', slug: 'michael-de-santa', titulo: 'Michael De Santa: El Ladrón Retirado', subtitulo: 'Tiempo bala, crisis existencial y relación con el FIB', categoria: 'prologo', badge: 'Michael', tiempoLecturaMinutos: 5 },
+                { id: 'franklin-clinton', slug: 'franklin-clinton', titulo: 'Franklin Clinton: La Nueva Sangre', subtitulo: 'Conducción ralentizada, Chop y Forum Drive', categoria: 'prologo', badge: 'Franklin', tiempoLecturaMinutos: 5 },
+                { id: 'trevor-philips', slug: 'trevor-philips', titulo: 'Trevor Philips: El Caos Encarnado', subtitulo: 'Modo Furia, Industrias TP y su pasado en North Yankton', categoria: 'prologo', badge: 'Trevor', tiempoLecturaMinutos: 6 }
+              ]
+            },
+            {
               id: 'misiones-historia',
-              titulo: 'Misiones de la Historia',
+              titulo: 'Misiones Principales',
               icono: 'map',
               descripcion: 'Guía detallada paso a paso de todas las misiones principales de GTA V.',
               orden: 1,
@@ -178,6 +191,18 @@ export class GuiaService {
                 { id: 'mision-67-opcion-a', slug: 'opcion-a', titulo: '67. Opción A: Con sentido común', subtitulo: 'Franklin Clinton · Los Santos / Murrieta Oil Field', categoria: 'misiones-historia', badge: 'Final (A)', tiempoLecturaMinutos: 5 },
                 { id: 'mision-68-opcion-b', slug: 'opcion-b', titulo: '68. Opción B: Ha llegado la hora', subtitulo: 'Franklin Clinton · Pacific Bluffs', categoria: 'misiones-historia', badge: 'Final (B)', tiempoLecturaMinutos: 5 },
                 { id: 'mision-69-opcion-c', slug: 'opcion-c', titulo: '69. Opción C: La tercera vía', subtitulo: 'Todos los protagonistas · Fundición / Chumash', categoria: 'misiones-historia', badge: 'Final (C) (Canon)', tiempoLecturaMinutos: 25 }
+              
+              
+              ]
+            },
+            {
+              id: 'extranos-locos',
+              titulo: 'Locos y Extraños',
+              icono: 'mask',
+              descripcion: 'Misiones secundarias de Extraños y Locos por todo San Andreas.',
+              orden: 2,
+              articulos: [
+                { id: 'eyl-tonya-1', slug: 'tonya-favores', titulo: 'Favores (Tonya)', subtitulo: 'Franklin y Tonya · Strawberry', categoria: 'extranos-locos', badge: 'Tonya', tiempoLecturaMinutos: 5 }
               ]
             },
             {
@@ -192,18 +217,18 @@ export class GuiaService {
               { id: 'finales-opcion-abc', slug: 'finales-opcion-abc', titulo: 'Los Tres Finales (Opción A, B o C)', subtitulo: 'Consecuencias narrativas y por qué la C es canónica', categoria: 'historia-100', badge: 'Lore', tiempoLecturaMinutos: 5 }
             ]
           },
-          {
-            id: 'personajes',
-            titulo: 'Protagonistas & Facciones',
-            icono: 'users',
-            descripcion: 'Michael, Franklin y Trevor: habilidades, trasfondo y misiones personales.',
-            orden: 2,
-            articulos: [
-              { id: 'michael-de-santa', slug: 'michael-de-santa', titulo: 'Michael De Santa: El Ladrón Retirado', subtitulo: 'Tiempo bala, crisis existencial y relación con el FIB', categoria: 'personajes', tiempoLecturaMinutos: 5 },
-              { id: 'franklin-clinton', slug: 'franklin-clinton', titulo: 'Franklin Clinton: La Nueva Sangre', subtitulo: 'Conducción ralentizada, Chop y Forum Drive', categoria: 'personajes', tiempoLecturaMinutos: 5 },
-              { id: 'trevor-philips', slug: 'trevor-philips', titulo: 'Trevor Philips: El Caos Encarnado', subtitulo: 'Modo Furia, Industrias TP y su pasado en North Yankton', categoria: 'personajes', tiempoLecturaMinutos: 6 }
-            ]
-          },
+
+
+
+
+
+
+
+
+
+
+
+
           {
             id: 'negocios-economia',
             titulo: 'Negocios y Bolsa',
@@ -336,6 +361,8 @@ export class GuiaService {
 
   private getArticuloMarkdown(articuloId: string): string {
     switch (articuloId) {
+      case 'prologo-introduccion-guia':
+        return `## 📖 Prólogo: Bienvenido a la Guía Completa de GTA V\n\nGrand Theft Auto V ofrece una experiencia masiva que combina tres protagonistas entrelazados, 69 misiones principales de historia, golpes multimillonarios, un ecosistema bursátil dinámico y cientos de secretos repartidos por el Estado de San Andreas.\n\n---\n\n### 🗺️ Estructura de la Enciclopedia\nEsta guía interactiva está dividida en módulos estratégicos para facilitarte la navegación y el seguimiento del 100%:\n\n1. **Prólogo**: Introducción general, mapa interactivo y recomendaciones tácticas iniciales.\n2. **Misiones de la Historia**: Análisis paso a paso de las 69 misiones con sus objetivos de Medalla de Oro 100%, sinopsis narrativa, recompensas y requisitos de desbloqueo.\n3. **Modo Historia & 100%**: Guía de los 6 Grandes Golpes, tripulaciones ideales, checklist del 100% y análisis de los 3 finales (A, B y C).\n4. **Protagonistas & Facciones**: Habilidades especiales de Michael, Franklin y Trevor, atributos físicos y gestión de recursos.\n5. **Negocios y Bolsa**: Cómo multiplicar tu dinero hasta alcanzar los $2.147 millones con las misiones de asesinato de Lester y la compra de propiedades.\n6. **Secretos & Misterios**: El gran misterio de Mount Chiliad, los 4 OVNIs sumergidos y aéreos, el asesino de los 8 infinitos y el fantasma de Monte Gordo.\n7. **Trucos y Códigos**: Directorio de comandos, números de teléfono y combinaciones de botones para todas las plataformas.\n\n---\n\n### 💡 Consejos Esenciales para Empezar\n* **No hagas las misiones de asesinato de Lester de inmediato**: Guarda las misiones de asesinato secundarias (a excepción de la primera obligatoria para avanzar) hasta haber completado *El Gran Golpe*. De este modo podrás invertir con los 3 personajes su botín multimillonario y maximizar los beneficios en BAWSAQ y LCN.\n* **Aprovecha las habilidades especiales**: Úsalas frecuentemente en tiroteos y persecuciones para subir su medidor al máximo nivel rápidamente.\n* **Guarda partida con frecuencia**: Utiliza el teléfono móvil (icono de la nube) para guardar la partida antes de planificar golpes o compras millonarias de activos.`;
       case 'requisitos-100':
         return `## 🏆 Resumen de Requisitos para el 100%
 
