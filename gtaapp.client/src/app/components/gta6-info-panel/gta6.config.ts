@@ -128,7 +128,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 90,
       handling: 92,
       dealership: 'vice_luxury',
-      images: ['assets/data-images/vehicles/cheetah.png'],
+      images: ['assets/data-images/gta5/vehicles/cheetah.png'],
       description: 'Superdeportivo icónico con alerón activo de fibra de carbono y motor V12 biturbo refrigerado por aire.'
     },
     {
@@ -144,7 +144,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 92,
       handling: 94,
       dealership: 'vice_luxury',
-      images: ['assets/data-images/vehicles/torero.png'],
+      images: ['assets/data-images/gta5/vehicles/torero.png'],
       description: 'Descapotable agresivo de diseño ochentero con puertas de tijera e interiores en cuero fucsia neón.'
     },
     {
@@ -160,7 +160,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 88,
       handling: 95,
       dealership: 'vice_luxury',
-      images: ['assets/data-images/vehicles/comet2.png'],
+      images: ['assets/data-images/gta5/vehicles/comet2.png'],
       description: 'El rey de las avenidas costeras de Ocean Beach: tracción total y escape deportivo de competición.'
     }
   ],
@@ -178,7 +178,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 80,
       handling: 84,
       dealership: 'sunshine_autos',
-      images: ['assets/data-images/vehicles/dominator.png'],
+      images: ['assets/data-images/gta5/vehicles/dominator.png'],
       description: 'Músculo americano de alta cilindrada con sobrealimentador visible en el capó y tracción trasera pura.'
     },
     {
@@ -194,7 +194,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 75,
       handling: 80,
       dealership: 'sunshine_autos',
-      images: ['assets/data-images/vehicles/buccaneer.png'],
+      images: ['assets/data-images/gta5/vehicles/buccaneer.png'],
       description: 'Un cupé de lujo clásico con defensas cromadas pulidas a espejo e interiores tapizados en terciopelo.'
     },
     {
@@ -210,7 +210,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 78,
       handling: 82,
       dealership: 'sunshine_autos',
-      images: ['assets/data-images/vehicles/sabregt.png'],
+      images: ['assets/data-images/gta5/vehicles/sabregt.png'],
       description: 'Chasis reforzado y pintura bitono clásica para carreras callejeras en el centro de Port Gellhorn.'
     }
   ],
@@ -228,7 +228,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 90,
       handling: 96,
       dealership: 'ocean_drive_customs',
-      images: ['assets/data-images/vehicles/sultanrs.png'],
+      images: ['assets/data-images/gta5/vehicles/sultanrs.png'],
       description: 'Sedán de rally convertido en monstruo del asfalto con jaula antivuelco y alerón de alta carga.'
     },
     {
@@ -244,7 +244,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 91,
       handling: 97,
       dealership: 'ocean_drive_customs',
-      images: ['assets/data-images/vehicles/elegy.png'],
+      images: ['assets/data-images/gta5/vehicles/elegy.png'],
       description: 'Leyenda del drift japonés con kit de carrocería ensanchado y suspensión rebajada.'
     }
   ],
@@ -262,7 +262,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 70,
       handling: 88,
       dealership: 'everglades_marine',
-      images: ['assets/data-images/vehicles/dinghy.png'],
+      images: ['assets/data-images/gta5/vehicles/dinghy.png'],
       description: 'Hidrodeslizador propulsado por hélice aeronáutica para deslizarse a toda velocidad sobre ciénagas y aguas bajas.'
     },
     {
@@ -278,7 +278,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 74,
       handling: 85,
       dealership: 'everglades_marine',
-      images: ['assets/data-images/vehicles/toro.png'],
+      images: ['assets/data-images/gta5/vehicles/toro.png'],
       description: 'Lancha de lujo con casco de teca y motores fueraborda triples para escapadas a alta mar.'
     },
     {
@@ -294,7 +294,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 78,
       handling: 86,
       dealership: 'everglades_marine',
-      images: ['assets/data-images/vehicles/bifta.png'],
+      images: ['assets/data-images/gta5/vehicles/bifta.png'],
       description: 'Camioneta con snorkel de admisión alta, suspensión de largo recorrido y neumáticos de barro profundo.'
     }
   ],
@@ -312,7 +312,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 85,
       handling: 90,
       dealership: 'leonida_aviation',
-      images: ['assets/data-images/vehicles/supervolito.png'],
+      images: ['assets/data-images/gta5/vehicles/supervolito.png'],
       description: 'Helicóptero VIP con rotor silencioso y cabina presurizada con champán a bordo.'
     },
     {
@@ -328,7 +328,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 70,
       handling: 80,
       dealership: 'leonida_aviation',
-      images: ['assets/data-images/vehicles/dodo.png'],
+      images: ['assets/data-images/gta5/vehicles/dodo.png'],
       description: 'Hidroavión clásico con flotadores reforzados para aterrizar en cualquier cayo de Gellhorn.'
     }
   ],
@@ -346,7 +346,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
       braking: 75,
       handling: 91,
       dealership: 'gta6_especiales',
-      images: ['assets/data-images/vehicles/speeder.png'],
+      images: ['assets/data-images/gta5/vehicles/speeder.png'],
       description: 'Lancha rápida con compartimentos ocultos y radar antidetención costera.'
     }
   ]
@@ -365,7 +365,7 @@ export const GTA6_STORY_MISSIONS_ES: Gta6Mission[] = [
     location: 'Port Gellhorn',
     type: 'Prólogo / Cooperativa',
     category: 'Prólogo',
-    thumbnail: 'assets/data-images/properties/Tequilala-GTAV.png',
+    thumbnail: 'assets/data-images/gta5/properties/Tequilala-GTAV.png',
     description: 'Atraco a mano armada en la licorería de Port Gellhorn y huida coordinada esquivando el cerco policial.',
     goldRequirements: ['Tiempo menor a 05:30', 'Disparos a la cabeza: 8', 'Sin daños graves en el coche']
   },
@@ -378,7 +378,7 @@ export const GTA6_STORY_MISSIONS_ES: Gta6Mission[] = [
     location: 'Vice Beaches',
     type: 'Infiltración',
     category: 'Operaciones',
-    thumbnail: 'assets/data-images/properties/Pitchers-GTAV.png',
+    thumbnail: 'assets/data-images/gta5/properties/Pitchers-GTAV.png',
     description: 'Recuperar un alijo de diamantes en un hotel art déco durante una fiesta privada en la terraza.',
     goldRequirements: ['Sigilo absoluto', 'Noquear a 4 guardias', 'Escapar por los tejados']
   },
@@ -391,7 +391,7 @@ export const GTA6_STORY_MISSIONS_ES: Gta6Mission[] = [
     location: 'Grassrivers',
     type: 'Persecución en Hidrodeslizador',
     category: 'Contrabando',
-    thumbnail: 'assets/data-images/properties/TheHenHouse-GTAV.png',
+    thumbnail: 'assets/data-images/gta5/properties/TheHenHouse-GTAV.png',
     description: 'Interceptar un cargamento clandestino en los manglares pantanosos antes de que llegue a los guardacostas.',
     goldRequirements: ['Destruir 3 lanchas rivales', 'No encallar en el fango', 'Precisión de tiro: 75%']
   }
@@ -407,7 +407,7 @@ export const GTA6_STORY_MISSIONS_EN: Gta6Mission[] = [
     location: 'Port Gellhorn',
     type: 'Prologue / Co-op',
     category: 'Prologue',
-    thumbnail: 'assets/data-images/properties/Tequilala-GTAV.png',
+    thumbnail: 'assets/data-images/gta5/properties/Tequilala-GTAV.png',
     description: 'Armed robbery at the Port Gellhorn liquor store and coordinated escape through the police perimeter.',
     goldRequirements: ['Time under 05:30', 'Headshots: 8', 'No critical vehicle damage']
   },
@@ -420,7 +420,7 @@ export const GTA6_STORY_MISSIONS_EN: Gta6Mission[] = [
     location: 'Vice Beaches',
     type: 'Infiltration',
     category: 'Operations',
-    thumbnail: 'assets/data-images/properties/Pitchers-GTAV.png',
+    thumbnail: 'assets/data-images/gta5/properties/Pitchers-GTAV.png',
     description: 'Recover a diamond stash inside an art deco rooftop party in Ocean Drive.',
     goldRequirements: ['Pure stealth', 'Knock out 4 guards', 'Escape via rooftops']
   },
@@ -433,7 +433,7 @@ export const GTA6_STORY_MISSIONS_EN: Gta6Mission[] = [
     location: 'Grassrivers',
     type: 'Airboat Chase',
     category: 'Contraband',
-    thumbnail: 'assets/data-images/properties/TheHenHouse-GTAV.png',
+    thumbnail: 'assets/data-images/gta5/properties/TheHenHouse-GTAV.png',
     description: 'Intercept a contraband shipment in the murky swamplands before coast guard patrol arrives.',
     goldRequirements: ['Destroy 3 enemy boats', 'No grounding in mud', 'Accuracy 75%']
   }
@@ -454,7 +454,7 @@ export const GTA6_HEISTS_ES: Gta6Heist[] = [
     badgeIcon: 'fa-sack-dollar',
     categoryLabel: 'Golpe a Gran Escala',
     players: '2-4 Jugadores',
-    thumbnail: 'assets/data-images/businesses/Nightclubs-GTAO-Interior.png',
+    thumbnail: 'assets/data-images/gta5/businesses/Nightclubs-GTAO-Interior.png',
     potentialTake: {
       normal: '$4,200,000',
       hard: '$4,850,000',
@@ -478,7 +478,7 @@ export const GTA6_HEISTS_ES: Gta6Heist[] = [
     badgeIcon: 'fa-building-columns',
     categoryLabel: 'Asalto Blindado',
     players: '2 Jugadores',
-    thumbnail: 'assets/data-images/businesses/WarehouseInterior-GTAO.png',
+    thumbnail: 'assets/data-images/gta5/businesses/WarehouseInterior-GTAO.png',
     potentialTake: {
       normal: '$2,800,000',
       hard: '$3,200,000',
@@ -505,7 +505,7 @@ export const GTA6_HEISTS_EN: Gta6Heist[] = [
     badgeIcon: 'fa-sack-dollar',
     categoryLabel: 'Grand Scale Heist',
     players: '2-4 Players',
-    thumbnail: 'assets/data-images/businesses/Nightclubs-GTAO-Interior.png',
+    thumbnail: 'assets/data-images/gta5/businesses/Nightclubs-GTAO-Interior.png',
     potentialTake: {
       normal: '$4,200,000',
       hard: '$4,850,000',
@@ -529,7 +529,7 @@ export const GTA6_HEISTS_EN: Gta6Heist[] = [
     badgeIcon: 'fa-building-columns',
     categoryLabel: 'Armored Raid',
     players: '2 Players',
-    thumbnail: 'assets/data-images/businesses/WarehouseInterior-GTAO.png',
+    thumbnail: 'assets/data-images/gta5/businesses/WarehouseInterior-GTAO.png',
     potentialTake: {
       normal: '$2,800,000',
       hard: '$3,200,000',
@@ -561,7 +561,7 @@ export const GTA6_MYSTERIES_ES: Gta6Mystery[] = [
     schedule: '00:00 - 04:00 (Noche de Tormenta)',
     badgeColor: '#00cec9',
     badgeIcon: 'fa-ship',
-    thumbnail: 'assets/data-images/properties/SonarCollectionsDock-GTAV.png',
+    thumbnail: 'assets/data-images/gta5/properties/SonarCollectionsDock-GTAV.png',
     description: 'Restos de un galeón español del siglo XVII con extrañas emisiones electromagnéticas a 40 metros de profundidad.',
     descriptionSnippet: 'Restos de un galeón español del siglo XVII con extrañas emisiones electromagnéticas a 40 metros de profundidad.',
     fullStory: 'Explorando las fosas marinas entre los cayos del sur, los buceadores han reportado luces fosforescentes parpadeantes en el casco de madera carcomida.',
@@ -584,7 +584,7 @@ export const GTA6_MYSTERIES_ES: Gta6Mystery[] = [
     schedule: '02:00 - 05:00 (Niebla densa)',
     badgeColor: '#2ecc71',
     badgeIcon: 'fa-dragon',
-    thumbnail: 'assets/data-images/properties/Smoke-on-the-Water-Logo.png',
+    thumbnail: 'assets/data-images/gta5/properties/Smoke-on-the-Water-Logo.png',
     description: 'Avistamiento nocturno de un caimán de proporciones colosales con marcas tribales en las escamas.',
     descriptionSnippet: 'Avistamiento nocturno de un caimán de proporciones colosales con marcas tribales en las escamas.',
     fullStory: 'Las leyendas locales de los tramperos de Leonida hablan de una criatura ancestral que habita el corazón inaccesible del pantano.',
@@ -607,7 +607,7 @@ export const GTA6_MYSTERIES_ES: Gta6Mystery[] = [
     schedule: 'Siempre Activo',
     badgeColor: '#ff4fe0',
     badgeIcon: 'fa-satellite-dish',
-    thumbnail: 'assets/data-images/properties/MazeBankWest-GTAO.png',
+    thumbnail: 'assets/data-images/gta5/properties/MazeBankWest-GTAO.png',
     description: 'Antena de telecomunicaciones en la azotea de un rascacielos que intercepta transmisiones gubernamentales cifradas.',
     descriptionSnippet: 'Antena de telecomunicaciones en la azotea que intercepta transmisiones gubernamentales cifradas.',
     fullStory: 'Documentos filtrados de la FIB sugieren un programa de vigilancia masiva sobre toda la península de Leonida.',
@@ -633,7 +633,7 @@ export const GTA6_MYSTERIES_EN: Gta6Mystery[] = [
     schedule: '00:00 - 04:00 (Stormy Weather)',
     badgeColor: '#00cec9',
     badgeIcon: 'fa-ship',
-    thumbnail: 'assets/data-images/properties/SonarCollectionsDock-GTAV.png',
+    thumbnail: 'assets/data-images/gta5/properties/SonarCollectionsDock-GTAV.png',
     description: 'Remains of a 17th-century Spanish galleon emitting electromagnetic pulses 40 meters underwater.',
     descriptionSnippet: 'Remains of a 17th-century Spanish galleon emitting electromagnetic pulses 40 meters underwater.',
     fullStory: 'Divers exploring southern deep ocean trenches have documented flickering bioluminescent signals inside the ancient sunken hull.',
@@ -656,7 +656,7 @@ export const GTA6_MYSTERIES_EN: Gta6Mystery[] = [
     schedule: '02:00 - 05:00 (Heavy Fog)',
     badgeColor: '#2ecc71',
     badgeIcon: 'fa-dragon',
-    thumbnail: 'assets/data-images/properties/Smoke-on-the-Water-Logo.png',
+    thumbnail: 'assets/data-images/gta5/properties/Smoke-on-the-Water-Logo.png',
     description: 'Nighttime sightings of a giant prehistoric alligator with mysterious markings along its armor.',
     descriptionSnippet: 'Nighttime sightings of a giant prehistoric alligator with mysterious markings along its armor.',
     fullStory: 'Local folklore among Leonida swamp trappers warns of an ancient apex predator deep in the unreachable mangroves.',
@@ -679,7 +679,7 @@ export const GTA6_MYSTERIES_EN: Gta6Mystery[] = [
     schedule: 'Always Active',
     badgeColor: '#ff4fe0',
     badgeIcon: 'fa-satellite-dish',
-    thumbnail: 'assets/data-images/properties/MazeBankWest-GTAO.png',
+    thumbnail: 'assets/data-images/gta5/properties/MazeBankWest-GTAO.png',
     description: 'Rooftop telecommunications antenna intercepting encrypted government transmissions.',
     descriptionSnippet: 'Rooftop antenna intercepting encrypted government transmissions.',
     fullStory: 'Leaked FIB documents suggest a mass surveillance program across the entire Leonida peninsula.',
@@ -709,7 +709,7 @@ export const GTA6_WEAPONS_ES: Gta6Weapon[] = [
     accuracy: 78,
     range: 45,
     clipSize: 17,
-    imageUrl: 'assets/data-images/weapons/combat_pistol.png',
+    imageUrl: 'assets/data-images/gta5/weapons/combat_pistol.png',
     description: 'Arma corta reglamentaria con corredera aligerada, empuñadura ergonómica y riel inferior táctico.'
   },
   {
@@ -726,7 +726,7 @@ export const GTA6_WEAPONS_ES: Gta6Weapon[] = [
     accuracy: 82,
     range: 75,
     clipSize: 30,
-    imageUrl: 'assets/data-images/weapons/carbine_rifle.png',
+    imageUrl: 'assets/data-images/gta5/weapons/carbine_rifle.png',
     description: 'Plataforma táctica moderna con culata telescópica, guardamanos M-LOK y raíles Picatinny para miras ópticas.'
   },
   {
@@ -743,7 +743,7 @@ export const GTA6_WEAPONS_ES: Gta6Weapon[] = [
     accuracy: 40,
     range: 30,
     clipSize: 8,
-    imageUrl: 'assets/data-images/weapons/combat_shotgun.png',
+    imageUrl: 'assets/data-images/gta5/weapons/combat_shotgun.png',
     description: 'Tratamiento anticorrosión en níquel marino para operaciones tácticas en pantanos, manglares y alta mar.'
   },
   {
@@ -760,7 +760,7 @@ export const GTA6_WEAPONS_ES: Gta6Weapon[] = [
     accuracy: 70,
     range: 50,
     clipSize: 32,
-    imageUrl: 'assets/data-images/weapons/gusenberg_sweeper.png',
+    imageUrl: 'assets/data-images/gta5/weapons/gusenberg_sweeper.png',
     description: 'Cadencia de fuego implacable en combate a corta distancia y retroceso compensado para tiroteos urbanos.'
   },
   {
@@ -777,7 +777,7 @@ export const GTA6_WEAPONS_ES: Gta6Weapon[] = [
     accuracy: 99,
     range: 100,
     clipSize: 6,
-    imageUrl: 'assets/data-images/weapons/heavy_sniper.png',
+    imageUrl: 'assets/data-images/gta5/weapons/heavy_sniper.png',
     description: 'Potencia balística extrema capaz de perforar blindajes pesados e inutilizar motores a larga distancia.'
   }
 ];
@@ -797,7 +797,7 @@ export const GTA6_WEAPONS_EN: Gta6Weapon[] = [
     accuracy: 78,
     range: 45,
     clipSize: 17,
-    imageUrl: 'assets/data-images/weapons/combat_pistol.png',
+    imageUrl: 'assets/data-images/gta5/weapons/combat_pistol.png',
     description: 'Standard-issue compact handgun with lightened slide, ergonomic polymer grip and tactical under-rail.'
   },
   {
@@ -814,7 +814,7 @@ export const GTA6_WEAPONS_EN: Gta6Weapon[] = [
     accuracy: 82,
     range: 75,
     clipSize: 30,
-    imageUrl: 'assets/data-images/weapons/carbine_rifle.png',
+    imageUrl: 'assets/data-images/gta5/weapons/carbine_rifle.png',
     description: 'Modern tactical platform featuring telescopic stock, M-LOK handguard and full Picatinny rail optics.'
   },
   {
@@ -831,7 +831,7 @@ export const GTA6_WEAPONS_EN: Gta6Weapon[] = [
     accuracy: 40,
     range: 30,
     clipSize: 8,
-    imageUrl: 'assets/data-images/weapons/combat_shotgun.png',
+    imageUrl: 'assets/data-images/gta5/weapons/combat_shotgun.png',
     description: 'Anti-corrosive marine nickel coating engineered for swampland, mangroves and open sea operations.'
   },
   {
@@ -848,7 +848,7 @@ export const GTA6_WEAPONS_EN: Gta6Weapon[] = [
     accuracy: 70,
     range: 50,
     clipSize: 32,
-    imageUrl: 'assets/data-images/weapons/gusenberg_sweeper.png',
+    imageUrl: 'assets/data-images/gta5/weapons/gusenberg_sweeper.png',
     description: 'Blistering fire rate in close-quarters skirmishes with built-in muzzle compensation.'
   },
   {
@@ -865,7 +865,7 @@ export const GTA6_WEAPONS_EN: Gta6Weapon[] = [
     accuracy: 99,
     range: 100,
     clipSize: 6,
-    imageUrl: 'assets/data-images/weapons/heavy_sniper.png',
+    imageUrl: 'assets/data-images/gta5/weapons/heavy_sniper.png',
     description: 'Devastating anti-material rifle designed to pierce heavy ballistic plating and disable vehicle engines.'
   }
 ];

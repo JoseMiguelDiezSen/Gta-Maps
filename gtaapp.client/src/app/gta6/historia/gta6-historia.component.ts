@@ -226,7 +226,7 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
                 {
                     id: 'Grid',
                     label: this.translationService.currentLang === 'es' ? 'Plataforma Táctica (Próximamente)' : 'Tactical Grid (Coming Soon)',
-                    file: '/assets/gta6/tactical-grid.svg',
+                    file: '/assets/mapas/gta6/tactical-grid.svg',
                     w: 2400,
                     h: 1350
                 }

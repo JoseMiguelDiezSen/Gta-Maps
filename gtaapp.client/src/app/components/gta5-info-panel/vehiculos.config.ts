@@ -16,7 +16,7 @@ export const CONCESIONARIOS_GTA5: DealerCategory[] = [
     id: 'legendarymotorsport',
     name: 'Legendary Motorsport',
     icon: 'fa-star',
-    logoUrl: 'assets/data-images/vehicle_shops/LegendaryMotorsport-GTAV-Logo.png',
+    logoUrl: 'assets/data-images/gta5/vehicle_shops/LegendaryMotorsport-GTAV-Logo.png',
     color: '#ffb833',
     gameMode: 'both',
     description: 'Superdeportivos, exóticos de competición y vehículos de hiperlujo.'
@@ -25,7 +25,7 @@ export const CONCESIONARIOS_GTA5: DealerCategory[] = [
     id: 'superautos',
     name: 'Southern San Andreas',
     icon: 'fa-car',
-    logoUrl: 'assets/data-images/vehicle_shops/SSASA-Logo_2.png',
+    logoUrl: 'assets/data-images/gta5/vehicle_shops/SSASA-Logo_2.png',
     color: '#3498db',
     gameMode: 'both',
     description: 'Muscle cars, compactos, sedanes, SUVs, todoterrenos y motos.'
@@ -34,7 +34,7 @@ export const CONCESIONARIOS_GTA5: DealerCategory[] = [
     id: 'bennys',
     name: "Benny's Original MW",
     icon: 'fa-wrench',
-    logoUrl: 'assets/data-images/vehicle_shops/BennysOriginalMotorWorks-GTAO-Logo.png',
+    logoUrl: 'assets/data-images/gta5/vehicle_shops/BennysOriginalMotorWorks-GTAO-Logo.png',
     color: '#e67e22',
     gameMode: 'online',
     description: 'Taller de personalización radical, lowriders y conversiones tuners.'
