@@ -256,30 +256,35 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
 
       if (line.startsWith('### ')) {
         const rawText = line.substring(4).trim();
-        const heading = this.formatInline(rawText);
+        // Quitar emojis para mantener una estética limpia y profesional
+        const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
+        const heading = this.formatInline(noEmoji);
         const secId = `sec-${sectionCounter++}`;
-        const cleanText = rawText.replace(/\*\*/g, '').replace(/`/g, '');
+        const cleanText = noEmoji.replace(/\*\*/g, '').replace(/`/g, '');
         toc.push({ id: secId, text: cleanText });
-        out.push(`<h3 class="guide-h3" id="${secId}"><span class="guide-h3-accent"></span>${heading}</h3>`);
-      } else if (line.startsWith('## ')) {
-        const heading = this.formatInline(line.substring(3));
-        out.push(`<h2 class="guide-h2">${heading}</h2>`);
-      } else if (line.startsWith('> ')) {
-        const calloutText = this.formatInline(line.substring(2));
         out.push(`
-          <div class="guide-callout">
-            <div class="guide-callout-icon">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-            </div>
-            <div class="guide-callout-body">${calloutText}</div>
+          <div class="guide-heading-divider" id="${secId}">
+            <div class="guide-heading-line"></div>
+            <h3 class="guide-heading-title">${heading}</h3>
+            <div class="guide-heading-line guide-heading-line--right"></div>
           </div>
         `);
+      } else if (line.startsWith('## ')) {
+        const rawText = line.substring(3).trim();
+        const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
+        const heading = this.formatInline(noEmoji);
+        out.push(`<h2 class="guide-h2">${heading}</h2>`);
+      } else if (line.startsWith('> ')) {
+        // Tarjetas y callouts prohibidos: se integran limpiamente como un punto más
+        if (!inList) {
+          out.push('<ul class="guide-list">');
+          inList = true;
+        }
+        const text = this.formatInline(line.substring(2).trim());
+        out.push(`<li class="guide-list-item"><span class="guide-list-bullet">›</span><span class="guide-list-text">${text}</span></li>`);
       } else if (line.trim() === '---') {
-        out.push('<hr class="guide-divider-line" />');
+        // Los separadores de título con barras ya estructuran el contenido
+        continue;
       } else if (isBullet) {
         if (!inList) {
           out.push('<ul class="guide-list">');

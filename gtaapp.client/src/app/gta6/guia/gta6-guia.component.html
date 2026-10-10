@@ -151,29 +151,11 @@
             </span>
           </div>
 
-          <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
-          <p class="article-lead">{{ selectedArticulo.subtitulo }}</p>
-
-
-          <!-- Índice Dinámico Rápido del Capítulo (TOC) -->
-          <div class="article-toc-box" *ngIf="articleToc.length > 1">
-            <div class="toc-header">
-              <span class="toc-icon">📑</span>
-              <span class="toc-title">En este archivo:</span>
-            </div>
-            <div class="toc-chips-list">
-              <button
-                type="button"
-                *ngFor="let item of articleToc"
-                class="toc-chip-btn"
-                (click)="scrollToSection(item.id)"
-              >
-                <span>{{ item.text }}</span>
-              </button>
-            </div>
+          <!-- Panel estilizado del capítulo: Título y Subtítulo integrados -->
+          <div class="article-chapter-banner">
+            <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
+            <p class="article-lead" *ngIf="selectedArticulo.subtitulo">{{ selectedArticulo.subtitulo }}</p>
           </div>
-
-          <div class="article-header-divider"></div>
         </header>
 
         <!-- Contenido Formateado Editorialmente -->
@@ -210,41 +192,21 @@
             <span class="pagination-arrow">→</span>
           </button>
         </nav>
-
-        <!-- Capítulos Relacionados -->
-        <footer *ngIf="selectedArticulo.relacionados && selectedArticulo.relacionados.length" class="article-footer">
-          <div class="related-header">
-            <span class="related-tag">CONTINUAR LEYENDO</span>
-            <h4 class="related-section-title">Capítulos y Archivos Relacionados</h4>
-          </div>
-          <div class="related-cards-grid">
-            <div
-              *ngFor="let rel of selectedArticulo.relacionados"
-              class="related-card"
-              (click)="seleccionarArticulo(rel.id)"
-            >
-              <div class="related-card-content">
-                <span class="related-card-title">{{ rel.titulo }}</span>
-              </div>
-              <span class="related-card-arrow">Leer archivo →</span>
-            </div>
-          </div>
-        </footer>
-
-        <!-- Banner contextual: Enlace al Mapa Interactivo de Vice City (Abajo del todo separado) -->
-        <div class="article-map-prompt">
-          <div class="map-prompt-text">
-            <h4 class="map-prompt-title">¿Quieres explorar el mapa de Vice City?</h4>
-            <p class="map-prompt-sub">Consulta las ubicaciones geográficas, carreteras y distritos del Estado de Leonida.</p>
-          </div>
-          <a routerLink="/gta6-historia" class="map-prompt-btn">
-            <span>Abrir Mapa</span>
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
       </article>
+
+      <!-- Banner contextual: Enlace al Mapa Interactivo de Vice City (Fuera del panel de la guía) -->
+      <div class="article-map-prompt" *ngIf="!isLoadingArticulo && selectedArticulo">
+        <div class="map-prompt-text">
+          <h4 class="map-prompt-title">¿Quieres explorar el mapa de Vice City?</h4>
+          <p class="map-prompt-sub">Consulta las ubicaciones geográficas, carreteras y distritos del Estado de Leonida.</p>
+        </div>
+        <a routerLink="/gta6-historia" class="map-prompt-btn">
+          <span>Abrir Mapa</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
     </main>
   </div>
 

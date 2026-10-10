@@ -527,10 +527,10 @@
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
 
       <!-- En Modo Historia: catálogo de misiones de la campaña offline -->
-      <div class="missions-tab-container" *ngIf="gameMode === 'story'">
+      <div class="vgrid-view-container" *ngIf="gameMode === 'story'">
 
         <!-- Barra de Búsqueda y Filtro Rápido -->
-        <div class="missions-toolbar">
+        <div class="dealer-vehicles-toolbar">
           <div class="missions-search-box">
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
             <input
@@ -548,87 +548,6 @@
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
-          </div>
-
-          <!-- Filtro de protagonistas -->
-          <div class="missions-filter-chips">
-            <button
-              type="button"
-              class="chip-btn"
-              [class.is-active]="selectedCharacterFilter === 'all'"
-              (click)="setCharacterFilter('all')"
-            >
-              <span>{{ 'transports.missions.all' | translate }}</span>
-              <span class="chip-count">{{ getCharacterMissionCount('all') }}</span>
-            </button>
-
-            <!-- GTA 5 Story Protagonists -->
-            <ng-container *ngIf="game !== 'gta6'">
-              <button
-                type="button"
-                class="chip-btn chip-franklin"
-                [class.is-active]="selectedCharacterFilter === 'franklin'"
-                (click)="setCharacterFilter('franklin')"
-              >
-                <i class="fa-solid fa-circle chip-dot dot-franklin"></i>
-                <span>Franklin</span>
-                <span class="chip-count">{{ getCharacterMissionCount('franklin') }}</span>
-              </button>
-              <button
-                type="button"
-                class="chip-btn chip-michael"
-                [class.is-active]="selectedCharacterFilter === 'michael'"
-                (click)="setCharacterFilter('michael')"
-              >
-                <i class="fa-solid fa-circle chip-dot dot-michael"></i>
-                <span>Michael</span>
-                <span class="chip-count">{{ getCharacterMissionCount('michael') }}</span>
-              </button>
-              <button
-                type="button"
-                class="chip-btn chip-trevor"
-                [class.is-active]="selectedCharacterFilter === 'trevor'"
-                (click)="setCharacterFilter('trevor')"
-              >
-                <i class="fa-solid fa-circle chip-dot dot-trevor"></i>
-                <span>Trevor</span>
-                <span class="chip-count">{{ getCharacterMissionCount('trevor') }}</span>
-              </button>
-              <button
-                type="button"
-                class="chip-btn chip-heists"
-                [class.is-active]="selectedCharacterFilter === 'heists'"
-                (click)="setCharacterFilter('heists')"
-              >
-                <i class="fa-solid fa-sack-dollar chip-icon-gold"></i>
-                <span>{{ 'transports.missions.heists' | translate }}</span>
-                <span class="chip-count">{{ getCharacterMissionCount('heists') }}</span>
-              </button>
-            </ng-container>
-
-            <!-- GTA 6 Story Protagonists -->
-            <ng-container *ngIf="game === 'gta6'">
-              <button
-                type="button"
-                class="chip-btn chip-lucia"
-                [class.is-active]="selectedCharacterFilter === 'lucia'"
-                (click)="setCharacterFilter('lucia')"
-              >
-                <i class="fa-solid fa-circle chip-dot dot-lucia"></i>
-                <span>Lucia</span>
-                <span class="chip-count">{{ getCharacterMissionCount('lucia') }}</span>
-              </button>
-              <button
-                type="button"
-                class="chip-btn chip-jason"
-                [class.is-active]="selectedCharacterFilter === 'jason'"
-                (click)="setCharacterFilter('jason')"
-              >
-                <i class="fa-solid fa-circle chip-dot dot-jason"></i>
-                <span>Jason</span>
-                <span class="chip-count">{{ getCharacterMissionCount('jason') }}</span>
-              </button>
-            </ng-container>
           </div>
         </div>
 
@@ -654,7 +573,7 @@
         </div>
 
         <!-- Área de scroll unificada con separador y lista -->
-        <div class="missions-scroll-area" *ngIf="!missionsLoading && !missionsError && filteredStoryMissions.length > 0">
+        <div class="vgrid-scroll-area" *ngIf="!missionsLoading && !missionsError && filteredStoryMissions.length > 0">
           <!-- Separador Misiones -->
           <div class="dealer-section-divider">
             <div class="dealer-section-divider-line"></div>
@@ -701,10 +620,10 @@
       </div>
 
       <!-- En Modo Online: catálogo de misiones de contacto y operaciones de GTA Online -->
-      <div class="missions-tab-container" *ngIf="gameMode === 'online'">
+      <div class="vgrid-view-container" *ngIf="gameMode === 'online'">
 
         <!-- Barra de Búsqueda y Filtros de Contactos -->
-        <div class="missions-toolbar">
+        <div class="dealer-vehicles-toolbar">
           <div class="missions-search-box">
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
             <input
@@ -722,37 +641,6 @@
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
-          </div>
-
-          <!-- Selectores Desplegables Lado a Lado: Categorías y Personajes -->
-          <div class="missions-dropdowns-row">
-            <div class="strangers-series-select-wrap">
-              <select
-                class="strangers-series-select"
-                [(ngModel)]="selectedOnlineCategoryFilter"
-                (ngModelChange)="setOnlineCategoryFilter($event)"
-              >
-                <option value="all">⭐ {{ 'transports.missions.allCategories' | translate }} ({{ onlineMissions.length }})</option>
-                <option *ngFor="let cat of onlineCategories" [value]="cat">
-                  {{ cat }}
-                </option>
-              </select>
-            </div>
-
-            <div class="strangers-series-select-wrap">
-              <select
-                class="strangers-series-select"
-                [(ngModel)]="selectedOnlineContactFilter"
-                (ngModelChange)="setOnlineContactFilter($event)"
-              >
-                <option value="all">👥 {{ 'transports.missions.allCharacters' | translate }} ({{ onlineMissions.length }})</option>
-                <ng-container *ngFor="let contact of onlineContactsList">
-                  <option *ngIf="contact.id !== 'all'" [value]="contact.id">
-                    {{ contact.name }} ({{ contact.count }})
-                  </option>
-                </ng-container>
-              </select>
-            </div>
           </div>
         </div>
 
@@ -778,7 +666,7 @@
         </div>
 
         <!-- Área de scroll unificada con separador y lista -->
-        <div class="missions-scroll-area" *ngIf="!onlineMissionsLoading && !onlineMissionsError && filteredOnlineMissions.length > 0">
+        <div class="vgrid-scroll-area" *ngIf="!onlineMissionsLoading && !onlineMissionsError && filteredOnlineMissions.length > 0">
           <!-- Separador Misiones -->
           <div class="dealer-section-divider">
             <div class="dealer-section-divider-line"></div>
@@ -955,10 +843,10 @@
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'strangers'">
 
       <!-- En Modo Historia: catálogo de extraños y locos -->
-      <div class="strangers-tab-container" *ngIf="gameMode === 'story'">
+      <div class="vgrid-view-container" *ngIf="gameMode === 'story'">
 
         <!-- Toolbar: Búsqueda, Filtros y Selector de Series -->
-        <div class="strangers-toolbar">
+        <div class="dealer-vehicles-toolbar">
 
           <!-- Buscador -->
           <div class="strangers-search-box">
@@ -980,39 +868,10 @@
             </button>
           </div>
 
-          <!-- Selectores Desplegables Lado a Lado: Protagonistas y Series -->
-          <div class="missions-dropdowns-row">
-            <div class="strangers-series-select-wrap">
-              <select
-                class="strangers-series-select"
-                [(ngModel)]="selectedStrangerCharacterFilter"
-                (ngModelChange)="setStrangerCharacterFilter($event)"
-              >
-                <option value="all">{{ 'transports.strangers.allCharacters' | translate }} ({{ strangerMissions.length }})</option>
-                <option value="franklin">Franklin ({{ getStrangerCharacterMissionCount('franklin') }})</option>
-                <option value="michael">Michael ({{ getStrangerCharacterMissionCount('michael') }})</option>
-                <option value="trevor">Trevor ({{ getStrangerCharacterMissionCount('trevor') }})</option>
-                <option value="100">{{ 'transports.strangers.only100' | translate }} ({{ getStranger100MissionCount() }})</option>
-              </select>
-            </div>
-
-            <div class="strangers-series-select-wrap">
-              <select
-                class="strangers-series-select"
-                [(ngModel)]="selectedStrangerSeriesFilter"
-              >
-                <option value="all">{{ 'transports.strangers.allSeries' | translate }} ({{ strangerMissions.length }})</option>
-                <option *ngFor="let s of strangerSeriesList" [value]="s.id">
-                  {{ s.name }} ({{ s.count }})
-                </option>
-              </select>
-            </div>
-          </div>
-
         </div>
 
         <!-- Contenedor scrolleable de Extraños y Locos -->
-        <div class="strangers-scroll-area">
+        <div class="vgrid-scroll-area">
 
           <!-- Estado de carga -->
           <div class="missions-state-loading" *ngIf="strangersLoading">

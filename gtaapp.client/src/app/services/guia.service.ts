@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../models/guia';
 
 @Injectable({
@@ -14,6 +14,9 @@ export class GuiaService {
    * Obtiene el manifiesto completo con secciones y listado de artículos para GTA 5 o GTA 6.
    */
   getManifest(juegoId: 'gta5' | 'gta6'): Observable<GuiaManifest> {
+    if (juegoId === 'gta5') {
+      return of(this.getFallbackManifest(juegoId));
+    }
     return this.http.get<GuiaManifest>(`/api/${juegoId}/guia/manifest`).pipe(
       catchError(() => of(this.getFallbackManifest(juegoId)))
     );
@@ -23,6 +26,9 @@ export class GuiaService {
    * Obtiene las secciones temáticas de la guía.
    */
   getSecciones(juegoId: 'gta5' | 'gta6'): Observable<GuiaSeccion[]> {
+    if (juegoId === 'gta5') {
+      return of(this.getFallbackManifest(juegoId).secciones);
+    }
     return this.http.get<GuiaSeccion[]>(`/api/${juegoId}/guia/secciones`).pipe(
       catchError(() => of(this.getFallbackManifest(juegoId).secciones))
     );
@@ -32,16 +38,32 @@ export class GuiaService {
    * Obtiene el contenido completo de un artículo por su ID o slug.
    */
   getArticulo(juegoId: 'gta5' | 'gta6', articuloId: string): Observable<GuiaArticulo> {
+    if (juegoId === 'gta5') {
+      return this.http.get<GuiaArticulo[]>('assets/data/gta5/guia/misiones-historia.json?t=' + new Date().getTime()).pipe(
+        map(misiones => {
+          const found = misiones.find(m => m.id === articuloId || m.slug === articuloId);
+          if (found) {
+            const siblings = misiones.filter(m => m.id !== found.id);
+            return {
+              ...found,
+              tags: ['Misión', 'Historia', 'GTA V', found.badge || 'Los Santos'],
+              relacionados: siblings.slice(0, 2).map(m => ({ id: m.id, titulo: m.titulo, slug: m.slug })),
+              ultimaActualizacion: new Date().toISOString()
+            } as GuiaArticulo;
+          }
+          return this.getFallbackArticulo(juegoId, articuloId);
+        }),
+        catchError(() => of(this.getFallbackArticulo(juegoId, articuloId)))
+      );
+    }
+    
     return this.http.get<GuiaArticulo>(`/api/${juegoId}/guia/articulos/${encodeURIComponent(articuloId)}`).pipe(
-      catchError(() => {
-        const art = this.getFallbackArticulo(juegoId, articuloId);
-        return of(art);
-      })
+      catchError(() => of(this.getFallbackArticulo(juegoId, articuloId)))
     );
   }
 
   /**
-   * Busca artículos en la guía correspondiente.
+   * Busca artículos en la guía
    */
   buscarArticulos(juegoId: 'gta5' | 'gta6', query: string): Observable<GuiaArticuloResumen[]> {
     const params = new HttpParams().set('q', query);
@@ -74,8 +96,86 @@ export class GuiaService {
         descripcion: 'Compendio interactivo de Los Santos y Blaine County: Modo Historia al 100%, Golpes, Bolsa e Inversiones, y Secretos.',
         bannerUrl: 'assets/home-bg.jpg',
         secciones: [
-          {
-            id: 'historia-100',
+            {
+              id: 'misiones-historia',
+              titulo: 'Misiones de la Historia',
+              icono: 'map',
+              descripcion: 'Guía detallada paso a paso de todas las misiones principales de GTA V.',
+              orden: 1,
+              articulos: [
+                { id: 'mision-01-prologo', slug: 'prologo', titulo: '01. Prólogo', subtitulo: 'Michael, Trevor y Brad · Ludendorff, North Yankton (2004)', categoria: 'misiones-historia', badge: 'North Yankton', tiempoLecturaMinutos: 5 },
+                { id: 'mision-02-franklin-y-lamar', slug: 'franklin-y-lamar', titulo: '02. Franklin y Lamar', subtitulo: 'Franklin Clinton · Del Perro & Richards Majestic', categoria: 'misiones-historia', badge: 'Franklin', tiempoLecturaMinutos: 6 },
+                { id: 'mision-03-embargo', slug: 'embargo', titulo: '03. Embargo (Repossession)', subtitulo: 'Franklin Clinton · Vespucci Beach & Callejón Vagos', categoria: 'misiones-historia', badge: 'Franklin', tiempoLecturaMinutos: 6 },
+                { id: 'mision-04-complicaciones', slug: 'complicaciones', titulo: '04. Complicaciones (Complications)', subtitulo: 'Franklin y Michael · Mansión de Rockford Hills', categoria: 'misiones-historia', badge: 'Michael & Franklin', tiempoLecturaMinutos: 6 },
+                { id: 'mision-05-chop', slug: 'chop', titulo: '05. Chop', subtitulo: 'Franklin Clinton · Strawberry & Vías del Ferrocarril', categoria: 'misiones-historia', badge: 'Franklin', tiempoLecturaMinutos: 6 },
+                { id: 'mision-06-padre-e-hijo', slug: 'padre-e-hijo', titulo: '06. Padre e hijo', subtitulo: 'Michael y Franklin · Pacific Bluffs & Los Santos Freeway', categoria: 'misiones-historia', badge: 'Michael & Franklin', tiempoLecturaMinutos: 6 },
+                { id: 'mision-07-asesoramiento-matrimonial', slug: 'asesoramiento-matrimonial', titulo: '07. Asesoramiento matrimonial', subtitulo: 'Michael y Franklin · Vinewood Hills', categoria: 'misiones-historia', badge: 'Michael & Franklin', tiempoLecturaMinutos: 7 },
+                { id: 'mision-08-nina-de-papa', slug: 'nina-de-papa', titulo: '08. La niña de papá', subtitulo: 'Michael De Santa · Vespucci Beach & Puertos', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 6 },
+                { id: 'mision-09-solicitud-de-amistad', slug: 'solicitud-de-amistad', titulo: '09. Solicitud de amistad', subtitulo: 'Michael De Santa · Oficinas de Lifeinvader', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 8 },
+                { id: 'mision-10-el-largo-trecho', slug: 'el-largo-trecho', titulo: '10. El largo trecho', subtitulo: 'Franklin Clinton · Ammu-Nation & Rogers Salvage', categoria: 'misiones-historia', badge: 'Franklin', tiempoLecturaMinutos: 10 },
+                { id: 'mision-11-caso-joyero', slug: 'caso-joyero', titulo: '11. Caso joyero', subtitulo: 'Michael De Santa · Rockford Hills', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 7 },
+                { id: 'mision-12-equipo-bugstars', slug: 'equipo-bugstars', titulo: '12. Equipo de Bugstars', subtitulo: 'Michael De Santa · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
+                { id: 'mision-13-granadas-gas-bz', slug: 'granadas-gas-bz', titulo: '13. Granadas de gas BZ', subtitulo: 'Michael De Santa · Aeropuerto Internacional (LSIA)', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-14-golpe-joyeria', slug: 'golpe-joyeria', titulo: '14. El golpe a la joyería', subtitulo: 'Michael y Franklin · Rockford Hills', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
+                { id: 'mision-15-senor-philips', slug: 'senor-philips', titulo: '15. El señor Philips', subtitulo: 'Trevor Philips · Sandy Shores & Grapeseed', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 10 },
+                { id: 'mision-16-trevor-philips-industries', slug: 'trevor-philips-industries', titulo: '16. Industrias Trevor Philips', subtitulo: 'Trevor Philips · Yellow Jack Inn', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 8 },
+                { id: 'mision-17-ron-el-nervioso', slug: 'ron-el-nervioso', titulo: '17. Ron el nervioso', subtitulo: 'Trevor Philips · Sandy Shores', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 10 },
+                { id: 'mision-18-laberinto-de-cristal', slug: 'laberinto-de-cristal', titulo: '18. Laberinto de cristal', subtitulo: 'Trevor Philips · Granja O\'Neil', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 7 },
+                { id: 'mision-19-reencuentro', slug: 'reencuentro', titulo: '19. Reencuentro', subtitulo: 'Trevor Philips · Los Santos', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 6 },
+                { id: 'mision-20-fama-o-drama', slug: 'fama-o-drama', titulo: '20. Fama o drama', subtitulo: 'Michael y Trevor · Maze Bank Arena', categoria: 'misiones-historia', badge: 'Michael & Trevor', tiempoLecturaMinutos: 8 },
+                { id: 'mision-21-muerto-en-vida', slug: 'muerto-en-vida', titulo: '21. Muerto en vida', subtitulo: 'Michael De Santa · Centro Médico de LS', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 8 },
+                { id: 'mision-22-tres-son-multitud', slug: 'tres-son-multitud', titulo: '22. Tres son multitud', subtitulo: 'Michael, Franklin y Trevor · Edificio IAA', categoria: 'misiones-historia', badge: 'FIB', tiempoLecturaMinutos: 10 },
+                { id: 'mision-23-de-libro', slug: 'de-libro', titulo: '23. De libro', subtitulo: 'Trevor y Michael · Murrieta Oil Field / Rockford Hills', categoria: 'misiones-historia', badge: 'FIB', tiempoLecturaMinutos: 9 },
+                { id: 'mision-24-safari-por-el-barrio', slug: 'safari-por-el-barrio', titulo: '24. Safari por el barrio', subtitulo: 'Franklin y Trevor · Grove Street (Davis)', categoria: 'misiones-historia', badge: 'Franklin & Trevor', tiempoLecturaMinutos: 10 },
+                { id: 'mision-25-alguien-dijo-yoga', slug: 'alguien-dijo-yoga', titulo: '25. ¿Alguien dijo yoga?', subtitulo: 'Michael De Santa · Rockford Hills', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 12 },
+                { id: 'mision-26-reconocimiento-del-puerto', slug: 'reconocimiento-del-puerto', titulo: '26. Reconocimiento del puerto', subtitulo: 'Trevor Philips · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 10 },
+                { id: 'mision-27-minisubmarino', slug: 'minisubmarino', titulo: '27. Minisubmarino', subtitulo: 'Trevor Philips · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-28-cargobob', slug: 'cargobob', titulo: '28. Cargobob', subtitulo: 'Trevor Philips · Base Militar Fort Zancudo', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 6 },
+                { id: 'mision-29-golpe-a-merryweather', slug: 'golpe-a-merryweather', titulo: '29. El golpe a Merryweather', subtitulo: 'Michael, Franklin y Trevor · Alta Mar / Puerto', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
+                { id: 'mision-30-camion-de-basura', slug: 'camion-de-basura', titulo: '30. Camión de la basura', subtitulo: 'Cualquier protagonista · Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
+                { id: 'mision-31-grua', slug: 'grua', titulo: '31. Grúa', subtitulo: 'Cualquier protagonista · Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
+                { id: 'mision-32-el-buzo', slug: 'el-buzo', titulo: '32. El buzo (Blitz Play)', subtitulo: 'Michael, Franklin y Trevor · Cypress Flats', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
+                { id: 'mision-33-el-senor-richards', slug: 'el-senor-richards', titulo: '33. El señor Richards', subtitulo: 'Michael De Santa · Vinewood (Estudios Richards)', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 8 },
+                { id: 'mision-34-enfrentamiento-con-la-ley', slug: 'enfrentamiento-con-la-ley', titulo: '34. Enfrentamiento con la ley...', subtitulo: 'Franklin, Michael y Trevor · Del Perro Freeway', categoria: 'misiones-historia', badge: 'Devin Weston', tiempoLecturaMinutos: 10 },
+                { id: 'mision-35-el-ojo-en-el-cielo', slug: 'el-ojo-en-el-cielo', titulo: '35. El ojo en el cielo', subtitulo: 'Trevor y Franklin · LSPD Central', categoria: 'misiones-historia', badge: 'Trevor & Franklin', tiempoLecturaMinutos: 9 },
+                { id: 'mision-36-caida-libre', slug: 'caida-libre', titulo: '36. Caída libre', subtitulo: 'Michael y Trevor · Observatorio Galileo', categoria: 'misiones-historia', badge: 'Martín Madrazo', tiempoLecturaMinutos: 10 },
+                { id: 'mision-37-en-el-fondo-del-mar', slug: 'en-el-fondo-del-mar', titulo: '37. En el fondo del mar', subtitulo: 'Franklin Clinton · Richards Majestic', categoria: 'misiones-historia', badge: 'Devin Weston', tiempoLecturaMinutos: 8 },
+                { id: 'mision-38-pasajero-clandestino', slug: 'pasajero-clandestino', titulo: '38. Pasajero clandestino', subtitulo: 'Trevor Philips · Aeródromo de Grapeseed', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 12 },
+                { id: 'mision-39-el-bloqueo', slug: 'el-bloqueo', titulo: '39. El bloqueo', subtitulo: 'Michael y Trevor · Paleto Bay', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 10 },
+                { id: 'mision-40-depredador', slug: 'depredador', titulo: '40. Depredador', subtitulo: 'Trevor, Michael y Franklin · Bosque de Paleto', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 12 },
+                { id: 'mision-41-material-militar', slug: 'material-militar', titulo: '41. Material militar', subtitulo: 'Cualquier protagonista · Autopista de Paleto Bay', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 6 },
+                { id: 'mision-42-golpe-de-paleto', slug: 'golpe-de-paleto', titulo: '42. El golpe de Paleto', subtitulo: 'Michael, Trevor y Franklin · Banco de Paleto', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 15 },
+                { id: 'mision-43-descarrilado', slug: 'descarrilado', titulo: '43. Descarrilado', subtitulo: 'Trevor y Michael · Sandy Shores / Río Zancudo', categoria: 'misiones-historia', badge: 'Trevor & Michael', tiempoLecturaMinutos: 10 },
+                { id: 'mision-44-el-mono-se-la-gana', slug: 'el-mono-se-la-gana', titulo: '44. El mono se la gana (Monkey Business)', subtitulo: 'Michael, Franklin y Trevor · Humane Labs', categoria: 'misiones-historia', badge: 'FIB', tiempoLecturaMinutos: 12 },
+                { id: 'mision-45-hang-ten', slug: 'hang-ten', titulo: '45. Hang Ten', subtitulo: 'Trevor Philips · Vanilla Unicorn (Strawberry)', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 4 },
+                { id: 'mision-46-investigando-el-golpe', slug: 'investigando-el-golpe', titulo: '46. Investigando el golpe', subtitulo: 'Michael, Franklin y Trevor · Union Depository', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 10 },
+                { id: 'mision-47-enterrando-el-hacha', slug: 'enterrando-el-hacha', titulo: '47. Enterrando el hacha de guerra', subtitulo: 'Michael y Trevor · North Yankton', categoria: 'misiones-historia', badge: 'Michael & Trevor', tiempoLecturaMinutos: 10 },
+                { id: 'mision-48-secuestrador', slug: 'secuestrador', titulo: '48. Secuestrador (Pack Man)', subtitulo: 'Franklin y Trevor · Gran Señora Freeway', categoria: 'misiones-historia', badge: 'Devin Weston', tiempoLecturaMinutos: 12 },
+                { id: 'mision-49-carne-fresca', slug: 'carne-fresca', titulo: '49. Carne fresca', subtitulo: 'Franklin y Michael · Matadero (Cypress Flats)', categoria: 'misiones-historia', badge: 'Franklin', tiempoLecturaMinutos: 10 },
+                { id: 'mision-50-la-balada-de-rocco', slug: 'la-balada-de-rocco', titulo: '50. La balada de Rocco', subtitulo: 'Michael De Santa · Estudios Richards', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 4 },
+                { id: 'mision-51-limpiando-el-fib', slug: 'limpiando-el-fib', titulo: '51. Limpiando el FIB', subtitulo: 'Michael De Santa · Sede del FIB', categoria: 'misiones-historia', badge: 'Lester', tiempoLecturaMinutos: 7 },
+                { id: 'mision-52-reuniendo-a-la-familia', slug: 'reuniendo-a-la-familia', titulo: '52. Reuniendo a la familia', subtitulo: 'Michael De Santa · Los Santos', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 6 },
+                { id: 'mision-53-arquitecto-para-todo', slug: 'arquitecto-para-todo', titulo: '53. Arquitecto para todo', subtitulo: 'Franklin Clinton · Obras de Pillbox Hill', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-54-problemas-legales', slug: 'problemas-legales', titulo: '54. Problemas legales', subtitulo: 'Michael De Santa · Aeropuerto de Los Santos', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 8 },
+                { id: 'mision-55-asalto-al-fib', slug: 'asalto-al-fib', titulo: '55. Asalto al FIB', subtitulo: 'Michael y Franklin · Torre del FIB', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 16 },
+                { id: 'mision-56-el-enredo', slug: 'el-enredo', titulo: '56. El enredo (The Wrap Up)', subtitulo: 'Michael y Trevor · Centro Kortz', categoria: 'misiones-historia', badge: 'FIB', tiempoLecturaMinutos: 12 },
+                { id: 'mision-57-lamar-de-problemas', slug: 'lamar-de-problemas', titulo: '57. Lamar de problemas', subtitulo: 'Franklin, Michael y Trevor · Aserradero de Paleto', categoria: 'misiones-historia', badge: 'Franklin', tiempoLecturaMinutos: 14 },
+                { id: 'mision-58-cataclismo', slug: 'cataclismo', titulo: '58. Cataclismo (Meltdown)', subtitulo: 'Michael De Santa · Vinewood Boulevard', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 10 },
+                { id: 'mision-59-perforadoras', slug: 'perforadoras', titulo: '59. Perforadoras (Drillers)', subtitulo: 'Cualquier protagonista · La Mesa', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-60-via-muerta', slug: 'via-muerta', titulo: '60. Vía muerta (Sidetracked)', subtitulo: 'Cualquier protagonista · Vías del tren de Davis', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-61-el-gran-golpe', slug: 'el-gran-golpe', titulo: '61. El gran golpe (The Big Score)', subtitulo: 'Todos los protagonistas · Union Depository', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 15 },
+                { id: 'mision-62-el-asesinato-del-hotel', slug: 'el-asesinato-del-hotel', titulo: '62. El asesinato del hotel', subtitulo: 'Franklin Clinton · Von Crastenburg Hotel', categoria: 'misiones-historia', badge: 'Lester', tiempoLecturaMinutos: 6 },
+                { id: 'mision-63-el-asesinato-multiple', slug: 'el-asesinato-multiple', titulo: '63. El asesinato múltiple', subtitulo: 'Franklin Clinton · Varias ubicaciones (Los Santos)', categoria: 'misiones-historia', badge: 'Lester', tiempoLecturaMinutos: 8 },
+                { id: 'mision-64-el-asesinato-del-vicio', slug: 'el-asesinato-del-vicio', titulo: '64. El asesinato del vicio', subtitulo: 'Franklin Clinton · Mutiny Road (La Puerta)', categoria: 'misiones-historia', badge: 'Lester', tiempoLecturaMinutos: 6 },
+                { id: 'mision-65-el-asesinato-del-autobus', slug: 'el-asesinato-del-autobus', titulo: '65. El asesinato del autobús', subtitulo: 'Franklin Clinton · Varias rutas (Los Santos)', categoria: 'misiones-historia', badge: 'Lester', tiempoLecturaMinutos: 7 },
+                { id: 'mision-66-el-asesinato-de-la-obra', slug: 'el-asesinato-de-la-obra', titulo: '66. El asesinato de la obra', subtitulo: 'Franklin Clinton · Obra en construcción (Pillbox Hill)', categoria: 'misiones-historia', badge: 'Lester', tiempoLecturaMinutos: 8 },
+                { id: 'mision-67-opcion-a', slug: 'opcion-a', titulo: '67. Opción A: Con sentido común', subtitulo: 'Franklin Clinton · Los Santos / Murrieta Oil Field', categoria: 'misiones-historia', badge: 'Final (A)', tiempoLecturaMinutos: 5 },
+                { id: 'mision-68-opcion-b', slug: 'opcion-b', titulo: '68. Opción B: Ha llegado la hora', subtitulo: 'Franklin Clinton · Pacific Bluffs', categoria: 'misiones-historia', badge: 'Final (B)', tiempoLecturaMinutos: 5 },
+                { id: 'mision-69-opcion-c', slug: 'opcion-c', titulo: '69. Opción C: La tercera vía', subtitulo: 'Todos los protagonistas · Fundición / Chumash', categoria: 'misiones-historia', badge: 'Final (C) (Canon)', tiempoLecturaMinutos: 25 }
+              ]
+            },
+            {
+              id: 'historia-100',
             titulo: 'Modo Historia & 100%',
             icono: 'trophy',
             descripcion: 'Requisitos del 100%, misiones de campaña y decisiones tácticas.',
@@ -767,3 +867,6 @@ Las fuerzas del orden de Vice Dale, el Sheriff de Leonard County y la Policía E
     }
   }
 }
+
+
+

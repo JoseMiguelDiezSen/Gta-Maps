@@ -93,7 +93,7 @@ public class GuiaService : IGuiaService
                 Orden = 1,
                 Articulos = new List<GuiaArticuloResumen>
                 {
-                    new() { Id = "requisitos-100", Slug = "requisitos-100", Titulo = "Requisitos para el 100% de GTA V", Subtitulo = "Todo lo necesario para conseguir la estadística del 100%", Categoria = "historia-100", Badge = "Imprescindible", TiempoLecturaMinutos = 6 },
+                    new() { Id = "requisitos-100", Slug = "requisitos-100", Titulo = "PRÓLOGO", Subtitulo = "Todo lo necesario para conseguir la estadística del 100%", Categoria = "historia-100", Badge = "Imprescindible", TiempoLecturaMinutos = 6 },
                     new() { Id = "golpes-principales", Slug = "golpes-principales", Titulo = "Guía Táctica de los 6 Grandes Golpes", Subtitulo = "Planes A/B, mejores pistoleros, conductores y hackers", Categoria = "historia-100", Badge = "Estrategia", TiempoLecturaMinutos = 10 },
                     new() { Id = "finales-opcion-abc", Slug = "finales-opcion-abc", Titulo = "Los Tres Finales (Opción A, B o C)", Subtitulo = "Consecuencias narrativas y por qué la Opción C es la canónica", Categoria = "historia-100", Badge = "Lore", TiempoLecturaMinutos = 5 }
                 }
@@ -169,14 +169,14 @@ public class GuiaService : IGuiaService
             {
                 Id = "requisitos-100",
                 Slug = "requisitos-100",
-                Titulo = "Requisitos Oficiales para el 100% en GTA V",
+                Titulo = "PRÓLOGO",
                 Subtitulo = "Todo lo estrictamente necesario para desbloquear la estadística del 100% y el logro 'Carrera delictiva'",
                 Categoria = "historia-100",
                 Badge = "Imprescindible",
                 TiempoLecturaMinutos = 6,
                 UltimaActualizacion = DateTime.UtcNow,
                 Tags = new List<string> { "100%", "Logros", "Misiones", "Coleccionables", "Trofeos" },
-                ContenidoMarkdown = @"# Requisitos Oficiales para el 100% en GTA V
+                ContenidoMarkdown = @"# PRÓLOGO
 
 Para alcanzar el 100% en la pestaña de Estadísticas de GTA V no necesitas hacer absolutamente todas las misiones secundarias del juego, sino cumplir una serie específica de objetivos fijados por Rockstar Games.
 
@@ -299,7 +299,7 @@ Los Golpes son el núcleo de la historia de GTA V. Cada uno te permite elegir en
 * **Pago Final**: **Más de $35.000.000 por cada protagonista** si se optimiza la tripulación.",
                 Relacionados = new List<GuiaArticuloRelacionado>
                 {
-                    new() { Id = "requisitos-100", Slug = "requisitos-100", Titulo = "Requisitos para el 100% de GTA V" },
+                    new() { Id = "requisitos-100", Slug = "requisitos-100", Titulo = "PRÓLOGO" },
                     new() { Id = "asesinatos-lester-bolsa", Slug = "asesinatos-lester-bolsa", Titulo = "Inversión en Bolsa con las Misiones de Lester" }
                 }
             },
