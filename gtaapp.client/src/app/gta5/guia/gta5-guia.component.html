@@ -194,11 +194,6 @@
               <span class="guide-detail-badge">{{ getSubcategoriasTematicas(currentSection).length }} temáticas</span>
             </div>
 
-            <div class="guide-subcategories-intro">
-              <h3 class="guide-intro-title">{{ currentSection.titulo }}</h3>
-              <p class="guide-intro-desc" *ngIf="currentSection.descripcion">{{ currentSection.descripcion }}</p>
-            </div>
-
             <div class="guide-categories-list">
               <div
                 *ngFor="let subcat of getSubcategoriasTematicas(currentSection)"
@@ -230,11 +225,6 @@
               <span class="guide-detail-badge">{{ getGolpesList().length }} golpes</span>
             </div>
 
-            <div class="guide-subcategories-intro">
-              <h3 class="guide-intro-title">Golpes y Atracos</h3>
-              <p class="guide-intro-desc">Los 6 grandes atracos planificados del Modo Historia</p>
-            </div>
-
             <div class="guide-categories-list">
               <div
                 *ngFor="let golpe of getGolpesList()"
@@ -264,11 +254,6 @@
                 <span>Golpes</span>
               </button>
               <span class="guide-detail-badge">{{ articulosSubcategoriaActual.length }} fases</span>
-            </div>
-
-            <div class="guide-subcategories-intro">
-              <h3 class="guide-intro-title">{{ getSubcategoriaActualTitulo() }}</h3>
-              <p class="guide-intro-desc">Fases y preparaciones del golpe</p>
             </div>
 
             <div class="guide-chapters-list">
@@ -305,11 +290,6 @@
               <span class="guide-detail-badge">{{ articulosSubcategoriaActual.length }} misiones</span>
             </div>
 
-            <div class="guide-subcategories-intro">
-              <h3 class="guide-intro-title">{{ getSubcategoriaActualTitulo() }}</h3>
-              <p class="guide-intro-desc">Misiones de {{ getSubcategoriaActualTitulo() }}</p>
-            </div>
-
             <div class="guide-chapters-list">
               <div
                 *ngFor="let art of articulosSubcategoriaActual; let idx = index"
@@ -344,11 +324,6 @@
               <span>Categorías</span>
             </button>
             <span class="guide-detail-badge">{{ currentSection.articulos.length }} caps</span>
-          </div>
-
-          <div class="guide-subcategories-intro">
-            <h3 class="guide-intro-title">{{ currentSection.titulo }}</h3>
-            <p class="guide-intro-desc" *ngIf="currentSection.descripcion">{{ currentSection.descripcion }}</p>
           </div>
 
           <div class="guide-chapters-list">

@@ -92,47 +92,7 @@
   color: #0f172a;
   border-color: #cbd5e1;
 }
-
-/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
-.wiki-shell.mode-day .section-group-header {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
-.wiki-shell.mode-day .section-group-title {
-  color: #334155;
-}
-
-.wiki-shell.mode-day /* Cada uno de los capÃ­tulos individuales dentro de un acordeÃ³n abierto */
-.chapter-item {
-  background: #f8fafc;
-  border-color: #e2e8f0;
-}
-
-/* Define los colores, fondos y estÃ©tica de cada capÃ­tulo individual en la lista del menÃº al pasar el ratÃ³n por encima. */
-.wiki-shell.mode-day .chapter-item:hover {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
-}
-
-/* Define los colores, fondos y estÃ©tica de cada capÃ­tulo individual en la lista del menÃº cuando el elemento estÃ¡ activo o seleccionado. */
-.wiki-shell.mode-day .chapter-item.is-active {
-  background: rgba(34, 197, 94, 0.1);
-  border-color: #22c55e;
-}
-
-/* Establece el diseÃ±o general de cada capÃ­tulo individual en la lista del menÃº. */
-.wiki-shell.mode-day .chapter-title {
-  color: #1e293b;
-}
-
-/* Establece el diseÃ±o general de cada capÃ­tulo individual en la lista del menÃº cuando el elemento estÃ¡ activo o seleccionado. */
-.wiki-shell.mode-day .chapter-item.is-active .chapter-title {
-  color: #16a34a;
-}
-
-.wiki-shell.mode-day /* La tarjeta gigante central donde se muestra todo el texto y datos del capÃ­tulo */
-.wiki-article-card {
+.wiki-shell.mode-day .wiki-article-card {
   background: #ffffff;
   color: #1e293b;
   border-color: #e2e8f0;
@@ -590,7 +550,7 @@
 .wiki-sidebar {
   width: 330px;
   height: fit-content;
-  max-height: 680px;
+  max-height: 100%;
   background: rgba(15, 21, 32, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -757,128 +717,8 @@
   border-radius: 10px;
 }
 
-/* Grupos de secciones */
-.sidebar-sections-container {
-  overflow-y: auto;
-  flex: 1;
-}
-
-/* Grupo completo de una categorÃ­a (incluye el botÃ³n de acordeÃ³n y su lista de capÃ­tulos desplegable) */
-.sidebar-section-group {
-  margin-bottom: 10px;
-}
-
-/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .section-group-header. */
-.section-group-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: #ffffff;
-  padding: 6px 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 6px;
-  margin-bottom: 6px;
-}
-
-/* Define los colores, fondos y estÃ©tica de las etiquetas que muestran el nÃºmero de misiones. */
-.section-group-badge {
-  font-size: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #cbd5e1;
-  padding: 1px 6px;
-  border-radius: 8px;
-}
-
-/* Ajusta las dimensiones y espaciados de cada capÃ­tulo individual en la lista del menÃº. */
-.sidebar-chapters-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Estructura la posiciÃ³n y alineaciÃ³n de cada capÃ­tulo individual en la lista del menÃº. */
-.chapter-item {
-  padding: 8px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 3px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-left: 3px solid transparent;
-  transition: all 0.18s ease;
-}
-
-/* Define los colores, fondos y estÃ©tica de cada capÃ­tulo individual en la lista del menÃº al pasar el ratÃ³n por encima. */
-.chapter-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.15);
-  border-left-color: #ffb833;
-  transform: translateX(2px);
-}
-
-/* Define los colores, fondos y estÃ©tica de cada capÃ­tulo individual en la lista del menÃº cuando el elemento estÃ¡ activo o seleccionado. */
-.chapter-item.is-active {
-  background: rgba(34, 197, 94, 0.12);
-  border-color: rgba(34, 197, 94, 0.35);
-  border-left-color: #22c55e;
-}
-
-/* Estructura la posiciÃ³n y alineaciÃ³n de cada capÃ­tulo individual en la lista del menÃº. */
-.chapter-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-  flex: 1;
-}
-
-/* Configura la tipografÃ­a y los textos de cada capÃ­tulo individual en la lista del menÃº. */
-.chapter-title {
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Establece el diseÃ±o general de cada capÃ­tulo individual en la lista del menÃº cuando el elemento estÃ¡ activo o seleccionado. */
-.chapter-item.is-active .chapter-title {
-  color: #4ade80;
-}
-
-/* Configura la tipografÃ­a y los textos de cada capÃ­tulo individual en la lista del menÃº. */
-.chapter-sub {
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.45);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Define los colores, fondos y estÃ©tica de las etiquetas que muestran el nÃºmero de misiones. */
-.chapter-badge {
-  font-size: 9px;
-  font-weight: 800;
-  background: rgba(34, 197, 94, 0.25);
-  border: 1px solid rgba(34, 197, 94, 0.45);
-  color: #86efac;
-  padding: 1px 5px;
-  border-radius: 4px;
-  flex-shrink: 0;
-  text-transform: uppercase;
-}
-
 /* ==========================================================================
-   4. ÃREA DE LECTURA EDITORIAL (CARD HUD)
+   4. ÁREA DE LECTURA EDITORIAL (CARD HUD)
    ========================================================================== */
 /* =========================================
    ÃREA CENTRAL DE LECTURA (CONTENIDO DEL ARTÃCULO)
@@ -1356,80 +1196,6 @@
 /* ==========================================================================
    7. CAPÃTULOS RELACIONADOS & PIE
    ========================================================================== */
-.article-footer {
-  margin-top: 44px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Ajusta las dimensiones y espaciados de el elemento: .related-header. */
-.related-header {
-  margin-bottom: 16px;
-}
-
-/* Configura la tipografÃ­a y los textos de el elemento: .related-tag. */
-.related-tag {
-  font-size: 9.5px;
-  font-weight: 800;
-  color: #ffb833;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-}
-
-/* Configura la tipografÃ­a y los textos de el elemento: .related-section-title. */
-.related-section-title {
-  margin: 2px 0 0 0;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #ffffff;
-  letter-spacing: 0.8px;
-  font-weight: 800;
-}
-
-/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .related-cards-grid. */
-.related-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
-}
-
-/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .related-card. */
-.related-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 16px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 12px;
-  transition: all 0.2s ease;
-}
-
-/* Define los colores, fondos y estÃ©tica de el elemento: .related-card:hover al pasar el ratÃ³n por encima. */
-.related-card:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-/* Configura la tipografÃ­a y los textos de el elemento: .related-card-title. */
-.related-card-title {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-/* Configura la tipografÃ­a y los textos de el elemento: .related-card-arrow. */
-.related-card-arrow {
-  font-size: 12px;
-  color: #4ade80;
-  font-weight: 700;
-}
-
 /* Loading */
 .wiki-loading-state {
   text-align: center;
@@ -1622,6 +1388,8 @@
   align-items: center;
   gap: 14px;
   padding: 13px 15px;
+  min-height: 64px;
+  box-sizing: border-box;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 19, 26, 0.92) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 4px solid var(--cat-accent, #ffb833);
@@ -1632,6 +1400,7 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .guide-cat-card:hover {
@@ -1644,6 +1413,8 @@
 .guide-cat-icon {
   width: 42px;
   height: 42px;
+  min-width: 42px;
+  min-height: 42px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -1843,31 +1614,6 @@
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   margin: 2px 0;
 }
-
-.guide-subcategories-intro {
-  padding: 4px 4px 10px 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.guide-subcategories-intro .guide-intro-title {
-  margin: 0;
-  font-size: 13.5px;
-  font-weight: 800;
-  color: var(--cat-accent, #ffb833);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.guide-subcategories-intro .guide-intro-desc {
-  margin: 0;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.35;
-  font-weight: 400;
-}
-
 /* LISTADO DE CAPÍTULOS (CON SCROLL INTERNO) */
 .guide-chapters-list {
   flex: 1;

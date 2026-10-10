@@ -20,9 +20,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   currentSection: GuiaSeccion | null = null;
   currentSubcategory: string | null = null;
   currentGolpe: string | null = null;
-  expandedSections: Set<string> = new Set<string>();
   selectedArticulo: GuiaArticulo | null = null;
-  selectedSeccionId: string = 'todas';
   
   themeMode: 'night' | 'day' = 'night';
   searchQuery: string = '';
@@ -30,8 +28,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   isLoading: boolean = true;
   isLoadingArticulo: boolean = false;
   renderedContent: SafeHtml = '';
-  articleToc: { id: string; text: string }[] = [];
-  readingProgress: number = 0;
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
   private toastTimeout: any = null;
@@ -83,30 +79,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
       this.wikiShellRef.nativeElement.scrollTop = 0;
     }
     window.scrollTo(0, 0);
-  }
-
-  get articulosVisibles(): GuiaArticuloResumen[] {
-    if (this.selectedSeccionId === 'todas') {
-      const all: GuiaArticuloResumen[] = [];
-      for (const s of this.secciones) {
-        if (s.articulos) {
-          all.push(...s.articulos);
-        }
-      }
-      return all;
-    }
-    const seccion = this.secciones.find(s => s.id === this.selectedSeccionId);
-    return seccion ? seccion.articulos : [];
-  }
-
-  get todosLosArticulos(): GuiaArticuloResumen[] {
-    const todos: GuiaArticuloResumen[] = [];
-    for (const sec of this.secciones) {
-      if (sec.articulos) {
-        todos.push(...sec.articulos);
-      }
-    }
-    return todos;
   }
 
   get articulosSeccionActual(): GuiaArticuloResumen[] {
@@ -171,15 +143,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   onShellScroll(): void {
     const el = this.wikiShellRef?.nativeElement;
     if (!el) return;
-    const scrollY = el.scrollTop;
-    this.showScrollTop = scrollY > 400;
-
-    const docHeight = el.scrollHeight - el.clientHeight;
-    if (docHeight > 0) {
-      this.readingProgress = Math.min(100, Math.max(0, Math.round((scrollY / docHeight) * 100)));
-    } else {
-      this.readingProgress = 0;
-    }
+    this.showScrollTop = el.scrollTop > 400;
   }
 
   scrollToTop(): void {
@@ -223,9 +187,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
       next: (data) => {
         this.manifest = data;
         this.secciones = data.secciones || [];
-        if (this.secciones.length > 0) {
-          this.expandedSections.add(this.secciones[0].id);
-        }
         this.isLoading = false;
         
         if (this.secciones.length > 0 && this.secciones[0].articulos.length > 0) {
@@ -247,7 +208,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     this.currentSection = sec;
     this.currentSubcategory = null;
     this.currentGolpe = null;
-    this.selectedSeccionId = sec.id;
   }
 
   backToSections(): void {
@@ -515,18 +475,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     return '#ffb833';
   }
 
-  toggleSection(seccionId: string): void {
-    if (this.expandedSections.has(seccionId)) {
-      this.expandedSections.delete(seccionId);
-    } else {
-      this.expandedSections.add(seccionId);
-    }
-  }
-
-  seleccionarSeccion(seccionId: string): void {
-    this.selectedSeccionId = seccionId;
-  }
-
   seleccionarArticulo(articuloId: string): void {
     this.isLoadingArticulo = true;
     this.articuloSub?.unsubscribe();
@@ -571,24 +519,14 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     this.searchResults = [];
   }
 
-  scrollToSection(sectionId: string): void {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
   private renderMarkdown(raw: string): SafeHtml {
     if (!raw) {
-      this.articleToc = [];
       return this.sanitizer.bypassSecurityTrustHtml('');
     }
 
     const lines = raw.split('\n');
     const out: string[] = [];
-    const toc: { id: string; text: string }[] = [];
     let inList = false;
-    let sectionCounter = 1;
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
@@ -604,11 +542,8 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
         const rawText = line.substring(4).trim();
         const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
         const heading = this.formatInline(noEmoji);
-        const secId = `sec-${sectionCounter++}`;
-        const cleanText = noEmoji.replace(/\*\*/g, '').replace(/`/g, '');
-        toc.push({ id: secId, text: cleanText });
         out.push(`
-          <div class="guide-heading-divider" id="${secId}">
+          <div class="guide-heading-divider">
             <div class="guide-heading-line"></div>
             <h3 class="guide-heading-title">${heading}</h3>
             <div class="guide-heading-line guide-heading-line--right"></div>
@@ -647,7 +582,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
       out.push('</ul>');
     }
 
-    this.articleToc = toc;
     return this.sanitizer.bypassSecurityTrustHtml(out.join('\n'));
   }
 
