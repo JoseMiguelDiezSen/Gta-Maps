@@ -1183,43 +1183,7 @@
     <!-- ============ TAB: MISTERIOS / PESTAÑA 4 (GTA ONLINE) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && (activeDrawerTab === 'misterios' || activeDrawerTab === 'item3')">
       <div class="heists-tab-container">
-        <!-- Toolbar: Búsqueda y Filtros de Categoría -->
-        <div class="heists-toolbar">
-          <!-- Buscador -->
-          <div class="heists-search-box">
-            <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
-            <input
-              type="text"
-              class="heists-search-input"
-              [(ngModel)]="mysterySearchQuery"
-              [placeholder]="'transports.mysteries.searchPlaceholder' | translate"
-            />
-            <button
-              *ngIf="mysterySearchQuery"
-              type="button"
-              class="heists-search-clear"
-              (click)="mysterySearchQuery = ''"
-              title="Borrar búsqueda"
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
 
-          <!-- Selector Desplegable de Categorías de Misterios -->
-          <div class="strangers-series-select-wrap">
-            <select
-              class="strangers-series-select"
-              [(ngModel)]="selectedMysteryCategoryFilter"
-              (ngModelChange)="setMysteryCategoryFilter($event)"
-            >
-              <option value="all">⭐ {{ 'transports.mysteries.all' | translate }} ({{ getMysteryCategoryCount('all') }})</option>
-              <option value="paranormal">{{ 'transports.mysteries.paranormal' | translate }} ({{ getMysteryCategoryCount('paranormal') }})</option>
-              <option value="conspiracy">{{ 'transports.mysteries.conspiracy' | translate }} ({{ getMysteryCategoryCount('conspiracy') }})</option>
-              <option value="crimes">{{ 'transports.mysteries.crimes' | translate }} ({{ getMysteryCategoryCount('crimes') }})</option>
-              <option value="easter_egg">{{ 'transports.mysteries.easterEgg' | translate }} ({{ getMysteryCategoryCount('easter_egg') }})</option>
-            </select>
-          </div>
-        </div>
 
         <!-- Estado de Carga -->
         <div class="missions-loading" *ngIf="mysteriesLoading">

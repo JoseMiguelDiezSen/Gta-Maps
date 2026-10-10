@@ -140,12 +140,14 @@ export class GotyService {
    * Carga y cachea el archivo JSON del cerebro local para el idioma solicitado.
    * Escalable para futuros idiomas: solo se requiere añadir 'goty-brain-{lang}.json' en assets/data/goty-brain/
    */
-  private preloadBrain(lang: string): void {
-    if (this.loadedBrains[lang]) return;
+  private preloadBrain(context: GotyGameMode, lang: string): void {
+    const game = context.startsWith('gta6') ? 'gta6' : 'gta5';
+    const cacheKey = `${game}-${lang}`;
+    if (this.loadedBrains[cacheKey]) return;
 
-    this.http.get<GotyBrain>(`assets/data/goty-brain/goty-brain-${lang}.json`).subscribe({
+    this.http.get<GotyBrain>(`assets/data/${game}/goty-brain/goty-brain-${lang}.json`).subscribe({
       next: (data) => {
-        this.loadedBrains[lang] = data;
+        this.loadedBrains[cacheKey] = data;
       },
       error: (err) => console.warn(`[GOTY] Error cargando cerebro local para idioma '${lang}':`, err)
     });
@@ -203,7 +205,10 @@ export class GotyService {
    */
   private processLocalQuery(query: string, context: GotyGameMode, lang: string): Observable<GotyMessage> {
     const cleanQuery = this.normalizeString(query);
-    const activeBrain = this.loadedBrains[lang] || this.loadedBrains['es'] || {
+    const game = context.startsWith('gta6') ? 'gta6' : 'gta5';
+    const cacheKey = `${game}-${lang}`;
+    this.preloadBrain(context, lang);
+    const activeBrain = this.loadedBrains[cacheKey] || this.loadedBrains['es'] || {
       common: [], 'gta5-historia': [], 'gta5-online': [], 'gta6-historia': [], 'gta6-online': []
     };
 
