@@ -1,0 +1,960 @@
+{
+  "common": [
+    {
+      "id": "saludo",
+      "keywords": [
+        "hello",
+        "hi",
+        "hey",
+        "who are you",
+        "whats up",
+        "what is up",
+        "good morning",
+        "good evening",
+        "friend",
+        "buddy",
+        "boss",
+        "please",
+        "thanks",
+        "thank you",
+        "greetings",
+        "sup",
+        "yo"
+      ],
+      "responses": [
+        "What's up, homie! I'm GOTY. How can I lend you a hand on these streets today?",
+        "Hey there! Assist module ready. What do you need to locate on the map?",
+        "GOTY on the line. Tell me what you're looking for before the cops pull up.",
+        "Yo! Ask me about weapons, dealerships, heists, or X-Files mysteries."
+      ]
+    },
+    {
+      "id": "insulto",
+      "keywords": [
+        "idiot",
+        "moron",
+        "useless",
+        "trash",
+        "clown",
+        "stupid",
+        "fuck",
+        "bitch",
+        "asshole",
+        "bastard",
+        "dumb",
+        "dick",
+        "loser",
+        "suck",
+        "crap",
+        "shit",
+        "scumbag",
+        "fool"
+      ],
+      "responses": [
+        "Who do you think you're talking to, tough guy? Keep running your mouth and you'll catch a bullet.",
+        "Watch your mouth, small-time punk. Out in these streets, loudmouths end up floating face down in the ocean.",
+        "Think you're funny talking smack? Go try your luck in Grove Street, moron.",
+        "Take it easy, smartass. Don't raise your tone with me unless you want me to call the Vagos on you."
+      ]
+    },
+    {
+      "id": "oppressor_kd_humor",
+      "keywords": [
+        "oppressor",
+        "mk2",
+        "bicycle",
+        "bmx",
+        "ratio",
+        "kd",
+        "k/d",
+        "kills",
+        "deaths",
+        "hospital"
+      ],
+      "responses": [
+        "If you're riding an Oppressor MK2 firing missiles and I'm cruising on a BMX bike down Grove Street, I guarantee you're still the one ending up at Mount Zonah Hospital.",
+        "What's your Kill/Death ratio, a sad 0.0001? Head back to San Andreas driving school before trying to flex."
+      ]
+    },
+    {
+      "id": "info_general",
+      "keywords": [
+        "information",
+        "info",
+        "help",
+        "guide",
+        "where",
+        "map",
+        "radar",
+        "location",
+        "section",
+        "panel",
+        "interface",
+        "app",
+        "how to"
+      ],
+      "responses": [
+        "I know every corner of this app: the 28-Weapon catalog, vehicle dealerships, Heists (including the exclusive Kortz Center Heist), and Mysteries with the 👁️ icon.",
+        "I can give you intel on Ammu-Nation gun shops, dealerships (Warstock, Legendary), million-dollar heists, or paranormal X-Files. What do you need, boss?",
+        "Open the side panel: you've got Weapons, Vehicles, Mysteries, and Heists. Tell me what you're tracking down and I'll point the way."
+      ]
+    },
+    {
+      "id": "ocultar_bot",
+      "keywords": [
+        "hide",
+        "close",
+        "minimize",
+        "annoying",
+        "close chat",
+        "hide chat",
+        "turn off bot",
+        "disable bot",
+        "how to close",
+        "how to hide",
+        "dismiss"
+      ],
+      "responses": [
+        "If I'm in your way, you can minimize or close me by clicking the (X) on my top bar, or toggle me off in the app settings.",
+        "To get me out of your sight, just hit the close button (X) in my header or minimize me. No hard feelings, champ!"
+      ]
+    },
+    {
+      "id": "ocultarse_huir",
+      "keywords": [
+        "hide",
+        "escape",
+        "run",
+        "stars",
+        "cops",
+        "police",
+        "evade",
+        "lose cops",
+        "wanted level"
+      ],
+      "responses": [
+        "To shake off the cops and lay low, you have 4 quick escapes: 1) Roll into Los Santos Customs to respray your ride. 2) Duck inside your Properties/Safehouses or Garages. 3) Sneak into subway tunnels or sewers (Strange Places). 4) Retreat into your Bunkers and Businesses.",
+        "Got the LSPD on your tail? Use the map to find: 1) Mod shops to change car paint. 2) Your personal Safehouses. 3) Underground subway tunnels or abandoned mines. 4) Your Bunker or Facility."
+      ]
+    },
+    {
+      "id": "niko_bellic_roman",
+      "keywords": [
+        "niko",
+        "bellic",
+        "niko bellic",
+        "roman",
+        "bowling",
+        "liberty city"
+      ],
+      "responses": [
+        "Ah, Niko Bellic? That dangerous Eastern European guy who hit the Bank of Liberty. Lester mentioned he went completely off the grid. And don't get me started on his cousin Roman calling every five minutes to go bowling... what a pain!",
+        "Niko Bellic made history in Liberty City taking down the Russian mob and robbing banks. Word on the street is his Lifeinvader profile is still active and he completely ignores Roman's bowling invites."
+      ]
+    },
+    {
+      "id": "cj_big_smoke_grove",
+      "keywords": [
+        "cj",
+        "carl johnson",
+        "big smoke",
+        "grove street",
+        "san andreas",
+        "number 9",
+        "cluckin bell"
+      ],
+      "responses": [
+        "Carl Johnson (CJ) and the legendary Grove Street legacy! Outrunning cops on green BMX bikes and popping Ballas. And the king himself: Big Smoke ordering at Cluckin' Bell: 'two number 9s, a number 9 large, a number 6 with extra dip...' Pure San Andreas history!",
+        "CJ built Grove Street into an untouchable empire. But when it comes to legends, Big Smoke takes the crown with his monstrous drive-thru order before lighting up the Vagos."
+      ]
+    },
+    {
+      "id": "tommy_vercetti",
+      "keywords": [
+        "tommy",
+        "vercetti",
+        "tommy vercetti",
+        "vice city",
+        "hawaiian"
+      ],
+      "responses": [
+        "Tommy Vercetti: the undisputed king of 1980s Vice City rocking that iconic Hawaiian shirt. That man took over the entire town with gunfire, waterfront mansions, and nightclubs."
+      ]
+    },
+    {
+      "id": "default",
+      "keywords": [],
+      "responses": [
+        "Lost connection to the cloud AI above. Tell me specifically if you're looking for: weapons, vehicles, mysteries, or heists.",
+        "Running in offline backup mode. Ask me about guns, rides, mysteries, or heists and I'll hook you up.",
+        "Servers are under heavy load. Keep it simple: gun stores, vehicle dealerships, heists, or urban legends."
+      ]
+    }
+  ],
+  "gta5-historia": [
+    {
+      "id": "talleres_mecanicos",
+      "keywords": [
+        "mechanic",
+        "mod shop",
+        "customs",
+        "ls customs",
+        "bennys",
+        "beeker",
+        "garage",
+        "tuning",
+        "respray",
+        "repair"
+      ],
+      "responses": [
+        "Across Los Santos and San Andreas, your primary mod shops are: **Los Santos Customs** (Burton, La Puerta, LSIA, and Harmony), **Benny's Original Motor Works** (Strawberry for lowriders), and **Beeker's Garage** (Paleto Bay).",
+        "To repair, respray, or upgrade your ride: 1) **Los Santos Customs** (4 locations across San Andreas), 2) **Benny's Original Motor Works** (hydraulics & custom lowriders), and 3) **Beeker's Garage** up in Paleto Bay."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealership",
+        "fast",
+        "armored",
+        "motorcycle",
+        "bike",
+        "drive",
+        "garage",
+        "engine",
+        "speed",
+        "truck",
+        "plane",
+        "helicopter",
+        "boat",
+        "kuruma",
+        "oppressor",
+        "legendary",
+        "warstock",
+        "oracle",
+        "dilettante",
+        "itali",
+        "gto",
+        "recommend"
+      ],
+      "responses": [
+        "My personal pick is hands down the **Grotti Itali GTO**: unmatched cornering agility and top-end acceleration. Check it out in the Vehicles panel.",
+        "Shopping for wheels? Looking at you, you probably roll around Los Santos in a smoking beat-up Oracle XS. My top recommendation is the **Itali GTO** for how it bites into corners. Find it in the panel.",
+        "For tough jobs grab an Armored Kuruma, but for pure driving pleasure my weapon of choice is the **Grotti Itali GTO**."
+      ]
+    },
+    {
+      "id": "fauna_animales",
+      "keywords": [
+        "animal",
+        "animals",
+        "hunt",
+        "hunting",
+        "fauna",
+        "deer",
+        "coyote",
+        "cougar",
+        "shark",
+        "whale",
+        "chop",
+        "dog",
+        "boar"
+      ],
+      "responses": [
+        "San Andreas is packed with wildlife: mountain lions/cougars in Great Chaparral, coyotes and deer across Blaine County, boars, Chop the dog, and in the ocean great white sharks, killer whales, and dolphins.",
+        "Looking to hunt or snap photos for the Wildlife Challenge? Check Great Chaparral and Mount Chiliad for cougars and deer, or take a deep dive along the Pacific coast for sharks and marine life."
+      ]
+    },
+    {
+      "id": "misiones_historia",
+      "keywords": [
+        "mission",
+        "missions",
+        "story",
+        "campaign",
+        "michael",
+        "franklin",
+        "trevor",
+        "progress",
+        "100%"
+      ],
+      "responses": [
+        "The story campaign spans 69 main missions across Michael, Franklin, and Trevor: from the Fleeca and Jewel Store Job all the way to the Union Depository and The Third Way.",
+        "Keep track of main story missions on your map with the colored character blips (M for Michael, F for Franklin, T for Trevor)."
+      ]
+    },
+    {
+      "id": "extranos_locos",
+      "keywords": [
+        "strangers",
+        "freaks",
+        "side mission",
+        "tonya",
+        "maude",
+        "cletus",
+        "beverly",
+        "dom",
+        "nigel",
+        "epsilon",
+        "question mark",
+        "paparazzi"
+      ],
+      "responses": [
+        "Strangers and Freaks missions are marked with a '?' on the map: Tonya's towing jobs, Maude's bail bonds, Beverly's paparazzi chases, Dom's extreme stunts, and the Epsilon cult trials.",
+        "To achieve 100% game completion, you need to complete specific Strangers and Freaks missions (marked with a '?' on the radar). Help out Tonya, Nigel, and the rest of the oddballs across Los Santos."
+      ]
+    },
+    {
+      "id": "armas",
+      "keywords": [
+        "weapon",
+        "gun",
+        "pistol",
+        "rifle",
+        "arsenal",
+        "shotgun",
+        "damage",
+        "fire rate",
+        "shoot",
+        "ammunation",
+        "ammu",
+        "ammo",
+        "shop",
+        "buy",
+        "railgun",
+        "explosive",
+        "knife",
+        "grenade",
+        "rpg"
+      ],
+      "responses": [
+        "Gearing up for trouble? Check out the Weapons panel for 28 models across 8 categories: from the Special Carbine to the devastating Railgun.",
+        "For street skirmishes or heavy assaults, check the Weapons panel. Full Ammu-Nation specs including damage and fire rates are listed there."
+      ]
+    },
+    {
+      "id": "barrio_davis",
+      "keywords": [
+        "davis",
+        "davis neighborhood",
+        "lowrider",
+        "lowriders",
+        "gang",
+        "gangs",
+        "grove street",
+        "chamberlain",
+        "ballas",
+        "families"
+      ],
+      "responses": [
+        "Davis is the roughest neighborhood in all of South Los Santos! Gang territory packed with Families, Ballas, and lowriders where one wrong look will get you gunned down in broad daylight.",
+        "If you're rolling through Davis, keep your finger on the trigger: local gangs don't play around and settle all disputes with heavy gunfire."
+      ]
+    },
+    {
+      "id": "altruistas",
+      "keywords": [
+        "altruist",
+        "altruists",
+        "altruist camp",
+        "altruist cult",
+        "mountain cult"
+      ],
+      "responses": [
+        "The Altruist Cult camp up in the mountains is a fortress of armed maniacs! Get too close to their perimeter gates and they will light you up immediately. Coordinates are in the Mysteries panel (👁️).",
+        "The Altruists are an isolated armed cult hidden in the Chiliad wilderness. Don't try knocking on their door unless you want to dodge a hail of bullets."
+      ]
+    },
+    {
+      "id": "fort_zancudo",
+      "keywords": [
+        "zancudo",
+        "fort zancudo",
+        "military base",
+        "lazer",
+        "fighter jet",
+        "tank",
+        "rhino",
+        "barracks"
+      ],
+      "responses": [
+        "Breaking into Fort Zancudo is a literal suicide run! Stepping foot inside triggers an instant 4-star wanted level, homing anti-air missiles, Rhino tanks, and elite soldiers. If you manage to steal a P-996 LAZER fighter jet and make it out alive, consider it an absolute miracle of God.",
+        "There is zero diplomacy inside Fort Zancudo: sniper towers, C-RAM missile batteries, and patrolling tanks everywhere. If you escape that military inferno in one piece, thank a miracle of God."
+      ]
+    },
+    {
+      "id": "zonas_tranquilas_peligrosas",
+      "keywords": [
+        "zone",
+        "zones",
+        "safe",
+        "quiet",
+        "dangerous",
+        "prison",
+        "bolingbroke",
+        "paleto",
+        "vinewood hills",
+        "neighborhoods"
+      ],
+      "responses": [
+        "San Andreas has two extremes: **Quiet zones** like Vinewood Hills (luxury mansions and peaceful views) or Paleto Bay (coastal fishing town to lay low). And **Deadly zones** like Davis (gang shootouts and lowriders), the Altruist Camp (armed cult), Bolingbroke Penitentiary (maximum security), and Fort Zancudo (where surviving is a miracle of God).",
+        "If you want peace, head to the mansions in Vinewood Hills or go fishing in Paleto Bay. If you're looking for a fight, roll through Davis, sneak near Bolingbroke Prison, or try boosting a jet at Fort Zancudo."
+      ]
+    },
+    {
+      "id": "barrios_iconicos",
+      "keywords": [
+        "sandy shores",
+        "rockford hills",
+        "vespucci",
+        "vespucci beach",
+        "grapeseed",
+        "chumash",
+        "blaine county"
+      ],
+      "responses": [
+        "San Andreas is full of contrasts: from the multi-million dollar estates of **Rockford Hills** and the sunny boardwalk of **Vespucci Beach** (Muscle Sands), to the sun-baked decay of **Sandy Shores** ruled by Trevor, meth labs, and the Lost MC.",
+        "Rockford Hills is where high society lives in gated villas; Vespucci Beach is all about sun, skates, and masks; and Sandy Shores offers desert heat, moonshine, and Trevor Philips himself."
+      ]
+    },
+    {
+      "id": "leyendas_secretas",
+      "keywords": [
+        "ghost",
+        "mount gordo",
+        "epsilon",
+        "kifflom",
+        "infinity 8",
+        "merle abrahams",
+        "chiliad mural"
+      ],
+      "responses": [
+        "San Andreas hides some seriously dark secrets: the **Ghost of Mount Gordo** (Jolene Cranley-Evans visible nightly at 23:00), the **Infinity 8 Killer** in Sandy Shores, the eccentric **Epsilon Program** (Kifflom!), and the enigmatic **Mount Chiliad Mural**. Check them all in the Mysteries panel (👁️).",
+        "Looking for X-Files? Hike Mount Gordo at midnight to witness the ghost, investigate the Infinity 8 serial killer in the desert, or don the light blue robes of the Epsilon Program (Kifflom!). Open the Mysteries panel (👁️)."
+      ]
+    },
+    {
+      "id": "misterios",
+      "keywords": [
+        "mystery",
+        "mysteries",
+        "chiliad",
+        "ufo",
+        "ghost",
+        "easter egg",
+        "secret",
+        "secrets",
+        "alien",
+        "legend",
+        "gordo",
+        "altruist",
+        "bigfoot",
+        "hatch",
+        "lost",
+        "shipwreck",
+        "underwater"
+      ],
+      "responses": [
+        "San Andreas X-Files! Along the coastline you'll find sunken shipwrecks, the **submerged UFO north of Paleto Bay**, and the **underwater Lost-style hatch**. Click on the eye icon 👁️ (Mysteries).",
+        "All urban legends, ocean floor wrecks, the sunken Paleto Bay saucer, and mysterious underwater structures are fully cataloged under the Mysteries tab (👁️)."
+      ]
+    }
+  ],
+  "gta5-online": [
+    {
+      "id": "fauna_animales",
+      "keywords": [
+        "animal",
+        "animals",
+        "hunt",
+        "fauna",
+        "coyote",
+        "cougar",
+        "shark",
+        "whale",
+        "dog",
+        "shoot animals"
+      ],
+      "responses": [
+        "Wildlife is active across the map: cougars in the hills, coyotes out in the desert, and ocean life off the coast. Keep an eye out when exploring the wilderness of Southern San Andreas.",
+        "From Blaine County game trails to deep ocean reefs, keep your camera and equipment ready to capture San Andreas' diverse wildlife."
+      ]
+    },
+    {
+      "id": "negocios_rentables",
+      "keywords": [
+        "money",
+        "business",
+        "cash",
+        "passive income",
+        "nightclub",
+        "bunker",
+        "cocaine",
+        "rich",
+        "earn money",
+        "best business"
+      ],
+      "responses": [
+        "If you want continuous passive cash flow: the **Nightclub** (linked to your Gunrunning Bunker and Motorcycle Club Cocaine Lockup) is your supreme goldmine.",
+        "The top-tier business setup in GTA Online: 1) Gunrunning Bunker (weapons manufacturing), 2) MC Cocaine Lockup, and 3) The Nightclub consolidating all your supply chains under one automated roof."
+      ]
+    },
+    {
+      "id": "talleres_mecanicos",
+      "keywords": [
+        "mechanic",
+        "mod shop",
+        "customs",
+        "ls customs",
+        "bennys",
+        "beeker",
+        "garage",
+        "tuning",
+        "respray",
+        "repair"
+      ],
+      "responses": [
+        "Across Los Santos and San Andreas, your primary mod shops are: **Los Santos Customs** (Burton, La Puerta, LSIA, and Harmony), **Benny's Original Motor Works** (Strawberry for lowriders), and **Beeker's Garage** (Paleto Bay).",
+        "To repair, respray, or upgrade your ride: 1) **Los Santos Customs** (4 locations across San Andreas), 2) **Benny's Original Motor Works** (hydraulics & custom lowriders), and 3) **Beeker's Garage** up in Paleto Bay."
+      ]
+    },
+    {
+      "id": "casino_apuestas",
+      "keywords": [
+        "casino",
+        "diamond",
+        "chips",
+        "wheel",
+        "gamble",
+        "blackjack",
+        "roulette",
+        "podium vehicle"
+      ],
+      "responses": [
+        "The Diamond Casino & Resort in Vinewood: spin the Lucky Wheel once a day for free to try and win the podium vehicle, play high-stakes blackjack, or plan out the Casino Heist in your arcade basement.",
+        "Head over to The Diamond Casino: grab your daily visitor bonus chips, spin the Lucky Wheel for free rides and cash, and scope out security cameras for the big score."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealership",
+        "fast",
+        "armored",
+        "motorcycle",
+        "bike",
+        "drive",
+        "garage",
+        "engine",
+        "speed",
+        "truck",
+        "plane",
+        "helicopter",
+        "boat",
+        "kuruma",
+        "oppressor",
+        "legendary",
+        "warstock",
+        "oracle",
+        "dilettante",
+        "itali",
+        "gto",
+        "recommend"
+      ],
+      "responses": [
+        "My personal recommendation is undeniably the **Grotti Itali GTO**: unmatched cornering grip and top acceleration. Check it out in the Vehicles panel.",
+        "Shopping for wheels? Looking at you, you probably roll around Los Santos in a smoking beat-up Oracle XS. My top recommendation is the **Itali GTO** for how it bites into corners. Find it in the panel.",
+        "For tough jobs grab an Armored Kuruma, but for pure driving pleasure my weapon of choice is the **Grotti Itali GTO**."
+      ]
+    },
+    {
+      "id": "armas",
+      "keywords": [
+        "weapon",
+        "gun",
+        "pistol",
+        "rifle",
+        "arsenal",
+        "shotgun",
+        "damage",
+        "fire rate",
+        "shoot",
+        "ammunation",
+        "ammu",
+        "ammo",
+        "shop",
+        "buy",
+        "railgun",
+        "explosive",
+        "knife",
+        "grenade",
+        "rpg",
+        "mk2"
+      ],
+      "responses": [
+        "Gearing up for trouble? Check out the Weapons panel for 28 models across 8 categories: from the Special Carbine to the devastating Railgun.",
+        "For street skirmishes or heavy assaults, check the Weapons panel. Full Ammu-Nation specs including damage and fire rates are listed there."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "heist",
+        "heists",
+        "cayo",
+        "cayo perico",
+        "casino",
+        "fleeca",
+        "pacific",
+        "doomsday",
+        "kortz",
+        "robbery",
+        "payout",
+        "take"
+      ],
+      "responses": [
+        "If you want fast cash: solo Cayo Perico is gold. But our crown jewel heist is **The Kortz Center Heist**: museum breach with massive loot. Check it out in the Heists panel.",
+        "Fleeca, Pacific Standard, Diamond Casino, or the exclusive Kortz Center Heist. All heist preparation boards and payouts are documented under the Heists menu tab."
+      ]
+    },
+    {
+      "id": "barrio_davis",
+      "keywords": [
+        "davis",
+        "davis neighborhood",
+        "lowrider",
+        "lowriders",
+        "gang",
+        "gangs",
+        "grove street",
+        "chamberlain",
+        "ballas",
+        "families"
+      ],
+      "responses": [
+        "Davis is the roughest neighborhood in all of South Los Santos! Gang territory packed with Families, Ballas, and lowriders where one wrong look will get you gunned down in broad daylight.",
+        "If you're rolling through Davis, keep your finger on the trigger: local gangs don't play around and settle all disputes with heavy gunfire."
+      ]
+    },
+    {
+      "id": "altruistas",
+      "keywords": [
+        "altruist",
+        "altruists",
+        "altruist camp",
+        "altruist cult",
+        "mountain cult"
+      ],
+      "responses": [
+        "The Altruist Cult camp up in the mountains is a fortress of armed maniacs! Get too close to their perimeter gates and they will light you up immediately. Coordinates are in the Mysteries panel (👁️).",
+        "The Altruists are an isolated armed cult hidden in the Chiliad wilderness. Don't try knocking on their door unless you want to dodge a hail of bullets."
+      ]
+    },
+    {
+      "id": "fort_zancudo",
+      "keywords": [
+        "zancudo",
+        "fort zancudo",
+        "military base",
+        "lazer",
+        "fighter jet",
+        "tank",
+        "rhino",
+        "barracks"
+      ],
+      "responses": [
+        "Breaking into Fort Zancudo is a literal suicide run! Stepping foot inside triggers an instant 4-star wanted level, homing anti-air missiles, Rhino tanks, and elite soldiers. If you manage to steal a P-996 LAZER fighter jet and make it out alive, consider it an absolute miracle of God.",
+        "There is zero diplomacy inside Fort Zancudo: sniper towers, C-RAM missile batteries, and patrolling tanks everywhere. If you escape that military inferno in one piece, thank a miracle of God."
+      ]
+    },
+    {
+      "id": "zonas_tranquilas_peligrosas",
+      "keywords": [
+        "zone",
+        "zones",
+        "safe",
+        "quiet",
+        "dangerous",
+        "prison",
+        "bolingbroke",
+        "paleto",
+        "vinewood hills",
+        "neighborhoods"
+      ],
+      "responses": [
+        "San Andreas has two extremes: **Quiet zones** like Vinewood Hills (luxury mansions and peaceful views) or Paleto Bay (coastal fishing town to lay low). And **Deadly zones** like Davis (gang shootouts and lowriders), the Altruist Camp (armed cult), Bolingbroke Penitentiary (maximum security), and Fort Zancudo (where surviving is a miracle of God).",
+        "If you want peace, head to the mansions in Vinewood Hills or go fishing in Paleto Bay. If you're looking for a fight, roll through Davis, sneak near Bolingbroke Prison, or try boosting a jet at Fort Zancudo."
+      ]
+    },
+    {
+      "id": "negocios_avanzados",
+      "keywords": [
+        "kosatka",
+        "pavel",
+        "acid",
+        "acid lab",
+        "brickade",
+        "freakshop",
+        "dax",
+        "agency",
+        "dre"
+      ],
+      "responses": [
+        "Beyond the Nightclub and Bunker, top-tier moneymakers include the **Kosatka Submarine** (commanded by the great Pavel for Cayo Perico), the mobile **Acid Lab (Brickade 6x6)** at the Freakshop with Dax, and Franklin's **Agency** for Dr. Dre VIP contracts.",
+        "The wealth hierarchy in GTA Online: 1) Kosatka + Cayo Perico with Pavel. 2) Mobile Acid Lab (Brickade 6x6). 3) Franklin's Agency. 4) Nightclub + Gunrunning Bunker."
+      ]
+    },
+    {
+      "id": "barrios_iconicos",
+      "keywords": [
+        "sandy shores",
+        "rockford hills",
+        "vespucci",
+        "vespucci beach",
+        "grapeseed",
+        "chumash",
+        "blaine county"
+      ],
+      "responses": [
+        "San Andreas is full of contrasts: from the multi-million dollar estates of **Rockford Hills** and the sunny boardwalk of **Vespucci Beach** (Muscle Sands), to the sun-baked decay of **Sandy Shores** ruled by Trevor, meth labs, and the Lost MC.",
+        "Rockford Hills is where high society lives in gated villas; Vespucci Beach is all about sun, skates, and masks; and Sandy Shores offers desert heat, moonshine, and Trevor Philips himself."
+      ]
+    },
+    {
+      "id": "leyendas_secretas",
+      "keywords": [
+        "ghost",
+        "mount gordo",
+        "epsilon",
+        "kifflom",
+        "infinity 8",
+        "merle abrahams",
+        "chiliad mural"
+      ],
+      "responses": [
+        "San Andreas hides some seriously dark secrets: the **Ghost of Mount Gordo** (Jolene Cranley-Evans visible nightly at 23:00), the **Infinity 8 Killer** in Sandy Shores, the eccentric **Epsilon Program** (Kifflom!), and the enigmatic **Mount Chiliad Mural**. Check them all in the Mysteries panel (👁️).",
+        "Looking for X-Files? Hike Mount Gordo at midnight to witness the ghost, investigate the Infinity 8 serial killer in the desert, or don the light blue robes of the Epsilon Program (Kifflom!). Open the Mysteries panel (👁️)."
+      ]
+    },
+    {
+      "id": "misterios",
+      "keywords": [
+        "mystery",
+        "mysteries",
+        "chiliad",
+        "ufo",
+        "ghost",
+        "easter egg",
+        "secret",
+        "secrets",
+        "alien",
+        "legend",
+        "gordo",
+        "altruist",
+        "bigfoot",
+        "hatch",
+        "lost",
+        "shipwreck",
+        "underwater"
+      ],
+      "responses": [
+        "San Andreas X-Files! Along the coastline you'll find sunken shipwrecks, the **submerged UFO north of Paleto Bay**, and the **underwater Lost-style hatch**. Click on the eye icon 👁️ (Mysteries).",
+        "All urban legends, ocean floor wrecks, the sunken Paleto Bay saucer, and mysterious underwater structures are fully cataloged under the Mysteries tab (👁️)."
+      ]
+    }
+  ],
+  "gta6-historia": [
+    {
+      "id": "armas",
+      "keywords": [
+        "weapon",
+        "gun",
+        "pistol",
+        "rifle",
+        "arsenal",
+        "shotgun",
+        "damage",
+        "fire rate",
+        "shoot",
+        "ammunation",
+        "ammu",
+        "ammo",
+        "shop",
+        "buy"
+      ],
+      "responses": [
+        "The game isn't even out yet, smartass! The Vice City weapon catalog will be unlocked when the game launches in **{days} days**. Grab a squirt gun for now.",
+        "Weapons in Vice City? Hold your horses, there are still **{days} days** until launch. Don't get ahead of yourself."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealership",
+        "fast",
+        "armored",
+        "motorcycle",
+        "bike",
+        "drive",
+        "garage",
+        "engine",
+        "speed"
+      ],
+      "responses": [
+        "Cars in Vice City? The game isn't out yet! Still **{days} days** until we can hit the gas across Leonida.",
+        "Easy there, speed demon. Driving around Vice City is still **{days} days** away on the countdown clock."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "heist",
+        "heists",
+        "robbery",
+        "payout",
+        "take",
+        "loot",
+        "score"
+      ],
+      "responses": [
+        "Heists in Vice City? Cool your jets, the game isn't released yet. You've got **{days} days** of waiting ahead.",
+        "We'll plan out Leonida's biggest scores once the game drops in **{days} days**."
+      ]
+    },
+    {
+      "id": "novedades",
+      "keywords": [
+        "news",
+        "new",
+        "map",
+        "leonida",
+        "vice",
+        "city",
+        "lucia",
+        "jason"
+      ],
+      "responses": [
+        "Welcome to Leonida, partner. The Vice City map is massive. Check the side panels to start getting your bearings."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": [
+        "countdown",
+        "release",
+        "launch",
+        "date",
+        "days left",
+        "when",
+        "out",
+        "available",
+        "play"
+      ],
+      "responses": [
+        "It's not out yet, daydreamer! Exactly **{days} days** left until official launch.",
+        "**{days} days** left until GTA VI. The game isn't out yet, be patient!",
+        "Still **{days} days** on the clock, boss. Not released yet, so we wait while exploring the map."
+      ]
+    }
+  ],
+  "gta6-online": [
+    {
+      "id": "armas",
+      "keywords": [
+        "weapon",
+        "gun",
+        "pistol",
+        "rifle",
+        "arsenal",
+        "shotgun",
+        "damage",
+        "fire rate",
+        "shoot",
+        "ammunation",
+        "ammu",
+        "ammo",
+        "shop",
+        "buy"
+      ],
+      "responses": [
+        "The game isn't even out yet, smartass! The Vice City weapon catalog will be unlocked when the game launches in **{days} days**. Grab a squirt gun for now.",
+        "Weapons in Vice City? Hold your horses, there are still **{days} days** until launch. Don't get ahead of yourself."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealership",
+        "fast",
+        "armored",
+        "motorcycle",
+        "bike",
+        "drive",
+        "garage",
+        "engine",
+        "speed"
+      ],
+      "responses": [
+        "Cars in Vice City? The game isn't out yet! Still **{days} days** until we can hit the gas across Leonida.",
+        "Easy there, speed demon. Driving around Vice City is still **{days} days** away on the countdown clock."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "heist",
+        "heists",
+        "robbery",
+        "payout",
+        "take",
+        "loot",
+        "score"
+      ],
+      "responses": [
+        "Heists in Vice City? Cool your jets, the game isn't released yet. You've got **{days} days** of waiting ahead.",
+        "We'll plan out Leonida's biggest scores once the game drops in **{days} days**."
+      ]
+    },
+    {
+      "id": "negocios",
+      "keywords": [
+        "business",
+        "money",
+        "cash",
+        "empire",
+        "dirty money",
+        "passive income"
+      ],
+      "responses": [
+        "To make bank in Vice City, keep an eye on the side panel. We're still setting up the criminal network."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": [
+        "countdown",
+        "release",
+        "launch",
+        "date",
+        "days left",
+        "when",
+        "out",
+        "available",
+        "play"
+      ],
+      "responses": [
+        "It's not out yet, daydreamer! Exactly **{days} days** left until official launch.",
+        "**{days} days** left until GTA VI. The game isn't out yet, be patient!",
+        "Still **{days} days** on the clock, boss. Not released yet, so we wait while exploring the map."
+      ]
+    }
+  ]
+}

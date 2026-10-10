@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, of, map, forkJoin } from 'rxjs';
 import { GtaMission, GtaStrangerMission, GtaHeist } from '../../models/gta5/mission';
@@ -14,7 +14,7 @@ export class MissionService {
   ) {}
 
   /**
-   * Carga la lista base canónica y superpone traducciones idiomáticas disponibles.
+   * Carga la lista base canÃ³nica y superpone traducciones idiomÃ¡ticas disponibles.
    * Evita que misiones, atracos o misterios desaparezcan o queden desalineados.
    */
   private loadWithFallback<T extends { id: string }>(basePath: string, localizedPath: string, activeLang: string): Observable<T[]> {
@@ -63,14 +63,14 @@ export class MissionService {
   getStoryMissions(lang?: string): Observable<GtaMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMission>(
-      '/assets/data/gta5/historia/es/missions.json',
-      `/assets/data/gta5/historia/${activeLang}/missions.json`,
+      '/assets/data/gta5/historia/es/mapa-misiones-historia.json',
+      `/assets/data/gta5/historia/${activeLang}/mapa-misiones-historia.json`,
       activeLang
     );
   }
 
   /**
-   * Obtiene la lista de misiones secundarias de Extraños y Locos.
+   * Obtiene la lista de misiones secundarias de ExtraÃ±os y Locos.
    */
   getStoryStrangers(lang?: string): Observable<GtaStrangerMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
@@ -87,8 +87,8 @@ export class MissionService {
   getOnlineMissions(lang?: string): Observable<GtaMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMission>(
-      '/assets/data/gta5/online/es/missions.json',
-      `/assets/data/gta5/online/${activeLang}/missions.json`,
+      '/assets/data/gta5/online/es/mapa-misiones-online.json',
+      `/assets/data/gta5/online/${activeLang}/mapa-misiones-online.json`,
       activeLang
     );
   }
@@ -106,7 +106,7 @@ export class MissionService {
   }
 
   /**
-   * Obtiene el catálogo oficial de Misterios y Leyendas Urbanas de GTA Online.
+   * Obtiene el catÃ¡logo oficial de Misterios y Leyendas Urbanas de GTA Online.
    */
   getOnlineMysteries(lang?: string): Observable<GtaMystery[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
@@ -118,7 +118,7 @@ export class MissionService {
   }
 
   /**
-   * Obtiene el catálogo de Misterios y Easter Eggs de GTA V Modo Historia.
+   * Obtiene el catÃ¡logo de Misterios y Easter Eggs de GTA V Modo Historia.
    */
   getStoryMysteries(lang?: string): Observable<GtaMystery[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
@@ -129,3 +129,4 @@ export class MissionService {
     );
   }
 }
+

@@ -1,9 +1,9 @@
-@import './guia-gta5-responsive.css';
+﻿@import './guia-gta5-responsive.css';
 /* ==========================================================================
-   ESTILOS WIKI & GUÍA GTA V (LOS SANTOS ATMOSPHERE & FROSTED GLASS HUD)
+   ESTILOS WIKI & GUÃA GTA V (LOS SANTOS ATMOSPHERE & FROSTED GLASS HUD)
    ========================================================================== */
 
-/* Define los colores, fondos y estética de el elemento: :host. */
+/* Define los colores, fondos y estÃ©tica de el elemento: :host. */
 :host {
   display: block;
   width: 100%;
@@ -13,7 +13,7 @@
   background-color: #0b0f14;
 }
 
-/* Contenedor envolvente principal (incluye un patrón sutil de cuadrícula de fondo) */
+/* Contenedor envolvente principal (incluye un patrÃ³n sutil de cuadrÃ­cula de fondo) */
 .wiki-shell {
   width: 100%;
   height: 100%;
@@ -36,7 +36,7 @@
 }
 
 /* ==========================================================================
-   MODO DÍA (THEME DAY)
+   MODO DÃA (THEME DAY)
    ========================================================================== */
 .wiki-shell.mode-day {
   background-color: #f1f5f9;
@@ -47,19 +47,19 @@
   color: #0f172a;
 }
 
-/* Define los colores, fondos y estética de la barra de navegación superior. */
+/* Define los colores, fondos y estÃ©tica de la barra de navegaciÃ³n superior. */
 .wiki-shell.mode-day .wiki-top-nav {
   background: #ffffff;
   border-bottom-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* Establece el diseño general de la barra de navegación superior. */
+/* Establece el diseÃ±o general de la barra de navegaciÃ³n superior. */
 .wiki-shell.mode-day .nav-brand-sep {
   color: rgba(0, 0, 0, 0.3);
 }
 
-/* Configura la tipografía y los textos de la barra de navegación superior. */
+/* Configura la tipografÃ­a y los textos de la barra de navegaciÃ³n superior. */
 .wiki-shell.mode-day .nav-brand-title {
   color: #0f172a;
   text-shadow: none;
@@ -68,7 +68,7 @@
 .wiki-shell.mode-day /* =========================================
    PANEL LATERAL (CONTENEDOR GLOBAL)
    ========================================= */
-/* Caja global oscura que envuelve al menú izquierdo */
+/* Caja global oscura que envuelve al menÃº izquierdo */
 .wiki-sidebar {
   background-color: #ffffff;
   border-color: #e2e8f0;
@@ -76,62 +76,62 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Establece el diseño general de el menú lateral (índice de contenidos). */
+/* Establece el diseÃ±o general de el menÃº lateral (Ã­ndice de contenidos). */
 .wiki-shell.mode-day .sidebar-header-bar {
   border-bottom-color: #e2e8f0;
 }
 
-/* Establece el diseño general de el menú lateral (índice de contenidos). */
+/* Establece el diseÃ±o general de el menÃº lateral (Ã­ndice de contenidos). */
 .wiki-shell.mode-day .sidebar-header-title {
   color: #0f172a;
 }
 
-/* Define los colores, fondos y estética de la barra de búsqueda del menú lateral. */
+/* Define los colores, fondos y estÃ©tica de la barra de bÃºsqueda del menÃº lateral. */
 .wiki-shell.mode-day .sidebar-search-input {
   background: #f8fafc;
   color: #0f172a;
   border-color: #cbd5e1;
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 .wiki-shell.mode-day .section-group-header {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 .wiki-shell.mode-day .section-group-title {
   color: #334155;
 }
 
-.wiki-shell.mode-day /* Cada uno de los capítulos individuales dentro de un acordeón abierto */
+.wiki-shell.mode-day /* Cada uno de los capÃ­tulos individuales dentro de un acordeÃ³n abierto */
 .chapter-item {
   background: #f8fafc;
   border-color: #e2e8f0;
 }
 
-/* Define los colores, fondos y estética de cada capítulo individual en la lista del menú al pasar el ratón por encima. */
+/* Define los colores, fondos y estÃ©tica de cada capÃ­tulo individual en la lista del menÃº al pasar el ratÃ³n por encima. */
 .wiki-shell.mode-day .chapter-item:hover {
   background: #f1f5f9;
   border-color: #cbd5e1;
 }
 
-/* Define los colores, fondos y estética de cada capítulo individual en la lista del menú cuando el elemento está activo o seleccionado. */
+/* Define los colores, fondos y estÃ©tica de cada capÃ­tulo individual en la lista del menÃº cuando el elemento estÃ¡ activo o seleccionado. */
 .wiki-shell.mode-day .chapter-item.is-active {
   background: rgba(34, 197, 94, 0.1);
   border-color: #22c55e;
 }
 
-/* Establece el diseño general de cada capítulo individual en la lista del menú. */
+/* Establece el diseÃ±o general de cada capÃ­tulo individual en la lista del menÃº. */
 .wiki-shell.mode-day .chapter-title {
   color: #1e293b;
 }
 
-/* Establece el diseño general de cada capítulo individual en la lista del menú cuando el elemento está activo o seleccionado. */
+/* Establece el diseÃ±o general de cada capÃ­tulo individual en la lista del menÃº cuando el elemento estÃ¡ activo o seleccionado. */
 .wiki-shell.mode-day .chapter-item.is-active .chapter-title {
   color: #16a34a;
 }
 
-.wiki-shell.mode-day /* La tarjeta gigante central donde se muestra todo el texto y datos del capítulo */
+.wiki-shell.mode-day /* La tarjeta gigante central donde se muestra todo el texto y datos del capÃ­tulo */
 .wiki-article-card {
   background: #ffffff;
   color: #1e293b;
@@ -139,39 +139,39 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
+/* Configura la tipografÃ­a y los textos de la tarjeta central donde se lee el artÃ­culo. */
 .wiki-shell.mode-day .article-main-title {
   color: #0f172a;
   text-shadow: none;
 }
 
-/* Establece el diseño general de la tarjeta central donde se lee el artículo. */
+/* Establece el diseÃ±o general de la tarjeta central donde se lee el artÃ­culo. */
 .wiki-shell.mode-day .article-lead {
   color: #475569;
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body {
   color: #1e293b;
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body .guide-h2 {
   color: #0f172a;
   border-bottom-color: #cbd5e1;
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body .guide-p {
   color: #334155;
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body .guide-strong {
   color: #0f172a;
 }
 
-.wiki-shell.mode-day /* Caja destacada en la cabecera del artículo que muestra su título y subtítulo */
+.wiki-shell.mode-day /* Caja destacada en la cabecera del artÃ­culo que muestra su tÃ­tulo y subtÃ­tulo */
 .article-chapter-banner {
   background: #ffffff;
   border-color: #cbd5e1;
@@ -179,18 +179,18 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
+/* Configura la tipografÃ­a y los textos de la tarjeta central donde se lee el artÃ­culo. */
 .wiki-shell.mode-day .article-chapter-banner .article-main-title {
   color: #0f172a;
   text-shadow: none;
 }
 
-/* Establece el diseño general de la tarjeta central donde se lee el artículo. */
+/* Establece el diseÃ±o general de la tarjeta central donde se lee el artÃ­culo. */
 .wiki-shell.mode-day .article-chapter-banner .article-lead {
   color: #475569;
 }
 
-/* Establece el diseño general de la tarjeta central donde se lee el artículo. */
+/* Establece el diseÃ±o general de la tarjeta central donde se lee el artÃ­culo. */
 .wiki-shell.mode-day .article-map-prompt {
   background: #ffffff;
   border: 1px solid #cbd5e1;
@@ -198,35 +198,35 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 .wiki-shell.mode-day .map-prompt-title {
   color: #0f172a;
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 .wiki-shell.mode-day .map-prompt-sub {
   color: #64748b;
 }
 
-/* Define los colores, fondos y estética de el pie de página de la aplicación. */
+/* Define los colores, fondos y estÃ©tica de el pie de pÃ¡gina de la aplicaciÃ³n. */
 .wiki-shell.mode-day .home-footer {
   background: #f8fafc;
   border-top-color: #cbd5e1;
 }
 
-/* Configura la tipografía y los textos de el pie de página de la aplicación. */
+/* Configura la tipografÃ­a y los textos de el pie de pÃ¡gina de la aplicaciÃ³n. */
 .wiki-shell.mode-day .home-footer-text {
   color: #475569;
   text-shadow: none;
 }
 
-/* Establece el diseño general de el pie de página de la aplicación. */
+/* Establece el diseÃ±o general de el pie de pÃ¡gina de la aplicaciÃ³n. */
 .wiki-shell.mode-day .home-footer-link {
   color: #0f172a;
 }
 
 /* ==========================================================================
-   1. BARRA DE NAVEGACIÓN SUPERIOR (HUD NAV)
+   1. BARRA DE NAVEGACIÃ“N SUPERIOR (HUD NAV)
    ========================================================================== */
 .wiki-top-nav {
   position: sticky;
@@ -239,7 +239,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Estructura la posición y alineación de la barra de navegación superior. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de la barra de navegaciÃ³n superior. */
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -250,7 +250,7 @@
   gap: 18px;
 }
 
-/* Estructura la posición y alineación de la barra de navegación superior. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de la barra de navegaciÃ³n superior. */
 .nav-left {
   display: flex;
   align-items: center;
@@ -258,7 +258,7 @@
   flex-shrink: 0;
 }
 
-/* Configura la tipografía y los textos de el elemento: .wiki-logo-link. */
+/* Configura la tipografÃ­a y los textos de el elemento: .wiki-logo-link. */
 .wiki-logo-link {
   display: inline-flex;
   align-items: center;
@@ -266,7 +266,7 @@
   margin: 0 16px;
 }
 
-/* Ajusta las dimensiones y espaciados de la barra de navegación superior. */
+/* Ajusta las dimensiones y espaciados de la barra de navegaciÃ³n superior. */
 .wiki-nav-logo {
   height: 38px;
   width: auto;
@@ -276,7 +276,7 @@
   display: block;
 }
 
-/* Ajusta las dimensiones y espaciados de la barra de navegación superior. */
+/* Ajusta las dimensiones y espaciados de la barra de navegaciÃ³n superior. */
 .nav-spike-divider {
   display: block;
   width: 1px;
@@ -287,20 +287,20 @@
   flex-shrink: 0;
 }
 
-/* Establece el diseño general de la barra de navegación superior. */
+/* Establece el diseÃ±o general de la barra de navegaciÃ³n superior. */
 .wiki-shell.mode-day .nav-spike-divider {
   background: linear-gradient(180deg, transparent 0%, rgba(217, 119, 6, 0.85) 50%, transparent 100%);
   box-shadow: none;
 }
 
-/* Estructura la posición y alineación de la barra de navegación superior. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de la barra de navegaciÃ³n superior. */
 .nav-brand {
   display: flex;
   align-items: center;
   margin-left: 14px;
 }
 
-/* Controla las animaciones visuales de la barra de navegación superior. */
+/* Controla las animaciones visuales de la barra de navegaciÃ³n superior. */
 .nav-brand-title {
   margin: 0;
   font-size: 32px;
@@ -315,13 +315,13 @@
   transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
-/* Configura la tipografía y los textos de la barra de navegación superior. */
+/* Configura la tipografÃ­a y los textos de la barra de navegaciÃ³n superior. */
 .wiki-shell.mode-day .nav-brand-title {
   color: #000000;
   text-shadow: none;
 }
 
-/* Estructura la posición y alineación de la barra de navegación superior. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de la barra de navegaciÃ³n superior. */
 .nav-right {
   display: flex;
   align-items: center;
@@ -329,7 +329,7 @@
   flex-shrink: 0;
 }
 
-/* Estructura la posición y alineación de el interruptor para cambiar entre modo día/noche. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el interruptor para cambiar entre modo dÃ­a/noche. */
 .theme-toggle-switch {
   position: relative;
   width: 58px;
@@ -347,7 +347,7 @@
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Define los colores, fondos y estética de el interruptor para cambiar entre modo día/noche. */
+/* Define los colores, fondos y estÃ©tica de el interruptor para cambiar entre modo dÃ­a/noche. */
 .theme-toggle-switch.is-day {
   background: #38bdf8;
   border-color: #0284c7;
@@ -362,27 +362,27 @@
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* Establece el diseño general de el elemento: .switch-icon-moon. */
+/* Establece el diseÃ±o general de el elemento: .switch-icon-moon. */
 .switch-icon-moon {
   opacity: 1;
 }
 
-/* Establece el diseño general de el interruptor para cambiar entre modo día/noche. */
+/* Establece el diseÃ±o general de el interruptor para cambiar entre modo dÃ­a/noche. */
 .theme-toggle-switch.is-day .switch-icon-moon {
   opacity: 0.3;
 }
 
-/* Establece el diseño general de el elemento: .switch-icon-sun. */
+/* Establece el diseÃ±o general de el elemento: .switch-icon-sun. */
 .switch-icon-sun {
   opacity: 0.3;
 }
 
-/* Establece el diseño general de el interruptor para cambiar entre modo día/noche. */
+/* Establece el diseÃ±o general de el interruptor para cambiar entre modo dÃ­a/noche. */
 .theme-toggle-switch.is-day .switch-icon-sun {
   opacity: 1;
 }
 
-/* Fija la posición en la pantalla de el elemento: .switch-thumb. */
+/* Fija la posiciÃ³n en la pantalla de el elemento: .switch-thumb. */
 .switch-thumb {
   position: absolute;
   top: 3px;
@@ -395,7 +395,7 @@
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
 }
 
-/* Establece el diseño general de el interruptor para cambiar entre modo día/noche. */
+/* Establece el diseÃ±o general de el interruptor para cambiar entre modo dÃ­a/noche. */
 .theme-toggle-switch.is-day .switch-thumb {
   transform: translateX(28px);
   background: #fef08a;
@@ -422,12 +422,12 @@
 }
 
 /* ==========================================================================
-   2. BANNER HERO CINEMÁTICO (LOS SANTOS)
+   2. BANNER HERO CINEMÃTICO (LOS SANTOS)
    ========================================================================== */
 /* =========================================
    BANNER SUPERIOR (FOTO DE LOS SANTOS)
    ========================================= */
-/* La imagen panorámica que encabeza toda la página */
+/* La imagen panorÃ¡mica que encabeza toda la pÃ¡gina */
 .wiki-hero-banner {
   position: relative;
   width: 100%;
@@ -443,7 +443,7 @@
   flex-shrink: 0;
 }
 
-/* Fija la posición en la pantalla de el banner superior con la imagen de fondo. */
+/* Fija la posiciÃ³n en la pantalla de el banner superior con la imagen de fondo. */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
@@ -456,7 +456,7 @@
   pointer-events: none;
 }
 
-/* Estructura la posición y alineación de el banner superior con la imagen de fondo. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el banner superior con la imagen de fondo. */
 .hero-content-inner {
   position: relative;
   z-index: 2;
@@ -470,7 +470,7 @@
   justify-content: center;
 }
 
-/* Estructura la posición y alineación de el banner superior con la imagen de fondo. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el banner superior con la imagen de fondo. */
 .hero-tag-row {
   display: flex;
   align-items: center;
@@ -478,7 +478,7 @@
   margin-bottom: 8px;
 }
 
-/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
+/* Configura la tipografÃ­a y los textos de el banner superior con la imagen de fondo. */
 .hero-location-text {
   font-size: 11px;
   font-weight: 700;
@@ -488,7 +488,7 @@
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
-/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
+/* Configura la tipografÃ­a y los textos de el banner superior con la imagen de fondo. */
 .hero-main-title {
   margin: 0 0 8px 0;
   font-size: 34px;
@@ -501,7 +501,7 @@
   line-height: 1.1;
 }
 
-/* Configura la tipografía y los textos de el banner superior con la imagen de fondo. */
+/* Configura la tipografÃ­a y los textos de el banner superior con la imagen de fondo. */
 .hero-description {
   margin: 0;
   font-size: 14px;
@@ -527,7 +527,7 @@
   z-index: 1;
 }
 
-/* Sidebar de Capítulos */
+/* Sidebar de CapÃ­tulos */
 .wiki-sidebar {
   width: 330px;
   background: rgba(15, 21, 32, 0.88);
@@ -549,43 +549,43 @@
   scrollbar-color: rgba(255, 184, 51, 0.45) rgba(0, 0, 0, 0.25);
 }
 
-/* Ajusta las dimensiones y espaciados de el menú lateral (índice de contenidos). */
+/* Ajusta las dimensiones y espaciados de el menÃº lateral (Ã­ndice de contenidos). */
 .wiki-sidebar::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Establece el diseño general de el menú lateral (índice de contenidos). */
+/* Establece el diseÃ±o general de el menÃº lateral (Ã­ndice de contenidos). */
 .wiki-sidebar::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.25);
   border-radius: 4px;
 }
 
-/* Establece el diseño general de el menú lateral (índice de contenidos). */
+/* Establece el diseÃ±o general de el menÃº lateral (Ã­ndice de contenidos). */
 .wiki-sidebar::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, rgba(255, 184, 51, 0.55), rgba(34, 197, 94, 0.45));
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-/* Establece el diseño general de el menú lateral (índice de contenidos) al pasar el ratón por encima. */
+/* Establece el diseÃ±o general de el menÃº lateral (Ã­ndice de contenidos) al pasar el ratÃ³n por encima. */
 .wiki-sidebar::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #ffb833, #22c55e);
 }
 
 /* Buscador en el Sidebar */
-/* Contenedor de la barra de búsqueda superior del menú */
+/* Contenedor de la barra de bÃºsqueda superior del menÃº */
 .sidebar-search-box {
   position: relative;
   width: 100%;
 }
 
-/* Ajusta las dimensiones y espaciados de la barra de búsqueda del menú lateral. */
+/* Ajusta las dimensiones y espaciados de la barra de bÃºsqueda del menÃº lateral. */
 .search-input-wrapper {
   position: relative;
   width: 100%;
 }
 
-/* Fija la posición en la pantalla de la barra de búsqueda del menú lateral. */
+/* Fija la posiciÃ³n en la pantalla de la barra de bÃºsqueda del menÃº lateral. */
 .sidebar-search-box .search-icon {
   position: absolute;
   left: 12px;
@@ -595,7 +595,7 @@
   pointer-events: none;
 }
 
-/* Define los colores, fondos y estética de la barra de búsqueda del menú lateral. */
+/* Define los colores, fondos y estÃ©tica de la barra de bÃºsqueda del menÃº lateral. */
 .sidebar-search-input {
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
@@ -609,14 +609,14 @@
   box-sizing: border-box;
 }
 
-/* Define los colores, fondos y estética de la barra de búsqueda del menú lateral al hacer clic o estar enfocado. */
+/* Define los colores, fondos y estÃ©tica de la barra de bÃºsqueda del menÃº lateral al hacer clic o estar enfocado. */
 .sidebar-search-input:focus {
   border-color: rgba(34, 197, 94, 0.5);
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 12px rgba(34, 197, 94, 0.2);
 }
 
-/* Fija la posición en la pantalla de la barra de búsqueda del menú lateral. */
+/* Fija la posiciÃ³n en la pantalla de la barra de bÃºsqueda del menÃº lateral. */
 .search-clear-btn {
   position: absolute;
   right: 10px;
@@ -629,7 +629,7 @@
   font-size: 12px;
 }
 
-/* Fija la posición en la pantalla de la barra de búsqueda del menú lateral. */
+/* Fija la posiciÃ³n en la pantalla de la barra de bÃºsqueda del menÃº lateral. */
 .search-dropdown-menu {
   position: absolute;
   top: calc(100% + 6px);
@@ -644,7 +644,7 @@
   z-index: 50;
 }
 
-/* Controla las animaciones visuales de la barra de búsqueda del menú lateral. */
+/* Controla las animaciones visuales de la barra de bÃºsqueda del menÃº lateral. */
 .search-dropdown-item {
   padding: 10px 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -652,12 +652,12 @@
   transition: background 0.15s ease;
 }
 
-/* Establece el diseño general de la barra de búsqueda del menú lateral al pasar el ratón por encima. */
+/* Establece el diseÃ±o general de la barra de bÃºsqueda del menÃº lateral al pasar el ratÃ³n por encima. */
 .search-dropdown-item:hover {
   background: rgba(34, 197, 94, 0.15);
 }
 
-/* Configura la tipografía y los textos de la barra de búsqueda del menú lateral. */
+/* Configura la tipografÃ­a y los textos de la barra de bÃºsqueda del menÃº lateral. */
 .search-item-title {
   display: block;
   font-size: 13px;
@@ -665,7 +665,7 @@
   color: #ffffff;
 }
 
-/* Configura la tipografía y los textos de la barra de búsqueda del menú lateral. */
+/* Configura la tipografÃ­a y los textos de la barra de bÃºsqueda del menÃº lateral. */
 .search-item-sub {
   display: block;
   font-size: 11px;
@@ -681,7 +681,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Configura la tipografía y los textos de el menú lateral (índice de contenidos). */
+/* Configura la tipografÃ­a y los textos de el menÃº lateral (Ã­ndice de contenidos). */
 .sidebar-header-title {
   font-size: 11px;
   font-weight: 800;
@@ -690,7 +690,7 @@
   text-transform: uppercase;
 }
 
-/* Define los colores, fondos y estética de el menú lateral (índice de contenidos). */
+/* Define los colores, fondos y estÃ©tica de el menÃº lateral (Ã­ndice de contenidos). */
 .sidebar-header-count {
   font-size: 11px;
   font-weight: 700;
@@ -706,12 +706,12 @@
   flex: 1;
 }
 
-/* Grupo completo de una categoría (incluye el botón de acordeón y su lista de capítulos desplegable) */
+/* Grupo completo de una categorÃ­a (incluye el botÃ³n de acordeÃ³n y su lista de capÃ­tulos desplegable) */
 .sidebar-section-group {
   margin-bottom: 10px;
 }
 
-/* Estructura la posición y alineación de el elemento: .section-group-header. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .section-group-header. */
 .section-group-header {
   display: flex;
   align-items: center;
@@ -727,7 +727,7 @@
   margin-bottom: 6px;
 }
 
-/* Define los colores, fondos y estética de las etiquetas que muestran el número de misiones. */
+/* Define los colores, fondos y estÃ©tica de las etiquetas que muestran el nÃºmero de misiones. */
 .section-group-badge {
   font-size: 10px;
   background: rgba(255, 255, 255, 0.08);
@@ -736,14 +736,14 @@
   border-radius: 8px;
 }
 
-/* Ajusta las dimensiones y espaciados de cada capítulo individual en la lista del menú. */
+/* Ajusta las dimensiones y espaciados de cada capÃ­tulo individual en la lista del menÃº. */
 .sidebar-chapters-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Estructura la posición y alineación de cada capítulo individual en la lista del menú. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de cada capÃ­tulo individual en la lista del menÃº. */
 .chapter-item {
   padding: 8px 10px;
   border-radius: 6px;
@@ -759,7 +759,7 @@
   transition: all 0.18s ease;
 }
 
-/* Define los colores, fondos y estética de cada capítulo individual en la lista del menú al pasar el ratón por encima. */
+/* Define los colores, fondos y estÃ©tica de cada capÃ­tulo individual en la lista del menÃº al pasar el ratÃ³n por encima. */
 .chapter-item:hover {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.15);
@@ -767,14 +767,14 @@
   transform: translateX(2px);
 }
 
-/* Define los colores, fondos y estética de cada capítulo individual en la lista del menú cuando el elemento está activo o seleccionado. */
+/* Define los colores, fondos y estÃ©tica de cada capÃ­tulo individual en la lista del menÃº cuando el elemento estÃ¡ activo o seleccionado. */
 .chapter-item.is-active {
   background: rgba(34, 197, 94, 0.12);
   border-color: rgba(34, 197, 94, 0.35);
   border-left-color: #22c55e;
 }
 
-/* Estructura la posición y alineación de cada capítulo individual en la lista del menú. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de cada capÃ­tulo individual en la lista del menÃº. */
 .chapter-info {
   display: flex;
   flex-direction: column;
@@ -783,7 +783,7 @@
   flex: 1;
 }
 
-/* Configura la tipografía y los textos de cada capítulo individual en la lista del menú. */
+/* Configura la tipografÃ­a y los textos de cada capÃ­tulo individual en la lista del menÃº. */
 .chapter-title {
   font-size: 12.5px;
   font-weight: 700;
@@ -793,12 +793,12 @@
   text-overflow: ellipsis;
 }
 
-/* Establece el diseño general de cada capítulo individual en la lista del menú cuando el elemento está activo o seleccionado. */
+/* Establece el diseÃ±o general de cada capÃ­tulo individual en la lista del menÃº cuando el elemento estÃ¡ activo o seleccionado. */
 .chapter-item.is-active .chapter-title {
   color: #4ade80;
 }
 
-/* Configura la tipografía y los textos de cada capítulo individual en la lista del menú. */
+/* Configura la tipografÃ­a y los textos de cada capÃ­tulo individual en la lista del menÃº. */
 .chapter-sub {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.45);
@@ -807,7 +807,7 @@
   text-overflow: ellipsis;
 }
 
-/* Define los colores, fondos y estética de las etiquetas que muestran el número de misiones. */
+/* Define los colores, fondos y estÃ©tica de las etiquetas que muestran el nÃºmero de misiones. */
 .chapter-badge {
   font-size: 9px;
   font-weight: 800;
@@ -821,18 +821,18 @@
 }
 
 /* ==========================================================================
-   4. ÁREA DE LECTURA EDITORIAL (CARD HUD)
+   4. ÃREA DE LECTURA EDITORIAL (CARD HUD)
    ========================================================================== */
 /* =========================================
-   ÁREA CENTRAL DE LECTURA (CONTENIDO DEL ARTÍCULO)
+   ÃREA CENTRAL DE LECTURA (CONTENIDO DEL ARTÃCULO)
    ========================================= */
-/* Contenedor principal que aloja el artículo a la derecha del menú */
+/* Contenedor principal que aloja el artÃ­culo a la derecha del menÃº */
 .wiki-content-area {
   flex: 1;
   min-width: 0;
 }
 
-/* Ajusta las dimensiones y espaciados de la tarjeta central donde se lee el artículo. */
+/* Ajusta las dimensiones y espaciados de la tarjeta central donde se lee el artÃ­culo. */
 .wiki-article-card {
   background: rgba(15, 21, 32, 0.88);
   backdrop-filter: blur(16px);
@@ -843,7 +843,7 @@
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.6);
 }
 
-/* Estructura la posición y alineación de la tarjeta central donde se lee el artículo. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de la tarjeta central donde se lee el artÃ­culo. */
 .article-meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -852,7 +852,7 @@
   margin-bottom: 14px;
 }
 
-/* Define los colores, fondos y estética de las etiquetas que muestran el número de misiones. */
+/* Define los colores, fondos y estÃ©tica de las etiquetas que muestran el nÃºmero de misiones. */
 .article-chip-badge {
   background: #22c55e;
   color: #000;
@@ -864,7 +864,7 @@
   letter-spacing: 0.5px;
 }
 
-/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
+/* Configura la tipografÃ­a y los textos de la tarjeta central donde se lee el artÃ­culo. */
 .article-read-meta {
   display: inline-flex;
   align-items: center;
@@ -874,7 +874,7 @@
   font-weight: 600;
 }
 
-/* ====== PANEL ESTILIZADO DEL CAPÍTULO (TÍTULO + SUBTÍTULO) ====== */
+/* ====== PANEL ESTILIZADO DEL CAPÃTULO (TÃTULO + SUBTÃTULO) ====== */
 .article-chapter-banner {
   background: rgba(11, 15, 20, 0.82);
   backdrop-filter: blur(12px);
@@ -890,7 +890,7 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
-/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
+/* Configura la tipografÃ­a y los textos de la tarjeta central donde se lee el artÃ­culo. */
 .article-chapter-banner .article-main-title {
   margin: 0;
   font-size: 26px;
@@ -903,7 +903,7 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-/* Configura la tipografía y los textos de la tarjeta central donde se lee el artículo. */
+/* Configura la tipografÃ­a y los textos de la tarjeta central donde se lee el artÃ­culo. */
 .article-chapter-banner .article-lead {
   margin: 0;
   font-size: 14.5px;
@@ -921,7 +921,7 @@
   line-height: 1.8;
 }
 
-/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-h2. */
+/* Configura la tipografÃ­a y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-h2. */
 :host ::ng-deep .narrative-editorial-body .guide-h2 {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 20px;
@@ -933,7 +933,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Estructura la posición y alineación de el elemento: :host ::ng-deep .narrative-editorial-body .guide-h3. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: :host ::ng-deep .narrative-editorial-body .guide-h3. */
 :host ::ng-deep .narrative-editorial-body .guide-h3 {
   display: flex;
   align-items: center;
@@ -954,7 +954,7 @@
   border-radius: 2px;
 }
 
-/* ====== ENCABEZADO DE SECCIÓN CON ESPIGAS ESTILIZADAS (ESTILO ARMERÍA) ====== */
+/* ====== ENCABEZADO DE SECCIÃ“N CON ESPIGAS ESTILIZADAS (ESTILO ARMERÃA) ====== */
 :host ::ng-deep .guide-heading-divider {
   display: flex;
   align-items: center;
@@ -977,12 +977,12 @@
   border-radius: 1px;
 }
 
-/* Establece el diseño general de el elemento: :host ::ng-deep .guide-heading-line--right. */
+/* Establece el diseÃ±o general de el elemento: :host ::ng-deep .guide-heading-line--right. */
 :host ::ng-deep .guide-heading-line--right {
   background: linear-gradient(90deg, rgba(255, 184, 51, 0.75) 0%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
 }
 
-/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .guide-heading-title. */
+/* Configura la tipografÃ­a y los textos de el elemento: :host ::ng-deep .guide-heading-title. */
 :host ::ng-deep .guide-heading-title {
   margin: 0;
   font-size: 13px;
@@ -996,17 +996,17 @@
   text-shadow: 0 0 10px rgba(255, 184, 51, 0.25);
 }
 
-/* Modo día para encabezados */
+/* Modo dÃ­a para encabezados */
 :host .wiki-shell.mode-day ::ng-deep .guide-heading-line {
   background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.75) 100%);
 }
 
-/* Establece el diseño general de el modo claro (tema de día) para la interfaz. */
+/* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .guide-heading-line--right {
   background: linear-gradient(90deg, rgba(217, 119, 6, 0.75) 0%, rgba(217, 119, 6, 0.25) 75%, transparent 100%);
 }
 
-/* Configura la tipografía y los textos de el modo claro (tema de día) para la interfaz. */
+/* Configura la tipografÃ­a y los textos de el modo claro (tema de dÃ­a) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .guide-heading-title {
   color: #b45309;
   text-shadow: none;
@@ -1019,7 +1019,7 @@
   color: #cbd5e1;
 }
 
-/* ====== LISTAS Y VIÑETAS ====== */
+/* ====== LISTAS Y VIÃ‘ETAS ====== */
 :host ::ng-deep .narrative-editorial-body .guide-list {
   list-style: none !important;
   list-style-type: none !important;
@@ -1030,7 +1030,7 @@
   gap: 8px;
 }
 
-/* Estructura la posición y alineación de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-item. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-item. */
 :host ::ng-deep .narrative-editorial-body .guide-list-item {
   list-style: none !important;
   list-style-type: none !important;
@@ -1040,7 +1040,7 @@
   line-height: 1.65;
 }
 
-/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-bullet. */
+/* Configura la tipografÃ­a y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-bullet. */
 :host ::ng-deep .narrative-editorial-body .guide-list-bullet {
   color: #4ade80;
   font-size: 16px;
@@ -1049,18 +1049,18 @@
   flex-shrink: 0;
 }
 
-/* Establece el diseño general de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-text. */
+/* Establece el diseÃ±o general de el elemento: :host ::ng-deep .narrative-editorial-body .guide-list-text. */
 :host ::ng-deep .narrative-editorial-body .guide-list-text {
   flex: 1;
 }
 
-/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-strong. */
+/* Configura la tipografÃ­a y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-strong. */
 :host ::ng-deep .narrative-editorial-body .guide-strong {
   color: #ffffff;
   font-weight: 700;
 }
 
-/* Configura la tipografía y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-em. */
+/* Configura la tipografÃ­a y los textos de el elemento: :host ::ng-deep .narrative-editorial-body .guide-em. */
 :host ::ng-deep .narrative-editorial-body .guide-em {
   color: #ffb833;
   font-style: normal;
@@ -1073,7 +1073,7 @@
   opacity: 0.92;
 }
 
-/* Define los colores, fondos y estética de el elemento: :host ::ng-deep .narrative-editorial-body .guide-chip-code. */
+/* Define los colores, fondos y estÃ©tica de el elemento: :host ::ng-deep .narrative-editorial-body .guide-chip-code. */
 :host ::ng-deep .narrative-editorial-body .guide-chip-code {
   display: inline-block;
   background: rgba(15, 23, 42, 0.9);
@@ -1090,7 +1090,7 @@
   user-select: all;
 }
 
-/* Define los colores, fondos y estética de el elemento: :host ::ng-deep .narrative-editorial-body .guide-chip-code:hover al pasar el ratón por encima. */
+/* Define los colores, fondos y estÃ©tica de el elemento: :host ::ng-deep .narrative-editorial-body .guide-chip-code:hover al pasar el ratÃ³n por encima. */
 :host ::ng-deep .narrative-editorial-body .guide-chip-code:hover {
   background: rgba(34, 197, 94, 0.22);
   border-color: #22c55e;
@@ -1126,7 +1126,7 @@
   box-sizing: border-box;
 }
 
-/* Configura la tipografía y los textos de el elemento: .map-prompt-title. */
+/* Configura la tipografÃ­a y los textos de el elemento: .map-prompt-title. */
 .map-prompt-title {
   margin: 0 0 3px 0;
   font-size: 14.5px;
@@ -1134,7 +1134,7 @@
   color: #ffffff;
 }
 
-/* Configura la tipografía y los textos de el elemento: .map-prompt-sub. */
+/* Configura la tipografÃ­a y los textos de el elemento: .map-prompt-sub. */
 .map-prompt-sub {
   margin: 0;
   font-size: 12px;
@@ -1142,7 +1142,7 @@
   line-height: 1.4;
 }
 
-/* Define los colores, fondos y estética de el elemento: .map-prompt-btn. */
+/* Define los colores, fondos y estÃ©tica de el elemento: .map-prompt-btn. */
 .map-prompt-btn {
   display: inline-flex;
   align-items: center;
@@ -1159,14 +1159,14 @@
   transition: all 0.2s ease;
 }
 
-/* Define los colores, fondos y estética de el elemento: .map-prompt-btn:hover al pasar el ratón por encima. */
+/* Define los colores, fondos y estÃ©tica de el elemento: .map-prompt-btn:hover al pasar el ratÃ³n por encima. */
 .map-prompt-btn:hover {
   background: #16a34a;
   color: #ffffff;
 }
 
 /* ==========================================================================
-   PAGINACIÓN ENTRE CAPÍTULOS (ANTERIOR / SIGUIENTE)
+   PAGINACIÃ“N ENTRE CAPÃTULOS (ANTERIOR / SIGUIENTE)
    ========================================================================== */
 .article-pagination-nav {
   margin-top: 36px;
@@ -1177,7 +1177,7 @@
   flex-wrap: wrap;
 }
 
-/* Estructura la posición y alineación de el elemento: .pagination-btn. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .pagination-btn. */
 .pagination-btn {
   flex: 1;
   min-width: 200px;
@@ -1195,7 +1195,7 @@
   transition: all 0.2s ease;
 }
 
-/* Define los colores, fondos y estética de el elemento: .pagination-btn:hover al pasar el ratón por encima. */
+/* Define los colores, fondos y estÃ©tica de el elemento: .pagination-btn:hover al pasar el ratÃ³n por encima. */
 .pagination-btn:hover {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(255, 255, 255, 0.2);
@@ -1203,14 +1203,14 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Configura la tipografía y los textos de el elemento: .pagination-next. */
+/* Configura la tipografÃ­a y los textos de el elemento: .pagination-next. */
 .pagination-next {
   justify-content: flex-end;
   text-align: right;
   margin-left: auto;
 }
 
-/* Establece el diseño general de el elemento: .pagination-spacer. */
+/* Establece el diseÃ±o general de el elemento: .pagination-spacer. */
 .pagination-spacer {
   flex: 1;
 }
@@ -1224,17 +1224,17 @@
   transition: transform 0.2s ease;
 }
 
-/* Establece el diseño general de el elemento: .pagination-prev:hover .pagination-arrow al pasar el ratón por encima. */
+/* Establece el diseÃ±o general de el elemento: .pagination-prev:hover .pagination-arrow al pasar el ratÃ³n por encima. */
 .pagination-prev:hover .pagination-arrow {
   transform: translateX(-3px);
 }
 
-/* Establece el diseño general de el elemento: .pagination-next:hover .pagination-arrow al pasar el ratón por encima. */
+/* Establece el diseÃ±o general de el elemento: .pagination-next:hover .pagination-arrow al pasar el ratÃ³n por encima. */
 .pagination-next:hover .pagination-arrow {
   transform: translateX(3px);
 }
 
-/* Estructura la posición y alineación de el elemento: .pagination-text. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .pagination-text. */
 .pagination-text {
   display: flex;
   flex-direction: column;
@@ -1242,12 +1242,12 @@
   min-width: 0;
 }
 
-/* Establece el diseño general de el elemento: .pagination-text-right. */
+/* Establece el diseÃ±o general de el elemento: .pagination-text-right. */
 .pagination-text-right {
   align-items: flex-end;
 }
 
-/* Configura la tipografía y los textos de el elemento: .pagination-label. */
+/* Configura la tipografÃ­a y los textos de el elemento: .pagination-label. */
 .pagination-label {
   font-size: 10.5px;
   text-transform: uppercase;
@@ -1256,7 +1256,7 @@
   font-weight: 700;
 }
 
-/* Configura la tipografía y los textos de el elemento: .pagination-title. */
+/* Configura la tipografÃ­a y los textos de el elemento: .pagination-title. */
 .pagination-title {
   font-size: 13.5px;
   font-weight: 700;
@@ -1267,7 +1267,7 @@
 }
 
 /* ==========================================================================
-   7. CAPÍTULOS RELACIONADOS & PIE
+   7. CAPÃTULOS RELACIONADOS & PIE
    ========================================================================== */
 .article-footer {
   margin-top: 44px;
@@ -1280,7 +1280,7 @@
   margin-bottom: 16px;
 }
 
-/* Configura la tipografía y los textos de el elemento: .related-tag. */
+/* Configura la tipografÃ­a y los textos de el elemento: .related-tag. */
 .related-tag {
   font-size: 9.5px;
   font-weight: 800;
@@ -1289,7 +1289,7 @@
   text-transform: uppercase;
 }
 
-/* Configura la tipografía y los textos de el elemento: .related-section-title. */
+/* Configura la tipografÃ­a y los textos de el elemento: .related-section-title. */
 .related-section-title {
   margin: 2px 0 0 0;
   font-size: 14px;
@@ -1299,14 +1299,14 @@
   font-weight: 800;
 }
 
-/* Estructura la posición y alineación de el elemento: .related-cards-grid. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .related-cards-grid. */
 .related-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 14px;
 }
 
-/* Estructura la posición y alineación de el elemento: .related-card. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .related-card. */
 .related-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1320,7 +1320,7 @@
   transition: all 0.2s ease;
 }
 
-/* Define los colores, fondos y estética de el elemento: .related-card:hover al pasar el ratón por encima. */
+/* Define los colores, fondos y estÃ©tica de el elemento: .related-card:hover al pasar el ratÃ³n por encima. */
 .related-card:hover {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(255, 255, 255, 0.2);
@@ -1328,7 +1328,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* Configura la tipografía y los textos de el elemento: .related-card-title. */
+/* Configura la tipografÃ­a y los textos de el elemento: .related-card-title. */
 .related-card-title {
   display: block;
   font-size: 14px;
@@ -1336,7 +1336,7 @@
   color: #ffffff;
 }
 
-/* Configura la tipografía y los textos de el elemento: .related-card-arrow. */
+/* Configura la tipografÃ­a y los textos de el elemento: .related-card-arrow. */
 .related-card-arrow {
   font-size: 12px;
   color: #4ade80;
@@ -1360,7 +1360,7 @@
   margin: 0 auto 14px auto;
 }
 
-/* Configura la tipografía y los textos de el elemento: .wiki-loading-text. */
+/* Configura la tipografÃ­a y los textos de el elemento: .wiki-loading-text. */
 .wiki-loading-text {
   font-size: 14px;
   color: #4ade80;
@@ -1388,7 +1388,7 @@
   margin-top: auto;
 }
 
-/* Configura la tipografía y los textos de el pie de página de la aplicación. */
+/* Configura la tipografÃ­a y los textos de el pie de pÃ¡gina de la aplicaciÃ³n. */
 .home-footer-text {
   margin: 0;
   color: #ffffff;
@@ -1401,13 +1401,13 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Ajusta las dimensiones y espaciados de el pie de página de la aplicación. */
+/* Ajusta las dimensiones y espaciados de el pie de pÃ¡gina de la aplicaciÃ³n. */
 .home-footer-sep {
   margin: 0 6px;
   opacity: 0.6;
 }
 
-/* Define los colores, fondos y estética de el pie de página de la aplicación. */
+/* Define los colores, fondos y estÃ©tica de el pie de pÃ¡gina de la aplicaciÃ³n. */
 .home-footer-link {
   background: none;
   border: none;
@@ -1420,13 +1420,13 @@
   transition: color 0.2s ease;
 }
 
-/* Establece el diseño general de el pie de página de la aplicación al pasar el ratón por encima. */
+/* Establece el diseÃ±o general de el pie de pÃ¡gina de la aplicaciÃ³n al pasar el ratÃ³n por encima. */
 .home-footer-link:hover {
   color: #ffb833;
 }
 
 /* ==========================================================================
-   BOTÓN VOLVER ARRIBA & TOAST DE NOTIFICACIÓN
+   BOTÃ“N VOLVER ARRIBA & TOAST DE NOTIFICACIÃ“N
    ========================================================================== */
 .scroll-top-btn {
   position: fixed;
@@ -1451,7 +1451,7 @@
   animation: fadeIn 0.25s ease;
 }
 
-/* Define los colores, fondos y estética de el botón flotante para subir arriba del todo al pasar el ratón por encima. */
+/* Define los colores, fondos y estÃ©tica de el botÃ³n flotante para subir arriba del todo al pasar el ratÃ³n por encima. */
 .scroll-top-btn:hover {
   background: rgba(34, 197, 94, 0.2);
   border-color: #22c55e;
@@ -1460,7 +1460,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(34, 197, 94, 0.3);
 }
 
-/* Estructura la posición y alineación de las notificaciones emergentes inferiores. */
+/* Estructura la posiciÃ³n y alineaciÃ³n de las notificaciones emergentes inferiores. */
 .wiki-toast {
   position: fixed;
   bottom: 32px;
@@ -1480,7 +1480,7 @@
   animation: toastFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Define los colores, fondos y estética de las notificaciones emergentes inferiores. */
+/* Define los colores, fondos y estÃ©tica de las notificaciones emergentes inferiores. */
 .wiki-toast .toast-icon {
   display: inline-flex;
   align-items: center;
@@ -1494,7 +1494,7 @@
   font-weight: 900;
 }
 
-/* Configura la tipografía y los textos de las notificaciones emergentes inferiores. */
+/* Configura la tipografÃ­a y los textos de las notificaciones emergentes inferiores. */
 .wiki-toast .toast-text {
   font-size: 13.5px;
   font-weight: 600;
@@ -1518,9 +1518,9 @@
 
 
 /* ==========================================================================
-   ESTILOS DEL ACORDEÓN DEL MENÚ LATERAL (AÑADIDOS RECIENTEMENTE)
+   ESTILOS DEL ACORDEÃ“N DEL MENÃš LATERAL (AÃ‘ADIDOS RECIENTEMENTE)
    ========================================================================== */
-/* Botón principal de cada categoría del menú (el que se clickea para abrir) */
+/* BotÃ³n principal de cada categorÃ­a del menÃº (el que se clickea para abrir) */
 .section-accordion-trigger {
   display: flex;
   justify-content: space-between;
@@ -1536,20 +1536,20 @@
   margin-bottom: 2px;
 }
 
-/* Efecto visual al pasar el ratón por encima del botón del acordeón */
+/* Efecto visual al pasar el ratÃ³n por encima del botÃ³n del acordeÃ³n */
 .section-accordion-trigger:hover {
   background: var(--bg-surface-3, #2a2d35);
   border-color: var(--primary-color, #00d26a);
 }
 
-/* Contenedor izquierdo del botón (agrupa el icono y el texto del título) */
+/* Contenedor izquierdo del botÃ³n (agrupa el icono y el texto del tÃ­tulo) */
 .trigger-content {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Estilos del icono de la categoría (fijado a 24px para mantener alineación vertical) */
+/* Estilos del icono de la categorÃ­a (fijado a 24px para mantener alineaciÃ³n vertical) */
 .trigger-icon {
   color: var(--primary-color, #00d26a);
   font-size: 1.1rem;
@@ -1558,7 +1558,7 @@
   flex-shrink: 0;
 }
 
-/* Texto del título de la categoría (ej. Misiones de la Historia) */
+/* Texto del tÃ­tulo de la categorÃ­a (ej. Misiones de la Historia) */
 .trigger-title {
   color: var(--text-primary, #ffffff);
   font-weight: 500;
@@ -1566,14 +1566,14 @@
   text-transform: none;
 }
 
-/* Contenedor derecho del botón (agrupa el número de capítulos y la flechita) */
+/* Contenedor derecho del botÃ³n (agrupa el nÃºmero de capÃ­tulos y la flechita) */
 .trigger-actions {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* La píldora/círculo que muestra cuántos capítulos tiene la categoría */
+/* La pÃ­ldora/cÃ­rculo que muestra cuÃ¡ntos capÃ­tulos tiene la categorÃ­a */
 .trigger-badge {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-secondary, #9ba1a6);
@@ -1585,14 +1585,14 @@
   white-space: nowrap;
 }
 
-/* Icono de la flecha que indica si el acordeón se puede desplegar */
+/* Icono de la flecha que indica si el acordeÃ³n se puede desplegar */
 .trigger-chevron {
   color: var(--text-secondary, #9ba1a6);
   transition: transform 0.3s ease;
   font-size: 0.9rem;
 }
 
-/* Modificación del botón principal cuando el acordeón está ABIERTO (se le quita el borde inferior) */
+/* ModificaciÃ³n del botÃ³n principal cuando el acordeÃ³n estÃ¡ ABIERTO (se le quita el borde inferior) */
 .sidebar-section-group.is-expanded .section-accordion-trigger {
   border-color: var(--primary-color, #00d26a);
   border-bottom-left-radius: 0;
@@ -1600,13 +1600,13 @@
   margin-bottom: 0;
 }
 
-/* Rotación de 180 grados de la flechita cuando el acordeón está abierto */
+/* RotaciÃ³n de 180 grados de la flechita cuando el acordeÃ³n estÃ¡ abierto */
 .sidebar-section-group.is-expanded .trigger-chevron {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
   color: var(--primary-color, #00d26a);
 }
 
-/* Cuerpo interior del acordeón que contiene la lista de capítulos (por defecto oculto) */
+/* Cuerpo interior del acordeÃ³n que contiene la lista de capÃ­tulos (por defecto oculto) */
 .section-accordion-body {
   max-height: 0;
   overflow: hidden;
@@ -1621,12 +1621,13 @@
   padding: 0 8px;
 }
 
-/* Animación de apertura del cuerpo del acordeón (se estira hasta un límite seguro de 8000px) */
+/* AnimaciÃ³n de apertura del cuerpo del acordeÃ³n (se estira hasta un lÃ­mite seguro de 8000px) */
 .section-accordion-body.open {
   max-height: 8000px; /* Safe upper limit for 100+ items */
   padding: 12px 8px;
   opacity: 1;
 }
 
-/* Ocultamos la cabecera antigua que ya no se usa, reemplazada por el botón del acordeón */
+/* Ocultamos la cabecera antigua que ya no se usa, reemplazada por el botÃ³n del acordeÃ³n */
 .section-group-header { display: none; }
+

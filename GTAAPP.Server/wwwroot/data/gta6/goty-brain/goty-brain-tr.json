@@ -1,0 +1,567 @@
+{
+  "common": [
+    {
+      "id": "saludo",
+      "keywords": [
+        "merhaba",
+        "selam",
+        "hey",
+        "naber",
+        "nasılsın",
+        "günaydın",
+        "iyi günler",
+        "iyi akşamlar",
+        "kimsin",
+        "reis",
+        "kral",
+        "dostum",
+        "teşekkürler",
+        "sağol",
+        "eyvallah",
+        "yo"
+      ],
+      "responses": [
+        "Selam dostum! Ben GOTY. San Andreas sokaklarında sana nasıl yardımcı olabilirim?",
+        "Merhaba! Akıllı navigasyon hazır. Haritada ne aramak istersin?",
+        "GOTY hatta! Polisler basmadan önce ne aradığını söyle bakalım.",
+        "Hey! Silahlar, soygunlar, arabalar, modifiye atölyeleri ya da gizemler hakkında bana her şeyi sorabilirsin."
+      ]
+    },
+    {
+      "id": "insulto",
+      "keywords": [
+        "aptal",
+        "salak",
+        "gerizekalı",
+        "çöp",
+        "işe yaramaz",
+        "kes sesini",
+        "defol",
+        "lan",
+        "pislik"
+      ],
+      "responses": [
+        "Sakin ol şampiyon! Benim devrelerimde senin garajındaki en iyi süper arabadan daha çok stil var!",
+        "Öfkeni LSPD'nin 5 yıldızlı takibinden kaçmaya sakla!",
+        "Böyle konuşmaya devam edersen GPS'ini hackleyip seni doğrudan Altruist tarikatının kucağına gönderirim...",
+        "Küfür etmeyi bırak da Maze Bank hesabındaki parayı nasıl katlayacağımıza bakalım!"
+      ]
+    },
+    {
+      "id": "oppressor_kd_humor",
+      "keywords": [
+        "oppressor",
+        "mk2",
+        "opresör",
+        "süpürge",
+        "griefer",
+        "troll",
+        "kd",
+        "k/d",
+        "roket",
+        "füze"
+      ],
+      "responses": [
+        "Ah, meşhur Oppressor Mk II... Yerde nişan almayı beceremeyenlerin bir numaralı uçan süpürgesi!",
+        "Gözünü gökyüzünden ayırma! Füze kilitlenme sesini duyduğun anda paraşütle atla.",
+        "Patlayıcı mermili Ağır Keskin Nişancı tüfeğini çıkar ya da Toreador'u çağır, o trolleri hurdaya çevir!",
+        "Bu şehirde K/D oranının hiçbir önemi yok: Önemli olan Maze Bank'taki milyonların ve temiz soygunların."
+      ]
+    },
+    {
+      "id": "info_general",
+      "keywords": [
+        "harita",
+        "işaretler",
+        "filtreler",
+        "yardım",
+        "nasıl kullanılır",
+        "yakınlaştır",
+        "kaydet",
+        "ilerleme",
+        "ipuçları"
+      ],
+      "responses": [
+        "Haritadaki simgeleri (silahlar, akrobasi atlayışları, soygunlar, sırlar...) filtrelemek için yan menüyü kullan. Ziyaret ettiğin yerleri işaretleyebilirsin!",
+        "Haritayı serbestçe kaydırabilir ve yakınlaştırabilirsin. Detayları, ödülleri, fiyatları ve ipuçlarını görmek için herhangi bir işarete tıkla.",
+        "İlerlemen tarayıcına otomatik olarak kaydedilir, böylece %100 tamamlama yolculuğuna dilediğin zaman devam edebilirsin."
+      ]
+    },
+    {
+      "id": "ocultar_bot",
+      "keywords": [
+        "gizle",
+        "kapat",
+        "git",
+        "görüşürüz",
+        "hoşça kal",
+        "baybay",
+        "sessiz ol",
+        "çıkış"
+      ],
+      "responses": [
+        "Anlaşıldı! Uyku moduna geçiyorum. Bana tekrar ihtiyacın olduğunda ikonuma tıkla.",
+        "Tamamdır, radardan çıkıyorum. Los Santos sokaklarında dikkatli ol!",
+        "Görüşmek üzere! Polisler köşeye sıkıştırırsa buradayım."
+      ]
+    },
+    {
+      "id": "ocultarse_huir",
+      "keywords": [
+        "kaçış",
+        "saklanma",
+        "polis",
+        "yıldız",
+        "aranma",
+        "aranma seviyesi",
+        "lester",
+        "metro",
+        "tünel",
+        "kanalizasyon"
+      ],
+      "responses": [
+        "5 yıldızlı takipten anında kurtulmak için: Pillbox Hill altındaki metro tünellerine veya Los Santos ana su tahliye kanalına dal!",
+        "Lester'ı aramayı unutma — cüzi bir ücret karşılığında aranma seviyeni sıfırlar.",
+        "Dağlık arazideysen: Tongva Hills'in dik kanyonlarına gir, LSPD devriye araçları oraya tırmanamaz."
+      ]
+    },
+    {
+      "id": "niko_bellic_roman",
+      "keywords": [
+        "niko",
+        "bellic",
+        "roman",
+        "bowling",
+        "liberty city",
+        "gta iv",
+        "gta 4",
+        "kuzen"
+      ],
+      "responses": [
+        "« Hey Niko, ben Roman! Bowlinge gidelim mi? »... Rockstar, GTA V'in okyanus tabanına bunun şerefine Mors kodlu bir sürpriz yumurta bile sakladı!",
+        "Niko Bellic şu sıralar Liberty City'de sakin bir hayat yaşıyor olmalı... En azından Lester öyle ima etmişti.",
+        "Roman'ın taksi durağıyla Liberty City'deki o eski güzel günler... Gerçek bir klasik."
+      ]
+    },
+    {
+      "id": "cj_big_smoke_grove",
+      "keywords": [
+        "cj",
+        "carl johnson",
+        "big smoke",
+        "grove street",
+        "san andreas",
+        "gta sa",
+        "sipariş",
+        "ballas"
+      ],
+      "responses": [
+        "« Bana iki 9 numara, bir büyük 9 numara, ekstra soslu bir 6 numara... » Fast food tarihinin en efsanevi siparişi Big Smoke'tan!",
+        "GTA V'te Grove Street Ballas çetesinin eline geçmiş olabilir... Ama CJ ve Grove ailelerinin mirası sonsuza kadar yaşayacak."
+      ]
+    },
+    {
+      "id": "tommy_vercetti_vice",
+      "keywords": [
+        "tommy",
+        "vercetti",
+        "vice city",
+        "malikane",
+        "miami"
+      ],
+      "responses": [
+        "Tommy Vercetti, mavi gömleği ve Starfish Island'daki malikanesiyle Vice City'nin tartışmasız kralıydı.",
+        "GTA VI ile Vice City ve Leonida'nın neon ışıklı caddelerine geri döneceğiz... Vercetti'den sonra şehrin nasıl değiştiğini görmek harika olacak!"
+      ]
+    },
+    {
+      "id": "gta6_hype",
+      "keywords": [
+        "gta 6",
+        "gta vi",
+        "jason",
+        "lucia",
+        "leonida",
+        "sızıntı",
+        "çıkış tarihi",
+        "fragman"
+      ],
+      "responses": [
+        "GTA VI bizi Jason ve Lucia ikilisiyle Leonida eyaleti ve Vice City sokaklarına götürecek! Çıkar çıkmaz her köşesini haritamızda belgelemeye hazırız.",
+        "Oyun dünyasında daha önce görülmemiş bir fizik ve detay seviyesi bizi bekliyor!"
+      ]
+    },
+    {
+      "id": "easter_eggs",
+      "keywords": [
+        "sırlar",
+        "easter egg",
+        "gizemler",
+        "ufo",
+        "hayalet",
+        "kocaayak",
+        "uzaylı"
+      ],
+      "responses": [
+        "San Andreas sırlarla dolu: Mount Chiliad duvar resmi, Jolene Cranley'nin hayaleti, ormandaki Kocaayak ve batık uzay gemileri!",
+        "Tüm sırların konumlarını, ortaya çıkış saatlerini ve kanıtlarını görmek için yan menüdeki Gizemler sekmesine göz at."
+      ]
+    }
+  ],
+  "gta5-historia": [
+    {
+      "id": "protagonistas_lore",
+      "keywords": [
+        "michael",
+        "franklin",
+        "trevor",
+        "karakterler",
+        "yetenekler",
+        "hikaye"
+      ],
+      "responses": [
+        "Michael De Santa: Hassas nişan alma sırasında zamanı yavaşlatan özel yeteneğe sahip emekli banka soyguncusu.\nFranklin Clinton: Araç sürüşü sırasında mükemmel viraj kontrolü için zamanı yavaşlatan usta şoför.\nTrevor Philips: Çılgına dönerek verdiği hasarı ikiye katlayan ve aldığı hasarı neredeyse sıfırlayan eski askeri pilot.",
+        "Üç karakter arasında doğru zamanda geçiş yapmak, büyük soygun görevlerinde sana büyük taktiksel avantaj sağlar."
+      ]
+    },
+    {
+      "id": "100_percent_guide",
+      "keywords": [
+        "100%",
+        "yüzde yüz",
+        "tamamlama",
+        "kupa",
+        "başarım",
+        "rehber"
+      ],
+      "responses": [
+        "Hikaye modunda %100 tamamlamaya ulaşmak için gerekenler:\n- 69 ana görevin tamamı\n- Franklin'in 20 Yabancılar ve Tuhaflar görevi\n- 14 rastgele olay\n- 42 hobi ve aktivite (yarışlar, golf, tenis, atış poligonu vb.)\n- 50 uzay gemisi parçası, 50 mektup parçası, 25 akrobasi atlayışı ve köprü altı uçuşları.",
+        "Haritadaki filtreleri kullanarak eksik kalan her noktayı adım adım tamamlayabilirsin."
+      ]
+    },
+    {
+      "id": "misterio_chiliad",
+      "keywords": [
+        "chiliad",
+        "chiliad dağı",
+        "ufo",
+        "duvar resmi",
+        "jetpack",
+        "uzay gemisi",
+        "yağmur",
+        "fırtına"
+      ],
+      "responses": [
+        "Oyunu %100 tamamladıktan sonra, fırtınalı ve gök gürültülü bir gecede tam saat 03:00'te Mount Chiliad zirvesindeki ahşap seyir terasına çıkarsan FIB'nin devasa hologram UFO'su belirir!",
+        "Teleferik zirve istasyonundaki duvar resmi; çatlak yumurta, jetpack ve UFO sembolleriyle GTA tarihinin en büyük gizemidir."
+      ]
+    },
+    {
+      "id": "fantasma_gordo",
+      "keywords": [
+        "hayalet",
+        "gordo dağı",
+        "jolene",
+        "cranley",
+        "kan",
+        "jock"
+      ],
+      "responses": [
+        "Jolene Cranley-Evans'ın hayaleti her gece 23:00 ile 00:00 arasında Mount Gordo zirvesindeki kayada süzülür. Yaklaştığında kaybolur ve kayanın üzerinde taze kanla yazılmış 'JOCK' yazısı kalır!"
+      ]
+    },
+    {
+      "id": "bolsa_inversiones",
+      "keywords": [
+        "borsa",
+        "hisse",
+        "para kazanma",
+        "zengin olma",
+        "lester",
+        "suikast",
+        "bawsaq",
+        "lcn"
+      ],
+      "responses": [
+        "Hikaye modunda milyarlarca dolar kazanmanın altın kuralı: Franklin'in Lester suikast görevlerini, oyunun sonundaki Büyük Vurgun (The Big Score) tamamlanana kadar yapma!\nBüyük parayı aldıktan sonra 3 karakterin tüm parasını hedef şirketlerin hisselerine yatırarak servetini katla."
+      ]
+    },
+    {
+      "id": "kifflom_epsilon",
+      "keywords": [
+        "kifflom",
+        "epsilon",
+        "tarikat",
+        "mavi takım elbise",
+        "cris formage"
+      ],
+      "responses": [
+        "« Kifflom! 12 hakikate selam olsun! » Epsilon Programı, Michael'a özel en komik ve garip görev serisidir. Son görevde parayı tarikata teslim etmek yerine 2.1 milyon dolar nakit dolu aracı kaçırabilirsin!"
+      ]
+    }
+  ],
+  "gta5-online": [
+    {
+      "id": "cayo_perico_heist",
+      "keywords": [
+        "cayo perico",
+        "el rubio",
+        "kosatka",
+        "denizaltı",
+        "drenaj tüneli",
+        "solo soygun",
+        "para kasma"
+      ],
+      "responses": [
+        "Cayo Perico Soygunu, GTA Online'da tek başına (Solo) en hızlı para kazanma yöntemidir! Kosatka denizaltısını satın al, kaynak torçu ile drenaj tünelinden malikaneye sız ve ana hedefle limandaki ikincil hedefleri toplayıp denizden kaç.",
+        "15 dakikanın altında, alarm çaldırmadan ve çantanı doldurarak tamamlarsan Elit Mücadele bonusunu da cebe indirirsin!"
+      ]
+    },
+    {
+      "id": "casino_diamond_heist",
+      "keywords": [
+        "kumarhane soygunu",
+        "diamond casino",
+        "kasa",
+        "elmas",
+        "altın",
+        "gruppe sechs"
+      ],
+      "responses": [
+        "Diamond Casino Soygunu 3 farklı yaklaşım sunar: Büyük Hile (The Big Con), Gizli ve Sinsi (Silent & Sneaky) veya Saldırgan (Aggressive). En kolayı Gruppe Sechs zırhlı araç kılığında kasaya yürüyerek girmektir.",
+        "Kasadaki süreni en üst düzeye çıkarmak için Paige veya Avi Schwartzman gibi uzman bir bilgisayar korsanı kirala."
+      ]
+    },
+    {
+      "id": "mejores_negocios",
+      "keywords": [
+        "en iyi işletme",
+        "işletmeler",
+        "para kazanma",
+        "sığınak",
+        "gece kulübü",
+        "ajans",
+        "bunker",
+        "nightclub"
+      ],
+      "responses": [
+        "GTA Online'da en karlı yatırım sıralaması:\n1. Kosatka Denizaltısı (Cayo Perico soygunu için)\n2. Ajans (Dr. Dre sözleşmesi ve Imani Tech geliştirmeleri)\n3. Sığınak / Bunker (Silah üretimi ve pasif gelir)\n4. Gece Kulübü (Tüm işletmeleri tek çatı altında toplayan otomatik pasif gelir)"
+      ]
+    },
+    {
+      "id": "imani_tech",
+      "keywords": [
+        "imani",
+        "imani tech",
+        "füze kilidi engelleme",
+        "uzaktan kumanda",
+        "zırh"
+      ],
+      "responses": [
+        "Ajans atölyesinde takılabilen Imani Tech geliştirmeleri; arabana füze kilitlenmesini engelleyen karıştırıcı (Missile Lock-On Jammer) ve Oppressor füzelerine dayanan ekstra ağır zırh kazandırır!"
+      ]
+    },
+    {
+      "id": "salvage_yard_chop_shop",
+      "keywords": [
+        "salvage yard",
+        "hurdalık",
+        "yusuf amir",
+        "araba çalma"
+      ],
+      "responses": [
+        "Hurdalık (Salvage Yard) işletmesinde Yusuf Amir ile birlikte haftalık 3 lüks araç soygunu gerçekleştirebilir ve çekici görevleriyle kasanın günlük pasif gelirini artırabilirsin."
+      ]
+    }
+  ],
+  "gta6-historia": [
+    {
+      "id": "armas",
+      "keywords": [
+        "weapon",
+        "gun",
+        "pistol",
+        "rifle",
+        "arsenal",
+        "shotgun",
+        "damage",
+        "fire rate",
+        "shoot",
+        "ammunation",
+        "ammu",
+        "ammo",
+        "shop",
+        "buy"
+      ],
+      "responses": [
+        "The game isn't even out yet, smartass! The Vice City weapon catalog will be unlocked when the game launches in **{days} days**. Grab a squirt gun for now.",
+        "Weapons in Vice City? Hold your horses, there are still **{days} days** until launch. Don't get ahead of yourself."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealership",
+        "fast",
+        "armored",
+        "motorcycle",
+        "bike",
+        "drive",
+        "garage",
+        "engine",
+        "speed"
+      ],
+      "responses": [
+        "Cars in Vice City? The game isn't out yet! Still **{days} days** until we can hit the gas across Leonida.",
+        "Easy there, speed demon. Driving around Vice City is still **{days} days** away on the countdown clock."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "heist",
+        "heists",
+        "robbery",
+        "payout",
+        "take",
+        "loot",
+        "score"
+      ],
+      "responses": [
+        "Heists in Vice City? Cool your jets, the game isn't released yet. You've got **{days} days** of waiting ahead.",
+        "We'll plan out Leonida's biggest scores once the game drops in **{days} days**."
+      ]
+    },
+    {
+      "id": "novedades",
+      "keywords": [
+        "news",
+        "new",
+        "map",
+        "leonida",
+        "vice",
+        "city",
+        "lucia",
+        "jason"
+      ],
+      "responses": [
+        "Welcome to Leonida, partner. The Vice City map is massive. Check the side panels to start getting your bearings."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": [
+        "countdown",
+        "release",
+        "launch",
+        "date",
+        "days left",
+        "when",
+        "out",
+        "available",
+        "play"
+      ],
+      "responses": [
+        "It's not out yet, daydreamer! Exactly **{days} days** left until official launch.",
+        "**{days} days** left until GTA VI. The game isn't out yet, be patient!",
+        "Still **{days} days** on the clock, boss. Not released yet, so we wait while exploring the map."
+      ]
+    }
+  ],
+  "gta6-online": [
+    {
+      "id": "armas",
+      "keywords": [
+        "weapon",
+        "gun",
+        "pistol",
+        "rifle",
+        "arsenal",
+        "shotgun",
+        "damage",
+        "fire rate",
+        "shoot",
+        "ammunation",
+        "ammu",
+        "ammo",
+        "shop",
+        "buy"
+      ],
+      "responses": [
+        "The game isn't even out yet, smartass! The Vice City weapon catalog will be unlocked when the game launches in **{days} days**. Grab a squirt gun for now.",
+        "Weapons in Vice City? Hold your horses, there are still **{days} days** until launch. Don't get ahead of yourself."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": [
+        "car",
+        "vehicle",
+        "dealership",
+        "fast",
+        "armored",
+        "motorcycle",
+        "bike",
+        "drive",
+        "garage",
+        "engine",
+        "speed"
+      ],
+      "responses": [
+        "Cars in Vice City? The game isn't out yet! Still **{days} days** until we can hit the gas across Leonida.",
+        "Easy there, speed demon. Driving around Vice City is still **{days} days** away on the countdown clock."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": [
+        "heist",
+        "heists",
+        "robbery",
+        "payout",
+        "take",
+        "loot",
+        "score"
+      ],
+      "responses": [
+        "Heists in Vice City? Cool your jets, the game isn't released yet. You've got **{days} days** of waiting ahead.",
+        "We'll plan out Leonida's biggest scores once the game drops in **{days} days**."
+      ]
+    },
+    {
+      "id": "negocios",
+      "keywords": [
+        "business",
+        "money",
+        "cash",
+        "empire",
+        "dirty money",
+        "passive income"
+      ],
+      "responses": [
+        "To make bank in Vice City, keep an eye on the side panel. We're still setting up the criminal network."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": [
+        "countdown",
+        "release",
+        "launch",
+        "date",
+        "days left",
+        "when",
+        "out",
+        "available",
+        "play"
+      ],
+      "responses": [
+        "It's not out yet, daydreamer! Exactly **{days} days** left until official launch.",
+        "**{days} days** left until GTA VI. The game isn't out yet, be patient!",
+        "Still **{days} days** on the clock, boss. Not released yet, so we wait while exploring the map."
+      ]
+    }
+  ]
+}

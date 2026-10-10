@@ -43,7 +43,7 @@ export class GuiaService {
       const isExtranos = articuloId.startsWith('eyl-');
       const jsonUrl = isExtranos 
           ? 'assets/data/gta5/guia/extranos-locos.json?t=' + new Date().getTime()
-          : 'assets/data/gta5/guia/misiones-historia.json?t=' + new Date().getTime();
+          : 'assets/data/gta5/guia/guia-misiones-historia.json?t=' + new Date().getTime();
           
       return this.http.get<GuiaArticulo[]>(jsonUrl).pipe(
         map(misiones => {
@@ -873,6 +873,7 @@ Las fuerzas del orden de Vice Dale, el Sheriff de Leonard County y la Policía E
     }
   }
 }
+
 
 
 

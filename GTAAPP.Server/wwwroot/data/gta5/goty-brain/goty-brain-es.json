@@ -1,0 +1,403 @@
+{
+  "common": [
+    {
+      "id": "saludo",
+      "keywords": ["hola", "buenas", "quien eres", "que tal", "ey", "buenos dias", "buenas noches", "amigo", "amiguito", "crack", "jefe", "por favor", "gracias", "saludos", "que pasa", "que hay"],
+      "responses": [
+        "¡Qué pasa, colega! Soy GOTY. ¿En qué te echo una mano hoy por las calles?",
+        "¡Buenas, camarada! Módulo de ayuda listo. ¿Qué necesitas localizar en el mapa?",
+        "Aquí GOTY. Dime qué buscas y te ubico al instante antes de que venga la pasma.",
+        "¡Ey! Pregúntame sobre armas, concesionarios, atracos o expedientes X."
+      ]
+    },
+    {
+      "id": "insulto",
+      "keywords": ["idiota", "tonto", "inutil", "mierda", "payaso", "estupido", "jodan", "jode", "puta", "cabron", "subnormal", "gilipollas", "perro", "capullo", "maricon", "bobo", "pendejo", "bastardo", "mamaguevo", "perra"],
+      "responses": [
+        "¿A quién le hablas así, pedazo de chulo? Te voy a meter un balazo como me sigas buscando la boca.",
+        "Cuida esa boca de pandillero de poca monta, que en estas calles los bocazas terminan flotando en el mar.",
+        "¿Te crees muy gallito insultándome? Búscate la vida en Grove Street, imbécil.",
+        "Relaja la raja, espabilado. A mí no me levantes el tono si no quieres que llame a los Vagos."
+      ]
+    },
+    {
+      "id": "oppressor_kd_humor",
+      "keywords": ["oppressor", "mk2", "bicicleta", "bmx", "ratio", "kd", "bajas", "muertes", "hospital"],
+      "responses": [
+        "Si tú vas en una Oppressor MK2 lanzando misiles y yo voy en una bicicleta BMX por Grove Street, te aseguro que el que termina en el hospital del Mount Zonah eres tú.",
+        "¿Cuál es tu ratio de Bajas/Muertes (K/D), un triste 0.0001? Vuelve a la autoescuela de San Andreas antes de venir a vacilar."
+      ]
+    },
+    {
+      "id": "info_general",
+      "keywords": ["informac", "info", "sab", "ayud", "hac", "recomiend", "guia", "donde", "mapa", "radar", "ubi", "secc", "panela", "interfaz", "app"],
+      "responses": [
+        "Conozco cada rincón de la app: el catálogo de 28 Armas, los concesionarios de Vehículos, los Atracos (incluido el Kortz Center) y los Misterios con el icono 👁️.",
+        "Te puedo dar datos de armerías Ammu-Nation, concesionarios (Warstock, Legendary), atracos millonarios o expedientes X. ¿Qué te interesa, colega?",
+        "Abre el panel lateral: tienes Armas, Vehículos, Misterios y Golpes. Dime qué buscas y te guío."
+      ]
+    },
+    {
+      "id": "ocultar_bot",
+      "keywords": ["ocultarte", "cerrarte", "quitarte", "minimizar", "estorbas", "cerrar chat", "quitar chat", "ocultar chat", "apagar bot", "desactivar bot", "como te cierro", "como te quito", "como te oculto", "cerrar el bot"],
+      "responses": [
+        "Si te estorbo en la pantalla, puedes minimizarme o cerrarme dándole a la (X) en mi marco superior, o desactivarme desde los ajustes de la app.",
+        "Para quitarme de en medio, simplemente pulsa el botón de cerrar (X) en mi cabecera o minimízame. ¡No me ofendo, crack!"
+      ]
+    },
+    {
+      "id": "ocultarse_huir",
+      "keywords": ["ocult", "escond", "huir", "estrell", "pasm", "polici", "evad", "escap"],
+      "responses": [
+        "Para perder a la pasma y ocultarte tienes 4 vías rápidas: 1) Entrar en Los Santos Customs para repintar tu coche. 2) Esconderte en tus Propiedades/Pisos Francos o Garajes. 3) Meterte en túneles del metro o alcantarillas (Lugares Extraños). 4) Refugiarte en tus Búnkeres y Negocios.",
+        "¿Te persigue el LSPD? Usa el mapa para encontrar: 1) Talleres para cambiar de color el coche. 2) Tus Propiedades personales. 3) Túneles subterráneos o minas abandonadas. 4) Tu Búnker o Instalación de Negocios."
+      ]
+    },
+    {
+      "id": "niko_bellic_roman",
+      "keywords": ["niko", "bellic", "niko bellic", "roman", "bolos", "bowling", "liberty city"],
+      "responses": [
+        "Ah, ¿Niko Bellic? Aquel peligroso inmigrante de Europa del Este que dio el golpe al Bank of Liberty. Lester me dijo que se retiró del negocio. Y ni me hables de su primo Roman llamando cada 5 minutos para ir a jugar a los bolos (bowling)... ¡menudo pesado!",
+        "Niko Bellic hizo historia en Liberty City con la mafia rusa y el atraco al banco. Lo último que se supo es que su perfil de Lifeinvader sigue abierto y que pasa de su primo Roman cuando le pide ir a los bolos."
+      ]
+    },
+    {
+      "id": "cj_big_smoke_grove",
+      "keywords": ["cj", "carl johnson", "big smoke", "grove street", "san andreas", "numero 9"],
+      "responses": [
+        "¡Carl Johnson (CJ) y la leyenda de Grove Street! Huir de la pasma en bicicletas BMX verdes y liquidar Ballas. Y el rey absoluto: Big Smoke pidiendo en Cluckin' Bell 'dos número 9, un número 9 grande, un número 6 con extra de salsa...' ¡Leyenda pura de San Andreas!",
+        "CJ hizo de Grove Street un imperio legendario. Pero si hablamos de mitos, Big Smoke se lleva la palma con su pedido gigante en el drive-thru de Cluckin' Bell antes de liar a tiros a los Vagos."
+      ]
+    },
+    {
+      "id": "tommy_vercetti",
+      "keywords": ["tommy", "vercetti", "tommy vercetti", "vice city", "hawaiana"],
+      "responses": [
+        "Tommy Vercetti: el rey indiscutible de Vice City en los años 80 con su mítica camisa hawaiana. Ese tipo se adueñó de toda la ciudad a base de balazos, mansiones y club nocturnos."
+      ]
+    },
+    {
+      "id": "default",
+      "keywords": [],
+      "responses": [
+        "Mi conexión con la IA de arriba se ha cortado. Dime concretamente si buscas: armas, vehículos, misterios o golpes.",
+        "Estoy en modo rescate sin conexión. Pregúntame sobre armas, coches, misterios o atracos y te ayudo.",
+        "Servidores colapsados. Háblame claro de cosas de la app: armerías, concesionarios, atracos o leyendas."
+      ]
+    }
+  ],
+  "gta5-historia": [
+    {
+      "id": "talleres_mecanicos",
+      "keywords": ["taller", "talleres", "customs", "ls customs", "bennys", "beeker", "mecanico", "tuning", "tuneo", "repintar"],
+      "responses": [
+        "En Los Santos y San Andreas tienes varios talleres principales: **Los Santos Customs** (en Burton, La Puerta, LSIA y Harmony), **Benny's Original Motor Works** (en Strawberry para lowriders) y **Beeker's Garage** (en Paleto Bay).",
+        "Para reparar, repintar o tunear tu coche tienes: 1) **Los Santos Customs** (4 ubicaciones en San Andreas), 2) **Benny's Original Motor Works** (especialista en hidráulicos y lowriders) y 3) **Beeker's Garage** en Paleto Bay."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": ["coch", "vehic", "concesionar", "rapid", "blindad", "mot", "conduc", "garaj", "motor", "velocid", "auto", "camion", "vuel", "avion", "helicopt", "barc", "barqu", "kurum", "oppressor", "legendary", "warstock", "oracle", "dilettante", "itali", "gto", "recomend"],
+      "responses": [
+        "Mi recomendación personal es sin duda el **Grotti Itali GTO**: para mí es el elegido indiscutible por su excelente manejo y comportamiento en curva. Míralo en el panel de Vehículos.",
+        "¿Buscando coche? Con la pinta que llevas me imagino que andas por Los Santos en un Oracle XS reventado. Mi recomendación personal es el **Itali GTO** por cómo entra en las curvas. Píllatelo en el panel.",
+        "Para misiones usa el Kuruma Blindado, pero para mi gusto el elegido es el **Grotti Itali GTO** por su agarre imbatible en curva."
+      ]
+    },
+    {
+      "id": "fauna_animales",
+      "keywords": ["animal", "animales", "fauna", "perro", "chop", "puma", "coyote", "tiburon", "ballena", "ciervo", "jabali", "gaviota", "caza", "fotografia"],
+      "responses": [
+        "En San Andreas la fauna está muy viva: tienes pumas en Great Chaparral, coyotes y ciervos en Blaine County, a Chop en Vinewood, y bajo el agua tiburones blancos y ballenas.",
+        "Pumas de montaña, coyotes, ciervos, perros (como Chop), tiburones blancos y orcas en el mar. Si te cruzas con un puma en el monte, corre antes de que te cené."
+      ]
+    },
+    {
+      "id": "misiones_historia",
+      "keywords": ["mision", "misiones", "historia", "campana", "trama", "michael", "franklin", "trevor"],
+      "responses": [
+        "La historia principal de Los Santos consta de 69 misiones entre Michael, Franklin y Trevor. Para los golpes clave, revisa la pestaña Golpes del menú.",
+        "Tienes 69 misiones de historia principal en San Andreas. Si buscas los atracos más jugosos, abre el panel de Golpes."
+      ]
+    },
+    {
+      "id": "extranos_locos",
+      "keywords": ["extrano", "extranos", "loco", "locos", "secundaria", "secundarias", "interrogacion", "tonya", "cletus", "beverly", "maude", "dom", "nigel", "mary"],
+      "responses": [
+        "Los Extraños y Locos (Tonya, Maude, Cletus, Dom, Beverly...) aparecen marcados con un signo de interrogación (?) en el mapa. No hay panel lateral para ellos, así que mira el radar.",
+        "Las misiones secundarias de Extraños y Locos se activan en los iconos (?) del radar. Cumple sus chifladuras para avanzar en el 100% del juego."
+      ]
+    },
+    {
+      "id": "armas",
+      "keywords": ["arm", "pistol", "rifl", "arsenal", "escopet", "dano", "cadenc", "tir", "ammunat", "ammu", "bal", "tiend", "compr", "amur", "fusil", "canon", "railgun", "explosiv", "cuchill", "granad"],
+      "responses": [
+        "¿Buscando potencia de fuego para visitar a los Ballas? En el panel de Armas tienes 28 modelos divididos en 8 categorías: desde la Carabina Especial hasta el Cañón de Riel (Railgun).",
+        "Si necesitas reponer munición o C4, revisa el panel de Armas. Tienes todas las especificaciones y ubicaciones de Ammu-Nation en San Andreas."
+      ]
+    },
+    {
+      "id": "barrio_davis",
+      "keywords": ["davis", "barrio davis", "lowrider", "lowriders", "pandillero", "pandilleros", "grove street", "chamberlain"],
+      "responses": [
+        "¡Davis es el barrio más jodido de todo Los Santos! Un territorio caliente de pandilleros y lowriders donde como mires mal a alguien te fríen a tiros en pleno callejón.",
+        "Si vas a meterte por Davis ten el gatillo listo: allí las bandas (Families y Ballas) y los lowriders no se andan con tonterías y resuelven todo a balazos."
+      ]
+    },
+    {
+      "id": "altruistas",
+      "keywords": ["altruist", "altruistas", "campamento altruista", "culto altruista"],
+      "responses": [
+        "¡El Campamento Altruista en la montaña es un nido de chiflados peligrosos! Como te acerques a sus verjas te fríen a tiros al instante. Tienes sus coordenadas en el panel Misterios (👁️).",
+        "Los Altruistas son una secta de locos armados hasta los dientes en medio del monte. Ni se te ocurra ir a saludarlos porque te acribillan sin mediar palabra."
+      ]
+    },
+    {
+      "id": "fort_zancudo",
+      "keywords": ["zancudo", "fort zancudo", "base militar", "lazer", "caza", "tanque", "rhino", "cuartel militar"],
+      "responses": [
+        "¡Meterte en Fort Zancudo es una auténtica misión suicida! Entrar allí te gana 4 estrellas al instante, misiles teledirigidos, tanques Rhino y soldados de élite. Si consigues mangar un caza P-996 LAZER y salir vivo de ahí, considéralo literalmente un milagro de Dios.",
+        "En Fort Zancudo no hay diplomacia que valga: torres de francotiradores, defensas antiaéreas C-RAM y tanques por doquier. Si logras escapar con vida de semejante infierno militar, dale las gracias a un milagro de Dios."
+      ]
+    },
+    {
+      "id": "zonas_tranquilas_peligrosas",
+      "keywords": ["zona", "zonas", "tranquila", "tranquilas", "segura", "peligrosa", "peligrosas", "carcel", "bolingbroke", "prision", "paleto", "vinewood hills"],
+      "responses": [
+        "En San Andreas tienes dos extremos: **Zonas tranquilas** como Vinewood Hills (mansiones de lujo y calma) o Paleto Bay (pueblito costero norteño para desconectar). Y **Zonas mortales** como el barrio de Davis (pandilleros y lowriders a tiros), el Campamento Altruista (secta armada), la Prisión Bolingbroke (máxima seguridad) y Fort Zancudo (donde salir vivo es un milagro de Dios).",
+        "Si quieres paz, vete a las mansiones de Vinewood Hills o a pescar en Paleto Bay. Si buscas problemas, vete a Davis a provocar pandilleros, a la Prisión de Bolingbroke, a saludar a los sectarios Altruistas o a robar un caza en Fort Zancudo."
+      ]
+    },
+    {
+      "id": "barrios_iconicos",
+      "keywords": ["sandy shores", "rockford hills", "vespucci", "vespucci beach", "grapeseed", "chumash"],
+      "responses": [
+        "San Andreas está lleno de contrastes: desde las mansiones multimillonarias de **Rockford Hills** y el ambiente playero de **Vespucci Beach** (Muscle Sands), hasta el desierto decadente de **Sandy Shores** controlado por Trevor, la meta y los moteros Lost MC.",
+        "En Rockford Hills vive la clase alta en mansiones de lujo; en Vespucci Beach reina la playa y las máscaras; y en Sandy Shores te espera el calor del desierto, metanfetamina y el mismísimo Trevor Philips."
+      ]
+    },
+    {
+      "id": "leyendas_secretas",
+      "keywords": ["fantasma", "monte gordo", "epsilon", "kifflom", "asesino 8", "merle abrahams", "mural chiliad"],
+      "responses": [
+        "¡San Andreas oculta secretos muy oscuros! El **Fantasma del Monte Gordo** (Jolene Cranley-Evans a las 23:00h), el **Asesino de los 8 Infinitos** en Sandy Shores, la extravagante secta del **Programa Epsilon** (¡Kifflom!) y el misterioso **Mural del Monte Chiliad**. Míralos en el panel Misterios (👁️).",
+        "Si buscas expedientes X: visita el Monte Gordo a medianoche para ver su fantasma, investiga al Asesino de los 8 en el desierto o viste la túnica azul del Programa Epsilon (¡Kifflom!). Abre el panel de Misterios (👁️)."
+      ]
+    },
+    {
+      "id": "misterios",
+      "keywords": ["misteri", "chiliad", "ovni", "ufo", "fantasm", "easter", "secret", "extraterrest", "leyend", "gord", "altruist", "bigfoot", "escotill", "asesin", "epsilon", "naufragi", "hundid", "lost", "trampill"],
+      "responses": [
+        "¡Si te va el rollo Expediente X, en el océano de San Andreas hay naufragios, el **OVNI hundido al norte de Paleto Bay** y la **trampilla submarina estilo Lost**! Dale al ojo 👁️ (Misterios).",
+        "Tienes todas las leyendas, el OVNI sumergido de Paleto Bay y la trampilla misteriosa bajo el mar documentadas en la pestaña Misterios (👁️)."
+      ]
+    }
+  ],
+  "gta5-online": [
+    {
+      "id": "fauna_animales",
+      "keywords": ["animal", "animales", "fauna", "perro", "chop", "puma", "coyote", "tiburon", "ballena", "ciervo", "jabali", "gaviota", "caza", "fotografia"],
+      "responses": [
+        "En San Andreas la fauna está muy viva: tienes pumas en Great Chaparral, coyotes y ciervos en Blaine County, a Chop en Vinewood, y bajo el agua tiburones blancos y ballenas.",
+        "Pumas de montaña, coyotes, ciervos, perros (como Chop), tiburones blancos y orcas en el mar. Si te cruzas con un puma en el monte, corre antes de que te cené."
+      ]
+    },
+    {
+      "id": "negocios_rentables",
+      "keywords": ["negoci", "negocios", "rentabl", "dinero pasivo", "club nocturno", "bunker", "cocaina", "motero", "ganar dinero"],
+      "responses": [
+        "Si quieres dinero pasivo de verdad sin sudar: el **Club Nocturno** (vinculado a tus negocios de Moteros y al **Búnker de Tráfico de Armas**) es la mina de oro absoluta de Los Santos.",
+        "El orden de rentabilidad en Online es: 1) Club Nocturno + Búnker. 2) Negocio de Cocaína de Moteros. 3) Almacén de Vehículos / Mercancía. El resto es trabajar para nada."
+      ]
+    },
+    {
+      "id": "talleres_mecanicos",
+      "keywords": ["taller", "talleres", "customs", "ls customs", "bennys", "beeker", "mecanico", "tuning", "tuneo", "repintar"],
+      "responses": [
+        "En Los Santos y San Andreas tienes varios talleres principales: **Los Santos Customs** (en Burton, La Puerta, LSIA y Harmony), **Benny's Original Motor Works** (en Strawberry para lowriders), **Beeker's Garage** (en Paleto Bay) y los **Talleres Mecánicos (Auto Shops)** del LS Car Meet.",
+        "Para reparar, repintar o tunear tu coche tienes: 1) **Los Santos Customs** (4 ubicaciones en San Andreas), 2) **Benny's Original Motor Works** (especialista en hidráulicos y lowriders), 3) **Beeker's Garage** en Paleto Bay y 4) los **Talleres de Tuners**."
+      ]
+    },
+    {
+      "id": "casino_apuestas",
+      "keywords": ["apostar", "ruleta", "ficha", "fichas", "tragamonedas", "penthouse", "apuesta", "ir al casino", "casino resort", "girar ruleta"],
+      "responses": [
+        "Si vas al Diamond Casino a apostar a la ruleta o girar la ruleta de la suerte, ojo con perder hasta la camisa. Si lo que buscas es llevarte el dinero de la caja fuerte, abre el panel de Golpes.",
+        "El Diamond Casino & Resort está bien para gastar fichas y tomar copas, pero donde de verdad se hace dinero de verdad es atracándolo. Revisa el panel de Golpes."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": ["coch", "vehic", "concesionar", "rapid", "blindad", "mot", "conduc", "garaj", "motor", "velocid", "auto", "camion", "vuel", "avion", "helicopt", "barc", "barqu", "kurum", "oppressor", "legendary", "warstock", "oracle", "dilettante", "itali", "gto", "recomend"],
+      "responses": [
+        "Mi recomendación personal es sin duda el **Grotti Itali GTO**: para mí es el elegido indiscutible por su excelente manejo y comportamiento en curva. Míralo en el panel de Vehículos.",
+        "¿Buscando coche? Con la pinta que llevas me imagino que andas por Los Santos en un Oracle XS reventado. Mi recomendación personal es el **Itali GTO** por cómo entra en las curvas. Píllatelo en el panel.",
+        "Para misiones usa el Kuruma Blindado, pero para mi gusto el elegido es el **Grotti Itali GTO** por su agarre imbatible en curva."
+      ]
+    },
+    {
+      "id": "armas",
+      "keywords": ["arm", "pistol", "rifl", "arsenal", "escopet", "dano", "cadenc", "tir", "ammunat", "ammu", "bal", "tiend", "compr", "amur", "fusil", "canon", "railgun", "explosiv", "cuchill", "granad"],
+      "responses": [
+        "¿Vas a dar un paseo por Grove Street? En el panel de Armas tienes 28 modelos divididos en 8 categorías: desde la Carabina Especial hasta el Cañón de Riel (Railgun).",
+        "Para guerra de bandas o misiones, abre el panel de Armas. Tienes la lista completa de Ammu-Nation con daño y cadencia."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": ["golp", "heist", "cay", "casin", "fleec", "pacific", "juici", "kortz", "atrac", "rob", "botin"],
+      "responses": [
+        "El golpe más lucrativo y con mayor botín de todo el juego es sin duda **El Golpe al Kortz Center** ($2.2M - $2.65M): asalto de guante blanco a la colección de arte en Pacific Bluffs. Míralo en el panel Golpes.",
+        "El Kortz Center es el rey indiscutible de la recaudación máxima. Toda la planificación táctica de golpes la tienes en la pestaña Golpes del menú."
+      ]
+    },
+    {
+      "id": "barrio_davis",
+      "keywords": ["davis", "barrio davis", "lowrider", "lowriders", "pandillero", "pandilleros", "grove street", "chamberlain"],
+      "responses": [
+        "¡Davis es el barrio más jodido de todo Los Santos! Un territorio caliente de pandilleros y lowriders donde como mires mal a alguien te fríen a tiros en pleno callejón.",
+        "Si vas a meterte por Davis ten el gatillo listo: allí las bandas (Families y Ballas) y los lowriders no se andan con tonterías y resuelven todo a balazos."
+      ]
+    },
+    {
+      "id": "altruistas",
+      "keywords": ["altruist", "altruistas", "campamento altruista", "culto altruista"],
+      "responses": [
+        "¡El Campamento Altruista en la montaña es un nido de chiflados peligrosos! Como te acerques a sus verjas te fríen a tiros al instante. Tienes sus coordenadas en el panel Misterios (👁️).",
+        "Los Altruistas son una secta de locos armados hasta los dientes en medio del monte. Ni se te ocurra ir a saludarlos porque te acribillan sin mediar palabra."
+      ]
+    },
+    {
+      "id": "fort_zancudo",
+      "keywords": ["zancudo", "fort zancudo", "base militar", "lazer", "caza", "tanque", "rhino", "cuartel militar"],
+      "responses": [
+        "¡Meterte en Fort Zancudo es una auténtica misión suicida! Entrar allí te gana 4 estrellas al instante, misiles teledirigidos, tanques Rhino y soldados de élite. Si consigues mangar un caza P-996 LAZER y salir vivo de ahí, considéralo literalmente un milagro de Dios.",
+        "En Fort Zancudo no hay diplomacia que valga: torres de francotiradores, defensas antiaéreas C-RAM y tanques por doquier. Si logras escapar con vida de semejante infierno militar, dale las gracias a un milagro de Dios."
+      ]
+    },
+    {
+      "id": "zonas_tranquilas_peligrosas",
+      "keywords": ["zona", "zonas", "tranquila", "tranquilas", "segura", "peligrosa", "peligrosas", "carcel", "bolingbroke", "prision", "paleto", "vinewood hills"],
+      "responses": [
+        "En San Andreas tienes dos extremos: **Zonas tranquilas** como Vinewood Hills (mansiones de lujo y calma) o Paleto Bay (pueblito costero norteño para desconectar). Y **Zonas mortales** como el barrio de Davis (pandilleros y lowriders a tiros), el Campamento Altruista (secta armada), la Prisión Bolingbroke (máxima seguridad) y Fort Zancudo (donde salir vivo es un milagro de Dios).",
+        "Si quieres paz, vete a las mansiones de Vinewood Hills o a pescar en Paleto Bay. Si buscas problemas, vete a Davis a provocar pandilleros, a la Prisión de Bolingbroke, a saludar a los sectarios Altruistas o a robar un caza en Fort Zancudo."
+      ]
+    },
+    {
+      "id": "negocios_avanzados",
+      "keywords": ["kosatka", "pavel", "acido", "acid lab", "brickade", "freakshop", "dax", "agencia", "dre"],
+      "responses": [
+        "Además del Club Nocturno y el Búnker, tienes máquinas de hacer pasta como el **Submarino Kosatka** (con el gran Pavel al timón para Cayo Perico), el **Laboratorio de Ácido (Brickade 6x6)** en el Freakshop con Dax, y la **Agencia** de Franklin para contratos VIP de Dr. Dre.",
+        "La jerarquía de fortuna en Online es: 1) Mansión de Lujo + El Golpe al Kortz Center (el más lucrativo). 2) Kosatka + Cayo Perico con Pavel. 3) Laboratorio de Ácido móvil (Brickade 6x6). 4) Agencia de Franklin."
+      ]
+    },
+    {
+      "id": "barrios_iconicos",
+      "keywords": ["sandy shores", "rockford hills", "vespucci", "vespucci beach", "grapeseed", "chumash"],
+      "responses": [
+        "San Andreas está lleno de contrastes: desde las mansiones multimillonarias de **Rockford Hills** y el ambiente playero de **Vespucci Beach** (Muscle Sands), hasta el desierto decadente de **Sandy Shores** controlado por Trevor, la meta y los moteros Lost MC.",
+        "En Rockford Hills vive la clase alta en mansiones de lujo; en Vespucci Beach reina la playa y las máscaras; y en Sandy Shores te espera el calor del desierto, metanfetamina y el mismísimo Trevor Philips."
+      ]
+    },
+    {
+      "id": "leyendas_secretas",
+      "keywords": ["fantasma", "monte gordo", "epsilon", "kifflom", "asesino 8", "merle abrahams", "mural chiliad"],
+      "responses": [
+        "¡San Andreas oculta secretos muy oscuros! El **Fantasma del Monte Gordo** (Jolene Cranley-Evans a las 23:00h), el **Asesino de los 8 Infinitos** en Sandy Shores, la extravagante secta del **Programa Epsilon** (¡Kifflom!) y el misterioso **Mural del Monte Chiliad**. Míralos en el panel Misterios (👁️).",
+        "Si buscas expedientes X: visita el Monte Gordo a medianoche para ver su fantasma, investiga al Asesino de los 8 en el desierto o viste la túnica azul del Programa Epsilon (¡Kifflom!). Abre el panel de Misterios (👁️)."
+      ]
+    },
+    {
+      "id": "misterios",
+      "keywords": ["misteri", "chiliad", "ovni", "ufo", "fantasm", "easter", "secret", "extraterrest", "leyend", "gord", "altruist", "bigfoot", "escotill", "asesin", "epsilon", "naufragi", "hundid", "lost", "trampill"],
+      "responses": [
+        "¡Expedientes X de San Andreas! En la costa hay naufragios antiguos, el **OVNI hundido al norte de Paleto Bay** y la **trampilla submarina estilo Lost**. Dale al icono del ojo 👁️ (Misterios).",
+        "Tienes todas las leyendas, naufragios bajo el mar, el OVNI sumergido de Paleto Bay y la trampilla misteriosa documentadas en la pestaña Misterios (👁️)."
+      ]
+    }
+  ],
+  "gta6-historia": [
+    {
+      "id": "armas",
+      "keywords": ["arm", "pistol", "rifl", "arsenal", "escopet", "dano", "cadenc", "tir", "ammunat", "ammu", "bal", "tiend", "compr"],
+      "responses": [
+        "¡Pero si el juego ni ha salido todavía, espabilado! El catálogo de armas de Vice City estará listo cuando salga el juego dentro de **{days} días**. De momento cómprate una de agua.",
+        "¿Armas en Vice City? Aguanta las ganas que faltan **{days} días** para el lanzamiento. No te aceleres."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": ["coch", "vehic", "concesionar", "rapid", "blindad", "mot", "conduc", "garaj", "motor"],
+      "responses": [
+        "¿Coches en Vice City? ¡Que el juego aún no ha salido! Quedan **{days} días** para poder pisar el acelerador por Leonida.",
+        "Tranquilízate, que para conducir por Vice City aún quedan **{days} días** de cuenta atrás."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": ["golp", "heist", "atrac", "rob", "botin"],
+      "responses": [
+        "¿Atracos en Vice City? Calma las ansias que el juego no ha salido. Te quedan **{days} días** de espera.",
+        "Los golpes de Leonida los planificaremos cuando salga el juego dentro de **{days} días**."
+      ]
+    },
+    {
+      "id": "novedades",
+      "keywords": ["nuev", "map", "leonid", "vice", "city", "lucia", "jason"],
+      "responses": [
+        "Estás en Leonida, amigo. El mapa de Vice City es inmenso. Abre el panel lateral para empezar a ubicarte."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": ["cuent", "atras", "sal", "falta", "fech", "lanzament", "dia", "disponibl", "jugar"],
+      "responses": [
+        "¡Que no ha salido aún, despistado! Quedan exactamente **{days} días** para el lanzamiento oficial.",
+        "Faltan **{days} días** para GTA VI. ¡Que no ha salido todavía, impaciente!",
+        "Quedan **{days} días**, crack. Todavía no ha salido, así que toca esperar mientras miramos el mapa."
+      ]
+    }
+  ],
+  "gta6-online": [
+    {
+      "id": "armas",
+      "keywords": ["arm", "pistol", "rifl", "arsenal", "escopet", "dano", "cadenc", "tir", "ammunat", "ammu", "bal", "tiend", "compr"],
+      "responses": [
+        "¡Pero si el juego ni ha salido todavía, espabilado! El catálogo de armas de Vice City estará listo cuando salga el juego dentro de **{days} días**. De momento cómprate una de agua.",
+        "¿Armas en Vice City? Aguanta las ganas que faltan **{days} días** para el lanzamiento. No te aceleres."
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "keywords": ["coch", "vehic", "concesionar", "rapid", "blindad", "mot", "conduc", "garaj", "motor"],
+      "responses": [
+        "¿Coches en Vice City? ¡Que el juego aún no ha salido! Quedan **{days} días** para poder pisar el acelerador por Leonida.",
+        "Tranquilízate, que para conducir por Vice City aún quedan **{days} días** de cuenta atrás."
+      ]
+    },
+    {
+      "id": "golpes",
+      "keywords": ["golp", "heist", "atrac", "rob", "botin"],
+      "responses": [
+        "¿Atracos en Vice City? Calma las ansias que el juego no ha salido. Te quedan **{days} días** de espera.",
+        "Los golpes de Leonida los planificaremos cuando salga el juego dentro de **{days} días**."
+      ]
+    },
+    {
+      "id": "negocios",
+      "keywords": ["negoci", "diner", "empres", "sucio"],
+      "responses": [
+        "Para hacer dinero en Vice City, mira el panel lateral. Todavía estamos montando la red."
+      ]
+    },
+    {
+      "id": "cuenta_atras",
+      "keywords": ["cuent", "atras", "sal", "falta", "fech", "lanzament", "dia", "disponibl", "jugar"],
+      "responses": [
+        "¡Que no ha salido aún, despistado! Quedan exactamente **{days} días** para el lanzamiento oficial.",
+        "Faltan **{days} días** para GTA VI. ¡Que no ha salido todavía, impaciente!",
+        "Quedan **{days} días**, crack. Todavía no ha salido, así que toca esperar mientras miramos el mapa."
+      ]
+    }
+  ]
+}
