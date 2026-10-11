@@ -74,7 +74,9 @@ public class VehiclesService
         // Filtrado por concesionario si se especificó en la petición y no se cargó un archivo directo
         if (!string.IsNullOrWhiteSpace(dealership))
         {
-            result = result.Where(v => v.Dealership.Equals(dealership, StringComparison.OrdinalIgnoreCase));
+            var target = dealership.Trim().ToLowerInvariant();
+            result = result.Where(v => v.Dealership.Equals(target, StringComparison.OrdinalIgnoreCase) ||
+                ((target == "pegasus" || target == "especiales") && (v.Dealership.Equals("pegasus", StringComparison.OrdinalIgnoreCase) || v.Dealership.Equals("especiales", StringComparison.OrdinalIgnoreCase))));
         }
 
         // Filtrado por clase o categoría de vehículo si se especificó

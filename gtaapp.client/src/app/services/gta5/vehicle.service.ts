@@ -61,7 +61,13 @@ export class VehicleService {
       map(vehicles => {
         let filtered = vehicles || [];
         if (dealership) {
-          filtered = filtered.filter(v => (v.dealership || '').toLowerCase() === dealership.toLowerCase());
+          const d = dealership.toLowerCase();
+          filtered = filtered.filter(v => {
+            const vd = (v.dealership || '').toLowerCase();
+            return (d === 'pegasus' || d === 'especiales')
+              ? (vd === 'pegasus' || vd === 'especiales')
+              : vd === d;
+          });
         }
         if (category && category !== 'all') {
           filtered = filtered.filter(v => (v.category || '').toLowerCase() === category.toLowerCase());
