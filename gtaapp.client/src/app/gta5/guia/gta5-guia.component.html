@@ -555,8 +555,8 @@
 
         <!-- Contenido Formateado Editorialmente -->
         <div class="article-body">
-          <!-- Bloque: Sinopsis de la misión -->
-          <div class="guide-synopsis-block" *ngIf="selectedArticulo.sinopsis">
+          <!-- Bloque: Sinopsis de la misión (solo para misiones, nunca en misterios) -->
+          <div class="guide-synopsis-block" *ngIf="selectedArticulo.sinopsis && selectedArticulo.categoria !== 'secretos-misterios' && currentSection?.id !== 'secretos-misterios'">
             <div class="guide-synopsis-head">
               <i class="fa-solid fa-book-open"></i>
               <span>Sinopsis de la misión</span>

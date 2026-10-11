@@ -94,7 +94,6 @@ const routes: Routes = [
     {
         path: 'gta6-noticias',
         component: Gta6NoticiasComponent,
-        canActivate: [DevAccessGuard],
         data: {
             title: 'Noticias & Actualidad GTA VI - Estado de Leonida | GTA MAPS',
             description: 'Últimas noticias, comunicados oficiales y análisis técnico de Grand Theft Auto VI y el Estado de Leonida.',
