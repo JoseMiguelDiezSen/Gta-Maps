@@ -7,7 +7,6 @@ export interface GtaVehicle {
   category: string;
   type?: string;
   price: number;
-  priceTrade: number;
   priceFormatted: string;
   speed: number;
   acceleration: number;

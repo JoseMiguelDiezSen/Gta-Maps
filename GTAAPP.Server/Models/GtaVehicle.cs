@@ -57,11 +57,6 @@ public class GtaVehicle
     [JsonPropertyName("price")]
     public long Price { get; set; }
 
-    /// <summary>
-    /// Precio especial de intercambio (Trade Price) desbloqueable tras cumplir ciertos requisitos o misiones de preparación.
-    /// </summary>
-    [JsonPropertyName("priceTrade")]
-    public long PriceTrade { get; set; }
 
     /// <summary>
     /// Representación formateada del precio para visualización (ej. "$2,875,000").

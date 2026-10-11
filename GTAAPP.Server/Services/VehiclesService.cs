@@ -68,10 +68,10 @@ public class VehiclesService
             }
         }
 
-        var list = LoadVehicles(activeLang);
+        var list = LoadVehicles(activeLang, dealership);
         IEnumerable<GtaVehicle> result = list;
 
-        // Filtrado por concesionario si se especificó en la petición
+        // Filtrado por concesionario si se especificó en la petición y no se cargó un archivo directo
         if (!string.IsNullOrWhiteSpace(dealership))
         {
             result = result.Where(v => v.Dealership.Equals(dealership, StringComparison.OrdinalIgnoreCase));
@@ -91,9 +91,60 @@ public class VehiclesService
     /// Solo vuelve a leer del disco si el archivo ha sido modificado desde la última carga.
     /// </summary>
     /// <param name="lang">Idioma a cargar.</param>
+    /// <param name="dealership">Concesionario opcional para carga modular directa.</param>
     /// <returns>Colección inmutable de todos los vehículos disponibles en el dataset.</returns>
-    private IReadOnlyList<GtaVehicle> LoadVehicles(string lang)
+    private IReadOnlyList<GtaVehicle> LoadVehicles(string lang, string? dealership = null)
     {
+        var cleanDealer = dealership?.Trim().ToLowerInvariant();
+        if (cleanDealer == "especiales") cleanDealer = "pegasus";
+
+        // Si se pide un concesionario concreto, verificamos si existe su archivo modular
+        string? dealerPath = null;
+        if (!string.IsNullOrEmpty(cleanDealer))
+        {
+            var p = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles", $"{cleanDealer}.json");
+            if (File.Exists(p))
+            {
+                dealerPath = p;
+            }
+        }
+
+        var modularDir = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles");
+        if (string.IsNullOrEmpty(cleanDealer) && Directory.Exists(modularDir))
+        {
+            var files = Directory.GetFiles(modularDir, "*.json");
+            if (files.Length > 0)
+            {
+                var latestWrite = files.Select(File.GetLastWriteTimeUtc).Max();
+                lock (_lock)
+                {
+                    if (_cache.TryGetValue(lang, out var cached) && cached.data != null && cached.lastModified >= latestWrite)
+                    {
+                        return cached.data;
+                    }
+
+                    try
+                    {
+                        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                        var combined = new List<GtaVehicle>();
+                        foreach (var file in files)
+                        {
+                            using var s = File.OpenRead(file);
+                            var subList = JsonSerializer.Deserialize<List<GtaVehicle>>(s, options);
+                            if (subList != null) combined.AddRange(subList);
+                        }
+                        _cache[lang] = (latestWrite, combined);
+                        return combined;
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Error al cargar dataset modular de vehículos desde {Dir}", modularDir);
+                        return [];
+                    }
+                }
+            }
+        }
+
         // 1. Ruta jerárquica con el idioma solicitado: data/gta5/online/{lang}/vehicles.json
         var hierPath = Path.Combine(BaseWebRoot, "data", "gta5", "online", lang, "vehicles.json");
         // 2. Ruta fallback en español: data/gta5/online/es/vehicles.json
@@ -101,7 +152,7 @@ public class VehiclesService
         // 3. Ruta fallback retrocompatible en la raíz
         var legacyPath = Path.Combine(BaseWebRoot, "data", "vehicles.json");
 
-        var fullPath = File.Exists(hierPath) ? hierPath : (File.Exists(esPath) ? esPath : legacyPath);
+        var fullPath = dealerPath ?? (File.Exists(hierPath) ? hierPath : (File.Exists(esPath) ? esPath : legacyPath));
 
         if (!File.Exists(fullPath))
         {
@@ -109,12 +160,13 @@ public class VehiclesService
         }
 
         var lastWrite = File.GetLastWriteTimeUtc(fullPath);
+        var cacheKey = string.IsNullOrEmpty(cleanDealer) ? lang : $"{lang}:{cleanDealer}";
 
         // Bloqueo thread-safe para lectura y refresco de caché
         lock (_lock)
         {
             // Si la caché es válida para este idioma y el archivo en disco no ha cambiado, devolvemos la memoria de inmediato
-            if (_cache.TryGetValue(lang, out var cached) && cached.data != null && cached.lastModified >= lastWrite)
+            if (_cache.TryGetValue(cacheKey, out var cached) && cached.data != null && cached.lastModified >= lastWrite)
             {
                 return cached.data;
             }
@@ -124,7 +176,7 @@ public class VehiclesService
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 using var stream = File.OpenRead(fullPath);
                 var list = JsonSerializer.Deserialize<List<GtaVehicle>>(stream, options) ?? [];
-                _cache[lang] = (lastWrite, list);
+                _cache[cacheKey] = (lastWrite, list);
                 return list;
             }
             catch (Exception ex)

@@ -1008,18 +1008,10 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     this.dealerVehicles = [];
 
     this.vehiclesSub?.unsubscribe();
-    this.vehiclesSub = this.vehicleService.getVehicles().subscribe({
+    this.vehiclesSub = this.vehicleService.getVehicles(dealerId).subscribe({
       next: (vehicles) => {
-        this.vehicleCache = {};
-        for (const v of vehicles) {
-          let d = v.dealership || 'superautos';
-          if (d === 'especiales') d = 'pegasus';
-          if (!this.vehicleCache[d]) {
-            this.vehicleCache[d] = [];
-          }
-          this.vehicleCache[d].push(v);
-        }
-        this.dealerVehicles = this.vehicleCache[dealerId] || [];
+        this.vehicleCache[dealerId] = vehicles;
+        this.dealerVehicles = vehicles;
         if (this.selectedVehicle) {
           const fresh = vehicles.find(v => v.id === this.selectedVehicle!.id);
           if (fresh) this.selectedVehicle = fresh;

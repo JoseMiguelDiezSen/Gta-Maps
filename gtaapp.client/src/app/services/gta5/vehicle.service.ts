@@ -20,12 +20,19 @@ export class VehicleService {
   getVehicles(dealership?: string, category?: string, lang?: string, gameMode: 'story' | 'online' = 'online'): Observable<GtaVehicle[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     const mode = gameMode === 'story' ? 'historia' : 'online';
-    const basePath = `/assets/data/gta5/${mode}/es/vehicles.json`;
+    const normalizedDealer = dealership ? (dealership.toLowerCase() === 'especiales' ? 'pegasus' : dealership.toLowerCase()) : null;
+    const dealerPath = normalizedDealer ? `/assets/data/gta5/${mode}/es/vehicles/${normalizedDealer}.json` : null;
+    const dealerNames = ['legendarymotorsport', 'superautos', 'bennys', 'elitas', 'docktease', 'warstock', 'pedal_and_metal', 'pegasus', 'arena_war'];
+    const baseSource$: Observable<GtaVehicle[]> = dealerPath
+      ? this.http.get<GtaVehicle[]>(dealerPath).pipe(catchError(() => of([] as GtaVehicle[])))
+      : forkJoin(
+          dealerNames.map(d => this.http.get<GtaVehicle[]>(`/assets/data/gta5/${mode}/es/vehicles/${d}.json`).pipe(catchError(() => of([] as GtaVehicle[]))))
+        ).pipe(map(lists => lists.flat()));
 
     const fetch$: Observable<GtaVehicle[]> = activeLang === 'es'
-      ? this.http.get<GtaVehicle[]>(basePath).pipe(catchError(() => of([] as GtaVehicle[])))
+      ? baseSource$
       : forkJoin({
-          base: this.http.get<GtaVehicle[]>(basePath).pipe(catchError(() => of([] as GtaVehicle[]))),
+          base: baseSource$,
           localized: this.http.get<any[]>(`/assets/data/gta5/${mode}/${activeLang}/vehicles.json`).pipe(catchError(() => of([] as any[])))
         }).pipe(
           map(({ base, localized }) => {
