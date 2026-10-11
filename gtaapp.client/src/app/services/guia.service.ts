@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../models/guia';
+import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeosCatalogo } from '../models/guia';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +59,28 @@ export class GuiaService {
     }
     
     return of(this.getFallbackArticulo(juegoId, articuloId));
+  }
+
+  /**
+   * Obtiene el catálogo de trofeos de GTA V (listado real en español).
+   */
+  getTrofeos(juegoId: 'gta5' | 'gta6'): Observable<TrofeosCatalogo> {
+    if (juegoId === 'gta5') {
+      const jsonUrl = 'assets/data/gta5/guia/trofeos.json?t=' + new Date().getTime();
+      return this.http.get<TrofeosCatalogo>(jsonUrl).pipe(
+        catchError(() => of(this.getFallbackTrofeos()))
+      );
+    }
+    return of(this.getFallbackTrofeos());
+  }
+
+  private getFallbackTrofeos(): TrofeosCatalogo {
+    return {
+      juego: 'Grand Theft Auto V',
+      plataforma: 'PlayStation',
+      resumen: { total: 0, platino: 0, oro: 0, plata: 0, bronce: 0 },
+      trofeos: []
+    };
   }
 
   /**
@@ -311,6 +333,14 @@ export class GuiaService {
             articulos: [
               { id: 'lista-trucos-gta5', slug: 'lista-trucos-gta5', titulo: 'Todos los Trucos y Códigos de GTA 5', subtitulo: 'Invencibilidad, todas las armas, súper salto, Buzzard y clima', categoria: 'trucos-codigos', badge: 'Popular', tiempoLecturaMinutos: 5 }
             ]
+          },
+          {
+            id: 'trofeos',
+            titulo: 'Trofeos',
+            icono: 'trophy',
+            descripcion: 'Listado de trofeos y logros de GTA V: Platino, Oro, Plata y Bronce.',
+            orden: 6,
+            articulos: []
           }
         ]
       };

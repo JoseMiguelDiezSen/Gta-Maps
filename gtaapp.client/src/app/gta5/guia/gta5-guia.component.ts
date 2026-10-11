@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, Hos
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../services/guia.service';
 import { CookieService } from '../../services/cookie.service';
-import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../../models/guia';
+import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../models/guia';
 import { isDevAccessAllowed } from '../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
 
@@ -32,6 +32,14 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   toastMessage: string | null = null;
   private toastTimeout: any = null;
 
+  mostrarTrofeos: boolean = false;
+  isLoadingTrofeos: boolean = false;
+  trofeos: TrofeoItem[] = [];
+  trofeosResumen: TrofeosResumen = { total: 0, platino: 0, oro: 0, plata: 0, bronce: 0 };
+  trofeoFiltro: TrofeoTipo | 'todos' = 'todos';
+
+  private static readonly TROFEO_ORDEN: TrofeoTipo[] = ['platino', 'oro', 'plata', 'bronce'];
+
   isSectionLocked(seccionId: string): boolean {
     if (isDevAccessAllowed()) {
       return false;
@@ -39,9 +47,17 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     return !this.allowedProdSections.includes(seccionId);
   }
 
+  getSeccionContador(seccion: GuiaSeccion): number {
+    if (seccion.id === 'trofeos') {
+      return this.trofeosResumen.total;
+    }
+    return seccion.articulos.length;
+  }
+
   private manifestSub?: Subscription;
   private articuloSub?: Subscription;
   private searchSub?: Subscription;
+  private trofeosSub?: Subscription;
 
   constructor(
     private guiaService: GuiaService,
@@ -59,6 +75,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     this.manifestSub?.unsubscribe();
     this.articuloSub?.unsubscribe();
     this.searchSub?.unsubscribe();
+    this.trofeosSub?.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -72,6 +89,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     this.cargarGuia();
+    this.cargarTrofeos();
   }
 
   ngAfterViewInit(): void {
@@ -208,12 +226,97 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     this.currentSection = sec;
     this.currentSubcategory = null;
     this.currentGolpe = null;
+    if (sec.id === 'trofeos') {
+      this.mostrarTrofeos = true;
+      this.cargarTrofeos();
+    } else {
+      this.mostrarTrofeos = false;
+    }
   }
 
   backToSections(): void {
     this.currentSection = null;
     this.currentSubcategory = null;
     this.currentGolpe = null;
+    this.mostrarTrofeos = false;
+  }
+
+  cargarTrofeos(): void {
+    if (this.trofeos.length > 0 || this.isLoadingTrofeos) return;
+    this.isLoadingTrofeos = true;
+    this.trofeosSub?.unsubscribe();
+    this.trofeosSub = this.guiaService.getTrofeos('gta5').subscribe({
+      next: (catalogo) => {
+        this.trofeos = catalogo?.trofeos || [];
+        this.trofeosResumen = catalogo?.resumen || this.calcularResumen(this.trofeos);
+        this.isLoadingTrofeos = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar el catálogo de trofeos:', err);
+        this.isLoadingTrofeos = false;
+      }
+    });
+  }
+
+  private calcularResumen(trofeos: TrofeoItem[]): TrofeosResumen {
+    const resumen: TrofeosResumen = { total: trofeos.length, platino: 0, oro: 0, plata: 0, bronce: 0 };
+    for (const t of trofeos) {
+      resumen[t.tipo] += 1;
+    }
+    return resumen;
+  }
+
+  seleccionarTrofeoFiltro(tipo: TrofeoTipo | 'todos'): void {
+    this.trofeoFiltro = tipo;
+  }
+
+  get trofeosFiltrados(): TrofeoItem[] {
+    if (this.trofeoFiltro === 'todos') return this.trofeos;
+    return this.trofeos.filter(t => t.tipo === this.trofeoFiltro);
+  }
+
+  get trofeosPorTipo(): { tipo: TrofeoTipo; titulo: string; trofeos: TrofeoItem[] }[] {
+    const titulos: Record<TrofeoTipo, string> = {
+      platino: 'Platino',
+      oro: 'Oro',
+      plata: 'Plata',
+      bronce: 'Bronce'
+    };
+    return Gta5GuiaComponent.TROFEO_ORDEN
+      .map(tipo => ({
+        tipo,
+        titulo: titulos[tipo],
+        trofeos: this.trofeosFiltrados.filter(t => t.tipo === tipo)
+      }))
+      .filter(g => g.trofeos.length > 0);
+  }
+
+  getTrofeoTipoColor(tipo: TrofeoTipo): string {
+    switch (tipo) {
+      case 'platino': return '#7dd3fc';
+      case 'oro': return '#fbbf24';
+      case 'plata': return '#cbd5e1';
+      case 'bronce': return '#d08b5b';
+      default: return '#ffb833';
+    }
+  }
+
+  getTrofeoTipoIcono(tipo: TrofeoTipo): string {
+    switch (tipo) {
+      case 'platino': return 'fa-trophy';
+      case 'oro': return 'fa-medal';
+      case 'plata': return 'fa-award';
+      case 'bronce': return 'fa-shield-halved';
+      default: return 'fa-trophy';
+    }
+  }
+
+  getTrofeoModoLabel(modo: TrofeoItem['modo']): string {
+    switch (modo) {
+      case 'historia': return 'Modo Historia';
+      case 'online': return 'GTA Online';
+      default: return 'Historia + Online';
+    }
   }
 
   openSubcategory(subcatId: string): void {
@@ -464,6 +567,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   getSectionColor(secId?: string): string {
     if (!secId) return '#ffb833';
     const s = secId.toLowerCase();
+    if (s.includes('trofeo')) return '#ffffff';
     if (s.includes('prologo')) return '#3b82f6';
     if (s.includes('mision')) return '#ef4444';
     if (s.includes('extrano') || s.includes('loco')) return '#ffb833';
@@ -475,7 +579,12 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     return '#ffb833';
   }
 
+  isLightAccentSection(secId?: string): boolean {
+    return this.getSectionColor(secId) === '#ffffff';
+  }
+
   seleccionarArticulo(articuloId: string): void {
+    this.mostrarTrofeos = false;
     this.isLoadingArticulo = true;
     this.articuloSub?.unsubscribe();
     this.articuloSub = this.guiaService.getArticulo('gta5', articuloId).subscribe({

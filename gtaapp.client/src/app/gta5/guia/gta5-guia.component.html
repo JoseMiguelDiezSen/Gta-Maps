@@ -55,6 +55,15 @@
           <span>GUIA GTA 6</span>
         </a>
 
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón NOTICIAS GTA 6 -->
+        <a routerLink="/gta6-noticias" class="nav-link-item" title="Ir a Noticias de GTA 6">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>NOTICIAS GTA 6</span>
+        </a>
+
         <!-- Separador final de cierre -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
       </div>
@@ -144,6 +153,7 @@
           *ngFor="let seccion of secciones"
           class="guide-cat-card"
           [class.is-locked]="isSectionLocked(seccion.id)"
+          [class.is-accent-light]="isLightAccentSection(seccion.id)"
           [style.--cat-accent]="getSectionColor(seccion.id)"
           (click)="openSection(seccion)"
           [title]="isSectionLocked(seccion.id) ? 'Próximamente disponible' : seccion.titulo"
@@ -158,8 +168,8 @@
             <span class="guide-cat-title">{{ seccion.titulo }}</span>
           </div>
 
-          <!-- Badge con número de capítulos o Bloqueado -->
-          <span class="guide-cat-badge" *ngIf="!isSectionLocked(seccion.id)">{{ seccion.articulos.length }}</span>
+          <!-- Badge con número de capítulos, total de trofeos o Bloqueado -->
+          <span class="guide-cat-badge" *ngIf="!isSectionLocked(seccion.id)">{{ getSeccionContador(seccion) }}</span>
           <span class="guide-cat-badge guide-cat-badge--locked" *ngIf="isSectionLocked(seccion.id)"><i class="fa-solid fa-lock"></i></span>
 
           <!-- Flecha circular a la derecha o Candado -->
@@ -307,8 +317,81 @@
 
         </ng-container>
 
+        <!-- CASO B0: SECCIÓN DE TROFEOS (Navegación por categorías de trofeo) -->
+        <ng-container *ngIf="currentSection?.id === 'trofeos'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+            <span class="guide-detail-badge">{{ trofeosResumen.total }} trofeos</span>
+          </div>
+
+          <div class="guide-categories-list">
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'todos'"
+              [style.--cat-accent]="'#ffffff'"
+              (click)="seleccionarTrofeoFiltro('todos')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Todos los trofeos</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.total }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'platino'"
+              [style.--cat-accent]="getTrofeoTipoColor('platino')"
+              (click)="seleccionarTrofeoFiltro('platino')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Trofeo de Platino</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.platino }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'oro'"
+              [style.--cat-accent]="getTrofeoTipoColor('oro')"
+              (click)="seleccionarTrofeoFiltro('oro')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-medal"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Oro</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.oro }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'plata'"
+              [style.--cat-accent]="getTrofeoTipoColor('plata')"
+              (click)="seleccionarTrofeoFiltro('plata')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-award"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Plata</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.plata }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'bronce'"
+              [style.--cat-accent]="getTrofeoTipoColor('bronce')"
+              (click)="seleccionarTrofeoFiltro('bronce')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-shield-halved"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Bronce</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.bronce }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+          </div>
+        </ng-container>
+
         <!-- CASO B: SECCIONES ESTÁNDAR (PRÓLOGO, 100%, ETC.) -->
-        <ng-container *ngIf="!hasSubcategorias(currentSection)">
+        <ng-container *ngIf="!hasSubcategorias(currentSection) && currentSection?.id !== 'trofeos'">
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
               <i class="fa-solid fa-chevron-left"></i>
@@ -345,8 +428,95 @@
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
     <main class="wiki-content-area">
+      <!-- PANEL DE TROFEOS (CATÁLOGO COMPLETO) -->
+      <article *ngIf="mostrarTrofeos" class="wiki-article-card trophy-panel">
+        <header class="trophy-panel-header">
+          <div class="trophy-panel-title-block">
+            <span class="trophy-panel-kicker">TROFEOS (PS) · LOGROS (XBOX)</span>
+            <h1 class="trophy-panel-title">
+              <i class="fa-solid fa-trophy"></i>
+              Trofeos de GTA V
+            </h1>
+            <p class="trophy-panel-sub">
+              Listado completo y en español de los {{ trofeosResumen.total }} trofeos: el ansiado Platino, los desafíos de Oro,
+              los retos de Plata y la larga lista de Bronce del Modo Historia y de GTA Online.
+            </p>
+          </div>
+
+          <div class="trophy-summary-grid">
+            <div class="trophy-summary-card" style="--trophy-color: #7dd3fc;">
+              <i class="fa-solid fa-trophy"></i>
+              <span class="trophy-summary-num">{{ trofeosResumen.platino }}</span>
+              <span class="trophy-summary-label">Platino</span>
+            </div>
+            <div class="trophy-summary-card" style="--trophy-color: #fbbf24;">
+              <i class="fa-solid fa-medal"></i>
+              <span class="trophy-summary-num">{{ trofeosResumen.oro }}</span>
+              <span class="trophy-summary-label">Oro</span>
+            </div>
+            <div class="trophy-summary-card" style="--trophy-color: #cbd5e1;">
+              <i class="fa-solid fa-award"></i>
+              <span class="trophy-summary-num">{{ trofeosResumen.plata }}</span>
+              <span class="trophy-summary-label">Plata</span>
+            </div>
+            <div class="trophy-summary-card" style="--trophy-color: #d08b5b;">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span class="trophy-summary-num">{{ trofeosResumen.bronce }}</span>
+              <span class="trophy-summary-label">Bronce</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="trophy-loading" *ngIf="isLoadingTrofeos">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <span>Cargando trofeos...</span>
+        </div>
+
+        <div class="trophy-groups" *ngIf="!isLoadingTrofeos">
+          <section
+            class="trophy-group"
+            *ngFor="let grupo of trofeosPorTipo"
+            [style.--trophy-color]="getTrofeoTipoColor(grupo.tipo)"
+          >
+            <div class="trophy-group-head">
+              <i class="fa-solid" [ngClass]="getTrofeoTipoIcono(grupo.tipo)"></i>
+              <h2 class="trophy-group-title">Trofeos de {{ grupo.titulo }}</h2>
+              <span class="trophy-group-count">{{ grupo.trofeos.length }}</span>
+            </div>
+
+            <div class="trophy-grid">
+              <div class="trophy-card" *ngFor="let trofeo of grupo.trofeos">
+                <div class="trophy-card-icon">
+                  <i class="fa-solid" [ngClass]="getTrofeoTipoIcono(trofeo.tipo)"></i>
+                </div>
+                <div class="trophy-card-body">
+                  <div class="trophy-card-head">
+                    <h3 class="trophy-card-name">{{ trofeo.nombre }}</h3>
+                    <span class="trophy-card-mode" [class.is-online]="trofeo.modo === 'online'">
+                      <i class="fa-solid" [ngClass]="trofeo.modo === 'online' ? 'fa-globe' : (trofeo.modo === 'ambos' ? 'fa-layer-group' : 'fa-gamepad')"></i>
+                      {{ getTrofeoModoLabel(trofeo.modo) }}
+                    </span>
+                  </div>
+                  <p class="trophy-card-desc">{{ trofeo.descripcion }}</p>
+                  <p class="trophy-card-tip" *ngIf="trofeo.pista">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>{{ trofeo.pista }}</span>
+                  </p>
+                </div>
+                <span class="trophy-card-tier">{{ grupo.titulo }}</span>
+              </div>
+            </div>
+          </section>
+
+          <div class="trophy-empty" *ngIf="trofeosPorTipo.length === 0 && !isLoadingTrofeos">
+            <i class="fa-solid fa-trophy"></i>
+            <span>No hay trofeos que mostrar para este filtro.</span>
+          </div>
+        </div>
+      </article>
+
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="selectedArticulo" class="wiki-article-card">
+      <article *ngIf="selectedArticulo && !mostrarTrofeos" class="wiki-article-card">
         <header class="article-header">
           <div class="article-meta-row">
             <span *ngIf="selectedArticulo.badge" class="article-chip-badge">{{ selectedArticulo.badge }}</span>
@@ -457,7 +627,7 @@
       </article>
 
       <!-- Banner contextual: Enlace al Mapa Interactivo (Fuera del panel de la guía) -->
-      <div class="article-map-prompt" *ngIf="!isLoadingArticulo && selectedArticulo">
+      <div class="article-map-prompt" *ngIf="!isLoadingArticulo && selectedArticulo && !mostrarTrofeos">
         <div class="map-prompt-text">
           <h4 class="map-prompt-title">¿Buscas ubicaciones de esta guía?</h4>
           <p class="map-prompt-sub">Explora coleccionables, misterios y golpes marcados en el mapa interactivo de Los Santos.</p>

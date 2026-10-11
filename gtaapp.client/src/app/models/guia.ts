@@ -32,6 +32,33 @@ export interface GuiaArticuloRelacionado {
   slug: string;
 }
 
+export type TrofeoTipo = 'platino' | 'oro' | 'plata' | 'bronce';
+export type TrofeoModo = 'historia' | 'online' | 'ambos';
+
+export interface TrofeoItem {
+  id: string;
+  nombre: string;
+  descripcion: string;
+  tipo: TrofeoTipo;
+  modo: TrofeoModo;
+  pista?: string;
+}
+
+export interface TrofeosResumen {
+  total: number;
+  platino: number;
+  oro: number;
+  plata: number;
+  bronce: number;
+}
+
+export interface TrofeosCatalogo {
+  juego: string;
+  plataforma: string;
+  resumen: TrofeosResumen;
+  trofeos: TrofeoItem[];
+}
+
 export interface GuiaArticulo extends GuiaArticuloResumen {
   contenidoMarkdown: string;
   imagen?: string;
