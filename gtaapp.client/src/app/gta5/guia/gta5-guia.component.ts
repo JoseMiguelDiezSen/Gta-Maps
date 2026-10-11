@@ -3,7 +3,6 @@ import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../services/guia.service';
 import { CookieService } from '../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../models/guia';
-import { isDevAccessAllowed } from '../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,8 +12,6 @@ import { Subscription } from 'rxjs';
   standalone: false
 })
 export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
-  readonly allowedProdSections: string[] = ['prologo', 'misiones-historia', 'extranos-locos'];
-
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
   currentSection: GuiaSeccion | null = null;
@@ -40,16 +37,12 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private static readonly TROFEO_ORDEN: TrofeoTipo[] = ['platino', 'oro', 'plata', 'bronce'];
 
-  isSectionLocked(seccionId: string): boolean {
-    if (isDevAccessAllowed()) {
-      return false;
-    }
-    return !this.allowedProdSections.includes(seccionId);
-  }
-
   getSeccionContador(seccion: GuiaSeccion): number {
     if (seccion.id === 'trofeos') {
       return this.trofeosResumen.total;
+    }
+    if (seccion.id === 'golpes') {
+      return 6;
     }
     return seccion.articulos.length;
   }
@@ -219,10 +212,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   openSection(sec: GuiaSeccion): void {
-    if (this.isSectionLocked(sec.id)) {
-      this.mostrarToast('Esta sección estará disponible próximamente');
-      return;
-    }
     this.currentSection = sec;
     this.currentSubcategory = null;
     this.currentGolpe = null;
@@ -339,7 +328,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   hasSubcategorias(sec: GuiaSeccion | null): boolean {
     if (!sec) return false;
-    return sec.id === 'extranos-locos' || sec.id === 'misiones-historia';
+    return sec.id === 'extranos-locos';
   }
 
   getGolpesList(): { id: string; titulo: string; icono: string; color: string; total: number; missionIds: string[] }[] {
@@ -465,15 +454,20 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   get articulosSubcategoriaActual(): GuiaArticuloResumen[] {
-    if (!this.currentSection || !this.currentSubcategory) return [];
+    if (!this.currentSection) return [];
     
-    if (this.currentSubcategory === 'golpes') {
+    if (this.currentSection.id === 'golpes' || this.currentSubcategory === 'golpes') {
       if (!this.currentGolpe) return [];
       const heists = this.getGolpesList();
       const currentHeist = heists.find(h => h.id === this.currentGolpe);
       if (!currentHeist) return [];
-      return (this.currentSection.articulos || []).filter(a => currentHeist.missionIds.includes(a.id));
+      const articulos = this.currentSection.articulos?.length 
+        ? this.currentSection.articulos 
+        : (this.secciones.find(s => s.id === 'misiones-historia')?.articulos || []);
+      return articulos.filter(a => currentHeist.missionIds.includes(a.id));
     }
+
+    if (!this.currentSubcategory) return [];
 
     const subcats = this.getSubcategoriasTematicas(this.currentSection);
     const found = subcats.find(s => s.id === this.currentSubcategory);
@@ -489,9 +483,9 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getSubcategoriaActualTitulo(): string {
-    if (!this.currentSection || !this.currentSubcategory) return '';
+    if (!this.currentSection) return '';
     
-    if (this.currentSubcategory === 'golpes') {
+    if (this.currentSection.id === 'golpes' || this.currentSubcategory === 'golpes') {
       if (this.currentGolpe) {
         const heists = this.getGolpesList();
         const foundHeist = heists.find(h => h.id === this.currentGolpe);
@@ -500,15 +494,17 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
       return 'Golpes y Atracos';
     }
 
+    if (!this.currentSubcategory) return '';
+
     const subcats = this.getSubcategoriasTematicas(this.currentSection);
     const found = subcats.find(s => s.id === this.currentSubcategory);
     return found ? found.titulo : this.currentSubcategory;
   }
 
   getSubcategoriaActualColor(): string {
-    if (!this.currentSection || !this.currentSubcategory) return this.getSectionColor(this.currentSection?.id);
+    if (!this.currentSection) return '#ffb833';
     
-    if (this.currentSubcategory === 'golpes') {
+    if (this.currentSection.id === 'golpes' || this.currentSubcategory === 'golpes') {
       if (this.currentGolpe) {
         const heists = this.getGolpesList();
         const foundHeist = heists.find(h => h.id === this.currentGolpe);
@@ -517,6 +513,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
       return '#eab308';
     }
 
+    if (!this.currentSubcategory) return this.getSectionColor(this.currentSection?.id);
     const subcats = this.getSubcategoriasTematicas(this.currentSection);
     const found = subcats.find(s => s.id === this.currentSubcategory);
     return found?.color || this.getSectionColor(this.currentSection.id);
@@ -568,9 +565,10 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     if (!secId) return '#ffb833';
     const s = secId.toLowerCase();
     if (s.includes('trofeo')) return '#ffffff';
+    if (s.includes('golpe')) return '#eab308';
     if (s.includes('prologo')) return '#3b82f6';
     if (s.includes('mision')) return '#ef4444';
-    if (s.includes('extrano') || s.includes('loco')) return '#ffb833';
+    if (s.includes('extrano') || s.includes('loco')) return '#f97316';
     if (s.includes('100') || s.includes('historia')) return '#22c55e';
     if (s.includes('personaje') || s.includes('protagonista')) return '#f97316';
     if (s.includes('negocio') || s.includes('economia')) return '#06b6d4';
@@ -581,6 +579,18 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   isLightAccentSection(secId?: string): boolean {
     return this.getSectionColor(secId) === '#ffffff';
+  }
+
+  getPersonajeClass(badge?: string): string {
+    if (!badge) return '';
+    const b = badge.toLowerCase();
+    if (b.includes('michael') && b.includes('franklin')) return 'personaje-mf';
+    if (b.includes('michael') && b.includes('trevor')) return 'personaje-mt';
+    if (b.includes('trevor') && b.includes('franklin')) return 'personaje-tf';
+    if (b.includes('michael')) return 'personaje-michael';
+    if (b.includes('franklin')) return 'personaje-franklin';
+    if (b.includes('trevor')) return 'personaje-trevor';
+    return '';
   }
 
   seleccionarArticulo(articuloId: string): void {
@@ -613,9 +623,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     this.searchSub?.unsubscribe();
     this.searchSub = this.guiaService.buscarArticulos('gta5', this.searchQuery).subscribe({
       next: (results) => {
-        this.searchResults = isDevAccessAllowed()
-          ? results
-          : results.filter(r => this.allowedProdSections.includes(r.categoria));
+        this.searchResults = results;
       },
       error: (err) => {
         console.error('Error en búsqueda de artículos:', err);

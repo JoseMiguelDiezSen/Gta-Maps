@@ -152,11 +152,10 @@
         <div
           *ngFor="let seccion of secciones"
           class="guide-cat-card"
-          [class.is-locked]="isSectionLocked(seccion.id)"
           [class.is-accent-light]="isLightAccentSection(seccion.id)"
           [style.--cat-accent]="getSectionColor(seccion.id)"
           (click)="openSection(seccion)"
-          [title]="isSectionLocked(seccion.id) ? 'Próximamente disponible' : seccion.titulo"
+          [title]="seccion.titulo"
         >
           <!-- Icono encapsulado con borde neón -->
           <div class="guide-cat-icon">
@@ -168,13 +167,12 @@
             <span class="guide-cat-title">{{ seccion.titulo }}</span>
           </div>
 
-          <!-- Badge con número de capítulos, total de trofeos o Bloqueado -->
-          <span class="guide-cat-badge" *ngIf="!isSectionLocked(seccion.id)">{{ getSeccionContador(seccion) }}</span>
-          <span class="guide-cat-badge guide-cat-badge--locked" *ngIf="isSectionLocked(seccion.id)"><i class="fa-solid fa-lock"></i></span>
+          <!-- Badge con número de capítulos o total de trofeos -->
+          <span class="guide-cat-badge">{{ getSeccionContador(seccion) }}</span>
 
-          <!-- Flecha circular a la derecha o Candado -->
+          <!-- Flecha circular a la derecha -->
           <div class="guide-cat-arrow">
-            <i class="fa-solid" [ngClass]="isSectionLocked(seccion.id) ? 'fa-lock' : 'fa-chevron-right'"></i>
+            <i class="fa-solid fa-chevron-right"></i>
           </div>
         </div>
       </nav>
@@ -216,70 +214,6 @@
             </div>
           </ng-container>
 
-          <!-- SUB-VISTA A2: CUANDO ESTAMOS DENTRO DE GOLPES Y ATRACOS (SELECCIÓN DE UNO DE LOS 6 GOLPES) -->
-          <ng-container *ngIf="currentSubcategory === 'golpes' && !currentGolpe">
-            <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="backToSubcategories()" title="Volver a las temáticas">
-                <i class="fa-solid fa-chevron-left"></i>
-                <span>Temáticas</span>
-              </button>
-              <span class="guide-detail-badge">{{ getGolpesList().length }} golpes</span>
-            </div>
-
-            <div class="guide-categories-list">
-              <div
-                *ngFor="let golpe of getGolpesList()"
-                class="guide-cat-card"
-                [style.--cat-accent]="golpe.color"
-                (click)="openGolpe(golpe.id)"
-              >
-                <div class="guide-cat-icon">
-                  <i class="fas fa-{{ golpe.icono }}"></i>
-                </div>
-                <div class="guide-cat-info">
-                  <span class="guide-cat-title">{{ golpe.titulo }}</span>
-                </div>
-                <span class="guide-cat-badge">{{ golpe.total }}</span>
-                <div class="guide-cat-arrow">
-                  <i class="fa-solid fa-chevron-right"></i>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-
-          <!-- SUB-VISTA A3: MISIONES DE UN GOLPE ESPECÍFICO -->
-          <ng-container *ngIf="currentSubcategory === 'golpes' && currentGolpe">
-            <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="backToGolpes()" title="Volver a los golpes">
-                <i class="fa-solid fa-chevron-left"></i>
-                <span>Golpes</span>
-              </button>
-              <span class="guide-detail-badge">{{ articulosSubcategoriaActual.length }} fases</span>
-            </div>
-
-            <div class="guide-chapters-list">
-              <div
-                *ngFor="let art of articulosSubcategoriaActual; let idx = index"
-                class="guide-chapter-card"
-                [class.is-active]="selectedArticulo?.id === art.id"
-                (click)="seleccionarArticulo(art.id)"
-              >
-                <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
-                
-                <div class="chapter-card-info">
-                  <span class="chapter-card-title">{{ art.titulo }}</span>
-                  <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
-                </div>
-
-                <div class="chapter-card-meta">
-                  <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
-                  <span class="chapter-card-time" *ngIf="art.tiempoLecturaMinutos">
-                    <i class="fa-regular fa-clock"></i> {{ art.tiempoLecturaMinutos }}m
-                  </span>
-                </div>
-              </div>
-            </div>
-          </ng-container>
 
           <!-- SUB-VISTA A4: MISIONES DE CUALQUIER OTRA TEMÁTICA REGULAR (FRANKLIN, TONYA, ETC.) -->
           <ng-container *ngIf="currentSubcategory && currentSubcategory !== 'golpes'">
@@ -390,8 +324,79 @@
           </div>
         </ng-container>
 
+        <!-- CASO GOLPES: SECCIÓN DE GOLPES Y ATRACOS (NIVEL 1 -> 6 GOLPES -> FASES) -->
+        <ng-container *ngIf="currentSection?.id === 'golpes'">
+          
+          <!-- SUB-VISTA G1: SELECCIÓN DE UNO DE LOS 6 GOLPES -->
+          <ng-container *ngIf="!currentGolpe">
+            <div class="guide-detail-toolbar">
+              <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Categorías</span>
+              </button>
+              <span class="guide-detail-badge">{{ getGolpesList().length }} golpes</span>
+            </div>
+
+            <div class="guide-categories-list">
+              <div
+                *ngFor="let golpe of getGolpesList()"
+                class="guide-cat-card"
+                [style.--cat-accent]="golpe.color"
+                (click)="openGolpe(golpe.id)"
+              >
+                <div class="guide-cat-icon">
+                  <i class="fas fa-{{ golpe.icono }}"></i>
+                </div>
+                <div class="guide-cat-info">
+                  <span class="guide-cat-title">{{ golpe.titulo }}</span>
+                </div>
+                <span class="guide-cat-badge">{{ golpe.total }}</span>
+                <div class="guide-cat-arrow">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- SUB-VISTA G2: FASES PREPARATORIAS Y GOLPE FINAL DEL GOLPE SELECCIONADO -->
+          <ng-container *ngIf="currentGolpe">
+            <div class="guide-detail-toolbar">
+              <button type="button" class="guide-back-btn" (click)="backToGolpes()" title="Volver al listado de golpes">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Golpes</span>
+              </button>
+              <span class="guide-detail-badge">{{ articulosSubcategoriaActual.length }} fases</span>
+            </div>
+
+            <div class="guide-chapters-list">
+              <div
+                *ngFor="let art of articulosSubcategoriaActual; let idx = index"
+                class="guide-chapter-card"
+                [ngClass]="getPersonajeClass(art.badge)"
+                [class.is-active]="selectedArticulo?.id === art.id"
+                (click)="seleccionarArticulo(art.id)"
+              >
+                <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+                
+                <div class="chapter-card-info">
+                  <span class="chapter-card-title">{{ art.titulo }}</span>
+                  <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+                </div>
+
+                <div class="chapter-card-meta">
+                  <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
+                  <span class="chapter-card-time" *ngIf="art.tiempoLecturaMinutos">
+                    <i class="fa-regular fa-clock"></i> {{ art.tiempoLecturaMinutos }}m
+                  </span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+        </ng-container>
+
         <!-- CASO B: SECCIONES ESTÁNDAR (PRÓLOGO, 100%, ETC.) -->
-        <ng-container *ngIf="!hasSubcategorias(currentSection) && currentSection?.id !== 'trofeos'">
+        <ng-container *ngIf="!hasSubcategorias(currentSection) && currentSection?.id !== 'trofeos' && currentSection?.id !== 'golpes'">
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
               <i class="fa-solid fa-chevron-left"></i>
@@ -404,6 +409,7 @@
             <div
               *ngFor="let art of currentSection.articulos; let idx = index"
               class="guide-chapter-card"
+              [ngClass]="getPersonajeClass(art.badge)"
               [class.is-active]="selectedArticulo?.id === art.id"
               (click)="seleccionarArticulo(art.id)"
             >

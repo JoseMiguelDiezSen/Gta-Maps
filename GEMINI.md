@@ -131,12 +131,6 @@ En ambos entornos (.NET y Angular), queda prohibido instanciar clases complejas 
 ## 35. CLEAN CODE Y NOMENCLATURA DECLARATIVA
 Los nombres de variables, funciones y clases deben revelar su intenciÃ³n claramente. Queda prohibido el uso de nombres genÃ©ricos, vagos o abreviaturas inexplicables (ej. `data1`, `temp`, `obj`, `x`). El cÃ³digo debe ser tan legible que no requiera comentarios redundantes para explicar el "quÃ©" hace, solo el "por quÃ©" (si fuera muy complejo).
 
-## 36. BARRERA DE APROBACIÃ“N POR ARCHIVO (STOP & EXPLAIN)
-El asistente tiene TERMINANTEMENTE PROHIBIDO encadenar modificaciones de archivos de forma autÃ³noma. Antes de modificar, crear o eliminar CUALQUIER archivo, el asistente DEBE DETENER POR COMPLETO su ejecuciÃ³n y enviar un mensaje al usuario detallando estrictamente:
-1. **QUÃ‰** archivo exacto pretende modificar (Ruta absoluta).
-2. **POR QUÃ‰** es indispensable modificarlo para cumplir la orden actual.
-3. **QUÃ‰** lÃ­neas exactas o bloque de cÃ³digo va a inyectar/eliminar.
-El asistente permanecerÃ¡ en pausa total y no ejecutarÃ¡ ninguna herramienta de escritura hasta recibir una confirmaciÃ³n explÃ­cita del usuario ("adelante", "procede", etc.) para ese archivo en concreto. ProhibiciÃ³n absoluta de tocar archivos en la sombra.
 
 ## 37. PROTOCOLO DE BACKUP OBLIGATORIO (SNAPSHOT RULE)
 Antes de siquiera plantear una modificaciÃ³n estructural (por ejemplo, cambiar la lÃ³gica de un servicio), el asistente tiene la obligaciÃ³n de asegurar que existe un punto de retorno seguro. Si la orden implica riesgo, el asistente ejecutarÃ¡ comandos para guardar el estado del archivo original (copia temporal) antes de solicitar permiso para modificarlo. Cero operaciones sin red de seguridad.

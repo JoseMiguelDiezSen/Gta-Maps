@@ -36,8 +36,11 @@ export class GuiaService {
     if (juegoId === 'gta5') {
       // Logic to determine which JSON to load
       const isExtranos = articuloId.startsWith('eyl-');
+      const isMisterio = ['ghost_jolene', 'underwater_', 'tunnel_', 'mount_chiliad', 'thelma_', 'infinity_', 'nothing_here', 'fridgit_', 'yellow_jack', 'greyfriars_', 'ufos_', 'sasquatch_'].some(prefix => articuloId.startsWith(prefix)) || articuloId.includes('misterio') || articuloId.includes('chiliad') || articuloId.includes('cranley');
       const jsonUrl = isExtranos 
           ? 'assets/data/gta5/guia/extranos-locos.json?t=' + new Date().getTime()
+          : isMisterio
+          ? 'assets/data/gta5/guia/secretos-misterios.json?t=' + new Date().getTime()
           : 'assets/data/gta5/guia/guia-misiones-historia.json?t=' + new Date().getTime();
           
       return this.http.get<GuiaArticulo[]>(jsonUrl).pipe(
@@ -127,7 +130,10 @@ export class GuiaService {
                 { id: 'prologo-introduccion-guia', slug: 'prologo-introduccion-guia', titulo: 'Introducción a la Guía de GTA V', subtitulo: 'Estructura de la enciclopedia, consejos esenciales y primeros pasos', categoria: 'prologo', badge: 'Introducción', tiempoLecturaMinutos: 4 },
                 { id: 'michael-de-santa', slug: 'michael-de-santa', titulo: 'Michael De Santa: El Ladrón Retirado', subtitulo: 'Tiempo bala, crisis existencial y relación con el FIB', categoria: 'prologo', badge: 'Michael', tiempoLecturaMinutos: 5 },
                 { id: 'franklin-clinton', slug: 'franklin-clinton', titulo: 'Franklin Clinton: La Nueva Sangre', subtitulo: 'Conducción ralentizada, Chop y Forum Drive', categoria: 'prologo', badge: 'Franklin', tiempoLecturaMinutos: 5 },
-                { id: 'trevor-philips', slug: 'trevor-philips', titulo: 'Trevor Philips: El Caos Encarnado', subtitulo: 'Modo Furia, Industrias TP y su pasado en North Yankton', categoria: 'prologo', badge: 'Trevor', tiempoLecturaMinutos: 6 }
+                { id: 'trevor-philips', slug: 'trevor-philips', titulo: 'Trevor Philips: El Caos Encarnado', subtitulo: 'Modo Furia, Industrias TP y su pasado en North Yankton', categoria: 'prologo', badge: 'Trevor', tiempoLecturaMinutos: 6 },
+                { id: 'requisitos-100', slug: 'requisitos-100', titulo: 'Requisitos para el 100%', subtitulo: 'Guía detallada para conseguir la estadística del 100%', categoria: 'prologo', badge: '100% Checklist', tiempoLecturaMinutos: 6 },
+                { id: 'golpes-principales', slug: 'golpes-principales', titulo: 'Guía Táctica de los 6 Grandes Golpes', subtitulo: 'Planes Sigilo/Fuerza, tripulación ideal y botín máximo', categoria: 'prologo', badge: 'Estrategia', tiempoLecturaMinutos: 10 },
+                { id: 'finales-opcion-abc', slug: 'finales-opcion-abc', titulo: 'Los Tres Finales (Opción A, B o C)', subtitulo: 'Consecuencias narrativas y por qué la C es canónica', categoria: 'prologo', badge: 'Lore', tiempoLecturaMinutos: 5 }
               ]
             },
             {
@@ -206,8 +212,36 @@ export class GuiaService {
                 { id: 'mision-67-opcion-a', slug: 'opcion-a', titulo: '67. Opción A: Con sentido común', subtitulo: 'Franklin Clinton · Los Santos / Murrieta Oil Field', categoria: 'misiones-historia', badge: 'Final (A)', tiempoLecturaMinutos: 5 },
                 { id: 'mision-68-opcion-b', slug: 'opcion-b', titulo: '68. Opción B: Ha llegado la hora', subtitulo: 'Franklin Clinton · Pacific Bluffs', categoria: 'misiones-historia', badge: 'Final (B)', tiempoLecturaMinutos: 5 },
                 { id: 'mision-69-opcion-c', slug: 'opcion-c', titulo: '69. Opción C: La tercera vía', subtitulo: 'Todos los protagonistas · Fundición / Chumash', categoria: 'misiones-historia', badge: 'Final (C) (Canon)', tiempoLecturaMinutos: 25 }
-              
-              
+              ]
+            },
+            {
+              id: 'golpes',
+              titulo: 'Golpes y Atracos',
+              icono: 'vault',
+              descripcion: 'Planificación táctica, misiones preparatorias y asaltos de los 6 grandes golpes de GTA V.',
+              orden: 2,
+              articulos: [
+                { id: 'mision-11-caso-joyero', slug: 'caso-joyero', titulo: '11. Caso joyero', subtitulo: 'Michael De Santa · Rockford Hills', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 7 },
+                { id: 'mision-12-equipo-bugstars', slug: 'equipo-bugstars', titulo: '12. Equipo de Bugstars', subtitulo: 'Michael De Santa · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
+                { id: 'mision-13-granadas-gas-bz', slug: 'granadas-gas-bz', titulo: '13. Granadas de gas BZ', subtitulo: 'Michael De Santa · Aeropuerto Internacional (LSIA)', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-14-golpe-joyeria', slug: 'golpe-joyeria', titulo: '14. El golpe a la joyería', subtitulo: 'Michael y Franklin · Rockford Hills', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
+                { id: 'mision-26-reconocimiento-del-puerto', slug: 'reconocimiento-del-puerto', titulo: '26. Reconocimiento del puerto', subtitulo: 'Trevor Philips · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 10 },
+                { id: 'mision-27-minisubmarino', slug: 'minisubmarino', titulo: '27. Minisubmarino', subtitulo: 'Trevor Philips · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-28-cargobob', slug: 'cargobob', titulo: '28. Cargobob', subtitulo: 'Trevor Philips · Base Militar Fort Zancudo', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 6 },
+                { id: 'mision-29-golpe-a-merryweather', slug: 'golpe-a-merryweather', titulo: '29. El golpe a Merryweather', subtitulo: 'Michael, Franklin y Trevor · Alta Mar / Puerto', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
+                { id: 'mision-30-camion-de-basura', slug: 'camion-de-basura', titulo: '30. Camión de la basura', subtitulo: 'Cualquier protagonista · Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
+                { id: 'mision-31-grua', slug: 'grua', titulo: '31. Grúa', subtitulo: 'Cualquier protagonista · Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
+                { id: 'mision-32-el-buzo', slug: 'el-buzo', titulo: '32. El buzo (Blitz Play)', subtitulo: 'Michael, Franklin y Trevor · Cypress Flats', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
+                { id: 'mision-39-el-bloqueo', slug: 'el-bloqueo', titulo: '39. El bloqueo', subtitulo: 'Michael y Trevor · Paleto Bay', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 10 },
+                { id: 'mision-41-material-militar', slug: 'material-militar', titulo: '41. Material militar', subtitulo: 'Cualquier protagonista · Autopista de Paleto Bay', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 6 },
+                { id: 'mision-42-golpe-de-paleto', slug: 'golpe-de-paleto', titulo: '42. El golpe de Paleto', subtitulo: 'Michael, Trevor y Franklin · Banco de Paleto', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 15 },
+                { id: 'mision-46-investigando-el-golpe', slug: 'investigando-el-golpe', titulo: '46. Investigando el golpe', subtitulo: 'Michael, Franklin y Trevor · Union Depository', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 10 },
+                { id: 'mision-51-limpiando-el-fib', slug: 'limpiando-el-fib', titulo: '51. Limpiando el FIB', subtitulo: 'Michael De Santa · Sede del FIB', categoria: 'misiones-historia', badge: 'Lester', tiempoLecturaMinutos: 7 },
+                { id: 'mision-53-arquitecto-para-todo', slug: 'arquitecto-para-todo', titulo: '53. Arquitecto para todo', subtitulo: 'Franklin Clinton · Obras de Pillbox Hill', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-55-asalto-al-fib', slug: 'asalto-al-fib', titulo: '55. Asalto al FIB', subtitulo: 'Michael y Franklin · Torre del FIB', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 16 },
+                { id: 'mision-59-perforadoras', slug: 'perforadoras', titulo: '59. Perforadoras (Drillers)', subtitulo: 'Cualquier protagonista · La Mesa', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-60-via-muerta', slug: 'via-muerta', titulo: '60. Vía muerta (Sidetracked)', subtitulo: 'Cualquier protagonista · Vías del tren de Davis', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
+                { id: 'mision-61-el-gran-golpe', slug: 'el-gran-golpe', titulo: '61. El gran golpe (The Big Score)', subtitulo: 'Todos los protagonistas · Union Depository', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 15 }
               ]
             },
             {
@@ -278,30 +312,6 @@ export class GuiaService {
               ]
             },
             {
-              id: 'historia-100',
-            titulo: 'Modo Historia & 100%',
-            icono: 'trophy',
-            descripcion: 'Requisitos del 100%, misiones de campaña y decisiones tácticas.',
-            orden: 1,
-            articulos: [
-              { id: 'requisitos-100', slug: 'requisitos-100', titulo: 'Requisitos para el 100%', subtitulo: 'Guía detallada para conseguir la estadística del 100%', categoria: 'historia-100', badge: '100% Checklist', tiempoLecturaMinutos: 6 },
-              { id: 'golpes-principales', slug: 'golpes-principales', titulo: 'Guía Táctica de los 6 Grandes Golpes', subtitulo: 'Planes Sigilo/Fuerza, tripulación ideal y botín máximo', categoria: 'historia-100', badge: 'Estrategia', tiempoLecturaMinutos: 10 },
-              { id: 'finales-opcion-abc', slug: 'finales-opcion-abc', titulo: 'Los Tres Finales (Opción A, B o C)', subtitulo: 'Consecuencias narrativas y por qué la C es canónica', categoria: 'historia-100', badge: 'Lore', tiempoLecturaMinutos: 5 }
-            ]
-          },
-
-
-
-
-
-
-
-
-
-
-
-
-          {
             id: 'negocios-economia',
             titulo: 'Negocios y Bolsa',
             icono: 'briefcase',
@@ -314,24 +324,23 @@ export class GuiaService {
           },
           {
             id: 'secretos-misterios',
-            titulo: 'Secretos & Misterios',
+            titulo: 'Misterios',
             icono: 'eye',
             descripcion: 'El misterio de Mount Chiliad, los 4 OVNIs y el asesino de los 8 infinitos.',
             orden: 4,
             articulos: [
-              { id: 'misterio-chiliad', slug: 'misterio-chiliad', titulo: 'El Gran Misterio de Mount Chiliad', subtitulo: 'El mural, los 4 OVNIs, lluvia a las 3 AM y la verdad del Jetpack', categoria: 'secretos-misterios', badge: 'Misterio', tiempoLecturaMinutos: 7 },
-              { id: 'fantasma-monte-gordo', slug: 'fantasma-monte-gordo', titulo: 'El Fantasma de Jolene Cranley-Evans', subtitulo: 'Hora exacta de aparición, sangre en la roca y la historia de Jock Cranley', categoria: 'secretos-misterios', tiempoLecturaMinutos: 4 },
-              { id: 'asesino-ocho-infinitos', slug: 'asesino-ocho-infinitos', titulo: 'El Asesino de los 8 Infinitos (Merle Abrahams)', subtitulo: 'Los 8 cadáveres sumergidos y las pistas en Paleto Bay', categoria: 'secretos-misterios', tiempoLecturaMinutos: 5 }
-            ]
-          },
-          {
-            id: 'trucos-codigos',
-            titulo: 'Trucos y Códigos',
-            icono: 'key',
-            descripcion: 'Lista completa de trucos para PC, consolas y teléfono celular.',
-            orden: 5,
-            articulos: [
-              { id: 'lista-trucos-gta5', slug: 'lista-trucos-gta5', titulo: 'Todos los Trucos y Códigos de GTA 5', subtitulo: 'Invencibilidad, todas las armas, súper salto, Buzzard y clima', categoria: 'trucos-codigos', badge: 'Popular', tiempoLecturaMinutos: 5 }
+              { id: 'ghost_jolene_cranley', slug: 'ghost-jolene-cranley', titulo: 'El Fantasma de Jolene Cranley-Evans', subtitulo: 'Pico oriental del Monte Gordo · Monte Gordo', categoria: 'secretos-misterios', badge: 'Paranormal', tiempoLecturaMinutos: 5 },
+              { id: 'underwater_lost_hatch', slug: 'underwater-lost-hatch', titulo: 'La Escotilla Submarina Secreta (Lost)', subtitulo: 'Lecho marino de la Costa Este · Océano Pacífico', categoria: 'secretos-misterios', badge: 'Easter Egg', tiempoLecturaMinutos: 5 },
+              { id: 'tunnel_heartbeat_mystery', slug: 'tunnel-heartbeat-mystery', titulo: 'El Latido de los Túneles Subterráneos', subtitulo: 'Bifurcación de Cloacas bajo Pillbox Hill · Los Santos', categoria: 'secretos-misterios', badge: 'Paranormal', tiempoLecturaMinutos: 5 },
+              { id: 'mount_chiliad_mural_ufo', slug: 'mount-chiliad-mural-ufo', titulo: 'El Mural del Monte Chiliad (El OVNI del 100%)', subtitulo: 'Estación Superior del Teleférico · Cumbre del Monte Chiliad', categoria: 'secretos-misterios', badge: 'Conspiración', tiempoLecturaMinutos: 5 },
+              { id: 'thelma_and_louise_cliff', slug: 'thelma-and-louise-cliff', titulo: 'Thelma y Louise (El Salto al Vacío)', subtitulo: 'Acantilado de Raton Canyon · Chiliad Wilderness', categoria: 'secretos-misterios', badge: 'Easter Egg', tiempoLecturaMinutos: 5 },
+              { id: 'infinity_killer_merle', slug: 'infinity-killer-merle', titulo: 'El Asesino del Infinito 8 (Merle Abrahams)', subtitulo: 'Sandy Shores, Prisión y Cuerpos sumergidos en Paleto', categoria: 'secretos-misterios', badge: 'Crímenes', tiempoLecturaMinutos: 5 },
+              { id: 'nothing_here_strawberry', slug: 'nothing-here-strawberry', titulo: '\'Turn Back\' y \'Nothing Here\' (Strawberry)', subtitulo: 'Paso inferior de la Olympic Freeway · Strawberry', categoria: 'secretos-misterios', badge: 'Easter Egg', tiempoLecturaMinutos: 5 },
+              { id: 'fridgit_snowman', slug: 'fridgit-snowman', titulo: 'El Muñeco de Nieve de Fridgit (La Mesa)', subtitulo: 'Almacén Fridgit Cold Storage · La Mesa', categoria: 'secretos-misterios', badge: 'Easter Egg', tiempoLecturaMinutos: 5 },
+              { id: 'yellow_jack_blood_footprints', slug: 'yellow-jack-blood-footprints', titulo: 'Las Huellas de Sangre del Yellow Jack Inn', subtitulo: 'Route 68 · Grand Senora Desert', categoria: 'secretos-misterios', badge: 'Paranormal', tiempoLecturaMinutos: 5 },
+              { id: 'greyfriars_bobby_dog', slug: 'greyfriars-bobby-dog', titulo: 'El Perro de Greyfriars (Homenaje a Bobby)', subtitulo: 'Cementerio de Pacific Bluffs · Los Santos', categoria: 'secretos-misterios', badge: 'Homenaje', tiempoLecturaMinutos: 5 },
+              { id: 'ufos_100_percent_story', slug: 'ufos-100-percent-story', titulo: 'Los OVNIs del 100% (La Tríada Secreta)', subtitulo: 'Fort Zancudo, Sandy Shores y Mount Chiliad', categoria: 'secretos-misterios', badge: 'Conspiración', tiempoLecturaMinutos: 5 },
+              { id: 'sasquatch_predator_story', slug: 'sasquatch-predator-story', titulo: 'El Bigfoot en \'Depredador\'', subtitulo: 'Raton Canyon / Bosques de Cassidy Creek', categoria: 'secretos-misterios', badge: 'Criptozoología', tiempoLecturaMinutos: 5 }
             ]
           },
           {
