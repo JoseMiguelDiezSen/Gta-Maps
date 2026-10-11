@@ -8,6 +8,7 @@ import { Gta5GuiaComponent }       from './gta5/guia/gta5-guia.component';
 import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
 import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
 import { Gta6GuiaComponent }      from './gta6/guia/gta6-guia.component';
+import { Gta6NoticiasComponent }  from './gta6/noticias/gta6-noticias.component';
 
 import { DevAccessGuard }       from './services/dev-access.guard';
 
@@ -91,8 +92,21 @@ const routes: Routes = [
             canonical: 'https://gtamaps.dev/gta6-guia'
         }
     },
+    {
+        path: 'gta6-noticias',
+        component: Gta6NoticiasComponent,
+        canActivate: [DevAccessGuard],
+        data: {
+            title: 'Noticias & Actualidad GTA VI - Estado de Leonida | GTA MAPS',
+            description: 'Últimas noticias, comunicados oficiales y análisis técnico de Grand Theft Auto VI y el Estado de Leonida.',
+            canonical: 'https://gtamaps.dev/gta6-noticias'
+        }
+    },
 
     // Redirecciones por compatibilidad
+    { path: 'noticias',      redirectTo: '/gta6-noticias', pathMatch: 'full' },
+    { path: 'gta6/noticias', redirectTo: '/gta6-noticias', pathMatch: 'full' },
+    { path: 'gta6noticias',  redirectTo: '/gta6-noticias', pathMatch: 'full' },
     { path: 'gta5',          redirectTo: '/gta5-online', pathMatch: 'full' },
     { path: 'gta5online',    redirectTo: '/gta5-online', pathMatch: 'full' },
     { path: 'gta5/online',   redirectTo: '/gta5-online', pathMatch: 'full' },

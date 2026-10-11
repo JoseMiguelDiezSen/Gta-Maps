@@ -82,6 +82,21 @@
     font-size: 22px;
   }
 
+  .article-chapter-banner {
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+
+  .chapter-banner-media {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .chapter-banner-img {
+    max-height: 200px;
+  }
+
 /* Establece el diseño general de la tarjeta central donde se lee el artículo. */
   .article-map-prompt {
     flex-direction: column;

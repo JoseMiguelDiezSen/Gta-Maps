@@ -474,40 +474,17 @@ En la parte posterior del mirador de madera, una inscripción tallada en rojo re
         {
             new()
             {
-                Id = "protagonistas-leonida",
-                Titulo = "Protagonistas & Estado de Leonida",
-                Icono = "map-pin",
-                Descripcion = "Todo lo conocido sobre Lucia Caminos, Jason Duval y las regiones de Vice City, Kelly County y Grassrivers.",
-                Orden = 1,
+                Id = "prologo",
+                Titulo = "Prólogo",
+                Icono = "book-open",
+                Descripcion = "Introducción al Estado de Leonida, Vice City y perfiles de los protagonistas.",
+                Orden = 0,
                 Articulos = new List<GuiaArticuloResumen>
                 {
-                    new() { Id = "jason-lucia-dinamica", Slug = "jason-lucia-dinamica", Titulo = "Jason y Lucia: El Dúo Criminal", Subtitulo = "Mecánicas de cambio de personaje, confianza y robos coordinados", Categoria = "protagonistas-leonida", Badge = "Exclusivo", TiempoLecturaMinutos = 5 },
-                    new() { Id = "mapa-leonida-zonas", Slug = "mapa-leonida-zonas", Titulo = "Las Regiones del Estado de Leonida", Subtitulo = "Vice City, Port Gellhorn, Ambrosia, Leonard County y los Cayos", Categoria = "protagonistas-leonida", Badge = "Mapa", TiempoLecturaMinutos = 8 }
-                }
-            },
-            new()
-            {
-                Id = "mecanicas-novedades",
-                Titulo = "Novedades & Mecánicas Confirmadas",
-                Icono = "cpu",
-                Descripcion = "Física de vehículos, inventario físico en maleteros, cámaras de seguridad y redes sociales in-game.",
-                Orden = 2,
-                Articulos = new List<GuiaArticuloResumen>
-                {
-                    new() { Id = "inventario-maletero-armas", Slug = "inventario-maletero-armas", Titulo = "Sistema de Inventario Realista y Maleteros", Subtitulo = "Límite de armas portables y equipamiento vehicular estilo RDR2", Categoria = "mecanicas-novedades", TiempoLecturaMinutos = 4 },
-                    new() { Id = "redes-sociales-policia", Slug = "redes-sociales-policia", Titulo = "Redes Sociales y Sistema Policial Inteligente", Subtitulo = "Grabaciones de testigos, reconocimiento facial y patrullas de Vice Dale", Categoria = "mecanicas-novedades", TiempoLecturaMinutos = 6 }
-                }
-            },
-            new()
-            {
-                Id = "fauna-naturaleza",
-                Titulo = "Fauna, Ecosistemas y Clima Extremo",
-                Icono = "sun",
-                Descripcion = "Cocodrilos, flamencos, tiburones y el sistema dinámico de tormentas tropicales y huracanes.",
-                Orden = 3,
-                Articulos = new List<GuiaArticuloResumen>
-                {
-                    new() { Id = "vida-salvaje-leonida", Slug = "vida-salvaje-leonida", Titulo = "Enciclopedia de Fauna de Leonida", Subtitulo = "Comportamiento animal, interacción y peligros de los pantanos", Categoria = "fauna-naturaleza", TiempoLecturaMinutos = 5 }
+                    new() { Id = "prologo-introduccion-gta6", Slug = "introduccion-guia-gta6", Titulo = "Introducción a la Guía & Estado de Leonida", Subtitulo = "Estructura de la enciclopedia, análisis del mapa y primeros pasos en Vice City", Categoria = "prologo", Badge = "Introducción", TiempoLecturaMinutos = 4 },
+                    new() { Id = "jason-lucia-dinamica", Slug = "jason-lucia-dinamica", Titulo = "Jason y Lucia: El Dúo Criminal", Subtitulo = "Mecánicas cooperativas, confianza y robos a mano armada en Leonida", Categoria = "prologo", Badge = "Dúo", TiempoLecturaMinutos = 6 },
+                    new() { Id = "lucia-caminos-perfil", Slug = "lucia-caminos-perfil", Titulo = "Lucia Caminos: Perfil y Trasfondo", Subtitulo = "El Centro Correccional de Leonida, grillete electrónico y motivaciones", Categoria = "prologo", Badge = "Lucia", TiempoLecturaMinutos = 5 },
+                    new() { Id = "jason-duval-perfil", Slug = "jason-duval-perfil", Titulo = "Jason Duval: Perfil y Especialidades", Subtitulo = "Pasado militar, contactos clandestinos y sincronización de combate", Categoria = "prologo", Badge = "Jason", TiempoLecturaMinutos = 5 }
                 }
             }
         };
@@ -524,6 +501,36 @@ En la parte posterior del mirador de madera, una inscripción tallada en rojo re
 
         var articulosGta6 = new List<GuiaArticulo>
         {
+            new()
+            {
+                Id = "prologo-introduccion-gta6",
+                Slug = "introduccion-guia-gta6",
+                Titulo = "Introducción a la Guía de GTA VI",
+                Subtitulo = "Estructura de la enciclopedia interactiva y primeros pasos",
+                Categoria = "prologo",
+                Badge = "Introducción",
+                TiempoLecturaMinutos = 4,
+                UltimaActualizacion = DateTime.UtcNow,
+                Tags = new List<string> { "Prólogo", "Introducción", "GTA VI", "Leonida" },
+                ContenidoMarkdown = @"# Prólogo: Bienvenido a la Guía de GTA VI y Estado de Leonida
+
+Bienvenido a la enciclopedia interactiva y base de datos oficial de Grand Theft Auto VI. Esta guía recopila toda la información documentada, análisis geográfico de Vice City y el Estado de Leonida, mecánicas de inventario realista y dinámicas de los protagonistas Jason y Lucia.
+
+---
+
+### Estructura de la Base de Datos
+La enciclopedia se organiza en módulos de análisis especializado:
+
+* **Prólogo**: Introducción general y primeros pasos en Leonida.
+* **Protagonistas & Trama Criminal**: Análisis táctico de Jason y Lucia, mecánicas de cooperación y antecedentes penitenciarios.
+* **Vice City & Regiones de Leonida**: Distritos urbanos, zonas pantanosas de Grassrivers, playas de Vice Beaches y flora/fauna autóctona.
+* **Mecánicas & Físicas de Juego**: Sistema de inventario físico en maleteros, interacción ambiental y balística de última generación.
+* **Fuerzas del Orden & Redes Sociales**: IA policial inteligente, viralidad in-game y tácticas de persecución.",
+                Relacionados = new List<GuiaArticuloRelacionado>
+                {
+                    new() { Id = "jason-lucia-dinamica", Slug = "jason-lucia-dinamica", Titulo = "Jason y Lucia: El Dúo Criminal" }
+                }
+            },
             new()
             {
                 Id = "jason-lucia-dinamica",

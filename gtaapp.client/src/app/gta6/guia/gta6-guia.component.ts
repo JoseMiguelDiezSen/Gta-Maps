@@ -239,6 +239,7 @@ export class Gta6GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
   getSectionColor(secId?: string): string {
     if (!secId) return '#ec4899';
     const s = secId.toLowerCase();
+    if (s.includes('prologo')) return '#3b82f6';
     if (s.includes('protagonista')) return '#ec4899';
     if (s.includes('mundo') || s.includes('leonida')) return '#38bdf8';
     if (s.includes('mecanica')) return '#a855f7';

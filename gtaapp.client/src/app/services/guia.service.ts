@@ -14,12 +14,7 @@ export class GuiaService {
    * Obtiene el manifiesto completo con secciones y listado de artículos para GTA 5 o GTA 6.
    */
   getManifest(juegoId: 'gta5' | 'gta6'): Observable<GuiaManifest> {
-    if (juegoId === 'gta5') {
-      return of(this.getFallbackManifest(juegoId));
-    }
-    return this.http.get<GuiaManifest>(`/api/${juegoId}/guia/manifest`).pipe(
-      catchError(() => of(this.getFallbackManifest(juegoId)))
-    );
+    return of(this.getFallbackManifest(juegoId));
   }
 
   /**
@@ -63,9 +58,7 @@ export class GuiaService {
       );
     }
     
-    return this.http.get<GuiaArticulo>(`/api/${juegoId}/guia/articulos/${encodeURIComponent(articuloId)}`).pipe(
-      catchError(() => of(this.getFallbackArticulo(juegoId, articuloId)))
-    );
+    return of(this.getFallbackArticulo(juegoId, articuloId));
   }
 
   /**
@@ -330,23 +323,36 @@ export class GuiaService {
         bannerUrl: 'assets/home-bg.jpg',
         secciones: [
           {
-            id: 'protagonistas-historia',
-            titulo: 'Protagonistas & Trama Criminal',
-            icono: 'users',
-            descripcion: 'Jason y Lucia: dinámicas cooperativas, robos a mano armada y sistema de confianza.',
-            orden: 1,
+            id: 'prologo',
+            titulo: 'Prólogo',
+            icono: 'book-open',
+            descripcion: 'Introducción al Estado de Leonida, Vice City y perfiles de los protagonistas.',
+            orden: 0,
             articulos: [
-              { id: 'jason-lucia-dinamica', slug: 'jason-lucia-dinamica', titulo: 'Jason y Lucia: El Dúo Criminal', subtitulo: 'Mecánicas cooperativas, confianza y robos a mano armada en Leonida', categoria: 'protagonistas-historia', badge: 'Protagonistas', tiempoLecturaMinutos: 6 },
-              { id: 'lucia-caminos-perfil', slug: 'lucia-caminos-perfil', titulo: 'Lucia: Trasfondo Penitenciario y Habilidades', subtitulo: 'El Centro Correccional de Leonida, grillete electrónico y motivaciones', categoria: 'protagonistas-historia', badge: 'Perfil', tiempoLecturaMinutos: 5 },
-              { id: 'jason-duval-perfil', slug: 'jason-duval-perfil', titulo: 'Jason: Especialista en Armas y Conducción', subtitulo: 'Pasado militar, contactos clandestinos y sincronización de combate', categoria: 'protagonistas-historia', badge: 'Perfil', tiempoLecturaMinutos: 5 }
+              { id: 'prologo-introduccion-gta6', slug: 'introduccion-guia-gta6', titulo: 'Introducción a la Guía & Estado de Leonida', subtitulo: 'Estructura de la enciclopedia, análisis del mapa y primeros pasos en Vice City', categoria: 'prologo', badge: 'Introducción', tiempoLecturaMinutos: 4 },
+              { id: 'jason-lucia-dinamica', slug: 'jason-lucia-dinamica', titulo: 'Jason y Lucia: El Dúo Criminal', subtitulo: 'Mecánicas cooperativas, confianza y robos a mano armada en Leonida', categoria: 'prologo', badge: 'Dúo', tiempoLecturaMinutos: 6 },
+              { id: 'lucia-caminos-perfil', slug: 'lucia-caminos-perfil', titulo: 'Lucia Caminos: Perfil y Trasfondo', subtitulo: 'El Centro Correccional de Leonida, grillete electrónico y motivaciones', categoria: 'prologo', badge: 'Lucia', tiempoLecturaMinutos: 5 },
+              { id: 'jason-duval-perfil', slug: 'jason-duval-perfil', titulo: 'Jason Duval: Perfil y Especialidades', subtitulo: 'Pasado militar, contactos clandestinos y sincronización de combate', categoria: 'prologo', badge: 'Jason', tiempoLecturaMinutos: 5 }
             ]
           },
+          /* Secciones retiradas del índice, pendientes de moverse a Noticias:
+
+            //
+            //
+            //
+            //
+            //
+              // empty
+// 2
+// 3
+            //
+          //
           {
             id: 'mundo-leonida',
             titulo: 'Vice City & Regiones de Leonida',
             icono: 'map-pin',
             descripcion: 'Guía geográfica de Vice City, Port Gellhorn, Ambrosia y los Cayos de Gellhorn.',
-            orden: 2,
+            orden: 1,
             articulos: [
               { id: 'mapa-leonida-zonas', slug: 'mapa-leonida-zonas', titulo: 'Las Regiones del Estado de Leonida', subtitulo: 'Vice City, Port Gellhorn, Ambrosia, Leonard County y los Cayos', categoria: 'mundo-leonida', badge: 'Geografía', tiempoLecturaMinutos: 8 },
               { id: 'vice-city-distritos', slug: 'vice-city-distritos', titulo: 'Distritos Urbanos de Vice City', subtitulo: 'Vice Beaches, Ocean Drive, Downtown, Little Haiti y Starfish Island', categoria: 'mundo-leonida', badge: 'Distritos', tiempoLecturaMinutos: 6 },
@@ -358,7 +364,7 @@ export class GuiaService {
             titulo: 'Mecánicas & Físicas de Juego',
             icono: 'cpu',
             descripcion: 'Inventario físico limitado, maleteros de vehículos y balística de última generación.',
-            orden: 3,
+            orden: 2,
             articulos: [
               { id: 'inventario-maletero-armas', slug: 'inventario-maletero-armas', titulo: 'Sistema de Inventario Realista y Maleteros', subtitulo: 'Límite de armas portables y equipamiento vehicular estilo RDR2', categoria: 'mecanicas-jugabilidad', badge: 'Mecánicas', tiempoLecturaMinutos: 6 },
               { id: 'fisicas-vehiculos-personalizacion', slug: 'fisicas-vehiculos-personalizacion', titulo: 'Física de Vehículos, Tracción e Interiores', subtitulo: 'Ajuste de espejos retrovisores, pedales y comportamiento todoterreno', categoria: 'mecanicas-jugabilidad', badge: 'Vehículos', tiempoLecturaMinutos: 5 }
@@ -369,12 +375,12 @@ export class GuiaService {
             titulo: 'Fuerzas del Orden & Redes Sociales',
             icono: 'shield',
             descripcion: 'Comportamiento policial avanzado, reconocimiento facial y viralidad digital.',
-            orden: 4,
+            orden: 3,
             articulos: [
               { id: 'redes-sociales-policia', slug: 'redes-sociales-policia', titulo: 'Redes Sociales y Sistema Policial Inteligente', subtitulo: 'Grabaciones de testigos, reconocimiento facial y cámaras de tráfico', categoria: 'ia-sistema-policial', badge: 'IA Policial', tiempoLecturaMinutos: 6 },
               { id: 'patrullas-persecucion-tactica', slug: 'patrullas-persecucion-tactica', titulo: 'Tácticas de Contención y Persecución', subtitulo: 'Bandas de clavos, helicópteros nocturnos con focos y cercos perimetrales', categoria: 'ia-sistema-policial', badge: 'Tácticas', tiempoLecturaMinutos: 5 }
             ]
-          }
+          */
         ]
       };
     }
@@ -418,6 +424,8 @@ export class GuiaService {
 
   private getArticuloMarkdown(articuloId: string): string {
     switch (articuloId) {
+      // duplicate case removed
+      // Bienvenido a la Guía de GTA VI y Estado de Leonida\n\nBienvenido a la enciclopedia interactiva y base de datos oficial de Grand Theft Auto VI. Esta guía recopila toda la información documentada, análisis geográfico de Vice City y el Estado de Leonida, mecánicas de inventario realista y dinámicas de los protagonistas Jason y Lucia.\n\n---\n\n### 🗺️ Estructura de la Base de Datos\nLa enciclopedia se organiza en módulos de análisis especializado:\n\n* **Prólogo**: Introducción general y primeros pasos en Leonida.\n* **Protagonistas & Trama Criminal**: Análisis táctico de Jason y Lucia, mecánicas de cooperación y antecedentes penitenciarios.\n* **Vice City & Regiones de Leonida**: Distritos urbanos, zonas pantanosas de Grassrivers, playas de Vice Beaches y flora/fauna autóctona.\n* **Mecánicas & Físicas de Juego**: Sistema de inventario físico en maleteros, interacción ambiental y balística de última generación.\n* **Fuerzas del Orden & Redes Sociales**: IA policial inteligente, viralidad in-game y tácticas de persecución.
       case 'prologo-introduccion-guia':
         return `## 📖 Prólogo: Bienvenido a la Guía Completa de GTA V\n\nGrand Theft Auto V ofrece una experiencia masiva que combina tres protagonistas entrelazados, 69 misiones principales de historia, golpes multimillonarios, un ecosistema bursátil dinámico y cientos de secretos repartidos por el Estado de San Andreas.\n\n---\n\n### 🗺️ Estructura de la Enciclopedia\nEsta guía interactiva está dividida en módulos estratégicos para facilitarte la navegación y el seguimiento del 100%:\n\n1. **Prólogo**: Introducción general, mapa interactivo y recomendaciones tácticas iniciales.\n2. **Misiones de la Historia**: Análisis paso a paso de las 69 misiones con sus objetivos de Medalla de Oro 100%, sinopsis narrativa, recompensas y requisitos de desbloqueo.\n3. **Modo Historia & 100%**: Guía de los 6 Grandes Golpes, tripulaciones ideales, checklist del 100% y análisis de los 3 finales (A, B y C).\n4. **Protagonistas & Facciones**: Habilidades especiales de Michael, Franklin y Trevor, atributos físicos y gestión de recursos.\n5. **Negocios y Bolsa**: Cómo multiplicar tu dinero hasta alcanzar los $2.147 millones con las misiones de asesinato de Lester y la compra de propiedades.\n6. **Secretos & Misterios**: El gran misterio de Mount Chiliad, los 4 OVNIs sumergidos y aéreos, el asesino de los 8 infinitos y el fantasma de Monte Gordo.\n7. **Trucos y Códigos**: Directorio de comandos, números de teléfono y combinaciones de botones para todas las plataformas.\n\n---\n\n### 💡 Consejos Esenciales para Empezar\n* **No hagas las misiones de asesinato de Lester de inmediato**: Guarda las misiones de asesinato secundarias (a excepción de la primera obligatoria para avanzar) hasta haber completado *El Gran Golpe*. De este modo podrás invertir con los 3 personajes su botín multimillonario y maximizar los beneficios en BAWSAQ y LCN.\n* **Aprovecha las habilidades especiales**: Úsalas frecuentemente en tiroteos y persecuciones para subir su medidor al máximo nivel rápidamente.\n* **Guarda partida con frecuencia**: Utiliza el teléfono móvil (icono de la nube) para guardar la partida antes de planificar golpes o compras millonarias de activos.`;
       case 'requisitos-100':
@@ -773,6 +781,26 @@ El misterio del asesino en serie de Blaine County sigue el rastro de **Merle Abr
       /* ======================================================================
          CAPÍTULOS GTA VI (VICE CITY & ESTADO DE LEONIDA)
          ====================================================================== */
+      case 'prologo-introduccion-gta6':
+      case 'introduccion-guia-gta6':
+        return `## 🌴 Introducción a la Guía & Estado de Leonida
+
+Bienvenido a la enciclopedia interactiva y base de datos oficial de Grand Theft Auto VI. Esta guía compendia toda la información documentada sobre el Estado de Leonida, la metrópolis de Vice City y la trayectoria criminal de Lucia y Jason.
+
+---
+
+### 1. El Estado de Leonida
+* **Vice City**: El corazón económico y turístico del estado costero. Rascacielos vanguardistas en Downtown, arena blanca en Vice Beaches y barrios marginales controlados por bandas locales.
+* **Zonas Rurales y Humedales**: Leonard County, los extensos pantanos de Grassrivers y Port Gellhorn forman una red geográfica diversa con peligros naturales y oportunidades ilegales.
+
+---
+
+### 2. Estructura de la Enciclopedia
+* **Prólogo**: Introducción geográfica, estado de Leonida y perfiles de los protagonistas Jason y Lucia.
+* **Vice City & Regiones**: Guía distrito a distrito, ecosistemas y puntos de interés.
+* **Mecánicas & Físicas**: Sistema de inventario realista en maleteros y físicas vehiculares.
+* **Fuerzas del Orden**: Inteligencia policial, redes sociales y protocolos de contención.`;
+
       case 'jason-lucia-dinamica':
         return `## 👥 Jason y Lucia: El Dúo Criminal de Leonida
 

@@ -1,0 +1,155 @@
+<div class="wiki-shell gta6-theme" [class.mode-day]="themeMode === 'day'">
+  
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR HUD -->
+  <nav class="wiki-top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <!-- Separador vertical espigado izquierdo -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- LOGO DE LA HOME -->
+        <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
+          <img src="assets/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
+        </a>
+
+        <!-- Separador vertical espigado derecho -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <div class="nav-brand">
+          <span class="nav-brand-title">NOTICIAS GTA VI</span>
+        </div>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón INICIO -->
+        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GTA 5 MAP -->
+        <a routerLink="/gta5" class="nav-link-item" title="Ir al Mapa de GTA 5">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 5 MAP</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GTA 6 MAP -->
+        <a routerLink="/gta6" class="nav-link-item" title="Ir al Mapa de GTA 6">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 6 MAP</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón GUIA GTA 6 -->
+        <a routerLink="/gta6-guia" class="nav-link-item" title="Ir a la Guía de GTA 6">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 6</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón NOTICIAS (Activo) -->
+        <a routerLink="/gta6-noticias" class="nav-link-item active-link" title="Noticias de GTA VI">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>NOTICIAS</span>
+        </a>
+
+        <!-- Separador final -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+      </div>
+
+      <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE -->
+      <div class="nav-right">
+        <button
+          type="button"
+          class="theme-toggle-switch"
+          [class.is-day]="themeMode === 'day'"
+          (click)="toggleThemeMode()"
+          [title]="themeMode === 'night' ? 'Cambiar a Modo Día' : 'Cambiar a Modo Noche'"
+          aria-label="Cambiar entre modo día y noche"
+        >
+          <span class="switch-icon switch-icon-moon">🌙</span>
+          <span class="switch-icon switch-icon-sun">☀️</span>
+          <span class="switch-thumb"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER HERO DE NOTICIAS CON ACENTO FUCSIA -->
+  <header class="news-hero-banner">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content-inner">
+      <div class="hero-tag">
+        <i class="fa-solid fa-bolt"></i>
+        <span>ACTUALIDAD & LEONIDA</span>
+      </div>
+      <h1 class="hero-main-title">NOTICIAS & FILTRACIONES GTA VI</h1>
+      <p class="hero-description">
+        Cobertura técnica, mecánicas confirmadas y novedades del Estado de Leonida en desarrollo.
+      </p>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL DE CONTENIDOS -->
+  <main class="news-main-container">
+    
+    <!-- BARRA DE FILTROS DE CATEGORÍA -->
+    <div class="news-filter-bar">
+      <button
+        *ngFor="let cat of categoriasFiltro"
+        type="button"
+        class="filter-pill"
+        [class.is-active]="categoriaSeleccionada === cat.id"
+        (click)="filtrarCategoria(cat.id)"
+      >
+        {{ cat.label }}
+      </button>
+    </div>
+
+    <!-- GRID DE TARJETAS DE NOTICIAS -->
+    <section class="news-grid">
+      <article
+        *ngFor="let item of noticiasFiltradas"
+        class="news-card"
+        [class.is-featured]="item.destacada"
+      >
+        <div class="card-glow-border"></div>
+        <div class="card-inner">
+          <div class="card-meta-top">
+            <span class="card-badge">{{ item.badge }}</span>
+            <div class="card-time-info">
+              <span class="card-date">{{ item.fecha }}</span>
+              <span class="card-dot">·</span>
+              <span class="card-reading-time">
+                <i class="fa-regular fa-clock"></i> {{ item.tiempoLecturaMinutos }} min
+              </span>
+            </div>
+          </div>
+
+          <h2 class="card-title">{{ item.titulo }}</h2>
+          <p class="card-subtitle">{{ item.subtitulo }}</p>
+
+          <div class="card-footer">
+            <span class="read-btn">
+              <span>Leer informe</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+</div>
