@@ -549,6 +549,12 @@ export interface TranslationSchema {
     gta6OnlineDesc: string;
     gta6HistoriaTitle: string;
     gta6HistoriaDesc: string;
+    gta5GuiaTitle?: string;
+    gta5GuiaDesc?: string;
+    gta6GuiaTitle?: string;
+    gta6GuiaDesc?: string;
+    gta6NoticiasTitle?: string;
+    gta6NoticiasDesc?: string;
   };
   gta6Modal?: {
     title: string;

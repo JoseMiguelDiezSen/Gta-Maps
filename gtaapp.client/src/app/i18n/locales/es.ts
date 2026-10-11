@@ -563,18 +563,32 @@ export const es: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - Mapas Interactivos Ultra HD y Asistente IA para GTA V & GTA VI (Sin Anuncios)',
-    defaultDesc: 'Mapas interactivos en Ultra HD de GTA V, GTA Online, Cayo Perico y GTA VI Vice City. 100% sin anuncios, con Asistente IA, guía de coleccionables al 100%, misterios y vehículos en tiempo real.',
+    defaultTitle: 'GTA MAPS - Mapas HD y Guias Interactivos para GTA 5 & GTA 6',
+    defaultDesc: 'Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.',
+
     homeTitle: 'GTA MAPS - Mapas Interactivos Ultra HD y Asistente IA para GTA V & GTA VI (Sin Anuncios)',
-    homeDesc: 'Mapas interactivos en Ultra HD de GTA V, GTA Online, Cayo Perico y GTA VI Vice City. 100% sin anuncios, con Asistente IA, guía de coleccionables al 100%, misterios y vehículos en tiempo real.',
-    gta5OnlineTitle: 'Mapa GTA V Online Ultra HD - Negocios, Cayo Perico y Asistente IA (Sin Anuncios) | GTA MAPS',
-    gta5OnlineDesc: 'Mapa interactivo en Ultra HD de GTA 5 Online y Cayo Perico 100% sin anuncios. Negocios, propiedades, golpes, vehículos, armas y asistente IA en tiempo real.',
-    gta5HistoriaTitle: 'Mapa GTA V 100% Modo Historia - Guía Completa, Misterios y Mapa UV (Sin Anuncios) | GTA MAPS',
-    gta5HistoriaDesc: 'Guía interactiva 100% de GTA V en Ultra HD y sin anuncios: misiones principales, cartas, piezas de ovni, saltos, misterios paranormales y mapa UV secreto.',
-    gta6OnlineTitle: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades (Sin Anuncios) | GTA MAPS',
-    gta6OnlineDesc: 'Primer mapa interactivo en Ultra HD de GTA 6 Online en Vice City y Leonida 100% sin anuncios. Puntos de interés, carreteras, secretos y novedades.',
-    gta6HistoriaTitle: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia (Sin Anuncios) | GTA MAPS',
-    gta6HistoriaDesc: 'Mapa interactivo del modo historia de GTA VI sin anuncios con Jason y Lucia. Exploración en Ultra HD de Vice City, misiones, coleccionables y secretos.'
+    homeDesc: 'Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.',
+
+    gta5OnlineTitle: 'Mapa GTA V Online HD - Propiedades, Negocios, Coleccionables, Cayo Perico y Asistente IA | GTA MAPS',
+    gta5OnlineDesc: 'Mapa interactivo en HD de GTA 5 Online y Cayo Perico. Misiones, Propiedades, Vehiculos, Armas, Negocios, Golpes, Misterios y asistente IA en tiempo real.',
+
+    gta5HistoriaTitle: 'Mapa GTA V Modo Historia - Propiedades, Negocios, Misiones, Vehiculos, Armas, Coleccionables, Asistente IA | GTA MAPS',
+    gta5HistoriaDesc: 'Mapa interactivo de GTA V en HD: Misiones Principales, Cartas, Coleccionables , Saltos, Misterios',
+
+    gta6OnlineTitle: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades | GTA MAPS',
+    gta6OnlineDesc: 'Mapa interactivo en HD de GTA 6 Online en Vice City y Leonida. Puntos de interés, carreteras, secretos, noticias y novedades.',
+
+    gta6HistoriaTitle: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia | GTA MAPS',
+    gta6HistoriaDesc: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Mapa HD de Vice City, Misiones, Coleccionables y secretos.',
+
+    gta5GuiaTitle: 'Guía GTA V - Modo Historia : Guia para Misiones Principales, Secundarias, Misterios y Trofeos | GTA MAPS',
+    gta5GuiaDesc: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía táctica de los 6 golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
+
+    gta6GuiaTitle: 'Guía GTA VI - Base de Datos, Jason & Lucia y Estado de Leonida | GTA MAPS',
+    gta6GuiaDesc: 'Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.',
+
+    gta6NoticiasTitle: 'Noticias & Actualidad GTA VI - Estado de Leonida | GTA MAPS',
+    gta6NoticiasDesc: 'Últimas noticias y Novedades de Grand Theft Auto VI y el Estado de Leonida.'
   },
   gta6Modal: {
     title: 'GTA VI — En desarrollo',
