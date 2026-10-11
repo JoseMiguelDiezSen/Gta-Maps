@@ -41,8 +41,14 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón GTA 6 MAP -->
-        <a routerLink="/gta6" class="nav-link-item" title="Ir al Mapa de GTA 6">
-          <i class="fa-solid fa-map-location-dot"></i>
+        <a
+          [routerLink]="isDevAllowed ? '/gta6' : null"
+          class="nav-link-item"
+          [class.nav-link-disabled]="!isDevAllowed"
+          (click)="onGta6MapClick($event)"
+          [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
+        >
+          <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
           <span>GTA 6 MAP</span>
         </a>
 

@@ -3,6 +3,7 @@ import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../services/guia.service';
 import { CookieService } from '../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../models/guia';
+import { isDevAccessAllowed } from '../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,6 +13,8 @@ import { Subscription } from 'rxjs';
   standalone: false
 })
 export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
+  readonly isDevAllowed: boolean = isDevAccessAllowed();
+
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
   currentSection: GuiaSeccion | null = null;
@@ -612,6 +615,14 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   toggleThemeMode(): void {
     this.themeMode = this.themeMode === 'night' ? 'day' : 'night';
+  }
+
+  onGta6MapClick(event: Event): void {
+    if (!this.isDevAllowed) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.mostrarToast('El mapa de GTA 6 estará disponible próximamente');
+    }
   }
 
   onSearch(): void {

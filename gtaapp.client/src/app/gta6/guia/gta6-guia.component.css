@@ -318,6 +318,32 @@
   color: #b45309;
 }
 
+.nav-link-item.nav-link-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: auto;
+}
+
+.nav-link-item.nav-link-disabled:hover {
+  transform: none;
+  color: #ffb833;
+  text-shadow: none;
+}
+
+.nav-link-item.nav-link-disabled:hover i {
+  transform: translateY(-1px);
+  color: #ffb833;
+}
+
+.wiki-shell.mode-day .nav-link-item.nav-link-disabled:hover {
+  color: #d97706;
+  text-shadow: none;
+}
+
+.wiki-shell.mode-day .nav-link-item.nav-link-disabled:hover i {
+  color: #d97706;
+}
+
 .nav-right {
   display: flex;
   align-items: center;

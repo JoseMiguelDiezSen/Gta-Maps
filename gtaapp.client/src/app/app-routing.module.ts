@@ -85,7 +85,6 @@ const routes: Routes = [
     {
         path: 'gta6-guia',
         component: Gta6GuiaComponent,
-        canActivate: [DevAccessGuard],
         data: {
             title: 'Base de Datos & Guía GTA VI - Vice City y Estado de Leonida | GTA MAPS',
             description: 'Enciclopedia interactiva de GTA VI: análisis de regiones de Leonida, Jason & Lucia, vehículos, armas e inventario físico confirmado.',
