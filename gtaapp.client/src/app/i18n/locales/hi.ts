@@ -31,7 +31,7 @@ export const hi: TranslationSchema = {
     gta6Title: 'GTA VI',
     gta6Sub: 'विकास जारी है...',
     disclaimer: 'प्रशंसकों द्वारा बनाया गया प्रोजेक्ट। Rockstar Games से संबद्ध नहीं है।',
-    copyright: '© Copyright 2026 JMD Software, सर्वाधिकार सुरक्षित। JMD® और JMD® लोगो The JMD Corporation के ट्रेडमार्क हैं।',
+    copyright: '© Copyright 2026 JMD Software, सर्वाधिकार सुरक्षित। JMD® और JMD® लोगो The JMD Software के ट्रेडमार्क हैं।',
     onlineUsers: 'ऑनलाइन उपयोगकर्ता',
     onlineUser: 'ऑनलाइन उपयोगकर्ता'
   },

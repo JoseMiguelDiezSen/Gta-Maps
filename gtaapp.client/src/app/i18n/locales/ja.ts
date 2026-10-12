@@ -31,7 +31,7 @@ export const ja: TranslationSchema = {
     gta6Title: 'GTA VI',
     gta6Sub: '開発中...',
     disclaimer: 'ファンによる非公式プロジェクトです。Rockstar Gamesとは関係ありません。',
-    copyright: '© Copyright 2026 JMD Software, 無断転載を禁じます。JMD®およびJMD®ロゴはThe JMD Corporationの登録商標です。',
+    copyright: '© Copyright 2026 JMD Software, 無断転載を禁じます。JMD®およびJMD®ロゴはThe JMD Softwareの登録商標です。',
     onlineUsers: 'オンラインユーザー',
     onlineUser: 'オンラインユーザー'
   },

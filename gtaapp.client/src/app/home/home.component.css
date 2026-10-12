@@ -568,7 +568,7 @@
 }
 
 .home-footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -633,7 +633,7 @@
    RECUADRO DE USUARIOS ONLINE (ESQUINA INFERIOR IZQUIERDA)
    ========================================== */
 .home-online-widget {
-  position: absolute;
+  position: fixed;
   bottom: 66px;
   left: 24px;
   z-index: 20;

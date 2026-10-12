@@ -30,7 +30,7 @@ export const es: TranslationSchema = {
     gta6Title: 'GTA VI',
     gta6Sub: 'En Desarrollo...',
     disclaimer: 'Proyecto creado por fans. No afiliado con Rockstar Games.',
-    copyright: '© Copyright 2026 JMD Software, todos los derechos reservados. JMD® y el logotipo JMD® son marcas registradas de The JMD Corporation.',
+    copyright: '© Copyright 2026 JMD Software, todos los derechos reservados. JMD® y el logotipo JMD® son marcas registradas de The JMD Software.',
     onlineUsers: 'usuarios online',
     onlineUser: 'usuario online'
   },

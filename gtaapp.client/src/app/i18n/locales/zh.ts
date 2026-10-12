@@ -31,7 +31,7 @@ export const zh: TranslationSchema = {
     gta6Title: 'GTA VI',
     gta6Sub: '开发中...',
     disclaimer: '粉丝制作项目。与 Rockstar Games 无官方关联。',
-    copyright: '© Copyright 2026 JMD Software，保留所有权利。JMD® 和 JMD® 标志是 The JMD Corporation 的注册商标。',
+    copyright: '© Copyright 2026 JMD Software，保留所有权利。JMD® 和 JMD® 标志是 The JMD Software 的注册商标。',
     onlineUsers: '位在线用户',
     onlineUser: '位在线用户'
   },

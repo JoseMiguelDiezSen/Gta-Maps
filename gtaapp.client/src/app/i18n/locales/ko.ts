@@ -31,7 +31,7 @@ export const ko: TranslationSchema = {
     gta6Title: 'GTA VI',
     gta6Sub: '개발 중...',
     disclaimer: '팬 제작 프로젝트입니다. Rockstar Games와 관련이 없습니다.',
-    copyright: '© Copyright 2026 JMD Software, 판권 소유. JMD® 및 JMD® 로고는 The JMD Corporation의 등록 상표입니다.',
+    copyright: '© Copyright 2026 JMD Software, 판권 소유. JMD® 및 JMD® 로고는 The JMD Software의 등록 상표입니다.',
     onlineUsers: '온라인 사용자',
     onlineUser: '온라인 사용자'
   },
