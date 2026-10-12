@@ -33,7 +33,9 @@ export const ja: TranslationSchema = {
     disclaimer: 'ファンによる非公式プロジェクトです。Rockstar Gamesとは関係ありません。',
     copyright: '© Copyright 2026 JMD Software, 無断転載を禁じます。JMD®およびJMD®ロゴはThe JMD Softwareの登録商標です。',
     onlineUsers: 'オンラインユーザー',
-    onlineUser: 'オンラインユーザー'
+    onlineUser: 'オンラインユーザー',
+    gta5GuiaBtn: 'GTA 5 攻略ガイド',
+    gta6GuiaBtn: 'GTA 6 攻略ガイド'
   },
   cookies: {
     title: 'プライバシーとCookie',

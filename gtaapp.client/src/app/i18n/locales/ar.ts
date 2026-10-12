@@ -33,7 +33,9 @@ export const ar: TranslationSchema = {
     disclaimer: 'مشروع صممه المعجبون. غير تابع لشركة Rockstar Games.',
     copyright: '© حقوق النشر 2026 JMD Software، جميع الحقوق محفوظة. JMD® وشعار JMD® هما علامتان تجاريتان لشركة The JMD Software.',
     onlineUsers: 'مستخدمون متصلون',
-    onlineUser: 'مستخدم متصل'
+    onlineUser: 'مستخدم متصل',
+    gta5GuiaBtn: 'دليل GTA 5',
+    gta6GuiaBtn: 'دليل GTA 6'
   },
   cookies: {
     title: 'الخصوصية وملفات تعريف الارتباط',

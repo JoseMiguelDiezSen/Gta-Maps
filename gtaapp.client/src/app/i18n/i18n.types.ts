@@ -40,6 +40,8 @@ export interface TranslationSchema {
     copyright: string;
     onlineUsers: string;
     onlineUser: string;
+    gta5GuiaBtn: string;
+    gta6GuiaBtn: string;
   };
   cookies: {
     title: string;

@@ -280,7 +280,8 @@
   }
 
   /* Ocultar el botón home del header en móvil */
-  .hud-tl .hud-home-btn {
+  .hud-tl .hud-home-btn,
+  .hud-tl .hud-fullscreen-btn {
     display: none !important;
   }
 

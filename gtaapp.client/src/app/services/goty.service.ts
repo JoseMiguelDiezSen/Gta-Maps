@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, catchError, map } from 'rxjs';
 import { GotyMessage, GotyGameMode } from '../models/gta5/goty';
 import { TranslationService } from '../i18n';
 
@@ -32,7 +32,7 @@ export class GotyService {
   private loadedBrains: Record<string, GotyBrain> = {};
 
   // Mensajes fijos por contexto de juego e idioma (Modo capado para producción)
-  private readonly fixedMessages: Record<string, Record<GotyGameMode, string>> = {
+  private readonly fixedMessages: Record<string, Partial<Record<GotyGameMode, string>>> = {
     es: {
       'gta5-historia': 'Hola, soy GOTY 5, aún me están ajustando algunos detalles. Disculpa las molestias.',
       'gta5-online': 'Hola, soy GOTY 5, aún me están ajustando algunos detalles. Disculpa las molestias.',
@@ -159,7 +159,10 @@ export class GotyService {
   getInitialGreeting(context: GotyGameMode): GotyMessage {
     const currentLang = this.translationService.currentLanguage() || 'es';
     const langMessages = this.fixedMessages[currentLang] || this.fixedMessages['es'];
-    const text = langMessages[context] || langMessages['gta5-online'];
+    let text: string = (langMessages[context] || langMessages['gta5-online']) || '';
+    if (context === 'home') {
+      text = text.replace(/GOTY\s*5/gi, 'GOTY');
+    }
 
     return {
       id: 'msg-' + Date.now(),
@@ -170,21 +173,42 @@ export class GotyService {
   }
 
   /**
-   * Procesa la consulta del usuario.
-   * En modo capado devuelve indefinidamente el mensaje de ajuste en el idioma activo.
+   * Procesa la consulta del usuario conectando con la API backend POST /api/goty/chat (.NET 10).
+   * Cuenta con rate-limiting y protección anti-DoS en servidor.
+   * Si la API no está disponible, responde con el fallback local en el idioma activo.
    */
   processUserQuery(query: string, context: GotyGameMode): Observable<GotyMessage> {
     const currentLang = this.translationService.currentLanguage() || 'es';
-    const langMessages = this.fixedMessages[currentLang] || this.fixedMessages['es'];
-    const text = langMessages[context] || langMessages['gta5-online'];
+    const payload = {
+      message: (query || '').trim() || 'consulta',
+      context,
+      lang: currentLang
+    };
 
-    return of({
-      id: 'msg-' + Date.now(),
-      sender: 'goty' as const,
-      text,
-      timestamp: new Date(),
-      isAngry: false
-    });
+    return this.http.post<{ text: string; isAngry?: boolean }>('/api/goty/chat', payload).pipe(
+      map(res => ({
+        id: 'msg-' + Date.now(),
+        sender: 'goty' as const,
+        text: (context === 'home' ? (res.text || '').replace(/GOTY\s*5/gi, 'GOTY') : res.text) || '',
+        timestamp: new Date(),
+        isAngry: res.isAngry ?? false
+      })),
+      catchError(err => {
+        console.warn('[GotyService] API backend no disponible, respondiendo con fallback local:', err);
+        const langMessages = this.fixedMessages[currentLang] || this.fixedMessages['es'];
+        let text: string = (langMessages[context] || langMessages['gta5-online']) || '';
+        if (context === 'home') {
+          text = text.replace(/GOTY\s*5/gi, 'GOTY');
+        }
+        return of({
+          id: 'msg-' + Date.now(),
+          sender: 'goty' as const,
+          text,
+          timestamp: new Date(),
+          isAngry: false
+        });
+      })
+    );
   }
 
   private getDaysUntilRelease(): number {
@@ -214,13 +238,13 @@ export class GotyService {
 
     // Fusionar el bloque específico del modo de juego primero (para prioridad) y luego el común
     const activeIntents = [
-      ...(activeBrain[context] || []),
+      ...(context !== 'home' ? (activeBrain[context] || []) : []),
       ...(activeBrain.common || [])
     ];
 
     // 1. Buscar la intención que encaje con alguna palabra clave
     let matchedIntent = activeIntents.find(intent =>
-      intent.id !== 'default' && intent.keywords.some(kw => {
+      intent.id !== 'default' && intent.keywords.some((kw: string) => {
         const cleanKw = this.normalizeString(kw);
         return cleanQuery.includes(cleanKw);
       })

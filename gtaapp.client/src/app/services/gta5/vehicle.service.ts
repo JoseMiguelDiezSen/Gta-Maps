@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, catchError, of, map, forkJoin } from 'rxjs';
 import { GtaVehicle } from '../../models/gta5/vehicle';
 import { TranslationService } from '../../i18n';
@@ -13,12 +13,33 @@ export class VehicleService {
   ) {}
 
   /**
-   * Obtiene el catálogo completo de vehículos de GTA 5.
-   * La base canónica técnica (precios, estadísticas, fotos, concesionario) procede de 'es',
-   * superponiendo nombres y descripciones traducidas cuando el idioma activo es otro.
+   * Obtiene el catálogo de vehículos de GTA 5.
+   * Conecta con la API backend /api/vehicles (.NET 10) con filtrado y rate-limiting en servidor.
+   * Cuenta con mecanismo de fallback resiliente a assets locales si la API no está disponible.
    */
   getVehicles(dealership?: string, category?: string, lang?: string, gameMode: 'story' | 'online' = 'online'): Observable<GtaVehicle[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
+
+    let params = new HttpParams().set('lang', activeLang);
+    if (dealership) {
+      params = params.set('dealership', dealership);
+    }
+    if (category && category !== 'all') {
+      params = params.set('category', category);
+    }
+
+    return this.http.get<GtaVehicle[]>('/api/vehicles', { params }).pipe(
+      catchError(err => {
+        console.warn('[VehicleService] API backend no disponible, activando fallback local:', err);
+        return this.loadLocalVehiclesFallback(dealership, category, activeLang, gameMode);
+      })
+    );
+  }
+
+  /**
+   * Fallback local directo desde assets estáticos en caso de desconexión del backend.
+   */
+  private loadLocalVehiclesFallback(dealership?: string, category?: string, activeLang = 'es', gameMode: 'story' | 'online' = 'online'): Observable<GtaVehicle[]> {
     const mode = gameMode === 'story' ? 'historia' : 'online';
     const normalizedDealer = dealership ? (dealership.toLowerCase() === 'especiales' ? 'pegasus' : dealership.toLowerCase()) : null;
     const dealerPath = normalizedDealer ? `/assets/data/gta5/${mode}/es/vehicles/${normalizedDealer}.json` : null;
@@ -74,10 +95,7 @@ export class VehicleService {
         }
         return filtered;
       }),
-      catchError(err => {
-        console.error('Error al obtener vehículos:', err);
-        return of([]);
-      })
+      catchError(() => of([]))
     );
   }
 }

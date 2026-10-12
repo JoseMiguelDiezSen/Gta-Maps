@@ -33,7 +33,9 @@ export const tr: TranslationSchema = {
     disclaimer: 'Hayranlar tarafından oluşturulan proje. Rockstar Games ile bağlantısı yoktur.',
     copyright: '© Copyright 2026 JMD Software, tüm hakları saklıdır. JMD® ve JMD® logosu The JMD Software şirketinin tescilli markalarıdır.',
     onlineUsers: 'çevrimiçi kullanıcı',
-    onlineUser: 'çevrimiçi kullanıcı'
+    onlineUser: 'çevrimiçi kullanıcı',
+    gta5GuiaBtn: 'GTA 5 REHBERİ',
+    gta6GuiaBtn: 'GTA 6 REHBERİ'
   },
   cookies: {
     title: 'Gizliliğinize Değer Veriyoruz',

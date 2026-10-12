@@ -33,7 +33,9 @@ export const ko: TranslationSchema = {
     disclaimer: '팬 제작 프로젝트입니다. Rockstar Games와 관련이 없습니다.',
     copyright: '© Copyright 2026 JMD Software, 판권 소유. JMD® 및 JMD® 로고는 The JMD Software의 등록 상표입니다.',
     onlineUsers: '온라인 사용자',
-    onlineUser: '온라인 사용자'
+    onlineUser: '온라인 사용자',
+    gta5GuiaBtn: 'GTA 5 공략 가이드',
+    gta6GuiaBtn: 'GTA 6 공략 가이드'
   },
   cookies: {
     title: '개인정보 보호 설정',

@@ -78,11 +78,6 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    this.titleService.setTitle('Guía GTA V - Modo Historia al 100%, Golpes y Misterios | GTA MAPS');
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía táctica de los 6 golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.'
-    });
 
     this.cargarGuia();
     this.cargarTrofeos();

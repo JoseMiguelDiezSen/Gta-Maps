@@ -33,7 +33,9 @@ export const ru: TranslationSchema = {
     disclaimer: 'Фанатский проект. Не связан с Rockstar Games.',
     copyright: '© Copyright 2026 JMD Software, все права защищены. JMD® и логотип JMD® являются товарными знаками The JMD Software.',
     onlineUsers: 'онлайн пользователей',
-    onlineUser: 'онлайн пользователь'
+    onlineUser: 'онлайн пользователь',
+    gta5GuiaBtn: 'ГИД GTA 5',
+    gta6GuiaBtn: 'ГИД GTA 6'
   },
   cookies: {
     title: 'Конфиденциальность и файлы cookie',

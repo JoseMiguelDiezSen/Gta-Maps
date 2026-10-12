@@ -33,7 +33,9 @@ export const de: TranslationSchema = {
     disclaimer: 'Von Fans erstelltes Projekt. Nicht mit Rockstar Games verbunden.',
     copyright: '© Copyright 2026 JMD Software, alle Rechte vorbehalten. JMD® und das JMD®-Logo sind eingetragene Marken der The JMD Software.',
     onlineUsers: 'Benutzer online',
-    onlineUser: 'Benutzer online'
+    onlineUser: 'Benutzer online',
+    gta5GuiaBtn: 'GTA 5 LEITFADEN',
+    gta6GuiaBtn: 'GTA 6 LEITFADEN'
   },
   cookies: {
     title: 'Datenschutz & Cookies',

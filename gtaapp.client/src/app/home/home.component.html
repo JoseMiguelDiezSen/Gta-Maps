@@ -399,17 +399,17 @@
       type="button"
       class="home-guide-btn home-guide-btn-gta5"
       (click)="goToGta5Guia($event)"
-      title="Guía GTA V"
+      [title]="'home.gta5GuiaBtn' | translate"
     >
-      <span class="home-guide-btn-text">GUIA GTA 5</span>
+      <span class="home-guide-btn-text">{{ 'home.gta5GuiaBtn' | translate }}</span>
     </button>
     <button
       type="button"
       class="home-guide-btn home-guide-btn-gta6"
       (click)="goToGta6Guia($event)"
-      title="Guía GTA VI"
+      [title]="'home.gta6GuiaBtn' | translate"
     >
-      <span class="home-guide-btn-text">GUIA GTA 6</span>
+      <span class="home-guide-btn-text">{{ 'home.gta6GuiaBtn' | translate }}</span>
     </button>
   </div>
 
@@ -544,3 +544,7 @@
     </form>
   </div>
 </div>
+
+<!-- ASISTENTE OFICIAL GOTY (HOME) -->
+<app-goty></app-goty>
+

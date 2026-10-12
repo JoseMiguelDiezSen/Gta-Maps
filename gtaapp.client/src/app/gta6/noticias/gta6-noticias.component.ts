@@ -36,11 +36,6 @@ export class Gta6NoticiasComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Noticias GTA 6 - Blog de Actualidad y Novedades | GTA MAPS');
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Blog editorial de GTA 6: análisis técnicos, filtraciones, mecánicas y geografía de Leonida.'
-    });
 
     this.cargarNoticias();
   }

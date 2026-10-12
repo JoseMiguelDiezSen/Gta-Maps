@@ -21,7 +21,7 @@ const routes: Routes = [
             titleKey: 'seo.homeTitle',
             descriptionKey: 'seo.homeDesc',
             title: 'GTA MAPS - Mapas Interactivos Ultra HD y Asistente IA para GTA V & GTA VI (Sin Anuncios)',
-            description: 'Mapas interactivos en Ultra HD de GTA V, GTA Online, Cayo Perico y GTA VI Vice City. 100% sin anuncios, con Asistente IA, guía de coleccionables al 100%, misterios y vehículos en tiempo real.',
+            description: 'Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.',
             canonical: 'https://gtamaps.dev/home'
         }
     },
@@ -33,8 +33,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.gta5OnlineTitle',
             descriptionKey: 'seo.gta5OnlineDesc',
-            title: 'Mapa GTA V Online Ultra HD - Negocios, Cayo Perico y Asistente IA (Sin Anuncios) | GTA MAPS',
-            description: 'Mapa interactivo en Ultra HD de GTA 5 Online y Cayo Perico 100% sin anuncios. Negocios, propiedades, golpes, vehículos, armas y asistente IA en tiempo real.',
+            title: 'Mapa GTA V Online HD - Propiedades, Negocios, Coleccionables, Cayo Perico y Asistente IA | GTA MAPS',
+            description: 'Mapa interactivo en HD de GTA 5 Online y Cayo Perico. Misiones, Propiedades, Vehiculos, Armas, Negocios, Golpes, Misterios y asistente IA en tiempo real.',
             canonical: 'https://gtamaps.dev/gta5-online'
         }
     },
@@ -44,8 +44,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.gta5HistoriaTitle',
             descriptionKey: 'seo.gta5HistoriaDesc',
-            title: 'Mapa GTA V 100% Modo Historia - Guía Completa, Misterios y Mapa UV (Sin Anuncios) | GTA MAPS',
-            description: 'Guía interactiva 100% de GTA V en Ultra HD y sin anuncios: misiones principales, cartas, piezas de ovni, saltos, misterios paranormales y mapa UV secreto.',
+            title: 'Mapa GTA V Modo Historia - Propiedades, Negocios, Misiones, Vehiculos, Armas, Coleccionables, Asistente IA | GTA MAPS',
+            description: 'Mapa interactivo de GTA V en HD: Misiones Principales, Cartas, Coleccionables , Saltos, Misterios',
             canonical: 'https://gtamaps.dev/gta5-historia'
         }
     },
@@ -53,8 +53,10 @@ const routes: Routes = [
         path: 'gta5-guia',
         component: Gta5GuiaComponent,
         data: {
-            title: 'Guía GTA V - Modo Historia al 100%, Golpes y Misterios | GTA MAPS',
-            description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía de golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
+            titleKey: 'seo.gta5GuiaTitle',
+            descriptionKey: 'seo.gta5GuiaDesc',
+            title: 'Guía GTA V - Modo Historia : Guia para Misiones Principales, Secundarias, Misterios y Trofeos | GTA MAPS',
+            description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía táctica de los 6 golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
             canonical: 'https://gtamaps.dev/gta5-guia'
         }
     },
@@ -65,8 +67,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.gta6OnlineTitle',
             descriptionKey: 'seo.gta6OnlineDesc',
-            title: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades (Sin Anuncios) | GTA MAPS',
-            description: 'Primer mapa interactivo en Ultra HD de GTA 6 Online en Vice City y Leonida 100% sin anuncios. Puntos de interés, carreteras, secretos y novedades.',
+            title: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades | GTA MAPS',
+            description: 'Mapa interactivo en HD de GTA 6 Online en Vice City y Leonida. Puntos de interés, carreteras, secretos, noticias y novedades.',
             canonical: 'https://gtamaps.dev/gta6-online'
         }
     },
@@ -77,8 +79,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.gta6HistoriaTitle',
             descriptionKey: 'seo.gta6HistoriaDesc',
-            title: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia (Sin Anuncios) | GTA MAPS',
-            description: 'Mapa interactivo del modo historia de GTA VI sin anuncios con Jason y Lucia. Exploración en Ultra HD de Vice City, misiones, coleccionables y secretos.',
+            title: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia | GTA MAPS',
+            description: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Mapa HD de Vice City, Misiones, Coleccionables y secretos.',
             canonical: 'https://gtamaps.dev/gta6-historia'
         }
     },
@@ -86,8 +88,10 @@ const routes: Routes = [
         path: 'gta6-guia',
         component: Gta6GuiaComponent,
         data: {
-            title: 'Base de Datos & Guía GTA VI - Vice City y Estado de Leonida | GTA MAPS',
-            description: 'Enciclopedia interactiva de GTA VI: análisis de regiones de Leonida, Jason & Lucia, vehículos, armas e inventario físico confirmado.',
+            titleKey: 'seo.gta6GuiaTitle',
+            descriptionKey: 'seo.gta6GuiaDesc',
+            title: 'Guía GTA VI - Base de Datos, Jason & Lucia y Estado de Leonida | GTA MAPS',
+            description: 'Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.',
             canonical: 'https://gtamaps.dev/gta6-guia'
         }
     },
@@ -95,8 +99,10 @@ const routes: Routes = [
         path: 'gta6-noticias',
         component: Gta6NoticiasComponent,
         data: {
+            titleKey: 'seo.gta6NoticiasTitle',
+            descriptionKey: 'seo.gta6NoticiasDesc',
             title: 'Noticias & Actualidad GTA VI - Estado de Leonida | GTA MAPS',
-            description: 'Últimas noticias, comunicados oficiales y análisis técnico de Grand Theft Auto VI y el Estado de Leonida.',
+            description: 'Últimas noticias y Novedades de Grand Theft Auto VI y el Estado de Leonida.',
             canonical: 'https://gtamaps.dev/gta6-noticias'
         }
     },

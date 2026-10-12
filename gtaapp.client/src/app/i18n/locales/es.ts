@@ -32,7 +32,9 @@ export const es: TranslationSchema = {
     disclaimer: 'Proyecto creado por fans. No afiliado con Rockstar Games.',
     copyright: '© Copyright 2026 JMD Software, todos los derechos reservados. JMD® y el logotipo JMD® son marcas registradas de The JMD Software.',
     onlineUsers: 'usuarios online',
-    onlineUser: 'usuario online'
+    onlineUser: 'usuario online',
+    gta5GuiaBtn: 'GUÍA GTA 5',
+    gta6GuiaBtn: 'GUÍA GTA 6'
   },
   cookies: {
     title: 'Privacidad y cookies',

@@ -12,4 +12,4 @@ export interface GotyMessage {
   isAngry?: boolean;
 }
 
-export type GotyGameMode = 'gta5-historia' | 'gta5-online' | 'gta6-historia' | 'gta6-online';
+export type GotyGameMode = 'home' | 'gta5-historia' | 'gta5-online' | 'gta6-historia' | 'gta6-online';

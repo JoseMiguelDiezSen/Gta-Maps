@@ -59,11 +59,6 @@ export class Gta6GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    this.titleService.setTitle('Guía GTA VI - Base de Datos, Jason & Lucia y Estado de Leonida | GTA MAPS');
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.'
-    });
 
     this.cargarGuia();
   }

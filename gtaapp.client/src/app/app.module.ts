@@ -16,7 +16,9 @@ import { HomeComponent }          from './home/home.component';
 import { Gta5InfoPanelComponent } from './components/gta5-info-panel/gta5-info-panel.component';
 import { Gta6InfoPanelComponent } from './components/gta6-info-panel/gta6-info-panel.component';
 import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
-import { GotyModule } from './components/goty-bot/goty.module';
+import { GotyComponent } from './home/goty/goty.component';
+import { Goty5Component } from './gta5/goty5/goty5.component';
+import { Goty6Component } from './gta6/goty6/goty6.component';
 import { AppRoutingModule }       from './app-routing.module';
 import { TranslatePipe }          from './i18n';
 
@@ -34,6 +36,9 @@ import { TranslatePipe }          from './i18n';
         Gta5InfoPanelComponent,
         Gta6InfoPanelComponent,
         CookieBannerComponent,
+        GotyComponent,
+        Goty5Component,
+        Goty6Component,
         TranslatePipe
     ],
     bootstrap: [AppComponent],
@@ -41,8 +46,7 @@ import { TranslatePipe }          from './i18n';
         BrowserModule,
         CommonModule,
         FormsModule,
-        AppRoutingModule,
-        GotyModule
+        AppRoutingModule
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi())

@@ -90,7 +90,14 @@ export class SeoService {
     // 3. Etiqueta canonical
     this.updateCanonicalUrl(canonicalUrl);
 
-    // 4. Notificar a Google Analytics (GA4) la nueva vista de página en SPA
+    // 4. Open Graph y Twitter Cards sincronizados por ruta
+    this.metaService.updateTag({ property: 'og:url', content: canonicalUrl });
+    this.metaService.updateTag({ property: 'og:title', content: title });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    this.metaService.updateTag({ name: 'twitter:title', content: title });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
+
+    // 5. Notificar a Google Analytics (GA4) la nueva vista de página en SPA
     if (isPlatformBrowser(this.platformId) && typeof (window as any).gtag === 'function') {
       (window as any).gtag('event', 'page_view', {
         page_title: title,

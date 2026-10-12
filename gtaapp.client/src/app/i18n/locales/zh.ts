@@ -33,7 +33,9 @@ export const zh: TranslationSchema = {
     disclaimer: '粉丝制作项目。与 Rockstar Games 无官方关联。',
     copyright: '© Copyright 2026 JMD Software，保留所有权利。JMD® 和 JMD® 标志是 The JMD Software 的注册商标。',
     onlineUsers: '位在线用户',
-    onlineUser: '位在线用户'
+    onlineUser: '位在线用户',
+    gta5GuiaBtn: 'GTA 5 攻略',
+    gta6GuiaBtn: 'GTA 6 攻略'
   },
   cookies: {
     title: '隐私与 Cookie',

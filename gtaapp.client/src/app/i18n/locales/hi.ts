@@ -33,7 +33,9 @@ export const hi: TranslationSchema = {
     disclaimer: 'प्रशंसकों द्वारा बनाया गया प्रोजेक्ट। Rockstar Games से संबद्ध नहीं है।',
     copyright: '© Copyright 2026 JMD Software, सर्वाधिकार सुरक्षित। JMD® और JMD® लोगो The JMD Software के ट्रेडमार्क हैं।',
     onlineUsers: 'ऑनलाइन उपयोगकर्ता',
-    onlineUser: 'ऑनलाइन उपयोगकर्ता'
+    onlineUser: 'ऑनलाइन उपयोगकर्ता',
+    gta5GuiaBtn: 'GTA 5 गाइड',
+    gta6GuiaBtn: 'GTA 6 गाइड'
   },
   cookies: {
     title: 'गोपनीयता और कुकीज़',
