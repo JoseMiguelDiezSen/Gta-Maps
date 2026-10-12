@@ -450,15 +450,19 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Marca de última actualización debajo de los botones: sin panel, limpia y centrada */
+/* Marca de última actualización alineada con los controles inferiores */
 .home-last-update {
-  margin-top: 14px;
+  position: fixed;
+  bottom: 66px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 12px;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: rgba(255, 255, 255, 0.65);
   letter-spacing: 0.4px;
   text-align: center;
-  z-index: 1;
+  white-space: nowrap;
+  z-index: 20;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
   user-select: none;
   cursor: default;
@@ -808,6 +812,14 @@
     padding: 0 10px;
     font-size: 11px;
     gap: 6px;
+  }
+
+  .home-last-update {
+    bottom: max(70px, calc(env(safe-area-inset-bottom, 0px) + 64px));
+    max-width: calc(100vw - 150px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10px;
   }
 
 
@@ -1330,4 +1342,4 @@
     right: max(16px, env(safe-area-inset-right, 16px));
   }
 }
-
+
