@@ -25,6 +25,12 @@
   user-select: none;
 }
 
+.map-wrapper:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  background: #0b0f14;
+}
+
 #gta-map, #gta-map-historia {
   position: absolute;
   top: 0;
@@ -1135,6 +1141,12 @@
   transform: translateY(-1px);
 }
 
+.hud-fullscreen-btn.is-active {
+  background: rgba(255, 184, 51, 0.22);
+  border-color: #ffb833;
+  color: #ffffff;
+}
+
 .hud-home-btn:active,
 .hud-fullscreen-btn:active {
   transform: scale(0.92);
@@ -2047,4 +2059,3 @@
 /* Asistente GOTY - Etiquetas Desktop / Móvil */
 .goty-label-desktop { display: inline; }
 .goty-label-mobile { display: none; }
-

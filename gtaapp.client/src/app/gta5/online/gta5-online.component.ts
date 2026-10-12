@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, effect } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, effect } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as L from 'leaflet';
 import { LocationService } from '../../services/gta5/location.service';
@@ -15,6 +15,9 @@ import { GotyService } from '../../services/goty.service';
     standalone: false
 })
 export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
+
+    @ViewChild('mapWrapper', { static: true }) private mapWrapper!: ElementRef<HTMLElement>;
+    isFullscreen = false;
 
     // Subscripciones para evitar fugas de memoria y condiciones de carrera
     private propertiesSub?: Subscription;
@@ -840,6 +843,25 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
             }
         }, 150);
         window.addEventListener('resize', this.onWindowResize);
+    }
+
+    async toggleFullscreen(): Promise<void> {
+        const element = this.mapWrapper.nativeElement;
+
+        try {
+            if (document.fullscreenElement) {
+                await document.exitFullscreen();
+            } else if (element.requestFullscreen) {
+                await element.requestFullscreen();
+            }
+        } catch {
+            this.isFullscreen = false;
+        }
+    }
+
+    onFullscreenChange(): void {
+        this.isFullscreen = document.fullscreenElement === this.mapWrapper.nativeElement;
+        setTimeout(() => this.map?.invalidateSize(), 0);
     }
 
     ngOnDestroy(): void {
