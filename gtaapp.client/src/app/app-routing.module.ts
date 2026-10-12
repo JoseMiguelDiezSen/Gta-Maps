@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent }           from './home/home.component';
 import { Gta5OnlineComponent }     from './gta5/online/gta5-online.component';
 import { Gta5HistoriaComponent }   from './gta5/historia/gta5-historia.component';
-import { Gta5GuiaComponent }       from './gta5/guia/gta5-guia.component';
+import { Gta5GuiaOfflineComponent } from './gta5/guia/offline/gta5-guia-offline.component';
+import { Gta5GuiaOnlineComponent }  from './gta5/guia/online/gta5-guia-online.component';
 import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
 import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
-import { Gta6GuiaComponent }      from './gta6/guia/gta6-guia.component';
+import { Gta6GuiaOfflineComponent } from './gta6/guia/offline/gta6-guia-offline.component';
+import { Gta6GuiaOnlineComponent }  from './gta6/guia/online/gta6-guia-online.component';
 import { Gta6NoticiasComponent }  from './gta6/noticias/gta6-noticias.component';
 
 import { DevAccessGuard }       from './services/dev-access.guard';
@@ -50,14 +52,23 @@ const routes: Routes = [
         }
     },
     {
-        path: 'gta5-guia',
-        component: Gta5GuiaComponent,
+        path: 'gta5-guia-offline',
+        component: Gta5GuiaOfflineComponent,
         data: {
             titleKey: 'seo.gta5GuiaTitle',
             descriptionKey: 'seo.gta5GuiaDesc',
             title: 'Guía GTA V - Modo Historia : Guia para Misiones Principales, Secundarias, Misterios y Trofeos | GTA MAPS',
             description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía táctica de los 6 golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
-            canonical: 'https://gtamaps.dev/gta5-guia'
+            canonical: 'https://gtamaps.dev/gta5-guia-offline'
+        }
+    },
+    {
+        path: 'gta5-guia-online',
+        component: Gta5GuiaOnlineComponent,
+        data: {
+            title: 'Guía GTA V Online | GTA MAPS',
+            description: 'Guía específica de GTA V Online en preparación.',
+            canonical: 'https://gtamaps.dev/gta5-guia-online'
         }
     },
     {
@@ -85,14 +96,23 @@ const routes: Routes = [
         }
     },
     {
-        path: 'gta6-guia',
-        component: Gta6GuiaComponent,
+        path: 'gta6-guia-offline',
+        component: Gta6GuiaOfflineComponent,
         data: {
             titleKey: 'seo.gta6GuiaTitle',
             descriptionKey: 'seo.gta6GuiaDesc',
             title: 'Guía GTA VI - Base de Datos, Jason & Lucia y Estado de Leonida | GTA MAPS',
             description: 'Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.',
-            canonical: 'https://gtamaps.dev/gta6-guia'
+            canonical: 'https://gtamaps.dev/gta6-guia-offline'
+        }
+    },
+    {
+        path: 'gta6-guia-online',
+        component: Gta6GuiaOnlineComponent,
+        data: {
+            title: 'Guía GTA VI Online | GTA MAPS',
+            description: 'Guía específica de GTA VI Online en preparación.',
+            canonical: 'https://gtamaps.dev/gta6-guia-online'
         }
     },
     {
@@ -108,6 +128,8 @@ const routes: Routes = [
     },
 
     // Redirecciones por compatibilidad
+    { path: 'gta6-guia',      redirectTo: '/gta6-guia-offline', pathMatch: 'full' },
+    { path: 'gta5-guia',      redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
     { path: 'noticias',      redirectTo: '/gta6-noticias', pathMatch: 'full' },
     { path: 'gta6/noticias', redirectTo: '/gta6-noticias', pathMatch: 'full' },
     { path: 'gta6noticias',  redirectTo: '/gta6-noticias', pathMatch: 'full' },
@@ -116,7 +138,9 @@ const routes: Routes = [
     { path: 'gta5/online',   redirectTo: '/gta5-online', pathMatch: 'full' },
     { path: 'gta5/historia', redirectTo: '/gta5-historia', pathMatch: 'full' },
     { path: 'gta5historia',  redirectTo: '/gta5-historia', pathMatch: 'full' },
-    { path: 'gta5/guia',     redirectTo: '/gta5-guia', pathMatch: 'full' },
+    { path: 'gta5/guia',     redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
+    { path: 'gta5/guia/offline', redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
+    { path: 'gta5/guia/online',  redirectTo: '/gta5-guia-online', pathMatch: 'full' },
     { path: 'gta5guia',      redirectTo: '/gta5-guia', pathMatch: 'full' },
     { path: 'gt5',           redirectTo: '/gta5-online', pathMatch: 'full' },
     { path: 'gta6',          redirectTo: '/gta6-online', pathMatch: 'full' },
@@ -124,8 +148,10 @@ const routes: Routes = [
     { path: 'gta6/online',   redirectTo: '/gta6-online', pathMatch: 'full' },
     { path: 'gta6/historia', redirectTo: '/gta6-historia', pathMatch: 'full' },
     { path: 'gta6historia',  redirectTo: '/gta6-historia', pathMatch: 'full' },
-    { path: 'gta6/guia',     redirectTo: '/gta6-guia', pathMatch: 'full' },
-    { path: 'gta6guia',      redirectTo: '/gta6-guia', pathMatch: 'full' },
+    { path: 'gta6/guia',     redirectTo: '/gta6-guia-offline', pathMatch: 'full' },
+    { path: 'gta6/guia/offline', redirectTo: '/gta6-guia-offline', pathMatch: 'full' },
+    { path: 'gta6/guia/online',  redirectTo: '/gta6-guia-online', pathMatch: 'full' },
+    { path: 'gta6guia',      redirectTo: '/gta6-guia-offline', pathMatch: 'full' },
 
     { path: '**', redirectTo: '/home' }
 ];

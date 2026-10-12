@@ -64,11 +64,19 @@
         <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <!-- Botón NOTICIAS GTA 6 -->
-        <a routerLink="/gta6-noticias" class="nav-link-item" title="Ir a Noticias de GTA 6">
-          <i class="fa-solid fa-newspaper"></i>
-          <span>NOTICIAS GTA 6</span>
-        </a>
+        <!-- Selector directo entre las guías de GTA 5 -->
+        <div class="mode-switch-track" aria-label="Cambiar entre guía Historia y guía Online">
+          <a class="mode-switch-btn mode-historia is-active" routerLink="/gta5-guia-offline" title="Guía GTA 5 Historia">
+            <i class="mode-indicator dot-historia"></i>
+            <span class="mode-text-desktop">HISTORIA</span>
+            <span class="mode-text-mobile">HISTORIA</span>
+          </a>
+          <a class="mode-switch-btn mode-online" routerLink="/gta5-guia-online" title="Guía GTA 5 Online">
+            <i class="mode-indicator dot-online"></i>
+            <span class="mode-text-desktop">ONLINE</span>
+            <span class="mode-text-mobile">ONLINE</span>
+          </a>
+        </div>
 
         <!-- Separador final de cierre -->
         <span class="nav-spike-divider" aria-hidden="true"></span>

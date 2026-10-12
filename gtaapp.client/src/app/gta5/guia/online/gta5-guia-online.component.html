@@ -1,0 +1,92 @@
+<div class="wiki-shell gta5-theme" [class.mode-day]="themeMode === 'day'">
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR HUD -->
+  <nav class="wiki-top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
+          <img src="assets/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
+        </a>
+
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <div class="nav-brand">
+          <span class="nav-brand-title">GUIA GTA MAPS</span>
+        </div>
+
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <a routerLink="/gta5" class="nav-link-item" title="Ir al Mapa de GTA 5">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 5 MAP</span>
+        </a>
+
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <a
+          [routerLink]="isDevAllowed ? '/gta6' : null"
+          class="nav-link-item"
+          [class.nav-link-disabled]="!isDevAllowed"
+          (click)="onGta6MapClick($event)"
+          [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
+        >
+          <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
+          <span>GTA 6 MAP</span>
+        </a>
+
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <a routerLink="/gta6-guia" class="nav-link-item" title="Ir a la Guía de GTA 6">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 6</span>
+        </a>
+
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <div class="mode-switch-track" aria-label="Cambiar entre guía Historia y guía Online">
+          <a class="mode-switch-btn mode-historia" routerLink="/gta5-guia-offline" title="Guía GTA 5 Historia">
+            <i class="mode-indicator dot-historia"></i>
+            <span class="mode-text-desktop">HISTORIA</span>
+            <span class="mode-text-mobile">HISTORIA</span>
+          </a>
+          <a class="mode-switch-btn mode-online is-active" routerLink="/gta5-guia-online" title="Guía GTA 5 Online">
+            <i class="mode-indicator dot-online"></i>
+            <span class="mode-text-desktop">ONLINE</span>
+            <span class="mode-text-mobile">ONLINE</span>
+          </a>
+        </div>
+
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+      </div>
+
+      <div class="nav-right">
+        <button
+          type="button"
+          class="theme-toggle-switch"
+          [class.is-day]="themeMode === 'day'"
+          (click)="toggleThemeMode()"
+          [title]="themeMode === 'night' ? 'Cambiar a Modo Día' : 'Cambiar a Modo Noche'"
+          aria-label="Cambiar entre modo día y noche"
+        >
+          <span class="switch-icon switch-icon-moon">🌙</span>
+          <span class="switch-icon switch-icon-sun">☀️</span>
+          <span class="switch-thumb"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="gta5-online-guide-content" aria-labelledby="gta5-online-guide-title">
+    <p class="gta5-online-guide-kicker">GTA V · ONLINE</p>
+    <h1 id="gta5-online-guide-title">GUÍA GTA 5 ONLINE</h1>
+    <p>Esta sección queda preparada para incorporar la guía específica de GTA Online.</p>
+  </section>
+</div>

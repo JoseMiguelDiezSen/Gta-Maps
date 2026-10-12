@@ -44,6 +44,7 @@
     <a
       class="hud-home-btn"
       routerLink="/"
+      (click)="exitFullscreen()"
       [title]="'common.backToHome' | translate"
     >
       <svg class="hud-home-btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -1349,6 +1350,7 @@
   <a
     class="hud-floating-home"
     routerLink="/"
+    (click)="exitFullscreen()"
     [title]="'common.backToHome' | translate"
   >
     <svg class="hud-floating-home-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">

@@ -1,18 +1,18 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { GuiaService } from '../../services/guia.service';
-import { CookieService } from '../../services/cookie.service';
-import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../models/guia';
-import { isDevAccessAllowed } from '../../services/dev-access.guard';
+import { GuiaService } from '../../../services/guia.service';
+import { CookieService } from '../../../services/cookie.service';
+import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../../models/guia';
+import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-gta5-guia',
-  templateUrl: './gta5-guia.component.html',
-  styleUrls: ['./gta5-guia.component.css'],
+  selector: 'app-gta5-guia-offline',
+  templateUrl: './gta5-guia-offline.component.html',
+  styleUrls: ['./gta5-guia-offline.component.css'],
   standalone: false
 })
-export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
+export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewInit {
   readonly isDevAllowed: boolean = isDevAccessAllowed();
 
   manifest: GuiaManifest | null = null;
@@ -269,7 +269,7 @@ export class Gta5GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
       plata: 'Plata',
       bronce: 'Bronce'
     };
-    return Gta5GuiaComponent.TROFEO_ORDEN
+    return Gta5GuiaOfflineComponent.TROFEO_ORDEN
       .map(tipo => ({
         tipo,
         titulo: titulos[tipo],

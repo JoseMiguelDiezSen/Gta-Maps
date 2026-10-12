@@ -1,0 +1,84 @@
+@import '../../map-hud.css';
+@import '../../map-responsive.css';
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #0b0f14;
+  color: #fff;
+}
+
+.gta5-online-guide-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 184, 51, 0.08), transparent 38%),
+    #0b0f14;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.gta5-online-guide-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 54px;
+  padding: 8px 18px;
+  box-sizing: border-box;
+  background: rgba(12, 16, 23, 0.94);
+  border-bottom: 1px solid rgba(255, 165, 0, 0.28);
+}
+
+.gta5-online-guide-home,
+.gta5-online-guide-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffb833;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+}
+
+.gta5-online-guide-home:hover,
+.gta5-online-guide-map:hover {
+  color: #fff;
+}
+
+.gta5-online-guide-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.gta5-online-guide-content {
+  margin: auto;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.gta5-online-guide-kicker {
+  margin: 0 0 8px;
+  color: #ffb833;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.gta5-online-guide-content h1 {
+  margin: 0;
+  font-family: 'Pricedown', system-ui, sans-serif;
+  font-size: clamp(34px, 6vw, 64px);
+  letter-spacing: 2px;
+}
+
+.gta5-online-guide-content p:last-child {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+}

@@ -427,6 +427,12 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
+    exitFullscreen(): void {
+        if (document.fullscreenElement) {
+            void document.exitFullscreen();
+        }
+    }
+
     onFullscreenChange(): void {
         this.isFullscreen = document.fullscreenElement === this.getFullscreenHost();
         setTimeout(() => this.map?.invalidateSize(), 0);

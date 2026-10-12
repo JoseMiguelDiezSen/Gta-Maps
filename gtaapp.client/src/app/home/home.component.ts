@@ -210,7 +210,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (event) {
             event.preventDefault();
         }
-        this.router.navigate(['/gta6-guia']);
+        this.router.navigate(['/gta6-guia-offline']);
     }
 
     toggleFeedbackPanel(event?: Event): void {

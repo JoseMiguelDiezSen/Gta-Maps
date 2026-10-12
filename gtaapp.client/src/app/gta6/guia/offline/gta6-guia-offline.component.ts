@@ -1,18 +1,18 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { GuiaService } from '../../services/guia.service';
-import { CookieService } from '../../services/cookie.service';
-import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../../models/guia';
-import { isDevAccessAllowed } from '../../services/dev-access.guard';
+import { GuiaService } from '../../../services/guia.service';
+import { CookieService } from '../../../services/cookie.service';
+import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../../../models/guia';
+import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-gta6-guia',
-  templateUrl: './gta6-guia.component.html',
-  styleUrls: ['./gta6-guia.component.css'],
+  selector: 'app-gta6-guia-offline',
+  templateUrl: './gta6-guia-offline.component.html',
+  styleUrls: ['./gta6-guia-offline.component.css'],
   standalone: false
 })
-export class Gta6GuiaComponent implements OnInit, OnDestroy, AfterViewInit {
+export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewInit {
   readonly isDevAllowed: boolean = isDevAccessAllowed();
 
   manifest: GuiaManifest | null = null;
