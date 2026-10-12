@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, effect } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, HostListener, ViewChild, effect } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as L from 'leaflet';
 import { LocationService } from '../../services/gta5/location.service';
@@ -837,6 +837,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.initMap(this.currentMapType);
+        this.onFullscreenChange();
         setTimeout(() => {
             if (this.map) {
                 this.map.invalidateSize();
@@ -846,7 +847,7 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     async toggleFullscreen(): Promise<void> {
-        const element = this.mapWrapper.nativeElement;
+        const element = this.getFullscreenHost();
 
         try {
             if (document.fullscreenElement) {
@@ -860,8 +861,17 @@ export class Gta5OnlineComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     onFullscreenChange(): void {
-        this.isFullscreen = document.fullscreenElement === this.mapWrapper.nativeElement;
+        this.isFullscreen = document.fullscreenElement === this.getFullscreenHost();
         setTimeout(() => this.map?.invalidateSize(), 0);
+    }
+
+    @HostListener('document:fullscreenchange')
+    private handleDocumentFullscreenChange(): void {
+        this.onFullscreenChange();
+    }
+
+    private getFullscreenHost(): HTMLElement {
+        return document.querySelector<HTMLElement>('.app-shell') ?? this.mapWrapper.nativeElement;
     }
 
     ngOnDestroy(): void {
