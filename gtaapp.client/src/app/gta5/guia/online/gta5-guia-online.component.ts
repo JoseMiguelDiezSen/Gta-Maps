@@ -7,7 +7,7 @@ import { VehicleService } from '../../../services/gta5/vehicle.service';
 import { CONCESIONARIOS_GTA5 } from '../../../components/gta5-info-panel/vehiculos.config';
 import { LocationService } from '../../../services/gta5/location.service';
 import { LocationItem } from '../../../models/gta5/location';
-import { Observable, shareReplay } from 'rxjs';
+import { Observable, shareReplay, forkJoin, map } from 'rxjs';
 
 @Component({
   selector: 'app-gta5-guia-online',
@@ -48,7 +48,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   @ViewChild('wikiShell') wikiShellRef?: ElementRef<HTMLDivElement>;
 
   readonly personajes$: Observable<LocationItem[]>;
-  readonly embarcacionesDocktease$: Observable<GtaVehicle[]>;
+  readonly dealerCounts$: Observable<Record<string, number>>;
 
   concesionarioSeleccionado: DealerCategory | null = null;
   vehiculosConcesionario$: Observable<GtaVehicle[]> | null = null;
@@ -62,9 +62,23 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     this.personajes$ = this.locationService
       .getProperties('online', 'character')
       .pipe(shareReplay(1));
-    this.embarcacionesDocktease$ = this.vehicleService
-      .getVehicles('docktease', undefined, undefined, 'online')
-      .pipe(shareReplay(1));
+
+    this.dealerCounts$ = forkJoin(
+      this.concesionarios.map(d =>
+        this.vehicleService.getVehicles(d.id, undefined, undefined, 'online').pipe(
+          map(list => ({ id: d.id, count: list.length }))
+        )
+      )
+    ).pipe(
+      map(results => {
+        const counts: Record<string, number> = {};
+        for (const r of results) {
+          counts[r.id] = r.count;
+        }
+        return counts;
+      }),
+      shareReplay(1)
+    );
   }
 
   ngOnInit(): void {
@@ -98,9 +112,11 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   }
 
   seleccionarConcesionario(concesionario: DealerCategory): void {
-    if (concesionario.id !== 'docktease') return;
     this.concesionarioSeleccionado = concesionario;
-    this.vehiculosConcesionario$ = this.embarcacionesDocktease$;
+    this.vehiculoSeleccionado = null;
+    this.vehiculosConcesionario$ = this.vehicleService
+      .getVehicles(concesionario.id, undefined, undefined, 'online')
+      .pipe(shareReplay(1));
   }
 
   seleccionarVehiculo(vehiculo: GtaVehicle): void {
@@ -109,6 +125,18 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
 
   volverAlGridVehiculos(): void {
     this.vehiculoSeleccionado = null;
+  }
+
+  getVehicleIcon(v: GtaVehicle | null): string {
+    if (!v) return 'fa-car';
+    const cat = (v.category || v.class || '').toLowerCase();
+    if (cat.includes('motor') || cat.includes('moto')) return 'fa-motorcycle';
+    if (cat.includes('heli')) return 'fa-helicopter';
+    if (cat.includes('plane') || cat.includes('avión') || cat.includes('avion')) return 'fa-plane';
+    if (cat.includes('boat') || cat.includes('embarc') || cat.includes('barco')) return 'fa-ship';
+    if (cat.includes('cycle') || cat.includes('bici')) return 'fa-bicycle';
+    if (cat.includes('militar') || cat.includes('indust') || cat.includes('offroad') || cat.includes('todoterreno')) return 'fa-truck-monster';
+    return 'fa-car';
   }
 
   private limpiarConcesionario(): void {

@@ -22,9 +22,9 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.homeTitle',
             descriptionKey: 'seo.homeDesc',
-            title: 'GTA MAPS - Mapas Interactivos Ultra HD y Asistente IA para GTA V & GTA VI (Sin Anuncios)',
+            title: 'GTA World - Mapas GTA HD con asistente IA integrado y Guias Interactivas',
             description: 'Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.',
-            canonical: 'https://gtamaps.dev/home'
+            canonical: 'https://gtaworld.dev/home'
         }
     },
 
@@ -37,7 +37,7 @@ const routes: Routes = [
             descriptionKey: 'seo.gta5OnlineDesc',
             title: 'Mapa GTA V Online HD - Propiedades, Negocios, Coleccionables, Cayo Perico y Asistente IA | GTA MAPS',
             description: 'Mapa interactivo en HD de GTA 5 Online y Cayo Perico. Misiones, Propiedades, Vehiculos, Armas, Negocios, Golpes, Misterios y asistente IA en tiempo real.',
-            canonical: 'https://gtamaps.dev/gta5-map-online'
+            canonical: 'https://gtaworld.dev/gta5-map-online'
         }
     },
     {
@@ -48,7 +48,7 @@ const routes: Routes = [
             descriptionKey: 'seo.gta5HistoriaDesc',
             title: 'Mapa GTA V Modo Historia - Propiedades, Negocios, Misiones, Vehiculos, Armas, Coleccionables, Asistente IA | GTA MAPS',
             description: 'Mapa interactivo de GTA V en HD: Misiones Principales, Cartas, Coleccionables , Saltos, Misterios',
-            canonical: 'https://gtamaps.dev/gta5-map-offline'
+            canonical: 'https://gtaworld.dev/gta5-map-offline'
         }
     },
     {
@@ -59,7 +59,7 @@ const routes: Routes = [
             descriptionKey: 'seo.gta5GuiaDesc',
             title: 'Guía GTA V - Modo Historia : Guia para Misiones Principales, Secundarias, Misterios y Trofeos | GTA MAPS',
             description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía táctica de los 6 golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
-            canonical: 'https://gtamaps.dev/gta5-guia-offline'
+            canonical: 'https://gtaworld.dev/gta5-guia-offline'
         }
     },
     {
@@ -68,7 +68,7 @@ const routes: Routes = [
         data: {
             title: 'Guía GTA V Online | GTA MAPS',
             description: 'Guía específica de GTA V Online en preparación.',
-            canonical: 'https://gtamaps.dev/gta5-guia-online'
+            canonical: 'https://gtaworld.dev/gta5-guia-online'
         }
     },
     {
@@ -80,7 +80,7 @@ const routes: Routes = [
             descriptionKey: 'seo.gta6OnlineDesc',
             title: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades | GTA MAPS',
             description: 'Mapa interactivo en HD de GTA 6 Online en Vice City y Leonida. Puntos de interés, carreteras, secretos, noticias y novedades.',
-            canonical: 'https://gtamaps.dev/gta6-map-online'
+            canonical: 'https://gtaworld.dev/gta6-map-online'
         }
     },
     {
@@ -92,7 +92,7 @@ const routes: Routes = [
             descriptionKey: 'seo.gta6HistoriaDesc',
             title: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia | GTA MAPS',
             description: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Mapa HD de Vice City, Misiones, Coleccionables y secretos.',
-            canonical: 'https://gtamaps.dev/gta6-map-offline'
+            canonical: 'https://gtaworld.dev/gta6-map-offline'
         }
     },
     {
@@ -103,7 +103,7 @@ const routes: Routes = [
             descriptionKey: 'seo.gta6GuiaDesc',
             title: 'Guía GTA VI - Base de Datos, Jason & Lucia y Estado de Leonida | GTA MAPS',
             description: 'Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.',
-            canonical: 'https://gtamaps.dev/gta6-guia-offline'
+            canonical: 'https://gtaworld.dev/gta6-guia-offline'
         }
     },
     {
@@ -112,7 +112,7 @@ const routes: Routes = [
         data: {
             title: 'Guía GTA VI Online | GTA MAPS',
             description: 'Guía específica de GTA VI Online en preparación.',
-            canonical: 'https://gtamaps.dev/gta6-guia-online'
+            canonical: 'https://gtaworld.dev/gta6-guia-online'
         }
     },
     {
@@ -123,7 +123,7 @@ const routes: Routes = [
             descriptionKey: 'seo.gta6NoticiasDesc',
             title: 'Noticias & Actualidad GTA VI - Estado de Leonida | GTA MAPS',
             description: 'Últimas noticias y Novedades de Grand Theft Auto VI y el Estado de Leonida.',
-            canonical: 'https://gtamaps.dev/gta6-noticias'
+            canonical: 'https://gtaworld.dev/gta6-noticias'
         }
     },
 

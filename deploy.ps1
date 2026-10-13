@@ -1,10 +1,10 @@
-# Script de despliegue automatico para GTA MAPS
+# Script de despliegue automatico para GTA WORLD
 # Uso: .\deploy.ps1
 
 $VpsIp = "161.22.42.84"
-$VpsPath = "/var/www/gtamaps"
+$VpsPath = "/var/www/gtaworld"
 
-Write-Host "Iniciando proceso de despliegue de GTA MAPS..." -ForegroundColor Cyan
+Write-Host "Iniciando proceso de despliegue de GTA WORLD..." -ForegroundColor Cyan
 
 # 1. Compilar Release
 Write-Host "1/4 Compilando frontend y backend..." -ForegroundColor Yellow
@@ -31,7 +31,7 @@ if ($LASTEXITCODE -ne 0) {
 
 # 4. Extraer y reiniciar servicio en VPS
 Write-Host "4/4 Descomprimiendo y reiniciando el servicio en la VPS..." -ForegroundColor Yellow
-$remoteCmd = "tar -xzf $VpsPath/publish.tar.gz -C $VpsPath/ ; cp -r $VpsPath/wwwroot/browser/* $VpsPath/wwwroot/ 2>/dev/null ; systemctl restart gtamaps"
+$remoteCmd = "tar -xzf $VpsPath/publish.tar.gz -C $VpsPath/ ; cp -r $VpsPath/wwwroot/browser/* $VpsPath/wwwroot/ 2>/dev/null ; systemctl restart gtaworld"
 ssh -o StrictHostKeyChecking=no root@$VpsIp $remoteCmd
 
 # 5. Limpieza local

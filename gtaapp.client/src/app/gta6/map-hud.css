@@ -1580,7 +1580,15 @@
 .marker-color-white  { background: #ffffff !important; box-shadow: 0 0 6px #ffffff !important; }
 
 /* ===== BOTÓN HOME (Integrado en HUD superior izquierdo junto al reloj) ===== */
-.hud-home-btn {
+.hud-btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hud-home-btn,
+.hud-guide-btn,
+.hud-fullscreen-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1595,10 +1603,14 @@
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   flex-shrink: 0;
-  margin-left: 2px;
+  margin-left: 0;
+  padding: 0;
+  outline: none;
 }
 
-.hud-home-btn:hover {
+.hud-home-btn:hover,
+.hud-guide-btn:hover,
+.hud-fullscreen-btn:hover {
   background: rgba(255, 42, 127, 0.22);
   border-color: #ff2a7f;
   color: #ffffff;
@@ -1606,11 +1618,21 @@
   transform: translateY(-1px);
 }
 
-.hud-home-btn:active {
+.hud-fullscreen-btn.is-active {
+  background: rgba(255, 42, 127, 0.22);
+  border-color: #ff2a7f;
+  color: #ffffff;
+}
+
+.hud-home-btn:active,
+.hud-guide-btn:active,
+.hud-fullscreen-btn:active {
   transform: scale(0.92);
 }
 
-.hud-home-btn-icon {
+.hud-home-btn-icon,
+.hud-guide-btn-icon,
+.hud-fullscreen-btn-icon {
   width: 18px;
   height: 18px;
   stroke: currentColor;

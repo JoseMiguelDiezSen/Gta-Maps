@@ -566,9 +566,9 @@ export const ko: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - 100% 광고 없는 GTA V 및 GTA VI 울트라 HD 인터랙티브 지도 & AI 어시스턴트',
+    defaultTitle: 'GTA World - HD GTA 지도 (통합 AI 어시스턴트 및 인터랙티브 가이드)',
     defaultDesc: 'GTA V, GTA 온라인, 카요 페리코 및 GTA VI 바이스 시티 100% 광고 없는 울트라 HD 지도. AI 어시스턴트, 100% 수집 가이드, 미스터리 및 이동수단 실시간 제공.',
-    homeTitle: 'GTA MAPS - 100% 광고 없는 GTA V 및 GTA VI 울트라 HD 인터랙티브 맵 & AI 어시스턴트',
+    homeTitle: 'GTA World - HD GTA 지도 (통합 AI 어시스턴트 및 인터랙티브 가이드)',
     homeDesc: 'GTA V, GTA 온라인, 카요 페리코 및 GTA VI 바이스 시티 100% 광고 없는 울트라 HD 지도. AI 어시스턴트, 100% 수집 가이드, 미스터리 및 이동수단 실시간 제공.',
     gta5OnlineTitle: 'GTA 5 온라인 울트라 HD 지도 (광고 없음) - 사업장, 카요 페리코 & AI 어시스턴트 | GTA MAPS',
     gta5OnlineDesc: 'GTA 5 온라인 및 카요 페리코 100% 광고 없는 울트라 HD 인터랙티브 지도. 사업장, 습격, 부동산, 차량, 무기 및 실시간 AI 어시스턴트 지원.',

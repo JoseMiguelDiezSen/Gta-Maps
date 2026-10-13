@@ -566,9 +566,9 @@ export const ja: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - 完全広告なし GTA V & GTA VI ウルトラHDインタラクティブマップ＆AIアシスタント',
+    defaultTitle: 'GTA World - HD GTAマップ（統合AIアシスタント＆インタラクティブガイド搭載）',
     defaultDesc: 'GTA V、GTAオンライン、カヨ・ペリコ、GTA VIバイスシティの100%完全広告なしウルトラHDマップ。AIアシスタント、100%コンプリートガイド、秘密要素を網羅。',
-    homeTitle: 'GTA MAPS - 完全広告なし GTA V & GTA VI ウルトラHDインタラクティブマップ＆AIアシスタント',
+    homeTitle: 'GTA World - HD GTAマップ（統合AIアシスタント＆インタラクティブガイド搭載）',
     homeDesc: 'GTA V、GTAオンライン、カヨ・ペリコ、GTA VIバイスシティの100%完全広告なしウルトラHDマップ。AIアシスタント、100%コンプリートガイド、秘密要素を網羅。',
     gta5OnlineTitle: 'GTA 5 オンライン ウルトラHDマップ (広告なし) - 物件・カヨペリコ・AIアシスタント | GTA MAPS',
     gta5OnlineDesc: 'GTA5オンライン＆カヨ・ペリコの完全広告なし超高画質マップ。事業物件、強盗、不動産、車両、武器、スタントジャンプをAIアシスタントでリアルタイム検索。',

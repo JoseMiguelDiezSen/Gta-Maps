@@ -565,10 +565,10 @@ export const es: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - Mapas HD y Guias Interactivos para GTA 5 & GTA 6',
+    defaultTitle: 'GTA World - Mapas GTA HD con asistente IA integrado y Guias Interactivas',
     defaultDesc: 'Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.',
 
-    homeTitle: 'GTA MAPS - Mapas Interactivos Ultra HD y Asistente IA para GTA V & GTA VI (Sin Anuncios)',
+    homeTitle: 'GTA World - Mapas GTA HD con asistente IA integrado y Guias Interactivas',
     homeDesc: 'Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.',
 
     gta5OnlineTitle: 'Mapa GTA V Online HD - Propiedades, Negocios, Coleccionables, Cayo Perico y Asistente IA | GTA MAPS',

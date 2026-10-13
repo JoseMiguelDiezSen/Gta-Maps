@@ -19,7 +19,7 @@ export interface SeoRouteData {
 export class SeoService {
   private readonly defaultTitleKey = 'seo.defaultTitle';
   private readonly defaultDescriptionKey = 'seo.defaultDesc';
-  private readonly baseUrl = 'https://gtamaps.dev';
+  private readonly baseUrl = 'https://gtaworld.dev';
 
   constructor(
     private titleService: Title,
@@ -66,7 +66,7 @@ export class SeoService {
     const descKey = data.descriptionKey || this.defaultDescriptionKey;
 
     const translatedTitle = this.translationService.t(titleKey);
-    const title = translatedTitle && translatedTitle !== titleKey ? translatedTitle : (data.title || 'GTA MAPS');
+    const title = translatedTitle && translatedTitle !== titleKey ? translatedTitle : (data.title || 'GTA World');
 
     const translatedDesc = this.translationService.t(descKey);
     const description = translatedDesc && translatedDesc !== descKey ? translatedDesc : (data.description || '');

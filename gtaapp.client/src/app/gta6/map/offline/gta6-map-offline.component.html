@@ -1,4 +1,10 @@
-<div class="map-wrapper" (click)="closeContextMenu()" (contextmenu)="openContextMenu($event)">
+<div
+  #mapWrapper
+  class="map-wrapper"
+  (fullscreenchange)="onFullscreenChange()"
+  (click)="closeContextMenu()"
+  (contextmenu)="openContextMenu($event)"
+>
   <div
     class="gta6-canvas"
     [class.is-panning]="isPanning"
@@ -173,9 +179,11 @@
       <span class="hud-title-sub">{{ 'common.story' | translate }}</span>
     </h1>
     <div class="hud-time-badge" [title]="'gta5.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
-    <a
-      class="hud-home-btn"
+    <div class="hud-btn-group">
+      <a
+        class="hud-home-btn"
       routerLink="/"
+      (click)="exitFullscreen()"
       [title]="'common.backToHome' | translate"
     >
       <svg class="hud-home-btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -183,6 +191,42 @@
         <polyline points="9 22 9 12 15 12 15 22"/>
       </svg>
     </a>
+    <a
+      class="hud-guide-btn"
+      routerLink="/gta6-guia-offline"
+      (click)="exitFullscreen()"
+      title="Ir a guía"
+      aria-label="Ir a guía"
+    >
+      <svg class="hud-guide-btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+    </a>
+    <button
+      type="button"
+      class="hud-fullscreen-btn"
+      [class.is-active]="isFullscreen"
+      [title]="isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'"
+      [attr.aria-label]="isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'"
+      (click)="toggleFullscreen()"
+    >
+      <svg class="hud-fullscreen-btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <ng-container *ngIf="!isFullscreen">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+          <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+          <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+          <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+        </ng-container>
+        <ng-container *ngIf="isFullscreen">
+          <path d="M9 3v4a2 2 0 0 1-2 2H3"/>
+          <path d="M15 3v4a2 2 0 0 0 2 2h4"/>
+          <path d="M9 21v-4a2 2 0 0 0-2-2H3"/>
+          <path d="M15 21v-4a2 2 0 0 1 2-2h4"/>
+        </ng-container>
+      </svg>
+    </button>
+    </div>
   </div>
 
   <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idéntico a GTA V) -->

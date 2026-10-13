@@ -566,9 +566,9 @@ export const fr: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - Cartes Interactives Ultra HD et Assistant IA pour GTA V & GTA VI (Sans Pub)',
+    defaultTitle: 'GTA World - Cartes GTA en HD avec Assistant IA Intégré et Guides Interactifs',
     defaultDesc: 'Cartes interactives en Ultra HD de GTA V, GTA Online, Cayo Perico et GTA VI Vice City. 100% sans publicité, avec Assistant IA, guide 100%, mystères et véhicules.',
-    homeTitle: 'GTA MAPS - Cartes Interactives Ultra HD et Assistant IA pour GTA V & GTA VI (Sans Pub)',
+    homeTitle: 'GTA World - Cartes GTA en HD avec Assistant IA Intégré et Guides Interactifs',
     homeDesc: 'Cartes interactives en Ultra HD de GTA V, GTA Online, Cayo Perico et GTA VI Vice City. 100% sans publicité, avec Assistant IA, guide 100%, mystères et véhicules.',
     gta5OnlineTitle: 'Carte GTA V Online Ultra HD - Entreprises, Cayo Perico & Assistant IA (Sans Pub) | GTA MAPS',
     gta5OnlineDesc: 'Carte interactive en Ultra HD de GTA 5 Online et Cayo Perico 100% sans pub. Entreprises, braquages, propriétés, véhicules, armes et assistant IA en temps réel.',

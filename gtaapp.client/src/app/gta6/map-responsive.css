@@ -100,7 +100,10 @@
     text-shadow: 0 0 8px rgba(255, 79, 224, 0.6) !important;
   }
 
-  .hud-tl .hud-home-btn {
+  .hud-tl .hud-home-btn,
+  .hud-tl .hud-guide-btn,
+  .hud-tl .hud-fullscreen-btn,
+  .hud-tl .hud-btn-group {
     display: none !important;
   }
 

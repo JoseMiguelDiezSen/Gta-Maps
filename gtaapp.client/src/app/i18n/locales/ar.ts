@@ -566,9 +566,9 @@ export const ar: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - خرائط تفاعلية فائقة الدقة Ultra HD ومساعد ذكاء اصطناعي لـ GTA V و GTA VI (بدون إعلانات)',
+    defaultTitle: 'GTA World - خرائط GTA بدقة HD مع مساعد ذكاء اصطناعي مدمج وأدلة تفاعلية',
     defaultDesc: 'خرائط تفاعلية بدقة Ultra HD لألعاب GTA V و GTA Online وكايو بريكو و GTA VI فايس سيتي 100% بدون إعلانات مع مساعد الذكاء الاصطناعي ودليل 100% والأسرار.',
-    homeTitle: 'GTA MAPS - خرائط تفاعلية فائقة الدقة Ultra HD ومساعد ذكاء اصطناعي لـ GTA V و GTA VI (بدون إعلانات)',
+    homeTitle: 'GTA World - خرائط GTA بدقة HD مع مساعد ذكاء اصطناعي مدمج وأدلة تفاعلية',
     homeDesc: 'خرائط تفاعلية بدقة Ultra HD لألعاب GTA V و GTA Online وكايو بريكو و GTA VI فايس سيتي 100% بدون إعلانات مع مساعد الذكاء الاصطناعي ودليل 100% والأسرار.',
     gta5OnlineTitle: 'خريطة GTA V Online بدقة Ultra HD بدون إعلانات - الأنشطة، كايو بريكو والمساعد الذكي | GTA MAPS',
     gta5OnlineDesc: 'خريطة تفاعلية فائقة الدقة لـ GTA 5 Online وكايو بريكو 100% بدون إعلانات. الأنشطة التجارية، السرقات، العقارات، المركبات والمساعد الذكي.',

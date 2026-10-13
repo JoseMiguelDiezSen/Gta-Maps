@@ -140,7 +140,7 @@
 
       <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
       <div class="sidebar-header-bar" *ngIf="!currentSection">
-        <span class="sidebar-header-title">ÍNDICE DE CONTENIDOS</span>
+        <span class="sidebar-header-title">CONTENIDOS</span>
       </div>
 
       <!-- VISTA 1: LISTA DE CATEGORÍAS (DRILL-DOWN NIVEL 1) -->
@@ -170,6 +170,9 @@
             <i class="fa-solid fa-chevron-right"></i>
           </div>
         </div>
+
+        <!-- SEPARADOR DE ESPIGA DETRÁS DEL ÚLTIMO PANEL -->
+        <div class="guide-cat-list-divider" aria-hidden="true"></div>
       </nav>
 
       <!-- VISTA 2: LISTADO DE CAPÍTULOS DE LA CATEGORÍA (DRILL-DOWN NIVEL 2) -->
@@ -199,7 +202,7 @@
               <div class="guide-cat-info">
                 <span class="guide-cat-title">{{ concesionario.name }}</span>
               </div>
-              <span class="guide-cat-badge">{{ concesionario.id === 'docktease' ? ((embarcacionesDocktease$ | async)?.length ?? 0) : 0 }}</span>
+              <span class="guide-cat-badge">{{ (dealerCounts$ | async)?.[concesionario.id] ?? '...' }}</span>
               <div class="guide-cat-arrow">
                 <i class="fa-solid fa-chevron-right"></i>
               </div>
@@ -271,9 +274,9 @@
       <article *ngIf="concesionarioSeleccionado" class="wiki-article-card">
         <header class="article-header">
           <div class="article-meta-row" *ngIf="vehiculoSeleccionado">
-            <button type="button" class="guide-back-btn" (click)="volverAlGridVehiculos()" title="Volver a las embarcaciones">
+            <button type="button" class="guide-back-btn" (click)="volverAlGridVehiculos()" [title]="'Volver a ' + concesionarioSeleccionado.name">
               <i class="fa-solid fa-chevron-left"></i>
-              <span>Embarcaciones</span>
+              <span>{{ concesionarioSeleccionado.name }}</span>
             </button>
           </div>
 
@@ -285,7 +288,7 @@
         </header>
 
         <div class="article-body">
-          <!-- GRID DE EMBARCACIONES -->
+          <!-- GRID DE VEHÍCULOS -->
           <div class="vehiculos-grid" *ngIf="!vehiculoSeleccionado">
             <div class="vehiculo-card" *ngFor="let vehiculo of vehiculosConcesionario$ | async" (click)="seleccionarVehiculo(vehiculo)">
               <div class="vehiculo-card-media">
@@ -297,7 +300,7 @@
                   loading="lazy"
                   (error)="vehiculo.imgFailed = true"
                 />
-                <i *ngIf="vehiculo.imgFailed" class="fa-solid fa-ship vehiculo-card-fallback"></i>
+                <i *ngIf="vehiculo.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getVehicleIcon(vehiculo)"></i>
               </div>
               <div class="vehiculo-card-info">
                 <span class="vehiculo-card-name">{{ vehiculo.name }}</span>
@@ -306,7 +309,7 @@
             </div>
           </div>
 
-          <!-- DETALLE DE LA EMBARCACIÓN -->
+          <!-- DETALLE DEL VEHÍCULO -->
           <div class="vehiculo-detail" *ngIf="vehiculoSeleccionado">
             <div class="vehiculo-detail-layout">
               <div class="vehiculo-detail-media">
@@ -317,13 +320,17 @@
                   class="vehiculo-detail-img"
                   (error)="vehiculoSeleccionado.imgFailed = true"
                 />
-                <i *ngIf="vehiculoSeleccionado.imgFailed" class="fa-solid fa-ship vehiculo-card-fallback"></i>
+                <i *ngIf="vehiculoSeleccionado.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getVehicleIcon(vehiculoSeleccionado)"></i>
               </div>
 
               <div class="vehiculo-detail-info">
                 <span class="vehiculo-detail-maker">{{ vehiculoSeleccionado.manufacturer }}</span>
                 <h2 class="vehiculo-detail-name">{{ vehiculoSeleccionado.name }}</h2>
-                <span class="vehiculo-detail-price">{{ vehiculoSeleccionado.priceFormatted }}</span>
+
+                <div class="vehiculo-price-box">
+                  <span class="vehiculo-price-lbl">{{ 'transports.catalog.buyPrice' | translate }}</span>
+                  <span class="vehiculo-price-val">{{ vehiculoSeleccionado.priceFormatted }}</span>
+                </div>
 
                 <div class="vehiculo-detail-badges">
                   <span class="vehiculo-detail-badge">{{ vehiculoSeleccionado.class }}</span>
@@ -355,6 +362,18 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!-- CONTENIDO EDITORIAL DE DESCRIPCIÓN DEL VEHÍCULO -->
+            <p class="vehiculo-descripcion-texto">
+              CONTENIDO
+            </p>
+
+            <!-- SEPARADOR CON ESPIGAS ESTILIZADAS OFICIAL DE LA GUÍA -->
+            <div class="guide-heading-divider">
+              <div class="guide-heading-line"></div>
+              <h3 class="guide-heading-title">DESCRIPCIÓN DEL VEHÍCULO</h3>
+              <div class="guide-heading-line guide-heading-line--right"></div>
             </div>
           </div>
         </div>

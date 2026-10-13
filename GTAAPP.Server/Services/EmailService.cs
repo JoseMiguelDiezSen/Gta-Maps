@@ -103,7 +103,7 @@ namespace GTAAPP.Server.Services
                     <tr>
                         <td style=""background-color: #0f172a; padding: 15px 30px; text-align: center; border-top: 1px solid #334155;"">
                             <p style=""margin: 0; color: #64748b; font-size: 11px;"">
-                                Este correo se ha generado automáticamente desde el formulario de sugerencias de <a href=""https://gtamaps.dev"" style=""color: #38bdf8; text-decoration: none;"">gtamaps.dev</a>.
+                                Este correo se ha generado automáticamente desde el formulario de sugerencias de <a href=""https://gtaworld.dev"" style=""color: #38bdf8; text-decoration: none;"">gtaworld.dev</a>.
                             </p>
                         </td>
                     </tr>

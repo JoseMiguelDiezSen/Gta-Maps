@@ -281,7 +281,9 @@
 
   /* Ocultar el botón home del header en móvil */
   .hud-tl .hud-home-btn,
-  .hud-tl .hud-fullscreen-btn {
+  .hud-tl .hud-guide-btn,
+  .hud-tl .hud-fullscreen-btn,
+  .hud-tl .hud-btn-group {
     display: none !important;
   }
 

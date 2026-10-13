@@ -725,16 +725,18 @@
 .sidebar-header-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.85) 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%) 1;
 }
 
 /* Configura la tipografÃ­a y los textos de el menÃº lateral (Ã­ndice de contenidos). */
 .sidebar-header-title {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: #ffb833;
   text-transform: uppercase;
 }
@@ -747,6 +749,22 @@
   color: #86efac;
   padding: 2px 7px;
   border-radius: 10px;
+}
+
+.wiki-shell.mode-day .sidebar-header-bar {
+  border-image: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.85) 50%, rgba(217, 119, 6, 0.25) 75%, transparent 100%) 1;
+}
+
+.guide-cat-list-divider {
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+  margin: 6px 0 2px 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.85) 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
+}
+
+.wiki-shell.mode-day .guide-cat-list-divider {
+  background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.85) 50%, rgba(217, 119, 6, 0.25) 75%, transparent 100%);
 }
 
 /* ==========================================================================

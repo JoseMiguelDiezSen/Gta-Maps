@@ -565,9 +565,9 @@ export const en: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - 100% Ad-Free Ultra HD Interactive Maps & AI Assistant for GTA V & GTA VI',
+    defaultTitle: 'GTA World - HD GTA Maps with Integrated AI Assistant & Interactive Guides',
     defaultDesc: 'Ultra HD interactive maps for GTA V, GTA Online, Cayo Perico & GTA VI Vice City. 100% Ad-Free, featuring an AI Assistant, 100% collectibles guide, mysteries and vehicles.',
-    homeTitle: 'GTA MAPS - 100% Ad-Free Ultra HD Interactive Maps & AI Assistant for GTA V & GTA VI',
+    homeTitle: 'GTA World - HD GTA Maps with Integrated AI Assistant & Interactive Guides',
     homeDesc: 'Ultra HD interactive maps for GTA V, GTA Online, Cayo Perico & GTA VI Vice City. 100% Ad-Free, featuring an AI Assistant, 100% collectibles guide, mysteries and vehicles.',
     gta5OnlineTitle: 'GTA 5 Online Ultra HD Map - Businesses, Cayo Perico & AI Assistant (Ad-Free) | GTA MAPS',
     gta5OnlineDesc: 'Ultra HD interactive map for GTA 5 Online and Cayo Perico 100% ad-free. Real-time tracking of businesses, heists, properties, vehicles, weapons and AI assistant.',

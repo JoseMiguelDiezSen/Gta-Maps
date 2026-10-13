@@ -566,9 +566,9 @@ export const zh: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - 100%无广告 GTA V & GTA VI 全高清4K互动地图与AI助手',
+    defaultTitle: 'GTA World - 高清GTA互动地图（内置AI助手与互动攻略）',
     defaultDesc: 'GTA V、GTA Online、佩里科岛与 GTA VI 罪城100%无广告超高清互动地图。搭载智能AI助手，提供洛圣都与罪恶都市全要素标记及100%全收集攻略。',
-    homeTitle: 'GTA MAPS - 100%无广告 GTA V & GTA VI 中文高清互动地图与AI助手',
+    homeTitle: 'GTA World - 高清GTA互动地图（内置AI助手与互动攻略）',
     homeDesc: 'GTA V、GTA Online、佩里科岛与 GTA VI 罪城100%无广告超高清互动地图。搭载智能AI助手，提供洛圣都与罪恶都市全要素标记及100%全收集攻略。',
     gta5OnlineTitle: 'GTA 5 在线模式4K高清地图 (无广告) - 商业资产、佩里科岛与AI助手 | GTA MAPS',
     gta5OnlineDesc: 'GTA 5 在线模式与佩里科岛100%无广告超清互动地图：地堡、制造厂、抢劫任务、特技跳跃、收集品与AI助手实时定位。',

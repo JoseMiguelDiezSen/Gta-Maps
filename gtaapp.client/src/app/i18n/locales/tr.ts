@@ -566,9 +566,9 @@ export const tr: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - %100 Reklamsız GTA V ve GTA VI Ultra HD İnteraktif Haritaları & Yapay Zeka',
+    defaultTitle: 'GTA World - Entegre Yapay Zeka Asistanlı HD GTA Haritaları ve İnteraktif Rehberler',
     defaultDesc: 'GTA V, GTA Online, Cayo Perico ve GTA VI Vice City için %100 reklamsız Ultra HD interaktif haritalar. Yapay Zeka Asistanı, %100 rehber, gizemler ve araçlar.',
-    homeTitle: 'GTA MAPS - %100 Reklamsız GTA V ve GTA VI Ultra HD İnteraktif Haritaları & Yapay Zeka',
+    homeTitle: 'GTA World - Entegre Yapay Zeka Asistanlı HD GTA Haritaları ve İnteraktif Rehberler',
     homeDesc: 'GTA V, GTA Online, Cayo Perico ve GTA VI Vice City için %100 reklamsız Ultra HD interaktif haritalar. Yapay Zeka Asistanı, %100 rehber, gizemler ve araçlar.',
     gta5OnlineTitle: 'GTA 5 Online Ultra HD Harita (Reklamsız) - İşletmeler, Cayo Perico & Yapay Zeka | GTA MAPS',
     gta5OnlineDesc: 'GTA 5 Online ve Cayo Perico %100 reklamsız Ultra HD haritası. İşletmeler, soygunlar, mülkler, araçlar, silahlar ve gerçek zamanlı yapay zeka asistanı.',

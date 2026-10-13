@@ -566,9 +566,9 @@ export const ru: TranslationSchema = {
     }
   },
   seo: {
-    defaultTitle: 'GTA MAPS - Интерактивные карты Ultra HD и ИИ-Ассистент для GTA V & GTA VI (Без Рекламы)',
+    defaultTitle: 'GTA World - HD карты GTA со встроенным ИИ-ассистентом и интерактивными гайдами',
     defaultDesc: 'Интерактивные карты в Ultra HD для GTA V, GTA Online, Кайо-Перико и GTA VI Вайс-Сити. 100% без рекламы, с ИИ-ассистентом, гайдом на 100%, тайнами и транспортом.',
-    homeTitle: 'GTA MAPS - Интерактивные карты Ultra HD и ИИ-Ассистент для GTA V & GTA VI (Без Рекламы)',
+    homeTitle: 'GTA World - HD карты GTA со встроенным ИИ-ассистентом и интерактивными гайдами',
     homeDesc: 'Интерактивные карты в Ultra HD для GTA V, GTA Online, Кайо-Перико и GTA VI Вайс-Сити. 100% без рекламы, с ИИ-ассистентом, гайдом на 100%, тайнами и транспортом.',
     gta5OnlineTitle: 'Карта GTA V Online Ultra HD - Предприятия, Кайо-Перико и ИИ-Ассистент (Без Рекламы) | GTA MAPS',
     gta5OnlineDesc: 'Интерактивная карта Ultra HD для GTA 5 Online и Кайо-Перико 100% без рекламы. Бизнесы, ограбления, недвижимость, транспорт, оружие и умный ассистент.',

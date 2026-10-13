@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../../i18n';
 import { GotyService } from '../../../services/goty.service';
@@ -41,6 +41,8 @@ export interface Gta6MarkerItem {
     standalone: false
 })
 export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
+    @ViewChild('mapWrapper', { static: true }) private mapWrapper!: ElementRef<HTMLElement>;
+    isFullscreen = false;
 
     // Telemetría de coordenadas X, Y en tiempo real
     mouseCoords = { x: 1200, y: 1200 };
@@ -752,5 +754,38 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
 
         tick();
         this.clockInterval = setInterval(tick, 30000);
+    }
+
+    async toggleFullscreen(): Promise<void> {
+        const element = this.getFullscreenHost();
+
+        try {
+            if (document.fullscreenElement) {
+                await document.exitFullscreen();
+            } else if (element.requestFullscreen) {
+                await element.requestFullscreen();
+            }
+        } catch {
+            this.isFullscreen = false;
+        }
+    }
+
+    exitFullscreen(): void {
+        if (document.fullscreenElement) {
+            void document.exitFullscreen();
+        }
+    }
+
+    onFullscreenChange(): void {
+        this.isFullscreen = document.fullscreenElement === this.getFullscreenHost();
+    }
+
+    @HostListener('document:fullscreenchange')
+    private handleDocumentFullscreenChange(): void {
+        this.onFullscreenChange();
+    }
+
+    private getFullscreenHost(): HTMLElement {
+        return document.querySelector<HTMLElement>('.app-shell') ?? this.mapWrapper.nativeElement;
     }
 }
