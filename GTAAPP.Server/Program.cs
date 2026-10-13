@@ -246,6 +246,23 @@ app.MapStaticAssets();
 app.MapControllers();
 app.MapHub<UsuariosActivosHub>("/hubs/usuarios-activos");
 
+// Mapeo directo y garantizado para SEO (elimina error 500 por compresión/estáticos)
+app.MapGet("/sitemap.xml", (IWebHostEnvironment env) =>
+{
+    var path = Path.Combine(env.WebRootPath, "sitemap.xml");
+    return File.Exists(path)
+        ? Results.File(path, "application/xml; charset=utf-8")
+        : Results.NotFound();
+});
+
+app.MapGet("/robots.txt", (IWebHostEnvironment env) =>
+{
+    var path = Path.Combine(env.WebRootPath, "robots.txt");
+    return File.Exists(path)
+        ? Results.File(path, "text/plain; charset=utf-8")
+        : Results.NotFound();
+});
+
 // Enrutamiento fallback SPA (Single Page Application) hacia index.html de Angular
 app.MapFallbackToFile("/index.html");
 
