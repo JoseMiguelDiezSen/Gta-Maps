@@ -1,7 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslationService } from '../../i18n';
-import { GotyService } from '../../services/goty.service';
+import { TranslationService } from '../../../i18n';
+import { GotyService } from '../../../services/goty.service';
 
 export interface Gta6LegendItem {
     id: string;
@@ -35,12 +35,12 @@ export interface Gta6MarkerItem {
 // ---------------------------------------------------------------------------
 
 @Component({
-    selector: 'app-gta6-historia',
-    templateUrl: './gta6-historia.component.html',
-    styleUrls: ['./gta6-historia.component.css'],
+    selector: 'app-gta6-map-offline',
+    templateUrl: './gta6-map-offline.component.html',
+    styleUrls: ['./gta6-map-offline.component.css'],
     standalone: false
 })
-export class Gta6HistoriaComponent implements OnInit, OnDestroy {
+export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
 
     // Telemetría de coordenadas X, Y en tiempo real
     mouseCoords = { x: 1200, y: 1200 };
@@ -385,9 +385,9 @@ export class Gta6HistoriaComponent implements OnInit, OnDestroy {
     switchGame(game: string): void {
         this.selectedGame = game;
         if (game === 'gta5') {
-            this.router.navigate(['/gta5-historia']);
+            this.router.navigate(['/gta5-map-offline']);
         } else {
-            this.router.navigate(['/gta6-historia']);
+            this.router.navigate(['/gta6-map-offline']);
         }
     }
 

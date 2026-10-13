@@ -53,6 +53,17 @@
 
 /* === REGLAS PARA ADAPTACIÓN A MÓVILES Y PANTALLAS PEQUEÑAS === */
 @media (max-width: 600px) {
+  .gta5-protagonists-frames {
+    gap: 8px;
+    margin: 20px 0 24px;
+  }
+
+  .gta5-protagonist-frame span {
+    padding: 7px 4px;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+  }
+
 /* Ajusta las dimensiones y espaciados de el banner superior con la imagen de fondo. */
   .wiki-hero-banner {
     height: 155px;

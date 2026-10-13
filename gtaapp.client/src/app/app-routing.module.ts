@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent }           from './home/home.component';
-import { Gta5OnlineComponent }     from './gta5/online/gta5-online.component';
-import { Gta5HistoriaComponent }   from './gta5/historia/gta5-historia.component';
-import { Gta5GuiaOfflineComponent } from './gta5/guia/offline/gta5-guia-offline.component';
+import { Gta5MapOnlineComponent }     from './gta5/map/online/gta5-map-online.component';
+import { Gta5MapOfflineComponent }   from './gta5/map/offline/gta5-map-offline.component';
+import { Gta5GuiaOfflineComponent }   from './gta5/guia/offline/gta5-guia-offline.component';
 import { Gta5GuiaOnlineComponent }  from './gta5/guia/online/gta5-guia-online.component';
-import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
-import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
+import { Gta6MapOnlineComponent }    from './gta6/map/online/gta6-map-online.component';
+import { Gta6MapOfflineComponent }  from './gta6/map/offline/gta6-map-offline.component';
 import { Gta6GuiaOfflineComponent } from './gta6/guia/offline/gta6-guia-offline.component';
 import { Gta6GuiaOnlineComponent }  from './gta6/guia/online/gta6-guia-online.component';
 import { Gta6NoticiasComponent }  from './gta6/noticias/gta6-noticias.component';
@@ -30,25 +30,25 @@ const routes: Routes = [
 
     // ── GTA V ────────────────────────────────────────────────────────────────
     {
-        path: 'gta5-online',
-        component: Gta5OnlineComponent,
+        path: 'gta5-map-online',
+        component: Gta5MapOnlineComponent,
         data: {
             titleKey: 'seo.gta5OnlineTitle',
             descriptionKey: 'seo.gta5OnlineDesc',
             title: 'Mapa GTA V Online HD - Propiedades, Negocios, Coleccionables, Cayo Perico y Asistente IA | GTA MAPS',
             description: 'Mapa interactivo en HD de GTA 5 Online y Cayo Perico. Misiones, Propiedades, Vehiculos, Armas, Negocios, Golpes, Misterios y asistente IA en tiempo real.',
-            canonical: 'https://gtamaps.dev/gta5-online'
+            canonical: 'https://gtamaps.dev/gta5-map-online'
         }
     },
     {
-        path: 'gta5-historia',
-        component: Gta5HistoriaComponent,
+        path: 'gta5-map-offline',
+        component: Gta5MapOfflineComponent,
         data: {
             titleKey: 'seo.gta5HistoriaTitle',
             descriptionKey: 'seo.gta5HistoriaDesc',
             title: 'Mapa GTA V Modo Historia - Propiedades, Negocios, Misiones, Vehiculos, Armas, Coleccionables, Asistente IA | GTA MAPS',
             description: 'Mapa interactivo de GTA V en HD: Misiones Principales, Cartas, Coleccionables , Saltos, Misterios',
-            canonical: 'https://gtamaps.dev/gta5-historia'
+            canonical: 'https://gtamaps.dev/gta5-map-offline'
         }
     },
     {
@@ -72,27 +72,27 @@ const routes: Routes = [
         }
     },
     {
-        path: 'gta6-online',
-        component: Gta6OnlineComponent,
+        path: 'gta6-map-online',
+        component: Gta6MapOnlineComponent,
         canActivate: [DevAccessGuard],
         data: {
             titleKey: 'seo.gta6OnlineTitle',
             descriptionKey: 'seo.gta6OnlineDesc',
             title: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades | GTA MAPS',
             description: 'Mapa interactivo en HD de GTA 6 Online en Vice City y Leonida. Puntos de interés, carreteras, secretos, noticias y novedades.',
-            canonical: 'https://gtamaps.dev/gta6-online'
+            canonical: 'https://gtamaps.dev/gta6-map-online'
         }
     },
     {
-        path: 'gta6-historia',
-        component: Gta6HistoriaComponent,
+        path: 'gta6-map-offline',
+        component: Gta6MapOfflineComponent,
         canActivate: [DevAccessGuard],
         data: {
             titleKey: 'seo.gta6HistoriaTitle',
             descriptionKey: 'seo.gta6HistoriaDesc',
             title: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia | GTA MAPS',
             description: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Mapa HD de Vice City, Misiones, Coleccionables y secretos.',
-            canonical: 'https://gtamaps.dev/gta6-historia'
+            canonical: 'https://gtamaps.dev/gta6-map-offline'
         }
     },
     {
@@ -133,21 +133,21 @@ const routes: Routes = [
     { path: 'noticias',      redirectTo: '/gta6-noticias', pathMatch: 'full' },
     { path: 'gta6/noticias', redirectTo: '/gta6-noticias', pathMatch: 'full' },
     { path: 'gta6noticias',  redirectTo: '/gta6-noticias', pathMatch: 'full' },
-    { path: 'gta5',          redirectTo: '/gta5-online', pathMatch: 'full' },
-    { path: 'gta5online',    redirectTo: '/gta5-online', pathMatch: 'full' },
-    { path: 'gta5/online',   redirectTo: '/gta5-online', pathMatch: 'full' },
-    { path: 'gta5/historia', redirectTo: '/gta5-historia', pathMatch: 'full' },
-    { path: 'gta5historia',  redirectTo: '/gta5-historia', pathMatch: 'full' },
+    { path: 'gta5',          redirectTo: '/gta5-map-online', pathMatch: 'full' },
+    { path: 'gta5online',    redirectTo: '/gta5-map-online', pathMatch: 'full' },
+    { path: 'gta5/online',   redirectTo: '/gta5-map-online', pathMatch: 'full' },
+    { path: 'gta5/historia', redirectTo: '/gta5-map-offline', pathMatch: 'full' },
+    { path: 'gta5historia',  redirectTo: '/gta5-map-offline', pathMatch: 'full' },
     { path: 'gta5/guia',     redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
     { path: 'gta5/guia/offline', redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
     { path: 'gta5/guia/online',  redirectTo: '/gta5-guia-online', pathMatch: 'full' },
     { path: 'gta5guia',      redirectTo: '/gta5-guia', pathMatch: 'full' },
-    { path: 'gt5',           redirectTo: '/gta5-online', pathMatch: 'full' },
-    { path: 'gta6',          redirectTo: '/gta6-online', pathMatch: 'full' },
-    { path: 'gta6online',    redirectTo: '/gta6-online', pathMatch: 'full' },
-    { path: 'gta6/online',   redirectTo: '/gta6-online', pathMatch: 'full' },
-    { path: 'gta6/historia', redirectTo: '/gta6-historia', pathMatch: 'full' },
-    { path: 'gta6historia',  redirectTo: '/gta6-historia', pathMatch: 'full' },
+    { path: 'gt5',           redirectTo: '/gta5-map-online', pathMatch: 'full' },
+    { path: 'gta6',          redirectTo: '/gta6-map-online', pathMatch: 'full' },
+    { path: 'gta6online',    redirectTo: '/gta6-map-online', pathMatch: 'full' },
+    { path: 'gta6/online',   redirectTo: '/gta6-map-online', pathMatch: 'full' },
+    { path: 'gta6/historia', redirectTo: '/gta6-map-offline', pathMatch: 'full' },
+    { path: 'gta6historia',  redirectTo: '/gta6-map-offline', pathMatch: 'full' },
     { path: 'gta6/guia',     redirectTo: '/gta6-guia-offline', pathMatch: 'full' },
     { path: 'gta6/guia/offline', redirectTo: '/gta6-guia-offline', pathMatch: 'full' },
     { path: 'gta6/guia/online',  redirectTo: '/gta6-guia-online', pathMatch: 'full' },

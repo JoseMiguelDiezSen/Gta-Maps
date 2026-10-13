@@ -82,3 +82,268 @@
   color: rgba(255, 255, 255, 0.65);
   font-size: 14px;
 }
+
+/* ==========================================================================
+   GRID DE VEHÍCULOS POR CONCESIONARIO
+   ========================================================================== */
+.vehiculos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.vehiculo-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  background: rgba(14, 20, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vehiculo-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 184, 51, 0.55);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.vehiculo-card-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
+}
+
+.vehiculo-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.vehiculo-card-fallback {
+  font-size: 34px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.vehiculo-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vehiculo-card-name {
+  color: #f1f5f9;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.vehiculo-card-price {
+  color: #4ade80;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.wiki-shell.mode-day .vehiculo-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.wiki-shell.mode-day .vehiculo-card-media {
+  background: #f8fafc;
+}
+
+.wiki-shell.mode-day .vehiculo-card-info {
+  border-top-color: #e2e8f0;
+}
+
+.wiki-shell.mode-day .vehiculo-card-name {
+  color: #1e293b;
+}
+
+.wiki-shell.mode-day .vehiculo-card-price {
+  color: #16a34a;
+}
+
+/* ==========================================================================
+   DETALLE DE EMBARCACIÓN
+   ========================================================================== */
+.vehiculo-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.vehiculo-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.vehiculo-detail-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+}
+
+.vehiculo-detail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.vehiculo-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vehiculo-detail-maker {
+  color: #ffb833;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.vehiculo-detail-name {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.vehiculo-detail-price {
+  color: #4ade80;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.vehiculo-detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vehiculo-detail-badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.vehiculo-detail-badge--weapon {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+}
+
+.vehiculo-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.vehiculo-stat {
+  display: grid;
+  grid-template-columns: 96px 1fr 32px;
+  align-items: center;
+  gap: 10px;
+}
+
+.vehiculo-stat-label {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.vehiculo-stat-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.vehiculo-stat-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.vehiculo-stat-fill--speed {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+}
+
+.vehiculo-stat-fill--accel {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+}
+
+.vehiculo-stat-fill--brake {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
+}
+
+.vehiculo-stat-fill--handling {
+  background: linear-gradient(90deg, #10b981, #34d399);
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+.vehiculo-stat-num {
+  color: #f1f5f9;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.wiki-shell.mode-day .vehiculo-detail-media {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.wiki-shell.mode-day .vehiculo-detail-name,
+.wiki-shell.mode-day .vehiculo-stat-num {
+  color: #1e293b;
+}
+
+.wiki-shell.mode-day .vehiculo-detail-price {
+  color: #16a34a;
+}
+
+.wiki-shell.mode-day .vehiculo-detail-badge {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.wiki-shell.mode-day .vehiculo-stat-label {
+  color: #64748b;
+}
+
+.wiki-shell.mode-day .vehiculo-stat-bar {
+  background: #e2e8f0;
+}
+
+@media (max-width: 720px) {
+  .vehiculo-detail-layout {
+    grid-template-columns: 1fr;
+  }
+}

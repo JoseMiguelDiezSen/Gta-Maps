@@ -598,7 +598,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.articuloSub = this.guiaService.getArticulo('gta5', articuloId).subscribe({
       next: (articulo) => {
         this.selectedArticulo = articulo;
-        this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '');
+        this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '', articulo.id);
         this.isLoadingArticulo = false;
       },
       error: (err) => {
@@ -642,7 +642,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.searchResults = [];
   }
 
-  private renderMarkdown(raw: string): SafeHtml {
+  private renderMarkdown(raw: string, articuloId?: string): SafeHtml {
     if (!raw) {
       return this.sanitizer.bypassSecurityTrustHtml('');
     }
@@ -650,6 +650,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     const lines = raw.split('\n');
     const out: string[] = [];
     let inList = false;
+    let framesInserted = false;
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
@@ -662,6 +663,17 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       }
 
       if (line.startsWith('### ')) {
+        if (articuloId === 'prologo-introduccion-guia' && !framesInserted) {
+          out.push(`
+            <div class="gta5-protagonists-frames" aria-label="Marcos para los protagonistas de GTA V">
+              <div class="gta5-protagonist-frame" aria-label="Marco reservado para Michael De Santa"><span>Michael</span></div>
+              <div class="gta5-protagonist-frame" aria-label="Marco reservado para Trevor Philips"><span>Trevor</span></div>
+              <div class="gta5-protagonist-frame" aria-label="Marco reservado para Franklin Clinton"><span>Franklin</span></div>
+            </div>
+          `);
+          framesInserted = true;
+        }
+
         const rawText = line.substring(4).trim();
         const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
         const heading = this.formatInline(noEmoji);

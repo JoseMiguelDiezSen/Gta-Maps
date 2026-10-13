@@ -2,11 +2,11 @@ import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, HostListener, 
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import * as L from 'leaflet';
-import { LocationService } from '../../services/gta5/location.service';
-import { LocationItem } from '../../models/gta5/location';
-import { CollectibleItem } from '../../models/gta5/collectible';
-import { TranslationService } from '../../i18n';
-import { GotyService } from '../../services/goty.service';
+import { LocationService } from '../../../services/gta5/location.service';
+import { LocationItem } from '../../../models/gta5/location';
+import { CollectibleItem } from '../../../models/gta5/collectible';
+import { TranslationService } from '../../../i18n';
+import { GotyService } from '../../../services/goty.service';
 
 
 // ---------------------------------------------------------------------------
@@ -19,12 +19,12 @@ import { GotyService } from '../../services/goty.service';
 // ---------------------------------------------------------------------------
 
 @Component({
-    selector: 'app-gta5-historia',
-    templateUrl: './gta5-historia.component.html',
-    styleUrls: ['./gta5-historia.component.css'],
+    selector: 'app-gta5-map-offline',
+    templateUrl: './gta5-map-offline.component.html',
+    styleUrls: ['./gta5-map-offline.component.css'],
     standalone: false
 })
-export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
+export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @ViewChild('mapWrapper', { static: true }) private mapWrapper!: ElementRef<HTMLElement>;
     isFullscreen = false;
@@ -223,9 +223,9 @@ export class Gta5HistoriaComponent implements OnInit, AfterViewInit, OnDestroy {
     switchGame(game: string): void {
         this.selectedGame = game;
         if (game === 'gta6') {
-            this.router.navigate(['/gta6-historia']);
+            this.router.navigate(['/gta6-map-offline']);
         } else {
-            this.router.navigate(['/gta5-historia']);
+            this.router.navigate(['/gta5-map-offline']);
         }
     }
 

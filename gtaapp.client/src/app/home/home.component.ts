@@ -196,7 +196,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (!this.isDevAllowed) {
             return;
         }
-        this.router.navigate(['/gta6-online']);
+        this.router.navigate(['/gta6-map-online']);
     }
 
     goToGta5Guia(event?: Event): void {

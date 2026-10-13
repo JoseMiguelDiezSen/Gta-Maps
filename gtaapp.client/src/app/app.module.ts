@@ -5,12 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent }           from './app.component';
-import { Gta5OnlineComponent }    from './gta5/online/gta5-online.component';
-import { Gta5HistoriaComponent }  from './gta5/historia/gta5-historia.component';
+import { Gta5MapOnlineComponent }    from './gta5/map/online/gta5-map-online.component';
+import { Gta5MapOfflineComponent }  from './gta5/map/offline/gta5-map-offline.component';
 import { Gta5GuiaOfflineComponent } from './gta5/guia/offline/gta5-guia-offline.component';
 import { Gta5GuiaOnlineComponent }  from './gta5/guia/online/gta5-guia-online.component';
-import { Gta6OnlineComponent }    from './gta6/online/gta6-online.component';
-import { Gta6HistoriaComponent }  from './gta6/historia/gta6-historia.component';
+import { Gta6MapOnlineComponent }    from './gta6/map/online/gta6-map-online.component';
+import { Gta6MapOfflineComponent }  from './gta6/map/offline/gta6-map-offline.component';
 import { Gta6GuiaOfflineComponent } from './gta6/guia/offline/gta6-guia-offline.component';
 import { Gta6GuiaOnlineComponent }  from './gta6/guia/online/gta6-guia-online.component';
 import { Gta6NoticiasComponent }  from './gta6/noticias/gta6-noticias.component';
@@ -27,12 +27,12 @@ import { TranslatePipe }          from './i18n';
 @NgModule({
     declarations: [
         AppComponent,
-        Gta5OnlineComponent,
-        Gta5HistoriaComponent,
+        Gta5MapOnlineComponent,
+        Gta5MapOfflineComponent,
         Gta5GuiaOfflineComponent,
         Gta5GuiaOnlineComponent,
-        Gta6OnlineComponent,
-        Gta6HistoriaComponent,
+        Gta6MapOnlineComponent,
+        Gta6MapOfflineComponent,
         Gta6GuiaOfflineComponent,
         Gta6GuiaOnlineComponent,
         Gta6NoticiasComponent,
