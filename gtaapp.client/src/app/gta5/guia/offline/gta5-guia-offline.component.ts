@@ -32,6 +32,16 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   toastMessage: string | null = null;
   private toastTimeout: any = null;
 
+  mobileNavOpen: boolean = false;
+
+  toggleMobileNav(): void {
+    this.mobileNavOpen = !this.mobileNavOpen;
+  }
+
+  closeMobileNav(): void {
+    this.mobileNavOpen = false;
+  }
+
   mostrarTrofeos: boolean = false;
   isLoadingTrofeos: boolean = false;
   trofeos: TrofeoItem[] = [];

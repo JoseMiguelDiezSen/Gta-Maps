@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, of, map, forkJoin } from 'rxjs';
 import { GtaMission, GtaStrangerMission, GtaHeist } from '../../models/gta5/mission';
@@ -17,19 +17,42 @@ export class MissionService {
    * Carga la lista base canÃ³nica y superpone traducciones idiomÃ¡ticas disponibles.
    * Evita que misiones, atracos o misterios desaparezcan o queden desalineados.
    */
-  private loadWithFallback<T extends { id: string }>(basePath: string, localizedPath: string, activeLang: string): Observable<T[]> {
-    if (activeLang === 'es') {
-      return this.http.get<T[]>(basePath).pipe(
-        catchError(err => {
-          console.error(`Error cargando base ${basePath}:`, err);
-          return of([] as T[]);
-        })
+  private getCandidatePaths(path: string): string[] {
+    const withoutSlash = path.startsWith('/') ? path.substring(1) : path;
+    const withSlash = '/' + withoutSlash;
+    const dataWithoutSlash = withoutSlash.replace(/^assets\/data\//, 'data/');
+    const dataWithSlash = '/' + dataWithoutSlash;
+    return Array.from(new Set([path, withSlash, withoutSlash, dataWithSlash, dataWithoutSlash]));
+  }
+
+  private fetchWithFallback<T>(paths: string[]): Observable<T[]> {
+    const tryNext = (idx: number): Observable<T[]> => {
+      if (idx >= paths.length) {
+        return of([] as T[]);
+      }
+      return this.http.get<T[]>(paths[idx]).pipe(
+        catchError(() => tryNext(idx + 1))
       );
+    };
+    return tryNext(0);
+  }
+
+  /**
+   * Carga la lista base canónica y superpone traducciones idiomáticas disponibles.
+   * Evita que misiones, atracos o misterios desaparezcan o queden desalineados.
+   */
+  private loadWithFallback<T extends { id: string }>(basePath: string, localizedPath: string, activeLang: string): Observable<T[]> {
+    const baseCandidates = this.getCandidatePaths(basePath);
+
+    if (activeLang === 'es') {
+      return this.fetchWithFallback<T>(baseCandidates);
     }
 
+    const locCandidates = this.getCandidatePaths(localizedPath);
+
     return forkJoin({
-      base: this.http.get<T[]>(basePath).pipe(catchError(() => of([] as T[]))),
-      localized: this.http.get<any[]>(localizedPath).pipe(catchError(() => of([] as any[])))
+      base: this.fetchWithFallback<T>(baseCandidates),
+      localized: this.fetchWithFallback<any>(locCandidates)
     }).pipe(
       map(({ base, localized }) => {
         if (!base || base.length === 0) return (localized as T[]) || [];
@@ -51,7 +74,7 @@ export class MissionService {
         });
       }),
       catchError(err => {
-        console.error(`Error cargando ${localizedPath}:`, err);
+        console.error(`Error cargando datos:`, err);
         return of([]);
       })
     );

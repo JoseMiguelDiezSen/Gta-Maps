@@ -110,13 +110,15 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
     ];
 
     // Coleccionables EXCLUSIVOS de Modo Historia
-    // Fragmentos de carta (50), Piezas de nave espacial (50), Desperdicios nucleares (30), Piezas de submarino (30), Tratados de Epsilon (10)
+    // Fragmentos de carta (50), Piezas de nave espacial (50), Desperdicios nucleares (30), Piezas de submarino (30), Tratados de Epsilon (10), Plantas de peyote (27), Mosaicos de mono (50)
     readonly storyCollectibleKeys = [
         'letter_scrap',     // 50 fragmentos de carta
         'spaceship_part',   // 50 piezas de nave espacial
         'nuclear_waste',    // 30 desperdicios nucleares
         'submarine_part',   // 30 piezas de submarino
-        'epsilon_tract'     // 10 tratados de Epsilon
+        'epsilon_tract',    // 10 tratados de Epsilon
+        'peyote_plant',     // 27 plantas de peyote
+        'monkey_mosaic'     // 50 mosaicos de mono
     ];
 
     private _storyCharacters: LocationItem[] = [];
@@ -178,7 +180,9 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         spaceship_part: true,
         nuclear_waste:  true,
         submarine_part: true,
-        epsilon_tract:  true
+        epsilon_tract:  true,
+        peyote_plant:   true,
+        monkey_mosaic:  true
     };
 
     // -----------------------------------------------------------------------

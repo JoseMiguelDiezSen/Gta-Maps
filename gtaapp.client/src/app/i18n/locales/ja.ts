@@ -213,6 +213,8 @@ export const ja: TranslationSchema = {
       letterScrap: '手紙の切れ端',
       nuclearWaste: '放射性廃棄物',
       epsilonTract: 'エプシロンの書',
+      peyotePlant: 'サボテン（ペヨーテ）',
+      monkeyMosaic: 'サルのモザイク画',
       safehouses: '主人公の隠れ家',
       safehouseMichael: 'マイケルの家',
       safehouseFranklin: 'フランクリンの家',

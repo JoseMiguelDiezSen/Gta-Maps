@@ -213,6 +213,8 @@ export const ar: TranslationSchema = {
       letterScrap: 'قصاصات الرسائل',
       nuclearWaste: 'نفايات نووية',
       epsilonTract: 'معاهدات إبسيلون',
+      peyotePlant: 'نباتات البيوت',
+      monkeyMosaic: 'فسيفساء القرد',
       safehouses: 'مخابئ ومنازل الأبطال',
       safehouseMichael: 'منزل مايكل',
       safehouseFranklin: 'منازل فرانكلين',

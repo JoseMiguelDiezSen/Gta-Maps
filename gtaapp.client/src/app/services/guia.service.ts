@@ -65,6 +65,16 @@ export class GuiaService {
   }
 
   /**
+   * Obtiene los artículos narrativos del prólogo de la guía de GTA Online.
+   */
+  getOnlinePrologoArticulos(): Observable<GuiaArticulo[]> {
+    const jsonUrl = 'assets/data/gta5/guia/guia-online-prologo.json?t=' + new Date().getTime();
+    return this.http.get<GuiaArticulo[]>(jsonUrl).pipe(
+      catchError(() => of([]))
+    );
+  }
+
+  /**
    * Obtiene el catálogo de trofeos de GTA V (listado real en español).
    */
   getTrofeos(juegoId: 'gta5' | 'gta6'): Observable<TrofeosCatalogo> {
@@ -163,7 +173,7 @@ export class GuiaService {
                 { id: 'mision-18-laberinto-de-cristal', slug: 'laberinto-de-cristal', titulo: '18. Laberinto de cristal', subtitulo: 'Trevor Philips · Granja O\'Neil', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 7 },
                 { id: 'mision-19-reencuentro', slug: 'reencuentro', titulo: '19. Reencuentro', subtitulo: 'Trevor Philips · Los Santos', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 6 },
                 { id: 'mision-20-fama-o-drama', slug: 'fama-o-drama', titulo: '20. Fama o drama', subtitulo: 'Michael y Trevor · Maze Bank Arena', categoria: 'misiones-historia', badge: 'Michael & Trevor', tiempoLecturaMinutos: 8 },
-                { id: 'mision-21-muerto-en-vida', slug: 'muerto-en-vida', titulo: '21. Muerto en vida', subtitulo: 'Michael De Santa · Centro Médico de LS', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 8 },
+                { id: 'mision-21-muerto-en-vida', slug: 'muerto-en-vida', titulo: '21. El muerto viviente', subtitulo: 'Michael De Santa · Centro Médico de LS', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 8 },
                 { id: 'mision-22-tres-son-multitud', slug: 'tres-son-multitud', titulo: '22. Tres son multitud', subtitulo: 'Michael, Franklin y Trevor · Edificio IAA', categoria: 'misiones-historia', badge: 'FIB', tiempoLecturaMinutos: 10 },
                 { id: 'mision-23-de-libro', slug: 'de-libro', titulo: '23. De libro', subtitulo: 'Trevor y Michael · Murrieta Oil Field / Rockford Hills', categoria: 'misiones-historia', badge: 'FIB', tiempoLecturaMinutos: 9 },
                 { id: 'mision-24-safari-por-el-barrio', slug: 'safari-por-el-barrio', titulo: '24. Safari por el barrio', subtitulo: 'Franklin y Trevor · Grove Street (Davis)', categoria: 'misiones-historia', badge: 'Franklin & Trevor', tiempoLecturaMinutos: 10 },

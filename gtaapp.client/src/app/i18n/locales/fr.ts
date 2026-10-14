@@ -213,6 +213,8 @@ export const fr: TranslationSchema = {
       letterScrap: 'Morceaux de Lettre (50)',
       nuclearWaste: 'Déchets Nucléaires (30)',
       epsilonTract: 'Traités d\'Epsilon (10)',
+      peyotePlant: 'Plantes de Peyotl',
+      monkeyMosaic: 'Mosaïques de Singe',
       safehouses: 'Planques des Protagonistes',
       safehouseMichael: 'Manoir de Michael',
       safehouseFranklin: 'Villa de Franklin',

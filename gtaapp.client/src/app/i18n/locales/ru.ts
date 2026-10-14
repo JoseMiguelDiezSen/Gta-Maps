@@ -213,6 +213,8 @@ export const ru: TranslationSchema = {
       letterScrap: 'Обрывки писем',
       nuclearWaste: 'Ядерные отходы',
       epsilonTract: 'Трактаты Эпсилон',
+      peyotePlant: 'Растения пейот',
+      monkeyMosaic: 'Обезьяньи мозаики',
       safehouses: 'Убежища главных героев',
       safehouseMichael: 'Дом Майкла',
       safehouseFranklin: 'Дома Франклина',

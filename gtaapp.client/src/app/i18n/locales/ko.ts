@@ -213,6 +213,8 @@ export const ko: TranslationSchema = {
       letterScrap: '편지 조각',
       nuclearWaste: '방사능 폐기물',
       epsilonTract: '앱실론 문서',
+      peyotePlant: '페요테 선인장',
+      monkeyMosaic: '원숭이 모자이크',
       safehouses: '은신처',
       safehouseMichael: '마이클의 저택',
       safehouseFranklin: '프랭클린의 저택',

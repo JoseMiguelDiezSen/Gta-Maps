@@ -219,6 +219,8 @@ export interface TranslationSchema {
       letterScrap: string;
       nuclearWaste: string;
       epsilonTract: string;
+      peyotePlant: string;
+      monkeyMosaic: string;
       safehouses: string;
       safehouseMichael: string;
       safehouseFranklin: string;

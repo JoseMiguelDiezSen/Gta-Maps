@@ -1,0 +1,42 @@
+/* === REGLAS RESPONSIVAS PARA LA GUÍA DE GTA 6 ONLINE === */
+
+@media screen and (max-width: 850px) {
+  .gta6-online-guide-content {
+    padding: 24px 16px;
+  }
+
+  .gta6-online-guide-kicker {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .gta6-online-guide-content h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    letter-spacing: 1.5px;
+  }
+
+  .gta6-online-guide-content p:last-child {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gta6-online-guide-content {
+    padding: 20px 14px;
+  }
+
+  .gta6-online-guide-kicker {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+
+  .gta6-online-guide-content h1 {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+
+  .gta6-online-guide-content p:last-child {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+}

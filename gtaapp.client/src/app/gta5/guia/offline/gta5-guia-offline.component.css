@@ -1,4 +1,4 @@
-@import './guia-gta5-responsive.css';
+@import './guia-gta5offline-responsive.css';
 @import '../../map-hud.css';
 @import '../../map-responsive.css';
 /* ==========================================================================
@@ -2488,17 +2488,18 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), -2px 0 14px color-mix(in srgb, var(--cat-accent, #ffb833) 40%, transparent);
 }
 
-@media (max-width: 720px) {
-  .trophy-summary-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .trophy-grid {
-    grid-template-columns: 1fr;
-  }
-  .trophy-panel-title {
-    font-size: 23px;
-  }
-}
+/* Reglas responsivas de trofeos trasladadas a guia-gta5offline-responsive.css */
+
+
+
+
+
+
+
+
+
+
+
 
 /* ====== MODO DÍA: PANEL DE TROFEOS ====== */
 .wiki-shell.mode-day .trophy-panel {

@@ -212,6 +212,8 @@ export const es: TranslationSchema = {
       letterScrap: 'Fragmentos de Carta',
       nuclearWaste: 'Desperdicios Nucleares',
       epsilonTract: 'Tratados de Epsilon',
+      peyotePlant: 'Plantas de Peyote',
+      monkeyMosaic: 'Mosaicos de Mono',
       safehouses: 'Casas de Protagonistas',
       safehouseMichael: 'Casa de Michael',
       safehouseFranklin: 'Casas de Franklin',

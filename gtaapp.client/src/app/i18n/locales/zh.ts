@@ -213,6 +213,8 @@ export const zh: TranslationSchema = {
       letterScrap: '信件残页 (50页)',
       nuclearWaste: '核废料桶 (30桶)',
       epsilonTract: '埃普西隆教教义残页',
+      peyotePlant: '迷幻仙人掌',
+      monkeyMosaic: '猴子马赛克',
       safehouses: '主角安全屋',
       safehouseMichael: '麦克的豪宅',
       safehouseFranklin: '富兰克林的安全屋',

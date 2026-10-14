@@ -1,0 +1,135 @@
+/* === REGLAS RESPONSIVAS PARA LA GUÍA DE GTA 5 ONLINE === */
+
+@media screen and (max-width: 850px) {
+  .wiki-body-layout {
+    flex-direction: column;
+    padding: 18px 16px;
+    gap: 20px;
+  }
+
+  .wiki-sidebar {
+    width: 100%;
+    position: static;
+    max-height: 480px;
+  }
+
+  .wiki-article-card {
+    padding: 24px 20px;
+  }
+
+  .wiki-hero-banner {
+    height: 190px;
+  }
+
+  .hero-main-title {
+    font-size: 28px;
+  }
+
+  .article-main-title {
+    font-size: 26px;
+  }
+
+  .vehiculos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .vehiculo-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .misterios-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }
+
+  .golpes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wiki-hero-banner {
+    height: 155px;
+  }
+
+  .hero-content-inner {
+    padding: 0 16px 12px 16px;
+  }
+
+  .hero-main-title {
+    font-size: 22px;
+  }
+
+  .hero-description {
+    font-size: 12.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .article-main-title {
+    font-size: 22px;
+  }
+
+  .vehiculos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .vehiculo-card-info {
+    padding: 8px 10px 10px;
+  }
+
+  .vehiculo-card-name {
+    font-size: 13px;
+  }
+
+  .vehiculo-card-price {
+    font-size: 12px;
+  }
+
+  .vehiculo-detail-media {
+    aspect-ratio: 16 / 10;
+    max-height: 220px;
+  }
+
+  .vehiculo-detail-name {
+    font-size: 24px;
+  }
+
+  .vehiculo-price-val {
+    font-size: 18px;
+  }
+
+  .vehiculo-stat {
+    grid-template-columns: 80px 1fr 28px;
+    gap: 6px;
+  }
+
+  .misterios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .misterio-detail-media {
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+  }
+
+  .golpes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .golpe-detail-media {
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+  }
+
+  .guide-heading-title {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+}

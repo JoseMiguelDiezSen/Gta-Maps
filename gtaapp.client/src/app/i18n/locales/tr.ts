@@ -213,6 +213,8 @@ export const tr: TranslationSchema = {
       letterScrap: 'Mektup Parçaları',
       nuclearWaste: 'Nükleer Atıklar',
       epsilonTract: 'Epsilon Yazıtları',
+      peyotePlant: 'Peyote Bitkileri',
+      monkeyMosaic: 'Maymun Mozaikleri',
       safehouses: 'Güvenli Evler',
       safehouseMichael: 'Michael’ın Evi',
       safehouseFranklin: 'Franklin’in Evi',

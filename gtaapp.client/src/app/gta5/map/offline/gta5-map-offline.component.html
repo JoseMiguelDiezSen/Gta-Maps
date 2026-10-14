@@ -451,6 +451,18 @@
               <span class="legend-name">{{ 'gta5.layers.epsilonTract' | translate }}</span>
               <span class="legend-count">{{ getCollectibleCount('epsilon_tract') }}</span>
             </button>
+            <!-- Plantas de Peyote (27) -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['peyote_plant']" (click)="toggleLayer('peyote_plant')">
+              <i class="legend-square" style="background:#10b981;box-shadow:0 0 6px #10b981"></i>
+              <span class="legend-name">{{ 'gta5.layers.peyotePlant' | translate }}</span>
+              <span class="legend-count">{{ getCollectibleCount('peyote_plant') }}</span>
+            </button>
+            <!-- Mosaicos de Mono (50) -->
+            <button type="button" class="legend-btn legend-btn-collectible" [class.is-active]="layerFilters['monkey_mosaic']" (click)="toggleLayer('monkey_mosaic')">
+              <i class="legend-square" style="background:#f97316;box-shadow:0 0 6px #f97316"></i>
+              <span class="legend-name">{{ 'gta5.layers.monkeyMosaic' | translate }}</span>
+              <span class="legend-count">{{ getCollectibleCount('monkey_mosaic') }}</span>
+            </button>
           </div>
         </div>
 
@@ -653,19 +665,15 @@
     <span *ngIf="coordsCopied" class="coord-copied">✓</span>
   </div>
 
-  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: TRANSPORTES -->
+  <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: TRANSPORTES / INFO -->
   <button
     type="button"
     class="hud-side-trigger"
     (click)="toggleProfileDrawer()"
     [title]="'transports.title' | translate"
   >
-    <div class="side-trigger-content">
+    <div class="side-trigger-circle">
       <i class="fa-solid fa-mobile-screen-button side-trigger-icon"></i>
-      <span class="hud-panel-title">{{ 'transports.title' | translate }}</span>
-    </div>
-    <div class="side-trigger-toggle-btn" [title]="'transports.title' | translate">
-      <i class="fa-solid fa-chevron-left side-trigger-caret"></i>
     </div>
   </button>
 

@@ -213,6 +213,8 @@ export const hi: TranslationSchema = {
       letterScrap: 'पत्र के टुकड़े',
       nuclearWaste: 'परमाणु कचरा',
       epsilonTract: 'एप्सिलॉन ट्रैक्ट्स',
+      peyotePlant: 'पेयोट के पौधे',
+      monkeyMosaic: 'बंदर मोज़ाइक',
       safehouses: 'नायकों के ठिकाने',
       safehouseMichael: 'माइकल का घर',
       safehouseFranklin: 'फ्रैंकलिन के घर',

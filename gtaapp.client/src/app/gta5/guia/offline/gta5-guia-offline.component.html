@@ -82,7 +82,7 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
       </div>
 
-      <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE -->
+      <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE Y MENÚ MÓVIL -->
       <div class="nav-right">
         <button
           type="button"
@@ -96,6 +96,59 @@
           <span class="switch-icon switch-icon-sun">☀️</span>
           <span class="switch-thumb"></span>
         </button>
+
+        <!-- BOTÓN HAMBURGUESA MÓVIL -->
+        <button
+          type="button"
+          class="mobile-nav-toggle-btn"
+          (click)="toggleMobileNav()"
+          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
+          aria-label="Menú de navegación"
+        >
+          <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MENÚ DESPLEGABLE MÓVIL (DRAWER) -->
+    <div class="mobile-nav-drawer" *ngIf="mobileNavOpen">
+      <div class="mobile-nav-links">
+        <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+        <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 5 MAP</span>
+        </a>
+        <a
+          [routerLink]="isDevAllowed ? '/gta6' : null"
+          class="mobile-nav-link"
+          [class.nav-link-disabled]="!isDevAllowed"
+          (click)="onGta6MapClick($event); closeMobileNav()"
+        >
+          <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
+          <span>GTA 6 MAP</span>
+        </a>
+        <a routerLink="/gta6-guia" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 6</span>
+        </a>
+      </div>
+
+      <!-- Selector de modo Historia / Online en móvil -->
+      <div class="mobile-mode-switcher">
+        <span class="mobile-mode-label">MODO:</span>
+        <div class="mode-switch-track">
+          <a class="mode-switch-btn mode-historia is-active" routerLink="/gta5-guia-offline" (click)="closeMobileNav()">
+            <i class="mode-indicator dot-historia"></i>
+            <span>HISTORIA</span>
+          </a>
+          <a class="mode-switch-btn mode-online" routerLink="/gta5-guia-online" (click)="closeMobileNav()">
+            <i class="mode-indicator dot-online"></i>
+            <span>ONLINE</span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -422,6 +475,10 @@
             <span class="guide-detail-badge">{{ currentSection.articulos.length }} caps</span>
           </div>
 
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
+          </div>
+
           <div class="guide-chapters-list">
             <div
               *ngFor="let art of currentSection.articulos; let idx = index"
@@ -434,16 +491,19 @@
               
               <div class="chapter-card-info">
                 <span class="chapter-card-title">{{ art.titulo }}</span>
-                <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+                <span class="chapter-card-sub" *ngIf="art.subtitulo && currentSection?.id !== 'prologo'">{{ art.subtitulo }}</span>
               </div>
 
               <div class="chapter-card-meta">
                 <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
-                <span class="chapter-card-time" *ngIf="art.tiempoLecturaMinutos">
+                <span class="chapter-card-time" *ngIf="art.tiempoLecturaMinutos && currentSection?.id !== 'misiones-historia' && currentSection?.id !== 'prologo'">
                   <i class="fa-regular fa-clock"></i> {{ art.tiempoLecturaMinutos }}m
                 </span>
               </div>
             </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
         </ng-container>
       </div>

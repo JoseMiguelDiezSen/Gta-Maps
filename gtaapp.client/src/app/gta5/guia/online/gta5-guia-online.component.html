@@ -163,7 +163,7 @@
           </div>
 
           <!-- Badge con número de capítulos -->
-          <span class="guide-cat-badge">{{ seccion.id === 'personajes' ? ((personajes$ | async)?.length ?? 0) : getSeccionContador(seccion) }}</span>
+          <span class="guide-cat-badge">{{ seccion.id === 'personajes' ? ((personajes$ | async)?.length ?? 0) : (seccion.id === 'misterios' ? ((misterios$ | async)?.length ?? 0) : (seccion.id === 'golpes' ? (golpes.length || ((golpes$ | async)?.length ?? 0)) : (seccion.id === 'misiones-principales' ? (misionesOnline.length || ((misionesOnline$ | async)?.length ?? 0)) : getSeccionContador(seccion)))) }}</span>
 
           <!-- Flecha circular a la derecha -->
           <div class="guide-cat-arrow">
@@ -184,7 +184,10 @@
               <i class="fa-solid fa-chevron-left"></i>
               <span>Categorías</span>
             </button>
-            <span class="guide-detail-badge">{{ concesionarios.length }} concesionarios</span>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">VEHÍCULOS</span>
           </div>
 
           <div class="guide-categories-list">
@@ -207,6 +210,48 @@
                 <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
+        </ng-container>
+
+        <!-- SUB-VISTA: LISTADO DE CATEGORÍAS DE ARMAS -->
+        <ng-container *ngIf="currentSection.id === 'armas'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">ARMAS</span>
+          </div>
+
+          <div class="guide-categories-list">
+            <div
+              *ngFor="let cat of weaponCategories"
+              class="guide-cat-card"
+              [class.is-active]="categoriaArmaSeleccionada?.id === cat.id"
+              [style.--cat-accent]="cat.color"
+              (click)="seleccionarCategoriaArma(cat)"
+              [title]="cat.name"
+            >
+              <div class="guide-cat-icon">
+                <i class="fas {{ cat.icon }}"></i>
+              </div>
+              <div class="guide-cat-info">
+                <span class="guide-cat-title">{{ cat.name }}</span>
+              </div>
+              <span class="guide-cat-badge">{{ (weaponCounts$ | async)?.[cat.id] ?? '...' }}</span>
+              <div class="guide-cat-arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
         </ng-container>
 
@@ -218,6 +263,10 @@
               <span>Categorías</span>
             </button>
             <span class="guide-detail-badge">{{ (personajes$ | async)?.length ?? 0 }} personajes</span>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">PERSONAJES</span>
           </div>
 
           <div class="guide-categories-list">
@@ -233,16 +282,134 @@
                 <span class="guide-cat-title">{{ personaje.name }}</span>
               </div>
             </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
         </ng-container>
 
-        <ng-container *ngIf="currentSection.id !== 'vehiculos' && currentSection.id !== 'personajes'">
+        <!-- SUB-VISTA: LISTADO DE MISTERIOS -->
+        <ng-container *ngIf="currentSection.id === 'misterios'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+            <span class="guide-detail-badge">{{ (misterios$ | async)?.length ?? 0 }} misterios</span>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">MISTERIOS</span>
+          </div>
+
+          <div class="guide-chapters-list">
+            <div
+              *ngFor="let m of misterios$ | async; let idx = index"
+              class="guide-chapter-card"
+              [class.is-active]="(misterioSeleccionado?.id || (misterios$ | async)?.[0]?.id) === m.id"
+              (click)="seleccionarMisterio(m)"
+            >
+              <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+
+              <div class="chapter-card-info">
+                <span class="chapter-card-title">{{ m.title }}</span>
+              </div>
+            </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
+        </ng-container>
+ 
+        <!-- SUB-VISTA: LISTADO DE GOLPES -->
+        <ng-container *ngIf="currentSection.id === 'golpes'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+            <span class="guide-detail-badge">{{ golpes.length || ((golpes$ | async)?.length ?? 0) }} golpes</span>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">GOLPES</span>
+          </div>
+
+          <div class="guide-categories-list">
+            <div
+              *ngFor="let g of (golpes.length ? golpes : (golpes$ | async) || [])"
+              class="guide-cat-card"
+              [class.is-active]="(golpeSeleccionado?.id || (golpes.length ? golpes[0].id : (golpes$ | async)?.[0]?.id)) === g.id"
+              [style.--cat-accent]="g.badgeColor || '#2ecc71'"
+              (click)="seleccionarGolpe(g)"
+            >
+              <div class="guide-cat-icon">
+                <i class="fa-solid" [ngClass]="g.badgeIcon || 'fa-vault'"></i>
+              </div>
+              <div class="guide-cat-info">
+                <span class="guide-cat-title">{{ g.title }}</span>
+              </div>
+              <span class="guide-cat-badge" *ngIf="g.setupMissions?.length">{{ g.setupMissions.length }}</span>
+              <div class="guide-cat-arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
+        </ng-container>
+
+        <!-- SUB-VISTA: LISTADO DE MISIONES PRINCIPALES (GTA ONLINE) -->
+        <ng-container *ngIf="currentSection.id === 'misiones-principales'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+            <span class="guide-detail-badge">{{ misionesOnline.length }} misiones</span>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">MISIONES PRINCIPALES</span>
+          </div>
+
+          <div class="guide-chapters-list">
+            <div
+              *ngFor="let m of misionesOnline"
+              class="guide-chapter-card"
+              [class.is-active]="(misionSeleccionada?.id || misionesOnline[0]?.id) === m.id"
+              [style.--cat-accent]="getMissionAccentColor(m)"
+              (click)="seleccionarMision(m)"
+            >
+              <span class="chapter-card-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+
+              <div class="chapter-card-info">
+                <span class="chapter-card-title">{{ m.title }}</span>
+                <span class="chapter-card-sub" *ngIf="m.character">{{ m.character }}</span>
+              </div>
+
+              <div class="chapter-card-meta">
+                <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
+              </div>
+            </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentSection.id !== 'vehiculos' && currentSection.id !== 'personajes' && currentSection.id !== 'misterios' && currentSection.id !== 'golpes' && currentSection.id !== 'misiones-principales'">
         <div class="guide-detail-toolbar">
           <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
             <i class="fa-solid fa-chevron-left"></i>
             <span>Categorías</span>
           </button>
           <span class="guide-detail-badge">{{ currentSection.articulos.length }} caps</span>
+        </div>
+
+        <div class="sidebar-header-bar">
+          <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
         </div>
 
         <div class="guide-chapters-list">
@@ -263,6 +430,9 @@
               <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
             </div>
           </div>
+
+          <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+          <div class="guide-cat-list-divider" aria-hidden="true"></div>
         </div>
         </ng-container>
       </div>
@@ -379,8 +549,603 @@
         </div>
       </article>
 
+      <!-- Panel de la categoría de armas seleccionada: título + grid de armas + detalle -->
+      <article *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'" class="wiki-article-card">
+        <header class="article-header">
+          <div class="article-meta-row" *ngIf="armaSeleccionada">
+            <button type="button" class="guide-back-btn" (click)="volverAlGridArmas()" [title]="'Volver a ' + categoriaArmaSeleccionada.name">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>{{ categoriaArmaSeleccionada.name }}</span>
+            </button>
+          </div>
+
+          <div class="article-chapter-banner">
+            <div class="chapter-banner-text">
+              <h1 class="article-main-title">{{ categoriaArmaSeleccionada.name }}</h1>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-body">
+          <!-- GRID DE ARMAS -->
+          <div class="vehiculos-grid" *ngIf="!armaSeleccionada">
+            <div class="vehiculo-card" *ngFor="let arma of armasCategoria$ | async" (click)="seleccionarArma(arma)">
+              <div class="vehiculo-card-media">
+                <img
+                  *ngIf="!arma.imgFailed"
+                  [src]="arma.imageUrl"
+                  [alt]="arma.name"
+                  class="vehiculo-card-img"
+                  loading="lazy"
+                  (error)="arma.imgFailed = true"
+                />
+                <i *ngIf="arma.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(arma)"></i>
+              </div>
+              <div class="vehiculo-card-info">
+                <span class="vehiculo-card-name">{{ arma.name }}</span>
+                <span class="vehiculo-card-price">{{ arma.priceFormatted }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DETALLE DEL ARMA -->
+          <div class="vehiculo-detail" *ngIf="armaSeleccionada">
+            <div class="vehiculo-detail-layout">
+              <div class="vehiculo-detail-media">
+                <img
+                  *ngIf="!armaSeleccionada.imgFailed"
+                  [src]="armaSeleccionada.imageUrl"
+                  [alt]="armaSeleccionada.name"
+                  class="vehiculo-detail-img"
+                  (error)="armaSeleccionada.imgFailed = true"
+                />
+                <i *ngIf="armaSeleccionada.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(armaSeleccionada)"></i>
+              </div>
+
+              <div class="vehiculo-detail-info">
+                <span class="vehiculo-detail-maker">{{ armaSeleccionada.manufacturer }}</span>
+                <h2 class="vehiculo-detail-name">{{ armaSeleccionada.name }}</h2>
+
+                <div class="vehiculo-price-box">
+                  <span class="vehiculo-price-lbl">{{ 'transports.weapons.buyPrice' | translate }}</span>
+                  <span class="vehiculo-price-val">{{ armaSeleccionada.priceFormatted }}</span>
+                </div>
+
+                <div class="vehiculo-detail-badges">
+                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.categoryLabel">{{ armaSeleccionada.categoryLabel }}</span>
+                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.realCounterpart">
+                    {{ armaSeleccionada.realCounterpart }}
+                  </span>
+                  <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon" *ngIf="armaSeleccionada.hasMk2">
+                    {{ 'transports.weapons.mk2Badge' | translate }}
+                  </span>
+                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.rankUnlock && armaSeleccionada.rankUnlock > 1">
+                    {{ 'transports.weapons.rankUnlock' | translate }}: {{ armaSeleccionada.rankUnlock }}
+                  </span>
+                </div>
+
+                <div class="vehiculo-stats">
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.damage' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--speed" [style.width.%]="armaSeleccionada.damage * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.damage }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.fireRate' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--accel" [style.width.%]="armaSeleccionada.fireRate * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.fireRate }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.accuracy' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--handling" [style.width.%]="armaSeleccionada.accuracy * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.accuracy }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.range' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--brake" [style.width.%]="armaSeleccionada.range * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.range }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SEPARADOR CON ESPIGAS ESTILIZADAS OFICIAL DE LA GUÍA -->
+            <div class="guide-heading-divider">
+              <div class="guide-heading-line"></div>
+              <h3 class="guide-heading-title">ESPECIFICACIONES AMMU-NATION</h3>
+              <div class="guide-heading-line guide-heading-line--right"></div>
+            </div>
+
+            <!-- CONTENIDO DE DESCRIPCIÓN DEL ARMA -->
+            <p class="vehiculo-descripcion-texto" *ngIf="armaSeleccionada.description">
+              {{ armaSeleccionada.description }}
+            </p>
+
+            <!-- CARGADOR Y ACCESORIOS -->
+            <div class="vclean-desc-box" *ngIf="armaSeleccionada.clipSize" style="margin-top: 14px;">
+              <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 6px;">
+                <i class="fa-solid fa-box-archive"></i>
+                <span>{{ 'transports.weapons.clipSize' | translate }}</span>
+              </div>
+              <p class="vehiculo-descripcion-texto" style="margin-top: 0;">{{ armaSeleccionada.clipSize }}</p>
+            </div>
+
+            <div class="vclean-desc-box" *ngIf="armaSeleccionada.attachments && armaSeleccionada.attachments.length > 0" style="margin-top: 14px;">
+              <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 8px;">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span>{{ 'transports.weapons.attachmentsTitle' | translate }}</span>
+              </div>
+              <div class="vehiculo-detail-badges">
+                <span class="vehiculo-detail-badge" *ngFor="let att of armaSeleccionada.attachments" style="border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.08); color: #7dd3fc;">
+                  <i class="fa-solid fa-circle-check" style="margin-right: 4px; font-size: 10px;"></i>
+                  {{ att }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Panel de Misterios (IDÉNTICO A GUÍA OFFLINE) -->
+      <article *ngIf="currentSection?.id === 'misterios'" class="wiki-article-card">
+        <ng-container *ngIf="(misterioSeleccionado || (misterios$ | async)?.[0]) as m">
+          <header class="article-header">
+            <div class="article-meta-row">
+              <span *ngIf="m.categoryLabel" class="article-chip-badge">{{ m.categoryLabel }}</span>
+              <span class="article-read-meta" *ngIf="m.schedule">
+                <i class="fa-regular fa-clock" style="margin-right: 4px;"></i>
+                <span>{{ m.schedule }}</span>
+              </span>
+            </div>
+
+            <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) idéntico a offline -->
+            <div class="article-chapter-banner" [class.has-image]="getMysteryImage(m)">
+              <div class="chapter-banner-text">
+                <h1 class="article-main-title">{{ m.title }}</h1>
+                <p class="article-lead" *ngIf="m.titleEn && m.titleEn !== m.title">{{ m.titleEn }}</p>
+                <p class="article-lead" *ngIf="m.location">{{ m.location }}{{ m.zone ? ' · ' + m.zone : '' }}</p>
+              </div>
+              <div class="chapter-banner-media" *ngIf="getMysteryImage(m)">
+                <img [src]="getMysteryImage(m)" [alt]="m.title" class="chapter-banner-img" />
+              </div>
+            </div>
+          </header>
+
+          <div class="article-body">
+            <!-- Grid de datos HUD (idéntico a offline) -->
+            <div class="guide-hud-grid" *ngIf="m.schedule || m.location || m.zone || m.position">
+              <div class="guide-hud-box" *ngIf="m.schedule">
+                <i class="fa-regular fa-clock box-icon" style="color: #facc15;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.schedule' | translate }}</span>
+                  <span class="box-val">{{ m.schedule }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="m.location">
+                <i class="fa-solid fa-mountain box-icon" style="color: #38bdf8;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.location' | translate }}</span>
+                  <span class="box-val">{{ m.location }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="m.zone">
+                <i class="fa-solid fa-map-pin box-icon" style="color: #ec4899;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.mysteries.zone' | translate }}</span>
+                  <span class="box-val">{{ m.zone }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="m.position">
+                <i class="fa-solid fa-crosshairs box-icon" style="color: #4ade80;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'gta5.popups.coordinates' | translate }} XYZ</span>
+                  <span class="box-val" style="font-family: monospace; font-size: 11px;">
+                    X: {{ m.position.x }}, Y: {{ m.position.y }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sinopsis / Descripción (idéntico a offline guide-synopsis-block) -->
+            <div class="guide-synopsis-block" *ngIf="m.description">
+              <div class="guide-synopsis-head">
+                <i class="fa-solid fa-book-open"></i>
+                <span>{{ 'transports.mysteries.synopsis' | translate }}</span>
+              </div>
+              <div class="guide-synopsis-body">
+                <p>{{ m.description }}</p>
+              </div>
+            </div>
+
+            <!-- Trasfondo / Lore (idéntico a offline guide-synopsis-block) -->
+            <div class="guide-synopsis-block" *ngIf="m.lore" style="border-left-color: #a855f7;">
+              <div class="guide-synopsis-head" style="color: #c084fc;">
+                <i class="fa-solid fa-book-skull"></i>
+                <span>{{ 'transports.mysteries.loreTitle' | translate }}</span>
+              </div>
+              <div class="guide-synopsis-body">
+                <p>{{ m.lore }}</p>
+              </div>
+            </div>
+
+            <!-- Mecánicas (idéntico a offline guide-hud-gold-block) -->
+            <div class="guide-hud-gold-block" *ngIf="m.mechanics && m.mechanics.length > 0">
+              <div class="guide-hud-gold-head">
+                <i class="fa-solid fa-binoculars"></i>
+                <span>{{ 'transports.mysteries.mechanicsTitle' | translate }}</span>
+              </div>
+              <div class="guide-hud-gold-list">
+                <div class="gold-goal-item" *ngFor="let mech of m.mechanics">
+                  <div class="gold-goal-check">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ mech }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Punto de Observación (idéntico a offline guide-synopsis-block) -->
+            <div class="guide-synopsis-block" *ngIf="m.observationPoint" style="border-left-color: #38bdf8;">
+              <div class="guide-synopsis-head" style="color: #38bdf8;">
+                <i class="fa-solid fa-eye"></i>
+                <span>{{ 'transports.mysteries.observationTitle' | translate }}</span>
+              </div>
+              <div class="guide-synopsis-body">
+                <p>{{ m.observationPoint.tip }}</p>
+              </div>
+            </div>
+
+            <!-- Pistas (idéntico a offline guide-hud-gold-block) -->
+            <div class="guide-hud-gold-block" *ngIf="m.clues && m.clues.length > 0">
+              <div class="guide-hud-gold-head" style="color: #facc15;">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>{{ 'transports.mysteries.cluesTitle' | translate }}</span>
+              </div>
+              <div class="guide-hud-gold-list">
+                <div class="gold-goal-item" *ngFor="let clue of m.clues">
+                  <div class="gold-goal-check" style="color: #facc15; border-color: #facc15;">
+                    <i class="fa-solid fa-paperclip"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ clue }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </article>
+
+      <!-- Panel de Golpes (IDÉNTICO A GUÍA OFFLINE) -->
+      <article *ngIf="currentSection?.id === 'golpes'" class="wiki-article-card">
+        <ng-container *ngIf="(golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])) as g">
+          <header class="article-header">
+            <div class="article-meta-row">
+              <span *ngIf="g.categoryLabel" class="article-chip-badge">{{ g.categoryLabel }}</span>
+              <span class="article-chip-badge" *ngIf="g.potentialTake?.normal" style="color: #34d399; border-color: rgba(52, 211, 153, 0.4);">
+                {{ g.potentialTake.normal }}
+              </span>
+              <span class="article-read-meta" *ngIf="g.players">
+                <i class="fa-solid fa-users" style="margin-right: 4px;"></i>
+                <span>{{ g.players }}</span>
+              </span>
+            </div>
+
+            <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) idéntico a offline -->
+            <div class="article-chapter-banner" [class.has-image]="g.thumbnail">
+              <div class="chapter-banner-text">
+                <h1 class="article-main-title">{{ g.title }}</h1>
+                <p class="article-lead" *ngIf="g.titleEn && g.titleEn !== g.title">{{ g.titleEn }}</p>
+                <p class="article-lead" *ngIf="g.target || g.location">{{ g.target || g.location }}</p>
+              </div>
+              <div class="chapter-banner-media" *ngIf="g.thumbnail">
+                <img [src]="g.thumbnail" [alt]="g.title" class="chapter-banner-img" />
+              </div>
+            </div>
+          </header>
+
+          <div class="article-body">
+            <!-- Claves del golpe (Grid de datos HUD) -->
+            <div class="guide-hud-grid golpe-info-grid">
+              <div class="guide-hud-box" *ngIf="g.setupCostFormatted">
+                <i class="fa-solid fa-receipt box-icon" style="color: #f59e0b;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.setupCost' | translate }}</span>
+                  <span class="box-val">{{ g.setupCostFormatted }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="g.target">
+                <i class="fa-solid fa-crosshairs box-icon" style="color: #ef4444;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.target' | translate }}</span>
+                  <span class="box-val">{{ g.target }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="g.location">
+                <i class="fa-solid fa-location-dot box-icon" style="color: #38bdf8;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.location' | translate }}</span>
+                  <span class="box-val">{{ g.location }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="g.potentialTake">
+                <i class="fa-solid fa-money-bill-wave box-icon" style="color: #10b981;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
+                  <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ g.potentialTake.normal }}</span>
+                  <span class="box-sub" *ngIf="g.potentialTake.hard" style="font-size: 11px; color: #94a3b8;">Difícil: {{ g.potentialTake.hard }}</span>
+                  <span class="box-sub" *ngIf="g.potentialTake.description" style="font-size: 11px; color: #94a3b8;">{{ g.potentialTake.description }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="g.propertyRequired">
+                <i class="fa-solid fa-building box-icon" style="color: #a855f7;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
+                  <span class="box-val">{{ g.propertyRequired }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sinopsis / Información y Planificación -->
+            <div class="guide-synopsis-block" *ngIf="g.description">
+              <div class="guide-synopsis-head">
+                <i class="fa-solid fa-book-open"></i>
+                <span>{{ 'transports.heists.synopsis' | translate }}</span>
+              </div>
+              <div class="guide-synopsis-body">
+                <p>{{ g.description }}</p>
+              </div>
+            </div>
+
+            <!-- Enfoques tácticos disponibles (ej. Diamond Casino) -->
+            <div class="golpe-block" *ngIf="g.approaches && g.approaches.length > 0">
+              <div class="golpe-block-head" style="color: #ffb833;">
+                <i class="fa-solid fa-masks-theater"></i>
+                <span>{{ 'transports.heists.approachesTitle' | translate }}</span>
+              </div>
+              <div class="golpe-approaches-list">
+                <div class="golpe-approach-card" *ngFor="let app of g.approaches">
+                  <div class="golpe-approach-title">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>{{ app.name }}</span>
+                  </div>
+                  <p class="golpe-approach-desc">{{ app.description }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Misiones de Preparación -->
+            <div class="golpe-block" *ngIf="g.setupMissions && g.setupMissions.length > 0">
+              <div class="golpe-block-head" style="color: #38bdf8;">
+                <i class="fa-solid fa-list-check"></i>
+                <span>{{ 'transports.heists.setupsTitle' | translate }} ({{ g.setupMissions.length }})</span>
+              </div>
+              <div class="golpe-setups-list">
+                <div class="golpe-setup-item" *ngFor="let s of g.setupMissions; let idx = index">
+                  <div class="golpe-setup-num">{{ idx + 1 }}</div>
+                  <div class="golpe-setup-body">
+                    <div class="golpe-setup-head">
+                      <span class="golpe-setup-name">{{ s.name }}</span>
+                      <span class="golpe-setup-type" *ngIf="s.type">{{ s.type }}</span>
+                    </div>
+                    <p class="golpe-setup-desc" *ngIf="s.description">{{ s.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Desafíos de Élite -->
+            <div class="guide-hud-gold-block" *ngIf="g.eliteChallenges && g.eliteChallenges.length > 0">
+              <div class="guide-hud-gold-head" style="color: #f59e0b;">
+                <i class="fa-solid fa-stopwatch"></i>
+                <span>{{ 'transports.heists.eliteTitle' | translate }}</span>
+                <span class="golpe-elite-reward" *ngIf="g.eliteReward" style="margin-left: 8px; font-size: 12px; color: #34d399;">+{{ g.eliteReward }}</span>
+              </div>
+              <div class="guide-hud-gold-list">
+                <div class="gold-goal-item" *ngFor="let ec of g.eliteChallenges">
+                  <div class="gold-goal-check" style="color: #f59e0b; border-color: #f59e0b;">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ ec }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehículos desbloqueados -->
+            <div class="golpe-block" *ngIf="g.unlockedVehicles && g.unlockedVehicles.length > 0">
+              <div class="golpe-block-head" style="color: #a78bfa;">
+                <i class="fa-solid fa-car"></i>
+                <span>{{ 'transports.heists.unlockedVehicles' | translate }}</span>
+              </div>
+              <div class="golpe-vehicles-tags">
+                <span class="golpe-vehicle-tag" *ngFor="let v of g.unlockedVehicles">
+                  <i class="fa-solid fa-tag"></i>
+                  {{ v }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Consejos tácticos -->
+            <div class="guide-synopsis-block" *ngIf="g.tips && g.tips.length > 0" style="border-left-color: #34d399;">
+              <div class="guide-synopsis-head" style="color: #34d399;">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>{{ 'transports.heists.tipsTitle' | translate }}</span>
+              </div>
+              <div class="guide-synopsis-body">
+                <div class="golpe-list-item" *ngFor="let tip of g.tips">
+                  <p style="margin: 4px 0;">• {{ tip }}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </ng-container>
+      </article>
+
+      <!-- Panel de Misiones Principales (GTA ONLINE) -->
+      <article *ngIf="currentSection?.id === 'misiones-principales'" class="wiki-article-card">
+        <ng-container *ngIf="(misionSeleccionada || misionesOnline[0]) as m">
+          <header class="article-header">
+            <div class="article-meta-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <span class="article-chip-badge" [style.color]="getMissionAccentColor(m)" [style.border-color]="getMissionAccentColor(m)">
+                  Misión #{{ m.order < 10 ? '0' + m.order : m.order }}
+                </span>
+                <span class="article-chip-badge">{{ m.category }}</span>
+                <span class="article-chip-badge" *ngIf="m.minLevel" style="color: #facc15; border-color: rgba(250, 204, 21, 0.4);">
+                  <i class="fa-solid fa-ranking-star" style="margin-right: 4px;"></i> Nivel {{ m.minLevel }}
+                </span>
+                <span class="article-read-meta" *ngIf="m.players">
+                  <i class="fa-solid fa-users" style="margin-right: 4px;"></i> {{ m.players }} jugadores
+                </span>
+              </div>
+
+              <!-- Stepper Prev / Next -->
+              <div class="mdetail-stepper">
+                <button
+                  type="button"
+                  class="mdetail-step-btn"
+                  [disabled]="!previousMission"
+                  (click)="selectPreviousMission()"
+                  title="Misión anterior"
+                >
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <span class="mdetail-step-label">
+                  {{ m.order }} / {{ misionesOnline.length }}
+                </span>
+                <button
+                  type="button"
+                  class="mdetail-step-btn"
+                  [disabled]="!nextMission"
+                  (click)="selectNextMission()"
+                  title="Siguiente misión"
+                >
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Panel estilizado del capítulo: Título y Subtítulo -->
+            <div class="article-chapter-banner">
+              <div class="chapter-banner-text">
+                <h1 class="article-main-title">{{ m.title }}</h1>
+                <p class="article-lead" *ngIf="m.giver">Contacto: <strong>{{ m.giver }}</strong></p>
+              </div>
+            </div>
+          </header>
+
+          <div class="article-body">
+            <!-- Grid de datos HUD (Contacto, Nivel mínimo, Jugadores, Recompensa) -->
+            <div class="guide-hud-grid">
+              <div class="guide-hud-box" *ngIf="m.giver">
+                <i class="fa-solid fa-user-secret box-icon" [style.color]="getMissionAccentColor(m)"></i>
+                <div class="box-content">
+                  <span class="box-label">Contacto / Organizador</span>
+                  <span class="box-val">{{ m.giver }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="m.minLevel">
+                <i class="fa-solid fa-ranking-star box-icon" style="color: #facc15;"></i>
+                <div class="box-content">
+                  <span class="box-label">Nivel de Rango Mínimo</span>
+                  <span class="box-val">Nivel {{ m.minLevel }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="m.players">
+                <i class="fa-solid fa-users box-icon" style="color: #38bdf8;"></i>
+                <div class="box-content">
+                  <span class="box-label">Jugadores</span>
+                  <span class="box-val">{{ m.players }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box reward-box" *ngIf="m.reward">
+                <i class="fa-solid fa-trophy box-icon" style="color: #10b981;"></i>
+                <div class="box-content">
+                  <span class="box-label">Recompensa</span>
+                  <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ m.reward }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box unlock-box" *ngIf="m.unlockedBy">
+                <i class="fa-solid fa-lock-open box-icon" style="color: #a855f7;"></i>
+                <div class="box-content">
+                  <span class="box-label">Desbloqueado tras</span>
+                  <span class="box-val">{{ m.unlockedBy }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sinopsis / Descripción de la misión -->
+            <div class="guide-synopsis-block" *ngIf="m.description">
+              <div class="guide-synopsis-head">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Sinopsis de la misión</span>
+              </div>
+              <div class="guide-synopsis-body">
+                <p>{{ m.description }}</p>
+              </div>
+            </div>
+
+            <!-- Objetivos de la misión -->
+            <div class="guide-hud-gold-block" *ngIf="m.goldRequirements && m.goldRequirements.length > 0">
+              <div class="guide-hud-gold-head">
+                <i class="fa-solid fa-crosshairs"></i>
+                <span>Objetivos de la misión</span>
+              </div>
+              <div class="guide-hud-gold-list">
+                <div class="gold-goal-item" *ngFor="let req of m.goldRequirements">
+                  <div class="gold-goal-check">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span class="gold-goal-text">{{ req }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navegación Misión Anterior / Siguiente -->
+          <nav class="article-pagination-nav" aria-label="Navegación entre misiones">
+            <button
+              type="button"
+              class="pagination-btn pagination-prev"
+              *ngIf="previousMission"
+              (click)="selectPreviousMission()"
+            >
+              <span class="pagination-arrow">←</span>
+              <div class="pagination-text">
+                <span class="pagination-label">Misión anterior</span>
+                <span class="pagination-title">{{ previousMission.title }}</span>
+              </div>
+            </button>
+            <div *ngIf="!previousMission" class="pagination-spacer"></div>
+
+            <button
+              type="button"
+              class="pagination-btn pagination-next"
+              *ngIf="nextMission"
+              (click)="selectNextMission()"
+            >
+              <div class="pagination-text pagination-text-right">
+                <span class="pagination-label">Siguiente misión</span>
+                <span class="pagination-title">{{ nextMission.title }}</span>
+              </div>
+              <span class="pagination-arrow">→</span>
+            </button>
+          </nav>
+        </ng-container>
+      </article>
+
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="selectedArticulo && !concesionarioSeleccionado" class="wiki-article-card">
+      <article *ngIf="selectedArticulo && !concesionarioSeleccionado && !categoriaArmaSeleccionada && currentSection?.id !== 'misterios' && currentSection?.id !== 'golpes' && currentSection?.id !== 'misiones-principales' && currentSection?.id !== 'armas' && currentSection?.id !== 'vehiculos'" class="wiki-article-card">
         <header class="article-header">
           <div class="article-meta-row">
             <span *ngIf="selectedArticulo.badge" class="article-chip-badge">{{ selectedArticulo.badge }}</span>
@@ -397,7 +1162,7 @@
 
         <!-- Contenido Formateado Editorialmente -->
         <div class="article-body">
-          <div class="narrative-editorial-body"></div>
+          <div class="narrative-editorial-body" [innerHTML]="renderedContent"></div>
         </div>
       </article>
     </main>

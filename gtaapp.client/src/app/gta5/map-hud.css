@@ -843,83 +843,79 @@
    ========================================== */
 .hud-side-trigger {
   position: fixed;
-  right: 0;
+  right: 4px;
   top: 4px;
-  width: 290px;
-  max-width: 90vw;
+  width: 58px;
+  height: 58px;
   box-sizing: border-box;
-  height: 48px;
-  padding: 0 16px;
+  padding: 0;
   z-index: 1400;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  background-color: rgba(12, 16, 23, 0.90);
+  justify-content: center;
+  background-color: rgba(12, 16, 23, 0.92);
   background-image:
-    linear-gradient(rgba(255, 184, 51, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 184, 51, 0.04) 1px, transparent 1px),
-    radial-gradient(circle at 90% 10%, rgba(255, 184, 51, 0.07) 0%, transparent 45%),
-    radial-gradient(circle at 10% 90%, rgba(46, 204, 113, 0.05) 0%, transparent 45%);
-  background-size: 20px 20px, 20px 20px, 100% 100%, 100% 100%;
-  border: 1px solid rgba(255, 165, 0, 0.4);
-  border-right: none;
-  border-radius: 10px 0 0 10px;
+    linear-gradient(rgba(255, 184, 51, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 184, 51, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(255, 165, 0, 0.15) 0%, transparent 70%);
+  background-size: 16px 16px, 16px 16px, 100% 100%;
+  border: 1.5px solid rgba(255, 165, 0, 0.7);
+  border-radius: 12px;
   color: #fff;
   cursor: pointer;
-  box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 165, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), 0 0 18px rgba(255, 165, 0, 0.35);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .hud-side-trigger:hover {
-  background-color: rgba(22, 32, 44, 0.96);
-  border-color: rgba(255, 165, 0, 0.7);
-  box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.7), 0 0 18px rgba(255, 165, 0, 0.4);
+  background-color: rgba(20, 28, 40, 0.98);
+  border-color: rgba(255, 165, 0, 0.95);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 165, 0, 0.6);
+  transform: scale(1.06);
 }
 
-.hud-side-trigger:hover .hud-panel-title {
-  color: #ffa500;
+.hud-side-trigger:active {
+  transform: scale(0.96);
 }
 
-.side-trigger-content {
+/* Círculo blanco con sombreado interior degradado */
+.side-trigger-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f0f2f7 50%, #ccd1dc 100%);
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.42),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.95),
+    0 3px 10px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hud-side-trigger:hover .side-trigger-circle {
+  transform: scale(1.06);
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.48),
+    inset 0 -2px 4px rgba(255, 255, 255, 1),
+    0 4px 14px rgba(255, 165, 0, 0.55);
 }
 
 .side-trigger-icon {
-  color: #ffb833;
-  font-size: 14px;
+  color: #0c1017;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  transition: color 0.2s ease;
 }
 
-.side-trigger-toggle-btn {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffb833;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  flex-shrink: 0;
-  transition: all 0.15s ease;
-}
-
-.hud-side-trigger:hover .side-trigger-toggle-btn {
-  background: rgba(255, 184, 51, 0.2);
-  border-color: rgba(255, 165, 0, 0.5);
-  color: #fff;
+.hud-side-trigger:hover .side-trigger-icon {
+  color: #ff8c00;
 }
 
 /* ==========================================
