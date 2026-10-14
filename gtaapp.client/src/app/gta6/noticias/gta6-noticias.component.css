@@ -56,12 +56,34 @@
 }
 
 .wiki-shell.mode-day .nav-link-item {
-  color: #475569;
+  color: #334155;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.wiki-shell.mode-day .nav-link-item::after {
+  background: linear-gradient(90deg, transparent, #d97706 50%, transparent);
+  box-shadow: 0 0 6px rgba(217, 119, 6, 0.45);
+}
+
+.wiki-shell.mode-day .nav-link-item i {
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  color: #d97706;
 }
 
 .wiki-shell.mode-day .nav-link-item:hover {
-  color: #d946ef;
-  background: rgba(217, 70, 239, 0.08);
+  color: #0f172a;
+  background: transparent;
+}
+
+.wiki-shell.mode-day .nav-link-item:hover i {
+  background: rgba(217, 119, 6, 0.18);
+  border-color: #d97706;
+  color: #78350f;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.35);
+  transform: scale(1.08);
 }
 
 .wiki-shell.mode-day .nav-link-item.active-link {
@@ -231,14 +253,15 @@
 }
 
 .nav-link-item {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 5px 12px;
-  border-radius: 6px;
-  background: rgba(255, 184, 51, 0.05);
-  border: 1px solid rgba(255, 184, 51, 0.22);
-  color: #ffb833;
+  padding: 6px 4px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  color: #f1f5f9;
   text-decoration: none;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   font-size: 11.5px;
@@ -246,28 +269,56 @@
   letter-spacing: 0.8px;
   text-transform: uppercase;
   line-height: 1;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
+}
+
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffb833 50%, transparent);
+  box-shadow: 0 0 8px rgba(255, 184, 51, 0.75);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
 .nav-link-item i {
   font-size: 11.5px;
   color: #ffb833;
-  transition: transform 0.2s ease, color 0.2s ease;
-  transform: translateY(-1px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  background: rgba(255, 184, 51, 0.08);
+  border: 1px solid rgba(255, 184, 51, 0.28);
+  flex-shrink: 0;
 }
 
 .nav-link-item:hover {
   color: #ffffff;
   transform: translateY(-1px);
-  background: rgba(255, 184, 51, 0.16);
-  border-color: rgba(255, 184, 51, 0.6);
-  box-shadow: 0 0 12px rgba(255, 184, 51, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.nav-link-item:hover::after {
+  width: 100%;
+  left: 0;
+
 }
 
 .nav-link-item:hover i {
-  transform: translateY(-1px) scale(1.15);
+  background: rgba(255, 184, 51, 0.22);
+  border-color: #ffb833;
+  box-shadow: 0 0 10px rgba(255, 184, 51, 0.45);
+  transform: scale(1.08);
   color: #ffffff;
 }
 

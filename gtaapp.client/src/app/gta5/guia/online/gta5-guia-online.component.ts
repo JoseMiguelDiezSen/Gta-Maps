@@ -218,6 +218,16 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
         });
       }
     }
+    if (seccion.id === 'armas') {
+      if (this.weaponCategories.length > 0 && !this.categoriaArmaSeleccionada) {
+        this.seleccionarCategoriaArma(this.weaponCategories[0]);
+      }
+    }
+    if (seccion.id === 'vehiculos') {
+      if (this.concesionarios.length > 0 && !this.concesionarioSeleccionado) {
+        this.seleccionarConcesionario(this.concesionarios[0]);
+      }
+    }
   }
 
   backToSections(): void {

@@ -120,21 +120,21 @@
   {
     "id": "perico_pistol",
     "order": 5,
-    "name": "Perico Pistol",
+    "name": "Pistola de Perico",
     "nameEn": "Perico Pistol",
     "category": "pistols",
     "categoryLabel": "Handguns",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Custom Engraved Gold Walther PPK",
     "price": 0,
-    "priceFormatted": "Free (Heist Unlock)",
+    "priceFormatted": "Gratis (Desbloqueo Golpe)",
     "rankUnlock": 1,
     "damage": 6,
     "fireRate": 3.5,
     "accuracy": 5.5,
     "range": 4,
     "clipSize": "Un solo disparo",
-    "description": "Handcrafted solid gold pistol recovered from El Rubio's private office safe in the fortified Cayo Perico compound.",
+    "description": "Pistola de oro macizo artesanal recuperada de la caja fuerte del despacho privado de El Rubio en su complejo fortificado de Cayo Perico.",
     "attachments": [
       "Native 24K Gold Inlay"
     ],
@@ -415,7 +415,7 @@
   {
     "id": "service_carbine",
     "order": 15,
-    "name": "Service Carbine",
+    "name": "Carabina de servicio",
     "nameEn": "Service Carbine",
     "category": "rifles",
     "categoryLabel": "Assault Rifles",
@@ -429,13 +429,13 @@
     "accuracy": 6.8,
     "range": 6.5,
     "clipSize": "30 proyectiles (60 ampliado)",
-    "description": "Iconic military service rifle delivering reliable sustained damage for urban tactical operations throughout San Andreas.",
+    "description": "Fusil militar de servicio emblemático que proporciona un daño constante y fiable en operaciones tácticas urbanas por todo San Andreas.",
     "attachments": [
       "Cargador ampliado",
-      "Telescopic Scope",
+      "Mira telescópica",
       "Silenciador",
       "Empuñadura",
-      "Tactical Light"
+      "Linterna táctica"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
@@ -505,7 +505,7 @@
   {
     "id": "combat_shotgun",
     "order": 18,
-    "name": "Combat Shotgun",
+    "name": "Escopeta de combate",
     "nameEn": "Combat Shotgun",
     "category": "shotguns",
     "categoryLabel": "Shotguns",
@@ -518,11 +518,11 @@
     "fireRate": 4.5,
     "accuracy": 4.5,
     "range": 3,
-    "clipSize": "6 shells",
-    "description": "Italian designed combat shotgun with folding stock, recovered from the personal elite security guards of Cayo Perico.",
+    "clipSize": "6 cartuchos",
+    "description": "Escopeta de combate de diseño italiano con culata plegable, recuperada de la guardia de seguridad de Cayo Perico.",
     "attachments": [
-      "Tactical Light",
-      "Shotgun Suppressor"
+      "Linterna táctica",
+      "Silenciador de escopeta"
     ],
     "icon": "fa-fire",
     "badgeColor": "#ea580c",
@@ -699,7 +699,7 @@
   {
     "id": "knife",
     "order": 25,
-    "name": "Knife",
+    "name": "Cuchillo",
     "nameEn": "Knife",
     "category": "melee",
     "categoryLabel": "Cuerpo a Cuerpo",
@@ -712,8 +712,8 @@
     "fireRate": 3,
     "accuracy": 1,
     "range": 1,
-    "clipSize": "Close combat bladed weapon",
-    "description": "7-inch carbon steel fixed blade combat knife. Silent and deadly for stealth takedowns from behind.",
+    "clipSize": "Arma blanca de combate cuerpo a cuerpo",
+    "description": "Cuchillo de combate de hoja fija de acero al carbono de 7 pulgadas. Silencioso y letal para eliminaciones sigilosas por la espalda.",
     "attachments": [
       "Forged Steel Finish"
     ],
@@ -726,21 +726,21 @@
   {
     "id": "stone_hatchet",
     "order": 26,
-    "name": "Stone Hatchet",
+    "name": "Hacha de piedra",
     "nameEn": "Stone Hatchet",
     "category": "melee",
     "categoryLabel": "Cuerpo a Cuerpo",
     "manufacturer": "Native American / RDR2",
     "realCounterpart": "Sacred Stone Tomahawk",
     "price": 0,
-    "priceFormatted": "Free (Maude Bounty Challenge)",
+    "priceFormatted": "Gratis (Recompensas de Maude)",
     "rankUnlock": 1,
     "damage": 5,
     "fireRate": 2.5,
     "accuracy": 1,
     "range": 1,
-    "clipSize": "Passive: Stone Rage Mode",
-    "description": "Ancient Native American stone hatchet. Slashing an opponent triggers 'Stone Rage Mode', granting temporary ballistic invulnerability.",
+    "clipSize": "Pasiva: Modo Furia de Piedra",
+    "description": "Antigua hacha de piedra nativa americana. Al asestar un golpe letal se activa el 'Modo Furia', otorgando invulnerabilidad temporal y regeneración acelerada de salud.",
     "attachments": [
       "Traditional Leather Wraps"
     ],
@@ -780,7 +780,7 @@
   {
     "id": "proximity_mine",
     "order": 28,
-    "name": "Proximity Mine",
+    "name": "Mina de Proximidad",
     "nameEn": "Proximity Mine",
     "category": "throwables",
     "categoryLabel": "Throwables & Explosives",
@@ -793,8 +793,8 @@
     "fireRate": 1,
     "accuracy": 2,
     "range": 2,
-    "clipSize": "Up to 5 active deployed mines",
-    "description": "Anti-personnel and anti-vehicle mine with laser proximity sensors, triggering instantly when movement is detected.",
+    "clipSize": "Hasta 5 minas desplegadas",
+    "description": "Mina antipersona y antivehículo con sensores de proximidad por láser que detona de forma instantánea al detectar movimiento en su radio de acción.",
     "attachments": [
       "Thermal Motion Trigger"
     ],
@@ -803,5 +803,30 @@
     "hasMk2": false,
     "gameMode": "story",
     "imageUrl": "/assets/data-images/gta5/weapons/proximity_mine.png"
+  },
+  {
+    "id": "grenade",
+    "order": 29,
+    "name": "Granada de Mano",
+    "nameEn": "Grenade",
+    "category": "throwables",
+    "categoryLabel": "Throwables & Explosives",
+    "manufacturer": "Hawk & Little",
+    "realCounterpart": "M26 / Mk 2 Fragmentation Grenade",
+    "price": 250,
+    "priceFormatted": "$250",
+    "rankUnlock": 15,
+    "damage": 9.5,
+    "fireRate": 1.5,
+    "accuracy": 2,
+    "range": 3,
+    "clipSize": "Hasta 25 granadas",
+    "description": "Granada de fragmentación estándar. Retira la espoleta, lánzala contra la posición enemiga y detona tras una breve cuenta atrás de 5 segundos.",
+    "attachments": [],
+    "icon": "fa-burst",
+    "badgeColor": "#e11d48",
+    "hasMk2": false,
+    "gameMode": "story",
+    "imageUrl": "/assets/data-images/gta5/weapons/grenade.png"
   }
 ]

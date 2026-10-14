@@ -24,29 +24,58 @@
 
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <a routerLink="/gta5" class="nav-link-item" title="Ir al Mapa de GTA 5">
-          <i class="fa-solid fa-map-location-dot"></i>
-          <span>GTA 5 MAP</span>
-        </a>
+        <!-- Desplegable GTA 5 -->
+        <div class="nav-dropdown-wrapper">
+          <button type="button" class="nav-link-item dropdown-trigger" aria-haspopup="true">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>GTA 5</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a routerLink="/gta5" class="nav-dropdown-item" title="Ir al Mapa de GTA 5">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>MAPA GTA 5</span>
+            </a>
+            <span class="nav-dropdown-divider" aria-hidden="true"></span>
+            <a class="nav-dropdown-item is-disabled" title="Ya estás en la Guía de GTA 5">
+              <i class="fa-solid fa-book-open"></i>
+              <span>GUÍA GTA 5</span>
+            </a>
+          </div>
+        </div>
 
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <a
-          [routerLink]="isDevAllowed ? '/gta6' : null"
-          class="nav-link-item"
-          [class.nav-link-disabled]="!isDevAllowed"
-          (click)="onGta6MapClick($event)"
-          [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
-        >
-          <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-          <span>GTA 6 MAP</span>
-        </a>
+        <!-- Desplegable GTA 6 -->
+        <div class="nav-dropdown-wrapper">
+          <button type="button" class="nav-link-item dropdown-trigger" aria-haspopup="true">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>GTA 6</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a
+              [routerLink]="isDevAllowed ? '/gta6' : null"
+              class="nav-dropdown-item"
+              [class.is-disabled]="!isDevAllowed"
+              (click)="onGta6MapClick($event)"
+              [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
+            >
+              <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
+              <span>MAPA GTA 6</span>
+            </a>
+            <span class="nav-dropdown-divider" aria-hidden="true"></span>
+            <a routerLink="/gta6-guia" class="nav-dropdown-item" title="Ir a la Guía de GTA 6">
+              <i class="fa-solid fa-book-open"></i>
+              <span>GUÍA GTA 6</span>
+            </a>
+          </div>
+        </div>
 
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <a routerLink="/gta6-guia" class="nav-link-item" title="Ir a la Guía de GTA 6">
-          <i class="fa-solid fa-book-open"></i>
-          <span>GUIA GTA 6</span>
+        <!-- Botón NOTICIAS -->
+        <a routerLink="/gta6-noticias" class="nav-link-item" title="Noticias & Actualidad GTA 6">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>NOTICIAS</span>
         </a>
 
         <span class="nav-spike-divider" aria-hidden="true"></span>
@@ -399,7 +428,7 @@
           </div>
         </ng-container>
 
-        <ng-container *ngIf="currentSection.id !== 'vehiculos' && currentSection.id !== 'personajes' && currentSection.id !== 'misterios' && currentSection.id !== 'golpes' && currentSection.id !== 'misiones-principales'">
+        <ng-container *ngIf="currentSection.id !== 'vehiculos' && currentSection.id !== 'armas' && currentSection.id !== 'personajes' && currentSection.id !== 'misterios' && currentSection.id !== 'golpes' && currentSection.id !== 'misiones-principales'">
         <div class="guide-detail-toolbar">
           <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
             <i class="fa-solid fa-chevron-left"></i>

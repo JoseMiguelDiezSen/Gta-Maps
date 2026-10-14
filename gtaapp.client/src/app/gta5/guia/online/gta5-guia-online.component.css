@@ -422,21 +422,52 @@
 }
 
 .sidebar-header-bar {
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
   justify-content: center;
   text-align: center;
-  padding-bottom: 8px;
-  border-bottom: 1px solid transparent;
-  border-image: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.85) 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%) 1;
+  padding: 4px 0 8px;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  border: none;
+}
+
+.sidebar-header-bar::before,
+.sidebar-header-bar::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+}
+
+.sidebar-header-bar::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.75) 100%);
+}
+
+.sidebar-header-bar::after {
+  background: linear-gradient(90deg, rgba(255, 184, 51, 0.75) 0%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
 }
 
 .sidebar-header-title {
   font-size: 13px;
+  font-weight: 800;
   letter-spacing: 1.5px;
+  color: #ffb833;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .wiki-shell.mode-day .sidebar-header-bar {
-  border-image: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.85) 50%, rgba(217, 119, 6, 0.25) 75%, transparent 100%) 1;
+  border: none;
+}
+
+.wiki-shell.mode-day .sidebar-header-bar::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.75) 100%);
+}
+
+.wiki-shell.mode-day .sidebar-header-bar::after {
+  background: linear-gradient(90deg, rgba(217, 119, 6, 0.75) 0%, rgba(217, 119, 6, 0.25) 75%, transparent 100%);
 }
 
 .guide-cat-list-divider {
