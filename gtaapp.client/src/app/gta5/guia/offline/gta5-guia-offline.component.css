@@ -80,7 +80,7 @@
 
 /* Establece el diseÃ±o general de el menÃº lateral (Ã­ndice de contenidos). */
 .wiki-shell.mode-day .sidebar-header-bar {
-  border-bottom-color: #e2e8f0;
+  border: none;
 }
 
 /* Establece el diseÃ±o general de el menÃº lateral (Ã­ndice de contenidos). */
@@ -236,6 +236,11 @@
   max-height: 38px;
   object-fit: contain;
   display: block;
+  transition: filter 0.2s ease;
+}
+
+.wiki-shell.mode-day .wiki-nav-logo {
+  filter: brightness(0);
 }
 
 /* Ajusta las dimensiones y espaciados de la barra de navegaciÃ³n superior. */
@@ -727,9 +732,26 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-bottom: 8px;
-  border-bottom: 1px solid transparent;
-  border-image: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.85) 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%) 1;
+  padding: 4px 0 8px;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar-header-bar::before,
+.sidebar-header-bar::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+}
+
+.sidebar-header-bar::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.75) 100%);
+}
+
+.sidebar-header-bar::after {
+  background: linear-gradient(90deg, rgba(255, 184, 51, 0.75) 0%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
+
 }
 
 /* Configura la tipografÃ­a y los textos de el menÃº lateral (Ã­ndice de contenidos). */
@@ -739,6 +761,7 @@
   letter-spacing: 1.5px;
   color: #ffb833;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* Define los colores, fondos y estÃ©tica de el menÃº lateral (Ã­ndice de contenidos). */
@@ -752,7 +775,15 @@
 }
 
 .wiki-shell.mode-day .sidebar-header-bar {
-  border-image: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.85) 50%, rgba(217, 119, 6, 0.25) 75%, transparent 100%) 1;
+  border: none;
+}
+
+.wiki-shell.mode-day .sidebar-header-bar::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.75) 100%);
+}
+
+.wiki-shell.mode-day .sidebar-header-bar::after {
+  background: linear-gradient(90deg, rgba(217, 119, 6, 0.75) 0%, rgba(217, 119, 6, 0.25) 75%, transparent 100%);
 }
 
 .guide-cat-list-divider {
@@ -793,12 +824,83 @@
 }
 
 /* Estructura la posiciÃ³n y alineaciÃ³n de la tarjeta central donde se lee el artÃ­culo. */
-.article-meta-row {
+.guide-breadcrumbs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.breadcrumb-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #94a3b8;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: color 0.18s ease;
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover,
+.breadcrumb-link:focus-visible {
+  color: #ffb833;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.breadcrumb-separator {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 9px;
+}
+
+.breadcrumb-current {
+  color: #ffb833;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Modo Día */
+.wiki-shell.mode-day .breadcrumb-link {
+  color: #475569;
+}
+
+.wiki-shell.mode-day .breadcrumb-link:hover,
+.wiki-shell.mode-day .breadcrumb-link:focus-visible {
+  color: #d97706;
+}
+
+.wiki-shell.mode-day .breadcrumb-separator {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.wiki-shell.mode-day .breadcrumb-current {
+  color: #d97706;
 }
 
 /* Define los colores, fondos y estÃ©tica de las etiquetas que muestran el nÃºmero de misiones. */

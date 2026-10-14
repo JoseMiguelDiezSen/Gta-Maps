@@ -16,7 +16,7 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <div class="nav-brand">
-          <span class="nav-brand-title">GUIA GTA MAPS</span>
+          <span class="nav-brand-title">GTA WORLD</span>
         </div>
 
         <!-- Separador -->
@@ -601,16 +601,27 @@
       <!-- Lector del Artículo Seleccionado -->
       <article *ngIf="selectedArticulo && !mostrarTrofeos" class="wiki-article-card">
         <header class="article-header">
-          <div class="article-meta-row">
-            <span *ngIf="selectedArticulo.badge" class="article-chip-badge">{{ selectedArticulo.badge }}</span>
-            <span class="article-read-meta">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              <span>{{ selectedArticulo.tiempoLecturaMinutos }} min de lectura</span>
-            </span>
-          </div>
+          <!-- Miga de pan dinámica (Breadcrumbs) -->
+          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <ol class="breadcrumb-list">
+              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                <button
+                  *ngIf="item.clickable && !last"
+                  type="button"
+                  class="breadcrumb-link"
+                  (click)="item.action ? item.action() : null"
+                >
+                  {{ item.label }}
+                </button>
+                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  {{ item.label }}
+                </span>
+                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </li>
+            </ol>
+          </nav>
 
           <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) -->
           <div class="article-chapter-banner" [class.has-image]="getArticuloImage(selectedArticulo)">

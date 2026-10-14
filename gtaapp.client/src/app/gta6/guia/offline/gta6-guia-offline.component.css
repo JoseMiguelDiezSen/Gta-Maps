@@ -220,6 +220,11 @@
   max-height: 38px;
   object-fit: contain;
   display: block;
+  transition: filter 0.2s ease;
+}
+
+.wiki-shell.mode-day .wiki-nav-logo {
+  filter: brightness(0);
 }
 
 .nav-spike-divider {

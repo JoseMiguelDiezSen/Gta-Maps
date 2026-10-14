@@ -6,6 +6,12 @@ import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoIte
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
 
+export interface GuiaBreadcrumbItem {
+  label: string;
+  clickable: boolean;
+  action?: () => void;
+}
+
 @Component({
   selector: 'app-gta5-guia-offline',
   templateUrl: './gta5-guia-offline.component.html',
@@ -125,6 +131,106 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     const articulos = this.articulosSeccionActual;
     const idx = articulos.findIndex(a => a.id === this.selectedArticulo?.id);
     return idx >= 0 && idx < articulos.length - 1 ? articulos[idx + 1] : null;
+  }
+
+  get breadcrumbs(): GuiaBreadcrumbItem[] {
+    if (!this.selectedArticulo) return [];
+
+    const items: GuiaBreadcrumbItem[] = [];
+    const art = this.selectedArticulo;
+
+    let sec = this.currentSection;
+    if (!sec) {
+      sec = this.secciones.find(s => s.articulos?.some(a => a.id === art.id))
+        || this.secciones.find(s => s.id === art.categoria)
+        || null;
+    }
+
+    const heists = this.getGolpesList();
+    const heistFound = heists.find(h => h.missionIds.includes(art.id));
+    const isGolpeContext = (sec?.id === 'golpes') || !!this.currentGolpe || (this.currentSubcategory === 'golpes');
+
+    if (isGolpeContext && heistFound) {
+      const secGolpes = this.secciones.find(s => s.id === 'golpes') || sec;
+      items.push({
+        label: secGolpes ? secGolpes.titulo : 'Golpes y Atracos',
+        clickable: true,
+        action: () => {
+          if (secGolpes) this.openSection(secGolpes);
+          this.currentGolpe = null;
+        }
+      });
+
+      const heistTitle = heistFound.titulo.replace(/^\d+\.\s*/, '').replace(/\s*\(.*?\)$/, '');
+      items.push({
+        label: heistTitle || heistFound.titulo,
+        clickable: true,
+        action: () => {
+          if (secGolpes) this.openSection(secGolpes);
+          this.openGolpe(heistFound.id);
+        }
+      });
+
+      items.push({
+        label: this.cleanBreadcrumbTitle(art.titulo),
+        clickable: false
+      });
+
+      return items;
+    }
+
+    if (sec?.id === 'extranos-locos') {
+      items.push({
+        label: sec.titulo,
+        clickable: true,
+        action: () => {
+          this.openSection(sec!);
+          this.currentSubcategory = null;
+        }
+      });
+
+      const subcats = this.getSubcategoriasTematicas(sec);
+      const subcat = subcats.find(s => s.badge === art.badge || (s.missionIds && s.missionIds.includes(art.id)));
+      if (subcat) {
+        items.push({
+          label: subcat.titulo,
+          clickable: true,
+          action: () => {
+            this.openSection(sec!);
+            this.openSubcategory(subcat.id);
+          }
+        });
+      }
+
+      items.push({
+        label: this.cleanBreadcrumbTitle(art.titulo),
+        clickable: false
+      });
+
+      return items;
+    }
+
+    if (sec) {
+      items.push({
+        label: sec.titulo,
+        clickable: true,
+        action: () => {
+          this.openSection(sec!);
+        }
+      });
+    }
+
+    items.push({
+      label: this.cleanBreadcrumbTitle(art.titulo),
+      clickable: false
+    });
+
+    return items;
+  }
+
+  private cleanBreadcrumbTitle(title?: string): string {
+    if (!title) return '';
+    return title.replace(/^\d+\.\s*/, '').trim();
   }
 
   @HostListener('window:keydown', ['$event'])
