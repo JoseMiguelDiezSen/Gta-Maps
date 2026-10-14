@@ -234,22 +234,25 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 4px 6px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: rgba(255, 184, 51, 0.05);
+  border: 1px solid rgba(255, 184, 51, 0.22);
   color: #ffb833;
   text-decoration: none;
-  font-family: 'Pricedown', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: 19px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   line-height: 1;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 184, 51, 0.25);
-  transition: color 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
 }
 
 .nav-link-item i {
-  font-size: 13px;
+  font-size: 11.5px;
   color: #ffb833;
   transition: transform 0.2s ease, color 0.2s ease;
   transform: translateY(-1px);
@@ -258,7 +261,9 @@
 .nav-link-item:hover {
   color: #ffffff;
   transform: translateY(-1px);
-  text-shadow: 0 0 12px rgba(255, 184, 51, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
+  background: rgba(255, 184, 51, 0.16);
+  border-color: rgba(255, 184, 51, 0.6);
+  box-shadow: 0 0 12px rgba(255, 184, 51, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .nav-link-item:hover i {
