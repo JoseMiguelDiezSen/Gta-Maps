@@ -4,6 +4,17 @@
   <nav class="wiki-top-nav">
     <div class="nav-container">
       <div class="nav-left">
+        <!-- BOTÓN HAMBURGUESA MÓVIL (a la izquierda en móvil, oculto en PC) -->
+        <button
+          type="button"
+          class="mobile-nav-toggle-btn"
+          (click)="toggleMobileNav()"
+          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
+          aria-label="Menú de navegación"
+        >
+          <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
+        </button>
+
         <!-- Separador vertical espigado izquierdo -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
@@ -108,7 +119,7 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
       </div>
 
-      <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE Y MENÚ MÓVIL -->
+      <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE -->
       <div class="nav-right">
         <button
           type="button"
@@ -121,17 +132,6 @@
           <span class="switch-icon switch-icon-moon">🌙</span>
           <span class="switch-icon switch-icon-sun">☀️</span>
           <span class="switch-thumb"></span>
-        </button>
-
-        <!-- BOTÓN HAMBURGUESA MÓVIL -->
-        <button
-          type="button"
-          class="mobile-nav-toggle-btn"
-          (click)="toggleMobileNav()"
-          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
-          aria-label="Menú de navegación"
-        >
-          <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
         </button>
       </div>
     </div>

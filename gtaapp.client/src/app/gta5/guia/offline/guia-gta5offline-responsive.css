@@ -31,30 +31,71 @@
     min-width: 0 !important;
   }
 
+  /* Botón hamburguesa móvil a la izquierda */
+  .mobile-nav-toggle-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    border-radius: 7px !important;
+    background: rgba(255, 184, 51, 0.12) !important;
+    border: 1px solid rgba(255, 184, 51, 0.45) !important;
+    color: #ffb833 !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .mobile-nav-toggle-btn:hover {
+    background: rgba(255, 184, 51, 0.25) !important;
+    color: #ffffff !important;
+    border-color: #ffb833 !important;
+  }
+
+  /* Separadores espiga: se ocultan los de escritorio y se activan exactamente los 3 pedidos:
+     1. Tras botón menú
+     2. Tras logo
+     3. Tras texto GTA WORLD */
   .wiki-top-nav .nav-left .nav-spike-divider {
     display: none !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1),
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(2),
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(3) {
+    display: block !important;
+    height: 24px !important;
+    width: 1px !important;
+    margin: 0 2px !important;
+    flex-shrink: 0 !important;
   }
 
   .wiki-top-nav .nav-left .wiki-logo-link {
     margin: 0 !important;
     flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   .wiki-top-nav .nav-left .wiki-nav-logo {
-    height: 28px !important;
-    max-height: 28px !important;
+    height: 25px !important;
+    max-height: 25px !important;
     width: auto !important;
-    max-width: 80px !important;
+    max-width: 68px !important;
   }
 
   .wiki-top-nav .nav-left .nav-brand {
-    margin-left: 4px !important;
+    margin-left: 2px !important;
     min-width: 0 !important;
+    flex-shrink: 0 !important;
   }
 
   .wiki-top-nav .nav-left .nav-brand-title {
-    font-size: 18px !important;
-    letter-spacing: 0.8px !important;
+    font-size: 24px !important;
+    letter-spacing: 1px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -63,6 +104,7 @@
   }
 
   .wiki-top-nav .nav-left .nav-link-item,
+  .wiki-top-nav .nav-left .nav-dropdown-wrapper,
   .wiki-top-nav .nav-left .mode-switch-track {
     display: none !important;
   }
@@ -94,29 +136,6 @@
     font-size: 10px !important;
   }
 
-  .mobile-nav-toggle-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 36px !important;
-    height: 36px !important;
-    min-width: 36px !important;
-    border-radius: 8px !important;
-    background: rgba(255, 184, 51, 0.15) !important;
-    border: 1px solid rgba(255, 184, 51, 0.5) !important;
-    color: #ffb833 !important;
-    font-size: 16px !important;
-    cursor: pointer !important;
-    flex-shrink: 0 !important;
-    transition: all 0.2s ease !important;
-  }
-
-  .mobile-nav-toggle-btn:hover {
-    background: rgba(255, 184, 51, 0.25) !important;
-    color: #ffffff !important;
-    border-color: #ffb833 !important;
-  }
-
   /* Menú desplegable móvil (Drawer flotante) */
   .mobile-nav-drawer {
     display: flex !important;
@@ -128,7 +147,7 @@
     width: 100% !important;
     max-height: calc(100vh - 60px) !important;
     overflow-y: auto !important;
-    padding: 16px 20px 24px 20px !important;
+    padding: 14px 16px 20px 16px !important;
     background: rgba(11, 15, 20, 0.98) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
@@ -152,89 +171,135 @@
   }
 
   .mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
   }
 
   .mobile-nav-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 10px;
-    border-radius: 8px;
-    color: #ffb833;
-    text-decoration: none;
-    font-family: 'Pricedown', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-size: 20px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    transition: background 0.15s ease, color 0.15s ease;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 9px 12px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    color: #f1f5f9 !important;
+    text-decoration: none !important;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   .mobile-nav-link i {
-    font-size: 14px;
-    width: 20px;
-    text-align: center;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 6px !important;
+    background: rgba(255, 184, 51, 0.1) !important;
+    border: 1px solid rgba(255, 184, 51, 0.28) !important;
+    color: #ffb833 !important;
+    font-size: 13px !important;
+    flex-shrink: 0 !important;
+    transition: all 0.2s ease !important;
   }
 
   .mobile-nav-link:hover {
-    background: rgba(255, 184, 51, 0.15);
-    color: #ffffff;
+    background: rgba(255, 184, 51, 0.12) !important;
+    border-color: rgba(255, 184, 51, 0.45) !important;
+    color: #ffffff !important;
+    transform: translateX(3px) !important;
+  }
+
+  .mobile-nav-link:hover i {
+    background: rgba(255, 184, 51, 0.22) !important;
+    border-color: #ffb833 !important;
+    box-shadow: 0 0 10px rgba(255, 184, 51, 0.45) !important;
+    color: #ffffff !important;
   }
 
   .mobile-nav-link.nav-link-disabled {
-    opacity: 0.45;
-    pointer-events: none;
+    opacity: 0.45 !important;
+    pointer-events: none !important;
   }
 
+  /* Conmutador de modo centrado */
   .mobile-mode-switcher {
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    margin-top: 16px !important;
+    padding-top: 14px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .mobile-mode-label {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    color: #94a3b8;
-    text-transform: uppercase;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.4px !important;
+    color: #94a3b8 !important;
+    text-transform: uppercase !important;
+    margin: 0 !important;
+  }
+
+  .mobile-mode-switcher .mode-switch-track {
+    display: inline-flex !important;
+    margin: 0 !important;
   }
 
   /* Modo día en menú móvil */
   .wiki-shell.mode-day .mobile-nav-toggle-btn {
-    background: rgba(217, 119, 6, 0.1);
-    border-color: rgba(217, 119, 6, 0.35);
-    color: #d97706;
+    background: rgba(217, 119, 6, 0.1) !important;
+    border-color: rgba(217, 119, 6, 0.35) !important;
+    color: #d97706 !important;
   }
 
   .wiki-shell.mode-day .mobile-nav-drawer {
-    background: #ffffff;
-    border-top-color: #e2e8f0;
-    border-bottom-color: #d97706;
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+    background: #ffffff !important;
+    border-top-color: #e2e8f0 !important;
+    border-bottom-color: #d97706 !important;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12) !important;
   }
 
   .wiki-shell.mode-day .mobile-nav-link {
-    color: #d97706;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #1e293b !important;
+  }
+
+  .wiki-shell.mode-day .mobile-nav-link i {
+    background: rgba(217, 119, 6, 0.08) !important;
+    border-color: rgba(217, 119, 6, 0.28) !important;
+    color: #d97706 !important;
   }
 
   .wiki-shell.mode-day .mobile-nav-link:hover {
-    background: #fef3c7;
-    color: #92400e;
+    background: #fef3c7 !important;
+    border-color: #d97706 !important;
+    color: #78350f !important;
+  }
+
+  .wiki-shell.mode-day .mobile-nav-link:hover i {
+    background: rgba(217, 119, 6, 0.22) !important;
+    border-color: #d97706 !important;
+    color: #78350f !important;
   }
 
   .wiki-shell.mode-day .mobile-mode-switcher {
-    border-top-color: #e2e8f0;
+    border-top-color: #e2e8f0 !important;
   }
 
   .wiki-shell.mode-day .mobile-mode-label {
-    color: #475569;
+    color: #475569 !important;
   }
 
   /* Layout principal en columna en móvil (CERO solapamientos) */
@@ -350,18 +415,37 @@
 /* === REGLAS PARA ADAPTACIÓN A TELÉFONOS COMPACTOS (<= 600px) === */
 @media (max-width: 600px) {
   .wiki-top-nav .nav-container {
-    padding: 6px 10px !important;
+    padding: 6px 8px !important;
     gap: 6px !important;
   }
 
+  .wiki-top-nav .nav-left {
+    gap: 5px !important;
+  }
+
+  .mobile-nav-toggle-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    font-size: 14px !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1),
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(2),
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(3) {
+    height: 22px !important;
+    margin: 0 1px !important;
+  }
+
   .wiki-top-nav .nav-left .wiki-nav-logo {
-    height: 25px !important;
-    max-height: 25px !important;
-    max-width: 70px !important;
+    height: 23px !important;
+    max-height: 23px !important;
+    max-width: 62px !important;
   }
 
   .wiki-top-nav .nav-left .nav-brand-title {
-    font-size: 16px !important;
+    font-size: 22px !important;
+    letter-spacing: 0.8px !important;
   }
 
   .gta5-protagonists-frames {
