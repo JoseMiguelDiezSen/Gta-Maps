@@ -1512,12 +1512,18 @@
    PAGINACIÃ“N ENTRE CAPÃTULOS (ANTERIOR / SIGUIENTE)
    ========================================================================== */
 .article-pagination-nav {
-  margin-top: 36px;
+  margin-top: 0;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.article-pagination-bottom {
+  margin-top: 36px;
+  margin-bottom: 0;
 }
 
 /* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: .pagination-btn. */

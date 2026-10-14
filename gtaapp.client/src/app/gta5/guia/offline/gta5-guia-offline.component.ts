@@ -304,6 +304,10 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  private isMobileView(): boolean {
+    return typeof window !== 'undefined' && window.innerWidth <= 850;
+  }
+
   onContentClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
     const chip = target.closest('.guide-chip-code') as HTMLElement;
@@ -363,7 +367,9 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       this.mostrarTrofeos = false;
       this.isMobileReadingOpen = false;
     }
-    this.scrollToTop();
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   backToSections(): void {
@@ -372,7 +378,9 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.currentGolpe = null;
     this.mostrarTrofeos = false;
     this.isMobileReadingOpen = false;
-    this.scrollToTop();
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   cargarTrofeos(): void {
@@ -457,26 +465,34 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.currentSubcategory = subcatId;
     this.currentGolpe = null;
     this.isMobileReadingOpen = false;
-    this.scrollToTop();
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   backToSubcategories(): void {
     this.currentSubcategory = null;
     this.currentGolpe = null;
     this.isMobileReadingOpen = false;
-    this.scrollToTop();
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   openGolpe(golpeId: string): void {
     this.currentGolpe = golpeId;
     this.isMobileReadingOpen = false;
-    this.scrollToTop();
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   backToGolpes(): void {
     this.currentGolpe = null;
     this.isMobileReadingOpen = false;
-    this.scrollToTop();
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   hasSubcategorias(sec: GuiaSeccion | null): boolean {
@@ -748,7 +764,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   seleccionarArticulo(articuloId: string, openMobile: boolean = true): void {
     this.mostrarTrofeos = false;
-    if (openMobile) {
+    if (openMobile && this.isMobileView()) {
       this.isMobileReadingOpen = true;
       this.scrollToTop();
     }

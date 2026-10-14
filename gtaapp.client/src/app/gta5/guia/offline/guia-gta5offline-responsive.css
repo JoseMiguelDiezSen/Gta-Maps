@@ -107,8 +107,8 @@
   }
 
   .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1) {
-    margin-left: 8px !important;
-    margin-right: 15px !important;
+    margin-left: 14px !important;
+    margin-right: 17px !important;
   }
 
   .wiki-top-nav .nav-left .wiki-logo-link {
@@ -602,8 +602,12 @@
     position: static !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 20px 14px !important;
+    padding: 14px !important;
     box-sizing: border-box !important;
+  }
+
+  .wiki-article-card .article-chapter-banner {
+    margin-top: 0 !important;
   }
 
   /* Banner Hero superior en móvil */
@@ -635,9 +639,15 @@
   .article-pagination-nav {
     display: flex !important;
     flex-direction: column !important;
-    gap: 10px !important;
+    gap: 0 !important;
     width: 100% !important;
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .article-pagination-bottom {
     margin-top: 24px !important;
+    margin-bottom: 0 !important;
   }
 
   .pagination-row-prev-next {
@@ -745,8 +755,8 @@
   }
 
   .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1) {
-    margin-left: 7px !important;
-    margin-right: 14px !important;
+    margin-left: 12px !important;
+    margin-right: 16px !important;
   }
 
   .wiki-top-nav .nav-left .wiki-nav-logo {
@@ -804,6 +814,7 @@
     flex-direction: column !important;
     gap: 12px !important;
     padding: 12px 14px !important;
+    margin-top: 0 !important;
   }
 
   .chapter-banner-media {

@@ -199,45 +199,6 @@
     
     <!-- PANEL LATERAL DE CAPÍTULOS -->
     <aside class="wiki-sidebar">
-      <!-- Buscador en tiempo real -->
-      <div class="sidebar-search-box">
-        <div class="search-input-wrapper">
-          <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            type="text"
-            class="sidebar-search-input"
-            [(ngModel)]="searchQuery"
-            (input)="onSearch()"
-            placeholder="Buscar en la guía de GTA V..."
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button
-            *ngIf="searchQuery"
-            type="button"
-            class="search-clear-btn"
-            (click)="limpiarBusqueda()"
-            aria-label="Limpiar búsqueda"
-          >
-            ✕
-          </button>
-        </div>
-
-        <!-- Dropdown de resultados de búsqueda -->
-        <div *ngIf="searchResults.length > 0" class="search-dropdown-menu">
-          <div
-            *ngFor="let res of searchResults"
-            class="search-dropdown-item"
-            (click)="seleccionarArticulo(res.id); limpiarBusqueda()"
-          >
-            <span class="search-item-title">{{ res.titulo }}</span>
-            <span class="search-item-sub">{{ res.subtitulo }}</span>
-          </div>
-        </div>
-      </div>
 
       <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
       <div class="sidebar-header-bar" *ngIf="!currentSection">
@@ -692,6 +653,35 @@
             </ol>
           </nav>
 
+          <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner de la foto) -->
+          <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
+            <div class="pagination-row-prev-next">
+              <button
+                type="button"
+                class="pagination-btn pagination-prev"
+                *ngIf="capituloAnterior"
+                (click)="seleccionarArticulo(capituloAnterior.id)"
+                [title]="capituloAnterior.titulo"
+              >
+                <span class="pagination-arrow">←</span>
+                <span class="pagination-title">{{ capituloAnterior.titulo }}</span>
+              </button>
+              <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
+
+              <button
+                type="button"
+                class="pagination-btn pagination-next"
+                *ngIf="capituloSiguiente"
+                (click)="seleccionarArticulo(capituloSiguiente.id)"
+                [title]="capituloSiguiente.titulo"
+              >
+                <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
+                <span class="pagination-arrow">→</span>
+              </button>
+              <div *ngIf="!capituloSiguiente" class="pagination-spacer"></div>
+            </div>
+          </nav>
+
           <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) -->
           <div class="article-chapter-banner" [class.has-image]="getArticuloImage(selectedArticulo)">
             <div class="chapter-banner-text">
@@ -758,35 +748,8 @@
           </div>
         </div>
 
-        <!-- Navegación Capítulo Anterior / Siguiente -->
-        <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
-          <div class="pagination-row-prev-next">
-            <button
-              type="button"
-              class="pagination-btn pagination-prev"
-              *ngIf="capituloAnterior"
-              (click)="seleccionarArticulo(capituloAnterior.id)"
-              [title]="capituloAnterior.titulo"
-            >
-              <span class="pagination-arrow">←</span>
-              <span class="pagination-title">{{ capituloAnterior.titulo }}</span>
-            </button>
-            <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
-
-            <button
-              type="button"
-              class="pagination-btn pagination-next"
-              *ngIf="capituloSiguiente"
-              (click)="seleccionarArticulo(capituloSiguiente.id)"
-              [title]="capituloSiguiente.titulo"
-            >
-              <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
-              <span class="pagination-arrow">→</span>
-            </button>
-            <div *ngIf="!capituloSiguiente" class="pagination-spacer"></div>
-          </div>
-
-          <!-- Botón de retorno móvil al final del artículo -->
+        <!-- Botón de retorno móvil al final del artículo -->
+        <nav class="article-pagination-nav article-pagination-bottom" aria-label="Volver a los capítulos">
           <button
             type="button"
             class="pagination-btn pagination-back-mobile"
