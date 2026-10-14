@@ -48,6 +48,32 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.mobileNavOpen = false;
   }
 
+  /* Estado de navegación por niveles en móvil (estilo Info-Panel Coches/Armas) */
+  isMobileReadingOpen: boolean = false;
+
+  openMobileReading(): void {
+    this.isMobileReadingOpen = true;
+    this.scrollToTop();
+  }
+
+  closeMobileReading(): void {
+    this.isMobileReadingOpen = false;
+    if (this.mostrarTrofeos) {
+      this.mostrarTrofeos = false;
+      this.currentSection = null;
+    }
+    this.scrollToTop();
+  }
+
+  goToCategoriesFromReading(): void {
+    this.isMobileReadingOpen = false;
+    this.currentSection = null;
+    this.currentSubcategory = null;
+    this.currentGolpe = null;
+    this.mostrarTrofeos = false;
+    this.scrollToTop();
+  }
+
   mostrarTrofeos: boolean = false;
   isLoadingTrofeos: boolean = false;
   trofeos: TrofeoItem[] = [];
@@ -228,7 +254,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     return items;
   }
 
-  private cleanBreadcrumbTitle(title?: string): string {
+  cleanBreadcrumbTitle(title?: string): string {
     if (!title) return '';
     return title.replace(/^\d+\.\s*/, '').trim();
   }
@@ -315,7 +341,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
         this.isLoading = false;
         
         if (this.secciones.length > 0 && this.secciones[0].articulos.length > 0) {
-          this.seleccionarArticulo(this.secciones[0].articulos[0].id);
+          this.seleccionarArticulo(this.secciones[0].articulos[0].id, false);
         }
       },
       error: (err) => {
@@ -331,10 +357,13 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.currentGolpe = null;
     if (sec.id === 'trofeos') {
       this.mostrarTrofeos = true;
+      this.isMobileReadingOpen = true;
       this.cargarTrofeos();
     } else {
       this.mostrarTrofeos = false;
+      this.isMobileReadingOpen = false;
     }
+    this.scrollToTop();
   }
 
   backToSections(): void {
@@ -342,6 +371,8 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.currentSubcategory = null;
     this.currentGolpe = null;
     this.mostrarTrofeos = false;
+    this.isMobileReadingOpen = false;
+    this.scrollToTop();
   }
 
   cargarTrofeos(): void {
@@ -425,19 +456,27 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   openSubcategory(subcatId: string): void {
     this.currentSubcategory = subcatId;
     this.currentGolpe = null;
+    this.isMobileReadingOpen = false;
+    this.scrollToTop();
   }
 
   backToSubcategories(): void {
     this.currentSubcategory = null;
     this.currentGolpe = null;
+    this.isMobileReadingOpen = false;
+    this.scrollToTop();
   }
 
   openGolpe(golpeId: string): void {
     this.currentGolpe = golpeId;
+    this.isMobileReadingOpen = false;
+    this.scrollToTop();
   }
 
   backToGolpes(): void {
     this.currentGolpe = null;
+    this.isMobileReadingOpen = false;
+    this.scrollToTop();
   }
 
   hasSubcategorias(sec: GuiaSeccion | null): boolean {
@@ -707,8 +746,12 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     return '';
   }
 
-  seleccionarArticulo(articuloId: string): void {
+  seleccionarArticulo(articuloId: string, openMobile: boolean = true): void {
     this.mostrarTrofeos = false;
+    if (openMobile) {
+      this.isMobileReadingOpen = true;
+      this.scrollToTop();
+    }
     this.isLoadingArticulo = true;
     this.articuloSub?.unsubscribe();
     this.articuloSub = this.guiaService.getArticulo('gta5', articuloId).subscribe({

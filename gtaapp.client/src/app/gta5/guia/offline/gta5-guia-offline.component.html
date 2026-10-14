@@ -1,4 +1,4 @@
-<div #wikiShell class="wiki-shell gta5-theme" [class.mode-day]="themeMode === 'day'" (scroll)="onShellScroll()">
+<div #wikiShell class="wiki-shell gta5-theme" [class.mode-day]="themeMode === 'day'" [class.is-mobile-reading]="isMobileReadingOpen" (scroll)="onShellScroll()">
   
   <!-- BARRA DE NAVEGACIÓN SUPERIOR HUD -->
   <nav class="wiki-top-nav">
@@ -541,6 +541,45 @@
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
     <main class="wiki-content-area">
+
+      <!-- BARRA DE RETORNO Y BREADCRUMB MÓVIL (ESTILO INFO-PANEL MAPA) -->
+      <div class="mobile-reading-header">
+        <button
+          type="button"
+          class="drawer-large-back-btn"
+          (click)="closeMobileReading()"
+          title="Volver al listado"
+          aria-label="Volver al listado"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <div class="drawer-title-group">
+          <div class="drawer-breadcrumb">
+            <span class="drawer-breadcrumb-link" (click)="goToCategoriesFromReading()">CONTENIDOS</span>
+            <span class="drawer-breadcrumb-sep" *ngIf="currentSection || mostrarTrofeos">›</span>
+            <span
+              class="drawer-breadcrumb-link"
+              *ngIf="currentSection && !mostrarTrofeos"
+              (click)="closeMobileReading()"
+            >
+              {{ currentSection.titulo }}
+            </span>
+            <span class="drawer-breadcrumb-current" *ngIf="mostrarTrofeos">TROFEOS</span>
+            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo && !mostrarTrofeos">›</span>
+            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo && !mostrarTrofeos">
+              {{ cleanBreadcrumbTitle(selectedArticulo.titulo) }}
+            </span>
+          </div>
+          <h2 class="drawer-title" *ngIf="selectedArticulo && !mostrarTrofeos">
+            {{ selectedArticulo.titulo }}
+          </h2>
+          <h2 class="drawer-title" *ngIf="mostrarTrofeos">
+            Catálogo de Trofeos
+          </h2>
+        </div>
+      </div>
+
       <!-- PANEL DE TROFEOS (CATÁLOGO COMPLETO) -->
       <article *ngIf="mostrarTrofeos" class="wiki-article-card trophy-panel">
         <header class="trophy-panel-header">
@@ -746,6 +785,20 @@
               <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
             </div>
             <span class="pagination-arrow">→</span>
+          </button>
+
+          <!-- Botón de retorno móvil al final del artículo -->
+          <button
+            type="button"
+            class="pagination-btn pagination-back-mobile"
+            (click)="closeMobileReading()"
+            title="Volver a la lista de capítulos"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+            <div class="pagination-text">
+              <span class="pagination-label">Índice</span>
+              <span class="pagination-title">Volver a los Capítulos</span>
+            </div>
           </button>
         </nav>
       </article>
