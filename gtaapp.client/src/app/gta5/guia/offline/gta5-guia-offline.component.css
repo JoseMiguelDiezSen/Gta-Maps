@@ -52,7 +52,7 @@
 /* Define los colores, fondos y estÃ©tica de la barra de navegaciÃ³n superior. */
 .wiki-shell.mode-day .wiki-top-nav {
   background: #ffffff;
-  border-bottom-color: rgba(0, 0, 0, 0.08);
+  border-bottom-color: #ffb833;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
@@ -197,7 +197,7 @@
   background: rgba(11, 15, 20, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 2px solid #ffb833;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -270,7 +270,7 @@
 /* Controla las animaciones visuales de la barra de navegaciÃ³n superior. */
 .nav-brand-title {
   margin: 0;
-  font-size: 32px;
+  font-size: 35px;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 1.5px;

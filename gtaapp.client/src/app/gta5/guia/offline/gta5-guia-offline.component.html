@@ -760,62 +760,44 @@
 
         <!-- Navegación Capítulo Anterior / Siguiente -->
         <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
-          <button
-            type="button"
-            class="pagination-btn pagination-prev"
-            *ngIf="capituloAnterior"
-            (click)="seleccionarArticulo(capituloAnterior.id)"
-          >
-            <span class="pagination-arrow">←</span>
-            <div class="pagination-text">
-              <span class="pagination-label">Capítulo anterior</span>
+          <div class="pagination-row-prev-next">
+            <button
+              type="button"
+              class="pagination-btn pagination-prev"
+              *ngIf="capituloAnterior"
+              (click)="seleccionarArticulo(capituloAnterior.id)"
+              [title]="capituloAnterior.titulo"
+            >
+              <span class="pagination-arrow">←</span>
               <span class="pagination-title">{{ capituloAnterior.titulo }}</span>
-            </div>
-          </button>
-          <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
+            </button>
+            <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
 
-          <button
-            type="button"
-            class="pagination-btn pagination-next"
-            *ngIf="capituloSiguiente"
-            (click)="seleccionarArticulo(capituloSiguiente.id)"
-          >
-            <div class="pagination-text pagination-text-right">
-              <span class="pagination-label">Siguiente capítulo</span>
+            <button
+              type="button"
+              class="pagination-btn pagination-next"
+              *ngIf="capituloSiguiente"
+              (click)="seleccionarArticulo(capituloSiguiente.id)"
+              [title]="capituloSiguiente.titulo"
+            >
               <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
-            </div>
-            <span class="pagination-arrow">→</span>
-          </button>
+              <span class="pagination-arrow">→</span>
+            </button>
+            <div *ngIf="!capituloSiguiente" class="pagination-spacer"></div>
+          </div>
 
           <!-- Botón de retorno móvil al final del artículo -->
           <button
             type="button"
             class="pagination-btn pagination-back-mobile"
             (click)="closeMobileReading()"
-            title="Volver a la lista de capítulos"
+            title="Volver a los Capítulos"
           >
             <i class="fa-solid fa-arrow-left"></i>
-            <div class="pagination-text">
-              <span class="pagination-label">Índice</span>
-              <span class="pagination-title">Volver a los Capítulos</span>
-            </div>
+            <span class="pagination-title">Volver a los Capítulos</span>
           </button>
         </nav>
       </article>
-
-      <!-- Banner contextual: Enlace al Mapa Interactivo (Fuera del panel de la guía) -->
-      <div class="article-map-prompt" *ngIf="!isLoadingArticulo && selectedArticulo && !mostrarTrofeos">
-        <div class="map-prompt-text">
-          <h4 class="map-prompt-title">¿Buscas ubicaciones de esta guía?</h4>
-          <p class="map-prompt-sub">Explora coleccionables, misterios y golpes marcados en el mapa interactivo de Los Santos.</p>
-        </div>
-        <a routerLink="/gta5-map-offline" class="map-prompt-btn">
-          <span>Abrir Mapa</span>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </a>
-      </div>
     </main>
   </div>
 
