@@ -8,6 +8,8 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\gtaapp.client\</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="src\assets\images\gta5\guia\historia\ciudad\" />
+    <Folder Include="src\assets\images\gta5\guia\historia\locos-y-extraños\" />
     <Folder Include="src\assets\images\gta5\guia\online\misiones-online\" />
     <Folder Include="src\assets\images\gta5\guia\online\" />
   </ItemGroup>
