@@ -840,10 +840,10 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       if (line.startsWith('### ')) {
         if (articuloId === 'prologo-introduccion-guia' && !framesInserted) {
           out.push(`
-            <div class="gta5-protagonists-frames" aria-label="Marcos para los protagonistas de GTA V">
-              <div class="gta5-protagonist-frame" aria-label="Marco reservado para Michael De Santa"><span>Michael</span></div>
-              <div class="gta5-protagonist-frame" aria-label="Marco reservado para Trevor Philips"><span>Trevor</span></div>
-              <div class="gta5-protagonist-frame" aria-label="Marco reservado para Franklin Clinton"><span>Franklin</span></div>
+            <div class="gta5-protagonists-frames" aria-label="Protagonistas de GTA V">
+              <div class="gta5-protagonist-frame" aria-label="Michael De Santa"><img src="assets/images/gta5/guia/historia/personajes/Michael.png" alt="Michael De Santa" loading="lazy" /><span>Michael</span></div>
+              <div class="gta5-protagonist-frame" aria-label="Trevor Philips"><img src="assets/images/gta5/guia/historia/personajes/Trevor.png" alt="Trevor Philips" loading="lazy" /><span>Trevor</span></div>
+              <div class="gta5-protagonist-frame" aria-label="Franklin Clinton"><img src="assets/images/gta5/guia/historia/personajes/Franklin.png" alt="Franklin Clinton" loading="lazy" /><span>Franklin</span></div>
             </div>
           `);
           framesInserted = true;
