@@ -476,7 +476,7 @@ export class GuiaService {
       // duplicate case removed
       // Bienvenido a la Guía de GTA VI y Estado de Leonida\n\nBienvenido a la enciclopedia interactiva y base de datos oficial de Grand Theft Auto VI. Esta guía recopila toda la información documentada, análisis geográfico de Vice City y el Estado de Leonida, mecánicas de inventario realista y dinámicas de los protagonistas Jason y Lucia.\n\n---\n\n### 🗺️ Estructura de la Base de Datos\nLa enciclopedia se organiza en módulos de análisis especializado:\n\n* **Prólogo**: Introducción general y primeros pasos en Leonida.\n* **Protagonistas & Trama Criminal**: Análisis táctico de Jason y Lucia, mecánicas de cooperación y antecedentes penitenciarios.\n* **Vice City & Regiones de Leonida**: Distritos urbanos, zonas pantanosas de Grassrivers, playas de Vice Beaches y flora/fauna autóctona.\n* **Mecánicas & Físicas de Juego**: Sistema de inventario físico en maleteros, interacción ambiental y balística de última generación.\n* **Fuerzas del Orden & Redes Sociales**: IA policial inteligente, viralidad in-game y tácticas de persecución.
       case 'prologo-introduccion-guia':
-        return `## 📖 Prólogo: Bienvenido a la Guía Completa de GTA V\n\nGrand Theft Auto V ofrece una experiencia masiva que combina tres protagonistas entrelazados, 69 misiones principales de historia, golpes multimillonarios, un ecosistema bursátil dinámico y cientos de secretos repartidos por el Estado de San Andreas.\n\n---\n\n### 🗺️ Estructura de la Enciclopedia\nEsta guía interactiva está dividida en módulos estratégicos para facilitarte la navegación y el seguimiento del 100%:\n\n1. **Prólogo**: Introducción general, mapa interactivo y recomendaciones tácticas iniciales.\n2. **Misiones de la Historia**: Análisis paso a paso de las 69 misiones con sus objetivos de Medalla de Oro 100%, sinopsis narrativa, recompensas y requisitos de desbloqueo.\n3. **Modo Historia & 100%**: Guía de los 6 Grandes Golpes, tripulaciones ideales, checklist del 100% y análisis de los 3 finales (A, B y C).\n4. **Protagonistas & Facciones**: Habilidades especiales de Michael, Franklin y Trevor, atributos físicos y gestión de recursos.\n5. **Negocios y Bolsa**: Cómo multiplicar tu dinero hasta alcanzar los $2.147 millones con las misiones de asesinato de Lester y la compra de propiedades.\n6. **Secretos & Misterios**: El gran misterio de Mount Chiliad, los 4 OVNIs sumergidos y aéreos, el asesino de los 8 infinitos y el fantasma de Monte Gordo.\n7. **Trucos y Códigos**: Directorio de comandos, números de teléfono y combinaciones de botones para todas las plataformas.\n\n---\n\n### 💡 Consejos Esenciales para Empezar\n* **No hagas las misiones de asesinato de Lester de inmediato**: Guarda las misiones de asesinato secundarias (a excepción de la primera obligatoria para avanzar) hasta haber completado *El Gran Golpe*. De este modo podrás invertir con los 3 personajes su botín multimillonario y maximizar los beneficios en BAWSAQ y LCN.\n* **Aprovecha las habilidades especiales**: Úsalas frecuentemente en tiroteos y persecuciones para subir su medidor al máximo nivel rápidamente.\n* **Guarda partida con frecuencia**: Utiliza el teléfono móvil (icono de la nube) para guardar la partida antes de planificar golpes o compras millonarias de activos.`;
+        return `## 📖 Prólogo: Bienvenido a la Guía Completa de GTA V\n\nGrand Theft Auto V ofrece una experiencia masiva que combina tres protagonistas entrelazados, 69 misiones principales de historia, golpes multimillonarios, un ecosistema bursátil dinámico y cientos de secretos repartidos por el Estado de San Andreas.\n\n### 👥 Tres Protagonistas: Tres Formas de Meterse en Problemas\n\n**Franklin Clinton** quiere algo más. Acostumbrado a moverse por las calles de Los Santos, aspira a dejar atrás una vida que parece tener preparado para él un futuro demasiado pequeño. Tiene ambición, instinto y ganas de progresar, aunque las oportunidades que se le presentan no siempre vienen de la mano de las personas más recomendables.\n\n---\n\n**Michael De Santa** parece haber conseguido lo que muchos persiguen: una buena casa, dinero y una vida acomodada en las colinas de Los Santos. Sin embargo, detrás de esa aparente tranquilidad se esconde una familia disfuncional, un pasado que no termina de desaparecer y una insatisfacción que ni el mejor vecindario puede disimular. Hay quien sueña con retirarse. Michael es la prueba de que retirarse y encontrar la paz son dos cosas muy distintas.\n\n---\n\n**Trevor Philips**, por su parte, vive según unas normas que probablemente no sobrevivirían a una reunión de vecinos. Impulsivo, violento e imprevisible, es capaz de convertir una situación corriente en un problema de dimensiones considerables. Pero reducirlo a su temperamento sería quedarse en la superficie: Trevor tiene su propia idea de la lealtad, de la amistad y de cómo deben hacerse las cosas. Que esas ideas resulten tranquilizadoras para el resto de la humanidad es otro asunto.\n\n---\n\nTres hombres, tres circunstancias y tres maneras de entender el mundo. Sus caminos se cruzarán en una historia marcada por las ambiciones, los viejos asuntos pendientes, las lealtades puestas a prueba y unas decisiones cuyas consecuencias rara vez se quedan donde deberían.\n\n---\n\n### 🎬 La Historia Comienza Aquí\n\nEl modo historia de GTA V te invita a recorrer San Andreas a través de estos tres protagonistas, cada uno con su personalidad, sus relaciones y sus propios problemas. A medida que avances, descubrirás sus historias, conocerás a quienes forman parte de sus vidas y te verás envuelto en situaciones que irán mucho más allá de un simple encargo.\n\n---\n\nY cuando no estés siguiendo el hilo principal, la ciudad seguirá ahí. Sus carreteras, sus barrios, sus paisajes y sus secretos no desaparecen porque tengas una misión pendiente. Siempre habrá algo que descubrir, un lugar al que regresar o una decisión que quizá habría sido mejor pensar dos veces.\n\n---\n\nEsta guía te acompañará durante ese recorrido: desde los primeros pasos de la historia hasta sus momentos más importantes, con información sobre los protagonistas, las misiones y los lugares que hacen de San Andreas mucho más que un escenario.`;
       case 'requisitos-100':
         return `## 🏆 Resumen de Requisitos para el 100%
 
@@ -611,22 +611,123 @@ Al finalizar la misión del Gran Golpe, Franklin Clinton recibe la visita de Dev
 * **Consecuencias**: Los tres protagonistas sobreviven, conservan sus botines del Gran Golpe y siguen disponibles para jugar en Los Santos.`;
 
       case 'michael-de-santa':
-        return `## 🕶️ Michael De Santa: El Ladrón Retirado
+        return `## 🕶️ Michael De Santa
 
-Michael Townley (más tarde rebautizado como Michael De Santa) es el cerebro táctico de los golpes y el núcleo de la crisis familiar de la historia.
+### 🌆 El sueño americano, con antecedentes penales
+
+Hay personas que pasan media vida intentando escapar de su pasado. **Michael De Santa** consiguió cambiarse el apellido, mudarse a una de las zonas más exclusivas de Los Santos y comprarse una mansión con piscina. Sobre el papel, parece que la operación fue todo un éxito. El pequeño inconveniente es que cambiar de identidad resulta bastante más sencillo que cambiar de persona.
+
+Antes de convertirse en el acomodado residente de Rockford Hills que conocemos al comienzo de GTA V, Michael era Michael Townley: un delincuente profesional con experiencia en atracos, un temperamento complicado y una trayectoria que no figuraba precisamente entre los modelos de conducta recomendados para los jóvenes.
+
+Su vida actual es el resultado de una decisión radical: abandonar el mundo criminal y empezar de nuevo. O, al menos, intentar convencer a todo el mundo —incluido él mismo— de que eso es lo que ha hecho.
 
 ---
 
-### 1. Habilidad Especial: Disparo en Tiempo Bala
-* **Activación**: Presiona ambos joysticks (L3 + R3 en consola) o la tecla asignada en PC mientras apuntas con un arma de fuego.
-* **Efecto**: Ralentiza el tiempo a tu alrededor mientras tu velocidad de apuntado se mantiene intacta. Ideal para acertar tiros a la cabeza en tiroteos multitudinarios.
-* **Cómo Recargar la Barra**: Lograr bajas con tiros a la cabeza, conducir a altas velocidades o mantener la salud por debajo del 25%.
+### 🏈 De los campos de fútbol a los atracos
+
+La infancia de Michael estuvo lejos de los privilegios que más tarde ofrecería a sus propios hijos. Creció en un entorno humilde, marcado por los problemas familiares y por una relación difícil con su padre, al que las referencias del juego describen como alcohólico y abusivo. No tuvo una vida especialmente fácil y, desde joven, pareció encontrar más dificultades para construir un futuro estable que para meterse en problemas.
+
+Durante su adolescencia destacó jugando al fútbol americano. Llegó a ser quarterback de un equipo de nivel estatal y tuvo posibilidades de imaginarse un futuro lejos de los márgenes de la sociedad. Sin embargo, las lesiones y sus problemas de temperamento acabaron frustrando esas aspiraciones.
+
+El deporte no terminó convirtiéndose en la carrera que había imaginado. La delincuencia, en cambio, sí le ofreció una trayectoria profesional bastante más duradera.
+
+Michael comenzó a acumular experiencia en el mundo criminal y terminó convirtiéndose en un ladrón de bancos competente, con buena puntería y capacidad para organizar operaciones complejas. No era simplemente alguien dispuesto a empuñar un arma: también sabía planificar, evaluar riesgos y trabajar con otros delincuentes.
+
+Entre esas relaciones destacó la que mantuvo con Trevor Philips. Juntos participaron en distintos golpes y desarrollaron una asociación que iba mucho más allá de compartir un trabajo. Había confianza, historia y una familiaridad peligrosa, de esas que solo se construyen cuando varias personas han tenido que depender unas de otras en situaciones en las que equivocarse puede costarles la vida.
+
+Pero Michael empezó a contemplar una posibilidad que no encajaba demasiado bien con aquella existencia: dejarlo todo atrás.
 
 ---
 
-### 2. Historia y Relación con el FIB
-* Tras fingir su muerte en el atraco de Ludendorff (North Yankton) en 2004 mediante un pacto secreto con el agente corrupto del FIB **Dave Norton**, Michael vive bajo protección encubierta en su mansión de Rockford Hills.
-* Su vida acomodada se desmorona cuando descubre la infidelidad de su esposa Amanda, lo que le lleva a destruir la casa de Martin Madrazo y necesitar dinero rápido para pagar la deuda.`;
+### 🎬 Amanda, Jimmy y Tracey: una familia de película
+
+En algún momento de su trayectoria criminal, Michael conoció a Amanda, que trabajaba como bailarina en un club. La relación evolucionó hasta convertirse en matrimonio y ambos formaron una familia con sus dos hijos, Jimmy y Tracey.
+
+Michael quería algo distinto para ellos. No deseaba que crecieran en las mismas circunstancias que él, entre precariedad, delincuencia y la incertidumbre de no saber qué vendría después. Quería ofrecerles seguridad, estabilidad y oportunidades. En otras palabras, quería darles aquello que sentía que le había faltado durante su propia infancia.
+
+La ironía es que, años después, terminaría viviendo en una mansión de lujo mientras contemplaba cómo su familia parecía empeñada en convertir aquella aspiración en un experimento social bastante cuestionable.
+
+Amanda tiene sus propios intereses, sus frustraciones y una relación cada vez más complicada con su marido. El dinero, las compras, las infidelidades y las discusiones forman parte de una convivencia en la que las apariencias importan casi tanto como los problemas que intentan ocultar.
+
+Jimmy, su hijo, pasa buena parte de su tiempo entre los videojuegos y una actitud que no ayuda precisamente a mejorar la relación con su padre. Michael considera que el muchacho desperdicia sus oportunidades; Jimmy, por su parte, no parece especialmente interesado en aceptar lecciones de vida de un hombre cuyo currículum incluye atracos y delitos violentos.
+
+Tracey, su hija, persigue la fama y sueña con abrirse camino en el mundo del espectáculo. Sus aspiraciones la llevan a situaciones que preocupan a Michael, aunque sus intentos por protegerla no siempre resultan especialmente eficaces.
+
+La familia De Santa es, en definitiva, un retrato exagerado pero reconocible de una sociedad obsesionada con el dinero, el éxito y la imagen pública. Todos quieren algo, todos tienen sus defectos y casi todos parecen convencidos de que el principal problema de la casa es otra persona.
+
+Michael tampoco queda fuera de esa ecuación. Su carácter, su egocentrismo, sus infidelidades y su tendencia a imponer sus propias expectativas contribuyen al deterioro de la convivencia. No basta con pagar una buena casa y llenar la nevera para convertirse en el padre del año. Aunque, viendo algunas de sus discusiones familiares, quizá tampoco baste con tener razón.
+
+---
+
+### 🍸 Rockford Hills: la recompensa que no termina de funcionar
+
+Cuando comienza GTA V, Michael vive en una mansión de Rockford Hills, rodeado de comodidades y con una situación económica que muchos considerarían envidiable.
+
+Ha conseguido escapar de su antigua vida, al menos en apariencia. Tiene una casa espectacular, una piscina, coches y tiempo libre. No necesita levantarse cada mañana para fichar en una oficina ni preocuparse por llegar a fin de mes.
+
+Y, sin embargo, está profundamente insatisfecho.
+
+Michael pasa buena parte de sus días entre el alcohol, la televisión, las películas de acción y las discusiones domésticas. La vida que imaginaba como recompensa por abandonar la delincuencia se ha convertido en una rutina que le resulta asfixiante.
+
+Aquí aparece una de las contradicciones más interesantes del personaje. Michael quería dejar atrás el peligro, pero también echa de menos la intensidad de su antigua vida. Quería estar presente para su familia, pero no siempre sabe cómo relacionarse con ella. Quería tranquilidad, aunque parece incapaz de disfrutarla cuando finalmente la tiene.
+
+Es como si hubiera pasado tantos años preparándose para escapar que nunca se hubiera detenido a pensar qué iba a hacer una vez que lo consiguiera.
+
+Y Los Santos, una ciudad que vende el éxito como si fuera un producto de lujo, resulta el escenario perfecto para esa crisis. Michael vive rodeado de los símbolos de una vida triunfadora, pero ninguno parece proporcionarle la satisfacción que esperaba.
+
+---
+
+### 🛋️ El hombre que va al psicólogo
+
+Una de las características más singulares de Michael es su relación con el doctor Isiah Friedlander, el psicólogo al que acude para tratar sus problemas personales.
+
+Las sesiones ofrecen algunos de los momentos más reveladores del personaje. Michael habla de su familia, de su frustración y de su incapacidad para encontrar sentido a la vida que ha construido. Tiene facilidad para identificar los defectos de los demás, pero bastante menos para examinar los suyos sin recurrir a una justificación.
+
+Friedlander, por su parte, tampoco queda retratado como un profesional infalible. Su consulta y la relación que mantiene con Michael sirven para introducir una sátira sobre la terapia, el dinero y la industria que convierte las dificultades personales en un servicio de pago.
+
+Michael puede pasar una sesión entera hablando de lo miserable que se siente y salir de allí sin haber resuelto gran cosa. Eso sí, la factura de la consulta probablemente llegará a tiempo.
+
+Bajo el humor hay algo más importante: Michael sabe que su vida no funciona, pero reconocerlo no significa que esté dispuesto a cambiar las decisiones que lo han llevado hasta allí. Tiene explicaciones para casi todo y una notable capacidad para encontrar culpables. Lo que no tiene tan claro es qué hacer consigo mismo.
+
+---
+
+### 🤝 Trevor Philips: el pasado que no se quedó atrás
+
+La relación entre Michael y Trevor es una de las piezas fundamentales de GTA V.
+
+Ambos compartieron una larga trayectoria criminal y participaron en atracos que consolidaron su reputación. Trevor es impulsivo, imprevisible y mucho más difícil de contener; Michael es calculador, manipulador y, al menos en apariencia, más consciente de las consecuencias.
+
+Sin embargo, esa diferencia de carácter nunca impidió que trabajaran juntos. Entre ellos existía una relación construida a base de experiencias compartidas, lealtades y una familiaridad que podía resultar tan valiosa como peligrosa.
+
+El problema es que Michael empezó a desear una vida diferente. Formar una familia y buscar una salida al mundo criminal cambió sus prioridades, pero también lo llevó a tomar decisiones que tendrían consecuencias duraderas.
+
+El pasado de ambos quedó marcado por los acontecimientos de Ludendorff, en North Yankton. Lo ocurrido allí es una pieza esencial para entender la historia de Michael, sus secretos y la relación que mantiene con Trevor.
+
+No se trata únicamente de dos antiguos compañeros que vuelven a encontrarse. Se trata de dos hombres que recuerdan de manera muy distinta una historia que compartieron y que todavía no han terminado de resolver.
+
+Para Michael, empezar de nuevo significaba dejar atrás una parte de su vida. Para Trevor, algunas cosas no se olvidan tan fácilmente. Y cuando sus caminos vuelven a cruzarse, queda claro que cambiar de ciudad y de apellido no garantiza que las cuentas pendientes desaparezcan.
+
+---
+
+### 🎭 Michael Townley frente a Michael De Santa
+
+En el fondo, Michael vive dividido entre dos identidades.
+
+Michael Townley representa el pasado: el delincuente que encontró en los atracos una forma de ganarse la vida y que terminó tomando una decisión que alteró su relación con las personas más cercanas.
+
+Michael De Santa representa el intento de empezar de nuevo: el marido, el padre y el propietario de una mansión que debería simbolizar que todo ha salido bien.
+
+El problema es que ambas versiones pertenecen al mismo hombre.
+
+Michael no puede borrar sus decisiones anteriores simplemente porque ahora tenga una piscina. Tampoco puede resolver sus problemas familiares tratándolos como si fueran una molestia que interrumpe la película que había imaginado para su vida.
+
+A medida que avanza la historia, las circunstancias lo obligan a enfrentarse a las consecuencias de su pasado y a reconsiderar qué significa realmente haber conseguido una segunda oportunidad.
+
+Porque Michael puede ser inteligente, tener experiencia y saber desenvolverse en situaciones peligrosas. Lo que no siempre sabe es cómo dejar de complicarse la vida cuando, por una vez, nadie le está apuntando con un arma.
+
+Y esa es quizá la gran paradoja de Michael De Santa: sobrevivió a una carrera criminal, consiguió escapar de ella y alcanzó el sueño de vivir rodeado de comodidades. Ahora tiene que descubrir por qué, después de todo eso, sigue sin sentirse en paz.
+
+En Los Santos, incluso el sueño americano puede convertirse en una pesadilla. Sobre todo cuando el hombre que intenta disfrutarlo es incapaz de dejar de ser quien era.`;
 
       case 'franklin-clinton':
         return `## 🚗 Franklin Clinton: La Nueva Sangre
