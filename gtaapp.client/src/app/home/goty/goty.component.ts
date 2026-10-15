@@ -69,9 +69,7 @@ export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
   ) {
     effect(() => {
       this.translationService.currentLanguage();
-      if (this.messages.length <= 1 && (this.messages.length === 0 || this.messages[0].sender === 'goty')) {
-        this.messages = [this.gotyService.getInitialGreeting('home')];
-      }
+      this.loadWelcomeMessage();
     });
   }
 
@@ -140,7 +138,28 @@ export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
       this.wrapperTop = 105;
       this.wrapperLeft = 10;
     }
-    this.messages = [this.gotyService.getInitialGreeting('home')];
+    this.loadWelcomeMessage();
+  }
+
+  loadWelcomeMessage(): void {
+    const currentLang = this.gotyService.currentLang;
+    if (currentLang === 'es') {
+      this.gotyService.loadGameBrain('home').subscribe(intents => {
+        const welcome = intents.find(i => i.id === 'bienvenida') || intents[0];
+        const text = (welcome && welcome.responses.length > 0)
+          ? welcome.responses[0]
+          : this.gotyService.getInitialGreeting('home').text;
+
+        this.messages = [{
+          id: 'msg-' + Date.now(),
+          sender: 'goty',
+          text,
+          timestamp: new Date()
+        }];
+      });
+    } else {
+      this.messages = [this.gotyService.getInitialGreeting('home')];
+    }
   }
 
   ngAfterViewChecked(): void {}
@@ -185,7 +204,7 @@ export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
   toggleChat(): void {
     this.isOpen = !this.isOpen;
     if (this.isOpen && this.messages.length === 0) {
-      this.messages = [this.gotyService.getInitialGreeting('home')];
+      this.loadWelcomeMessage();
     }
     if (this.isOpen) {
       setTimeout(() => this.scrollToBottom(), 100);

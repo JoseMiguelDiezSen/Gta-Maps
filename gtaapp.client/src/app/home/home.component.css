@@ -207,8 +207,8 @@
 .home-mascots-img {
   width: auto;
   height: auto;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 165px;
+  max-height: 165px;
   display: block;
   object-fit: contain;
   background: transparent !important;
@@ -251,7 +251,7 @@
 }
 
 .home-subtitle {
-  margin: 2px 0 22px 0;
+  margin: 2px 0;
   color: rgba(255, 255, 255, 0.55);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
@@ -264,8 +264,8 @@
   }
 
   .home-mascots-img {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 130px;
+    max-height: 130px;
   }
 
   .home-title {
@@ -453,7 +453,7 @@
 /* Marca de última actualización alineada con los controles inferiores */
 .home-last-update {
   position: fixed;
-  bottom: 66px;
+  bottom: 58px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 12px;
@@ -479,7 +479,7 @@
    Formato y estilo idénticos al HUD de GTA 6
    ========================================== */
 .hud-gta6-launch {
-  margin-top: 14px;
+  margin-top: 10px;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -730,7 +730,7 @@
 
   .home-subtitle {
     font-size: 12.5px;
-    margin: 2px 0 14px 0;
+    margin: 2px 0;
   }
 
   .home-actions {
@@ -783,7 +783,7 @@
     padding: 6px 10px;
     gap: 8px;
     max-width: 96vw;
-    margin-top: 10px;
+    margin-top: 6px;
   }
 
   .hud-gta6-launch .hud-title {
@@ -815,7 +815,7 @@
   }
 
   .home-last-update {
-    bottom: max(70px, calc(env(safe-area-inset-bottom, 0px) + 64px));
+    bottom: max(62px, calc(env(safe-area-inset-bottom, 0px) + 56px));
     max-width: calc(100vw - 150px);
     overflow: hidden;
     text-overflow: ellipsis;

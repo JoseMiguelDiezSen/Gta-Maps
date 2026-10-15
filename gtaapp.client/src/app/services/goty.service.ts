@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, catchError, map } from 'rxjs';
+import { Observable, of, forkJoin, catchError, map } from 'rxjs';
 import { GotyMessage, GotyGameMode } from '../models/gta5/goty';
 import { TranslationService } from '../i18n';
 
@@ -8,14 +8,7 @@ export interface GotyIntent {
   id: string;
   keywords: string[];
   responses: string[];
-}
-
-export interface GotyBrain {
-  common: GotyIntent[];
-  'gta5-historia': GotyIntent[];
-  'gta5-online': GotyIntent[];
-  'gta6-historia': GotyIntent[];
-  'gta6-online': GotyIntent[];
+  isAngry?: boolean;
 }
 
 /**
@@ -28,8 +21,26 @@ export interface GotyBrain {
 export class GotyService {
   private isBotEnabled = true;
 
-  // Caché de cerebros locales por idioma ('es', 'en', etc.)
-  private loadedBrains: Record<string, GotyBrain> = {};
+  // Caché de memoria modular en Markdown indexada por bot ('home', 'gta5', 'gta6')
+  private memoryCache: Partial<Record<'home' | 'gta5' | 'gta6', GotyIntent[]>> = {};
+
+  private readonly BRAIN_FILES: Record<'home' | 'gta5' | 'gta6', string[]> = {
+    home: ['bienvenida.md'],
+    gta5: [
+      'general.md',
+      'personalidad.md',
+      'armas-vehiculos.md',
+      'lugares-zonas.md',
+      'misiones-golpes.md',
+      'negocios.md',
+      'misterios.md'
+    ],
+    gta6: [
+      'general.md',
+      'personalidad.md',
+      'respuestas.md'
+    ]
+  };
 
   // Mensajes fijos por contexto de juego e idioma (Modo capado para producción)
   private readonly fixedMessages: Record<string, Partial<Record<GotyGameMode, string>>> = {
@@ -150,20 +161,83 @@ export class GotyService {
   }
 
   /**
-   * Carga y cachea el archivo JSON del cerebro local para el idioma solicitado.
-   * Escalable para futuros idiomas: solo se requiere añadir 'goty-brain-{lang}.json' en assets/data/goty-brain/
+   * Parsea el contenido de un archivo Markdown a una lista de intenciones de GOTY.
    */
-  private preloadBrain(context: GotyGameMode, lang: string): void {
-    const game = context.startsWith('gta6') ? 'gta6' : 'gta5';
-    const cacheKey = `${game}-${lang}`;
-    if (this.loadedBrains[cacheKey]) return;
+  private parseMarkdownToBrain(mdContent: string): GotyIntent[] {
+    const intents: GotyIntent[] = [];
+    const sections = mdContent.split(/^##\s+/m);
+    for (const sec of sections) {
+      const trimmed = sec.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const lines = trimmed.split('\n');
+      const headerLine = lines[0].trim();
+      const isAngry = headerLine.includes('[ANGRY]');
+      const id = headerLine.replace(/\[ANGRY\]/g, '').trim().toLowerCase();
 
-    this.http.get<GotyBrain>(`assets/data/${game}/goty-brain/goty-brain-${lang}.json`).subscribe({
-      next: (data) => {
-        this.loadedBrains[cacheKey] = data;
-      },
-      error: (err) => console.warn(`[GOTY] Error cargando cerebro local para idioma '${lang}':`, err)
-    });
+      let keywords: string[] = [];
+      const responses: string[] = [];
+      let readingResponses = false;
+
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+        if (line.toLowerCase().startsWith('**claves:**') || line.toLowerCase().startsWith('*claves:*')) {
+          const rawKw = line.replace(/^\*{1,2}claves:\*{1,2}/i, '').trim();
+          keywords = rawKw.split(',').map(k => k.trim()).filter(k => k.length > 0);
+          readingResponses = false;
+        } else if (line.toLowerCase().startsWith('**respuestas:**') || line.toLowerCase().startsWith('*respuestas:*')) {
+          readingResponses = true;
+        } else if (readingResponses && (line.startsWith('* ') || line.startsWith('- '))) {
+          responses.push(line.substring(2).trim());
+        }
+      }
+
+      if (id) {
+        intents.push({ id, keywords, responses, isAngry });
+      }
+    }
+    return intents;
+  }
+
+  /**
+   * Carga y unifica todos los archivos .md de memoria de un bot concreto ('home', 'gta5', 'gta6').
+   */
+  loadGameBrain(game: 'home' | 'gta5' | 'gta6'): Observable<GotyIntent[]> {
+    if (this.memoryCache[game]) {
+      return of(this.memoryCache[game]!);
+    }
+    const files = this.BRAIN_FILES[game] || [];
+    const requests = files.map(file =>
+      this.http.get(`assets/data/goty/${game}/${file}`, { responseType: 'text' }).pipe(
+        catchError(err => {
+          console.warn(`[GotyService] Error cargando assets/data/goty/${game}/${file}:`, err);
+          return of('');
+        })
+      )
+    );
+
+    return forkJoin(requests).pipe(
+      map(contents => {
+        const allIntents: GotyIntent[] = [];
+        for (const text of contents) {
+          if (text) {
+            allIntents.push(...this.parseMarkdownToBrain(text));
+          }
+        }
+        this.memoryCache[game] = allIntents;
+        return allIntents;
+      })
+    );
+  }
+
+  /**
+   * Pre-carga la memoria modular de GOTY según el contexto.
+   */
+  preloadBrain(context: GotyGameMode): void {
+    const game: 'home' | 'gta5' | 'gta6' = context === 'home'
+      ? 'home'
+      : (context.startsWith('gta6') ? 'gta6' : 'gta5');
+    this.loadGameBrain(game).subscribe();
   }
 
   /**
@@ -185,43 +259,42 @@ export class GotyService {
     };
   }
 
+  get isDevelopment(): boolean {
+    if (typeof window !== 'undefined') {
+      const host = window.location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1') {
+        return true;
+      }
+    }
+    return isDevMode();
+  }
+
   /**
-   * Procesa la consulta del usuario conectando con la API backend POST /api/goty/chat (.NET 10).
-   * Cuenta con rate-limiting y protección anti-DoS en servidor.
-   * Si la API no está disponible, responde con el fallback local en el idioma activo.
+   * Procesa la consulta del usuario.
+   * En producción: devuelve el mensaje capado de ajuste (rebote) sin exponer el bot.
+   * En desarrollo (localhost): permite probar la memoria modular completa (.md).
    */
   processUserQuery(query: string, context: GotyGameMode): Observable<GotyMessage> {
     const currentLang = this.translationService.currentLanguage() || 'es';
-    const payload = {
-      message: (query || '').trim() || 'consulta',
-      context,
-      lang: currentLang
-    };
 
-    return this.http.post<{ text: string; isAngry?: boolean }>('/api/goty/chat', payload).pipe(
-      map(res => ({
+    // MODO PRODUCCIÓN: Bloqueo con respuesta fija de ajuste (rebote)
+    if (!this.isDevelopment) {
+      const langMessages = this.fixedMessages[currentLang] || this.fixedMessages['es'];
+      let text: string = (langMessages[context] || langMessages['gta5-online']) || '';
+      if (context === 'home') {
+        text = text.replace(/GOTY\s*5/gi, 'GOTY');
+      }
+      return of({
         id: 'msg-' + Date.now(),
         sender: 'goty' as const,
-        text: (context === 'home' ? (res.text || '').replace(/GOTY\s*5/gi, 'GOTY') : res.text) || '',
+        text,
         timestamp: new Date(),
-        isAngry: res.isAngry ?? false
-      })),
-      catchError(err => {
-        console.warn('[GotyService] API backend no disponible, respondiendo con fallback local:', err);
-        const langMessages = this.fixedMessages[currentLang] || this.fixedMessages['es'];
-        let text: string = (langMessages[context] || langMessages['gta5-online']) || '';
-        if (context === 'home') {
-          text = text.replace(/GOTY\s*5/gi, 'GOTY');
-        }
-        return of({
-          id: 'msg-' + Date.now(),
-          sender: 'goty' as const,
-          text,
-          timestamp: new Date(),
-          isAngry: false
-        });
-      })
-    );
+        isAngry: false
+      });
+    }
+
+    // MODO DESARROLLO (localhost): prueba real de la memoria local .md
+    return this.processLocalQuery(query, context, currentLang);
   }
 
   private getDaysUntilRelease(): number {
@@ -238,63 +311,66 @@ export class GotyService {
   }
 
   /**
-   * Motor de búsqueda y respuestas local en caso de desconexión o fallo del servicio de IA.
+   * Motor de búsqueda y respuestas local basado en la memoria modular de archivos Markdown (.md).
    */
-  private processLocalQuery(query: string, context: GotyGameMode, lang: string): Observable<GotyMessage> {
+  processLocalQuery(query: string, context: GotyGameMode, lang: string): Observable<GotyMessage> {
     const cleanQuery = this.normalizeString(query);
-    const game = context.startsWith('gta6') ? 'gta6' : 'gta5';
-    const cacheKey = `${game}-${lang}`;
-    this.preloadBrain(context, lang);
-    const activeBrain = this.loadedBrains[cacheKey] || this.loadedBrains['es'] || {
-      common: [], 'gta5-historia': [], 'gta5-online': [], 'gta6-historia': [], 'gta6-online': []
-    };
+    const game: 'home' | 'gta5' | 'gta6' = context === 'home'
+      ? 'home'
+      : (context.startsWith('gta6') ? 'gta6' : 'gta5');
 
-    // Fusionar el bloque específico del modo de juego primero (para prioridad) y luego el común
-    const activeIntents = [
-      ...(context !== 'home' ? (activeBrain[context] || []) : []),
-      ...(activeBrain.common || [])
-    ];
+    return this.loadGameBrain(game).pipe(
+      map(intents => {
+        let bestIntent: GotyIntent | null = null;
+        let bestScore = 0;
 
-    // 1. Buscar la intención que encaje con alguna palabra clave
-    let matchedIntent = activeIntents.find(intent =>
-      intent.id !== 'default' && intent.keywords.some((kw: string) => {
-        const cleanKw = this.normalizeString(kw);
-        return cleanQuery.includes(cleanKw);
+        for (const intent of intents) {
+          if (intent.id === 'default') continue;
+          let score = 0;
+          for (const kw of intent.keywords) {
+            const cleanKw = this.normalizeString(kw);
+            if (!cleanKw) continue;
+            if (cleanQuery.includes(cleanKw)) {
+              const wordCount = cleanKw.split(/\s+/).length;
+              score += wordCount * 2;
+            }
+          }
+          if (score > bestScore) {
+            bestScore = score;
+            bestIntent = intent;
+          }
+        }
+
+        if (!bestIntent || bestScore === 0) {
+          bestIntent = intents.find(i => i.id === 'default') || null;
+        }
+
+        let defaultFallback = lang === 'en'
+          ? 'My backup brain is ready. What do you need on the map?'
+          : 'Mi cerebro de reserva está listo. Dime qué necesitas.';
+
+        let responseText = defaultFallback;
+        let isAngry = false;
+
+        if (bestIntent && bestIntent.responses.length > 0) {
+          const randomIndex = Math.floor(Math.random() * bestIntent.responses.length);
+          let rawText = bestIntent.responses[randomIndex];
+          if (rawText.includes('[ANGRY]') || bestIntent.isAngry) {
+            isAngry = true;
+            rawText = rawText.replace(/\[ANGRY\]/g, '').trim();
+          }
+          const daysLeft = this.getDaysUntilRelease();
+          responseText = rawText.replace(/{days}/g, daysLeft.toString());
+        }
+
+        return {
+          id: 'msg-' + Date.now(),
+          sender: 'goty' as const,
+          text: responseText,
+          timestamp: new Date(),
+          isAngry
+        };
       })
     );
-
-    // 2. Si no entiende nada, selecciona la intención por defecto (en common)
-    if (!matchedIntent) {
-      matchedIntent = activeIntents.find(intent => intent.id === 'default');
-    }
-
-    // 3. Escoger una respuesta al azar dentro de la intención y reemplazar marcadores
-    let defaultFallback = lang === 'en'
-      ? 'My backup brain is ready. What do you need on the map?'
-      : 'Mi cerebro de reserva está listo. Dime qué necesitas.';
-
-    let responseText = defaultFallback;
-    if (matchedIntent && matchedIntent.responses.length > 0) {
-      const randomIndex = Math.floor(Math.random() * matchedIntent.responses.length);
-      responseText = matchedIntent.responses[randomIndex]
-        .replace(/\[Modo Local\]\s*/g, '')
-        .replace(/\[Modo Local activo\]\.\s*/g, '')
-        .replace(/Servidor local activo\.\s*/g, '')
-        .trim();
-
-      // Reemplazar marcador dinámico {days}
-      const daysLeft = this.getDaysUntilRelease();
-      responseText = responseText.replace(/{days}/g, daysLeft.toString());
-    }
-
-    const isAngry = matchedIntent?.id === 'insulto';
-
-    return of({
-      id: 'msg-' + Date.now(),
-      sender: 'goty' as const,
-      text: responseText,
-      timestamp: new Date(),
-      isAngry
-    });
   }
 }

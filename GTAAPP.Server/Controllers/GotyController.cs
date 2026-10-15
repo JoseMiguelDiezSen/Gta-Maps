@@ -15,11 +15,11 @@ namespace GTAAPP.Server.Controllers
     [EnableRateLimiting("chat-policy")]
     public class GotyController : ControllerBase
     {
-        private readonly IGeminiService _geminiService;
+        private readonly IGotyService _gotyService;
 
-        public GotyController(IGeminiService geminiService)
+        public GotyController(IGotyService gotyService)
         {
-            _geminiService = geminiService;
+            _gotyService = gotyService;
         }
 
         [HttpPost("chat")]

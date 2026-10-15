@@ -7,20 +7,20 @@ using System;
 
 namespace GTAAPP.Server.Services
 {
-    public interface IGeminiService
+    public interface IGotyService
     {
         /// <summary>
-        /// Obtiene una respuesta conversacional de Gemini con soporte multi-idioma y personalidad criminal de GTA.
+        /// Obtiene una respuesta conversacional de GOTY con soporte multi-idioma y personalidad criminal de GTA.
         /// </summary>
         Task<string> GetChatResponseAsync(string userMessage, string context, string lang = "es");
     }
 
-    public class GeminiService : IGeminiService
+    public class GotyService : IGotyService
     {
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
 
-        public GeminiService(HttpClient httpClient, IConfiguration configuration)
+        public GotyService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _configuration = configuration;
