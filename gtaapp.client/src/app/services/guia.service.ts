@@ -137,13 +137,11 @@ export class GuiaService {
               descripcion: 'Introducción a la guía interactiva de Grand Theft Auto V y perfiles de los protagonistas.',
               orden: 0,
               articulos: [
-                { id: 'prologo-introduccion-guia', slug: 'prologo-introduccion-guia', titulo: 'Introducción a la Guía de GTA V', subtitulo: 'Estructura de la enciclopedia, consejos esenciales y primeros pasos', categoria: 'prologo', badge: 'Introducción', tiempoLecturaMinutos: 4 },
-                { id: 'michael-de-santa', slug: 'michael-de-santa', titulo: 'Michael De Santa: El Ladrón Retirado', subtitulo: 'Tiempo bala, crisis existencial y relación con el FIB', categoria: 'prologo', badge: 'Michael', tiempoLecturaMinutos: 5 },
-                { id: 'franklin-clinton', slug: 'franklin-clinton', titulo: 'Franklin Clinton: La Nueva Sangre', subtitulo: 'Conducción ralentizada, Chop y Forum Drive', categoria: 'prologo', badge: 'Franklin', tiempoLecturaMinutos: 5 },
-                { id: 'trevor-philips', slug: 'trevor-philips', titulo: 'Trevor Philips: El Caos Encarnado', subtitulo: 'Modo Furia, Industrias TP y su pasado en North Yankton', categoria: 'prologo', badge: 'Trevor', tiempoLecturaMinutos: 6 },
-                { id: 'requisitos-100', slug: 'requisitos-100', titulo: 'Requisitos para el 100%', subtitulo: 'Guía detallada para conseguir la estadística del 100%', categoria: 'prologo', badge: '100% Checklist', tiempoLecturaMinutos: 6 },
-                { id: 'golpes-principales', slug: 'golpes-principales', titulo: 'Guía Táctica de los 6 Grandes Golpes', subtitulo: 'Planes Sigilo/Fuerza, tripulación ideal y botín máximo', categoria: 'prologo', badge: 'Estrategia', tiempoLecturaMinutos: 10 },
-                { id: 'finales-opcion-abc', slug: 'finales-opcion-abc', titulo: 'Los Tres Finales (Opción A, B o C)', subtitulo: 'Consecuencias narrativas y por qué la C es canónica', categoria: 'prologo', badge: 'Lore', tiempoLecturaMinutos: 5 }
+                { id: 'prologo-introduccion-guia', slug: 'prologo-introduccion-guia', titulo: 'Guía de GTA V - (Historia)', subtitulo: 'Guía del modo historia de Grand Theft Auto 5', categoria: 'prologo', badge: 'Introducción', tiempoLecturaMinutos: 4 },
+                { id: 'michael-de-santa', slug: 'michael-de-santa', titulo: 'Michael De Santa: El Ladrón Retirado', subtitulo: 'Habilidades y características · Tiempo bala, crisis existencial y relación con el FIB', categoria: 'prologo', badge: 'Michael', tiempoLecturaMinutos: 5 },
+                { id: 'franklin-clinton', slug: 'franklin-clinton', titulo: 'Franklin Clinton: La Nueva Sangre', subtitulo: 'Habilidades y características · Conducción ralentizada, Chop y Forum Drive', categoria: 'prologo', badge: 'Franklin', tiempoLecturaMinutos: 5 },
+                { id: 'trevor-philips', slug: 'trevor-philips', titulo: 'Trevor Philips: El Caos Encarnado', subtitulo: 'Habilidades y características · Modo Furia, Industrias TP y su pasado en North Yankton', categoria: 'prologo', badge: 'Trevor', tiempoLecturaMinutos: 6 },
+                { id: 'michael-trevor-franklin-intrahistoria', slug: 'michael-trevor-franklin-intrahistoria', titulo: 'Michael, Trevor y Franklin: Tres Caminos hacia el Desastre', subtitulo: 'La intrahistoria del trío · Encuentros, lealtades cruzadas y el secreto de North Yankton', categoria: 'prologo', badge: 'Intrahistoria', tiempoLecturaMinutos: 6 }
               ]
             },
             {
@@ -225,36 +223,6 @@ export class GuiaService {
               ]
             },
             {
-              id: 'golpes',
-              titulo: 'Golpes y Atracos',
-              icono: 'vault',
-              descripcion: 'Planificación táctica, misiones preparatorias y asaltos de los 6 grandes golpes de GTA V.',
-              orden: 2,
-              articulos: [
-                { id: 'mision-11-caso-joyero', slug: 'caso-joyero', titulo: '11. Caso joyero', subtitulo: 'Michael De Santa · Rockford Hills', categoria: 'misiones-historia', badge: 'Michael', tiempoLecturaMinutos: 7 },
-                { id: 'mision-12-equipo-bugstars', slug: 'equipo-bugstars', titulo: '12. Equipo de Bugstars', subtitulo: 'Michael De Santa · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
-                { id: 'mision-13-granadas-gas-bz', slug: 'granadas-gas-bz', titulo: '13. Granadas de gas BZ', subtitulo: 'Michael De Santa · Aeropuerto Internacional (LSIA)', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
-                { id: 'mision-14-golpe-joyeria', slug: 'golpe-joyeria', titulo: '14. El golpe a la joyería', subtitulo: 'Michael y Franklin · Rockford Hills', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
-                { id: 'mision-26-reconocimiento-del-puerto', slug: 'reconocimiento-del-puerto', titulo: '26. Reconocimiento del puerto', subtitulo: 'Trevor Philips · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Trevor', tiempoLecturaMinutos: 10 },
-                { id: 'mision-27-minisubmarino', slug: 'minisubmarino', titulo: '27. Minisubmarino', subtitulo: 'Trevor Philips · Puerto de Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
-                { id: 'mision-28-cargobob', slug: 'cargobob', titulo: '28. Cargobob', subtitulo: 'Trevor Philips · Base Militar Fort Zancudo', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 6 },
-                { id: 'mision-29-golpe-a-merryweather', slug: 'golpe-a-merryweather', titulo: '29. El golpe a Merryweather', subtitulo: 'Michael, Franklin y Trevor · Alta Mar / Puerto', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
-                { id: 'mision-30-camion-de-basura', slug: 'camion-de-basura', titulo: '30. Camión de la basura', subtitulo: 'Cualquier protagonista · Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
-                { id: 'mision-31-grua', slug: 'grua', titulo: '31. Grúa', subtitulo: 'Cualquier protagonista · Los Santos', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 4 },
-                { id: 'mision-32-el-buzo', slug: 'el-buzo', titulo: '32. El buzo (Blitz Play)', subtitulo: 'Michael, Franklin y Trevor · Cypress Flats', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 12 },
-                { id: 'mision-39-el-bloqueo', slug: 'el-bloqueo', titulo: '39. El bloqueo', subtitulo: 'Michael y Trevor · Paleto Bay', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 10 },
-                { id: 'mision-41-material-militar', slug: 'material-militar', titulo: '41. Material militar', subtitulo: 'Cualquier protagonista · Autopista de Paleto Bay', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 6 },
-                { id: 'mision-42-golpe-de-paleto', slug: 'golpe-de-paleto', titulo: '42. El golpe de Paleto', subtitulo: 'Michael, Trevor y Franklin · Banco de Paleto', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 15 },
-                { id: 'mision-46-investigando-el-golpe', slug: 'investigando-el-golpe', titulo: '46. Investigando el golpe', subtitulo: 'Michael, Franklin y Trevor · Union Depository', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 10 },
-                { id: 'mision-51-limpiando-el-fib', slug: 'limpiando-el-fib', titulo: '51. Limpiando el FIB', subtitulo: 'Michael De Santa · Sede del FIB', categoria: 'misiones-historia', badge: 'Lester', tiempoLecturaMinutos: 7 },
-                { id: 'mision-53-arquitecto-para-todo', slug: 'arquitecto-para-todo', titulo: '53. Arquitecto para todo', subtitulo: 'Franklin Clinton · Obras de Pillbox Hill', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
-                { id: 'mision-55-asalto-al-fib', slug: 'asalto-al-fib', titulo: '55. Asalto al FIB', subtitulo: 'Michael y Franklin · Torre del FIB', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 16 },
-                { id: 'mision-59-perforadoras', slug: 'perforadoras', titulo: '59. Perforadoras (Drillers)', subtitulo: 'Cualquier protagonista · La Mesa', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
-                { id: 'mision-60-via-muerta', slug: 'via-muerta', titulo: '60. Vía muerta (Sidetracked)', subtitulo: 'Cualquier protagonista · Vías del tren de Davis', categoria: 'misiones-historia', badge: 'Preparación', tiempoLecturaMinutos: 5 },
-                { id: 'mision-61-el-gran-golpe', slug: 'el-gran-golpe', titulo: '61. El gran golpe (The Big Score)', subtitulo: 'Todos los protagonistas · Union Depository', categoria: 'misiones-historia', badge: 'Gran Golpe', tiempoLecturaMinutos: 15 }
-              ]
-            },
-            {
               id: 'extranos-locos',
               titulo: 'Locos y Extraños',
               icono: 'burst',
@@ -333,11 +301,45 @@ export class GuiaService {
             ]
           },
           {
+            id: 'eventos-aleatorios',
+            titulo: 'Eventos Aleatorios',
+            icono: 'shuffle',
+            descripcion: 'Encuentros fortuitos y eventos dinámicos por todo Los Santos y Blaine County.',
+            orden: 4,
+            articulos: [
+              { id: 'evento-01-vehiculo-abandonado-1', slug: 'vehiculo-abandonado-1', titulo: '01. Vehículo abandonado 1', subtitulo: 'Smoke Tree Road · Gran Desierto de Señora', categoria: 'eventos-aleatorios', badge: 'Emboscada', tiempoLecturaMinutos: 3 },
+              { id: 'evento-02-vehiculo-abandonado-2', slug: 'vehiculo-abandonado-2', titulo: '02. Vehículo abandonado 2', subtitulo: 'RON Alternates Wind Farm · Parque Eólico', categoria: 'eventos-aleatorios', badge: 'Encuentro', tiempoLecturaMinutos: 3 },
+              { id: 'evento-03-detencion-policial-1', slug: 'detencion-policial-1', titulo: '03. Detención policial 1', subtitulo: 'Granja O\'Neil · Grapeseed', categoria: 'eventos-aleatorios', badge: 'Persecución', tiempoLecturaMinutos: 3 },
+              { id: 'evento-04-detencion-policial-2', slug: 'detencion-policial-2', titulo: '04. Detención policial 2', subtitulo: 'Senora Freeway · Parque Eólico', categoria: 'eventos-aleatorios', badge: 'Persecución', tiempoLecturaMinutos: 3 },
+              { id: 'evento-05-atraco-cajero-automatico', slug: 'atraco-cajero-automatico', titulo: '05. Atraco en cajero automático', subtitulo: 'Cajeros automáticos · Varios puntos de San Andreas', categoria: 'eventos-aleatorios', badge: 'Atraco', tiempoLecturaMinutos: 4 },
+              { id: 'evento-06-ladron-bicicletas-1', slug: 'ladron-bicicletas-1', titulo: '06. Ladrón de bicicletas 1', subtitulo: 'Little Bighorn Avenue · Rancho', categoria: 'eventos-aleatorios', badge: 'Bolsa / Dinero', tiempoLecturaMinutos: 4 },
+              { id: 'evento-07-ladron-bicicletas-2', slug: 'ladron-bicicletas-2', titulo: '07. Ladrón de bicicletas 2', subtitulo: 'Bridge Street · Hawick', categoria: 'eventos-aleatorios', badge: 'Habilidad', tiempoLecturaMinutos: 3 },
+              { id: 'evento-08-patrulla-fronteriza-1', slug: 'patrulla-fronteriza-1', titulo: '08. Patrulla fronteriza 1', subtitulo: 'Mount Haan Road · Gran Desierto de Señora', categoria: 'eventos-aleatorios', badge: 'Emboscada', tiempoLecturaMinutos: 3 },
+              { id: 'evento-09-patrulla-fronteriza-2', slug: 'patrulla-fronteriza-2', titulo: '09. Patrulla fronteriza 2', subtitulo: 'Montañas Tataviam', categoria: 'eventos-aleatorios', badge: 'Emboscada', tiempoLecturaMinutos: 3 },
+              { id: 'evento-10-patrulla-fronteriza-3', slug: 'patrulla-fronteriza-3', titulo: '10. Patrulla fronteriza 3', subtitulo: 'Raton Canyon', categoria: 'eventos-aleatorios', badge: 'Emboscada', tiempoLecturaMinutos: 3 },
+              { id: 'evento-11-entierro-vivo', slug: 'entierro-vivo', titulo: '11. Entierro en Paleto Bay', subtitulo: 'North Point · Paleto Bay', categoria: 'eventos-aleatorios', badge: 'Rescate / $60k', tiempoLecturaMinutos: 5 },
+              { id: 'evento-12-autobus-turistico', slug: 'autobus-turistico', titulo: '12. Autobús turístico', subtitulo: 'Alta Street · Downtown Vinewood', categoria: 'eventos-aleatorios', badge: 'Paseo', tiempoLecturaMinutos: 3 },
+              { id: 'evento-13-robo-coche-1', slug: 'robo-coche-1', titulo: '13. Robo de coche 1 (Peyote)', subtitulo: 'Great Ocean Highway · North Chumash', categoria: 'eventos-aleatorios', badge: 'Vehículo Único', tiempoLecturaMinutos: 4 },
+              { id: 'evento-14-robo-coche-2', slug: 'robo-coche-2', titulo: '14. Robo de coche 2 (Rocoto)', subtitulo: 'Exceptionalists Way · Aeropuerto LSIA', categoria: 'eventos-aleatorios', badge: 'Recompensa Traje', tiempoLecturaMinutos: 4 },
+              { id: 'evento-15-persecucion-ladrones-ciudad-1', slug: 'persecucion-ladrones-ciudad-1', titulo: '15. Ladrones en Hawick (The Lost)', subtitulo: 'Hawick Avenue · Hawick', categoria: 'eventos-aleatorios', badge: 'Tiroteo', tiempoLecturaMinutos: 4 },
+              { id: 'evento-16-persecucion-ladrones-ciudad-2', slug: 'persecucion-ladrones-ciudad-2', titulo: '16. Ladrones en Textile City', subtitulo: 'San Andreas Avenue · Textile City', categoria: 'eventos-aleatorios', badge: 'Persecución', tiempoLecturaMinutos: 3 },
+              { id: 'evento-17-persecucion-ladrones-campo-1', slug: 'persecucion-ladrones-campo-1', titulo: '17. Ladrones en Grapeseed', subtitulo: 'Grapeseed Main Street · Grapeseed', categoria: 'eventos-aleatorios', badge: 'Rural', tiempoLecturaMinutos: 3 },
+              { id: 'evento-18-persecucion-ladrones-campo-2', slug: 'persecucion-ladrones-campo-2', titulo: '18. Ladrones en Ruta 68', subtitulo: 'Route 68 · Gran Desierto de Señora', categoria: 'eventos-aleatorios', badge: 'Desierto', tiempoLecturaMinutos: 3 },
+              { id: 'evento-19-accidente-construccion', slug: 'accidente-construccion', titulo: '19. Accidente en la obra', subtitulo: 'Calais Avenue · Little Seoul', categoria: 'eventos-aleatorios', badge: 'Rescate / Tiempo', tiempoLecturaMinutos: 4 },
+              { id: 'evento-20-tiroteo-alamo-sea', slug: 'tiroteo-alamo-sea', titulo: '20. Tiroteo en Alamo Sea', subtitulo: 'Marina Drive · Alamo Sea', categoria: 'eventos-aleatorios', badge: 'Michael / Franklin', tiempoLecturaMinutos: 4 },
+              { id: 'evento-21-atraco-rural-harmony', slug: 'atraco-rural-harmony', titulo: '21. Robo en Harmony ($10.000)', subtitulo: 'Route 68 · Harmony', categoria: 'eventos-aleatorios', badge: 'Maletines / $10k', tiempoLecturaMinutos: 4 },
+              { id: 'evento-22-rescate-accidente-taliana', slug: 'rescate-accidente-taliana', titulo: '22. Rescate de Taliana Martínez', subtitulo: 'Great Ocean Highway · Mount Chiliad', categoria: 'eventos-aleatorios', badge: 'Conductora Élite', tiempoLecturaMinutos: 5 },
+              { id: 'evento-23-negocio-fallido-maletin', slug: 'negocio-fallido-maletin', titulo: '23. Negocio Fallido ($25.000)', subtitulo: 'Chiliad Wilderness · Great Ocean Highway', categoria: 'eventos-aleatorios', badge: 'Maletín / $25k', tiempoLecturaMinutos: 5 },
+              { id: 'evento-24-discusion-domestica', slug: 'discusion-domestica', titulo: '24. Discusión doméstica (Castro)', subtitulo: 'Didion Drive · Vinewood Hills', categoria: 'eventos-aleatorios', badge: 'Golf / Altruistas', tiempoLecturaMinutos: 4 },
+              { id: 'evento-25-granja-marihuana-trevor', slug: 'granja-marihuana-trevor', titulo: '25. Asalto a la Granja ($70.000)', subtitulo: 'Mount Chiliad · Blaine County', categoria: 'eventos-aleatorios', badge: 'Trevor / $70k', tiempoLecturaMinutos: 5 }
+            ]
+          },
+          {
             id: 'secretos-misterios',
             titulo: 'Misterios',
             icono: 'eye',
             descripcion: 'El misterio de Mount Chiliad, los 4 OVNIs y el asesino de los 8 infinitos.',
-            orden: 4,
+            orden: 5,
             articulos: [
               { id: 'ghost_jolene_cranley', slug: 'ghost-jolene-cranley', titulo: 'El Fantasma de Jolene Cranley-Evans', subtitulo: 'Pico oriental del Monte Gordo · Monte Gordo', categoria: 'secretos-misterios', badge: 'Paranormal', tiempoLecturaMinutos: 5 },
               { id: 'underwater_lost_hatch', slug: 'underwater-lost-hatch', titulo: 'La Escotilla Submarina Secreta (Lost)', subtitulo: 'Lecho marino de la Costa Este · Océano Pacífico', categoria: 'secretos-misterios', badge: 'Easter Egg', tiempoLecturaMinutos: 5 },
@@ -476,7 +478,7 @@ export class GuiaService {
       // duplicate case removed
       // Bienvenido a la Guía de GTA VI y Estado de Leonida\n\nBienvenido a la enciclopedia interactiva y base de datos oficial de Grand Theft Auto VI. Esta guía recopila toda la información documentada, análisis geográfico de Vice City y el Estado de Leonida, mecánicas de inventario realista y dinámicas de los protagonistas Jason y Lucia.\n\n---\n\n### 🗺️ Estructura de la Base de Datos\nLa enciclopedia se organiza en módulos de análisis especializado:\n\n* **Prólogo**: Introducción general y primeros pasos en Leonida.\n* **Protagonistas & Trama Criminal**: Análisis táctico de Jason y Lucia, mecánicas de cooperación y antecedentes penitenciarios.\n* **Vice City & Regiones de Leonida**: Distritos urbanos, zonas pantanosas de Grassrivers, playas de Vice Beaches y flora/fauna autóctona.\n* **Mecánicas & Físicas de Juego**: Sistema de inventario físico en maleteros, interacción ambiental y balística de última generación.\n* **Fuerzas del Orden & Redes Sociales**: IA policial inteligente, viralidad in-game y tácticas de persecución.
       case 'prologo-introduccion-guia':
-        return `## 📖 Prólogo: Bienvenido a la Guía Completa de GTA V\n\nGrand Theft Auto V ofrece una experiencia masiva que combina tres protagonistas entrelazados, 69 misiones principales de historia, golpes multimillonarios, un ecosistema bursátil dinámico y cientos de secretos repartidos por el Estado de San Andreas.\n\n### 👥 Tres Protagonistas: Tres Formas de Meterse en Problemas\n\n**Franklin Clinton** quiere algo más. Acostumbrado a moverse por las calles de Los Santos, aspira a dejar atrás una vida que parece tener preparado para él un futuro demasiado pequeño. Tiene ambición, instinto y ganas de progresar, aunque las oportunidades que se le presentan no siempre vienen de la mano de las personas más recomendables.\n\n---\n\n**Michael De Santa** parece haber conseguido lo que muchos persiguen: una buena casa, dinero y una vida acomodada en las colinas de Los Santos. Sin embargo, detrás de esa aparente tranquilidad se esconde una familia disfuncional, un pasado que no termina de desaparecer y una insatisfacción que ni el mejor vecindario puede disimular. Hay quien sueña con retirarse. Michael es la prueba de que retirarse y encontrar la paz son dos cosas muy distintas.\n\n---\n\n**Trevor Philips**, por su parte, vive según unas normas que probablemente no sobrevivirían a una reunión de vecinos. Impulsivo, violento e imprevisible, es capaz de convertir una situación corriente en un problema de dimensiones considerables. Pero reducirlo a su temperamento sería quedarse en la superficie: Trevor tiene su propia idea de la lealtad, de la amistad y de cómo deben hacerse las cosas. Que esas ideas resulten tranquilizadoras para el resto de la humanidad es otro asunto.\n\n---\n\nTres hombres, tres circunstancias y tres maneras de entender el mundo. Sus caminos se cruzarán en una historia marcada por las ambiciones, los viejos asuntos pendientes, las lealtades puestas a prueba y unas decisiones cuyas consecuencias rara vez se quedan donde deberían.\n\n---\n\n### 🎬 La Historia Comienza Aquí\n\nEl modo historia de GTA V te invita a recorrer San Andreas a través de estos tres protagonistas, cada uno con su personalidad, sus relaciones y sus propios problemas. A medida que avances, descubrirás sus historias, conocerás a quienes forman parte de sus vidas y te verás envuelto en situaciones que irán mucho más allá de un simple encargo.\n\n---\n\nY cuando no estés siguiendo el hilo principal, la ciudad seguirá ahí. Sus carreteras, sus barrios, sus paisajes y sus secretos no desaparecen porque tengas una misión pendiente. Siempre habrá algo que descubrir, un lugar al que regresar o una decisión que quizá habría sido mejor pensar dos veces.\n\n---\n\nEsta guía te acompañará durante ese recorrido: desde los primeros pasos de la historia hasta sus momentos más importantes, con información sobre los protagonistas, las misiones y los lugares que hacen de San Andreas mucho más que un escenario.`;
+        return `## 📖 Bienvenido a Los Santos, donde las promesas mueren rápido.\n\nLos Santos no es un lugar para gente honrada; es una ciudad levantada sobre promesas vacías, créditos imposibles y aspiraciones desmedidas. Esta guía es tu hoja de ruta para moverte por San Andreas, donde la diferencia entre triunfar y acabar en el depósito de cadáveres suele depender de quién conduce más rápido y quién dispara primero.\n\n### 👥 Tres Protagonistas: Tres Formas de Meterse en Problemas\n\n**Franklin Clinton** quiere algo más. Acostumbrado a moverse por las calles de Los Santos, aspira a dejar atrás una vida que parece tener preparado para él un futuro demasiado pequeño. Tiene ambición, instinto y ganas de progresar, aunque las oportunidades que se le presentan no siempre vienen de la mano de las personas más recomendables.\n\n---\n\n**Michael De Santa** parece haber conseguido lo que muchos persiguen: una buena casa, dinero y una vida acomodada en las colinas de Los Santos. Sin embargo, detrás de esa aparente tranquilidad se esconde una familia disfuncional, un pasado que no termina de desaparecer y una insatisfacción que ni el mejor vecindario puede disimular. Hay quien sueña con retirarse. Michael es la prueba de que retirarse y encontrar la paz son dos cosas muy distintas.\n\n---\n\n**Trevor Philips**, por su parte, vive según unas normas que probablemente no sobrevivirían a una reunión de vecinos. Impulsivo, violento e imprevisible, es capaz de convertir una situación corriente en un problema de dimensiones considerables. Pero reducirlo a su temperamento sería quedarse en la superficie: Trevor tiene su propia idea de la lealtad, de la amistad y de cómo deben hacerse las cosas. Que esas ideas resulten tranquilizadoras para el resto de la humanidad es otro asunto.\n\n---\n\nTres hombres, tres circunstancias y tres maneras de entender el mundo. Sus caminos se cruzarán en una historia marcada por las ambiciones, los viejos asuntos pendientes, las lealtades puestas a prueba y unas decisiones cuyas consecuencias rara vez se quedan donde deberían.\n\n---\n\n### 🎬 La Historia Comienza Aquí\n\nEl modo historia de GTA V te invita a recorrer San Andreas a través de estos tres protagonistas, cada uno con su personalidad, sus relaciones y sus propios problemas. A medida que avances, descubrirás sus historias, conocerás a quienes forman parte de sus vidas y te verás envuelto en situaciones que irán mucho más allá de un simple encargo.\n\n---\n\nY cuando no estés siguiendo el hilo principal, la ciudad seguirá ahí. Sus carreteras, sus barrios, sus paisajes y sus secretos no desaparecen porque tengas una misión pendiente. Siempre habrá algo que descubrir, un lugar al que regresar o una decisión que quizá habría sido mejor pensar dos veces.\n\n---\n\nEsta guía te acompañará durante ese recorrido: desde los primeros pasos de la historia hasta sus momentos más importantes, con información sobre los protagonistas, las misiones y los lugares que hacen de San Andreas mucho más que un escenario.`;
       case 'requisitos-100':
         return `## 🏆 Resumen de Requisitos para el 100%
 
@@ -730,37 +732,215 @@ Y esa es quizá la gran paradoja de Michael De Santa: sobrevivió a una carrera 
 En Los Santos, incluso el sueño americano puede convertirse en una pesadilla. Sobre todo cuando el hombre que intenta disfrutarlo es incapaz de dejar de ser quien era.`;
 
       case 'franklin-clinton':
-        return `## 🚗 Franklin Clinton: La Nueva Sangre
+        return `## 🚗 Franklin Clinton
 
-Nacido en South Central Los Santos, Franklin busca escapar del ciclo de bandas de callejón y trapicheos menores de la banda Families de Forum Drive.
+### Un tipo que quiere llegar a alguna parte
+
+**Franklin Clinton** nació en 1988 en South Los Santos, una ciudad que vende oportunidades en sus anuncios y ofrece una interpretación bastante más complicada de ellas cuando uno se cría lejos de las mansiones de Vinewood Hills.
+
+Su infancia estuvo marcada por la ausencia de su padre y la pérdida temprana de su madre. Después de vivir con sus abuelos, acabó en la casa de su tía Denise, en Strawberry. Allí creció rodeado de un entorno en el que las bandas, los pequeños delitos y la búsqueda de dinero rápido formaban parte del paisaje cotidiano.
+
+Franklin no nació con un plan maestro para convertirse en un delincuente profesional. Su trayectoria fue tomando forma entre malas decisiones, malas influencias y un entorno en el que salir adelante podía significar muchas cosas, aunque no todas condujeran al mismo sitio. La ciudad estaba llena de gente que aspiraba a mejorar su vida; algunos querían triunfar en los negocios, otros hacerse famosos y otros simplemente conseguir dinero suficiente para dejar de preocuparse por el siguiente recibo. Franklin quería algo más que sobrevivir, aunque todavía no tuviera muy claro cómo conseguirlo.
 
 ---
 
-### 1. Habilidad Especial: Conducción Ralentizada
-* **Activación**: Activable exclusivamente mientras conduces cualquier vehículo terrestre (coches, motos, camiones).
-* **Efecto**: Ralentiza el tiempo con control vectorial total, permitiendo tomar curvas a 200 km/h, esquivar el tráfico en dirección contraria y colarse por huecos imposibles.
-* **Cómo Recargar la Barra**: Conducir en dirección contraria en autopistas, rozar coches a alta velocidad sin chocar y alcanzar la velocidad punta del vehículo.
+### 🤝 Lamar Davis: la amistad y otros obstáculos para progresar
+
+En su juventud, Franklin se hizo amigo de Lamar Davis. Ambos compartieron barrio, experiencias y una trayectoria ligada a las bandas callejeras. También compartieron esa clase de confianza que permite decirle a un amigo exactamente lo que uno piensa de él, incluso cuando nadie ha preguntado.
+
+Franklin y Lamar no son tan distintos como a veces parece, pero existe una diferencia importante entre ellos. Lamar se siente cómodo dentro de su mundo y conserva un entusiasmo considerable por sus códigos, sus rivalidades y sus posibilidades. Franklin, en cambio, empieza a mirar alrededor y a preguntarse si aquello es realmente todo lo que le espera.
+
+No es que Franklin se haya convertido de pronto en un ejemplo de prudencia. Sigue metido en asuntos turbios, tiene paciencia limitada para las tonterías y no parece especialmente interesado en ganarse el reconocimiento de un comité de buenas costumbres. Pero comienza a distinguir entre ganarse la vida y pasarse la vida repitiendo los mismos errores.
+
+Lamar, por su parte, tiene una habilidad extraordinaria para convertir cualquier conversación en una demostración de confianza personal. A veces esa seguridad resulta útil; otras, uno empieza a sospechar que la diferencia entre ambos no está en quién tiene mejores ideas, sino en quién se da cuenta antes de que una idea es terrible.
+
+Su amistad será una de las relaciones más importantes de Franklin. También una de las pruebas más constantes de que cambiar de vida puede ser difícil cuando tus viejos amigos consideran que cualquier decisión sensata es una oportunidad para recordarte que te estás volviendo aburrido.
 
 ---
 
-### 2. Chop el Rottweiler
-* Franklin puede sacar a pasear a Chop, entrenarlo para olfatear objetos coleccionables ocultos (piezas de nave espacial y cartas) y atacar a enemigos asignados.`;
+### 🚦 La calle no es una salida profesional
+
+Antes de que comience la historia de *Grand Theft Auto V*, Franklin ya ha acumulado suficientes problemas como para comprender que la vida criminal tiene sus inconvenientes. Su paso por el instituto termina con su expulsión tras agredir a un profesor. Más adelante se implica en delitos y actividades relacionadas con las bandas de Los Santos.
+
+No hace falta adornar demasiado su historial: Franklin no es un santo incomprendido. Ha tomado decisiones que lo han metido en problemas y ha participado voluntariamente en un entorno peligroso. Pero tampoco es alguien que encuentre una satisfacción especial en quedarse atrapado para siempre en la misma posición.
+
+La calle le ha enseñado a conducir, a desenvolverse en situaciones complicadas y a reconocer cuándo alguien está intentando aprovecharse de él. Son habilidades que, en otro contexto, podrían haberle abierto puertas bastante más respetables. En Los Santos, sin embargo, la orientación profesional parece consistir en conocer a la persona adecuada y esperar que no termine debiéndote dinero.
+
+Franklin empieza a cansarse de esa dinámica. Quiere progresar, ganar dinero y acceder a una vida que no dependa constantemente de quién controla una esquina o de quién tiene un problema con quién. El inconveniente es que abandonar una forma de vida no resulta tan sencillo como anunciarlo. Especialmente cuando las alternativas disponibles tampoco destacan por su estabilidad.
+
+---
+
+### 💔 Tanisha: querer cambiar no siempre llega a tiempo
+
+Tanisha Jackson fue una persona importante en la vida de Franklin. Su relación se deterioró por la vinculación de él con el mundo criminal y por las consecuencias que esa vida podía tener para quienes permanecían cerca. La muerte del hermano de Tanisha, relacionada con la violencia de las bandas, contribuyó a distanciarlos.
+
+Tanisha representa una posibilidad que Franklin no consiguió conservar: la de construir una vida alejada de la calle. No significa que ella tenga todas las respuestas ni que Franklin pueda resolver sus problemas simplemente siguiendo sus consejos. Significa que alguien que lo conoce de verdad ve los riesgos de su camino y no está dispuesta a fingir que todo saldrá bien.
+
+Franklin quiere avanzar, pero todavía está aprendiendo que las buenas intenciones no borran las decisiones anteriores. Tampoco obligan a los demás a esperar indefinidamente mientras uno decide qué quiere hacer con su vida.
+
+En una ciudad donde todo el mundo promete reinventarse, Franklin empieza a descubrir que cambiar de rumbo exige algo más que desear un destino distinto.
+
+---
+
+### 🚘 Simeon Yetarian: un empleo honrado, más o menos
+
+Cuando comienza *Grand Theft Auto V*, Franklin trabaja junto a Lamar para Simeon Yetarian, propietario de Premium Deluxe Motorsport. Su cometido consiste en recuperar vehículos de clientes que no han cumplido con los pagos acordados.
+
+Sobre el papel, parece un empleo bastante convencional. Hay un jefe, un horario más o menos reconocible y una tarea concreta. Incluso podría dar la impresión de que Franklin ha encontrado una manera de encauzar su experiencia hacia algo parecido a un trabajo estable.
+
+Luego uno recuerda que el negocio de Simeon consiste en vender coches mediante acuerdos financieros abusivos y que sus empleados tienen que ir a buscarlos cuando las cosas salen como cabía esperar. La actividad comercial tiene su encanto: primero se convence a alguien de que puede permitirse un vehículo y después se envía a Franklin a comprobar personalmente hasta qué punto era cierta esa afirmación.
+
+Simeon es un empresario de Los Santos en estado puro. Su talento consiste en presentar una operación dudosa como una oportunidad comercial y conseguir que los demás asuman los riesgos. Franklin y Lamar ponen el esfuerzo físico; Simeon pone el discurso de ventas. Cada uno aporta lo suyo.
+
+Aun así, este trabajo deja claro que Franklin tiene capacidades que van más allá de la vida de pandillero. Es un conductor habilidoso, sabe reaccionar bajo presión y suele conservar más sentido común que buena parte de las personas que lo rodean. El problema es que, por ahora, esas cualidades están al servicio de un negocio que difícilmente aparecería en una feria de empleo.
+
+---
+
+### 💼 Michael De Santa: una oportunidad con antecedentes
+
+El encuentro con Michael De Santa cambia la trayectoria de Franklin. Michael es mayor, tiene experiencia en grandes golpes y conoce un mundo criminal distinto al de los pequeños delitos callejeros. También tiene problemas personales, familiares y económicos que parecen haber sobrevivido a varias mudanzas y a una casa con piscina.
+
+Franklin ve en él algo que no encuentra en Lamar ni en Simeon: una posible puerta de entrada a operaciones de mayor escala. Michael, por su parte, reconoce en Franklin a un joven capaz de conducir, aprender y mantener la cabeza relativamente fría cuando todo empieza a torcerse.
+
+La relación entre ambos no se limita a la de un delincuente experimentado que enseña trucos a un principiante. Michael se convierte en una especie de mentor para Franklin, aunque el programa formativo incluya atracos, persecuciones y una alarmante ausencia de prácticas remuneradas en una oficina.
+
+Franklin consigue acercarse a la vida que imaginaba, pero el camino que se abre ante él está lejos de ser limpio. La oportunidad llega de la mano de alguien que sabe ganar dinero con el crimen y que, pese a su experiencia, tampoco ha encontrado la fórmula para vivir tranquilo.
+
+En Los Santos, subir de categoría no significa necesariamente abandonar los problemas. A veces solo significa que los problemas empiezan a conducir coches más caros.
+
+---
+
+### 🌅 Un futuro por decidir
+
+Franklin Clinton es el protagonista que mira hacia delante. Michael está atrapado entre lo que consiguió y lo que perdió; Trevor parece decidido a convertir cualquier situación en una catástrofe memorable. Franklin, en cambio, todavía busca su lugar.
+
+Tiene ambición, habilidad y una idea bastante clara de que la vida que lleva no puede ser el destino definitivo. Pero no es un héroe ejemplar que avanza sin mirar atrás. Arrastra su pasado, mantiene vínculos con personas que tiran de él en direcciones distintas y se mueve en una ciudad que vende el éxito como si bastara con desearlo lo suficiente.
+
+Su historia plantea una pregunta sencilla: ¿puede alguien escapar de su entorno sin renegar por completo de quienes forman parte de él?
+
+Franklin no necesita convertirse en otra persona para progresar, pero sí tendrá que decidir qué está dispuesto a dejar atrás y qué clase de hombre quiere ser cuando por fin tenga la oportunidad de elegir.
+
+Porque en Los Santos todo el mundo quiere llegar a alguna parte. La diferencia está en que algunos tienen un plan, otros tienen un coche y unos cuantos creen que gritar más fuerte que los demás cuenta como estrategia.`;
 
       case 'trevor-philips':
-        return `## 🪓 Trevor Philips: El Caos Encarnado
+        return `## Trevor Philips
 
-Ex piloto de la fuerza aérea canadiense y sociópata residente en el desierto de Grand Senora (Sandy Shores). Director ejecutivo de *Trevor Philips Enterprises*.
+### El sueño americano, pero con orden de alejamiento
+
+Exmilitar. Atracador de bancos. Narcotraficante. Empresario. Amenaza para la convivencia. Y, contra todo pronóstico, uno de los pocos hombres de San Andreas que todavía se toma la palabra «lealtad» en serio.
+
+Hay personas que necesitan tocar fondo para cambiar de vida. Trevor Philips necesita que alguien le indique dónde está el fondo, porque probablemente ya lo ha atravesado, ha robado algo durante el descenso y ha dejado un cadáver de recuerdo.
+
+Trevor es de origen Canadiense, antiguo piloto militar y delincuente profesional, es un hombre capaz de convertir una conversación cotidiana en una amenaza de muerte y una discusión de bar en un incidente que requiera tres ambulancias, dos helicópteros y una rueda de prensa de la policía.
+
+Vive en Sandy Shores, una localidad polvorienta del condado de Blaine donde el sol castiga, las oportunidades escasean y la distinción entre un vecino problemático y una amenaza para la seguridad nacional es, en el mejor de los casos, académica.
+
+Trevor no es simplemente un loco con una pistola. Es un hombre inteligente, extraordinariamente peligroso, con talento para la improvisación, una capacidad aérea excepcional y un concepto de la diplomacia que consiste en comprobar cuánto tarda la otra persona en dejar de discutir.
+
+Y, sin embargo, detrás de ese espectáculo de violencia, suciedad y decisiones espantosas, hay una historia bastante más humana de lo que él estaría dispuesto a admitir.
 
 ---
 
-### 1. Habilidad Especial: Modo Furia (Invulnerabilidad Parcial)
-* **Efecto**: Trevor entra en un estado psicótico donde recibe un 50% menos de daño enemigo e inflige el doble de daño con armas de fuego y cuerpo a cuerpo.
-* **Cómo Recargar la Barra**: Recibir daño, matar enemigos rápidamente, atropellar transeúntes y sufrir explosiones cercanas.
+### 🧸 Una infancia que no venía con garantía
+
+Trevor nació en Canadá, cerca de la frontera con Estados Unidos. Creció en un entorno familiar profundamente disfuncional, marcado por la violencia de su padre y el control emocional de su madre.
+
+Su infancia fue una sucesión de hogares, desplazamientos, conflictos y experiencias que no aparecen en los folletos de turismo familiar. Según sus propios relatos, pasó por numerosas casas y centros de acogida, y tuvo una relación desastrosa con prácticamente cualquier figura de autoridad que se cruzó en su camino y desde muy joven mostró impulsos violentos y una dificultad monumental para controlar la ira.
+
+¿Fue aquella infancia la causa de todo lo que vendría después? Sería tentador ofrecer una explicación psicológica elegante. Pero estamos hablando de Trevor, no de un caso práctico de una facultad de psicología.
+
+También tuvo un hermano, Ryan, cuya muerte se menciona en el juego, aunque no se explica con claridad en qué circunstancias ocurrió.
 
 ---
 
-### 2. Misiones de Matanza (Rampages)
-* Exclusivas de Trevor: 5 desafíos frenéticos contra bandas rivales (Rednecks, Cholos, Militares de Fort Zancudo y Hipsters de Los Santos) donde debes sobrevivir eliminando un número específico de atacantes armados con lanzagranadas y rifles de asalto.`;
+### ✈️ El piloto que pudo ser… y que el ejército prefirió no tener
+
+Antes de convertirse en un delincuente de carrera, Trevor tuvo una aspiración sorprendentemente convencional: quería volar.
+
+Poseía un talento natural para pilotar aeronaves y llegó a ingresar en la Fuerza Aérea con la intención de convertirse en piloto militar. Por una vez, parecía haber encontrado una profesión en la que sus habilidades podían servir para algo legal.
+
+El problema era Trevor.
+
+Su comportamiento y su inestabilidad durante la evaluación psicológica acabaron con su carrera militar antes de que pudiera completar su formación como piloto de combate. El ejército examinó su perfil y llegó a una conclusión que, visto lo visto, cuesta discutir: poner a Trevor al mando de un avión militar no era la mejor de las ideas.
+
+La aviación, eso sí, nunca desapareció de su vida. Trevor acabaría convirtiéndose en el piloto de confianza de su propia organización criminal. Porque si algo demuestra su trayectoria es que las habilidades profesionales siempre encuentran salida en el “mercado laboral”. 
+
+Para Michael, el engaño era una operación calculada para proteger su futuro. Para Trevor, era una traición monumental.
+
+Y si hay algo que Trevor no lleva bien, además de las normas, los insultos y que alguien le toque sus cosas, es descubrir que la persona a la que consideraba su hermano lo ha mantenido alejado de la verdad durante años.
+
+La bomba estaba preparada. Solo faltaba que alguien encendiera la mecha.
+
+---
+
+### 🌵 Sandy Shores: un imperio construido sobre arena, metanfetamina y pésimas decisiones
+
+Nueve años después del atraco de North Yankton, Trevor vive en Sandy Shores, en el condado de Blaine. Su residencia es una caravana destartalada que parece haber perdido una discusión contra el desierto y, posteriormente, contra su propio propietario.
+
+Allí dirige Trevor Philips Enterprises, una empresa dedicada al tráfico de drogas y armas. El nombre tiene cierta elegancia corporativa: suena a multinacional respetable, aunque sus reuniones de negocios probablemente no superarían una inspección de Hacienda, una auditoría ética ni una visita sorpresa de absolutamente nadie.
+
+Su equipo incluye a:
+
+* **Ron Jakowski**: un hombre nervioso y paranoico que parece vivir permanentemente a tres segundos de sufrir un colapso.
+* **Wade Hebert**: cuya inocencia y limitada capacidad para comprender lo que sucede a su alrededor lo convierten en un compañero especialmente vulnerable.
+* **Chef**: que colabora en las actividades criminales de Trevor.
+
+Trevor dirige este pequeño ecosistema con la sutileza de un huracán. Su modelo de negocio es sencillo: conseguir mercancía, intimidar a la competencia, resolver los conflictos y expandirse. El detalle, es que buena parte de esas operaciones, termina en tiroteos, incendios o destrucción de bienes ajenos.
+
+---
+
+### 💥 La ira de Trevor: cuando el autocontrol se declara en huelga
+
+La ira de Trevor no es un simple rasgo de carácter. Es prácticamente su sistema operativo. Puede estar tranquilo, bromear o conversar con aparente normalidad, y pasar en cuestión de segundos a una violencia desproporcionada. También es extremadamente sensible a las burlas sobre su origen canadiense. Una característica que, en otra persona, podría producir una discusión sobre geografía, en Trevor puede convertirse en un incidente.`;
+
+      case 'michael-trevor-franklin-intrahistoria':
+        return `## Michael, Trevor y Franklin: tres caminos hacia el desastre
+
+### Los Santos, 2013: el pasado vuelve a llamar a la puerta
+
+Franklin Clinton es un joven de Los Santos que aspira a salir de una vida marcada por los trabajos de poca monta y las oportunidades que nunca terminan de llegar. Trabaja junto a Lamar Davis para Simeon Yetarian, un vendedor de coches cuya interpretación de la ética comercial deja bastante margen para la imaginación. Ambos se dedican a recuperar vehículos de clientes que no han pagado, un trabajo que les permite sobrevivir, pero que difícilmente va a llevarlos demasiado lejos.
+
+Uno de esos encargos los conduce hasta el vehículo de Jimmy De Santa, el hijo de Michael. Lo que parecía otra recuperación rutinaria termina con Franklin descubriendo que Michael está escondido en el coche y apuntándole con un arma para obligarlo a conducir hasta el concesionario.
+
+El encuentro no empieza precisamente con un apretón de manos, pero despierta el interés de Michael. Franklin demuestra que sabe desenvolverse bajo presión y que tiene más ambición que ganas de pasarse la vida haciendo recados para Simeon. Michael ve en él a alguien con potencial, un joven que todavía no ha encontrado una oportunidad a la altura de sus aspiraciones.
+
+La relación entre ambos se afianza cuando Michael, tras un conflicto familiar, recurre a Franklin para resolver sus problemas. Más adelante, ambos terminan participando en el robo a una joyería que Michael organiza con ayuda de Lester Crest. El golpe sale adelante, aunque atrae una atención policial que difícilmente puede considerarse un beneficio añadido.
+
+Y entonces sucede algo que Michael llevaba casi una década intentando evitar.
+
+Trevor Philips ve las noticias sobre el atraco y reconoce a su antiguo compañero. Michael está vivo.
+
+Desde el atraco de North Yankton, en 2004, Trevor había creído que Michael había muerto y que Brad Snider seguía en prisión. Ahora descubre que su amigo no solo sobrevivió, sino que ha construido una nueva vida en Los Santos, con una familia y una identidad que le han permitido mantener enterrado su pasado.
+
+Para Trevor, el descubrimiento cambia las reglas del juego. No necesita una invitación formal ni una explicación por adelantado. Si Michael está vivo, ha llegado el momento de reencontrarse con él y averiguar qué ocurrió realmente aquella noche.
+
+---
+
+### Tres protagonistas, una cantidad preocupante de problemas
+
+Con Trevor de vuelta en Los Santos, las vidas de los tres protagonistas comienzan a entrelazarse. Michael y Trevor vuelven a encontrarse después de años de separación, mientras Franklin pasa de ser un joven que busca oportunidades a convertirse en parte de operaciones mucho mayores.
+
+Michael conoce el mundo de los grandes atracos y quiere mantener el control de su nueva vida, aunque sus propias decisiones lo empujan una y otra vez hacia el pasado del que pretende escapar. Trevor aporta experiencia, contactos y una capacidad extraordinaria para convertir cualquier contratiempo en una emergencia de proporciones estatales. Franklin, por su parte, aporta habilidad al volante, pragmatismo y una ambición que todavía le permite imaginar un futuro distinto.
+
+La posibilidad de volver a participar juntos en grandes golpes representa para Trevor la oportunidad de recuperar al compañero con el que compartió su vida criminal. Para Michael, supone acercarse de nuevo a una vida que juró dejar atrás. Franklin, mientras tanto, ve la posibilidad de dar un salto económico que no se consigue rellenando solicitudes de empleo.
+
+Sin embargo, volver a trabajar juntos no significa recuperar la confianza perdida. Entre Michael y Trevor existe una historia que ninguno de los dos puede borrar, y el reencuentro amenaza con sacar a la luz todo aquello que Michael lleva años intentando ocultar.
+
+---
+
+### La tumba de North Yankton: la verdad que nadie quería encontrar
+
+El reencuentro con Michael no basta para cerrar las heridas del pasado. A medida que Trevor empieza a cuestionar lo ocurrido en North Yankton, la versión que ha aceptado durante casi una década se desmorona. Brad supuestamente sigue en prisión, pero Michael está vivo. Si las piezas no encajan, queda una pregunta inevitable: ¿qué ocurrió realmente durante aquel atraco?
+
+Las dudas llevan a Trevor de vuelta a Ludendorff, donde se dirige al cementerio para abrir la tumba de Michael. Su antiguo compañero intenta disuadirlo, pero Trevor sigue adelante. Cuando el ataúd queda abierto, encuentra los restos de Brad en lugar de los de Michael.
+
+La mentira queda al descubierto. Michael había llegado a un acuerdo secreto con Dave Norton para fingir su muerte y escapar de su antigua vida. Durante la emboscada de 2004, Brad murió al interponerse en la trayectoria de un disparo dirigido a Trevor. Después, su cuerpo fue enterrado bajo el nombre de Michael, mientras Trevor escapaba creyendo que su compañero había muerto y que Brad seguía en prisión.
+
+Para Trevor, aquello no es un simple engaño. Es la confirmación de que el hombre al que consideraba su amigo y compañero lo abandonó mientras él vivía durante años con una versión falsa de los hechos. Su rabia no nace únicamente de la pérdida de Brad, sino también de descubrir que la lealtad que había depositado en Michael fue correspondida con una mentira cuidadosamente mantenida.
+
+La verdad ha salido a la luz, pero eso no significa que las cosas vayan a arreglarse. Michael y Trevor siguen vivos, aunque su amistad atraviesa uno de sus momentos más frágiles. Franklin, que no participó en el engaño original, se encuentra ahora vinculado a las consecuencias de una traición que comenzó mucho antes de que conociera a Michael.
+
+Lo que une a estos tres hombres no es una amistad perfecta, sino una historia compartida de ambición, engaños, lealtades y decisiones de las que resulta difícil salir indemne. En Los Santos, donde todo el mundo persigue el dinero, el poder o una segunda oportunidad, sobrevivir a los propios errores puede ser bastante más complicado que cometerlos.`;
 
       case 'asesinatos-lester-bolsa':
         return `## 📈 Inversión en Bolsa con las Misiones de Lester
@@ -1129,6 +1309,345 @@ Las fuerzas del orden de Vice Dale, el Sheriff de Leonard County y la Policía E
 
 ### 2. Rastreo Nocturno con Helicópteros
 * Los helicópteros de la policía cuentan con potentes focos de iluminación infrarroja y megáfonos de aviso. Ocultarse bajo túneles, aparcamientos subterráneos o follaje denso en los pantanos es indispensable para romper la línea de visión del radar.`;
+
+      case 'evento-01-vehiculo-abandonado-1':
+        return `## 🚗 Vehículo Abandonado 1
+Smoke Tree Road · Gran Desierto de Señora
+
+---
+
+### La Trampa del Táser en el Desierto
+
+* **Ubicación:** Smoke Tree Road, en pleno Gran Desierto de Señora (cerca del aeródromo de Sandy Shores).
+* **Desarrollo del Encuentro:** Divisarás una furgoneta Surfer aparentemente abandonada junto a una pista de tierra. Al acercarte a inspeccionarla, un asaltante emboscado surgirá por tu espalda y te disparará con una pistola de descargas (Táser). Si no reaccionas a tiempo, perderás el conocimiento y despertarás en ropa interior sobre las vías del tren con un convoy acercándose a toda velocidad.
+* **Consejo Táctico:** Si juegas con **Trevor Philips**, activa de inmediato su habilidad especial de *Furia* en el instante en que oigas el disparo: anularás la parálisis del Táser, podrás abatir al agresor y quedarte con su arma eléctrica de forma anticipada antes de desbloquearla en Ammu-Nation.
+* **Recompensa:** Pistola Táser (con Trevor) y la furgoneta Surfer.`;
+
+      case 'evento-02-vehiculo-abandonado-2':
+        return `## 🚐 Vehículo Abandonado 2
+RON Alternates Wind Farm · Parque Eólico
+
+---
+
+### El Encuentro en el Parque Eólico
+
+* **Ubicación:** Pistas de tierra del parque eólico RON Alternates Wind Farm.
+* **Desarrollo del Encuentro:** Encontrarás una autocaravana Journey estacionada entre los aerogeneradores. Al aproximarte al vehículo, interrumpirás a dos tipos en pleno acto íntimo. Si te descubren, te acercas demasiado o golpeas la chapa de la caravana, saldrán enfurecidos en ropa interior empuñando armas de fuego para intentar eliminarte.
+* **Consejo Táctico:** Este evento no cuenta con recompensa monetaria ni logros especiales vinculados. Prepárate para un tiroteo a corta distancia nada más aproximarte a la puerta de la autocaravana.
+* **Recompensa:** Vehículo Journey y munición recuperada de los atacantes.`;
+
+      case 'evento-03-detencion-policial-1':
+        return `## 🚓 Detención Policial 1
+Granja O'Neil · Grapeseed
+
+---
+
+### Persecución en Grapeseed
+
+* **Ubicación:** Inmediaciones de la granja de los O'Neil, en Grapeseed.
+* **Desarrollo del Encuentro:** Presenciarás a una patrulla policial persiguiendo a pie a un sospechoso por el arcén de la carretera rural. El juego te da libertad total para decidir tu bando moral: colaborar con la ley o favorecer al fugitivo.
+* **Consejo Táctico:**
+  * Si decides ayudar al agente, dispara al fugitivo directamente a las piernas (o golpéalo a baja velocidad con el morro del vehículo) para inmovilizarlo sin matarlo.
+  * Si decides ayudar al prófugo abatiendo al agente de policía, el criminal te lo agradecerá al instante entregándote una gratificación económica antes de perderse campo a través.
+* **Recompensa:** $250 en metálico y 2 estrellas de nivel de búsqueda si apoyas la fuga; sin recompensa monetaria si ayudas a la policía.`;
+
+      case 'evento-04-detencion-policial-2':
+        return `## 🚓 Detención Policial 2
+Senora Freeway · Parque Eólico
+
+---
+
+### El Guardabosques de Senora Freeway
+
+* **Ubicación:** Margen de la autopista Senora Freeway, a la altura del restaurante Rex's Diner (parque eólico).
+* **Desarrollo del Encuentro:** Un guardabosques del parque estatal persigue a la carrera a un prófugo armado a orillas de la autovía. Al igual que en la detención de Grapeseed, puedes intervenir en favor del orden o de la delincuencia.
+* **Consejo Táctico:** Si optas por el dinero fácil del fugitivo, prepárate con un coche rápido antes de abrir fuego contra la autoridad, ya que dos estrellas de nivel de búsqueda en autopista abierta atraerán patrullas de alta velocidad casi de inmediato.
+* **Recompensa:** $250 en metálico y 2 estrellas de nivel de búsqueda si apoyas la fuga del sospechoso.`;
+
+      case 'evento-05-atraco-cajero-automatico':
+        return `## 🏧 Atraco en Cajero Automático
+Cajeros automáticos · Varios puntos de San Andreas
+
+---
+
+### Intervención en el Cajero
+
+* **Ubicación:** Diferentes cajeros automáticos (Fleeca y Maze Bank) repartidos por Los Santos y Blaine County.
+* **Desarrollo del Encuentro:** Escucharás los gritos de un peatón indefenso mientras un carterista le arrebata el dinero recién retirado del cajero y escapa a toda prisa a pie o en scooter. Deberás perseguir al ladrón antes de que escape de tu radar visual.
+* **Consejo Táctico:** Una vez neutralizado el delincuente, recoge el fajo de billetes del suelo. Tendrás dos alternativas:
+  * **Devolver el botín a la víctima**: La víctima te agradecerá el gesto con el 10% del importe ($50 - $200) y tu barra de habilidad especial se rellenará al 100% de forma instantánea.
+  * **Quedarte con la cartera**: Si prefieres el dinero, date a la fuga con el botín completo (entre $500 y $2.000 limpios).
+* **Recompensa:** Entre $500 y $2.000 (si te quedas el dinero) o relleno total de habilidad especial y pequeña propina (si lo devuelves).`;
+
+      case 'evento-06-ladron-bicicletas-1':
+        return `## 🚲 Ladrón de Bicicletas 1
+Little Bighorn Avenue · Rancho
+
+---
+
+### El Golpe de Suerte con Animal Ark
+
+* **Ubicación:** Little Bighorn Avenue, en el barrio de Rancho (Sur de Los Santos).
+* **Desarrollo del Encuentro:** Un delincuente roba la bicicleta a un ciudadano indefenso a plena luz del día. Persigue al caco a pie o embístelo con un vehículo para recuperar la bici y devolvérsela a su dueño original.
+* **Consejo Táctico:** No ignores este evento bajo ningún concepto. Aunque parezca un recado callejero menor, el dueño de la bicicleta resulta ser un alto directivo empresarial. Días después de devolverle la bici, te enviará un correo electrónico de agradecimiento informándote de que ha puesto a tu nombre **$100.000 en acciones de la empresa Animal Ark** en la bolsa LCN.
+* **Recompensa:** +3 de Resistencia (Stamina) instantánea y $100.000 en acciones bursátiles de Animal Ark diferidas por correo.`;
+
+      case 'evento-07-ladron-bicicletas-2':
+        return `## 🚲 Ladrón de Bicicletas 2
+Bridge Street · Hawick
+
+---
+
+### Persecución en Hawick
+
+* **Ubicación:** Bridge Street, en el céntrico distrito de Hawick.
+* **Desarrollo del Encuentro:** Un peatón sufre el robo fulminante de su bicicleta en la acera. Persigue al ladrón esquivando el tráfico urbano, recupérala y entrégasela a la víctima.
+* **Consejo Táctico:** Si decides quedarte con la bicicleta no obtendrás la mejora de estadísticas físicas. Es mucho más provechoso devolverla para acelerar la progresión del personaje.
+* **Recompensa:** +3 de Resistencia física (Stamina) al devolver el vehículo.`;
+
+      case 'evento-08-patrulla-fronteriza-1':
+        return `## 🛻 Patrulla Fronteriza 1
+Mount Haan Road · Gran Desierto de Señora
+
+---
+
+### Emboscada en Mount Haan
+
+* **Ubicación:** Pistas secundarias de Mount Haan Road, en el Gran Desierto de Señora.
+* **Desarrollo del Encuentro:** Un grupo de milicianos rurales xenófobos y armados hasta los dientes te cortarán el paso en motocicletas y camionetas, acusándote de ser un inmigrante ilegal sin importar el protagonista con el que juegues.
+* **Consejo Táctico:** Busca cobertura rocosa fija de inmediato o responde con subfusiles desde el vehículo antes de descender. Los atacantes portan escopetas de bombeo letales a corta distancia.
+* **Recompensa:** Hasta $700 en efectivo que sueltan los atacantes al caer, además de sus armas y munición.`;
+
+      case 'evento-09-patrulla-fronteriza-2':
+        return `## 🛻 Patrulla Fronteriza 2
+Montañas Tataviam
+
+---
+
+### Hostigamiento en las Montañas Tataviam
+
+* **Ubicación:** Senderos de tierra de las Montañas Tataviam (al este de Los Santos).
+* **Desarrollo del Encuentro:** Una segunda partida de estos vigilantes paramilitares te interceptará en mitad de la cordillera para abrir fuego sin mediar palabra.
+* **Consejo Táctico:** Mantén la distancia en los desniveles de la montaña para evitar que te rodeen desde las cotas altas de la ladera.
+* **Recompensa:** Aproximadamente $700 en fajos de billetes recogidos del suelo y fusiles de asalto.`;
+
+      case 'evento-10-patrulla-fronteriza-3':
+        return `## 🛻 Patrulla Fronteriza 3
+Raton Canyon
+
+---
+
+### Emboscada en el Cañón de Raton
+
+* **Ubicación:** Caminos escarpados de Raton Canyon (Blaine County).
+* **Desarrollo del Encuentro:** La tercera y última célula de milicianos te emboscará en las inmediaciones del cañón natural. Neutraliza a todos los integrantes de la cuadrilla para asegurar la zona.
+* **Consejo Táctico:** Utiliza explosivos lanzables o rifles de precisión si consigues divisarlos antes de que abandonen sus vehículos.
+* **Recompensa:** Hasta $700 en efectivo desprendido por los enemigos y munición pesada.`;
+
+      case 'evento-11-entierro-vivo':
+        return `## 🪦 Entierro en Paleto Bay
+North Point · Paleto Bay
+
+---
+
+### El Rescate de Antonia Bottino
+
+* **Ubicación:** Un descampado costero en North Point, al norte de Paleto Bay (Blaine County).
+* **Desarrollo del Encuentro:** Descubrirás a dos sicarios de la mafia armados con palas cavando una zanja para enterrar viva a una mujer atada. Elimina rápidamente a los dos verdugos antes de que consumen la ejecución y desata a la víctima, quien revelará ser Antonia Bottino, hija del célebre capo de Liberty City Sammy Bottino. Súbela a tu vehículo y condúcela a salvo hasta Vinewood Hills.
+* **Consejo Táctico:**
+  * Si juegas con Michael o Franklin, llévala a su destino sin dudarlo. Tras unos días de juego, su padre se pondrá en contacto contigo para transferirte un suculento ingreso bancario de agradecimiento.
+  * Si juegas con **Trevor Philips**, se te abrirá la opción de desviarte hacia Mount Chiliad y entregarla a la secta de los **Altruistas** a cambio de $1.000 rápidos, aunque perderás los $60.000 de la recompensa mafiosa.
+* **Recompensa:** Relleno inmediato de la barra especial y **$60.000 en tu cuenta bancaria** recibidos días después por correo de su padre (o $1.000 en el campamento altruista con Trevor).`;
+
+      case 'evento-12-autobus-turistico':
+        return `## 🚌 Autobús Turístico de Vinewood
+Alta Street · Downtown Vinewood
+
+---
+
+### La Ruta de las Estrellas de Los Santos
+
+* **Ubicación:** Alta Street, frente al Teatro Chino en Downtown Vinewood (disponible exclusivamente en horario diurno).
+* **Desarrollo del Encuentro:** Un autobús descapotable de la agencia Vinewood Star Tours espera viajeros para realizar un recorrido guiado por las mansiones de los famosos, Richards Majestic Studios y los monumentos arquitectónicos de la ciudad.
+* **Consejo Táctico:** Puedes subirte al tour pagando una pequeña tarifa de billete ($40). El viaje ofrece comentarios cómicos y curiosidades mordaces sobre la historia del cine y las celebridades de Los Santos. Si no deseas escuchar el recorrido entero, puedes saltar de una parada a la siguiente mediante el botón de omisión.
+* **Recompensa:** Lore ambiental y diálogos satíricos sobre la industria del espectáculo (sin recompensas materiales).`;
+
+      case 'evento-13-robo-coche-1':
+        return `## 🏎️ Robo de Coche 1 (Peyote Rosa)
+Great Ocean Highway · North Chumash
+
+---
+
+### Persecución en la Costa del Pacífico
+
+* **Ubicación:** Great Ocean Highway, en las inmediaciones del bar de moteros Hookies (North Chumash).
+* **Desarrollo del Encuentro:** Una conductora pide auxilio a gritos tras ser despojada a la fuerza de su flamante descapotable clásico Vapid Peyote. El ladrón emprende la huida a toda velocidad por la autovía costera.
+* **Consejo Táctico:** Dispara a las ruedas del Peyote o intercepta su trayectoria con tu vehículo para forzar al conductor a detenerse. Una vez abatido el delincuente, se plantea una disyuntiva:
+  * **Devolver el coche**: Obtendrás una valiosa mejora en la habilidad de conducción de tu protagonista.
+  * **Apropiarte del vehículo**: Este modelo cuenta con una carrocería en color **rosa chicle metalizado exclusivo** que no se puede replicar fielmente en Los Santos Customs. Puedes guardarlo en tu garaje personal.
+* **Recompensa:** +5 puntos en la habilidad de Conducción (al devolverlo) o el automóvil Peyote rosa único (al quedártelo).`;
+
+      case 'evento-14-robo-coche-2':
+        return `## 🚙 Robo de Coche 2 (Obey Rocoto)
+Exceptionalists Way · Aeropuerto Internacional (LSIA)
+
+---
+
+### Asalto en la Terminal del Aeropuerto
+
+* **Ubicación:** Exceptionalists Way, en las inmediaciones del Aeropuerto Internacional de Los Santos.
+* **Desarrollo del Encuentro:** Un atracador sustrae violentamente el todocamino de lujo Obey Rocoto a una ejecutiva de negocios que se disponía a tomar un vuelo. Persigue al infractor antes de que se incorpore a la autopista urbana.
+* **Consejo Táctico:** Si devuelves el vehículo a su propietaria, días más tarde recibirás un correo electrónico formal de su parte notificándote que ha encargado un exclusivo **traje de etiqueta de sastrería de alta gama**, depositado directamente en el guardarropa del personaje.
+* **Recompensa:** +5 puntos en la habilidad de Conducción y un **traje de lujo exclusivo en el armario** (al devolverlo), o el todocamino Obey Rocoto en color rojo oscuro exclusivo (al conservarlo).`;
+
+      case 'evento-15-persecucion-ladrones-ciudad-1':
+        return `## 🏍️ Ladrones en Hawick (The Lost MC)
+Hawick Avenue · Hawick
+
+---
+
+### Asalto a Mano Armada en SubUrban
+
+* **Ubicación:** Hawick Avenue, junto a la tienda de moda SubUrban.
+* **Desarrollo del Encuentro:** Dos pistoleros motorizados de la banda motera The Lost MC asaltan un negocio adyacente, dejando al encargado malherido en el suelo mientras huyen a lomos de sus motocicletas con una bolsa repleta de dinero.
+* **Consejo Táctico:** Persíguelos y acaba con ambos moteros en plena marcha. Tras recoger la bolsa con el botín, puedes optar por devolverla al comerciante o quedártela:
+  * Devolver el botín te reportará $200 de gratificación y rellenará la barra especial de inmediato.
+  * Quedarte con el botín te otorgará **$2.000 íntegros en metálico**.
+* **Recompensa:** $2.000 en efectivo (si te quedas el dinero) o $200 + recarga instantánea de la habilidad especial (si lo devuelves).`;
+
+      case 'evento-16-persecucion-ladrones-ciudad-2':
+        return `## 🏍️ Ladrones en Textile City (The Lost MC)
+San Andreas Avenue · Textile City
+
+---
+
+### Tirón Callejero en el Distrito Textil
+
+* **Ubicación:** San Andreas Avenue, en pleno corazón del bullicioso distrito de Textile City.
+* **Desarrollo del Encuentro:** Dos motoristas pertenecientes al club de moteros The Lost MC asaltan a un transeúnte de un tirón violento, arrebatándole la cartera antes de emprender la huida serpenteando entre el tráfico urbano.
+* **Consejo Táctico:** Embiste su motocicleta por detrás o dispárales a través de la luna delantera. Una vez neutralizados, recoge el fajo del suelo y decide su destino:
+  * Devolver el dinero a la víctima te proporcionará un 10% del botín ($50) y restaurará la barra especial al máximo.
+  * Quedártelo te otorgará los **$500 íntegros**.
+* **Recompensa:** $500 en metálico (si te lo quedas) o $50 y relleno total de habilidad especial (si lo devuelves).`;
+
+      case 'evento-17-persecucion-ladrones-campo-1':
+        return `## 🚐 Ladrones en Grapeseed (The Lost MC)
+Grapeseed Main Street · Grapeseed
+
+---
+
+### Asalto Rural en Furgoneta
+
+* **Ubicación:** Calle principal de Grapeseed, en la zona agrícola al norte del Mar de Álamo.
+* **Desarrollo del Encuentro:** Varios miembros de The Lost MC asaltan a un vecino de la comarca y se dan a la fuga a bordo de una furgoneta Gang Burrito en dirección a los campos de cultivo.
+* **Consejo Táctico:** La furgoneta es pesada pero resistente. Dispara directamente a los neumáticos traseros o al conductor para cortar de raíz la persecución por los estrechos caminos de tierra.
+* **Recompensa:** $250 limpios (si te quedas el dinero) o $25 y recarga total de la barra especial (si devuelves la cartera al vecino asaltado).`;
+
+      case 'evento-18-persecucion-ladrones-campo-2':
+        return `## 🚐 Ladrones en Ruta 68 (The Lost MC)
+Route 68 · Gran Desierto de Señora
+
+---
+
+### Atraco en el Supermercado Checkout!
+
+* **Ubicación:** Gasolinera y supermercado Checkout! en la Ruta 68 (Gran Desierto de Señora).
+* **Desarrollo del Encuentro:** Una furgoneta de The Lost MC atraca a un cliente que salía del establecimiento y emprende la marcha a gran velocidad por la carretera comarcal.
+* **Consejo Táctico:** Persigue el furgón antes de que alcance la autopista interestatal Senora Freeway, donde las maniobras de intercepción resultan mucho más complejas debido al denso tráfico de camiones pesados.
+* **Recompensa:** $120 en efectivo (si te quedas el botín) o $12 y recarga completa de la habilidad especial (si lo restituyes a la víctima).`;
+
+      case 'evento-19-accidente-construccion':
+        return `## 🚜 Accidente en la Obra
+Calais Avenue · Little Seoul
+
+---
+
+### Rescate Contrarreloj en la Obra
+
+* **Ubicación:** Calais Avenue, en una parcela de obras en construcción en el distrito de Little Seoul.
+* **Desarrollo del Encuentro:** Un fatal desprendimiento de pesadas tuberías industriales de acero aplasta la cabina de un camión de servicio (Utility Truck), dejando a un operario atrapado entre los hierros. Para colmo, el depósito de gasolina del camión comienza a arder con llamas vivas: dispones de escasos segundos antes de una explosión catastrófica.
+* **Consejo Táctico:** No intentes sacar al trabajador a pie ni dispares al vehículo. Súbete inmediatamente a la **excavadora bulldozer (Dozer)** estacionada a pocos metros del siniestro y utiliza la pala frontal para empujar y despejar con fuerza los tubos metálicos que bloquean la puerta del conductor. Al apartarlos, el obrero saltará a salvo justo antes de la detonación.
+* **Recompensa:** +2 puntos de habilidad en Conducción y la satisfacción de un rescate perfecto.`;
+
+      case 'evento-20-tiroteo-alamo-sea':
+        return `## 🔫 Tiroteo en Alamo Sea
+Marina Drive · Alamo Sea
+
+---
+
+### Emboscada al Contrabandista en la Marina
+
+* **Ubicación:** Marina Drive, en la orilla norte del Mar de Álamo (Blaine County). Disponible únicamente jugando con **Michael De Santa** o **Franklin Clinton**.
+* **Desarrollo del Encuentro:** Un individuo fuertemente armado se encuentra acorralado tras una furgoneta, librando un intenso tiroteo contra una cuadrilla de motoristas de The Lost MC. Ayúdale a repeler a los tiradores iniciales.
+* **Consejo Táctico:** En cuanto elimines a los primeros moteros, no bajes la guardia: el superviviente correrá hacia su vehículo y en ese momento irrumpirá una segunda oleada de refuerzos en motocicletas disparando ráfagas continuas. Protégelo abatiendo a los recién llegados antes de que lo acribillen.
+* **Recompensa:** **$1.000 en metálico** que el contrabandista te entrega en mano como gratificación por salvarle la vida.`;
+
+      case 'evento-21-atraco-rural-harmony':
+        return `## 💼 Robo en Harmony ($10.000)
+Route 68 · Harmony
+
+---
+
+### Fuego Cruzado y los Maletines Olvidados
+
+* **Ubicación:** Un descampado junto a la Ruta 68, en las proximidades del pueblo de Harmony (Gran Desierto de Señora).
+* **Desarrollo del Encuentro:** Te toparás de lleno con un encarnizado tiroteo a campo abierto entre agentes de la policía rural y una banda de atracadores armados que acaban de asaltar un furgón o comercio. En el suelo yacen dos maletines repletos de fajos de billetes.
+* **Consejo Táctico:** Mantén la distancia mientras se eliminan entre ellos. Cuando los guardias abatan a los asaltantes (o si decides acelerar el proceso disparando desde lejos), espera a que la línea de visión se despeje, recoge rápidamente los dos maletines ($5.000 cada uno) y escapa del perímetro antes de que lleguen refuerzos con patrullas.
+* **Recompensa:** Hasta **$10.000 en metálico** repartidos en los dos maletines abandonados.`;
+
+      case 'evento-22-rescate-accidente-taliana':
+        return `## 🚗 Rescate de Taliana Martínez
+Great Ocean Highway · Monte Chiliad
+
+---
+
+### La Conductora Más Valiosa de San Andreas
+
+* **Ubicación:** Great Ocean Highway, en el tramo costero a las faldas del Monte Chiliad (disponible tras completar la misión de campaña *El Golpe a la Joyería*).
+* **Desarrollo del Encuentro:** Divisarás un automóvil volcado y en llamas en la cuneta tras un accidente a alta velocidad. Cerca del coche yace malherida una mujer que pide auxilio: se trata de **Taliana Martínez**, una avezada conductora de fugas cuya propia banda la traicionó y abandonó tras un atraco.
+* **Consejo Táctico:** Súbela de inmediato a tu vehículo y conduce a máxima velocidad hacia la casa segura en Sandy Shores. Una barra de salud descenderá gradualmente en pantalla: conduce de forma agresiva pero evitando choques bruscos que aceleren la muerte de la pasajera.
+* **Recompensa:** Desbloqueo permanente de **Taliana Martínez como conductora de escape** para todos los Grandes Golpes de la historia. Es la mejor integrante de toda la campaña: posee estadísticas de conducción casi al máximo (idénticas a Eddie Toh) pero cobrando únicamente un **5% de comisión**, lo que te ahorrará millones de dólares en botines netos.`;
+
+      case 'evento-23-negocio-fallido-maletin':
+        return `## 💼 Negocio Fallido ($25.000)
+Chiliad Mountain State Wilderness · Great Ocean Highway
+
+---
+
+### El Maletín Ensangrentado en la Reserva Natural
+
+* **Ubicación:** Descampado escondido entre las colinas de Chiliad Mountain State Wilderness, justo al este de la autopista Great Ocean Highway.
+* **Desarrollo del Encuentro:** Este evento rinde homenaje explícito a la película de culto *No es país para viejos* (No Country for Old Men). Encontrarás varias camionetas acribilladas a balazos, cadáveres ensangrentados y perros guardianes muertos tras una transacción de narcotráfico que acabó en carnicería. Al final del sendero rocoso, un superviviente moribundo te susurra que no bajes a por el maletín antes de expirar.
+* **Consejo Táctico:** Baja al fondo del barranco y recoge el maletín plateado que contiene **$25.000 en efectivo**. En cuanto subas a un vehículo para alejarte del lugar, aparecerán dos camionetas todoterreno con pistoleros que intentarán emboscarte para recuperar el dinero. Prepárate con explosivos o un arma automática potente para repeler la persecución.
+* **Recompensa:** **$25.000 íntegros en metálico** dentro del maletín + hasta $1.000 adicionales que dejan caer los sicarios perseguidores.`;
+
+      case 'evento-24-discusion-domestica':
+        return `## 🏌️ Discusión Doméstica (Castro Lagano)
+Didion Drive · Vinewood Hills
+
+---
+
+### El Golfista Expulsado de Casa
+
+* **Ubicación:** Didion Drive, en una lujosa urbanización de Vinewood Hills.
+* **Desarrollo del Encuentro:** Presenciarás una acalorada discusión conyugal en la puerta de una mansión. Una mujer furiosa echa a patadas de casa a su marido infiel, arrojándole su bolsa de palos de golf a la acera. El hombre, llamado Castro Lagano, te suplicará que lo lleves en coche hasta el Club de Golf de Los Santos.
+* **Consejo Táctico:**
+  * Si juegas con Michael o Franklin, llévalo al club de golf. Te entregará $80 de propina y se desbloqueará como **oponente experto de golf**, permitiéndote jugar partidas de alto nivel para perfeccionar tu estadística de fuerza física.
+  * Si juegas con **Trevor Philips**, puedes optar por desviarte hacia las montañas y venderlo a la secta de los **Altruistas** a cambio de $1.000.
+* **Recompensa:** $80 de propina y desbloqueo de Castro Lagano como rival de golf (o $1.000 entregándolo a la secta altruista con Trevor).`;
+
+      case 'evento-25-granja-marihuana-trevor':
+        return `## 🌿 Asalto a la Granja de Marihuana ($70.000)
+Monte Chiliad · Blaine County
+
+---
+
+### La Plantación Clandestina de los Narcos
+
+* **Ubicación:** Vertiente este del Monte Chiliad (Blaine County). Disponible **exclusivamente con Trevor Philips**.
+* **Desarrollo del Encuentro:** En mitad de la sierra se oculta una plantación de cultivo de hierba fuertemente custodiada por una milicia armada. Al acercarte, los guardias abrirán fuego de inmediato sin previo aviso.
+* **Consejo Táctico:** Utiliza el modo *Furia* de Trevor para limpiar a los tiradores apostados tras las barricadas y las casetas de madera sin sufrir daños críticos. Una vez despejado el complejo, entra en el cobertizo principal y abre el maletín del suelo.
+* **Recompensa:** Hasta **$70.000 en efectivo** dentro del maletín. Además, la plantación se reactiva periódicamente cada varias semanas de juego, convirtiéndose en una fuente recurrente de dinero fácil para Trevor.`;
 
       default:
         return `Información detallada del capítulo en preparación.`;

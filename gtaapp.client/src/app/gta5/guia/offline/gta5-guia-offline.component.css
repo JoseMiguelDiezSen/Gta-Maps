@@ -120,7 +120,7 @@
 /* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .narrative-editorial-body .guide-h2 {
   color: #0f172a;
-  border-bottom-color: #cbd5e1;
+  border-bottom: none;
 }
 
 /* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
@@ -1010,7 +1010,7 @@
   width: 100%;
   height: 1px;
   flex-shrink: 0;
-  margin: 6px 0 2px 0;
+  margin: 17px 0 6px 0;
   background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.85) 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
 }
 
@@ -1228,8 +1228,8 @@
   color: #ffffff;
   letter-spacing: 0.3px;
   margin: 28px 0 12px 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 /* Estructura la posiciÃ³n y alineaciÃ³n de el elemento: :host ::ng-deep .narrative-editorial-body .guide-h3. */
@@ -1810,7 +1810,7 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   padding-right: 4px;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 184, 51, 0.45) rgba(0, 0, 0, 0.25);
@@ -1820,9 +1820,9 @@
 .guide-cat-card {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 13px 15px;
-  min-height: 64px;
+  gap: 12px;
+  padding: 8px 12px;
+  min-height: 50px;
   box-sizing: border-box;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 19, 26, 0.92) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1845,18 +1845,18 @@
 }
 
 .guide-cat-icon {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
-  min-height: 42px;
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.55);
   border: 1px solid var(--cat-accent, #ffb833);
   color: var(--cat-accent, #ffb833);
-  font-size: 17px;
+  font-size: 14.5px;
   flex-shrink: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1904,8 +1904,8 @@
 }
 
 .guide-cat-arrow {
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1913,7 +1913,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.5);
-  font-size: 11px;
+  font-size: 10px;
   flex-shrink: 0;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2254,6 +2254,32 @@
   border: 1px solid rgba(34, 197, 94, 0.4);
 }
 
+/* Introducción e Intrahistoria: Tono / Sombreado Gris */
+.guide-chapter-card.personaje-neutral-gris {
+  border-left: 3px solid rgba(148, 163, 184, 0.6);
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.08) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-neutral-gris .chapter-card-num {
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.16);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+.guide-chapter-card.personaje-neutral-gris .chapter-card-badge {
+  background: rgba(148, 163, 184, 0.18);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+.guide-chapter-card.personaje-neutral-gris:hover {
+  border-left-color: #94a3b8;
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.14) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-neutral-gris.is-active {
+  border-left-color: #cbd5e1;
+  border-color: rgba(148, 163, 184, 0.5);
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.22) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(148, 163, 184, 0.25);
+}
+
 /* ====== MODO DÍA ====== */
 .wiki-shell.mode-day .guide-cat-card {
   background: #ffffff;
@@ -2321,6 +2347,21 @@
 
 .wiki-shell.mode-day .guide-chapter-card.is-active {
   background: #f0fdf4;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris {
+  background: #f8fafc;
+  border-left-color: #94a3b8;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris .chapter-card-num {
+  color: #475569;
+  background: rgba(148, 163, 184, 0.2);
+  border: 1px solid #cbd5e1;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris .chapter-card-badge {
+  background: rgba(148, 163, 184, 0.2);
+  color: #334155;
+  border: 1px solid #cbd5e1;
 }
 
 .wiki-shell.mode-day .chapter-card-title {

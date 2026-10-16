@@ -734,6 +734,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (!secId) return '#ffb833';
     const s = secId.toLowerCase();
     if (s.includes('trofeo')) return '#ffffff';
+    if (s.includes('evento') || s.includes('aleatorio')) return '#eab308';
     if (s.includes('golpe')) return '#eab308';
     if (s.includes('prologo')) return '#3b82f6';
     if (s.includes('mision')) return '#ef4444';
@@ -759,6 +760,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (b.includes('michael')) return 'personaje-michael';
     if (b.includes('franklin')) return 'personaje-franklin';
     if (b.includes('trevor')) return 'personaje-trevor';
+    if (b.includes('introducci') || b.includes('intrahistoria')) return 'personaje-neutral-gris';
     return '';
   }
 
