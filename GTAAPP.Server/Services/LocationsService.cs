@@ -72,7 +72,20 @@ public class LocationsService
 
         var modeFolder = mode == "historia" || mode == "story" ? "offline" : mode;
 
-        // 1. Buscar en la nueva estructura: data/{game}/marcadores-mapa/{modeFolder}/idiomas/{activeLang}/{fileName}
+        // 1. Buscar en la nueva estructura: data/{game}/mapa/marcadores-mapa/{modeFolder}/idiomas/{activeLang}/{fileName}
+        var newMapaTargetPath = Path.Combine(basePath, "data", game, "mapa", "marcadores-mapa", modeFolder, "idiomas", activeLang, fileName);
+        if (File.Exists(newMapaTargetPath))
+        {
+            return newMapaTargetPath;
+        }
+
+        var newMapaEsPath = Path.Combine(basePath, "data", game, "mapa", "marcadores-mapa", modeFolder, "idiomas", "es", fileName);
+        if (File.Exists(newMapaEsPath))
+        {
+            return newMapaEsPath;
+        }
+
+        // 2. Buscar en: data/{game}/marcadores-mapa/{modeFolder}/idiomas/{activeLang}/{fileName}
         var newTargetPath = Path.Combine(basePath, "data", game, "marcadores-mapa", modeFolder, "idiomas", activeLang, fileName);
         if (File.Exists(newTargetPath))
         {

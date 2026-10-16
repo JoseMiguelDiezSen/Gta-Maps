@@ -12,6 +12,16 @@ export class WeaponService {
     private translationService: TranslationService
   ) {}
 
+  private normalizeWeaponImage(weapon: GtaWeapon): GtaWeapon {
+    if (!weapon) return weapon;
+    if (weapon.imageUrl && weapon.imageUrl.includes('/assets/images/gta5/marcadores-mapa/')) {
+      weapon.imageUrl = weapon.imageUrl.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+    } else if (weapon.imageUrl && weapon.imageUrl.startsWith('assets/images/gta5/marcadores-mapa/')) {
+      weapon.imageUrl = weapon.imageUrl.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
+    }
+    return weapon;
+  }
+
   /**
    * Obtiene el catálogo oficial de armas de GTA V / GTA Online.
    * La base canónica técnica (precios, daño, categoría, imagen) procede de 'es',
@@ -20,13 +30,26 @@ export class WeaponService {
   getWeapons(gameMode: 'story' | 'online' = 'online', category?: string, lang?: string): Observable<GtaWeapon[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     const mode = gameMode === 'story' ? 'offline' : 'online';
-    const basePath = `/assets/data/gta5/marcadores-mapa/${mode}/idiomas/es/weapons.json`;
+
+    const primaryBasePath = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/es/weapons.json`;
+    const fallbackBasePath = `/assets/data/gta5/marcadores-mapa/${mode}/idiomas/es/weapons.json`;
+
+    const primaryLocalizedPath = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/${activeLang}/weapons.json`;
+    const fallbackLocalizedPath = `/assets/data/gta5/marcadores-mapa/${mode}/idiomas/${activeLang}/weapons.json`;
+
+    const fetchBase$ = this.http.get<GtaWeapon[]>(primaryBasePath).pipe(
+      catchError(() => this.http.get<GtaWeapon[]>(fallbackBasePath).pipe(catchError(() => of([] as GtaWeapon[]))))
+    );
+
+    const fetchLocalized$ = this.http.get<any[]>(primaryLocalizedPath).pipe(
+      catchError(() => this.http.get<any[]>(fallbackLocalizedPath).pipe(catchError(() => of([] as any[]))))
+    );
 
     const fetch$: Observable<GtaWeapon[]> = activeLang === 'es'
-      ? this.http.get<GtaWeapon[]>(basePath).pipe(catchError(() => of([] as GtaWeapon[])))
+      ? fetchBase$
       : forkJoin({
-          base: this.http.get<GtaWeapon[]>(basePath).pipe(catchError(() => of([] as GtaWeapon[]))),
-          localized: this.http.get<any[]>(`/assets/data/gta5/marcadores-mapa/${mode}/idiomas/${activeLang}/weapons.json`).pipe(catchError(() => of([] as any[])))
+          base: fetchBase$,
+          localized: fetchLocalized$
         }).pipe(
           map(({ base, localized }) => {
             if (!base || base.length === 0) return (localized as GtaWeapon[]) || [];
@@ -52,7 +75,7 @@ export class WeaponService {
 
     return fetch$.pipe(
       map(weapons => {
-        let filtered = weapons || [];
+        let filtered = (weapons || []).map(w => this.normalizeWeaponImage(w));
         if (category && category !== 'all') {
           filtered = filtered.filter(w => (w.category || '').toLowerCase() === category.toLowerCase());
         }

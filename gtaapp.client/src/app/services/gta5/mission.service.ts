@@ -22,7 +22,17 @@ export class MissionService {
     const withSlash = '/' + withoutSlash;
     const dataWithoutSlash = withoutSlash.replace(/^assets\/data\//, 'data/');
     const dataWithSlash = '/' + dataWithoutSlash;
-    return Array.from(new Set([path, withSlash, withoutSlash, dataWithSlash, dataWithoutSlash]));
+
+    const alternates: string[] = [];
+    if (withoutSlash.includes('/mapa/marcadores-mapa/')) {
+      const alt = withoutSlash.replace('/mapa/marcadores-mapa/', '/marcadores-mapa/');
+      alternates.push(alt, '/' + alt, alt.replace(/^assets\/data\//, 'data/'), '/' + alt.replace(/^assets\/data\//, 'data/'));
+    } else if (withoutSlash.includes('/marcadores-mapa/')) {
+      const alt = withoutSlash.replace('/marcadores-mapa/', '/mapa/marcadores-mapa/');
+      alternates.push(alt, '/' + alt, alt.replace(/^assets\/data\//, 'data/'), '/' + alt.replace(/^assets\/data\//, 'data/'));
+    }
+
+    return Array.from(new Set([path, withSlash, withoutSlash, dataWithSlash, dataWithoutSlash, ...alternates]));
   }
 
   private fetchWithFallback<T>(paths: string[]): Observable<T[]> {
@@ -86,8 +96,8 @@ export class MissionService {
   getStoryMissions(lang?: string): Observable<GtaMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMission>(
-      '/assets/data/gta5/marcadores-mapa/offline/idiomas/es/mapa-misiones-historia.json',
-      `/assets/data/gta5/marcadores-mapa/offline/idiomas/${activeLang}/mapa-misiones-historia.json`,
+      '/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/es/mapa-misiones-historia.json',
+      `/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/${activeLang}/mapa-misiones-historia.json`,
       activeLang
     );
   }
@@ -98,8 +108,8 @@ export class MissionService {
   getStoryStrangers(lang?: string): Observable<GtaStrangerMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaStrangerMission>(
-      '/assets/data/gta5/marcadores-mapa/offline/idiomas/es/strangers_and_freaks.json',
-      `/assets/data/gta5/marcadores-mapa/offline/idiomas/${activeLang}/strangers_and_freaks.json`,
+      '/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/es/strangers_and_freaks.json',
+      `/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/${activeLang}/strangers_and_freaks.json`,
       activeLang
     );
   }
@@ -110,8 +120,8 @@ export class MissionService {
   getOnlineMissions(lang?: string): Observable<GtaMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMission>(
-      '/assets/data/gta5/marcadores-mapa/online/idiomas/es/mapa-misiones-online.json',
-      `/assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/mapa-misiones-online.json`,
+      '/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/es/mapa-misiones-online.json',
+      `/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/${activeLang}/mapa-misiones-online.json`,
       activeLang
     );
   }
@@ -122,8 +132,8 @@ export class MissionService {
   getOnlineHeists(lang?: string): Observable<GtaHeist[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaHeist>(
-      '/assets/data/gta5/marcadores-mapa/online/idiomas/es/heists.json',
-      `/assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/heists.json`,
+      '/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/es/heists.json',
+      `/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/${activeLang}/heists.json`,
       activeLang
     );
   }
@@ -134,8 +144,8 @@ export class MissionService {
   getOnlineMysteries(lang?: string): Observable<GtaMystery[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMystery>(
-      '/assets/data/gta5/marcadores-mapa/online/idiomas/es/mysteries.json',
-      `/assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/mysteries.json`,
+      '/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/es/mysteries.json',
+      `/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/${activeLang}/mysteries.json`,
       activeLang
     );
   }
@@ -146,8 +156,8 @@ export class MissionService {
   getStoryMysteries(lang?: string): Observable<GtaMystery[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMystery>(
-      '/assets/data/gta5/marcadores-mapa/offline/idiomas/es/mysteries.json',
-      `/assets/data/gta5/marcadores-mapa/offline/idiomas/${activeLang}/mysteries.json`,
+      '/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/es/mysteries.json',
+      `/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/${activeLang}/mysteries.json`,
       activeLang
     );
   }

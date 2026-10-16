@@ -859,7 +859,14 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 ? `<div class="popup-price-box"><span class="price-title">${priceLbl}</span> <span class="price-num">${p.priceFormatted}</span></div>`
                 : `<div class="popup-service-tag-box"><span class="service-type-badge">${p.categoryLabel}</span><span class="service-status-text">${p.priceFormatted || poiLbl}</span></div>`;
 
-            const rawImg = p.imageUrl || (p as any).thumbnail || (p as any).image;
+            let rawImg = p.imageUrl || (p as any).thumbnail || (p as any).image;
+            if (rawImg && typeof rawImg === 'string') {
+                if (rawImg.includes('/assets/images/gta5/marcadores-mapa/')) {
+                    rawImg = rawImg.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+                } else if (rawImg.startsWith('assets/images/gta5/marcadores-mapa/')) {
+                    rawImg = rawImg.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
+                }
+            }
             const finalImg = rawImg ? (rawImg.startsWith('/') ? rawImg : '/' + rawImg) : '';
             const imageHtml = finalImg
                 ? `<div class="popup-image-box"><img src="${finalImg}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`

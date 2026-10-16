@@ -366,6 +366,9 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     } else {
       this.mostrarTrofeos = false;
       this.isMobileReadingOpen = false;
+      if (sec.articulos && sec.articulos.length > 0 && !this.hasSubcategorias(sec) && sec.id !== 'golpes') {
+        this.seleccionarArticulo(sec.articulos[0].id, false);
+      }
     }
     if (this.isMobileView()) {
       this.scrollToTop();
@@ -720,13 +723,17 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     
     // Convención automática para misiones principales
     if (art.categoria === 'misiones-historia' || art.id.startsWith('mision-')) {
-      return `assets/images/gta5/guia/historia/misiones-principales/${art.slug}.jpg`;
+      return `assets/images/gta5/guia/offline/misiones-principales/${art.slug}.jpg`;
     }
     
     return null;
   }
 
   onImageError(articuloId: string): void {
+    if (this.selectedArticulo && this.selectedArticulo.id === articuloId && this.selectedArticulo.imagen && this.selectedArticulo.imagen.includes('/mapa/marcadores-mapa/')) {
+      this.selectedArticulo.imagen = this.selectedArticulo.imagen.replace('/mapa/marcadores-mapa/', '/marcadores-mapa/');
+      return;
+    }
     this.failedImageArticleIds.add(articuloId);
   }
 
@@ -843,9 +850,9 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
         if (articuloId === 'prologo-introduccion-guia' && !framesInserted) {
           out.push(`
             <div class="gta5-protagonists-frames" aria-label="Protagonistas de GTA V">
-              <div class="gta5-protagonist-frame" aria-label="Michael De Santa"><img src="assets/images/gta5/guia/historia/personajes/Michael.png" alt="Michael De Santa" loading="lazy" /><span>Michael</span></div>
-              <div class="gta5-protagonist-frame" aria-label="Trevor Philips"><img src="assets/images/gta5/guia/historia/personajes/Trevor.png" alt="Trevor Philips" loading="lazy" /><span>Trevor</span></div>
-              <div class="gta5-protagonist-frame" aria-label="Franklin Clinton"><img src="assets/images/gta5/guia/historia/personajes/Franklin.png" alt="Franklin Clinton" loading="lazy" /><span>Franklin</span></div>
+              <div class="gta5-protagonist-frame" aria-label="Michael De Santa"><img src="assets/images/gta5/guia/offline/personajes/Michael.png" alt="Michael De Santa" loading="lazy" /><span>Michael</span></div>
+              <div class="gta5-protagonist-frame" aria-label="Trevor Philips"><img src="assets/images/gta5/guia/offline/personajes/Trevor.png" alt="Trevor Philips" loading="lazy" /><span>Trevor</span></div>
+              <div class="gta5-protagonist-frame" aria-label="Franklin Clinton"><img src="assets/images/gta5/guia/offline/personajes/Franklin.png" alt="Franklin Clinton" loading="lazy" /><span>Franklin</span></div>
             </div>
           `);
           framesInserted = true;

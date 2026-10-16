@@ -20,7 +20,7 @@
 
         <!-- LOGO DE LA HOME CON TAMAÑO FIJADO -->
         <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
-          <img src="assets/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
+          <img src="assets/images/logos/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
         <!-- Separador vertical espigado derecho -->
@@ -463,7 +463,7 @@
               <i class="fa-solid fa-chevron-left"></i>
               <span>Categorías</span>
             </button>
-            <span class="guide-detail-badge">{{ currentSection.articulos.length }} caps</span>
+            <span class="guide-detail-badge">{{ currentSection.articulos.length }} {{ currentSection.id === 'secretos-misterios' ? 'misterios' : 'caps' }}</span>
           </div>
 
           <div class="sidebar-header-bar">
@@ -482,10 +482,10 @@
               
               <div class="chapter-card-info">
                 <span class="chapter-card-title">{{ art.titulo }}</span>
-                <span class="chapter-card-sub" *ngIf="art.subtitulo && currentSection?.id !== 'prologo'">{{ art.subtitulo }}</span>
+                <span class="chapter-card-sub" *ngIf="art.subtitulo && currentSection?.id !== 'prologo' && currentSection?.id !== 'secretos-misterios'">{{ art.subtitulo }}</span>
               </div>
 
-              <div class="chapter-card-meta">
+              <div class="chapter-card-meta" *ngIf="currentSection?.id !== 'secretos-misterios'">
                 <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
                 <span class="chapter-card-time" *ngIf="art.tiempoLecturaMinutos && currentSection?.id !== 'misiones-historia' && currentSection?.id !== 'prologo'">
                   <i class="fa-regular fa-clock"></i> {{ art.tiempoLecturaMinutos }}m

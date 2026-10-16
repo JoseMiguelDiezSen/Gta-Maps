@@ -1569,7 +1569,14 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 ? `<div class="popup-row"><span class="popup-tag-lbl">${this.translationService.t('gta5.popups.buyer')}</span> <span class="popup-tag-val">${p.owner}</span></div>`
                 : '';
 
-            const rawImg = p.imageUrl || (p as any).thumbnail || (p as any).image;
+            let rawImg = p.imageUrl || (p as any).thumbnail || (p as any).image;
+            if (rawImg && typeof rawImg === 'string') {
+                if (rawImg.includes('/assets/images/gta5/marcadores-mapa/')) {
+                    rawImg = rawImg.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+                } else if (rawImg.startsWith('assets/images/gta5/marcadores-mapa/')) {
+                    rawImg = rawImg.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
+                }
+            }
             const finalImg = rawImg ? (rawImg.startsWith('/') ? rawImg : '/' + rawImg) : '';
             const imageHtml = finalImg
                 ? `<div class="popup-image-box"><img src="${finalImg}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`

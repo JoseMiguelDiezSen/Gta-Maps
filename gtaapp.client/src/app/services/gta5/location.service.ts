@@ -13,6 +13,32 @@ export class LocationService {
     private translationService: TranslationService
   ) {}
 
+  private normalizeItemImages<T>(item: T): T {
+    if (!item || typeof item !== 'object') return item;
+    const obj = item as Record<string, any>;
+    if (typeof obj['imageUrl'] === 'string') {
+      if (obj['imageUrl'].includes('/assets/images/gta5/marcadores-mapa/')) {
+        obj['imageUrl'] = obj['imageUrl'].replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+      } else if (obj['imageUrl'].startsWith('assets/images/gta5/marcadores-mapa/')) {
+        obj['imageUrl'] = obj['imageUrl'].replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
+      }
+    }
+    if (typeof obj['thumbnail'] === 'string') {
+      if (obj['thumbnail'].includes('/assets/images/gta5/marcadores-mapa/')) {
+        obj['thumbnail'] = obj['thumbnail'].replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+      } else if (obj['thumbnail'].startsWith('assets/images/gta5/marcadores-mapa/')) {
+        obj['thumbnail'] = obj['thumbnail'].replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
+      }
+    }
+    return item;
+  }
+
+  private fetchJsonWithFallback<T>(primaryPath: string, fallbackPath: string): Observable<T> {
+    return this.http.get<T>(primaryPath).pipe(
+      catchError(() => this.http.get<T>(fallbackPath).pipe(catchError(() => of([] as unknown as T))))
+    );
+  }
+
   /**
    * Fusiona elementos canónicos (fuente de verdad espacial/métrica) con traducciones idiomáticas.
    * Garantiza que las coordenadas x/y/z y los identificadores siempre provengan de la base canónica.
@@ -73,27 +99,23 @@ export class LocationService {
         ];
 
     const requests = fileList.map(fileName => {
-      const basePath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/es/${fileName}`;
+      const primaryBasePath = `assets/data/gta5/mapa/marcadores-mapa/${modeFolder}/idiomas/es/${fileName}`;
+      const fallbackBasePath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/es/${fileName}`;
 
       if (activeLang === 'es') {
-        return this.http.get<LocationItem[]>(basePath).pipe(
-          catchError(err => {
-            console.warn(`No se pudo cargar ${fileName} base:`, err);
-            return of([] as LocationItem[]);
-          })
+        return this.fetchJsonWithFallback<LocationItem[]>(primaryBasePath, fallbackBasePath).pipe(
+          map(items => (items || []).map(i => this.normalizeItemImages(i)))
         );
       }
 
-      const localizedPath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/${fileName}`;
+      const primaryLocalizedPath = `assets/data/gta5/mapa/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/${fileName}`;
+      const fallbackLocalizedPath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/${fileName}`;
+
       return forkJoin({
-        base: this.http.get<LocationItem[]>(basePath).pipe(
-          catchError(() => of([] as LocationItem[]))
-        ),
-        localized: this.http.get<any[]>(localizedPath).pipe(
-          catchError(() => of([] as any[]))
-        )
+        base: this.fetchJsonWithFallback<LocationItem[]>(primaryBasePath, fallbackBasePath),
+        localized: this.fetchJsonWithFallback<any[]>(primaryLocalizedPath, fallbackLocalizedPath)
       }).pipe(
-        map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized))
+        map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized).map(i => this.normalizeItemImages(i)))
       );
     });
 
@@ -129,13 +151,17 @@ export class LocationService {
     const isStory = gameMode === 'story' || gameMode === 'historia';
     const modeFolder = isStory ? 'offline' : 'online';
 
-    const basePath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/es/collectibles.json`;
+    const primaryBasePath = `assets/data/gta5/mapa/marcadores-mapa/${modeFolder}/idiomas/es/collectibles.json`;
+    const fallbackBasePath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/es/collectibles.json`;
+
+    const primaryLocalizedPath = `assets/data/gta5/mapa/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/collectibles.json`;
+    const fallbackLocalizedPath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/collectibles.json`;
 
     const fetch$: Observable<CollectibleItem[]> = activeLang === 'es'
-      ? this.http.get<CollectibleItem[]>(basePath).pipe(catchError(() => of([] as CollectibleItem[])))
+      ? this.fetchJsonWithFallback<CollectibleItem[]>(primaryBasePath, fallbackBasePath)
       : forkJoin({
-          base: this.http.get<CollectibleItem[]>(basePath).pipe(catchError(() => of([] as CollectibleItem[]))),
-          localized: this.http.get<any[]>(`assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/collectibles.json`).pipe(catchError(() => of([] as any[])))
+          base: this.fetchJsonWithFallback<CollectibleItem[]>(primaryBasePath, fallbackBasePath),
+          localized: this.fetchJsonWithFallback<any[]>(primaryLocalizedPath, fallbackLocalizedPath)
         }).pipe(
           map(({ base, localized }) => this.mergeLocalizedItems<CollectibleItem>(base, localized))
         );
@@ -143,10 +169,11 @@ export class LocationService {
     return fetch$.pipe(
       map(items => {
         if (!Array.isArray(items)) return [];
+        const normalized = items.map(i => this.normalizeItemImages(i));
         if (category && category.trim() !== '' && category.toLowerCase() !== 'all') {
-          return items.filter(c => c.category && c.category.toLowerCase() === category.toLowerCase());
+          return normalized.filter(c => c.category && c.category.toLowerCase() === category.toLowerCase());
         }
-        return items;
+        return normalized;
       }),
       catchError(err => {
         console.error(`Error al obtener coleccionables:`, err);
@@ -160,13 +187,17 @@ export class LocationService {
    */
   getCayoPericoLocations(category?: string, lang?: string): Observable<LocationItem[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
-    const basePath = `assets/data/gta5/marcadores-mapa/online/idiomas/es/cayo_perico.json`;
+    const primaryBasePath = `assets/data/gta5/mapa/marcadores-mapa/online/idiomas/es/cayo_perico.json`;
+    const fallbackBasePath = `assets/data/gta5/marcadores-mapa/online/idiomas/es/cayo_perico.json`;
+
+    const primaryLocalizedPath = `assets/data/gta5/mapa/marcadores-mapa/online/idiomas/${activeLang}/cayo_perico.json`;
+    const fallbackLocalizedPath = `assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/cayo_perico.json`;
 
     const fetch$: Observable<LocationItem[]> = activeLang === 'es'
-      ? this.http.get<LocationItem[]>(basePath).pipe(catchError(() => of([] as LocationItem[])))
+      ? this.fetchJsonWithFallback<LocationItem[]>(primaryBasePath, fallbackBasePath)
       : forkJoin({
-          base: this.http.get<LocationItem[]>(basePath).pipe(catchError(() => of([] as LocationItem[]))),
-          localized: this.http.get<any[]>(`assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/cayo_perico.json`).pipe(catchError(() => of([] as any[])))
+          base: this.fetchJsonWithFallback<LocationItem[]>(primaryBasePath, fallbackBasePath),
+          localized: this.fetchJsonWithFallback<any[]>(primaryLocalizedPath, fallbackLocalizedPath)
         }).pipe(
           map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized))
         );
@@ -174,10 +205,11 @@ export class LocationService {
     return fetch$.pipe(
       map(items => {
         if (!Array.isArray(items)) return [];
+        const normalized = items.map(i => this.normalizeItemImages(i));
         if (category && category.trim() !== '' && category.toLowerCase() !== 'all') {
-          return items.filter(loc => loc.category && loc.category.toLowerCase() === category.toLowerCase());
+          return normalized.filter(loc => loc.category && loc.category.toLowerCase() === category.toLowerCase());
         }
-        return items;
+        return normalized;
       }),
       catchError(err => {
         console.error(`Error al obtener Cayo Perico:`, err);
