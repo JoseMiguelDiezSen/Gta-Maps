@@ -40,21 +40,21 @@ export class VehicleService {
    * Fallback local directo desde assets estáticos en caso de desconexión del backend.
    */
   private loadLocalVehiclesFallback(dealership?: string, category?: string, activeLang = 'es', gameMode: 'story' | 'online' = 'online'): Observable<GtaVehicle[]> {
-    const mode = gameMode === 'story' ? 'historia' : 'online';
+    const mode = gameMode === 'story' ? 'offline' : 'online';
     const normalizedDealer = dealership ? (dealership.toLowerCase() === 'especiales' ? 'pegasus' : dealership.toLowerCase()) : null;
-    const dealerPath = normalizedDealer ? `/assets/data/gta5/${mode}/es/vehicles/${normalizedDealer}.json` : null;
+    const dealerPath = normalizedDealer ? `/assets/data/gta5/marcadores-mapa/${mode}/idiomas/es/vehicles/${normalizedDealer}.json` : null;
     const dealerNames = ['legendarymotorsport', 'superautos', 'bennys', 'elitas', 'docktease', 'warstock', 'pedal_and_metal', 'pegasus', 'arena_war'];
     const baseSource$: Observable<GtaVehicle[]> = dealerPath
       ? this.http.get<GtaVehicle[]>(dealerPath).pipe(catchError(() => of([] as GtaVehicle[])))
       : forkJoin(
-          dealerNames.map(d => this.http.get<GtaVehicle[]>(`/assets/data/gta5/${mode}/es/vehicles/${d}.json`).pipe(catchError(() => of([] as GtaVehicle[]))))
+          dealerNames.map(d => this.http.get<GtaVehicle[]>(`/assets/data/gta5/marcadores-mapa/${mode}/idiomas/es/vehicles/${d}.json`).pipe(catchError(() => of([] as GtaVehicle[]))))
         ).pipe(map(lists => lists.flat()));
 
     const fetch$: Observable<GtaVehicle[]> = activeLang === 'es'
       ? baseSource$
       : forkJoin({
           base: baseSource$,
-          localized: this.http.get<any[]>(`/assets/data/gta5/${mode}/${activeLang}/vehicles.json`).pipe(catchError(() => of([] as any[])))
+          localized: this.http.get<any[]>(`/assets/data/gta5/marcadores-mapa/${mode}/idiomas/${activeLang}/vehicles.json`).pipe(catchError(() => of([] as any[])))
         }).pipe(
           map(({ base, localized }) => {
             if (!base || base.length === 0) return (localized as GtaVehicle[]) || [];

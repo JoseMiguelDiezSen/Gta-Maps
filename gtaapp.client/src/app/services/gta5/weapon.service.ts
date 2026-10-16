@@ -19,14 +19,14 @@ export class WeaponService {
    */
   getWeapons(gameMode: 'story' | 'online' = 'online', category?: string, lang?: string): Observable<GtaWeapon[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
-    const mode = gameMode === 'story' ? 'historia' : 'online';
-    const basePath = `/assets/data/gta5/${mode}/es/weapons.json`;
+    const mode = gameMode === 'story' ? 'offline' : 'online';
+    const basePath = `/assets/data/gta5/marcadores-mapa/${mode}/idiomas/es/weapons.json`;
 
     const fetch$: Observable<GtaWeapon[]> = activeLang === 'es'
       ? this.http.get<GtaWeapon[]>(basePath).pipe(catchError(() => of([] as GtaWeapon[])))
       : forkJoin({
           base: this.http.get<GtaWeapon[]>(basePath).pipe(catchError(() => of([] as GtaWeapon[]))),
-          localized: this.http.get<any[]>(`/assets/data/gta5/${mode}/${activeLang}/weapons.json`).pipe(catchError(() => of([] as any[])))
+          localized: this.http.get<any[]>(`/assets/data/gta5/marcadores-mapa/${mode}/idiomas/${activeLang}/weapons.json`).pipe(catchError(() => of([] as any[])))
         }).pipe(
           map(({ base, localized }) => {
             if (!base || base.length === 0) return (localized as GtaWeapon[]) || [];

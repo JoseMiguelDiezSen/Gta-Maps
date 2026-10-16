@@ -48,7 +48,7 @@ export class LocationService {
   getProperties(gameMode?: string, category?: string, lang?: string): Observable<LocationItem[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     const isStory = gameMode === 'story' || gameMode === 'historia';
-    const modeFolder = isStory ? 'historia' : 'online';
+    const modeFolder = isStory ? 'offline' : 'online';
 
     const fileList = isStory
       ? [
@@ -73,7 +73,7 @@ export class LocationService {
         ];
 
     const requests = fileList.map(fileName => {
-      const basePath = `assets/data/gta5/${modeFolder}/es/${fileName}`;
+      const basePath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/es/${fileName}`;
 
       if (activeLang === 'es') {
         return this.http.get<LocationItem[]>(basePath).pipe(
@@ -84,7 +84,7 @@ export class LocationService {
         );
       }
 
-      const localizedPath = `assets/data/gta5/${modeFolder}/${activeLang}/${fileName}`;
+      const localizedPath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/${fileName}`;
       return forkJoin({
         base: this.http.get<LocationItem[]>(basePath).pipe(
           catchError(() => of([] as LocationItem[]))
@@ -127,15 +127,15 @@ export class LocationService {
   getCollectibles(category?: string, lang?: string, gameMode?: string): Observable<CollectibleItem[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     const isStory = gameMode === 'story' || gameMode === 'historia';
-    const modeFolder = isStory ? 'historia' : 'online';
+    const modeFolder = isStory ? 'offline' : 'online';
 
-    const basePath = `assets/data/gta5/${modeFolder}/es/collectibles.json`;
+    const basePath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/es/collectibles.json`;
 
     const fetch$: Observable<CollectibleItem[]> = activeLang === 'es'
       ? this.http.get<CollectibleItem[]>(basePath).pipe(catchError(() => of([] as CollectibleItem[])))
       : forkJoin({
           base: this.http.get<CollectibleItem[]>(basePath).pipe(catchError(() => of([] as CollectibleItem[]))),
-          localized: this.http.get<any[]>(`assets/data/gta5/${modeFolder}/${activeLang}/collectibles.json`).pipe(catchError(() => of([] as any[])))
+          localized: this.http.get<any[]>(`assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/collectibles.json`).pipe(catchError(() => of([] as any[])))
         }).pipe(
           map(({ base, localized }) => this.mergeLocalizedItems<CollectibleItem>(base, localized))
         );
@@ -160,13 +160,13 @@ export class LocationService {
    */
   getCayoPericoLocations(category?: string, lang?: string): Observable<LocationItem[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
-    const basePath = `assets/data/gta5/online/es/cayo_perico.json`;
+    const basePath = `assets/data/gta5/marcadores-mapa/online/idiomas/es/cayo_perico.json`;
 
     const fetch$: Observable<LocationItem[]> = activeLang === 'es'
       ? this.http.get<LocationItem[]>(basePath).pipe(catchError(() => of([] as LocationItem[])))
       : forkJoin({
           base: this.http.get<LocationItem[]>(basePath).pipe(catchError(() => of([] as LocationItem[]))),
-          localized: this.http.get<any[]>(`assets/data/gta5/online/${activeLang}/cayo_perico.json`).pipe(catchError(() => of([] as any[])))
+          localized: this.http.get<any[]>(`assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/cayo_perico.json`).pipe(catchError(() => of([] as any[])))
         }).pipe(
           map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized))
         );

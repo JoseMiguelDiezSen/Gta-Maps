@@ -86,20 +86,20 @@ export class MissionService {
   getStoryMissions(lang?: string): Observable<GtaMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMission>(
-      '/assets/data/gta5/historia/es/mapa-misiones-historia.json',
-      `/assets/data/gta5/historia/${activeLang}/mapa-misiones-historia.json`,
+      '/assets/data/gta5/marcadores-mapa/offline/idiomas/es/mapa-misiones-historia.json',
+      `/assets/data/gta5/marcadores-mapa/offline/idiomas/${activeLang}/mapa-misiones-historia.json`,
       activeLang
     );
   }
 
   /**
-   * Obtiene la lista de misiones secundarias de ExtraÃ±os y Locos.
+   * Obtiene la lista de misiones secundarias de Extraños y Locos.
    */
   getStoryStrangers(lang?: string): Observable<GtaStrangerMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaStrangerMission>(
-      '/assets/data/gta5/historia/es/strangers_and_freaks.json',
-      `/assets/data/gta5/historia/${activeLang}/strangers_and_freaks.json`,
+      '/assets/data/gta5/marcadores-mapa/offline/idiomas/es/strangers_and_freaks.json',
+      `/assets/data/gta5/marcadores-mapa/offline/idiomas/${activeLang}/strangers_and_freaks.json`,
       activeLang
     );
   }
@@ -110,8 +110,8 @@ export class MissionService {
   getOnlineMissions(lang?: string): Observable<GtaMission[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMission>(
-      '/assets/data/gta5/online/es/mapa-misiones-online.json',
-      `/assets/data/gta5/online/${activeLang}/mapa-misiones-online.json`,
+      '/assets/data/gta5/marcadores-mapa/online/idiomas/es/mapa-misiones-online.json',
+      `/assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/mapa-misiones-online.json`,
       activeLang
     );
   }
@@ -122,32 +122,32 @@ export class MissionService {
   getOnlineHeists(lang?: string): Observable<GtaHeist[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaHeist>(
-      '/assets/data/gta5/online/es/heists.json',
-      `/assets/data/gta5/online/${activeLang}/heists.json`,
+      '/assets/data/gta5/marcadores-mapa/online/idiomas/es/heists.json',
+      `/assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/heists.json`,
       activeLang
     );
   }
 
   /**
-   * Obtiene el catÃ¡logo oficial de Misterios y Leyendas Urbanas de GTA Online.
+   * Obtiene el catálogo oficial de Misterios y Leyendas Urbanas de GTA Online.
    */
   getOnlineMysteries(lang?: string): Observable<GtaMystery[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMystery>(
-      '/assets/data/gta5/online/es/mysteries.json',
-      `/assets/data/gta5/online/${activeLang}/mysteries.json`,
+      '/assets/data/gta5/marcadores-mapa/online/idiomas/es/mysteries.json',
+      `/assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/mysteries.json`,
       activeLang
     );
   }
 
   /**
-   * Obtiene el catÃ¡logo de Misterios y Easter Eggs de GTA V Modo Historia.
+   * Obtiene el catálogo de Misterios y Easter Eggs de GTA V Modo Historia.
    */
   getStoryMysteries(lang?: string): Observable<GtaMystery[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMystery>(
-      '/assets/data/gta5/historia/es/mysteries.json',
-      `/assets/data/gta5/historia/${activeLang}/mysteries.json`,
+      '/assets/data/gta5/marcadores-mapa/offline/idiomas/es/mysteries.json',
+      `/assets/data/gta5/marcadores-mapa/offline/idiomas/${activeLang}/mysteries.json`,
       activeLang
     );
   }

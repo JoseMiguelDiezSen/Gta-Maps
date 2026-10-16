@@ -104,14 +104,21 @@ public class VehiclesService
         string? dealerPath = null;
         if (!string.IsNullOrEmpty(cleanDealer))
         {
-            var p = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles", $"{cleanDealer}.json");
-            if (File.Exists(p))
+            var pNew = Path.Combine(BaseWebRoot, "data", "gta5", "marcadores-mapa", "online", "idiomas", "es", "vehicles", $"{cleanDealer}.json");
+            var pOld = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles", $"{cleanDealer}.json");
+            if (File.Exists(pNew))
             {
-                dealerPath = p;
+                dealerPath = pNew;
+            }
+            else if (File.Exists(pOld))
+            {
+                dealerPath = pOld;
             }
         }
 
-        var modularDir = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles");
+        var modularDirNew = Path.Combine(BaseWebRoot, "data", "gta5", "marcadores-mapa", "online", "idiomas", "es", "vehicles");
+        var modularDirOld = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles");
+        var modularDir = Directory.Exists(modularDirNew) ? modularDirNew : modularDirOld;
         if (string.IsNullOrEmpty(cleanDealer) && Directory.Exists(modularDir))
         {
             var files = Directory.GetFiles(modularDir, "*.json");
@@ -147,14 +154,19 @@ public class VehiclesService
             }
         }
 
-        // 1. Ruta jerárquica con el idioma solicitado: data/gta5/online/{lang}/vehicles.json
+        // 1. Ruta jerárquica con el idioma solicitado: data/gta5/marcadores-mapa/online/idiomas/{lang}/vehicles.json
+        var hierPathNew = Path.Combine(BaseWebRoot, "data", "gta5", "marcadores-mapa", "online", "idiomas", lang, "vehicles.json");
+        var esPathNew = Path.Combine(BaseWebRoot, "data", "gta5", "marcadores-mapa", "online", "idiomas", "es", "vehicles.json");
+        // 2. Rutas anteriores y fallback en la raíz
         var hierPath = Path.Combine(BaseWebRoot, "data", "gta5", "online", lang, "vehicles.json");
-        // 2. Ruta fallback en español: data/gta5/online/es/vehicles.json
         var esPath = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles.json");
-        // 3. Ruta fallback retrocompatible en la raíz
         var legacyPath = Path.Combine(BaseWebRoot, "data", "vehicles.json");
 
-        var fullPath = dealerPath ?? (File.Exists(hierPath) ? hierPath : (File.Exists(esPath) ? esPath : legacyPath));
+        var fullPath = dealerPath
+            ?? (File.Exists(hierPathNew) ? hierPathNew
+            : (File.Exists(esPathNew) ? esPathNew
+            : (File.Exists(hierPath) ? hierPath
+            : (File.Exists(esPath) ? esPath : legacyPath))));
 
         if (!File.Exists(fullPath))
         {

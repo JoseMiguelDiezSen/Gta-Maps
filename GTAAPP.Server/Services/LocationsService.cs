@@ -70,28 +70,43 @@ public class LocationsService
             }
         }
 
-        // 1. Buscar en la estructura jerárquica con el idioma solicitado: data/{game}/{mode}/{activeLang}/{fileName}
+        var modeFolder = mode == "historia" || mode == "story" ? "offline" : mode;
+
+        // 1. Buscar en la nueva estructura: data/{game}/marcadores-mapa/{modeFolder}/idiomas/{activeLang}/{fileName}
+        var newTargetPath = Path.Combine(basePath, "data", game, "marcadores-mapa", modeFolder, "idiomas", activeLang, fileName);
+        if (File.Exists(newTargetPath))
+        {
+            return newTargetPath;
+        }
+
+        var newEsPath = Path.Combine(basePath, "data", game, "marcadores-mapa", modeFolder, "idiomas", "es", fileName);
+        if (File.Exists(newEsPath))
+        {
+            return newEsPath;
+        }
+
+        // 2. Fallback a la estructura anterior: data/{game}/{mode}/{activeLang}/{fileName}
         var targetPath = Path.Combine(basePath, "data", game, mode, activeLang, fileName);
         if (File.Exists(targetPath))
         {
             return targetPath;
         }
 
-        // 2. Fallback a español si no existe la traducción: data/{game}/{mode}/es/{fileName}
+        // 3. Fallback a español si no existe la traducción: data/{game}/{mode}/es/{fileName}
         var esPath = Path.Combine(basePath, "data", game, mode, "es", fileName);
         if (File.Exists(esPath))
         {
             return esPath;
         }
 
-        // 3. Fallback retrocompatible por si acaso
+        // 4. Fallback retrocompatible por si acaso
         var legacyPath = Path.Combine(basePath, "data", fileName);
         if (File.Exists(legacyPath))
         {
             return legacyPath;
         }
 
-        return targetPath;
+        return newTargetPath;
     }
 
     // ==========================================
