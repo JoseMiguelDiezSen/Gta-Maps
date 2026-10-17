@@ -91,7 +91,12 @@ builder.Services.AddRateLimiter(options =>
     options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
     {
         var path = httpContext.Request.Path.Value ?? string.Empty;
-        if (path.StartsWith("/assets", StringComparison.OrdinalIgnoreCase) ||
+        var isJsonData = path.EndsWith(".json", StringComparison.OrdinalIgnoreCase) ||
+                         path.StartsWith("/assets/data", StringComparison.OrdinalIgnoreCase) ||
+                         path.StartsWith("/data", StringComparison.OrdinalIgnoreCase);
+
+        if (!isJsonData && (
+            path.StartsWith("/assets", StringComparison.OrdinalIgnoreCase) ||
             path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
             path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
             path.EndsWith(".webp", StringComparison.OrdinalIgnoreCase) ||
@@ -101,7 +106,7 @@ builder.Services.AddRateLimiter(options =>
             path.EndsWith(".xml", StringComparison.OrdinalIgnoreCase) ||
             path.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) ||
             path.EndsWith(".ico", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase))
+            path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase)))
         {
             return RateLimitPartition.GetNoLimiter("static-assets");
         }

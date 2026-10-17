@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +23,7 @@ import { Goty5Component } from './gta5/goty5/goty5.component';
 import { Goty6Component } from './gta6/goty6/goty6.component';
 import { AppRoutingModule }       from './app-routing.module';
 import { TranslatePipe }          from './i18n';
+import { AntiScrapingInterceptor } from './interceptors/anti-scraping.interceptor';
 
 @NgModule({
     declarations: [
@@ -53,7 +54,8 @@ import { TranslatePipe }          from './i18n';
         AppRoutingModule
     ],
     providers: [
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withInterceptorsFromDi()),
+        { provide: HTTP_INTERCEPTORS, useClass: AntiScrapingInterceptor, multi: true }
     ]
 })
 export class AppModule { }

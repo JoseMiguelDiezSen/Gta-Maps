@@ -8,6 +8,23 @@ namespace GTAAPP.Server.Middleware;
 public class SecurityHeadersMiddleware
 {
     /// <summary>
+    /// Clave compartida para validar el pase dinámico (X-GTA-Shield) generado por el interceptor de Angular.
+    /// </summary>
+    private const string ShieldSalt = "GTA-WORLD-SHIELD-2026-V1";
+
+    /// <summary>
+    /// Firmas de herramientas automatizadas de scraping, descarga masiva y bots de extracción de datos bloqueados.
+    /// </summary>
+    private static readonly string[] BlockedScraperSignatures =
+    [
+        "python-requests", "python-urllib", "aiohttp", "httpx", "scrapy",
+        "curl/", "wget/", "httrack", "libwww-perl", "lwp-trivial",
+        "go-http-client", "java/", "okhttp", "apache-httpclient",
+        "postmanruntime", "insomnia", "axios/", "node-fetch", "undici",
+        "gptbot", "ccbot", "claudebot", "bytespider", "petalbot"
+    ];
+
+    /// <summary>
     /// Delegado que representa el siguiente middleware en el pipeline de procesamiento de la petición HTTP.
     /// </summary>
     private readonly RequestDelegate _next;
@@ -22,8 +39,8 @@ public class SecurityHeadersMiddleware
     }
 
     /// <summary>
-    /// Intercepta la petición HTTP y registra un hook en Response.OnStarting para adjuntar las cabeceras de seguridad
-    /// justo antes de que comiencen a enviarse los primeros bytes al cliente navegador.
+    /// Intercepta la petición HTTP, aplica el escudo anti-scraping global y registra un hook en Response.OnStarting
+    /// para adjuntar las cabeceras de seguridad justo antes de que comiencen a enviarse los primeros bytes al cliente.
     /// </summary>
     /// <param name="context">El contexto HTTP de la petición actual.</param>
     /// <returns>Tarea asíncrona que continúa la ejecución de la petición.</returns>
@@ -33,7 +50,67 @@ public class SecurityHeadersMiddleware
         var path = context.Request.Path.Value ?? string.Empty;
 
         // =========================================================================
-        // BLINDAJE DE MÉTODOS HTTP:
+        // 1. ESCUDO ANTI-SCRAPING: BLOQUEO DE BOTS Y HERRAMIENTAS DE EXTRACCIÓN
+        // =========================================================================
+        var userAgent = context.Request.Headers.UserAgent.ToString();
+        if (string.IsNullOrWhiteSpace(userAgent) || IsScraperUserAgent(userAgent))
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            context.Response.ContentType = "application/json; charset=utf-8";
+            await context.Response.WriteAsJsonAsync(new
+            {
+                error = "Forbidden",
+                message = "Acceso automatizado no permitido."
+            });
+            return;
+        }
+
+        // =========================================================================
+        // 2. ESCUDO ANTI-DESCARGA DIRECTA DE DATOS (.JSON Y API) Y PASE PRIVADO
+        // Impide abrir archivos .json o endpoints de API directamente en el navegador,
+        // desde webs externas o sin el pase dinámico X-GTA-Shield de la app Angular.
+        // =========================================================================
+        var secFetchMode = context.Request.Headers["Sec-Fetch-Mode"].ToString();
+        var secFetchDest = context.Request.Headers["Sec-Fetch-Dest"].ToString();
+        var secFetchSite = context.Request.Headers["Sec-Fetch-Site"].ToString();
+
+        var isDataRequest = path.EndsWith(".json", StringComparison.OrdinalIgnoreCase) ||
+                            path.StartsWith("/assets/data/", StringComparison.OrdinalIgnoreCase) ||
+                            path.StartsWith("/data/", StringComparison.OrdinalIgnoreCase) ||
+                            path.StartsWith("/api/", StringComparison.OrdinalIgnoreCase);
+
+        if (isDataRequest && !HttpMethods.IsOptions(method))
+        {
+            var isDirectBrowserNavigation = secFetchMode.Equals("navigate", StringComparison.OrdinalIgnoreCase) ||
+                                            secFetchDest.Equals("document", StringComparison.OrdinalIgnoreCase);
+            var isCrossSite = secFetchSite.Equals("cross-site", StringComparison.OrdinalIgnoreCase);
+            var shieldToken = context.Request.Headers["X-GTA-Shield"].ToString();
+
+            if (isDirectBrowserNavigation || isCrossSite || !IsValidShieldToken(shieldToken))
+            {
+                context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                context.Response.ContentType = "application/json; charset=utf-8";
+                await context.Response.WriteAsJsonAsync(new
+                {
+                    error = "Forbidden",
+                    message = "No está permitido el acceso externo a los datos de la aplicación."
+                });
+                return;
+            }
+        }
+
+        // Protección de tiles del mapa e imágenes contra clonado desde dominios externos
+        var isProtectedMedia = path.StartsWith("/assets/mapas/", StringComparison.OrdinalIgnoreCase) ||
+                               path.StartsWith("/assets/images/", StringComparison.OrdinalIgnoreCase);
+
+        if (isProtectedMedia && secFetchSite.Equals("cross-site", StringComparison.OrdinalIgnoreCase))
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            return;
+        }
+
+        // =========================================================================
+        // 3. BLINDAJE DE MÉTODOS HTTP:
         // Solo se permiten GET, HEAD y OPTIONS en toda la aplicación.
         // Las peticiones POST solo se admiten en la ruta del bot (/api/goty/chat)
         // y en el endpoint de SignalR (/hubs/usuarios-activos) para negociación.
@@ -133,6 +210,70 @@ public class SecurityHeadersMiddleware
         });
 
         await _next(context);
+    }
+
+    /// <summary>
+    /// Determina si la cabecera User-Agent coincide con alguna herramienta conocida de scraping o extracción masiva.
+    /// </summary>
+    /// <param name="userAgent">Cadena User-Agent de la petición HTTP.</param>
+    /// <returns>True si pertenece a un bot o herramienta de scraping; de lo contrario, False.</returns>
+    private static bool IsScraperUserAgent(string userAgent)
+    {
+        foreach (var signature in BlockedScraperSignatures)
+        {
+            if (userAgent.Contains(signature, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Valida el token dinámico temporal (X-GTA-Shield) generado por el interceptor de Angular.
+    /// Acepta una ventana de tolerancia de ±5 minutos para compensar desajustes de reloj del cliente.
+    /// </summary>
+    /// <param name="token">Valor de la cabecera X-GTA-Shield con formato 'minuto.hashHex'.</param>
+    /// <returns>True si el pase dinámico es auténtico y está en ventana temporal válida; de lo contrario, False.</returns>
+    private static bool IsValidShieldToken(string token)
+    {
+        if (string.IsNullOrWhiteSpace(token))
+        {
+            return false;
+        }
+
+        var parts = token.Split('.');
+        if (parts.Length != 2 || !long.TryParse(parts[0], out var clientMinuteSlot))
+        {
+            return false;
+        }
+
+        var currentMinuteSlot = DateTimeOffset.UtcNow.ToUnixTimeSeconds() / 60;
+        if (Math.Abs(currentMinuteSlot - clientMinuteSlot) > 5)
+        {
+            return false;
+        }
+
+        var expectedHex = ComputeFnv1aHex($"{clientMinuteSlot}:{ShieldSalt}");
+        return string.Equals(parts[1], expectedHex, StringComparison.OrdinalIgnoreCase);
+    }
+
+    /// <summary>
+    /// Calcula el hash determinista FNV-1a de 32 bits en formato hexadecimal de 8 caracteres.
+    /// </summary>
+    /// <param name="input">Cadena de entrada a firmar.</param>
+    /// <returns>Cadena hexadecimal en minúsculas de 8 dígitos.</returns>
+    private static string ComputeFnv1aHex(string input)
+    {
+        uint hash = 0x811c9dc5u;
+        foreach (var c in input)
+        {
+            hash ^= c;
+            hash = unchecked(hash * 0x01000193u);
+        }
+
+        return hash.ToString("x8");
     }
 }
 
