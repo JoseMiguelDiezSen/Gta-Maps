@@ -1920,6 +1920,16 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
 
     private mysteryMarker: L.Marker | null = null;
 
+    private getMysteryThumbnail(thumb?: string): string {
+        if (!thumb) return '';
+        const src = thumb.trim();
+        if (src.includes('mysteries/')) {
+            const fileName = src.substring(src.lastIndexOf('/') + 1);
+            return `/assets/images/gta5/mysteries/${fileName}`;
+        }
+        return src.startsWith('/') ? src : '/' + src;
+    }
+
     /**
      * Centra el mapa sobre la ubicación del misterio, cierra el drawer lateral
      * y genera un marcador destacado con animación y popup informativo.
@@ -1987,7 +1997,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             <div class="gta-popup-card" style="width: 100%; box-sizing: border-box; background: ${bgGradient}; color: #fff; overflow: hidden; border-radius: 11px;">
                 ${mystery.thumbnail ? `
                 <div style="position: relative; width: 100%; height: 115px; overflow: hidden; background: #000; border-bottom: 2px solid ${pinColor};">
-                    <img src="${mystery.thumbnail}" alt="${mystery.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.style.display='none'" />
+                    <img src="${this.getMysteryThumbnail(mystery.thumbnail)}" alt="${mystery.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.style.display='none'" />
                     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(5,10,18,0.95) 100%);"></div>
                     <span class="popup-badge" style="position: absolute; top: 8px; left: 8px; color: ${pinColor}; border: 1px solid ${pinColor}88; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); font-size: 9.5px; font-weight: 800; text-transform: uppercase; padding: 2px 7px; border-radius: 4px;">
                         <i class="fa-solid ${pinIcon}" style="margin-right: 4px;"></i>${mystery.categoryLabel || this.translationService.t('transports.tabs.misterios') || 'Misterio'}

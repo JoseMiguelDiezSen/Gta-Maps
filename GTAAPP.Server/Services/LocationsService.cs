@@ -206,9 +206,7 @@ public class LocationsService
     /// <summary>
     /// Obtiene el catálogo de misterios, fenómenos paranormales y leyendas urbanas activos y descubribles en GTA Online.
     /// </summary>
-    /// <param name="lang">Código de idioma ("es" o "en").</param>
-    /// <returns>Colección de misterios con coordenadas, lore, mecánicas y pistas.</returns>
-    public IReadOnlyList<MysteryItem> GetMysteries(string? lang = null) => LoadJsonFile<MysteryItem>("gta5", "online", "mysteries.json", lang);
+    public IReadOnlyList<MysteryItem> GetMysteries(string? lang = null) => LoadJsonFile<MysteryItem>("gta5", "online", "misterios-mapa-online.json", lang);
 
     /// <summary>
     /// Obtiene el arsenal oficial de armas de GTA Online con filtrado opcional por categoría.
@@ -319,9 +317,7 @@ public class LocationsService
     /// <summary>
     /// Obtiene el catálogo de misterios, apariciones y leyendas urbanas activos y descubribles en el Modo Historia (incluyendo exclusivos como los OVNIs del 100%, el perro del cementerio y el Sasquatch).
     /// </summary>
-    /// <param name="lang">Código de idioma ("es" o "en").</param>
-    /// <returns>Colección de misterios del Modo Historia.</returns>
-    public IReadOnlyList<MysteryItem> GetStoryMysteries(string? lang = null) => LoadJsonFile<MysteryItem>("gta5", "historia", "mysteries.json", lang);
+    public IReadOnlyList<MysteryItem> GetStoryMysteries(string? lang = null) => LoadJsonFile<MysteryItem>("gta5", "historia", "misterios-mapa-offline.json", lang);
 
     /// <summary>
     /// Obtiene el arsenal oficial de armas del Modo Historia de GTA V con filtrado opcional por categoría.

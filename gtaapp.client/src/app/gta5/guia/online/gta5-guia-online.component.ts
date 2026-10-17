@@ -106,8 +106,8 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
       .getProperties('online', 'character')
       .pipe(shareReplay(1));
 
-    this.misterios$ = this.missionService
-      .getOnlineMysteries()
+    this.misterios$ = this.guiaService
+      .getMisteriosGuiaOnline()
       .pipe(shareReplay(1));
 
     this.golpes$ = this.missionService
@@ -266,6 +266,10 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   getMysteryImage(m: GtaMystery | null | undefined): string {
     if (!m || !m.thumbnail) return '';
     const src = m.thumbnail.trim();
+    if (src.includes('mysteries/')) {
+      const fileName = src.substring(src.lastIndexOf('/') + 1);
+      return `/assets/images/gta5/mysteries/${fileName}`;
+    }
     return src.startsWith('/') ? src : '/' + src;
   }
 
@@ -510,6 +514,33 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   selectNextMission(): void {
     const next = this.nextMission;
     if (next) this.misionSeleccionada = next;
+  }
+
+  get articulosSeccionActual(): GuiaArticuloResumen[] {
+    if (this.currentSection) {
+      return this.currentSection.articulos || [];
+    }
+    if (this.selectedArticulo) {
+      const sec = this.secciones.find(s => s.articulos?.some(a => a.id === this.selectedArticulo?.id));
+      if (sec) {
+        return sec.articulos || [];
+      }
+    }
+    return [];
+  }
+
+  get capituloAnterior(): GuiaArticuloResumen | null {
+    if (!this.selectedArticulo) return null;
+    const articulos = this.articulosSeccionActual;
+    const idx = articulos.findIndex(a => a.id === this.selectedArticulo?.id);
+    return idx > 0 ? articulos[idx - 1] : null;
+  }
+
+  get capituloSiguiente(): GuiaArticuloResumen | null {
+    if (!this.selectedArticulo) return null;
+    const articulos = this.articulosSeccionActual;
+    const idx = articulos.findIndex(a => a.id === this.selectedArticulo?.id);
+    return idx >= 0 && idx < articulos.length - 1 ? articulos[idx + 1] : null;
   }
 
   getOnlineContactBadgeClass(char: string): string {

@@ -20,6 +20,7 @@ export interface GtaMystery {
     tip: string;
   };
   description: string;
+  summary?: string;
   lore: string;
   mechanics?: string[];
   clues?: string[];

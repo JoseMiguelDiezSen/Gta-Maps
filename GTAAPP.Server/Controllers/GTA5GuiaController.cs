@@ -53,10 +53,15 @@ public class GTA5GuiaController : ControllerBase
     [HttpGet("articulos/{id}")]
     public ActionResult<GuiaArticulo> GetArticulo(string id)
     {
-        var articulo = _guiaService.GetArticulo("gta5", id);
+        if (string.IsNullOrWhiteSpace(id) || id.Length > 80)
+        {
+            return BadRequest(new { error = "Identificador de artículo no válido." });
+        }
+
+        var articulo = _guiaService.GetArticulo("gta5", id.Trim());
         if (articulo == null)
         {
-            return NotFound(new { error = $"Artículo '{id}' no encontrado en la guía de GTA V." });
+            return NotFound(new { error = "Artículo no encontrado en la guía de GTA V." });
         }
 
         return Ok(articulo);
@@ -66,9 +71,20 @@ public class GTA5GuiaController : ControllerBase
     /// GET /api/gta5/guia/buscar?q=... → Búsqueda de artículos en la guía de GTA V.
     /// </summary>
     [HttpGet("buscar")]
-    public ActionResult<List<GuiaArticuloResumen>> Buscar([FromQuery] string q)
+    public ActionResult<List<GuiaArticuloResumen>> Buscar([FromQuery] string? q)
     {
-        var resultados = _guiaService.BuscarArticulos("gta5", q);
+        if (string.IsNullOrWhiteSpace(q))
+        {
+            return Ok(new List<GuiaArticuloResumen>());
+        }
+
+        var cleanQuery = q.Trim();
+        if (cleanQuery.Length > 80)
+        {
+            cleanQuery = cleanQuery.Substring(0, 80);
+        }
+
+        var resultados = _guiaService.BuscarArticulos("gta5", cleanQuery);
         return Ok(resultados);
     }
 }

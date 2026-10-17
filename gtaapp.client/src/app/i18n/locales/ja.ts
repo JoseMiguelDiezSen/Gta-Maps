@@ -101,7 +101,7 @@ export const ja: TranslationSchema = {
       game: 'ゲーム',
       gta5: 'GTA V オンライン',
       gta6: 'GTA VI',
-      mapSelector: 'マップ選択',
+      mapSelector: 'マップタイプ',
       baseMap: 'ベースマップ',
       iconStyle: 'アイコンスタイル',
       markerTheme: 'テーマ',

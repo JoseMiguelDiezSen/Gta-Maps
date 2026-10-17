@@ -1235,6 +1235,10 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   getMysteryImage(m: GtaMystery | null | undefined): string {
     if (!m || !m.thumbnail) return '';
     const src = m.thumbnail.trim();
+    if (src.includes('mysteries/')) {
+      const fileName = src.substring(src.lastIndexOf('/') + 1);
+      return `/assets/images/gta5/mysteries/${fileName}`;
+    }
     return src.startsWith('/') ? src : '/' + src;
   }
 

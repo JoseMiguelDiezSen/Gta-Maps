@@ -144,8 +144,8 @@ export class MissionService {
   getOnlineMysteries(lang?: string): Observable<GtaMystery[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMystery>(
-      '/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/es/mysteries.json',
-      `/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/${activeLang}/mysteries.json`,
+      '/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/es/misterios-mapa-online.json',
+      `/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/${activeLang}/misterios-mapa-online.json`,
       activeLang
     );
   }
@@ -156,8 +156,8 @@ export class MissionService {
   getStoryMysteries(lang?: string): Observable<GtaMystery[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     return this.loadWithFallback<GtaMystery>(
-      '/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/es/mysteries.json',
-      `/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/${activeLang}/mysteries.json`,
+      '/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/es/misterios-mapa-offline.json',
+      `/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/${activeLang}/misterios-mapa-offline.json`,
       activeLang
     );
   }

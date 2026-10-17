@@ -1130,6 +1130,35 @@
       <!-- Lector del Artículo Seleccionado -->
       <article *ngIf="selectedArticulo && !concesionarioSeleccionado && !categoriaArmaSeleccionada && currentSection?.id !== 'misterios' && currentSection?.id !== 'golpes' && currentSection?.id !== 'misiones-principales' && currentSection?.id !== 'armas' && currentSection?.id !== 'vehiculos'" class="wiki-article-card">
         <header class="article-header">
+          <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner, idéntico a offline) -->
+          <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
+            <div class="pagination-row-prev-next">
+              <button
+                type="button"
+                class="pagination-btn pagination-prev"
+                *ngIf="capituloAnterior"
+                (click)="seleccionarArticulo(capituloAnterior.id)"
+                [title]="capituloAnterior.titulo"
+              >
+                <span class="pagination-arrow">←</span>
+                <span class="pagination-title">{{ capituloAnterior.titulo }}</span>
+              </button>
+              <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
+
+              <button
+                type="button"
+                class="pagination-btn pagination-next"
+                *ngIf="capituloSiguiente"
+                (click)="seleccionarArticulo(capituloSiguiente.id)"
+                [title]="capituloSiguiente.titulo"
+              >
+                <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
+                <span class="pagination-arrow">→</span>
+              </button>
+              <div *ngIf="!capituloSiguiente" class="pagination-spacer"></div>
+            </div>
+          </nav>
+
           <div class="article-meta-row">
             <span *ngIf="selectedArticulo.badge" class="article-chip-badge">{{ selectedArticulo.badge }}</span>
           </div>

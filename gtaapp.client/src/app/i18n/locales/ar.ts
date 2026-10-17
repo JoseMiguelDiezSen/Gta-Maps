@@ -101,7 +101,7 @@ export const ar: TranslationSchema = {
       game: 'اللعبة',
       gta5: 'GTA V Online',
       gta6: 'GTA VI',
-      mapSelector: 'محدد الخريطة',
+      mapSelector: 'نوع الخريطة',
       baseMap: 'خريطة الأساس',
       iconStyle: 'نمط الأيقونات',
       markerTheme: 'السمة',

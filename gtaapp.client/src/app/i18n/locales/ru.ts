@@ -101,7 +101,7 @@ export const ru: TranslationSchema = {
       game: 'Игра',
       gta5: 'GTA V Online',
       gta6: 'GTA VI',
-      mapSelector: 'Выбор карты',
+      mapSelector: 'Тип карты',
       baseMap: 'Основа карты',
       iconStyle: 'Стиль значков',
       markerTheme: 'Тема',

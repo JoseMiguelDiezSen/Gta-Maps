@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { forkJoin, Observable, of } from 'rxjs';
 import { catchError, map, shareReplay, switchMap } from 'rxjs/operators';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeosCatalogo } from '../models/guia';
+import { GtaMystery } from '../models/gta5/mystery';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,7 @@ export class GuiaService {
         extranos: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/extranos-locos.json?t=${t}`).pipe(catchError(() => of([]))),
         negocios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/negocios-economia.json?t=${t}`).pipe(catchError(() => of([]))),
         eventos: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/eventos-aleatorios.json?t=${t}`).pipe(catchError(() => of([]))),
-        misterios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/secretos-misterios.json?t=${t}`).pipe(catchError(() => of([])))
+        misterios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/misterios-guia-offline.json?t=${t}`).pipe(catchError(() => of([])))
       }).pipe(
         map(res => ({
           id: 'gta5',
@@ -169,7 +170,7 @@ export class GuiaService {
               : isExtranos 
               ? 'assets/data/gta5/guia/offline/extranos-locos.json?t=' + new Date().getTime()
               : isMisterio
-              ? 'assets/data/gta5/guia/offline/secretos-misterios.json?t=' + new Date().getTime()
+              ? 'assets/data/gta5/guia/offline/misterios-guia-offline.json?t=' + new Date().getTime()
               : isEvento
               ? 'assets/data/gta5/guia/offline/eventos-aleatorios.json?t=' + new Date().getTime()
               : 'assets/data/gta5/guia/offline/guia-misiones-historia.json?t=' + new Date().getTime();
@@ -380,11 +381,17 @@ export class GuiaService {
 
   private getArticuloMarkdown(articuloId: string): string {
     switch (articuloId) {
-      // duplicate case removed
-      // Bienvenido a la Guía de GTA VI y Estado de Leonida\n\nBienvenido a la enciclopedia interactiva y base de datos oficial de Grand Theft Auto VI. Esta guía recopila toda la información documentada, análisis geográfico de Vice City y el Estado de Leonida, mecánicas de inventario realista y dinámicas de los protagonistas Jason y Lucia.\n\n---\n\n### 🗺️ Estructura de la Base de Datos\nLa enciclopedia se organiza en módulos de análisis especializado:\n\n* **Prólogo**: Introducción general y primeros pasos en Leonida.\n* **Protagonistas & Trama Criminal**: Análisis táctico de Jason y Lucia, mecánicas de cooperación y antecedentes penitenciarios.\n* **Vice City & Regiones de Leonida**: Distritos urbanos, zonas pantanosas de Grassrivers, playas de Vice Beaches y flora/fauna autóctona.\n* **Mecánicas & Físicas de Juego**: Sistema de inventario físico en maleteros, interacción ambiental y balística de última generación.\n* **Fuerzas del Orden & Redes Sociales**: IA policial inteligente, viralidad in-game y tácticas de persecución.
       default:
         return `Información detallada del capítulo en preparación.`;
     }
+  }
+
+  getMisteriosGuiaOnline(): Observable<GtaMystery[]> {
+    const t = new Date().getTime();
+    return this.http.get<GtaMystery[]>(`assets/data/gta5/guia/online/misterios-guia-online.json?t=${t}`).pipe(
+      catchError(() => of([])),
+      shareReplay(1)
+    );
   }
 }
 

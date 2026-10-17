@@ -101,7 +101,7 @@ export const it: TranslationSchema = {
       game: 'Gioco',
       gta5: 'GTA V Online',
       gta6: 'GTA VI',
-      mapSelector: 'Selettore mappa',
+      mapSelector: 'Tipo di mappa',
       baseMap: 'Mappa di base',
       iconStyle: 'Stile Icone',
       markerTheme: 'Tema',

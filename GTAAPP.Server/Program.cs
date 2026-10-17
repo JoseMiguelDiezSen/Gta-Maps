@@ -39,7 +39,11 @@ builder.Services.AddHsts(options =>
 
 // 4. Registro de Controladores de API y SignalR para comunicación en tiempo real
 builder.Services.AddControllers();
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(options =>
+{
+    options.MaximumReceiveMessageSize = 1024; // 1 KB máximo por mensaje WebSocket (anti-DoS)
+    options.HandshakeTimeout = TimeSpan.FromSeconds(10);
+});
 
 // 5. Configuración de CORS basada en entorno (desarrollo local vs dominios autorizados en producción)
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();

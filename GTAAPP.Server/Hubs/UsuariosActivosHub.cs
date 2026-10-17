@@ -8,49 +8,80 @@ using Microsoft.AspNetCore.SignalR;
 /// </summary>
 public class UsuariosActivosHub : Hub
 {
-    /// <summary>
-    /// Contador global de usuarios conectados.
-    /// Es 'static' para que su valor se comparta entre todas las instancias del Hub que crea SignalR por cada conexión.
-    /// </summary>
-    private static int _usuariosActivos = 0;
+    private const int MaxConnectionsPerIp = 3;
+    private static readonly object ConnectionsLock = new();
+    private static readonly Dictionary<string, HashSet<string>> ConnectionsByIp = new(StringComparer.OrdinalIgnoreCase);
+    private static readonly Dictionary<string, string> IpByConnectionId = new(StringComparer.Ordinal);
 
     /// <summary>
     /// Se ejecuta automáticamente cuando un nuevo usuario/pestaña se conecta al servidor mediante SignalR.
+    /// Limita las conexiones por IP para evitar ataques de agotamiento de RAM o inflado artificial del contador.
     /// </summary>
-    /// <returns>Tarea asíncrona que completa el proceso de conexión y notificación.</returns>
     public override async Task OnConnectedAsync()
     {
-        // Incrementamos el contador de forma atómica y segura entre subprocesos (evita condiciones de carrera si entran varios a la vez).
-        var total = Interlocked.Increment(ref _usuariosActivos);
+        var ip = Context.GetHttpContext()?.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+        var connectionId = Context.ConnectionId;
+        int totalUsuariosUnicos;
+        bool shouldAbort = false;
 
-        // Notificamos a TODOS los clientes conectados el nuevo número de usuarios para que actualicen su interfaz en vivo.
-        await Clients.All.SendAsync("ActualizarUsuariosActivos", total);
+        lock (ConnectionsLock)
+        {
+            if (!ConnectionsByIp.TryGetValue(ip, out var connSet))
+            {
+                connSet = new HashSet<string>(StringComparer.Ordinal);
+                ConnectionsByIp[ip] = connSet;
+            }
 
-        // Llamamos a la lógica base de SignalR para finalizar el ciclo de vida de la conexión.
+            if (connSet.Count >= MaxConnectionsPerIp)
+            {
+                shouldAbort = true;
+                totalUsuariosUnicos = ConnectionsByIp.Count;
+            }
+            else
+            {
+                connSet.Add(connectionId);
+                IpByConnectionId[connectionId] = ip;
+                totalUsuariosUnicos = ConnectionsByIp.Count;
+            }
+        }
+
+        if (shouldAbort)
+        {
+            Context.Abort();
+            return;
+        }
+
+        await Clients.All.SendAsync("ActualizarUsuariosActivos", totalUsuariosUnicos);
         await base.OnConnectedAsync();
     }
 
     /// <summary>
     /// Se ejecuta automáticamente cuando un usuario cierra la pestaña, refresca la página o pierde la conexión de red.
     /// </summary>
-    /// <param name="exception">Excepción que causó la desconexión (si la hubo), o null si fue una desconexión limpia.</param>
-    /// <returns>Tarea asíncrona que completa el proceso de desconexión y notificación.</returns>
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
-        // Reducimos el contador de forma atómica y segura.
-        var total = Interlocked.Decrement(ref _usuariosActivos);
+        var connectionId = Context.ConnectionId;
+        int totalUsuariosUnicos;
 
-        // Control de seguridad: Si por alguna anomalía de red o reconexiones extrañas el contador bajara de cero, lo corregimos a 0.
-        if (total < 0)
+        lock (ConnectionsLock)
         {
-            Interlocked.Exchange(ref _usuariosActivos, 0);
-            total = 0;
+            if (IpByConnectionId.TryGetValue(connectionId, out var ip))
+            {
+                IpByConnectionId.Remove(connectionId);
+                if (ConnectionsByIp.TryGetValue(ip, out var connSet))
+                {
+                    connSet.Remove(connectionId);
+                    if (connSet.Count == 0)
+                    {
+                        ConnectionsByIp.Remove(ip);
+                    }
+                }
+            }
+
+            totalUsuariosUnicos = ConnectionsByIp.Count;
         }
 
-        // Enviamos el nuevo total actualizado a todos los usuarios que siguen conectados.
-        await Clients.All.SendAsync("ActualizarUsuariosActivos", total);
-
-        // Llamamos a la lógica base de SignalR para limpiar los recursos de esta conexión.
+        await Clients.All.SendAsync("ActualizarUsuariosActivos", totalUsuariosUnicos);
         await base.OnDisconnectedAsync(exception);
     }
 }

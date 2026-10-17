@@ -1211,58 +1211,33 @@
             <div class="dealer-section-divider-line"></div>
           </div>
 
-          <!-- LISTA DE MISTERIOS (Maquetación moderna y estilizada con foto, badges y sinopsis) -->
+          <!-- LISTA DE MISTERIOS (Formato compacto original) -->
           <div class="mysteries-list">
             <div
               *ngFor="let m of filteredOnlineMysteries"
-              class="mcard-item mystery-card-premium"
+              class="mcard-item"
               (click)="openMysteryDetail(m)"
               [style.--m-color]="m.badgeColor"
             >
               <!-- Badge de orden / número -->
-              <div class="mcard-order-badge mystery-order-badge">
+              <div class="mcard-order-badge">
                 <span class="mcard-order-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
               </div>
 
-              <!-- Thumbnail con foto del misterio + fallback elegante -->
-              <div class="mcard-thumb-wrap" [style.borderColor]="m.badgeColor + '55'">
-                <img
-                  *ngIf="m.thumbnail"
-                  [src]="getMysteryImage(m)"
-                  [alt]="m.title"
-                  class="mcard-thumb-img"
-                  loading="lazy"
-                  (error)="$any($event.target).style.display='none'"
-                />
-                <div class="mcard-thumb-overlay"></div>
-                <div class="mcard-thumb-fallback" [style.color]="m.badgeColor" [style.background]="m.badgeColor + '18'">
-                  <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-ghost'"></i>
-                </div>
+              <!-- Icono temático del misterio -->
+              <div class="mcard-icon-box" [style.background]="m.badgeColor + '20'" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '50'">
+                <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-ghost'"></i>
               </div>
 
               <!-- Contenido principal -->
               <div class="mcard-content">
                 <!-- Fila 1: Título -->
-                <div class="mcard-title-row">
-                  <div class="mcard-title mystery-title">{{ m.title }}</div>
-                </div>
+                <div class="mcard-title">{{ m.title }}</div>
 
-                <!-- Fila 2: Categoría + Horario -->
-                <div class="mcard-meta-line">
-                  <span class="mcard-cat-badge mystery-cat-pill" [style.color]="m.badgeColor" [style.borderColor]="m.badgeColor + '55'" [style.background]="m.badgeColor + '18'">
-                    <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-eye'"></i>
-                    <span>{{ m.categoryLabel }}</span>
-                  </span>
-                  <span class="mcard-time-badge mystery-time-pill" *ngIf="m.schedule">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>{{ m.schedule }}</span>
-                  </span>
-                </div>
-
-                <!-- Fila 3: Ubicación / Zona -->
-                <div class="mcard-loc-line" *ngIf="m.zone || m.location">
-                  <i class="fa-solid fa-location-dot" [style.color]="m.badgeColor"></i>
-                  <span class="mcard-loc-text">{{ m.zone || m.location }}</span>
+                <!-- Fila 2: Ubicación -->
+                <div class="mcard-loc-line" *ngIf="m.location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span class="mcard-loc-text">{{ m.location }}</span>
                 </div>
               </div>
 
@@ -1691,35 +1666,15 @@
         <div class="mdetail-body">
           <div class="mdetail-main-card">
 
-            <!-- Hero media oficial con imagen y badges -->
-            <div class="stranger-hero-media" *ngIf="selectedMystery.thumbnail">
+            <!-- Hero media oficial con imagen limpia -->
+            <div class="stranger-hero-media" *ngIf="selectedMystery.thumbnail" style="margin-bottom: -6px;">
               <img [src]="getMysteryImage(selectedMystery)" [alt]="selectedMystery.title" class="stranger-hero-img" />
               <div class="stranger-hero-overlay"></div>
-              <div class="stranger-hero-badges">
-                <span class="stranger-hero-series-badge" [style.backgroundColor]="selectedMystery.badgeColor">
-                  <i class="fa-solid" [ngClass]="selectedMystery.badgeIcon"></i>
-                  <span>{{ selectedMystery.categoryLabel }}</span>
-                </span>
-                <span class="heist-hero-take-badge" *ngIf="selectedMystery.schedule" style="background: rgba(234, 179, 8, 0.2); border-color: #eab308; color: #fde047;">
-                  <i class="fa-regular fa-clock"></i>
-                  <span>{{ selectedMystery.schedule }}</span>
-                </span>
-              </div>
             </div>
 
             <!-- Cabecera del Misterio -->
-            <div class="mdetail-hero">
-              <div class="mdetail-hero-badges">
-                <span class="mdetail-hero-num">{{ 'transports.mysteries.mysteryNum' | translate:{ order: (selectedMystery.order < 10 ? '0' + selectedMystery.order : selectedMystery.order) } }}</span>
-                <span class="mdetail-hero-cat" [style.borderColor]="selectedMystery.badgeColor + '44'" [style.color]="selectedMystery.badgeColor">
-                  <i class="fa-solid" [ngClass]="selectedMystery.badgeIcon"></i>
-                  {{ selectedMystery.categoryLabel }}
-                </span>
-              </div>
-              <h2 class="mdetail-hero-title">{{ selectedMystery.title }}</h2>
-              <div class="mdetail-title-en" *ngIf="selectedMystery.titleEn && selectedMystery.titleEn !== selectedMystery.title">
-                {{ selectedMystery.titleEn }}
-              </div>
+            <div class="mdetail-hero" style="gap: 4px;">
+              <h2 class="mdetail-hero-title" style="font-size: 16px; margin: 0;">{{ selectedMystery.title }}</h2>
 
               <!-- BOTÓN DESTACADO DE LOCALIZACIÓN -->
               <div class="mystery-locate-action-bar">
@@ -1772,60 +1727,14 @@
               </div>
             </div>
 
-            <!-- Bloque: Descripción del Suceso -->
-            <div class="mdetail-block" *ngIf="selectedMystery.description">
-              <div class="mdetail-block-head">
-                <i class="fa-solid fa-align-left"></i>
+            <!-- Bloque: Sinopsis / Descripción (Estética idéntica a la Guía) -->
+            <div class="guide-synopsis-block" *ngIf="selectedMystery.description || selectedMystery.summary">
+              <div class="guide-synopsis-head">
+                <i class="fa-solid fa-book-open"></i>
                 <span>{{ 'transports.mysteries.synopsis' | translate }}</span>
               </div>
-              <p class="mdetail-desc-text">{{ selectedMystery.description }}</p>
-            </div>
-
-            <!-- Bloque: Historia y Trasfondo Real -->
-            <div class="mdetail-block" *ngIf="selectedMystery.lore">
-              <div class="mdetail-block-head" [style.color]="selectedMystery.badgeColor">
-                <i class="fa-solid fa-book-skull"></i>
-                <span>{{ 'transports.mysteries.loreTitle' | translate }}</span>
-              </div>
-              <p class="mdetail-desc-text" style="border-left: 3px solid var(--m-accent); padding-left: 12px;">{{ selectedMystery.lore }}</p>
-            </div>
-
-            <!-- Bloque: Cómo Presenciar el Suceso (Mecánicas) -->
-            <div class="mdetail-block" *ngIf="selectedMystery.mechanics && selectedMystery.mechanics.length > 0">
-              <div class="mdetail-block-head">
-                <i class="fa-solid fa-binoculars"></i>
-                <span>{{ 'transports.mysteries.mechanicsTitle' | translate }}</span>
-              </div>
-              <div class="stranger-objectives-list">
-                <div class="stranger-obj-item" *ngFor="let mech of selectedMystery.mechanics">
-                  <i class="fa-solid fa-check" [style.color]="selectedMystery.badgeColor"></i>
-                  <span>{{ mech }}</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bloque: Punto de Observación -->
-            <div class="mdetail-block" *ngIf="selectedMystery.observationPoint">
-              <div class="mdetail-block-head" style="color: #38bdf8;">
-                <i class="fa-solid fa-eye"></i>
-                <span>{{ 'transports.mysteries.observationTitle' | translate }}</span>
-              </div>
-              <p class="mdetail-desc-text" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 6px; padding: 10px 12px; color: #bae6fd;">
-                {{ selectedMystery.observationPoint.tip }}
-              </p>
-            </div>
-
-            <!-- Bloque: Pistas y Conexiones -->
-            <div class="mdetail-block" *ngIf="selectedMystery.clues && selectedMystery.clues.length > 0">
-              <div class="mdetail-block-head" style="color: #facc15;">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span>{{ 'transports.mysteries.cluesTitle' | translate }}</span>
-              </div>
-              <div class="stranger-objectives-list">
-                <div class="stranger-obj-item" *ngFor="let clue of selectedMystery.clues">
-                  <i class="fa-solid fa-paperclip" style="color: #facc15;"></i>
-                  <span>{{ clue }}</span>
-                </div>
+              <div class="guide-synopsis-body">
+                <p>{{ selectedMystery.description || selectedMystery.summary }}</p>
               </div>
             </div>
 
