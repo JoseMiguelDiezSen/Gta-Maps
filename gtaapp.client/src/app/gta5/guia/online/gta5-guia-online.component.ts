@@ -16,6 +16,7 @@ import { GtaMystery } from '../../../models/gta5/mystery';
 import { GtaHeist, GtaMission } from '../../../models/gta5/mission';
 import { MissionService } from '../../../services/gta5/mission.service';
 import { Observable, shareReplay, forkJoin, map } from 'rxjs';
+import { GuiaBreadcrumbItem } from '../offline/gta5-guia-offline.component';
 
 @Component({
   selector: 'app-gta5-guia-online',
@@ -85,6 +86,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   armaSeleccionada: GtaWeapon | null = null;
 
   misterioSeleccionado: GtaMystery | null = null;
+  misterios: GtaMystery[] = [];
   golpeSeleccionado: GtaHeist | null = null;
   golpes: GtaHeist[] = [];
 
@@ -109,6 +111,10 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     this.misterios$ = this.guiaService
       .getMisteriosGuiaOnline()
       .pipe(shareReplay(1));
+
+    this.misterios$.subscribe(list => {
+      this.misterios = list || [];
+    });
 
     this.golpes$ = this.missionService
       .getOnlineHeists()
@@ -461,6 +467,11 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
 
   limpiarMision(): void {
     this.misionSeleccionada = null;
+    this.busquedaMisiones = '';
+  }
+
+  limpiarBusquedaMisiones(): void {
+    this.busquedaMisiones = '';
   }
 
   renderMissionMarkdown(m: GtaMission | null | undefined): SafeHtml {
@@ -471,14 +482,22 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   }
 
   get filteredOnlineMissions(): GtaMission[] {
-    const query = this.busquedaMisiones.trim().toLowerCase();
+    const rawQuery = this.busquedaMisiones.trim();
     const contact = this.filtroContactoMisiones;
+    if (!rawQuery && contact === 'todos') {
+      return this.misionesOnline;
+    }
+    const cleanStr = (s?: string) =>
+      (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+    const query = cleanStr(rawQuery);
     return this.misionesOnline.filter(m => {
       const matchContact = contact === 'todos' || m.character === contact || m.giver === contact;
       const matchQuery = !query ||
-        m.title.toLowerCase().includes(query) ||
-        (m.character && m.character.toLowerCase().includes(query)) ||
-        (m.category && m.category.toLowerCase().includes(query));
+        cleanStr(m.title).includes(query) ||
+        cleanStr(m.character).includes(query) ||
+        cleanStr(m.giver).includes(query) ||
+        cleanStr(m.category).includes(query);
       return matchContact && matchQuery;
     });
   }
@@ -516,6 +535,40 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     if (next) this.misionSeleccionada = next;
   }
 
+  get currentMysteryItem(): GtaMystery | null {
+    return this.misterioSeleccionado || (this.misterios.length > 0 ? this.misterios[0] : null);
+  }
+
+  get previousMystery(): GtaMystery | null {
+    const current = this.currentMysteryItem;
+    if (!current || this.misterios.length === 0) return null;
+    const idx = this.misterios.findIndex(m => m.id === current.id);
+    return idx > 0 ? this.misterios[idx - 1] : null;
+  }
+
+  get nextMystery(): GtaMystery | null {
+    const current = this.currentMysteryItem;
+    if (!current || this.misterios.length === 0) return null;
+    const idx = this.misterios.findIndex(m => m.id === current.id);
+    return (idx >= 0 && idx < this.misterios.length - 1) ? this.misterios[idx + 1] : null;
+  }
+
+  selectPreviousMystery(): void {
+    const prev = this.previousMystery;
+    if (prev) {
+      this.misterioSeleccionado = prev;
+      this.scrollToTop();
+    }
+  }
+
+  selectNextMystery(): void {
+    const next = this.nextMystery;
+    if (next) {
+      this.misterioSeleccionado = next;
+      this.scrollToTop();
+    }
+  }
+
   get articulosSeccionActual(): GuiaArticuloResumen[] {
     if (this.currentSection) {
       return this.currentSection.articulos || [];
@@ -541,6 +594,164 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     const articulos = this.articulosSeccionActual;
     const idx = articulos.findIndex(a => a.id === this.selectedArticulo?.id);
     return idx >= 0 && idx < articulos.length - 1 ? articulos[idx + 1] : null;
+  }
+
+  get breadcrumbs(): GuiaBreadcrumbItem[] {
+    const items: GuiaBreadcrumbItem[] = [];
+
+    // 1. Vehículos
+    if (this.concesionarioSeleccionado || this.currentSection?.id === 'vehiculos') {
+      const secVehiculos = this.secciones.find(s => s.id === 'vehiculos');
+      items.push({
+        label: secVehiculos?.titulo || 'Vehículos',
+        clickable: !!this.concesionarioSeleccionado,
+        action: () => {
+          if (secVehiculos) this.openSection(secVehiculos);
+          this.limpiarConcesionario();
+        }
+      });
+      if (this.concesionarioSeleccionado) {
+        items.push({
+          label: this.concesionarioSeleccionado.name,
+          clickable: !!this.vehiculoSeleccionado,
+          action: () => {
+            this.volverAlGridVehiculos();
+          }
+        });
+      }
+      if (this.vehiculoSeleccionado) {
+        items.push({
+          label: this.vehiculoSeleccionado.name,
+          clickable: false
+        });
+      }
+      return items;
+    }
+
+    // 2. Armas
+    if (this.categoriaArmaSeleccionada && this.currentSection?.id === 'armas') {
+      const secArmas = this.secciones.find(s => s.id === 'armas');
+      items.push({
+        label: secArmas?.titulo || 'Armas',
+        clickable: !!this.categoriaArmaSeleccionada,
+        action: () => {
+          if (secArmas) this.openSection(secArmas);
+          this.limpiarArma();
+        }
+      });
+      if (this.categoriaArmaSeleccionada) {
+        items.push({
+          label: this.categoriaArmaSeleccionada.name,
+          clickable: !!this.armaSeleccionada,
+          action: () => {
+            this.volverAlGridArmas();
+          }
+        });
+      }
+      if (this.armaSeleccionada) {
+        items.push({
+          label: this.armaSeleccionada.name,
+          clickable: false
+        });
+      }
+      return items;
+    }
+
+    // 3. Misterios
+    if (this.currentSection?.id === 'misterios') {
+      const secMisterios = this.secciones.find(s => s.id === 'misterios');
+      const mis = this.currentMysteryItem;
+      items.push({
+        label: secMisterios?.titulo || 'Misterios',
+        clickable: false
+      });
+      if (mis) {
+        items.push({
+          label: this.cleanBreadcrumbTitle(mis.title),
+          clickable: false
+        });
+      }
+      return items;
+    }
+
+    // 4. Golpes
+    if (this.currentSection?.id === 'golpes') {
+      const secGolpes = this.secciones.find(s => s.id === 'golpes');
+      const golpe = this.golpeSeleccionado || (this.golpes.length > 0 ? this.golpes[0] : null);
+      items.push({
+        label: secGolpes?.titulo || 'Golpes',
+        clickable: false
+      });
+      if (golpe) {
+        items.push({
+          label: this.cleanBreadcrumbTitle(golpe.title),
+          clickable: false
+        });
+      }
+      return items;
+    }
+
+    // 5. Misiones Principales
+    if (this.currentSection?.id === 'misiones-principales') {
+      const secMisiones = this.secciones.find(s => s.id === 'misiones-principales');
+      const mision = this.misionSeleccionada || (this.misionesOnline.length > 0 ? this.misionesOnline[0] : null);
+      items.push({
+        label: secMisiones?.titulo || 'Misiones Principales',
+        clickable: false
+      });
+      if (mision) {
+        if (mision.character && mision.character !== 'Todos') {
+          items.push({
+            label: mision.character,
+            clickable: false
+          });
+        }
+        items.push({
+          label: this.cleanBreadcrumbTitle(mision.title),
+          clickable: false
+        });
+      }
+      return items;
+    }
+
+    // 6. Lector del Artículo Seleccionado (Prólogo u otros artículos generales)
+    if (this.selectedArticulo) {
+      const art = this.selectedArticulo;
+      let sec = this.currentSection;
+      if (!sec) {
+        sec = this.secciones.find(s => s.articulos?.some(a => a.id === art.id))
+          || this.secciones.find(s => s.id === art.categoria)
+          || null;
+      }
+      if (sec) {
+        items.push({
+          label: sec.titulo,
+          clickable: true,
+          action: () => {
+            this.openSection(sec!);
+          }
+        });
+      }
+      items.push({
+        label: this.cleanBreadcrumbTitle(art.titulo),
+        clickable: false
+      });
+      return items;
+    }
+
+    return items;
+  }
+
+  getCleanMissionTitle(title?: string): string {
+    if (!title) return '';
+    return title
+      .replace(/^\d+\.\s*/, '')
+      .replace(/\s*\((Tonya|Beverly|Hao|Barry|Mary-Ann|Cletus|Dom|Maude|Patrulla|Peter Dreyfuss|Epsilon|Josh|Nigel|Abigail[^)]*|[^)]*Sasquatch[^)]*)\s*\d*\)$/i, '')
+      .trim();
+  }
+
+  cleanBreadcrumbTitle(title?: string): string {
+    return this.getCleanMissionTitle(title);
   }
 
   getOnlineContactBadgeClass(char: string): string {

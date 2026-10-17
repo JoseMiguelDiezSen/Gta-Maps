@@ -118,7 +118,9 @@
     <div class="hero-bg-overlay"></div>
     <div class="hero-content-inner">
       <h2 class="hero-main-title">LOS SANTOS &amp; BLAINE COUNTY</h2>
-      <p class="hero-description"></p>
+      <p class="hero-description">
+        Guía del Modo Online, planificación táctica de Golpes, negocios criminales, vehículos, armas y secretos de San Andreas.
+      </p>
     </div>
   </header>
 
@@ -127,45 +129,6 @@
 
     <!-- PANEL LATERAL DE CAPÍTULOS -->
     <aside class="wiki-sidebar">
-      <!-- Buscador en tiempo real -->
-      <div class="sidebar-search-box">
-        <div class="search-input-wrapper">
-          <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            type="text"
-            class="sidebar-search-input"
-            [(ngModel)]="searchQuery"
-            (input)="onSearch()"
-            placeholder="Buscar en la guía de GTA V..."
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button
-            *ngIf="searchQuery"
-            type="button"
-            class="search-clear-btn"
-            (click)="limpiarBusqueda()"
-            aria-label="Limpiar búsqueda"
-          >
-            ✕
-          </button>
-        </div>
-
-        <!-- Dropdown de resultados de búsqueda -->
-        <div *ngIf="searchResults.length > 0" class="search-dropdown-menu">
-          <div
-            *ngFor="let res of searchResults"
-            class="search-dropdown-item"
-            (click)="seleccionarArticulo(res.id); limpiarBusqueda()"
-          >
-            <span class="search-item-title">{{ res.titulo }}</span>
-            <span class="search-item-sub">{{ res.subtitulo }}</span>
-          </div>
-        </div>
-      </div>
 
       <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
       <div class="sidebar-header-bar" *ngIf="!currentSection">
@@ -342,6 +305,9 @@
 
               <div class="chapter-card-info">
                 <span class="chapter-card-title">{{ m.title }}</span>
+                <span class="chapter-card-sub" *ngIf="m.location">
+                  <i class="fa-solid fa-location-dot" style="font-size: 9.5px; margin-right: 3px; opacity: 0.75;"></i>{{ m.location }}
+                </span>
               </div>
             </div>
 
@@ -396,7 +362,34 @@
               <i class="fa-solid fa-chevron-left"></i>
               <span>Categorías</span>
             </button>
-            <span class="guide-detail-badge">{{ misionesOnline.length }} misiones</span>
+            <span class="guide-detail-badge">{{ busquedaMisiones ? filteredOnlineMissions.length : misionesOnline.length }} misiones</span>
+          </div>
+
+          <!-- Buscador en tiempo real de Misiones Principales -->
+          <div class="sidebar-search-box">
+            <div class="search-input-wrapper">
+              <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                class="sidebar-search-input"
+                [(ngModel)]="busquedaMisiones"
+                placeholder="Buscar misión o contacto..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button
+                *ngIf="busquedaMisiones"
+                type="button"
+                class="search-clear-btn"
+                (click)="limpiarBusquedaMisiones()"
+                aria-label="Limpiar búsqueda"
+              >
+                ✕
+              </button>
+            </div>
           </div>
 
           <div class="sidebar-header-bar">
@@ -405,9 +398,9 @@
 
           <div class="guide-chapters-list">
             <div
-              *ngFor="let m of misionesOnline"
+              *ngFor="let m of filteredOnlineMissions"
               class="guide-chapter-card"
-              [class.is-active]="(misionSeleccionada?.id || misionesOnline[0]?.id) === m.id"
+              [class.is-active]="(misionSeleccionada?.id || filteredOnlineMissions[0]?.id) === m.id"
               [style.--cat-accent]="getMissionAccentColor(m)"
               (click)="seleccionarMision(m)"
             >
@@ -421,6 +414,12 @@
               <div class="chapter-card-meta">
                 <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
               </div>
+            </div>
+
+            <!-- Sin resultados de búsqueda -->
+            <div *ngIf="filteredOnlineMissions.length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+              <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
+              <span>No se encontraron misiones para "{{ busquedaMisiones }}"</span>
             </div>
 
             <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
@@ -472,6 +471,28 @@
       <!-- Panel del concesionario seleccionado: título + grid de vehículos -->
       <article *ngIf="concesionarioSeleccionado" class="wiki-article-card">
         <header class="article-header">
+          <!-- Miga de pan dinámica (Breadcrumbs) -->
+          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <ol class="breadcrumb-list">
+              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                <button
+                  *ngIf="item.clickable && !last"
+                  type="button"
+                  class="breadcrumb-link"
+                  (click)="item.action ? item.action() : null"
+                >
+                  {{ item.label }}
+                </button>
+                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  {{ item.label }}
+                </span>
+                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </li>
+            </ol>
+          </nav>
+
           <div class="article-meta-row" *ngIf="vehiculoSeleccionado">
             <button type="button" class="guide-back-btn" (click)="volverAlGridVehiculos()" [title]="'Volver a ' + concesionarioSeleccionado.name">
               <i class="fa-solid fa-chevron-left"></i>
@@ -581,6 +602,28 @@
       <!-- Panel de la categoría de armas seleccionada: título + grid de armas + detalle -->
       <article *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'" class="wiki-article-card">
         <header class="article-header">
+          <!-- Miga de pan dinámica (Breadcrumbs) -->
+          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <ol class="breadcrumb-list">
+              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                <button
+                  *ngIf="item.clickable && !last"
+                  type="button"
+                  class="breadcrumb-link"
+                  (click)="item.action ? item.action() : null"
+                >
+                  {{ item.label }}
+                </button>
+                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  {{ item.label }}
+                </span>
+                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </li>
+            </ol>
+          </nav>
+
           <div class="article-meta-row" *ngIf="armaSeleccionada">
             <button type="button" class="guide-back-btn" (click)="volverAlGridArmas()" [title]="'Volver a ' + categoriaArmaSeleccionada.name">
               <i class="fa-solid fa-chevron-left"></i>
@@ -719,19 +762,61 @@
       <article *ngIf="currentSection?.id === 'misterios'" class="wiki-article-card">
         <ng-container *ngIf="(misterioSeleccionado || (misterios$ | async)?.[0]) as m">
           <header class="article-header">
-            <div class="article-meta-row">
-              <span *ngIf="m.categoryLabel" class="article-chip-badge">{{ m.categoryLabel }}</span>
-              <span class="article-read-meta" *ngIf="m.schedule">
-                <i class="fa-regular fa-clock" style="margin-right: 4px;"></i>
-                <span>{{ m.schedule }}</span>
-              </span>
-            </div>
+            <!-- Miga de pan dinámica (Breadcrumbs) -->
+            <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+              <ol class="breadcrumb-list">
+                <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                  <button
+                    *ngIf="item.clickable && !last"
+                    type="button"
+                    class="breadcrumb-link"
+                    (click)="item.action ? item.action() : null"
+                  >
+                    {{ item.label }}
+                  </button>
+                  <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                    {{ item.label }}
+                  </span>
+                  <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </span>
+                </li>
+              </ol>
+            </nav>
+
+            <!-- Navegación Misterio Anterior / Siguiente (Arriba del banner, idéntico a Prólogo) -->
+            <nav class="article-pagination-nav" aria-label="Navegación entre misterios">
+              <div class="pagination-row-prev-next">
+                <button
+                  type="button"
+                  class="pagination-btn pagination-prev"
+                  *ngIf="previousMystery"
+                  (click)="selectPreviousMystery()"
+                  [title]="previousMystery.title"
+                >
+                  <span class="pagination-arrow">←</span>
+                  <span class="pagination-title">{{ previousMystery.title }}</span>
+                </button>
+                <div *ngIf="!previousMystery" class="pagination-spacer"></div>
+
+                <button
+                  type="button"
+                  class="pagination-btn pagination-next"
+                  *ngIf="nextMystery"
+                  (click)="selectNextMystery()"
+                  [title]="nextMystery.title"
+                >
+                  <span class="pagination-title">{{ nextMystery.title }}</span>
+                  <span class="pagination-arrow">→</span>
+                </button>
+                <div *ngIf="!nextMystery" class="pagination-spacer"></div>
+              </div>
+            </nav>
 
             <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) idéntico a offline -->
-            <div class="article-chapter-banner" [class.has-image]="getMysteryImage(m)">
+            <div class="article-chapter-banner article-chapter-banner--mystery" [class.has-image]="getMysteryImage(m)" style="border-color: rgba(168, 85, 247, 0.4); border-left: 4px solid #a855f7;">
               <div class="chapter-banner-text">
                 <h1 class="article-main-title">{{ m.title }}</h1>
-                <p class="article-lead" *ngIf="m.titleEn && m.titleEn !== m.title">{{ m.titleEn }}</p>
                 <p class="article-lead" *ngIf="m.location">{{ m.location }}{{ m.zone ? ' · ' + m.zone : '' }}</p>
               </div>
               <div class="chapter-banner-media" *ngIf="getMysteryImage(m)">
@@ -741,20 +826,20 @@
           </header>
 
           <div class="article-body">
-            <!-- Grid de datos HUD (idéntico a offline) -->
-            <div class="guide-hud-grid" *ngIf="m.schedule || m.location || m.zone || m.position">
+            <!-- Grid de datos HUD en una sola línea -->
+            <div class="guide-hud-grid guide-hud-grid--inline" *ngIf="m.schedule || m.location || m.zone || m.position">
               <div class="guide-hud-box" *ngIf="m.schedule">
                 <i class="fa-regular fa-clock box-icon" style="color: #facc15;"></i>
                 <div class="box-content">
-                  <span class="box-label">{{ 'transports.mysteries.schedule' | translate }}</span>
-                  <span class="box-val">{{ m.schedule }}</span>
+                  <span class="box-label">Horario</span>
+                  <span class="box-val" style="color: #fef08a;">{{ m.schedule }}</span>
                 </div>
               </div>
 
               <div class="guide-hud-box" *ngIf="m.location">
                 <i class="fa-solid fa-mountain box-icon" style="color: #38bdf8;"></i>
                 <div class="box-content">
-                  <span class="box-label">{{ 'transports.mysteries.location' | translate }}</span>
+                  <span class="box-label">Ubicación</span>
                   <span class="box-val">{{ m.location }}</span>
                 </div>
               </div>
@@ -762,7 +847,7 @@
               <div class="guide-hud-box" *ngIf="m.zone">
                 <i class="fa-solid fa-map-pin box-icon" style="color: #ec4899;"></i>
                 <div class="box-content">
-                  <span class="box-label">{{ 'transports.mysteries.zone' | translate }}</span>
+                  <span class="box-label">Zona</span>
                   <span class="box-val">{{ m.zone }}</span>
                 </div>
               </div>
@@ -770,7 +855,7 @@
               <div class="guide-hud-box" *ngIf="m.position">
                 <i class="fa-solid fa-crosshairs box-icon" style="color: #4ade80;"></i>
                 <div class="box-content">
-                  <span class="box-label">{{ 'gta5.popups.coordinates' | translate }} XYZ</span>
+                  <span class="box-label">Coordenadas</span>
                   <span class="box-val" style="font-family: monospace; font-size: 11px;">
                     X: {{ m.position.x }}, Y: {{ m.position.y }}
                   </span>
@@ -780,22 +865,22 @@
 
             <!-- Sinopsis / Descripción (idéntico a offline guide-synopsis-block) -->
             <div class="guide-synopsis-block" *ngIf="m.description">
-              <div class="guide-synopsis-head">
+              <div class="guide-synopsis-head" style="color: #c084fc;">
                 <i class="fa-solid fa-book-open"></i>
                 <span>{{ 'transports.mysteries.synopsis' | translate }}</span>
               </div>
-              <div class="guide-synopsis-body">
+              <div class="guide-synopsis-body" style="border-left-color: #a855f7;">
                 <p>{{ m.description }}</p>
               </div>
             </div>
 
             <!-- Trasfondo / Lore (idéntico a offline guide-synopsis-block) -->
-            <div class="guide-synopsis-block" *ngIf="m.lore" style="border-left-color: #a855f7;">
+            <div class="guide-synopsis-block" *ngIf="m.lore">
               <div class="guide-synopsis-head" style="color: #c084fc;">
                 <i class="fa-solid fa-book-skull"></i>
                 <span>{{ 'transports.mysteries.loreTitle' | translate }}</span>
               </div>
-              <div class="guide-synopsis-body">
+              <div class="guide-synopsis-body" style="border-left-color: #a855f7;">
                 <p>{{ m.lore }}</p>
               </div>
             </div>
@@ -816,32 +901,6 @@
               </div>
             </div>
 
-            <!-- Punto de Observación (idéntico a offline guide-synopsis-block) -->
-            <div class="guide-synopsis-block" *ngIf="m.observationPoint" style="border-left-color: #38bdf8;">
-              <div class="guide-synopsis-head" style="color: #38bdf8;">
-                <i class="fa-solid fa-eye"></i>
-                <span>{{ 'transports.mysteries.observationTitle' | translate }}</span>
-              </div>
-              <div class="guide-synopsis-body">
-                <p>{{ m.observationPoint.tip }}</p>
-              </div>
-            </div>
-
-            <!-- Pistas (idéntico a offline guide-hud-gold-block) -->
-            <div class="guide-hud-gold-block" *ngIf="m.clues && m.clues.length > 0">
-              <div class="guide-hud-gold-head" style="color: #facc15;">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span>{{ 'transports.mysteries.cluesTitle' | translate }}</span>
-              </div>
-              <div class="guide-hud-gold-list">
-                <div class="gold-goal-item" *ngFor="let clue of m.clues">
-                  <div class="gold-goal-check" style="color: #facc15; border-color: #facc15;">
-                    <i class="fa-solid fa-paperclip"></i>
-                  </div>
-                  <span class="gold-goal-text">{{ clue }}</span>
-                </div>
-              </div>
-            </div>
           </div>
         </ng-container>
       </article>
@@ -850,6 +909,28 @@
       <article *ngIf="currentSection?.id === 'golpes'" class="wiki-article-card">
         <ng-container *ngIf="(golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])) as g">
           <header class="article-header">
+            <!-- Miga de pan dinámica (Breadcrumbs) -->
+            <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+              <ol class="breadcrumb-list">
+                <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                  <button
+                    *ngIf="item.clickable && !last"
+                    type="button"
+                    class="breadcrumb-link"
+                    (click)="item.action ? item.action() : null"
+                  >
+                    {{ item.label }}
+                  </button>
+                  <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                    {{ item.label }}
+                  </span>
+                  <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </span>
+                </li>
+              </ol>
+            </nav>
+
             <div class="article-meta-row">
               <span *ngIf="g.categoryLabel" class="article-chip-badge">{{ g.categoryLabel }}</span>
               <span class="article-chip-badge" *ngIf="g.potentialTake?.normal" style="color: #34d399; border-color: rgba(52, 211, 153, 0.4);">
@@ -1020,6 +1101,28 @@
       <article *ngIf="currentSection?.id === 'misiones-principales'" class="wiki-article-card">
         <ng-container *ngIf="(misionSeleccionada || misionesOnline[0]) as m">
           <header class="article-header">
+            <!-- Miga de pan dinámica (Breadcrumbs) -->
+            <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+              <ol class="breadcrumb-list">
+                <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                  <button
+                    *ngIf="item.clickable && !last"
+                    type="button"
+                    class="breadcrumb-link"
+                    (click)="item.action ? item.action() : null"
+                  >
+                    {{ item.label }}
+                  </button>
+                  <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                    {{ item.label }}
+                  </span>
+                  <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </span>
+                </li>
+              </ol>
+            </nav>
+
             <!-- Navegación Misión Anterior / Siguiente (Arriba del banner, idéntico a offline) -->
             <nav class="article-pagination-nav" aria-label="Navegación entre misiones">
               <div class="pagination-row-prev-next">
@@ -1130,6 +1233,28 @@
       <!-- Lector del Artículo Seleccionado -->
       <article *ngIf="selectedArticulo && !concesionarioSeleccionado && !categoriaArmaSeleccionada && currentSection?.id !== 'misterios' && currentSection?.id !== 'golpes' && currentSection?.id !== 'misiones-principales' && currentSection?.id !== 'armas' && currentSection?.id !== 'vehiculos'" class="wiki-article-card">
         <header class="article-header">
+          <!-- Miga de pan dinámica (Breadcrumbs) -->
+          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <ol class="breadcrumb-list">
+              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                <button
+                  *ngIf="item.clickable && !last"
+                  type="button"
+                  class="breadcrumb-link"
+                  (click)="item.action ? item.action() : null"
+                >
+                  {{ item.label }}
+                </button>
+                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  {{ item.label }}
+                </span>
+                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </li>
+            </ol>
+          </nav>
+
           <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner, idéntico a offline) -->
           <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
             <div class="pagination-row-prev-next">

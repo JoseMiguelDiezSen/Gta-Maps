@@ -426,12 +426,17 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4px 0 8px;
+  padding: 4px 0;
   gap: 10px;
   width: 100%;
   box-sizing: border-box;
   flex-shrink: 0;
   border: none;
+}
+
+.wiki-sidebar > .sidebar-header-bar {
+  padding: 2px 0 0 0;
+  margin-bottom: -6px;
 }
 
 .sidebar-header-bar::before,
@@ -474,7 +479,7 @@
   width: 100%;
   height: 1px;
   flex-shrink: 0;
-  margin: 6px 0 2px 0;
+  margin: 6px 0 6px 0;
   background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.85) 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
 }
 
@@ -694,6 +699,61 @@
   inset: 0;
   background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
   pointer-events: none;
+}
+
+/* Barra horizontal de 4 tarjetas HUD en una sola línea */
+.guide-hud-grid.guide-hud-grid--inline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.guide-hud-grid.guide-hud-grid--inline .guide-hud-box {
+  padding: 8px 10px;
+  gap: 8px;
+  min-width: 0;
+  box-sizing: border-box;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.guide-hud-grid.guide-hud-grid--inline .box-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.guide-hud-grid.guide-hud-grid--inline .box-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.guide-hud-grid.guide-hud-grid--inline .box-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.guide-hud-grid.guide-hud-grid--inline .box-val {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .guide-hud-grid.guide-hud-grid--inline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .misterio-info-grid {

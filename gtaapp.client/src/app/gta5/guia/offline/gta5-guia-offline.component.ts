@@ -29,6 +29,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   selectedArticulo: GuiaArticulo | null = null;
   
   themeMode: 'night' | 'day' = 'night';
+  busquedaOffline: string = '';
   searchQuery: string = '';
   searchResults: GuiaArticuloResumen[] = [];
   isLoading: boolean = true;
@@ -363,6 +364,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   openSection(sec: GuiaSeccion): void {
+    this.busquedaOffline = '';
     this.currentSection = sec;
     this.currentSubcategory = null;
     this.currentGolpe = null;
@@ -383,6 +385,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   backToSections(): void {
+    this.busquedaOffline = '';
     this.currentSection = null;
     this.currentSubcategory = null;
     this.currentGolpe = null;
@@ -472,6 +475,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   openSubcategory(subcatId: string): void {
+    this.busquedaOffline = '';
     this.currentSubcategory = subcatId;
     this.currentGolpe = null;
     this.isMobileReadingOpen = false;
@@ -481,6 +485,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   backToSubcategories(): void {
+    this.busquedaOffline = '';
     this.currentSubcategory = null;
     this.currentGolpe = null;
     this.isMobileReadingOpen = false;
@@ -774,7 +779,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (b.includes('michael')) return 'personaje-michael';
     if (b.includes('franklin')) return 'personaje-franklin';
     if (b.includes('trevor')) return 'personaje-trevor';
-    if (b.includes('introducci') || b.includes('intrahistoria')) return 'personaje-neutral-gris';
+    if (b.includes('introducci') || b.includes('intrahistoria') || b.includes('golpe') || b.includes('final') || b.includes('truco')) return 'personaje-neutral-gris';
     return '';
   }
 
@@ -831,6 +836,33 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   limpiarBusqueda(): void {
     this.searchQuery = '';
     this.searchResults = [];
+  }
+
+  limpiarBusquedaOffline(): void {
+    this.busquedaOffline = '';
+  }
+
+  hasBuscadorSeccion(seccionId?: string): boolean {
+    return seccionId === 'misiones-historia' || seccionId === 'eventos-aleatorios';
+  }
+
+  getPlaceholderBuscador(seccionId?: string): string {
+    if (seccionId === 'misiones-historia') return 'Buscar misión o personaje...';
+    if (seccionId === 'eventos-aleatorios') return 'Buscar evento aleatorio...';
+    return 'Buscar en esta sección...';
+  }
+
+  get articulosFiltradosSeccion(): GuiaArticuloResumen[] {
+    if (!this.currentSection) return [];
+    const raw = this.currentSection.articulos || [];
+    const query = (this.busquedaOffline || '').trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    if (!query) return raw;
+    const clean = (s?: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    return raw.filter(a =>
+      clean(a.titulo).includes(query) ||
+      clean(a.subtitulo).includes(query) ||
+      clean(a.badge).includes(query)
+    );
   }
 
   private renderMarkdown(raw: string, articuloId?: string): SafeHtml {
