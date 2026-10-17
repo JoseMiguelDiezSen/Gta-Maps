@@ -602,6 +602,7 @@ export const en: TranslationSchema = {
     successMessage: 'Your message has been received. It helps us keep improving.',
     errorTitle: 'Failed to send',
     errorMessage: 'Could not send feedback. Please try again in a few moments.',
+    rateLimitMessage: 'We have already received your suggestions for today. Please wait while they are processed before sending another.',
     close: 'Close',
     sendAnother: 'Send another message'
   }

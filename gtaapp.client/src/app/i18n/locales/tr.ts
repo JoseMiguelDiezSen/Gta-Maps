@@ -603,6 +603,7 @@ export const tr: TranslationSchema = {
     successMessage: 'Geri bildiriminiz başarıyla alındı. Platformu geliştirmemize yardımcı oluyor.',
     errorTitle: 'Gönderme Hatası',
     errorMessage: 'Öneri gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin.',
+    rateLimitMessage: 'Bugünkü önerilerinizi zaten aldık. Lütfen yeni bir öneri göndermeden önce işlenmesini bekleyin.',
     close: 'Kapat',
     sendAnother: 'Başka Bir Öneri Gönder'
   }

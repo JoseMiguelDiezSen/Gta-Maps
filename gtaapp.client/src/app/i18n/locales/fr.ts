@@ -603,6 +603,7 @@ export const fr: TranslationSchema = {
     successMessage: 'Votre suggestion a été bien reçue. Cela nous aide à continuer d\'améliorer le site.',
     errorTitle: 'Erreur lors de l\'envoi',
     errorMessage: 'Impossible d\'envoyer votre suggestion. Veuillez réessayer dans quelques instants.',
+    rateLimitMessage: 'Nous avons déjà reçu vos suggestions pour aujourd\'hui. Veuillez patienter pendant leur traitement avant d\'en envoyer une autre.',
     close: 'Fermer',
     sendAnother: 'Envoyer une autre suggestion'
   }

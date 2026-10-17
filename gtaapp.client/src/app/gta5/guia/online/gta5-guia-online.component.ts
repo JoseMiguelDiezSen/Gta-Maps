@@ -459,6 +459,13 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     this.misionSeleccionada = null;
   }
 
+  renderMissionMarkdown(m: GtaMission | null | undefined): SafeHtml {
+    if (!m || !m.contenidoMarkdown) {
+      return this.sanitizer.bypassSecurityTrustHtml('');
+    }
+    return this.renderMarkdown(m.contenidoMarkdown);
+  }
+
   get filteredOnlineMissions(): GtaMission[] {
     const query = this.busquedaMisiones.trim().toLowerCase();
     const contact = this.filtroContactoMisiones;

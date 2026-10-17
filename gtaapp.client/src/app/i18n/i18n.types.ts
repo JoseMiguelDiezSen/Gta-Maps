@@ -582,6 +582,7 @@ export interface TranslationSchema {
     successMessage: string;
     errorTitle: string;
     errorMessage: string;
+    rateLimitMessage?: string;
     close: string;
     sendAnother: string;
   };

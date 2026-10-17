@@ -21,25 +21,23 @@ export interface GotyIntent {
 export class GotyService {
   private isBotEnabled = true;
 
-  // Caché de memoria modular en Markdown indexada por bot ('home', 'gta5', 'gta6')
-  private memoryCache: Partial<Record<'home' | 'gta5' | 'gta6', GotyIntent[]>> = {};
+  // Caché de memoria modular en Markdown indexada por modo exacto
+  private memoryCache: Partial<Record<GotyGameMode, GotyIntent[]>> = {};
 
-  private readonly BRAIN_FILES: Record<'home' | 'gta5' | 'gta6', string[]> = {
-    home: ['bienvenida.md'],
-    gta5: [
-      'general.md',
-      'personalidad.md',
-      'armas-vehiculos.md',
-      'lugares-zonas.md',
-      'misiones-golpes.md',
-      'negocios.md',
-      'misterios.md'
-    ],
-    gta6: [
-      'general.md',
-      'personalidad.md',
-      'respuestas.md'
-    ]
+  private readonly BRAIN_PATHS: Record<GotyGameMode, string> = {
+    'home': 'home',
+    'gta5-historia': 'gta5/historia',
+    'gta5-online': 'gta5/online',
+    'gta6-historia': 'gta6/historia',
+    'gta6-online': 'gta6/online'
+  };
+
+  private readonly BRAIN_FILES: Record<GotyGameMode, string[]> = {
+    'home': ['bienvenida.md'],
+    'gta5-historia': [],
+    'gta5-online': [],
+    'gta6-historia': [],
+    'gta6-online': []
   };
 
   // Mensajes fijos por contexto de juego e idioma (Modo capado para producción)
@@ -200,17 +198,22 @@ export class GotyService {
   }
 
   /**
-   * Carga y unifica todos los archivos .md de memoria de un bot concreto ('home', 'gta5', 'gta6').
+   * Carga y unifica todos los archivos .md de memoria de un contexto de juego concreto.
    */
-  loadGameBrain(game: 'home' | 'gta5' | 'gta6'): Observable<GotyIntent[]> {
-    if (this.memoryCache[game]) {
-      return of(this.memoryCache[game]!);
+  loadGameBrain(mode: GotyGameMode): Observable<GotyIntent[]> {
+    if (this.memoryCache[mode]) {
+      return of(this.memoryCache[mode]!);
     }
-    const files = this.BRAIN_FILES[game] || [];
+    const folderPath = this.BRAIN_PATHS[mode];
+    const files = this.BRAIN_FILES[mode] || [];
+    if (files.length === 0) {
+      this.memoryCache[mode] = [];
+      return of([]);
+    }
     const requests = files.map(file =>
-      this.http.get(`assets/data/goty/${game}/${file}`, { responseType: 'text' }).pipe(
+      this.http.get(`assets/data/goty/${folderPath}/${file}`, { responseType: 'text' }).pipe(
         catchError(err => {
-          console.warn(`[GotyService] Error cargando assets/data/goty/${game}/${file}:`, err);
+          console.warn(`[GotyService] Error cargando assets/data/goty/${folderPath}/${file}:`, err);
           return of('');
         })
       )
@@ -224,7 +227,7 @@ export class GotyService {
             allIntents.push(...this.parseMarkdownToBrain(text));
           }
         }
-        this.memoryCache[game] = allIntents;
+        this.memoryCache[mode] = allIntents;
         return allIntents;
       })
     );
@@ -234,10 +237,7 @@ export class GotyService {
    * Pre-carga la memoria modular de GOTY según el contexto.
    */
   preloadBrain(context: GotyGameMode): void {
-    const game: 'home' | 'gta5' | 'gta6' = context === 'home'
-      ? 'home'
-      : (context.startsWith('gta6') ? 'gta6' : 'gta5');
-    this.loadGameBrain(game).subscribe();
+    this.loadGameBrain(context).subscribe();
   }
 
   /**
@@ -315,11 +315,8 @@ export class GotyService {
    */
   processLocalQuery(query: string, context: GotyGameMode, lang: string): Observable<GotyMessage> {
     const cleanQuery = this.normalizeString(query);
-    const game: 'home' | 'gta5' | 'gta6' = context === 'home'
-      ? 'home'
-      : (context.startsWith('gta6') ? 'gta6' : 'gta5');
 
-    return this.loadGameBrain(game).pipe(
+    return this.loadGameBrain(context).pipe(
       map(intents => {
         let bestIntent: GotyIntent | null = null;
         let bestScore = 0;

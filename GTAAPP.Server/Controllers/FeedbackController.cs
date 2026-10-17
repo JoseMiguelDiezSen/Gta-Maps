@@ -39,6 +39,12 @@ namespace GTAAPP.Server.Controllers
                 return BadRequest(new { error = "El mensaje no puede estar vacío." });
             }
 
+            // Campo trampa (Honeypot): si viene relleno, es un bot automatizado; se descarta en silencio
+            if (!string.IsNullOrWhiteSpace(request.Website))
+            {
+                return Ok(new { success = true, message = "Sugerencia enviada con éxito." });
+            }
+
             var trimmedMessage = request.Message.Trim();
             if (trimmedMessage.Length > 2000)
             {
@@ -64,20 +70,30 @@ namespace GTAAPP.Server.Controllers
                 UserAgent = userAgent
             };
 
-            // 1. Guardar localmente en App_Data/feedback/ (garantiza cero pérdida de sugerencias)
+            // 1. Guardar localmente en App_Data/feedback/ con tope diario anti-llenado de disco (máximo 20 archivos/día)
             try
             {
                 var feedbackDir = Path.Combine(_env.ContentRootPath, "App_Data", "feedback");
                 Directory.CreateDirectory(feedbackDir);
 
-                var fileName = $"feedback_{now:yyyyMMdd_HHmmss}_{Guid.NewGuid():N}.json";
-                var filePath = Path.Combine(feedbackDir, fileName);
+                var todayPattern = $"feedback_{now:yyyyMMdd}_*.json";
+                var filesToday = Directory.GetFiles(feedbackDir, todayPattern).Length;
 
-                var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
-                var jsonContent = JsonSerializer.Serialize(record, jsonOptions);
-                await System.IO.File.WriteAllTextAsync(filePath, jsonContent);
+                if (filesToday < 20)
+                {
+                    var fileName = $"feedback_{now:yyyyMMdd_HHmmss}_{Guid.NewGuid():N}.json";
+                    var filePath = Path.Combine(feedbackDir, fileName);
 
-                _logger.LogInformation("Sugerencia guardada correctamente en {FilePath}", filePath);
+                    var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
+                    var jsonContent = JsonSerializer.Serialize(record, jsonOptions);
+                    await System.IO.File.WriteAllTextAsync(filePath, jsonContent);
+
+                    _logger.LogInformation("Sugerencia guardada correctamente en {FilePath}", filePath);
+                }
+                else
+                {
+                    _logger.LogWarning("Tope diario de archivos de sugerencias alcanzado ({Count}). Se omite escritura en disco.", filesToday);
+                }
             }
             catch (Exception ex)
             {

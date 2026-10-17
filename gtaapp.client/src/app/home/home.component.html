@@ -526,7 +526,7 @@
       </div>
 
       <p *ngIf="feedbackError" class="feedback-error-msg">
-        {{ 'feedback.errorMessage' | translate }}
+        {{ (feedbackRateLimited ? 'feedback.rateLimitMessage' : 'feedback.errorMessage') | translate }}
       </p>
 
       <div class="feedback-panel-actions">

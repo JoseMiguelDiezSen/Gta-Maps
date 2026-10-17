@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild('scrollContainer') private scrollContainer?: ElementRef;
 
-  isOpen = true;
+  isOpen = false;
   userInput = '';
   isTyping = false;
   messages: GotyMessage[] = [];

@@ -254,9 +254,16 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     return items;
   }
 
-  cleanBreadcrumbTitle(title?: string): string {
+  getCleanMissionTitle(title?: string): string {
     if (!title) return '';
-    return title.replace(/^\d+\.\s*/, '').trim();
+    return title
+      .replace(/^\d+\.\s*/, '')
+      .replace(/\s*\((Tonya|Beverly|Hao|Barry|Mary-Ann|Cletus|Dom|Maude|Patrulla|Peter Dreyfuss|Epsilon|Josh|Nigel|Abigail[^)]*|[^)]*Sasquatch[^)]*)\s*\d*\)$/i, '')
+      .trim();
+  }
+
+  cleanBreadcrumbTitle(title?: string): string {
+    return this.getCleanMissionTitle(title);
   }
 
   @HostListener('window:keydown', ['$event'])

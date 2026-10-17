@@ -78,6 +78,18 @@ public class MissionItem
     /// </summary>
     [JsonPropertyName("players")]
     public string? Players { get; set; }
+
+    /// <summary>
+    /// Contenido editorial detallado en formato Markdown para la vista de Guía.
+    /// </summary>
+    [JsonPropertyName("contenidoMarkdown")]
+    public string? ContenidoMarkdown { get; set; }
+
+    /// <summary>
+    /// Barrio o zona principal donde transcurre la misión (ej. "Rancho").
+    /// </summary>
+    [JsonPropertyName("location")]
+    public string? Location { get; set; }
 }
 
 /// <summary>

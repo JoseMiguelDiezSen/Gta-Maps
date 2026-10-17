@@ -4,5 +4,6 @@ namespace GTAAPP.Server.Models
     {
         public string? Name { get; set; }
         public string Message { get; set; } = string.Empty;
+        public string? Website { get; set; }
     }
 }

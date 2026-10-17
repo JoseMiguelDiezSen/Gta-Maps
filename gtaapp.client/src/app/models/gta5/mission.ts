@@ -11,6 +11,8 @@ export interface GtaMission {
   unlockedBy?: string;
   minLevel?: number;
   players?: string;
+  contenidoMarkdown?: string;
+  location?: string;
 }
 
 export interface GtaStrangerMission {

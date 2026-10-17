@@ -603,6 +603,7 @@ export const ja: TranslationSchema = {
     successMessage: 'フィードバックを受信しました。今後の改善に役立てさせていただきます。',
     errorTitle: '送信エラー',
     errorMessage: '送信に失敗しました。しばらくしてからもう一度お試しください。',
+    rateLimitMessage: '本日のご提案はすでに受け付けております。処理が完了するまでお待ちください。',
     close: '閉じる',
     sendAnother: '別のフィードバックを送信'
   }

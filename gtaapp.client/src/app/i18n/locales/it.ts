@@ -603,6 +603,7 @@ export const it: TranslationSchema = {
     successMessage: 'Il tuo suggerimento è stato ricevuto correttamente. Ci aiuta a continuare a migliorare.',
     errorTitle: 'Errore durante l\'invio',
     errorMessage: 'Impossibile inviare il suggerimento. Riprova tra qualche istante.',
+    rateLimitMessage: 'Abbiamo già ricevuto i tuoi suggerimenti di oggi. Attendi che vengano elaborati prima di inviarne un altro.',
     close: 'Chiudi',
     sendAnother: 'Invia un altro suggerimento'
   }

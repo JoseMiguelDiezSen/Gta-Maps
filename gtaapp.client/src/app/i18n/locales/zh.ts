@@ -603,6 +603,7 @@ export const zh: TranslationSchema = {
     successMessage: '您的建议已成功送达，感谢您帮助我们做得更好。',
     errorTitle: '发送失败',
     errorMessage: '无法发送反馈，请稍后重试。',
+    rateLimitMessage: '我们已收到您今天的建议，请等待处理完成后再发送新的建议。',
     close: '关闭',
     sendAnother: '发送另一条反馈'
   }

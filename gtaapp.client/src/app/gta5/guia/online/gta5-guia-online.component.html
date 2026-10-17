@@ -1020,45 +1020,34 @@
       <article *ngIf="currentSection?.id === 'misiones-principales'" class="wiki-article-card">
         <ng-container *ngIf="(misionSeleccionada || misionesOnline[0]) as m">
           <header class="article-header">
-            <div class="article-meta-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                <span class="article-chip-badge" [style.color]="getMissionAccentColor(m)" [style.border-color]="getMissionAccentColor(m)">
-                  Misión #{{ m.order < 10 ? '0' + m.order : m.order }}
-                </span>
-                <span class="article-chip-badge">{{ m.category }}</span>
-                <span class="article-chip-badge" *ngIf="m.minLevel" style="color: #facc15; border-color: rgba(250, 204, 21, 0.4);">
-                  <i class="fa-solid fa-ranking-star" style="margin-right: 4px;"></i> Nivel {{ m.minLevel }}
-                </span>
-                <span class="article-read-meta" *ngIf="m.players">
-                  <i class="fa-solid fa-users" style="margin-right: 4px;"></i> {{ m.players }} jugadores
-                </span>
-              </div>
-
-              <!-- Stepper Prev / Next -->
-              <div class="mdetail-stepper">
+            <!-- Navegación Misión Anterior / Siguiente (Arriba del banner, idéntico a offline) -->
+            <nav class="article-pagination-nav" aria-label="Navegación entre misiones">
+              <div class="pagination-row-prev-next">
                 <button
                   type="button"
-                  class="mdetail-step-btn"
-                  [disabled]="!previousMission"
+                  class="pagination-btn pagination-prev"
+                  *ngIf="previousMission"
                   (click)="selectPreviousMission()"
-                  title="Misión anterior"
+                  [title]="previousMission.title"
                 >
-                  <i class="fa-solid fa-chevron-left"></i>
+                  <span class="pagination-arrow">←</span>
+                  <span class="pagination-title">{{ previousMission.title }}</span>
                 </button>
-                <span class="mdetail-step-label">
-                  {{ m.order }} / {{ misionesOnline.length }}
-                </span>
+                <div *ngIf="!previousMission" class="pagination-spacer"></div>
+
                 <button
                   type="button"
-                  class="mdetail-step-btn"
-                  [disabled]="!nextMission"
+                  class="pagination-btn pagination-next"
+                  *ngIf="nextMission"
                   (click)="selectNextMission()"
-                  title="Siguiente misión"
+                  [title]="nextMission.title"
                 >
-                  <i class="fa-solid fa-chevron-right"></i>
+                  <span class="pagination-title">{{ nextMission.title }}</span>
+                  <span class="pagination-arrow">→</span>
                 </button>
+                <div *ngIf="!nextMission" class="pagination-spacer"></div>
               </div>
-            </div>
+            </nav>
 
             <!-- Panel estilizado del capítulo: Título y Subtítulo -->
             <div class="article-chapter-banner">
@@ -1070,33 +1059,25 @@
           </header>
 
           <div class="article-body">
-            <!-- Grid de datos HUD (Contacto, Nivel mínimo, Jugadores, Recompensa) -->
-            <div class="guide-hud-grid">
-              <div class="guide-hud-box" *ngIf="m.giver">
-                <i class="fa-solid fa-user-secret box-icon" [style.color]="getMissionAccentColor(m)"></i>
+            <!-- Grid de datos HUD superior (4 tarjetas en línea: Nivel mínimo, Jugadores, Recompensa, Desbloqueado tras) -->
+            <div class="guide-hud-grid" style="margin-bottom: 16px; grid-template-columns: repeat(4, minmax(0, 1fr));">
+              <div class="guide-hud-box" *ngIf="m.minLevel" style="background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.35);">
+                <i class="fa-solid fa-ranking-star box-icon" style="color: #facc15; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Contacto / Organizador</span>
-                  <span class="box-val">{{ m.giver }}</span>
+                  <span class="box-label">Nivel</span>
+                  <span class="box-val" style="color: #facc15; font-weight: 800; font-size: 13.5px;">Nivel {{ m.minLevel }}</span>
                 </div>
               </div>
 
-              <div class="guide-hud-box" *ngIf="m.minLevel">
-                <i class="fa-solid fa-ranking-star box-icon" style="color: #facc15;"></i>
-                <div class="box-content">
-                  <span class="box-label">Nivel de Rango Mínimo</span>
-                  <span class="box-val">Nivel {{ m.minLevel }}</span>
-                </div>
-              </div>
-
-              <div class="guide-hud-box" *ngIf="m.players">
-                <i class="fa-solid fa-users box-icon" style="color: #38bdf8;"></i>
+              <div class="guide-hud-box" *ngIf="m.players" style="background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.35);">
+                <i class="fa-solid fa-users box-icon" style="color: #f97316; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">Jugadores</span>
-                  <span class="box-val">{{ m.players }}</span>
+                  <span class="box-val" style="color: #fb923c; font-weight: 800; font-size: 13.5px;">{{ m.players }}</span>
                 </div>
               </div>
 
-              <div class="guide-hud-box reward-box" *ngIf="m.reward">
+              <div class="guide-hud-box reward-box" *ngIf="m.reward" style="grid-column: auto;">
                 <i class="fa-solid fa-trophy box-icon" style="color: #10b981;"></i>
                 <div class="box-content">
                   <span class="box-label">Recompensa</span>
@@ -1104,11 +1085,11 @@
                 </div>
               </div>
 
-              <div class="guide-hud-box unlock-box" *ngIf="m.unlockedBy">
-                <i class="fa-solid fa-lock-open box-icon" style="color: #a855f7;"></i>
+              <div class="guide-hud-box unlock-box" *ngIf="m.location || m.unlockedBy" style="grid-column: auto;">
+                <i class="fa-solid fa-location-dot box-icon" style="color: #38bdf8;"></i>
                 <div class="box-content">
-                  <span class="box-label">Desbloqueado tras</span>
-                  <span class="box-val">{{ m.unlockedBy }}</span>
+                  <span class="box-label">Ubicación</span>
+                  <span class="box-val">{{ m.location || 'Los Santos' }}</span>
                 </div>
               </div>
             </div>
@@ -1123,6 +1104,9 @@
                 <p>{{ m.description }}</p>
               </div>
             </div>
+
+            <!-- Contenido Editorial Detallado de la Misión (Fuera de la Sinopsis) -->
+            <div class="narrative-editorial-body" *ngIf="m.contenidoMarkdown" [innerHTML]="renderMissionMarkdown(m)" style="margin-bottom: 24px;"></div>
 
             <!-- Objetivos de la misión -->
             <div class="guide-hud-gold-block" *ngIf="m.goldRequirements && m.goldRequirements.length > 0">
@@ -1140,36 +1124,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Navegación Misión Anterior / Siguiente -->
-          <nav class="article-pagination-nav" aria-label="Navegación entre misiones">
-            <button
-              type="button"
-              class="pagination-btn pagination-prev"
-              *ngIf="previousMission"
-              (click)="selectPreviousMission()"
-            >
-              <span class="pagination-arrow">←</span>
-              <div class="pagination-text">
-                <span class="pagination-label">Misión anterior</span>
-                <span class="pagination-title">{{ previousMission.title }}</span>
-              </div>
-            </button>
-            <div *ngIf="!previousMission" class="pagination-spacer"></div>
-
-            <button
-              type="button"
-              class="pagination-btn pagination-next"
-              *ngIf="nextMission"
-              (click)="selectNextMission()"
-            >
-              <div class="pagination-text pagination-text-right">
-                <span class="pagination-label">Siguiente misión</span>
-                <span class="pagination-title">{{ nextMission.title }}</span>
-              </div>
-              <span class="pagination-arrow">→</span>
-            </button>
-          </nav>
         </ng-container>
       </article>
 

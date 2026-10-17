@@ -603,6 +603,7 @@ export const ko: TranslationSchema = {
     successMessage: '제안이 성공적으로 접수되었습니다. 서비스 개선에 큰 도움이 됩니다.',
     errorTitle: '전송 실패',
     errorMessage: '제안을 전송하지 못했습니다. 잠시 후 다시 시도해 주세요.',
+    rateLimitMessage: '오늘의 제안이 이미 접수되었습니다. 처리될 때까지 잠시 기다려 주세요.',
     close: '닫기',
     sendAnother: '다른 제안 보내기'
   }

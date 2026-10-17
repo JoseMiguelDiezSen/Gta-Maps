@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     isSendingFeedback = false;
     feedbackSuccess = false;
     feedbackError = false;
+    feedbackRateLimited = false;
 
     readonly ultimaActualizacion = APP_VERSION.timestamp;
     readonly buildCommit = APP_VERSION.commit;
@@ -219,6 +220,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         }
         this.isFeedbackModalOpen = !this.isFeedbackModalOpen;
         this.feedbackError = false;
+        this.feedbackRateLimited = false;
     }
 
     closeFeedbackModal(): void {
@@ -232,6 +234,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         this.isSendingFeedback = true;
         this.feedbackError = false;
+        this.feedbackRateLimited = false;
         this.feedbackSuccess = false;
 
         const payload = {
@@ -253,15 +256,17 @@ export class HomeComponent implements OnInit, OnDestroy {
                     }
                 }, 2500);
             },
-            error: () => {
+            error: (err: { status?: number }) => {
                 this.isSendingFeedback = false;
                 this.feedbackError = true;
+                this.feedbackRateLimited = err?.status === 429;
             }
         });
     }
 
     resetFeedbackForm(): void {
         this.feedbackError = false;
+        this.feedbackRateLimited = false;
         this.feedbackName = '';
         this.feedbackMessage = '';
     }

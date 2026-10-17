@@ -14,27 +14,59 @@ namespace GTAAPP.Server.Services
     /// </summary>
     public class EmailService : IEmailService
     {
-        private readonly ILogger<EmailService> _logger;
+        private const int MaxEmailsPerDay = 15;
+        private static readonly object DailyQuotaLock = new();
+        private static DateOnly _currentDayUtc = DateOnly.FromDateTime(DateTime.UtcNow);
+        private static int _emailsSentToday = 0;
 
-        public EmailService(ILogger<EmailService> logger)
+        private readonly ILogger<EmailService> _logger;
+        private readonly IConfiguration _configuration;
+
+        public EmailService(ILogger<EmailService> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
         public async Task<bool> EnviarFeedbackAsync(string nombre, string mensaje, string ip, string userAgent)
         {
             try
             {
-                var to = "jsm198969@gmail.com";
-                var from = "jsm198969@gmail.com";
-                string host = "smtp.gmail.com";
-                string userName = "jsm198969@gmail.com";
-                string passwordApp = string.Concat("sbht", "xdcl", "bahh", "oxyw");
+                lock (DailyQuotaLock)
+                {
+                    var todayUtc = DateOnly.FromDateTime(DateTime.UtcNow);
+                    if (todayUtc != _currentDayUtc)
+                    {
+                        _currentDayUtc = todayUtc;
+                        _emailsSentToday = 0;
+                    }
+
+                    if (_emailsSentToday >= MaxEmailsPerDay)
+                    {
+                        _logger.LogWarning("Cortafuegos SMTP activado: Se alcanzó el tope global de {Max} correos diarios.", MaxEmailsPerDay);
+                        return false;
+                    }
+
+                    _emailsSentToday++;
+                }
+
+                var host = _configuration["Smtp:Host"] ?? "smtp.gmail.com";
+                var userName = _configuration["Smtp:Username"];
+                var passwordApp = _configuration["Smtp:Password"];
+                var to = _configuration["Smtp:ToEmail"] ?? userName;
+
+                if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(passwordApp) || string.IsNullOrWhiteSpace(to))
+                {
+                    _logger.LogWarning("Envío SMTP omitido: Credenciales SMTP no configuradas en appsettings.Local.json.");
+                    return false;
+                }
+
+                var safeSubjectName = nombre.Replace("\r", string.Empty).Replace("\n", string.Empty).Trim();
 
                 var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("GTA MAPS Feedback", from));
+                message.From.Add(new MailboxAddress("GTA MAPS Feedback", userName));
                 message.To.Add(new MailboxAddress("Admin", to));
-                message.Subject = $"[GTA MAPS] Sugerencia de {nombre}";
+                message.Subject = $"[GTA MAPS] Sugerencia de {safeSubjectName}";
                 var encodedNombre = System.Net.WebUtility.HtmlEncode(nombre);
                 var encodedMensaje = System.Net.WebUtility.HtmlEncode(mensaje).Replace("\n", "<br />");
                 var encodedIp = System.Net.WebUtility.HtmlEncode(ip);

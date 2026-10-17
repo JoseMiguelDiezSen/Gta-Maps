@@ -603,6 +603,7 @@ export const pt: TranslationSchema = {
     successMessage: 'Sua sugestão foi recebida com sucesso. Isso nos ajuda a continuar melhorando.',
     errorTitle: 'Erro ao enviar',
     errorMessage: 'Não foi possível enviar a sugestão. Por favor, tente novamente em alguns momentos.',
+    rateLimitMessage: 'Já recebemos suas sugestões de hoje. Por favor, aguarde o processamento antes de enviar outra.',
     close: 'Fechar',
     sendAnother: 'Enviar outra sugestão'
   }

@@ -616,6 +616,7 @@ export const es: TranslationSchema = {
     successMessage: 'Tu sugerencia ha sido recibida correctamente. Nos ayuda a seguir mejorando.',
     errorTitle: 'Error al enviar',
     errorMessage: 'No se pudo enviar la sugerencia. Por favor, inténtalo de nuevo en unos momentos.',
+    rateLimitMessage: 'Ya hemos recibido tus sugerencias de hoy. Por favor, espera a que se procesen antes de enviar otra.',
     close: 'Cerrar',
     sendAnother: 'Enviar otra sugerencia'
   }

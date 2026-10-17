@@ -22,12 +22,11 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
     serverOptions.Limits.RequestHeadersTimeout = TimeSpan.FromSeconds(15);
 });
 
-// 2. Soporte para proxies inversos (Azure App Service TLS termination, Cloudflare o balanceadores de carga)
+// 2. Soporte para proxy inverso local (Nginx en loopback) blindado contra falsificación de X-Forwarded-For
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-    options.KnownIPNetworks.Clear();
-    options.KnownProxies.Clear();
+    options.ForwardLimit = 1;
 });
 
 // 3. Política HSTS estricta (HTTP Strict Transport Security) para forzar HTTPS en navegadores
@@ -80,10 +79,16 @@ builder.Services.AddRateLimiter(options =>
             context.HttpContext.Response.Headers.RetryAfter = ((int)retryAfter.TotalSeconds).ToString();
         }
 
+        var rejectedPath = context.HttpContext.Request.Path.Value ?? string.Empty;
+        var isFeedback = rejectedPath.Equals("/api/feedback", StringComparison.OrdinalIgnoreCase);
+
         await context.HttpContext.Response.WriteAsJsonAsync(new
         {
             error = "Too Many Requests",
-            message = "Has superado el límite de peticiones permitidas. Por favor, espera unos momentos antes de reintentar."
+            code = isFeedback ? "FEEDBACK_DAILY_LIMIT" : "RATE_LIMIT_EXCEEDED",
+            message = isFeedback
+                ? "Ya hemos recibido tus sugerencias de hoy. Por favor, espera a que se procesen antes de enviar otra."
+                : "Has superado el límite de peticiones permitidas. Por favor, espera unos momentos antes de reintentar."
         }, cancellationToken: token);
     };
 
@@ -156,17 +161,16 @@ builder.Services.AddRateLimiter(options =>
             });
     });
 
-    // 6.4 Política específica 'feedback-policy' para sugerencias y mensajes de usuario (máximo 60 req/min por IP)
+    // 6.4 Política específica 'feedback-policy' para sugerencias y mensajes de usuario (máximo 2 sugerencias cada 24 horas por IP)
     options.AddPolicy("feedback-policy", httpContext =>
     {
         var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
-        return RateLimitPartition.GetSlidingWindowLimiter(
+        return RateLimitPartition.GetFixedWindowLimiter(
             partitionKey: clientIp,
-            factory: _ => new SlidingWindowRateLimiterOptions
+            factory: _ => new FixedWindowRateLimiterOptions
             {
-                PermitLimit = 60,
-                Window = TimeSpan.FromMinutes(1),
-                SegmentsPerWindow = 4,
+                PermitLimit = 2,
+                Window = TimeSpan.FromHours(24),
                 QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
                 QueueLimit = 0
             });
