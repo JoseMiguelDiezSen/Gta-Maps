@@ -393,6 +393,49 @@ export class GuiaService {
       shareReplay(1)
     );
   }
+
+  getMisionesGuiaOnline(): Observable<any[]> {
+    const t = new Date().getTime();
+    const base = 'assets/data/gta5/guia/online/misiones/';
+    const files = [
+      'misiones-lamar.json',
+      'misiones-simeon.json',
+      'misiones-gerald.json',
+      'misiones-ron.json',
+      'misiones-lester.json',
+      'misiones-trevor.json',
+      'misiones-madrazo.json',
+      'misiones-lowriders.json',
+      'misiones-vehiculos-especiales.json',
+      'misiones-operaciones-moviles.json',
+      'misiones-dispatch.json',
+      'misiones-embargos-deluxe.json',
+      'misiones-casino.json',
+      'misiones-ultima-jugada.json',
+      'misiones-superyate.json',
+      'misiones-the-contract.json',
+      'misiones-drug-wars.json',
+      'misiones-cluckin-bell.json'
+    ];
+
+    return forkJoin(
+      files.map(f => this.http.get<any[]>(`${base}${f}?t=${t}`).pipe(catchError(() => of([]))))
+    ).pipe(
+      map(arrays => {
+        const flattened = arrays.reduce((acc: any[], curr: any[]) => acc.concat(curr), [] as any[]);
+        return flattened.sort((a, b) => (a.order || 0) - (b.order || 0));
+      }),
+      shareReplay(1)
+    );
+  }
+
+  getNegociosGuiaOnline(): Observable<any[]> {
+    const t = new Date().getTime();
+    return this.http.get<any[]>(`assets/data/gta5/guia/online/businesses-guide.json?t=${t}`).pipe(
+      catchError(() => of([])),
+      shareReplay(1)
+    );
+  }
 }
 
 

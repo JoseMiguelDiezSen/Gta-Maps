@@ -3,25 +3,42 @@
   <nav class="wiki-top-nav">
     <div class="nav-container">
       <div class="nav-left">
+        <!-- BOTÓN HAMBURGUESA MÓVIL (a la izquierda en móvil, oculto en PC) -->
+        <button
+          type="button"
+          class="mobile-nav-toggle-btn"
+          (click)="toggleMobileNav()"
+          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
+          aria-label="Menú de navegación"
+        >
+          <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
+        </button>
+
+        <!-- Separador vertical espigado izquierdo -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
+        <!-- LOGO DE LA HOME CON TAMAÑO FIJADO -->
         <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
           <img src="assets/images/logos/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
+        <!-- Separador vertical espigado derecho -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <div class="nav-brand">
           <span class="nav-brand-title">GTA WORLD</span>
         </div>
 
+        <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
+        <!-- Botón INICIO -->
         <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
           <i class="fa-solid fa-house"></i>
           <span>INICIO</span>
         </a>
 
+        <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Desplegable GTA 5 -->
@@ -43,6 +60,7 @@
           </div>
         </div>
 
+        <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Desplegable GTA 6 -->
@@ -70,6 +88,7 @@
           </div>
         </div>
 
+        <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón NOTICIAS -->
@@ -78,8 +97,10 @@
           <span>NOTICIAS</span>
         </a>
 
+        <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
+        <!-- Selector directo entre las guías de GTA 5 -->
         <div class="mode-switch-track" aria-label="Cambiar entre guía Historia y guía Online">
           <a class="mode-switch-btn mode-historia" routerLink="/gta5-guia-offline" title="Guía GTA 5 Historia">
             <i class="mode-indicator dot-historia"></i>
@@ -93,9 +114,11 @@
           </a>
         </div>
 
+        <!-- Separador final de cierre -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
       </div>
 
+      <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE -->
       <div class="nav-right">
         <button
           type="button"
@@ -109,6 +132,52 @@
           <span class="switch-icon switch-icon-sun">☀️</span>
           <span class="switch-thumb"></span>
         </button>
+      </div>
+    </div>
+
+    <!-- MENÚ DESPLEGABLE MÓVIL (DRAWER) -->
+    <div class="mobile-nav-drawer" *ngIf="mobileNavOpen">
+      <div class="mobile-nav-links">
+        <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+        <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 5 MAP</span>
+        </a>
+        <a
+          [routerLink]="isDevAllowed ? '/gta6' : null"
+          class="mobile-nav-link"
+          [class.nav-link-disabled]="!isDevAllowed"
+          (click)="onGta6MapClick($event); closeMobileNav()"
+        >
+          <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
+          <span>GTA 6 MAP</span>
+        </a>
+        <a routerLink="/gta6-guia" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 6</span>
+        </a>
+        <a routerLink="/gta6-noticias" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>NOTICIAS</span>
+        </a>
+      </div>
+
+      <!-- Selector de modo Historia / Online en móvil -->
+      <div class="mobile-mode-switcher">
+        <span class="mobile-mode-label">MODO:</span>
+        <div class="mode-switch-track">
+          <a class="mode-switch-btn mode-historia" routerLink="/gta5-guia-offline" (click)="closeMobileNav()">
+            <i class="mode-indicator dot-historia"></i>
+            <span>HISTORIA</span>
+          </a>
+          <a class="mode-switch-btn mode-online is-active" routerLink="/gta5-guia-online" (click)="closeMobileNav()">
+            <i class="mode-indicator dot-online"></i>
+            <span>ONLINE</span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -155,7 +224,7 @@
           </div>
 
           <!-- Badge con número de capítulos -->
-          <span class="guide-cat-badge">{{ seccion.id === 'personajes' ? ((personajes$ | async)?.length ?? 0) : (seccion.id === 'misterios' ? ((misterios$ | async)?.length ?? 0) : (seccion.id === 'golpes' ? (golpes.length || ((golpes$ | async)?.length ?? 0)) : (seccion.id === 'misiones-principales' ? (misionesOnline.length || ((misionesOnline$ | async)?.length ?? 0)) : getSeccionContador(seccion)))) }}</span>
+          <span class="guide-cat-badge">{{ seccion.id === 'personajes' ? ((personajes$ | async)?.length ?? 0) : (seccion.id === 'misterios' ? ((misterios$ | async)?.length ?? 0) : (seccion.id === 'golpes' ? (golpes.length || ((golpes$ | async)?.length ?? 0)) : (seccion.id === 'misiones-principales' ? (misionesOnline.length || ((misionesOnline$ | async)?.length ?? 0)) : (seccion.id === 'negocios' ? (negociosOnline.length || ((negociosOnline$ | async)?.length ?? 0)) : getSeccionContador(seccion))))) }}</span>
 
           <!-- Flecha circular a la derecha -->
           <div class="guide-cat-arrow">
@@ -316,118 +385,334 @@
           </div>
         </ng-container>
  
-        <!-- SUB-VISTA: LISTADO DE GOLPES -->
+        <!-- SUB-VISTA: LISTADO DE GOLPES (NIVEL 1 Y NIVEL 2) -->
         <ng-container *ngIf="currentSection.id === 'golpes'">
-          <div class="guide-detail-toolbar">
-            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
-              <i class="fa-solid fa-chevron-left"></i>
-              <span>Categorías</span>
-            </button>
-            <span class="guide-detail-badge">{{ golpes.length || ((golpes$ | async)?.length ?? 0) }} golpes</span>
-          </div>
 
-          <div class="sidebar-header-bar">
-            <span class="sidebar-header-title">GOLPES</span>
-          </div>
-
-          <div class="guide-categories-list">
-            <div
-              *ngFor="let g of (golpes.length ? golpes : (golpes$ | async) || [])"
-              class="guide-cat-card"
-              [class.is-active]="(golpeSeleccionado?.id || (golpes.length ? golpes[0].id : (golpes$ | async)?.[0]?.id)) === g.id"
-              [style.--cat-accent]="g.badgeColor || '#2ecc71'"
-              (click)="seleccionarGolpe(g)"
-            >
-              <div class="guide-cat-icon">
-                <i class="fa-solid" [ngClass]="g.badgeIcon || 'fa-vault'"></i>
-              </div>
-              <div class="guide-cat-info">
-                <span class="guide-cat-title">{{ g.title }}</span>
-              </div>
-              <span class="guide-cat-badge" *ngIf="g.setupMissions?.length">{{ g.setupMissions.length }}</span>
-              <div class="guide-cat-arrow">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
+          <!-- NIVEL 1: LISTADO DE LOS 12 GOLPES -->
+          <ng-container *ngIf="!golpeAbierto">
+            <div class="guide-detail-toolbar">
+              <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Categorías</span>
+              </button>
+              <span class="guide-detail-badge">{{ golpes.length || ((golpes$ | async)?.length ?? 0) }} golpes</span>
             </div>
 
-            <!-- SEPARADOR DE ESPIGA AL FINAL -->
-            <div class="guide-cat-list-divider" aria-hidden="true"></div>
-          </div>
+            <div class="sidebar-header-bar">
+              <span class="sidebar-header-title">GOLPES</span>
+            </div>
+
+            <div class="guide-categories-list">
+              <div
+                *ngFor="let g of (golpes.length ? golpes : (golpes$ | async) || [])"
+                class="guide-cat-card"
+                [class.is-active]="(golpeSeleccionado?.id || (golpes.length ? golpes[0].id : (golpes$ | async)?.[0]?.id)) === g.id"
+                [style.--cat-accent]="g.badgeColor || '#2ecc71'"
+                (click)="seleccionarGolpe(g)"
+              >
+                <div class="guide-cat-icon">
+                  <i class="fa-solid" [ngClass]="g.badgeIcon || 'fa-vault'"></i>
+                </div>
+                <div class="guide-cat-info">
+                  <span class="guide-cat-title">{{ g.title }}</span>
+                </div>
+                <span class="guide-cat-badge" *ngIf="g.setupMissions?.length">{{ g.setupMissions.length }}</span>
+                <div class="guide-cat-arrow">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
+
+              <!-- SEPARADOR DE ESPIGA AL FINAL -->
+              <div class="guide-cat-list-divider" aria-hidden="true"></div>
+            </div>
+          </ng-container>
+
+          <!-- NIVEL 2: FASES Y MISIONES PREPARATORIAS DEL GOLPE SELECCIONADO -->
+          <ng-container *ngIf="golpeAbierto && (golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])) as g">
+            <div class="guide-detail-toolbar">
+              <button type="button" class="guide-back-btn" (click)="volverAGolpes()" title="Volver al listado de golpes">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Golpes</span>
+              </button>
+              <span class="guide-detail-badge">{{ g.setupMissions.length || 0 }} misiones</span>
+            </div>
+
+            <div class="sidebar-header-bar">
+              <span class="sidebar-header-title">{{ g.title | uppercase }}</span>
+            </div>
+
+            <div class="guide-chapters-list">
+              <!-- Entrada General: Resumen y Planificación -->
+              <div
+                class="guide-chapter-card"
+                [class.is-active]="faseSeleccionadaIndex === null"
+                (click)="faseSeleccionadaIndex = null"
+              >
+                <span class="chapter-card-num"><i class="fa-solid fa-star" style="font-size: 11px;"></i></span>
+                <div class="chapter-card-info">
+                  <span class="chapter-card-title">Planificación y Claves</span>
+                  <span class="chapter-card-sub">Resumen general del golpe</span>
+                </div>
+              </div>
+
+              <!-- Misiones y Fases preparatorias -->
+              <div
+                *ngFor="let s of g.setupMissions; let idx = index"
+                class="guide-chapter-card"
+                [class.is-active]="faseSeleccionadaIndex === idx"
+                (click)="seleccionarFaseGolpe(idx)"
+              >
+                <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+
+                <div class="chapter-card-info">
+                  <span class="chapter-card-title">{{ s.name }}</span>
+                  <span class="chapter-card-sub" *ngIf="s.type">{{ s.type }}</span>
+                </div>
+              </div>
+
+              <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+              <div class="guide-cat-list-divider" aria-hidden="true"></div>
+            </div>
+          </ng-container>
+
         </ng-container>
 
         <!-- SUB-VISTA: LISTADO DE MISIONES PRINCIPALES (GTA ONLINE) -->
         <ng-container *ngIf="currentSection.id === 'misiones-principales'">
-          <div class="guide-detail-toolbar">
-            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
-              <i class="fa-solid fa-chevron-left"></i>
-              <span>Categorías</span>
-            </button>
-            <span class="guide-detail-badge">{{ busquedaMisiones ? filteredOnlineMissions.length : misionesOnline.length }} misiones</span>
-          </div>
 
-          <!-- Buscador en tiempo real de Misiones Principales -->
-          <div class="sidebar-search-box">
-            <div class="search-input-wrapper">
-              <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              <input
-                type="text"
-                class="sidebar-search-input"
-                [(ngModel)]="busquedaMisiones"
-                placeholder="Buscar misión o contacto..."
-                autocomplete="off"
-                spellcheck="false"
-              />
-              <button
-                *ngIf="busquedaMisiones"
-                type="button"
-                class="search-clear-btn"
-                (click)="limpiarBusquedaMisiones()"
-                aria-label="Limpiar búsqueda"
-              >
-                ✕
+          <!-- SUB-VISTA M1: NIVEL GENERAL (CONTACTOS / BÚSQUEDA GLOBAL DE MISIONES) -->
+          <ng-container *ngIf="!categoriaMisionSeleccionada">
+            <div class="guide-detail-toolbar">
+              <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Categorías</span>
               </button>
+              <span class="guide-detail-badge" *ngIf="!busquedaMisiones">{{ categoriasMisiones.length }} contactos</span>
+              <span class="guide-detail-badge" *ngIf="busquedaMisiones">{{ misionesOnlineFiltradasGlobal.length }} misiones</span>
             </div>
-          </div>
 
-          <div class="sidebar-header-bar">
-            <span class="sidebar-header-title">MISIONES PRINCIPALES</span>
-          </div>
+            <!-- Buscador global en tiempo real de misiones -->
+            <div class="sidebar-search-box">
+              <div class="search-input-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="text"
+                  class="sidebar-search-input"
+                  [(ngModel)]="busquedaMisiones"
+                  placeholder="Buscar entre las {{ misionesOnline.length }} misiones..."
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <button
+                  *ngIf="busquedaMisiones"
+                  type="button"
+                  class="search-clear-btn"
+                  (click)="limpiarBusquedaMisiones()"
+                  aria-label="Limpiar búsqueda"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
 
-          <div class="guide-chapters-list">
-            <div
-              *ngFor="let m of filteredOnlineMissions"
-              class="guide-chapter-card"
-              [class.is-active]="(misionSeleccionada?.id || filteredOnlineMissions[0]?.id) === m.id"
-              [style.--cat-accent]="getMissionAccentColor(m)"
-              (click)="seleccionarMision(m)"
-            >
-              <span class="chapter-card-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
-
-              <div class="chapter-card-info">
-                <span class="chapter-card-title">{{ m.title }}</span>
-                <span class="chapter-card-sub" *ngIf="m.character">{{ m.character }}</span>
+            <!-- CASO 1: SI NO HAY BÚSQUEDA -> MOSTRAMOS LAS 18 TARJETAS DE CONTACTOS -->
+            <ng-container *ngIf="!busquedaMisiones">
+              <div class="sidebar-header-bar">
+                <span class="sidebar-header-title">MISIONES PRINCIPALES</span>
               </div>
 
-              <div class="chapter-card-meta">
-                <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
+              <div class="guide-categories-list">
+                <div
+                  *ngFor="let cat of categoriasMisiones"
+                  class="guide-cat-card"
+                  [style.--cat-accent]="cat.color"
+                  (click)="seleccionarCategoriaMision(cat)"
+                  [title]="cat.titulo"
+                >
+                  <div class="guide-cat-icon">
+                    <i class="fa-solid fa-{{ cat.icono }}"></i>
+                  </div>
+                  <div class="guide-cat-info">
+                    <span class="guide-cat-title">{{ cat.titulo }}</span>
+                  </div>
+                  <span class="guide-cat-badge">{{ getMisionesDeCategoria(cat).length }}</span>
+                  <div class="guide-cat-arrow">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </div>
+                </div>
+
+                <!-- SEPARADOR DE ESPIGA AL FINAL -->
+                <div class="guide-cat-list-divider" aria-hidden="true"></div>
               </div>
+            </ng-container>
+
+            <!-- CASO 2: SI HAY BÚSQUEDA ACTIVA -> MOSTRAMOS DIRECTAMENTE EL LISTADO DE MISIONES COINCIDENTES -->
+            <ng-container *ngIf="busquedaMisiones">
+              <div class="sidebar-header-bar">
+                <span class="sidebar-header-title">RESULTADOS ({{ misionesOnlineFiltradasGlobal.length }})</span>
+              </div>
+
+              <div class="guide-chapters-list">
+                <div
+                  *ngFor="let m of misionesOnlineFiltradasGlobal; let idx = index"
+                  class="guide-chapter-card"
+                  [class.is-active]="misionSeleccionada?.id === m.id"
+                  [style.--cat-accent]="getMissionAccentColor(m)"
+                  (click)="seleccionarMision(m)"
+                >
+                  <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+
+                  <div class="chapter-card-info">
+                    <span class="chapter-card-title">{{ m.title }}</span>
+                    <span class="chapter-card-sub" *ngIf="m.giver || m.character">
+                      <i class="fa-solid fa-user" style="font-size: 9.5px; margin-right: 3px; opacity: 0.75;"></i>{{ m.giver || m.character }}
+                    </span>
+                  </div>
+
+                  <div class="chapter-card-meta">
+                    <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
+                  </div>
+                </div>
+
+                <!-- Sin resultados -->
+                <div *ngIf="misionesOnlineFiltradasGlobal.length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+                  <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
+                  <span>No se encontraron misiones para "{{ busquedaMisiones }}"</span>
+                </div>
+
+                <!-- SEPARADOR DE ESPIGA AL FINAL -->
+                <div class="guide-cat-list-divider" aria-hidden="true"></div>
+              </div>
+            </ng-container>
+          </ng-container>
+
+          <!-- SUB-VISTA M2: LISTADO DE MISIONES DEL CONTACTO SELECCIONADO (DRILL-DOWN NIVEL 2) -->
+          <ng-container *ngIf="categoriaMisionSeleccionada">
+            <div class="guide-detail-toolbar">
+              <button type="button" class="guide-back-btn" (click)="volverACategoriasMisiones()" title="Volver al listado de contactos">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Contactos</span>
+              </button>
+              <span class="guide-detail-badge">{{ getMisionesDeCategoria(categoriaMisionSeleccionada).length }} misiones</span>
             </div>
 
-            <!-- Sin resultados de búsqueda -->
-            <div *ngIf="filteredOnlineMissions.length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
-              <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
-              <span>No se encontraron misiones para "{{ busquedaMisiones }}"</span>
+            <div class="sidebar-header-bar">
+              <span class="sidebar-header-title">{{ categoriaMisionSeleccionada.titulo | uppercase }}</span>
             </div>
 
-            <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
-            <div class="guide-cat-list-divider" aria-hidden="true"></div>
-          </div>
+            <div class="guide-chapters-list">
+              <div
+                *ngFor="let m of getMisionesDeCategoria(categoriaMisionSeleccionada); let idx = index"
+                class="guide-chapter-card"
+                [class.is-active]="(misionSeleccionada?.id || getMisionesDeCategoria(categoriaMisionSeleccionada)[0]?.id) === m.id"
+                [style.--cat-accent]="categoriaMisionSeleccionada.color || getMissionAccentColor(m)"
+                (click)="seleccionarMision(m)"
+              >
+                <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+
+                <div class="chapter-card-info">
+                  <span class="chapter-card-title">{{ m.title }}</span>
+                  <span class="chapter-card-sub" *ngIf="m.character">{{ m.character }}</span>
+                </div>
+
+                <div class="chapter-card-meta">
+                  <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
+                </div>
+              </div>
+
+              <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+              <div class="guide-cat-list-divider" aria-hidden="true"></div>
+            </div>
+          </ng-container>
+
         </ng-container>
 
-        <ng-container *ngIf="currentSection.id !== 'vehiculos' && currentSection.id !== 'armas' && currentSection.id !== 'personajes' && currentSection.id !== 'misterios' && currentSection.id !== 'golpes' && currentSection.id !== 'misiones-principales'">
+        <!-- SUB-VISTA: LISTADO DE NEGOCIOS ONLINE -->
+        <ng-container *ngIf="currentSection.id === 'negocios'">
+
+          <!-- NIVEL 1: LISTADO DE SUBCATEGORÍAS DE NEGOCIOS -->
+          <ng-container *ngIf="!subcategoriaNegocioSeleccionada">
+            <div class="guide-detail-toolbar">
+              <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Categorías</span>
+              </button>
+              <span class="guide-detail-badge">{{ subcategoriasNegocios.length }} categorías</span>
+            </div>
+
+            <div class="sidebar-header-bar">
+              <span class="sidebar-header-title">NEGOCIOS</span>
+            </div>
+
+            <div class="guide-categories-list">
+              <div
+                *ngFor="let subcat of subcategoriasNegocios"
+                class="guide-cat-card"
+                [style.--cat-accent]="subcat.color"
+                (click)="seleccionarSubcategoriaNegocio(subcat)"
+                [title]="subcat.titulo"
+              >
+                <div class="guide-cat-icon">
+                  <i class="fa-solid fa-{{ subcat.icono }}"></i>
+                </div>
+                <div class="guide-cat-info">
+                  <span class="guide-cat-title">{{ subcat.titulo }}</span>
+                </div>
+                <span class="guide-cat-badge">{{ getContadorNegociosSubcategoria(subcat) }}</span>
+                <div class="guide-cat-arrow">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
+
+              <!-- SEPARADOR DE ESPIGA AL FINAL -->
+              <div class="guide-cat-list-divider" aria-hidden="true"></div>
+            </div>
+          </ng-container>
+
+          <!-- NIVEL 2: LISTADO DE LOCALES DE LA SUBCATEGORÍA SELECCIONADA -->
+          <ng-container *ngIf="subcategoriaNegocioSeleccionada">
+            <div class="guide-detail-toolbar">
+              <button type="button" class="guide-back-btn" (click)="volverASubcategoriasNegocios()" title="Volver al listado de subcategorías">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Negocios</span>
+              </button>
+              <span class="guide-detail-badge">{{ getNegociosDeSubcategoria(subcategoriaNegocioSeleccionada).length }} locales</span>
+            </div>
+
+            <div class="sidebar-header-bar">
+              <span class="sidebar-header-title">{{ subcategoriaNegocioSeleccionada.titulo | uppercase }}</span>
+            </div>
+
+            <div class="guide-chapters-list">
+              <div
+                *ngFor="let n of getNegociosDeSubcategoria(subcategoriaNegocioSeleccionada); let idx = index"
+                class="guide-chapter-card"
+                [class.is-active]="negocioSeleccionado?.id === n.id"
+                (click)="seleccionarNegocio(n)"
+              >
+                <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+
+                <div class="chapter-card-info">
+                  <span class="chapter-card-title">{{ n.name }}</span>
+                  <span class="chapter-card-sub" *ngIf="n.zone">{{ n.zone }}</span>
+                </div>
+
+                <div class="chapter-card-meta">
+                  <span class="chapter-card-badge" *ngIf="n.priceFormatted">{{ n.priceFormatted }}</span>
+                </div>
+              </div>
+
+              <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+              <div class="guide-cat-list-divider" aria-hidden="true"></div>
+            </div>
+          </ng-container>
+
+        </ng-container>
+
+        <ng-container *ngIf="currentSection.id !== 'vehiculos' && currentSection.id !== 'armas' && currentSection.id !== 'personajes' && currentSection.id !== 'misterios' && currentSection.id !== 'golpes' && currentSection.id !== 'misiones-principales' && currentSection.id !== 'negocios'">
         <div class="guide-detail-toolbar">
           <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
             <i class="fa-solid fa-chevron-left"></i>
@@ -1036,7 +1321,7 @@
                 <span>{{ 'transports.heists.setupsTitle' | translate }} ({{ g.setupMissions.length }})</span>
               </div>
               <div class="golpe-setups-list">
-                <div class="golpe-setup-item" *ngFor="let s of g.setupMissions; let idx = index">
+                <div class="golpe-setup-item" *ngFor="let s of g.setupMissions; let idx = index" [id]="'setup-mission-' + idx" [class.is-active]="faseSeleccionadaIndex === idx">
                   <div class="golpe-setup-num">{{ idx + 1 }}</div>
                   <div class="golpe-setup-body">
                     <div class="golpe-setup-head">
@@ -1230,8 +1515,137 @@
         </ng-container>
       </article>
 
+      <!-- Panel de Negocios y Propiedades Criminales (GTA ONLINE) -->
+      <article *ngIf="currentSection?.id === 'negocios'" class="wiki-article-card">
+        <ng-container *ngIf="(negocioSeleccionado || negociosOnline[0]) as n">
+          <header class="article-header">
+            <!-- Miga de pan dinámica (Breadcrumbs) -->
+            <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+              <ol class="breadcrumb-list">
+                <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                  <button
+                    *ngIf="item.clickable && !last"
+                    type="button"
+                    class="breadcrumb-link"
+                    (click)="item.action ? item.action() : null"
+                  >
+                    {{ item.label }}
+                  </button>
+                  <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                    {{ item.label }}
+                  </span>
+                  <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </span>
+                </li>
+              </ol>
+            </nav>
+
+            <!-- Navegación Negocio Anterior / Siguiente (Arriba del banner) -->
+            <nav class="article-pagination-nav" aria-label="Navegación entre locales">
+              <div class="pagination-row-prev-next">
+                <button
+                  type="button"
+                  class="pagination-btn pagination-prev"
+                  *ngIf="previousNegocio"
+                  (click)="seleccionarNegocio(previousNegocio)"
+                  [title]="previousNegocio.name"
+                >
+                  <span class="pagination-arrow">←</span>
+                  <span class="pagination-title">{{ previousNegocio.name }}</span>
+                </button>
+                <div *ngIf="!previousNegocio" class="pagination-spacer"></div>
+
+                <button
+                  type="button"
+                  class="pagination-btn pagination-next"
+                  *ngIf="nextNegocio"
+                  (click)="seleccionarNegocio(nextNegocio)"
+                  [title]="nextNegocio.name"
+                >
+                  <span class="pagination-title">{{ nextNegocio.name }}</span>
+                  <span class="pagination-arrow">→</span>
+                </button>
+                <div *ngIf="!nextNegocio" class="pagination-spacer"></div>
+              </div>
+            </nav>
+
+            <!-- Panel estilizado del capítulo: Título y Subtítulo con imagen -->
+            <div class="article-chapter-banner" [class.has-image]="n.imageUrl">
+              <div class="chapter-banner-text">
+                <h1 class="article-main-title">{{ n.name }}</h1>
+                <p class="article-lead" *ngIf="n.categoryLabel || n.zone">
+                  <span>{{ n.categoryLabel }}</span>
+                  <span *ngIf="n.zone"> · <strong>{{ n.zone }}</strong></span>
+                </p>
+              </div>
+              <div class="chapter-banner-media" *ngIf="n.imageUrl">
+                <img [src]="n.imageUrl" [alt]="n.name" class="chapter-banner-img" />
+              </div>
+            </div>
+          </header>
+
+          <div class="article-body">
+            <!-- Grid de datos HUD superior (Precio, Zona, Ingresos) -->
+            <div class="guide-hud-grid" style="margin-bottom: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+              <div class="guide-hud-box" *ngIf="n.priceFormatted" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35);">
+                <i class="fa-solid fa-dollar-sign box-icon" style="color: #10b981; font-size: 18px;"></i>
+                <div class="box-content">
+                  <span class="box-label">Precio de Adquisición</span>
+                  <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ n.priceFormatted }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="n.zone" style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35);">
+                <i class="fa-solid fa-map-pin box-icon" style="color: #38bdf8; font-size: 18px;"></i>
+                <div class="box-content">
+                  <span class="box-label">Ubicación / Barrio</span>
+                  <span class="box-val" style="color: #7dd3fc; font-weight: 700;">{{ n.zone }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="n.income" style="background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.35);">
+                <i class="fa-solid fa-sack-dollar box-icon" style="color: #facc15; font-size: 18px;"></i>
+                <div class="box-content">
+                  <span class="box-label">Potencial de Ingresos</span>
+                  <span class="box-val" style="color: #fef08a; font-weight: 700; font-size: 12.5px;">{{ n.income }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Descripción del local -->
+            <div class="guide-synopsis-block" *ngIf="n.description">
+              <div class="guide-synopsis-head">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Detalles y Ubicación Estratégica</span>
+              </div>
+              <div class="guide-synopsis-body">
+                <p>{{ n.description }}</p>
+              </div>
+            </div>
+
+            <!-- Características y Ventajas Clave -->
+            <div class="guide-synopsis-block" *ngIf="n.features && n.features.length > 0" style="margin-top: 18px;">
+              <div class="guide-synopsis-head">
+                <i class="fa-solid fa-list-check"></i>
+                <span>Características y Especificaciones</span>
+              </div>
+              <div class="guide-synopsis-body">
+                <ul class="guide-list" style="margin: 0; padding: 0; list-style: none;">
+                  <li class="guide-list-item" *ngFor="let feat of n.features" style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
+                    <span class="guide-list-bullet" style="color: #38bdf8; font-weight: bold;">›</span>
+                    <span class="guide-list-text">{{ feat }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </ng-container>
+      </article>
+
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="selectedArticulo && !concesionarioSeleccionado && !categoriaArmaSeleccionada && currentSection?.id !== 'misterios' && currentSection?.id !== 'golpes' && currentSection?.id !== 'misiones-principales' && currentSection?.id !== 'armas' && currentSection?.id !== 'vehiculos'" class="wiki-article-card">
+      <article *ngIf="selectedArticulo && !concesionarioSeleccionado && !categoriaArmaSeleccionada && currentSection?.id !== 'misterios' && currentSection?.id !== 'golpes' && currentSection?.id !== 'misiones-principales' && currentSection?.id !== 'armas' && currentSection?.id !== 'vehiculos' && currentSection?.id !== 'negocios'" class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">

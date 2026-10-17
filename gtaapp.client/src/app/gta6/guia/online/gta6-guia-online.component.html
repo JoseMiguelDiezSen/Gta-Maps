@@ -3,18 +3,33 @@
   <nav class="wiki-top-nav">
     <div class="nav-container">
       <div class="nav-left">
+        <!-- BOTÓN HAMBURGUESA MÓVIL (a la izquierda en móvil, oculto en PC) -->
+        <button
+          type="button"
+          class="mobile-nav-toggle-btn"
+          (click)="toggleMobileNav()"
+          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
+          aria-label="Menú de navegación"
+        >
+          <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
+        </button>
+
+        <!-- Separador vertical espigado izquierdo -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
+        <!-- LOGO DE LA HOME CON TAMAÑO FIJADO -->
         <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
           <img src="assets/images/logos/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
+        <!-- Separador vertical espigado derecho -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <div class="nav-brand">
-          <span class="nav-brand-title">GUÍA GTA 6 ONLINE</span>
+          <span class="nav-brand-title">GTA WORLD</span>
         </div>
 
+        <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
@@ -35,6 +50,7 @@
           [routerLink]="isDevAllowed ? '/gta6' : null"
           class="nav-link-item"
           [class.nav-link-disabled]="!isDevAllowed"
+          (click)="onGta6MapClick($event)"
           [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
         >
           <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
@@ -79,6 +95,52 @@
           <span class="switch-icon switch-icon-sun">☀️</span>
           <span class="switch-thumb"></span>
         </button>
+      </div>
+    </div>
+
+    <!-- MENÚ DESPLEGABLE MÓVIL (DRAWER) -->
+    <div class="mobile-nav-drawer" *ngIf="mobileNavOpen">
+      <div class="mobile-nav-links">
+        <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+        <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 5 MAP</span>
+        </a>
+        <a
+          [routerLink]="isDevAllowed ? '/gta6' : null"
+          class="mobile-nav-link"
+          [class.nav-link-disabled]="!isDevAllowed"
+          (click)="onGta6MapClick($event); closeMobileNav()"
+        >
+          <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
+          <span>GTA 6 MAP</span>
+        </a>
+        <a routerLink="/gta5-guia-offline" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 5</span>
+        </a>
+        <a routerLink="/gta6-noticias" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>NOTICIAS</span>
+        </a>
+      </div>
+
+      <!-- Selector de modo Historia / Online en móvil -->
+      <div class="mobile-mode-switcher">
+        <span class="mobile-mode-label">MODO:</span>
+        <div class="mode-switch-track">
+          <a class="mode-switch-btn mode-historia" routerLink="/gta6-guia-offline" (click)="closeMobileNav()">
+            <i class="mode-indicator dot-historia"></i>
+            <span>HISTORIA</span>
+          </a>
+          <a class="mode-switch-btn mode-online is-active" routerLink="/gta6-guia-online" (click)="closeMobileNav()">
+            <i class="mode-indicator dot-online"></i>
+            <span>ONLINE</span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>

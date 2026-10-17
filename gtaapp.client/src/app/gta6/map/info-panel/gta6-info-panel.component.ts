@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
-import { TranslationService } from '../../i18n';
-import { Gta6DealerCategory, Gta6Vehicle } from '../../models/gta6/vehicle';
-import { Gta6Mission, Gta6Heist } from '../../models/gta6/mission';
-import { Gta6Mystery } from '../../models/gta6/mystery';
-import { Gta6Weapon } from '../../models/gta6/weapon';
+import { TranslationService } from '../../../i18n';
+import { Gta6DealerCategory, Gta6Vehicle } from '../../../models/gta6/vehicle';
+import { Gta6Mission, Gta6Heist } from '../../../models/gta6/mission';
+import { Gta6Mystery } from '../../../models/gta6/mystery';
+import { Gta6Weapon } from '../../../models/gta6/weapon';
 import {
   GTA6_DEALERS_EN,
   GTA6_DEALERS_ES,

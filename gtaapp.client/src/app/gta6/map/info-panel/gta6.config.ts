@@ -1,7 +1,7 @@
-import { Gta6DealerCategory, Gta6Vehicle } from '../../models/gta6/vehicle';
-import { Gta6Mission, Gta6Heist } from '../../models/gta6/mission';
-import { Gta6Mystery } from '../../models/gta6/mystery';
-import { Gta6Weapon } from '../../models/gta6/weapon';
+import { Gta6DealerCategory, Gta6Vehicle } from '../../../models/gta6/vehicle';
+import { Gta6Mission, Gta6Heist } from '../../../models/gta6/mission';
+import { Gta6Mystery } from '../../../models/gta6/mystery';
+import { Gta6Weapon } from '../../../models/gta6/weapon';
 
 /**
  * Concesionarios oficiales / demo de GTA VI (Leonida / Vice City) en Español.

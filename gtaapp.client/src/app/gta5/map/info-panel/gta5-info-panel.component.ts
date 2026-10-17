@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, Output, OnChanges, OnDestroy, SimpleChanges, effect } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { GtaVehicle, DealerCategory } from '../../models/gta5/vehicle';
-import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../models/gta5/mission';
-import { GtaMystery } from '../../models/gta5/mystery';
-import { GtaWeapon } from '../../models/gta5/weapon';
-import { VehicleService } from '../../services/gta5/vehicle.service';
-import { MissionService } from '../../services/gta5/mission.service';
-import { WeaponService } from '../../services/gta5/weapon.service';
-import { TranslationService } from '../../i18n';
+import { GtaVehicle, DealerCategory } from '../../../models/gta5/vehicle';
+import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../../models/gta5/mission';
+import { GtaMystery } from '../../../models/gta5/mystery';
+import { GtaWeapon } from '../../../models/gta5/weapon';
+import { VehicleService } from '../../../services/gta5/vehicle.service';
+import { MissionService } from '../../../services/gta5/mission.service';
+import { WeaponService } from '../../../services/gta5/weapon.service';
+import { TranslationService } from '../../../i18n';
 import { CONCESIONARIOS_GTA5, SPECIAL_DEALER_IDS } from './vehiculos.config';
-import { GTA6_DEALERS_ES, GTA6_DEALERS_EN } from '../gta6-info-panel/gta6.config';
+import { GTA6_DEALERS_ES, GTA6_DEALERS_EN } from '../../../gta6/map/info-panel/gta6.config';
 
 @Component({
   selector: 'app-gta5-info-panel',
@@ -122,7 +122,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   selectedStrangerCharacterFilter = 'all'; // 'all' | 'franklin' | 'michael' | 'trevor'
   selectedStrangerSeriesFilter = 'all'; // 'all' | id de serie
   strangerOnly100Filter = false;
-  strangerSeriesViewMode: 'series' | 'list' = 'series';
+  strangerSeriesViewMode: 'series' | 'list' = 'list';
   selectedStranger: GtaStrangerMission | null = null;
   expandedStrangerSeries: { [seriesId: string]: boolean } = {};
 
@@ -1237,7 +1237,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     const src = m.thumbnail.trim();
     if (src.includes('mysteries/')) {
       const fileName = src.substring(src.lastIndexOf('/') + 1);
-      return `/assets/images/gta5/mysteries/${fileName}`;
+      return `/assets/images/gta5/mapa/marcadores-mapa/mysteries/${fileName}`;
     }
     return src.startsWith('/') ? src : '/' + src;
   }

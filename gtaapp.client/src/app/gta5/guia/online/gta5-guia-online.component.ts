@@ -6,10 +6,10 @@ import { GuiaService } from '../../../services/guia.service';
 import { GuiaArticulo, GuiaArticuloResumen, GuiaSeccion } from '../../../models/guia';
 import { DealerCategory, GtaVehicle } from '../../../models/gta5/vehicle';
 import { VehicleService } from '../../../services/gta5/vehicle.service';
-import { CONCESIONARIOS_GTA5 } from '../../../components/gta5-info-panel/vehiculos.config';
+import { CONCESIONARIOS_GTA5 } from '../../map/info-panel/vehiculos.config';
 import { GtaWeapon } from '../../../models/gta5/weapon';
 import { WeaponService } from '../../../services/gta5/weapon.service';
-import { WEAPON_CATEGORIES_GTA5, WeaponCategoryConfig } from '../../../components/gta5-info-panel/weapons.config';
+import { WEAPON_CATEGORIES_GTA5, WeaponCategoryConfig } from '../../map/info-panel/weapons.config';
 import { LocationService } from '../../../services/gta5/location.service';
 import { LocationItem } from '../../../models/gta5/location';
 import { GtaMystery } from '../../../models/gta5/mystery';
@@ -18,13 +18,29 @@ import { MissionService } from '../../../services/gta5/mission.service';
 import { Observable, shareReplay, forkJoin, map } from 'rxjs';
 import { GuiaBreadcrumbItem } from '../offline/gta5-guia-offline.component';
 
+export interface CategoriaMisionOnline {
+  id: string;
+  titulo: string;
+  icono: string;
+  color: string;
+  category?: string;
+  giver?: string;
+}
+
+export interface SubcategoriaNegocioOnline {
+  id: string;
+  titulo: string;
+  icono: string;
+  color: string;
+}
+
+
 @Component({
   selector: 'app-gta5-guia-online',
   templateUrl: './gta5-guia-online.component.html',
   styleUrls: [
     '../offline/gta5-guia-offline.component.css',
-    './gta5-guia-online.component.css',
-    '../../../components/gta5-info-panel/gta5-info-panel.misiones.css'
+    './gta5-guia-online.component.css'
   ],
   standalone: false
 })
@@ -52,11 +68,19 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
       ]
     },
     { id: 'misiones-principales', titulo: 'Misiones Principales', icono: 'gun', descripcion: '', orden: 1, articulos: [] },
-    { id: 'golpes', titulo: 'Golpes', icono: 'vault', descripcion: '', orden: 2, articulos: [] },
-    { id: 'personajes', titulo: 'Personajes', icono: 'users', descripcion: '', orden: 3, articulos: [] },
-    { id: 'vehiculos', titulo: 'Vehículos', icono: 'car', descripcion: '', orden: 4, articulos: [] },
-    { id: 'armas', titulo: 'Armas', icono: 'crosshairs', descripcion: '', orden: 5, articulos: [] },
-    { id: 'misterios', titulo: 'Misterios', icono: 'ghost', descripcion: '', orden: 6, articulos: [] }
+    {
+      id: 'negocios',
+      titulo: 'Negocios',
+      icono: 'briefcase',
+      descripcion: 'Propiedades criminales, locales y rendimiento económico en Los Santos',
+      orden: 2,
+      articulos: []
+    },
+    { id: 'golpes', titulo: 'Golpes', icono: 'vault', descripcion: '', orden: 3, articulos: [] },
+    { id: 'personajes', titulo: 'Personajes', icono: 'users', descripcion: '', orden: 4, articulos: [] },
+    { id: 'vehiculos', titulo: 'Vehículos', icono: 'car', descripcion: '', orden: 5, articulos: [] },
+    { id: 'armas', titulo: 'Armas', icono: 'crosshairs', descripcion: '', orden: 6, articulos: [] },
+    { id: 'misterios', titulo: 'Misterios', icono: 'ghost', descripcion: '', orden: 7, articulos: [] }
   ];
 
   currentSection: GuiaSeccion | null = null;
@@ -65,6 +89,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   searchQuery: string = '';
   searchResults: GuiaArticuloResumen[] = [];
   showScrollTop: boolean = false;
+  mobileNavOpen: boolean = false;
 
   private readonly onlineArticulosContenido = new Map<string, GuiaArticulo>();
 
@@ -76,6 +101,8 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   readonly misterios$: Observable<GtaMystery[]>;
   readonly golpes$: Observable<GtaHeist[]>;
   readonly misionesOnline$: Observable<GtaMission[]>;
+  readonly negociosOnline$: Observable<any[]>;
+  negociosOnline: any[] = [];
 
   concesionarioSeleccionado: DealerCategory | null = null;
   vehiculosConcesionario$: Observable<GtaVehicle[]> | null = null;
@@ -89,11 +116,50 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   misterios: GtaMystery[] = [];
   golpeSeleccionado: GtaHeist | null = null;
   golpes: GtaHeist[] = [];
+  golpeAbierto: boolean = false;
+  faseSeleccionadaIndex: number | null = null;
 
   misionesOnline: GtaMission[] = [];
   misionSeleccionada: GtaMission | null = null;
+  categoriaMisionSeleccionada: CategoriaMisionOnline | null = null;
   busquedaMisiones: string = '';
   filtroContactoMisiones: string = 'todos';
+
+  readonly categoriasMisiones: CategoriaMisionOnline[] = [
+    { id: 'lamar-clasico', titulo: 'Lamar Davis', icono: 'user', color: '#eab308', category: 'Contacto Clásico', giver: 'Lamar Davis' },
+    { id: 'simeon-clasico', titulo: 'Simeon Yetarian', icono: 'car', color: '#3b82f6', category: 'Contacto Clásico', giver: 'Simeon Yetarian' },
+    { id: 'gerald-clasico', titulo: 'Gerald', icono: 'capsules', color: '#a855f7', category: 'Contacto Clásico', giver: 'Gerald' },
+    { id: 'ron-clasico', titulo: 'Ron Jakowski', icono: 'tower-broadcast', color: '#f97316', category: 'Contacto Clásico', giver: 'Ron Jakowski' },
+    { id: 'trevor-clasico', titulo: 'Trevor Philips', icono: 'skull', color: '#ef4444', category: 'Contacto Clásico', giver: 'Trevor Philips' },
+    { id: 'lester-clasico', titulo: 'Lester Crest', icono: 'laptop-code', color: '#22c55e', category: 'Contacto Clásico', giver: 'Lester Crest' },
+    { id: 'madrazo-clasico', titulo: 'Martín Madrazo', icono: 'briefcase', color: '#78716c', category: 'Contacto Clásico', giver: 'Martín Madrazo' },
+    { id: 'lowriders', titulo: 'Lamar: Lowriders', icono: 'car-side', color: '#f59e0b', category: 'Misiones de Lowriders' },
+    { id: 'securoserv', titulo: 'SecuroServ: Vehículos Especiales', icono: 'shield-halved', color: '#06b6d4', category: 'Vehículos Especiales' },
+    { id: 'agente14', titulo: 'Agente 14: Operaciones Móviles', icono: 'truck-monster', color: '#84cc16', category: 'Operaciones Móviles' },
+    { id: 'repo', titulo: 'Simeon: Embargos Premium', icono: 'key', color: '#60a5fa', category: 'Embargos Premium Deluxe' },
+    { id: 'dispatch', titulo: 'Madrazo: Asesinatos Dispatch', icono: 'crosshairs', color: '#dc2626', category: 'Asesinatos Dispatch' },
+    { id: 'casino', titulo: 'Agatha Baker: Diamond Casino', icono: 'gem', color: '#ec4899', category: 'The Diamond Casino' },
+    { id: 'ultima-jugada', titulo: 'Gerald: Última Jugada', icono: 'box', color: '#c084fc', category: 'Última Jugada' },
+    { id: 'superyate', titulo: 'Capitán Darcy: Superyate Galaxy', icono: 'anchor', color: '#38bdf8', category: 'Superyate Galaxy' },
+    { id: 'dr-dre', titulo: 'Franklin: El Contrato Dr. Dre', icono: 'headphones', color: '#10b981', category: 'The Contract (VIP Dr. Dre)' },
+    { id: 'drug-wars', titulo: 'Dax: Drug Wars (Dosis)', icono: 'pills', color: '#f43f5e', category: 'Los Santos Drug Wars' },
+    { id: 'cluckin-bell', titulo: "Vincent: Asalto a Cluckin' Bell", icono: 'drumstick-bite', color: '#f97316', category: "Asalto a Cluckin' Bell" }
+  ];
+
+  subcategoriaNegocioSeleccionada: SubcategoriaNegocioOnline | null = null;
+  negocioSeleccionado: any | null = null;
+
+  readonly subcategoriasNegocios: SubcategoriaNegocioOnline[] = [
+    { id: 'warehouse', titulo: 'Almacenes de Mercancía Especial', icono: 'box', color: '#16a085' },
+    { id: 'vehicle_warehouse', titulo: 'Importación y Exportación', icono: 'car', color: '#38bdf8' },
+    { id: 'nightclub', titulo: 'Club Nocturno', icono: 'martini-glass', color: '#a855f7' },
+    { id: 'arcade', titulo: 'Salas Recreativas', icono: 'gamepad', color: '#ec4899' },
+    { id: 'coke_lockup', titulo: 'Laboratorio de Cocaína', icono: 'flask', color: '#ffffff' },
+    { id: 'meth_lab', titulo: 'Laboratorio de Meta', icono: 'vial', color: '#eab308' },
+    { id: 'cash_factory', titulo: 'Fábrica de Dinero', icono: 'money-bill-wave', color: '#22c55e' },
+    { id: 'weed_farm', titulo: 'Cultivo de Cannabis', icono: 'cannabis', color: '#10b981' },
+    { id: 'doc_forgery', titulo: 'Falsificación de Documentos', icono: 'id-card', color: '#f97316' }
+  ];
 
   constructor(
     public cookieService: CookieService,
@@ -120,9 +186,17 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
       .getOnlineHeists()
       .pipe(shareReplay(1));
 
-    this.misionesOnline$ = this.missionService
-      .getOnlineMissions()
+    this.misionesOnline$ = this.guiaService
+      .getMisionesGuiaOnline()
       .pipe(shareReplay(1));
+
+    this.negociosOnline$ = this.guiaService
+      .getNegociosGuiaOnline()
+      .pipe(shareReplay(1));
+
+    this.negociosOnline$.subscribe(list => {
+      this.negociosOnline = list || [];
+    });
 
     this.dealerCounts$ = forkJoin(
       this.concesionarios.map(d =>
@@ -192,6 +266,14 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     }
   }
 
+  toggleMobileNav(): void {
+    this.mobileNavOpen = !this.mobileNavOpen;
+  }
+
+  closeMobileNav(): void {
+    this.mobileNavOpen = false;
+  }
+
   openSection(seccion: GuiaSeccion): void {
     this.currentSection = seccion;
     this.limpiarConcesionario();
@@ -199,6 +281,19 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     this.limpiarMisterio();
     this.limpiarGolpe();
     this.limpiarMision();
+    this.limpiarNegocio();
+    if (seccion.id === 'negocios') {
+      this.subcategoriaNegocioSeleccionada = null;
+      if (this.negociosOnline.length > 0 && !this.negocioSeleccionado) {
+        this.negocioSeleccionado = this.negociosOnline[0];
+      } else {
+        this.negociosOnline$.subscribe(list => {
+          if (list && list.length > 0 && !this.negocioSeleccionado) {
+            this.negocioSeleccionado = list[0];
+          }
+        });
+      }
+    }
     if (seccion.id === 'misterios') {
       this.misterios$.subscribe(list => {
         if (list && list.length > 0 && !this.misterioSeleccionado) {
@@ -207,6 +302,8 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
       });
     }
     if (seccion.id === 'golpes') {
+      this.golpeAbierto = false;
+      this.faseSeleccionadaIndex = null;
       this.golpes$.subscribe(list => {
         if (list && list.length > 0 && !this.golpeSeleccionado) {
           this.golpeSeleccionado = list[0];
@@ -214,6 +311,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
       });
     }
     if (seccion.id === 'misiones-principales') {
+      this.categoriaMisionSeleccionada = null;
       if (this.misionesOnline.length > 0 && !this.misionSeleccionada) {
         this.misionSeleccionada = this.misionesOnline[0];
       } else {
@@ -243,18 +341,74 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     this.limpiarMisterio();
     this.limpiarGolpe();
     this.limpiarMision();
+    this.limpiarNegocio();
+  }
+
+  seleccionarSubcategoriaNegocio(subcat: SubcategoriaNegocioOnline): void {
+    this.subcategoriaNegocioSeleccionada = subcat;
+    const negocios = this.getNegociosDeSubcategoria(subcat);
+    this.negocioSeleccionado = negocios.length > 0 ? negocios[0] : null;
+  }
+
+  volverASubcategoriasNegocios(): void {
+    this.subcategoriaNegocioSeleccionada = null;
+  }
+
+  seleccionarNegocio(negocio: any): void {
+    this.negocioSeleccionado = negocio;
+  }
+
+  getNegociosDeSubcategoria(subcat: SubcategoriaNegocioOnline | null): any[] {
+    if (!subcat) return this.negociosOnline;
+    return this.negociosOnline.filter(n => n.category === subcat.id);
+  }
+
+  getContadorNegociosSubcategoria(subcat: SubcategoriaNegocioOnline): number {
+    return this.negociosOnline.filter(n => n.category === subcat.id).length;
+  }
+
+  get previousNegocio(): any | null {
+    if (!this.negocioSeleccionado) return null;
+    const list = this.getNegociosDeSubcategoria(this.subcategoriaNegocioSeleccionada);
+    const idx = list.findIndex(n => n.id === this.negocioSeleccionado?.id);
+    return idx > 0 ? list[idx - 1] : null;
+  }
+
+  get nextNegocio(): any | null {
+    if (!this.negocioSeleccionado) return null;
+    const list = this.getNegociosDeSubcategoria(this.subcategoriaNegocioSeleccionada);
+    const idx = list.findIndex(n => n.id === this.negocioSeleccionado?.id);
+    return (idx >= 0 && idx < list.length - 1) ? list[idx + 1] : null;
+  }
+
+  private limpiarNegocio(): void {
+    this.subcategoriaNegocioSeleccionada = null;
+    this.negocioSeleccionado = null;
   }
 
   seleccionarGolpe(g: GtaHeist): void {
     this.golpeSeleccionado = g;
+    this.golpeAbierto = true;
+    this.faseSeleccionadaIndex = null;
   }
 
-  volverAlGridGolpes(): void {
-    this.golpeSeleccionado = null;
+  volverAGolpes(): void {
+    this.golpeAbierto = false;
+    this.faseSeleccionadaIndex = null;
+  }
+
+  seleccionarFaseGolpe(idx: number): void {
+    this.faseSeleccionadaIndex = idx;
+    const el = document.getElementById('setup-mission-' + idx);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 
   private limpiarGolpe(): void {
     this.golpeSeleccionado = null;
+    this.golpeAbierto = false;
+    this.faseSeleccionadaIndex = null;
   }
 
   getHeistAccentColor(h: GtaHeist | null): string {
@@ -272,9 +426,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   getMysteryImage(m: GtaMystery | null | undefined): string {
     if (!m || !m.thumbnail) return '';
     const src = m.thumbnail.trim();
-    if (src.includes('mysteries/')) {
+    if (src.includes('misterios/') || src.includes('mysteries/')) {
       const fileName = src.substring(src.lastIndexOf('/') + 1);
-      return `/assets/images/gta5/mysteries/${fileName}`;
+      return `/assets/images/gta5/guia/online/misterios/${fileName}`;
     }
     return src.startsWith('/') ? src : '/' + src;
   }
@@ -458,7 +612,52 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     if (seccion.id === 'misiones-principales') {
       return this.misionesOnline.length;
     }
+    if (seccion.id === 'negocios') {
+      return this.negociosOnline.length;
+    }
     return seccion.articulos.length;
+  }
+
+  seleccionarCategoriaMision(cat: CategoriaMisionOnline): void {
+    this.categoriaMisionSeleccionada = cat;
+    this.busquedaMisiones = '';
+    const misiones = this.getMisionesDeCategoria(cat);
+    this.misionSeleccionada = misiones.length > 0 ? misiones[0] : null;
+  }
+
+  volverACategoriasMisiones(): void {
+    this.categoriaMisionSeleccionada = null;
+    this.busquedaMisiones = '';
+  }
+
+  getMisionesDeCategoria(cat: CategoriaMisionOnline | null): GtaMission[] {
+    if (!cat) return this.misionesOnline;
+    return this.misionesOnline.filter(m => {
+      if (cat.category && cat.giver) {
+        return m.category === cat.category && (m.giver === cat.giver || m.character === cat.giver);
+      }
+      if (cat.category) {
+        return m.category === cat.category;
+      }
+      return false;
+    });
+  }
+
+  get misionesOnlineFiltradasGlobal(): GtaMission[] {
+    const rawQuery = this.busquedaMisiones.trim();
+    if (!rawQuery) {
+      return [];
+    }
+    const cleanStr = (s?: string) =>
+      (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const query = cleanStr(rawQuery);
+
+    return this.misionesOnline.filter(m =>
+      cleanStr(m.title).includes(query) ||
+      cleanStr(m.character).includes(query) ||
+      cleanStr(m.giver).includes(query) ||
+      cleanStr(m.category).includes(query)
+    );
   }
 
   seleccionarMision(m: GtaMission): void {
@@ -466,6 +665,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   }
 
   limpiarMision(): void {
+    this.categoriaMisionSeleccionada = null;
     this.misionSeleccionada = null;
     this.busquedaMisiones = '';
   }
@@ -481,25 +681,18 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     return this.renderMarkdown(m.contenidoMarkdown);
   }
 
-  get filteredOnlineMissions(): GtaMission[] {
-    const rawQuery = this.busquedaMisiones.trim();
-    const contact = this.filtroContactoMisiones;
-    if (!rawQuery && contact === 'todos') {
-      return this.misionesOnline;
+  get activeMissionsList(): GtaMission[] {
+    if (this.categoriaMisionSeleccionada) {
+      return this.getMisionesDeCategoria(this.categoriaMisionSeleccionada);
     }
-    const cleanStr = (s?: string) =>
-      (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    if (this.busquedaMisiones.trim()) {
+      return this.misionesOnlineFiltradasGlobal;
+    }
+    return this.misionesOnline;
+  }
 
-    const query = cleanStr(rawQuery);
-    return this.misionesOnline.filter(m => {
-      const matchContact = contact === 'todos' || m.character === contact || m.giver === contact;
-      const matchQuery = !query ||
-        cleanStr(m.title).includes(query) ||
-        cleanStr(m.character).includes(query) ||
-        cleanStr(m.giver).includes(query) ||
-        cleanStr(m.category).includes(query);
-      return matchContact && matchQuery;
-    });
+  get filteredOnlineMissions(): GtaMission[] {
+    return this.activeMissionsList;
   }
 
   get uniqueOnlineContacts(): { name: string; count: number }[] {
@@ -514,15 +707,17 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   }
 
   get previousMission(): GtaMission | null {
-    if (!this.misionSeleccionada || this.misionesOnline.length === 0) return null;
-    const idx = this.misionesOnline.findIndex(m => m.id === this.misionSeleccionada!.id);
-    return idx > 0 ? this.misionesOnline[idx - 1] : null;
+    if (!this.misionSeleccionada) return null;
+    const list = this.filteredOnlineMissions;
+    const idx = list.findIndex(m => m.id === this.misionSeleccionada!.id);
+    return idx > 0 ? list[idx - 1] : null;
   }
 
   get nextMission(): GtaMission | null {
-    if (!this.misionSeleccionada || this.misionesOnline.length === 0) return null;
-    const idx = this.misionesOnline.findIndex(m => m.id === this.misionSeleccionada!.id);
-    return (idx >= 0 && idx < this.misionesOnline.length - 1) ? this.misionesOnline[idx + 1] : null;
+    if (!this.misionSeleccionada) return null;
+    const list = this.filteredOnlineMissions;
+    const idx = list.findIndex(m => m.id === this.misionSeleccionada!.id);
+    return (idx >= 0 && idx < list.length - 1) ? list[idx + 1] : null;
   }
 
   selectPreviousMission(): void {
@@ -680,11 +875,23 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
       const golpe = this.golpeSeleccionado || (this.golpes.length > 0 ? this.golpes[0] : null);
       items.push({
         label: secGolpes?.titulo || 'Golpes',
-        clickable: false
+        clickable: this.golpeAbierto,
+        action: () => {
+          this.volverAGolpes();
+        }
       });
       if (golpe) {
         items.push({
           label: this.cleanBreadcrumbTitle(golpe.title),
+          clickable: this.faseSeleccionadaIndex !== null,
+          action: () => {
+            this.faseSeleccionadaIndex = null;
+          }
+        });
+      }
+      if (golpe && this.faseSeleccionadaIndex !== null && golpe.setupMissions?.[this.faseSeleccionadaIndex]) {
+        items.push({
+          label: golpe.setupMissions[this.faseSeleccionadaIndex].name,
           clickable: false
         });
       }
@@ -694,27 +901,60 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     // 5. Misiones Principales
     if (this.currentSection?.id === 'misiones-principales') {
       const secMisiones = this.secciones.find(s => s.id === 'misiones-principales');
-      const mision = this.misionSeleccionada || (this.misionesOnline.length > 0 ? this.misionesOnline[0] : null);
       items.push({
         label: secMisiones?.titulo || 'Misiones Principales',
-        clickable: false
-      });
-      if (mision) {
-        if (mision.character && mision.character !== 'Todos') {
-          items.push({
-            label: mision.character,
-            clickable: false
-          });
+        clickable: !!this.categoriaMisionSeleccionada,
+        action: () => {
+          this.volverACategoriasMisiones();
         }
+      });
+      if (this.categoriaMisionSeleccionada) {
         items.push({
-          label: this.cleanBreadcrumbTitle(mision.title),
+          label: this.categoriaMisionSeleccionada.titulo,
+          clickable: !!this.misionSeleccionada,
+          action: () => {
+            // Permanece en la categoría actual
+          }
+        });
+      }
+      if (this.misionSeleccionada) {
+        items.push({
+          label: this.cleanBreadcrumbTitle(this.misionSeleccionada.title),
           clickable: false
         });
       }
       return items;
     }
 
-    // 6. Lector del Artículo Seleccionado (Prólogo u otros artículos generales)
+    // 6. Negocios y Propiedades Criminales
+    if (this.currentSection?.id === 'negocios') {
+      const secNegocios = this.secciones.find(s => s.id === 'negocios');
+      items.push({
+        label: secNegocios?.titulo || 'Negocios',
+        clickable: !!this.subcategoriaNegocioSeleccionada,
+        action: () => {
+          this.volverASubcategoriasNegocios();
+        }
+      });
+      if (this.subcategoriaNegocioSeleccionada) {
+        items.push({
+          label: this.subcategoriaNegocioSeleccionada.titulo,
+          clickable: !!this.negocioSeleccionado,
+          action: () => {
+            // Permanece en la subcategoría actual
+          }
+        });
+      }
+      if (this.negocioSeleccionado) {
+        items.push({
+          label: this.negocioSeleccionado.name,
+          clickable: false
+        });
+      }
+      return items;
+    }
+
+    // 7. Lector del Artículo Seleccionado (Prólogo u otros artículos generales)
     if (this.selectedArticulo) {
       const art = this.selectedArticulo;
       let sec = this.currentSection;
@@ -822,6 +1062,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     const id = seccionId.toLowerCase();
     if (id.includes('prologo')) return '#3b82f6';
     if (id.includes('mision')) return '#ef4444';
+    if (id.includes('negocio')) return '#10b981';
     if (id.includes('golpe')) return '#eab308';
     if (id.includes('personaje')) return '#f97316';
     if (id.includes('vehiculo')) return '#38bdf8';

@@ -1,4 +1,4 @@
-import { DealerCategory } from '../../models/gta5/vehicle';
+import { DealerCategory } from '../../../models/gta5/vehicle';
 
 /**
  * Identificadores de concesionarios clasificados en la sección de Vehículos Especiales.

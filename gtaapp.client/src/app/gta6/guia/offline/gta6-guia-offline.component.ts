@@ -31,6 +31,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   readingProgress: number = 0;
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
+  mobileNavOpen: boolean = false;
   private toastTimeout: any = null;
 
   private manifestSub?: Subscription;
@@ -199,6 +200,14 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.toastTimeout = setTimeout(() => {
       this.toastMessage = null;
     }, 2800);
+  }
+
+  toggleMobileNav(): void {
+    this.mobileNavOpen = !this.mobileNavOpen;
+  }
+
+  closeMobileNav(): void {
+    this.mobileNavOpen = false;
   }
 
   cargarGuia(): void {

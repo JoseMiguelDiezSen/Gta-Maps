@@ -1925,7 +1925,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         const src = thumb.trim();
         if (src.includes('mysteries/')) {
             const fileName = src.substring(src.lastIndexOf('/') + 1);
-            return `/assets/images/gta5/mysteries/${fileName}`;
+            return `/assets/images/gta5/mapa/marcadores-mapa/mysteries/${fileName}`;
         }
         return src.startsWith('/') ? src : '/' + src;
     }

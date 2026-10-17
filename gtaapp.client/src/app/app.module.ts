@@ -15,8 +15,8 @@ import { Gta6GuiaOfflineComponent } from './gta6/guia/offline/gta6-guia-offline.
 import { Gta6GuiaOnlineComponent }  from './gta6/guia/online/gta6-guia-online.component';
 import { Gta6NoticiasComponent }  from './gta6/noticias/gta6-noticias.component';
 import { HomeComponent }          from './home/home.component';
-import { Gta5InfoPanelComponent } from './components/gta5-info-panel/gta5-info-panel.component';
-import { Gta6InfoPanelComponent } from './components/gta6-info-panel/gta6-info-panel.component';
+import { Gta5InfoPanelComponent } from './gta5/map/info-panel/gta5-info-panel.component';
+import { Gta6InfoPanelComponent } from './gta6/map/info-panel/gta6-info-panel.component';
 import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
 import { GotyComponent } from './home/goty/goty.component';
 import { Goty5Component } from './gta5/goty5/goty5.component';

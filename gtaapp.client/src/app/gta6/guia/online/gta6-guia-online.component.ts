@@ -10,6 +10,15 @@ import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 export class Gta6GuiaOnlineComponent {
   readonly isDevAllowed: boolean = isDevAccessAllowed();
   themeMode: 'night' | 'day' = 'night';
+  mobileNavOpen: boolean = false;
+
+  toggleMobileNav(): void {
+    this.mobileNavOpen = !this.mobileNavOpen;
+  }
+
+  closeMobileNav(): void {
+    this.mobileNavOpen = false;
+  }
 
   toggleThemeMode(): void {
     this.themeMode = this.themeMode === 'night' ? 'day' : 'night';
@@ -17,5 +26,11 @@ export class Gta6GuiaOnlineComponent {
 
   onGta5MapClick(event: Event): void {
     event.preventDefault();
+  }
+
+  onGta6MapClick(event: Event): void {
+    if (!this.isDevAllowed) {
+      event.preventDefault();
+    }
   }
 }

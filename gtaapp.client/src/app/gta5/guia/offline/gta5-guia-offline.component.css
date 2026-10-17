@@ -1,6 +1,95 @@
 @import './guia-gta5offline-responsive.css';
-@import '../../map-hud.css';
-@import '../../map-responsive.css';
+/* ===== SELECTOR DE MODO (HISTORIA / ONLINE) ===== */
+.mode-switch-track {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 4px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.mode-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.mode-text-desktop { display: inline; }
+.mode-text-mobile { display: none; }
+
+.mode-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+/* Modo Historia (Rojo translúcido) */
+.dot-historia {
+  background: #ff5252;
+  box-shadow: 0 0 6px rgba(255, 82, 82, 0.6);
+}
+
+.mode-historia:hover:not(.is-active) {
+  color: #ff9e9e;
+  background: rgba(255, 82, 82, 0.12);
+  border-color: rgba(255, 82, 82, 0.35);
+}
+
+.mode-historia.is-active {
+  color: #ffd1d1;
+  background: rgba(239, 68, 68, 0.28);
+  border-color: rgba(239, 68, 68, 0.7);
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.mode-historia.is-active .dot-historia {
+  box-shadow: 0 0 8px #ff4d4d, 0 0 14px #ff1a1a;
+  transform: scale(1.15);
+}
+
+/* Modo Online (Verde translúcido) */
+.dot-online {
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+}
+
+.mode-online:hover:not(.is-active) {
+  color: #a7f3d0;
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.mode-online.is-active {
+  color: #b9ffce;
+  background: rgba(34, 197, 94, 0.28);
+  border-color: rgba(34, 197, 94, 0.7);
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.mode-online.is-active .dot-online {
+  box-shadow: 0 0 8px #22c55e, 0 0 14px #15803d;
+  transform: scale(1.15);
+}
 /* ==========================================================================
    ESTILOS WIKI & GUÃA GTA V (LOS SANTOS ATMOSPHERE & FROSTED GLASS HUD)
    ========================================================================== */
@@ -2146,6 +2235,7 @@
   font-weight: 800;
   color: var(--cat-accent, #ffb833);
   background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 2px 5px;
   border-radius: 4px;
   flex-shrink: 0;
@@ -2255,6 +2345,11 @@
 }
 
 /* Misiones cooperativas / compartidas */
+.guide-chapter-card.personaje-mf .chapter-card-num {
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.16);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
 .guide-chapter-card.personaje-mf {
   border-left: 3px solid #3b82f6;
 }
@@ -2264,6 +2359,11 @@
   border: 1px solid rgba(59, 130, 246, 0.4);
 }
 
+.guide-chapter-card.personaje-mt .chapter-card-num {
+  color: #fed7aa;
+  background: rgba(239, 68, 68, 0.16);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
 .guide-chapter-card.personaje-mt {
   border-left: 3px solid #ef4444;
 }
@@ -2273,6 +2373,11 @@
   border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
+.guide-chapter-card.personaje-tf .chapter-card-num {
+  color: #fef08a;
+  background: rgba(34, 197, 94, 0.16);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
 .guide-chapter-card.personaje-tf {
   border-left: 3px solid #22c55e;
 }
@@ -2282,30 +2387,165 @@
   border: 1px solid rgba(34, 197, 94, 0.4);
 }
 
-/* Introducción e Intrahistoria: Tono / Sombreado Gris */
-.guide-chapter-card.personaje-neutral-gris {
+/* Golpes: Tono Dorado / Oro Metálico */
+.guide-chapter-card.personaje-golpe {
+  border-left: 3px solid #d4af37;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-golpe .chapter-card-num {
+  color: #f3cf7a;
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+}
+.guide-chapter-card.personaje-golpe .chapter-card-badge {
+  background: rgba(212, 175, 55, 0.22);
+  color: #fae8b4;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+}
+.guide-chapter-card.personaje-golpe:hover {
+  border-left-color: #e5c158;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-golpe.is-active {
+  border-left-color: #f3cf7a;
+  border-color: rgba(212, 175, 55, 0.6);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.3);
+}
+
+/* Preparatorias, Introducción e Intrahistoria: Tono / Sombreado Gris */
+.guide-chapter-card.personaje-neutral-gris,
+.guide-chapter-card.personaje-preparacion {
   border-left: 3px solid rgba(148, 163, 184, 0.6);
   background: linear-gradient(135deg, rgba(148, 163, 184, 0.08) 0%, rgba(13, 19, 26, 0.88) 100%);
 }
-.guide-chapter-card.personaje-neutral-gris .chapter-card-num {
+.guide-chapter-card.personaje-neutral-gris .chapter-card-num,
+.guide-chapter-card.personaje-preparacion .chapter-card-num {
   color: #cbd5e1;
   background: rgba(148, 163, 184, 0.16);
   border: 1px solid rgba(148, 163, 184, 0.35);
 }
-.guide-chapter-card.personaje-neutral-gris .chapter-card-badge {
+.guide-chapter-card.personaje-neutral-gris .chapter-card-badge,
+.guide-chapter-card.personaje-preparacion .chapter-card-badge {
   background: rgba(148, 163, 184, 0.18);
   color: #e2e8f0;
   border: 1px solid rgba(148, 163, 184, 0.4);
 }
-.guide-chapter-card.personaje-neutral-gris:hover {
+.guide-chapter-card.personaje-neutral-gris:hover,
+.guide-chapter-card.personaje-preparacion:hover {
   border-left-color: #94a3b8;
   background: linear-gradient(135deg, rgba(148, 163, 184, 0.14) 0%, rgba(18, 25, 36, 0.95) 100%);
 }
-.guide-chapter-card.personaje-neutral-gris.is-active {
+.guide-chapter-card.personaje-neutral-gris.is-active,
+.guide-chapter-card.personaje-preparacion.is-active {
   border-left-color: #cbd5e1;
   border-color: rgba(148, 163, 184, 0.5);
   background: linear-gradient(135deg, rgba(148, 163, 184, 0.22) 0%, rgba(15, 23, 42, 0.95) 100%);
   box-shadow: 0 0 14px rgba(148, 163, 184, 0.25);
+}
+
+/* FIB: Tono Azul Oscuro / Federal */
+.guide-chapter-card.personaje-fib {
+  border-left: 3px solid #1d4ed8;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-fib .chapter-card-num {
+  color: #93c5fd;
+  background: rgba(30, 58, 138, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.45);
+}
+.guide-chapter-card.personaje-fib .chapter-card-badge {
+  background: rgba(30, 58, 138, 0.4);
+  color: #bfdbfe;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+.guide-chapter-card.personaje-fib:hover {
+  border-left-color: #3b82f6;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-fib.is-active {
+  border-left-color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.55);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.3);
+}
+
+/* Lester: Tono Verde Oscuro / Táctico */
+.guide-chapter-card.personaje-lester {
+  border-left: 3px solid #15803d;
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-lester .chapter-card-num {
+  color: #86efac;
+  background: rgba(20, 83, 45, 0.35);
+  border: 1px solid rgba(22, 101, 52, 0.55);
+}
+.guide-chapter-card.personaje-lester .chapter-card-badge {
+  background: rgba(20, 83, 45, 0.4);
+  color: #bbf7d0;
+  border: 1px solid rgba(22, 101, 52, 0.6);
+}
+.guide-chapter-card.personaje-lester:hover {
+  border-left-color: #22c55e;
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-lester.is-active {
+  border-left-color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.55);
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(21, 128, 61, 0.3);
+}
+
+/* Devin Weston: Tono Naranja / Corporativo */
+.guide-chapter-card.personaje-devin {
+  border-left: 3px solid #f97316;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-devin .chapter-card-num {
+  color: #fdba74;
+  background: rgba(194, 65, 12, 0.28);
+  border: 1px solid rgba(249, 115, 22, 0.45);
+}
+.guide-chapter-card.personaje-devin .chapter-card-badge {
+  background: rgba(194, 65, 12, 0.35);
+  color: #fed7aa;
+  border: 1px solid rgba(249, 115, 22, 0.5);
+}
+.guide-chapter-card.personaje-devin:hover {
+  border-left-color: #fb923c;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.18) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-devin.is-active {
+  border-left-color: #fdba74;
+  border-color: rgba(249, 115, 22, 0.55);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.26) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.3);
+}
+
+/* Finales: Tono Blanco Puro / Clímax */
+.guide-chapter-card.personaje-final {
+  border-left: 3px solid #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(13, 19, 26, 0.9) 100%);
+}
+.guide-chapter-card.personaje-final .chapter-card-num {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.guide-chapter-card.personaje-final .chapter-card-badge {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+.guide-chapter-card.personaje-final:hover {
+  border-left-color: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-final.is-active {
+  border-left-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
 }
 
 /* ====== MODO DÍA ====== */
@@ -2377,19 +2617,97 @@
   background: #f0fdf4;
 }
 
-.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris {
+.wiki-shell.mode-day .guide-chapter-card.personaje-golpe {
+  background: #fdfaf2;
+  border-left-color: #b8860b;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-golpe .chapter-card-num {
+  color: #8c6507;
+  background: rgba(212, 175, 55, 0.18);
+  border: 1px solid #d4af37;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-golpe .chapter-card-badge {
+  background: rgba(212, 175, 55, 0.18);
+  color: #8c6507;
+  border: 1px solid #d4af37;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris,
+.wiki-shell.mode-day .guide-chapter-card.personaje-preparacion {
   background: #f8fafc;
   border-left-color: #94a3b8;
 }
-.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris .chapter-card-num {
+.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris .chapter-card-num,
+.wiki-shell.mode-day .guide-chapter-card.personaje-preparacion .chapter-card-num {
   color: #475569;
   background: rgba(148, 163, 184, 0.2);
   border: 1px solid #cbd5e1;
 }
-.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris .chapter-card-badge {
+.wiki-shell.mode-day .guide-chapter-card.personaje-neutral-gris .chapter-card-badge,
+.wiki-shell.mode-day .guide-chapter-card.personaje-preparacion .chapter-card-badge {
   background: rgba(148, 163, 184, 0.2);
   color: #334155;
   border: 1px solid #cbd5e1;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-fib {
+  background: #eff6ff;
+  border-left-color: #1e40af;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-fib .chapter-card-num {
+  color: #1e3a8a;
+  background: rgba(30, 64, 175, 0.15);
+  border: 1px solid #93c5fd;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-fib .chapter-card-badge {
+  background: rgba(30, 64, 175, 0.15);
+  color: #1e3a8a;
+  border: 1px solid #93c5fd;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-lester {
+  background: #f0fdf4;
+  border-left-color: #14532d;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-lester .chapter-card-num {
+  color: #14532d;
+  background: rgba(22, 101, 52, 0.15);
+  border: 1px solid #86efac;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-lester .chapter-card-badge {
+  background: rgba(22, 101, 52, 0.15);
+  color: #14532d;
+  border: 1px solid #86efac;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-devin {
+  background: #fff7ed;
+  border-left-color: #ea580c;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-devin .chapter-card-num {
+  color: #9a3412;
+  background: rgba(234, 88, 12, 0.15);
+  border: 1px solid #fdba74;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-devin .chapter-card-badge {
+  background: rgba(234, 88, 12, 0.15);
+  color: #9a3412;
+  border: 1px solid #fdba74;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-final {
+  background: #ffffff;
+  border-left-color: #0f172a;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-final .chapter-card-num {
+  color: #0f172a;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-final .chapter-card-badge {
+  background: #0f172a;
+  color: #ffffff;
+  border: 1px solid #0f172a;
 }
 
 .wiki-shell.mode-day .chapter-card-title {

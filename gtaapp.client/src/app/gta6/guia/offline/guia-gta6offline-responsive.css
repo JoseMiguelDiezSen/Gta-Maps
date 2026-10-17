@@ -1,6 +1,312 @@
 /* === REGLAS RESPONSIVAS PARA LA GUÍA DE GTA 6 OFFLINE === */
 
+/* Botón y menú móvil ocultos por defecto en PC / Escritorio */
+.mobile-nav-toggle-btn {
+  display: none !important;
+}
+
+.mobile-nav-drawer {
+  display: none !important;
+}
+
 @media screen and (max-width: 850px) {
+  /* Cabecera HUD en móvil (<= 850px) */
+  .wiki-top-nav .nav-container {
+    padding: 10px 16px !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .wiki-top-nav .nav-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+  }
+
+  /* Botón hamburguesa móvil a la izquierda */
+  .mobile-nav-toggle-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    border-radius: 7px !important;
+    background: rgba(255, 184, 51, 0.12) !important;
+    border: 1px solid rgba(255, 184, 51, 0.45) !important;
+    color: #ffb833 !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .mobile-nav-toggle-btn:hover {
+    background: rgba(255, 184, 51, 0.25) !important;
+    color: #ffffff !important;
+    border-color: #ffb833 !important;
+  }
+
+  /* Separadores espiga: se ocultan los de escritorio y se activan exactamente los 3 pedidos:
+     1. Tras botón menú
+     2. Tras logo
+     3. Tras texto GTA WORLD */
+  .wiki-top-nav .nav-left .nav-spike-divider {
+    display: none !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1),
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(2),
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(3) {
+    display: block !important;
+    height: 24px !important;
+    width: 1px !important;
+    margin: 0 15px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1) {
+    margin-left: 14px !important;
+    margin-right: 17px !important;
+  }
+
+  .wiki-top-nav .nav-left .wiki-logo-link {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .wiki-top-nav .nav-left .wiki-nav-logo {
+    height: 25px !important;
+    max-height: 25px !important;
+    width: auto !important;
+    max-width: 68px !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-brand {
+    margin: 0 !important;
+    min-width: 0 !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-brand-title {
+    font-size: 28px !important;
+    letter-spacing: 1px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1 !important;
+    transform: none !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-link-item,
+  .wiki-top-nav .nav-left .nav-dropdown-wrapper,
+  .wiki-top-nav .nav-left .mode-switch-track {
+    display: none !important;
+  }
+
+  .wiki-top-nav .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .theme-toggle-switch {
+    width: 44px !important;
+    height: 24px !important;
+  }
+
+  .theme-toggle-switch .switch-thumb {
+    width: 16px !important;
+    height: 16px !important;
+    top: 2px !important;
+    left: 2px !important;
+  }
+
+  .theme-toggle-switch.is-day .switch-thumb {
+    transform: translateX(20px) !important;
+  }
+
+  .theme-toggle-switch .switch-icon {
+    font-size: 10px !important;
+  }
+
+  /* Menú desplegable móvil (Drawer flotante) */
+  .mobile-nav-drawer {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-height: calc(100vh - 60px) !important;
+    overflow-y: auto !important;
+    padding: 14px 16px 20px 16px !important;
+    background: rgba(11, 15, 20, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(255, 184, 51, 0.3) !important;
+    border-bottom: 2px solid rgba(255, 184, 51, 0.6) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9) !important;
+    z-index: 1000 !important;
+    box-sizing: border-box !important;
+    animation: mobileNavFadeIn 0.22s ease-out !important;
+  }
+
+  @keyframes mobileNavFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .mobile-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 9px 12px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    color: #f1f5f9 !important;
+    text-decoration: none !important;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .mobile-nav-link i {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 6px !important;
+    background: rgba(255, 184, 51, 0.1) !important;
+    border: 1px solid rgba(255, 184, 51, 0.28) !important;
+    color: #ffb833 !important;
+    font-size: 13px !important;
+    flex-shrink: 0 !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .mobile-nav-link:hover {
+    background: rgba(255, 184, 51, 0.12) !important;
+    border-color: rgba(255, 184, 51, 0.45) !important;
+    color: #ffffff !important;
+    transform: translateX(3px) !important;
+  }
+
+  .mobile-nav-link:hover i {
+    background: rgba(255, 184, 51, 0.22) !important;
+    border-color: #ffb833 !important;
+    box-shadow: 0 0 10px rgba(255, 184, 51, 0.45) !important;
+    color: #ffffff !important;
+  }
+
+  .mobile-nav-link.nav-link-disabled {
+    opacity: 0.45 !important;
+    pointer-events: none !important;
+  }
+
+  /* Conmutador de modo centrado */
+  .mobile-mode-switcher {
+    margin-top: 16px !important;
+    padding-top: 14px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-mode-label {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.4px !important;
+    color: #94a3b8 !important;
+    text-transform: uppercase !important;
+    margin: 0 !important;
+  }
+
+  .mobile-mode-switcher .mode-switch-track {
+    display: inline-flex !important;
+    margin: 0 !important;
+  }
+
+  /* Modo día en menú móvil */
+  .wiki-shell.mode-day .mobile-nav-toggle-btn {
+    background: rgba(217, 119, 6, 0.1) !important;
+    border-color: rgba(217, 119, 6, 0.35) !important;
+    color: #d97706 !important;
+  }
+
+  .wiki-shell.mode-day .mobile-nav-drawer {
+    background: #ffffff !important;
+    border-top-color: #e2e8f0 !important;
+    border-bottom-color: #d97706 !important;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .wiki-shell.mode-day .mobile-nav-link {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #1e293b !important;
+  }
+
+  .wiki-shell.mode-day .mobile-nav-link i {
+    background: rgba(217, 119, 6, 0.08) !important;
+    border-color: rgba(217, 119, 6, 0.28) !important;
+    color: #d97706 !important;
+  }
+
+  .wiki-shell.mode-day .mobile-nav-link:hover {
+    background: #fef3c7 !important;
+    border-color: #d97706 !important;
+    color: #78350f !important;
+  }
+
+  .wiki-shell.mode-day .mobile-nav-link:hover i {
+    background: rgba(217, 119, 6, 0.22) !important;
+    border-color: #d97706 !important;
+    color: #78350f !important;
+  }
+
+  .wiki-shell.mode-day .mobile-mode-switcher {
+    border-top-color: #e2e8f0 !important;
+  }
+
+  .wiki-shell.mode-day .mobile-mode-label {
+    color: #475569 !important;
+  }
+
   .wiki-body-layout {
     flex-direction: column;
     padding: 18px 16px;
@@ -45,6 +351,33 @@
 }
 
 @media (max-width: 600px) {
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1),
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(2),
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(3) {
+    height: 22px !important;
+    margin: 0 14px !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1) {
+    margin-left: 12px !important;
+    margin-right: 16px !important;
+  }
+
+  .wiki-top-nav .nav-left .wiki-nav-logo {
+    height: 23px !important;
+    max-height: 23px !important;
+    max-width: 62px !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-brand {
+    margin: 0 !important;
+  }
+
+  .wiki-top-nav .nav-left .nav-brand-title {
+    font-size: 26px !important;
+    letter-spacing: 0.8px !important;
+  }
+
   .wiki-hero-banner {
     height: 110px;
     min-height: 110px;

@@ -1,6 +1,95 @@
 @import './guia-gta5online-responsive.css';
-@import '../../map-hud.css';
-@import '../../map-responsive.css';
+/* ===== SELECTOR DE MODO (HISTORIA / ONLINE) ===== */
+.mode-switch-track {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 4px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.mode-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.mode-text-desktop { display: inline; }
+.mode-text-mobile { display: none; }
+
+.mode-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+/* Modo Historia (Rojo translúcido) */
+.dot-historia {
+  background: #ff5252;
+  box-shadow: 0 0 6px rgba(255, 82, 82, 0.6);
+}
+
+.mode-historia:hover:not(.is-active) {
+  color: #ff9e9e;
+  background: rgba(255, 82, 82, 0.12);
+  border-color: rgba(255, 82, 82, 0.35);
+}
+
+.mode-historia.is-active {
+  color: #ffd1d1;
+  background: rgba(239, 68, 68, 0.28);
+  border-color: rgba(239, 68, 68, 0.7);
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.mode-historia.is-active .dot-historia {
+  box-shadow: 0 0 8px #ff4d4d, 0 0 14px #ff1a1a;
+  transform: scale(1.15);
+}
+
+/* Modo Online (Verde translúcido) */
+.dot-online {
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+}
+
+.mode-online:hover:not(.is-active) {
+  color: #a7f3d0;
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.mode-online.is-active {
+  color: #b9ffce;
+  background: rgba(34, 197, 94, 0.28);
+  border-color: rgba(34, 197, 94, 0.7);
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.mode-online.is-active .dot-online {
+  box-shadow: 0 0 8px #22c55e, 0 0 14px #15803d;
+  transform: scale(1.15);
+}
 
 :host {
   display: block;
@@ -1245,6 +1334,17 @@
   margin: 0;
 }
 
+.golpe-setup-item.is-active {
+  background: rgba(46, 204, 113, 0.12);
+  border-color: rgba(46, 204, 113, 0.5);
+  box-shadow: 0 0 12px rgba(46, 204, 113, 0.2);
+}
+
+.golpe-setup-item.is-active .golpe-setup-num {
+  background: #2ecc71;
+  color: #0f172a;
+}
+
 .golpe-elite-reward {
   margin-left: auto;
   font-size: 11px;
@@ -1361,5 +1461,145 @@
   border-color: #ddd6fe;
   color: #6d28d9;
 }
+
+/* ==========================================================================
+   CATÁLOGO DE LOCALES DE NEGOCIOS (DENTRO DEL ARTÍCULO)
+   ========================================================================== */
+.negocios-locales-container {
+  margin-top: 28px;
+}
+
+.negocio-locales-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.negocio-local-card {
+  background: rgba(14, 20, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #10b981;
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.negocio-local-card:hover {
+  transform: translateX(3px);
+  border-color: rgba(16, 185, 129, 0.4);
+  border-left-color: #34d399;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.local-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.local-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.local-card-index {
+  font-family: 'Consolas', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.local-card-name {
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.local-card-price {
+  font-size: 15px;
+  font-weight: 800;
+  color: #34d399;
+  letter-spacing: 0.3px;
+}
+
+.local-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.local-meta-zone i {
+  color: #38bdf8;
+  margin-right: 4px;
+}
+
+.local-meta-income {
+  color: #facc15;
+}
+
+.local-meta-income i {
+  margin-right: 4px;
+}
+
+.local-card-desc {
+  margin: 0 0 10px;
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.local-card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.local-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+.local-feature-item i {
+  font-size: 9px;
+  color: #10b981;
+}
+
+/* Modo Día */
+.wiki-shell.mode-day .negocio-local-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  border-left-color: #059669;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.wiki-shell.mode-day .local-card-name {
+  color: #1e293b;
+}
+
+.wiki-shell.mode-day .local-card-desc {
+  color: #475569;
+}
+
+.wiki-shell.mode-day .local-feature-item {
+  color: #334155;
+}
+
 
 

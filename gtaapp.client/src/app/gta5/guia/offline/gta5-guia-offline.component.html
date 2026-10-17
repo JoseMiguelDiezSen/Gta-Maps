@@ -473,7 +473,7 @@
               <i class="fa-solid fa-chevron-left"></i>
               <span>Categorías</span>
             </button>
-            <span class="guide-detail-badge">{{ (hasBuscadorSeccion(currentSection.id) && busquedaOffline) ? articulosFiltradosSeccion.length : currentSection.articulos.length }} {{ currentSection.id === 'secretos-misterios' ? 'misterios' : (currentSection.id === 'misiones-historia' ? 'misiones' : (currentSection.id === 'eventos-aleatorios' ? 'eventos' : 'caps')) }}</span>
+            <span class="guide-detail-badge">{{ (hasBuscadorSeccion(currentSection.id) && busquedaOffline) ? articulosFiltradosSeccion.length : currentSection.articulos.length }} {{ currentSection.id === 'secretos-misterios' ? 'misterios' : ((currentSection.id === 'misiones-historia' || currentSection.id === 'extranos-locos') ? 'misiones' : (currentSection.id === 'eventos-aleatorios' ? 'eventos' : 'caps')) }}</span>
           </div>
 
           <!-- Buscador en tiempo real de la sección (Misiones principales / Eventos aleatorios) -->

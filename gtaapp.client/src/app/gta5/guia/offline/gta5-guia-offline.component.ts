@@ -206,37 +206,6 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       return items;
     }
 
-    if (sec?.id === 'extranos-locos') {
-      items.push({
-        label: sec.titulo,
-        clickable: true,
-        action: () => {
-          this.openSection(sec!);
-          this.currentSubcategory = null;
-        }
-      });
-
-      const subcats = this.getSubcategoriasTematicas(sec);
-      const subcat = subcats.find(s => s.badge === art.badge || (s.missionIds && s.missionIds.includes(art.id)));
-      if (subcat) {
-        items.push({
-          label: subcat.titulo,
-          clickable: true,
-          action: () => {
-            this.openSection(sec!);
-            this.openSubcategory(subcat.id);
-          }
-        });
-      }
-
-      items.push({
-        label: this.cleanBreadcrumbTitle(art.titulo),
-        clickable: false
-      });
-
-      return items;
-    }
-
     if (sec) {
       items.push({
         label: sec.titulo,
@@ -512,7 +481,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   hasSubcategorias(sec: GuiaSeccion | null): boolean {
     if (!sec) return false;
-    return sec.id === 'extranos-locos';
+    return false;
   }
 
   getGolpesList(): { id: string; titulo: string; icono: string; color: string; total: number; missionIds: string[] }[] {
@@ -779,8 +748,14 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (b.includes('michael')) return 'personaje-michael';
     if (b.includes('franklin')) return 'personaje-franklin';
     if (b.includes('trevor')) return 'personaje-trevor';
-    if (b.includes('introducci') || b.includes('intrahistoria') || b.includes('golpe') || b.includes('final') || b.includes('truco')) return 'personaje-neutral-gris';
-    return '';
+    if (b.includes('golpe')) return 'personaje-golpe';
+    if (b.includes('preparaci')) return 'personaje-preparacion';
+    if (b.includes('fib')) return 'personaje-fib';
+    if (b.includes('lester')) return 'personaje-lester';
+    if (b.includes('devin') || b.includes('weston')) return 'personaje-devin';
+    if (b.includes('final')) return 'personaje-final';
+    if (b.includes('introducci') || b.includes('intrahistoria') || b.includes('truco')) return 'personaje-neutral-gris';
+    return 'personaje-neutral-gris';
   }
 
   seleccionarArticulo(articuloId: string, openMobile: boolean = true): void {
@@ -843,11 +818,11 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   hasBuscadorSeccion(seccionId?: string): boolean {
-    return seccionId === 'misiones-historia' || seccionId === 'eventos-aleatorios';
+    return seccionId === 'misiones-historia' || seccionId === 'eventos-aleatorios' || seccionId === 'extranos-locos';
   }
 
   getPlaceholderBuscador(seccionId?: string): string {
-    if (seccionId === 'misiones-historia') return 'Buscar misión o personaje...';
+    if (seccionId === 'misiones-historia' || seccionId === 'extranos-locos') return 'Buscar misión o personaje...';
     if (seccionId === 'eventos-aleatorios') return 'Buscar evento aleatorio...';
     return 'Buscar en esta sección...';
   }
