@@ -1,4 +1,4 @@
-<div #wikiShell class="wiki-shell gta6-theme" [class.mode-day]="themeMode === 'day'" (scroll)="onShellScroll()">
+<div #wikiShell class="wiki-shell gta6-theme" [class.mode-day]="themeMode === 'day'" [class.is-mobile-reading]="isMobileReadingOpen" (scroll)="onShellScroll()">
   
   <!-- BARRA DE NAVEGACIÓN SUPERIOR HUD -->
   <nav class="wiki-top-nav">
@@ -42,34 +42,60 @@
         <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <!-- Botón GTA 5 MAP -->
-        <a routerLink="/gta5" class="nav-link-item" title="Ir al Mapa de GTA 5">
-          <i class="fa-solid fa-map-location-dot"></i>
-          <span>GTA 5 MAP</span>
-        </a>
+        <!-- Desplegable GTA 5 -->
+        <div class="nav-dropdown-wrapper">
+          <button type="button" class="nav-link-item dropdown-trigger" aria-haspopup="true">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>GTA 5</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a routerLink="/gta5" class="nav-dropdown-item" title="Ir al Mapa de GTA 5">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>MAPA GTA 5</span>
+            </a>
+            <span class="nav-dropdown-divider" aria-hidden="true"></span>
+            <a routerLink="/gta5-guia-offline" class="nav-dropdown-item" title="Ir a la Guía de GTA 5">
+              <i class="fa-solid fa-book-open"></i>
+              <span>GUÍA GTA 5</span>
+            </a>
+          </div>
+        </div>
 
         <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <!-- Botón GTA 6 MAP -->
-        <a
-          [routerLink]="isDevAllowed ? '/gta6' : null"
-          class="nav-link-item"
-          [class.nav-link-disabled]="!isDevAllowed"
-          (click)="onGta6MapClick($event)"
-          [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
-        >
-          <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-          <span>GTA 6 MAP</span>
-        </a>
+        <!-- Desplegable GTA 6 -->
+        <div class="nav-dropdown-wrapper">
+          <button type="button" class="nav-link-item dropdown-trigger" aria-haspopup="true">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>GTA 6</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a
+              [routerLink]="isDevAllowed ? '/gta6' : null"
+              class="nav-dropdown-item"
+              [class.is-disabled]="!isDevAllowed"
+              (click)="onGta6MapClick($event)"
+              [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
+            >
+              <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
+              <span>MAPA GTA 6</span>
+            </a>
+            <span class="nav-dropdown-divider" aria-hidden="true"></span>
+            <a class="nav-dropdown-item is-disabled" title="Ya estás en la Guía de GTA 6">
+              <i class="fa-solid fa-book-open"></i>
+              <span>GUÍA GTA 6</span>
+            </a>
+          </div>
+        </div>
 
         <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <!-- Botón GUIA GTA 5 -->
-        <a routerLink="/gta5-guia-offline" class="nav-link-item" title="Ir a la Guía de GTA 5">
-          <i class="fa-solid fa-book-open"></i>
-          <span>GUIA GTA 5</span>
+        <!-- Botón VÍDEOS -->
+        <a routerLink="/gta6-videos" class="nav-link-item" title="Vídeos GTA 6">
+          <i class="fa-solid fa-film"></i>
+          <span>VÍDEOS</span>
         </a>
 
         <!-- Separador -->
@@ -134,9 +160,9 @@
           <i class="fa-solid fa-book-open"></i>
           <span>GUIA GTA 5</span>
         </a>
-        <a routerLink="/gta6-noticias" class="mobile-nav-link" (click)="closeMobileNav()">
-          <i class="fa-solid fa-newspaper"></i>
-          <span>NOTICIAS</span>
+        <a routerLink="/gta6-videos" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-film"></i>
+          <span>VÍDEOS</span>
         </a>
       </div>
 
@@ -157,11 +183,6 @@
     </div>
   </nav>
 
-  <!-- BARRA DE PROGRESO DE LECTURA -->
-  <div class="reading-progress-track" aria-hidden="true">
-    <div class="reading-progress-bar" [style.width.%]="readingProgress"></div>
-  </div>
-
   <!-- BANNER HERO DE VICE CITY (CIUDAD DE FONDO) -->
   <header class="wiki-hero-banner">
     <div class="hero-bg-overlay"></div>
@@ -178,49 +199,10 @@
     
     <!-- PANEL LATERAL DE CAPÍTULOS -->
     <aside class="wiki-sidebar">
-      <!-- Buscador en tiempo real -->
-      <div class="sidebar-search-box">
-        <div class="search-input-wrapper">
-          <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            type="text"
-            class="sidebar-search-input"
-            [(ngModel)]="searchQuery"
-            (input)="onSearch()"
-            placeholder="Buscar en la guía de GTA VI..."
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button
-            *ngIf="searchQuery"
-            type="button"
-            class="search-clear-btn"
-            (click)="limpiarBusqueda()"
-            aria-label="Limpiar búsqueda"
-          >
-            ✕
-          </button>
-        </div>
-
-        <!-- Dropdown de resultados de búsqueda -->
-        <div *ngIf="searchResults.length > 0" class="search-dropdown-menu">
-          <div
-            *ngFor="let res of searchResults"
-            class="search-dropdown-item"
-            (click)="seleccionarArticulo(res.id); limpiarBusqueda()"
-          >
-            <span class="search-item-title">{{ res.titulo }}</span>
-            <span class="search-item-sub">{{ res.subtitulo }}</span>
-          </div>
-        </div>
-      </div>
 
       <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
       <div class="sidebar-header-bar" *ngIf="!currentSection">
-        <span class="sidebar-header-title">ÍNDICE DE CONTENIDOS</span>
+        <span class="sidebar-header-title">CONTENIDOS</span>
       </div>
 
       <!-- VISTA 1: LISTA DE CATEGORÍAS (DRILL-DOWN NIVEL 1) -->
@@ -230,18 +212,29 @@
           class="guide-cat-card"
           [style.--cat-accent]="getSectionColor(seccion.id)"
           (click)="openSection(seccion)"
+          [title]="seccion.titulo"
         >
+          <!-- Icono encapsulado con borde neón -->
           <div class="guide-cat-icon">
             <i class="fas fa-{{ seccion.icono || 'folder' }}"></i>
           </div>
+
+          <!-- Info central -->
           <div class="guide-cat-info">
             <span class="guide-cat-title">{{ seccion.titulo }}</span>
           </div>
+
+          <!-- Badge con número de capítulos -->
           <span class="guide-cat-badge">{{ seccion.articulos.length }}</span>
+
+          <!-- Flecha circular a la derecha -->
           <div class="guide-cat-arrow">
             <i class="fa-solid fa-chevron-right"></i>
           </div>
         </div>
+
+        <!-- SEPARADOR DE ESPIGA DETRÁS DEL ÚLTIMO PANEL -->
+        <div class="guide-cat-list-divider" aria-hidden="true"></div>
       </nav>
 
       <!-- VISTA 2: LISTADO DE CAPÍTULOS DE LA CATEGORÍA (DRILL-DOWN NIVEL 2) -->
@@ -251,20 +244,12 @@
             <i class="fa-solid fa-chevron-left"></i>
             <span>Categorías</span>
           </button>
-          <span class="guide-detail-badge">{{ currentSection.articulos.length }}</span>
+          <span class="guide-detail-badge">{{ currentSection.articulos.length }} caps</span>
         </div>
 
-        <div class="guide-section-banner">
-          <div class="guide-cat-icon mini">
-            <i class="fas fa-{{ currentSection.icono || 'folder' }}"></i>
-          </div>
-          <div class="guide-section-banner-info">
-            <h3 class="guide-section-banner-title">{{ currentSection.titulo }}</h3>
-            <span class="guide-section-banner-desc" *ngIf="currentSection.descripcion">{{ currentSection.descripcion }}</span>
-          </div>
+        <div class="sidebar-header-bar">
+          <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
         </div>
-
-        <div class="guide-section-divider"></div>
 
         <div class="guide-chapters-list">
           <div
@@ -274,17 +259,60 @@
             (click)="seleccionarArticulo(art.id)"
           >
             <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+            
             <div class="chapter-card-info">
               <span class="chapter-card-title">{{ art.titulo }}</span>
               <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
             </div>
+
+            <div class="chapter-card-meta" *ngIf="art.badge">
+              <span class="chapter-card-badge">{{ art.badge }}</span>
+            </div>
           </div>
+
+          <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+          <div class="guide-cat-list-divider" aria-hidden="true"></div>
         </div>
       </div>
     </aside>
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
     <main class="wiki-content-area">
+
+      <!-- BARRA DE RETORNO Y BREADCRUMB MÓVIL (ESTILO INFO-PANEL MAPA) -->
+      <div class="mobile-reading-header">
+        <button
+          type="button"
+          class="drawer-large-back-btn"
+          (click)="closeMobileReading()"
+          title="Volver al listado"
+          aria-label="Volver al listado"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <div class="drawer-title-group">
+          <div class="drawer-breadcrumb">
+            <span class="drawer-breadcrumb-link" (click)="goToCategoriesFromReading()">CONTENIDOS</span>
+            <span class="drawer-breadcrumb-sep" *ngIf="currentSection">›</span>
+            <span
+              class="drawer-breadcrumb-link"
+              *ngIf="currentSection"
+              (click)="closeMobileReading()"
+            >
+              {{ currentSection.titulo }}
+            </span>
+            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo">›</span>
+            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo">
+              {{ cleanBreadcrumbTitle(selectedArticulo.titulo) }}
+            </span>
+          </div>
+          <h2 class="drawer-title" *ngIf="selectedArticulo">
+            {{ selectedArticulo.titulo }}
+          </h2>
+        </div>
+      </div>
+
       <!-- Estado de carga -->
       <div *ngIf="isLoadingArticulo" class="wiki-loading-state">
         <div class="wiki-spinner"></div>
@@ -294,21 +322,66 @@
       <!-- Lector del Artículo Seleccionado -->
       <article *ngIf="!isLoadingArticulo && selectedArticulo" class="wiki-article-card">
         <header class="article-header">
-          <div class="article-meta-row">
-            <span *ngIf="selectedArticulo.badge" class="article-chip-badge">{{ selectedArticulo.badge }}</span>
-            <span class="article-read-meta">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              <span>{{ selectedArticulo.tiempoLecturaMinutos }} min de lectura</span>
-            </span>
-          </div>
+          <!-- Miga de pan dinámica (Breadcrumbs) -->
+          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <ol class="breadcrumb-list">
+              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                <button
+                  *ngIf="item.clickable && !last"
+                  type="button"
+                  class="breadcrumb-link"
+                  (click)="item.action ? item.action() : null"
+                >
+                  {{ item.label }}
+                </button>
+                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  {{ item.label }}
+                </span>
+                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </li>
+            </ol>
+          </nav>
 
-          <!-- Panel estilizado del capítulo: Título y Subtítulo integrados -->
-          <div class="article-chapter-banner">
-            <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
-            <p class="article-lead" *ngIf="selectedArticulo.subtitulo">{{ selectedArticulo.subtitulo }}</p>
+          <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner de la foto) -->
+          <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
+            <div class="pagination-row-prev-next">
+              <button
+                type="button"
+                class="pagination-btn pagination-prev"
+                *ngIf="capituloAnterior"
+                (click)="seleccionarArticulo(capituloAnterior.id)"
+                [title]="capituloAnterior.titulo"
+              >
+                <span class="pagination-arrow">←</span>
+                <span class="pagination-title">{{ capituloAnterior.titulo }}</span>
+              </button>
+              <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
+
+              <button
+                type="button"
+                class="pagination-btn pagination-next"
+                *ngIf="capituloSiguiente"
+                (click)="seleccionarArticulo(capituloSiguiente.id)"
+                [title]="capituloSiguiente.titulo"
+              >
+                <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
+                <span class="pagination-arrow">→</span>
+              </button>
+              <div *ngIf="!capituloSiguiente" class="pagination-spacer"></div>
+            </div>
+          </nav>
+
+          <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) -->
+          <div class="article-chapter-banner" [class.has-image]="getArticuloImage(selectedArticulo)">
+            <div class="chapter-banner-text">
+              <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
+              <p class="article-lead" *ngIf="selectedArticulo.subtitulo">{{ selectedArticulo.subtitulo }}</p>
+            </div>
+            <div class="chapter-banner-media" *ngIf="getArticuloImage(selectedArticulo)">
+              <img [src]="getArticuloImage(selectedArticulo)" [alt]="selectedArticulo.titulo" class="chapter-banner-img" (error)="onImageError(selectedArticulo.id)" />
+            </div>
           </div>
         </header>
 
@@ -317,50 +390,19 @@
           <div class="narrative-editorial-body" [innerHTML]="renderedContent" (click)="onContentClick($event)"></div>
         </div>
 
-        <!-- Navegación Capítulo Anterior / Siguiente -->
-        <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
+        <!-- Botón de retorno móvil al final del artículo -->
+        <nav class="article-pagination-nav article-pagination-bottom" aria-label="Volver a los capítulos">
           <button
             type="button"
-            class="pagination-btn pagination-prev"
-            *ngIf="capituloAnterior"
-            (click)="seleccionarArticulo(capituloAnterior.id)"
+            class="pagination-btn pagination-back-mobile"
+            (click)="closeMobileReading()"
+            title="Volver a los Capítulos"
           >
-            <span class="pagination-arrow">←</span>
-            <div class="pagination-text">
-              <span class="pagination-label">Capítulo anterior</span>
-              <span class="pagination-title">{{ capituloAnterior.titulo }}</span>
-            </div>
-          </button>
-          <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
-
-          <button
-            type="button"
-            class="pagination-btn pagination-next"
-            *ngIf="capituloSiguiente"
-            (click)="seleccionarArticulo(capituloSiguiente.id)"
-          >
-            <div class="pagination-text pagination-text-right">
-              <span class="pagination-label">Siguiente capítulo</span>
-              <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
-            </div>
-            <span class="pagination-arrow">→</span>
+            <i class="fa-solid fa-arrow-left"></i>
+            <span class="pagination-title">Volver a los Capítulos</span>
           </button>
         </nav>
       </article>
-
-      <!-- Banner contextual: Enlace al Mapa Interactivo de Vice City (Fuera del panel de la guía) -->
-      <div class="article-map-prompt" *ngIf="!isLoadingArticulo && selectedArticulo">
-        <div class="map-prompt-text">
-          <h4 class="map-prompt-title">¿Quieres explorar el mapa de Vice City?</h4>
-          <p class="map-prompt-sub">Consulta las ubicaciones geográficas, carreteras y distritos del Estado de Leonida.</p>
-        </div>
-        <a routerLink="/gta6-map-offline" class="map-prompt-btn">
-          <span>Abrir Mapa</span>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </a>
-      </div>
     </main>
   </div>
 

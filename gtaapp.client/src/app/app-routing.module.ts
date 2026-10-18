@@ -11,6 +11,8 @@ import { Gta6MapOfflineComponent }  from './gta6/map/offline/gta6-map-offline.co
 import { Gta6GuiaOfflineComponent } from './gta6/guia/offline/gta6-guia-offline.component';
 import { Gta6GuiaOnlineComponent }  from './gta6/guia/online/gta6-guia-online.component';
 import { Gta6NoticiasComponent }  from './gta6/noticias/gta6-noticias.component';
+import { Gta6MomentosComponent }  from './gta6/momentos/gta6-momentos.component';
+import { Gta6VideosComponent }    from './gta6/videos/gta6-videos.component';
 
 import { DevAccessGuard }       from './services/dev-access.guard';
 
@@ -116,23 +118,31 @@ const routes: Routes = [
         }
     },
     {
-        path: 'gta6-noticias',
-        component: Gta6NoticiasComponent,
+        path: 'gta6-videos',
+        component: Gta6VideosComponent,
         data: {
-            titleKey: 'seo.gta6NoticiasTitle',
-            descriptionKey: 'seo.gta6NoticiasDesc',
-            title: 'Noticias & Actualidad GTA VI - Estado de Leonida | GTA MAPS',
-            description: 'Últimas noticias y Novedades de Grand Theft Auto VI y el Estado de Leonida.',
-            canonical: 'https://gtaworld.dev/gta6-noticias'
+            titleKey: 'seo.gta6VideosTitle',
+            descriptionKey: 'seo.gta6VideosDesc',
+            title: 'Vídeos GTA VI - Clips de Gameplay & Situaciones en Leonida | GTA MAPS',
+            description: 'Recopilación de vídeos, clips breves de gameplay, situaciones curiosas y surrealistas en Grand Theft Auto VI y el Estado de Leonida.',
+            canonical: 'https://gtaworld.dev/gta6-videos'
         }
     },
 
     // Redirecciones por compatibilidad
     { path: 'gta6-guia',      redirectTo: '/gta6-guia-offline', pathMatch: 'full' },
     { path: 'gta5-guia',      redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
-    { path: 'noticias',      redirectTo: '/gta6-noticias', pathMatch: 'full' },
-    { path: 'gta6/noticias', redirectTo: '/gta6-noticias', pathMatch: 'full' },
-    { path: 'gta6noticias',  redirectTo: '/gta6-noticias', pathMatch: 'full' },
+    { path: 'gta6-momentos', redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'gta6-noticias', redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'noticias',      redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'gta6/noticias', redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'gta6noticias',  redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'momentos',      redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'gta6/momentos', redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'gta6momentos',  redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'videos',        redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'gta6/videos',   redirectTo: '/gta6-videos', pathMatch: 'full' },
+    { path: 'gta6videos',    redirectTo: '/gta6-videos', pathMatch: 'full' },
     { path: 'gta5',          redirectTo: '/gta5-map-online', pathMatch: 'full' },
     { path: 'gta5online',    redirectTo: '/gta5-map-online', pathMatch: 'full' },
     { path: 'gta5/online',   redirectTo: '/gta5-map-online', pathMatch: 'full' },

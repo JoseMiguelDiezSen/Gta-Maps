@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { CookieService } from '../../../services/cookie.service';
@@ -15,7 +15,7 @@ import { LocationItem } from '../../../models/gta5/location';
 import { GtaMystery } from '../../../models/gta5/mystery';
 import { GtaHeist, GtaMission } from '../../../models/gta5/mission';
 import { MissionService } from '../../../services/gta5/mission.service';
-import { Observable, shareReplay, forkJoin, map } from 'rxjs';
+import { Observable, shareReplay, forkJoin, map, Subscription } from 'rxjs';
 import { GuiaBreadcrumbItem } from '../offline/gta5-guia-offline.component';
 
 export interface CategoriaMisionOnline {
@@ -44,7 +44,7 @@ export interface SubcategoriaNegocioOnline {
   ],
   standalone: false
 })
-export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
+export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy {
   readonly isDevAllowed: boolean = isDevAccessAllowed();
   themeMode: 'night' | 'day' = 'night';
   readonly concesionarios: DealerCategory[] = CONCESIONARIOS_GTA5;
@@ -106,7 +106,10 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
 
   concesionarioSeleccionado: DealerCategory | null = null;
   vehiculosConcesionario$: Observable<GtaVehicle[]> | null = null;
+  vehiculosConcesionario: GtaVehicle[] = [];
+  busquedaVehiculos: string = '';
   vehiculoSeleccionado: GtaVehicle | null = null;
+  private vehiculosSub?: Subscription;
 
   categoriaArmaSeleccionada: WeaponCategoryConfig | null = null;
   armasCategoria$: Observable<GtaWeapon[]> | null = null;
@@ -442,9 +445,52 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   seleccionarConcesionario(concesionario: DealerCategory): void {
     this.concesionarioSeleccionado = concesionario;
     this.vehiculoSeleccionado = null;
+    this.busquedaVehiculos = '';
+    this.vehiculosConcesionario = [];
+    this.vehiculosSub?.unsubscribe();
     this.vehiculosConcesionario$ = this.guiaService
       .getVehiculosGuiaOnline(concesionario.id)
       .pipe(shareReplay(1));
+    this.vehiculosSub = this.vehiculosConcesionario$.subscribe(list => {
+      this.vehiculosConcesionario = list || [];
+    });
+  }
+
+  get vehiculosFiltrados(): GtaVehicle[] {
+    const list = this.vehiculosConcesionario || [];
+    const rawQuery = (this.busquedaVehiculos || '').trim();
+    if (!rawQuery) {
+      return list;
+    }
+    const cleanStr = (s?: string) =>
+      (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const query = cleanStr(rawQuery);
+    return list.filter(v =>
+      cleanStr(v.name).includes(query) ||
+      cleanStr(v.manufacturer).includes(query) ||
+      cleanStr(v.class).includes(query)
+    );
+  }
+
+  limpiarBusquedaVehiculos(): void {
+    this.busquedaVehiculos = '';
+  }
+
+  getPlaceholderBuscadorVehiculos(): string {
+    const dealerId = this.concesionarioSeleccionado?.id;
+    if (dealerId === 'docktease') return 'Buscar embarcación...';
+    if (dealerId === 'elitas') return 'Buscar aeronave...';
+    if (dealerId === 'pedal_and_metal') return 'Buscar bicicleta...';
+    if (dealerId === 'warstock') return 'Buscar vehículo militar...';
+    return 'Buscar vehículo...';
+  }
+
+  getBadgeLabelVehiculos(): string {
+    const dealerId = this.concesionarioSeleccionado?.id;
+    if (dealerId === 'docktease') return 'embarcaciones';
+    if (dealerId === 'elitas') return 'aeronaves';
+    if (dealerId === 'pedal_and_metal') return 'bicicletas';
+    return 'vehículos';
   }
 
   seleccionarVehiculo(vehiculo: GtaVehicle): void {
@@ -470,7 +516,10 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   private limpiarConcesionario(): void {
     this.concesionarioSeleccionado = null;
     this.vehiculosConcesionario$ = null;
+    this.vehiculosConcesionario = [];
     this.vehiculoSeleccionado = null;
+    this.busquedaVehiculos = '';
+    this.vehiculosSub?.unsubscribe();
   }
 
   seleccionarCategoriaArma(cat: WeaponCategoryConfig): void {
@@ -1148,5 +1197,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
 
   scrollToTop(): void {
     this.wikiShellRef?.nativeElement.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  ngOnDestroy(): void {
+    this.vehiculosSub?.unsubscribe();
   }
 }

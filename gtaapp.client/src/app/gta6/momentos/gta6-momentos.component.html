@@ -1,0 +1,410 @@
+<div class="wiki-shell gta6-theme" [class.mode-day]="themeMode === 'day'">
+  
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR HUD -->
+  <nav class="wiki-top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <!-- BOTÓN HAMBURGUESA MÓVIL (a la izquierda en móvil, oculto en PC) -->
+        <button
+          type="button"
+          class="mobile-nav-toggle-btn"
+          (click)="toggleMobileNav()"
+          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
+          aria-label="Menú de navegación"
+        >
+          <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
+        </button>
+
+        <!-- Separador vertical espigado izquierdo -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- LOGO DE LA HOME -->
+        <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
+          <img src="assets/images/logos/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
+        </a>
+
+        <!-- Separador vertical espigado derecho -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <div class="nav-brand">
+          <span class="nav-brand-title">GTA WORLD</span>
+        </div>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón INICIO -->
+        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Desplegable GTA 5 -->
+        <div class="nav-dropdown-wrapper">
+          <button type="button" class="nav-link-item dropdown-trigger" aria-haspopup="true">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>GTA 5</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a routerLink="/gta5" class="nav-dropdown-item" title="Ir al Mapa de GTA 5">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>MAPA GTA 5</span>
+            </a>
+            <span class="nav-dropdown-divider" aria-hidden="true"></span>
+            <a routerLink="/gta5-guia-offline" class="nav-dropdown-item" title="Ir a la Guía de GTA 5">
+              <i class="fa-solid fa-book-open"></i>
+              <span>GUÍA GTA 5</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Desplegable GTA 6 -->
+        <div class="nav-dropdown-wrapper">
+          <button type="button" class="nav-link-item dropdown-trigger" aria-haspopup="true">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>GTA 6</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a
+              [routerLink]="isDevAllowed ? '/gta6' : null"
+              class="nav-dropdown-item"
+              [class.is-disabled]="!isDevAllowed"
+              (click)="onGta6MapClick($event)"
+              [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
+            >
+              <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
+              <span>MAPA GTA 6</span>
+            </a>
+            <span class="nav-dropdown-divider" aria-hidden="true"></span>
+            <a routerLink="/gta6-guia-offline" class="nav-dropdown-item" title="Ir a la Guía de GTA 6">
+              <i class="fa-solid fa-book-open"></i>
+              <span>GUÍA GTA 6</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Separador -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+
+        <!-- Botón MOMENTOS GTA 6 (Activo) -->
+        <a routerLink="/gta6-momentos" class="nav-link-item active-link" [title]="('momentos.navTitle' | translate) || 'Momentos GTA 6'">
+          <i class="fa-solid fa-film"></i>
+          <span>{{ ('momentos.navTitle' | translate) || 'MOMENTOS' }}</span>
+        </a>
+
+        <!-- Separador final -->
+        <span class="nav-spike-divider" aria-hidden="true"></span>
+      </div>
+
+      <!-- ACCIONES DERECHA: SWITCH DÍA/NOCHE -->
+      <div class="nav-right">
+        <button
+          type="button"
+          class="theme-toggle-switch"
+          [class.is-day]="themeMode === 'day'"
+          (click)="toggleThemeMode()"
+          [title]="themeMode === 'night' ? 'Cambiar a Modo Día' : 'Cambiar a Modo Noche'"
+          aria-label="Cambiar entre modo día y noche"
+        >
+          <span class="switch-icon switch-icon-moon">🌙</span>
+          <span class="switch-icon switch-icon-sun">☀️</span>
+          <span class="switch-thumb"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MENÚ DESPLEGABLE MÓVIL (DRAWER) -->
+    <div class="mobile-nav-drawer" *ngIf="mobileNavOpen">
+      <div class="mobile-nav-links">
+        <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+        <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>GTA 5 MAP</span>
+        </a>
+        <a
+          [routerLink]="isDevAllowed ? '/gta6' : null"
+          class="mobile-nav-link"
+          [class.nav-link-disabled]="!isDevAllowed"
+          (click)="onGta6MapClick($event); closeMobileNav()"
+        >
+          <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
+          <span>GTA 6 MAP</span>
+        </a>
+        <a routerLink="/gta5-guia-offline" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 5</span>
+        </a>
+        <a routerLink="/gta6-guia-offline" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUIA GTA 6</span>
+        </a>
+        <a routerLink="/gta6-momentos" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-film"></i>
+          <span>{{ ('momentos.navTitle' | translate) || 'MOMENTOS' }}</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER HERO DE MOMENTOS (VISIBLE EN EL LISTADO) -->
+  <header *ngIf="!momentoSeleccionado" class="news-hero-banner">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content-inner">
+      <div class="hero-tag">
+        <i class="fa-solid fa-clapperboard"></i>
+        <span>{{ ('momentos.heroTag' | translate) || 'CLIPS & SITUACIONES DE GAMEPLAY' }}</span>
+      </div>
+      <h1 class="hero-main-title">{{ ('momentos.heroTitle' | translate) || 'MOMENTOS GTA 6' }}</h1>
+      <p class="hero-description">
+        {{ ('momentos.heroDesc' | translate) || 'Recopilación audiovisual de situaciones curiosas, fauna, reacciones de NPC y anécdotas en el mundo abierto de Leonida.' }}
+      </p>
+    </div>
+  </header>
+
+  <!-- VISTA 1: FEED DE MOMENTOS CON TARJETA DESTACADA Y GRID -->
+  <main *ngIf="!momentoSeleccionado" class="news-main-container">
+    
+    <!-- BARRA DE FILTROS DE CATEGORÍA -->
+    <nav class="news-filter-bar" aria-label="Filtro de categorías de momentos">
+      <button
+        *ngFor="let cat of categoriasFiltro"
+        type="button"
+        class="filter-pill"
+        [class.is-active]="categoriaSeleccionada === cat.id"
+        (click)="filtrarCategoria(cat.id)"
+      >
+        <i *ngIf="cat.icono" [class]="cat.icono" style="margin-right: 6px;"></i>
+        <span>{{ cat.label }}</span>
+      </button>
+    </nav>
+
+    <!-- MOMENTO DESTACADO PRINCIPAL (LEAD MOMENT) -->
+    <article
+      *ngIf="momentoDestacado"
+      class="news-featured-lead moment-featured-card"
+      (click)="abrirMomento(momentoDestacado)"
+      role="button"
+      tabindex="0"
+    >
+      <div class="lead-media-wrapper">
+        <img
+          *ngIf="momentoDestacado.thumbnailUrl"
+          [src]="momentoDestacado.thumbnailUrl"
+          [alt]="momentoDestacado.titulo"
+          class="lead-media-image"
+        />
+        <div *ngIf="!momentoDestacado.thumbnailUrl" class="lead-media-placeholder">
+          <i class="fa-solid fa-film"></i>
+          <span>LEONIDA GAMEPLAY CLIP</span>
+        </div>
+        <div class="lead-media-gradient"></div>
+        <div class="media-play-overlay">
+          <span class="play-circle-btn">
+            <i class="fa-solid fa-play"></i>
+          </span>
+        </div>
+        <span class="lead-badge">{{ momentoDestacado.badge }}</span>
+        <span *ngIf="momentoDestacado.duracionSegundos" class="duration-chip">
+          <i class="fa-solid fa-play"></i> {{ formatearDuracion(momentoDestacado.duracionSegundos) }}
+        </span>
+      </div>
+
+      <div class="lead-body">
+        <div class="lead-meta">
+          <span class="meta-date">
+            <i class="fa-regular fa-calendar"></i> {{ momentoDestacado.fecha }}
+          </span>
+          <span *ngIf="momentoDestacado.hora" class="meta-time">
+            · <i class="fa-regular fa-clock"></i> {{ momentoDestacado.hora }}
+          </span>
+          <span *ngIf="momentoDestacado.duracionSegundos" class="meta-duration-text">
+            · <i class="fa-solid fa-video"></i> {{ formatearDuracion(momentoDestacado.duracionSegundos) }}
+          </span>
+        </div>
+
+        <h2 class="lead-title">{{ momentoDestacado.titulo }}</h2>
+        <p class="lead-description">{{ momentoDestacado.descripcion }}</p>
+
+        <div class="lead-action">
+          <span class="action-btn">
+            <span>{{ ('momentos.watchClip' | translate) || 'Ver momento completo' }}</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+    </article>
+
+    <!-- CABECERA DE SECCIÓN DE MOMENTOS RECIENTES -->
+    <div class="section-title-strip" *ngIf="momentosSecundarios.length > 0">
+      <div class="strip-badge">
+        <i class="fa-solid fa-film"></i>
+        <span>MOMENTOS PUBLICADOS</span>
+      </div>
+      <div class="strip-line"></div>
+    </div>
+
+    <!-- GRID DE TARJETAS DE MOMENTOS -->
+    <section class="news-grid moments-grid">
+      <article
+        *ngFor="let item of momentosSecundarios"
+        class="news-card moment-card"
+        (click)="abrirMomento(item)"
+        role="button"
+        tabindex="0"
+      >
+        <div class="card-media-wrapper">
+          <img
+            *ngIf="item.thumbnailUrl"
+            [src]="item.thumbnailUrl"
+            [alt]="item.titulo"
+            class="card-media-image"
+          />
+          <div *ngIf="!item.thumbnailUrl" class="card-media-placeholder">
+            <i class="fa-solid fa-clapperboard"></i>
+            <span>LEONIDA CLIP</span>
+          </div>
+          <div class="media-play-overlay mini">
+            <span class="play-circle-btn mini">
+              <i class="fa-solid fa-play"></i>
+            </span>
+          </div>
+          <span class="card-badge">{{ item.badge }}</span>
+          <span *ngIf="item.duracionSegundos" class="duration-chip mini">
+            {{ formatearDuracion(item.duracionSegundos) }}
+          </span>
+        </div>
+
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="card-date">{{ item.fecha }}</span>
+            <span *ngIf="item.hora" class="card-time">· {{ item.hora }}</span>
+          </div>
+
+          <h3 class="card-title">{{ item.titulo }}</h3>
+          <p class="card-subtitle">{{ item.descripcion }}</p>
+
+          <div class="card-footer">
+            <span class="read-btn">
+              <span>{{ ('momentos.watchClip' | translate) || 'Ver clip' }}</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- VISTA 2: REPRODUCTOR / DETALLE DEL MOMENTO -->
+  <main *ngIf="momentoSeleccionado" class="article-reader-container moment-player-container">
+    
+    <!-- BARRA SUPERIOR DE RETORNO -->
+    <div class="reader-nav-bar">
+      <button type="button" class="back-link-btn" (click)="volverAlListado()">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>{{ ('momentos.backToList' | translate) || 'Volver a todos los momentos' }}</span>
+      </button>
+
+      <span class="reader-category-pill">{{ momentoSeleccionado.badge }}</span>
+    </div>
+
+    <!-- CABECERA DEL MOMENTO -->
+    <header class="reader-header">
+      <div class="reader-meta-bar">
+        <span class="meta-item"><i class="fa-regular fa-calendar"></i> {{ momentoSeleccionado.fecha }}</span>
+        <span *ngIf="momentoSeleccionado.hora" class="meta-bullet">·</span>
+        <span *ngIf="momentoSeleccionado.hora" class="meta-item"><i class="fa-regular fa-clock"></i> {{ momentoSeleccionado.hora }}</span>
+        <span *ngIf="momentoSeleccionado.duracionSegundos" class="meta-bullet">·</span>
+        <span *ngIf="momentoSeleccionado.duracionSegundos" class="meta-item"><i class="fa-solid fa-video"></i> {{ formatearDuracion(momentoSeleccionado.duracionSegundos) }}</span>
+      </div>
+
+      <h1 class="reader-title">{{ momentoSeleccionado.titulo }}</h1>
+    </header>
+
+    <!-- ÁREA REPRODUCTORA AUDIOVISUAL DEL MOMENTO -->
+    <figure class="reader-hero-media moment-player-box">
+      <!-- Si el clip tiene URL de vídeo real -->
+      <video
+        *ngIf="momentoSeleccionado.videoUrl"
+        class="moment-video-player"
+        controls
+        playsinline
+        preload="metadata"
+        [src]="momentoSeleccionado.videoUrl"
+        [poster]="momentoSeleccionado.thumbnailUrl || ''"
+      >
+        Tu navegador no soporta reproducción de vídeo HTML5.
+      </video>
+
+      <!-- Si aún no se ha subido el archivo de vídeo (maqueta preparada para futuros clips) -->
+      <div *ngIf="!momentoSeleccionado.videoUrl" class="moment-placeholder-player">
+        <img
+          *ngIf="momentoSeleccionado.thumbnailUrl"
+          [src]="momentoSeleccionado.thumbnailUrl"
+          [alt]="momentoSeleccionado.titulo"
+          class="placeholder-bg-image"
+        />
+        <div class="player-overlay-hud">
+          <div class="player-center-content">
+            <span class="player-big-icon">
+              <i class="fa-solid fa-clapperboard"></i>
+            </span>
+            <span class="player-label-primary">CLIP AUDIOVISUAL DE GAMEPLAY</span>
+            <span class="player-label-secondary">Contenedor preparado para archivo de vídeo MP4 / WebM</span>
+            <span *ngIf="momentoSeleccionado.duracionSegundos" class="player-duration-badge">
+              Duración estimada: {{ formatearDuracion(momentoSeleccionado.duracionSegundos) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </figure>
+
+    <!-- CUERPO DESCRIPTIVO DEL MOMENTO -->
+    <article class="reader-body moment-description-body">
+      <div class="moment-description-card">
+        <h2 class="section-heading">
+          <i class="fa-solid fa-circle-info" style="color: #ff007f; margin-right: 8px;"></i>
+          Descripción de la situación
+        </h2>
+        <p class="section-paragraph moment-main-text">
+          {{ momentoSeleccionado.descripcion }}
+        </p>
+      </div>
+    </article>
+
+    <!-- PIE CON BOTÓN DE REGRESO -->
+    <footer class="reader-footer">
+      <div class="footer-divider"></div>
+      <button type="button" class="back-link-btn primary" (click)="volverAlListado()">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>{{ ('momentos.backToList' | translate) || 'Volver a todos los momentos' }}</span>
+      </button>
+    </footer>
+
+  </main>
+
+  <!-- FOOTER OFICIAL -->
+  <footer class="home-footer">
+    <p class="home-footer-text">
+      {{ 'home.copyright' | translate }}
+      <span class="home-footer-sep" aria-hidden="true">·</span>
+      <button type="button" class="home-footer-link" (click)="cookieService.openBanner()">{{ 'cookies.reopenTooltip' | translate }}</button>
+    </p>
+  </footer>
+
+  <!-- TOAST DE COPIADO O AVISO -->
+  <div class="wiki-toast" *ngIf="toastMessage" role="status">
+    <span class="toast-icon">ℹ</span>
+    <span class="toast-text">{{ toastMessage }}</span>
+  </div>
+
+</div>

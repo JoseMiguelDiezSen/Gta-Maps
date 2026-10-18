@@ -223,7 +223,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
     if (!this.selectedArticulo) return [];
 
-    const items: GuiaBreadcrumbItem[] = [];
+
     const art = this.selectedArticulo;
 
     let sec = this.currentSection;
@@ -442,6 +442,8 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (this.isMobileView()) {
       this.scrollToTop();
     }
+  }
+
   seleccionarCategoriaArma(cat: WeaponCategoryConfig): void {
     this.categoriaArmaSeleccionada = cat;
     this.armaSeleccionada = null;

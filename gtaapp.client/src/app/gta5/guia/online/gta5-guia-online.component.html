@@ -88,14 +88,7 @@
           </div>
         </div>
 
-        <!-- Separador -->
-        <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <!-- Botón NOTICIAS -->
-        <a routerLink="/gta6-noticias" class="nav-link-item" title="Noticias & Actualidad GTA 6">
-          <i class="fa-solid fa-newspaper"></i>
-          <span>NOTICIAS</span>
-        </a>
 
         <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
@@ -159,9 +152,9 @@
           <i class="fa-solid fa-book-open"></i>
           <span>GUIA GTA 6</span>
         </a>
-        <a routerLink="/gta6-noticias" class="mobile-nav-link" (click)="closeMobileNav()">
-          <i class="fa-solid fa-newspaper"></i>
-          <span>NOTICIAS</span>
+        <a routerLink="/gta6-videos" class="mobile-nav-link" (click)="closeMobileNav()">
+          <i class="fa-solid fa-film"></i>
+          <span>VÍDEOS</span>
         </a>
       </div>
 
@@ -245,6 +238,36 @@
               <i class="fa-solid fa-chevron-left"></i>
               <span>Categorías</span>
             </button>
+            <span class="guide-detail-badge" *ngIf="concesionarioSeleccionado">
+              {{ busquedaVehiculos ? vehiculosFiltrados.length : vehiculosConcesionario.length }} {{ getBadgeLabelVehiculos() }}
+            </span>
+          </div>
+
+          <!-- Buscador dinámico según el panel/concesionario seleccionado -->
+          <div class="sidebar-search-box" *ngIf="concesionarioSeleccionado">
+            <div class="search-input-wrapper">
+              <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                class="sidebar-search-input"
+                [(ngModel)]="busquedaVehiculos"
+                [placeholder]="getPlaceholderBuscadorVehiculos()"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button
+                *ngIf="busquedaVehiculos"
+                type="button"
+                class="search-clear-btn"
+                (click)="limpiarBusquedaVehiculos()"
+                aria-label="Limpiar búsqueda"
+              >
+                ✕
+              </button>
+            </div>
           </div>
 
           <div class="sidebar-header-bar">
@@ -746,8 +769,8 @@
 
         <div class="article-body">
           <!-- GRID DE VEHÍCULOS -->
-          <div class="vehiculos-grid" *ngIf="!vehiculoSeleccionado">
-            <div class="vehiculo-card" *ngFor="let vehiculo of vehiculosConcesionario$ | async" (click)="seleccionarVehiculo(vehiculo)">
+          <div class="vehiculos-grid" *ngIf="!vehiculoSeleccionado && vehiculosFiltrados.length > 0">
+            <div class="vehiculo-card" *ngFor="let vehiculo of vehiculosFiltrados" (click)="seleccionarVehiculo(vehiculo)">
               <div class="vehiculo-card-media">
                 <img
                   *ngIf="!vehiculo.imgFailed"
@@ -764,6 +787,12 @@
                 <span class="vehiculo-card-price">{{ vehiculo.priceFormatted }}</span>
               </div>
             </div>
+          </div>
+
+          <!-- Mensaje cuando la búsqueda no produce resultados -->
+          <div class="trophy-empty" *ngIf="!vehiculoSeleccionado && vehiculosConcesionario.length > 0 && vehiculosFiltrados.length === 0" style="padding: 60px 0; text-align: center; color: rgba(255,255,255,0.6);">
+            <i class="fa-solid fa-car-burst" style="font-size: 28px; margin-right: 10px; opacity: 0.5;"></i>
+            <span>No se encontraron resultados para "{{ busquedaVehiculos }}"</span>
           </div>
 
           <!-- DETALLE DEL VEHÍCULO -->

@@ -34,7 +34,9 @@ export const en: TranslationSchema = {
     onlineUsers: 'users online',
     onlineUser: 'user online',
     gta5GuiaBtn: 'GTA 5 GUIDE',
-    gta6GuiaBtn: 'GTA 6 GUIDE'
+    gta6GuiaBtn: 'GTA 6 GUIDE',
+    gta6VideosBtn: 'VIDEOS',
+    gta6MomentosBtn: 'MOMENTS'
   },
   cookies: {
     title: 'Privacy & Cookies',
@@ -578,7 +580,49 @@ export const en: TranslationSchema = {
     gta6OnlineTitle: 'GTA VI Online Vice City Ultra HD Map - Interactive Guide & Updates (Ad-Free) | GTA MAPS',
     gta6OnlineDesc: 'First Ultra HD interactive map for GTA 6 Online in Vice City & Leonida 100% ad-free. Points of interest, roads, locations and real-time multiplayer updates.',
     gta6HistoriaTitle: 'GTA VI Story Mode Map - Vice City Guide, Jason & Lucia (Ad-Free) | GTA MAPS',
-    gta6HistoriaDesc: 'Interactive GTA VI story mode map featuring Jason & Lucia, 100% ad-free. Ultra HD exploration of Vice City and Leonida with missions, secrets and collectibles.'
+    gta6HistoriaDesc: 'Interactive GTA VI story mode map featuring Jason & Lucia, 100% ad-free. Ultra HD exploration of Vice City and Leonida with missions, secrets and collectibles.',
+    gta6NoticiasTitle: 'GTA VI News & Updates - State of Leonida | GTA MAPS',
+    gta6NoticiasDesc: 'Latest news and updates for Grand Theft Auto VI and the State of Leonida.',
+    gta6VideosTitle: 'GTA VI Videos - Gameplay Clips & Highlights in Leonida | GTA MAPS',
+    gta6VideosDesc: 'Curated collection of short gameplay clips, videos, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.',
+    gta6MomentosTitle: 'GTA VI Moments - Gameplay Clips & Situations in Leonida | GTA MAPS',
+    gta6MomentosDesc: 'Curated collection of unique moments, short gameplay clips, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.'
+  },
+  videos: {
+    navTitle: 'VIDEOS',
+    heroTag: 'CLIPS & GAMEPLAY HIGHLIGHTS',
+    heroTitle: 'GTA 6 VIDEOS',
+    heroDesc: 'Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.',
+    allFilter: 'All Videos',
+    filterNpc: 'NPCs & AI Reactions',
+    filterFauna: 'Leonida Wildlife',
+    filterPolicia: 'Police & Pursuits',
+    filterFisicas: 'Physics & Curiosities',
+    filterMundo: 'Open World',
+    featuredBadge: 'FEATURED VIDEO',
+    publishedOn: 'Published on',
+    atTime: 'at',
+    watchClip: 'Watch video',
+    backToList: 'Back to all videos',
+    noClips: 'No videos available in this category currently.'
+  },
+  momentos: {
+    navTitle: 'MOMENTS',
+    heroTag: 'CLIPS & GAMEPLAY HIGHLIGHTS',
+    heroTitle: 'GTA 6 MOMENTS',
+    heroDesc: 'Audiovisual collection of curious situations, wildlife encounters, NPC reactions and stories across the open world of Leonida.',
+    allFilter: 'All Moments',
+    filterNpc: 'NPCs & AI Reactions',
+    filterFauna: 'Leonida Wildlife',
+    filterPolicia: 'Police & Pursuits',
+    filterFisicas: 'Physics & Curiosities',
+    filterMundo: 'Open World',
+    featuredBadge: 'FEATURED MOMENT',
+    publishedOn: 'Published on',
+    atTime: 'at',
+    watchClip: 'Watch clip',
+    backToList: 'Back to all moments',
+    noClips: 'No moments available in this category currently.'
   },
   gta6Modal: {
     title: 'GTA VI — Under Development',

@@ -6,6 +6,12 @@ import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '..
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
 
+export interface GuiaBreadcrumbItem {
+  label: string;
+  clickable: boolean;
+  action?: () => void;
+}
+
 @Component({
   selector: 'app-gta6-guia-offline',
   templateUrl: './gta6-guia-offline.component.html',
@@ -33,6 +39,80 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   toastMessage: string | null = null;
   mobileNavOpen: boolean = false;
   private toastTimeout: any = null;
+
+  /* Estado de navegación por niveles en móvil (estilo Info-Panel) */
+  isMobileReadingOpen: boolean = false;
+
+  openMobileReading(): void {
+    this.isMobileReadingOpen = true;
+    this.scrollToTop();
+  }
+
+  closeMobileReading(): void {
+    this.isMobileReadingOpen = false;
+    this.scrollToTop();
+  }
+
+  goToCategoriesFromReading(): void {
+    this.isMobileReadingOpen = false;
+    this.currentSection = null;
+    this.scrollToTop();
+  }
+
+  private isMobileView(): boolean {
+    return typeof window !== 'undefined' && window.innerWidth <= 850;
+  }
+
+  get breadcrumbs(): GuiaBreadcrumbItem[] {
+    const items: GuiaBreadcrumbItem[] = [];
+    if (!this.selectedArticulo) return [];
+
+    const art = this.selectedArticulo;
+    let sec = this.currentSection;
+    if (!sec) {
+      sec = this.secciones.find(s => s.articulos?.some(a => a.id === art.id))
+        || this.secciones.find(s => s.id === art.categoria)
+        || null;
+    }
+
+    if (sec) {
+      items.push({
+        label: sec.titulo,
+        clickable: true,
+        action: () => {
+          this.openSection(sec!);
+        }
+      });
+    }
+
+    items.push({
+      label: this.cleanBreadcrumbTitle(art.titulo),
+      clickable: false
+    });
+
+    return items;
+  }
+
+  getCleanMissionTitle(title?: string): string {
+    if (!title) return '';
+    return title.replace(/^\d+\.\s*/, '').trim();
+  }
+
+  cleanBreadcrumbTitle(title?: string): string {
+    return this.getCleanMissionTitle(title);
+  }
+
+  getArticuloImage(art: GuiaArticulo | null): string | null {
+    if (!art) return null;
+    return art.imagenPrincipalUrl || art.imagen || null;
+  }
+
+  onImageError(artId: string): void {
+    if (this.selectedArticulo && this.selectedArticulo.id === artId) {
+      this.selectedArticulo.imagenPrincipalUrl = undefined;
+      this.selectedArticulo.imagen = undefined;
+    }
+  }
 
   private manifestSub?: Subscription;
   private articuloSub?: Subscription;
@@ -237,10 +317,21 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   openSection(sec: GuiaSeccion): void {
     this.currentSection = sec;
     this.selectedSeccionId = sec.id;
+    this.isMobileReadingOpen = false;
+    if (sec.articulos && sec.articulos.length > 0) {
+      this.seleccionarArticulo(sec.articulos[0].id, false);
+    }
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   backToSections(): void {
     this.currentSection = null;
+    this.isMobileReadingOpen = false;
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   getSectionColor(secId?: string): string {
@@ -254,7 +345,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     return '#ec4899';
   }
 
-  seleccionarArticulo(articuloId: string): void {
+  seleccionarArticulo(articuloId: string, openMobile: boolean = true): void {
     this.isLoadingArticulo = true;
     this.articuloSub?.unsubscribe();
     this.articuloSub = this.guiaService.getArticulo('gta6', articuloId).subscribe({
@@ -262,6 +353,9 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
         this.selectedArticulo = articulo;
         this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '');
         this.isLoadingArticulo = false;
+        if (openMobile && this.isMobileView()) {
+          this.openMobileReading();
+        }
       },
       error: (err) => {
         console.error(`Error al cargar el artículo ${articuloId}:`, err);

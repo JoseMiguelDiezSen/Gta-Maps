@@ -42,6 +42,8 @@ export interface TranslationSchema {
     onlineUser: string;
     gta5GuiaBtn: string;
     gta6GuiaBtn: string;
+    gta6VideosBtn?: string;
+    gta6MomentosBtn?: string;
   };
   cookies: {
     title: string;
@@ -559,6 +561,46 @@ export interface TranslationSchema {
     gta6GuiaDesc?: string;
     gta6NoticiasTitle?: string;
     gta6NoticiasDesc?: string;
+    gta6VideosTitle?: string;
+    gta6VideosDesc?: string;
+    gta6MomentosTitle?: string;
+    gta6MomentosDesc?: string;
+  };
+  videos?: {
+    navTitle: string;
+    heroTag: string;
+    heroTitle: string;
+    heroDesc: string;
+    allFilter: string;
+    filterNpc: string;
+    filterFauna: string;
+    filterPolicia: string;
+    filterFisicas: string;
+    filterMundo: string;
+    featuredBadge: string;
+    publishedOn: string;
+    atTime: string;
+    watchClip: string;
+    backToList: string;
+    noClips: string;
+  };
+  momentos?: {
+    navTitle: string;
+    heroTag: string;
+    heroTitle: string;
+    heroDesc: string;
+    allFilter: string;
+    filterNpc: string;
+    filterFauna: string;
+    filterPolicia: string;
+    filterFisicas: string;
+    filterMundo: string;
+    featuredBadge: string;
+    publishedOn: string;
+    atTime: string;
+    watchClip: string;
+    backToList: string;
+    noClips: string;
   };
   gta6Modal?: {
     title: string;

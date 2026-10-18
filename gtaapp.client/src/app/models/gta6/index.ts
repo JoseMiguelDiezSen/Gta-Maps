@@ -4,3 +4,5 @@ export * from './mission';
 export * from './weapon';
 export * from './mystery';
 export * from './noticia';
+export * from './momento';
+export * from './video';

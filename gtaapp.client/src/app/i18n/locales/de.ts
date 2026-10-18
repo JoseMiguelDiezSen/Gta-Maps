@@ -35,7 +35,9 @@ export const de: TranslationSchema = {
     onlineUsers: 'Benutzer online',
     onlineUser: 'Benutzer online',
     gta5GuiaBtn: 'GTA 5 LEITFADEN',
-    gta6GuiaBtn: 'GTA 6 LEITFADEN'
+    gta6GuiaBtn: 'GTA 6 LEITFADEN',
+    gta6VideosBtn: 'VIDEOS',
+    gta6MomentosBtn: 'MOMENTS'
   },
   cookies: {
     title: 'Datenschutz & Cookies',

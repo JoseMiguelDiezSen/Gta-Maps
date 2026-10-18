@@ -25,6 +25,7 @@ public class GuiaService : IGuiaService
 
         InicializarGta5();
         InicializarGta6();
+        InicializarGta6Online();
     }
 
     public GuiaManifest GetGuiaManifest(string juegoId)
@@ -574,5 +575,140 @@ Grand Theft Auto VI presenta la primera protagonista femenina jugable en la era 
         };
 
         _articulos["gta6"] = articulosGta6;
+    }
+
+    private void InicializarGta6Online()
+    {
+        var secciones = new List<GuiaSeccion>
+        {
+            new()
+            {
+                Id = "prologo",
+                Titulo = "Prólogo & Iniciación",
+                Icono = "book-open",
+                Descripcion = "Primeros pasos, reputación y economía en Leonida Online.",
+                Orden = 0,
+                Articulos = new List<GuiaArticuloResumen>
+                {
+                    new()
+                    {
+                        Id = "prologo-gta6-online-inicio",
+                        Slug = "primeros-pasos-leonida-online",
+                        Titulo = "Primeros Pasos en Leonida Online",
+                        Subtitulo = "Creación de personaje, llegada a Vice City y primeras oportunidades",
+                        Categoria = "prologo",
+                        Badge = "Iniciación",
+                        TiempoLecturaMinutos = 4
+                    },
+                    new()
+                    {
+                        Id = "prologo-gta6-online-economia",
+                        Slug = "economia-y-reputacion-online",
+                        Titulo = "Economía y Reputación en Vice City",
+                        Subtitulo = "Cuentas bancarias, teléfonos inteligentes y gestión de dinero",
+                        Categoria = "prologo",
+                        Badge = "Economía",
+                        TiempoLecturaMinutos = 5
+                    }
+                }
+            },
+            new()
+            {
+                Id = "misiones-online",
+                Titulo = "Misiones & Operaciones",
+                Icono = "crosshairs",
+                Descripcion = "Misiones de contacto y operaciones clandestinas en Vice City.",
+                Orden = 1,
+                Articulos = new List<GuiaArticuloResumen>
+                {
+                    new()
+                    {
+                        Id = "mision-online-contacto-vicecity",
+                        Slug = "misiones-de-contacto-vice-city",
+                        Titulo = "Trabajos de Contacto en Vice City",
+                        Subtitulo = "Asaltos a almacenes y entregas rápidas en Downtown y Vice Beaches",
+                        Categoria = "misiones-online",
+                        Badge = "Trabajos",
+                        TiempoLecturaMinutos = 6
+                    },
+                    new()
+                    {
+                        Id = "mision-online-operaciones-gellhorn",
+                        Slug = "operaciones-en-port-gellhorn",
+                        Titulo = "Operaciones en Port Gellhorn",
+                        Subtitulo = "Contrabando marítimo y asaltos por carretera en la costa oeste",
+                        Categoria = "misiones-online",
+                        Badge = "Contrabando",
+                        TiempoLecturaMinutos = 7
+                    }
+                }
+            }
+        };
+
+        _manifiestos["gta6-online"] = new GuiaManifest
+        {
+            Id = "gta6-online",
+            Juego = "Grand Theft Auto VI Online",
+            Titulo = "Base de Datos & Guía Oficial de GTA VI Online",
+            Descripcion = "Compendio multijugador del Estado de Leonida: primeros pasos, operaciones y economía criminal.",
+            BannerUrl = "assets/gta6-banner.jpg",
+            Secciones = secciones
+        };
+
+        var articulosGta6Online = new List<GuiaArticulo>
+        {
+            new()
+            {
+                Id = "prologo-gta6-online-inicio",
+                Slug = "primeros-pasos-leonida-online",
+                Titulo = "Primeros Pasos en Leonida Online",
+                Subtitulo = "Creación de personaje, llegada a Vice City y primeras oportunidades",
+                Categoria = "prologo",
+                Badge = "Iniciación",
+                TiempoLecturaMinutos = 4,
+                UltimaActualizacion = DateTime.UtcNow,
+                Tags = new List<string> { "Prólogo", "Iniciación", "GTA VI Online", "Vice City" },
+                ContenidoMarkdown = @"# Primeros Pasos en Leonida Online
+
+Bienvenido a la experiencia multijugador de Grand Theft Auto VI ambientada en el Estado de Leonida. Al iniciar tu andadura criminal en línea, deberás consolidar tu reputación comenzando desde lo más bajo del escalafón.
+
+---
+
+### 1. Llegada y Creación de Identidad
+* **Diseño del Personaje**: Configura la herencia genética, fisionomía y rasgos distintivos en el editor.
+* **Punto de Llegada**: Tu primera toma de contacto con Vice City comenzará en las terminales de transporte de la metrópolis.",
+                Relacionados = new List<GuiaArticuloRelacionado>
+                {
+                    new() { Id = "prologo-gta6-online-economia", Slug = "economia-y-reputacion-online", Titulo = "Economía y Reputación en Vice City" }
+                }
+            },
+            new()
+            {
+                Id = "prologo-gta6-online-economia",
+                Slug = "economia-y-reputacion-online",
+                Titulo = "Economía y Reputación en Vice City",
+                Subtitulo = "Cuentas bancarias, teléfonos inteligentes y gestión de dinero",
+                Categoria = "prologo",
+                Badge = "Economía",
+                TiempoLecturaMinutos = 5,
+                UltimaActualizacion = DateTime.UtcNow,
+                Tags = new List<string> { "Economía", "Dinero", "GTA VI Online", "Vice City" },
+                ContenidoMarkdown = @"# Economía y Reputación en Vice City
+
+El dinero en efectivo y el saldo bancario son indispensables para adquirir propiedades, armas y vehículos de alta gama en Leonida.
+
+---
+
+### 1. Gestión Financiera Segura
+* **Cajeros ATM y Aplicación Bancaria**: Ingresa el dinero en efectivo obtenido tras cada trabajo para evitar perderlo en caso de incidente en el modo libre.
+* **Bolsa y Propiedades**: Invierte tus ganancias tempranas en garajes y almacenes para ampliar tu capacidad operativa.",
+                Relacionados = new List<GuiaArticuloRelacionado>
+                {
+                    new() { Id = "prologo-gta6-online-inicio", Slug = "primeros-pasos-leonida-online", Titulo = "Primeros Pasos en Leonida Online" }
+                }
+            }
+        };
+
+        _articulos["gta6-online"] = articulosGta6Online;
     }
 }

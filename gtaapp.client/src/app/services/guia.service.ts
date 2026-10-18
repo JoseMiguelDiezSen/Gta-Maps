@@ -9,7 +9,7 @@ import { GtaMystery } from '../models/gta5/mystery';
   providedIn: 'root'
 })
 export class GuiaService {
-  private manifestCache = new Map<'gta5' | 'gta6', Observable<GuiaManifest>>();
+  private manifestCache = new Map<'gta5' | 'gta6' | 'gta6-online', Observable<GuiaManifest>>();
 
   constructor(private http: HttpClient) {}
 
@@ -28,7 +28,7 @@ export class GuiaService {
   /**
    * Obtiene el manifiesto completo con secciones y listado de artículos para GTA 5 o GTA 6.
    */
-  getManifest(juegoId: 'gta5' | 'gta6'): Observable<GuiaManifest> {
+  getManifest(juegoId: 'gta5' | 'gta6' | 'gta6-online'): Observable<GuiaManifest> {
     const cached = this.manifestCache.get(juegoId);
     if (cached) {
       return cached;
@@ -155,13 +155,51 @@ export class GuiaService {
       shareReplay(1)
     );
     this.manifestCache.set('gta6', obsGta6$);
+
+    if (juegoId === 'gta6-online') {
+      const obsOnline$ = forkJoin({
+        prologo: this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/online/prologo-guia-online.json?t=${t}`).pipe(catchError(() => of([]))),
+        misiones: this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/online/misiones-guia-online.json?t=${t}`).pipe(catchError(() => of([])))
+      }).pipe(
+        map(res => ({
+          id: 'gta6-online',
+          juego: 'Grand Theft Auto VI Online',
+          titulo: 'Guía GTA VI Online & Base de Datos',
+          descripcion: 'Compendio interactivo multijugador de Vice City y el Estado de Leonida.',
+          bannerUrl: 'assets/home-bg.jpg',
+          secciones: [
+            {
+              id: 'prologo',
+              titulo: 'Prólogo & Iniciación',
+              icono: 'book-open',
+              descripcion: 'Primeros pasos, reputación y economía en Leonida Online.',
+              orden: 0,
+              articulos: res.prologo.map(a => this.toResumen(a))
+            },
+            {
+              id: 'misiones-online',
+              titulo: 'Misiones & Operaciones',
+              icono: 'crosshairs',
+              descripcion: 'Misiones de contacto y operaciones clandestinas en Vice City.',
+              orden: 1,
+              articulos: res.misiones.map(a => this.toResumen(a))
+            }
+          ]
+        })),
+        catchError(() => of(this.getFallbackManifest('gta6-online'))),
+        shareReplay(1)
+      );
+      this.manifestCache.set('gta6-online', obsOnline$);
+      return obsOnline$;
+    }
+
     return obsGta6$;
   }
 
   /**
    * Obtiene las secciones temáticas de la guía.
    */
-  getSecciones(juegoId: 'gta5' | 'gta6'): Observable<GuiaSeccion[]> {
+  getSecciones(juegoId: 'gta5' | 'gta6' | 'gta6-online'): Observable<GuiaSeccion[]> {
     return this.getManifest(juegoId).pipe(
       map(manifest => manifest.secciones)
     );
@@ -170,7 +208,31 @@ export class GuiaService {
   /**
    * Obtiene el contenido completo de un artículo por su ID o slug.
    */
-  getArticulo(juegoId: 'gta5' | 'gta6', articuloId: string): Observable<GuiaArticulo> {
+  getArticulo(juegoId: 'gta5' | 'gta6' | 'gta6-online', articuloId: string): Observable<GuiaArticulo> {
+    if (juegoId === 'gta6-online') {
+      const t = new Date().getTime();
+      return forkJoin([
+        this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/online/prologo-guia-online.json?t=${t}`).pipe(catchError(() => of([]))),
+        this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/online/misiones-guia-online.json?t=${t}`).pipe(catchError(() => of([])))
+      ]).pipe(
+        map(([prologo, misiones]) => {
+          const todos = [...prologo, ...misiones];
+          const found = todos.find(a => a.id === articuloId || a.slug === articuloId);
+          if (found) {
+            const siblings = todos.filter(a => a.id !== found.id && a.categoria === found.categoria);
+            return {
+              ...found,
+              tags: found.tags || ['Guía', 'GTA VI Online', found.badge || 'Leonida'],
+              relacionados: siblings.slice(0, 2).map(a => ({ id: a.id, titulo: a.titulo, slug: a.slug })),
+              ultimaActualizacion: new Date().toISOString()
+            } as GuiaArticulo;
+          }
+          return this.getFallbackArticulo(juegoId, articuloId);
+        }),
+        catchError(() => of(this.getFallbackArticulo(juegoId, articuloId)))
+      );
+    }
+
     if (juegoId === 'gta5') {
       return this.getManifest('gta5').pipe(
         switchMap(manifest => {
@@ -266,7 +328,7 @@ export class GuiaService {
   /**
    * Busca artículos en la guía
    */
-  buscarArticulos(juegoId: 'gta5' | 'gta6', query: string): Observable<GuiaArticuloResumen[]> {
+  buscarArticulos(juegoId: 'gta5' | 'gta6' | 'gta6-online', query: string): Observable<GuiaArticuloResumen[]> {
     const params = new HttpParams().set('q', query);
     return this.http.get<GuiaArticuloResumen[]>(`/api/${juegoId}/guia/buscar`, { params }).pipe(
       catchError(() => {
@@ -291,13 +353,22 @@ export class GuiaService {
   /* --------------------------------------------------------------------------
      DATOS LOCALES DE RESPALDO (OFFLINE / INICIALES)
      -------------------------------------------------------------------------- */
-  private getFallbackManifest(juegoId: 'gta5' | 'gta6'): GuiaManifest {
+  private getFallbackManifest(juegoId: 'gta5' | 'gta6' | 'gta6-online'): GuiaManifest {
     if (juegoId === 'gta5') {
       return {
         id: 'gta5',
         juego: 'Grand Theft Auto V',
         titulo: 'Guía GTA V',
         descripcion: 'Compendio interactivo de Los Santos y Blaine County: Modo Historia al 100%, Golpes, Bolsa e Inversiones, y Secretos.',
+        bannerUrl: 'assets/home-bg.jpg',
+        secciones: []
+      };
+    } else if (juegoId === 'gta6-online') {
+      return {
+        id: 'gta6-online',
+        juego: 'Grand Theft Auto VI Online',
+        titulo: 'Guía GTA VI Online & Base de Datos',
+        descripcion: 'Compendio interactivo multijugador de Vice City y el Estado de Leonida.',
         bannerUrl: 'assets/home-bg.jpg',
         secciones: []
       };
@@ -360,7 +431,7 @@ export class GuiaService {
     }
   }
 
-  private getFallbackArticulo(juegoId: 'gta5' | 'gta6', articuloId: string): GuiaArticulo {
+  private getFallbackArticulo(juegoId: 'gta5' | 'gta6' | 'gta6-online', articuloId: string): GuiaArticulo {
     const manifest = this.getFallbackManifest(juegoId);
     for (const sec of manifest.secciones) {
       const found = sec.articulos.find(a => a.id === articuloId || a.slug === articuloId);

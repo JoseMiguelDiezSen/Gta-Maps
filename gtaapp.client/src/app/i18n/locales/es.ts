@@ -34,7 +34,9 @@ export const es: TranslationSchema = {
     onlineUsers: 'usuarios online',
     onlineUser: 'usuario online',
     gta5GuiaBtn: 'GUÍA GTA 5',
-    gta6GuiaBtn: 'GUÍA GTA 6'
+    gta6GuiaBtn: 'GUÍA GTA 6',
+    gta6VideosBtn: 'VÍDEOS',
+    gta6MomentosBtn: 'MOMENTOS'
   },
   cookies: {
     title: 'Privacidad y cookies',
@@ -592,7 +594,47 @@ export const es: TranslationSchema = {
     gta6GuiaDesc: 'Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.',
 
     gta6NoticiasTitle: 'Noticias & Actualidad GTA VI - Estado de Leonida | GTA MAPS',
-    gta6NoticiasDesc: 'Últimas noticias y Novedades de Grand Theft Auto VI y el Estado de Leonida.'
+    gta6NoticiasDesc: 'Últimas noticias y Novedades de Grand Theft Auto VI y el Estado de Leonida.',
+    gta6VideosTitle: 'Vídeos GTA VI - Clips de Gameplay & Situaciones en Leonida | GTA MAPS',
+    gta6VideosDesc: 'Recopilación de vídeos y clips breves de gameplay, situaciones curiosas y surrealistas en Grand Theft Auto VI y el Estado de Leonida.',
+    gta6MomentosTitle: 'Momentos GTA VI - Clips de Gameplay & Situaciones en Leonida | GTA MAPS',
+    gta6MomentosDesc: 'Recopilación de momentos únicos, clips breves de gameplay, situaciones curiosas y surrealistas en Grand Theft Auto VI y el Estado de Leonida.'
+  },
+  videos: {
+    navTitle: 'VÍDEOS',
+    heroTag: 'CLIPS & SITUACIONES DE GAMEPLAY',
+    heroTitle: 'VÍDEOS GTA 6',
+    heroDesc: 'Recopilación audiovisual de clips cortos, fauna, reacciones de NPC y situaciones curiosas en el mundo abierto de Leonida.',
+    allFilter: 'Todos los Vídeos',
+    filterNpc: 'NPCs & Reacciones',
+    filterFauna: 'Fauna de Leonida',
+    filterPolicia: 'Policía & Persecuciones',
+    filterFisicas: 'Físicas & Curiosidades',
+    filterMundo: 'Mundo Abierto',
+    featuredBadge: 'VÍDEO DESTACADO',
+    publishedOn: 'Publicado el',
+    atTime: 'a las',
+    watchClip: 'Ver vídeo',
+    backToList: 'Volver a todos los vídeos',
+    noClips: 'No hay vídeos disponibles en esta categoría actualmente.'
+  },
+  momentos: {
+    navTitle: 'MOMENTOS',
+    heroTag: 'CLIPS & SITUACIONES DE GAMEPLAY',
+    heroTitle: 'MOMENTOS GTA 6',
+    heroDesc: 'Recopilación audiovisual de situaciones curiosas, fauna, reacciones de NPC y anécdotas en el mundo abierto de Leonida.',
+    allFilter: 'Todos los Momentos',
+    filterNpc: 'NPCs & Reacciones',
+    filterFauna: 'Fauna de Leonida',
+    filterPolicia: 'Policía & Persecuciones',
+    filterFisicas: 'Físicas & Curiosidades',
+    filterMundo: 'Mundo Abierto',
+    featuredBadge: 'MOMENTO DESTACADO',
+    publishedOn: 'Publicado el',
+    atTime: 'a las',
+    watchClip: 'Ver clip',
+    backToList: 'Volver a todos los momentos',
+    noClips: 'No hay momentos disponibles en esta categoría actualmente.'
   },
   gta6Modal: {
     title: 'GTA VI — En desarrollo',
