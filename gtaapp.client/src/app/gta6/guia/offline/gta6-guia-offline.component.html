@@ -244,17 +244,98 @@
             <i class="fa-solid fa-chevron-left"></i>
             <span>Categorías</span>
           </button>
-          <span class="guide-detail-badge">{{ currentSection.articulos.length }} caps</span>
+          <span class="guide-detail-badge">{{ (hasBuscadorSeccion(currentSection.id) && busquedaOffline) ? articulosFiltradosSeccion.length : currentSection.articulos.length }} {{ currentSection.id === 'misiones-historia' ? 'misiones' : 'caps' }}</span>
+        </div>
+
+        <!-- Buscador en tiempo real de la sección (Misiones principales) -->
+        <div class="sidebar-search-box" *ngIf="hasBuscadorSeccion(currentSection.id)">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              class="sidebar-search-input"
+              [(ngModel)]="busquedaOffline"
+              [placeholder]="getPlaceholderBuscador(currentSection.id)"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button
+              *ngIf="busquedaOffline"
+              type="button"
+              class="search-clear-btn"
+              (click)="limpiarBusquedaOffline()"
+              aria-label="Limpiar búsqueda"
+            >
+              ✕
+            </button>
+          </div>
         </div>
 
         <div class="sidebar-header-bar">
           <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
         </div>
 
-        <div class="guide-chapters-list">
+        <!-- ACORDEÓN DESPLEGABLE: MISIONES PRINCIPALES -->
+        <div class="guide-accordion-list" *ngIf="isAccordionSection(currentSection.id)">
+          <div *ngFor="let grupo of getGruposAccordion(); trackBy: trackByGrupoId" class="guide-accordion-group" [style.--cat-accent]="grupo.color">
+            <div
+              class="guide-cat-card guide-accordion-header"
+              [class.is-expanded]="isGrupoExpanded(grupo.id)"
+              [style.--cat-accent]="grupo.color"
+              (click)="toggleGrupo(grupo.id)"
+            >
+              <div class="guide-cat-icon">
+                <i class="fas fa-{{ grupo.icono }}"></i>
+              </div>
+              <div class="guide-cat-info">
+                <span class="guide-cat-title">{{ grupo.titulo }}</span>
+              </div>
+              <span class="guide-cat-badge">{{ grupo.total }}</span>
+              <div class="guide-cat-arrow" [class.is-rotated]="isGrupoExpanded(grupo.id)">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+
+            <div class="guide-accordion-collapse" [class.is-open]="isGrupoExpanded(grupo.id)">
+              <div class="guide-accordion-collapse-inner">
+                <div class="guide-accordion-chapters">
+                  <div
+                    *ngFor="let art of grupo.articulos; let idx = index; trackBy: trackByArticuloId"
+                    class="guide-chapter-card"
+                    [ngClass]="getPersonajeClass(art.badge)"
+                    [class.is-active]="selectedArticulo?.id === art.id"
+                    (click)="seleccionarArticulo(art.id)"
+                  >
+                    <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+                    <div class="chapter-card-info">
+                      <span class="chapter-card-title">{{ art.titulo }}</span>
+                    </div>
+                    <div class="chapter-card-meta">
+                      <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="busquedaOffline && getGruposAccordion().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+            <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
+            <span>No se encontraron resultados para "{{ busquedaOffline }}"</span>
+          </div>
+
+          <div class="guide-cat-list-divider" aria-hidden="true"></div>
+        </div>
+
+        <!-- OTRAS SECCIONES: LISTA PLANA CONTINUA -->
+        <div class="guide-chapters-list" *ngIf="!isAccordionSection(currentSection.id)">
           <div
             *ngFor="let art of currentSection.articulos; let idx = index"
             class="guide-chapter-card"
+            [ngClass]="getPersonajeClass(art.badge)"
             [class.is-active]="selectedArticulo?.id === art.id"
             (click)="seleccionarArticulo(art.id)"
           >
@@ -262,7 +343,7 @@
             
             <div class="chapter-card-info">
               <span class="chapter-card-title">{{ art.titulo }}</span>
-              <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+              <span class="chapter-card-sub" *ngIf="art.subtitulo && currentSection?.id !== 'prologo'">{{ art.subtitulo }}</span>
             </div>
 
             <div class="chapter-card-meta" *ngIf="art.badge">

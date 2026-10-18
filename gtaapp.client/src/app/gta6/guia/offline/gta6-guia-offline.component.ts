@@ -5,6 +5,7 @@ import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../../../models/guia';
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
+import { GRUPOS_MISIONES_GTA6 } from './misiones-grupos.config';
 
 export interface GuiaBreadcrumbItem {
   label: string;
@@ -30,6 +31,8 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   themeMode: 'night' | 'day' = 'night';
   searchQuery: string = '';
   searchResults: GuiaArticuloResumen[] = [];
+  busquedaOffline: string = '';
+  expandedGrupos: Set<string> = new Set<string>();
   isLoading: boolean = true;
   isLoadingArticulo: boolean = false;
   renderedContent: SafeHtml = '';
@@ -315,9 +318,16 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   openSection(sec: GuiaSeccion): void {
+    this.busquedaOffline = '';
     this.currentSection = sec;
     this.selectedSeccionId = sec.id;
     this.isMobileReadingOpen = false;
+    if (sec.id === 'misiones-historia') {
+      this.expandedGrupos.clear();
+      if (GRUPOS_MISIONES_GTA6.length > 0) {
+        this.expandedGrupos.add(GRUPOS_MISIONES_GTA6[0].id);
+      }
+    }
     if (sec.articulos && sec.articulos.length > 0) {
       this.seleccionarArticulo(sec.articulos[0].id, false);
     }
@@ -327,6 +337,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   backToSections(): void {
+    this.busquedaOffline = '';
     this.currentSection = null;
     this.isMobileReadingOpen = false;
     if (this.isMobileView()) {
@@ -338,6 +349,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (!secId) return '#ec4899';
     const s = secId.toLowerCase();
     if (s.includes('prologo')) return '#3b82f6';
+    if (s.includes('mision')) return '#ef4444';
     if (s.includes('protagonista')) return '#ec4899';
     if (s.includes('mundo') || s.includes('leonida')) return '#38bdf8';
     if (s.includes('mecanica')) return '#a855f7';
@@ -345,7 +357,116 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     return '#ec4899';
   }
 
+  isAccordionSection(secId?: string): boolean {
+    return secId === 'misiones-historia';
+  }
+
+  toggleGrupo(grupoId: string): void {
+    if (this.expandedGrupos.has(grupoId)) {
+      this.expandedGrupos.delete(grupoId);
+    } else {
+      this.expandedGrupos.add(grupoId);
+    }
+  }
+
+  isGrupoExpanded(grupoId: string): boolean {
+    if (this.busquedaOffline) return true;
+    return this.expandedGrupos.has(grupoId);
+  }
+
+  trackByGrupoId(index: number, item: { id: string }): string {
+    return item.id;
+  }
+
+  trackByArticuloId(index: number, item: GuiaArticuloResumen): string {
+    return item.id;
+  }
+
+  getGruposAccordion(): { id: string; titulo: string; badge: string; icono: string; color: string; total: number; articulos: GuiaArticuloResumen[] }[] {
+    if (!this.currentSection || !this.isAccordionSection(this.currentSection.id)) return [];
+    const allArts = this.currentSection.articulos || [];
+    const clean = (s?: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const query = clean(this.busquedaOffline).trim();
+
+    return GRUPOS_MISIONES_GTA6.map(grupo => {
+      const targetBadge = clean(grupo.badge);
+      let arts = allArts.filter(a => clean(a.badge) === targetBadge);
+      if (query) {
+        arts = arts.filter(a =>
+          clean(a.titulo).includes(query) ||
+          clean(a.subtitulo).includes(query) ||
+          clean(a.badge).includes(query)
+        );
+      }
+      return {
+        id: grupo.id,
+        titulo: grupo.titulo,
+        badge: grupo.badge,
+        icono: grupo.icono,
+        color: grupo.color,
+        total: arts.length,
+        articulos: arts
+      };
+    }).filter(g => g.articulos.length > 0);
+  }
+
+  limpiarBusquedaOffline(): void {
+    this.busquedaOffline = '';
+  }
+
+  hasBuscadorSeccion(seccionId?: string): boolean {
+    return seccionId === 'misiones-historia';
+  }
+
+  getPlaceholderBuscador(seccionId?: string): string {
+    if (seccionId === 'misiones-historia') return 'Buscar misión o personaje...';
+    return 'Buscar en esta sección...';
+  }
+
+  get articulosFiltradosSeccion(): GuiaArticuloResumen[] {
+    if (!this.currentSection) return [];
+    const raw = this.currentSection.articulos || [];
+    const clean = (s?: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const query = clean(this.busquedaOffline).trim();
+    if (!query) return raw;
+    return raw.filter(a =>
+      clean(a.titulo).includes(query) ||
+      clean(a.subtitulo).includes(query) ||
+      clean(a.badge).includes(query)
+    );
+  }
+
+  getPersonajeClass(badge?: string): string {
+    if (!badge) return '';
+    const normalizedBadge = badge.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const badgeKeywordToClass: ReadonlyArray<readonly [string, string]> = [
+      ['introduccion', 'personaje-introduccion'],
+      ['duo', 'personaje-duo'],
+      ['lucia', 'personaje-lucia'],
+      ['jason', 'personaje-jason'],
+      ['geografia', 'personaje-geografia'],
+      ['distrito', 'personaje-distritos'],
+      ['ecosistema', 'personaje-ecosistema'],
+      ['mecanica', 'personaje-mecanicas'],
+      ['vehiculo', 'personaje-vehiculos'],
+      ['policial', 'personaje-policial'],
+      ['tactica', 'personaje-tacticas']
+    ];
+    const matchedEntry = badgeKeywordToClass.find(([keyword]) => normalizedBadge.includes(keyword));
+    return matchedEntry ? `guide-personaje ${matchedEntry[1]}` : '';
+  }
+
   seleccionarArticulo(articuloId: string, openMobile: boolean = true): void {
+    if (this.currentSection?.id === 'misiones-historia') {
+      const art = this.currentSection.articulos?.find(a => a.id === articuloId);
+      if (art?.badge) {
+        const clean = (s?: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        const grupo = GRUPOS_MISIONES_GTA6.find(g => clean(g.badge) === clean(art.badge));
+        if (grupo) {
+          this.expandedGrupos.add(grupo.id);
+        }
+      }
+    }
     this.isLoadingArticulo = true;
     this.articuloSub?.unsubscribe();
     this.articuloSub = this.guiaService.getArticulo('gta6', articuloId).subscribe({

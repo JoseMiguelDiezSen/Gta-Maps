@@ -133,8 +133,11 @@ export class GuiaService {
       return obs$;
     }
 
-    const obsGta6$ = this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/prologo-guia-offline.json?t=${t}`).pipe(
-      map(prologo => ({
+    const obsGta6$ = forkJoin({
+      prologo: this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/prologo-guia-offline.json?t=${t}`).pipe(catchError(() => of([]))),
+      misiones: this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/misiones-guia-offline.json?t=${t}`).pipe(catchError(() => of([])))
+    }).pipe(
+      map(res => ({
         id: 'gta6',
         juego: 'Grand Theft Auto VI',
         titulo: 'Guía GTA VI & Base de Datos',
@@ -147,7 +150,15 @@ export class GuiaService {
             icono: 'book-open',
             descripcion: 'Introducción al Estado de Leonida, Vice City y perfiles de los protagonistas.',
             orden: 0,
-            articulos: prologo.map(a => this.toResumen(a))
+            articulos: res.prologo.map(a => this.toResumen(a))
+          },
+          {
+            id: 'misiones-historia',
+            titulo: 'Misiones Principales',
+            icono: 'gun',
+            descripcion: 'Guía de las misiones principales de GTA VI.',
+            orden: 1,
+            articulos: res.misiones.map(a => this.toResumen(a))
           }
         ]
       })),
@@ -274,12 +285,16 @@ export class GuiaService {
       );
     }
 
-    const gta6JsonUrl = 'assets/data/gta6/guia/offline/prologo-guia-offline.json?t=' + new Date().getTime();
-    return this.http.get<GuiaArticulo[]>(gta6JsonUrl).pipe(
-      map(articulos => {
+    const t = new Date().getTime();
+    return forkJoin([
+      this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/prologo-guia-offline.json?t=${t}`).pipe(catchError(() => of([]))),
+      this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/misiones-guia-offline.json?t=${t}`).pipe(catchError(() => of([])))
+    ]).pipe(
+      map(([prologo, misiones]) => {
+        const articulos = [...prologo, ...misiones];
         const found = articulos.find(a => a.id === articuloId || a.slug === articuloId);
         if (found) {
-          const siblings = articulos.filter(a => a.id !== found.id);
+          const siblings = articulos.filter(a => a.id !== found.id && a.categoria === found.categoria);
           return {
             ...found,
             tags: found.tags || ['Guía', 'GTA VI', found.badge || 'Vice City'],

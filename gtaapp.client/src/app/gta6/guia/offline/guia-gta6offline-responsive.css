@@ -378,6 +378,42 @@
     display: none !important;
   }
 
+  .sidebar-search-box {
+    margin-bottom: 4px !important;
+  }
+
+  .guide-detail-toolbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    margin-top: 6px !important;
+    margin-bottom: 12px !important;
+    padding: 2px 0 !important;
+  }
+
+  .guide-back-btn {
+    margin-left: 0 !important;
+    padding: 7px 14px !important;
+    background: rgba(255, 184, 51, 0.12) !important;
+    border: 1px solid rgba(255, 184, 51, 0.4) !important;
+    color: #ffb833 !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+  }
+
+  .guide-back-btn:hover {
+    background: rgba(255, 184, 51, 0.25) !important;
+    color: #ffffff !important;
+  }
+
+  .wiki-shell.mode-day .guide-back-btn {
+    background: rgba(217, 119, 6, 0.1) !important;
+    border-color: rgba(217, 119, 6, 0.35) !important;
+    color: #d97706 !important;
+  }
+
   .wiki-shell.is-mobile-reading .wiki-content-area {
     display: block !important;
     position: static !important;
@@ -390,7 +426,8 @@
 
   /* Listas internas del sidebar: usan toda la altura natural en móvil */
   .guide-categories-list,
-  .guide-chapters-list {
+  .guide-chapters-list,
+  .guide-accordion-list {
     max-height: none !important;
     overflow: visible !important;
   }
