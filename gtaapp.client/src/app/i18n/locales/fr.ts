@@ -127,7 +127,7 @@ export const fr: TranslationSchema = {
       noMarkers: 'Aucun marqueur personnalisé',
       locateMarker: 'Localiser le marqueur',
       gotyAssistant: 'Assistant GOTY',
-      enableGoty: 'Activer le robot GOTY'
+      enableGoty: 'Activer GOTY'
     },
     maps: {
       satellite: 'Satellite (Vue aérienne)',
@@ -636,7 +636,7 @@ export const fr: TranslationSchema = {
   feedback: {
     buttonTitle: 'Envoyer une suggestion ou un commentaire',
     modalTitle: 'Suggestions et Commentaires',
-    modalSubtitle: 'Vous avez une idée ou avez trouvé un bug ? Dites-le nous !',
+    modalSubtitle: 'Avez-vous trouvé une erreur de traduction, de localisation ou un détail que nous pourrions améliorer ? Dites-le-nous ! Votre aide nous permet de continuer à nous améliorer.',
     nameLabel: 'Votre Nom (optionnel)',
     namePlaceholder: 'Ex : Thomas ou Anonyme',
     messageLabel: 'Votre Message',

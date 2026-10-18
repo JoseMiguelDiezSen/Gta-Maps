@@ -648,6 +648,19 @@
   }
 }
 
+/* === REGLAS PARA PANTALLAS MEDIANAS / TABLET COMPACTA (TROFEOS) === */
+@media (max-width: 720px) {
+  .trophy-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .trophy-grid {
+    grid-template-columns: 1fr;
+  }
+  .trophy-panel-title {
+    font-size: 23px;
+  }
+}
+
 @media (max-width: 600px) {
   .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(1),
   .wiki-top-nav .nav-left .nav-spike-divider:nth-of-type(2),

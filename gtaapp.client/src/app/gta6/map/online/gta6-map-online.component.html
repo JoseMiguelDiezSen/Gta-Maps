@@ -374,7 +374,7 @@
           </div>
           <div class="hud-acc-body" *ngIf="accordion['mapa']">
             <div class="hud-field">
-              <label class="hud-field-label" for="mapTypeSelect">{{ 'gta5.settings.baseMap' | translate }}</label>
+
               <select
                 id="mapTypeSelect"
                 class="hud-field-select"
@@ -535,7 +535,7 @@
             <label class="hud-check-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
               <span class="goty-label-desktop">{{ 'gta5.settings.enableGoty' | translate }}</span>
               <span class="goty-label-mobile">GOTY 6</span>
-              <input type="checkbox" [checked]="gotyService.isEnabled" (change)="gotyService.setBotEnabled($any($event.target).checked)" />
+              <input type="checkbox" class="hud-goty-check" [checked]="gotyService.isEnabled" (change)="gotyService.setBotEnabled($any($event.target).checked)" />
             </label>
           </div>
         </div>

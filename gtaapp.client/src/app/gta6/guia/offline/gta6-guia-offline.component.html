@@ -210,6 +210,7 @@
         <div
           *ngFor="let seccion of secciones"
           class="guide-cat-card"
+          [class.is-accent-light]="isLightAccentSection(seccion.id)"
           [style.--cat-accent]="getSectionColor(seccion.id)"
           (click)="openSection(seccion)"
           [title]="seccion.titulo"
@@ -225,7 +226,7 @@
           </div>
 
           <!-- Badge con número de capítulos -->
-          <span class="guide-cat-badge">{{ seccion.articulos.length }}</span>
+          <span class="guide-cat-badge">{{ getSeccionContador(seccion) }}</span>
 
           <!-- Flecha circular a la derecha -->
           <div class="guide-cat-arrow">
@@ -239,121 +240,201 @@
 
       <!-- VISTA 2: LISTADO DE CAPÍTULOS DE LA CATEGORÍA (DRILL-DOWN NIVEL 2) -->
       <div class="guide-section-detail-view" *ngIf="currentSection" [style.--cat-accent]="getSectionColor(currentSection.id)">
-        <div class="guide-detail-toolbar">
-          <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
-            <i class="fa-solid fa-chevron-left"></i>
-            <span>Categorías</span>
-          </button>
-          <span class="guide-detail-badge">{{ (hasBuscadorSeccion(currentSection.id) && busquedaOffline) ? articulosFiltradosSeccion.length : currentSection.articulos.length }} {{ currentSection.id === 'misiones-historia' ? 'misiones' : 'caps' }}</span>
-        </div>
-
-        <!-- Buscador en tiempo real de la sección (Misiones principales) -->
-        <div class="sidebar-search-box" *ngIf="hasBuscadorSeccion(currentSection.id)">
-          <div class="search-input-wrapper">
-            <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input
-              type="text"
-              class="sidebar-search-input"
-              [(ngModel)]="busquedaOffline"
-              [placeholder]="getPlaceholderBuscador(currentSection.id)"
-              autocomplete="off"
-              spellcheck="false"
-            />
-            <button
-              *ngIf="busquedaOffline"
-              type="button"
-              class="search-clear-btn"
-              (click)="limpiarBusquedaOffline()"
-              aria-label="Limpiar búsqueda"
-            >
-              ✕
+        <!-- CASO TROFEOS: SECCIÓN DE TROFEOS (Navegación por categorías de trofeo) -->
+        <ng-container *ngIf="currentSection?.id === 'trofeos'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
             </button>
+            <span class="guide-detail-badge">{{ trofeosResumen.total }} trofeos</span>
           </div>
-        </div>
 
-        <div class="sidebar-header-bar">
-          <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
-        </div>
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
+          </div>
 
-        <!-- ACORDEÓN DESPLEGABLE: MISIONES PRINCIPALES -->
-        <div class="guide-accordion-list" *ngIf="isAccordionSection(currentSection.id)">
-          <div *ngFor="let grupo of getGruposAccordion(); trackBy: trackByGrupoId" class="guide-accordion-group" [style.--cat-accent]="grupo.color">
+          <div class="guide-categories-list">
             <div
-              class="guide-cat-card guide-accordion-header"
-              [class.is-expanded]="isGrupoExpanded(grupo.id)"
-              [style.--cat-accent]="grupo.color"
-              (click)="toggleGrupo(grupo.id)"
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'todos'"
+              [style.--cat-accent]="'#ffffff'"
+              (click)="seleccionarTrofeoFiltro('todos')"
             >
-              <div class="guide-cat-icon">
-                <i class="fas fa-{{ grupo.icono }}"></i>
-              </div>
-              <div class="guide-cat-info">
-                <span class="guide-cat-title">{{ grupo.titulo }}</span>
-              </div>
-              <span class="guide-cat-badge">{{ grupo.total }}</span>
-              <div class="guide-cat-arrow" [class.is-rotated]="isGrupoExpanded(grupo.id)">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
+              <div class="guide-cat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Todos los trofeos</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.total }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
 
-            <div class="guide-accordion-collapse" [class.is-open]="isGrupoExpanded(grupo.id)">
-              <div class="guide-accordion-collapse-inner">
-                <div class="guide-accordion-chapters">
-                  <div
-                    *ngFor="let art of grupo.articulos; let idx = index; trackBy: trackByArticuloId"
-                    class="guide-chapter-card"
-                    [ngClass]="getPersonajeClass(art.badge)"
-                    [class.is-active]="selectedArticulo?.id === art.id"
-                    (click)="seleccionarArticulo(art.id)"
-                  >
-                    <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
-                    <div class="chapter-card-info">
-                      <span class="chapter-card-title">{{ art.titulo }}</span>
-                    </div>
-                    <div class="chapter-card-meta">
-                      <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'platino'"
+              [style.--cat-accent]="getTrofeoTipoColor('platino')"
+              (click)="seleccionarTrofeoFiltro('platino')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-trophy"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Trofeo de Platino</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.platino }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'oro'"
+              [style.--cat-accent]="getTrofeoTipoColor('oro')"
+              (click)="seleccionarTrofeoFiltro('oro')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-medal"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Oro</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.oro }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'plata'"
+              [style.--cat-accent]="getTrofeoTipoColor('plata')"
+              (click)="seleccionarTrofeoFiltro('plata')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-award"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Plata</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.plata }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+
+            <div
+              class="guide-cat-card trophy-filter-card"
+              [class.is-active]="trofeoFiltro === 'bronce'"
+              [style.--cat-accent]="getTrofeoTipoColor('bronce')"
+              (click)="seleccionarTrofeoFiltro('bronce')"
+            >
+              <div class="guide-cat-icon"><i class="fas fa-shield-halved"></i></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Bronce</span></div>
+              <span class="guide-cat-badge">{{ trofeosResumen.bronce }}</span>
+              <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- CASO ESTÁNDAR (PRÓLOGO, MISIONES PRINCIPALES, ETC.) -->
+        <ng-container *ngIf="currentSection?.id !== 'trofeos'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+            <span class="guide-detail-badge">{{ (hasBuscadorSeccion(currentSection.id) && busquedaOffline) ? articulosFiltradosSeccion.length : currentSection.articulos.length }} {{ currentSection.id === 'misiones-historia' ? 'misiones' : 'caps' }}</span>
+          </div>
+
+          <!-- Buscador en tiempo real de la sección (Misiones principales) -->
+          <div class="sidebar-search-box" *ngIf="hasBuscadorSeccion(currentSection.id)">
+            <div class="search-input-wrapper">
+              <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                class="sidebar-search-input"
+                [(ngModel)]="busquedaOffline"
+                [placeholder]="getPlaceholderBuscador(currentSection.id)"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button
+                *ngIf="busquedaOffline"
+                type="button"
+                class="search-clear-btn"
+                (click)="limpiarBusquedaOffline()"
+                aria-label="Limpiar búsqueda"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
+          </div>
+
+          <!-- ACORDEÓN DESPLEGABLE: MISIONES PRINCIPALES -->
+          <div class="guide-accordion-list" *ngIf="isAccordionSection(currentSection.id)">
+            <div *ngFor="let grupo of getGruposAccordion(); trackBy: trackByGrupoId" class="guide-accordion-group" [style.--cat-accent]="grupo.color">
+              <div
+                class="guide-cat-card guide-accordion-header"
+                [class.is-expanded]="isGrupoExpanded(grupo.id)"
+                [style.--cat-accent]="grupo.color"
+                (click)="toggleGrupo(grupo.id)"
+              >
+                <div class="guide-cat-icon">
+                  <i class="fas fa-{{ grupo.icono }}"></i>
+                </div>
+                <div class="guide-cat-info">
+                  <span class="guide-cat-title">{{ grupo.titulo }}</span>
+                </div>
+                <span class="guide-cat-badge">{{ grupo.total }}</span>
+                <div class="guide-cat-arrow" [class.is-rotated]="isGrupoExpanded(grupo.id)">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
+
+              <div class="guide-accordion-collapse" [class.is-open]="isGrupoExpanded(grupo.id)">
+                <div class="guide-accordion-collapse-inner">
+                  <div class="guide-accordion-chapters">
+                    <div
+                      *ngFor="let art of grupo.articulos; let idx = index; trackBy: trackByArticuloId"
+                      class="guide-chapter-card"
+                      [ngClass]="getPersonajeClass(art.badge)"
+                      [class.is-active]="selectedArticulo?.id === art.id"
+                      (click)="seleccionarArticulo(art.id)"
+                    >
+                      <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+                      <div class="chapter-card-info">
+                        <span class="chapter-card-title">{{ art.titulo }}</span>
+                      </div>
+                      <div class="chapter-card-meta">
+                        <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div *ngIf="busquedaOffline && getGruposAccordion().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
-            <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
-            <span>No se encontraron resultados para "{{ busquedaOffline }}"</span>
-          </div>
-
-          <div class="guide-cat-list-divider" aria-hidden="true"></div>
-        </div>
-
-        <!-- OTRAS SECCIONES: LISTA PLANA CONTINUA -->
-        <div class="guide-chapters-list" *ngIf="!isAccordionSection(currentSection.id)">
-          <div
-            *ngFor="let art of currentSection.articulos; let idx = index"
-            class="guide-chapter-card"
-            [ngClass]="getPersonajeClass(art.badge)"
-            [class.is-active]="selectedArticulo?.id === art.id"
-            (click)="seleccionarArticulo(art.id)"
-          >
-            <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
-            
-            <div class="chapter-card-info">
-              <span class="chapter-card-title">{{ art.titulo }}</span>
-              <span class="chapter-card-sub" *ngIf="art.subtitulo && currentSection?.id !== 'prologo'">{{ art.subtitulo }}</span>
+            <div *ngIf="busquedaOffline && getGruposAccordion().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+              <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
+              <span>No se encontraron resultados para "{{ busquedaOffline }}"</span>
             </div>
 
-            <div class="chapter-card-meta" *ngIf="art.badge">
-              <span class="chapter-card-badge">{{ art.badge }}</span>
-            </div>
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
 
-          <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
-          <div class="guide-cat-list-divider" aria-hidden="true"></div>
-        </div>
+          <!-- OTRAS SECCIONES: LISTA PLANA CONTINUA -->
+          <div class="guide-chapters-list" *ngIf="!isAccordionSection(currentSection.id)">
+            <div
+              *ngFor="let art of currentSection.articulos; let idx = index"
+              class="guide-chapter-card"
+              [ngClass]="getPersonajeClass(art.badge)"
+              [class.is-active]="selectedArticulo?.id === art.id"
+              (click)="seleccionarArticulo(art.id)"
+            >
+              <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+              
+              <div class="chapter-card-info">
+                <span class="chapter-card-title">{{ art.titulo }}</span>
+                <span class="chapter-card-sub" *ngIf="art.subtitulo && currentSection?.id !== 'prologo'">{{ art.subtitulo }}</span>
+              </div>
+
+              <div class="chapter-card-meta" *ngIf="art.badge">
+                <span class="chapter-card-badge">{{ art.badge }}</span>
+              </div>
+            </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
+        </ng-container>
       </div>
     </aside>
 
@@ -383,25 +464,117 @@
             >
               {{ currentSection.titulo }}
             </span>
-            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo">›</span>
-            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo">
+            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo && !mostrarTrofeos">›</span>
+            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo && !mostrarTrofeos">
               {{ cleanBreadcrumbTitle(selectedArticulo.titulo) }}
             </span>
           </div>
-          <h2 class="drawer-title" *ngIf="selectedArticulo">
+          <h2 class="drawer-title" *ngIf="selectedArticulo && !mostrarTrofeos">
             {{ selectedArticulo.titulo }}
+          </h2>
+          <h2 class="drawer-title" *ngIf="mostrarTrofeos">
+            Catálogo de Trofeos
           </h2>
         </div>
       </div>
 
+      <!-- PANEL DE TROFEOS (CATÁLOGO COMPLETO) -->
+      <article *ngIf="mostrarTrofeos" class="wiki-article-card trophy-panel">
+        <header class="trophy-panel-header">
+          <div class="trophy-panel-title-block">
+            <div class="trophy-kicker-row">
+              <span class="trophy-panel-kicker">TROFEOS (PS) · LOGROS (XBOX)</span>
+              <span class="trophy-provisional-badge">⚠️ PROVISIONAL</span>
+            </div>
+            <h1 class="trophy-panel-title">
+              <i class="fa-solid fa-trophy"></i>
+              Trofeos de GTA VI
+            </h1>
+            <p class="trophy-panel-sub">
+              Listado completo y en español de los {{ trofeosResumen.total }} trofeos (plantilla provisional): el ansiado Platino, los desafíos de Oro,
+              los retos de Plata y la larga lista de Bronce del Modo Historia y de GTA Online.
+            </p>
+          </div>
+
+          <div class="trophy-summary-grid">
+            <div class="trophy-summary-card" style="--trophy-color: #7dd3fc;">
+              <i class="fa-solid fa-trophy"></i>
+              <span class="trophy-summary-num">{{ trofeosResumen.platino }}</span>
+              <span class="trophy-summary-label">Platino</span>
+            </div>
+            <div class="trophy-summary-card" style="--trophy-color: #fbbf24;">
+              <i class="fa-solid fa-medal"></i>
+              <span class="trophy-summary-num">{{ trofeosResumen.oro }}</span>
+              <span class="trophy-summary-label">Oro</span>
+            </div>
+            <div class="trophy-summary-card" style="--trophy-color: #cbd5e1;">
+              <i class="fa-solid fa-award"></i>
+              <span class="trophy-summary-num">{{ trofeosResumen.plata }}</span>
+              <span class="trophy-summary-label">Plata</span>
+            </div>
+            <div class="trophy-summary-card" style="--trophy-color: #d08b5b;">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span class="trophy-summary-num">{{ trofeosResumen.bronce }}</span>
+              <span class="trophy-summary-label">Bronce</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="trophy-loading" *ngIf="isLoadingTrofeos">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <span>Cargando trofeos...</span>
+        </div>
+
+        <div class="trophy-groups" *ngIf="!isLoadingTrofeos">
+          <section
+            class="trophy-group"
+            *ngFor="let grupo of trofeosPorTipo"
+            [style.--trophy-color]="getTrofeoTipoColor(grupo.tipo)"
+          >
+            <div class="trophy-group-head">
+              <i class="fa-solid" [ngClass]="getTrofeoTipoIcono(grupo.tipo)"></i>
+              <h2 class="trophy-group-title">Trofeos de {{ grupo.titulo }}</h2>
+              <span class="trophy-group-count">{{ grupo.trofeos.length }}</span>
+            </div>
+
+            <div class="trophy-grid">
+              <div class="trophy-card" *ngFor="let trofeo of grupo.trofeos">
+                <div class="trophy-card-icon">
+                  <i class="fa-solid" [ngClass]="getTrofeoTipoIcono(trofeo.tipo)"></i>
+                </div>
+                <div class="trophy-card-body">
+                  <div class="trophy-card-head">
+                    <h3 class="trophy-card-name">{{ trofeo.nombre }}</h3>
+                    <span class="trophy-card-mode" [class.is-online]="trofeo.modo === 'online'">
+                      <i class="fa-solid" [ngClass]="trofeo.modo === 'online' ? 'fa-globe' : (trofeo.modo === 'ambos' ? 'fa-layer-group' : 'fa-gamepad')"></i>
+                      {{ getTrofeoModoLabel(trofeo.modo) }}
+                    </span>
+                  </div>
+                  <p class="trophy-card-desc">{{ trofeo.descripcion }}</p>
+                  <p class="trophy-card-tip" *ngIf="trofeo.pista">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>{{ trofeo.pista }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="trophy-empty" *ngIf="trofeosPorTipo.length === 0 && !isLoadingTrofeos">
+            <i class="fa-solid fa-trophy"></i>
+            <span>No hay trofeos que mostrar para este filtro.</span>
+          </div>
+        </div>
+      </article>
+
       <!-- Estado de carga -->
-      <div *ngIf="isLoadingArticulo" class="wiki-loading-state">
+      <div *ngIf="isLoadingArticulo && !mostrarTrofeos" class="wiki-loading-state">
         <div class="wiki-spinner"></div>
         <p class="wiki-loading-text">Cargando archivo de Leonida...</p>
       </div>
 
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="!isLoadingArticulo && selectedArticulo" class="wiki-article-card">
+      <article *ngIf="!isLoadingArticulo && selectedArticulo && !mostrarTrofeos" class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">

@@ -125,7 +125,7 @@ export const ru: TranslationSchema = {
       noMarkers: 'Нет меток',
       locateMarker: 'Найти метку',
       gotyAssistant: 'Ассистент GOTY',
-      enableGoty: 'Включить GOTY Bot'
+      enableGoty: 'Включить GOTY'
     },
     maps: {
       satellite: 'Спутник',

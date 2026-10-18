@@ -125,7 +125,7 @@ export const ar: TranslationSchema = {
       noMarkers: 'لا توجد علامات',
       locateMarker: 'تحديد موقع العلامة',
       gotyAssistant: 'مساعد GOTY',
-      enableGoty: 'تفعيل بوت GOTY'
+      enableGoty: 'تفعيل GOTY'
     },
     maps: {
       satellite: 'قمر صناعي',

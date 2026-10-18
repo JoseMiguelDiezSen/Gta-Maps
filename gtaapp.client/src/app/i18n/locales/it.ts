@@ -127,7 +127,7 @@ export const it: TranslationSchema = {
       noMarkers: 'Nessun indicatore',
       locateMarker: 'Localizza indicatore',
       gotyAssistant: 'Assistente GOTY',
-      enableGoty: 'Attiva GOTY Bot'
+      enableGoty: 'Attiva GOTY'
     },
     maps: {
       satellite: 'Satellite',

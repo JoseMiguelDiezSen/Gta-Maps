@@ -495,6 +495,10 @@
     </div>
 
     <form *ngIf="!feedbackSuccess" (ngSubmit)="sendFeedback()" class="feedback-panel-body">
+      <p class="feedback-panel-intro">
+        {{ 'feedback.modalSubtitle' | translate }}
+      </p>
+
       <div class="feedback-field-group">
         <label for="feedback-name-input" class="feedback-label">{{ 'feedback.nameLabel' | translate }}</label>
         <input

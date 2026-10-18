@@ -159,6 +159,14 @@ export class GuiaService {
             descripcion: 'Guía de las misiones principales de GTA VI.',
             orden: 1,
             articulos: res.misiones.map(a => this.toResumen(a))
+          },
+          {
+            id: 'trofeos',
+            titulo: 'Trofeos',
+            icono: 'trophy',
+            descripcion: 'Listado provisional de trofeos y logros de GTA VI: Platino, Oro, Plata y Bronce.',
+            orden: 2,
+            articulos: []
           }
         ]
       })),
@@ -322,13 +330,12 @@ export class GuiaService {
    * Obtiene el catálogo de trofeos de GTA V (listado real en español).
    */
   getTrofeos(juegoId: 'gta5' | 'gta6'): Observable<TrofeosCatalogo> {
-    if (juegoId === 'gta5') {
-      const jsonUrl = 'assets/data/gta5/guia/offline/trofeos.json?t=' + new Date().getTime();
-      return this.http.get<TrofeosCatalogo>(jsonUrl).pipe(
-        catchError(() => of(this.getFallbackTrofeos()))
-      );
-    }
-    return of(this.getFallbackTrofeos());
+    const jsonUrl = juegoId === 'gta5'
+      ? 'assets/data/gta5/guia/offline/trofeos.json?t=' + new Date().getTime()
+      : 'assets/data/gta6/guia/offline/trofeos-gta6.json?t=' + new Date().getTime();
+    return this.http.get<TrofeosCatalogo>(jsonUrl).pipe(
+      catchError(() => of(this.getFallbackTrofeos()))
+    );
   }
 
   private getFallbackTrofeos(): TrofeosCatalogo {

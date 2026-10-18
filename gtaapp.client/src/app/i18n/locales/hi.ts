@@ -125,7 +125,7 @@ export const hi: TranslationSchema = {
       noMarkers: 'कोई मार्कर नहीं',
       locateMarker: 'मार्कर खोजें',
       gotyAssistant: 'GOTY सहायक',
-      enableGoty: 'GOTY Bot सक्षम करें'
+      enableGoty: 'GOTY सक्षम करें'
     },
     maps: {
       satellite: 'सैटेलाइट',

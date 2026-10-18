@@ -361,8 +361,7 @@
   height: 12px;
 }
 
-.nav-dropdown-wrapper:hover .nav-dropdown-menu,
-.nav-dropdown-wrapper:focus-within .nav-dropdown-menu {
+.nav-dropdown-wrapper:hover .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;

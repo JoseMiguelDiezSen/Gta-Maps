@@ -1209,6 +1209,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (b.includes('fib')) return 'personaje-fib';
     if (b.includes('lester')) return 'personaje-lester';
     if (b.includes('devin') || b.includes('weston')) return 'personaje-devin';
+    if (b.includes('spoiler')) return 'personaje-spoiler';
     if (b.includes('final')) return 'personaje-final';
     if (b.includes('epsilon')) return 'personaje-epsilon';
     if (b.includes('tonya')) return 'personaje-tonya';

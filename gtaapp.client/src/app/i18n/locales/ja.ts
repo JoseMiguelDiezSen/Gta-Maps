@@ -125,7 +125,7 @@ export const ja: TranslationSchema = {
       noMarkers: 'マーカーなし',
       locateMarker: 'マーカーを表示',
       gotyAssistant: 'GOTYアシスタント',
-      enableGoty: 'GOTY Botを有効化'
+      enableGoty: 'GOTYを有効化'
     },
     maps: {
       satellite: '衛星写真',

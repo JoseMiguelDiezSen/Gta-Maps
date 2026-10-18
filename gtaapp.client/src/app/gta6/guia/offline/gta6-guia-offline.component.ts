@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, Hos
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
-import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../../../models/guia';
+import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../../models/guia';
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { Subscription } from 'rxjs';
 import { GRUPOS_MISIONES_GTA6 } from './misiones-grupos.config';
@@ -43,6 +43,21 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   mobileNavOpen: boolean = false;
   private toastTimeout: any = null;
 
+  mostrarTrofeos: boolean = false;
+  isLoadingTrofeos: boolean = false;
+  trofeos: TrofeoItem[] = [];
+  trofeosResumen: TrofeosResumen = { total: 0, platino: 0, oro: 0, plata: 0, bronce: 0 };
+  trofeoFiltro: TrofeoTipo | 'todos' = 'todos';
+
+  private static readonly TROFEO_ORDEN: TrofeoTipo[] = ['platino', 'oro', 'plata', 'bronce'];
+
+  getSeccionContador(seccion: GuiaSeccion): number {
+    if (seccion.id === 'trofeos') {
+      return this.trofeosResumen.total;
+    }
+    return seccion.articulos.length;
+  }
+
   /* Estado de navegación por niveles en móvil (estilo Info-Panel) */
   isMobileReadingOpen: boolean = false;
 
@@ -53,12 +68,17 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   closeMobileReading(): void {
     this.isMobileReadingOpen = false;
+    if (this.mostrarTrofeos) {
+      this.mostrarTrofeos = false;
+      this.currentSection = null;
+    }
     this.scrollToTop();
   }
 
   goToCategoriesFromReading(): void {
     this.isMobileReadingOpen = false;
     this.currentSection = null;
+    this.mostrarTrofeos = false;
     this.scrollToTop();
   }
 
@@ -120,6 +140,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   private manifestSub?: Subscription;
   private articuloSub?: Subscription;
   private searchSub?: Subscription;
+  private trofeosSub?: Subscription;
 
   constructor(
     private guiaService: GuiaService,
@@ -137,6 +158,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.manifestSub?.unsubscribe();
     this.articuloSub?.unsubscribe();
     this.searchSub?.unsubscribe();
+    this.trofeosSub?.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -145,6 +167,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }
 
     this.cargarGuia();
+    this.cargarTrofeos();
   }
 
   ngAfterViewInit(): void {
@@ -321,15 +344,22 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.busquedaOffline = '';
     this.currentSection = sec;
     this.selectedSeccionId = sec.id;
-    this.isMobileReadingOpen = false;
-    if (sec.id === 'misiones-historia') {
-      this.expandedGrupos.clear();
-      if (GRUPOS_MISIONES_GTA6.length > 0) {
-        this.expandedGrupos.add(GRUPOS_MISIONES_GTA6[0].id);
+    if (sec.id === 'trofeos') {
+      this.mostrarTrofeos = true;
+      this.isMobileReadingOpen = true;
+      this.cargarTrofeos();
+    } else {
+      this.mostrarTrofeos = false;
+      this.isMobileReadingOpen = false;
+      if (sec.id === 'misiones-historia') {
+        this.expandedGrupos.clear();
+        if (GRUPOS_MISIONES_GTA6.length > 0) {
+          this.expandedGrupos.add(GRUPOS_MISIONES_GTA6[0].id);
+        }
       }
-    }
-    if (sec.articulos && sec.articulos.length > 0) {
-      this.seleccionarArticulo(sec.articulos[0].id, false);
+      if (sec.articulos && sec.articulos.length > 0) {
+        this.seleccionarArticulo(sec.articulos[0].id, false);
+      }
     }
     if (this.isMobileView()) {
       this.scrollToTop();
@@ -339,15 +369,95 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   backToSections(): void {
     this.busquedaOffline = '';
     this.currentSection = null;
+    this.mostrarTrofeos = false;
     this.isMobileReadingOpen = false;
     if (this.isMobileView()) {
       this.scrollToTop();
     }
   }
 
+  cargarTrofeos(): void {
+    if (this.trofeos.length > 0 || this.isLoadingTrofeos) return;
+    this.isLoadingTrofeos = true;
+    this.trofeosSub?.unsubscribe();
+    this.trofeosSub = this.guiaService.getTrofeos('gta6').subscribe({
+      next: (catalogo) => {
+        this.trofeos = catalogo?.trofeos || [];
+        this.trofeosResumen = catalogo?.resumen || this.calcularResumen(this.trofeos);
+        this.isLoadingTrofeos = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar el catálogo de trofeos de GTA 6:', err);
+        this.isLoadingTrofeos = false;
+      }
+    });
+  }
+
+  private calcularResumen(trofeos: TrofeoItem[]): TrofeosResumen {
+    const resumen: TrofeosResumen = { total: trofeos.length, platino: 0, oro: 0, plata: 0, bronce: 0 };
+    for (const t of trofeos) {
+      resumen[t.tipo] += 1;
+    }
+    return resumen;
+  }
+
+  seleccionarTrofeoFiltro(tipo: TrofeoTipo | 'todos'): void {
+    this.trofeoFiltro = tipo;
+  }
+
+  get trofeosFiltrados(): TrofeoItem[] {
+    if (this.trofeoFiltro === 'todos') return this.trofeos;
+    return this.trofeos.filter(t => t.tipo === this.trofeoFiltro);
+  }
+
+  get trofeosPorTipo(): { tipo: TrofeoTipo; titulo: string; trofeos: TrofeoItem[] }[] {
+    const titulos: Record<TrofeoTipo, string> = {
+      platino: 'Platino',
+      oro: 'Oro',
+      plata: 'Plata',
+      bronce: 'Bronce'
+    };
+    return Gta6GuiaOfflineComponent.TROFEO_ORDEN
+      .map(tipo => ({
+        tipo,
+        titulo: titulos[tipo],
+        trofeos: this.trofeosFiltrados.filter(t => t.tipo === tipo)
+      }))
+      .filter(g => g.trofeos.length > 0);
+  }
+
+  getTrofeoTipoColor(tipo: TrofeoTipo): string {
+    switch (tipo) {
+      case 'platino': return '#7dd3fc';
+      case 'oro': return '#fbbf24';
+      case 'plata': return '#cbd5e1';
+      case 'bronce': return '#d08b5b';
+      default: return '#ffb833';
+    }
+  }
+
+  getTrofeoTipoIcono(tipo: TrofeoTipo): string {
+    switch (tipo) {
+      case 'platino': return 'fa-trophy';
+      case 'oro': return 'fa-medal';
+      case 'plata': return 'fa-award';
+      case 'bronce': return 'fa-shield-halved';
+      default: return 'fa-trophy';
+    }
+  }
+
+  getTrofeoModoLabel(modo: TrofeoItem['modo']): string {
+    switch (modo) {
+      case 'historia': return 'Modo Historia';
+      case 'online': return 'GTA Online';
+      default: return 'Historia + Online';
+    }
+  }
+
   getSectionColor(secId?: string): string {
     if (!secId) return '#ec4899';
     const s = secId.toLowerCase();
+    if (s.includes('trofeo')) return '#ffffff';
     if (s.includes('prologo')) return '#3b82f6';
     if (s.includes('mision')) return '#ef4444';
     if (s.includes('protagonista')) return '#ec4899';
@@ -355,6 +465,10 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (s.includes('mecanica')) return '#a855f7';
     if (s.includes('policial') || s.includes('ia-')) return '#f97316';
     return '#ec4899';
+  }
+
+  isLightAccentSection(secId?: string): boolean {
+    return this.getSectionColor(secId) === '#ffffff';
   }
 
   isAccordionSection(secId?: string): boolean {
@@ -457,6 +571,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   seleccionarArticulo(articuloId: string, openMobile: boolean = true): void {
+    this.mostrarTrofeos = false;
     if (this.currentSection?.id === 'misiones-historia') {
       const art = this.currentSection.articulos?.find(a => a.id === articuloId);
       if (art?.badge) {

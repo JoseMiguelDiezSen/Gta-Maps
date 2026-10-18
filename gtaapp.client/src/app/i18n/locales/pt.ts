@@ -127,7 +127,7 @@ export const pt: TranslationSchema = {
       noMarkers: 'Sem marcadores',
       locateMarker: 'Localizar marcador',
       gotyAssistant: 'Assistente GOTY',
-      enableGoty: 'Ativar GOTY Bot'
+      enableGoty: 'Ativar GOTY'
     },
     maps: {
       satellite: 'Satélite',
@@ -594,7 +594,7 @@ export const pt: TranslationSchema = {
   feedback: {
     buttonTitle: 'Enviar sugestão ou comentários',
     modalTitle: 'Sugestões e Comentários',
-    modalSubtitle: 'Tem alguma ideia ou encontrou um erro? Conte-nos!',
+    modalSubtitle: 'Encontrou algum erro em uma tradução, uma localização ou algum detalhe que possamos melhorar? Conte-nos! Sua ajuda nos permite continuar melhorando.',
     nameLabel: 'Seu Nome (opcional)',
     namePlaceholder: 'Ex: Carlos ou Anônimo',
     messageLabel: 'Sua Mensagem',

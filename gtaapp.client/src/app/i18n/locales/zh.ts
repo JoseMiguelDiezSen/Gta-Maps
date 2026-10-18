@@ -125,7 +125,7 @@ export const zh: TranslationSchema = {
       noMarkers: '暂无自定义标记',
       locateMarker: '定位标记',
       gotyAssistant: 'GOTY 智能助手',
-      enableGoty: '启用 GOTY 机器人'
+      enableGoty: '启用 GOTY'
     },
     maps: {
       satellite: '卫星图 (Satellite)',
