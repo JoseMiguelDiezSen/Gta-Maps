@@ -754,6 +754,21 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (b.includes('lester')) return 'personaje-lester';
     if (b.includes('devin') || b.includes('weston')) return 'personaje-devin';
     if (b.includes('final')) return 'personaje-final';
+    if (b.includes('epsilon')) return 'personaje-epsilon';
+    if (b.includes('tonya')) return 'personaje-tonya';
+    if (b.includes('beverly')) return 'personaje-beverly';
+    if (b.includes('hao')) return 'personaje-hao';
+    if (b.includes('barry')) return 'personaje-barry';
+    if (b.includes('mary')) return 'personaje-maryann';
+    if (b.includes('cletus')) return 'personaje-cletus';
+    if (b.includes('dom')) return 'personaje-dom';
+    if (b.includes('maude')) return 'personaje-maude';
+    if (b.includes('patrulla')) return 'personaje-patrulla';
+    if (b.includes('dreyfuss') || b.includes('drayfuss')) return 'personaje-dreyfuss';
+    if (b.includes('masacre') || b.includes('rampage')) return 'personaje-masacre';
+    if (b.includes('nigel')) return 'personaje-nigel';
+    if (b.includes('abigail')) return 'personaje-abigail';
+    if (b.includes('sasquatch') || b.includes('ultimo') || b.includes('último')) return 'personaje-sasquatch';
     if (b.includes('introducci') || b.includes('intrahistoria') || b.includes('truco')) return 'personaje-neutral-gris';
     return 'personaje-neutral-gris';
   }

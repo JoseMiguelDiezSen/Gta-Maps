@@ -40,7 +40,7 @@ export class GuiaService {
         prologo: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/prologo-guia-offline.json?t=${t}`).pipe(catchError(() => of([]))),
         misiones: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/guia-misiones-historia.json?t=${t}`).pipe(catchError(() => of([]))),
         extranos: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/extranos-locos.json?t=${t}`).pipe(catchError(() => of([]))),
-        negocios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/negocios-economia.json?t=${t}`).pipe(catchError(() => of([]))),
+        negocios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/bolsa.json?t=${t}`).pipe(catchError(() => of([]))),
         eventos: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/eventos-aleatorios.json?t=${t}`).pipe(catchError(() => of([]))),
         misterios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/misterios-guia-offline.json?t=${t}`).pipe(catchError(() => of([])))
       }).pipe(
@@ -77,9 +77,9 @@ export class GuiaService {
             },
             {
               id: 'negocios-economia',
-              titulo: 'Negocios y Bolsa',
+              titulo: 'Mercado Bursátil',
               icono: 'briefcase',
-              descripcion: 'Inversiones en bolsa con Lester y compra de propiedades en Los Santos.',
+              descripcion: 'Guía de finanzas, funcionamiento de LCN y BAWSAQ y especulación bursátil.',
               orden: 3,
               articulos: res.negocios.map(a => this.toResumen(a))
             },
@@ -94,7 +94,7 @@ export class GuiaService {
             {
               id: 'secretos-misterios',
               titulo: 'Misterios',
-              icono: 'eye',
+              icono: 'ghost',
               descripcion: 'El misterio de Mount Chiliad, los 4 OVNIs y el asesino de los 8 infinitos.',
               orden: 5,
               articulos: res.misterios.map(a => this.toResumen(a))
@@ -166,7 +166,7 @@ export class GuiaService {
           const jsonUrl = isPrologo
               ? 'assets/data/gta5/guia/offline/prologo-guia-offline.json?t=' + new Date().getTime()
               : isNegocios
-              ? 'assets/data/gta5/guia/offline/negocios-economia.json?t=' + new Date().getTime()
+              ? 'assets/data/gta5/guia/offline/bolsa.json?t=' + new Date().getTime()
               : isExtranos 
               ? 'assets/data/gta5/guia/offline/extranos-locos.json?t=' + new Date().getTime()
               : isMisterio

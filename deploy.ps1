@@ -8,6 +8,7 @@ Write-Host "Iniciando proceso de despliegue de GTA WORLD..." -ForegroundColor Cy
 
 # 1. Compilar Release
 Write-Host "1/4 Compilando frontend y backend..." -ForegroundColor Yellow
+Remove-Item -Path ./publish -Recurse -Force -ErrorAction SilentlyContinue
 dotnet publish GTAAPP.Server/GTAAPP.Server.csproj -c Release -o ./publish
 
 if ($LASTEXITCODE -ne 0) {

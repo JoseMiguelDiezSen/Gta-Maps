@@ -2548,6 +2548,396 @@
   box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
 }
 
+/* Epsilon: Azul Claro Epsilon (Kifflom) */
+.guide-chapter-card.personaje-epsilon {
+  border-left: 3px solid #38bdf8;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-epsilon .chapter-card-num {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+}
+.guide-chapter-card.personaje-epsilon .chapter-card-badge {
+  background: rgba(56, 189, 248, 0.22);
+  color: #e0f2fe;
+  border: 1px solid rgba(56, 189, 248, 0.55);
+}
+.guide-chapter-card.personaje-epsilon:hover {
+  border-left-color: #7dd3fc;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-epsilon.is-active {
+  border-left-color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.55);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.3);
+}
+
+/* Tonya: Naranja */
+.guide-chapter-card.personaje-tonya {
+  border-left: 3px solid #f97316;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-tonya .chapter-card-num {
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.18);
+  border: 1px solid rgba(249, 115, 22, 0.45);
+}
+.guide-chapter-card.personaje-tonya .chapter-card-badge {
+  background: rgba(249, 115, 22, 0.22);
+  color: #ffedd5;
+  border: 1px solid rgba(249, 115, 22, 0.55);
+}
+.guide-chapter-card.personaje-tonya:hover {
+  border-left-color: #fb923c;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-tonya.is-active {
+  border-left-color: #f97316;
+  border-color: rgba(249, 115, 22, 0.55);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.3);
+}
+
+/* Beverly Felton: Rosa Fuerte */
+.guide-chapter-card.personaje-beverly {
+  border-left: 3px solid #ec4899;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-beverly .chapter-card-num {
+  color: #f472b6;
+  background: rgba(236, 72, 153, 0.18);
+  border: 1px solid rgba(236, 72, 153, 0.45);
+}
+.guide-chapter-card.personaje-beverly .chapter-card-badge {
+  background: rgba(236, 72, 153, 0.22);
+  color: #fce7f3;
+  border: 1px solid rgba(236, 72, 153, 0.55);
+}
+.guide-chapter-card.personaje-beverly:hover {
+  border-left-color: #f472b6;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-beverly.is-active {
+  border-left-color: #ec4899;
+  border-color: rgba(236, 72, 153, 0.55);
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(236, 72, 153, 0.3);
+}
+
+/* Hao: Azul Eléctrico */
+.guide-chapter-card.personaje-hao {
+  border-left: 3px solid #00d2ff;
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-hao .chapter-card-num {
+  color: #00d2ff;
+  background: rgba(0, 210, 255, 0.18);
+  border: 1px solid rgba(0, 210, 255, 0.45);
+}
+.guide-chapter-card.personaje-hao .chapter-card-badge {
+  background: rgba(0, 210, 255, 0.22);
+  color: #e0f7ff;
+  border: 1px solid rgba(0, 210, 255, 0.55);
+}
+.guide-chapter-card.personaje-hao:hover {
+  border-left-color: #38e1ff;
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-hao.is-active {
+  border-left-color: #00d2ff;
+  border-color: rgba(0, 210, 255, 0.55);
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.3);
+}
+
+/* Barry: Verde Menta */
+.guide-chapter-card.personaje-barry {
+  border-left: 3px solid #10b981;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-barry .chapter-card-num {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+}
+.guide-chapter-card.personaje-barry .chapter-card-badge {
+  background: rgba(16, 185, 129, 0.22);
+  color: #d1fae5;
+  border: 1px solid rgba(16, 185, 129, 0.55);
+}
+.guide-chapter-card.personaje-barry:hover {
+  border-left-color: #34d399;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-barry.is-active {
+  border-left-color: #10b981;
+  border-color: rgba(16, 185, 129, 0.55);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.3);
+}
+
+/* Mary-Ann: Beige */
+.guide-chapter-card.personaje-maryann {
+  border-left: 3px solid #d4b895;
+  background: linear-gradient(135deg, rgba(212, 184, 149, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-maryann .chapter-card-num {
+  color: #e2cbaf;
+  background: rgba(212, 184, 149, 0.18);
+  border: 1px solid rgba(212, 184, 149, 0.45);
+}
+.guide-chapter-card.personaje-maryann .chapter-card-badge {
+  background: rgba(212, 184, 149, 0.22);
+  color: #fbf5ea;
+  border: 1px solid rgba(212, 184, 149, 0.55);
+}
+.guide-chapter-card.personaje-maryann:hover {
+  border-left-color: #e2cbaf;
+  background: linear-gradient(135deg, rgba(212, 184, 149, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-maryann.is-active {
+  border-left-color: #d4b895;
+  border-color: rgba(212, 184, 149, 0.55);
+  background: linear-gradient(135deg, rgba(212, 184, 149, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(212, 184, 149, 0.3);
+}
+
+/* Cletus: Dorado-Marrón / Marrón Militar (Coyote Tan) */
+.guide-chapter-card.personaje-cletus {
+  border-left: 3px solid #a16207;
+  background: linear-gradient(135deg, rgba(161, 98, 7, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-cletus .chapter-card-num {
+  color: #ca8a04;
+  background: rgba(161, 98, 7, 0.18);
+  border: 1px solid rgba(161, 98, 7, 0.45);
+}
+.guide-chapter-card.personaje-cletus .chapter-card-badge {
+  background: rgba(161, 98, 7, 0.22);
+  color: #fef3c7;
+  border: 1px solid rgba(161, 98, 7, 0.55);
+}
+.guide-chapter-card.personaje-cletus:hover {
+  border-left-color: #ca8a04;
+  background: linear-gradient(135deg, rgba(161, 98, 7, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-cletus.is-active {
+  border-left-color: #a16207;
+  border-color: rgba(161, 98, 7, 0.55);
+  background: linear-gradient(135deg, rgba(161, 98, 7, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(161, 98, 7, 0.3);
+}
+
+/* Dom Beasley: Amarillo */
+.guide-chapter-card.personaje-dom {
+  border-left: 3px solid #eab308;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-dom .chapter-card-num {
+  color: #fde047;
+  background: rgba(234, 179, 8, 0.18);
+  border: 1px solid rgba(234, 179, 8, 0.45);
+}
+.guide-chapter-card.personaje-dom .chapter-card-badge {
+  background: rgba(234, 179, 8, 0.22);
+  color: #fef9c3;
+  border: 1px solid rgba(234, 179, 8, 0.55);
+}
+.guide-chapter-card.personaje-dom:hover {
+  border-left-color: #facc15;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-dom.is-active {
+  border-left-color: #eab308;
+  border-color: rgba(234, 179, 8, 0.55);
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(234, 179, 8, 0.3);
+}
+
+/* Maude: Gris Algo Oscuro (Pizarra/Bail Bondsman) */
+.guide-chapter-card.personaje-maude {
+  border-left: 3px solid #64748b;
+  background: linear-gradient(135deg, rgba(71, 85, 105, 0.18) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-maude .chapter-card-num {
+  color: #94a3b8;
+  background: rgba(71, 85, 105, 0.32);
+  border: 1px solid rgba(100, 116, 139, 0.5);
+}
+.guide-chapter-card.personaje-maude .chapter-card-badge {
+  background: rgba(71, 85, 105, 0.38);
+  color: #e2e8f0;
+  border: 1px solid rgba(100, 116, 139, 0.55);
+}
+.guide-chapter-card.personaje-maude:hover {
+  border-left-color: #94a3b8;
+  background: linear-gradient(135deg, rgba(71, 85, 105, 0.26) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-maude.is-active {
+  border-left-color: #94a3b8;
+  border-color: rgba(100, 116, 139, 0.65);
+  background: linear-gradient(135deg, rgba(71, 85, 105, 0.35) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(71, 85, 105, 0.35);
+}
+
+/* Patrulla Fronteriza: Verde Oscuro */
+.guide-chapter-card.personaje-patrulla {
+  border-left: 3px solid #15803d;
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.14) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-patrulla .chapter-card-num {
+  color: #4ade80;
+  background: rgba(21, 128, 61, 0.22);
+  border: 1px solid rgba(22, 163, 74, 0.5);
+}
+.guide-chapter-card.personaje-patrulla .chapter-card-badge {
+  background: rgba(21, 128, 61, 0.28);
+  color: #dcfce7;
+  border: 1px solid rgba(22, 163, 74, 0.55);
+}
+.guide-chapter-card.personaje-patrulla:hover {
+  border-left-color: #22c55e;
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.22) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-patrulla.is-active {
+  border-left-color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.55);
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.3) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(21, 128, 61, 0.35);
+}
+
+/* Peter Dreyfuss: Color Vino / Burdeos (#9f1239) */
+.guide-chapter-card.personaje-dreyfuss {
+  border-left: 3px solid #9f1239;
+  background: linear-gradient(135deg, rgba(159, 18, 57, 0.16) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-dreyfuss .chapter-card-num {
+  color: #fb7185;
+  background: rgba(159, 18, 57, 0.22);
+  border: 1px solid rgba(225, 29, 72, 0.5);
+}
+.guide-chapter-card.personaje-dreyfuss .chapter-card-badge {
+  background: rgba(159, 18, 57, 0.28);
+  color: #ffe4e6;
+  border: 1px solid rgba(225, 29, 72, 0.55);
+}
+.guide-chapter-card.personaje-dreyfuss:hover {
+  border-left-color: #e11d48;
+  background: linear-gradient(135deg, rgba(159, 18, 57, 0.24) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-dreyfuss.is-active {
+  border-left-color: #e11d48;
+  border-color: rgba(225, 29, 72, 0.55);
+  background: linear-gradient(135deg, rgba(159, 18, 57, 0.32) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(159, 18, 57, 0.35);
+}
+
+/* Masacres de Trevor: Rojo Sangre */
+.guide-chapter-card.personaje-masacre {
+  border-left: 3px solid #b91c1c;
+  background: linear-gradient(135deg, rgba(185, 28, 28, 0.18) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-masacre .chapter-card-num {
+  color: #f87171;
+  background: rgba(185, 28, 28, 0.24);
+  border: 1px solid rgba(220, 38, 38, 0.55);
+}
+.guide-chapter-card.personaje-masacre .chapter-card-badge {
+  background: rgba(185, 28, 28, 0.3);
+  color: #fee2e2;
+  border: 1px solid rgba(220, 38, 38, 0.6);
+}
+.guide-chapter-card.personaje-masacre:hover {
+  border-left-color: #ef4444;
+  background: linear-gradient(135deg, rgba(185, 28, 28, 0.28) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-masacre.is-active {
+  border-left-color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.6);
+  background: linear-gradient(135deg, rgba(185, 28, 28, 0.35) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(185, 28, 28, 0.4);
+}
+
+/* Nigel y Sra. Thornhill: Rosa Claro (#f472b6) */
+.guide-chapter-card.personaje-nigel {
+  border-left: 3px solid #f472b6;
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.14) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-nigel .chapter-card-num {
+  color: #fbcfe8;
+  background: rgba(244, 114, 182, 0.18);
+  border: 1px solid rgba(244, 114, 182, 0.45);
+}
+.guide-chapter-card.personaje-nigel .chapter-card-badge {
+  background: rgba(244, 114, 182, 0.22);
+  color: #fdf2f8;
+  border: 1px solid rgba(244, 114, 182, 0.55);
+}
+.guide-chapter-card.personaje-nigel:hover {
+  border-left-color: #f9a8d4;
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.22) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-nigel.is-active {
+  border-left-color: #f472b6;
+  border-color: rgba(244, 114, 182, 0.55);
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(244, 114, 182, 0.3);
+}
+
+/* Abigail Mathers: Azul Océano (#0284c7) */
+.guide-chapter-card.personaje-abigail {
+  border-left: 3px solid #0284c7;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.16) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-abigail .chapter-card-num {
+  color: #7dd3fc;
+  background: rgba(2, 132, 199, 0.22);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+}
+.guide-chapter-card.personaje-abigail .chapter-card-badge {
+  background: rgba(2, 132, 199, 0.28);
+  color: #f0f9ff;
+  border: 1px solid rgba(56, 189, 248, 0.55);
+}
+.guide-chapter-card.personaje-abigail:hover {
+  border-left-color: #38bdf8;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.24) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-abigail.is-active {
+  border-left-color: #0284c7;
+  border-color: rgba(56, 189, 248, 0.6);
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.3) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(2, 132, 199, 0.35);
+}
+
+/* El Último (El Sasquatch): Blanco (#ffffff) */
+.guide-chapter-card.personaje-sasquatch {
+  border-left: 3px solid #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-sasquatch .chapter-card-num {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.guide-chapter-card.personaje-sasquatch .chapter-card-badge {
+  background: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+.guide-chapter-card.personaje-sasquatch:hover {
+  border-left-color: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-sasquatch.is-active {
+  border-left-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.26) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
 /* ====== MODO DÍA ====== */
 .wiki-shell.mode-day .guide-cat-card {
   background: #ffffff;
@@ -2708,6 +3098,232 @@
   background: #0f172a;
   color: #ffffff;
   border: 1px solid #0f172a;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-epsilon {
+  background: #f0f9ff;
+  border-left-color: #0284c7;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-epsilon .chapter-card-num {
+  color: #0284c7;
+  background: rgba(56, 189, 248, 0.18);
+  border: 1px solid #7dd3fc;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-epsilon .chapter-card-badge {
+  background: rgba(56, 189, 248, 0.18);
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-tonya {
+  background: #fff7ed;
+  border-left-color: #ea580c;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-tonya .chapter-card-num {
+  color: #c2410c;
+  background: rgba(249, 115, 22, 0.18);
+  border: 1px solid #fdba74;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-tonya .chapter-card-badge {
+  background: rgba(249, 115, 22, 0.18);
+  color: #9a3412;
+  border: 1px solid #fdba74;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-beverly {
+  background: #fdf2f8;
+  border-left-color: #db2777;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-beverly .chapter-card-num {
+  color: #be185d;
+  background: rgba(236, 72, 153, 0.18);
+  border: 1px solid #f472b6;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-beverly .chapter-card-badge {
+  background: rgba(236, 72, 153, 0.18);
+  color: #9d174d;
+  border: 1px solid #f472b6;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-hao {
+  background: #f0faff;
+  border-left-color: #0099cc;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-hao .chapter-card-num {
+  color: #0077aa;
+  background: rgba(0, 210, 255, 0.18);
+  border: 1px solid #66e0ff;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-hao .chapter-card-badge {
+  background: rgba(0, 210, 255, 0.18);
+  color: #005577;
+  border: 1px solid #66e0ff;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-barry {
+  background: #ecfdf5;
+  border-left-color: #059669;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-barry .chapter-card-num {
+  color: #047857;
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid #6ee7b7;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-barry .chapter-card-badge {
+  background: rgba(16, 185, 129, 0.18);
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-maryann {
+  background: #faf6f0;
+  border-left-color: #967854;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-maryann .chapter-card-num {
+  color: #785c37;
+  background: rgba(212, 184, 149, 0.25);
+  border: 1px solid #d4b895;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-maryann .chapter-card-badge {
+  background: rgba(212, 184, 149, 0.25);
+  color: #5c4324;
+  border: 1px solid #d4b895;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-cletus {
+  background: #fefce8;
+  border-left-color: #854d0e;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-cletus .chapter-card-num {
+  color: #713f12;
+  background: rgba(161, 98, 7, 0.18);
+  border: 1px solid #ca8a04;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-cletus .chapter-card-badge {
+  background: rgba(161, 98, 7, 0.18);
+  color: #713f12;
+  border: 1px solid #ca8a04;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-dom {
+  background: #fefce8;
+  border-left-color: #ca8a04;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-dom .chapter-card-num {
+  color: #854d0e;
+  background: rgba(234, 179, 8, 0.18);
+  border: 1px solid #facc15;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-dom .chapter-card-badge {
+  background: rgba(234, 179, 8, 0.18);
+  color: #713f12;
+  border: 1px solid #facc15;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-maude {
+  background: #f1f5f9;
+  border-left-color: #334155;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-maude .chapter-card-num {
+  color: #1e293b;
+  background: rgba(71, 85, 105, 0.22);
+  border: 1px solid #64748b;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-maude .chapter-card-badge {
+  background: rgba(71, 85, 105, 0.25);
+  color: #0f172a;
+  border: 1px solid #64748b;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-patrulla {
+  background: #f0fdf4;
+  border-left-color: #15803d;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-patrulla .chapter-card-num {
+  color: #14532d;
+  background: rgba(21, 128, 61, 0.18);
+  border: 1px solid #16a34a;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-patrulla .chapter-card-badge {
+  background: rgba(21, 128, 61, 0.2);
+  color: #14532d;
+  border: 1px solid #16a34a;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-dreyfuss {
+  background: #fff1f2;
+  border-left-color: #881337;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-dreyfuss .chapter-card-num {
+  color: #881337;
+  background: rgba(159, 18, 57, 0.15);
+  border: 1px solid #be123c;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-dreyfuss .chapter-card-badge {
+  background: rgba(159, 18, 57, 0.18);
+  color: #881337;
+  border: 1px solid #be123c;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-masacre {
+  background: #fef2f2;
+  border-left-color: #991b1b;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-masacre .chapter-card-num {
+  color: #991b1b;
+  background: rgba(185, 28, 28, 0.16);
+  border: 1px solid #dc2626;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-masacre .chapter-card-badge {
+  background: rgba(185, 28, 28, 0.2);
+  color: #7f1d1d;
+  border: 1px solid #dc2626;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-nigel {
+  background: #fdf2f8;
+  border-left-color: #db2777;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-nigel .chapter-card-num {
+  color: #9d174d;
+  background: rgba(244, 114, 182, 0.2);
+  border: 1px solid #f472b6;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-nigel .chapter-card-badge {
+  background: rgba(244, 114, 182, 0.22);
+  color: #831843;
+  border: 1px solid #f472b6;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-abigail {
+  background: #f0f9ff;
+  border-left-color: #0369a1;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-abigail .chapter-card-num {
+  color: #075985;
+  background: rgba(2, 132, 199, 0.18);
+  border: 1px solid #0284c7;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-abigail .chapter-card-badge {
+  background: rgba(2, 132, 199, 0.2);
+  color: #0c4a6e;
+  border: 1px solid #0284c7;
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-sasquatch {
+  background: #ffffff;
+  border-left-color: #475569;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-sasquatch .chapter-card-num {
+  color: #0f172a;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-sasquatch .chapter-card-badge {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #94a3b8;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .wiki-shell.mode-day .chapter-card-title {

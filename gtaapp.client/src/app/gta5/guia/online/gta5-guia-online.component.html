@@ -563,7 +563,7 @@
                   [style.--cat-accent]="getMissionAccentColor(m)"
                   (click)="seleccionarMision(m)"
                 >
-                  <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+                  <span class="chapter-card-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
 
                   <div class="chapter-card-info">
                     <span class="chapter-card-title">{{ m.title }}</span>
@@ -611,7 +611,7 @@
                 [style.--cat-accent]="categoriaMisionSeleccionada.color || getMissionAccentColor(m)"
                 (click)="seleccionarMision(m)"
               >
-                <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+                <span class="chapter-card-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
 
                 <div class="chapter-card-info">
                   <span class="chapter-card-title">{{ m.title }}</span>
@@ -1441,7 +1441,7 @@
             <div class="article-chapter-banner">
               <div class="chapter-banner-text">
                 <h1 class="article-main-title">{{ m.title }}</h1>
-                <p class="article-lead" *ngIf="m.giver">Contacto: <strong>{{ m.giver }}</strong></p>
+                <p class="article-lead">Misión #{{ m.order }} de 250<span *ngIf="m.giver"> · Contacto: <strong>{{ m.giver }}</strong></span></p>
               </div>
             </div>
           </header>

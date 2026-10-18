@@ -115,21 +115,20 @@ public class GuiaService : IGuiaService
             new()
             {
                 Id = "negocios-economia",
-                Titulo = "Negocios, Propiedades & Bolsa",
+                Titulo = "Mercado Bursátil",
                 Icono = "trending-up",
-                Descripcion = "Guía para maximizar ingresos semanales y alcanzar el límite de 2.147 millones.",
+                Descripcion = "Guía de finanzas, funcionamiento de LCN y BAWSAQ y especulación bursátil.",
                 Orden = 3,
                 Articulos = new List<GuiaArticuloResumen>
                 {
-                    new() { Id = "asesinatos-lester-bolsa", Slug = "asesinatos-lester-bolsa", Titulo = "Inversión en Bolsa con las Misiones de Lester", Subtitulo = "Cómo conseguir 2.147 millones de dólares con cada personaje", Categoria = "negocios-economia", Badge = "Dinero Infinito", TiempoLecturaMinutos = 8 },
-                    new() { Id = "guia-negocios-propiedades", Slug = "guia-negocios-propiedades", Titulo = "Guía de Negocios y Propiedades Comprables", Subtitulo = "Precios de compra, ingresos semanales y misiones de gestión", Categoria = "negocios-economia", Badge = "Inversiones", TiempoLecturaMinutos = 7 }
+                    new() { Id = "asesinatos-lester-bolsa", Slug = "asesinatos-lester-bolsa", Titulo = "El Mercado de Valores de Los Santos", Subtitulo = "Guía financiera, especulación corporativa y manipulación bursátil", Categoria = "negocios-economia", Badge = "Finanzas y Bolsa", TiempoLecturaMinutos = 6 }
                 }
             },
             new()
             {
                 Id = "secretos-misterios",
                 Titulo = "Secretos, Easter Eggs & Misterios",
-                Icono = "sparkles",
+                Icono = "ghost",
                 Descripcion = "El misterio de Mount Chiliad, OVNIS, el Fantasma de Mount Gordo y el Asesino de los 8 Infinitos.",
                 Orden = 4,
                 Articulos = new List<GuiaArticuloResumen>
