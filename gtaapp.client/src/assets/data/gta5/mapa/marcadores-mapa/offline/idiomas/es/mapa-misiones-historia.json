@@ -35,7 +35,7 @@
   {
     "id": "mission-03",
     "order": 3,
-    "title": "Reposesión",
+    "title": "Embargo (Repossession)",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
     "category": "Historia",
@@ -52,7 +52,7 @@
   {
     "id": "mission-04",
     "order": 4,
-    "title": "Complicaciones",
+    "title": "Complicaciones (Complications)",
     "character": "Franklin, Michael",
     "giver": "Simeon Yetarian",
     "category": "Historia",
@@ -68,22 +68,6 @@
   {
     "id": "mission-05",
     "order": 5,
-    "title": "Padre e hijo",
-    "character": "Michael, Franklin",
-    "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "Una fallida venta online termina con el barco familiar de Michael secuestrado en plena autopista con Jimmy en su interior. Michael y Franklin inician una persecución desesperada en el deportivo de Amanda, donde Franklin debe saltar en marcha sobre el remolque para poner a salvo al joven.",
-    "goldRequirements": [
-      "Rescatar a Jimmy en menos de 10 segundos tras quedar colgado de la botavara",
-      "Devolver el coche de Amanda a Los Santos Customs sin daños adicionales",
-      "Completar en menos de 07:00"
-    ],
-    "reward": "Desbloquea Los Santos Customs gratis para Franklin",
-    "unlockedBy": "Complicaciones"
-  },
-  {
-    "id": "mission-06",
-    "order": 6,
     "title": "Chop",
     "character": "Franklin",
     "giver": "Lamar Davis",
@@ -96,6 +80,22 @@
     ],
     "reward": "Chop como compañero de Franklin",
     "unlockedBy": "Franklin y Lamar"
+  },
+  {
+    "id": "mission-06",
+    "order": 6,
+    "title": "Padre e hijo",
+    "character": "Michael, Franklin",
+    "giver": "Michael De Santa",
+    "category": "Historia",
+    "description": "Una fallida venta online termina con el barco familiar de Michael secuestrado en plena autopista con Jimmy en su interior. Michael y Franklin inician una persecución desesperada en el deportivo de Amanda, donde Franklin debe saltar en marcha sobre el remolque para poner a salvo al joven.",
+    "goldRequirements": [
+      "Rescatar a Jimmy en menos de 10 segundos tras quedar colgado de la botavara",
+      "Devolver el coche de Amanda a Los Santos Customs sin daños adicionales",
+      "Completar en menos de 07:00"
+    ],
+    "reward": "Desbloquea Los Santos Customs gratis para Franklin",
+    "unlockedBy": "Complicaciones"
   },
   {
     "id": "mission-07",
@@ -116,9 +116,9 @@
   {
     "id": "mission-08",
     "order": 8,
-    "title": "La niñita de papá",
+    "title": "La niña de papá",
     "character": "Michael",
-    "giver": "Jimmy De Santa",
+    "giver": "Michael De Santa",
     "category": "Historia",
     "description": "Salida familiar en bicicleta entre Vespucci y el embarcadero de Del Perro que se tuerce al descubrir que Tracey se encuentra en un barco privado en compañía turbia. Michael se lanza al agua y utiliza una moto acuática para extraer a su hija y huir por el entramado de canales esquivando disparos.",
     "goldRequirements": [
@@ -148,7 +148,7 @@
   {
     "id": "mission-10",
     "order": 10,
-    "title": "La carrera larga",
+    "title": "El largo trecho",
     "character": "Franklin",
     "giver": "Lamar Davis",
     "category": "Historia",
@@ -165,10 +165,10 @@
   {
     "id": "mission-11",
     "order": 11,
-    "title": "Vigilando la joyería",
+    "title": "Caso joyero",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Golpes",
+    "category": "Historia",
     "description": "Fase de reconocimiento táctico en la joyería Vangelico de Rockford Hills. Equipado con una microcámara oculta, Michael documenta rejillas de ventilación, sensores y terminales de alarma. Posteriormente, en el almacén de Lester se elige la táctica del atraco: incursión sigilosa con gas somnífero o asalto frontal con fuerza bruta.",
     "goldRequirements": [
       "Tiempo de misión inferior a 08:00",
@@ -180,10 +180,38 @@
   {
     "id": "mission-12",
     "order": 12,
+    "title": "Equipo de Bugstars",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "Preparación",
+    "description": "Robar una furgoneta de exterminadores de plagas (Bugstars) en el puerto para utilizarla como caballo de Troya durante el atraco a Vangelico.",
+    "goldRequirements": [
+      "Robar la furgoneta de Bugstars sin ser detectado"
+    ],
+    "reward": "Furgoneta y disfraces asegurados para el Golpe (Enfoque Inteligente).",
+    "unlockedBy": "Caso joyero"
+  },
+  {
+    "id": "mission-13",
+    "order": 13,
+    "title": "Granadas de gas BZ",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "Preparación",
+    "description": "Interceptar un furgón de la compañía Humane Labs que transporta gas nervioso BZ y asegurar la carga para el atraco a la joyería.",
+    "goldRequirements": [
+      "Disparar a las puertas traseras del furgón para que caiga la mercancía"
+    ],
+    "reward": "Gas BZ asegurado para neutralizar civiles en el Golpe (Enfoque Inteligente).",
+    "unlockedBy": "Equipo de Bugstars"
+  },
+  {
+    "id": "mission-14",
+    "order": 14,
     "title": "El golpe a la joyería",
     "character": "Michael, Franklin",
     "giver": "Lester Crest",
-    "category": "Golpes",
+    "category": "Golpe",
     "description": "Atraco cronometrado al establecimiento Vangelico. La cuadrilla arrasa las vitrinas antes del aviso a la policía y escapa en motos de cross por los túneles subterráneos del tranvía hasta desembocar en el canal del río, donde un vehículo pesado barre a las patrullas para asegurar la retirada.",
     "goldRequirements": [
       "Robar los expositores en menos de 50 segundos",
@@ -194,8 +222,8 @@
     "unlockedBy": "Vigilando la joyería"
   },
   {
-    "id": "mission-13",
-    "order": 13,
+    "id": "mission-15",
+    "order": 15,
     "title": "El señor Philips",
     "character": "Trevor",
     "giver": "Trevor Philips",
@@ -211,8 +239,8 @@
     "unlockedBy": "El golpe a la joyería"
   },
   {
-    "id": "mission-14",
-    "order": 14,
+    "id": "mission-16",
+    "order": 16,
     "title": "Industrias Trevor Philips",
     "character": "Trevor",
     "giver": "Trevor Philips",
@@ -227,8 +255,8 @@
     "unlockedBy": "El señor Philips"
   },
   {
-    "id": "mission-15",
-    "order": 15,
+    "id": "mission-17",
+    "order": 17,
     "title": "Ron el nervioso",
     "character": "Trevor",
     "giver": "Ron Jakowski",
@@ -244,8 +272,8 @@
     "unlockedBy": "Industrias Trevor Philips"
   },
   {
-    "id": "mission-16",
-    "order": 16,
+    "id": "mission-18",
+    "order": 18,
     "title": "Laberinto de cristal",
     "character": "Trevor",
     "giver": "Trevor Philips",
@@ -260,9 +288,9 @@
     "unlockedBy": "Industrias Trevor Philips"
   },
   {
-    "id": "mission-17",
-    "order": 17,
-    "title": "Reencuentro con amigos",
+    "id": "mission-19",
+    "order": 19,
+    "title": "Reencuentro",
     "character": "Trevor",
     "giver": "Trevor Philips",
     "category": "Historia",
@@ -276,11 +304,11 @@
     "unlockedBy": "Laberinto de cristal"
   },
   {
-    "id": "mission-18",
-    "order": 18,
-    "title": "Fama o infamia",
+    "id": "mission-20",
+    "order": 20,
+    "title": "Fama o drama",
     "character": "Michael, Trevor",
-    "giver": "Michael De Santa",
+    "giver": "Amanda / Tracey",
     "category": "Historia",
     "description": "El reencuentro cara a cara entre Michael y Trevor queda eclipsado al enterarse de la audición de Tracey en el concurso de televisión Fame or Shame. Ambos acuden al Maze Bank Arena, detienen la grabación y acorralan al presentador Lazlow Jones tras una persecución con un camión por el cauce urbano.",
     "goldRequirements": [
@@ -293,8 +321,26 @@
     "unlockedBy": "Reencuentro con amigos"
   },
   {
-    "id": "mission-19",
-    "order": 19,
+    "id": "mission-21",
+    "order": 21,
+    "title": "El muerto viviente",
+    "character": "Michael",
+    "giver": "FIB (Dave Norton)",
+    "category": "Historia",
+    "description": "Dave Norton obliga a Michael a trabajar para el FIB como chantaje por su regreso a la vida delictiva. Despertar dentro de la morgue tras fingir la muerte, buscar las credenciales de Ferdinand Kerimov y escapar de las instalaciones asediadas por la IAA.",
+    "goldRequirements": [
+      "Terminar con una precisión de tiro de al menos el 80%",
+      "Conseguir 14 tiros a la cabeza",
+      "Terminar en menos de 09:30",
+      "Matar a 4 enemigos usando la habilidad especial",
+      "Recibir daño mínimo"
+    ],
+    "reward": "Desbloqueo de misiones para el FIB.",
+    "unlockedBy": "Fama o drama"
+  },
+  {
+    "id": "mission-22",
+    "order": 22,
     "title": "Tres son multitud",
     "character": "Michael, Franklin, Trevor",
     "giver": "Dave Norton (FIB)",
@@ -309,11 +355,11 @@
     "unlockedBy": "Fama o infamia"
   },
   {
-    "id": "mission-20",
-    "order": 20,
-    "title": "Con la ley hemos topado",
+    "id": "mission-23",
+    "order": 23,
+    "title": "De libro",
     "character": "Michael, Trevor",
-    "giver": "Steve Haines (FIB)",
+    "giver": "Steve Haines",
     "category": "Historia",
     "description": "Interrogatorio en los muelles de Los Santos bajo supervisión de los agentes Steve Haines y Dave Norton. A medida que se obtienen datos sobre el sospechoso, Michael vigila una fiesta privada en las colinas de Chumash para identificar y abatir al objetivo sin levantar sospechas.",
     "goldRequirements": [
@@ -325,8 +371,8 @@
     "unlockedBy": "Tres son multitud"
   },
   {
-    "id": "mission-21",
-    "order": 21,
+    "id": "mission-24",
+    "order": 24,
     "title": "Safari por el barrio",
     "character": "Franklin, Trevor",
     "giver": "Franklin Clinton",
@@ -341,12 +387,73 @@
     "unlockedBy": "Tres son multitud"
   },
   {
-    "id": "mission-22",
-    "order": 22,
-    "title": "El golpe de Merryweather",
+    "id": "mission-25",
+    "order": 25,
+    "title": "¿Alguien dijo yoga?",
+    "character": "Michael",
+    "giver": "Amanda De Santa",
+    "category": "Historia",
+    "description": "Soportar una sesión de yoga con el instructor Fabien, lidiar con la traición de Jimmy e intentar sobrevivir a un mal viaje de anestésicos.",
+    "goldRequirements": [
+      "Terminar en menos de 15:00",
+      "Completar cada una de las 3 posturas de yoga sin errores"
+    ],
+    "reward": "Amanda, Jimmy y Tracey abandonan la casa. Michael pierde el acceso temporal a sus vehículos personales.",
+    "unlockedBy": "Safari por el barrio"
+  },
+  {
+    "id": "mission-26",
+    "order": 26,
+    "title": "Reconocimiento del puerto",
+    "character": "Trevor",
+    "giver": "Floyd",
+    "category": "Historia",
+    "description": "Trevor presiona a Wade y a su primo Floyd (trabajador portuario) para organizar un atraco de proporciones paramilitares. Infiltrarse en las instalaciones portuarias operadas por Merryweather Security, disfrazado de estibador, para localizar un dispositivo de tecnología avanzada y planificar su robo.",
+    "goldRequirements": [
+      "Terminar la misión en menos de 20:00",
+      "Completar la sección de estibador sin dañar los contenedores",
+      "Hacer las fotos del barco de forma correcta a la primera",
+      "Terminar todo el trabajo portuario sin causar altercados"
+    ],
+    "reward": "Se desbloquean las misiones de preparación para el golpe a Merryweather.",
+    "unlockedBy": "¿Alguien dijo yoga?"
+  },
+  {
+    "id": "mission-27",
+    "order": 27,
+    "title": "Minisubmarino",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "Preparación",
+    "description": "Robar un minisubmarino experimental de un buque de exploración atracado en el puerto. Es necesario sin importar el enfoque elegido para el golpe a Merryweather.",
+    "goldRequirements": [
+      "Terminar en menos de 08:30",
+      "Robar el submarino sin subir a bordo del barco civil"
+    ],
+    "reward": "Submarino asegurado para cualquiera de los dos enfoques del golpe.",
+    "unlockedBy": "Reconocimiento del puerto"
+  },
+  {
+    "id": "mission-28",
+    "order": 28,
+    "title": "Cargobob",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "Preparación",
+    "description": "Infiltrarse en la base militar de máxima seguridad (Fort Zancudo) y robar un helicóptero de transporte pesado militar (Cargobob) capaz de izar el minisubmarino.",
+    "goldRequirements": [
+      "Terminar en menos de 05:30"
+    ],
+    "reward": "Helicóptero de carga asegurado para el Enfoque Alta Mar.",
+    "unlockedBy": "Minisubmarino"
+  },
+  {
+    "id": "mission-29",
+    "order": 29,
+    "title": "El golpe a Merryweather",
     "character": "Michael, Franklin, Trevor",
     "giver": "Trevor Philips",
-    "category": "Golpes",
+    "category": "Golpe",
     "description": "Operativo contra los convoyes de la corporación militar Merryweather. Utilizando un sumergible y un helicóptero de carga pesada, el equipo recupera un dispositivo militar sumergido en aguas profundas, que finalmente debe ser restituido por orden de Lester para eludir represalias gubernamentales.",
     "goldRequirements": [
       "Completar en menos de 14:30",
@@ -357,28 +464,43 @@
     "unlockedBy": "Safari por el barrio"
   },
   {
-    "id": "mission-23",
-    "order": 23,
-    "title": "Asesinato en el hotel",
-    "character": "Franklin",
-    "giver": "Lester Crest",
-    "category": "Asesinatos",
-    "description": "Contrato de eliminación encargado por Lester para incidir en la cotización bursátil. Franklin toma posición frente al hotel Von Crastenburg en Rockford Hills y neutraliza al ejecutivo de Bilkinton Research antes de que su comitiva abandone el lugar.",
+    "id": "mission-30",
+    "order": 30,
+    "title": "Camión de la basura",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "Preparación",
+    "description": "Localizar y robar un camión de la basura activo de la flota municipal ('Trashmaster') que servirá como barricada pesada para emboscar el furgón blindado en el golpe.",
     "goldRequirements": [
-      "Tiempo de misión menor a 05:00",
-      "Matar al objetivo usando un rifle de francotirador",
-      "Dinero obtenido al invertir previamente en Betta Pharmaceuticals"
+      "Terminar en menos de 05:00",
+      "Entregar el camión sin daños",
+      "Alcanzar la velocidad máxima"
     ],
-    "reward": "$9.000 + inmensos beneficios en bolsa",
-    "unlockedBy": "Fama o infamia"
+    "reward": "Vehículo de bloqueo asegurado para el golpe 'El buzo'.",
+    "unlockedBy": "El golpe a Merryweather"
   },
   {
-    "id": "mission-24",
-    "order": 24,
-    "title": "Jugada relámpago",
+    "id": "mission-31",
+    "order": 31,
+    "title": "Grúa",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Golpes",
+    "giver": "FIB / Steve Haines",
+    "category": "Preparación",
+    "description": "Robar una grúa remolcadora que se utilizará para derribar las puertas traseras del furgón blindado durante la operación 'El buzo' (Blitz Play).",
+    "goldRequirements": [
+      "Terminar en menos de 03:00",
+      "Entregar la grúa sin daños"
+    ],
+    "reward": "Vehículo de huida/embestida asegurado para el golpe 'El buzo'.",
+    "unlockedBy": "Camión de la basura"
+  },
+  {
+    "id": "mission-32",
+    "order": 32,
+    "title": "El buzo (Blitz Play)",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Steve Haines",
+    "category": "Historia",
     "description": "Atraco táctico contra un blindado en la zona industrial de Cypress Flats. Se corta la vía con un vehículo pesado, se inutiliza el furgón con una grúa de arrastre y se revientan los accesos con explosivos, conteniendo a las unidades tácticas hasta alcanzar el punto de transbordo.",
     "goldRequirements": [
       "Derribar el helicóptero usando a Trevor",
@@ -390,10 +512,27 @@
     "unlockedBy": "Asesinato en el hotel"
   },
   {
-    "id": "mission-25",
-    "order": 25,
-    "title": "Me enfrenté a la ley...",
-    "character": "Michael, Franklin, Trevor",
+    "id": "mission-33",
+    "order": 33,
+    "title": "El señor Richards",
+    "character": "Michael",
+    "giver": "Solomon Richards",
+    "category": "Historia",
+    "description": "Intimidar al actor principal y al director de la última película de Solomon Richards para que vuelvan al rodaje usando tácticas de vuelo temerario.",
+    "goldRequirements": [
+      "Terminar en menos de 10:00",
+      "Matar a 3 enemigos sigilosamente",
+      "No sufrir daño durante la pelea",
+      "Aterrizar el helicóptero sin dañarlo"
+    ],
+    "reward": "Se inicia la colaboración cinematográfica entre Michael y Solomon.",
+    "unlockedBy": "El buzo (Blitz Play)"
+  },
+  {
+    "id": "mission-34",
+    "order": 34,
+    "title": "Enfrentamiento con la ley...",
+    "character": "Franklin, Michael, Trevor",
     "giver": "Devin Weston",
     "category": "Historia",
     "description": "Encargo especial del magnate Devin Weston para requisar dos vehículos exóticos. Haciéndose pasar por agentes de tráfico en motocicletas patrulla, Michael y Trevor interceptan a los conductores en la autovía costera y se baten en una carrera para entregarlos en el taller convenido.",
@@ -406,12 +545,124 @@
     "unlockedBy": "Jugada relámpago"
   },
   {
-    "id": "mission-26",
-    "order": 26,
-    "title": "Golpe a Paleto Bay",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "FIB / Lester",
-    "category": "Golpes",
+    "id": "mission-35",
+    "order": 35,
+    "title": "El ojo en el cielo",
+    "character": "Trevor, Franklin",
+    "giver": "Devin Weston",
+    "category": "Historia",
+    "description": "Escanear los distritos residenciales usando los sensores térmicos avanzados y reconocimiento facial de un helicóptero policial para robar un valioso Z-Type (Coche clásico de hiperlujo).",
+    "goldRequirements": [
+      "Encontrar el objetivo a la primera oportunidad",
+      "Entregar el Z-Type sin un solo rasguño",
+      "Escuchar 3 conversaciones policiales/civiles completas"
+    ],
+    "reward": "Se desbloquean más coches de la lista negra de Devin.",
+    "unlockedBy": "Enfrentamiento con la ley..."
+  },
+  {
+    "id": "mission-36",
+    "order": 36,
+    "title": "Caída libre",
+    "character": "Michael, Trevor",
+    "giver": "Martín Madrazo",
+    "category": "Historia",
+    "description": "Asesinar al primo de Martín Madrazo (Javier) derribando su jet privado en pleno vuelo con artillería pesada y recuperar unos documentos incriminatorios.",
+    "goldRequirements": [
+      "Alcanzar la máxima velocidad en la moto Sánchez",
+      "No caerse de la moto Sánchez durante la persecución",
+      "Derribar el avión con 3 disparos",
+      "Terminar en menos de 09:45"
+    ],
+    "reward": "Michael y Trevor son exiliados de Los Santos. Se desbloquea el piso franco de Sandy Shores.",
+    "unlockedBy": "El ojo en el cielo"
+  },
+  {
+    "id": "mission-37",
+    "order": 37,
+    "title": "En el fondo del mar",
+    "character": "Franklin",
+    "giver": "Devin Weston",
+    "category": "Historia",
+    "description": "Infiltrarse en un rodaje de cine y robar un Aston Martin modificado (Dewbauchee JB 700) equipado con armamento real y artilugios de espía.",
+    "goldRequirements": [
+      "Entregar el JB 700 con daños mínimos",
+      "Alcanzar la velocidad máxima en el JB 700",
+      "Noquear al actor de forma sigilosa",
+      "Eyectar al pasajero en menos de 10 segundos"
+    ],
+    "reward": "Nueva entrega para el garaje de Devin Weston.",
+    "unlockedBy": "Caída libre"
+  },
+  {
+    "id": "mission-38",
+    "order": 38,
+    "title": "Pasajero clandestino",
+    "character": "Trevor",
+    "giver": "Ron Jakowski",
+    "category": "Historia",
+    "description": "Abordar un avión de carga de Merryweather en pleno vuelo, tomar el control de la aeronave y sobrevivir al contraataque de los cazas de la base militar.",
+    "goldRequirements": [
+      "Terminar con al menos un 80% de precisión",
+      "Salir del avión de carga conduciendo el todoterreno Mesa"
+    ],
+    "reward": "Ninguna. Todo el cargamento se hunde en Alamo Sea.",
+    "unlockedBy": "En el fondo del mar"
+  },
+  {
+    "id": "mission-39",
+    "order": 39,
+    "title": "El bloqueo",
+    "character": "Michael, Trevor",
+    "giver": "Lester Crest",
+    "category": "Preparación",
+    "description": "Primer plan conjunto diseñado directamente por Lester y Trevor desde la caravana. Realizar un sondeo y activar la alarma del banco rural de Paleto Bay para medir la fuerza de respuesta táctica de la policía local.",
+    "goldRequirements": [
+      "Conducir hasta el banco en menos de 03:30",
+      "Ganar la carrera de vuelta al laboratorio"
+    ],
+    "reward": "Se inician los preparativos para el Golpe de Paleto.",
+    "unlockedBy": "Pasajero clandestino"
+  },
+  {
+    "id": "mission-40",
+    "order": 40,
+    "title": "Depredador",
+    "character": "Trevor, Michael, Franklin",
+    "giver": "Trevor Philips",
+    "category": "Historia",
+    "description": "Perseguir y aniquilar a los hermanos O'Neil que han sobrevivido y se esconden en el denso bosque de Raton Canyon.",
+    "goldRequirements": [
+      "Terminar con al menos un 70% de precisión",
+      "Terminar en menos de 09:00",
+      "Conseguir 3 tiros a la cabeza",
+      "No matar a ningún animal"
+    ],
+    "reward": "Ninguna. Venganza y eliminación de los hermanos O'Neil restantes.",
+    "unlockedBy": "El bloqueo"
+  },
+  {
+    "id": "mission-41",
+    "order": 41,
+    "title": "Material militar",
+    "character": "Trevor, Michael, Franklin",
+    "giver": "Lester Crest",
+    "category": "Preparación",
+    "description": "Emboscar a un convoy militar para robar un camión que transporta trajes militares antibalas de cuerpo completo y ametralladoras rotativas (Minigun).",
+    "goldRequirements": [
+      "Matar a 5 soldados con tiros a la cabeza",
+      "Detener el convoy usando una bomba adhesiva"
+    ],
+    "reward": "Blindaje y armamento pesado asegurado para el Golpe de Paleto.",
+    "unlockedBy": "Depredador"
+  },
+  {
+    "id": "mission-42",
+    "order": 42,
+    "title": "El golpe de Paleto",
+    "character": "Michael, Trevor, Franklin",
+    "giver": "Lester Crest",
+    "category": "Golpe",
     "description": "Asalto armado a la entidad bancaria de Paleto Bay con armamento pesado y trajes balísticos integrales. El equipo resiste el cerco conjunto de fuerzas especiales y militares hasta la llegada de Franklin con maquinaria pesada para abrir paso hacia las vías del tren.",
     "goldRequirements": [
       "Disparar más de 4.000 proyectiles",
@@ -423,8 +674,8 @@
     "unlockedBy": "Me enfrenté a la ley..."
   },
   {
-    "id": "mission-27",
-    "order": 27,
+    "id": "mission-43",
+    "order": 43,
     "title": "Descarrilado",
     "character": "Michael, Trevor",
     "giver": "Trevor Philips",
@@ -439,8 +690,179 @@
     "unlockedBy": "Golpe a Paleto Bay"
   },
   {
-    "id": "mission-28",
-    "order": 28,
+    "id": "mission-44",
+    "order": 44,
+    "title": "El mono se la gana (Monkey Business)",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Steve Haines",
+    "category": "Historia",
+    "description": "Infiltrarse en las instalaciones de alta seguridad de Humane Labs por los conductos acuáticos para robar una toxina nerviosa experimental para el FIB.",
+    "goldRequirements": [
+      "Aturdir a 8 enemigos con la pistola taser",
+      "Conseguir 15 tiros a la cabeza",
+      "Terminar con al menos un 70% de precisión",
+      "Terminar en menos de 13:30"
+    ],
+    "reward": "Se salda el acuerdo con Haines. Madrazo detiene la persecución.",
+    "unlockedBy": "Descarrilado"
+  },
+  {
+    "id": "mission-45",
+    "order": 45,
+    "title": "Hang Ten",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "Historia",
+    "description": "Con la situación insostenible en el piso franco y la tensión entre los protagonistas, Trevor necesita una nueva base independiente para planificar el 'Gran Golpe'. Ejecutar un cierre violento a la relación de Trevor con Floyd y Debra, y adquirir a la fuerza un nuevo cuartel general en Los Santos.",
+    "goldRequirements": [
+      "Terminar en menos de 04:00"
+    ],
+    "reward": "Trevor toma control del club de striptease Vanilla Unicorn, que se convierte en su piso franco en LS.",
+    "unlockedBy": "El mono se la gana (Monkey Business)"
+  },
+  {
+    "id": "mission-46",
+    "order": 46,
+    "title": "Investigando el golpe",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Lester Crest",
+    "category": "Golpe",
+    "description": "Realizar un análisis de vulnerabilidades, medir tiempos de respuesta y localizar puntos de acceso en el Banco de la Reserva Federal ('Union Depository').",
+    "goldRequirements": [
+      "Seguir a los furgones sin que te adviertan sobre la distancia",
+      "Encontrar el agujero de construcción en menos de 20 segundos",
+      "Volar bajo el puente rastreando a los furgones y pasar por un túnel"
+    ],
+    "reward": "Planificación oficial del Gran Golpe (Sutil o Obvio).",
+    "unlockedBy": "Hang Ten"
+  },
+  {
+    "id": "mission-47",
+    "order": 47,
+    "title": "Enterrando el hacha de guerra",
+    "character": "Michael, Trevor",
+    "giver": "Michael De Santa",
+    "category": "Historia",
+    "description": "Viajar a Ludendorff (North Yankton) bajo la nieve para desenterrar la tumba de 'Michael Townley' y sobrevivir a una emboscada del cártel de Wei Cheng.",
+    "goldRequirements": [
+      "Terminar en menos de 11:00",
+      "Conseguir 20 tiros a la cabeza",
+      "Terminar con al menos un 80% de precisión"
+    ],
+    "reward": "Ruptura temporal de la tripulación; Trevor descubre la verdad sobre Brad.",
+    "unlockedBy": "Investigando el golpe"
+  },
+  {
+    "id": "mission-48",
+    "order": 48,
+    "title": "Secuestrador (Pack Man)",
+    "character": "Franklin, Trevor",
+    "giver": "Devin Weston",
+    "category": "Historia",
+    "description": "Transportar el lote de hipercoches de lujo robados en un camión portacoches ('Packer') hasta el punto de entrega en Paleto Bay, evadiendo una persecución del LSPD.",
+    "goldRequirements": [
+      "Terminar en menos de 12:00",
+      "Entregar el JB 700 con daños mínimos",
+      "Destruir 3 coches de policía usando las púas"
+    ],
+    "reward": "Ninguna. Weston se niega a pagar a los protagonistas.",
+    "unlockedBy": "Enterrando el hacha de guerra"
+  },
+  {
+    "id": "mission-49",
+    "order": 49,
+    "title": "Carne fresca",
+    "character": "Franklin, Michael",
+    "giver": "Franklin Clinton",
+    "category": "Historia",
+    "description": "Rastrear la señal del teléfono de Michael, irrumpir en una fábrica procesadora de carne (Raven Abattoir) y masacrar a las Tríadas para salvarle la vida.",
+    "goldRequirements": [
+      "No cambiar de personaje más de 3 veces",
+      "10 tiros a la cabeza y 70% de precisión mínima",
+      "Rescatar a Michael en menos de 03:30",
+      "No usar puntos de ruta (waypoint) en el mapa"
+    ],
+    "reward": "Michael es rescatado y el contacto con Lester se retoma.",
+    "unlockedBy": "Secuestrador (Pack Man)"
+  },
+  {
+    "id": "mission-50",
+    "order": 50,
+    "title": "La balada de Rocco",
+    "character": "Michael",
+    "giver": "Solomon Richards",
+    "category": "Historia",
+    "description": "Eliminar definitivamente a Rocco Pelosi (el mafioso de Liberty City) tras haber asaltado físicamente a Solomon Richards en los estudios de cine.",
+    "goldRequirements": [
+      "Terminar la misión en menos de 03:00"
+    ],
+    "reward": "Michael es listado como Productor Asociado en la película de Solomon.",
+    "unlockedBy": "Carne fresca"
+  },
+  {
+    "id": "mission-51",
+    "order": 51,
+    "title": "Limpiando el FIB",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "Historia",
+    "description": "Rastrear y obtener los uniformes e identificaciones del personal de limpieza del FIB para poder infiltrarse y borrar los archivos incriminatorios de Steve Haines.",
+    "goldRequirements": [
+      "Comprobar todas las matrículas del aparcamiento",
+      "Seguir al conserje sin ser detectado",
+      "Terminar en menos de 09:00"
+    ],
+    "reward": "Planificación oficial del asalto al FIB.",
+    "unlockedBy": "La balada de Rocco"
+  },
+  {
+    "id": "mission-52",
+    "order": 52,
+    "title": "Reuniendo a la familia",
+    "character": "Michael",
+    "giver": "Jimmy De Santa",
+    "category": "Historia",
+    "description": "Reunir a Amanda, Tracey y Jimmy tras los meses de separación, lidiando con sus respectivos problemas para reconstruir la unidad familiar.",
+    "goldRequirements": [
+      "Terminar en menos de 10:30"
+    ],
+    "reward": "La familia De Santa vuelve a la mansión. Los vehículos familiares vuelven a estar disponibles.",
+    "unlockedBy": "Limpiando el FIB"
+  },
+  {
+    "id": "mission-53",
+    "order": 53,
+    "title": "Arquitecto para todo",
+    "character": "Franklin",
+    "giver": "Lester Crest",
+    "category": "Preparación",
+    "description": "Robar los planos arquitectónicos de la sede del FIB que porta el arquitecto principal de la obra de ampliación para encontrar fisuras en su seguridad.",
+    "goldRequirements": [
+      "Abandonar el área de construcción en menos de 45 segundos tras robar el maletín"
+    ],
+    "reward": "Planos del edificio asegurados para el Golpe al FIB.",
+    "unlockedBy": "Reuniendo a la familia"
+  },
+  {
+    "id": "mission-54",
+    "order": 54,
+    "title": "Problemas legales",
+    "character": "Michael",
+    "giver": "Solomon Richards",
+    "category": "Historia",
+    "description": "Detener al multimillonario Devin Weston y sus abogados, que han robado la única cinta original de la película para cobrar el seguro y hundir a Solomon.",
+    "goldRequirements": [
+      "Terminar en menos de 05:30",
+      "Alcanzar la velocidad máxima",
+      "Perder el nivel de búsqueda en menos de 2 minutos",
+      "Ver la cámara de noticias (Weazel News) durante 15 segundos"
+    ],
+    "reward": "Eliminación de la amenaza sobre la película 'Cataclismo'.",
+    "unlockedBy": "Arquitecto para todo"
+  },
+  {
+    "id": "mission-55",
+    "order": 55,
     "title": "Asalto al FIB",
     "character": "Michael, Franklin",
     "giver": "Steve Haines",
@@ -456,11 +878,11 @@
     "unlockedBy": "Descarrilado"
   },
   {
-    "id": "mission-29",
-    "order": 29,
-    "title": "Problemas con los federales",
+    "id": "mission-56",
+    "order": 56,
+    "title": "El enredo (The Wrap Up)",
     "character": "Michael, Trevor",
-    "giver": "Dave Norton",
+    "giver": "Dave Norton / Steve Haines",
     "category": "Historia",
     "description": "Cita en el complejo Kortz Center que deriva en un tiroteo a tres bandas entre divisiones enfrentadas del FIB, la IAA y tropas privadas. Michael queda cercado entre las terrazas del museo hasta la oportuna aparición de Trevor desde posiciones elevadas.",
     "goldRequirements": [
@@ -472,11 +894,11 @@
     "unlockedBy": "Asalto al FIB"
   },
   {
-    "id": "mission-30",
-    "order": 30,
-    "title": "Lamar en problemas",
+    "id": "mission-57",
+    "order": 57,
+    "title": "Lamar de problemas",
     "character": "Franklin, Michael, Trevor",
-    "giver": "Tanisha Jackson",
+    "giver": "Tanisha / Franklin",
     "category": "Historia",
     "description": "Operativo de rescate en el aserradero de Paleto Forest para liberar a Lamar de una emboscada. Franklin reúne a Michael y Trevor para coordinar un asalto envolvente en la serrería y neutralizar a los captores antes de su evacuación.",
     "goldRequirements": [
@@ -489,11 +911,11 @@
     "unlockedBy": "Problemas con los federales"
   },
   {
-    "id": "mission-31",
-    "order": 31,
-    "title": "El colapso",
+    "id": "mission-58",
+    "order": 58,
+    "title": "Cataclismo (Meltdown)",
     "character": "Michael",
-    "giver": "Solomon Richards",
+    "giver": "Jimmy De Santa",
     "category": "Historia",
     "description": "La premier cinematográfica en Vinewood se ve truncada por la amenaza de Devin Weston contra los De Santa. Michael se desplaza de urgencia a su domicilio para repeler a los mercenarios y asegurar la integridad de Amanda y Tracey en el interior de la mansión.",
     "goldRequirements": [
@@ -505,12 +927,42 @@
     "unlockedBy": "Lamar en problemas"
   },
   {
-    "id": "mission-32",
-    "order": 32,
-    "title": "El gran golpe",
+    "id": "mission-59",
+    "order": 59,
+    "title": "Perforadoras (Drillers)",
+    "character": "Michael, Trevor, Franklin",
+    "giver": "Lester Crest",
+    "category": "Preparación",
+    "description": "Robar un camión de transporte pesado que lleva una gigantesca máquina tuneladora. Es obligatorio para perforar la bóveda en el Enfoque 'Obvio'.",
+    "goldRequirements": [
+      "Robar la tuneladora sin ser detectado",
+      "Terminar en menos de 05:00"
+    ],
+    "reward": "Máquina perforadora tuneladora (Cutter) asegurada para el Golpe Obvio.",
+    "unlockedBy": "Cataclismo (Meltdown)"
+  },
+  {
+    "id": "mission-60",
+    "order": 60,
+    "title": "Vía muerta (Sidetracked)",
+    "character": "Michael, Trevor, Franklin",
+    "giver": "Lester Crest",
+    "category": "Preparación",
+    "description": "Secuestrar un tren de mercancías de plataforma plana para cargar en él los lingotes de oro huidos y transportarlos al punto de extracción aéreo. Exclusivo del Enfoque Obvio.",
+    "goldRequirements": [
+      "Terminar en menos de 04:30",
+      "Robar el tren sin ser descubierto"
+    ],
+    "reward": "Vagones de mercancías robados para trasladar el oro en el Enfoque Obvio.",
+    "unlockedBy": "Perforadoras (Drillers)"
+  },
+  {
+    "id": "mission-61",
+    "order": 61,
+    "title": "El gran golpe (The Big Score)",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Golpes",
+    "category": "Golpe",
     "description": "El asalto definitivo al depósito de la Union Depository para sustraer la reserva de oro más protegida del país. La ejecución admite tanto una maniobra sutil con falsos transportes y hackeo de tráfico como una perforación subterránea frontal con extracción aérea.",
     "goldRequirements": [
       "Conseguir 20 disparos a la cabeza",
@@ -522,11 +974,83 @@
     "unlockedBy": "El colapso"
   },
   {
-    "id": "mission-33",
-    "order": 33,
-    "title": "Opción A: Algo sensato (Matar a Trevor)",
+    "id": "mission-62",
+    "order": 62,
+    "title": "El asesinato del hotel",
     "character": "Franklin",
-    "giver": "Steve Haines / Dave Norton",
+    "giver": "Lester Crest",
+    "category": "Asesinato",
+    "description": "Contrato de eliminación encargado por Lester para incidir en la cotización bursátil. Franklin toma posición frente al hotel Von Crastenburg en Rockford Hills y neutraliza al ejecutivo de Bilkinton Research antes de que su comitiva abandone el lugar.",
+    "goldRequirements": [
+      "Tiempo de misión menor a 05:00",
+      "Matar al objetivo usando un rifle de francotirador",
+      "Dinero obtenido al invertir previamente en Betta Pharmaceuticals"
+    ],
+    "reward": "$9.000 + inmensos beneficios en bolsa",
+    "unlockedBy": "Fama o infamia"
+  },
+  {
+    "id": "mission-63",
+    "order": 63,
+    "title": "El asesinato múltiple",
+    "character": "Franklin",
+    "giver": "Lester Crest",
+    "category": "Asesinato",
+    "description": "Eliminar a un jurado corrupto de 4 personas compradas por la tabacalera Redwood antes de que dicten el veredicto.",
+    "goldRequirements": [
+      "Terminar todos los asesinatos lo más rápido posible"
+    ],
+    "reward": "Subida masiva de las acciones de Debonaire (DEB) en el LCN.",
+    "unlockedBy": "El asesinato del hotel"
+  },
+  {
+    "id": "mission-64",
+    "order": 64,
+    "title": "El asesinato del vicio",
+    "character": "Franklin",
+    "giver": "Lester Crest",
+    "category": "Asesinato",
+    "description": "Asesinar a Jackson Skinner, jefe del departamento tecnológico de Facade, que vende información confidencial a sus competidores en la zona de prostitución.",
+    "goldRequirements": [
+      "Escapar de la escena sin alertar a los policías"
+    ],
+    "reward": "Las acciones de Fruit Computers (FRT) subirán un 50% en BAWSAQ.",
+    "unlockedBy": "El asesinato múltiple"
+  },
+  {
+    "id": "mission-65",
+    "order": 65,
+    "title": "El asesinato del autobús",
+    "character": "Franklin",
+    "giver": "Lester Crest",
+    "category": "Asesinato",
+    "description": "Asesinar a Isaac Penny, un especulador multimillonario avaro, mientras hace su ruta habitual en el transporte público urbano.",
+    "goldRequirements": [
+      "Atropellar al objetivo y huir"
+    ],
+    "reward": "Manipulación de las acciones de Vapid Motor Company.",
+    "unlockedBy": "El asesinato del vicio"
+  },
+  {
+    "id": "mission-66",
+    "order": 66,
+    "title": "El asesinato de la obra",
+    "character": "Franklin",
+    "giver": "Lester Crest",
+    "category": "Asesinato",
+    "description": "Asesinar al jefe criminal de bienes raíces, Enzo Bonelli, que está escondido en los pisos superiores de un rascacielos en construcción vigilado por seguridad privada.",
+    "goldRequirements": [
+      "Derribar el helicóptero de la víctima"
+    ],
+    "reward": "Manipulación de las acciones de GoldCoast (GCD) en el LCN.",
+    "unlockedBy": "El asesinato del autobús"
+  },
+  {
+    "id": "mission-67",
+    "order": 67,
+    "title": "Opción A: Con sentido común",
+    "character": "Franklin",
+    "giver": "Steve Haines / FIB",
     "category": "Final",
     "description": "Desenlace forzado por la agencia federal para neutralizar a Trevor. Franklin concierta un encuentro que culmina en una persecución hacia los pozos de petróleo de El Burro Heights, donde el choque contra un tanque inflamable sella el destino del objetivo.",
     "goldRequirements": [
@@ -537,9 +1061,9 @@
     "unlockedBy": "El gran golpe"
   },
   {
-    "id": "mission-34",
-    "order": 34,
-    "title": "Opción B: Ha llegado la hora (Matar a Michael)",
+    "id": "mission-68",
+    "order": 68,
+    "title": "Opción B: Ha llegado la hora",
     "character": "Franklin",
     "giver": "Devin Weston",
     "category": "Final",
@@ -552,9 +1076,9 @@
     "unlockedBy": "El gran golpe"
   },
   {
-    "id": "mission-35",
-    "order": 35,
-    "title": "Opción C: La tercera vía (Salvar a todos)",
+    "id": "mission-69",
+    "order": 69,
+    "title": "Opción C: La tercera vía",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
     "category": "Final",

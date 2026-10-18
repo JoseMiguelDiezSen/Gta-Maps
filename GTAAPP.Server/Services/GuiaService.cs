@@ -114,11 +114,20 @@ public class GuiaService : IGuiaService
             },
             new()
             {
+                Id = "armas",
+                Titulo = "Armas",
+                Icono = "crosshairs",
+                Descripcion = "Catálogo de armamento del modo historia, desbloqueos en Ammu-Nation y ubicaciones en el mapa.",
+                Orden = 3,
+                Articulos = new List<GuiaArticuloResumen>()
+            },
+            new()
+            {
                 Id = "negocios-economia",
                 Titulo = "Mercado Bursátil",
                 Icono = "trending-up",
                 Descripcion = "Guía de finanzas, funcionamiento de LCN y BAWSAQ y especulación bursátil.",
-                Orden = 3,
+                Orden = 4,
                 Articulos = new List<GuiaArticuloResumen>
                 {
                     new() { Id = "asesinatos-lester-bolsa", Slug = "asesinatos-lester-bolsa", Titulo = "El Mercado de Valores de Los Santos", Subtitulo = "Guía financiera, especulación corporativa y manipulación bursátil", Categoria = "negocios-economia", Badge = "Finanzas y Bolsa", TiempoLecturaMinutos = 6 }
@@ -130,7 +139,7 @@ public class GuiaService : IGuiaService
                 Titulo = "Secretos, Easter Eggs & Misterios",
                 Icono = "ghost",
                 Descripcion = "El misterio de Mount Chiliad, OVNIS, el Fantasma de Mount Gordo y el Asesino de los 8 Infinitos.",
-                Orden = 4,
+                Orden = 5,
                 Articulos = new List<GuiaArticuloResumen>
                 {
                     new() { Id = "misterio-chiliad", Slug = "misterio-chiliad", Titulo = "El Gran Misterio de Mount Chiliad", Subtitulo = "El mural, los 4 OVNIs, lluvia a las 3 AM y la verdad del Jetpack", Categoria = "secretos-misterios", Badge = "Misterio", TiempoLecturaMinutos = 7 },
@@ -144,7 +153,7 @@ public class GuiaService : IGuiaService
                 Titulo = "Trucos y Códigos Oficiales",
                 Icono = "key",
                 Descripcion = "Lista exhaustiva de trucos para PC, PlayStation, Xbox y teclado numérico de celular.",
-                Orden = 5,
+                Orden = 6,
                 Articulos = new List<GuiaArticuloResumen>
                 {
                     new() { Id = "lista-trucos-gta5", Slug = "lista-trucos-gta5", Titulo = "Todos los Trucos y Códigos de GTA 5", Subtitulo = "Invencibilidad, todas las armas, súper salto, Buzzard y clima", Categoria = "trucos-codigos", Badge = "Popular", TiempoLecturaMinutos = 5 }

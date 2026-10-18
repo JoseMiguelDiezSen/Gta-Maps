@@ -200,7 +200,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
 
     this.dealerCounts$ = forkJoin(
       this.concesionarios.map(d =>
-        this.vehicleService.getVehicles(d.id, undefined, undefined, 'online').pipe(
+        this.guiaService.getVehiculosGuiaOnline(d.id).pipe(
           map(list => ({ id: d.id, count: list.length }))
         )
       )
@@ -215,7 +215,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
       shareReplay(1)
     );
 
-    this.weaponCounts$ = this.weaponService.getWeapons('online').pipe(
+    this.weaponCounts$ = this.guiaService.getArmasGuiaOnline().pipe(
       map(weapons => {
         const counts: Record<string, number> = {};
         for (const cat of this.weaponCategories) {
@@ -312,12 +312,14 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     }
     if (seccion.id === 'misiones-principales') {
       this.categoriaMisionSeleccionada = null;
+      this.expandedGruposMisiones.clear();
+      this.expandedGruposMisiones.add('lamar-clasico');
       if (this.misionesOnline.length > 0 && !this.misionSeleccionada) {
-        this.misionSeleccionada = this.misionesOnline[0];
+        this.seleccionarMision(this.misionesOnline[0]);
       } else {
         this.misionesOnline$.subscribe(list => {
           if (list && list.length > 0 && !this.misionSeleccionada) {
-            this.misionSeleccionada = list[0];
+            this.seleccionarMision(list[0]);
           }
         });
       }
@@ -440,8 +442,8 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   seleccionarConcesionario(concesionario: DealerCategory): void {
     this.concesionarioSeleccionado = concesionario;
     this.vehiculoSeleccionado = null;
-    this.vehiculosConcesionario$ = this.vehicleService
-      .getVehicles(concesionario.id, undefined, undefined, 'online')
+    this.vehiculosConcesionario$ = this.guiaService
+      .getVehiculosGuiaOnline(concesionario.id)
       .pipe(shareReplay(1));
   }
 
@@ -474,8 +476,8 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
   seleccionarCategoriaArma(cat: WeaponCategoryConfig): void {
     this.categoriaArmaSeleccionada = cat;
     this.armaSeleccionada = null;
-    this.armasCategoria$ = this.weaponService
-      .getWeapons('online', cat.id)
+    this.armasCategoria$ = this.guiaService
+      .getArmasGuiaOnline(cat.id)
       .pipe(shareReplay(1));
   }
 
@@ -618,6 +620,63 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
     return seccion.articulos.length;
   }
 
+  expandedGruposMisiones: Set<string> = new Set<string>();
+
+  toggleGrupoMision(catId: string): void {
+    if (this.expandedGruposMisiones.has(catId)) {
+      this.expandedGruposMisiones.delete(catId);
+    } else {
+      this.expandedGruposMisiones.add(catId);
+    }
+  }
+
+  isGrupoMisionExpanded(catId: string): boolean {
+    if (this.busquedaMisiones) return true;
+    return this.expandedGruposMisiones.has(catId);
+  }
+
+  trackByCategoriaId(index: number, item: { id: string }): string {
+    return item.id;
+  }
+
+  trackByMisionId(index: number, item: GtaMission): string {
+    return item.id;
+  }
+
+  getGruposMisionesOnline(): {
+    id: string;
+    titulo: string;
+    icono: string;
+    color: string;
+    total: number;
+    misiones: GtaMission[];
+  }[] {
+    const rawQuery = (this.busquedaMisiones || '').trim();
+    const cleanStr = (s?: string) =>
+      (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const query = cleanStr(rawQuery);
+
+    return this.categoriasMisiones.map(cat => {
+      let misiones = this.getMisionesDeCategoria(cat);
+      if (query) {
+        misiones = misiones.filter(m =>
+          cleanStr(m.title).includes(query) ||
+          cleanStr(m.character).includes(query) ||
+          cleanStr(m.giver).includes(query) ||
+          cleanStr(m.category).includes(query)
+        );
+      }
+      return {
+        id: cat.id,
+        titulo: cat.titulo,
+        icono: cat.icono,
+        color: cat.color,
+        total: misiones.length,
+        misiones
+      };
+    }).filter(g => g.misiones.length > 0);
+  }
+
   seleccionarCategoriaMision(cat: CategoriaMisionOnline): void {
     this.categoriaMisionSeleccionada = cat;
     this.busquedaMisiones = '';
@@ -662,6 +721,16 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit {
 
   seleccionarMision(m: GtaMission): void {
     this.misionSeleccionada = m;
+    const cat = this.categoriasMisiones.find(c => {
+      if (c.category && c.giver) {
+        return m.category === c.category && (m.giver === c.giver || m.character === c.giver);
+      }
+      return m.category === c.category;
+    });
+    if (cat) {
+      this.categoriaMisionSeleccionada = cat;
+      this.expandedGruposMisiones.add(cat.id);
+    }
   }
 
   limpiarMision(): void {

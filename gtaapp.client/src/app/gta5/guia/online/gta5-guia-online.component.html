@@ -477,157 +477,109 @@
 
         </ng-container>
 
-        <!-- SUB-VISTA: LISTADO DE MISIONES PRINCIPALES (GTA ONLINE) -->
+        <!-- SUB-VISTA: LISTADO DE MISIONES PRINCIPALES (GTA ONLINE - ACORDEÓN DESPLEGABLE) -->
         <ng-container *ngIf="currentSection.id === 'misiones-principales'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+            <span class="guide-detail-badge">{{ busquedaMisiones ? misionesOnlineFiltradasGlobal.length : misionesOnline.length }} misiones</span>
+          </div>
 
-          <!-- SUB-VISTA M1: NIVEL GENERAL (CONTACTOS / BÚSQUEDA GLOBAL DE MISIONES) -->
-          <ng-container *ngIf="!categoriaMisionSeleccionada">
-            <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
-                <i class="fa-solid fa-chevron-left"></i>
-                <span>Categorías</span>
-              </button>
-              <span class="guide-detail-badge" *ngIf="!busquedaMisiones">{{ categoriasMisiones.length }} contactos</span>
-              <span class="guide-detail-badge" *ngIf="busquedaMisiones">{{ misionesOnlineFiltradasGlobal.length }} misiones</span>
-            </div>
-
-            <!-- Buscador global en tiempo real de misiones -->
-            <div class="sidebar-search-box">
-              <div class="search-input-wrapper">
-                <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input
-                  type="text"
-                  class="sidebar-search-input"
-                  [(ngModel)]="busquedaMisiones"
-                  placeholder="Buscar entre las {{ misionesOnline.length }} misiones..."
-                  autocomplete="off"
-                  spellcheck="false"
-                />
-                <button
-                  *ngIf="busquedaMisiones"
-                  type="button"
-                  class="search-clear-btn"
-                  (click)="limpiarBusquedaMisiones()"
-                  aria-label="Limpiar búsqueda"
-                >
-                  ✕
-                </button>
-              </div>
-            </div>
-
-            <!-- CASO 1: SI NO HAY BÚSQUEDA -> MOSTRAMOS LAS 18 TARJETAS DE CONTACTOS -->
-            <ng-container *ngIf="!busquedaMisiones">
-              <div class="sidebar-header-bar">
-                <span class="sidebar-header-title">MISIONES PRINCIPALES</span>
-              </div>
-
-              <div class="guide-categories-list">
-                <div
-                  *ngFor="let cat of categoriasMisiones"
-                  class="guide-cat-card"
-                  [style.--cat-accent]="cat.color"
-                  (click)="seleccionarCategoriaMision(cat)"
-                  [title]="cat.titulo"
-                >
-                  <div class="guide-cat-icon">
-                    <i class="fa-solid fa-{{ cat.icono }}"></i>
-                  </div>
-                  <div class="guide-cat-info">
-                    <span class="guide-cat-title">{{ cat.titulo }}</span>
-                  </div>
-                  <span class="guide-cat-badge">{{ getMisionesDeCategoria(cat).length }}</span>
-                  <div class="guide-cat-arrow">
-                    <i class="fa-solid fa-chevron-right"></i>
-                  </div>
-                </div>
-
-                <!-- SEPARADOR DE ESPIGA AL FINAL -->
-                <div class="guide-cat-list-divider" aria-hidden="true"></div>
-              </div>
-            </ng-container>
-
-            <!-- CASO 2: SI HAY BÚSQUEDA ACTIVA -> MOSTRAMOS DIRECTAMENTE EL LISTADO DE MISIONES COINCIDENTES -->
-            <ng-container *ngIf="busquedaMisiones">
-              <div class="sidebar-header-bar">
-                <span class="sidebar-header-title">RESULTADOS ({{ misionesOnlineFiltradasGlobal.length }})</span>
-              </div>
-
-              <div class="guide-chapters-list">
-                <div
-                  *ngFor="let m of misionesOnlineFiltradasGlobal; let idx = index"
-                  class="guide-chapter-card"
-                  [class.is-active]="misionSeleccionada?.id === m.id"
-                  [style.--cat-accent]="getMissionAccentColor(m)"
-                  (click)="seleccionarMision(m)"
-                >
-                  <span class="chapter-card-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
-
-                  <div class="chapter-card-info">
-                    <span class="chapter-card-title">{{ m.title }}</span>
-                    <span class="chapter-card-sub" *ngIf="m.giver || m.character">
-                      <i class="fa-solid fa-user" style="font-size: 9.5px; margin-right: 3px; opacity: 0.75;"></i>{{ m.giver || m.character }}
-                    </span>
-                  </div>
-
-                  <div class="chapter-card-meta">
-                    <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
-                  </div>
-                </div>
-
-                <!-- Sin resultados -->
-                <div *ngIf="misionesOnlineFiltradasGlobal.length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
-                  <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
-                  <span>No se encontraron misiones para "{{ busquedaMisiones }}"</span>
-                </div>
-
-                <!-- SEPARADOR DE ESPIGA AL FINAL -->
-                <div class="guide-cat-list-divider" aria-hidden="true"></div>
-              </div>
-            </ng-container>
-          </ng-container>
-
-          <!-- SUB-VISTA M2: LISTADO DE MISIONES DEL CONTACTO SELECCIONADO (DRILL-DOWN NIVEL 2) -->
-          <ng-container *ngIf="categoriaMisionSeleccionada">
-            <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="volverACategoriasMisiones()" title="Volver al listado de contactos">
-                <i class="fa-solid fa-chevron-left"></i>
-                <span>Contactos</span>
-              </button>
-              <span class="guide-detail-badge">{{ getMisionesDeCategoria(categoriaMisionSeleccionada).length }} misiones</span>
-            </div>
-
-            <div class="sidebar-header-bar">
-              <span class="sidebar-header-title">{{ categoriaMisionSeleccionada.titulo | uppercase }}</span>
-            </div>
-
-            <div class="guide-chapters-list">
-              <div
-                *ngFor="let m of getMisionesDeCategoria(categoriaMisionSeleccionada); let idx = index"
-                class="guide-chapter-card"
-                [class.is-active]="(misionSeleccionada?.id || getMisionesDeCategoria(categoriaMisionSeleccionada)[0]?.id) === m.id"
-                [style.--cat-accent]="categoriaMisionSeleccionada.color || getMissionAccentColor(m)"
-                (click)="seleccionarMision(m)"
+          <!-- Buscador global en tiempo real de misiones -->
+          <div class="sidebar-search-box">
+            <div class="search-input-wrapper">
+              <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                class="sidebar-search-input"
+                [(ngModel)]="busquedaMisiones"
+                placeholder="Buscar entre las {{ misionesOnline.length }} misiones..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button
+                *ngIf="busquedaMisiones"
+                type="button"
+                class="search-clear-btn"
+                (click)="limpiarBusquedaMisiones()"
+                aria-label="Limpiar búsqueda"
               >
-                <span class="chapter-card-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
+                ✕
+              </button>
+            </div>
+          </div>
 
-                <div class="chapter-card-info">
-                  <span class="chapter-card-title">{{ m.title }}</span>
-                  <span class="chapter-card-sub" *ngIf="m.character">{{ m.character }}</span>
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">MISIONES PRINCIPALES</span>
+          </div>
+
+          <!-- LISTA EN ACORDEÓN DE LOS 18 CONTACTOS -->
+          <div class="guide-accordion-list">
+            <div
+              *ngFor="let grupo of getGruposMisionesOnline(); trackBy: trackByCategoriaId"
+              class="guide-accordion-group"
+              [style.--cat-accent]="grupo.color"
+            >
+              <!-- Cabecera del contacto / categoría -->
+              <div
+                class="guide-cat-card guide-accordion-header"
+                [class.is-expanded]="isGrupoMisionExpanded(grupo.id)"
+                [style.--cat-accent]="grupo.color"
+                (click)="toggleGrupoMision(grupo.id)"
+                [title]="grupo.titulo"
+              >
+                <div class="guide-cat-icon">
+                  <i class="fa-solid fa-{{ grupo.icono }}"></i>
                 </div>
-
-                <div class="chapter-card-meta">
-                  <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
+                <div class="guide-cat-info">
+                  <span class="guide-cat-title">{{ grupo.titulo }}</span>
+                </div>
+                <span class="guide-cat-badge">{{ grupo.total }}</span>
+                <div class="guide-cat-arrow" [class.is-rotated]="isGrupoMisionExpanded(grupo.id)">
+                  <i class="fa-solid fa-chevron-right"></i>
                 </div>
               </div>
 
-              <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
-              <div class="guide-cat-list-divider" aria-hidden="true"></div>
-            </div>
-          </ng-container>
+              <!-- Capítulos / Misiones desplegados debajo -->
+              <div class="guide-accordion-collapse" [class.is-open]="isGrupoMisionExpanded(grupo.id)">
+                <div class="guide-accordion-collapse-inner">
+                  <div class="guide-accordion-chapters">
+                    <div
+                      *ngFor="let m of grupo.misiones; let idx = index; trackBy: trackByMisionId"
+                      class="guide-chapter-card"
+                      [class.is-active]="misionSeleccionada?.id === m.id"
+                      [style.--cat-accent]="grupo.color"
+                      (click)="seleccionarMision(m)"
+                    >
+                      <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
 
+                      <div class="chapter-card-info">
+                        <span class="chapter-card-title">{{ m.title }}</span>
+                      </div>
+
+                      <div class="chapter-card-meta">
+                        <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sin resultados de búsqueda -->
+            <div *ngIf="busquedaMisiones && getGruposMisionesOnline().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+              <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
+              <span>No se encontraron misiones para "{{ busquedaMisiones }}"</span>
+            </div>
+
+            <!-- Separador de espiga al final -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
         </ng-container>
 
         <!-- SUB-VISTA: LISTADO DE NEGOCIOS ONLINE -->
@@ -869,17 +821,17 @@
               </div>
             </div>
 
-            <!-- CONTENIDO EDITORIAL DE DESCRIPCIÓN DEL VEHÍCULO -->
-            <p class="vehiculo-descripcion-texto">
-              CONTENIDO
-            </p>
-
             <!-- SEPARADOR CON ESPIGAS ESTILIZADAS OFICIAL DE LA GUÍA -->
-            <div class="guide-heading-divider">
+            <div class="guide-heading-divider" *ngIf="vehiculoSeleccionado.description">
               <div class="guide-heading-line"></div>
               <h3 class="guide-heading-title">DESCRIPCIÓN DEL VEHÍCULO</h3>
               <div class="guide-heading-line guide-heading-line--right"></div>
             </div>
+
+            <!-- CONTENIDO EDITORIAL DE DESCRIPCIÓN DEL VEHÍCULO -->
+            <p class="vehiculo-descripcion-texto" *ngIf="vehiculoSeleccionado.description">
+              {{ vehiculoSeleccionado.description }}
+            </p>
           </div>
         </div>
       </article>

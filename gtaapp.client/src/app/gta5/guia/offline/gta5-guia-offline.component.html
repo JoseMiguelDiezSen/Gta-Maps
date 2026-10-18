@@ -466,8 +466,47 @@
 
         </ng-container>
 
+        <!-- CASO ARMAS: LISTADO DE CATEGORÍAS DE ARMAS (DRILL-DOWN NIVEL 2) -->
+        <ng-container *ngIf="currentSection?.id === 'armas'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">ARMAS</span>
+          </div>
+
+          <div class="guide-categories-list">
+            <div
+              *ngFor="let cat of weaponCategories"
+              class="guide-cat-card"
+              [class.is-active]="categoriaArmaSeleccionada?.id === cat.id"
+              [style.--cat-accent]="cat.color"
+              (click)="seleccionarCategoriaArma(cat)"
+              [title]="cat.name"
+            >
+              <div class="guide-cat-icon">
+                <i class="fas {{ cat.icon }}"></i>
+              </div>
+              <div class="guide-cat-info">
+                <span class="guide-cat-title">{{ cat.name }}</span>
+              </div>
+              <span class="guide-cat-badge">{{ (weaponCounts$ | async)?.[cat.id] ?? 0 }}</span>
+              <div class="guide-cat-arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
+        </ng-container>
+
         <!-- CASO B: SECCIONES ESTÁNDAR (PRÓLOGO, 100%, ETC.) -->
-        <ng-container *ngIf="!hasSubcategorias(currentSection) && currentSection?.id !== 'trofeos' && currentSection?.id !== 'golpes'">
+        <ng-container *ngIf="!hasSubcategorias(currentSection) && currentSection?.id !== 'trofeos' && currentSection?.id !== 'golpes' && currentSection?.id !== 'armas'">
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
               <i class="fa-solid fa-chevron-left"></i>
@@ -507,7 +546,64 @@
             <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
           </div>
 
-          <div class="guide-chapters-list">
+          <!-- ACORDEÓN DESPLEGABLE: LOCOS Y EXTRAÑOS Y MISIONES PRINCIPALES -->
+          <div class="guide-accordion-list" *ngIf="isAccordionSection(currentSection.id)">
+            <div *ngFor="let grupo of getGruposAccordion(); trackBy: trackByGrupoId" class="guide-accordion-group" [style.--cat-accent]="grupo.color">
+              <!-- Cabecera de la serie/personaje (estilo potente de tarjeta) -->
+              <div
+                class="guide-cat-card guide-accordion-header"
+                [class.is-expanded]="isGrupoExpanded(grupo.id)"
+                [style.--cat-accent]="grupo.color"
+                (click)="toggleGrupo(grupo.id)"
+              >
+                <div class="guide-cat-icon">
+                  <i class="fas fa-{{ grupo.icono }}"></i>
+                </div>
+                <div class="guide-cat-info">
+                  <span class="guide-cat-title">{{ grupo.titulo }}</span>
+                </div>
+                <span class="guide-cat-badge">{{ grupo.total }}</span>
+                <div class="guide-cat-arrow" [class.is-rotated]="isGrupoExpanded(grupo.id)">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
+
+              <!-- Capítulos desplegados debajo con animación fluida de apertura y cierre -->
+              <div class="guide-accordion-collapse" [class.is-open]="isGrupoExpanded(grupo.id)">
+                <div class="guide-accordion-collapse-inner">
+                  <div class="guide-accordion-chapters">
+                    <div
+                      *ngFor="let art of grupo.articulos; let idx = index; trackBy: trackByArticuloId"
+                      class="guide-chapter-card"
+                      [ngClass]="getPersonajeClass(art.badge)"
+                      [class.is-active]="selectedArticulo?.id === art.id"
+                      (click)="seleccionarArticulo(art.id)"
+                    >
+                      <span class="chapter-card-num">#{{ (idx + 1) < 10 ? '0' + (idx + 1) : (idx + 1) }}</span>
+                      <div class="chapter-card-info">
+                        <span class="chapter-card-title">{{ art.titulo }}</span>
+                      </div>
+                      <div class="chapter-card-meta">
+                        <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sin resultados de búsqueda en sección con acordeón -->
+            <div *ngIf="busquedaOffline && getGruposAccordion().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+              <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
+              <span>No se encontraron resultados para "{{ busquedaOffline }}"</span>
+            </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
+
+          <!-- OTRAS SECCIONES: LISTA PLANA CONTINUA -->
+          <div class="guide-chapters-list" *ngIf="!isAccordionSection(currentSection.id)">
             <div
               *ngFor="let art of (hasBuscadorSeccion(currentSection.id) ? articulosFiltradosSeccion : currentSection.articulos); let idx = index"
               class="guide-chapter-card"
@@ -569,12 +665,22 @@
               {{ currentSection.titulo }}
             </span>
             <span class="drawer-breadcrumb-current" *ngIf="mostrarTrofeos">TROFEOS</span>
-            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo && !mostrarTrofeos">›</span>
-            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo && !mostrarTrofeos">
+            <span class="drawer-breadcrumb-sep" *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'">›</span>
+            <span class="drawer-breadcrumb-current" *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'">
+              {{ armaSeleccionada ? armaSeleccionada.name : categoriaArmaSeleccionada.name }}
+            </span>
+            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas'">›</span>
+            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas'">
               {{ cleanBreadcrumbTitle(selectedArticulo.titulo) }}
             </span>
           </div>
-          <h2 class="drawer-title" *ngIf="selectedArticulo && !mostrarTrofeos">
+          <h2 class="drawer-title" *ngIf="armaSeleccionada && currentSection?.id === 'armas'">
+            {{ armaSeleccionada.name }}
+          </h2>
+          <h2 class="drawer-title" *ngIf="categoriaArmaSeleccionada && !armaSeleccionada && currentSection?.id === 'armas'">
+            {{ categoriaArmaSeleccionada.name }}
+          </h2>
+          <h2 class="drawer-title" *ngIf="selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas'">
             {{ (selectedArticulo.categoria === 'extranos-locos' || currentSubcategory) ? getCleanMissionTitle(selectedArticulo.titulo) : selectedArticulo.titulo }}
           </h2>
           <h2 class="drawer-title" *ngIf="mostrarTrofeos">
@@ -669,8 +775,194 @@
         </div>
       </article>
 
+      <!-- Panel de la categoría de armas seleccionada: título + grid de armas + detalle -->
+      <article *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'" class="wiki-article-card">
+        <header class="article-header">
+          <!-- Miga de pan dinámica (Breadcrumbs) -->
+          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <ol class="breadcrumb-list">
+              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                <button
+                  *ngIf="item.clickable && !last"
+                  type="button"
+                  class="breadcrumb-link"
+                  (click)="item.action ? item.action() : null"
+                >
+                  {{ item.label }}
+                </button>
+                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  {{ item.label }}
+                </span>
+                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </li>
+            </ol>
+          </nav>
+
+          <div class="article-meta-row" *ngIf="armaSeleccionada">
+            <button type="button" class="guide-back-btn" (click)="volverAlGridArmas()" [title]="'Volver a ' + categoriaArmaSeleccionada.name">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>{{ categoriaArmaSeleccionada.name }}</span>
+            </button>
+          </div>
+
+          <div class="article-chapter-banner">
+            <div class="chapter-banner-text">
+              <h1 class="article-main-title">{{ categoriaArmaSeleccionada.name }}</h1>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-body">
+          <!-- GRID DE ARMAS -->
+          <div class="vehiculos-grid" *ngIf="!armaSeleccionada">
+            <div class="vehiculo-card" *ngFor="let arma of armasCategoria$ | async" (click)="seleccionarArma(arma)">
+              <div class="vehiculo-card-media">
+                <img
+                  *ngIf="!arma.imgFailed"
+                  [src]="arma.imageUrl"
+                  [alt]="arma.name"
+                  class="vehiculo-card-img"
+                  loading="lazy"
+                  (error)="arma.imgFailed = true"
+                />
+                <i *ngIf="arma.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(arma)"></i>
+              </div>
+              <div class="vehiculo-card-info">
+                <span class="vehiculo-card-name">{{ arma.name }}</span>
+                <span class="vehiculo-card-price">{{ arma.priceFormatted }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DETALLE DEL ARMA -->
+          <div class="vehiculo-detail" *ngIf="armaSeleccionada">
+            <div class="vehiculo-detail-layout">
+              <div class="vehiculo-detail-media">
+                <img
+                  *ngIf="!armaSeleccionada.imgFailed"
+                  [src]="armaSeleccionada.imageUrl"
+                  [alt]="armaSeleccionada.name"
+                  class="vehiculo-detail-img"
+                  (error)="armaSeleccionada.imgFailed = true"
+                />
+                <i *ngIf="armaSeleccionada.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(armaSeleccionada)"></i>
+              </div>
+
+              <div class="vehiculo-detail-info">
+                <span class="vehiculo-detail-maker">{{ armaSeleccionada.manufacturer }}</span>
+                <h2 class="vehiculo-detail-name">{{ armaSeleccionada.name }}</h2>
+
+                <div class="vehiculo-price-box" *ngIf="armaSeleccionada.priceFormatted">
+                  <span class="vehiculo-price-lbl">{{ 'transports.weapons.buyPrice' | translate }}</span>
+                  <span class="vehiculo-price-val">{{ armaSeleccionada.priceFormatted }}</span>
+                </div>
+
+                <div class="vehiculo-detail-badges">
+                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.categoryLabel">{{ armaSeleccionada.categoryLabel }}</span>
+                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.realCounterpart">
+                    {{ armaSeleccionada.realCounterpart }}
+                  </span>
+                  <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon" *ngIf="armaSeleccionada.hasMk2">
+                    {{ 'transports.weapons.mk2Badge' | translate }}
+                  </span>
+                  <span class="vehiculo-detail-badge" *ngIf="(armaSeleccionada.rankUnlock ?? 0) > 1">
+                    {{ 'transports.weapons.rankUnlock' | translate }}: {{ armaSeleccionada.rankUnlock }}
+                  </span>
+                </div>
+
+                <div class="vehiculo-stats">
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.damage' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--speed" [style.width.%]="armaSeleccionada.damage * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.damage }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.fireRate' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--accel" [style.width.%]="armaSeleccionada.fireRate * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.fireRate }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.accuracy' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--handling" [style.width.%]="armaSeleccionada.accuracy * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.accuracy }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.range' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--brake" [style.width.%]="armaSeleccionada.range * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.range }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SEPARADOR CON ESPIGAS ESTILIZADAS OFICIAL DE LA GUÍA -->
+            <div class="guide-heading-divider">
+              <div class="guide-heading-line"></div>
+              <h3 class="guide-heading-title">ESPECIFICACIONES AMMU-NATION</h3>
+              <div class="guide-heading-line guide-heading-line--right"></div>
+            </div>
+
+            <!-- DESBLOQUEO EN MODO HISTORIA Y QUIÉN LA TIENE -->
+            <div class="guide-hud-grid" style="margin-bottom: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+              <div class="guide-hud-box" *ngIf="armaSeleccionada.misionDesbloqueo" style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35);">
+                <i class="fa-solid fa-lock-open box-icon" style="color: #ef4444; font-size: 18px;"></i>
+                <div class="box-content">
+                  <span class="box-label">Desbloqueo en Campaña</span>
+                  <span class="box-val" style="color: #fca5a5; font-weight: 700;">{{ armaSeleccionada.misionDesbloqueo }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="armaSeleccionada.desbloqueoGratuito" style="background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.35);">
+                <i class="fa-solid fa-user-check box-icon" style="color: #22c55e; font-size: 18px;"></i>
+                <div class="box-content">
+                  <span class="box-label">Quién la tiene / Gratuita</span>
+                  <span class="box-val" style="color: #86efac; font-weight: 700;">{{ armaSeleccionada.desbloqueoGratuito }}</span>
+                </div>
+              </div>
+
+              <div class="guide-hud-box" *ngIf="armaSeleccionada.ubicacionesMapa" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.35);">
+                <i class="fa-solid fa-map-location-dot box-icon" style="color: #38bdf8; font-size: 18px;"></i>
+                <div class="box-content">
+                  <span class="box-label">Ubicación en el Mapa</span>
+                  <span class="box-val" style="color: #7dd3fc; font-weight: 700;">{{ armaSeleccionada.ubicacionesMapa }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CONTENIDO DE DESCRIPCIÓN DEL ARMA -->
+            <p class="vehiculo-descripcion-texto" *ngIf="armaSeleccionada.description">
+              {{ armaSeleccionada.description }}
+            </p>
+
+            <!-- CARGADOR Y ACCESORIOS -->
+            <div class="vclean-desc-box" *ngIf="armaSeleccionada.clipSize" style="margin-top: 14px;">
+              <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 6px;">
+                <i class="fa-solid fa-box-archive"></i>
+                <span>{{ 'transports.weapons.clipSize' | translate }}</span>
+              </div>
+              <p class="vehiculo-descripcion-texto" style="margin-top: 0;">{{ armaSeleccionada.clipSize }}</p>
+            </div>
+
+            <div class="vclean-desc-box" *ngIf="armaSeleccionada.attachments && armaSeleccionada.attachments.length > 0" style="margin-top: 14px;">
+              <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 8px;">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span>{{ 'transports.weapons.attachmentsTitle' | translate }}</span>
+              </div>
+              <div class="vehiculo-detail-badges">
+                <span class="vehiculo-detail-badge" *ngFor="let att of armaSeleccionada.attachments" style="border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.08); color: #7dd3fc;">
+                  <i class="fa-solid fa-circle-check" style="margin-right: 4px; font-size: 10px;"></i>
+                  {{ att }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="selectedArticulo && !mostrarTrofeos" class="wiki-article-card" [class.is-mystery-article]="selectedArticulo.categoria === 'secretos-misterios' || currentSection?.id === 'secretos-misterios'">
+      <article *ngIf="selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas'" class="wiki-article-card" [class.is-mystery-article]="selectedArticulo.categoria === 'secretos-misterios' || currentSection?.id === 'secretos-misterios'">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">

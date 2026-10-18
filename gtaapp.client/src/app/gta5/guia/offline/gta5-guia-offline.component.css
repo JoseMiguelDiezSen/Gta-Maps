@@ -2167,7 +2167,8 @@
   margin: 2px 0;
 }
 /* LISTADO DE CAPÍTULOS (CON SCROLL INTERNO) */
-.guide-chapters-list {
+.guide-chapters-list,
+.guide-accordion-list {
   flex: 1;
   overflow-y: auto;
   min-height: 0;
@@ -2200,6 +2201,66 @@
 .guide-categories-list::-webkit-scrollbar-thumb:hover,
 .guide-chapters-list::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #ffb833, #22c55e);
+}
+
+/* ESTILOS DE ACORDEÓN (LOCOS Y EXTRAÑOS) */
+.guide-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.guide-cat-card.guide-accordion-header {
+  margin-bottom: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.guide-cat-card.guide-accordion-header.is-expanded {
+  border-color: var(--cat-accent, #ffb833);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--cat-accent, #ffb833) 25%, transparent);
+}
+
+.guide-cat-arrow i {
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.guide-cat-arrow.is-rotated i {
+  transform: rotate(90deg);
+}
+
+.guide-accordion-collapse {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: max-height 0.42s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.32s ease, transform 0.42s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: max-height, opacity, transform;
+}
+
+.guide-accordion-collapse.is-open {
+  max-height: 2500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.guide-accordion-collapse-inner {
+  overflow: visible;
+}
+
+.guide-accordion-chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 8px;
+  margin-left: 8px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+  border-left: 2px solid var(--cat-accent, rgba(255, 255, 255, 0.25));
+}
+
+.wiki-shell.mode-day .guide-accordion-chapters {
+  border-left-color: var(--cat-accent, rgba(0, 0, 0, 0.2));
 }
 
 .guide-chapter-card {

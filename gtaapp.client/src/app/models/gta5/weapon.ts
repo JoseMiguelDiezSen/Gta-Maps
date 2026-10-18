@@ -9,7 +9,10 @@ export interface GtaWeapon {
   realCounterpart?: string;
   price: number;
   priceFormatted: string;
-  rankUnlock: number;
+  rankUnlock?: number;
+  misionDesbloqueo?: string;
+  desbloqueoGratuito?: string;
+  ubicacionesMapa?: string;
   damage: number;       // 1 - 10
   fireRate: number;     // 1 - 10
   accuracy: number;     // 1 - 10

@@ -42,7 +42,8 @@ export class GuiaService {
         extranos: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/extranos-locos.json?t=${t}`).pipe(catchError(() => of([]))),
         negocios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/bolsa.json?t=${t}`).pipe(catchError(() => of([]))),
         eventos: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/eventos-aleatorios.json?t=${t}`).pipe(catchError(() => of([]))),
-        misterios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/misterios-guia-offline.json?t=${t}`).pipe(catchError(() => of([])))
+        misterios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/misterios-guia-offline.json?t=${t}`).pipe(catchError(() => of([]))),
+        armas: this.http.get<any[]>(`assets/data/gta5/guia/guia-weapons-offline.json?t=${t}`).pipe(catchError(() => of([])))
       }).pipe(
         map(res => ({
           id: 'gta5',
@@ -76,11 +77,27 @@ export class GuiaService {
               articulos: res.extranos.map(a => this.toResumen(a))
             },
             {
+              id: 'armas',
+              titulo: 'Armas',
+              icono: 'gun',
+              descripcion: 'Catálogo de armamento del modo historia, desbloqueos en Ammu-Nation y ubicaciones en el mapa.',
+              orden: 3,
+              articulos: (res.armas || []).map(w => ({
+                id: w.id,
+                slug: w.id,
+                titulo: w.name,
+                subtitulo: w.category ? w.category.toUpperCase() : 'Arma',
+                categoria: 'armas',
+                badge: w.category,
+                tiempoLecturaMinutos: 2
+              }))
+            },
+            {
               id: 'negocios-economia',
               titulo: 'Mercado Bursátil',
               icono: 'briefcase',
               descripcion: 'Guía de finanzas, funcionamiento de LCN y BAWSAQ y especulación bursátil.',
-              orden: 3,
+              orden: 4,
               articulos: res.negocios.map(a => this.toResumen(a))
             },
             {
@@ -88,7 +105,7 @@ export class GuiaService {
               titulo: 'Eventos Aleatorios',
               icono: 'shuffle',
               descripcion: 'Encuentros fortuitos y eventos dinámicos por todo Los Santos y Blaine County.',
-              orden: 4,
+              orden: 5,
               articulos: res.eventos.map(a => this.toResumen(a))
             },
             {
@@ -96,7 +113,7 @@ export class GuiaService {
               titulo: 'Misterios',
               icono: 'ghost',
               descripcion: 'El misterio de Mount Chiliad, los 4 OVNIs y el asesino de los 8 infinitos.',
-              orden: 5,
+              orden: 6,
               articulos: res.misterios.map(a => this.toResumen(a))
             },
             {
@@ -104,7 +121,7 @@ export class GuiaService {
               titulo: 'Trofeos',
               icono: 'trophy',
               descripcion: 'Listado de trofeos y logros de GTA V: Platino, Oro, Plata y Bronce.',
-              orden: 6,
+              orden: 7,
               articulos: []
             }
           ]
@@ -432,6 +449,82 @@ export class GuiaService {
   getNegociosGuiaOnline(): Observable<any[]> {
     const t = new Date().getTime();
     return this.http.get<any[]>(`assets/data/gta5/guia/online/businesses-guide.json?t=${t}`).pipe(
+      catchError(() => of([])),
+      shareReplay(1)
+    );
+  }
+
+  getVehiculosGuiaOnline(dealershipId?: string): Observable<any[]> {
+    const t = new Date().getTime();
+    return this.http.get<any[]>(`assets/data/gta5/guia/guia-vehicles-online.json?t=${t}`).pipe(
+      map(list => {
+        if (!list) return [];
+        let items = list;
+        if (dealershipId) {
+          const norm = dealershipId.toLowerCase();
+          items = items.filter(v => (v.dealership || '').toLowerCase() === norm);
+        }
+        return items.map(v => {
+          if (v && v.imageUrl) {
+            if (v.imageUrl.includes('/assets/images/gta5/marcadores-mapa/')) {
+              v.imageUrl = v.imageUrl.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+            } else if (v.imageUrl.startsWith('assets/images/gta5/marcadores-mapa/')) {
+              v.imageUrl = v.imageUrl.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
+            }
+          }
+          return v;
+        });
+      }),
+      catchError(() => of([])),
+      shareReplay(1)
+    );
+  }
+
+  getArmasGuiaOnline(categoryId?: string): Observable<any[]> {
+    const t = new Date().getTime();
+    return this.http.get<any[]>(`assets/data/gta5/guia/guia-weapons-online.json?t=${t}`).pipe(
+      map(list => {
+        if (!list) return [];
+        let items = list;
+        if (categoryId && categoryId !== 'all') {
+          const norm = categoryId.toLowerCase();
+          items = items.filter(w => (w.category || '').toLowerCase() === norm);
+        }
+        return items.map(w => {
+          if (w && w.imageUrl) {
+            if (w.imageUrl.includes('/assets/images/gta5/marcadores-mapa/')) {
+              w.imageUrl = w.imageUrl.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+            } else if (w.imageUrl.startsWith('assets/images/gta5/marcadores-mapa/')) {
+              w.imageUrl = w.imageUrl.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
+            }
+          }
+          return w;
+        });
+      }),
+      catchError(() => of([])),
+      shareReplay(1)
+    );
+  }
+
+  getArmasGuiaOffline(categoryId?: string): Observable<any[]> {
+    const t = new Date().getTime();
+    return this.http.get<any[]>(`assets/data/gta5/guia/guia-weapons-offline.json?t=${t}`).pipe(
+      map(list => {
+        if (!list) return [];
+        let items = list;
+        if (categoryId && categoryId !== 'all') {
+          const norm = categoryId.toLowerCase();
+          items = items.filter(w => (w.category || '').toLowerCase() === norm);
+        }
+        return items.map(w => {
+          if (w) {
+            if (!w.priceFormatted) {
+              w.priceFormatted = (w.price === 0 || w.price === undefined) ? 'Gratis' : `$${Number(w.price).toLocaleString('en-US')}`;
+            }
+          }
+          return w;
+        });
+      }),
       catchError(() => of([])),
       shareReplay(1)
     );

@@ -4,7 +4,9 @@ import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../../models/guia';
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
-import { Subscription } from 'rxjs';
+import { GtaWeapon } from '../../../models/gta5/weapon';
+import { WEAPON_CATEGORIES_GTA5, WeaponCategoryConfig } from '../../map/info-panel/weapons.config';
+import { Subscription, Observable, shareReplay, map } from 'rxjs';
 
 export interface GuiaBreadcrumbItem {
   label: string;
@@ -15,7 +17,10 @@ export interface GuiaBreadcrumbItem {
 @Component({
   selector: 'app-gta5-guia-offline',
   templateUrl: './gta5-guia-offline.component.html',
-  styleUrls: ['./gta5-guia-offline.component.css'],
+  styleUrls: [
+    './gta5-guia-offline.component.css',
+    '../online/gta5-guia-online.component.css'
+  ],
   standalone: false
 })
 export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewInit {
@@ -83,12 +88,21 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   private static readonly TROFEO_ORDEN: TrofeoTipo[] = ['platino', 'oro', 'plata', 'bronce'];
 
+  readonly weaponCategories: WeaponCategoryConfig[] = WEAPON_CATEGORIES_GTA5;
+  readonly weaponCounts$: Observable<Record<string, number>>;
+  categoriaArmaSeleccionada: WeaponCategoryConfig | null = null;
+  armasCategoria$: Observable<GtaWeapon[]> | null = null;
+  armaSeleccionada: GtaWeapon | null = null;
+
   getSeccionContador(seccion: GuiaSeccion): number {
     if (seccion.id === 'trofeos') {
       return this.trofeosResumen.total;
     }
     if (seccion.id === 'golpes') {
       return 6;
+    }
+    if (seccion.id === 'armas') {
+      return this.weaponCategories.length;
     }
     return seccion.articulos.length;
   }
@@ -104,7 +118,22 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     private titleService: Title,
     private metaService: Meta,
     private sanitizer: DomSanitizer
-  ) {}
+  ) {
+    this.weaponCounts$ = this.guiaService.getArmasGuiaOffline().pipe(
+      map(weapons => {
+        const counts: Record<string, number> = {};
+        for (const cat of this.weaponCategories) {
+          counts[cat.id] = 0;
+        }
+        for (const w of weapons) {
+          const cat = (w.category || '').toLowerCase();
+          counts[cat] = (counts[cat] || 0) + 1;
+        }
+        return counts;
+      }),
+      shareReplay(1)
+    );
+  }
 
   ngOnDestroy(): void {
     if (this.toastTimeout) {
@@ -161,6 +190,37 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   get breadcrumbs(): GuiaBreadcrumbItem[] {
+    const items: GuiaBreadcrumbItem[] = [];
+
+    // 0. Armas (Modo Historia)
+    if (this.categoriaArmaSeleccionada && this.currentSection?.id === 'armas') {
+      const secArmas = this.secciones.find(s => s.id === 'armas');
+      items.push({
+        label: secArmas?.titulo || 'Armas',
+        clickable: !!this.categoriaArmaSeleccionada,
+        action: () => {
+          if (secArmas) this.openSection(secArmas);
+          this.limpiarArma();
+        }
+      });
+      if (this.categoriaArmaSeleccionada) {
+        items.push({
+          label: this.categoriaArmaSeleccionada.name,
+          clickable: !!this.armaSeleccionada,
+          action: () => {
+            this.volverAlGridArmas();
+          }
+        });
+      }
+      if (this.armaSeleccionada) {
+        items.push({
+          label: this.armaSeleccionada.name,
+          clickable: false
+        });
+      }
+      return items;
+    }
+
     if (!this.selectedArticulo) return [];
 
     const items: GuiaBreadcrumbItem[] = [];
@@ -340,10 +400,28 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (sec.id === 'trofeos') {
       this.mostrarTrofeos = true;
       this.isMobileReadingOpen = true;
+      this.limpiarArma();
       this.cargarTrofeos();
+    } else if (sec.id === 'armas') {
+      this.mostrarTrofeos = false;
+      this.isMobileReadingOpen = false;
+      if (this.weaponCategories.length > 0 && !this.categoriaArmaSeleccionada) {
+        this.seleccionarCategoriaArma(this.weaponCategories[0]);
+      }
     } else {
       this.mostrarTrofeos = false;
       this.isMobileReadingOpen = false;
+      this.limpiarArma();
+      if (sec.id === 'extranos-locos') {
+        this.expandedGrupos.clear();
+        this.expandedGrupos.add('Tonya');
+      } else if (sec.id === 'misiones-historia') {
+        this.expandedGrupos.clear();
+        this.expandedGrupos.add('prologo');
+      } else if (sec.id === 'eventos-aleatorios') {
+        this.expandedGrupos.clear();
+        this.expandedGrupos.add('emboscadas');
+      }
       if (sec.articulos && sec.articulos.length > 0 && !this.hasSubcategorias(sec) && sec.id !== 'golpes') {
         this.seleccionarArticulo(sec.articulos[0].id, false);
       }
@@ -360,9 +438,43 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.currentGolpe = null;
     this.mostrarTrofeos = false;
     this.isMobileReadingOpen = false;
+    this.limpiarArma();
     if (this.isMobileView()) {
       this.scrollToTop();
     }
+  seleccionarCategoriaArma(cat: WeaponCategoryConfig): void {
+    this.categoriaArmaSeleccionada = cat;
+    this.armaSeleccionada = null;
+    this.armasCategoria$ = this.guiaService
+      .getArmasGuiaOffline(cat.id)
+      .pipe(shareReplay(1));
+  }
+
+  seleccionarArma(arma: GtaWeapon): void {
+    this.armaSeleccionada = arma;
+    if (this.isMobileView()) {
+      this.isMobileReadingOpen = true;
+      this.scrollToTop();
+    }
+  }
+
+  volverAlGridArmas(): void {
+    this.armaSeleccionada = null;
+    if (this.isMobileView()) {
+      this.isMobileReadingOpen = false;
+      this.scrollToTop();
+    }
+  }
+
+  getWeaponIcon(arma: GtaWeapon | null): string {
+    if (!arma) return 'fa-gun';
+    return arma.icon || 'fa-gun';
+  }
+
+  private limpiarArma(): void {
+    this.categoriaArmaSeleccionada = null;
+    this.armasCategoria$ = null;
+    this.armaSeleccionada = null;
   }
 
   cargarTrofeos(): void {
@@ -542,19 +654,19 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (sec.id === 'extranos-locos') {
       const temas = [
         { id: 'Tonya', titulo: 'Tonya Wiggins', badge: 'Tonya', icono: 'truck-pickup', color: '#f97316' },
-        { id: 'Beverly', titulo: 'Beverly Felton (Paparazzo)', badge: 'Beverly', icono: 'camera', color: '#ec4899' },
-        { id: 'Hao', titulo: 'Hao (Carreras)', badge: 'Hao', icono: 'flag-checkered', color: '#f97316' },
-        { id: 'Barry', titulo: 'Barry (Movimiento Verde)', badge: 'Barry', icono: 'cannabis', color: '#16a34a' },
-        { id: 'Mary-Ann', titulo: 'Mary-Ann Quinn', badge: 'Mary-Ann', icono: 'person-running', color: '#2563eb' },
+        { id: 'Beverly', titulo: 'Beverly Felton', badge: 'Beverly', icono: 'camera', color: '#ec4899' },
+        { id: 'Hao', titulo: 'Hao (Carreras)', badge: 'Hao', icono: 'flag-checkered', color: '#00d2ff' },
+        { id: 'Barry', titulo: 'Barry (Movimiento Verde)', badge: 'Barry', icono: 'cannabis', color: '#10b981' },
+        { id: 'Mary-Ann', titulo: 'Mary-Ann Quinn', badge: 'Mary-Ann', icono: 'person-running', color: '#d4b895' },
         { id: 'Cletus', titulo: 'Cletus Ewing (Caza)', badge: 'Cletus', icono: 'crosshairs', color: '#a16207' },
         { id: 'Dom', titulo: 'Dom Beasley (Riesgo Extremo)', badge: 'Dom', icono: 'parachute-box', color: '#eab308' },
-        { id: 'Maude', titulo: 'Maude Eccles (Fianzas)', badge: 'Maude', icono: 'handcuffs', color: '#94a3b8' },
-        { id: 'Patrulla', titulo: 'Patrulla Fronteriza Civil', badge: 'Patrulla', icono: 'shield-halved', color: '#65a30d' },
+        { id: 'Maude', titulo: 'Maude Eccles (Fianzas)', badge: 'Maude', icono: 'handcuffs', color: '#64748b' },
+        { id: 'Patrulla', titulo: 'Patrulla Fronteriza Civil', badge: 'Patrulla', icono: 'shield-halved', color: '#15803d' },
         { id: 'Dreyfuss', titulo: 'Peter Dreyfuss', badge: 'Dreyfuss', icono: 'star', color: '#9f1239' },
-        { id: 'Epsilon', titulo: 'Programa Epsilon (Kifflom)', badge: 'Epsilon', icono: 'cross', color: '#38bdf8' },
-        { id: 'Josh', titulo: 'Josh Bernstein (Inmobiliaria)', badge: 'Josh', icono: 'building', color: '#64748b' },
-        { id: 'Nigel', titulo: 'Nigel y Sra. Thornhill', badge: 'Nigel', icono: 'glasses', color: '#d97706' },
-        { id: 'Masacre', titulo: 'Masacres de Trevor', badge: 'Masacre', icono: 'skull', color: '#ef4444' },
+        { id: 'Epsilon', titulo: 'Programa Epsilon', badge: 'Epsilon', icono: 'cross', color: '#38bdf8' },
+        { id: 'Josh', titulo: 'Josh Bernstein', badge: 'Josh', icono: 'building', color: '#64748b' },
+        { id: 'Nigel', titulo: 'Nigel y Sra. Thornhill', badge: 'Nigel', icono: 'glasses', color: '#f472b6' },
+        { id: 'Masacre', titulo: 'Masacres de Trevor', badge: 'Masacre', icono: 'skull', color: '#b91c1c' },
         { id: 'Abigail', titulo: 'Abigail Mathers', badge: 'Abigail', icono: 'water', color: '#0284c7' },
         { id: 'Sasquatch', titulo: 'El Sasquatch (Bigfoot)', badge: 'Sasquatch', icono: 'paw', color: '#ffffff' }
       ];
@@ -567,35 +679,304 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
     if (sec.id === 'misiones-historia') {
       const temas = [
-        { id: 'franklin', titulo: 'Franklin Clinton', missionIds: ['mision-02-franklin-y-lamar', 'mision-03-embargo', 'mision-05-chop', 'mision-10-el-largo-trecho', 'mision-49-carne-fresca', 'mision-57-lamar-de-problemas'], badge: 'Franklin', icono: 'car', color: '#22c55e' },
-        { id: 'michael', titulo: 'Michael De Santa', missionIds: ['mision-08-nina-de-papa', 'mision-09-solicitud-de-amistad', 'mision-21-muerto-en-vida', 'mision-25-alguien-dijo-yoga', 'mision-33-el-senor-richards', 'mision-50-la-balada-de-rocco', 'mision-52-reuniendo-a-la-familia', 'mision-54-problemas-legales', 'mision-58-cataclismo'], badge: 'Michael', icono: 'user-tie', color: '#3b82f6' },
-        { id: 'trevor', titulo: 'Trevor Philips', missionIds: ['mision-15-senor-philips', 'mision-16-trevor-philips-industries', 'mision-17-ron-el-nervioso', 'mision-18-laberinto-de-cristal', 'mision-19-reencuentro', 'mision-38-pasajero-clandestino', 'mision-40-depredador', 'mision-45-hang-ten'], badge: 'Trevor', icono: 'skull', color: '#f97316' },
-        { id: 'golpes', titulo: 'Golpes y Atracos', badge: 'Golpes', icono: 'vault', color: '#eab308', total: 6 },
-        { id: 'lester', titulo: 'Asesinatos de Lester', missionIds: ['mision-62-el-asesinato-del-hotel', 'mision-63-el-asesinato-multiple', 'mision-64-el-asesinato-del-vicio', 'mision-65-el-asesinato-del-autobus', 'mision-66-el-asesinato-de-la-obra'], badge: 'Lester', icono: 'crosshairs', color: '#a855f7' },
-        { id: 'fib', titulo: 'Operaciones FIB y Contactos', missionIds: ['mision-04-complicaciones', 'mision-06-padre-e-hijo', 'mision-07-asesoramiento-matrimonial', 'mision-20-fama-o-drama', 'mision-22-tres-son-multitud', 'mision-23-de-libro', 'mision-24-safari-por-el-barrio', 'mision-34-enfrentamiento-con-la-ley', 'mision-35-el-ojo-en-el-cielo', 'mision-36-caida-libre', 'mision-37-en-el-fondo-del-mar', 'mision-43-descarrilado', 'mision-44-el-mono-se-la-gana', 'mision-47-enterrando-el-hacha', 'mision-48-secuestrador', 'mision-56-el-enredo'], badge: 'FIB', icono: 'users', color: '#06b6d4' },
-        { id: 'finales', titulo: 'Finales de la Historia', missionIds: ['mision-01-prologo', 'mision-67-opcion-a', 'mision-68-opcion-b', 'mision-69-opcion-c'], badge: 'Finales', icono: 'flag-checkered', color: '#ef4444' }
+        {
+          id: 'prologo',
+          titulo: 'Prólogo y Primeros Pasos',
+          missionIds: ['mision-01-prologo'],
+          badge: 'Prólogo',
+          icono: 'snowflake',
+          color: '#94a3b8'
+        },
+        {
+          id: 'franklin',
+          titulo: 'Franklin Clinton',
+          missionIds: [
+            'mision-02-franklin-y-lamar',
+            'mision-03-embargo',
+            'mision-05-chop',
+            'mision-10-el-largo-trecho',
+            'mision-49-carne-fresca',
+            'mision-57-lamar-de-problemas'
+          ],
+          badge: 'Franklin',
+          icono: 'car',
+          color: '#22c55e'
+        },
+        {
+          id: 'michael',
+          titulo: 'Michael De Santa',
+          missionIds: [
+            'mision-08-nina-de-papa',
+            'mision-09-solicitud-de-amistad',
+            'mision-11-caso-joyero',
+            'mision-21-muerto-en-vida',
+            'mision-25-alguien-dijo-yoga',
+            'mision-33-el-senor-richards',
+            'mision-50-la-balada-de-rocco',
+            'mision-52-reuniendo-a-la-familia',
+            'mision-54-problemas-legales',
+            'mision-58-cataclismo'
+          ],
+          badge: 'Michael',
+          icono: 'user-tie',
+          color: '#3b82f6'
+        },
+        {
+          id: 'trevor',
+          titulo: 'Trevor Philips',
+          missionIds: [
+            'mision-15-senor-philips',
+            'mision-16-trevor-philips-industries',
+            'mision-17-ron-el-nervioso',
+            'mision-18-laberinto-de-cristal',
+            'mision-19-reencuentro',
+            'mision-26-reconocimiento-del-puerto',
+            'mision-38-pasajero-clandestino',
+            'mision-40-depredador',
+            'mision-45-hang-ten'
+          ],
+          badge: 'Trevor',
+          icono: 'skull',
+          color: '#f97316'
+        },
+        {
+          id: 'golpes',
+          titulo: 'Los Golpes y Asaltos',
+          missionIds: [
+            'mision-12-equipo-bugstars',
+            'mision-13-granadas-gas-bz',
+            'mision-14-golpe-joyeria',
+            'mision-27-minisubmarino',
+            'mision-28-cargobob',
+            'mision-29-golpe-a-merryweather',
+            'mision-30-camion-de-basura',
+            'mision-31-grua',
+            'mision-32-el-buzo',
+            'mision-39-el-bloqueo',
+            'mision-41-material-militar',
+            'mision-42-golpe-de-paleto',
+            'mision-51-limpiando-el-fib',
+            'mision-53-arquitecto-para-todo',
+            'mision-55-asalto-al-fib',
+            'mision-46-investigando-el-golpe',
+            'mision-59-perforadoras',
+            'mision-60-via-muerta',
+            'mision-61-el-gran-golpe'
+          ],
+          badge: 'Golpes',
+          icono: 'vault',
+          color: '#eab308'
+        },
+        {
+          id: 'fib',
+          titulo: 'Operaciones FIB y Alianzas',
+          missionIds: [
+            'mision-04-complicaciones',
+            'mision-06-padre-e-hijo',
+            'mision-07-asesoramiento-matrimonial',
+            'mision-20-fama-o-drama',
+            'mision-22-tres-son-multitud',
+            'mision-23-de-libro',
+            'mision-24-safari-por-el-barrio',
+            'mision-34-enfrentamiento-con-la-ley',
+            'mision-35-el-ojo-en-el-cielo',
+            'mision-36-caida-libre',
+            'mision-37-en-el-fondo-del-mar',
+            'mision-43-descarrilado',
+            'mision-44-el-mono-se-la-gana',
+            'mision-47-enterrando-el-hacha',
+            'mision-48-secuestrador',
+            'mision-56-el-enredo'
+          ],
+          badge: 'FIB',
+          icono: 'users',
+          color: '#06b6d4'
+        },
+        {
+          id: 'lester',
+          titulo: 'Asesinatos de Lester',
+          missionIds: [
+            'mision-62-el-asesinato-del-hotel',
+            'mision-63-el-asesinato-multiple',
+            'mision-64-el-asesinato-del-vicio',
+            'mision-65-el-asesinato-del-autobus',
+            'mision-66-el-asesinato-de-la-obra'
+          ],
+          badge: 'Lester',
+          icono: 'crosshairs',
+          color: '#a855f7'
+        },
+        {
+          id: 'finales',
+          titulo: 'El Desenlace Final',
+          missionIds: [
+            'mision-67-opcion-a',
+            'mision-68-opcion-b',
+            'mision-69-opcion-c'
+          ],
+          badge: 'Finales',
+          icono: 'flag-checkered',
+          color: '#ef4444'
+        }
       ];
 
       return temas.map(t => {
-        if ('total' in t && t.total !== undefined) {
-          return {
-            id: t.id,
-            titulo: t.titulo,
-            badge: t.badge,
-            icono: t.icono,
-            color: t.color,
-            total: t.total
-          };
-        }
-        const mIds = (t as any).missionIds as string[] | undefined;
-        const count = mIds 
-          ? (sec.articulos || []).filter(a => mIds.includes(a.id)).length
-          : 0;
+        const count = (sec.articulos || []).filter(a => t.missionIds.includes(a.id)).length;
         return {
           id: t.id,
           titulo: t.titulo,
           badge: t.badge,
-          missionIds: mIds,
+          missionIds: t.missionIds,
+          icono: t.icono,
+          color: t.color,
+          total: count
+        };
+      }).filter(t => t.total > 0);
+    }
+
+    if (sec.id === 'eventos-aleatorios') {
+      const temas = [
+        {
+          id: 'emboscadas',
+          titulo: 'Emboscadas y Trampas',
+          missionIds: [
+            'evento-01-vehiculo-abandonado-1',
+            'evento-02-vehiculo-abandonado-2',
+            'evento-08-patrulla-fronteriza-1',
+            'evento-09-patrulla-fronteriza-2',
+            'evento-10-patrulla-fronteriza-3',
+            'evento-29-emboscada-callejon-pandilla',
+            'evento-35-chica-cebo-la-mesa',
+            'evento-41-altruistas-rebeldes'
+          ],
+          badge: 'Emboscadas',
+          icono: 'skull',
+          color: '#ef4444'
+        },
+        {
+          id: 'persecuciones',
+          titulo: 'Persecuciones y Delincuencia',
+          missionIds: [
+            'evento-03-detencion-policial-1',
+            'evento-04-detencion-policial-2',
+            'evento-15-persecucion-ladrones-ciudad-1',
+            'evento-16-persecucion-ladrones-ciudad-2',
+            'evento-17-persecucion-ladrones-campo-1',
+            'evento-18-persecucion-ladrones-campo-2',
+            'evento-39-fuga-presidiario-1',
+            'evento-40-fuga-presidiario-2'
+          ],
+          badge: 'Persecuciones',
+          icono: 'handcuffs',
+          color: '#06b6d4'
+        },
+        {
+          id: 'robos',
+          titulo: 'Robos a Comercios y Transeúntes',
+          missionIds: [
+            'evento-05-atraco-cajero-automatico',
+            'evento-06-ladron-bicicletas-1',
+            'evento-07-ladron-bicicletas-2',
+            'evento-13-robo-coche-1',
+            'evento-14-robo-coche-2',
+            'evento-36-robo-transeunte-1',
+            'evento-37-robo-transeunte-2',
+            'evento-38-robo-transeunte-3',
+            'evento-52-atraco-tienda-bob-mulet',
+            'evento-53-atraco-tienda-suburban',
+            'evento-56-robo-moto-deportiva'
+          ],
+          badge: 'Robos',
+          icono: 'mask',
+          color: '#f97316'
+        },
+        {
+          id: 'rescates',
+          titulo: 'Contactos y Rescates Especiales',
+          missionIds: [
+            'evento-11-entierro-vivo',
+            'evento-12-autobus-turistico',
+            'evento-19-accidente-construccion',
+            'evento-22-rescate-accidente-taliana',
+            'evento-28-huida-paparazzi-lacey',
+            'evento-30-conductor-fuga-packie',
+            'evento-54-encuentro-simeon-yetarian',
+            'evento-55-secuestro-the-lost-snatched'
+          ],
+          badge: 'Especiales',
+          icono: 'users',
+          color: '#a855f7'
+        },
+        {
+          id: 'botines',
+          titulo: 'Grandes Botines y Dinero Fácil',
+          missionIds: [
+            'evento-20-tiroteo-alamo-sea',
+            'evento-21-atraco-rural-harmony',
+            'evento-23-negocio-fallido-maletin',
+            'evento-25-granja-marihuana-trevor'
+          ],
+          badge: 'Botines',
+          icono: 'sack-dollar',
+          color: '#22c55e'
+        },
+        {
+          id: 'autoestopistas',
+          titulo: 'Autoestopistas y Pasajeros',
+          missionIds: [
+            'evento-24-discusion-domestica',
+            'evento-26-conductor-ebrio-1',
+            'evento-27-conductor-ebrio-2',
+            'evento-31-autoestopista-1-tinkle',
+            'evento-32-autoestopista-2-ursula',
+            'evento-33-autoestopista-3-novio',
+            'evento-34-autoestopista-4-novia-fuga',
+            'evento-57-padrino-en-calzoncillos'
+          ],
+          badge: 'Autoestopistas',
+          icono: 'car-side',
+          color: '#38bdf8'
+        },
+        {
+          id: 'furgones',
+          titulo: 'Furgones Blindados (Gruppe Sechs)',
+          missionIds: [
+            'evento-42-furgon-blindado-1',
+            'evento-43-furgon-blindado-2',
+            'evento-44-furgon-blindado-3',
+            'evento-45-furgon-blindado-4',
+            'evento-46-furgon-blindado-5',
+            'evento-47-furgon-blindado-6',
+            'evento-48-furgon-blindado-7',
+            'evento-49-furgon-blindado-8',
+            'evento-50-furgon-blindado-9',
+            'evento-51-furgon-blindado-10'
+          ],
+          badge: 'Gruppe Sechs',
+          icono: 'truck-fast',
+          color: '#eab308'
+        },
+        {
+          id: 'exclusivos',
+          titulo: 'Vehículos y Secretos Exclusivos',
+          missionIds: [
+            'evento-58-duelo-duke-o-death',
+            'evento-59-hidroavion-dodo',
+            'evento-60-mosaicos-del-mono'
+          ],
+          badge: 'Exclusivos',
+          icono: 'star',
+          color: '#ec4899'
+        }
+      ];
+
+      return temas.map(t => {
+        const count = (sec.articulos || []).filter(a => t.missionIds.includes(a.id)).length;
+        return {
+          id: t.id,
+          titulo: t.titulo,
+          badge: t.badge,
+          missionIds: t.missionIds,
           icono: t.icono,
           color: t.color,
           total: count
@@ -604,6 +985,78 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }
 
     return [];
+  }
+
+  isAccordionSection(secId?: string): boolean {
+    return secId === 'extranos-locos' || secId === 'misiones-historia' || secId === 'eventos-aleatorios';
+  }
+
+  expandedGrupos: Set<string> = new Set<string>();
+
+  get expandedGruposExtranos(): Set<string> {
+    return this.expandedGrupos;
+  }
+
+  toggleGrupo(grupoId: string): void {
+    if (this.expandedGrupos.has(grupoId)) {
+      this.expandedGrupos.delete(grupoId);
+    } else {
+      this.expandedGrupos.add(grupoId);
+    }
+  }
+
+  toggleGrupoExtranos(grupoId: string): void {
+    this.toggleGrupo(grupoId);
+  }
+
+  isGrupoExpanded(grupoId: string): boolean {
+    if (this.busquedaOffline) return true;
+    return this.expandedGrupos.has(grupoId);
+  }
+
+  isGrupoExtranosExpanded(grupoId: string): boolean {
+    return this.isGrupoExpanded(grupoId);
+  }
+
+  trackByGrupoId(index: number, item: { id: string }): string {
+    return item.id;
+  }
+
+  trackByArticuloId(index: number, item: GuiaArticuloResumen): string {
+    return item.id;
+  }
+
+  getGruposAccordion(): { id: string; titulo: string; badge: string; icono: string; color: string; total: number; articulos: GuiaArticuloResumen[] }[] {
+    if (!this.currentSection || !this.isAccordionSection(this.currentSection.id)) return [];
+    const allArts = this.currentSection.articulos || [];
+    const subcats = this.getSubcategoriasTematicas(this.currentSection);
+    const query = (this.busquedaOffline || '').trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+    return subcats.map(sub => {
+      let arts: GuiaArticuloResumen[];
+      if (sub.missionIds && sub.missionIds.length > 0) {
+        arts = allArts.filter(a => sub.missionIds!.includes(a.id));
+      } else {
+        arts = allArts.filter(a => a.badge === sub.badge);
+      }
+      if (query) {
+        const clean = (s?: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        arts = arts.filter(a => clean(a.titulo).includes(query) || clean(a.subtitulo).includes(query) || clean(a.badge).includes(query));
+      }
+      return {
+        id: sub.id,
+        titulo: sub.titulo,
+        badge: sub.badge,
+        icono: sub.icono || 'folder',
+        color: sub.color || '#ffb833',
+        total: arts.length,
+        articulos: arts
+      };
+    }).filter(g => g.articulos.length > 0);
+  }
+
+  getGruposExtranos() {
+    return this.getGruposAccordion();
   }
 
   get articulosSubcategoriaActual(): GuiaArticuloResumen[] {
@@ -727,6 +1180,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (s.includes('prologo')) return '#3b82f6';
     if (s.includes('mision')) return '#ef4444';
     if (s.includes('extrano') || s.includes('loco')) return '#f97316';
+    if (s.includes('arma')) return '#ef4444';
     if (s.includes('100') || s.includes('historia')) return '#22c55e';
     if (s.includes('personaje') || s.includes('protagonista')) return '#f97316';
     if (s.includes('negocio') || s.includes('economia')) return '#06b6d4';
@@ -775,6 +1229,18 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   seleccionarArticulo(articuloId: string, openMobile: boolean = true): void {
     this.mostrarTrofeos = false;
+    if (this.currentSection?.id === 'extranos-locos') {
+      const art = this.currentSection.articulos?.find(a => a.id === articuloId);
+      if (art?.badge) {
+        this.expandedGrupos.add(art.badge);
+      }
+    } else if (this.currentSection?.id === 'misiones-historia' || this.currentSection?.id === 'eventos-aleatorios') {
+      const subcats = this.getSubcategoriasTematicas(this.currentSection);
+      const grupo = subcats.find(s => s.missionIds?.includes(articuloId));
+      if (grupo) {
+        this.expandedGrupos.add(grupo.id);
+      }
+    }
     if (openMobile && this.isMobileView()) {
       this.isMobileReadingOpen = true;
       this.scrollToTop();

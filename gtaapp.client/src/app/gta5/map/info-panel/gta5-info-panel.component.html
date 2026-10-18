@@ -1791,11 +1791,11 @@
               <span class="vclean-price-lbl">{{ 'transports.weapons.buyPrice' | translate }}</span>
               <span class="vclean-price-val">{{ selectedWeapon.priceFormatted }}</span>
             </div>
-            <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedWeapon.rankUnlock > 1">
+            <div class="vclean-price-box vclean-price-secondary" *ngIf="(selectedWeapon.rankUnlock ?? 0) > 1">
               <span class="vclean-price-lbl">{{ 'transports.weapons.rankUnlock' | translate }}</span>
               <span class="vclean-price-val">{{ selectedWeapon.rankUnlock }}</span>
             </div>
-            <div class="vclean-price-box vclean-price-secondary" *ngIf="selectedWeapon.rankUnlock <= 1 && selectedWeapon.clipSize">
+            <div class="vclean-price-box vclean-price-secondary" *ngIf="(selectedWeapon.rankUnlock ?? 0) <= 1 && selectedWeapon.clipSize">
               <span class="vclean-price-lbl">{{ 'transports.weapons.clipSize' | translate }}</span>
               <span class="vclean-price-val">{{ selectedWeapon.clipSize }}</span>
             </div>
@@ -1834,7 +1834,7 @@
           </div>
 
           <!-- Capacidad de cargador cuando hay rango desbloqueo -->
-          <div class="vclean-desc-box" *ngIf="selectedWeapon.rankUnlock > 1 && selectedWeapon.clipSize">
+          <div class="vclean-desc-box" *ngIf="(selectedWeapon.rankUnlock ?? 0) > 1 && selectedWeapon.clipSize">
             <div class="vclean-desc-head">
               <i class="fa-solid fa-box-archive"></i>
               <span>{{ 'transports.weapons.clipSize' | translate }}</span>
