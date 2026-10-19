@@ -12,7 +12,7 @@
     [attr.aria-label]="talkTooltip"
   >
     <div class="goty-avatar-ring"></div>
-    <img [src]="avatarSrc" [alt]="botName" class="goty-avatar-img" />
+    <img [src]="avatarSrc" [alt]="botName" class="goty-avatar-img" width="50" height="50" loading="lazy" decoding="async" />
   </button>
 
   <!-- VENTANA POPUP DE CHAT -->
@@ -20,7 +20,7 @@
     <!-- Cabecera -->
     <div class="goty-chat-header" (mousedown)="onDragStart($event)" (touchstart)="onDragStart($event)">
       <div class="goty-header-left">
-        <img [src]="avatarSrc" [alt]="botName" class="goty-header-avatar" />
+        <img [src]="avatarSrc" [alt]="botName" class="goty-header-avatar" width="32" height="32" loading="lazy" decoding="async" />
         <div class="goty-header-info">
           <span class="goty-bot-title">{{ botName }}</span>
         </div>

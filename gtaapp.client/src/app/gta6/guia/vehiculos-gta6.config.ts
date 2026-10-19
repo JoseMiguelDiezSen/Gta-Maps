@@ -1,56 +1,58 @@
 import { DealerCategory } from '../../models/gta5/vehicle';
 
 /**
- * Categorías oficiales y provisionales para la sección de Vehículos de GTA 6 (Offline y Online).
- * Estructura modular preparada para integrar posteriormente concesionarios específicos.
+ * Concesionarios temáticos oficiales y confirmados de GTA VI (Leonida / Vice City).
+ * Integra los concesionarios icónicos del lore (Sunshine Autos, Vice Luxury, Airgator, etc.)
  */
-export const CATEGORIAS_VEHICULOS_GTA6: DealerCategory[] = [
+export const CONCESIONARIOS_GTA6: DealerCategory[] = [
   {
-    id: 'coches',
-    name: 'Coches',
-    icon: 'fa-car',
-    color: '#38bdf8',
+    id: 'sunshine_autos',
+    name: 'Sunshine Autos',
+    icon: 'fa-car-side',
+    color: '#00cec9',
     gameMode: 'both',
-    description: 'Deportivos, utilitarios, superdeportivos, berlinas y coupés del Estado de Leonida.'
+    description: 'El legendario concesionario de Vice City: deportivos, muscle cars y bólidos callejeros.'
   },
   {
-    id: 'motos',
-    name: 'Motos',
+    id: 'vice_luxury',
+    name: 'Vice Luxury Autos',
+    icon: 'fa-gem',
+    color: '#ff4fe0',
+    gameMode: 'both',
+    description: 'Superdeportivos exóticos, descapotables de alta gama e ingeniería europea de hiperlujo.'
+  },
+  {
+    id: 'airgator_marine',
+    name: 'Airgator & Marine Sales',
+    icon: 'fa-ship',
+    color: '#00b894',
+    gameMode: 'both',
+    description: 'Aerodeslizadores pantanosos de hélice para Grassrivers, lanchas deportivas y náutica de recreo.'
+  },
+  {
+    id: 'leonida_powersports',
+    name: 'Leonida Powersports',
     icon: 'fa-motorcycle',
     color: '#f59e0b',
     gameMode: 'both',
-    description: 'Motocicletas de carretera, deportivas, motocross y quads para Vice City.'
+    description: 'Motos de motocross para barro, quads todoterreno y choppers americanas.'
   },
   {
-    id: 'barcos',
-    name: 'Barcos',
-    icon: 'fa-ship',
-    color: '#06b6d4',
-    gameMode: 'both',
-    description: 'Embarcaciones a motor, hidrodeslizadores de pantano, lanchas y motos de agua.'
-  },
-  {
-    id: 'aviones',
-    name: 'Aviones',
+    id: 'leonida_aviation',
+    name: 'Leonida Aviation Co.',
     icon: 'fa-plane',
-    color: '#a855f7',
+    color: '#6c5ce7',
     gameMode: 'both',
-    description: 'Aeronaves ligeras, jets privados de negocios y avionetas de transporte.'
+    description: 'Hidroaviones anfibios para los cayos, aeronaves bimotor y helicópteros ejecutivos y de vigilancia.'
   },
   {
-    id: 'helicopteros',
-    name: 'Helicópteros',
-    icon: 'fa-helicopter',
-    color: '#ec4899',
-    gameMode: 'both',
-    description: 'Helicópteros civiles, transporte ejecutivo y aeronaves de rotor.'
-  },
-  {
-    id: 'especiales',
-    name: 'Militares y Especiales',
+    id: 'vice_fleet',
+    name: 'Vice Fleet & State Services',
     icon: 'fa-shield-halved',
-    color: '#ef4444',
+    color: '#3b82f6',
     gameMode: 'both',
-    description: 'Vehículos blindados, maquinaria táctica y prototipos especiales.'
+    description: 'Parque móvil oficial y táctico: patrullas del VCPD, SUVs policiales blindados y vehículos estatales.'
   }
 ];
+
+export const CATEGORIAS_VEHICULOS_GTA6: DealerCategory[] = CONCESIONARIOS_GTA6;

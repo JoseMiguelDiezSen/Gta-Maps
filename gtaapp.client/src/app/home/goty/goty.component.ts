@@ -165,7 +165,7 @@ export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
   ngAfterViewChecked(): void {}
 
   get avatarSrc(): string {
-    return '/assets/images/goty/goty.png';
+    return '/assets/images/goty/goty.webp';
   }
 
   get botName(): string {

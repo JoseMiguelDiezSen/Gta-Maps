@@ -484,20 +484,19 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   getPlaceholderBuscadorVehiculos(): string {
     const catId = this.concesionarioSeleccionado?.id;
-    if (catId === 'barcos') return 'Buscar embarcación...';
-    if (catId === 'aviones') return 'Buscar avión...';
-    if (catId === 'helicopteros') return 'Buscar helicóptero...';
-    if (catId === 'motos') return 'Buscar moto...';
-    if (catId === 'especiales') return 'Buscar vehículo militar o especial...';
-    return 'Buscar vehículo por modelo o marca...';
+    if (catId === 'airgator_marine' || catId === 'barcos') return 'Buscar aerodeslizador o embarcación...';
+    if (catId === 'leonida_aviation' || catId === 'aviones' || catId === 'helicopteros') return 'Buscar aeronave o helicóptero...';
+    if (catId === 'leonida_powersports' || catId === 'motos') return 'Buscar moto o quad...';
+    if (catId === 'vice_fleet' || catId === 'especiales') return 'Buscar vehículo policial o táctico...';
+    if (catId === 'vice_luxury') return 'Buscar superdeportivo de lujo...';
+    return 'Buscar vehículo en Sunshine Autos...';
   }
 
   getBadgeLabelVehiculos(): string {
     const catId = this.concesionarioSeleccionado?.id;
-    if (catId === 'barcos') return 'embarcaciones';
-    if (catId === 'aviones') return 'aeronaves';
-    if (catId === 'helicopteros') return 'helicópteros';
-    if (catId === 'motos') return 'motos';
+    if (catId === 'airgator_marine' || catId === 'barcos') return 'embarcaciones';
+    if (catId === 'leonida_aviation' || catId === 'aviones' || catId === 'helicopteros') return 'aeronaves';
+    if (catId === 'leonida_powersports' || catId === 'motos') return 'motos y quads';
     return 'vehículos';
   }
 
