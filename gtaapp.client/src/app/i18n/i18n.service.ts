@@ -1,13 +1,17 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { LanguageCode, LanguageInfo, TranslationParams } from './i18n.types';
 import { DEFAULT_LANGUAGE, STORAGE_KEY, SUPPORTED_LANGUAGES } from './i18n.config';
-import { DICTIONARIES } from './locales';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TranslationService {
+  private readonly http = inject(HttpClient);
   readonly supportedLanguages: readonly LanguageInfo[] = SUPPORTED_LANGUAGES;
+
+  // Cache en memoria de los diccionarios cargados desde JSON
+  private readonly loadedDictionaries = signal<Record<string, any>>({});
 
   // Reactivo con Angular Signals
   readonly currentLanguage = signal<LanguageCode>(this.detectInitialLanguage());
@@ -23,11 +27,37 @@ export class TranslationService {
 
   readonly currentDictionary = computed(() => {
     const code = this.currentLanguage();
-    return DICTIONARIES[code] || DICTIONARIES[DEFAULT_LANGUAGE];
+    const dicts = this.loadedDictionaries();
+    return dicts[code] || dicts[DEFAULT_LANGUAGE] || {};
   });
 
   constructor() {
-    this.applyDocumentLang(this.currentLanguage());
+    const initialLang = this.currentLanguage();
+    this.applyDocumentLang(initialLang);
+    this.loadLanguage(initialLang);
+    if (initialLang !== DEFAULT_LANGUAGE) {
+      this.loadLanguage(DEFAULT_LANGUAGE);
+    }
+  }
+
+  /**
+   * Carga asíncronamente el archivo JSON del idioma solicitado desde assets/i18n/
+   */
+  private loadLanguage(code: LanguageCode): void {
+    const current = this.loadedDictionaries();
+    if (current[code]) return; // Ya está cargado en caché de memoria
+
+    this.http.get<any>(`assets/i18n/${code}.json`).subscribe({
+      next: (dict) => {
+        this.loadedDictionaries.update(prev => ({
+          ...prev,
+          [code]: dict
+        }));
+      },
+      error: (err) => {
+        console.warn(`[i18n] Error cargando assets/i18n/${code}.json, usando fallback:`, err);
+      }
+    });
   }
 
   /**
@@ -36,6 +66,7 @@ export class TranslationService {
   setLanguage(code: LanguageCode): void {
     if (this.currentLanguage() === code) return;
 
+    this.loadLanguage(code);
     this.currentLanguage.set(code);
     this.applyDocumentLang(code);
 
@@ -58,7 +89,8 @@ export class TranslationService {
 
     // 2. Si no existe, fallback a Español (por defecto)
     if (val === undefined || val === null) {
-      val = this.resolvePath(DICTIONARIES[DEFAULT_LANGUAGE], path);
+      const dicts = this.loadedDictionaries();
+      val = this.resolvePath(dicts[DEFAULT_LANGUAGE], path);
     }
 
     // 3. Si aún no existe, devolver la clave tal cual

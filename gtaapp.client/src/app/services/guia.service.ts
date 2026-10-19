@@ -54,7 +54,7 @@ export class GuiaService {
           secciones: [
             {
               id: 'prologo',
-              titulo: 'Prólogo',
+              titulo: 'Inicio',
               icono: 'book-open',
               descripcion: 'Introducción a la guía interactiva de Grand Theft Auto V y perfiles de los protagonistas.',
               orden: 0,
@@ -146,7 +146,7 @@ export class GuiaService {
         secciones: [
           {
             id: 'prologo',
-            titulo: 'Prólogo',
+            titulo: 'Inicio',
             icono: 'book-open',
             descripcion: 'Introducción al Estado de Leonida, Vice City y perfiles de los protagonistas.',
             orden: 0,
@@ -189,7 +189,7 @@ export class GuiaService {
           secciones: [
             {
               id: 'prologo',
-              titulo: 'Prólogo & Iniciación',
+              titulo: 'Inicio',
               icono: 'book-open',
               descripcion: 'Primeros pasos, reputación y economía en Leonida Online.',
               orden: 0,

@@ -53,7 +53,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
   readonly secciones: GuiaSeccion[] = [
     {
       id: 'prologo',
-      titulo: 'Prólogo',
+      titulo: 'Inicio',
       icono: 'book-open',
       descripcion: '',
       orden: 0,
