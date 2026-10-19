@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  background: #0b0f14 url('/assets/home-bg.jpg') center center / cover no-repeat;
+  background: #0b0f14 url('/assets/home-bg.webp') center center / cover no-repeat;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -167,8 +167,8 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  max-width: 140px;
-  max-height: 48px;
+  max-width: 180px;
+  max-height: 90px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -183,8 +183,8 @@
   .home-logo {
     top: 16px;
     left: 16px;
-    max-width: 100px;
-    max-height: 36px;
+    max-width: 130px;
+    max-height: 65px;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
   }
 }
@@ -198,6 +198,7 @@
   align-items: center;
   z-index: 2;
   margin-bottom: -10px;
+  min-height: 165px;
   user-select: none;
   cursor: default;
   background: transparent !important;
@@ -206,9 +207,10 @@
 
 .home-mascots-img {
   width: auto;
-  height: auto;
+  height: 165px;
   max-width: 165px;
   max-height: 165px;
+  aspect-ratio: 788 / 933;
   display: block;
   object-fit: contain;
   background: transparent !important;
@@ -261,9 +263,11 @@
 @media (max-width: 600px) {
   .home-mascots-box {
     margin-bottom: -4px;
+    min-height: 130px;
   }
 
   .home-mascots-img {
+    height: 130px;
     max-width: 130px;
     max-height: 130px;
   }

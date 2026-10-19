@@ -167,6 +167,14 @@ export class GuiaService {
             descripcion: 'Listado provisional de trofeos y logros de GTA VI: Platino, Oro, Plata y Bronce.',
             orden: 2,
             articulos: []
+          },
+          {
+            id: 'vehiculos',
+            titulo: 'Vehículos',
+            icono: 'car',
+            descripcion: 'Catálogo de vehículos, deportivos, embarcaciones y aeronaves de Leonida.',
+            orden: 3,
+            articulos: []
           }
         ]
       })),
@@ -202,6 +210,14 @@ export class GuiaService {
               descripcion: 'Misiones de contacto y operaciones clandestinas en Vice City.',
               orden: 1,
               articulos: res.misiones.map(a => this.toResumen(a))
+            },
+            {
+              id: 'vehiculos',
+              titulo: 'Vehículos',
+              icono: 'car',
+              descripcion: 'Catálogo multijugador de transportes, concesionarios y vehículos de Vice City.',
+              orden: 2,
+              articulos: []
             }
           ]
         })),
@@ -567,6 +583,23 @@ export class GuiaService {
           }
           return v;
         });
+      }),
+      catchError(() => of([])),
+      shareReplay(1)
+    );
+  }
+
+  getVehiculosGuiaGta6(mode: 'offline' | 'online', dealershipId?: string): Observable<any[]> {
+    const t = new Date().getTime();
+    return this.http.get<any[]>(`assets/data/gta6/guia/${mode}/vehiculos-guia-${mode}.json?t=${t}`).pipe(
+      map(list => {
+        if (!list) return [];
+        let items = list;
+        if (dealershipId) {
+          const norm = dealershipId.toLowerCase();
+          items = items.filter(v => (v.dealership || '').toLowerCase() === norm);
+        }
+        return items;
       }),
       catchError(() => of([])),
       shareReplay(1)

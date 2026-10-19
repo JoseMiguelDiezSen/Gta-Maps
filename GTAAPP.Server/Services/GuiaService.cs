@@ -495,6 +495,15 @@ En la parte posterior del mirador de madera, una inscripción tallada en rojo re
                     new() { Id = "lucia-caminos-perfil", Slug = "lucia-caminos-perfil", Titulo = "Lucia Caminos: Perfil y Trasfondo", Subtitulo = "El Centro Correccional de Leonida, grillete electrónico y motivaciones", Categoria = "prologo", Badge = "Lucia", TiempoLecturaMinutos = 5 },
                     new() { Id = "jason-duval-perfil", Slug = "jason-duval-perfil", Titulo = "Jason Duval: Perfil y Especialidades", Subtitulo = "Pasado militar, contactos clandestinos y sincronización de combate", Categoria = "prologo", Badge = "Jason", TiempoLecturaMinutos = 5 }
                 }
+            },
+            new()
+            {
+                Id = "vehiculos",
+                Titulo = "Vehículos",
+                Icono = "car",
+                Descripcion = "Catálogo de vehículos, deportivos, embarcaciones y aeronaves de Leonida.",
+                Orden = 3,
+                Articulos = new List<GuiaArticuloResumen>()
             }
         };
 
@@ -642,6 +651,15 @@ Grand Theft Auto VI presenta la primera protagonista femenina jugable en la era 
                         TiempoLecturaMinutos = 7
                     }
                 }
+            },
+            new()
+            {
+                Id = "vehiculos",
+                Titulo = "Vehículos",
+                Icono = "car",
+                Descripcion = "Catálogo multijugador de transportes, concesionarios y vehículos de Vice City.",
+                Orden = 2,
+                Articulos = new List<GuiaArticuloResumen>()
             }
         };
 

@@ -20,14 +20,14 @@
 
         <!-- LOGO DE LA HOME CON TAMAÑO FIJADO -->
         <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
-          <img src="assets/images/logos/logoJMD.png" alt="Logo GTA MAPS" class="wiki-nav-logo" width="120" height="38" />
+          <img src="assets/images/logos/gta-world-nav-logo.png" alt="Logo GTA WORLD" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
         <!-- Separador vertical espigado derecho -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <div class="nav-brand">
-          <span class="nav-brand-title">GTA WORLD</span>
+          <span class="nav-brand-title">GTA 6 - HISTORIA</span>
         </div>
 
         <!-- Separador -->
@@ -317,8 +317,77 @@
           </div>
         </ng-container>
 
+        <!-- CASO VEHÍCULOS: LISTADO DE CATEGORÍAS DE VEHÍCULOS -->
+        <ng-container *ngIf="currentSection?.id === 'vehiculos'">
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>Categorías</span>
+            </button>
+            <span class="guide-detail-badge" *ngIf="concesionarioSeleccionado">
+              {{ busquedaVehiculos ? vehiculosFiltrados.length : vehiculosConcesionario.length }} {{ getBadgeLabelVehiculos() }}
+            </span>
+          </div>
+
+          <!-- Buscador dinámico según la categoría seleccionada -->
+          <div class="sidebar-search-box" *ngIf="concesionarioSeleccionado">
+            <div class="search-input-wrapper">
+              <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                class="sidebar-search-input"
+                [(ngModel)]="busquedaVehiculos"
+                [placeholder]="getPlaceholderBuscadorVehiculos()"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button
+                *ngIf="busquedaVehiculos"
+                type="button"
+                class="search-clear-btn"
+                (click)="limpiarBusquedaVehiculos()"
+                aria-label="Limpiar búsqueda"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">VEHÍCULOS</span>
+          </div>
+
+          <div class="guide-categories-list">
+            <div
+              *ngFor="let concesionario of concesionarios"
+              class="guide-cat-card"
+              [class.is-active]="concesionarioSeleccionado?.id === concesionario.id"
+              [style.--cat-accent]="concesionario.color"
+              (click)="seleccionarConcesionario(concesionario)"
+              [title]="concesionario.name"
+            >
+              <div class="guide-cat-icon">
+                <i class="fas {{ concesionario.icon }}"></i>
+              </div>
+              <div class="guide-cat-info">
+                <span class="guide-cat-title">{{ concesionario.name }}</span>
+              </div>
+              <span class="guide-cat-badge">{{ (dealerCounts$ | async)?.[concesionario.id] ?? '...' }}</span>
+              <div class="guide-cat-arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
+          </div>
+        </ng-container>
+
         <!-- CASO ESTÁNDAR (PRÓLOGO, MISIONES PRINCIPALES, ETC.) -->
-        <ng-container *ngIf="currentSection?.id !== 'trofeos'">
+        <ng-container *ngIf="currentSection?.id !== 'trofeos' && currentSection?.id !== 'vehiculos'">
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
               <i class="fa-solid fa-chevron-left"></i>
@@ -464,15 +533,22 @@
             >
               {{ currentSection.titulo }}
             </span>
-            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo && !mostrarTrofeos">›</span>
-            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo && !mostrarTrofeos">
+            <span class="drawer-breadcrumb-sep" *ngIf="vehiculoSeleccionado">›</span>
+            <span class="drawer-breadcrumb-current" *ngIf="vehiculoSeleccionado">
+              {{ vehiculoSeleccionado.name }}
+            </span>
+            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo && !mostrarTrofeos && !vehiculoSeleccionado">›</span>
+            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo && !mostrarTrofeos && !vehiculoSeleccionado">
               {{ cleanBreadcrumbTitle(selectedArticulo.titulo) }}
             </span>
           </div>
-          <h2 class="drawer-title" *ngIf="selectedArticulo && !mostrarTrofeos">
+          <h2 class="drawer-title" *ngIf="vehiculoSeleccionado">
+            {{ vehiculoSeleccionado.name }}
+          </h2>
+          <h2 class="drawer-title" *ngIf="selectedArticulo && !mostrarTrofeos && !vehiculoSeleccionado">
             {{ selectedArticulo.titulo }}
           </h2>
-          <h2 class="drawer-title" *ngIf="mostrarTrofeos">
+          <h2 class="drawer-title" *ngIf="mostrarTrofeos && !vehiculoSeleccionado">
             Catálogo de Trofeos
           </h2>
         </div>
@@ -568,13 +644,153 @@
       </article>
 
       <!-- Estado de carga -->
-      <div *ngIf="isLoadingArticulo && !mostrarTrofeos" class="wiki-loading-state">
+      <div *ngIf="isLoadingArticulo && !mostrarTrofeos && currentSection?.id !== 'vehiculos'" class="wiki-loading-state">
         <div class="wiki-spinner"></div>
         <p class="wiki-loading-text">Cargando archivo de Leonida...</p>
       </div>
 
+      <!-- Panel de la categoría seleccionada: título + grid de vehículos / detalle -->
+      <article *ngIf="concesionarioSeleccionado && currentSection?.id === 'vehiculos'" class="wiki-article-card">
+        <header class="article-header">
+          <!-- Miga de pan dinámica (Breadcrumbs) -->
+          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <ol class="breadcrumb-list">
+              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                <button
+                  *ngIf="item.clickable && !last"
+                  type="button"
+                  class="breadcrumb-link"
+                  (click)="item.action ? item.action() : null"
+                >
+                  {{ item.label }}
+                </button>
+                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  {{ item.label }}
+                </span>
+                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </li>
+            </ol>
+          </nav>
+
+          <div class="article-meta-row" *ngIf="vehiculoSeleccionado">
+            <button type="button" class="guide-back-btn" (click)="volverAlGridVehiculos()" [title]="'Volver a ' + concesionarioSeleccionado.name">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>{{ concesionarioSeleccionado.name }}</span>
+            </button>
+          </div>
+
+          <div class="article-chapter-banner">
+            <div class="chapter-banner-text">
+              <h1 class="article-main-title">{{ vehiculoSeleccionado ? vehiculoSeleccionado.name : concesionarioSeleccionado.name }}</h1>
+              <p class="chapter-banner-desc" *ngIf="!vehiculoSeleccionado && concesionarioSeleccionado.description">
+                {{ concesionarioSeleccionado.description }}
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-body">
+          <!-- GRID DE VEHÍCULOS -->
+          <div class="vehiculos-grid" *ngIf="!vehiculoSeleccionado && vehiculosFiltrados.length > 0">
+            <div class="vehiculo-card" *ngFor="let vehiculo of vehiculosFiltrados" (click)="seleccionarVehiculo(vehiculo)">
+              <div class="vehiculo-card-media">
+                <img
+                  *ngIf="!vehiculo.imgFailed"
+                  [src]="vehiculo.imageUrl"
+                  [alt]="vehiculo.name"
+                  class="vehiculo-card-img"
+                  loading="lazy"
+                  (error)="vehiculo.imgFailed = true"
+                />
+                <i *ngIf="vehiculo.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getVehicleIcon(vehiculo)"></i>
+              </div>
+              <div class="vehiculo-card-info">
+                <span class="vehiculo-card-name">{{ vehiculo.name }}</span>
+                <span class="vehiculo-card-price">{{ vehiculo.priceFormatted }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mensaje cuando la búsqueda no produce resultados -->
+          <div class="trophy-empty" *ngIf="!vehiculoSeleccionado && vehiculosConcesionario.length > 0 && vehiculosFiltrados.length === 0" style="padding: 60px 0; text-align: center; color: rgba(255,255,255,0.6);">
+            <i class="fa-solid fa-car-burst" style="font-size: 28px; margin-right: 10px; opacity: 0.5;"></i>
+            <span>No se encontraron resultados para "{{ busquedaVehiculos }}"</span>
+          </div>
+
+          <!-- DETALLE DEL VEHÍCULO -->
+          <div class="vehiculo-detail" *ngIf="vehiculoSeleccionado">
+            <div class="vehiculo-detail-layout">
+              <div class="vehiculo-detail-media">
+                <img
+                  *ngIf="!vehiculoSeleccionado.imgFailed"
+                  [src]="vehiculoSeleccionado.imageUrl"
+                  [alt]="vehiculoSeleccionado.name"
+                  class="vehiculo-detail-img"
+                  (error)="vehiculoSeleccionado.imgFailed = true"
+                />
+                <i *ngIf="vehiculoSeleccionado.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getVehicleIcon(vehiculoSeleccionado)"></i>
+              </div>
+
+              <div class="vehiculo-detail-info">
+                <span class="vehiculo-detail-maker">{{ vehiculoSeleccionado.manufacturer }}</span>
+                <h2 class="vehiculo-detail-name">{{ vehiculoSeleccionado.name }}</h2>
+
+                <div class="vehiculo-price-box">
+                  <span class="vehiculo-price-lbl">{{ 'transports.catalog.buyPrice' | translate }}</span>
+                  <span class="vehiculo-price-val">{{ vehiculoSeleccionado.priceFormatted }}</span>
+                </div>
+
+                <div class="vehiculo-detail-badges">
+                  <span class="vehiculo-detail-badge">{{ vehiculoSeleccionado.class }}</span>
+                  <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon" *ngIf="vehiculoSeleccionado.weaponized">
+                    {{ 'transports.catalog.weaponized' | translate }}
+                  </span>
+                </div>
+
+                <div class="vehiculo-stats">
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.stats.speed' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--speed" [style.width.%]="(vehiculoSeleccionado.speed || 0) * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ vehiculoSeleccionado.speed }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.stats.acceleration' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--accel" [style.width.%]="(vehiculoSeleccionado.acceleration || 0) * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ vehiculoSeleccionado.acceleration }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.stats.braking' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--brake" [style.width.%]="(vehiculoSeleccionado.braking || 0) * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ vehiculoSeleccionado.braking }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.stats.handling' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--handling" [style.width.%]="(vehiculoSeleccionado.handling || 0) * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ vehiculoSeleccionado.handling }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SEPARADOR CON ESPIGAS ESTILIZADAS OFICIAL DE LA GUÍA -->
+            <div class="guide-heading-divider" *ngIf="vehiculoSeleccionado.description">
+              <div class="guide-heading-line"></div>
+              <h3 class="guide-heading-title">DESCRIPCIÓN DEL VEHÍCULO</h3>
+              <div class="guide-heading-line guide-heading-line--right"></div>
+            </div>
+
+            <!-- CONTENIDO EDITORIAL DE DESCRIPCIÓN DEL VEHÍCULO -->
+            <p class="vehiculo-descripcion-texto" *ngIf="vehiculoSeleccionado.description">
+              {{ vehiculoSeleccionado.description }}
+            </p>
+          </div>
+        </div>
+      </article>
+
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="!isLoadingArticulo && selectedArticulo && !mostrarTrofeos" class="wiki-article-card">
+      <article *ngIf="!isLoadingArticulo && selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'vehiculos'" class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">

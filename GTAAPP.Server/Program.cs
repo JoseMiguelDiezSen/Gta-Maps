@@ -248,10 +248,48 @@ staticContentTypeProvider.Mappings[".css"] = "text/css";
 staticContentTypeProvider.Mappings[".xml"] = "application/xml";
 staticContentTypeProvider.Mappings[".txt"] = "text/plain";
 staticContentTypeProvider.Mappings[".ico"] = "image/x-icon";
+staticContentTypeProvider.Mappings[".webp"] = "image/webp";
+staticContentTypeProvider.Mappings[".woff2"] = "font/woff2";
+staticContentTypeProvider.Mappings[".otf"] = "font/otf";
 
 app.UseStaticFiles(new StaticFileOptions
 {
-    ContentTypeProvider = staticContentTypeProvider
+    ContentTypeProvider = staticContentTypeProvider,
+    OnPrepareResponse = ctx =>
+    {
+        var path = ctx.Context.Request.Path.Value ?? string.Empty;
+
+        // HTML nunca debe cachearse agresivamente para permitir actualizaciones inmediatas de la SPA
+        if (path.EndsWith(".html", StringComparison.OrdinalIgnoreCase) || path == "/" || string.IsNullOrEmpty(path))
+        {
+            ctx.Context.Response.Headers.CacheControl = "no-cache, no-store, must-revalidate";
+            ctx.Context.Response.Headers.Pragma = "no-cache";
+            ctx.Context.Response.Headers.Expires = "0";
+        }
+        // Archivos estáticos inmutables (imágenes, fuentes, estilos y scripts compilados)
+        else if (path.EndsWith(".webp", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".svg", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".ico", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".otf", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".woff", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".ttf", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".js", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".css", StringComparison.OrdinalIgnoreCase))
+        {
+            ctx.Context.Response.Headers.CacheControl = "public, max-age=31536000, immutable";
+        }
+        // Datasets JSON y archivos SEO
+        else if (path.EndsWith(".json", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".xml", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
+        {
+            ctx.Context.Response.Headers.CacheControl = "public, max-age=86400, stale-while-revalidate=604800";
+        }
+    }
 });
 app.MapStaticAssets();
 

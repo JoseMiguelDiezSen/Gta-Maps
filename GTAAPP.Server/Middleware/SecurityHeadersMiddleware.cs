@@ -218,6 +218,18 @@ public class SecurityHeadersMiddleware
             headers.Remove("Server");
             headers.Remove("X-Powered-By");
 
+            // 9. Prevenir que respuestas HTML (index.html o navegación SPA) queden cacheadas en disco impidiendo actualizaciones
+            var responseContentType = context.Response.ContentType;
+            if (!string.IsNullOrEmpty(responseContentType) && responseContentType.StartsWith("text/html", StringComparison.OrdinalIgnoreCase))
+            {
+                if (!headers.ContainsKey("Cache-Control"))
+                {
+                    headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+                    headers["Pragma"] = "no-cache";
+                    headers["Expires"] = "0";
+                }
+            }
+
             return Task.CompletedTask;
         });
 

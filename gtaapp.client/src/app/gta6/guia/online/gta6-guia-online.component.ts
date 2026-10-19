@@ -4,7 +4,9 @@ import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../../../models/guia';
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable, forkJoin, map, shareReplay } from 'rxjs';
+import { DealerCategory, GtaVehicle } from '../../../models/gta5/vehicle';
+import { CATEGORIAS_VEHICULOS_GTA6 } from '../vehiculos-gta6.config';
 
 export interface GuiaBreadcrumbItem {
   label: string;
@@ -26,6 +28,22 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
   currentSection: GuiaSeccion | null = null;
   selectedArticulo: GuiaArticulo | null = null;
   selectedSeccionId: string = 'todas';
+
+  readonly concesionarios: DealerCategory[] = CATEGORIAS_VEHICULOS_GTA6;
+  readonly dealerCounts$: Observable<Record<string, number>>;
+  concesionarioSeleccionado: DealerCategory | null = null;
+  vehiculosConcesionario$: Observable<GtaVehicle[]> | null = null;
+  vehiculosConcesionario: GtaVehicle[] = [];
+  vehiculoSeleccionado: GtaVehicle | null = null;
+  busquedaVehiculos: string = '';
+  private vehiculosSub?: Subscription;
+
+  getSeccionContador(seccion: GuiaSeccion): number {
+    if (seccion.id === 'vehiculos') {
+      return this.concesionarios.length;
+    }
+    return seccion.articulos ? seccion.articulos.length : 0;
+  }
 
   themeMode: 'night' | 'day' = 'night';
   searchQuery: string = '';
@@ -50,12 +68,16 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
 
   closeMobileReading(): void {
     this.isMobileReadingOpen = false;
+    if (this.vehiculoSeleccionado) {
+      this.vehiculoSeleccionado = null;
+    }
     this.scrollToTop();
   }
 
   goToCategoriesFromReading(): void {
     this.isMobileReadingOpen = false;
     this.currentSection = null;
+    this.limpiarConcesionario();
     this.scrollToTop();
   }
 
@@ -65,6 +87,36 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
 
   get breadcrumbs(): GuiaBreadcrumbItem[] {
     const items: GuiaBreadcrumbItem[] = [];
+
+    // 1. Vehículos
+    if (this.concesionarioSeleccionado || this.currentSection?.id === 'vehiculos') {
+      const secVehiculos = this.secciones.find(s => s.id === 'vehiculos');
+      items.push({
+        label: secVehiculos?.titulo || 'Vehículos',
+        clickable: !!this.concesionarioSeleccionado,
+        action: () => {
+          if (secVehiculos) this.openSection(secVehiculos);
+          this.limpiarConcesionario();
+        }
+      });
+      if (this.concesionarioSeleccionado) {
+        items.push({
+          label: this.concesionarioSeleccionado.name,
+          clickable: !!this.vehiculoSeleccionado,
+          action: () => {
+            this.volverAlGridVehiculos();
+          }
+        });
+      }
+      if (this.vehiculoSeleccionado) {
+        items.push({
+          label: this.vehiculoSeleccionado.name,
+          clickable: false
+        });
+      }
+      return items;
+    }
+
     if (!this.selectedArticulo) return [];
 
     const art = this.selectedArticulo;
@@ -124,7 +176,24 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     private titleService: Title,
     private metaService: Meta,
     private sanitizer: DomSanitizer
-  ) {}
+  ) {
+    this.dealerCounts$ = forkJoin(
+      this.concesionarios.map(d =>
+        this.guiaService.getVehiculosGuiaGta6('online', d.id).pipe(
+          map(list => ({ id: d.id, count: list.length }))
+        )
+      )
+    ).pipe(
+      map(results => {
+        const counts: Record<string, number> = {};
+        for (const r of results) {
+          counts[r.id] = r.count;
+        }
+        return counts;
+      }),
+      shareReplay(1)
+    );
+  }
 
   ngOnDestroy(): void {
     if (this.toastTimeout) {
@@ -134,6 +203,7 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     this.manifestSub?.unsubscribe();
     this.articuloSub?.unsubscribe();
     this.searchSub?.unsubscribe();
+    this.vehiculosSub?.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -309,6 +379,11 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     this.currentSection = sec;
     this.selectedSeccionId = sec.id;
     this.isMobileReadingOpen = false;
+    if (sec.id === 'vehiculos') {
+      this.selectedArticulo = null;
+      this.limpiarConcesionario();
+      return;
+    }
     if (sec.articulos && sec.articulos.length > 0) {
       this.seleccionarArticulo(sec.articulos[0].id, false);
     }
@@ -320,9 +395,94 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
   backToSections(): void {
     this.currentSection = null;
     this.isMobileReadingOpen = false;
+    this.limpiarConcesionario();
     if (this.isMobileView()) {
       this.scrollToTop();
     }
+  }
+
+  seleccionarConcesionario(concesionario: DealerCategory): void {
+    this.concesionarioSeleccionado = concesionario;
+    this.vehiculoSeleccionado = null;
+    this.busquedaVehiculos = '';
+    this.vehiculosConcesionario = [];
+    this.vehiculosSub?.unsubscribe();
+    this.vehiculosConcesionario$ = this.guiaService
+      .getVehiculosGuiaGta6('online', concesionario.id)
+      .pipe(shareReplay(1));
+    this.vehiculosSub = this.vehiculosConcesionario$.subscribe(list => {
+      this.vehiculosConcesionario = list || [];
+    });
+  }
+
+  get vehiculosFiltrados(): GtaVehicle[] {
+    const list = this.vehiculosConcesionario || [];
+    const rawQuery = (this.busquedaVehiculos || '').trim();
+    if (!rawQuery) {
+      return list;
+    }
+    const cleanStr = (s?: string) =>
+      (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const query = cleanStr(rawQuery);
+    return list.filter(v =>
+      cleanStr(v.name).includes(query) ||
+      cleanStr(v.manufacturer).includes(query) ||
+      cleanStr(v.class).includes(query)
+    );
+  }
+
+  limpiarBusquedaVehiculos(): void {
+    this.busquedaVehiculos = '';
+  }
+
+  getPlaceholderBuscadorVehiculos(): string {
+    const catId = this.concesionarioSeleccionado?.id;
+    if (catId === 'barcos') return 'Buscar embarcación...';
+    if (catId === 'aviones') return 'Buscar avión...';
+    if (catId === 'helicopteros') return 'Buscar helicóptero...';
+    if (catId === 'motos') return 'Buscar moto...';
+    if (catId === 'especiales') return 'Buscar vehículo militar o especial...';
+    return 'Buscar vehículo por modelo o marca...';
+  }
+
+  getBadgeLabelVehiculos(): string {
+    const catId = this.concesionarioSeleccionado?.id;
+    if (catId === 'barcos') return 'embarcaciones';
+    if (catId === 'aviones') return 'aeronaves';
+    if (catId === 'helicopteros') return 'helicópteros';
+    if (catId === 'motos') return 'motos';
+    return 'vehículos';
+  }
+
+  seleccionarVehiculo(vehiculo: GtaVehicle): void {
+    this.vehiculoSeleccionado = vehiculo;
+    if (this.isMobileView()) {
+      this.openMobileReading();
+    }
+  }
+
+  volverAlGridVehiculos(): void {
+    this.vehiculoSeleccionado = null;
+  }
+
+  getVehicleIcon(v: GtaVehicle | null): string {
+    if (!v) return 'fa-car';
+    const cat = (v.category || v.class || '').toLowerCase();
+    if (cat.includes('boat') || cat.includes('barco')) return 'fa-ship';
+    if (cat.includes('plane') || cat.includes('avion') || cat.includes('avión')) return 'fa-plane';
+    if (cat.includes('heli')) return 'fa-helicopter';
+    if (cat.includes('motorcycle') || cat.includes('moto') || cat.includes('bike')) return 'fa-motorcycle';
+    if (cat.includes('cycle') || cat.includes('bici')) return 'fa-bicycle';
+    return 'fa-car';
+  }
+
+  limpiarConcesionario(): void {
+    this.concesionarioSeleccionado = null;
+    this.vehiculosConcesionario$ = null;
+    this.vehiculosConcesionario = [];
+    this.vehiculoSeleccionado = null;
+    this.busquedaVehiculos = '';
+    this.vehiculosSub?.unsubscribe();
   }
 
   getSectionColor(secId?: string): string {
@@ -332,6 +492,7 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     if (s.includes('mision') || s.includes('trabajo')) return '#22c55e';
     if (s.includes('negocio') || s.includes('economia')) return '#06b6d4';
     if (s.includes('golpe')) return '#eab308';
+    if (s.includes('vehiculo')) return '#38bdf8';
     return '#22c55e';
   }
 
