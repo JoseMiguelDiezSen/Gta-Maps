@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         const viewportMeta = document.querySelector('meta[name="viewport"]');
         if (viewportMeta) {
             this.originalViewportContent = viewportMeta.getAttribute('content');
-            viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover');
+            viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, viewport-fit=cover');
         }
 
         // 2. Prevenir pellizco nativo en Safari iOS (gesturestart)

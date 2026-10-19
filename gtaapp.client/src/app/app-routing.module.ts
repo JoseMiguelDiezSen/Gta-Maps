@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent }           from './home/home.component';
-import { Gta5MapOnlineComponent }     from './gta5/map/online/gta5-map-online.component';
-import { Gta5MapOfflineComponent }   from './gta5/map/offline/gta5-map-offline.component';
+
+/* Rutas desacopladas en gta5 y gta6 modules
 import { Gta5GuiaOfflineComponent }   from './gta5/guia/offline/gta5-guia-offline.component';
 import { Gta5GuiaOnlineComponent }  from './gta5/guia/online/gta5-guia-online.component';
 import { Gta6MapOnlineComponent }    from './gta6/map/online/gta6-map-online.component';
@@ -14,7 +14,7 @@ import { Gta6NoticiasComponent }  from './gta6/noticias/gta6-noticias.component'
 import { Gta6MomentosComponent }  from './gta6/momentos/gta6-momentos.component';
 import { Gta6VideosComponent }    from './gta6/videos/gta6-videos.component';
 
-import { DevAccessGuard }       from './services/dev-access.guard';
+import { DevAccessGuard }       from './services/dev-access.guard'; */
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,7 +30,16 @@ const routes: Routes = [
         }
     },
 
-    // ── GTA V ────────────────────────────────────────────────────────────────
+    // ── Carga Perezosa (Lazy Loading) de GTA 5 y GTA 6 ─────────────────────
+    {
+        path: '',
+        loadChildren: () => import('./gta5/gta5.module').then(m => m.Gta5Module)
+    },
+    {
+        path: '',
+        loadChildren: () => import('./gta6/gta6.module').then(m => m.Gta6Module)
+    },
+    /* Rutas migradas a Gta5Module y Gta6Module (Lazy Loading)
     {
         path: 'gta5-map-online',
         component: Gta5MapOnlineComponent,
@@ -127,7 +136,7 @@ const routes: Routes = [
             description: 'Recopilación de vídeos, clips breves de gameplay, situaciones curiosas y surrealistas en Grand Theft Auto VI y el Estado de Leonida.',
             canonical: 'https://gtaworld.dev/gta6-videos'
         }
-    },
+    }, */
 
     // Redirecciones por compatibilidad
     { path: 'gta6-guia',      redirectTo: '/gta6-guia-offline', pathMatch: 'full' },

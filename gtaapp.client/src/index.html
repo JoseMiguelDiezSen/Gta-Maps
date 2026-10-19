@@ -1,20 +1,48 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-648ZN9QNPD"></script>
+  <!-- Google tag (gtag.js) diferido para no bloquear el First Contentful Paint -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-648ZN9QNPD');
+    (function() {
+      var loaded = false;
+      function initGtag() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-648ZN9QNPD';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-648ZN9QNPD');
+      }
+      var events = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+      function onInteract() {
+        events.forEach(function(e) { window.removeEventListener(e, onInteract, { passive: true }); });
+        initGtag();
+      }
+      events.forEach(function(e) { window.addEventListener(e, onInteract, { passive: true, once: true }); });
+
+
+
+
+
+    })();
+
+
+
+
+
+
+
   </script>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>GTA World - Mapas GTA HD con asistente IA integrado y Guias Interactivas</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Mapas interactivos en Ultra HD de GTA V, GTA Online, Cayo Perico y GTA VI Vice City. 100% sin anuncios, con Asistente IA, guía de coleccionables al 100%, misterios y vehículos en tiempo real.">
   <meta name="keywords" content="GTA MAPS, mapa interactivo GTA 5, mapa GTA 6, mapa Vice City, Cayo Perico mapa, GTA V 100%, mapa sin anuncios, asistente IA GTA, mapa coleccionables GTA V">
   <meta name="robots" content="index, follow">
@@ -26,7 +54,11 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logos/apple-touch-icon.png">
-  <link rel="preload" href="assets/Pricedown Bl.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/images/goty/goty_duo.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/images/logos/gta-world-logo.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/Pricedown%20Bl.otf" as="font" type="font/otf" crossorigin>
+
+
 
   <!-- Open Graph / Redes Sociales (Facebook, Discord, WhatsApp, Telegram) -->
   <meta property="og:type" content="website">

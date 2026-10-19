@@ -14,7 +14,15 @@ export class UsuariosActivosService {
   readonly conectado = signal<boolean>(false);
 
   constructor() {
-    this.iniciarConexion();
+    if (typeof window !== 'undefined') {
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => setTimeout(() => this.iniciarConexion(), 3500));
+      } else {
+        setTimeout(() => this.iniciarConexion(), 4000);
+      }
+    } else {
+      this.iniciarConexion();
+    }
   }
 
   private iniciarConexion(): void {

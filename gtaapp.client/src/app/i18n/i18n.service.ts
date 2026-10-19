@@ -36,7 +36,15 @@ export class TranslationService {
     this.applyDocumentLang(initialLang);
     this.loadLanguage(initialLang);
     if (initialLang !== DEFAULT_LANGUAGE) {
-      this.loadLanguage(DEFAULT_LANGUAGE);
+      if (typeof window !== 'undefined') {
+        if ('requestIdleCallback' in window) {
+          (window as any).requestIdleCallback(() => setTimeout(() => this.loadLanguage(DEFAULT_LANGUAGE), 4000));
+        } else {
+          setTimeout(() => this.loadLanguage(DEFAULT_LANGUAGE), 5000);
+        }
+      } else {
+        this.loadLanguage(DEFAULT_LANGUAGE);
+      }
     }
   }
 
