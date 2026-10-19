@@ -1049,6 +1049,24 @@
   z-index: 50;
 }
 
+.gta6-zone-label {
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+}
+
+.gta6-zone-label .gta-district-label-text {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+}
+
 .gta6-marker-pin {
   pointer-events: auto;
   cursor: pointer;

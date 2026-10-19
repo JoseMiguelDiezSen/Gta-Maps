@@ -1,7 +1,18 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { TranslationService } from '../../../i18n';
 import { GotyService } from '../../../services/goty.service';
+
+export interface Gta6ZoneLabel {
+    id: string;
+    name: string;
+    x: number;
+    y: number;
+    size: number;
+    isMajor: boolean;
+}
 
 export interface Gta6LegendItem {
     id: string;
@@ -216,8 +227,12 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
     constructor(
         readonly translationService: TranslationService,
         public gotyService: GotyService,
-        private router: Router
+        private router: Router,
+        private http: HttpClient
     ) {}
+
+    zones: Gta6ZoneLabel[] = [];
+    private zonesSub?: Subscription;
 
     private _cachedMapTypesGta6H: any[] | null = null;
     private _lastLangGta6H = '';
@@ -317,6 +332,9 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
             this.legendOpen = false;
             this.settingsOpen = false;
         }
+        this.updateCanvasDimensions();
+        setTimeout(() => this.updateCanvasDimensions(), 0);
+        this.loadZones();
         this.initFilters();
         this.updateItemCounts();
         this.loadCustomMarkers();
@@ -327,6 +345,42 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
         if (this.clockInterval) {
             clearInterval(this.clockInterval);
         }
+        this.zonesSub?.unsubscribe();
+    }
+
+    private loadZones(): void {
+        this.zonesSub = this.http.get<Gta6ZoneLabel[]>('/assets/data/gta6/mapa/zonas.json').subscribe({
+            next: (data) => {
+                this.zones = Array.isArray(data) ? data : [];
+                this.updateCanvasDimensions();
+            },
+            error: () => {
+                this.zones = [];
+            }
+        });
+    }
+
+    private updateCanvasDimensions(): void {
+        const el = this.mapWrapper?.nativeElement?.querySelector('.gta6-canvas') as HTMLElement | null;
+        if (el && el.clientWidth && el.clientHeight) {
+            this.canvasW = el.clientWidth;
+            this.canvasH = el.clientHeight;
+        }
+    }
+
+    getZoneLabelStyle(z: Gta6ZoneLabel): { [key: string]: string } {
+        const posStyle = this.getMarkerStyle(z);
+        if (posStyle['display'] === 'none') {
+            return posStyle;
+        }
+        const isNarrow = typeof window !== 'undefined' && window.innerWidth <= 850;
+        const scale = isNarrow ? 0.62 : 1.0;
+        const calculatedSize = Math.max(8, Math.round((z.size + 1) * scale));
+        return {
+            ...posStyle,
+            fontSize: `${calculatedSize}px`,
+            letterSpacing: isNarrow ? '1.5px' : '3px'
+        };
     }
 
     private initFilters(): void {
@@ -734,11 +788,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
 
     @HostListener('window:resize')
     onWindowResize(): void {
-        const el = document.getElementById('gta6-map-canvas');
-        if (el) {
-            this.canvasW = el.clientWidth;
-            this.canvasH = el.clientHeight;
-        }
+        this.updateCanvasDimensions();
     }
 
     private coverScale(): number {

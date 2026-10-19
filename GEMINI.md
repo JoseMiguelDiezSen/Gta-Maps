@@ -1,4 +1,4 @@
-# Reglas y MetodologÃ­a del Proyecto (GTA MAPS)
+# Reglas y Metodología del Proyecto (GTA WORLD)
 
 Este archivo contiene las directrices de obligado cumplimiento para el asistente en este repositorio. Cualquier incumplimiento de estas normas compromete la estabilidad del proyecto en producciÃ³n y la continuidad del trabajo.
 
@@ -26,7 +26,7 @@ Este archivo contiene las directrices de obligado cumplimiento para el asistente
 * **Control Estricto de EjecuciÃ³n y Herramientas**: Prohibido lanzar comandos de terminal pesados, bucles o tareas en segundo plano que quemen tokens o cuota semanal innecesariamente sin consentimiento previo.
 * **VerificaciÃ³n Real y Cero Asunciones**: Comprobar tipos de TypeScript, sintaxis de plantillas Angular, imports y lÃ³gica antes de dar una tarea por terminada.
 * **No Retrocesos Destructivos**: Prohibido el uso de comandos destructivos (`git reset --hard`, `git checkout` ciegos) que eliminen el trabajo realizado por el usuario. Se trabaja siempre hacia adelante con control de versiones limpio.
-* **Identidad Propia en RedacciÃ³n**: El contenido narrativo y tÃ¡ctico debe redactarse con voz propia de GTA MAPS, aportando valor real y sin calcar literalmente estructuras de terceros (BradyGames, GTAWiki).
+* **Identidad Propia en Redacción**: El contenido narrativo y táctico debe redactarse con voz propia de GTA WORLD, aportando valor real y sin calcar literalmente estructuras de terceros (BradyGames, GTAWiki).
 * **ProhibiciÃ³n de Callouts Flotantes**: No usar tarjetas destacadas o callouts invasivos (`> Nota TÃ¡ctica`, `.guide-callout`). Todos los avisos y consejos se integran limpiamente como viÃ±etas de lista (`* `) dentro del cuerpo del texto.
 
 ## 4. Tolerancia Cero a Regresiones (Prohibido Romper lo Funcional)

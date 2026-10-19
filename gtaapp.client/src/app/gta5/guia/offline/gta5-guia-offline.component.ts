@@ -1196,6 +1196,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   getPersonajeClass(badge?: string): string {
+    if (this.currentSection?.id === 'secretos-misterios') return 'personaje-misterio';
     if (!badge) return '';
     const b = badge.toLowerCase();
     if (b.includes('michael') && b.includes('franklin')) return 'personaje-mf';

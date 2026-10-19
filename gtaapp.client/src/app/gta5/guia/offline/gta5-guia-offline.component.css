@@ -3029,6 +3029,32 @@
   box-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
 }
 
+/* Misterios: Morado (#a855f7) */
+.guide-chapter-card.personaje-misterio {
+  border-left: 3px solid #a855f7;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.14) 0%, rgba(13, 19, 26, 0.88) 100%);
+}
+.guide-chapter-card.personaje-misterio .chapter-card-num {
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.45);
+}
+.guide-chapter-card.personaje-misterio .chapter-card-badge {
+  background: rgba(168, 85, 247, 0.22);
+  color: #f3e8ff;
+  border: 1px solid rgba(168, 85, 247, 0.55);
+}
+.guide-chapter-card.personaje-misterio:hover {
+  border-left-color: #c084fc;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.22) 0%, rgba(18, 25, 36, 0.95) 100%);
+}
+.guide-chapter-card.personaje-misterio.is-active {
+  border-left-color: #a855f7;
+  border-color: rgba(168, 85, 247, 0.6);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.35);
+}
+
 /* ====== MODO DÍA ====== */
 .wiki-shell.mode-day .guide-cat-card {
   background: #ffffff;
@@ -3415,6 +3441,21 @@
   color: #0f172a;
   border: 1px solid #94a3b8;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.wiki-shell.mode-day .guide-chapter-card.personaje-misterio {
+  background: #faf5ff;
+  border-left-color: #9333ea;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-misterio .chapter-card-num {
+  color: #7e22ce;
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid #c084fc;
+}
+.wiki-shell.mode-day .guide-chapter-card.personaje-misterio .chapter-card-badge {
+  background: rgba(168, 85, 247, 0.2);
+  color: #6b21a8;
+  border: 1px solid #c084fc;
 }
 
 .wiki-shell.mode-day .chapter-card-title {

@@ -18,6 +18,21 @@
   >
     <!-- CAPA DE MARCADORES INTERACTIVOS SOBRE EL CANVAS -->
     <div class="gta6-markers-container" [style.width.px]="canvasW" [style.height.px]="canvasH">
+      <!-- Etiquetas de Zonas y Regiones (idénticas a GTA 5) -->
+      <div
+        *ngFor="let z of zones"
+        class="gta-district-label-pin gta6-zone-label"
+        [ngStyle]="getZoneLabelStyle(z)"
+      >
+        <div
+          class="gta-district-label-text"
+          [class.is-major]="z.isMajor"
+          [class.is-minor]="!z.isMajor"
+        >
+          {{ z.name }}
+        </div>
+      </div>
+
       <!-- Marcadores de Categorías -->
       <div
         *ngFor="let m of visibleMarkers"
