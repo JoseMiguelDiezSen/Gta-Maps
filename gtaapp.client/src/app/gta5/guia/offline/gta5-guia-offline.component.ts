@@ -415,9 +415,6 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       if (sec.id === 'extranos-locos') {
         this.expandedGrupos.clear();
         this.expandedGrupos.add('Tonya');
-      } else if (sec.id === 'misiones-historia') {
-        this.expandedGrupos.clear();
-        this.expandedGrupos.add('prologo');
       } else if (sec.id === 'eventos-aleatorios') {
         this.expandedGrupos.clear();
         this.expandedGrupos.add('emboscadas');
@@ -990,7 +987,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   isAccordionSection(secId?: string): boolean {
-    return secId === 'extranos-locos' || secId === 'misiones-historia' || secId === 'eventos-aleatorios';
+    return secId === 'extranos-locos' || secId === 'eventos-aleatorios';
   }
 
   expandedGrupos: Set<string> = new Set<string>();
@@ -1211,9 +1208,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (b.includes('lester')) return 'personaje-lester';
     if (b.includes('lamar')) return 'personaje-franklin';
     if (b.includes('de santa') || b.includes('amanda') || b.includes('jimmy')) return 'personaje-michael';
-    if (b.includes('devin') || b.includes('weston')) return 'personaje-devin';
-    if (b.includes('spoiler')) return 'personaje-spoiler';
-    if (b.includes('final')) return 'personaje-final';
+    if (b.includes('spoiler') || b.includes('final')) return 'personaje-final';
     if (b.includes('epsilon')) return 'personaje-epsilon';
     if (b.includes('tonya')) return 'personaje-tonya';
     if (b.includes('beverly')) return 'personaje-beverly';

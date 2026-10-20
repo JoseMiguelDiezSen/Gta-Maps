@@ -2608,36 +2608,6 @@
   box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
 }
 
-/* Spoiler: Alerta Visual de Destripe */
-.guide-chapter-card.personaje-spoiler {
-  border-left: 3px solid #f43f5e;
-  border-color: rgba(244, 63, 94, 0.35);
-  background: linear-gradient(135deg, rgba(244, 63, 94, 0.14) 0%, rgba(13, 19, 26, 0.92) 100%);
-}
-.guide-chapter-card.personaje-spoiler .chapter-card-num {
-  color: #fda4af;
-  background: rgba(244, 63, 94, 0.18);
-  border: 1px solid rgba(244, 63, 94, 0.45);
-}
-.guide-chapter-card.personaje-spoiler .chapter-card-badge {
-  background: rgba(239, 68, 68, 0.24);
-  color: #fecaca;
-  border: 1px solid rgba(239, 68, 68, 0.65);
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  box-shadow: 0 0 8px rgba(239, 68, 68, 0.25);
-}
-.guide-chapter-card.personaje-spoiler:hover {
-  border-left-color: #fb7185;
-  border-color: rgba(244, 63, 94, 0.55);
-  background: linear-gradient(135deg, rgba(244, 63, 94, 0.22) 0%, rgba(18, 25, 36, 0.95) 100%);
-}
-.guide-chapter-card.personaje-spoiler.is-active {
-  border-left-color: #fb7185;
-  border-color: rgba(244, 63, 94, 0.75);
-  background: linear-gradient(135deg, rgba(244, 63, 94, 0.28) 0%, rgba(15, 23, 42, 0.95) 100%);
-  box-shadow: 0 0 16px rgba(244, 63, 94, 0.35);
-}
 
 /* Epsilon: Azul Claro Epsilon (Kifflom) */
 .guide-chapter-card.personaje-epsilon {
