@@ -15,13 +15,12 @@ export class UsuariosActivosService {
 
   constructor() {
     if (typeof window !== 'undefined') {
-      if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(() => setTimeout(() => this.iniciarConexion(), 3500));
-      } else {
-        setTimeout(() => this.iniciarConexion(), 4000);
-      }
-    } else {
-      this.iniciarConexion();
+      const events = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+      const onInteract = () => {
+        events.forEach(e => window.removeEventListener(e, onInteract));
+        this.iniciarConexion();
+      };
+      events.forEach(e => window.addEventListener(e, onInteract, { passive: true, once: true }));
     }
   }
 
