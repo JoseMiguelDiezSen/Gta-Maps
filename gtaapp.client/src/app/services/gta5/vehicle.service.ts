@@ -67,7 +67,11 @@ export class VehicleService {
       ? this.http.get<GtaVehicle[]>(dealerPrimaryPath).pipe(
           catchError(() => this.http.get<GtaVehicle[]>(dealerFallbackPath!).pipe(catchError(() => of([] as GtaVehicle[]))))
         )
-      : forkJoin(dealerNames.map(d => fetchDealer(d))).pipe(map(lists => lists.flat()));
+      : (mode === 'offline'
+          ? this.http.get<GtaVehicle[]>('/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/es/vehicles.json').pipe(
+              catchError(() => this.http.get<GtaVehicle[]>('/assets/data/gta5/marcadores-mapa/offline/idiomas/es/vehicles.json').pipe(catchError(() => of([] as GtaVehicle[]))))
+            )
+          : forkJoin(dealerNames.map(d => fetchDealer(d))).pipe(map(lists => lists.flat())));
 
     const fetchLocalized = () => {
       const p1 = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/${activeLang}/vehicles.json`;

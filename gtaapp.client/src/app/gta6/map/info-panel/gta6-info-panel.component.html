@@ -21,13 +21,15 @@
       <!-- BREADCRUMB dinámico de concesionario y vehículo -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid' || drawerView === 'vehicle-detail'">
         <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">{{ 'transports.title' | translate }}</span>
-        <span class="drawer-breadcrumb-sep">›</span>
-        <span
-          class="drawer-breadcrumb-link"
-          [class.drawer-breadcrumb-current]="drawerView === 'dealer-grid'"
-          (click)="backToDealerGrid()"
-          [title]="activeDealerName"
-        >{{ activeDealerName }}</span>
+        <ng-container *ngIf="activeDealerName">
+          <span class="drawer-breadcrumb-sep">›</span>
+          <span
+            class="drawer-breadcrumb-link"
+            [class.drawer-breadcrumb-current]="drawerView === 'dealer-grid'"
+            (click)="backToDealerGrid()"
+            [title]="activeDealerName"
+          >{{ activeDealerName }}</span>
+        </ng-container>
         <ng-container *ngIf="drawerView === 'vehicle-detail' && selectedVehicle">
           <span class="drawer-breadcrumb-sep">›</span>
           <span class="drawer-breadcrumb-current vehicle-crumb-name" [title]="selectedVehicle.name">{{ selectedVehicle.name }}</span>
@@ -118,34 +120,96 @@
             <div class="dealer-section-divider-line"></div>
           </div>
 
-          <!-- Dealers de Leonida -->
-          <ng-container *ngFor="let d of dealers; trackBy: trackById">
-
-            <!-- Separador antes de la sección especial -->
-            <div class="dealer-section-divider" *ngIf="d.id === 'gta6_especiales'">
-              <div class="dealer-section-divider-line"></div>
-              <span class="dealer-section-divider-label">{{ 'transports.tabs.specialVehicles' | translate }}</span>
-              <div class="dealer-section-divider-line"></div>
-            </div>
-
-            <div
-              class="dealer-card"
-              [class.dealer-card--special]="d.id === 'gta6_especiales'"
-              (click)="openDealerGrid(d.id, d.name)"
-              [style.--dealer-color]="d.color"
+          <!-- Buscador de vehículos -->
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="vehicleSearchQuery"
+              [placeholder]="'transports.catalog.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="vehicleSearchQuery"
+              type="button"
+              class="missions-search-clear"
+              (click)="vehicleSearchQuery = ''"
+              title="Borrar búsqueda"
             >
-              <div class="dealer-card-icon">
-                <i class="fa-solid" [ngClass]="d.icon"></i>
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Si NO hay búsqueda: Dealers de Leonida -->
+          <ng-container *ngIf="!vehicleSearchQuery.trim()">
+            <ng-container *ngFor="let d of dealers; trackBy: trackById">
+
+              <!-- Separador antes de la sección especial -->
+              <div class="dealer-section-divider" *ngIf="d.id === 'gta6_especiales'">
+                <div class="dealer-section-divider-line"></div>
+                <span class="dealer-section-divider-label">{{ 'transports.tabs.specialVehicles' | translate }}</span>
+                <div class="dealer-section-divider-line"></div>
               </div>
-              <div class="dealer-card-info">
-                <span class="dealer-card-name">{{ d.name }}</span>
-                <span class="dealer-card-sub">{{ d.description }}</span>
+
+              <div
+                class="dealer-card"
+                [class.dealer-card--special]="d.id === 'gta6_especiales'"
+                (click)="openDealerGrid(d.id, d.name)"
+                [style.--dealer-color]="d.color"
+              >
+                <div class="dealer-card-icon">
+                  <i class="fa-solid" [ngClass]="d.icon"></i>
+                </div>
+                <div class="dealer-card-info">
+                  <span class="dealer-card-name">{{ d.name }}</span>
+                  <span class="dealer-card-sub">{{ d.description }}</span>
+                </div>
+                <div class="dealer-card-arrow">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
               </div>
-              <div class="dealer-card-arrow">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
+
+            </ng-container>
+          </ng-container>
+
+          <!-- Si HAY búsqueda: Resultados de coches filtrados -->
+          <ng-container *ngIf="vehicleSearchQuery.trim()">
+            <!-- Sin resultados -->
+            <div class="vgrid-empty" *ngIf="filteredGlobalVehicles.length === 0">
+              <i class="fa-solid fa-car-burst"></i>
+              <span>{{ 'transports.catalog.empty' | translate }}</span>
             </div>
 
+            <!-- Grid de tarjetas de vehículos encontrados -->
+            <div class="vgrid-grid" *ngIf="filteredGlobalVehicles.length > 0">
+              <div
+                *ngFor="let v of filteredGlobalVehicles; trackBy: trackById"
+                class="vcard"
+                (click)="selectVehicle(v)"
+              >
+                <div class="vcard-img">
+                  <span class="vcard-class-badge">{{ v.class }}</span>
+                  <img
+                    *ngIf="v.images && v.images[0] && !v.imgFailed"
+                    [src]="v.images[0]"
+                    [alt]="v.name"
+                    class="vcard-photo"
+                    loading="lazy"
+                    (error)="onVehicleImgError(v)"
+                  />
+                  <ng-container *ngIf="!v.images || !v.images[0] || v.imgFailed">
+                    <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
+                  </ng-container>
+                </div>
+                <div class="vcard-info">
+                  <span class="vcard-name">{{ v.name }}</span>
+                  <div class="vcard-sub-row">
+                    <span class="vcard-maker">{{ v.manufacturer || 'Leonida' }}</span>
+                    <span class="vcard-price">{{ v.priceFormatted || formatPrice(v.price) }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </ng-container>
 
         </div>
@@ -154,98 +218,102 @@
 
     <!-- ============ VISTA: GRID DE VEHÍCULOS DE CONCESIONARIO ============ -->
     <ng-container *ngIf="drawerView === 'dealer-grid'">
-      <div class="vgrid-view-container">
+      <div class="dealers-tab-scroll">
 
-        <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo -->
-        <div class="dealer-vehicles-toolbar">
-          <div class="missions-search-box">
-            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
-            <input
-              type="text"
-              class="missions-search-input"
-              [(ngModel)]="dealerVehicleSearchQuery"
-              [placeholder]="'transports.catalog.searchPlaceholder' | translate"
-            />
-            <button
-              *ngIf="dealerVehicleSearchQuery"
-              type="button"
-              class="missions-search-clear"
-              (click)="dealerVehicleSearchQuery = ''"
-              title="Borrar búsqueda"
+        <!-- Separador superior con el nombre del Concesionario -->
+        <div class="dealer-section-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ activeDealerName }}</span>
+          <div class="dealer-section-divider-line"></div>
+        </div>
+
+        <!-- Barra de Búsqueda de vehículo dentro del concesionario -->
+        <div class="missions-search-box">
+          <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+          <input
+            type="text"
+            class="missions-search-input"
+            [(ngModel)]="dealerVehicleSearchQuery"
+            [placeholder]="'transports.catalog.searchPlaceholder' | translate"
+          />
+          <button
+            *ngIf="dealerVehicleSearchQuery"
+            type="button"
+            class="missions-search-clear"
+            (click)="dealerVehicleSearchQuery = ''"
+            title="Borrar búsqueda"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Selectores Desplegables Lado a Lado (50% / 50%) -->
+        <div class="missions-dropdowns-row">
+          <div class="strangers-series-select-wrap">
+            <select
+              class="strangers-series-select"
+              [(ngModel)]="selectedVehicleClass"
+              (ngModelChange)="setVehicleCategory($event)"
             >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+              <option *ngFor="let cat of dealerCategories; trackBy: trackById" [value]="cat.id">
+                {{ cat.id === 'all' ? ('common.all' | translate) : cat.name }} ({{ cat.count }})
+              </option>
+            </select>
           </div>
 
-          <div class="missions-dropdowns-row">
-            <div class="strangers-series-select-wrap">
-              <select
-                class="strangers-series-select"
-                [(ngModel)]="selectedVehicleClass"
-                (ngModelChange)="setVehicleCategory($event)"
-              >
-                <option *ngFor="let cat of dealerCategories; trackBy: trackById" [value]="cat.id">
-                  {{ cat.id === 'all' ? ('common.all' | translate) : cat.name }} ({{ cat.count }})
-                </option>
-              </select>
-            </div>
-
-            <div class="strangers-series-select-wrap">
-              <select
-                class="strangers-series-select"
-                [(ngModel)]="selectedVehicleSort"
-                (ngModelChange)="setVehicleSort($event)"
-              >
-                <option value="none">📊 {{ 'transports.catalog.sortDefault' | translate }}</option>
-                <option value="acceleration">🚀 {{ 'transports.stats.acceleration' | translate }}</option>
-                <option value="speed">⚡ {{ 'transports.stats.speed' | translate }}</option>
-                <option value="braking">🛑 {{ 'transports.stats.braking' | translate }}</option>
-                <option value="handling">🎯 {{ 'transports.stats.handling' | translate }}</option>
-              </select>
-            </div>
+          <div class="strangers-series-select-wrap">
+            <select
+              class="strangers-series-select"
+              [(ngModel)]="selectedVehicleSort"
+              (ngModelChange)="setVehicleSort($event)"
+            >
+              <option value="none">📊 {{ 'transports.catalog.sortDefault' | translate }}</option>
+              <option value="acceleration">🚀 {{ 'transports.stats.acceleration' | translate }}</option>
+              <option value="speed">⚡ {{ 'transports.stats.speed' | translate }}</option>
+              <option value="braking">🛑 {{ 'transports.stats.braking' | translate }}</option>
+              <option value="handling">🎯 {{ 'transports.stats.handling' | translate }}</option>
+            </select>
           </div>
         </div>
 
-        <!-- Scroll area con grid de tarjetas vcard idénticas a GTA 5 -->
-        <div class="vgrid-scroll-area">
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ activeDealerName }}</span>
-            <div class="dealer-section-divider-line"></div>
-          </div>
+        <!-- Sin resultados -->
+        <div class="vgrid-empty" *ngIf="filteredDealerVehicles.length === 0">
+          <i class="fa-solid fa-car-burst"></i>
+          <span>{{ 'transports.catalog.empty' | translate }}</span>
+        </div>
 
-          <div class="vgrid-grid">
-            <div
-              *ngFor="let v of filteredDealerVehicles; trackBy: trackById"
-              class="vcard"
-              (click)="selectVehicle(v)"
-            >
-              <div class="vcard-img">
-                <span class="vcard-class-badge">{{ v.class }}</span>
-                <img
-                  *ngIf="v.images && v.images[0] && !v.imgFailed"
-                  [src]="v.images[0]"
-                  [alt]="v.name"
-                  class="vcard-photo"
-                  loading="lazy"
-                  (error)="onVehicleImgError(v)"
-                />
-                <ng-container *ngIf="!v.images || !v.images[0] || v.imgFailed">
-                  <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
-                </ng-container>
-                <span class="vcard-stat-pill" *ngIf="selectedVehicleSort !== 'none'">
-                  <span *ngIf="selectedVehicleSort === 'speed'">⚡ {{ v.topSpeedMph || v.speed }}</span>
-                  <span *ngIf="selectedVehicleSort === 'acceleration'">🚀 {{ v.acceleration }}</span>
-                  <span *ngIf="selectedVehicleSort === 'braking'">🛑 {{ v.braking }}</span>
-                  <span *ngIf="selectedVehicleSort === 'handling'">🎯 {{ v.handling }}</span>
-                </span>
-              </div>
-              <div class="vcard-info">
-                <span class="vcard-name">{{ v.name }}</span>
-                <div class="vcard-sub-row">
-                  <span class="vcard-maker">{{ v.manufacturer || 'Leonida' }}</span>
-                  <span class="vcard-price">{{ v.priceFormatted || formatPrice(v.price) }}</span>
-                </div>
+        <!-- Grid de tarjetas de vehículos -->
+        <div class="vgrid-grid" *ngIf="filteredDealerVehicles.length > 0">
+          <div
+            *ngFor="let v of filteredDealerVehicles; trackBy: trackById"
+            class="vcard"
+            (click)="selectVehicle(v)"
+          >
+            <div class="vcard-img">
+              <span class="vcard-class-badge">{{ v.class }}</span>
+              <img
+                *ngIf="v.images && v.images[0] && !v.imgFailed"
+                [src]="v.images[0]"
+                [alt]="v.name"
+                class="vcard-photo"
+                loading="lazy"
+                (error)="onVehicleImgError(v)"
+              />
+              <ng-container *ngIf="!v.images || !v.images[0] || v.imgFailed">
+                <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
+              </ng-container>
+              <span class="vcard-stat-pill" *ngIf="selectedVehicleSort !== 'none'">
+                <span *ngIf="selectedVehicleSort === 'speed'">⚡ {{ v.topSpeedMph || v.speed }}</span>
+                <span *ngIf="selectedVehicleSort === 'acceleration'">🚀 {{ v.acceleration }}</span>
+                <span *ngIf="selectedVehicleSort === 'braking'">🛑 {{ v.braking }}</span>
+                <span *ngIf="selectedVehicleSort === 'handling'">🎯 {{ v.handling }}</span>
+              </span>
+            </div>
+            <div class="vcard-info">
+              <span class="vcard-name">{{ v.name }}</span>
+              <div class="vcard-sub-row">
+                <span class="vcard-maker">{{ v.manufacturer || 'Leonida' }}</span>
+                <span class="vcard-price">{{ v.priceFormatted || formatPrice(v.price) }}</span>
               </div>
             </div>
           </div>
@@ -331,7 +399,7 @@
           <div class="vclean-bottom-action">
             <button type="button" class="vclean-back-btn" (click)="backToDealerGrid()">
               <i class="fa-solid fa-arrow-left"></i>
-              <span>{{ 'transports.dealers.backTo' | translate }} {{ activeDealerName }}</span>
+              <span>{{ activeDealerName ? (('transports.dealers.backTo' | translate) + ' ' + activeDealerName) : ('common.back' | translate) }}</span>
             </button>
           </div>
 
@@ -341,102 +409,106 @@
 
     <!-- ============ TAB 2: ARMAS (CATÁLOGO DE ARMAMENTO / VCARD GRID) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'armas'">
-      <div class="vgrid-view-container">
+      <div class="dealers-tab-scroll">
 
-        <!-- Toolbar de Búsqueda y Filtros de Categoría/Ordenación -->
-        <div class="dealer-vehicles-toolbar">
-          <div class="missions-search-box">
-            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
-            <input
-              type="text"
-              class="missions-search-input"
-              [(ngModel)]="weaponSearchQuery"
-              [placeholder]="'transports.weapons.searchPlaceholder' | translate"
-            />
-            <button
-              *ngIf="weaponSearchQuery"
-              type="button"
-              class="missions-search-clear"
-              (click)="weaponSearchQuery = ''"
-              title="Borrar búsqueda"
+        <!-- Separador Armería (Título en la parte superior) -->
+        <div class="dealer-section-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.armeria' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
+        </div>
+
+        <!-- Barra de Búsqueda de arma -->
+        <div class="missions-search-box">
+          <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+          <input
+            type="text"
+            class="missions-search-input"
+            [(ngModel)]="weaponSearchQuery"
+            [placeholder]="'transports.weapons.searchPlaceholder' | translate"
+          />
+          <button
+            *ngIf="weaponSearchQuery"
+            type="button"
+            class="missions-search-clear"
+            (click)="weaponSearchQuery = ''"
+            title="Borrar búsqueda"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Selectores Desplegables Lado a Lado (50% / 50%) -->
+        <div class="missions-dropdowns-row">
+          <div class="strangers-series-select-wrap">
+            <select
+              class="strangers-series-select"
+              [(ngModel)]="selectedWeaponCategory"
+              (ngModelChange)="setWeaponCategory($event)"
             >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+              <option *ngFor="let cat of weaponCategoryList; trackBy: trackById" [value]="cat.id">
+                {{ cat.name }} ({{ cat.count }})
+              </option>
+            </select>
           </div>
 
-          <div class="missions-dropdowns-row">
-            <div class="strangers-series-select-wrap">
-              <select
-                class="strangers-series-select"
-                [(ngModel)]="selectedWeaponCategory"
-                (ngModelChange)="setWeaponCategory($event)"
-              >
-                <option *ngFor="let cat of weaponCategoryList; trackBy: trackById" [value]="cat.id">
-                  {{ cat.name }} ({{ cat.count }})
-                </option>
-              </select>
-            </div>
-
-            <div class="strangers-series-select-wrap">
-              <select
-                class="strangers-series-select"
-                [(ngModel)]="selectedWeaponSort"
-                (ngModelChange)="setWeaponSort($event)"
-              >
-                <option value="none">📊 {{ 'transports.weapons.sortDefault' | translate }}</option>
-                <option value="damage">{{ 'transports.weapons.sortDamage' | translate }}</option>
-                <option value="fireRate">{{ 'transports.weapons.sortFireRate' | translate }}</option>
-                <option value="accuracy">{{ 'transports.weapons.sortAccuracy' | translate }}</option>
-                <option value="range">{{ 'transports.weapons.sortRange' | translate }}</option>
-                <option value="price">{{ 'transports.weapons.sortPrice' | translate }}</option>
-              </select>
-            </div>
+          <div class="strangers-series-select-wrap">
+            <select
+              class="strangers-series-select"
+              [(ngModel)]="selectedWeaponSort"
+              (ngModelChange)="setWeaponSort($event)"
+            >
+              <option value="none">📊 {{ 'transports.weapons.sortDefault' | translate }}</option>
+              <option value="damage">{{ 'transports.weapons.sortDamage' | translate }}</option>
+              <option value="fireRate">{{ 'transports.weapons.sortFireRate' | translate }}</option>
+              <option value="accuracy">{{ 'transports.weapons.sortAccuracy' | translate }}</option>
+              <option value="range">{{ 'transports.weapons.sortRange' | translate }}</option>
+              <option value="price">{{ 'transports.weapons.sortPrice' | translate }}</option>
+            </select>
           </div>
         </div>
 
-        <!-- Scroll area con grid de tarjetas vcard idénticas a GTA 5 -->
-        <div class="vgrid-scroll-area">
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.armeria' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
-          </div>
+        <!-- Sin resultados -->
+        <div class="vgrid-empty" *ngIf="filteredWeapons.length === 0">
+          <i class="fa-solid fa-gun"></i>
+          <span>{{ 'transports.weapons.empty' | translate }}</span>
+        </div>
 
-          <div class="vgrid-grid">
-            <div
-              *ngFor="let w of filteredWeapons; trackBy: trackById"
-              class="vcard"
-              (click)="selectWeapon(w)"
-            >
-              <div class="vcard-img">
-                <span class="vcard-class-badge" [style.borderColor]="getWeaponAccentColor(w) + '80'" [style.color]="getWeaponAccentColor(w)">
-                  {{ w.categoryLabel || w.category }}
-                </span>
-                <img
-                  *ngIf="w.imageUrl && !w.imgFailed"
-                  [src]="w.imageUrl"
-                  [alt]="w.name"
-                  class="vcard-photo"
-                  loading="lazy"
-                  (error)="onWeaponImgError(w)"
-                />
-                <ng-container *ngIf="!w.imageUrl || w.imgFailed">
-                  <i class="fa-solid vcard-img-icon" [ngClass]="getWeaponIcon(w)"></i>
-                </ng-container>
-                <span class="vcard-stat-pill" *ngIf="selectedWeaponSort !== 'none'">
-                  <span *ngIf="selectedWeaponSort === 'damage'">💥 {{ w.damage }}</span>
-                  <span *ngIf="selectedWeaponSort === 'fireRate'">⚡ {{ w.fireRate }}</span>
-                  <span *ngIf="selectedWeaponSort === 'accuracy'">🎯 {{ w.accuracy }}</span>
-                  <span *ngIf="selectedWeaponSort === 'range'">🔭 {{ w.range }}</span>
-                  <span *ngIf="selectedWeaponSort === 'price'">💵 {{ w.priceFormatted }}</span>
-                </span>
-              </div>
-              <div class="vcard-info">
-                <span class="vcard-name">{{ w.name }}</span>
-                <div class="vcard-sub-row">
-                  <span class="vcard-maker">{{ w.manufacturer || 'Leonida Armory' }}</span>
-                  <span class="vcard-price">{{ w.priceFormatted || formatPrice(w.price) }}</span>
-                </div>
+        <!-- GRID DE TARJETAS DE ARMAS (Estilo idéntico a Concesionario) -->
+        <div class="vgrid-grid" *ngIf="filteredWeapons.length > 0">
+          <div
+            *ngFor="let w of filteredWeapons; trackBy: trackById"
+            class="vcard"
+            (click)="selectWeapon(w)"
+          >
+            <div class="vcard-img">
+              <span class="vcard-class-badge" [style.borderColor]="getWeaponAccentColor(w) + '80'" [style.color]="getWeaponAccentColor(w)">
+                {{ w.categoryLabel || w.category }}
+              </span>
+              <img
+                *ngIf="w.imageUrl && !w.imgFailed"
+                [src]="w.imageUrl"
+                [alt]="w.name"
+                class="vcard-photo"
+                loading="lazy"
+                (error)="onWeaponImgError(w)"
+              />
+              <ng-container *ngIf="!w.imageUrl || w.imgFailed">
+                <i class="fa-solid vcard-img-icon" [ngClass]="getWeaponIcon(w)"></i>
+              </ng-container>
+              <span class="vcard-stat-pill" *ngIf="selectedWeaponSort !== 'none'">
+                <span *ngIf="selectedWeaponSort === 'damage'">💥 {{ w.damage }}</span>
+                <span *ngIf="selectedWeaponSort === 'fireRate'">⚡ {{ w.fireRate }}</span>
+                <span *ngIf="selectedWeaponSort === 'accuracy'">🎯 {{ w.accuracy }}</span>
+                <span *ngIf="selectedWeaponSort === 'range'">🔭 {{ w.range }}</span>
+                <span *ngIf="selectedWeaponSort === 'price'">💵 {{ w.priceFormatted }}</span>
+              </span>
+            </div>
+            <div class="vcard-info">
+              <span class="vcard-name">{{ w.name }}</span>
+              <div class="vcard-sub-row">
+                <span class="vcard-maker">{{ w.manufacturer || 'Leonida Armory' }}</span>
+                <span class="vcard-price">{{ w.priceFormatted || formatPrice(w.price) }}</span>
               </div>
             </div>
           </div>
@@ -536,105 +608,78 @@
 
     <!-- ============ TAB 3: MISIONES (MAQUETACIÓN MCARD-ITEM) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
-      <div class="missions-tab-container">
+      <div class="dealers-tab-scroll">
 
-        <!-- Toolbar de Búsqueda y Filtros de Protagonista -->
-        <div class="missions-toolbar">
-          <div class="missions-search-box">
-            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
-            <input
-              type="text"
-              class="missions-search-input"
-              [(ngModel)]="missionSearchQuery"
-              [placeholder]="'transports.missions.searchPlaceholder' | translate"
-            />
-            <button
-              *ngIf="missionSearchQuery"
-              type="button"
-              class="missions-search-clear"
-              (click)="missionSearchQuery = ''"
-              title="Borrar búsqueda"
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-
-          <div class="missions-tabs-scroll">
-            <div class="missions-char-tabs">
-              <button
-                type="button"
-                class="char-tab"
-                [class.is-active]="selectedMissionChar === 'all'"
-                (click)="setMissionChar('all')"
-              >
-                <span>{{ 'common.all' | translate }}</span>
-              </button>
-              <button
-                type="button"
-                class="char-tab"
-                [class.is-active]="selectedMissionChar === 'Lucia'"
-                (click)="setMissionChar('Lucia')"
-              >
-                <i class="fa-solid fa-circle char-mini-dot" style="color: #ff4fe0;"></i>
-                <span>Lucia</span>
-              </button>
-              <button
-                type="button"
-                class="char-tab"
-                [class.is-active]="selectedMissionChar === 'Jason'"
-                (click)="setMissionChar('Jason')"
-              >
-                <i class="fa-solid fa-circle char-mini-dot" style="color: #00cec9;"></i>
-                <span>Jason</span>
-              </button>
-            </div>
-          </div>
+        <!-- Separador Misiones (Título en la parte superior) -->
+        <div class="dealer-section-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
         </div>
 
-        <!-- Área de scroll con lista de misiones mcard-item -->
-        <div class="missions-scroll-area">
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
-          </div>
+        <!-- Barra de Búsqueda de misiones -->
+        <div class="missions-search-box">
+          <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+          <input
+            type="text"
+            class="missions-search-input"
+            [(ngModel)]="missionSearchQuery"
+            [placeholder]="'transports.missions.searchPlaceholder' | translate"
+          />
+          <button
+            *ngIf="missionSearchQuery"
+            type="button"
+            class="missions-search-clear"
+            (click)="missionSearchQuery = ''"
+            title="Borrar búsqueda"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
 
-          <div class="mysteries-list">
-            <div
-              *ngFor="let m of filteredStoryMissions; trackBy: trackById"
-              class="mcard-item"
-              (click)="selectMission(m)"
-              [style.--m-color]="getMissionAccentColor(m)"
-            >
-              <div class="mcard-order-badge">
-                <span class="mcard-order-num">#0{{ m.order || 1 }}</span>
+
+        <!-- Sin resultados -->
+        <div class="missions-state-empty" *ngIf="filteredStoryMissions.length === 0">
+          <i class="fa-solid fa-crosshairs empty-icon"></i>
+          <span>{{ 'transports.missions.empty' | translate }}</span>
+        </div>
+
+        <!-- Lista de misiones mcard-item -->
+        <div class="mysteries-list" *ngIf="filteredStoryMissions.length > 0">
+          <div
+            *ngFor="let m of filteredStoryMissions; trackBy: trackById"
+            class="mcard-item"
+            (click)="selectMission(m)"
+            [style.--m-color]="getMissionAccentColor(m)"
+          >
+            <div class="mcard-order-badge">
+              <span class="mcard-order-num">#0{{ m.order || 1 }}</span>
+            </div>
+
+            <div class="mcard-icon-box" [style.background]="getMissionAccentColor(m) + '20'" [style.color]="getMissionAccentColor(m)" [style.borderColor]="getMissionAccentColor(m) + '50'">
+              <i class="fa-solid" [ngClass]="getMissionIcon(m)"></i>
+            </div>
+
+            <div class="mcard-content">
+              <div class="mcard-title">{{ m.title }}</div>
+              <div class="mcard-meta-line">
+                <span class="mcard-cat-badge" [style.color]="getMissionAccentColor(m)" [style.borderColor]="getMissionAccentColor(m) + '40'">
+                  {{ m.category || m.type }}
+                </span>
+                <span class="mcard-time-badge" style="color: #ffb8f6; background: rgba(255, 79, 224, 0.15); border-color: rgba(255, 79, 224, 0.3);">
+                  <i class="fa-solid fa-user"></i>
+                  <span>{{ m.protagonist }}</span>
+                </span>
+                <span class="mcard-time-badge" style="color: #00cec9; background: rgba(0, 206, 201, 0.15); border-color: rgba(0, 206, 201, 0.3);" *ngIf="m.location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>{{ m.location }}</span>
+                </span>
               </div>
+            </div>
 
-              <div class="mcard-icon-box" [style.background]="getMissionAccentColor(m) + '20'" [style.color]="getMissionAccentColor(m)" [style.borderColor]="getMissionAccentColor(m) + '50'">
-                <i class="fa-solid" [ngClass]="getMissionIcon(m)"></i>
-              </div>
-
-              <div class="mcard-content">
-                <div class="mcard-title">{{ m.title }}</div>
-                <div class="mcard-meta-line">
-                  <span class="mcard-cat-badge" [style.color]="getMissionAccentColor(m)" [style.borderColor]="getMissionAccentColor(m) + '40'">
-                    {{ m.category || m.type }}
-                  </span>
-                  <span class="mcard-time-badge" style="color: #ffb8f6; background: rgba(255, 79, 224, 0.15); border-color: rgba(255, 79, 224, 0.3);">
-                    <i class="fa-solid fa-user"></i>
-                    <span>{{ m.protagonist }}</span>
-                  </span>
-                  <span class="mcard-time-badge" style="color: #00cec9; background: rgba(0, 206, 201, 0.15); border-color: rgba(0, 206, 201, 0.3);" *ngIf="m.location">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>{{ m.location }}</span>
-                  </span>
-                </div>
-              </div>
-
-              <div class="mcard-actions">
-                <div class="mcard-chevron">
-                  <i class="fa-solid fa-chevron-right"></i>
-                </div>
+            <div class="mcard-actions">
+              <div class="mcard-chevron">
+                <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
           </div>
@@ -759,74 +804,77 @@
 
     <!-- ============ TAB 4: GOLPES (MAQUETACIÓN MCARD-ITEM) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'golpes'">
-      <div class="heists-tab-container">
+      <div class="dealers-tab-scroll">
 
-        <!-- Toolbar de Búsqueda -->
-        <div class="heists-toolbar">
-          <div class="heists-search-box">
-            <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
-            <input
-              type="text"
-              class="heists-search-input"
-              [(ngModel)]="heistSearchQuery"
-              placeholder="Buscar golpes y operaciones de Leonida..."
-            />
-            <button
-              *ngIf="heistSearchQuery"
-              type="button"
-              class="heists-search-clear"
-              (click)="heistSearchQuery = ''"
-              title="Borrar búsqueda"
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
+        <!-- Separador Golpes (Título en la parte superior) -->
+        <div class="dealer-section-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.golpes' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
         </div>
 
-        <!-- Área de scroll con lista de golpes mcard-item -->
-        <div class="mysteries-scroll-area">
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.golpes' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
-          </div>
+        <!-- Buscador de Golpes -->
+        <div class="heists-search-box">
+          <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
+          <input
+            type="text"
+            class="heists-search-input"
+            [(ngModel)]="heistSearchQuery"
+            [placeholder]="'transports.heists.searchPlaceholder' | translate"
+          />
+          <button
+            *ngIf="heistSearchQuery"
+            type="button"
+            class="heists-search-clear"
+            (click)="heistSearchQuery = ''"
+            title="Borrar búsqueda"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
 
-          <div class="mysteries-list">
-            <div
-              *ngFor="let h of filteredHeists; trackBy: trackById"
-              class="mcard-item"
-              (click)="selectHeist(h)"
-              [style.--m-color]="getHeistAccentColor(h)"
-            >
-              <div class="mcard-order-badge">
-                <span class="mcard-order-num">#0{{ h.order || 1 }}</span>
+        <!-- Sin resultados -->
+        <div class="missions-state-empty" *ngIf="filteredHeists.length === 0">
+          <i class="fa-solid fa-sack-dollar empty-icon"></i>
+          <span>{{ 'transports.heists.empty' | translate }}</span>
+        </div>
+
+        <!-- Lista de golpes mcard-item -->
+        <div class="mysteries-list" *ngIf="filteredHeists.length > 0">
+          <div
+            *ngFor="let h of filteredHeists; trackBy: trackById"
+            class="mcard-item"
+            (click)="selectHeist(h)"
+            [style.--m-color]="getHeistAccentColor(h)"
+          >
+            <div class="mcard-order-badge">
+              <span class="mcard-order-num">#0{{ h.order || 1 }}</span>
+            </div>
+
+            <div class="mcard-icon-box" [style.background]="getHeistAccentColor(h) + '20'" [style.color]="getHeistAccentColor(h)" [style.borderColor]="getHeistAccentColor(h) + '50'">
+              <i class="fa-solid" [ngClass]="h.badgeIcon || 'fa-sack-dollar'"></i>
+            </div>
+
+            <div class="mcard-content">
+              <div class="mcard-title">{{ h.title }}</div>
+              <div class="mcard-meta-line">
+                <span class="mcard-cat-badge" [style.color]="getHeistAccentColor(h)" [style.borderColor]="getHeistAccentColor(h) + '40'">
+                  {{ h.categoryLabel || 'Operación Especial' }}
+                </span>
+                <span class="mcard-time-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3);">
+                  <i class="fa-solid fa-sack-dollar"></i>
+                  <span>{{ h.payout }}</span>
+                </span>
+                <span class="mcard-time-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3);" *ngIf="h.players">
+                  <i class="fa-solid fa-users"></i>
+                  <span>{{ h.players }}</span>
+                </span>
               </div>
+            </div>
 
-              <div class="mcard-icon-box" [style.background]="getHeistAccentColor(h) + '20'" [style.color]="getHeistAccentColor(h)" [style.borderColor]="getHeistAccentColor(h) + '50'">
-                <i class="fa-solid" [ngClass]="h.badgeIcon || 'fa-sack-dollar'"></i>
-              </div>
-
-              <div class="mcard-content">
-                <div class="mcard-title">{{ h.title }}</div>
-                <div class="mcard-meta-line">
-                  <span class="mcard-cat-badge" [style.color]="getHeistAccentColor(h)" [style.borderColor]="getHeistAccentColor(h) + '40'">
-                    {{ h.categoryLabel || 'Operación Especial' }}
-                  </span>
-                  <span class="mcard-time-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3);">
-                    <i class="fa-solid fa-sack-dollar"></i>
-                    <span>{{ h.payout }}</span>
-                  </span>
-                  <span class="mcard-time-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3);" *ngIf="h.players">
-                    <i class="fa-solid fa-users"></i>
-                    <span>{{ h.players }}</span>
-                  </span>
-                </div>
-              </div>
-
-              <div class="mcard-actions">
-                <div class="mcard-chevron">
-                  <i class="fa-solid fa-chevron-right"></i>
-                </div>
+            <div class="mcard-actions">
+              <div class="mcard-chevron">
+                <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
           </div>
@@ -977,105 +1025,108 @@
 
     <!-- ============ TAB 5: MISTERIOS (MAQUETACIÓN PREMIUM MCARD-ITEM) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misterios'">
-      <div class="heists-tab-container">
+      <div class="dealers-tab-scroll">
 
-        <!-- Toolbar: Búsqueda y Filtros de Categoría -->
-        <div class="heists-toolbar">
-          <div class="heists-search-box">
-            <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
-            <input
-              type="text"
-              class="heists-search-input"
-              [(ngModel)]="mysterySearchQuery"
-              [placeholder]="'transports.mysteries.searchPlaceholder' | translate"
-            />
-            <button
-              *ngIf="mysterySearchQuery"
-              type="button"
-              class="heists-search-clear"
-              (click)="mysterySearchQuery = ''"
-              title="Borrar búsqueda"
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-
-          <div class="strangers-series-select-wrap">
-            <select
-              class="strangers-series-select"
-              [(ngModel)]="selectedMysteryCategoryFilter"
-              (ngModelChange)="setMysteryCategoryFilter($event)"
-            >
-              <option value="all">⭐ {{ 'transports.mysteries.all' | translate }} ({{ getMysteryCategoryCount('all') }})</option>
-              <option value="paranormal">{{ 'transports.mysteries.paranormal' | translate }} ({{ getMysteryCategoryCount('paranormal') }})</option>
-              <option value="cryptozoology">🦎 Criptozoología ({{ getMysteryCategoryCount('cryptozoology') }})</option>
-              <option value="conspiracy">{{ 'transports.mysteries.conspiracy' | translate }} ({{ getMysteryCategoryCount('conspiracy') }})</option>
-            </select>
-          </div>
+        <!-- Separador Misterios (Título en la parte superior) -->
+        <div class="dealer-section-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.misterios' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
         </div>
 
-        <!-- Área de scroll con lista de misterios mcard-item con foto -->
-        <div class="mysteries-scroll-area">
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.misterios' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
-          </div>
+        <!-- Toolbar: Búsqueda y Filtros de Categoría -->
+        <div class="heists-search-box">
+          <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
+          <input
+            type="text"
+            class="heists-search-input"
+            [(ngModel)]="mysterySearchQuery"
+            [placeholder]="'transports.mysteries.searchPlaceholder' | translate"
+          />
+          <button
+            *ngIf="mysterySearchQuery"
+            type="button"
+            class="heists-search-clear"
+            (click)="mysterySearchQuery = ''"
+            title="Borrar búsqueda"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
 
-          <div class="mysteries-list">
-            <div
-              *ngFor="let m of filteredMysteries; trackBy: trackById"
-              class="mcard-item mystery-card-premium"
-              (click)="selectMystery(m)"
-              [style.--m-color]="getMysteryAccentColor(m)"
-            >
-              <div class="mcard-order-badge mystery-order-badge">
-                <span class="mcard-order-num">#0{{ m.order || m.orderNum || 1 }}</span>
+        <div class="strangers-series-select-wrap">
+          <select
+            class="strangers-series-select"
+            [(ngModel)]="selectedMysteryCategoryFilter"
+            (ngModelChange)="setMysteryCategoryFilter($event)"
+          >
+            <option value="all">⭐ {{ 'transports.mysteries.all' | translate }} ({{ getMysteryCategoryCount('all') }})</option>
+            <option value="paranormal">{{ 'transports.mysteries.paranormal' | translate }} ({{ getMysteryCategoryCount('paranormal') }})</option>
+            <option value="cryptozoology">🦎 Criptozoología ({{ getMysteryCategoryCount('cryptozoology') }})</option>
+            <option value="conspiracy">{{ 'transports.mysteries.conspiracy' | translate }} ({{ getMysteryCategoryCount('conspiracy') }})</option>
+          </select>
+        </div>
+
+        <!-- Sin resultados -->
+        <div class="missions-state-empty" *ngIf="filteredMysteries.length === 0">
+          <i class="fa-solid fa-ghost empty-icon"></i>
+          <span>{{ 'transports.mysteries.empty' | translate }}</span>
+        </div>
+
+        <!-- Área con lista de misterios mcard-item con foto -->
+        <div class="mysteries-list" *ngIf="filteredMysteries.length > 0">
+          <div
+            *ngFor="let m of filteredMysteries; trackBy: trackById"
+            class="mcard-item mystery-card-premium"
+            (click)="selectMystery(m)"
+            [style.--m-color]="getMysteryAccentColor(m)"
+          >
+            <div class="mcard-order-badge mystery-order-badge">
+              <span class="mcard-order-num">#0{{ m.order || m.orderNum || 1 }}</span>
+            </div>
+
+            <!-- Thumbnail con foto del misterio + fallback elegante -->
+            <div class="mcard-thumb-wrap" [style.borderColor]="getMysteryAccentColor(m) + '55'">
+              <img
+                *ngIf="m.thumbnail || m.thumbnailUrl"
+                [src]="getMysteryImage(m)"
+                [alt]="m.title"
+                class="mcard-thumb-img"
+                loading="lazy"
+                (error)="$any($event.target).style.display='none'"
+              />
+              <div class="mcard-thumb-overlay"></div>
+              <div class="mcard-thumb-fallback" [style.color]="getMysteryAccentColor(m)" [style.background]="getMysteryAccentColor(m) + '18'">
+                <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-ghost'"></i>
+              </div>
+            </div>
+
+            <!-- Contenido principal -->
+            <div class="mcard-content">
+              <div class="mcard-title-row">
+                <div class="mcard-title mystery-title">{{ m.title }}</div>
               </div>
 
-              <!-- Thumbnail con foto del misterio + fallback elegante -->
-              <div class="mcard-thumb-wrap" [style.borderColor]="getMysteryAccentColor(m) + '55'">
-                <img
-                  *ngIf="m.thumbnail || m.thumbnailUrl"
-                  [src]="getMysteryImage(m)"
-                  [alt]="m.title"
-                  class="mcard-thumb-img"
-                  loading="lazy"
-                  (error)="$any($event.target).style.display='none'"
-                />
-                <div class="mcard-thumb-overlay"></div>
-                <div class="mcard-thumb-fallback" [style.color]="getMysteryAccentColor(m)" [style.background]="getMysteryAccentColor(m) + '18'">
-                  <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-ghost'"></i>
-                </div>
+              <div class="mcard-meta-line">
+                <span class="mcard-cat-badge mystery-cat-pill" [style.color]="getMysteryAccentColor(m)" [style.borderColor]="getMysteryAccentColor(m) + '55'" [style.background]="getMysteryAccentColor(m) + '18'">
+                  <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-eye'"></i>
+                  <span>{{ m.categoryLabel || m.category }}</span>
+                </span>
+                <span class="mcard-time-badge mystery-time-pill" *ngIf="m.schedule">
+                  <i class="fa-regular fa-clock"></i>
+                  <span>{{ m.schedule }}</span>
+                </span>
               </div>
 
-              <!-- Contenido principal -->
-              <div class="mcard-content">
-                <div class="mcard-title-row">
-                  <div class="mcard-title mystery-title">{{ m.title }}</div>
-                </div>
-
-                <div class="mcard-meta-line">
-                  <span class="mcard-cat-badge mystery-cat-pill" [style.color]="getMysteryAccentColor(m)" [style.borderColor]="getMysteryAccentColor(m) + '55'" [style.background]="getMysteryAccentColor(m) + '18'">
-                    <i class="fa-solid" [ngClass]="m.badgeIcon || 'fa-eye'"></i>
-                    <span>{{ m.categoryLabel || m.category }}</span>
-                  </span>
-                  <span class="mcard-time-badge mystery-time-pill" *ngIf="m.schedule">
-                    <i class="fa-regular fa-clock"></i>
-                    <span>{{ m.schedule }}</span>
-                  </span>
-                </div>
-
-                <div class="mcard-loc-line" *ngIf="m.zone || m.location || m.locationName">
-                  <i class="fa-solid fa-location-dot" [style.color]="getMysteryAccentColor(m)"></i>
-                  <span class="mcard-loc-text">{{ m.zone || m.location || m.locationName }}</span>
-                </div>
+              <div class="mcard-loc-line" *ngIf="m.zone || m.location || m.locationName">
+                <i class="fa-solid fa-location-dot" [style.color]="getMysteryAccentColor(m)"></i>
+                <span class="mcard-loc-text">{{ m.zone || m.location || m.locationName }}</span>
               </div>
+            </div>
 
-              <div class="mcard-actions">
-                <div class="mcard-chevron">
-                  <i class="fa-solid fa-chevron-right"></i>
-                </div>
+            <div class="mcard-actions">
+              <div class="mcard-chevron">
+                <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
           </div>

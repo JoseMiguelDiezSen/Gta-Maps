@@ -361,7 +361,7 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
         this.isLoading = false;
 
         if (this.secciones.length > 0 && this.secciones[0].articulos.length > 0) {
-          this.seleccionarArticulo(this.secciones[0].articulos[0].id);
+          this.seleccionarArticulo(this.secciones[0].articulos[0].id, false);
         }
       },
       error: (err) => {

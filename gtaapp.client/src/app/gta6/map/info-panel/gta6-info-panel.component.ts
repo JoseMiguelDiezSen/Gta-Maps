@@ -39,6 +39,7 @@ export class Gta6InfoPanelComponent implements OnChanges {
   selectedVehicle: Gta6Vehicle | null = null;
   selectedVehicleClass: string = 'all';
   selectedVehicleSort: string = 'none';
+  vehicleSearchQuery: string = '';
   dealerVehicleSearchQuery: string = '';
 
   // Misiones
@@ -68,6 +69,8 @@ export class Gta6InfoPanelComponent implements OnChanges {
   private _cachedDealCat: { id: string; name: string; count: number }[] = [];
   private _cachedFDVKey = '';
   private _cachedFDV: Gta6Vehicle[] = [];
+  private _cachedFGVKey = '';
+  private _cachedFGV: Gta6Vehicle[] = [];
   private _cachedFSMKey = '';
   private _cachedFSM: Gta6Mission[] = [];
   private _cachedFHKey = '';
@@ -87,6 +90,24 @@ export class Gta6InfoPanelComponent implements OnChanges {
 
   get dealers(): Gta6DealerCategory[] {
     return this.isEs ? GTA6_DEALERS_ES : GTA6_DEALERS_EN;
+  }
+
+  get allVehicles(): Gta6Vehicle[] {
+    return Object.values(GTA6_VEHICLES_BY_DEALER).flat();
+  }
+
+  get filteredGlobalVehicles(): Gta6Vehicle[] {
+    const q = this.vehicleSearchQuery.trim().toLowerCase();
+    if (!q) return [];
+    if (this._cachedFGVKey !== q) {
+      this._cachedFGVKey = q;
+      this._cachedFGV = this.allVehicles.filter(v =>
+        (v.name && v.name.toLowerCase().includes(q)) ||
+        (v.manufacturer && v.manufacturer.toLowerCase().includes(q)) ||
+        (v.class && v.class.toLowerCase().includes(q))
+      );
+    }
+    return this._cachedFGV;
   }
 
   get storyMissions(): Gta6Mission[] {
@@ -145,6 +166,7 @@ export class Gta6InfoPanelComponent implements OnChanges {
     this.selectedHeist = null;
     this.selectedMystery = null;
     this.selectedWeapon = null;
+    this.vehicleSearchQuery = '';
   }
 
   // -------------------------------------------------------------
@@ -162,14 +184,26 @@ export class Gta6InfoPanelComponent implements OnChanges {
     this.drawerView = 'dealer-grid';
   }
 
+  openedFromGlobalSearch = false;
+
   closeDealerGrid(): void {
     this.drawerView = 'tabs';
     this.activeDealerId = null;
+    this.activeDealerName = '';
     this.selectedVehicle = null;
+    this.dealerVehicleSearchQuery = '';
+    this.openedFromGlobalSearch = false;
   }
 
   backToDealerGrid(): void {
-    this.drawerView = 'dealer-grid';
+    if (this.openedFromGlobalSearch) {
+      this.drawerView = 'tabs';
+      this.openedFromGlobalSearch = false;
+      this.activeDealerId = null;
+      this.activeDealerName = '';
+    } else {
+      this.drawerView = 'dealer-grid';
+    }
     this.selectedVehicle = null;
   }
 
@@ -230,6 +264,15 @@ export class Gta6InfoPanelComponent implements OnChanges {
 
   selectVehicle(v: Gta6Vehicle): void {
     this.selectedVehicle = v;
+    if (this.drawerView === 'tabs') {
+      this.openedFromGlobalSearch = true;
+      if (v.dealerId) {
+        const d = this.dealers.find(x => x.id === v.dealerId);
+        if (d) this.activeDealerName = d.name;
+      }
+    } else {
+      this.openedFromGlobalSearch = false;
+    }
     this.drawerView = 'vehicle-detail';
   }
 

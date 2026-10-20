@@ -1033,20 +1033,20 @@
 }
 
 .guide-cat-icon {
-  width: 34px;
-  height: 34px;
-  min-width: 34px;
-  min-height: 34px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid var(--cat-accent, #ec4899);
+  background: color-mix(in srgb, var(--cat-accent, #ec4899) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cat-accent, #ec4899) 32%, transparent);
   color: var(--cat-accent, #ec4899);
-  font-size: 14.5px;
+  font-size: 15.5px;
   flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1054,12 +1054,13 @@
   width: 36px;
   height: 36px;
   font-size: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .guide-cat-card:hover .guide-cat-icon {
   transform: scale(1.08);
-  box-shadow: 0 0 14px var(--cat-accent, #ec4899);
+  border-color: color-mix(in srgb, var(--cat-accent, #ec4899) 55%, transparent);
+  background: color-mix(in srgb, var(--cat-accent, #ec4899) 22%, transparent);
 }
 
 .guide-cat-info {
@@ -2927,6 +2928,48 @@
   font-size: 13px;
   font-weight: 800;
   text-align: right;
+}
+
+/* ==========================================================================
+   SEPARADOR CON ESPIGAS ESTILIZADAS (GUÃ A OFICIAL)
+   ========================================================================== */
+.guide-heading-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 14px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.guide-heading-line,
+.guide-heading-line--right {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 184, 51, 0.45), transparent);
+}
+
+.guide-heading-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffb833;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(255, 184, 51, 0.25);
+}
+
+.wiki-shell.mode-day .guide-heading-line,
+.wiki-shell.mode-day .guide-heading-line--right {
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.45), transparent);
+}
+
+.wiki-shell.mode-day .guide-heading-title {
+  color: #b45309;
+  text-shadow: none;
 }
 
 .vehiculo-descripcion-texto {

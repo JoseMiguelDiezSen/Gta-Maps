@@ -21,13 +21,15 @@
       <!-- BREADCRUMB dinámico de concesionario y vehículo -->
       <span class="drawer-badge drawer-breadcrumb" *ngIf="drawerView === 'dealer-grid' || drawerView === 'vehicle-detail'">
         <span class="drawer-breadcrumb-link" (click)="closeDealerGrid()">{{ 'transports.title' | translate }}</span>
-        <span class="drawer-breadcrumb-sep">›</span>
-        <span
-          class="drawer-breadcrumb-link"
-          [class.drawer-breadcrumb-current]="drawerView === 'dealer-grid'"
-          (click)="backToDealerGrid()"
-          [title]="activeDealerName"
-        >{{ activeDealerName }}</span>
+        <ng-container *ngIf="activeDealerName">
+          <span class="drawer-breadcrumb-sep">›</span>
+          <span
+            class="drawer-breadcrumb-link"
+            [class.drawer-breadcrumb-current]="drawerView === 'dealer-grid'"
+            (click)="backToDealerGrid()"
+            [title]="activeDealerName"
+          >{{ activeDealerName }}</span>
+        </ng-container>
         <ng-container *ngIf="drawerView === 'vehicle-detail' && selectedVehicle">
           <span class="drawer-breadcrumb-sep">›</span>
           <span class="drawer-breadcrumb-current vehicle-crumb-name" [title]="selectedVehicle.name">{{ selectedVehicle.name }}</span>
@@ -126,36 +128,106 @@
             <div class="dealer-section-divider-line"></div>
           </div>
 
-          <!-- Dealers normales -->
-          <ng-container *ngFor="let d of visibleDealers">
-
-            <!-- Separador antes de la sección especial -->
-            <div class="dealer-section-divider"
-                 *ngIf="isSpecialDivider(d)">
-              <div class="dealer-section-divider-line"></div>
-              <span class="dealer-section-divider-label">{{ 'transports.tabs.specialVehicles' | translate }}</span>
-              <div class="dealer-section-divider-line"></div>
-            </div>
-
-            <div
-              class="dealer-card"
-              [class.dealer-card--special]="d.id === 'pegasus' || d.id === 'arena_war'"
-              (click)="openDealerGrid(d.id, d.name)"
-              [style.--dealer-color]="d.color"
+          <!-- Buscador de vehículos -->
+          <div class="missions-search-box">
+            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
+            <input
+              type="text"
+              class="missions-search-input"
+              [(ngModel)]="vehicleSearchQuery"
+              (ngModelChange)="onVehicleSearchChange()"
+              [placeholder]="'transports.catalog.searchPlaceholder' | translate"
+            />
+            <button
+              *ngIf="vehicleSearchQuery"
+              type="button"
+              class="missions-search-clear"
+              (click)="vehicleSearchQuery = ''; onVehicleSearchChange()"
+              title="Borrar búsqueda"
             >
-              <div class="dealer-card-icon">
-                <img *ngIf="d.logoUrl && !d.logoFailed" [src]="d.logoUrl" [alt]="d.name" class="dealer-logo-img" (error)="onDealerLogoError(d)" />
-                <i *ngIf="!d.logoUrl || d.logoFailed" class="fa-solid" [ngClass]="d.icon"></i>
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Si NO hay búsqueda: Dealers normales -->
+          <ng-container *ngIf="!vehicleSearchQuery.trim()">
+            <ng-container *ngFor="let d of visibleDealers">
+
+              <!-- Separador antes de la sección especial -->
+              <div class="dealer-section-divider"
+                   *ngIf="isSpecialDivider(d)">
+                <div class="dealer-section-divider-line"></div>
+                <span class="dealer-section-divider-label">{{ 'transports.tabs.specialVehicles' | translate }}</span>
+                <div class="dealer-section-divider-line"></div>
               </div>
-              <div class="dealer-card-info">
-                <span class="dealer-card-name">{{ d.name }}</span>
-                <span class="dealer-card-sub">{{ getDealerDesc(d) }}</span>
+
+              <div
+                class="dealer-card"
+                [class.dealer-card--special]="d.id === 'pegasus' || d.id === 'arena_war'"
+                (click)="openDealerGrid(d.id, d.name)"
+                [style.--dealer-color]="d.color"
+              >
+                <div class="dealer-card-icon">
+                  <img *ngIf="d.logoUrl && !d.logoFailed" [src]="d.logoUrl" [alt]="d.name" class="dealer-logo-img" (error)="onDealerLogoError(d)" />
+                  <i *ngIf="!d.logoUrl || d.logoFailed" class="fa-solid" [ngClass]="d.icon"></i>
+                </div>
+                <div class="dealer-card-info">
+                  <span class="dealer-card-name">{{ d.name }}</span>
+                  <span class="dealer-card-sub">{{ getDealerDesc(d) }}</span>
+                </div>
+                <div class="dealer-card-arrow">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
               </div>
-              <div class="dealer-card-arrow">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
+
+            </ng-container>
+          </ng-container>
+
+          <!-- Si HAY búsqueda: Resultados de coches filtrados -->
+          <ng-container *ngIf="vehicleSearchQuery.trim()">
+            <!-- Loading -->
+            <div class="vgrid-loading" *ngIf="allVehiclesLoading">
+              <div class="vgrid-spinner"></div>
+              <span>{{ 'transports.catalog.loading' | translate }}</span>
             </div>
 
+            <!-- Sin resultados -->
+            <div class="vgrid-empty" *ngIf="!allVehiclesLoading && filteredGlobalVehicles.length === 0">
+              <i class="fa-solid fa-car-burst"></i>
+              <span>{{ 'transports.catalog.empty' | translate }}</span>
+            </div>
+
+            <!-- Grid de tarjetas de vehículos encontrados -->
+            <div class="vgrid-grid" *ngIf="!allVehiclesLoading && filteredGlobalVehicles.length > 0">
+              <div
+                *ngFor="let v of filteredGlobalVehicles"
+                class="vcard"
+                (click)="selectVehicle(v)"
+              >
+                <div class="vcard-img">
+                  <span class="vcard-class-badge">{{ v.class }}</span>
+                  <img
+                    *ngIf="v.imageUrl && !v.imgFailed"
+                    [src]="v.imageUrl"
+                    [alt]="v.name"
+                    class="vcard-photo"
+                    loading="lazy"
+                    (error)="onVehicleImgError(v)"
+                  />
+                  <ng-container *ngIf="!v.imageUrl || v.imgFailed">
+                    <i class="fa-solid vcard-img-icon" [ngClass]="getVehicleIcon(v)"></i>
+                  </ng-container>
+                  <span class="vcard-weapon-badge" *ngIf="v.weaponized" [title]="'transports.catalog.weaponized' | translate">🔫</span>
+                </div>
+                <div class="vcard-info">
+                  <span class="vcard-name">{{ v.name }}</span>
+                  <div class="vcard-sub-row">
+                    <span class="vcard-maker">{{ v.manufacturer }}</span>
+                    <span class="vcard-price">{{ v.priceFormatted }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </ng-container>
 
         </div>
@@ -164,31 +236,35 @@
 
     <!-- ============ VISTA: GRID DE VEHÍCULOS ============ -->
     <ng-container *ngIf="drawerView === 'dealer-grid'">
+      <div class="dealers-tab-scroll">
 
-      <!-- Loading -->
-      <div class="vgrid-loading" *ngIf="vehiclesLoading">
-        <div class="vgrid-spinner"></div>
-        <span>{{ 'transports.catalog.loading' | translate:{ dealer: activeDealerName } }}</span>
-      </div>
+        <!-- Loading -->
+        <div class="vgrid-loading" *ngIf="vehiclesLoading">
+          <div class="vgrid-spinner"></div>
+          <span>{{ 'transports.catalog.loading' | translate:{ dealer: activeDealerName } }}</span>
+        </div>
 
-      <!-- Error -->
-      <div class="vgrid-error" *ngIf="vehiclesError && !vehiclesLoading">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <span>{{ 'transports.catalog.error' | translate }}</span>
-      </div>
+        <!-- Error -->
+        <div class="vgrid-error" *ngIf="vehiclesError && !vehiclesLoading">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>{{ 'transports.catalog.error' | translate }}</span>
+        </div>
 
-      <!-- Sin resultados -->
-      <div class="vgrid-empty" *ngIf="!vehiclesLoading && !vehiclesError && dealerVehicles.length === 0">
-        <i class="fa-solid fa-car-burst"></i>
-        <span>{{ 'transports.catalog.empty' | translate }}</span>
-      </div>
+        <!-- Sin resultados -->
+        <div class="vgrid-empty" *ngIf="!vehiclesLoading && !vehiclesError && dealerVehicles.length === 0">
+          <i class="fa-solid fa-car-burst"></i>
+          <span>{{ 'transports.catalog.empty' | translate }}</span>
+        </div>
 
-      <!-- Grid de vehículos -->
-      <div class="vgrid-view-container" *ngIf="!vehiclesLoading && dealerVehicles.length > 0">
+        <ng-container *ngIf="!vehiclesLoading && !vehiclesError && dealerVehicles.length > 0">
+          <!-- Separador superior con el nombre del Concesionario -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ activeDealerName || ('transports.tabs.concesionarios' | translate) }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
-        <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo (6/6 Lado a Lado) -->
-        <div class="dealer-vehicles-toolbar">
-          <!-- Fila 1: Buscador de vehículo (100% de ancho) -->
+          <!-- Barra de Búsqueda de vehículo dentro del concesionario -->
           <div class="missions-search-box">
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
             <input
@@ -208,7 +284,7 @@
             </button>
           </div>
 
-          <!-- Fila 2: Selectores Desplegables Lado a Lado (6/6 = 50% / 50% Ocupando todo el ancho) -->
+          <!-- Selectores Desplegables Lado a Lado (50% / 50%) -->
           <div class="missions-dropdowns-row">
             <div class="strangers-series-select-wrap">
               <select
@@ -236,19 +312,15 @@
               </select>
             </div>
           </div>
-        </div>
 
-        <!-- Área de scroll unificada con separador y grid -->
-        <div class="vgrid-scroll-area">
-          <!-- Separador Concesionario -->
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.concesionarios' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
+          <!-- Sin resultados de búsqueda o filtro -->
+          <div class="vgrid-empty" *ngIf="filteredDealerVehicles.length === 0">
+            <i class="fa-solid fa-car-burst"></i>
+            <span>{{ 'transports.catalog.empty' | translate }}</span>
           </div>
 
           <!-- GRID DE TARJETAS -->
-          <div class="vgrid-grid">
+          <div class="vgrid-grid" *ngIf="filteredDealerVehicles.length > 0">
             <div
               *ngFor="let v of filteredDealerVehicles"
               class="vcard"
@@ -286,7 +358,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </ng-container>
 
       </div>
     </ng-container>
@@ -373,7 +445,7 @@
           <div class="vclean-bottom-action">
             <button type="button" class="vclean-back-btn" (click)="backToDealerGrid()">
               <i class="fa-solid fa-arrow-left"></i>
-              <span>{{ 'transports.dealers.backTo' | translate }} {{ activeDealerName }}</span>
+              <span>{{ activeDealerName ? (('transports.dealers.backTo' | translate) + ' ' + activeDealerName) : ('common.back' | translate) }}</span>
             </button>
           </div>
 
@@ -383,35 +455,33 @@
 
     <!-- ============ TAB: ARMAS (CATÁLOGO DE ARMAMENTO / ARMERÍA) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'armas'">
+      <div class="dealers-tab-scroll">
 
-      <!-- Loading -->
-      <div class="vgrid-loading" *ngIf="weaponsLoading">
-        <div class="vgrid-spinner"></div>
-        <span>{{ 'transports.weapons.loading' | translate }}</span>
-      </div>
+        <!-- Loading -->
+        <div class="vgrid-loading" *ngIf="weaponsLoading">
+          <div class="vgrid-spinner"></div>
+          <span>{{ 'transports.weapons.loading' | translate }}</span>
+        </div>
 
-      <!-- Error -->
-      <div class="vgrid-error" *ngIf="!weaponsLoading && weaponsError">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <span>{{ 'transports.weapons.error' | translate }}</span>
-        <button type="button" class="missions-retry-btn" (click)="loadWeapons(true)" style="margin-top: 10px;">
-          <i class="fa-solid fa-rotate-right"></i>
-          {{ 'transports.weapons.retry' | translate }}
-        </button>
-      </div>
+        <!-- Error -->
+        <div class="vgrid-error" *ngIf="!weaponsLoading && weaponsError">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>{{ 'transports.weapons.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadWeapons(true)" style="margin-top: 10px;">
+            <i class="fa-solid fa-rotate-right"></i>
+            {{ 'transports.weapons.retry' | translate }}
+          </button>
+        </div>
 
-      <!-- Sin resultados -->
-      <div class="vgrid-empty" *ngIf="!weaponsLoading && !weaponsError && filteredWeapons.length === 0">
-        <i class="fa-solid fa-gun"></i>
-        <span>{{ 'transports.weapons.empty' | translate }}</span>
-      </div>
+        <ng-container *ngIf="!weaponsLoading && !weaponsError && weapons.length > 0">
+          <!-- Separador Armería (Título en la parte superior) -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.armeria' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
-      <!-- Grid de Armas -->
-      <div class="vgrid-view-container" *ngIf="!weaponsLoading && weapons.length > 0">
-
-        <!-- Barra de Búsqueda arriba y Selectores Desplegables abajo (6/6 Lado a Lado) -->
-        <div class="dealer-vehicles-toolbar">
-          <!-- Fila 1: Buscador de arma (100% de ancho) -->
+          <!-- Barra de Búsqueda de arma -->
           <div class="missions-search-box">
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
             <input
@@ -431,7 +501,7 @@
             </button>
           </div>
 
-          <!-- Fila 2: Selectores Desplegables Lado a Lado (6/6 = 50% / 50%) -->
+          <!-- Selectores Desplegables Lado a Lado (50% / 50%) -->
           <div class="missions-dropdowns-row">
             <div class="strangers-series-select-wrap">
               <select
@@ -460,19 +530,15 @@
               </select>
             </div>
           </div>
-        </div>
 
-        <!-- Área de scroll unificada con separador y grid -->
-        <div class="vgrid-scroll-area">
-          <!-- Separador Armería -->
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.armeria' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
+          <!-- Sin resultados -->
+          <div class="vgrid-empty" *ngIf="filteredWeapons.length === 0">
+            <i class="fa-solid fa-gun"></i>
+            <span>{{ 'transports.weapons.empty' | translate }}</span>
           </div>
 
           <!-- GRID DE TARJETAS DE ARMAS (Estilo idéntico a Concesionario) -->
-          <div class="vgrid-grid">
+          <div class="vgrid-grid" *ngIf="filteredWeapons.length > 0">
             <div
               *ngFor="let w of filteredWeapons"
               class="vcard"
@@ -513,7 +579,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </ng-container>
 
       </div>
     </ng-container>
@@ -522,10 +588,32 @@
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'misiones'">
 
       <!-- En Modo Historia: catálogo de misiones de la campaña offline -->
-      <div class="vgrid-view-container" *ngIf="gameMode === 'story'">
+      <div class="dealers-tab-scroll" *ngIf="gameMode === 'story'">
 
-        <!-- Barra de Búsqueda y Filtro Rápido -->
-        <div class="dealer-vehicles-toolbar">
+        <!-- Estado de carga -->
+        <div class="missions-state-loading" *ngIf="missionsLoading">
+          <div class="vgrid-spinner"></div>
+          <span>{{ 'transports.missions.loading' | translate }}</span>
+        </div>
+
+        <!-- Estado de error -->
+        <div class="missions-state-error" *ngIf="missionsError && !missionsLoading">
+          <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+          <span>{{ 'transports.missions.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadStoryMissions(true)">
+            <i class="fa-solid fa-rotate-right"></i> {{ 'transports.missions.retry' | translate }}
+          </button>
+        </div>
+
+        <ng-container *ngIf="!missionsLoading && !missionsError && storyMissions.length > 0">
+          <!-- Separador Misiones (Título en la parte superior) -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
+          <!-- Barra de Búsqueda de misiones -->
           <div class="missions-search-box">
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
             <input
@@ -544,40 +632,15 @@
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
-        </div>
 
-        <!-- Estado de carga -->
-        <div class="missions-state-loading" *ngIf="missionsLoading">
-          <div class="vgrid-spinner"></div>
-          <span>{{ 'transports.missions.loading' | translate }}</span>
-        </div>
-
-        <!-- Estado de error -->
-        <div class="missions-state-error" *ngIf="missionsError && !missionsLoading">
-          <i class="fa-solid fa-triangle-exclamation error-icon"></i>
-          <span>{{ 'transports.missions.error' | translate }}</span>
-          <button type="button" class="missions-retry-btn" (click)="loadStoryMissions(true)">
-            <i class="fa-solid fa-rotate-right"></i> {{ 'transports.missions.retry' | translate }}
-          </button>
-        </div>
-
-        <!-- Estado vacío tras búsqueda -->
-        <div class="missions-state-empty" *ngIf="!missionsLoading && !missionsError && filteredStoryMissions.length === 0">
-          <i class="fa-solid fa-crosshairs empty-icon"></i>
-          <span>{{ 'transports.missions.empty' | translate }}</span>
-        </div>
-
-        <!-- Área de scroll unificada con separador y lista -->
-        <div class="vgrid-scroll-area" *ngIf="!missionsLoading && !missionsError && filteredStoryMissions.length > 0">
-          <!-- Separador Misiones -->
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
+          <!-- Estado vacío tras búsqueda -->
+          <div class="missions-state-empty" *ngIf="filteredStoryMissions.length === 0">
+            <i class="fa-solid fa-crosshairs empty-icon"></i>
+            <span>{{ 'transports.missions.empty' | translate }}</span>
           </div>
 
           <!-- Lista de misiones (Cards altas con flecha de entrada) -->
-          <div class="missions-list">
+          <div class="missions-list" *ngIf="filteredStoryMissions.length > 0">
             <div
               *ngFor="let m of filteredStoryMissions"
               class="mission-list-card"
@@ -610,15 +673,37 @@
               </div>
             </div>
           </div>
-        </div>
+        </ng-container>
 
       </div>
 
       <!-- En Modo Online: catálogo de misiones de contacto y operaciones de GTA Online -->
-      <div class="vgrid-view-container" *ngIf="gameMode === 'online'">
+      <div class="dealers-tab-scroll" *ngIf="gameMode === 'online'">
 
-        <!-- Barra de Búsqueda y Filtros de Contactos -->
-        <div class="dealer-vehicles-toolbar">
+        <!-- Estado de carga -->
+        <div class="missions-state-loading" *ngIf="onlineMissionsLoading">
+          <div class="vgrid-spinner"></div>
+          <span>{{ 'transports.missions.onlineLoading' | translate }}</span>
+        </div>
+
+        <!-- Estado de error -->
+        <div class="missions-state-error" *ngIf="onlineMissionsError && !onlineMissionsLoading">
+          <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+          <span>{{ 'transports.missions.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadOnlineMissions(true)">
+            <i class="fa-solid fa-rotate-right"></i> {{ 'transports.missions.retry' | translate }}
+          </button>
+        </div>
+
+        <ng-container *ngIf="!onlineMissionsLoading && !onlineMissionsError && onlineMissions.length > 0">
+          <!-- Separador Misiones (Título en la parte superior) -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
+          <!-- Barra de Búsqueda de misiones -->
           <div class="missions-search-box">
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
             <input
@@ -637,40 +722,15 @@
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
-        </div>
 
-        <!-- Estado de carga -->
-        <div class="missions-state-loading" *ngIf="onlineMissionsLoading">
-          <div class="vgrid-spinner"></div>
-          <span>{{ 'transports.missions.onlineLoading' | translate }}</span>
-        </div>
-
-        <!-- Estado de error -->
-        <div class="missions-state-error" *ngIf="onlineMissionsError && !onlineMissionsLoading">
-          <i class="fa-solid fa-triangle-exclamation error-icon"></i>
-          <span>{{ 'transports.missions.error' | translate }}</span>
-          <button type="button" class="missions-retry-btn" (click)="loadOnlineMissions(true)">
-            <i class="fa-solid fa-rotate-right"></i> {{ 'transports.missions.retry' | translate }}
-          </button>
-        </div>
-
-        <!-- Estado vacío tras búsqueda -->
-        <div class="missions-state-empty" *ngIf="!onlineMissionsLoading && !onlineMissionsError && filteredOnlineMissions.length === 0">
-          <i class="fa-solid fa-crosshairs empty-icon"></i>
-          <span>{{ 'transports.missions.empty' | translate }}</span>
-        </div>
-
-        <!-- Área de scroll unificada con separador y lista -->
-        <div class="vgrid-scroll-area" *ngIf="!onlineMissionsLoading && !onlineMissionsError && filteredOnlineMissions.length > 0">
-          <!-- Separador Misiones -->
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
+          <!-- Estado vacío tras búsqueda -->
+          <div class="missions-state-empty" *ngIf="filteredOnlineMissions.length === 0">
+            <i class="fa-solid fa-crosshairs empty-icon"></i>
+            <span>{{ 'transports.missions.empty' | translate }}</span>
           </div>
 
           <!-- Lista de misiones de GTA Online (Cards altas con flecha de entrada) -->
-          <div class="missions-list">
+          <div class="missions-list" *ngIf="filteredOnlineMissions.length > 0">
             <div
               *ngFor="let m of filteredOnlineMissions"
               class="mission-list-card"
@@ -703,7 +763,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </ng-container>
 
       </div>
     </ng-container>
@@ -838,10 +898,30 @@
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'strangers'">
 
       <!-- En Modo Historia: catálogo de extraños y locos -->
-      <div class="vgrid-view-container" *ngIf="gameMode === 'story'">
+      <div class="dealers-tab-scroll" *ngIf="gameMode === 'story'">
 
-        <!-- Toolbar: Búsqueda, Filtros y Selector de Series -->
-        <div class="dealer-vehicles-toolbar">
+        <!-- Estado de carga -->
+        <div class="missions-state-loading" *ngIf="strangersLoading">
+          <div class="vgrid-spinner"></div>
+          <span>{{ 'transports.strangers.loading' | translate }}</span>
+        </div>
+
+        <!-- Estado de error -->
+        <div class="missions-state-error" *ngIf="strangersError && !strangersLoading">
+          <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+          <span>{{ 'transports.strangers.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadStrangerMissions(true)">
+            <i class="fa-solid fa-rotate-right"></i> {{ 'transports.strangers.retry' | translate }}
+          </button>
+        </div>
+
+        <ng-container *ngIf="!strangersLoading && !strangersError && strangerMissions.length > 0">
+          <!-- Separador Extraños y Locos (Título en la parte superior) -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.strangers' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
 
           <!-- Buscador -->
           <div class="strangers-search-box">
@@ -863,37 +943,10 @@
             </button>
           </div>
 
-        </div>
-
-        <!-- Contenedor scrolleable de Extraños y Locos -->
-        <div class="vgrid-scroll-area">
-
-          <!-- Estado de carga -->
-          <div class="missions-state-loading" *ngIf="strangersLoading">
-            <div class="vgrid-spinner"></div>
-            <span>{{ 'transports.strangers.loading' | translate }}</span>
-          </div>
-
-          <!-- Estado de error -->
-          <div class="missions-state-error" *ngIf="strangersError && !strangersLoading">
-            <i class="fa-solid fa-triangle-exclamation error-icon"></i>
-            <span>{{ 'transports.strangers.error' | translate }}</span>
-            <button type="button" class="missions-retry-btn" (click)="loadStrangerMissions(true)">
-              <i class="fa-solid fa-rotate-right"></i> {{ 'transports.strangers.retry' | translate }}
-            </button>
-          </div>
-
           <!-- Estado vacío tras búsqueda -->
-          <div class="missions-state-empty" *ngIf="!strangersLoading && !strangersError && filteredStrangerMissions.length === 0">
+          <div class="missions-state-empty" *ngIf="filteredStrangerMissions.length === 0">
             <i class="fa-solid fa-mask empty-icon"></i>
             <span>{{ 'transports.strangers.empty' | translate }}</span>
-          </div>
-
-          <!-- Separador Extraños y Locos con barritas -->
-          <div class="dealer-section-divider dealer-grid-divider" *ngIf="!strangersLoading && !strangersError && filteredStrangerMissions.length > 0">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.strangers' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
           </div>
 
           <!-- VISTA POR SERIES (Agrupadas jerárquicamente) -->
@@ -1018,7 +1071,7 @@
             </div>
           </div>
 
-        </div>
+        </ng-container>
 
       </div>
     </ng-container>
@@ -1274,9 +1327,32 @@
 
     <!-- ============ TAB: GOLPES (EXCLUSIVO GTA ONLINE) ============ -->
     <ng-container *ngIf="drawerView === 'tabs' && activeDrawerTab === 'golpes'">
-      <div class="heists-tab-container">
-        <!-- Toolbar: Búsqueda y Filtros de Categoría -->
-        <div class="heists-toolbar">
+      <div class="dealers-tab-scroll">
+
+        <!-- Estado de Carga -->
+        <div class="missions-loading" *ngIf="heistsLoading">
+          <i class="fa-solid fa-circle-notch fa-spin missions-spinner"></i>
+          <span>{{ 'transports.heists.loading' | translate }}</span>
+        </div>
+
+        <!-- Estado de Error -->
+        <div class="missions-error" *ngIf="!heistsLoading && heistsError">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>{{ 'transports.heists.error' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadOnlineHeists()">
+            <i class="fa-solid fa-rotate-right"></i>
+            {{ 'transports.heists.retry' | translate }}
+          </button>
+        </div>
+
+        <ng-container *ngIf="!heistsLoading && !heistsError && onlineHeists.length > 0">
+          <!-- Separador Golpes (Título en la parte superior) -->
+          <div class="dealer-section-divider">
+            <div class="dealer-section-divider-line"></div>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.golpes' | translate }}</span>
+            <div class="dealer-section-divider-line"></div>
+          </div>
+
           <!-- Buscador -->
           <div class="heists-search-box">
             <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
@@ -1298,9 +1374,9 @@
           </div>
 
           <!-- Selector Desplegable de Categorías de Golpes -->
-          <div class="strangers-series-select-wrap">
+          <div class="heists-select-wrap">
             <select
-              class="strangers-series-select"
+              class="heists-select"
               [(ngModel)]="selectedHeistCategoryFilter"
               (ngModelChange)="setHeistCategoryFilter($event)"
             >
@@ -1312,42 +1388,17 @@
               <option value="raid">{{ 'transports.heists.raid' | translate }} ({{ getHeistCategoryCount('raid') }})</option>
               <option value="kortz_center">Kortz Center ({{ getHeistCategoryCount('kortz_center') }})</option>
             </select>
+            <i class="fa-solid fa-chevron-down heists-select-icon"></i>
           </div>
-        </div>
 
-        <!-- Estado de Carga -->
-        <div class="missions-loading" *ngIf="heistsLoading">
-          <i class="fa-solid fa-circle-notch fa-spin missions-spinner"></i>
-          <span>{{ 'transports.heists.loading' | translate }}</span>
-        </div>
-
-        <!-- Estado de Error -->
-        <div class="missions-error" *ngIf="!heistsLoading && heistsError">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <span>{{ 'transports.heists.error' | translate }}</span>
-          <button type="button" class="missions-retry-btn" (click)="loadOnlineHeists()">
-            <i class="fa-solid fa-rotate-right"></i>
-            {{ 'transports.heists.retry' | translate }}
-          </button>
-        </div>
-
-        <!-- Estado Vacío -->
-        <div class="missions-empty" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length === 0">
-          <i class="fa-solid fa-sack-dollar"></i>
-          <span>{{ 'transports.heists.empty' | translate }}</span>
-        </div>
-
-        <!-- Área de scroll unificada con separador y lista -->
-        <div class="heists-scroll-area" *ngIf="!heistsLoading && !heistsError && filteredOnlineHeists.length > 0">
-          <!-- Separador Golpes -->
-          <div class="dealer-section-divider">
-            <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.golpes' | translate }}</span>
-            <div class="dealer-section-divider-line"></div>
+          <!-- Estado Vacío -->
+          <div class="missions-empty" *ngIf="filteredOnlineHeists.length === 0">
+            <i class="fa-solid fa-sack-dollar"></i>
+            <span>{{ 'transports.heists.empty' | translate }}</span>
           </div>
 
           <!-- LISTA DE GOLPES (Maquetación blindada mcard-item: nunca colisiona) -->
-          <div class="mysteries-list">
+          <div class="mysteries-list" *ngIf="filteredOnlineHeists.length > 0">
             <div
               *ngFor="let h of filteredOnlineHeists"
               class="mcard-item"
@@ -1378,10 +1429,6 @@
                     <i class="fa-solid fa-sack-dollar"></i>
                     <span>{{ h.potentialTake.normal }}</span>
                   </span>
-                  <span class="mcard-time-badge" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3);">
-                    <i class="fa-solid fa-users"></i>
-                    <span>{{ h.players }}</span>
-                  </span>
                 </div>
               </div>
 
@@ -1393,7 +1440,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </ng-container>
 
       </div>
     </ng-container>
@@ -1433,28 +1480,20 @@
         <div class="mdetail-body">
           <div class="mdetail-main-card">
 
-            <!-- Hero media oficial -->
-            <div class="stranger-hero-media" *ngIf="selectedHeist.thumbnail">
-              <img [src]="selectedHeist.thumbnail" [alt]="selectedHeist.title" class="stranger-hero-img" />
-              <div class="stranger-hero-overlay"></div>
-              <div class="stranger-hero-badges">
-                <span class="stranger-hero-series-badge" [style.backgroundColor]="selectedHeist.badgeColor">
-                  <i class="fa-solid" [ngClass]="selectedHeist.badgeIcon"></i>
-                  <span>{{ selectedHeist.categoryLabel }}</span>
-                </span>
-                <span class="heist-hero-take-badge">
-                  <i class="fa-solid fa-sack-dollar"></i>
-                  <span>{{ selectedHeist.potentialTake.normal }}</span>
-                </span>
-              </div>
-            </div>
-
             <!-- Cabecera del Golpe -->
             <div class="mdetail-hero">
               <div class="dealer-section-divider heist-title-divider">
                 <div class="dealer-section-divider-line"></div>
                 <h2 class="mdetail-hero-title heist-hero-title">{{ selectedHeist.title }}</h2>
                 <div class="dealer-section-divider-line"></div>
+              </div>
+
+              <!-- Cuadro para imagen del golpe -->
+              <div class="heist-image-box">
+                <img *ngIf="selectedHeist.thumbnail" [src]="selectedHeist.thumbnail" [alt]="selectedHeist.title" class="heist-image-img" />
+                <div *ngIf="!selectedHeist.thumbnail" class="heist-image-placeholder">
+                  <i class="fa-solid fa-image"></i>
+                </div>
               </div>
 
               <div class="mdetail-hero-chars">
@@ -1466,10 +1505,6 @@
                   <i class="fa-solid fa-user-secret"></i>
                   <span>{{ 'transports.heists.organizer' | translate }} <strong>{{ selectedHeist.giver }}</strong></span>
                 </span>
-                <span class="mdetail-giver-pill" *ngIf="selectedHeist.minLevel">
-                  <i class="fa-solid fa-id-badge"></i>
-                  <span>{{ 'transports.heists.minLevel' | translate }} <strong>Nv. {{ selectedHeist.minLevel }}</strong></span>
-                </span>
               </div>
             </div>
 
@@ -1480,6 +1515,14 @@
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.setupCost' | translate }}</span>
                   <span class="box-val">{{ selectedHeist.setupCostFormatted }}</span>
+                </div>
+              </div>
+
+              <div class="mdetail-box" *ngIf="selectedHeist.minLevel">
+                <i class="fa-solid fa-id-badge box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.minLevel' | translate }}</span>
+                  <span class="box-val">Nv. {{ selectedHeist.minLevel }}</span>
                 </div>
               </div>
 
@@ -1498,34 +1541,42 @@
                   <span class="box-val">{{ selectedHeist.location }}</span>
                 </div>
               </div>
-
-              <div class="mdetail-box reward-box" *ngIf="selectedHeist.potentialTake">
-                <i class="fa-solid fa-money-bill-wave box-icon"></i>
-                <div class="box-content">
-                  <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
-                  <span class="box-val highlight-gold">{{ selectedHeist.potentialTake.normal }}</span>
-                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.hard">Difícil: {{ selectedHeist.potentialTake.hard }}</span>
-                  <span class="box-sub" *ngIf="selectedHeist.potentialTake.description">{{ selectedHeist.potentialTake.description }}</span>
-                </div>
-              </div>
-
-              <div class="mdetail-box unlock-box" *ngIf="selectedHeist.propertyRequired">
-                <i class="fa-solid fa-building box-icon"></i>
-                <div class="box-content">
-                  <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
-                  <span class="box-val">{{ selectedHeist.propertyRequired }}</span>
-                </div>
-              </div>
             </div>
 
             <!-- Bloque: Sinopsis / Información -->
-            <div class="mdetail-block" *ngIf="selectedHeist.description">
-              <div class="mdetail-block-head">
+            <div class="guide-synopsis-block heist-synopsis-block" *ngIf="selectedHeist.description">
+              <div class="guide-synopsis-head">
                 <i class="fa-solid fa-book-open"></i>
                 <span>{{ 'transports.heists.synopsis' | translate }}</span>
               </div>
-              <div class="mdetail-synopsis">
+              <div class="guide-synopsis-body">
                 <p>{{ selectedHeist.description }}</p>
+              </div>
+            </div>
+
+            <!-- Bloque: Propiedad requerida -->
+            <div class="mdetail-box unlock-box heist-property-box" *ngIf="selectedHeist.propertyRequired">
+              <i class="fa-solid fa-building box-icon"></i>
+              <div class="box-content">
+                <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
+                <span class="box-val">{{ selectedHeist.propertyRequired }}</span>
+              </div>
+            </div>
+
+            <!-- Bloque: Botín Potencial -->
+            <div class="mdetail-box reward-box heist-reward-box" *ngIf="selectedHeist.potentialTake">
+              <i class="fa-solid fa-sack-dollar box-icon"></i>
+              <div class="box-content">
+                <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
+                <div class="heist-payouts-row">
+                  <span class="heist-payout-main">{{ selectedHeist.potentialTake.normal }}</span>
+                  <span class="heist-payout-badge" *ngIf="selectedHeist.potentialTake.hard">
+                    Difícil: {{ selectedHeist.potentialTake.hard }}
+                  </span>
+                </div>
+                <p class="heist-payout-desc" *ngIf="selectedHeist.potentialTake.description">
+                  {{ selectedHeist.potentialTake.description }}
+                </p>
               </div>
             </div>
 
@@ -1562,51 +1613,6 @@
                     </div>
                     <p class="heist-setup-desc" *ngIf="s.description">{{ s.description }}</p>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bloque: Desafíos de Élite -->
-            <div class="mdetail-block gold-block" *ngIf="selectedHeist.eliteChallenges && selectedHeist.eliteChallenges.length > 0">
-              <div class="mdetail-block-head gold-head">
-                <i class="fa-solid fa-stopwatch"></i>
-                <span>{{ 'transports.heists.eliteTitle' | translate }}</span>
-                <span class="heist-elite-reward" *ngIf="selectedHeist.eliteReward">+{{ selectedHeist.eliteReward }}</span>
-              </div>
-              <div class="mdetail-gold-list">
-                <div class="gold-goal-item" *ngFor="let ec of selectedHeist.eliteChallenges">
-                  <div class="gold-goal-check">
-                    <i class="fa-solid fa-check"></i>
-                  </div>
-                  <span class="gold-goal-text">{{ ec }}</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bloque: Vehículos desbloqueados -->
-            <div class="mdetail-block" *ngIf="selectedHeist.unlockedVehicles && selectedHeist.unlockedVehicles.length > 0">
-              <div class="mdetail-block-head">
-                <i class="fa-solid fa-car"></i>
-                <span>{{ 'transports.heists.unlockedVehicles' | translate }}</span>
-              </div>
-              <div class="heist-vehicles-tags">
-                <span class="heist-vehicle-tag" *ngFor="let v of selectedHeist.unlockedVehicles">
-                  <i class="fa-solid fa-tag"></i>
-                  {{ v }}
-                </span>
-              </div>
-            </div>
-
-            <!-- Bloque: Consejos tácticos -->
-            <div class="mdetail-block" *ngIf="selectedHeist.tips && selectedHeist.tips.length > 0">
-              <div class="mdetail-block-head">
-                <i class="fa-solid fa-lightbulb"></i>
-                <span>{{ 'transports.heists.tipsTitle' | translate }}</span>
-              </div>
-              <div class="stranger-objectives-list">
-                <div class="stranger-obj-item" *ngFor="let tip of selectedHeist.tips">
-                  <i class="fa-solid fa-caret-right"></i>
-                  <span>{{ tip }}</span>
                 </div>
               </div>
             </div>

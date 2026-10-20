@@ -42,6 +42,8 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   private _cachedDealCat: { id: string; name: string; count: number; icon: string }[] = [];
   private _cachedFDVKey = '';
   private _cachedFDV: GtaVehicle[] = [];
+  private _cachedFGVKey = '';
+  private _cachedFGV: GtaVehicle[] = [];
   private _cachedFSMKey = '';
   private _cachedFSM: GtaMission[] = [];
   private _cachedOCLKey = '';
@@ -171,6 +173,12 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   // Buscador de vehículos dentro del catálogo del concesionario
   dealerVehicleSearchQuery: string = '';
 
+  // Buscador global de vehículos en el panel de transportes
+  vehicleSearchQuery: string = '';
+  allVehicles: GtaVehicle[] = [];
+  allVehiclesLoading = false;
+  allVehiclesError = false;
+
   // Definición centralizada de concesionarios (extraída a vehiculos.config.ts)
   readonly dealers: DealerCategory[] = CONCESIONARIOS_GTA5;
 
@@ -183,9 +191,11 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     effect(() => {
       // Reset cached values on language switch
       this.vehicleCache = {};
+      this.allVehicles = [];
       this._cachedVisDealersKey = '';
       this._cachedDealCatKey = '';
       this._cachedFDVKey = '';
+      this._cachedFGVKey = '';
 
       if (this.activeDealerId) {
         this.loadDealerVehicles(this.activeDealerId);
@@ -217,9 +227,12 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this.onlineMissions = [];
       this.onlineHeists = [];
       this.dealerVehicles = [];
+      this.allVehicles = [];
+      this.vehicleSearchQuery = '';
       this.activeDealerId = null;
       this.selectedVehicle = null;
       this._cachedVisDealersKey = '';
+      this._cachedFGVKey = '';
 
       if (this.activeDrawerTab === 'misterios') this.loadOnlineMysteries(true);
       if (this.activeDrawerTab === 'armas') this.loadWeapons(true);
@@ -230,6 +243,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       if (this.activeDrawerTab === 'golpes') this.loadOnlineHeists(true);
     }
     if (changes['isOpen'] && changes['isOpen'].currentValue) {
+      if (this.activeDrawerTab === 'vehiculos' && this.allVehicles.length === 0) this.loadAllVehicles();
       if (this.activeDrawerTab === 'misterios' && this.onlineMysteries.length === 0) this.loadOnlineMysteries();
       if (this.activeDrawerTab === 'armas' && this.weapons.length === 0) this.loadWeapons();
       if (this.activeDrawerTab === 'misiones') {
@@ -313,6 +327,44 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this._cachedFDV = list;
     }
     return this._cachedFDV;
+  }
+
+  get filteredGlobalVehicles(): GtaVehicle[] {
+    const q = this.vehicleSearchQuery.trim().toLowerCase();
+    if (!q) return [];
+    const key = `${this.allVehicles ? this.allVehicles.length : 0}_${q}`;
+    if (this._cachedFGVKey !== key) {
+      this._cachedFGVKey = key;
+      this._cachedFGV = (this.allVehicles || []).filter(v =>
+        (v.name && v.name.toLowerCase().includes(q)) ||
+        (v.manufacturer && v.manufacturer.toLowerCase().includes(q)) ||
+        (v.class && v.class.toLowerCase().includes(q))
+      );
+    }
+    return this._cachedFGV;
+  }
+
+  loadAllVehicles(force = false): void {
+    if (this.allVehicles.length > 0 && !force) return;
+    this.allVehiclesLoading = true;
+    this.allVehiclesError = false;
+    this.vehicleService.getVehicles(undefined, undefined, undefined, this.gameMode).subscribe({
+      next: (vehicles) => {
+        this.allVehicles = vehicles || [];
+        this.allVehiclesLoading = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar catálogo de vehículos:', err);
+        this.allVehiclesLoading = false;
+        this.allVehiclesError = true;
+      }
+    });
+  }
+
+  onVehicleSearchChange(): void {
+    if (this.vehicleSearchQuery.trim() && this.allVehicles.length === 0 && !this.allVehiclesLoading) {
+      this.loadAllVehicles();
+    }
   }
 
   // -------------------------------------------------------------
@@ -852,16 +904,27 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     this.loadDealerVehicles(dealerId);
   }
 
+  openedFromGlobalSearch = false;
+
   closeDealerGrid(): void {
     this.drawerView = 'tabs';
     this.activeDealerId = null;
+    this.activeDealerName = '';
     this.selectedVehicle = null;
     this.selectedVehicleSort = 'none';
     this.dealerVehicleSearchQuery = '';
+    this.openedFromGlobalSearch = false;
   }
 
   backToDealerGrid(): void {
-    this.drawerView = 'dealer-grid';
+    if (this.openedFromGlobalSearch) {
+      this.drawerView = 'tabs';
+      this.openedFromGlobalSearch = false;
+      this.activeDealerId = null;
+      this.activeDealerName = '';
+    } else {
+      this.drawerView = 'dealer-grid';
+    }
     this.selectedVehicle = null;
   }
 
@@ -885,6 +948,17 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   selectVehicle(v: GtaVehicle): void {
     this.selectedVehicle = v;
+    if (this.drawerView === 'tabs') {
+      this.openedFromGlobalSearch = true;
+      if (v.dealership) {
+        const d = this.dealers.find(x => x.id.toLowerCase() === v.dealership.toLowerCase());
+        if (d) {
+          this.activeDealerName = d.name;
+        }
+      }
+    } else {
+      this.openedFromGlobalSearch = false;
+    }
     this.drawerView = 'vehicle-detail';
   }
 

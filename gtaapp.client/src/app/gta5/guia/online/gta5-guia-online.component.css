@@ -480,7 +480,7 @@
 .guide-heading-divider {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin: 20px 0 14px 0;
   width: 100%;
   box-sizing: border-box;
@@ -489,17 +489,17 @@
 .guide-heading-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.75) 100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 184, 51, 0.45), transparent);
   border-radius: 1px;
 }
 
 .guide-heading-line--right {
-  background: linear-gradient(90deg, rgba(255, 184, 51, 0.75) 0%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 184, 51, 0.45), transparent);
 }
 
 .guide-heading-title {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: #ffb833;
   text-transform: uppercase;
@@ -586,11 +586,11 @@
 }
 
 .wiki-shell.mode-day .guide-heading-line {
-  background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.75) 100%);
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.45), transparent);
 }
 
 .wiki-shell.mode-day .guide-heading-line--right {
-  background: linear-gradient(90deg, rgba(217, 119, 6, 0.75) 0%, rgba(217, 119, 6, 0.25) 75%, transparent 100%);
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.45), transparent);
 }
 
 .wiki-shell.mode-day .guide-heading-title {
@@ -973,7 +973,8 @@
 
 .guide-cat-card.is-active .guide-cat-icon {
   transform: scale(1.08);
-  box-shadow: 0 0 14px var(--cat-accent, #ffb833);
+  border-color: color-mix(in srgb, var(--cat-accent, #ffb833) 55%, transparent);
+  background: color-mix(in srgb, var(--cat-accent, #ffb833) 22%, transparent);
 }
 
 .guide-cat-card.is-active .guide-cat-arrow {

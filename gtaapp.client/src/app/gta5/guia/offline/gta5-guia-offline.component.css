@@ -1356,7 +1356,7 @@
 :host ::ng-deep .guide-heading-divider {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin: 24px 0 14px 0;
   width: 100%;
   box-sizing: border-box;
@@ -1371,19 +1371,19 @@
 :host ::ng-deep .guide-heading-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, rgba(255, 184, 51, 0.75) 100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 184, 51, 0.45), transparent);
   border-radius: 1px;
 }
 
 /* Establece el diseÃ±o general de el elemento: :host ::ng-deep .guide-heading-line--right. */
 :host ::ng-deep .guide-heading-line--right {
-  background: linear-gradient(90deg, rgba(255, 184, 51, 0.75) 0%, rgba(255, 184, 51, 0.25) 75%, transparent 100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 184, 51, 0.45), transparent);
 }
 
 /* Configura la tipografÃ­a y los textos de el elemento: :host ::ng-deep .guide-heading-title. */
 :host ::ng-deep .guide-heading-title {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: #ffb833;
   text-transform: uppercase;
@@ -1395,11 +1395,11 @@
 }
 
 :host .is-mystery-article ::ng-deep .guide-heading-line {
-  background: linear-gradient(90deg, transparent 0%, rgba(168, 85, 247, 0.25) 25%, rgba(168, 85, 247, 0.75) 100%);
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.45), transparent);
 }
 
 :host .is-mystery-article ::ng-deep .guide-heading-line--right {
-  background: linear-gradient(90deg, rgba(168, 85, 247, 0.75) 0%, rgba(168, 85, 247, 0.25) 75%, transparent 100%);
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.45), transparent);
 }
 
 :host .is-mystery-article ::ng-deep .guide-heading-title {
@@ -1409,12 +1409,12 @@
 
 /* Modo dÃ­a para encabezados */
 :host .wiki-shell.mode-day ::ng-deep .guide-heading-line {
-  background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.25) 25%, rgba(217, 119, 6, 0.75) 100%);
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.45), transparent);
 }
 
 /* Establece el diseÃ±o general de el modo claro (tema de dÃ­a) para la interfaz. */
 :host .wiki-shell.mode-day ::ng-deep .guide-heading-line--right {
-  background: linear-gradient(90deg, rgba(217, 119, 6, 0.75) 0%, rgba(217, 119, 6, 0.25) 75%, transparent 100%);
+  background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.45), transparent);
 }
 
 /* Configura la tipografÃ­a y los textos de el modo claro (tema de dÃ­a) para la interfaz. */
@@ -1961,20 +1961,20 @@
 }
 
 .guide-cat-icon {
-  width: 34px;
-  height: 34px;
-  min-width: 34px;
-  min-height: 34px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid var(--cat-accent, #ffb833);
+  background: color-mix(in srgb, var(--cat-accent, #ffb833) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cat-accent, #ffb833) 32%, transparent);
   color: var(--cat-accent, #ffb833);
-  font-size: 14.5px;
+  font-size: 15.5px;
   flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1982,12 +1982,13 @@
   width: 36px;
   height: 36px;
   font-size: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .guide-cat-card:hover .guide-cat-icon {
   transform: scale(1.08);
-  box-shadow: 0 0 14px var(--cat-accent, #ffb833);
+  border-color: color-mix(in srgb, var(--cat-accent, #ffb833) 55%, transparent);
+  background: color-mix(in srgb, var(--cat-accent, #ffb833) 22%, transparent);
 }
 
 .guide-cat-info {
