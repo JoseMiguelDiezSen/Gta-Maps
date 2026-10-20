@@ -15,8 +15,6 @@ import { Gta6MapOnlineComponent }    from './gta6/map/online/gta6-map-online.com
 import { Gta6MapOfflineComponent }  from './gta6/map/offline/gta6-map-offline.component';
 import { Gta6GuiaOfflineComponent } from './gta6/guia/offline/gta6-guia-offline.component';
 import { Gta6GuiaOnlineComponent }  from './gta6/guia/online/gta6-guia-online.component';
-import { Gta6NoticiasComponent }  from './gta6/noticias/gta6-noticias.component';
-import { Gta6MomentosComponent }  from './gta6/momentos/gta6-momentos.component';
 import { Gta6VideosComponent }    from './gta6/videos/gta6-videos.component'; */
 import { HomeComponent }          from './home/home.component';
 /* import { Gta5InfoPanelComponent } from './gta5/map/info-panel/gta5-info-panel.component';
@@ -41,8 +39,6 @@ import { AntiScrapingInterceptor } from './interceptors/anti-scraping.intercepto
         Gta6MapOfflineComponent,
         Gta6GuiaOfflineComponent,
         Gta6GuiaOnlineComponent,
-        Gta6NoticiasComponent,
-        Gta6MomentosComponent,
         Gta6VideosComponent, */
         HomeComponent,
 

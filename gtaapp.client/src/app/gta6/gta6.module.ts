@@ -9,8 +9,6 @@ import { Gta6GuiaOnlineComponent }  from './guia/online/gta6-guia-online.compone
 import { Gta6InfoPanelComponent }   from './map/info-panel/gta6-info-panel.component';
 import { Goty6Component }           from './goty6/goty6.component';
 import { Gta6VideosComponent }      from './videos/gta6-videos.component';
-import { Gta6NoticiasComponent }    from './noticias/gta6-noticias.component';
-import { Gta6MomentosComponent }    from './momentos/gta6-momentos.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +18,7 @@ import { Gta6MomentosComponent }    from './momentos/gta6-momentos.component';
     Gta6GuiaOnlineComponent,
     Gta6InfoPanelComponent,
     Goty6Component,
-    Gta6VideosComponent,
-    Gta6NoticiasComponent,
-    Gta6MomentosComponent
+    Gta6VideosComponent
   ],
   imports: [
     SharedModule,
