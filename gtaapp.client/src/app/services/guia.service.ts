@@ -50,7 +50,7 @@ export class GuiaService {
           juego: 'Grand Theft Auto V',
           titulo: 'Guía GTA V',
           descripcion: 'Compendio interactivo de Los Santos y Blaine County: Modo Historia al 100%, Golpes, Bolsa e Inversiones, y Secretos.',
-          bannerUrl: 'assets/home-bg.jpg',
+          bannerUrl: 'assets/images/home/home-bg.jpg',
           secciones: [
             {
               id: 'prologo',
