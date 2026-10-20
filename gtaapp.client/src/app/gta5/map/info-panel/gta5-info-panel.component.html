@@ -1451,16 +1451,10 @@
 
             <!-- Cabecera del Golpe -->
             <div class="mdetail-hero">
-              <div class="mdetail-hero-badges">
-                <span class="mdetail-hero-num">{{ 'transports.heists.heistNum' | translate:{ order: (selectedHeist.order < 10 ? '0' + selectedHeist.order : selectedHeist.order) } }}</span>
-                <span class="mdetail-hero-cat" [style.borderColor]="selectedHeist.badgeColor + '44'" [style.color]="selectedHeist.badgeColor">
-                  <i class="fa-solid" [ngClass]="selectedHeist.badgeIcon"></i>
-                  {{ selectedHeist.categoryLabel }}
-                </span>
-              </div>
-              <h2 class="mdetail-hero-title">{{ selectedHeist.title }}</h2>
-              <div class="mdetail-title-en" *ngIf="selectedHeist.titleEn && selectedHeist.titleEn !== selectedHeist.title">
-                {{ selectedHeist.titleEn }}
+              <div class="dealer-section-divider heist-title-divider">
+                <div class="dealer-section-divider-line"></div>
+                <h2 class="mdetail-hero-title heist-hero-title">{{ selectedHeist.title }}</h2>
+                <div class="dealer-section-divider-line"></div>
               </div>
 
               <div class="mdetail-hero-chars">

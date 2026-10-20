@@ -4,6 +4,7 @@ import { forkJoin, Observable, of } from 'rxjs';
 import { catchError, map, shareReplay, switchMap } from 'rxjs/operators';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeosCatalogo } from '../models/guia';
 import { GtaMystery } from '../models/gta5/mystery';
+import { GtaHeist } from '../models/gta5/mission';
 
 @Injectable({
   providedIn: 'root'
@@ -515,6 +516,14 @@ export class GuiaService {
   getMisteriosGuiaOnline(): Observable<GtaMystery[]> {
     const t = new Date().getTime();
     return this.http.get<GtaMystery[]>(`assets/data/gta5/guia/online/misterios-guia-online.json?t=${t}`).pipe(
+      catchError(() => of([])),
+      shareReplay(1)
+    );
+  }
+
+  getGolpesGuiaOnline(): Observable<GtaHeist[]> {
+    const t = new Date().getTime();
+    return this.http.get<GtaHeist[]>(`assets/data/gta5/guia/online/golpes-guia-online.json?t=${t}`).pipe(
       catchError(() => of([])),
       shareReplay(1)
     );

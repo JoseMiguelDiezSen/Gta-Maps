@@ -185,8 +185,8 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
       this.misterios = list || [];
     });
 
-    this.golpes$ = this.missionService
-      .getOnlineHeists()
+    this.golpes$ = this.guiaService
+      .getGolpesGuiaOnline()
       .pipe(shareReplay(1));
 
     this.misionesOnline$ = this.guiaService
