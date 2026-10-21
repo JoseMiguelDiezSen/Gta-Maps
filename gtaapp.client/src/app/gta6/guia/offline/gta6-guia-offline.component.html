@@ -9,8 +9,8 @@
           type="button"
           class="mobile-nav-toggle-btn"
           (click)="toggleMobileNav()"
-          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
-          aria-label="Menú de navegación"
+          [title]="mobileNavOpen ? ('guia.nav.closeNavMenu' | translate) : ('guia.nav.openNavMenu' | translate)"
+          [attr.aria-label]="'guia.nav.openNavMenu' | translate"
         >
           <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
         </button>
@@ -19,7 +19,7 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- LOGO DE LA HOME CON TAMAÑO FIJADO -->
-        <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
+        <a routerLink="/home" class="wiki-logo-link" [title]="'common.backToHome' | translate">
           <img src="assets/images/logos/gta-world-nav-logo.png" alt="Logo GTA WORLD" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
@@ -27,7 +27,7 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <div class="nav-brand">
-          <span class="nav-brand-title">GTA 6 - HISTORIA</span>
+          <span class="nav-brand-title">{{ 'gta6.guia.navBrandStory' | translate }}</span>
         </div>
 
         <!-- Separador -->
@@ -76,13 +76,13 @@
               class="nav-dropdown-item"
               [class.is-disabled]="!isDevAllowed"
               (click)="onGta6MapClick($event)"
-              [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
+              [title]="!isDevAllowed ? ('guia.nav.gta6MapComingSoon' | translate) : ('gta6.hud.launchTitle' | translate)"
             >
               <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
               <span>MAPA GTA 6</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
-            <a class="nav-dropdown-item is-disabled" title="Ya estás en la Guía de GTA 6">
+            <a class="nav-dropdown-item is-disabled" [title]="'guia.nav.alreadyOnGta6Guide' | translate">
               <i class="fa-solid fa-book-open"></i>
               <span>GUÍA GTA 6</span>
             </a>
@@ -102,16 +102,16 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Selector directo entre las guías de GTA 6 -->
-        <div class="mode-switch-track" aria-label="Cambiar entre guía Historia y guía Online">
-          <a class="mode-switch-btn mode-historia is-active" routerLink="/gta6-guia-offline" title="Guía GTA 6 Historia">
+        <div class="mode-switch-track" [attr.aria-label]="'guia.nav.switchModeTitle' | translate">
+          <a class="mode-switch-btn mode-historia is-active" routerLink="/gta6-guia-offline" [title]="'common.story' | translate">
             <i class="mode-indicator dot-historia"></i>
-            <span class="mode-text-desktop">HISTORIA</span>
-            <span class="mode-text-mobile">HISTORIA</span>
+            <span class="mode-text-desktop">{{ 'guia.nav.modeStory' | translate }}</span>
+            <span class="mode-text-mobile">{{ 'guia.nav.modeStory' | translate }}</span>
           </a>
-          <a class="mode-switch-btn mode-online" routerLink="/gta6-guia-online" title="Guía GTA 6 Online">
+          <a class="mode-switch-btn mode-online" routerLink="/gta6-guia-online" [title]="'common.online' | translate">
             <i class="mode-indicator dot-online"></i>
-            <span class="mode-text-desktop">ONLINE</span>
-            <span class="mode-text-mobile">ONLINE</span>
+            <span class="mode-text-desktop">{{ 'guia.nav.modeOnline' | translate }}</span>
+            <span class="mode-text-mobile">{{ 'guia.nav.modeOnline' | translate }}</span>
           </a>
         </div>
 
@@ -126,8 +126,8 @@
           class="theme-toggle-switch"
           [class.is-day]="themeMode === 'day'"
           (click)="toggleThemeMode()"
-          [title]="themeMode === 'night' ? 'Cambiar a Modo Día' : 'Cambiar a Modo Noche'"
-          aria-label="Cambiar entre modo día y noche"
+          [title]="themeMode === 'night' ? ('guia.nav.themeDay' | translate) : ('guia.nav.themeNight' | translate)"
+          [attr.aria-label]="themeMode === 'night' ? ('guia.nav.themeDay' | translate) : ('guia.nav.themeNight' | translate)"
         >
           <span class="switch-icon switch-icon-moon">🌙</span>
           <span class="switch-icon switch-icon-sun">☀️</span>
@@ -168,15 +168,15 @@
 
       <!-- Selector de modo Historia / Online en móvil -->
       <div class="mobile-mode-switcher">
-        <span class="mobile-mode-label">MODO:</span>
+        <span class="mobile-mode-label">{{ 'guia.nav.modeLabel' | translate }}</span>
         <div class="mode-switch-track">
           <a class="mode-switch-btn mode-historia is-active" routerLink="/gta6-guia-offline" (click)="closeMobileNav()">
             <i class="mode-indicator dot-historia"></i>
-            <span>HISTORIA</span>
+            <span>{{ 'guia.nav.modeStory' | translate }}</span>
           </a>
           <a class="mode-switch-btn mode-online" routerLink="/gta6-guia-online" (click)="closeMobileNav()">
             <i class="mode-indicator dot-online"></i>
-            <span>ONLINE</span>
+            <span>{{ 'guia.nav.modeOnline' | translate }}</span>
           </a>
         </div>
       </div>
@@ -187,9 +187,9 @@
   <header class="wiki-hero-banner">
     <div class="hero-bg-overlay"></div>
     <div class="hero-content-inner">
-      <h2 class="hero-main-title">VICE CITY & ESTADO DE LEONIDA</h2>
+      <h2 class="hero-main-title">{{ 'gta6.guia.heroTitle' | translate }}</h2>
       <p class="hero-description">
-        Base de datos de Leonida: protagonistas Jason & Lucia, distritos urbanos, Grassrivers y sistema táctico de inventario.
+        {{ 'gta6.guia.heroDescStory' | translate }}
       </p>
     </div>
   </header>
@@ -202,7 +202,7 @@
 
       <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
       <div class="sidebar-header-bar" *ngIf="!currentSection">
-        <span class="sidebar-header-title">CONTENIDOS</span>
+        <span class="sidebar-header-title">{{ 'guia.sidebar.contents' | translate }}</span>
       </div>
 
       <!-- VISTA 1: LISTA DE CATEGORÍAS (DRILL-DOWN NIVEL 1) -->
@@ -243,11 +243,11 @@
         <!-- CASO TROFEOS: SECCIÓN DE TROFEOS (Navegación por categorías de trofeo) -->
         <ng-container *ngIf="currentSection?.id === 'trofeos'">
           <div class="guide-detail-toolbar">
-            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
-              <span>Categorías</span>
+              <span>{{ 'guia.sidebar.categories' | translate }}</span>
             </button>
-            <span class="guide-detail-badge">{{ trofeosResumen.total }} trofeos</span>
+            <span class="guide-detail-badge">{{ trofeosResumen.total }} {{ 'guia.sidebar.badgeTrophies' | translate }}</span>
           </div>
 
           <div class="sidebar-header-bar">
@@ -262,7 +262,7 @@
               (click)="seleccionarTrofeoFiltro('todos')"
             >
               <div class="guide-cat-icon"><i class="fas fa-trophy"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Todos los trofeos</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.all' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.total }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -274,7 +274,7 @@
               (click)="seleccionarTrofeoFiltro('platino')"
             >
               <div class="guide-cat-icon"><i class="fas fa-trophy"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Trofeo de Platino</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.platinum' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.platino }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -286,7 +286,7 @@
               (click)="seleccionarTrofeoFiltro('oro')"
             >
               <div class="guide-cat-icon"><i class="fas fa-medal"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Oro</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.gold' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.oro }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -298,7 +298,7 @@
               (click)="seleccionarTrofeoFiltro('plata')"
             >
               <div class="guide-cat-icon"><i class="fas fa-award"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Plata</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.silver' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.plata }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -310,7 +310,7 @@
               (click)="seleccionarTrofeoFiltro('bronce')"
             >
               <div class="guide-cat-icon"><i class="fas fa-shield-halved"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Bronce</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.bronze' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.bronce }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -320,9 +320,9 @@
         <!-- CASO VEHÍCULOS: LISTADO DE CATEGORÍAS DE VEHÍCULOS -->
         <ng-container *ngIf="currentSection?.id === 'vehiculos'">
           <div class="guide-detail-toolbar">
-            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
-              <span>Categorías</span>
+              <span>{{ 'guia.sidebar.categories' | translate }}</span>
             </button>
             <span class="guide-detail-badge" *ngIf="concesionarioSeleccionado">
               {{ busquedaVehiculos ? vehiculosFiltrados.length : vehiculosConcesionario.length }} {{ getBadgeLabelVehiculos() }}
@@ -349,7 +349,7 @@
                 type="button"
                 class="search-clear-btn"
                 (click)="limpiarBusquedaVehiculos()"
-                aria-label="Limpiar búsqueda"
+                [attr.aria-label]="'guia.sidebar.clearSearch' | translate"
               >
                 ✕
               </button>
@@ -357,7 +357,7 @@
           </div>
 
           <div class="sidebar-header-bar">
-            <span class="sidebar-header-title">VEHÍCULOS</span>
+            <span class="sidebar-header-title">{{ 'guia.vehicles.title' | translate }}</span>
           </div>
 
           <div class="guide-categories-list">
@@ -389,9 +389,9 @@
         <!-- CASO ESTÁNDAR (PRÓLOGO, MISIONES PRINCIPALES, ETC.) -->
         <ng-container *ngIf="currentSection?.id !== 'trofeos' && currentSection?.id !== 'vehiculos'">
           <div class="guide-detail-toolbar">
-            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
-              <span>Categorías</span>
+              <span>{{ 'guia.sidebar.categories' | translate }}</span>
             </button>
             <span class="guide-detail-badge">{{ (hasBuscadorSeccion(currentSection.id) && busquedaOffline) ? articulosFiltradosSeccion.length : currentSection.articulos.length }} {{ currentSection.id === 'misiones-historia' ? 'misiones' : 'caps' }}</span>
           </div>
@@ -416,7 +416,7 @@
                 type="button"
                 class="search-clear-btn"
                 (click)="limpiarBusquedaOffline()"
-                aria-label="Limpiar búsqueda"
+                [attr.aria-label]="'guia.sidebar.clearSearch' | translate"
               >
                 ✕
               </button>
@@ -473,7 +473,7 @@
 
             <div *ngIf="busquedaOffline && getGruposAccordion().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
               <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
-              <span>No se encontraron resultados para "{{ busquedaOffline }}"</span>
+              <span>{{ 'guia.sidebar.noResults' | translate:{ query: busquedaOffline } }}</span>
             </div>
 
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
@@ -516,15 +516,15 @@
           type="button"
           class="drawer-large-back-btn"
           (click)="closeMobileReading()"
-          title="Volver al listado"
-          aria-label="Volver al listado"
+          [title]="'guia.reader.backToList' | translate"
+          [attr.aria-label]="'guia.reader.backToList' | translate"
         >
           <i class="fa-solid fa-arrow-left"></i>
         </button>
 
         <div class="drawer-title-group">
           <div class="drawer-breadcrumb">
-            <span class="drawer-breadcrumb-link" (click)="goToCategoriesFromReading()">CONTENIDOS</span>
+            <span class="drawer-breadcrumb-link" (click)="goToCategoriesFromReading()">{{ 'guia.sidebar.contents' | translate }}</span>
             <span class="drawer-breadcrumb-sep" *ngIf="currentSection">›</span>
             <span
               class="drawer-breadcrumb-link"
@@ -866,10 +866,10 @@
             type="button"
             class="pagination-btn pagination-back-mobile"
             (click)="closeMobileReading()"
-            title="Volver a los Capítulos"
+            [title]="'guia.reader.backToChapters' | translate"
           >
             <i class="fa-solid fa-arrow-left"></i>
-            <span class="pagination-title">Volver a los Capítulos</span>
+            <span class="pagination-title">{{ 'guia.reader.backToChapters' | translate }}</span>
           </button>
         </nav>
       </article>
@@ -891,8 +891,8 @@
     class="scroll-top-btn"
     *ngIf="showScrollTop"
     (click)="scrollToTop()"
-    title="Volver al inicio del capítulo"
-    aria-label="Volver al inicio"
+    [title]="'guia.reader.scrollToTop' | translate"
+    [attr.aria-label]="'guia.reader.scrollToTop' | translate"
   >
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
       <polyline points="18 15 12 9 6 15"></polyline>

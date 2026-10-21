@@ -5,14 +5,101 @@ import { catchError, map, shareReplay, switchMap } from 'rxjs/operators';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeosCatalogo } from '../models/guia';
 import { GtaMystery } from '../models/gta5/mystery';
 import { GtaHeist } from '../models/gta5/mission';
+import { TranslationService } from '../i18n';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuiaService {
-  private manifestCache = new Map<'gta5' | 'gta6' | 'gta6-online', Observable<GuiaManifest>>();
+  private manifestCache = new Map<string, Observable<GuiaManifest>>();
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private translationService: TranslationService
+  ) {}
+
+  /**
+   * Carga un archivo JSON de la guía soportando localización con fallback progresivo:
+   * 1. assets/data/{game}/guia/{mode}/idiomas/{lang}/{file}
+   * 2. assets/data/{game}/guia/{mode}/idiomas/es/{file}
+   * 3. assets/data/{game}/guia/{mode}/{file} (fallback ruta plana)
+   */
+  private getGuiaJson<T>(game: 'gta5' | 'gta6', mode: 'offline' | 'online', fileName: string, subfolder = ''): Observable<T> {
+    const t = new Date().getTime();
+
+    const activeLang = this.translationService ? this.translationService.currentLang : 'es';
+    const sub = subfolder ? `${subfolder}/` : '';
+
+    const localizedPath = `assets/data/${game}/guia/${mode}/idiomas/${activeLang}/${sub}${fileName}?t=${t}`;
+    const canonicalPath = `assets/data/${game}/guia/${mode}/idiomas/es/${sub}${fileName}?t=${t}`;
+    const legacyPath = `assets/data/${game}/guia/${mode}/${sub}${fileName}?t=${t}`;
+
+    if (activeLang === 'es') {
+      return this.http.get<T>(canonicalPath).pipe(
+        catchError(() => this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T))))
+      );
+    }
+
+    return this.http.get<T>(localizedPath).pipe(
+      catchError(() => this.http.get<T>(canonicalPath).pipe(
+        catchError(() => this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T))))
+      ))
+    );
+  }
+
+  /**
+   * Carga un archivo raíz de la guía (ej: catálogo de armas o vehículos) con fallback seguro.
+   */
+  private getGuiaRootJson<T>(game: 'gta5' | 'gta6', fileName: string): Observable<T> {
+    const t = new Date().getTime();
+
+    const activeLang = this.translationService ? this.translationService.currentLang : 'es';
+
+    const localizedPath = `assets/data/${game}/guia/idiomas/${activeLang}/${fileName}?t=${t}`;
+    const canonicalPath = `assets/data/${game}/guia/idiomas/es/${fileName}?t=${t}`;
+    const legacyPath = `assets/data/${game}/guia/${fileName}?t=${t}`;
+
+    if (activeLang === 'es') {
+      return this.http.get<T>(canonicalPath).pipe(
+        catchError(() => this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T))))
+      );
+    }
+
+    return this.http.get<T>(localizedPath).pipe(
+      catchError(() => this.http.get<T>(canonicalPath).pipe(
+        catchError(() => this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T))))
+      ))
+    );
+  }
+
+  /**
+   * Fusiona artículos canónicos (fuente de verdad técnica) con textos localizados opcionales.
+   */
+  private mergeLocalizedArticulos(baseItems: GuiaArticulo[], localizedItems: any[]): GuiaArticulo[] {
+    if (!baseItems || baseItems.length === 0) return (localizedItems as GuiaArticulo[]) || [];
+    if (!localizedItems || localizedItems.length === 0) return baseItems;
+
+    const locMap = new Map<string, any>();
+    localizedItems.forEach(item => {
+      if (item && item.id) locMap.set(item.id, item);
+    });
+
+    return baseItems.map(base => {
+      const trans = locMap.get(base.id);
+      if (!trans) return base;
+
+      return {
+        ...base,
+        titulo: trans.titulo || base.titulo,
+        subtitulo: trans.subtitulo !== undefined ? trans.subtitulo : base.subtitulo,
+        sinopsis: trans.sinopsis !== undefined ? trans.sinopsis : base.sinopsis,
+        recompensa: trans.recompensa !== undefined ? trans.recompensa : base.recompensa,
+        desbloqueadoTras: trans.desbloqueadoTras !== undefined ? trans.desbloqueadoTras : base.desbloqueadoTras,
+        requisitosOro: trans.requisitosOro || base.requisitosOro,
+        contenidoMarkdown: trans.contenidoMarkdown || base.contenidoMarkdown
+      };
+    });
+  }
 
   private toResumen(a: GuiaArticulo): GuiaArticuloResumen {
     return {
@@ -30,21 +117,23 @@ export class GuiaService {
    * Obtiene el manifiesto completo con secciones y listado de artículos para GTA 5 o GTA 6.
    */
   getManifest(juegoId: 'gta5' | 'gta6' | 'gta6-online'): Observable<GuiaManifest> {
-    const cached = this.manifestCache.get(juegoId);
+    const lang = this.translationService ? this.translationService.currentLang : 'es';
+    const cacheKey = `${juegoId}_${lang}`;
+    const cached = this.manifestCache.get(cacheKey);
     if (cached) {
       return cached;
     }
 
-    const t = new Date().getTime();
+
     if (juegoId === 'gta5') {
       const obs$ = forkJoin({
-        prologo: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/prologo-guia-offline.json?t=${t}`).pipe(catchError(() => of([]))),
-        misiones: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/guia-misiones-historia.json?t=${t}`).pipe(catchError(() => of([]))),
-        extranos: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/extranos-locos.json?t=${t}`).pipe(catchError(() => of([]))),
-        negocios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/bolsa.json?t=${t}`).pipe(catchError(() => of([]))),
-        eventos: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/eventos-aleatorios.json?t=${t}`).pipe(catchError(() => of([]))),
-        misterios: this.http.get<GuiaArticulo[]>(`assets/data/gta5/guia/offline/misterios-guia-offline.json?t=${t}`).pipe(catchError(() => of([]))),
-        armas: this.http.get<any[]>(`assets/data/gta5/guia/guia-weapons-offline.json?t=${t}`).pipe(catchError(() => of([])))
+        prologo: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'prologo-guia-offline.json'),
+        misiones: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'guia-misiones-historia.json'),
+        extranos: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'extranos-locos.json'),
+        negocios: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'bolsa.json'),
+        eventos: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'eventos-aleatorios.json'),
+        misterios: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'misterios-guia-offline.json'),
+        armas: this.getGuiaRootJson<any[]>('gta5', 'guia-weapons-offline.json')
       }).pipe(
         map(res => ({
           id: 'gta5',
@@ -130,13 +219,13 @@ export class GuiaService {
         catchError(() => of(this.getFallbackManifest('gta5'))),
         shareReplay(1)
       );
-      this.manifestCache.set('gta5', obs$);
+      this.manifestCache.set(cacheKey, obs$);
       return obs$;
     }
 
     const obsGta6$ = forkJoin({
-      prologo: this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/prologo-guia-offline.json?t=${t}`).pipe(catchError(() => of([]))),
-      misiones: this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/misiones-guia-offline.json?t=${t}`).pipe(catchError(() => of([])))
+      prologo: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'prologo-guia-offline.json'),
+      misiones: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'misiones-guia-offline.json')
     }).pipe(
       map(res => ({
         id: 'gta6',
@@ -182,12 +271,12 @@ export class GuiaService {
       catchError(() => of(this.getFallbackManifest('gta6'))),
       shareReplay(1)
     );
-    this.manifestCache.set('gta6', obsGta6$);
+    this.manifestCache.set(cacheKey, obsGta6$);
 
     if (juegoId === 'gta6-online') {
       const obsOnline$ = forkJoin({
-        prologo: this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/online/prologo-guia-online.json?t=${t}`).pipe(catchError(() => of([]))),
-        misiones: this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/online/misiones-guia-online.json?t=${t}`).pipe(catchError(() => of([])))
+        prologo: this.getGuiaJson<GuiaArticulo[]>('gta6', 'online', 'prologo-guia-online.json'),
+        misiones: this.getGuiaJson<GuiaArticulo[]>('gta6', 'online', 'misiones-guia-online.json')
       }).pipe(
         map(res => ({
           id: 'gta6-online',
@@ -225,7 +314,7 @@ export class GuiaService {
         catchError(() => of(this.getFallbackManifest('gta6-online'))),
         shareReplay(1)
       );
-      this.manifestCache.set('gta6-online', obsOnline$);
+      this.manifestCache.set(cacheKey, obsOnline$);
       return obsOnline$;
     }
 
@@ -246,10 +335,10 @@ export class GuiaService {
    */
   getArticulo(juegoId: 'gta5' | 'gta6' | 'gta6-online', articuloId: string): Observable<GuiaArticulo> {
     if (juegoId === 'gta6-online') {
-      const t = new Date().getTime();
+  
       return forkJoin([
-        this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/online/prologo-guia-online.json?t=${t}`).pipe(catchError(() => of([]))),
-        this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/online/misiones-guia-online.json?t=${t}`).pipe(catchError(() => of([])))
+        this.getGuiaJson<GuiaArticulo[]>('gta6', 'online', 'prologo-guia-online.json'),
+        this.getGuiaJson<GuiaArticulo[]>('gta6', 'online', 'misiones-guia-online.json')
       ]).pipe(
         map(([prologo, misiones]) => {
           const todos = [...prologo, ...misiones];
@@ -278,19 +367,19 @@ export class GuiaService {
           const isExtranos = articuloId.startsWith('eyl-') || sec?.id === 'extranos-locos';
           const isMisterio = sec?.id === 'secretos-misterios' || ['ghost_jolene', 'underwater_', 'tunnel_', 'mount_chiliad', 'thelma_', 'infinity_', 'nothing_here', 'fridgit_', 'yellow_jack', 'greyfriars_', 'ufos_', 'sasquatch_'].some(prefix => articuloId.startsWith(prefix)) || articuloId.includes('misterio') || articuloId.includes('chiliad') || articuloId.includes('cranley');
           const isEvento = articuloId.startsWith('evento-') || sec?.id === 'eventos-aleatorios';
-          const jsonUrl = isPrologo
-              ? 'assets/data/gta5/guia/offline/prologo-guia-offline.json?t=' + new Date().getTime()
+          const jsonFileName = isPrologo
+              ? 'prologo-guia-offline.json'
               : isNegocios
-              ? 'assets/data/gta5/guia/offline/bolsa.json?t=' + new Date().getTime()
+              ? 'bolsa.json'
               : isExtranos 
-              ? 'assets/data/gta5/guia/offline/extranos-locos.json?t=' + new Date().getTime()
+              ? 'extranos-locos.json'
               : isMisterio
-              ? 'assets/data/gta5/guia/offline/misterios-guia-offline.json?t=' + new Date().getTime()
+              ? 'misterios-guia-offline.json'
               : isEvento
-              ? 'assets/data/gta5/guia/offline/eventos-aleatorios.json?t=' + new Date().getTime()
-              : 'assets/data/gta5/guia/offline/guia-misiones-historia.json?t=' + new Date().getTime();
+              ? 'eventos-aleatorios.json'
+              : 'guia-misiones-historia.json';
               
-          return this.http.get<GuiaArticulo[]>(jsonUrl).pipe(
+          return this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', jsonFileName).pipe(
             map(misiones => {
               const found = misiones.find(m => m.id === articuloId || m.slug === articuloId);
               if (found) {
@@ -310,10 +399,10 @@ export class GuiaService {
       );
     }
 
-    const t = new Date().getTime();
+
     return forkJoin([
-      this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/prologo-guia-offline.json?t=${t}`).pipe(catchError(() => of([]))),
-      this.http.get<GuiaArticulo[]>(`assets/data/gta6/guia/offline/misiones-guia-offline.json?t=${t}`).pipe(catchError(() => of([])))
+      this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'prologo-guia-offline.json').pipe(catchError(() => of([]))),
+      this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'misiones-guia-offline.json').pipe(catchError(() => of([])))
     ]).pipe(
       map(([prologo, misiones]) => {
         const articulos = [...prologo, ...misiones];
@@ -337,8 +426,8 @@ export class GuiaService {
    * Obtiene los artículos narrativos del prólogo de la guía de GTA Online.
    */
   getOnlinePrologoArticulos(): Observable<GuiaArticulo[]> {
-    const jsonUrl = 'assets/data/gta5/guia/online/prologo-guia-online.json?t=' + new Date().getTime();
-    return this.http.get<GuiaArticulo[]>(jsonUrl).pipe(
+
+    return this.getGuiaJson<GuiaArticulo[]>('gta5', 'online', 'prologo-guia-online.json').pipe(
       catchError(() => of([]))
     );
   }
@@ -347,10 +436,10 @@ export class GuiaService {
    * Obtiene el catálogo de trofeos de GTA V (listado real en español).
    */
   getTrofeos(juegoId: 'gta5' | 'gta6'): Observable<TrofeosCatalogo> {
-    const jsonUrl = juegoId === 'gta5'
-      ? 'assets/data/gta5/guia/offline/trofeos.json?t=' + new Date().getTime()
-      : 'assets/data/gta6/guia/offline/trofeos-gta6.json?t=' + new Date().getTime();
-    return this.http.get<TrofeosCatalogo>(jsonUrl).pipe(
+    const fileName = juegoId === 'gta5' ? 'trofeos.json' : 'trofeos-gta6.json';
+
+
+    return this.getGuiaJson<TrofeosCatalogo>(juegoId, 'offline', fileName).pipe(
       catchError(() => of(this.getFallbackTrofeos()))
     );
   }
@@ -514,24 +603,24 @@ export class GuiaService {
   }
 
   getMisteriosGuiaOnline(): Observable<GtaMystery[]> {
-    const t = new Date().getTime();
-    return this.http.get<GtaMystery[]>(`assets/data/gta5/guia/online/misterios-guia-online.json?t=${t}`).pipe(
+
+    return this.getGuiaJson<GtaMystery[]>('gta5', 'online', 'misterios-guia-online.json').pipe(
       catchError(() => of([])),
       shareReplay(1)
     );
   }
 
   getGolpesGuiaOnline(): Observable<GtaHeist[]> {
-    const t = new Date().getTime();
-    return this.http.get<GtaHeist[]>(`assets/data/gta5/guia/online/golpes-guia-online.json?t=${t}`).pipe(
+
+    return this.getGuiaJson<GtaHeist[]>('gta5', 'online', 'golpes-guia-online.json').pipe(
       catchError(() => of([])),
       shareReplay(1)
     );
   }
 
   getMisionesGuiaOnline(): Observable<any[]> {
-    const t = new Date().getTime();
-    const base = 'assets/data/gta5/guia/online/misiones/';
+
+
     const files = [
       'misiones-lamar.json',
       'misiones-simeon.json',
@@ -554,7 +643,7 @@ export class GuiaService {
     ];
 
     return forkJoin(
-      files.map(f => this.http.get<any[]>(`${base}${f}?t=${t}`).pipe(catchError(() => of([]))))
+      files.map(f => this.getGuiaJson<any[]>('gta5', 'online', f, 'misiones').pipe(catchError(() => of([]))))
     ).pipe(
       map(arrays => {
         const flattened = arrays.reduce((acc: any[], curr: any[]) => acc.concat(curr), [] as any[]);
@@ -565,16 +654,16 @@ export class GuiaService {
   }
 
   getNegociosGuiaOnline(): Observable<any[]> {
-    const t = new Date().getTime();
-    return this.http.get<any[]>(`assets/data/gta5/guia/online/businesses-guide.json?t=${t}`).pipe(
+
+    return this.getGuiaJson<any[]>('gta5', 'online', 'businesses-guide.json').pipe(
       catchError(() => of([])),
       shareReplay(1)
     );
   }
 
   getVehiculosGuiaOnline(dealershipId?: string): Observable<any[]> {
-    const t = new Date().getTime();
-    return this.http.get<any[]>(`assets/data/gta5/guia/guia-vehicles-online.json?t=${t}`).pipe(
+
+    return this.getGuiaRootJson<any[]>('gta5', 'guia-vehicles-online.json').pipe(
       map(list => {
         if (!list) return [];
         let items = list;
@@ -599,8 +688,8 @@ export class GuiaService {
   }
 
   getVehiculosGuiaGta6(mode: 'offline' | 'online', dealershipId?: string): Observable<any[]> {
-    const t = new Date().getTime();
-    return this.http.get<any[]>(`assets/data/gta6/guia/${mode}/vehiculos-guia-${mode}.json?t=${t}`).pipe(
+
+    return this.getGuiaJson<any[]>('gta6', mode, `vehiculos-guia-${mode}.json`).pipe(
       map(list => {
         if (!list) return [];
         let items = list;
@@ -616,8 +705,8 @@ export class GuiaService {
   }
 
   getArmasGuiaOnline(categoryId?: string): Observable<any[]> {
-    const t = new Date().getTime();
-    return this.http.get<any[]>(`assets/data/gta5/guia/guia-weapons-online.json?t=${t}`).pipe(
+
+    return this.getGuiaRootJson<any[]>('gta5', 'guia-weapons-online.json').pipe(
       map(list => {
         if (!list) return [];
         let items = list;
@@ -642,8 +731,8 @@ export class GuiaService {
   }
 
   getArmasGuiaOffline(categoryId?: string): Observable<any[]> {
-    const t = new Date().getTime();
-    return this.http.get<any[]>(`assets/data/gta5/guia/guia-weapons-offline.json?t=${t}`).pipe(
+
+    return this.getGuiaRootJson<any[]>('gta5', 'guia-weapons-offline.json').pipe(
       map(list => {
         if (!list) return [];
         let items = list;

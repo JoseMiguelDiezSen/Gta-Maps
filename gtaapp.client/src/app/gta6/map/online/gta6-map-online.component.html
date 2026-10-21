@@ -104,16 +104,16 @@
         {{ targetCustomMarker.name }}
       </div>
       <button type="button" class="hud-ctx-item" (click)="runCtxAction('editar_marcador')">
-        {{ 'gta5.contextMenu.editMarker' | translate }}
+        {{ 'gta6.contextMenu.editMarker' | translate }}
       </button>
       <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar_este_marcador')">
-        {{ 'gta5.contextMenu.deleteMarker' | translate }}
+        {{ 'gta6.contextMenu.deleteMarker' | translate }}
       </button>
       <div class="hud-ctx-sep"></div>
     </ng-container>
 
     <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
-      {{ 'gta5.contextMenu.addMarker' | translate }}
+      {{ 'gta6.contextMenu.addMarker' | translate }}
     </button>
   </div>
 
@@ -134,7 +134,7 @@
           spellcheck="false"
           (keydown.enter)="$event.preventDefault(); $any($event.target).blur()"
           (blur)="updateCustomMarkerName(activeCustomMarker, $any($event.target).innerText)"
-          [title]="'gta5.popups.edit' | translate"
+          [title]="'gta6.popups.edit' | translate"
           style="margin: 0; outline: none; padding: 2px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); cursor: text; text-align: center; max-width: 100%; width: auto; min-width: 60px; transition: all 0.15s ease;"
         >
           {{ activeCustomMarker.name }}
@@ -163,7 +163,7 @@
           (click)="deleteCustomMarker(activeCustomMarker)"
           style="width: 100%; padding: 4px 6px; font-size: 10px;"
         >
-          <span>🗑️</span> {{ 'gta5.popups.delete' | translate }}
+          <span>🗑️</span> {{ 'gta6.popups.delete' | translate }}
         </button>
       </div>
     </div>
@@ -193,7 +193,7 @@
       <span>GTA VI</span>
       <span class="hud-title-sub">{{ 'common.online' | translate }}</span>
     </h1>
-    <div class="hud-time-badge" [title]="'gta5.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
+    <div class="hud-time-badge" [title]="'gta6.hud.inGameTimeTitle' | translate">{{ inGameTimeStr }}</div>
     <div class="hud-btn-group">
       <a
         class="hud-home-btn"
@@ -295,14 +295,14 @@
         class="hud-panel-head"
         [class.is-collapsed]="!legendOpen"
         (click)="!legendOpen ? toggleLegend() : null"
-        [title]="!legendOpen ? ('gta5.hud.expandPanel' | translate) : ''"
+        [title]="!legendOpen ? ('gta6.hud.expandPanel' | translate) : ''"
       >
-        <span class="hud-panel-title">{{ 'gta5.hud.panelTitle' | translate }}</span>
+        <span class="hud-panel-title">{{ 'gta6.hud.panelTitle' | translate }}</span>
         <button
           type="button"
           class="legend-toggle-btn"
           (click)="toggleLegend(); $event.stopPropagation()"
-          [title]="legendOpen ? ('gta5.hud.collapsePanel' | translate) : ('gta5.hud.expandPanel' | translate)"
+          [title]="legendOpen ? ('gta6.hud.collapsePanel' | translate) : ('gta6.hud.expandPanel' | translate)"
         >
           <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!legendOpen">
             <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -361,14 +361,14 @@
         class="hud-panel-head"
         [class.is-collapsed]="!settingsOpen"
         (click)="!settingsOpen ? toggleSettings() : null"
-        [title]="!settingsOpen ? ('gta5.hud.expandSettings' | translate) : ''"
+        [title]="!settingsOpen ? ('gta6.hud.expandSettings' | translate) : ''"
       >
-        <span class="hud-panel-title">{{ 'gta5.hud.settingsTitle' | translate }}</span>
+        <span class="hud-panel-title">{{ 'gta6.hud.settingsTitle' | translate }}</span>
         <button
           type="button"
           class="legend-toggle-btn"
           (click)="toggleSettings(); $event.stopPropagation()"
-          [title]="settingsOpen ? ('gta5.hud.collapseSettings' | translate) : ('gta5.hud.expandSettings' | translate)"
+          [title]="settingsOpen ? ('gta6.hud.collapseSettings' | translate) : ('gta6.hud.expandSettings' | translate)"
         >
           <svg viewBox="0 0 16 16" width="12" height="12" class="legend-toggle-caret" [class.is-collapsed]="!settingsOpen">
             <path d="M3.5 6l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -384,7 +384,7 @@
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('mapa')">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">{{ 'gta5.settings.mapSelector' | translate }}</span>
+              <span class="hud-acc-title">{{ 'gta6.settings.mapSelector' | translate }}</span>
             </div>
           </div>
           <div class="hud-acc-body" *ngIf="accordion['mapa']">
@@ -412,35 +412,35 @@
           <div class="hud-acc-head">
               <div class="hud-acc-toggle" (click)="toggleSection('zona')">
                 <span class="hud-acc-caret"></span>
-                <span class="hud-acc-title">{{ 'gta5.settings.iconStyle' | translate }}</span>
+                <span class="hud-acc-title">{{ 'gta6.settings.iconStyle' | translate }}</span>
               </div>
             </div>
           <div class="hud-acc-body" *ngIf="accordion['zona']">
             <div class="hud-field">
-              <label class="hud-field-label" for="iconThemeSelect">{{ 'gta5.settings.markerTheme' | translate }}</label>
+              <label class="hud-field-label" for="iconThemeSelect">{{ 'gta6.settings.markerTheme' | translate }}</label>
               <select
                 id="iconThemeSelect"
                 class="hud-field-select"
                 [(ngModel)]="iconTheme"
                 (change)="updateIconStyle()"
               >
-                <option value="standard">{{ 'gta5.settings.themeStandard' | translate }}</option>
-                <option value="classic">{{ 'gta5.settings.themeClassic' | translate }}</option>
-                <option value="simple">{{ 'gta5.settings.themeSimple' | translate }}</option>
-                <option value="neon">{{ 'gta5.settings.themeModern' | translate }}</option>
+                <option value="standard">{{ 'gta6.settings.themeStandard' | translate }}</option>
+                <option value="classic">{{ 'gta6.settings.themeClassic' | translate }}</option>
+                <option value="simple">{{ 'gta6.settings.themeSimple' | translate }}</option>
+                <option value="neon">{{ 'gta6.settings.themeModern' | translate }}</option>
               </select>
             </div>
             <div class="hud-field">
-              <label class="hud-field-label" for="iconSizeSelect">{{ 'gta5.settings.iconSize' | translate }}</label>
+              <label class="hud-field-label" for="iconSizeSelect">{{ 'gta6.settings.iconSize' | translate }}</label>
               <select
                 id="iconSizeSelect"
                 class="hud-field-select"
                 [(ngModel)]="iconSize"
                 (change)="updateIconStyle()"
               >
-                <option value="compact">{{ 'gta5.settings.sizeCompact' | translate }}</option>
-                <option value="standard" selected>{{ 'gta5.settings.sizeStandard' | translate }}</option>
-                <option value="large">{{ 'gta5.settings.sizeLarge' | translate }}</option>
+                <option value="compact">{{ 'gta6.settings.sizeCompact' | translate }}</option>
+                <option value="standard" selected>{{ 'gta6.settings.sizeStandard' | translate }}</option>
+                <option value="large">{{ 'gta6.settings.sizeLarge' | translate }}</option>
               </select>
             </div>
           </div>
@@ -451,7 +451,7 @@
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('marcadores')">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">{{ 'gta5.settings.markers' | translate }}</span>
+              <span class="hud-acc-title">{{ 'gta6.settings.markers' | translate }}</span>
             </div>
           </div>
           <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['marcadores']">
@@ -469,7 +469,7 @@
                 type="button"
                 class="char-zoom-btn"
                 (click)="focusCustomMarker(cm)"
-                [title]="'gta5.settings.locateMarker' | translate"
+                [title]="'gta6.settings.locateMarker' | translate"
               >
                 <svg viewBox="0 0 24 24" class="char-zoom-svg">
                   <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none"/>
@@ -482,7 +482,7 @@
               </button>
             </div>
             <div class="hud-acc-empty" *ngIf="userCustomMarkers.length === 0">
-              {{ 'gta5.settings.noMarkers' | translate }}
+              {{ 'gta6.settings.noMarkers' | translate }}
             </div>
           </div>
         </div>
@@ -492,7 +492,7 @@
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('policia')">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">{{ ('gta6.police.title' | translate) || ('gta5.settings.police' | translate) }}</span>
+              <span class="hud-acc-title">{{ 'gta6.police.title' | translate }}</span>
             </div>
           </div>
 
@@ -543,12 +543,12 @@
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('goty')">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">{{ 'gta5.settings.gotyAssistant' | translate }}</span>
+              <span class="hud-acc-title">{{ 'gta6.settings.gotyAssistant' | translate }}</span>
             </div>
           </div>
           <div class="hud-acc-body" *ngIf="accordion['goty']" style="padding: 10px 14px;">
             <label class="hud-check-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
-              <span class="goty-label-desktop">{{ 'gta5.settings.enableGoty' | translate }}</span>
+              <span class="goty-label-desktop">{{ 'gta6.settings.enableGoty' | translate }}</span>
               <span class="goty-label-mobile">GOTY 6</span>
               <input type="checkbox" class="hud-goty-check" [checked]="gotyService.isEnabled" (change)="gotyService.setBotEnabled($any($event.target).checked)" />
             </label>

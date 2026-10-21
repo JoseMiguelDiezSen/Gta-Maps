@@ -484,6 +484,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             };
         }
         if (typeof window !== 'undefined' && window.innerWidth <= 850) {
+            this.iconTheme = 'simple';
             this.legendOpen = false;
             this.settingsOpen = false;
             // Deshabilitar por defecto en baja resolución (móvil) según configuración:
@@ -1397,7 +1398,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                     </div>
                     <div class="popup-content">
                         <p class="popup-desc">${loc.description}</p>
-                        ${featuresHtml}
+
                         <div class="popup-row" style="margin-top: 8px; opacity: 0.7; font-size: 11px;">
                             <span>${this.translationService.t('gta5.popups.coordinates') || 'Coordenadas'}:</span> <span>X: ${loc.position.x.toFixed(1)}, Y: ${loc.position.y.toFixed(1)}</span>
                         </div>
@@ -1617,7 +1618,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                         ${incomeHtml}
                         ${ownerHtml}
                         <p class="popup-desc">${p.description}</p>
-                        ${featuresHtml}
+
                     </div>
                 </div>
             `;

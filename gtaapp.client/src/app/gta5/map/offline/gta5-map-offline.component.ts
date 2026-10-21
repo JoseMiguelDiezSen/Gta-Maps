@@ -341,6 +341,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             };
         }
         if (typeof window !== 'undefined' && window.innerWidth <= 850) {
+            this.iconTheme = 'simple';
             this.legendOpen = false;
             this.settingsOpen = false;
             // Deshabilitar por defecto en baja resolución (móvil) según configuración:

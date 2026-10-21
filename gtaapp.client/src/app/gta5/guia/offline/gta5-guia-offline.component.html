@@ -9,8 +9,8 @@
           type="button"
           class="mobile-nav-toggle-btn"
           (click)="toggleMobileNav()"
-          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
-          aria-label="Menú de navegación"
+          [title]="mobileNavOpen ? ('guia.nav.closeNavMenu' | translate) : ('guia.nav.openNavMenu' | translate)"
+          [attr.aria-label]="'guia.nav.openNavMenu' | translate"
         >
           <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
         </button>
@@ -19,7 +19,7 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- LOGO DE LA HOME CON TAMAÑO FIJADO -->
-        <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
+        <a routerLink="/home" class="wiki-logo-link" [title]="'common.backToHome' | translate">
           <img src="assets/images/logos/gta-world-nav-logo.png" alt="Logo GTA WORLD" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
@@ -27,7 +27,7 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <div class="nav-brand">
-          <span class="nav-brand-title">GTA 5 - HISTORIA</span>
+          <span class="nav-brand-title">{{ 'gta5.guia.navBrandStory' | translate }}</span>
         </div>
 
         <!-- Separador -->
@@ -54,7 +54,7 @@
               <span>MAPA GTA 5</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
-            <a class="nav-dropdown-item is-disabled" title="Ya estás en la Guía de GTA 5">
+            <a class="nav-dropdown-item is-disabled" [title]="'guia.nav.alreadyOnGta5Guide' | translate">
               <i class="fa-solid fa-book-open"></i>
               <span>GUÍA GTA 5</span>
             </a>
@@ -76,7 +76,7 @@
               class="nav-dropdown-item"
               [class.is-disabled]="!isDevAllowed"
               (click)="onGta6MapClick($event)"
-              [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
+              [title]="!isDevAllowed ? ('guia.nav.gta6MapComingSoon' | translate) : ('gta6.hud.launchTitle' | translate)"
             >
               <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
               <span>MAPA GTA 6</span>
@@ -102,16 +102,16 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Selector directo entre las guías de GTA 5 -->
-        <div class="mode-switch-track" aria-label="Cambiar entre guía Historia y guía Online">
-          <a class="mode-switch-btn mode-historia is-active" routerLink="/gta5-guia-offline" title="Guía GTA 5 Historia">
+        <div class="mode-switch-track" [attr.aria-label]="'guia.nav.switchModeTitle' | translate">
+          <a class="mode-switch-btn mode-historia is-active" routerLink="/gta5-guia-offline" [title]="'common.story' | translate">
             <i class="mode-indicator dot-historia"></i>
-            <span class="mode-text-desktop">HISTORIA</span>
-            <span class="mode-text-mobile">HISTORIA</span>
+            <span class="mode-text-desktop">{{ 'guia.nav.modeStory' | translate }}</span>
+            <span class="mode-text-mobile">{{ 'guia.nav.modeStory' | translate }}</span>
           </a>
-          <a class="mode-switch-btn mode-online" routerLink="/gta5-guia-online" title="Guía GTA 5 Online">
+          <a class="mode-switch-btn mode-online" routerLink="/gta5-guia-online" [title]="'common.online' | translate">
             <i class="mode-indicator dot-online"></i>
-            <span class="mode-text-desktop">ONLINE</span>
-            <span class="mode-text-mobile">ONLINE</span>
+            <span class="mode-text-desktop">{{ 'guia.nav.modeOnline' | translate }}</span>
+            <span class="mode-text-mobile">{{ 'guia.nav.modeOnline' | translate }}</span>
           </a>
         </div>
 
@@ -126,8 +126,8 @@
           class="theme-toggle-switch"
           [class.is-day]="themeMode === 'day'"
           (click)="toggleThemeMode()"
-          [title]="themeMode === 'night' ? 'Cambiar a Modo Día' : 'Cambiar a Modo Noche'"
-          aria-label="Cambiar entre modo día y noche"
+          [title]="themeMode === 'night' ? ('guia.nav.themeDay' | translate) : ('guia.nav.themeNight' | translate)"
+          [attr.aria-label]="themeMode === 'night' ? ('guia.nav.themeDay' | translate) : ('guia.nav.themeNight' | translate)"
         >
           <span class="switch-icon switch-icon-moon">🌙</span>
           <span class="switch-icon switch-icon-sun">☀️</span>
@@ -168,15 +168,15 @@
 
       <!-- Selector de modo Historia / Online en móvil -->
       <div class="mobile-mode-switcher">
-        <span class="mobile-mode-label">MODO:</span>
+        <span class="mobile-mode-label">{{ 'guia.nav.modeLabel' | translate }}</span>
         <div class="mode-switch-track">
           <a class="mode-switch-btn mode-historia is-active" routerLink="/gta5-guia-offline" (click)="closeMobileNav()">
             <i class="mode-indicator dot-historia"></i>
-            <span>HISTORIA</span>
+            <span>{{ 'guia.nav.modeStory' | translate }}</span>
           </a>
           <a class="mode-switch-btn mode-online" routerLink="/gta5-guia-online" (click)="closeMobileNav()">
             <i class="mode-indicator dot-online"></i>
-            <span>ONLINE</span>
+            <span>{{ 'guia.nav.modeOnline' | translate }}</span>
           </a>
         </div>
       </div>
@@ -187,9 +187,9 @@
   <header class="wiki-hero-banner">
     <div class="hero-bg-overlay"></div>
     <div class="hero-content-inner">
-      <h2 class="hero-main-title">LOS SANTOS & BLAINE COUNTY</h2>
+      <h2 class="hero-main-title">{{ 'gta5.guia.heroTitle' | translate }}</h2>
       <p class="hero-description">
-        Guía del Modo Historia al 100%, planificación táctica de Golpes, bolsa de valores con Lester y secretos de San Andreas.
+        {{ 'gta5.guia.heroDescStory' | translate }}
       </p>
     </div>
   </header>
@@ -202,7 +202,7 @@
 
       <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
       <div class="sidebar-header-bar" *ngIf="!currentSection">
-        <span class="sidebar-header-title">CONTENIDOS</span>
+        <span class="sidebar-header-title">{{ 'guia.sidebar.contents' | translate }}</span>
       </div>
 
       <!-- VISTA 1: LISTA DE CATEGORÍAS (DRILL-DOWN NIVEL 1) -->
@@ -247,11 +247,11 @@
           <!-- SUB-VISTA A1: LISTADO DE TEMÁTICAS / SUBCATEGORÍAS -->
           <ng-container *ngIf="!currentSubcategory">
             <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
-                <span>Categorías</span>
+                <span>{{ 'guia.sidebar.categories' | translate }}</span>
               </button>
-              <span class="guide-detail-badge">{{ getSubcategoriasTematicas(currentSection).length }} temáticas</span>
+              <span class="guide-detail-badge">{{ getSubcategoriasTematicas(currentSection).length }} {{ 'guia.sidebar.badgeThemes' | translate }}</span>
             </div>
 
             <div class="sidebar-header-bar">
@@ -283,11 +283,11 @@
           <!-- SUB-VISTA A4: MISIONES DE CUALQUIER OTRA TEMÁTICA REGULAR (FRANKLIN, TONYA, ETC.) -->
           <ng-container *ngIf="currentSubcategory && currentSubcategory !== 'golpes'">
             <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="backToSubcategories()" title="Volver a las temáticas">
+              <button type="button" class="guide-back-btn" (click)="backToSubcategories()" [title]="'guia.sidebar.backToThemes' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
-                <span>Volver</span>
+                <span>{{ 'guia.sidebar.back' | translate }}</span>
               </button>
-              <span class="guide-detail-badge">{{ articulosSubcategoriaActual.length }} misiones</span>
+              <span class="guide-detail-badge">{{ articulosSubcategoriaActual.length }} {{ 'guia.sidebar.badgeMissions' | translate }}</span>
             </div>
 
             <div class="sidebar-header-bar">
@@ -316,11 +316,11 @@
         <!-- CASO B0: SECCIÓN DE TROFEOS (Navegación por categorías de trofeo) -->
         <ng-container *ngIf="currentSection?.id === 'trofeos'">
           <div class="guide-detail-toolbar">
-            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
-              <span>Categorías</span>
+              <span>{{ 'guia.sidebar.categories' | translate }}</span>
             </button>
-            <span class="guide-detail-badge">{{ trofeosResumen.total }} trofeos</span>
+            <span class="guide-detail-badge">{{ trofeosResumen.total }} {{ 'guia.sidebar.badgeTrophies' | translate }}</span>
           </div>
 
           <div class="sidebar-header-bar">
@@ -335,7 +335,7 @@
               (click)="seleccionarTrofeoFiltro('todos')"
             >
               <div class="guide-cat-icon"><i class="fas fa-trophy"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Todos los trofeos</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.all' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.total }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -347,7 +347,7 @@
               (click)="seleccionarTrofeoFiltro('platino')"
             >
               <div class="guide-cat-icon"><i class="fas fa-trophy"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Trofeo de Platino</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.platinum' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.platino }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -359,7 +359,7 @@
               (click)="seleccionarTrofeoFiltro('oro')"
             >
               <div class="guide-cat-icon"><i class="fas fa-medal"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Oro</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.gold' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.oro }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -371,7 +371,7 @@
               (click)="seleccionarTrofeoFiltro('plata')"
             >
               <div class="guide-cat-icon"><i class="fas fa-award"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Plata</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.silver' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.plata }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -383,7 +383,7 @@
               (click)="seleccionarTrofeoFiltro('bronce')"
             >
               <div class="guide-cat-icon"><i class="fas fa-shield-halved"></i></div>
-              <div class="guide-cat-info"><span class="guide-cat-title">Trofeos de Bronce</span></div>
+              <div class="guide-cat-info"><span class="guide-cat-title">{{ 'guia.trophies.bronze' | translate }}</span></div>
               <span class="guide-cat-badge">{{ trofeosResumen.bronce }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
@@ -396,11 +396,11 @@
           <!-- SUB-VISTA G1: SELECCIÓN DE UNO DE LOS 6 GOLPES -->
           <ng-container *ngIf="!currentGolpe">
             <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+              <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
-                <span>Categorías</span>
+                <span>{{ 'guia.sidebar.categories' | translate }}</span>
               </button>
-              <span class="guide-detail-badge">{{ getGolpesList().length }} golpes</span>
+              <span class="guide-detail-badge">{{ getGolpesList().length }} {{ 'guia.sidebar.badgeHeists' | translate }}</span>
             </div>
 
             <div class="sidebar-header-bar">
@@ -431,11 +431,11 @@
           <!-- SUB-VISTA G2: FASES PREPARATORIAS Y GOLPE FINAL DEL GOLPE SELECCIONADO -->
           <ng-container *ngIf="currentGolpe">
             <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="backToGolpes()" title="Volver al listado de golpes">
+              <button type="button" class="guide-back-btn" (click)="backToGolpes()" [title]="'guia.sidebar.backToHeists' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
-                <span>Golpes</span>
+                <span>{{ 'guia.sidebar.badgeHeists' | translate | titlecase }}</span>
               </button>
-              <span class="guide-detail-badge">{{ articulosSubcategoriaActual.length }} fases</span>
+              <span class="guide-detail-badge">{{ articulosSubcategoriaActual.length }} {{ 'guia.sidebar.badgePhases' | translate }}</span>
             </div>
 
             <div class="sidebar-header-bar">
@@ -469,14 +469,14 @@
         <!-- CASO ARMAS: LISTADO DE CATEGORÍAS DE ARMAS (DRILL-DOWN NIVEL 2) -->
         <ng-container *ngIf="currentSection?.id === 'armas'">
           <div class="guide-detail-toolbar">
-            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
-              <span>Categorías</span>
+              <span>{{ 'guia.sidebar.categories' | translate }}</span>
             </button>
           </div>
 
           <div class="sidebar-header-bar">
-            <span class="sidebar-header-title">ARMAS</span>
+            <span class="sidebar-header-title">{{ 'guia.weapons.title' | translate }}</span>
           </div>
 
           <div class="guide-categories-list">
@@ -508,9 +508,9 @@
         <!-- CASO B: SECCIONES ESTÁNDAR (PRÓLOGO, 100%, ETC.) -->
         <ng-container *ngIf="!hasSubcategorias(currentSection) && currentSection?.id !== 'trofeos' && currentSection?.id !== 'golpes' && currentSection?.id !== 'armas'">
           <div class="guide-detail-toolbar">
-            <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
-              <span>Categorías</span>
+              <span>{{ 'guia.sidebar.categories' | translate }}</span>
             </button>
             <span class="guide-detail-badge">{{ (hasBuscadorSeccion(currentSection.id) && busquedaOffline) ? articulosFiltradosSeccion.length : currentSection.articulos.length }} {{ currentSection.id === 'secretos-misterios' ? 'misterios' : ((currentSection.id === 'misiones-historia' || currentSection.id === 'extranos-locos') ? 'misiones' : (currentSection.id === 'eventos-aleatorios' ? 'eventos' : 'caps')) }}</span>
           </div>
@@ -535,7 +535,7 @@
                 type="button"
                 class="search-clear-btn"
                 (click)="limpiarBusquedaOffline()"
-                aria-label="Limpiar búsqueda"
+                [attr.aria-label]="'guia.sidebar.clearSearch' | translate"
               >
                 ✕
               </button>
@@ -595,7 +595,7 @@
             <!-- Sin resultados de búsqueda en sección con acordeón -->
             <div *ngIf="busquedaOffline && getGruposAccordion().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
               <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
-              <span>No se encontraron resultados para "{{ busquedaOffline }}"</span>
+              <span>{{ 'guia.sidebar.noResults' | translate:{ query: busquedaOffline } }}</span>
             </div>
 
             <!-- SEPARADOR DE ESPIGA AL FINAL -->
@@ -628,7 +628,7 @@
             <!-- Sin resultados de búsqueda -->
             <div *ngIf="hasBuscadorSeccion(currentSection.id) && busquedaOffline && articulosFiltradosSeccion.length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
               <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
-              <span>No se encontraron resultados para "{{ busquedaOffline }}"</span>
+              <span>{{ 'guia.sidebar.noResults' | translate:{ query: busquedaOffline } }}</span>
             </div>
 
             <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
@@ -647,15 +647,15 @@
           type="button"
           class="drawer-large-back-btn"
           (click)="closeMobileReading()"
-          title="Volver al listado"
-          aria-label="Volver al listado"
+          [title]="'guia.reader.backToList' | translate"
+          [attr.aria-label]="'guia.reader.backToList' | translate"
         >
           <i class="fa-solid fa-arrow-left"></i>
         </button>
 
         <div class="drawer-title-group">
           <div class="drawer-breadcrumb">
-            <span class="drawer-breadcrumb-link" (click)="goToCategoriesFromReading()">CONTENIDOS</span>
+            <span class="drawer-breadcrumb-link" (click)="goToCategoriesFromReading()">{{ 'guia.sidebar.contents' | translate }}</span>
             <span class="drawer-breadcrumb-sep" *ngIf="currentSection || mostrarTrofeos">›</span>
             <span
               class="drawer-breadcrumb-link"
@@ -684,7 +684,7 @@
             {{ (selectedArticulo.categoria === 'extranos-locos' || currentSubcategory) ? getCleanMissionTitle(selectedArticulo.titulo) : selectedArticulo.titulo }}
           </h2>
           <h2 class="drawer-title" *ngIf="mostrarTrofeos">
-            Catálogo de Trofeos
+            {{ 'guia.trophies.catalogTitle' | translate }}
           </h2>
         </div>
       </div>
@@ -693,14 +693,14 @@
       <article *ngIf="mostrarTrofeos" class="wiki-article-card trophy-panel">
         <header class="trophy-panel-header">
           <div class="trophy-panel-title-block">
-            <span class="trophy-panel-kicker">TROFEOS (PS) · LOGROS (XBOX)</span>
+            <span class="trophy-panel-kicker">{{ 'guia.trophies.kicker' | translate }}</span>
             <h1 class="trophy-panel-title">
               <i class="fa-solid fa-trophy"></i>
-              Trofeos de GTA V
+              {{ 'guia.trophies.title' | translate }}
             </h1>
             <p class="trophy-panel-sub">
-              Listado completo y en español de los {{ trofeosResumen.total }} trofeos: el ansiado Platino, los desafíos de Oro,
-              los retos de Plata y la larga lista de Bronce del Modo Historia y de GTA Online.
+              {{ 'guia.trophies.desc' | translate:{ total: trofeosResumen.total } }}
+
             </p>
           </div>
 
@@ -708,29 +708,29 @@
             <div class="trophy-summary-card" style="--trophy-color: #7dd3fc;">
               <i class="fa-solid fa-trophy"></i>
               <span class="trophy-summary-num">{{ trofeosResumen.platino }}</span>
-              <span class="trophy-summary-label">Platino</span>
+              <span class="trophy-summary-label">{{ 'guia.trophies.badgePlatinum' | translate }}</span>
             </div>
             <div class="trophy-summary-card" style="--trophy-color: #fbbf24;">
               <i class="fa-solid fa-medal"></i>
               <span class="trophy-summary-num">{{ trofeosResumen.oro }}</span>
-              <span class="trophy-summary-label">Oro</span>
+              <span class="trophy-summary-label">{{ 'guia.trophies.badgeGold' | translate }}</span>
             </div>
             <div class="trophy-summary-card" style="--trophy-color: #cbd5e1;">
               <i class="fa-solid fa-award"></i>
               <span class="trophy-summary-num">{{ trofeosResumen.plata }}</span>
-              <span class="trophy-summary-label">Plata</span>
+              <span class="trophy-summary-label">{{ 'guia.trophies.badgeSilver' | translate }}</span>
             </div>
             <div class="trophy-summary-card" style="--trophy-color: #d08b5b;">
               <i class="fa-solid fa-shield-halved"></i>
               <span class="trophy-summary-num">{{ trofeosResumen.bronce }}</span>
-              <span class="trophy-summary-label">Bronce</span>
+              <span class="trophy-summary-label">{{ 'guia.trophies.badgeBronze' | translate }}</span>
             </div>
           </div>
         </header>
 
         <div class="trophy-loading" *ngIf="isLoadingTrofeos">
           <i class="fa-solid fa-spinner fa-spin"></i>
-          <span>Cargando trofeos...</span>
+          <span>{{ 'guia.trophies.loading' | translate }}</span>
         </div>
 
         <div class="trophy-groups" *ngIf="!isLoadingTrofeos">
@@ -741,7 +741,7 @@
           >
             <div class="trophy-group-head">
               <i class="fa-solid" [ngClass]="getTrofeoTipoIcono(grupo.tipo)"></i>
-              <h2 class="trophy-group-title">Trofeos de {{ grupo.titulo }}</h2>
+              <h2 class="trophy-group-title">{{ 'guia.trophies.groupTitle' | translate:{ tipo: grupo.titulo } }}</h2>
               <span class="trophy-group-count">{{ grupo.trofeos.length }}</span>
             </div>
 
@@ -770,7 +770,7 @@
 
           <div class="trophy-empty" *ngIf="trofeosPorTipo.length === 0 && !isLoadingTrofeos">
             <i class="fa-solid fa-trophy"></i>
-            <span>No hay trofeos que mostrar para este filtro.</span>
+            <span>{{ 'guia.trophies.empty' | translate }}</span>
           </div>
         </div>
       </article>
@@ -900,7 +900,7 @@
             <!-- SEPARADOR CON ESPIGAS ESTILIZADAS OFICIAL DE LA GUÍA -->
             <div class="guide-heading-divider">
               <div class="guide-heading-line"></div>
-              <h3 class="guide-heading-title">ESPECIFICACIONES AMMU-NATION</h3>
+              <h3 class="guide-heading-title">{{ 'guia.weapons.ammuNationSpecs' | translate }}</h3>
               <div class="guide-heading-line guide-heading-line--right"></div>
             </div>
 
@@ -909,7 +909,7 @@
               <div class="guide-hud-box" *ngIf="armaSeleccionada.misionDesbloqueo" style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35);">
                 <i class="fa-solid fa-lock-open box-icon" style="color: #ef4444; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Desbloqueo en Campaña</span>
+                  <span class="box-label">{{ 'guia.weapons.campaignUnlock' | translate }}</span>
                   <span class="box-val" style="color: #fca5a5; font-weight: 700;">{{ armaSeleccionada.misionDesbloqueo }}</span>
                 </div>
               </div>
@@ -917,7 +917,7 @@
               <div class="guide-hud-box" *ngIf="armaSeleccionada.desbloqueoGratuito" style="background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.35);">
                 <i class="fa-solid fa-user-check box-icon" style="color: #22c55e; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Quién la tiene / Gratuita</span>
+                  <span class="box-label">{{ 'guia.weapons.whoHasIt' | translate }}</span>
                   <span class="box-val" style="color: #86efac; font-weight: 700;">{{ armaSeleccionada.desbloqueoGratuito }}</span>
                 </div>
               </div>
@@ -925,7 +925,7 @@
               <div class="guide-hud-box" *ngIf="armaSeleccionada.ubicacionesMapa" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.35);">
                 <i class="fa-solid fa-map-location-dot box-icon" style="color: #38bdf8; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Ubicación en el Mapa</span>
+                  <span class="box-label">{{ 'guia.weapons.mapLocation' | translate }}</span>
                   <span class="box-val" style="color: #7dd3fc; font-weight: 700;">{{ armaSeleccionada.ubicacionesMapa }}</span>
                 </div>
               </div>
@@ -1033,7 +1033,7 @@
           <div class="guide-synopsis-block" *ngIf="selectedArticulo.sinopsis && selectedArticulo.categoria !== 'secretos-misterios' && currentSection?.id !== 'secretos-misterios'">
             <div class="guide-synopsis-head">
               <i class="fa-solid fa-book-open"></i>
-              <span>Sinopsis de la misión</span>
+              <span>{{ 'guia.reader.synopsisTitle' | translate }}</span>
             </div>
             <div class="guide-synopsis-body">
               <p>{{ selectedArticulo.sinopsis }}</p>
@@ -1049,7 +1049,7 @@
               <div class="guide-hud-box reward-box" *ngIf="selectedArticulo.recompensa">
                 <i class="fa-solid fa-trophy box-icon"></i>
                 <div class="box-content">
-                  <span class="box-label">Recompensa</span>
+                  <span class="box-label">{{ 'guia.reader.reward' | translate }}</span>
                   <span class="box-val">{{ selectedArticulo.recompensa }}</span>
                 </div>
               </div>
@@ -1057,7 +1057,7 @@
               <div class="guide-hud-box unlock-box" *ngIf="selectedArticulo.desbloqueadoTras">
                 <i class="fa-solid fa-lock-open box-icon"></i>
                 <div class="box-content">
-                  <span class="box-label">Desbloqueado tras</span>
+                  <span class="box-label">{{ 'guia.reader.unlockedAfter' | translate }}</span>
                   <span class="box-val">{{ selectedArticulo.desbloqueadoTras }}</span>
                 </div>
               </div>
@@ -1067,7 +1067,7 @@
             <div class="guide-hud-gold-block" *ngIf="selectedArticulo.requisitosOro && selectedArticulo.requisitosOro.length > 0">
               <div class="guide-hud-gold-head">
                 <i class="fa-solid fa-medal"></i>
-                <span>Objetivos de Medalla de Oro (100%)</span>
+                <span>{{ 'guia.reader.goldMedalTitle' | translate }}</span>
               </div>
               <div class="guide-hud-gold-list">
                 <div class="gold-goal-item" *ngFor="let req of selectedArticulo.requisitosOro">
@@ -1087,10 +1087,10 @@
             type="button"
             class="pagination-btn pagination-back-mobile"
             (click)="closeMobileReading()"
-            title="Volver a los Capítulos"
+            [title]="'guia.reader.backToChapters' | translate"
           >
             <i class="fa-solid fa-arrow-left"></i>
-            <span class="pagination-title">Volver a los Capítulos</span>
+            <span class="pagination-title">{{ 'guia.reader.backToChapters' | translate }}</span>
           </button>
         </nav>
       </article>
@@ -1112,8 +1112,8 @@
     class="scroll-top-btn"
     *ngIf="showScrollTop"
     (click)="scrollToTop()"
-    title="Volver al inicio del capítulo"
-    aria-label="Volver al inicio"
+    [title]="'guia.reader.scrollToTop' | translate"
+    [attr.aria-label]="'guia.reader.scrollToTop' | translate"
   >
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
       <polyline points="18 15 12 9 6 15"></polyline>

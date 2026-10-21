@@ -34,8 +34,8 @@ export class GotyService {
 
   private readonly BRAIN_FILES: Record<GotyGameMode, string[]> = {
     'home': ['bienvenida.md'],
-    'gta5-historia': [],
-    'gta5-online': [],
+    'gta5-historia': ['personalidad.md'],
+    'gta5-online': ['personalidad.md'],
     'gta6-historia': [],
     'gta6-online': []
   };
@@ -44,8 +44,8 @@ export class GotyService {
   private readonly fixedMessages: Record<string, Partial<Record<GotyGameMode, string>>> = {
     es: {
       'home': '¡Bienvenido a **GTA WORLD**!\n• **Mapas en alta definición:** con todas las ubicaciones.\n• **Asistente con IA:** apoyo táctico de GOTY 5 y GOTY 6 en tiempo real.\n• **Multi-idioma:** disponible en 13 idiomas.',
-      'gta5-historia': 'Hola, soy GOTY 5, aún me están ajustando algunos detalles. Disculpa las molestias.',
-      'gta5-online': 'Hola, soy GOTY 5, aún me están ajustando algunos detalles. Disculpa las molestias.',
+      'gta5-historia': '¡Qué pasa, colega! Soy GOTY. ¿En qué te echo una mano hoy por las calles?',
+      'gta5-online': '¡Qué pasa, colega! Soy GOTY. ¿En qué te echo una mano hoy por las calles?',
       'gta6-historia': 'Hola, soy GOTY 6, aún me están ajustando algunos detalles. Disculpa las molestias.',
       'gta6-online': 'Hola, soy GOTY 6, aún me están ajustando algunos detalles. Disculpa las molestias.'
     },
@@ -278,24 +278,7 @@ export class GotyService {
    */
   processUserQuery(query: string, context: GotyGameMode): Observable<GotyMessage> {
     const currentLang = this.translationService.currentLanguage() || 'es';
-
-    // MODO PRODUCCIÓN: Bloqueo con respuesta fija de ajuste (rebote)
-    if (!this.isDevelopment) {
-      const langMessages = this.fixedMessages[currentLang] || this.fixedMessages['es'];
-      let text: string = (langMessages[context] || langMessages['gta5-online']) || '';
-      if (context === 'home') {
-        text = text.replace(/GOTY\s*5/gi, 'GOTY');
-      }
-      return of({
-        id: 'msg-' + Date.now(),
-        sender: 'goty' as const,
-        text,
-        timestamp: new Date(),
-        isAngry: false
-      });
-    }
-
-    // MODO DESARROLLO (localhost): prueba real de la memoria local .md
+    // Modo de pruebas activo: responder directamente con la memoria local (.md)
     return this.processLocalQuery(query, context, currentLang);
   }
 

@@ -281,6 +281,13 @@ export interface TranslationSchema {
       toggleCollectibles: string;
       toggleStrangePlaces: string;
     };
+    guia?: {
+      navBrandStory: string;
+      navBrandOnline: string;
+      heroTitle: string;
+      heroDescStory: string;
+      heroDescOnline: string;
+    };
   };
   gta6: {
     hud: {
@@ -288,7 +295,42 @@ export interface TranslationSchema {
       inGameTime: string;
       launchTitle: string;
       coordsDev: string;
+      inGameTimeTitle: string;
+      expandPanel: string;
+      collapsePanel: string;
+      settingsTitle: string;
+      expandSettings: string;
+      collapseSettings: string;
       panelTitle: string;
+    };
+    contextMenu: {
+      editMarker: string;
+      deleteMarker: string;
+      addMarker: string;
+      centerMap?: string;
+    };
+    popups: {
+      edit: string;
+      delete: string;
+    };
+    settings: {
+      mapSelector: string;
+      iconStyle: string;
+      markerTheme: string;
+      themeStandard: string;
+      themeClassic: string;
+      themeModern: string;
+      themeSimple: string;
+      iconSize: string;
+      sizeCompact: string;
+      sizeStandard: string;
+      sizeLarge: string;
+      police: string;
+      markers: string;
+      noMarkers: string;
+      locateMarker: string;
+      gotyAssistant?: string;
+      enableGoty?: string;
     };
     canvasHelp: string;
     categories: {
@@ -320,6 +362,13 @@ export interface TranslationSchema {
       coupleDesc?: string;
       cctv?: string;
       cctvDesc?: string;
+    };
+    guia?: {
+      navBrandStory: string;
+      navBrandOnline: string;
+      heroTitle: string;
+      heroDescStory: string;
+      heroDescOnline: string;
     };
   };
   transports: {
@@ -627,5 +676,89 @@ export interface TranslationSchema {
     rateLimitMessage?: string;
     close: string;
     sendAnother: string;
+  };
+  guia?: {
+    nav: {
+      modeStory: string;
+      modeOnline: string;
+      modeLabel: string;
+      switchModeTitle: string;
+      alreadyOnGta5Guide: string;
+      alreadyOnGta6Guide: string;
+      gta6MapComingSoon: string;
+      themeDay: string;
+      themeNight: string;
+      openNavMenu: string;
+      closeNavMenu: string;
+    };
+    sidebar: {
+      contents: string;
+      categories: string;
+      back: string;
+      backToCategories: string;
+      backToThemes: string;
+      backToHeists: string;
+      badgeThemes: string;
+      badgeMissions: string;
+      badgePhases: string;
+      badgeMysteries: string;
+      badgeEvents: string;
+      badgeChapters: string;
+      badgeTrophies: string;
+      badgeHeists: string;
+      badgeVehicles: string;
+      badgeBusinesses?: string;
+      badgeCharacters?: string;
+      searchPlaceholderDefault: string;
+      searchPlaceholderVehicles: string;
+      clearSearch: string;
+      noResults: string;
+    };
+    trophies: {
+      kicker: string;
+      title: string;
+      desc: string;
+      all: string;
+      platinum: string;
+      gold: string;
+      silver: string;
+      bronze: string;
+      badgePlatinum: string;
+      badgeGold: string;
+      badgeSilver: string;
+      badgeBronze: string;
+      loading: string;
+      empty: string;
+      groupTitle: string;
+      modes: {
+        story: string;
+        online: string;
+        both: string;
+      };
+      catalogTitle: string;
+    };
+    weapons: {
+      title: string;
+      ammuNationSpecs: string;
+      campaignUnlock: string;
+      whoHasIt: string;
+      mapLocation: string;
+      backToCategory: string;
+    };
+    vehicles: {
+      title: string;
+      dealersTitle: string;
+      backToDealers: string;
+    };
+    reader: {
+      synopsisTitle: string;
+      reward: string;
+      unlockedAfter: string;
+      goldMedalTitle: string;
+      backToChapters: string;
+      backToList: string;
+      scrollToTop: string;
+      readingTime: string;
+    };
   };
 }

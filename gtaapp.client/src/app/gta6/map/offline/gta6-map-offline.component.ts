@@ -329,6 +329,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         if (typeof window !== 'undefined' && window.innerWidth <= 850) {
+            this.iconTheme = 'simple';
             this.legendOpen = false;
             this.settingsOpen = false;
         }

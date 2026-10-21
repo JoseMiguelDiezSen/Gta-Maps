@@ -272,6 +272,13 @@
       "toggleWildlife": "Activar o desactivar toda la fauna",
       "toggleCollectibles": "Activar o desactivar todos los coleccionables",
       "toggleStrangePlaces": "Activar o desactivar todos los lugares extraños"
+    },
+    "guia": {
+      "navBrandStory": "GTA 5 - HISTORIA",
+      "navBrandOnline": "GTA 5 - ONLINE",
+      "heroTitle": "LOS SANTOS & BLAINE COUNTY",
+      "heroDescStory": "Guía del Modo Historia al 100%, planificación táctica de Golpes, bolsa de valores con Lester y secretos de San Andreas.",
+      "heroDescOnline": "Guía del Modo Online, planificación táctica de Golpes, negocios criminales, vehículos, armas y secretos de San Andreas."
     }
   },
   "gta6": {
@@ -280,7 +287,42 @@
       "inGameTime": "Hora del juego",
       "launchTitle": "Lanzamiento GTA VI",
       "coordsDev": "Clic para copiar coordenadas",
+      "inGameTimeTitle": "Hora del juego (Vice City)",
+      "expandPanel": "Clic para desplegar Localizaciones",
+      "collapsePanel": "Minimizar panel",
+      "settingsTitle": "Ajustes",
+      "expandSettings": "Clic para desplegar Ajustes",
+      "collapseSettings": "Minimizar ajustes",
       "panelTitle": "Localizaciones"
+    },
+    "contextMenu": {
+      "editMarker": "Editar nombre",
+      "deleteMarker": "Eliminar este marcador",
+      "addMarker": "Añadir marcador aquí",
+      "centerMap": "Centrar mapa aquí"
+    },
+    "popups": {
+      "edit": "Editar",
+      "delete": "Borrar"
+    },
+    "settings": {
+      "mapSelector": "Tipo de mapa",
+      "iconStyle": "Estilo Iconos",
+      "markerTheme": "Tema",
+      "themeStandard": "Estándar",
+      "themeClassic": "Clásico",
+      "themeSimple": "Font Awesome",
+      "themeModern": "Neón",
+      "iconSize": "Tamaño de iconos",
+      "sizeCompact": "80%",
+      "sizeStandard": "100% (Por defecto)",
+      "sizeLarge": "120%",
+      "police": "Modo Policía",
+      "markers": "Marcadores",
+      "noMarkers": "Sin marcadores",
+      "locateMarker": "Localizar marcador",
+      "gotyAssistant": "Asistente GOTY",
+      "enableGoty": "Activar GOTY"
     },
     "canvasHelp": "Rueda del ratón para acercar o alejar, arrastra para mover",
     "categories": {
@@ -346,6 +388,13 @@
       "coupleDesc": "la policía busca a una pareja",
       "cctv": "Captado por cámaras CCTV",
       "cctvDesc": "te han captado las cámaras de vigilancia"
+    },
+    "guia": {
+      "navBrandStory": "GTA 6 - HISTORIA",
+      "navBrandOnline": "GTA 6 - ONLINE",
+      "heroTitle": "VICE CITY & ESTADO DE LEONIDA",
+      "heroDescStory": "Compendio interactivo de Vice City y el Estado de Leonida: protagonistas, distritos, mecánicas de sigilo e inventario y análisis criminal.",
+      "heroDescOnline": "Compendio interactivo multijugador de Vice City y el Estado de Leonida."
     }
   },
   "transports": {
@@ -652,5 +701,89 @@
     "rateLimitMessage": "Ya hemos recibido tus sugerencias de hoy. Por favor, espera a que se procesen antes de enviar otra.",
     "close": "Cerrar",
     "sendAnother": "Enviar otra sugerencia"
+  },
+  "guia": {
+    "nav": {
+      "modeStory": "HISTORIA",
+      "modeOnline": "ONLINE",
+      "modeLabel": "MODO:",
+      "switchModeTitle": "Cambiar entre guía Historia y guía Online",
+      "alreadyOnGta5Guide": "Ya estás en la Guía de GTA 5",
+      "alreadyOnGta6Guide": "Ya estás en la Guía de GTA 6",
+      "gta6MapComingSoon": "Mapa GTA VI (Próximamente)",
+      "themeDay": "Cambiar a Modo Día",
+      "themeNight": "Cambiar a Modo Noche",
+      "openNavMenu": "Abrir menú de navegación",
+      "closeNavMenu": "Cerrar menú"
+    },
+    "sidebar": {
+      "contents": "CONTENIDOS",
+      "categories": "Categorías",
+      "back": "Volver",
+      "backToCategories": "Volver al índice de categorías",
+      "backToThemes": "Volver a las temáticas",
+      "backToHeists": "Volver al listado de golpes",
+      "badgeThemes": "temáticas",
+      "badgeMissions": "misiones",
+      "badgePhases": "fases",
+      "badgeMysteries": "misterios",
+      "badgeEvents": "eventos",
+      "badgeChapters": "caps",
+      "badgeTrophies": "trofeos",
+      "badgeHeists": "golpes",
+      "badgeVehicles": "vehículos",
+      "badgeBusinesses": "negocios",
+      "badgeCharacters": "personajes",
+      "searchPlaceholderDefault": "¿Qué buscas? (ej: Fleeca, Dave...)",
+      "searchPlaceholderVehicles": "Buscar vehículo...",
+      "clearSearch": "Limpiar búsqueda",
+      "noResults": "No se encontraron resultados para \"{{ query }}\""
+    },
+    "trophies": {
+      "kicker": "TROFEOS (PS) · LOGROS (XBOX)",
+      "title": "Trofeos de GTA V",
+      "desc": "Listado completo y en español de los {{ total }} trofeos: el ansiado Platino, los desafíos de Oro, los retos de Plata y la larga lista de Bronce del Modo Historia y de GTA Online.",
+      "all": "Todos los trofeos",
+      "platinum": "Trofeo de Platino",
+      "gold": "Trofeos de Oro",
+      "silver": "Trofeos de Plata",
+      "bronze": "Trofeos de Bronce",
+      "badgePlatinum": "Platino",
+      "badgeGold": "Oro",
+      "badgeSilver": "Plata",
+      "badgeBronze": "Bronce",
+      "loading": "Cargando trofeos...",
+      "empty": "No hay trofeos que mostrar para este filtro.",
+      "groupTitle": "Trofeos de {{ tipo }}",
+      "modes": {
+        "story": "Historia",
+        "online": "Online",
+        "both": "Ambos"
+      },
+      "catalogTitle": "Catálogo de Trofeos"
+    },
+    "weapons": {
+      "title": "ARMAS",
+      "ammuNationSpecs": "ESPECIFICACIONES AMMU-NATION",
+      "campaignUnlock": "Desbloqueo en Campaña",
+      "whoHasIt": "Quién la tiene / Gratuita",
+      "mapLocation": "Ubicación en el Mapa",
+      "backToCategory": "Volver a {{ category }}"
+    },
+    "vehicles": {
+      "title": "VEHÍCULOS",
+      "dealersTitle": "CONCESIONARIOS",
+      "backToDealers": "Volver al listado de concesionarios"
+    },
+    "reader": {
+      "synopsisTitle": "Sinopsis de la misión",
+      "reward": "Recompensa",
+      "unlockedAfter": "Desbloqueado tras",
+      "goldMedalTitle": "Objetivos de Medalla de Oro (100%)",
+      "backToChapters": "Volver a los Capítulos",
+      "backToList": "Volver al listado",
+      "scrollToTop": "Volver al inicio del capítulo",
+      "readingTime": "{{ minutes }} min de lectura"
+    }
   }
 }
