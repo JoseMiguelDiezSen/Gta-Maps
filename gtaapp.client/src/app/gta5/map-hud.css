@@ -446,25 +446,47 @@
   box-shadow: none !important;
 }
 
+/* Variantes dinámicas de color para popup de chincheta */
+:host ::ng-deep .gta-pin-color-red .leaflet-popup-content-wrapper { border-color: rgba(230, 25, 25, 0.6) !important; border-top: 2px solid #e61919 !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 14px rgba(230, 25, 25, 0.35) !important; }
+:host ::ng-deep .gta-pin-color-red .leaflet-popup-tip { border-color: rgba(230, 25, 25, 0.6) !important; }
+:host ::ng-deep .gta-pin-color-blue .leaflet-popup-content-wrapper { border-color: rgba(37, 99, 235, 0.6) !important; border-top: 2px solid #2563eb !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 14px rgba(37, 99, 235, 0.35) !important; }
+:host ::ng-deep .gta-pin-color-blue .leaflet-popup-tip { border-color: rgba(37, 99, 235, 0.6) !important; }
+:host ::ng-deep .gta-pin-color-green .leaflet-popup-content-wrapper { border-color: rgba(22, 163, 74, 0.6) !important; border-top: 2px solid #16a34a !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 14px rgba(22, 163, 74, 0.35) !important; }
+:host ::ng-deep .gta-pin-color-green .leaflet-popup-tip { border-color: rgba(22, 163, 74, 0.6) !important; }
+:host ::ng-deep .gta-pin-color-yellow .leaflet-popup-content-wrapper { border-color: rgba(234, 179, 8, 0.6) !important; border-top: 2px solid #eab308 !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 14px rgba(234, 179, 8, 0.35) !important; }
+:host ::ng-deep .gta-pin-color-yellow .leaflet-popup-tip { border-color: rgba(234, 179, 8, 0.6) !important; }
+:host ::ng-deep .gta-pin-color-orange .leaflet-popup-content-wrapper { border-color: rgba(234, 88, 12, 0.6) !important; border-top: 2px solid #ea580c !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 14px rgba(234, 88, 12, 0.35) !important; }
+:host ::ng-deep .gta-pin-color-orange .leaflet-popup-tip { border-color: rgba(234, 88, 12, 0.6) !important; }
+:host ::ng-deep .gta-pin-color-purple .leaflet-popup-content-wrapper { border-color: rgba(147, 51, 234, 0.6) !important; border-top: 2px solid #9333ea !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 14px rgba(147, 51, 234, 0.35) !important; }
+:host ::ng-deep .gta-pin-color-purple .leaflet-popup-tip { border-color: rgba(147, 51, 234, 0.6) !important; }
+:host ::ng-deep .gta-pin-color-white .leaflet-popup-content-wrapper { border-color: rgba(248, 250, 252, 0.6) !important; border-top: 2px solid #f8fafc !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 14px rgba(255, 255, 255, 0.35) !important; }
+:host ::ng-deep .gta-pin-color-white .leaflet-popup-tip { border-color: rgba(248, 250, 252, 0.6) !important; }
+
 :host ::ng-deep .gta-custom-pin-popup .leaflet-popup-close-button {
-  top: 4px !important;
-  right: 5px !important;
-  padding: 2px !important;
-  color: rgba(255, 255, 255, 0.6) !important;
+  top: 10px !important;
+  right: 10px !important;
+  padding: 0 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(0, 0, 0, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  border-radius: 4px !important;
   font-size: 13px !important;
-  width: 16px !important;
-  height: 16px !important;
+  width: 18px !important;
+  height: 18px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  border-radius: 3px !important;
-  transition: all 0.15s ease !important;
+  transition: all 0.18s ease !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6) !important;
   z-index: 10 !important;
 }
 
 :host ::ng-deep .gta-custom-pin-popup .leaflet-popup-close-button:hover {
-  color: #ffb833 !important;
-  background: rgba(255, 184, 51, 0.2) !important;
+  background: rgba(239, 68, 68, 0.9) !important;
+  border-color: #ef4444 !important;
+  color: #fff !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5) !important;
 }
 
 :host ::ng-deep .custom-marker-popup-card {
@@ -1751,6 +1773,15 @@
 .dot-hospital { background: #e74c3c; box-shadow: 0 0 6px #e74c3c; }
 .dot-fire { background: #e67e22; box-shadow: 0 0 6px #e67e22; }
 .dot-arenawar { background: #e056fd; box-shadow: 0 0 6px #e056fd; }
+
+/* Puntos iluminados para marcadores de usuario */
+.marker-color-red { background: #e61919; box-shadow: 0 0 7px #e61919; }
+.marker-color-blue { background: #2563eb; box-shadow: 0 0 7px #2563eb; }
+.marker-color-green { background: #16a34a; box-shadow: 0 0 7px #16a34a; }
+.marker-color-yellow { background: #eab308; box-shadow: 0 0 7px #eab308; }
+.marker-color-orange { background: #ea580c; box-shadow: 0 0 7px #ea580c; }
+.marker-color-purple { background: #9333ea; box-shadow: 0 0 7px #9333ea; }
+.marker-color-white { background: #f8fafc; box-shadow: 0 0 7px #ffffff; }
 
 /* ===== ESQUINA INF-DER: Ajustes ===== */
 .hud-br {

@@ -124,7 +124,7 @@
     [ngStyle]="getMarkerPopupStyle(activeCustomMarker)"
     (click)="$event.stopPropagation()"
   >
-    <div class="custom-marker-popup-card">
+    <div class="custom-marker-popup-card" [ngClass]="'gta-pin-color-' + (activeCustomMarker.color || 'red')">
       <div class="custom-marker-popup-close-btn" (click)="closeCustomMarkerPopup()" title="Cerrar">✕</div>
       <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 16px 4px 16px;">
         <h4
@@ -155,6 +155,10 @@
           [style.transform]="(activeCustomMarker.color || 'red') === c.key ? 'scale(1.2)' : 'scale(1)'"
           style="cursor: pointer; transition: all 0.15s ease; padding: 0;"
         ></button>
+      </div>
+      <div class="custom-marker-spike-divider" style="width: 100%; height: 1px; margin: 6px 0 5px 0; background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, #ffb833 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%); box-shadow: 0 0 4px rgba(255, 184, 51, 0.35);"></div>
+      <div class="custom-marker-coords" style="text-align: center; font-size: 9.5px; font-family: monospace; color: rgba(255,255,255,0.75); margin: 3px 0 6px 0; letter-spacing: 0.3px; user-select: all;" title="Coordenadas (X, Y)">
+        X: {{ (activeCustomMarker.x || 0).toFixed(1) }} | Y: {{ (activeCustomMarker.y || 0).toFixed(1) }}
       </div>
       <div class="custom-marker-actions">
         <button
@@ -458,7 +462,7 @@
             <div *ngFor="let cm of userCustomMarkers" class="legend-char-row">
               <button
                 type="button"
-                class="legend-btn legend-char-btn"
+                class="legend-btn legend-char-btn is-active"
                 (click)="focusCustomMarker(cm)"
                 [title]="cm.name"
               >

@@ -1224,6 +1224,9 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             { key: 'white', hex: '#f8fafc', title: 'Blanco' }
         ];
 
+        const activeColorObj = colors.find(c => c.key === activeColor) || colors[0];
+        const markerCoords = this.latLngToWorld(item.latLng.lat, item.latLng.lng);
+
         const colorSwatchesHtml = colors.map(c => `
             <button
                 type="button"
@@ -1234,7 +1237,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         `).join('');
 
         const html = `
-            <div class="custom-marker-popup-card">
+            <div class="custom-marker-popup-card" style="border-top: 2px solid ${activeColorObj.hex}; border-radius: 8px;">
                 <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 16px 4px 16px;">
                     <h4 id="custom-marker-title-${item.id}"
                         class="custom-marker-name"
@@ -1250,12 +1253,27 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin: 4px 0 5px 0; padding: 3px 6px; background: rgba(0,0,0,0.45); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
                     ${colorSwatchesHtml}
                 </div>
+                <div class="custom-marker-spike-divider" style="width: 100%; height: 1px; margin: 6px 0 5px 0; background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, #ffb833 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%); box-shadow: 0 0 4px rgba(255, 184, 51, 0.35);"></div>
+                <div class="custom-marker-coords" style="text-align: center; font-size: 9.5px; font-family: monospace; color: rgba(255,255,255,0.75); margin: 3px 0 6px 0; letter-spacing: 0.3px; user-select: all;" title="Coordenadas (X, Y)">
+                    X: ${markerCoords.x.toFixed(1)} | Y: ${markerCoords.y.toFixed(1)}
+                </div>
                 <div class="custom-marker-actions">
                     <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')" style="width: 100%; padding: 4px 6px; font-size: 10px;">🗑️ ${deleteLbl}</button>
                 </div>
             </div>
         `;
-        item.marker.bindPopup(html, { className: 'gta-custom-pin-popup', maxWidth: 170, minWidth: 135, autoPan: true });
+        item.marker.bindPopup(html, { className: `gta-custom-pin-popup gta-pin-color-${activeColor}`, maxWidth: 170, minWidth: 135, autoPan: true });
+
+        const popup = item.marker.getPopup();
+        if (popup) {
+            popup.options.className = `gta-custom-pin-popup gta-pin-color-${activeColor}`;
+            const container = (popup as any)._container as HTMLElement | undefined;
+            if (container) {
+                container.className = container.className
+                    .replace(/gta-pin-color-\w+/g, '')
+                    .trim() + ` gta-pin-color-${activeColor}`;
+            }
+        }
     }
 
     // -----------------------------------------------------------------------
@@ -1346,6 +1364,10 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             themeClass = 'mystery-theme-conspiracy';
             bgGradient = 'linear-gradient(180deg, #05262e 0%, #031217 100%)';
             accentColor = '#06b6d4';
+        } else if (mystery.category === 'Historia' || (mystery.categoryLabel && mystery.categoryLabel.includes('Historia'))) {
+            themeClass = 'mystery-theme-mission';
+            bgGradient = 'linear-gradient(180deg, #091a13 0%, #040c08 100%)';
+            accentColor = mystery.badgeColor || '#2ecc71';
         } else if (mystery.category === 'crimes') {
             themeClass = 'mystery-theme-crimes';
             bgGradient = 'linear-gradient(180deg, #2a0a10 0%, #120306 100%)';

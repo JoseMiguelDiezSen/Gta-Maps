@@ -13,6 +13,16 @@ export interface GtaMission {
   players?: string;
   contenidoMarkdown?: string;
   location?: string;
+  position?: {
+    x: number;
+    y: number;
+    z?: number;
+  };
+  zone?: string;
+  badgeColor?: string;
+  badgeIcon?: string;
+  thumbnail?: string;
+  categoryLabel?: string;
 }
 
 export interface GtaStrangerMission {

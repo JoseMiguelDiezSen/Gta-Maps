@@ -3633,6 +3633,19 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   transition: all 0.2s ease;
 }
 
+.mcard-locate-btn.mcard-locate-btn-white {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mcard-locate-btn.mcard-locate-btn-white:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
 .mcard-locate-btn:hover {
   background: #a855f7;
   color: #fff;

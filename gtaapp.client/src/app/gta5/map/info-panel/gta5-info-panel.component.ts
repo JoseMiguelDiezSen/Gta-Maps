@@ -1306,6 +1306,13 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     this.locateOnMap.emit(mystery);
   }
 
+  onLocateMission(mission: GtaMission, event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    this.locateOnMap.emit(mission);
+  }
+
   getMysteryImage(m: GtaMystery | null | undefined): string {
     if (!m || !m.thumbnail) return '';
     const src = m.thumbnail.trim();

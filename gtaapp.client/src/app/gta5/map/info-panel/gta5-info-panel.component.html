@@ -667,6 +667,18 @@
                 </div>
               </div>
 
+              <!-- Botón de localización directa en el mapa (fuera, en la tarjeta) -->
+              <button
+                *ngIf="m.position"
+                type="button"
+                class="mcard-locate-btn"
+                (click)="onLocateMission(m, $event)"
+                [title]="'transports.mysteries.locateOnMap' | translate"
+                style="margin-right: 8px; z-index: 2; color: #ffffff; border-color: rgba(255, 255, 255, 0.45); background: rgba(255, 255, 255, 0.12);"
+              >
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </button>
+
               <!-- Flecha de entrada a la derecha -->
               <div class="mcard-arrow-box">
                 <i class="fa-solid fa-chevron-right mcard-arrow"></i>
@@ -756,6 +768,18 @@
                   </span>
                 </div>
               </div>
+
+              <!-- Botón de localización directa en el mapa (fuera, en la tarjeta) -->
+              <button
+                *ngIf="m.position"
+                type="button"
+                class="mcard-locate-btn"
+                (click)="onLocateMission(m, $event)"
+                [title]="'transports.mysteries.locateOnMap' | translate"
+                style="margin-right: 8px; z-index: 2; color: #ffffff; border-color: rgba(255, 255, 255, 0.45); background: rgba(255, 255, 255, 0.12);"
+              >
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </button>
 
               <!-- Flecha de entrada a la derecha -->
               <div class="mcard-arrow-box">

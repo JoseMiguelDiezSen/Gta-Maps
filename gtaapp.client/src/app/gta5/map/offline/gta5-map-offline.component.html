@@ -18,11 +18,17 @@
   >
     <ng-container *ngIf="isMarkerContext && targetCustomMarker">
       <div class="hud-ctx-header">{{ targetCustomMarker.name }}</div>
-      <button type="button" class="hud-ctx-item" (click)="runCtxAction('editar_marcador')">âœï¸ Editar marcador</button>
+      <button type="button" class="hud-ctx-item" (click)="runCtxAction('editar_marcador')">
+        <span class="hud-ctx-ico">✏️</span>
+        <span>Editar marcador</span>
+      </button>
       <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar_este_marcador')">ðŸ—‘ï¸ Borrar marcador</button>
       <div class="hud-ctx-sep"></div>
     </ng-container>
-    <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">📍  Añadir marcador</button>
+    <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
+      <span class="hud-ctx-ico">📍</span>
+      <span>Añadir marcador</span>
+    </button>
   </div>
 
   <!-- ESQUINA SUP-IZQ: HUD principal -->
@@ -591,7 +597,7 @@
             <div *ngFor="let cm of userCustomMarkers" class="legend-char-row">
               <button
                 type="button"
-                class="legend-btn legend-char-btn"
+                class="legend-btn legend-char-btn is-active"
                 (click)="focusCustomMarker(cm)"
                 [title]="cm.name"
               >
