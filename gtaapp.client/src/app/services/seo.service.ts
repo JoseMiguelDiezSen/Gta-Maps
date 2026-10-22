@@ -19,7 +19,7 @@ export interface SeoRouteData {
 export class SeoService {
   private readonly defaultTitleKey = 'seo.defaultTitle';
   private readonly defaultDescriptionKey = 'seo.defaultDesc';
-  private readonly baseUrl = 'https://gtaworld.dev';
+  private readonly baseUrl = 'https://gtaexplorer.com';
 
   constructor(
     private titleService: Title,

@@ -15,7 +15,7 @@ const routes: Routes = [
       descriptionKey: 'seo.gta5OnlineDesc',
       title: 'Mapa GTA V Online HD - Propiedades, Negocios, Coleccionables, Cayo Perico y Asistente IA | GTA MAPS',
       description: 'Mapa interactivo en HD de GTA 5 Online y Cayo Perico. Misiones, Propiedades, Vehiculos, Armas, Negocios, Golpes, Misterios y asistente IA en tiempo real.',
-      canonical: 'https://gtaworld.dev/gta5-map-online'
+      canonical: 'https://gtaexplorer.com/gta5-map-online'
     }
   },
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
       descriptionKey: 'seo.gta5HistoriaDesc',
       title: 'Mapa GTA V Modo Historia - Propiedades, Negocios, Misiones, Vehiculos, Armas, Coleccionables, Asistente IA | GTA MAPS',
       description: 'Mapa interactivo de GTA V en HD: Misiones Principales, Cartas, Coleccionables , Saltos, Misterios',
-      canonical: 'https://gtaworld.dev/gta5-map-offline'
+      canonical: 'https://gtaexplorer.com/gta5-map-offline'
     }
   },
   {
@@ -37,7 +37,7 @@ const routes: Routes = [
       descriptionKey: 'seo.gta5GuiaDesc',
       title: 'Guía GTA V - Modo Historia : Guia para Misiones Principales, Secundarias, Misterios y Trofeos | GTA MAPS',
       description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía táctica de los 6 golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
-      canonical: 'https://gtaworld.dev/gta5-guia-offline'
+      canonical: 'https://gtaexplorer.com/gta5-guia-offline'
     }
   },
   {
@@ -46,7 +46,7 @@ const routes: Routes = [
     data: {
       title: 'Guía GTA V Online | GTA MAPS',
       description: 'Guía específica de GTA V Online en preparación.',
-      canonical: 'https://gtaworld.dev/gta5-guia-online'
+      canonical: 'https://gtaexplorer.com/gta5-guia-online'
     }
   }
 ];

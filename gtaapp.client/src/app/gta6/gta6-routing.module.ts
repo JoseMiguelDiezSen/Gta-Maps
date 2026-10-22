@@ -18,7 +18,7 @@ const routes: Routes = [
       descriptionKey: 'seo.gta6OnlineDesc',
       title: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades | GTA MAPS',
       description: 'Mapa interactivo en HD de GTA 6 Online en Vice City y Leonida. Puntos de interés, carreteras, secretos, noticias y novedades.',
-      canonical: 'https://gtaworld.dev/gta6-map-online'
+      canonical: 'https://gtaexplorer.com/gta6-map-online'
     }
   },
   {
@@ -30,7 +30,7 @@ const routes: Routes = [
       descriptionKey: 'seo.gta6HistoriaDesc',
       title: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia | GTA MAPS',
       description: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Mapa HD de Vice City, Misiones, Coleccionables y secretos.',
-      canonical: 'https://gtaworld.dev/gta6-map-offline'
+      canonical: 'https://gtaexplorer.com/gta6-map-offline'
     }
   },
   {
@@ -41,7 +41,7 @@ const routes: Routes = [
       descriptionKey: 'seo.gta6GuiaDesc',
       title: 'Guía GTA VI - Base de Datos, Jason & Lucia y Estado de Leonida | GTA MAPS',
       description: 'Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.',
-      canonical: 'https://gtaworld.dev/gta6-guia-offline'
+      canonical: 'https://gtaexplorer.com/gta6-guia-offline'
     }
   },
   {
@@ -50,7 +50,7 @@ const routes: Routes = [
     data: {
       title: 'Guía GTA VI Online | GTA MAPS',
       description: 'Guía específica de GTA VI Online en preparación.',
-      canonical: 'https://gtaworld.dev/gta6-guia-online'
+      canonical: 'https://gtaexplorer.com/gta6-guia-online'
     }
   },
   {
@@ -61,7 +61,7 @@ const routes: Routes = [
       descriptionKey: 'seo.gta6VideosDesc',
       title: 'Vídeos GTA VI - Clips de Gameplay & Situaciones en Leonida | GTA MAPS',
       description: 'Recopilación de vídeos, clips breves de gameplay, situaciones curiosas y surrealistas en Grand Theft Auto VI y el Estado de Leonida.',
-      canonical: 'https://gtaworld.dev/gta6-videos'
+      canonical: 'https://gtaexplorer.com/gta6-videos'
     }
   }
 ];

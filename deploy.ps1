@@ -1,10 +1,10 @@
-# Script de despliegue automatico para GTA WORLD
+# Script de despliegue automatico para GTA EXPLORER
 # Uso: .\deploy.ps1
 
 $VpsIp = "161.22.42.84"
 $VpsPath = "/var/www/gtaworld"
 
-Write-Host "Iniciando proceso de despliegue de GTA WORLD..." -ForegroundColor Cyan
+Write-Host "Iniciando proceso de despliegue de GTA EXPLORER..." -ForegroundColor Cyan
 
 # 1. Compilar Release
 Write-Host "1/4 Compilando frontend y backend..." -ForegroundColor Yellow
@@ -39,4 +39,4 @@ ssh -o StrictHostKeyChecking=no root@$VpsIp $remoteCmd
 Remove-Item -Path publish.tar.gz -Force -ErrorAction SilentlyContinue
 
 Write-Host "Despliegue completado con exito!" -ForegroundColor Green
-Write-Host "Puedes comprobar tu app en: http://$VpsIp" -ForegroundColor Cyan
+Write-Host "Puedes comprobar tu app en: https://gtaexplorer.com" -ForegroundColor Cyan

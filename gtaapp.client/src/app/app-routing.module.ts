@@ -22,9 +22,9 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.homeTitle',
             descriptionKey: 'seo.homeDesc',
-            title: 'GTA World - Mapas GTA HD con asistente IA integrado y Guias Interactivas',
+            title: 'GTA Explorer - Mapas GTA HD con asistente IA integrado y Guias Interactivas',
             description: 'Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.',
-            canonical: 'https://gtaworld.dev/home'
+            canonical: 'https://gtaexplorer.com/home'
         }
     },
 
