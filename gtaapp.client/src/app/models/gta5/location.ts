@@ -93,3 +93,13 @@ export interface RoleplayJobGroup {
   count: number;
 }
 
+export interface FaunaAnimalGroup {
+  id: string;
+  name: string;
+  keys: string[];
+  color: string;
+  symbol?: string;
+  imageUrl?: string;
+  count: number;
+}
+

@@ -411,6 +411,61 @@
           </div>
         </div>
 
+        <!-- ── FAUNA Y VIDA SALVAJE ── -->
+        <div class="hud-acc" [class.is-open]="accordion['fauna']">
+          <div class="hud-acc-head">
+            <div class="hud-acc-toggle" (click)="toggleSection('fauna')">
+              <span class="hud-acc-caret"></span>
+              <span class="hud-acc-title">{{ 'gta5.categories.fauna' | translate }}</span>
+            </div>
+            <input
+              type="checkbox"
+              class="hud-acc-check"
+              [checked]="isSectionAllActive(faunaKeys)"
+              (click)="$event.stopPropagation()"
+              (change)="onSectionCheckboxChange(faunaKeys, $event)"
+            />
+          </div>
+          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['fauna']">
+            <div
+              *ngFor="let group of faunaGroups"
+              class="legend-char-row"
+              [class.is-active]="isFaunaGroupActive(group.keys)"
+            >
+              <button
+                type="button"
+                class="legend-btn legend-char-btn"
+                [class.is-active]="isFaunaGroupActive(group.keys)"
+                (click)="toggleFaunaGroup(group.keys)"
+                [title]="group.name"
+              >
+                <img *ngIf="group.imageUrl" [src]="group.imageUrl" class="legend-animal-thumb" [alt]="group.name" onerror="this.style.display='none'" />
+                <i *ngIf="!group.imageUrl" class="legend-dot" [style.background]="group.color" [style.box-shadow]="'0 0 6px ' + group.color"></i>
+                <span class="legend-name">{{ group.name }}</span>
+                <span class="legend-count">{{ group.count }}</span>
+              </button>
+              <button
+                type="button"
+                class="char-zoom-btn"
+                (click)="zoomToFaunaGroup(group, $event)"
+                [title]="('gta5.settings.locateMarker' | translate) + ': ' + group.name"
+              >
+                <svg viewBox="0 0 24 24" class="char-zoom-svg">
+                  <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none" />
+                  <circle cx="12" cy="12" r="2" fill="currentColor" />
+                  <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="hud-acc-empty" *ngIf="faunaGroups.length === 0">
+              {{ 'gta5.layers.emptyCharacters' | translate }}
+            </div>
+          </div>
+        </div>
+
         <!-- ── COLECCIONABLES DE HISTORIA ── -->
         <div class="hud-acc" [class.is-open]="accordion['coleccionables']">
           <div class="hud-acc-head">

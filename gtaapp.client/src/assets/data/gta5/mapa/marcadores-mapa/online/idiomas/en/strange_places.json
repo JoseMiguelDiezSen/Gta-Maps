@@ -88,6 +88,28 @@
     }
   },
   {
+    "id": "shipwreck-plane-5",
+    "name": "Sunken Commercial Plane",
+    "category": "shipwreck",
+    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "Submerged wreckage of a commercial airliner lying on the seabed south of Los Santos.",
+    "features": [],
+    "position": {
+      "x": 1782.2,
+      "y": -2883.2,
+      "z": -45
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
     "id": "shipwreck-ship-1",
     "name": "Merryweather Sub (North)",
     "category": "shipwreck",
@@ -264,28 +286,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-9",
-    "name": "Tataviam Wreck (East)",
-    "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Wreckage near Tataviam.",
-    "features": [],
-    "position": {
-      "x": 3000,
-      "y": 500,
-      "z": -60
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-10",
     "name": "Gordo Wreck (NE)",
     "category": "shipwreck",
@@ -300,6 +300,72 @@
       "x": 2500,
       "y": 5000,
       "z": -70
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-ship-11",
+    "name": "Shipwreck (Old Boat Remains)",
+    "category": "shipwreck",
+    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "Barely noticeable remains of an old sunken wooden vessel, with only a few weathered timbers and framing dimly visible in the seabed.",
+    "features": [],
+    "position": {
+      "x": 579.4,
+      "y": -3371.7,
+      "z": -30
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-ship-12",
+    "name": "Sunken Old Boat and Iron Tank",
+    "category": "shipwreck",
+    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "Sunken old boat and iron tank remains on the seabed.",
+    "features": [],
+    "position": {
+      "x": 1293.1,
+      "y": -2990.9,
+      "z": -35
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-ship-13",
+    "name": "Sunken Large Cargo Ship",
+    "category": "shipwreck",
+    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "Large cargo ship submerged in deep seabed waters.",
+    "features": [],
+    "position": {
+      "x": 3138.3,
+      "y": -319.1,
+      "z": -40
     },
     "badge": {
       "icon": "ship",
@@ -331,6 +397,56 @@
       "icon": "user-astronaut",
       "color": "#9b59b6",
       "symbol": "🛸"
+    }
+  },
+  {
+    "id": "strange-cave-submerged",
+    "name": "Underwater Cave",
+    "category": "cave",
+    "categoryLabel": "Underwater Cave",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Strange Place",
+    "zone": "San Andreas",
+    "description": "Submerged rocky cave and cavern located in the deep ocean waters south of Los Santos. Accessible by submarine or scuba gear.",
+    "features": [
+      "Rocky cavern on the seabed",
+      "Accessible with scuba gear or submersible"
+    ],
+    "position": {
+      "x": 1091.3,
+      "y": -3566.8,
+      "z": -40
+    },
+    "badge": {
+      "icon": "water",
+      "color": "#0ea5e9",
+      "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "strange-cave-tataviam",
+    "name": "Cave",
+    "category": "cave",
+    "categoryLabel": "Cave",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Strange Place",
+    "zone": "San Andreas",
+    "description": "Natural coastal cave located in the rock formations.",
+    "features": [
+      "Natural cave accessible by land or sea",
+      "East coast rocky cave"
+    ],
+    "position": {
+      "x": 2960.3,
+      "y": 809.6,
+      "z": 5
+    },
+    "badge": {
+      "icon": "mountain",
+      "color": "#a0522d",
+      "symbol": "🕳️"
     }
   }
 ]

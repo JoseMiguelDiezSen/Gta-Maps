@@ -491,6 +491,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
 
     setGameMode(mode: 'story' | 'online'): void {
         this.selectedGameMode = mode;
+        this.loadCustomMarkers();
     }
 
     switchMapType(mapType: string): void {
@@ -586,6 +587,10 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
         this.saveCustomMarkers();
     }
 
+    onCustomMarkerNameChange(cm: any): void {
+        this.saveCustomMarkers();
+    }
+
     updateCustomMarkerName(cm: any, newName: string): void {
         if (newName && newName.trim() !== '') {
             cm.name = newName.trim();
@@ -625,16 +630,20 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
     }
 
     focusCustomMarker(cm: any): void {
-        if (cm.x !== undefined && cm.y !== undefined && this.canvasW && this.canvasH) {
-            this.zoom = 2.5;
-            const base = this.coverScale();
-            const curW = this.bgNatural.w * base * this.zoom;
-            const curH = this.bgNatural.h * base * this.zoom;
-            this.bgPosX = this.clampPan((this.canvasW / 2) - (cm.x / this.bgNatural.w) * curW, this.canvasW, curW);
-            this.bgPosY = this.clampPan((this.canvasH / 2) - (cm.y / this.bgNatural.h) * curH, this.canvasH, curH);
-            this.activeCustomMarker = cm;
-            this.activeMarker = null;
+        if (!cm) return;
+        this.updateCanvasDimensions();
+        const posX = cm.x !== undefined ? cm.x : 1200;
+        const posY = cm.y !== undefined ? cm.y : 675;
+        this.zoom = Math.max(this.zoom, 2.5);
+        const base = this.coverScale();
+        const curW = this.bgNatural.w * base * this.zoom;
+        const curH = this.bgNatural.h * base * this.zoom;
+        if (this.canvasW && this.canvasH) {
+            this.bgPosX = this.clampPan((this.canvasW / 2) - (posX / this.bgNatural.w) * curW, this.canvasW, curW);
+            this.bgPosY = this.clampPan((this.canvasH / 2) - (posY / this.bgNatural.h) * curH, this.canvasH, curH);
         }
+        this.activeCustomMarker = cm;
+        this.activeMarker = null;
     }
 
     openMarkerContext(cm: any, event: MouseEvent): void {
@@ -652,7 +661,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
             const num = this.userCustomMarkers.length + 1;
             const defaultName = (this.translationService.currentLang === 'es' ? 'Marcador ' : 'Marker ') + num;
             const newMarker = {
-                id: 'cm_' + Date.now(),
+                id: 'cm_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9),
                 name: defaultName,
                 color: 'red',
                 x: this.ctxWorldX !== undefined ? this.ctxWorldX : 1200,
@@ -667,19 +676,37 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
             this.activeMarker = null;
         } else if (action === 'borrar_este_marcador' && this.targetCustomMarker) {
             this.deleteCustomMarker(this.targetCustomMarker);
+        } else if (action === 'borrar') {
+            this.userCustomMarkers = [];
+            this.activeCustomMarker = null;
+            this.targetCustomMarker = null;
+            this.saveCustomMarkers();
         }
         this.closeContextMenu();
     }
 
     saveCustomMarkers(): void {
+        if (typeof localStorage === 'undefined') return;
         localStorage.setItem('gta6_custom_markers_' + this.selectedGameMode, JSON.stringify(this.userCustomMarkers));
     }
 
     loadCustomMarkers(): void {
+        if (typeof localStorage === 'undefined') return;
+        this.userCustomMarkers = [];
         try {
             const saved = localStorage.getItem('gta6_custom_markers_' + this.selectedGameMode);
             if (saved) {
-                this.userCustomMarkers = JSON.parse(saved);
+                const parsed = JSON.parse(saved);
+                if (Array.isArray(parsed)) {
+                    this.userCustomMarkers = parsed.map((item, idx) => ({
+                        ...item,
+                        id: item.id || ('cm_' + Date.now() + '_' + idx + '_' + Math.random().toString(36).substring(2, 7)),
+                        name: item.name || ((this.translationService.currentLang === 'es' ? 'Marcador ' : 'Marker ') + (idx + 1)),
+                        color: item.color || 'red',
+                        x: typeof item.x === 'number' ? item.x : (parseFloat(item.x) || 1200),
+                        y: typeof item.y === 'number' ? item.y : (parseFloat(item.y) || 675)
+                    }));
+                }
             }
         } catch { }
     }

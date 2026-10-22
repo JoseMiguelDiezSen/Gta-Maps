@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import * as L from 'leaflet';
 import { LocationService } from '../../../services/gta5/location.service';
-import { LocationItem } from '../../../models/gta5/location';
+import { LocationItem, FaunaAnimalGroup } from '../../../models/gta5/location';
 import { CollectibleItem } from '../../../models/gta5/collectible';
 import { TranslationService } from '../../../i18n';
 import { GotyService } from '../../../services/goty.service';
@@ -123,6 +123,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
 
     private _storyCharacters: LocationItem[] = [];
     private _storyAnimals: LocationItem[] = [];
+    private _faunaGroups: FaunaAnimalGroup[] = [];
     private _characterKeys: string[] = [];
     private _faunaKeys: string[] = [];
 
@@ -135,6 +136,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         );
         this._characterKeys = this._storyCharacters.map(c => c.id);
         this._faunaKeys = this._storyAnimals.map(a => a.id);
+        this.updateFaunaGroups();
     }
 
     get characterKeys(): string[] { return this._characterKeys; }
@@ -307,6 +309,72 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         return this._storyAnimals;
     }
 
+    private updateFaunaGroups(): void {
+        const groupsMap = new Map<string, FaunaAnimalGroup>();
+        this._storyAnimals.forEach(animal => {
+            const key = animal.name;
+            const existing = groupsMap.get(key);
+            if (existing) {
+                existing.keys.push(animal.id);
+                existing.count = existing.keys.length;
+            } else {
+                groupsMap.set(key, {
+                    id: animal.id,
+                    name: animal.name,
+                    keys: [animal.id],
+                    color: animal.badge?.color || '#2c3e50',
+                    symbol: animal.badge?.symbol || '🐾',
+                    imageUrl: animal.imageUrl,
+                    count: 1
+                });
+            }
+        });
+        this._faunaGroups = Array.from(groupsMap.values());
+    }
+
+    get faunaGroups(): FaunaAnimalGroup[] { return this._faunaGroups; }
+
+    isFaunaGroupActive(keys: string[]): boolean {
+        return keys.length > 0 && keys.some(k => this.layerFilters[k] !== false);
+    }
+
+    toggleFaunaGroup(keys: string[]): void {
+        const isActive = this.isFaunaGroupActive(keys);
+        const newState = !isActive;
+        keys.forEach(k => {
+            this.layerFilters[k] = newState;
+        });
+        this.renderPropertyMarkers();
+    }
+
+    private _faunaCycleIndex: Record<string, number> = {};
+
+    zoomToFaunaGroup(group: FaunaAnimalGroup, event?: MouseEvent): void {
+        if (event) event.stopPropagation();
+        if (!this.map || !group.keys.length) return;
+
+        let reRender = false;
+        group.keys.forEach(k => {
+            if (!this.layerFilters[k]) {
+                this.layerFilters[k] = true;
+                reRender = true;
+            }
+        });
+        if (reRender) {
+            this.renderPropertyMarkers();
+        }
+
+        const currIndex = this._faunaCycleIndex[group.name] || 0;
+        const targetKey = group.keys[currIndex % group.keys.length];
+        this._faunaCycleIndex[group.name] = (currIndex + 1) % group.keys.length;
+
+        const targetAnimal = this.allProperties.find(p => p.id === targetKey);
+        if (targetAnimal && targetAnimal.position) {
+            const [lat, lng] = this.worldToLatLng(targetAnimal.position.x, targetAnimal.position.y);
+            this.map.flyTo([lat, lng], Math.min(this.maxZoom, 5.5), { animate: true, duration: 1.1 });
+        }
+    }
+
     get purchasablePropertiesCount(): number {
         return this.allProperties.filter(p =>
             this.isPurchasable(p) && (p.gameMode === 'both' || p.gameMode === 'story')
@@ -364,24 +432,25 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         this.startInGameClock();
 
         (window as any)._gtaRenameMarker = (id: string) => {
-            const el = document.getElementById('custom-marker-title-' + id);
-            if (el) {
-                el.focus();
-                const range = document.createRange();
-                range.selectNodeContents(el);
-                const sel = window.getSelection();
-                sel?.removeAllRanges();
-                sel?.addRange(range);
+            const input = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
+            if (input) {
+                input.focus();
+                input.select();
             }
         };
 
         (window as any)._gtaSaveMarkerName = (id: string, newName: string) => {
             const found = this.userCustomMarkers.find(m => m.id === id);
-            if (found && newName && newName.trim() !== '') {
-                found.name = newName.trim();
+            if (found) {
+                const trimmed = (newName || '').trim();
+                found.name = trimmed || (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
                 if (this.targetCustomMarker?.id === id) {
                     this.targetCustomMarker.name = found.name;
                 }
+                if (found.marker.getTooltip()) {
+                    found.marker.setTooltipContent(`<b>${this.escapeHtml(found.name)}</b>`);
+                }
+                this.saveCustomMarkers();
             }
         };
 
@@ -393,6 +462,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 if (this.targetCustomMarker?.id === id) {
                     this.targetCustomMarker = null;
                 }
+                this.saveCustomMarkers();
             }
         };
 
@@ -403,6 +473,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 found.marker.setIcon(this.createPushpinIcon(color));
                 this.updateCustomMarkerPopup(found);
                 found.marker.openPopup();
+                this.saveCustomMarkers();
             }
         };
     }
@@ -571,6 +642,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         this.renderDistrictLabels();
         this.loadProperties();
         this.loadCollectibles();
+        this.loadCustomMarkers();
         this.updateIconStyle();
 
         this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
@@ -1118,10 +1190,13 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 break;
             case 'marcador':
                 if (this.ctxLatLng && this.playerMarkersLayer) {
-                    const id = 'custom-' + Date.now();
+                    const id = 'custom-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
                     const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
                     const m = L.marker(this.ctxLatLng, { icon: this.createPushpinIcon('red') });
                     const item = { id, name, marker: m, latLng: this.ctxLatLng, color: 'red' };
+                    m.on('click', () => {
+                        this.targetCustomMarker = item;
+                    });
                     m.on('contextmenu', (e: L.LeafletMouseEvent) => {
                         L.DomEvent.stopPropagation(e);
                         this.targetCustomMarker = item;
@@ -1134,16 +1209,20 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     m.addTo(this.playerMarkersLayer);
                     this.userCustomMarkers.push(item);
                     m.openPopup();
+                    this.saveCustomMarkers();
                 }
                 break;
             case 'editar_marcador':
                 if (this.targetCustomMarker) {
-                    const newName = prompt('Nuevo nombre del marcador:', this.targetCustomMarker.name);
-                    if (newName && newName.trim() !== '') {
-                        this.targetCustomMarker.name = newName.trim();
-                        this.updateCustomMarkerPopup(this.targetCustomMarker);
-                        this.targetCustomMarker.marker.openPopup();
-                    }
+                    this.updateCustomMarkerPopup(this.targetCustomMarker);
+                    this.targetCustomMarker.marker.openPopup();
+                    setTimeout(() => {
+                        const input = document.getElementById('custom-marker-input-' + this.targetCustomMarker?.id) as HTMLInputElement | null;
+                        if (input) {
+                            input.focus();
+                            input.select();
+                        }
+                    }, 120);
                 }
                 break;
             case 'borrar_este_marcador':
@@ -1151,6 +1230,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     this.playerMarkersLayer.removeLayer(this.targetCustomMarker.marker);
                     this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== this.targetCustomMarker!.id);
                     this.targetCustomMarker = null;
+                    this.saveCustomMarkers();
                 }
                 break;
             case 'borrar':
@@ -1158,18 +1238,93 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     this.playerMarkersLayer.clearLayers();
                     this.userCustomMarkers = [];
                     this.targetCustomMarker = null;
+                    this.saveCustomMarkers();
                 }
                 break;
         }
     }
 
+    saveCustomMarkers(): void {
+        if (typeof localStorage === 'undefined') return;
+        const serializable = this.userCustomMarkers.map(m => ({
+            id: m.id,
+            name: m.name,
+            color: m.color || 'red',
+            lat: m.latLng.lat,
+            lng: m.latLng.lng
+        }));
+        localStorage.setItem('gta5_custom_markers_story', JSON.stringify(serializable));
+    }
+
+    loadCustomMarkers(): void {
+        if (typeof localStorage === 'undefined' || !this.playerMarkersLayer) return;
+        this.playerMarkersLayer.clearLayers();
+        this.userCustomMarkers = [];
+        try {
+            const saved = localStorage.getItem('gta5_custom_markers_story');
+            if (!saved) return;
+            const parsed = JSON.parse(saved);
+            if (!Array.isArray(parsed)) return;
+
+            for (const item of parsed) {
+                const lat = typeof item.lat === 'number' ? item.lat : parseFloat(item.lat);
+                const lng = typeof item.lng === 'number' ? item.lng : parseFloat(item.lng);
+                if (isNaN(lat) || isNaN(lng)) continue;
+                const latLng = L.latLng(lat, lng);
+                const color = item.color || 'red';
+                const m = L.marker(latLng, { icon: this.createPushpinIcon(color) });
+                const markerObj = {
+                    id: item.id || ('custom-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9)),
+                    name: item.name || 'Marcador',
+                    marker: m,
+                    latLng: latLng,
+                    color: color
+                };
+                m.on('click', () => {
+                    this.targetCustomMarker = markerObj;
+                });
+                m.on('contextmenu', (e: L.LeafletMouseEvent) => {
+                    L.DomEvent.stopPropagation(e);
+                    this.targetCustomMarker = markerObj;
+                    this.isMarkerContext = true;
+                    this.ctxX = e.originalEvent.clientX;
+                    this.ctxY = e.originalEvent.clientY;
+                    this.ctxOpen = true;
+                });
+                this.updateCustomMarkerPopup(markerObj);
+                m.addTo(this.playerMarkersLayer);
+                this.userCustomMarkers.push(markerObj);
+            }
+        } catch { }
+    }
+
+    private _locatingMarkerHandler: (() => void) | null = null;
+
     focusCustomMarker(cm: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string }): void {
         if (!this.map || !cm) return;
+        if (this._locatingMarkerHandler) {
+            this.map.off('moveend', this._locatingMarkerHandler);
+            this._locatingMarkerHandler = null;
+        }
+        this.updateCustomMarkerPopup(cm);
         const targetZoom = Math.max(this.map.getZoom(), 4.5);
-        this.map.flyTo(cm.latLng, targetZoom, { animate: true, duration: 0.8 });
-        setTimeout(() => {
+        const currentCenter = this.map.getCenter();
+        const currentZoom = this.map.getZoom();
+        const isAlreadyThere = Math.abs(currentCenter.lat - cm.latLng.lat) < 0.0005 &&
+                               Math.abs(currentCenter.lng - cm.latLng.lng) < 0.0005 &&
+                               Math.abs(currentZoom - targetZoom) < 0.2;
+
+        if (isAlreadyThere) {
             cm.marker.openPopup();
-        }, 500);
+            return;
+        }
+
+        this._locatingMarkerHandler = () => {
+            this._locatingMarkerHandler = null;
+            cm.marker.openPopup();
+        };
+        this.map.once('moveend', this._locatingMarkerHandler);
+        this.map.flyTo(cm.latLng, targetZoom, { animate: true, duration: 0.6 });
     }
 
     private readonly pushpinPalettes: Record<string, { s0: string; s35: string; s85: string; s100: string }> = {
@@ -1209,6 +1364,15 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         });
     }
 
+    private escapeHtml(str: string): string {
+        return (str || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
     private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string }): void {
         const editLbl = this.translationService.t('gta5.popups.edit');
         const deleteLbl = this.translationService.t('gta5.popups.delete');
@@ -1238,17 +1402,20 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
 
         const html = `
             <div class="custom-marker-popup-card" style="border-top: 2px solid ${activeColorObj.hex}; border-radius: 8px;">
-                <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 16px 4px 16px;">
-                    <h4 id="custom-marker-title-${item.id}"
-                        class="custom-marker-name"
-                        contenteditable="true"
-                        spellcheck="false"
+                <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 14px 4px 14px;">
+                    <input
+                        type="text"
+                        id="custom-marker-input-${item.id}"
+                        class="custom-marker-name custom-marker-name-input"
+                        value="${this.escapeHtml(item.name)}"
+                        maxlength="45"
+                        placeholder="${this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name'}"
+                        oninput="window._gtaSaveMarkerName('${item.id}', this.value)"
+                        onchange="window._gtaSaveMarkerName('${item.id}', this.value)"
                         onkeydown="if(event.key === 'Enter'){ event.preventDefault(); this.blur(); }"
-                        onblur="window._gtaSaveMarkerName('${item.id}', this.innerText)"
-                        title="Haz clic para escribir y pincha fuera para guardar"
-                        style="margin: 0; outline: none; padding: 2px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); cursor: text; text-align: center; max-width: 100%; width: auto; min-width: 60px; transition: all 0.15s ease;">
-                        ${item.name}
-                    </h4>
+                        title="${this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename'}"
+                        style="margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: 100%; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;"
+                    />
                 </div>
                 <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin: 4px 0 5px 0; padding: 3px 6px; background: rgba(0,0,0,0.45); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
                     ${colorSwatchesHtml}
@@ -1262,17 +1429,29 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 </div>
             </div>
         `;
-        item.marker.bindPopup(html, { className: `gta-custom-pin-popup gta-pin-color-${activeColor}`, maxWidth: 170, minWidth: 135, autoPan: true });
-
-        const popup = item.marker.getPopup();
-        if (popup) {
-            popup.options.className = `gta-custom-pin-popup gta-pin-color-${activeColor}`;
-            const container = (popup as any)._container as HTMLElement | undefined;
+        const existingPopup = item.marker.getPopup();
+        if (existingPopup) {
+            existingPopup.setContent(html);
+            existingPopup.options.autoPan = false;
+            existingPopup.options.className = `gta-custom-pin-popup gta-pin-color-${activeColor}`;
+            const container = (existingPopup as any)._container as HTMLElement | undefined;
             if (container) {
                 container.className = container.className
                     .replace(/gta-pin-color-\w+/g, '')
                     .trim() + ` gta-pin-color-${activeColor}`;
             }
+        } else {
+            item.marker.bindPopup(html, { className: `gta-custom-pin-popup gta-pin-color-${activeColor}`, maxWidth: 190, minWidth: 140, autoPan: false });
+        }
+
+        if (item.marker.getTooltip()) {
+            item.marker.setTooltipContent(`<b>${this.escapeHtml(item.name)}</b>`);
+        } else {
+            item.marker.bindTooltip(`<b>${this.escapeHtml(item.name)}</b>`, {
+                direction: 'top',
+                offset: [0, -36],
+                className: 'gta-leaflet-tooltip'
+            });
         }
     }
 

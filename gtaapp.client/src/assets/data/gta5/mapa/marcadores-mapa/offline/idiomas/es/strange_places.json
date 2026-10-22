@@ -88,6 +88,28 @@
     }
   },
   {
+    "id": "shipwreck-plane-5",
+    "name": "Avión Comercial Hundido",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "Restos sumergidos de un avión comercial hundido en el lecho marino al sur de Los Santos.",
+    "features": [],
+    "position": {
+      "x": 1782.2,
+      "y": -2883.2,
+      "z": -45
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
     "id": "shipwreck-ship-1",
     "name": "Submarino Merryweather (Norte)",
     "category": "shipwreck",
@@ -264,28 +286,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-9",
-    "name": "Naufragio Tataviam (Este)",
-    "category": "shipwreck",
-    "categoryLabel": "Naufragios y Restos",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Restos cerca de las montañas Tataviam.",
-    "features": [],
-    "position": {
-      "x": 3000,
-      "y": 500,
-      "z": -60
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-10",
     "name": "Naufragio Gordo (Noreste)",
     "category": "shipwreck",
@@ -300,6 +300,72 @@
       "x": 3450,
       "y": 5450,
       "z": -70
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-ship-11",
+    "name": "Naufragio (Restos de Barco Viejo)",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "Restos casi imperceptibles de un antiguo navío de madera hundido, del que apenas se distinguen unas pocas cuadernas y maderas semienterradas en el fondo marino.",
+    "features": [],
+    "position": {
+      "x": 579.4,
+      "y": -3371.7,
+      "z": -30
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-ship-12",
+    "name": "Barco viejo hundido y Tanque De Hierro",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "Restos de barco viejo hundido y tanque de hierro en el lecho marino.",
+    "features": [],
+    "position": {
+      "x": 1293.1,
+      "y": -2990.9,
+      "z": -35
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-ship-13",
+    "name": "Gran Barco de Carga Hundido",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "Gran barco de carga sumergido en las profundidades del lecho marino.",
+    "features": [],
+    "position": {
+      "x": 3138.3,
+      "y": -319.1,
+      "z": -40
     },
     "badge": {
       "icon": "ship",
@@ -331,6 +397,81 @@
       "icon": "user-astronaut",
       "color": "#9b59b6",
       "symbol": "🛸"
+    }
+  },
+  {
+    "id": "strange-cave-submerged",
+    "name": "Cueva Submarina",
+    "category": "cave",
+    "categoryLabel": "Cueva Submarina",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Lugar Extraño",
+    "zone": "San Andreas",
+    "description": "Cavidad rocosa y gruta sumergida en las profundidades oceánicas al sur de Los Santos. Accesible mediante inmersión submarina o equipo de buceo.",
+    "features": [
+      "Gruta rocosa en el lecho marino",
+      "Accesible con equipo de buceo o sumergible"
+    ],
+    "position": {
+      "x": 1091.3,
+      "y": -3566.8,
+      "z": -40
+    },
+    "badge": {
+      "icon": "water",
+      "color": "#0ea5e9",
+      "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "strange-cave-tataviam",
+    "name": "Cueva",
+    "category": "cave",
+    "categoryLabel": "Cueva",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Lugar Extraño",
+    "zone": "San Andreas",
+    "description": "Cueva natural en la formación rocosa costera.",
+    "features": [
+      "Cavidad natural accesible por tierra o mar",
+      "Cueva en la costa este"
+    ],
+    "position": {
+      "x": 2960.3,
+      "y": 809.6,
+      "z": 5
+    },
+    "badge": {
+      "icon": "mountain",
+      "color": "#a0522d",
+      "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "strange-cave-submerged-east",
+    "name": "Cueva Submarina",
+    "category": "cave",
+    "categoryLabel": "Cueva Submarina",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Lugar Extraño",
+    "zone": "San Andreas (Costa Este)",
+    "description": "Gruta y cavidad rocosa submarina sumergida en las profundidades de la costa este.",
+    "features": [
+      "Cueva submarina en el lecho oceánico este",
+      "Accesible mediante inmersión con equipo de buceo o sumergible"
+    ],
+    "position": {
+      "x": 3756.5,
+      "y": 2686.2,
+      "z": -35
+    },
+    "badge": {
+      "icon": "water",
+      "color": "#0ea5e9",
+      "symbol": "🕳️"
     }
   }
 ]

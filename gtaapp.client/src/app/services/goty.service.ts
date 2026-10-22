@@ -43,91 +43,91 @@ export class GotyService {
   // Mensajes fijos por contexto de juego e idioma (Modo capado para producción)
   private readonly fixedMessages: Record<string, Partial<Record<GotyGameMode, string>>> = {
     es: {
-      'home': '¡Bienvenido a **GTA WORLD**!\n• **Mapas en alta definición:** con todas las ubicaciones.\n• **Asistente con IA:** apoyo táctico de GOTY 5 y GOTY 6 en tiempo real.\n• **Multi-idioma:** disponible en 13 idiomas.',
+      'home': '¡Bienvenido a **GTA EXPLORER**!\n• **Mapas en alta definición:** con todas las ubicaciones.\n• **Asistente con IA:** apoyo táctico de GOTY 5 y GOTY 6 en tiempo real.\n• **Multi-idioma:** disponible en 13 idiomas.',
       'gta5-historia': '¡Qué pasa, colega! Soy GOTY. ¿En qué te echo una mano hoy por las calles?',
       'gta5-online': '¡Qué pasa, colega! Soy GOTY. ¿En qué te echo una mano hoy por las calles?',
       'gta6-historia': 'Hola, soy GOTY 6, aún me están ajustando algunos detalles. Disculpa las molestias.',
       'gta6-online': 'Hola, soy GOTY 6, aún me están ajustando algunos detalles. Disculpa las molestias.'
     },
     en: {
-      'home': 'Welcome to **GTA WORLD**!\n• **High-definition maps:** with all locations.\n• **AI Assistant:** real-time tactical support from GOTY 5 & GOTY 6.\n• **Multi-language:** available in 13 languages.',
+      'home': 'Welcome to **GTA EXPLORER**!\n• **High-definition maps:** with all locations.\n• **AI Assistant:** real-time tactical support from GOTY 5 & GOTY 6.\n• **Multi-language:** available in 13 languages.',
       'gta5-historia': "Hello, I'm GOTY 5, I'm still being adjusted. Sorry for the inconvenience.",
       'gta5-online': "Hello, I'm GOTY 5, I'm still being adjusted. Sorry for the inconvenience.",
       'gta6-historia': "Hello, I'm GOTY 6, I'm still being adjusted. Sorry for the inconvenience.",
       'gta6-online': "Hello, I'm GOTY 6, I'm still being adjusted. Sorry for the inconvenience."
     },
     pt: {
-      'home': 'Bem-vindo ao **GTA WORLD**!\n• **Mapas em alta definição:** com todas as localizações.\n• **Assistente com IA:** apoio tático do GOTY 5 e GOTY 6 em tempo real.\n• **Multi-idioma:** disponível em 13 idiomas.',
+      'home': 'Bem-vindo ao **GTA EXPLORER**!\n• **Mapas em alta definição:** com todas as localizações.\n• **Assistente com IA:** apoio tático do GOTY 5 e GOTY 6 em tempo real.\n• **Multi-idioma:** disponível em 13 idiomas.',
       'gta5-historia': 'Olá, sou o GOTY 5, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
       'gta5-online': 'Olá, sou o GOTY 5, ainda estão ajustando algunos detalhes em mim. Desculpe o transtorno.',
       'gta6-historia': 'Olá, sou o GOTY 6, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
       'gta6-online': 'Olá, sou o GOTY 6, ainda estão ajustando algunos detalhes em mim. Desculpe o transtorno.'
     },
     zh: {
-      'home': '欢迎来到 **GTA WORLD**！\n• **高清地图：** 包含所有位置点与标记。\n• **AI 助手：** GOTY 5 与 GOTY 6 实时战术协助。\n• **多语言：** 支持 13 种语言。',
+      'home': '欢迎来到 **GTA EXPLORER**！\n• **高清地图：** 包含所有位置点与标记。\n• **AI 助手：** GOTY 5 与 GOTY 6 实时战术协助。\n• **多语言：** 支持 13 种语言。',
       'gta5-historia': '你好，我是 GOTY 5，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。',
       'gta5-online': '你好，我是 GOTY 5，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。',
       'gta6-historia': '你好，我是 GOTY 6，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。',
       'gta6-online': '你好，我是 GOTY 6，目前仍在进行细节调试与优化。给您带来的不便敬请谅解。'
     },
     fr: {
-      'home': 'Bienvenue sur **GTA WORLD** !\n• **Cartes haute définition :** avec tous les emplacements.\n• **Assistant IA :** soutien tactique en temps réel de GOTY 5 et GOTY 6.\n• **Multilingue :** disponible en 13 langues.',
+      'home': 'Bienvenue sur **GTA EXPLORER** !\n• **Cartes haute définition :** avec tous les emplacements.\n• **Assistant IA :** soutien tactique en temps réel de GOTY 5 et GOTY 6.\n• **Multilingue :** disponible en 13 langues.',
       'gta5-historia': "Bonjour, je suis GOTY 5, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée.",
       'gta5-online': "Bonjour, je suis GOTY 5, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée.",
       'gta6-historia': "Bonjour, je suis GOTY 6, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée.",
       'gta6-online': "Bonjour, je suis GOTY 6, on est encore en train d'ajuster quelques détails. Veuillez nous excuser pour la gêne occasionnée."
     },
     de: {
-      'home': 'Willkommen bei **GTA WORLD**!\n• **HD-Karten:** mit allen Standorten und Markierungen.\n• **KI-Assistent:** taktische Echtzeit-Unterstützung von GOTY 5 und GOTY 6.\n• **Mehrsprachig:** verfügbar in 13 Sprachen.',
+      'home': 'Willkommen bei **GTA EXPLORER**!\n• **HD-Karten:** mit allen Standorten und Markierungen.\n• **KI-Assistent:** taktische Echtzeit-Unterstützung von GOTY 5 und GOTY 6.\n• **Mehrsprachig:** verfügbar in 13 Sprachen.',
       'gta5-historia': 'Hallo, ich bin GOTY 5, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.',
       'gta5-online': 'Hallo, ich bin GOTY 5, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.',
       'gta6-historia': 'Hallo, ich bin GOTY 6, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.',
       'gta6-online': 'Hallo, ich bin GOTY 6, an mir werden noch einige Details angepasst. Entschuldigen Sie die Unannehmlichkeiten.'
     },
     it: {
-      'home': 'Benvenuto su **GTA WORLD**!\n• **Mappe in alta definizione:** con tutte le posizioni.\n• **Assistente con IA:** supporto tattico di GOTY 5 e GOTY 6 in tempo reale.\n• **Multilingua:** disponibile in 13 lingue.',
+      'home': 'Benvenuto su **GTA EXPLORER**!\n• **Mappe in alta definizione:** con tutte le posizioni.\n• **Assistente con IA:** supporto tattico di GOTY 5 e GOTY 6 in tempo reale.\n• **Multilingua:** disponibile in 13 lingue.',
       'gta5-historia': 'Ciao, sono GOTY 5, stiamo ancora perfezionando alcuni dettagli. Ci scusiamo per l\'inconveniente.',
       'gta5-online': 'Ciao, sono GOTY 5, stiamo ancora perfezionando algunos dettagli. Ci scusiamo per l\'inconveniente.',
       'gta6-historia': 'Ciao, sono GOTY 6, stiamo ancora perfezionando alcuni dettagli. Ci scusiamo per l\'inconveniente.',
       'gta6-online': 'Ciao, sono GOTY 6, stiamo ancora perfezionando algunos dettagli. Ci scusiamo per l\'inconveniente.'
     },
     ru: {
-      'home': 'Добро пожаловать в **GTA WORLD**!\n• **Карты высокой четкости:** со всеми локациями и точками.\n• **ИИ-ассистент:** тактическая поддержка от GOTY 5 и GOTY 6 в реальном времени.\n• **Многоязычность:** доступно на 13 языках.',
+      'home': 'Добро пожаловать в **GTA EXPLORER**!\n• **Карты высокой четкости:** со всеми локациями и точками.\n• **ИИ-ассистент:** тактическая поддержка от GOTY 5 и GOTY 6 в реальном времени.\n• **Многоязычность:** доступно на 13 языках.',
       'gta5-historia': 'Привет, я GOTY 5, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.',
       'gta5-online': 'Привет, я GOTY 5, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.',
       'gta6-historia': 'Привет, я GOTY 6, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.',
       'gta6-online': 'Привет, я GOTY 6, во мне еще настраивают некоторые детали. Приносим извинения за неудобства.'
     },
     ar: {
-      'home': 'مرحباً بك في **GTA WORLD**!\n• **خرائط عالية الدقة:** تشمل جميع المواقع.\n• **مساعد ذكاء اصطناعي:** دعم تكتيكي في الوقت الفعلي من GOTY 5 و GOTY 6.\n• **متعدد اللغات:** متاح بـ 13 لغة.',
+      'home': 'مرحباً بك في **GTA EXPLORER**!\n• **خرائط عالية الدقة:** تشمل جميع المواقع.\n• **مساعد ذكاء اصطناعي:** دعم تكتيكي في الوقت الفعلي من GOTY 5 و GOTY 6.\n• **متعدد اللغات:** متاح بـ 13 لغة.',
       'gta5-historia': 'مرحبًا، أنا GOTY 5، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.',
       'gta5-online': 'مرحبًا، أنا GOTY 5، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.',
       'gta6-historia': 'مرحبًا، أنا GOTY 6، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.',
       'gta6-online': 'مرحبًا، أنا GOTY 6، لا يزال يتم ضبط بعض التفاصيل الخاصة بي. نعتذر عن أي إزعاج.'
     },
     ja: {
-      'home': '**GTA WORLD** へようこそ！\n• **高解像度マップ：** 全てのロケーションとポイントを網羅。\n• **AI アシスタント：** GOTY 5 と GOTY 6 によるリアルタイム戦術サポート。\n• **多言語対応：** 13言語に対応。',
+      'home': '**GTA EXPLORER** へようこそ！\n• **高解像度マップ：** 全てのロケーションとポイントを網羅。\n• **AI アシスタント：** GOTY 5 と GOTY 6 によるリアルタイム戦術サポート。\n• **多言語対応：** 13言語に対応。',
       'gta5-historia': 'こんにちは、GOTY 5です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。',
       'gta5-online': 'こんにちは、GOTY 5です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。',
       'gta6-historia': 'こんにちは、GOTY 6です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。',
       'gta6-online': 'こんにちは、GOTY 6です。現在一部の詳細を調整中です。ご不便をおかけして申し訳ありません。'
     },
     hi: {
-      'home': '**GTA WORLD** में आपका स्वागत है!\n• **हाई-डेफिनिशन मैप्स:** सभी स्थानों और चिह्नों के साथ।\n• **AI सहायक:** GOTY 5 और GOTY 6 से रीयल-टाइम सामरिक सहायता।\n• **बहुभाषी:** 13 भाषाओं में उपलब्ध।',
+      'home': '**GTA EXPLORER** में आपका स्वागत है!\n• **हाई-डेफिनिशन मैप्स:** सभी स्थानों और चिह्नों के साथ।\n• **AI सहायक:** GOTY 5 और GOTY 6 से रीयल-टाइम सामरिक सहायता।\n• **बहुभाषी:** 13 भाषाओं में उपलब्ध।',
       'gta5-historia': 'नमस्ते, मैं GOTY 5 हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।',
       'gta5-online': 'नमस्ते, मैं GOTY 5 हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।',
       'gta6-historia': 'नमस्ते, मैं GOTY 6 हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।',
       'gta6-online': 'नमस्ते, मैं GOTY 6 हूँ, अभी भी मुझमें कुछ विवरण समायोजित किए जा रहे हैं। असुविधा के लिए खेद है।'
     },
     tr: {
-      'home': "**GTA WORLD**'e hoş geldiniz!\n• **Yüksek çözünürlüklü haritalar:** tüm konumlar ile birlikte.\n• **Yapay Zekâ Asistanı:** GOTY 5 ve GOTY 6'dan gerçek zamanlı taktik destek.\n• **Çoklu dil:** 13 dilde kullanılabilir.",
+      'home': "**GTA EXPLORER**'e hoş geldiniz!\n• **Yüksek çözünürlüklü haritalar:** tüm konumlar ile birlikte.\n• **Yapay Zekâ Asistanı:** GOTY 5 ve GOTY 6'dan gerçek zamanlı taktik destek.\n• **Çoklu dil:** 13 dilde kullanılabilir.",
       'gta5-historia': 'Merhaba, ben GOTY 5, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.',
       'gta5-online': 'Merhaba, ben GOTY 5, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.',
       'gta6-historia': 'Merhaba, ben GOTY 6, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.',
       'gta6-online': 'Merhaba, ben GOTY 6, ayrıntılarım üzerinde hâlâ ayarlamalar yapılıyor. Verdiğimiz rahatsızlıktan dolayı özür dileriz.'
     },
     ko: {
-      'home': '**GTA WORLD**에 오신 것을 환영합니다!\n• **고해상도 지도:** 모든 위치 및 마커 포함.\n• **AI 어시스턴트:** GOTY 5 및 GOTY 6의 실시간 전술 지원.\n• **다국어 지원:** 13개 언어 지원.',
+      'home': '**GTA EXPLORER**에 오신 것을 환영합니다!\n• **고해상도 지도:** 모든 위치 및 마커 포함.\n• **AI 어시스턴트:** GOTY 5 및 GOTY 6의 실시간 전술 지원.\n• **다국어 지원:** 13개 언어 지원.',
       'gta5-historia': '안녕하세요, 저는 GOTY 5입니다. 현재 세부 사항을 조율 중입니다. 불편을 끼쳐 드려 죄송합니다.',
       'gta5-online': '안녕하세요, 저는 GOTY 5입니다. 현재 세부 사항을 조율 중입니다. 불편을 끼쳐 드려 죄송합니다.',
       'gta6-historia': '안녕하세요, 저는 GOTY 6입니다. 현재 세부 사항을 조율 중입니다. 불편을 끼쳐 드려 죄송합니다.',

@@ -251,6 +251,7 @@ staticContentTypeProvider.Mappings[".ico"] = "image/x-icon";
 staticContentTypeProvider.Mappings[".webp"] = "image/webp";
 staticContentTypeProvider.Mappings[".woff2"] = "font/woff2";
 staticContentTypeProvider.Mappings[".otf"] = "font/otf";
+staticContentTypeProvider.Mappings[".webmanifest"] = "application/manifest+json";
 
 app.UseStaticFiles(new StaticFileOptions
 {
