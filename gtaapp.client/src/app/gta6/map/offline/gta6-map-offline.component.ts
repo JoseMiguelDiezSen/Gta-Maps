@@ -277,7 +277,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
         goty: false
     };
 
-    userCustomMarkers: { id: string; name: string; color?: string; x?: number; y?: number }[] = [];
+    userCustomMarkers: { id: string; name: string; color?: string; x?: number; y?: number; visible?: boolean }[] = [];
     layerFilters: { [key: string]: boolean } = {};
     private clockInterval: ReturnType<typeof setInterval> | undefined;
 
@@ -543,7 +543,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
         this.targetCustomMarker = null;
     }
 
-    activeCustomMarker: { id: string; name: string; color?: string; x?: number; y?: number } | null = null;
+    activeCustomMarker: { id: string; name: string; color?: string; x?: number; y?: number; visible?: boolean } | null = null;
 
     readonly pushpinPalettes: Record<string, { s0: string; s35: string; s85: string; s100: string; rim1: string; rim2: string; hex: string }> = {
         red:    { s0: '#ff7575', s35: '#e61919', s85: '#a80707', s100: '#5a0000', rim1: '#8f0505', rim2: '#ff4444', hex: '#e61919' },
@@ -629,8 +629,24 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
         };
     }
 
+    toggleCustomMarker(cm: any): void {
+        cm.visible = cm.visible === false ? true : false;
+        this.saveCustomMarkers();
+    }
+
+    deleteAllCustomMarkers(): void {
+        this.userCustomMarkers = [];
+        this.activeCustomMarker = null;
+        this.targetCustomMarker = null;
+        this.saveCustomMarkers();
+    }
+
     focusCustomMarker(cm: any): void {
         if (!cm) return;
+        if (cm.visible === false) {
+            cm.visible = true;
+            this.saveCustomMarkers();
+        }
         this.updateCanvasDimensions();
         const posX = cm.x !== undefined ? cm.x : 1200;
         const posY = cm.y !== undefined ? cm.y : 675;
@@ -665,7 +681,8 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
                 name: defaultName,
                 color: 'red',
                 x: this.ctxWorldX !== undefined ? this.ctxWorldX : 1200,
-                y: this.ctxWorldY !== undefined ? this.ctxWorldY : 675
+                y: this.ctxWorldY !== undefined ? this.ctxWorldY : 675,
+                visible: true
             };
             this.userCustomMarkers.push(newMarker);
             this.saveCustomMarkers();
@@ -677,10 +694,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
         } else if (action === 'borrar_este_marcador' && this.targetCustomMarker) {
             this.deleteCustomMarker(this.targetCustomMarker);
         } else if (action === 'borrar') {
-            this.userCustomMarkers = [];
-            this.activeCustomMarker = null;
-            this.targetCustomMarker = null;
-            this.saveCustomMarkers();
+            this.deleteAllCustomMarkers();
         }
         this.closeContextMenu();
     }
@@ -704,7 +718,8 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
                         name: item.name || ((this.translationService.currentLang === 'es' ? 'Marcador ' : 'Marker ') + (idx + 1)),
                         color: item.color || 'red',
                         x: typeof item.x === 'number' ? item.x : (parseFloat(item.x) || 1200),
-                        y: typeof item.y === 'number' ? item.y : (parseFloat(item.y) || 675)
+                        y: typeof item.y === 'number' ? item.y : (parseFloat(item.y) || 675),
+                        visible: item.visible !== false
                     }));
                 }
             }

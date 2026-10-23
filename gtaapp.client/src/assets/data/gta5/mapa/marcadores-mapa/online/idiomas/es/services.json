@@ -132,7 +132,7 @@
       "color": "#e74c3c",
       "symbol": "🎯"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Ammuntation-Paleto-Bay.jpg"
   },
   {
     "id": "ammu-cypressflats",
@@ -1278,5 +1278,55 @@
       "symbol": "🎭"
     },
     "imageUrl": "/assets/images/gta5/marcadores-mapa/services/VespucciMoviemasks-Front-GTAV.png"
+  },
+  {
+    "id": "barber-paleto",
+    "name": "Peluquería (Paleto Bay)",
+    "category": "barber",
+    "categoryLabel": "Peluquería",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Peluquería",
+    "zone": "Paleto Bay",
+    "description": "Peluquería en Paleto Bay.",
+    "features": [
+      "Peluquería"
+    ],
+    "position": {
+      "x": -278.1,
+      "y": 6226.5,
+      "z": 31.5
+    },
+    "badge": {
+      "icon": "scissors",
+      "color": "#d97706",
+      "symbol": "✂️"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Paleto-Bay.jpg"
+  },
+  {
+    "id": "tattoo-paleto",
+    "name": "Salón de Tatuajes (Paleto Bay)",
+    "category": "tattoo",
+    "categoryLabel": "Salón de Tatuajes",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Tatuajes",
+    "zone": "Paleto Bay",
+    "description": "Salón de tatuajes en Paleto Bay.",
+    "features": [
+      "Tatuajes"
+    ],
+    "position": {
+      "x": -279.7,
+      "y": 6185.1,
+      "z": 31.5
+    },
+    "badge": {
+      "icon": "pen-nib",
+      "color": "#8b5cf6",
+      "symbol": "💉"
+    },
+    "imageUrl": ""
   }
 ]

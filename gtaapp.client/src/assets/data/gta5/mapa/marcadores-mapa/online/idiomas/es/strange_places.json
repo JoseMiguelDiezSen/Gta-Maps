@@ -89,25 +89,49 @@
     }
   },
   {
-    "id": "shipwreck-ship-1",
-    "name": "Submarino Merryweather (Norte)",
+    "id": "shipwreck-plane-6",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Cola-Avion-Us.jpg",
+    "name": "Cola Avión US",
     "category": "shipwreck",
     "categoryLabel": "Naufragios y Restos",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Restos del submarino al norte.",
+    "description": "",
     "features": [],
     "position": {
-      "x": 600,
-      "y": 6800,
-      "z": -100
+      "x": -1021.9,
+      "y": 6499.6,
+      "z": 0
     },
     "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-plane-7",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Turbina-Gigante-Avion.jpg",
+    "name": "Turbina Avión Gigante",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "",
+    "features": [],
+    "position": {
+      "x": -989.6,
+      "y": 6358.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   },
   {
@@ -125,28 +149,6 @@
       "x": 3500,
       "y": 1500,
       "z": -80
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
-    "id": "shipwreck-ship-3",
-    "name": "Yate Hundido (Sureste)",
-    "category": "shipwreck",
-    "categoryLabel": "Naufragios y Restos",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Restos de un yate al sureste.",
-    "features": [],
-    "position": {
-      "x": 3200,
-      "y": -1200,
-      "z": -50
     },
     "badge": {
       "icon": "ship",
@@ -257,28 +259,6 @@
       "x": -3000,
       "y": 3000,
       "z": -45
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
-    "id": "shipwreck-ship-10",
-    "name": "Naufragio Gordo (Noreste)",
-    "category": "shipwreck",
-    "categoryLabel": "Naufragios y Restos",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Naufragio cerca de Mount Gordo.",
-    "features": [],
-    "position": {
-      "x": 3450,
-      "y": 5450,
-      "z": -70
     },
     "badge": {
       "icon": "ship",
@@ -402,7 +382,54 @@
     }
   },
   {
+    "id": "shipwreck-ship-16",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RemolcaddorHundido.jpg",
+    "name": "Remolcador Hundido",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "",
+    "features": [],
+    "position": {
+      "x": 3787,
+      "y": 6300.9,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-ship-17",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Submarino-Nuclear-Hundido.jpg",
+    "name": "Submarino Nuclear",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "",
+    "features": [],
+    "position": {
+      "x": 2653.7,
+      "y": 6656.1,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
     "id": "strange-sunken-ufo",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Ovni.jpg",
     "name": "OVNI Hundido",
     "category": "fake_ufo",
     "categoryLabel": "OVNI",
@@ -425,109 +452,6 @@
       "icon": "user-astronaut",
       "color": "#9b59b6",
       "symbol": "🛸"
-    }
-  },
-  {
-    "id": "strange-cave-submerged",
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/CuevaSurAeropuerto.jpg",
-    "name": "Cueva Submarina",
-    "category": "cave",
-    "categoryLabel": "Cueva Submarina",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Lugar Extraño",
-    "zone": "San Andreas",
-    "description": "Cavidad rocosa y gruta sumergida en las profundidades oceánicas al sur de Los Santos. Accesible mediante inmersión submarina o equipo de buceo.",
-    "features": [
-      "Gruta rocosa en el lecho marino",
-      "Accesible con equipo de buceo o sumergible"
-    ],
-    "position": {
-      "x": 1091.3,
-      "y": -3566.8,
-      "z": -40
-    },
-    "badge": {
-      "icon": "water",
-      "color": "#0ea5e9",
-      "symbol": "🕳️"
-    }
-  },
-  {
-    "id": "strange-cave-tataviam",
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/CuevaSemiSubterranea.jpg",
-    "name": "Cueva",
-    "category": "cave",
-    "categoryLabel": "Cueva",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Lugar Extraño",
-    "zone": "San Andreas",
-    "description": "Cueva natural en la formación rocosa costera.",
-    "features": [
-      "Cavidad natural accesible por tierra o mar",
-      "Cueva en la costa este"
-    ],
-    "position": {
-      "x": 2960.3,
-      "y": 809.6,
-      "z": 5
-    },
-    "badge": {
-      "icon": "mountain",
-      "color": "#a0522d",
-      "symbol": "🕳️"
-    }
-  },
-  {
-    "id": "strange-cave-submerged-east",
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/CuevaSubmarinaEste2.jpg",
-    "name": "Cueva Submarina",
-    "category": "cave",
-    "categoryLabel": "Cueva Submarina",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Lugar Extraño",
-    "zone": "San Andreas (Costa Este)",
-    "description": "Gruta y cavidad rocosa submarina sumergida en las profundidades de la costa este.",
-    "features": [
-      "Cueva submarina en el lecho oceánico este",
-      "Accesible mediante inmersión con equipo de buceo o sumergible"
-    ],
-    "position": {
-      "x": 3756.5,
-      "y": 2686.2,
-      "z": -35
-    },
-    "badge": {
-      "icon": "water",
-      "color": "#0ea5e9",
-      "symbol": "🕳️"
-    }
-  },
-  {
-    "id": "strange-cave-submerged-northeast",
-    "name": "Cueva Submarina",
-    "category": "cave",
-    "categoryLabel": "Cueva Submarina",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Lugar Extraño",
-    "zone": "San Andreas (Costa Noreste)",
-    "description": "Gruta y cavidad rocosa submarina sumergida en las profundidades de la costa noreste.",
-    "features": [
-      "Cueva submarina en el lecho oceánico noreste",
-      "Accesible mediante inmersión con equipo de buceo o sumergible"
-    ],
-    "position": {
-      "x": 4002.1,
-      "y": 3879.2,
-      "z": -35
-    },
-    "badge": {
-      "icon": "water",
-      "color": "#0ea5e9",
-      "symbol": "🕳️"
     }
   }
 ]

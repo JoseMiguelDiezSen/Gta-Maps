@@ -198,6 +198,8 @@ export interface TranslationSchema {
       carWash: string;
       carWashShort: string;
       stripClub: string;
+      barber: string;
+      tattoo: string;
       activity: string;
       golf: string;
       darts: string;

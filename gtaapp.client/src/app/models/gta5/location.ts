@@ -45,6 +45,8 @@ export type LocationCategory =
   | 'convenience_store'
   | 'car_wash'
   | 'strip_club'
+  | 'barber'
+  | 'tattoo'
   | 'roleplay_job'
   | 'arena_war'
   | 'fake_ufo'

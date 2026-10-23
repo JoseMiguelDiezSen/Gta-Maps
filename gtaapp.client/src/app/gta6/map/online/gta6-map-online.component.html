@@ -50,6 +50,7 @@
       <div
         *ngFor="let cm of userCustomMarkers"
         class="gta6-marker-pin gta6-custom-pushpin"
+        [style.display]="cm.visible === false ? 'none' : ''"
         [ngStyle]="getMarkerStyle(cm)"
         [title]="cm.name"
         (mousedown)="$event.stopPropagation()"
@@ -461,11 +462,12 @@
             </div>
           </div>
           <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['marcadores']">
-            <div *ngFor="let cm of userCustomMarkers" class="legend-char-row">
+            <div *ngFor="let cm of userCustomMarkers" class="legend-char-row" [class.is-active]="cm.visible !== false">
               <button
                 type="button"
-                class="legend-btn legend-char-btn is-active"
-                (click)="focusCustomMarker(cm)"
+                class="legend-btn legend-char-btn"
+                [class.is-active]="cm.visible !== false"
+                (click)="toggleCustomMarker(cm)"
                 [title]="cm.name"
               >
                 <i class="legend-dot" [ngClass]="'marker-color-' + (cm.color || 'red')"></i>
@@ -485,6 +487,17 @@
                   <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                   <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                 </svg>
+              </button>
+            </div>
+            <div class="hud-markers-footer" *ngIf="userCustomMarkers.length > 0" style="margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.08);">
+              <button
+                type="button"
+                class="btn-marker-action btn-marker-delete"
+                (click)="deleteAllCustomMarkers()"
+                style="width: 100%; justify-content: center; padding: 6px 10px; font-size: 11px; font-weight: 700; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 6px;"
+              >
+                <span>🗑️</span>
+                <span>{{ 'gta6.settings.deleteAllMarkers' | translate }}</span>
               </button>
             </div>
             <div class="hud-acc-empty" *ngIf="userCustomMarkers.length === 0">
