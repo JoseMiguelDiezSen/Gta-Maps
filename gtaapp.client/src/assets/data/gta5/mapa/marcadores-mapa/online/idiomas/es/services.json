@@ -69,8 +69,8 @@
       "Galería de tiro interior para entrenar puntería"
     ],
     "position": {
-      "x": -3171.5,
-      "y": 1087.9,
+      "x": -3164.3,
+      "y": 1084.8,
       "z": 20.8
     },
     "badge": {
@@ -78,7 +78,7 @@
       "color": "#e74c3c",
       "symbol": "🎯"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Ammu-Nation-Chumash.jpg"
   },
   {
     "id": "ammu-sandyshores",
@@ -226,8 +226,8 @@
     },
     "zone": "Los Santos / Blaine County",
     "position": {
-      "x": -3286.2,
-      "y": 978.8,
+      "x": -3241.6,
+      "y": 1032.9,
       "z": 20
     },
     "description": "Tienda de ultramarinos 24/7 en Los Santos / Blaine County. Aperitivos y bebidas para recuperar vida, cajero ATM y caja registradora.",
@@ -237,7 +237,7 @@
       "Atracar al cajero para conseguir dinero al instante"
     ],
     "priceFormatted": "Supermercado 24/7",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-SandyShores.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/24-7-Chumash.jpg"
   },
   {
     "id": "store-12782",
@@ -1330,17 +1330,43 @@
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Salon-Tatuajes-Paleto-Bay.jpg"
   },
   {
+    "id": "tattoo-chumash",
+    "name": "Salón de Tatuajes (Chumash)",
+    "category": "tattoo",
+    "categoryLabel": "Salón de Tatuajes",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Tatuajes",
+    "zone": "Chumash",
+    "description": "Salón de tatuajes en Chumash.",
+    "features": [
+      "Tatuajes"
+    ],
+    "position": {
+      "x": -3172.1,
+      "y": 1071.5,
+      "z": 20.8
+    },
+    "badge": {
+      "icon": "pen-nib",
+      "color": "#8b5cf6",
+      "symbol": "💉"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tatto-Chumash.jpg"
+  },
+  {
     "id": "clothing-paleto-bay",
     "name": "Tienda de Ropa (Paleto Bay)",
     "category": "clothing_store",
-    "categoryLabel": "Tiendas de Ropa",
+    "categoryLabel": "Tienda de Ropa",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Tienda de Ropa",
+    "priceFormatted": "Discount Store",
     "zone": "Paleto Bay",
-    "description": "Tienda de ropa en Paleto Bay.",
+    "description": "Tienda de la franquicia Discount Store en Paleto Bay. Ropa informal, monos de trabajo y estilo rústico.",
     "features": [
-      "Tienda de ropa"
+      "Discount Store",
+      "Moda Informal"
     ],
     "position": {
       "x": 6.6,
@@ -1353,5 +1379,31 @@
       "symbol": "👕"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tienda-Ropa-Paleto-Bay.jpg"
+  },
+  {
+    "id": "clothing-chumash",
+    "name": "Tienda de Ropa (Chumash)",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "SubUrban",
+    "zone": "Chumash",
+    "description": "Tienda de la franquicia SubUrban en Chumash. Moda urbana, sudaderas, chaquetas y estilo streetwear.",
+    "features": [
+      "SubUrban",
+      "Moda Streetwear"
+    ],
+    "position": {
+      "x": -3166.6,
+      "y": 1055.0,
+      "z": 20.8
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Suburban-Chumash.jpg"
   }
 ]
