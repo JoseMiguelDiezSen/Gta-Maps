@@ -200,6 +200,8 @@ export interface TranslationSchema {
       stripClub: string;
       barber: string;
       tattoo: string;
+      clothingStore?: string;
+      clothingStoreShort?: string;
       activity: string;
       golf: string;
       darts: string;

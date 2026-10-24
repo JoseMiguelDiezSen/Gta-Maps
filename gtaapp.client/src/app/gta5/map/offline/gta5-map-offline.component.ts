@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, HostListener, ViewChild, effect } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, HostListener, ViewChild, ChangeDetectorRef, effect } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import * as L from 'leaflet';
@@ -153,42 +153,42 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         safehouse_franklin:   true,
         safehouse_trevor:     true,
         // Negocios comprables historia
-        purchasable_business: true,
+        purchasable_business: false,
         // Talleres
-        ls_customs:  true,
-        hao_garage:  true,
+        ls_customs:  false,
+        hao_garage:  false,
         // Servicios
-        police_station:    true,
-        hospital:          true,
-        fire_station:      true,
-        service:           true,
-        convenience_store: true,
-        mask_shop:         true,
-        car_wash:          true,
-        strip_club:        true,
-        barber:            true,
-        tattoo:            true,
+        police_station:    false,
+        hospital:          false,
+        fire_station:      false,
+        service:           false,
+        convenience_store: false,
+        mask_shop:         false,
+        car_wash:          false,
+        strip_club:        false,
+        barber:            false,
+        tattoo:            false,
         // Actividades
-        activity: true,
-        golf: true,
-        darts: true,
-        tennis: true,
-        stunt_jump: true,
-        under_the_bridge: true,
-        knife_flight: true,
-        parachuting: true,
+        activity: false,
+        golf: false,
+        darts: false,
+        tennis: false,
+        stunt_jump: false,
+        under_the_bridge: false,
+        knife_flight: false,
+        parachuting: false,
         // Lugares extraños
         fake_ufo:   true,
         shipwreck:  true,
         cave:       true,
         // Coleccionables de Historia
-        letter_scrap:   true,
-        spaceship_part: true,
-        nuclear_waste:  true,
-        submarine_part: true,
-        epsilon_tract:  true,
-        peyote_plant:   true,
-        monkey_mosaic:  true
+        letter_scrap:   false,
+        spaceship_part: false,
+        nuclear_waste:  false,
+        submarine_part: false,
+        epsilon_tract:  false,
+        peyote_plant:   false,
+        monkey_mosaic:  false
     };
 
     // -----------------------------------------------------------------------
@@ -390,7 +390,8 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         private locationService: LocationService,
         readonly translationService: TranslationService,
         private router: Router,
-        public gotyService: GotyService
+        public gotyService: GotyService,
+        private cdr: ChangeDetectorRef
     ) {
         effect(() => {
             const lang = this.translationService.currentLanguage();
@@ -454,7 +455,16 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 if (found.marker.getTooltip()) {
                     found.marker.setTooltipContent(`<b>${this.escapeHtml(found.name)}</b>`);
                 }
+                const existingPopup = found.marker.getPopup();
+                if (existingPopup) {
+                    (existingPopup as any)._content = this.buildCustomMarkerPopupHtml(found);
+                }
+                const inputEl = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
+                if (inputEl) {
+                    inputEl.setAttribute('value', found.name);
+                }
                 this.saveCustomMarkers();
+                this.cdr.detectChanges();
             }
         };
 
@@ -467,17 +477,23 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     this.targetCustomMarker = null;
                 }
                 this.saveCustomMarkers();
+                this.cdr.detectChanges();
             }
         };
 
         (window as any)._gtaSetMarkerColor = (id: string, color: string) => {
             const found = this.userCustomMarkers.find(m => m.id === id);
             if (found) {
+                const inputEl = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
+                if (inputEl && inputEl.value.trim()) {
+                    found.name = inputEl.value.trim();
+                }
                 found.color = color;
                 found.marker.setIcon(this.createPushpinIcon(color));
                 this.updateCustomMarkerPopup(found);
                 found.marker.openPopup();
                 this.saveCustomMarkers();
+                this.cdr.detectChanges();
             }
         };
     }
@@ -805,7 +821,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 this.allProperties.forEach(p => {
                     const filterKey = this.getPropertyFilterKey(p);
                     if (this.layerFilters[filterKey] === undefined) {
-                        this.layerFilters[filterKey] = true;
+                        this.layerFilters[filterKey] = false;
                     }
                 });
                 this.renderPropertyMarkers();
@@ -827,7 +843,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 this.allCollectibles = items;
                 this.allCollectibles.forEach(c => {
                     if (this.layerFilters[c.category] === undefined) {
-                        this.layerFilters[c.category] = true;
+                        this.layerFilters[c.category] = false;
                     }
                 });
                 this.renderCollectibleMarkers();
@@ -933,8 +949,11 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             const poiLbl = this.translationService.t('gta5.popups.pointOfInterest');
 
             const isShipwreck = p.category === 'shipwreck';
+            const isAnimal = p.category === 'animal' || (p.id && p.id.startsWith('animal-')) || p.categoryLabel === 'Fauna Salvaje';
 
-            const priceSectionHtml = isShipwreck
+            const priceSectionHtml = (isAnimal)
+                ? ''
+                : isShipwreck
                 ? `<div class="popup-service-tag-box popup-shipwreck-box"><span class="service-type-badge">${p.categoryLabel}</span></div>`
                 : isPurchasable
                 ? `<div class="popup-price-box"><span class="price-title">${priceLbl}</span> <span class="price-num">${p.priceFormatted}</span></div>`
@@ -1203,9 +1222,20 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
                     const world = this.latLngToWorld(this.ctxLatLng.lat, this.ctxLatLng.lng);
                     const m = L.marker(this.ctxLatLng, { icon: this.createPushpinIcon('red') });
-                    const item = { id, name, marker: m, latLng: this.ctxLatLng, color: 'red', x: world.x, y: world.y };
+                    const item = { id, name, marker: m, latLng: this.ctxLatLng, color: 'red', x: world.x, y: world.y, visible: true };
                     m.on('click', () => {
                         this.targetCustomMarker = item;
+                    });
+                    m.on('popupopen', () => {
+                        this.targetCustomMarker = item;
+                        const inputEl = document.getElementById('custom-marker-input-' + item.id) as HTMLInputElement | null;
+                        if (inputEl && inputEl.value !== item.name) {
+                            inputEl.value = item.name;
+                            inputEl.setAttribute('value', item.name);
+                        }
+                    });
+                    m.on('popupclose', () => {
+                        this.updateCustomMarkerPopup(item);
                     });
                     m.on('contextmenu', (e: L.LeafletMouseEvent) => {
                         L.DomEvent.stopPropagation(e);
@@ -1265,7 +1295,8 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 name: m.name,
                 color: m.color || 'red',
                 x: world.x,
-                y: world.y
+                y: world.y,
+                visible: m.visible !== false
             };
         });
         localStorage.setItem('gta5_custom_markers_story', JSON.stringify(serializable));
@@ -1301,6 +1332,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 const [lat, lng] = this.worldToLatLng(wx, wy);
                 const latLng = L.latLng(lat, lng);
                 const color = item.color || 'red';
+                const isVisible = item.visible !== false;
                 const m = L.marker(latLng, { icon: this.createPushpinIcon(color) });
                 const markerObj = {
                     id: item.id || ('custom-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9)),
@@ -1309,10 +1341,22 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     latLng: latLng,
                     color: color,
                     x: wx,
-                    y: wy
+                    y: wy,
+                    visible: isVisible
                 };
                 m.on('click', () => {
                     this.targetCustomMarker = markerObj;
+                });
+                m.on('popupopen', () => {
+                    this.targetCustomMarker = markerObj;
+                    const inputEl = document.getElementById('custom-marker-input-' + markerObj.id) as HTMLInputElement | null;
+                    if (inputEl && inputEl.value !== markerObj.name) {
+                        inputEl.value = markerObj.name;
+                        inputEl.setAttribute('value', markerObj.name);
+                    }
+                });
+                m.on('popupclose', () => {
+                    this.updateCustomMarkerPopup(markerObj);
                 });
                 m.on('contextmenu', (e: L.LeafletMouseEvent) => {
                     L.DomEvent.stopPropagation(e);
@@ -1323,7 +1367,9 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     this.ctxOpen = true;
                 });
                 this.updateCustomMarkerPopup(markerObj);
-                m.addTo(this.playerMarkersLayer);
+                if (isVisible) {
+                    m.addTo(this.playerMarkersLayer);
+                }
                 this.userCustomMarkers.push(markerObj);
             }
         } catch { }
@@ -1341,6 +1387,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             cm.marker.addTo(this.playerMarkersLayer);
             cm.visible = true;
         }
+        this.saveCustomMarkers();
     }
 
     deleteAllCustomMarkers(): void {
@@ -1356,6 +1403,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         if (cm.visible === false && this.playerMarkersLayer) {
             cm.marker.addTo(this.playerMarkersLayer);
             cm.visible = true;
+            this.saveCustomMarkers();
         }
         if (this._locatingMarkerHandler) {
             this.map.off('moveend', this._locatingMarkerHandler);
@@ -1428,8 +1476,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             .replace(/'/g, '&#39;');
     }
 
-    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string; x?: number; y?: number }): void {
-        const editLbl = this.translationService.t('gta5.popups.edit');
+    private buildCustomMarkerPopupHtml(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string; x?: number; y?: number }): string {
         const deleteLbl = this.translationService.t('gta5.popups.delete');
         const activeColor = item.color || 'red';
 
@@ -1457,7 +1504,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             ></button>
         `).join('');
 
-        const html = `
+        return `
             <div class="custom-marker-popup-card" style="border-top: 2px solid ${activeColorObj.hex}; border-radius: 8px;">
                 <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 14px 4px 14px;">
                     <input
@@ -1486,6 +1533,11 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 </div>
             </div>
         `;
+    }
+
+    private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string; x?: number; y?: number }): void {
+        const activeColor = item.color || 'red';
+        const html = this.buildCustomMarkerPopupHtml(item);
         const existingPopup = item.marker.getPopup();
         if (existingPopup) {
             existingPopup.setContent(html);

@@ -881,6 +881,18 @@
             <span class="legend-name">{{ 'gta5.layers.tattoo' | translate }}</span>
             <span class="legend-count">{{ getCategoryCount('tattoo') }}</span>
           </button>
+
+          <!-- Tiendas de Ropa -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['clothing_store']"
+            (click)="toggleLayer('clothing_store')"
+          >
+            <i class="legend-dot dot-clothing"></i>
+            <span class="legend-name">{{ 'gta5.layers.clothingStore' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('clothing_store') }}</span>
+          </button>
         </div>
       </div>
 
@@ -1054,30 +1066,30 @@
 
         <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['fauna']">
           <div
-            *ngFor="let animal of faunaAnimals"
+            *ngFor="let group of faunaGroups"
             class="legend-char-row"
-            [class.is-active]="layerFilters[animal.id]"
+            [class.is-active]="isFaunaGroupActive(group.keys)"
           >
             <button
               type="button"
               class="legend-btn legend-char-btn"
-              [class.is-active]="layerFilters[animal.id]"
-              (click)="toggleLayer(animal.id)"
-              [title]="animal.name"
+              [class.is-active]="isFaunaGroupActive(group.keys)"
+              (click)="toggleFaunaGroup(group.keys)"
+              [title]="group.name"
             >
-              <img *ngIf="animal.imageUrl" [src]="animal.imageUrl" class="legend-animal-thumb" [alt]="animal.name" onerror="this.style.display='none'" />
-              <i *ngIf="!animal.imageUrl" class="legend-dot" [style.background]="animal.badge.color" [style.box-shadow]="'0 0 6px ' + animal.badge.color"></i>
-              <span class="legend-name">{{ animal.name }}</span>
-              <span class="legend-count">1</span>
+              <img *ngIf="group.imageUrl" [src]="group.imageUrl" class="legend-animal-thumb" [alt]="group.name" onerror="this.style.display='none'" />
+              <i *ngIf="!group.imageUrl" class="legend-dot" [style.background]="group.color" [style.box-shadow]="'0 0 6px ' + group.color"></i>
+              <span class="legend-name">{{ group.name }}</span>
+              <span class="legend-count">{{ group.count }}</span>
             </button>
 
             <!-- Botón de localización y zoom directo SOLO para L.S. Tourist -->
             <button
-              *ngIf="animal.id === 'animal-ls-tourist'"
+              *ngIf="group.id === 'animal-ls-tourist'"
               type="button"
               class="char-zoom-btn"
-              (click)="zoomToCharacter(animal, $event)"
-              [title]="('gta5.settings.locateMarker' | translate) + ': ' + animal.name"
+              (click)="zoomToCharacter(faunaAnimals[0], $event)"
+              [title]="('gta5.settings.locateMarker' | translate) + ': ' + group.name"
             >
               <svg viewBox="0 0 24 24" class="char-zoom-svg">
                 <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8" fill="none" />

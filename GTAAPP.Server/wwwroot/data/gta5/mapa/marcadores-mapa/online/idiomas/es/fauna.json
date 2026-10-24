@@ -8,13 +8,9 @@
     "price": 0,
     "priceFormatted": "Desafío Diario",
     "zone": "Chiliad Mountain State Wilderness",
-    "description": "Tablón de anuncios de la Junta de Turismo de Los Santos. Ofrece el desafío diario de fotografía de fauna salvaje para ganar dinero GTA$, RP y desbloquear el vehículo Declasse Park Ranger.",
-    "features": [
-      "Desafío diario de fotografía de 3 animales salvajes",
-      "Recompensas en dinero GTA$ y RP",
-      "Desbloqueo del vehículo Declasse Park Ranger"
-    ],
-    "income": "Recompensa diaria por fotografía",
+    "description": "Desafíos diarios de fotografía de fauna para ganar GTA$, RP y desbloquear el Declasse Park Ranger.",
+    "features": [],
+    "income": "",
     "position": {
       "x": -1512.5,
       "y": 4947.8,
@@ -25,7 +21,7 @@
       "color": "#9b59b6",
       "symbol": "📷"
     },
-    "imageUrl": ""
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/LS-Tourist.jpg"
   },
   {
     "id": "animal-rabbit-hills",
@@ -85,7 +81,7 @@
   },
   {
     "id": "animal-cougar-tongva",
-    "name": "Puma / León de Montaña",
+    "name": "Puma",
     "category": "animal",
     "categoryLabel": "Fauna Salvaje",
     "gameMode": "online",
@@ -444,5 +440,31 @@
       "symbol": "🐳"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Ballena.jpg"
+  },
+  {
+    "id": "animal-cougar-alamo",
+    "name": "Puma",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Blaine County",
+    "description": "Depredador terrestre letal en Blaine County.",
+    "features": [
+      "Depredador agresivo",
+      "Objetivo de fotografía de fauna"
+    ],
+    "position": {
+      "x": 47.2,
+      "y": 3562.5,
+      "z": 40
+    },
+    "badge": {
+      "icon": "paw",
+      "color": "#e67e22",
+      "symbol": "🐆"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Cougar-GTAV.png"
   }
 ]

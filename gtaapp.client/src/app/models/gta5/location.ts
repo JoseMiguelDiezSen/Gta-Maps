@@ -47,6 +47,7 @@ export type LocationCategory =
   | 'strip_club'
   | 'barber'
   | 'tattoo'
+  | 'clothing_store'
   | 'roleplay_job'
   | 'arena_war'
   | 'fake_ufo'
