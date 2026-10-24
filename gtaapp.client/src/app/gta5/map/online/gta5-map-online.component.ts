@@ -1762,6 +1762,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             if (p.category === 'hospital') pinSymbol = '🩸';
             if (p.category === 'bunker') pinSymbol = '🔻';
             if (p.category === 'shipwreck') pinSymbol = '⚓';
+            if (p.category === 'cave') pinSymbol = '🕳️';
             if (p.category === 'fire_station' && (!pinSymbol || pinSymbol === 'BOM')) pinSymbol = '🚒';
             if (p.category === 'car_wash') pinSymbol = '🚿';
             if (p.category === 'arena_war') pinSymbol = '🏟️';
@@ -2202,6 +2203,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     }
 
     private mysteryMarker: L.Marker | null = null;
+    private mysteryMarkers: L.Marker[] = [];
 
     private getMysteryThumbnail(thumb?: string): string {
         if (!thumb) return '';
@@ -2259,6 +2261,110 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         if (this.mysteryMarker) {
             this.mysteryMarker.remove();
             this.mysteryMarker = null;
+        }
+        if (this.mysteryMarkers && this.mysteryMarkers.length > 0) {
+            this.mysteryMarkers.forEach(m => m.remove());
+            this.mysteryMarkers = [];
+        }
+
+        if (mystery.points && Array.isArray(mystery.points) && mystery.points.length > 0) {
+            const latLngs: L.LatLngTuple[] = [];
+
+            mystery.points.forEach((pt: any, idx: number) => {
+                const stepNum = pt.step || (idx + 1);
+                const [ptLat, ptLng] = this.worldToLatLng(pt.position.x, pt.position.y);
+                latLngs.push([ptLat, ptLng]);
+
+                const isSkull = stepNum >= 5;
+                const stepIcon = L.divIcon({
+                    className: 'gta-pin-mystery-pulse',
+                    html: `
+                        <div style="position: relative; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;">
+                            <div style="position: absolute; inset: 0; border-radius: 50%; background: ${isSkull ? '#dc2626' : pinColor}; opacity: 0.45; animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
+                            <div style="position: relative; width: 30px; height: 30px; border-radius: 50%; background: ${isSkull ? '#b91c1c' : pinColor}; border: 2px solid #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px ${isSkull ? '#dc2626' : pinColor}, 0 4px 10px rgba(0,0,0,0.8); color: #fff; font-size: ${isSkull ? '14px' : '13.5px'}; font-weight: 900; font-family: monospace;">
+                                ${isSkull ? '<i class="fa-solid fa-skull"></i>' : stepNum}
+                            </div>
+                            ${isSkull ? `
+                            <div style="position: absolute; top: -3px; right: -3px; background: #000; color: #fff; border: 1px solid rgba(255,255,255,0.7); border-radius: 50%; width: 16px; height: 16px; font-size: 9px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.6);">
+                                ${stepNum}
+                            </div>` : ''}
+                        </div>
+                    `,
+                    iconSize: [38, 38],
+                    iconAnchor: [19, 19],
+                    popupAnchor: [0, -20]
+                });
+
+                const pointTitle = pt.title || `${mystery.title} (Punto ${stepNum})`;
+                const pointDesc = pt.description || pt.tip || mystery.description;
+                const pointThumb = pt.thumbnail || mystery.thumbnail;
+
+                const ptPopupHtml = `
+                    <div class="gta-popup-card" style="width: 100%; box-sizing: border-box; background: ${bgGradient}; color: #fff; overflow: hidden; border-radius: 11px;">
+                        ${pointThumb ? `
+                        <div style="position: relative; width: 100%; height: 115px; overflow: hidden; background: #000; border-bottom: 2px solid ${pinColor};">
+                            <img src="${this.getMysteryThumbnail(pointThumb)}" alt="${pointTitle}" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.style.display='none'" />
+                            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(5,10,18,0.95) 100%);"></div>
+                            <span class="popup-badge" style="position: absolute; top: 8px; left: 8px; color: ${pinColor}; border: 1px solid ${pinColor}88; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); font-size: 9.5px; font-weight: 800; text-transform: uppercase; padding: 2px 7px; border-radius: 4px;">
+                                <i class="fa-solid ${isSkull ? 'fa-skull' : pinIcon}" style="margin-right: 4px;"></i>${isSkull ? 'Cadáver #' + (stepNum - 4) : (mystery.categoryLabel || 'Misterio') + ' #' + stepNum}
+                            </span>
+                            <button
+                                type="button"
+                                onclick="window._closeGtaMapPopup()"
+                                class="popup-card-close-btn"
+                                title="Cerrar"
+                                style="position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; background: rgba(0,0,0,0.75); border: 1px solid rgba(255,255,255,0.35); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 12px; padding: 0;"
+                            >
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                            <div style="position: absolute; bottom: 8px; left: 10px; right: 10px;">
+                                <h4 class="popup-title" style="margin: 0; font-size: 13.5px; font-weight: 800; line-height: 1.25; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.95);">${pointTitle}</h4>
+                            </div>
+                        </div>
+                        ` : `
+                        <div class="popup-banner" style="position: relative; background: linear-gradient(135deg, ${pinColor}44, rgba(5,10,18,0.95) 85%); border-bottom: 2px solid ${pinColor}; padding: 10px 12px 8px;">
+                            <span class="popup-badge" style="color: ${pinColor}; border: 1px solid ${pinColor}88; background: rgba(0,0,0,0.6); font-size: 9.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px;">
+                                <i class="fa-solid ${isSkull ? 'fa-skull' : pinIcon}" style="margin-right: 4px;"></i>${isSkull ? 'Cadáver #' + (stepNum - 4) : (mystery.categoryLabel || 'Misterio') + ' #' + stepNum}
+                            </span>
+                            <button
+                                type="button"
+                                onclick="window._closeGtaMapPopup()"
+                                class="popup-card-close-btn"
+                                title="Cerrar"
+                                style="position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; background: rgba(0,0,0,0.75); border: 1px solid rgba(255,255,255,0.35); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 20; font-size: 12px; padding: 0;"
+                            >
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                            <h4 class="popup-title" style="margin: 6px 0 0; font-size: 13.5px; font-weight: 800; color: #fff;">${pointTitle}</h4>
+                        </div>
+                        `}
+                        <div class="popup-content" style="padding: 10px 14px 14px 14px; display: flex; flex-direction: column; gap: 7px; background: transparent; width: 100%; box-sizing: border-box;">
+                            <div class="popup-zone" style="font-size: 11px; color: #94a3b8; display: flex; align-items: center; gap: 5px;">
+                                <i class="fa-solid fa-location-dot" style="color: #ec4899; font-size: 10px;"></i>
+                                <span style="color: #e2e8f0; font-weight: 600;">X: ${pt.position.x.toFixed(1)} | Y: ${pt.position.y.toFixed(1)}</span>
+                            </div>
+                            <div class="popup-desc" style="font-size: 11.5px; color: rgba(255,255,255,0.92); line-height: 1.48; margin-top: 2px; word-break: normal; overflow-wrap: break-word; white-space: normal; width: 100%; box-sizing: border-box;">
+                                ${pointDesc}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const m = L.marker([ptLat, ptLng], { icon: stepIcon }).addTo(this.map!);
+                m.bindPopup(ptPopupHtml, {
+                    className: `gta-leaflet-popup gta-mystery-popup ${themeClass}`,
+                    maxWidth: 320,
+                    minWidth: 260,
+                    closeButton: false
+                });
+                this.mysteryMarkers.push(m);
+            });
+
+            if (latLngs.length > 0) {
+                const bounds = L.latLngBounds(latLngs);
+                this.map.fitBounds(bounds, { padding: [60, 60], maxZoom: 5.5 });
+            }
+            return;
         }
 
         const customIcon = L.divIcon({

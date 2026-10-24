@@ -19,6 +19,18 @@ export interface GtaMystery {
     z: number;
     tip: string;
   };
+  points?: {
+    step: number;
+    title?: string;
+    position: {
+      x: number;
+      y: number;
+      z?: number;
+    };
+    description?: string;
+    tip?: string;
+    thumbnail?: string;
+  }[];
   description: string;
   summary?: string;
   lore: string;

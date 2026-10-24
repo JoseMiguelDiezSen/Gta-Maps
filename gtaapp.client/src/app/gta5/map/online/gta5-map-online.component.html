@@ -1238,6 +1238,18 @@
             <span class="legend-count">{{ getCategoryCount('shipwreck') }}</span>
           </button>
 
+          <!-- Cuevas -->
+          <button
+            type="button"
+            class="legend-btn"
+            [class.is-active]="layerFilters['cave']"
+            (click)="toggleLayer('cave')"
+          >
+            <i class="legend-dot dot-cave"></i>
+            <span class="legend-name">{{ 'gta5.layers.cave' | translate }}</span>
+            <span class="legend-count">{{ getCategoryCount('cave') }}</span>
+          </button>
+
         </div>
       </div>
       </ng-container>

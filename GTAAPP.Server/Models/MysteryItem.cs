@@ -57,6 +57,30 @@ public class MysteryObservationPoint
 }
 
 /// <summary>
+/// Punto secuencial o pista numerada asociada a una investigación o misterio con múltiples localizaciones.
+/// </summary>
+public class MysteryPoint
+{
+    [JsonPropertyName("step")]
+    public int Step { get; set; }
+
+    [JsonPropertyName("title")]
+    public string? Title { get; set; }
+
+    [JsonPropertyName("position")]
+    public MysteryPosition Position { get; set; } = new();
+
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
+    [JsonPropertyName("tip")]
+    public string? Tip { get; set; }
+
+    [JsonPropertyName("thumbnail")]
+    public string? Thumbnail { get; set; }
+}
+
+/// <summary>
 /// Modelo detallado de un misterio, suceso paranormal, leyenda urbana o secreto del mundo de GTA V.
 /// Contiene datos de investigación, pistas, condiciones climáticas/horarias y trasfondo narrativo.
 /// </summary>
@@ -127,6 +151,12 @@ public class MysteryItem
     /// </summary>
     [JsonPropertyName("observationPoint")]
     public MysteryObservationPoint? ObservationPoint { get; set; }
+
+    /// <summary>
+    /// Puntos o pasos múltiples asociados a una investigación (ej. Asesino del Infinito 8).
+    /// </summary>
+    [JsonPropertyName("points")]
+    public List<MysteryPoint>? Points { get; set; }
 
     /// <summary>
     /// Descripción detallada del fenómeno, lo que se ve y cómo interactuar.

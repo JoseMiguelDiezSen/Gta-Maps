@@ -221,7 +221,7 @@
   },
   {
     "id": "shipwreck-ship-8",
-    "name": "Remolcador (Zancudo)",
+    "name": "Remolcador Olifantus",
     "category": "shipwreck",
     "categoryLabel": "Naufragios y Restos",
     "gameMode": "both",
@@ -231,8 +231,8 @@
     "description": "Remolcador hundido.",
     "features": [],
     "position": {
-      "x": -3000,
-      "y": 3000,
+      "x": -3178.2,
+      "y": 3046.2,
       "z": -45
     },
     "badge": {
@@ -283,6 +283,50 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-plane-8",
+    "name": "Avión Militar Hundido",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "",
+    "features": [],
+    "position": {
+      "x": -3342.0,
+      "y": 3674.8,
+      "z": -40
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-plane-9",
+    "name": "Avión de Carga",
+    "category": "shipwreck",
+    "categoryLabel": "Naufragios y Restos",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "San Andreas",
+    "description": "",
+    "features": [],
+    "position": {
+      "x": -3236.0,
+      "y": 3670.5,
+      "z": -40
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   },
   {
@@ -358,6 +402,28 @@
     "badge": {
       "icon": "water",
       "color": "#0ea5e9",
+      "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "strange-cave-rocosa",
+    "name": "Cueva Rocosa",
+    "category": "cave",
+    "categoryLabel": "Cuevas",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Lugar Extraño",
+    "zone": "Tongva Hills",
+    "description": "",
+    "features": [],
+    "position": {
+      "x": -1925.2,
+      "y": 1377.1,
+      "z": 20
+    },
+    "badge": {
+      "icon": "mountain",
+      "color": "#a0522d",
       "symbol": "🕳️"
     }
   }
