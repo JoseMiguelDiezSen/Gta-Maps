@@ -309,7 +309,7 @@
   },
   {
     "id": "nightclub-downtown-vinewood",
-    "name": "Club Nocturno Downtown Vinewood",
+    "name": "Club del centro de Vinewood",
     "category": "nightclub",
     "categoryLabel": "Clubes Nocturnos",
     "gameMode": "online",
@@ -324,8 +324,8 @@
     ],
     "income": "Hasta $50,000 pasivos por día de juego",
     "position": {
-      "x": 350,
-      "y": 270,
+      "x": 376.3,
+      "y": 243.1,
       "z": 103
     },
     "badge": {
@@ -464,8 +464,8 @@
     ],
     "income": "Hasta $50,000 pasivos por día de juego",
     "position": {
-      "x": 750,
-      "y": -780,
+      "x": 753.0,
+      "y": -1330.3,
       "z": 26
     },
     "badge": {
@@ -1107,5 +1107,105 @@
       "symbol": "📋"
     },
     "imageUrl": "/assets/images/gta5/marcadores-mapa/businesses/DocumentForgeryOffice-GTAOe-ProductionUnderway.png"
+  },
+  {
+    "id": "bail-paleto-bay",
+    "name": "Oficina de Paleto Bay",
+    "category": "bail_office",
+    "categoryLabel": "Oficinas de Fianzas",
+    "gameMode": "online",
+    "price": 1650000,
+    "priceFormatted": "$1,650,000",
+    "zone": "Paleto Bay",
+    "position": {
+      "x": -53.8,
+      "y": 6508.3,
+      "z": 30
+    },
+    "badge": {
+      "icon": "handcuffs",
+      "color": "#d4ac0d",
+      "symbol": "⚖️"
+    }
+  },
+  {
+    "id": "bail-downtown-vinewood",
+    "name": "Oficina del Centro de Vinewood",
+    "category": "bail_office",
+    "categoryLabel": "Oficinas de Fianzas",
+    "gameMode": "online",
+    "price": 2620000,
+    "priceFormatted": "$2,620,000",
+    "zone": "Downtown Vinewood",
+    "position": {
+      "x": 118.7,
+      "y": 9.9,
+      "z": 30
+    },
+    "badge": {
+      "icon": "handcuffs",
+      "color": "#d4ac0d",
+      "symbol": "⚖️"
+    }
+  },
+  {
+    "id": "bail-del-perro",
+    "name": "Oficina de Del Perro",
+    "category": "bail_office",
+    "categoryLabel": "Oficinas de Fianzas",
+    "gameMode": "online",
+    "price": 2350000,
+    "priceFormatted": "$2,350,000",
+    "zone": "Del Perro",
+    "position": {
+      "x": -1416.7,
+      "y": -640.2,
+      "z": 30
+    },
+    "badge": {
+      "icon": "handcuffs",
+      "color": "#d4ac0d",
+      "symbol": "⚖️"
+    }
+  },
+  {
+    "id": "bail-mission-row",
+    "name": "Oficina de Mission Row",
+    "category": "bail_office",
+    "categoryLabel": "Oficinas de Fianzas",
+    "gameMode": "online",
+    "price": 2390000,
+    "priceFormatted": "$2,390,000",
+    "zone": "Mission Row",
+    "position": {
+      "x": 486.2,
+      "y": -938.1,
+      "z": 30
+    },
+    "badge": {
+      "icon": "handcuffs",
+      "color": "#d4ac0d",
+      "symbol": "⚖️"
+    }
+  },
+  {
+    "id": "bail-davis",
+    "name": "Oficina de Davis",
+    "category": "bail_office",
+    "categoryLabel": "Oficinas de Fianzas",
+    "gameMode": "online",
+    "price": 2000000,
+    "priceFormatted": "$2,000,000",
+    "zone": "Davis",
+    "position": {
+      "x": 134.8,
+      "y": -1711.6,
+      "z": 30
+    },
+    "badge": {
+      "icon": "handcuffs",
+      "color": "#d4ac0d",
+      "symbol": "⚖️"
+    }
   }
 ]

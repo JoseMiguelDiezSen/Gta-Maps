@@ -673,6 +673,18 @@
               <span class="legend-name">{{ 'gta5.layers.facility' | translate }}</span>
               <span class="legend-count">{{ getCategoryCount('facility') }}</span>
             </button>
+
+            <!-- Oficinas de Fianzas -->
+            <button
+              type="button"
+              class="legend-btn"
+              [class.is-active]="layerFilters['bail_office']"
+              (click)="toggleLayer('bail_office')"
+            >
+              <i class="legend-dot dot-bail"></i>
+              <span class="legend-name">{{ 'gta5.layers.bailOffice' | translate }}</span>
+              <span class="legend-count">{{ getCategoryCount('bail_office') }}</span>
+            </button>
         </div>
       </div>
 
