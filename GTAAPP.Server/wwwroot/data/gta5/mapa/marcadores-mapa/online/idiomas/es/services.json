@@ -174,8 +174,8 @@
     },
     "zone": "Los Santos / Blaine County",
     "position": {
-      "x": -2989.6,
-      "y": 416.9,
+      "x": -2966.7,
+      "y": 386.7,
       "z": 20
     },
     "description": "Tienda de ultramarinos 24/7 en Los Santos / Blaine County. Aperitivos y bebidas para recuperar vida, cajero ATM y caja registradora.",
@@ -185,7 +185,7 @@
       "Atracar al cajero para conseguir dinero al instante"
     ],
     "priceFormatted": "Supermercado 24/7",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/RobsLiquor-GTAOee-BanhamCanyon.jpg"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/RobsLiquor-GTAOee-BanhamCanyon.jpg"
   },
   {
     "id": "store-12780",
@@ -200,8 +200,8 @@
     },
     "zone": "Los Santos / Blaine County",
     "position": {
-      "x": -3072,
-      "y": 522.9,
+      "x": -3057.6,
+      "y": 627.8,
       "z": 20
     },
     "description": "Tienda de ultramarinos 24/7 en Los Santos / Blaine County. Aperitivos y bebidas para recuperar vida, cajero ATM y caja registradora.",
@@ -1358,14 +1358,15 @@
     "id": "clothing-paleto-bay",
     "name": "Tienda de Ropa (Paleto Bay)",
     "category": "clothing_store",
-    "categoryLabel": "Tiendas de Ropa",
+    "categoryLabel": "Tienda de Ropa",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Tienda de Ropa",
+    "priceFormatted": "Discount Store",
     "zone": "Paleto Bay",
-    "description": "Tienda de ropa en Paleto Bay.",
+    "description": "Tienda de la franquicia Discount Store en Paleto Bay. Ropa informal, monos de trabajo y estilo rústico.",
     "features": [
-      "Tienda de ropa"
+      "Discount Store",
+      "Moda Informal"
     ],
     "position": {
       "x": 6.6,
@@ -1378,5 +1379,31 @@
       "symbol": "👕"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tienda-Ropa-Paleto-Bay.jpg"
+  },
+  {
+    "id": "clothing-chumash",
+    "name": "Tienda de Ropa (Chumash)",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "SubUrban",
+    "zone": "Chumash",
+    "description": "Tienda de la franquicia SubUrban en Chumash. Moda urbana, sudaderas, chaquetas y estilo streetwear.",
+    "features": [
+      "SubUrban",
+      "Moda Streetwear"
+    ],
+    "position": {
+      "x": -3166.6,
+      "y": 1055.0,
+      "z": 20.8
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Suburban-Chumash.jpg"
   }
 ]
