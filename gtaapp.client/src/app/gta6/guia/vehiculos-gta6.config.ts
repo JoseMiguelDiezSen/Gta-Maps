@@ -1,10 +1,10 @@
-import { DealerCategory } from '../../models/gta5/vehicle';
+﻿import { DealerCategory } from '../../models/gta5/vehicle';
 
 /**
- * Concesionarios temáticos oficiales y confirmados de GTA VI (Leonida / Vice City).
- * Integra los concesionarios icónicos del lore (Sunshine Autos, Vice Luxury, Airgator, etc.)
+ * Concesionarios temáticos de GTA VI.
+ * Compatible con la estructura JSON de assets/data/gta6/guia/concesionarios-gta6.json
  */
-export const CONCESIONARIOS_GTA6: DealerCategory[] = [
+export const CATEGORIAS_VEHICULOS_GTA6: DealerCategory[] = [
   {
     id: 'sunshine_autos',
     name: 'Sunshine Autos',
@@ -54,5 +54,3 @@ export const CONCESIONARIOS_GTA6: DealerCategory[] = [
     description: 'Parque móvil oficial y táctico: patrullas del VCPD, SUVs policiales blindados y vehículos estatales.'
   }
 ];
-
-export const CATEGORIAS_VEHICULOS_GTA6: DealerCategory[] = CONCESIONARIOS_GTA6;
