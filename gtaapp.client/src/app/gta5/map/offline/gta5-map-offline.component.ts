@@ -237,9 +237,9 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
     switchGame(game: string): void {
         this.selectedGame = game;
         if (game === 'gta6') {
-            this.router.navigate(['/gta6-map-offline']);
+            this.router.navigate(['/gta6-map-offline']).catch(err => console.error('[Historia] Error en la navegación entre mapas:', err));
         } else {
-            this.router.navigate(['/gta5-map-offline']);
+            this.router.navigate(['/gta5-map-offline']).catch(err => console.error('[Historia] Error en la navegación entre mapas:', err));
         }
     }
 
@@ -1342,10 +1342,10 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             for (const item of parsed) {
                 let wx: number;
                 let wy: number;
-                if (typeof item.x === 'number' && typeof item.y === 'number' && !isNaN(item.x) && !isNaN(item.y)) {
+                if (typeof item.x === 'number' && typeof item.y === 'number' && !Number.isNaN(item.x) && !Number.isNaN(item.y)) {
                     wx = item.x;
                     wy = item.y;
-                } else if (typeof item.lat === 'number' && typeof item.lng === 'number' && !isNaN(item.lat) && !isNaN(item.lng)) {
+                } else if (typeof item.lat === 'number' && typeof item.lng === 'number' && !Number.isNaN(item.lat) && !Number.isNaN(item.lng)) {
                     const derived = this.latLngToWorld(item.lat, item.lng);
                     wx = derived.x;
                     wy = derived.y;
@@ -1663,7 +1663,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             navigator.clipboard.writeText(text).then(() => {
                 this.coordsCopied = true;
                 setTimeout(() => this.coordsCopied = false, 1800);
-            });
+            }).catch(err => console.error('[Historia] Error al copiar coordenadas al portapapeles:', err));
         }
     }
 

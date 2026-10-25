@@ -100,69 +100,23 @@ public class VehiclesService
         var cleanDealer = dealership?.Trim().ToLowerInvariant();
         if (cleanDealer == "especiales") cleanDealer = "pegasus";
 
-        // 1. Si el idioma solicitado no es español, buscar dataset localizado correspondiente
-        if (!lang.Equals("es", StringComparison.OrdinalIgnoreCase))
+        var targetLang = string.IsNullOrWhiteSpace(lang) ? "es" : lang.Trim().ToLowerInvariant();
+        var modularDir = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", targetLang, "vehicles");
+        if (!Directory.Exists(modularDir))
         {
-            string? localizedPath = null;
-            if (cleanDealer == "pegasus")
-            {
-                var hierPegasus = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", lang, "pegasus_vehicles.json");
-                if (File.Exists(hierPegasus)) localizedPath = hierPegasus;
-            }
-
-            if (localizedPath == null)
-            {
-                var hierVehicles = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", lang, "vehicles.json");
-                if (File.Exists(hierVehicles)) localizedPath = hierVehicles;
-            }
-
-            if (localizedPath != null)
-            {
-                var lastWriteLoc = File.GetLastWriteTimeUtc(localizedPath);
-                var locCacheKey = string.IsNullOrEmpty(cleanDealer) ? lang : $"{lang}:{cleanDealer}";
-                lock (_lock)
-                {
-                    if (_cache.TryGetValue(locCacheKey, out var cached) && cached.data != null && cached.lastModified >= lastWriteLoc)
-                    {
-                        return cached.data;
-                    }
-
-                    try
-                    {
-                        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                        using var stream = File.OpenRead(localizedPath);
-                        var list = JsonSerializer.Deserialize<List<GtaVehicle>>(stream, options) ?? [];
-                        foreach (var v in list)
-                        {
-                            if (!string.IsNullOrEmpty(v.ImageUrl) && v.ImageUrl.Contains("/assets/images/gta5/marcadores-mapa/"))
-                            {
-                                v.ImageUrl = v.ImageUrl.Replace("/assets/images/gta5/marcadores-mapa/", "/assets/images/gta5/mapa/marcadores-mapa/");
-                            }
-                        }
-                        _cache[locCacheKey] = (lastWriteLoc, list);
-                        return list;
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogError(ex, "Error al cargar dataset localizado de vehículos desde {Path}", localizedPath);
-                        return [];
-                    }
-                }
-            }
+            modularDir = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", "es", "vehicles");
         }
 
-        // Si se pide un concesionario concreto, verificamos si existe su archivo modular en español
         string? dealerPath = null;
-        if (!string.IsNullOrEmpty(cleanDealer))
+        if (!string.IsNullOrEmpty(cleanDealer) && Directory.Exists(modularDir))
         {
-            var pMapa = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", "es", "vehicles", $"{cleanDealer}.json");
+            var pMapa = Path.Combine(modularDir, $"{cleanDealer}.json");
             if (File.Exists(pMapa))
             {
                 dealerPath = pMapa;
             }
         }
 
-        var modularDir = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", "es", "vehicles");
         if (string.IsNullOrEmpty(cleanDealer) && Directory.Exists(modularDir))
         {
             var files = Directory.GetFiles(modularDir, "*.json");
@@ -171,7 +125,7 @@ public class VehiclesService
                 var latestWrite = files.Select(File.GetLastWriteTimeUtc).Max();
                 lock (_lock)
                 {
-                    if (_cache.TryGetValue(lang, out var cached) && cached.data != null && cached.lastModified >= latestWrite)
+                    if (_cache.TryGetValue(targetLang, out var cached) && cached.data != null && cached.lastModified >= latestWrite)
                     {
                         return cached.data;
                     }
@@ -196,7 +150,7 @@ public class VehiclesService
                                 combined.AddRange(subList);
                             }
                         }
-                        _cache[lang] = (latestWrite, combined);
+                        _cache[targetLang] = (latestWrite, combined);
                         return combined;
                     }
                     catch (Exception ex)
@@ -208,8 +162,8 @@ public class VehiclesService
             }
         }
 
-        // 1. Ruta jerárquica con el idioma solicitado: data/gta5/mapa/marcadores-mapa/online/idiomas/{lang}/vehicles.json
-        var hierPathMapa = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", lang, "vehicles.json");
+        // 1. Ruta jerárquica con el idioma solicitado: data/gta5/mapa/marcadores-mapa/online/idiomas/{targetLang}/vehicles.json
+        var hierPathMapa = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", targetLang, "vehicles.json");
         var esPathMapa = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", "es", "vehicles.json");
 
         var fullPath = dealerPath
@@ -222,7 +176,7 @@ public class VehiclesService
         }
 
         var lastWrite = File.GetLastWriteTimeUtc(fullPath);
-        var cacheKey = string.IsNullOrEmpty(cleanDealer) ? lang : $"{lang}:{cleanDealer}";
+        var cacheKey = string.IsNullOrEmpty(cleanDealer) ? targetLang : $"{targetLang}:{cleanDealer}";
 
         // Bloqueo thread-safe para lectura y refresco de caché
         lock (_lock)

@@ -917,7 +917,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }
 
     this.articleToc = toc;
-    return this.sanitizer.bypassSecurityTrustHtml(root.innerHTML);
+    return this.sanitizer.bypassSecurityTrustHtml(Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join(''));
   }
 
   private appendInline(parent: HTMLElement, text: string): void {

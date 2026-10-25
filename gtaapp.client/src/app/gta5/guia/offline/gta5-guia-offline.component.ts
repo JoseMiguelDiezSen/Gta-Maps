@@ -592,7 +592,8 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   hasSubcategorias(sec: GuiaSeccion | null): boolean {
     if (!sec) return false;
-    return false;
+    const sub = (sec as unknown as { subcategorias?: unknown[] }).subcategorias;
+    return Boolean(sub && sub.length > 0);
   }
 
   getGolpesList(): { id: string; titulo: string; icono: string; color: string; total: number; missionIds: string[] }[] {
@@ -1413,7 +1414,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       root.appendChild(currentList);
     }
 
-    return this.sanitizer.bypassSecurityTrustHtml(root.innerHTML);
+    return this.sanitizer.bypassSecurityTrustHtml(Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join(''));
   }
 
   private appendInline(parent: HTMLElement, text: string): void {

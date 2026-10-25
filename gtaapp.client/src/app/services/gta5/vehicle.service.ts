@@ -51,52 +51,17 @@ export class VehicleService {
   private loadLocalVehiclesFallback(dealership?: string, category?: string, activeLang = 'es', gameMode: 'story' | 'online' = 'online'): Observable<GtaVehicle[]> {
     const mode = gameMode === 'story' ? 'offline' : 'online';
     const normalizedDealer = dealership ? (dealership.toLowerCase() === 'especiales' ? 'pegasus' : dealership.toLowerCase()) : null;
-    const dealerPrimaryPath = normalizedDealer ? `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/es/vehicles/${normalizedDealer}.json` : null;
+    const dealerPrimaryPath = normalizedDealer ? `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/${activeLang}/vehicles/${normalizedDealer}.json` : null;
 
     const fetchDealer = (d: string) => {
-      const p1 = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/es/vehicles/${d}.json`;
+      const p1 = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/${activeLang}/vehicles/${d}.json`;
       return this.http.get<GtaVehicle[]>(p1).pipe(catchError(() => of([] as GtaVehicle[])));
     };
 
     const dealerNames = ['legendarymotorsport', 'superautos', 'bennys', 'elitas', 'docktease', 'warstock', 'pedal_and_metal', 'pegasus', 'arena_war'];
-    const baseSource$: Observable<GtaVehicle[]> = dealerPrimaryPath
+    const fetch$: Observable<GtaVehicle[]> = dealerPrimaryPath
       ? this.http.get<GtaVehicle[]>(dealerPrimaryPath).pipe(catchError(() => of([] as GtaVehicle[])))
-      : (mode === 'offline'
-          ? this.http.get<GtaVehicle[]>('/assets/data/gta5/mapa/marcadores-mapa/offline/idiomas/es/vehicles.json').pipe(catchError(() => of([] as GtaVehicle[])))
-          : forkJoin(dealerNames.map(d => fetchDealer(d))).pipe(map(lists => lists.flat())));
-
-    const fetchLocalized = () => {
-      const p1 = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/${activeLang}/vehicles.json`;
-      return this.http.get<Partial<GtaVehicle>[]>(p1).pipe(catchError(() => of([] as Partial<GtaVehicle>[])));
-    };
-
-    const fetch$: Observable<GtaVehicle[]> = activeLang === 'es'
-      ? baseSource$
-      : forkJoin({
-          base: baseSource$,
-          localized: fetchLocalized()
-        }).pipe(
-          map(({ base, localized }) => {
-            if (!base || base.length === 0) return (localized as GtaVehicle[]) || [];
-            if (!localized || localized.length === 0) return base;
-
-            const locMap = new Map<string, Partial<GtaVehicle>>();
-            localized.forEach(v => {
-              if (v && v.id) locMap.set(v.id, v);
-            });
-
-            return base.map(b => {
-              const trans = locMap.get(b.id);
-              if (!trans) return b;
-              return {
-                ...b,
-                name: trans.name || b.name,
-                description: trans.description || b.description,
-                priceFormatted: trans.priceFormatted || b.priceFormatted
-              };
-            });
-          })
-        );
+      : forkJoin(dealerNames.map(d => fetchDealer(d))).pipe(map(lists => lists.flat()));
 
     return fetch$.pipe(
       map(vehicles => {

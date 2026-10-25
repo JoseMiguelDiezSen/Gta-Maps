@@ -158,3 +158,11 @@ El asistente asume de forma inamovible que la arquitectura base del proyecto (Fr
 
 ## 43. PROHIBICIÓN ABSOLUTA DE AUTOGENERAR CONTENIDO O TEXTO NO SOLICITADO
 El asistente tiene TERMINANTEMENTE PROHIBIDO redactar, inventar o autogenerar textos, artículos, descripciones o datos de relleno sin que el usuario lo haya solicitado de forma explícita. Si se pide crear una estructura, componente, categoría o modelo, el asistente se limitará estrictamente a implementar la estructura técnica correspondiente (dejando los contenidos vacíos o neutros) sin rellenar con texto inventado ni asumir información que no haya sido provista directamente por el usuario.
+
+## 44. TOLERANCIA CERO A LA REINTRODUCCIÓN DE DEUDA TÉCNICA (HISTORIAL DE ESFUERZO Y CUOTA)
+El asistente operará en todo momento con plena consciencia del inmenso esfuerzo humano y de cuota que costó erradicar los casi 2.000 problemas acumulados de deuda técnica (reduciéndola en más de un 94%):
+* **Prohibición de Nuevos Monolitos**: Queda estrictamente prohibido volver a crear archivos JSON masivos (> 300 KB). Cualquier dataset nuevo debe nacer modularizado por categorías/concesionarios y con nomenclatura clara y comprensible para el usuario.
+* **Prohibición de Placeholders y Archivos Fantasma**: Prohibido crear archivos JSON vacíos (`[]` de 2 bytes) como parches provisionales. Lo que no exista o no aplique (ej. negocios en modo historia), no se crea como archivo huérfano.
+* **Blindaje de i18n y Seguridad de DOM**: Cero textos hardcodeados en HTML/TS y cero manipulaciones de DOM con `innerHTML`.
+* **Calidad Continua Estricta (Quality Gate PASSED Obligatorio)**: Toda nueva iteración debe mantener el Quality Gate en `PASSED` con **0 problemas nuevos** respecto a la línea base.
+* **No Repetición del Pasado**: Queda prohibido relajarse o volver a los hábitos desordenados que casi hunden la aplicación. Cada línea de código debe ser quirúrgica, limpia y con trazabilidad total.

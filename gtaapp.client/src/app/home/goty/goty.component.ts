@@ -282,6 +282,6 @@ export class GotyComponent implements OnInit, OnDestroy {
         root.appendChild(document.createTextNode(line.slice(lastIndex)));
       }
     });
-    return root.innerHTML;
+    return Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join('');
   }
 }

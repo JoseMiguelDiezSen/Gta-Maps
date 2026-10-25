@@ -8,6 +8,7 @@ import { GtaMystery } from '../models/gta5/mystery';
 import { GtaVehicle } from '../models/gta5/vehicle';
 import { GtaWeapon } from '../models/gta5/weapon';
 import { TranslationService } from '../i18n';
+import { VehicleService } from './gta5/vehicle.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class GuiaService {
 
   private readonly http = inject(HttpClient);
   private readonly translationService = inject(TranslationService);
+  private readonly vehicleService = inject(VehicleService);
 
   constructor() {}
 
@@ -637,19 +639,7 @@ export class GuiaService {
   }
 
   getVehiculosGuiaOnline(dealershipId?: string): Observable<GtaVehicle[]> {
-    return this.getGuiaRootJson<GtaVehicle[]>('gta5', 'guia-vehicles-online.json').pipe(
-      map(list => {
-        if (!list) return [];
-        let items = list;
-        if (dealershipId) {
-          const norm = dealershipId.toLowerCase();
-          items = items.filter(v => (v.dealership || '').toLowerCase() === norm);
-        }
-        return items;
-      }),
-      catchError(() => of([])),
-      shareReplay(1)
-    );
+    return this.vehicleService.getVehicles(dealershipId, undefined, 'online');
   }
 
   getVehiculosGuiaGta6(mode: 'offline' | 'online', dealershipId?: string): Observable<GtaVehicle[]> {

@@ -63,7 +63,7 @@ public class SecurityHeadersMiddleware
             {
                 error = "Forbidden",
                 message = "Acceso automatizado no permitido."
-            });
+            }, cancellationToken: context.RequestAborted);
             return;
         }
 
@@ -93,7 +93,7 @@ public class SecurityHeadersMiddleware
                 {
                     error = "Forbidden",
                     message = "No está permitido el acceso externo a los datos de la aplicación."
-                });
+                }, cancellationToken: context.RequestAborted);
                 return;
             }
         }
@@ -130,7 +130,7 @@ public class SecurityHeadersMiddleware
                 {
                     error = "Method Not Allowed",
                     message = "El método POST no está permitido en este recurso."
-                });
+                }, cancellationToken: context.RequestAborted);
                 return;
             }
         }
@@ -143,7 +143,7 @@ public class SecurityHeadersMiddleware
             {
                 error = "Method Not Allowed",
                 message = $"El método {method} no está permitido en este servidor."
-            });
+            }, cancellationToken: context.RequestAborted);
             return;
         }
 
