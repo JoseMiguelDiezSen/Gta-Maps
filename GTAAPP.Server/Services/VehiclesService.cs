@@ -133,7 +133,17 @@ public class VehiclesService
                         {
                             using var s = File.OpenRead(file);
                             var subList = JsonSerializer.Deserialize<List<GtaVehicle>>(s, options);
-                            if (subList != null) combined.AddRange(subList);
+                            if (subList != null)
+                            {
+                                foreach (var v in subList)
+                                {
+                                    if (!string.IsNullOrEmpty(v.ImageUrl) && v.ImageUrl.Contains("/assets/images/gta5/marcadores-mapa/"))
+                                    {
+                                        v.ImageUrl = v.ImageUrl.Replace("/assets/images/gta5/marcadores-mapa/", "/assets/images/gta5/mapa/marcadores-mapa/");
+                                    }
+                                }
+                                combined.AddRange(subList);
+                            }
                         }
                         _cache[lang] = (latestWrite, combined);
                         return combined;
@@ -177,6 +187,13 @@ public class VehiclesService
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 using var stream = File.OpenRead(fullPath);
                 var list = JsonSerializer.Deserialize<List<GtaVehicle>>(stream, options) ?? [];
+                foreach (var v in list)
+                {
+                    if (!string.IsNullOrEmpty(v.ImageUrl) && v.ImageUrl.Contains("/assets/images/gta5/marcadores-mapa/"))
+                    {
+                        v.ImageUrl = v.ImageUrl.Replace("/assets/images/gta5/marcadores-mapa/", "/assets/images/gta5/mapa/marcadores-mapa/");
+                    }
+                }
                 _cache[cacheKey] = (lastWrite, list);
                 return list;
             }

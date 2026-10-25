@@ -1,1409 +1,1255 @@
-﻿[
-    {
-        "id":  "ammu-vinewood",
-        "name":  "Ammu-Nation (Vinewood)",
-        "category":  "service",
-        "categoryLabel":  "service",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "ÐžÑ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½",
-        "zone":  "Vinewood",
-        "description":  "ÐžÑ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¾Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ Ammu-Nation Ð² Vinewood. Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ñ‹Ðµ Ð²Ð¸Ð½Ñ‚Ð¾Ð²ÐºÐ¸, Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹, Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÑ‹ Ð¸ Ñ‚Ð¸Ñ€.",
-        "features":  [
-                         "Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ð¾Ðµ Ð¾Ñ€ÑƒÐ¶Ð¸Ðµ Ð¸ Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹",
-                         "ÐŸÐ¾Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÐ¾Ð² Ð¸ Ð²Ð·Ñ€Ñ‹Ð²Ñ‡Ð°Ñ‚ÐºÐ°",
-                         "ÐšÑ€Ñ‹Ñ‚Ñ‹Ð¹ Ñ‚Ð¸Ñ€ Ð´Ð»Ñ Ð¿Ñ€Ð¾ÐºÐ°Ñ‡ÐºÐ¸ Ð½Ð°Ð²Ñ‹ÐºÐ° ÑÑ‚Ñ€ÐµÐ»ÑŒÐ±Ñ‹"
-                     ],
-        "position":  {
-                         "x":  252.3,
-                         "y":  -48.2,
-                         "z":  69.9
-                     },
-        "badge":  {
-                      "icon":  "crosshair",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸŽ¯"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+[
+  {
+    "id": "ammu-vinewood",
+    "name": "Ammu-Nation (Vinewood)",
+    "category": "service",
+    "categoryLabel": "service",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Оружейный магазин",
+    "zone": "Vinewood",
+    "description": "Официальный оружейный магазин Ammu-Nation в Vinewood. Штурмовые винтовки, бронежилеты, боеприпасы и тир.",
+    "features": [
+      "Штурмовое оружие и бронежилеты",
+      "Пополнение боеприпасов и взрывчатка",
+      "Крытый тир для прокачки навыка стрельбы"
+    ],
+    "position": {
+      "x": 252.3,
+      "y": -48.2,
+      "z": 69.9
     },
-    {
-        "id":  "ammu-pillbox",
-        "name":  "Ammu-Nation (Pillbox Hill)",
-        "category":  "service",
-        "categoryLabel":  "service",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "ÐžÑ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½",
-        "zone":  "ÐŸÐ¸Ð»Ð»Ð±Ð¾ÐºÑ-Ð¥Ð¸Ð»Ð»",
-        "description":  "ÐžÑ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¾Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ Ammu-Nation Ð² Pillbox Hill. Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ñ‹Ðµ Ð²Ð¸Ð½Ñ‚Ð¾Ð²ÐºÐ¸, Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹, Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÑ‹ Ð¸ Ñ‚Ð¸Ñ€.",
-        "features":  [
-                         "Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ð¾Ðµ Ð¾Ñ€ÑƒÐ¶Ð¸Ðµ Ð¸ Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹",
-                         "ÐŸÐ¾Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÐ¾Ð² Ð¸ Ð²Ð·Ñ€Ñ‹Ð²Ñ‡Ð°Ñ‚ÐºÐ°",
-                         "ÐšÑ€Ñ‹Ñ‚Ñ‹Ð¹ Ñ‚Ð¸Ñ€ Ð´Ð»Ñ Ð¿Ñ€Ð¾ÐºÐ°Ñ‡ÐºÐ¸ Ð½Ð°Ð²Ñ‹ÐºÐ° ÑÑ‚Ñ€ÐµÐ»ÑŒÐ±Ñ‹"
-                     ],
-        "position":  {
-                         "x":  20.9,
-                         "y":  -1106.5,
-                         "z":  29.8
-                     },
-        "badge":  {
-                      "icon":  "crosshair",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸŽ¯"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+    "badge": {
+      "icon": "crosshair",
+      "color": "#e74c3c",
+      "symbol": "🎯"
     },
-    {
-        "id":  "ammu-chumash",
-        "name":  "Ammu-Nation (Chumash)",
-        "category":  "service",
-        "categoryLabel":  "service",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "ÐžÑ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½",
-        "zone":  "Ð§ÑƒÐ¼Ð°Ñˆ",
-        "description":  "ÐžÑ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¾Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ Ammu-Nation Ð² Chumash. Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ñ‹Ðµ Ð²Ð¸Ð½Ñ‚Ð¾Ð²ÐºÐ¸, Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹, Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÑ‹ Ð¸ Ñ‚Ð¸Ñ€.",
-        "features":  [
-                         "Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ð¾Ðµ Ð¾Ñ€ÑƒÐ¶Ð¸Ðµ Ð¸ Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹",
-                         "ÐŸÐ¾Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÐ¾Ð² Ð¸ Ð²Ð·Ñ€Ñ‹Ð²Ñ‡Ð°Ñ‚ÐºÐ°",
-                         "ÐšÑ€Ñ‹Ñ‚Ñ‹Ð¹ Ñ‚Ð¸Ñ€ Ð´Ð»Ñ Ð¿Ñ€Ð¾ÐºÐ°Ñ‡ÐºÐ¸ Ð½Ð°Ð²Ñ‹ÐºÐ° ÑÑ‚Ñ€ÐµÐ»ÑŒÐ±Ñ‹"
-                     ],
-        "position":  {
-                         "x":  -3164.3,
-                         "y":  1084.8,
-                         "z":  20.8
-                     },
-        "badge":  {
-                      "icon":  "crosshair",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸŽ¯"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+  },
+  {
+    "id": "ammu-pillbox",
+    "name": "Ammu-Nation (Pillbox Hill)",
+    "category": "service",
+    "categoryLabel": "service",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Оружейный магазин",
+    "zone": "Пиллбокс-Хилл",
+    "description": "Официальный оружейный магазин Ammu-Nation в Pillbox Hill. Штурмовые винтовки, бронежилеты, боеприпасы и тир.",
+    "features": [
+      "Штурмовое оружие и бронежилеты",
+      "Пополнение боеприпасов и взрывчатка",
+      "Крытый тир для прокачки навыка стрельбы"
+    ],
+    "position": {
+      "x": 20.9,
+      "y": -1106.5,
+      "z": 29.8
     },
-    {
-        "id":  "ammu-sandyshores",
-        "name":  "Ammu-Nation (Sandy Shores)",
-        "category":  "service",
-        "categoryLabel":  "service",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "ÐžÑ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½",
-        "zone":  "Ð¡ÑÐ½Ð´Ð¸-Ð¨Ð¾Ñ€Ñ",
-        "description":  "ÐžÑ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¾Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ Ammu-Nation Ð² Sandy Shores. Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ñ‹Ðµ Ð²Ð¸Ð½Ñ‚Ð¾Ð²ÐºÐ¸, Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹, Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÑ‹ Ð¸ Ñ‚Ð¸Ñ€.",
-        "features":  [
-                         "Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ð¾Ðµ Ð¾Ñ€ÑƒÐ¶Ð¸Ðµ Ð¸ Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹",
-                         "ÐŸÐ¾Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÐ¾Ð² Ð¸ Ð²Ð·Ñ€Ñ‹Ð²Ñ‡Ð°Ñ‚ÐºÐ°",
-                         "ÐšÑ€Ñ‹Ñ‚Ñ‹Ð¹ Ñ‚Ð¸Ñ€ Ð´Ð»Ñ Ð¿Ñ€Ð¾ÐºÐ°Ñ‡ÐºÐ¸ Ð½Ð°Ð²Ñ‹ÐºÐ° ÑÑ‚Ñ€ÐµÐ»ÑŒÐ±Ñ‹"
-                     ],
-        "position":  {
-                         "x":  1693.4,
-                         "y":  3759.5,
-                         "z":  34.7
-                     },
-        "badge":  {
-                      "icon":  "crosshair",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸŽ¯"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Ammu-Nation-GTAV-SandyShores.jpg"
+    "badge": {
+      "icon": "crosshair",
+      "color": "#e74c3c",
+      "symbol": "🎯"
     },
-    {
-        "id":  "ammu-paleto",
-        "name":  "Ammu-Nation (Paleto Bay)",
-        "category":  "service",
-        "categoryLabel":  "service",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "ÐžÑ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½",
-        "zone":  "ÐŸÐ°Ð»ÐµÑ‚Ð¾-Ð‘ÑÐ¹",
-        "description":  "ÐžÑ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¾Ñ€ÑƒÐ¶ÐµÐ¹Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ Ammu-Nation Ð² Paleto Bay. Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ñ‹Ðµ Ð²Ð¸Ð½Ñ‚Ð¾Ð²ÐºÐ¸, Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹, Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÑ‹ Ð¸ Ñ‚Ð¸Ñ€.",
-        "features":  [
-                         "Ð¨Ñ‚ÑƒÑ€Ð¼Ð¾Ð²Ð¾Ðµ Ð¾Ñ€ÑƒÐ¶Ð¸Ðµ Ð¸ Ð±Ñ€Ð¾Ð½ÐµÐ¶Ð¸Ð»ÐµÑ‚Ñ‹",
-                         "ÐŸÐ¾Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð±Ð¾ÐµÐ¿Ñ€Ð¸Ð¿Ð°ÑÐ¾Ð² Ð¸ Ð²Ð·Ñ€Ñ‹Ð²Ñ‡Ð°Ñ‚ÐºÐ°",
-                         "ÐšÑ€Ñ‹Ñ‚Ñ‹Ð¹ Ñ‚Ð¸Ñ€ Ð´Ð»Ñ Ð¿Ñ€Ð¾ÐºÐ°Ñ‡ÐºÐ¸ Ð½Ð°Ð²Ñ‹ÐºÐ° ÑÑ‚Ñ€ÐµÐ»ÑŒÐ±Ñ‹"
-                     ],
-        "position":  {
-                         "x":  -330.2,
-                         "y":  6083.9,
-                         "z":  31.5
-                     },
-        "badge":  {
-                      "icon":  "crosshair",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸŽ¯"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+  },
+  {
+    "id": "ammu-chumash",
+    "name": "Ammu-Nation (Chumash)",
+    "category": "service",
+    "categoryLabel": "service",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Оружейный магазин",
+    "zone": "Чумаш",
+    "description": "Официальный оружейный магазин Ammu-Nation в Chumash. Штурмовые винтовки, бронежилеты, боеприпасы и тир.",
+    "features": [
+      "Штурмовое оружие и бронежилеты",
+      "Пополнение боеприпасов и взрывчатка",
+      "Крытый тир для прокачки навыка стрельбы"
+    ],
+    "position": {
+      "x": -3171.5,
+      "y": 1087.9,
+      "z": 20.8
     },
-    {
-        "id":  "ammu-cypressflats",
-        "name":  "Ammu-Nation (Cypress Flats)",
-        "category":  "service",
-        "categoryLabel":  "Tiendas y Servicios",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Tienda de Armas",
-        "zone":  "Cypress Flats",
-        "description":  "ArmerÃ­a Ammu-Nation oficial en Cypress Flats. Venta de fusiles, blindajes, municiÃ³n, explosivos y galerÃ­a de tiro.",
-        "features":  [
-                         "Fusiles de asalto y blindaje de chalecos antibalas",
-                         "Recarga completa de municiÃ³n, granadas y explosivos",
-                         "GalerÃ­a de tiro interior para entrenar punterÃ­a"
-                     ],
-        "position":  {
-                         "x":  815.6,
-                         "y":  -2154.9,
-                         "z":  29.6
-                     },
-        "badge":  {
-                      "icon":  "crosshair",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸŽ¯"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+    "badge": {
+      "icon": "crosshair",
+      "color": "#e74c3c",
+      "symbol": "🎯"
     },
-    {
-        "id":  "store-12779",
-        "name":  "Rob\u0027s Liquor #1",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  -2966.7,
-                         "y":  386.7,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/RobsLiquor-GTAOee-BanhamCanyon.jpg"
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+  },
+  {
+    "id": "ammu-sandyshores",
+    "name": "Ammu-Nation (Sandy Shores)",
+    "category": "service",
+    "categoryLabel": "service",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Оружейный магазин",
+    "zone": "Сэнди-Шорс",
+    "description": "Официальный оружейный магазин Ammu-Nation в Sandy Shores. Штурмовые винтовки, бронежилеты, боеприпасы и тир.",
+    "features": [
+      "Штурмовое оружие и бронежилеты",
+      "Пополнение боеприпасов и взрывчатка",
+      "Крытый тир для прокачки навыка стрельбы"
+    ],
+    "position": {
+      "x": 1693.4,
+      "y": 3759.5,
+      "z": 34.7
     },
-    {
-        "id":  "store-12780",
-        "name":  "24/7 Supermarket #2",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  -3057.6,
-                         "y":  627.8,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-SenoraDesert.png"
+    "badge": {
+      "icon": "crosshair",
+      "color": "#e74c3c",
+      "symbol": "🎯"
     },
-    {
-        "id":  "store-12781",
-        "name":  "24/7 Supermarket #3",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  -3241.6,
-                         "y":  1032.9,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-SandyShores.png"
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/Ammu-Nation-GTAV-SandyShores.jpg"
+  },
+  {
+    "id": "ammu-paleto",
+    "name": "Ammu-Nation (Paleto Bay)",
+    "category": "service",
+    "categoryLabel": "service",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Оружейный магазин",
+    "zone": "Палето-Бэй",
+    "description": "Официальный оружейный магазин Ammu-Nation в Paleto Bay. Штурмовые винтовки, бронежилеты, боеприпасы и тир.",
+    "features": [
+      "Штурмовое оружие и бронежилеты",
+      "Пополнение боеприпасов и взрывчатка",
+      "Крытый тир для прокачки навыка стрельбы"
+    ],
+    "position": {
+      "x": -330.2,
+      "y": 6083.9,
+      "z": 31.5
     },
-    {
-        "id":  "store-12782",
-        "name":  "Limited LTD Gasoline #4",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  -1818.9,
-                         "y":  788.1,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/LTDGasoline-GTAV-Grapeseed.png"
+    "badge": {
+      "icon": "crosshair",
+      "color": "#e74c3c",
+      "symbol": "🎯"
     },
-    {
-        "id":  "store-12783",
-        "name":  "Convenience ÐœÐ°Ð³Ð°Ð·Ð¸Ð½ 24/7 #5",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  558.9,
-                         "y":  2649.9,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-Procopio.png"
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/Ammu-nation_Gun_shop.GTAV.jpg"
+  },
+  {
+    "id": "store-12779",
+    "name": "Rob's Liquor #1",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "store-12784",
-        "name":  "Convenience ÐœÐ°Ð³Ð°Ð·Ð¸Ð½ 24/7 #6",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  1194.7,
-                         "y":  2695,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-Harmony.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": -2989.6,
+      "y": 416.9,
+      "z": 20
     },
-    {
-        "id":  "store-12785",
-        "name":  "Convenience ÐœÐ°Ð³Ð°Ð·Ð¸Ð½ 24/7 #7",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  1420.3,
-                         "y":  3590.9,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-BarbarenoRd.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/RobsLiquor-GTAOee-BanhamCanyon.jpg"
+  },
+  {
+    "id": "store-12780",
+    "name": "24/7 Supermarket #2",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "store-12786",
-        "name":  "24/7 Supermarket #8",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  1995.3,
-                         "y":  3729.7,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-InesenoRd.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": -3072,
+      "y": 522.9,
+      "z": 20
     },
-    {
-        "id":  "store-12787",
-        "name":  "24/7 Supermarket #9",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  2706.6,
-                         "y":  3251.3,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-ClintonAve.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-SenoraDesert.png"
+  },
+  {
+    "id": "store-12781",
+    "name": "24/7 Supermarket #3",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "store-12788",
-        "name":  "Limited LTD Gasoline #10",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  1735.3,
-                         "y":  4903.2,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/LTDGasoline-GTAV-RichmanGlen.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": -3286.2,
+      "y": 978.8,
+      "z": 20
     },
-    {
-        "id":  "store-12789",
-        "name":  "24/7 Supermarket #11",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  1731.9,
-                         "y":  6398.2,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-TataviamMountains.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-SandyShores.png"
+  },
+  {
+    "id": "store-12782",
+    "name": "Limited LTD Gasoline #4",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "store-12790",
-        "name":  "24/7 Supermarket #12",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  2620.7,
-                         "y":  351.4,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-Strawberry.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": -1818.9,
+      "y": 788.1,
+      "z": 20
     },
-    {
-        "id":  "store-12791",
-        "name":  "Rob\u0027s Liquor #13",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  1154.6,
-                         "y":  -1013.9,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/RobsLiquor-GTAOee-Morningwood.jpg"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/LTDGasoline-GTAV-Grapeseed.png"
+  },
+  {
+    "id": "store-12783",
+    "name": "Convenience Магазин 24/7 #5",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "store-12792",
-        "name":  "Limited LTD Gasoline #14",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  1178.6,
-                         "y":  -310.9,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/LTDGasoline-GTAV-MirrorPark.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 558.9,
+      "y": 2649.9,
+      "z": 20
     },
-    {
-        "id":  "store-12793",
-        "name":  "24/7 Supermarket #15",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  364.2,
-                         "y":  325.5,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-SenoraDesert.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-Procopio.png"
+  },
+  {
+    "id": "store-12784",
+    "name": "Convenience Магазин 24/7 #6",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "store-12794",
-        "name":  "24/7 Supermarket #16",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  44.7,
-                         "y":  -1345.6,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/247-GTAVee-SandyShores.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 1194.7,
+      "y": 2695,
+      "z": 20
     },
-    {
-        "id":  "store-12795",
-        "name":  "Limited LTD Gasoline #17",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  -43.5,
-                         "y":  -1757.5,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/LTDGasoline-GTAV-LittleSeoul.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-Harmony.png"
+  },
+  {
+    "id": "store-12785",
+    "name": "Convenience Магазин 24/7 #7",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "store-12796",
-        "name":  "Rob\u0027s Liquor #18",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  -1203.8,
-                         "y":  -905.6,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/RobsLiquor-GTAOee-VespucciCanals.jpg"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 1420.3,
+      "y": 3590.9,
+      "z": 20
     },
-    {
-        "id":  "store-12797",
-        "name":  "Rob\u0027s Liquor #19",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  -1495.9,
-                         "y":  -394.4,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/RobsLiquor-GTAVee-MurietaHeights.jpg"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-BarbarenoRd.png"
+  },
+  {
+    "id": "store-12786",
+    "name": "24/7 Supermarket #8",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "store-12922",
-        "name":  "Limited LTD Gasoline #20",
-        "price":  0,
-        "category":  "convenience_store",
-        "categoryLabel":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸª",
-                      "color":  "#2ecc71"
-                  },
-        "zone":  "Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ / ÐžÐºÑ€ÑƒÐ³ Ð‘Ð»ÐµÐ¹Ð½",
-        "position":  {
-                         "x":  -714.3,
-                         "y":  -913.5,
-                         "z":  20
-                     },
-        "description":  "ÐšÑ€ÑƒÐ³Ð»Ð¾ÑÑƒÑ‚Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ 24/7 Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ñ… Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐ¾Ðº Ð¸Ð»Ð¸ Ð±Ñ‹ÑÑ‚Ñ€Ñ‹Ñ… Ð½Ð°Ð»ÐµÑ‚Ð¾Ð² Ð½Ð° ÐºÐ°ÑÑÑƒ.",
-        "features":  [
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ðµ Ð·Ð´Ð¾Ñ€Ð¾Ð²ÑŒÐµ Ð·Ð°ÐºÑƒÑÐºÐ¸ Ð¸ Ð³Ð°Ð·Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð¢Ð¾Ñ€Ð³Ð¾Ð²Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚ Sprunk",
-                         "ÐžÐ³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ðµ ÐºÐ°ÑÑÐ¸Ñ€Ð° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð½Ð°Ð»Ð¸Ñ‡Ð½Ñ‹Ñ…"
-                     ],
-        "priceFormatted":  "Ð¡ÑƒÐ¿ÐµÑ€Ð¼Ð°Ñ€ÐºÐµÑ‚ 24/7",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/LTDGasoline-GTAV-Davis.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 1995.3,
+      "y": 3729.7,
+      "z": 20
     },
-    {
-        "id":  "carwash-little-seoul",
-        "name":  "ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð¹ÐºÐ°",
-        "price":  15,
-        "category":  "car_wash",
-        "categoryLabel":  "ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð¹ÐºÐ°",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸ«§",
-                      "color":  "#3498db"
-                  },
-        "zone":  "ÐœÐ°Ð»ÐµÐ½ÑŒÐºÐ¸Ð¹ Ð¡ÐµÑƒÐ»",
-        "position":  {
-                         "x":  -700,
-                         "y":  -930,
-                         "z":  19
-                     },
-        "description":  "ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð¼Ð¾Ð¹ÐºÐ° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð¹ Ð¾Ñ‡Ð¸ÑÑ‚ÐºÐ¸ ÐºÑƒÐ·Ð¾Ð²Ð° Ð¾Ñ‚ Ð³Ñ€ÑÐ·Ð¸, Ð¿Ñ‹Ð»Ð¸ Ð¸ Ð¿ÑÑ‚ÐµÐ½ ÐºÑ€Ð¾Ð²Ð¸.",
-        "features":  [
-                         "ÐžÑ‡Ð¸ÑÑ‚ÐºÐ° Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ñ Ð¾Ñ‚ Ð³Ñ€ÑÐ·Ð¸, ÐºÑ€Ð¾Ð²Ð¸ Ð¸ Ð¿Ñ‹Ð»Ð¸",
-                         "Cost: $15 per full wash",
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ Ð·Ð°Ð²Ð¾Ð´ÑÐºÐ¾Ð¹ Ð±Ð»ÐµÑÐº Ð»Ð°ÐºÐ¾ÐºÑ€Ð°ÑÐ¾Ñ‡Ð½Ð¾Ð³Ð¾ Ð¿Ð¾ÐºÑ€Ñ‹Ñ‚Ð¸Ñ"
-                     ],
-        "priceFormatted":  "ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð¹ÐºÐ°",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/HandOnCarWash-GTAV-Logo.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-InesenoRd.png"
+  },
+  {
+    "id": "store-12787",
+    "name": "24/7 Supermarket #9",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "carwash-strawberry",
-        "name":  "ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð¹ÐºÐ°",
-        "price":  15,
-        "category":  "car_wash",
-        "categoryLabel":  "ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð¹ÐºÐ°",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸ«§",
-                      "color":  "#3498db"
-                  },
-        "zone":  "Strawberry (Innocence Blvd)",
-        "position":  {
-                         "x":  30,
-                         "y":  -1390,
-                         "z":  32
-                     },
-        "description":  "ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð¼Ð¾Ð¹ÐºÐ° Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð¹ Ð¾Ñ‡Ð¸ÑÑ‚ÐºÐ¸ ÐºÑƒÐ·Ð¾Ð²Ð° Ð¾Ñ‚ Ð³Ñ€ÑÐ·Ð¸, Ð¿Ñ‹Ð»Ð¸ Ð¸ Ð¿ÑÑ‚ÐµÐ½ ÐºÑ€Ð¾Ð²Ð¸.",
-        "features":  [
-                         "ÐžÑ‡Ð¸ÑÑ‚ÐºÐ° Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ñ Ð¾Ñ‚ Ð³Ñ€ÑÐ·Ð¸, ÐºÑ€Ð¾Ð²Ð¸ Ð¸ Ð¿Ñ‹Ð»Ð¸",
-                         "Cost: $15 per full wash",
-                         "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ Ð·Ð°Ð²Ð¾Ð´ÑÐºÐ¾Ð¹ Ð±Ð»ÐµÑÐº Ð»Ð°ÐºÐ¾ÐºÑ€Ð°ÑÐ¾Ñ‡Ð½Ð¾Ð³Ð¾ Ð¿Ð¾ÐºÑ€Ñ‹Ñ‚Ð¸Ñ"
-                     ],
-        "priceFormatted":  "ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð¹ÐºÐ°",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/CarWash-GTAV-Strawberry.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 2706.6,
+      "y": 3251.3,
+      "z": 20
     },
-    {
-        "id":  "service-vanilla-unicorn",
-        "name":  "Ð¡Ñ‚Ñ€Ð¸Ð¿-ÐºÐ»ÑƒÐ± Vanilla Unicorn",
-        "price":  0,
-        "category":  "strip_club",
-        "categoryLabel":  "Ð¡Ñ‚Ñ€Ð¸Ð¿-ÐºÐ»ÑƒÐ±",
-        "gameMode":  "both",
-        "badge":  {
-                      "symbol":  "ðŸ’ƒ",
-                      "color":  "#e84393"
-                  },
-        "zone":  "Strawberry (Elgin Avenue)",
-        "position":  {
-                         "x":  115,
-                         "y":  -1290,
-                         "z":  29
-                     },
-        "description":  "Ð—Ð°Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð²Ð·Ñ€Ð¾ÑÐ»Ñ‹Ñ… Ð² Ð¡Ñ‚Ñ€Ð¾Ð±ÐµÑ€Ñ€Ð¸, Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾ 24/7.",
-        "features":  [
-                         "ÐŸÑ€Ð¸Ð²Ð°Ñ‚Ð½Ñ‹Ðµ VIP-ÐºÐ¾Ð¼Ð½Ð°Ñ‚Ñ‹",
-                         "ÐŸÐ¾Ð»Ð½Ñ‹Ð¹ Ð°ÑÑÐ¾Ñ€Ñ‚Ð¸Ð¼ÐµÐ½Ñ‚ Ð½Ð°Ð¿Ð¸Ñ‚ÐºÐ¾Ð² Ð² Ð±Ð°Ñ€Ðµ",
-                         "ÐŸÑ€Ð¸Ð¾Ð±Ñ€ÐµÑ‚Ð°ÐµÑ‚ÑÑ Ð¢Ñ€ÐµÐ²Ð¾Ñ€Ð¾Ð¼ Ð¤Ð¸Ð»Ð¸Ð¿ÑÐ¾Ð¼ Ð² ÑÑŽÐ¶ÐµÑ‚Ð½Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ"
-                     ],
-        "priceFormatted":  "Ð¡Ñ‚Ñ€Ð¸Ð¿-ÐºÐ»ÑƒÐ±",
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/VanillaUnicorn-GTAV-Logo.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-ClintonAve.png"
+  },
+  {
+    "id": "store-12788",
+    "name": "Limited LTD Gasoline #10",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-police-missionrow",
-        "name":  "Mission Row ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "category":  "police_station",
-        "categoryLabel":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð»Ð¸Ñ†Ð¸Ñ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° (LSPD)",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "zone":  "ÐœÐ¸ÑˆÐ½-Ð Ð¾Ñƒ",
-        "description":  "Ð£Ñ‡Ð°ÑÑ‚Ð¾Ðº Ð¿Ð¾Ð»Ð¸Ñ†Ð¸Ð¸ LSPD / Ð¨ÐµÑ€Ð¸Ñ„Ð° Ñ Ð¿Ð°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸ Ð¸ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ¾Ð¹.",
-        "features":  [
-                         "ÐŸÐ°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ LSPD Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð°Ñ€ÐµÑÑ‚Ð° Ð¿Ð¾Ð»Ð¸Ñ†Ð¸ÐµÐ¹",
-                         "Ð ÑÐ´Ð¾Ð¼ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ ÑˆÑ‚Ñ€Ð°Ñ„ÑÑ‚Ð¾ÑÐ½ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸ÑÐºÐ¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  428.2,
-                         "y":  -984.3,
-                         "z":  30.7
-                     },
-        "badge":  {
-                      "icon":  "shield",
-                      "color":  "#2980b9",
-                      "symbol":  "ðŸš“"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/MissionRowPoliceStation-GTAV.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 1735.3,
+      "y": 4903.2,
+      "z": 20
     },
-    {
-        "id":  "svc-police-vespucci",
-        "name":  "Vespucci ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "category":  "police_station",
-        "categoryLabel":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð»Ð¸Ñ†Ð¸Ñ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° (LSPD)",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "zone":  "ÐšÐ°Ð½Ð°Ð»Ñ‹ Ð’ÐµÑÐ¿ÑƒÑ‡Ñ‡Ð¸",
-        "description":  "Ð£Ñ‡Ð°ÑÑ‚Ð¾Ðº Ð¿Ð¾Ð»Ð¸Ñ†Ð¸Ð¸ LSPD / Ð¨ÐµÑ€Ð¸Ñ„Ð° Ñ Ð¿Ð°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸ Ð¸ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ¾Ð¹.",
-        "features":  [
-                         "ÐŸÐ°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ LSPD Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð°Ñ€ÐµÑÑ‚Ð° Ð¿Ð¾Ð»Ð¸Ñ†Ð¸ÐµÐ¹",
-                         "Ð ÑÐ´Ð¾Ð¼ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ ÑˆÑ‚Ñ€Ð°Ñ„ÑÑ‚Ð¾ÑÐ½ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸ÑÐºÐ¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  -1108.2,
-                         "y":  -842.1,
-                         "z":  19.3
-                     },
-        "badge":  {
-                      "icon":  "shield",
-                      "color":  "#2980b9",
-                      "symbol":  "ðŸš“"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/VespucciPoliceStation-GTAV.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/LTDGasoline-GTAV-RichmanGlen.png"
+  },
+  {
+    "id": "store-12789",
+    "name": "24/7 Supermarket #11",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-police-vinewood",
-        "name":  "Vinewood ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "category":  "police_station",
-        "categoryLabel":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð»Ð¸Ñ†Ð¸Ñ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° (LSPD)",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "zone":  "Ð¦ÐµÐ½Ñ‚Ñ€ Ð’Ð°Ð¹Ð½Ð²ÑƒÐ´Ð°",
-        "description":  "Ð£Ñ‡Ð°ÑÑ‚Ð¾Ðº Ð¿Ð¾Ð»Ð¸Ñ†Ð¸Ð¸ LSPD / Ð¨ÐµÑ€Ð¸Ñ„Ð° Ñ Ð¿Ð°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸ Ð¸ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ¾Ð¹.",
-        "features":  [
-                         "ÐŸÐ°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ LSPD Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð°Ñ€ÐµÑÑ‚Ð° Ð¿Ð¾Ð»Ð¸Ñ†Ð¸ÐµÐ¹",
-                         "Ð ÑÐ´Ð¾Ð¼ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ ÑˆÑ‚Ñ€Ð°Ñ„ÑÑ‚Ð¾ÑÐ½ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸ÑÐºÐ¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  638.1,
-                         "y":  1.2,
-                         "z":  70
-                     },
-        "badge":  {
-                      "icon":  "shield",
-                      "color":  "#2980b9",
-                      "symbol":  "ðŸš“"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/LSPD_Vinewood_GTAVpc.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 1731.9,
+      "y": 6398.2,
+      "z": 20
     },
-    {
-        "id":  "svc-police-davis",
-        "name":  "Davis Sheriff\u0027s Station",
-        "category":  "police_station",
-        "categoryLabel":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "gameMode":  "both",
-        "owner":  "Ð¨ÐµÑ€Ð¸Ñ„ Ð¾ÐºÑ€ÑƒÐ³Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾Ñ",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "zone":  "Ð”ÑÐ²Ð¸Ñ",
-        "description":  "Ð£Ñ‡Ð°ÑÑ‚Ð¾Ðº Ð¿Ð¾Ð»Ð¸Ñ†Ð¸Ð¸ LSPD / Ð¨ÐµÑ€Ð¸Ñ„Ð° Ñ Ð¿Ð°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸ Ð¸ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ¾Ð¹.",
-        "features":  [
-                         "ÐŸÐ°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ LSPD Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð°Ñ€ÐµÑÑ‚Ð° Ð¿Ð¾Ð»Ð¸Ñ†Ð¸ÐµÐ¹",
-                         "Ð ÑÐ´Ð¾Ð¼ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ ÑˆÑ‚Ñ€Ð°Ñ„ÑÑ‚Ð¾ÑÐ½ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸ÑÐºÐ¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  360.3,
-                         "y":  -1584.2,
-                         "z":  29.3
-                     },
-        "badge":  {
-                      "icon":  "shield",
-                      "color":  "#2980b9",
-                      "symbol":  "ðŸš“"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/DavisSheriffs_Station-GTAVee-Exterior.jpg"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-TataviamMountains.png"
+  },
+  {
+    "id": "store-12790",
+    "name": "24/7 Supermarket #12",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-police-rockford",
-        "name":  "Rockford Hills ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "category":  "police_station",
-        "categoryLabel":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð»Ð¸Ñ†Ð¸Ñ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° (LSPD)",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "zone":  "Ð Ð¾ÐºÑ„Ð¾Ñ€Ð´-Ð¥Ð¸Ð»Ð»Ð·",
-        "description":  "Ð£Ñ‡Ð°ÑÑ‚Ð¾Ðº Ð¿Ð¾Ð»Ð¸Ñ†Ð¸Ð¸ LSPD / Ð¨ÐµÑ€Ð¸Ñ„Ð° Ñ Ð¿Ð°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸ Ð¸ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ¾Ð¹.",
-        "features":  [
-                         "ÐŸÐ°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ LSPD Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð°Ñ€ÐµÑÑ‚Ð° Ð¿Ð¾Ð»Ð¸Ñ†Ð¸ÐµÐ¹",
-                         "Ð ÑÐ´Ð¾Ð¼ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ ÑˆÑ‚Ñ€Ð°Ñ„ÑÑ‚Ð¾ÑÐ½ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸ÑÐºÐ¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  -561.4,
-                         "y":  131.2,
-                         "z":  60.1
-                     },
-        "badge":  {
-                      "icon":  "shield",
-                      "color":  "#2980b9",
-                      "symbol":  "ðŸš“"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/MissionRowPoliceStation-GTAV.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 2620.7,
+      "y": 351.4,
+      "z": 20
     },
-    {
-        "id":  "svc-police-sandyshores",
-        "name":  "Sandy Shores Sheriff\u0027s Station",
-        "category":  "police_station",
-        "categoryLabel":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "gameMode":  "both",
-        "owner":  "Ð¨ÐµÑ€Ð¸Ñ„ Ð¾ÐºÑ€ÑƒÐ³Ð° Ð‘Ð»ÐµÐ¹Ð½",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "zone":  "Ð¡ÑÐ½Ð´Ð¸-Ð¨Ð¾Ñ€Ñ",
-        "description":  "Ð£Ñ‡Ð°ÑÑ‚Ð¾Ðº Ð¿Ð¾Ð»Ð¸Ñ†Ð¸Ð¸ LSPD / Ð¨ÐµÑ€Ð¸Ñ„Ð° Ñ Ð¿Ð°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸ Ð¸ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ¾Ð¹.",
-        "features":  [
-                         "ÐŸÐ°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ LSPD Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð°Ñ€ÐµÑÑ‚Ð° Ð¿Ð¾Ð»Ð¸Ñ†Ð¸ÐµÐ¹",
-                         "Ð ÑÐ´Ð¾Ð¼ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ ÑˆÑ‚Ñ€Ð°Ñ„ÑÑ‚Ð¾ÑÐ½ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸ÑÐºÐ¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  1853.4,
-                         "y":  3686.2,
-                         "z":  34.3
-                     },
-        "badge":  {
-                      "icon":  "shield",
-                      "color":  "#2980b9",
-                      "symbol":  "ðŸš“"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/SandyShoresSheriffsStation-GTAV.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-Strawberry.png"
+  },
+  {
+    "id": "store-12791",
+    "name": "Rob's Liquor #13",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-police-paletobay",
-        "name":  "Paleto Bay Sheriff\u0027s Station",
-        "category":  "police_station",
-        "categoryLabel":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "gameMode":  "both",
-        "owner":  "Ð¨ÐµÑ€Ð¸Ñ„ Ð¾ÐºÑ€ÑƒÐ³Ð° Ð‘Ð»ÐµÐ¹Ð½",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ð¹ ÑƒÑ‡Ð°ÑÑ‚Ð¾Ðº",
-        "zone":  "ÐŸÐ°Ð»ÐµÑ‚Ð¾-Ð‘ÑÐ¹",
-        "description":  "Ð£Ñ‡Ð°ÑÑ‚Ð¾Ðº Ð¿Ð¾Ð»Ð¸Ñ†Ð¸Ð¸ LSPD / Ð¨ÐµÑ€Ð¸Ñ„Ð° Ñ Ð¿Ð°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸ Ð¸ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ¾Ð¹.",
-        "features":  [
-                         "ÐŸÐ°Ñ‚Ñ€ÑƒÐ»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ð¸Ñ†ÐµÐ¹ÑÐºÐ¸Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ LSPD Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð°Ñ€ÐµÑÑ‚Ð° Ð¿Ð¾Ð»Ð¸Ñ†Ð¸ÐµÐ¹",
-                         "Ð ÑÐ´Ð¾Ð¼ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ ÑˆÑ‚Ñ€Ð°Ñ„ÑÑ‚Ð¾ÑÐ½ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸ÑÐºÐ¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  -448.2,
-                         "y":  6012.3,
-                         "z":  31.7
-                     },
-        "badge":  {
-                      "icon":  "shield",
-                      "color":  "#2980b9",
-                      "symbol":  "ðŸš“"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/PaletoBaySheriffsOffice-GTAV.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 1154.6,
+      "y": -1013.9,
+      "z": 20
     },
-    {
-        "id":  "svc-hosp-pillbox",
-        "name":  "Pillbox Hill ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¸Ð¹ Ñ†ÐµÐ½Ñ‚Ñ€",
-        "category":  "hospital",
-        "categoryLabel":  "Ð‘Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð°",
-        "gameMode":  "both",
-        "owner":  "ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ°",
-        "price":  0,
-        "priceFormatted":  "Ð“Ð¾ÑÐ¿Ð¸Ñ‚Ð°Ð»ÑŒ / Ð¢Ñ€Ð°Ð²Ð¼Ð¿ÑƒÐ½ÐºÑ‚",
-        "zone":  "ÐŸÐ¸Ð»Ð»Ð±Ð¾ÐºÑ-Ð¥Ð¸Ð»Ð»",
-        "description":  "Ð“Ð¾Ñ€Ð¾Ð´ÑÐºÐ°Ñ Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ°. Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸.",
-        "features":  [
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð² Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ðµ Ð¿Ð¾ÑÐ»Ðµ Ð³Ð¸Ð±ÐµÐ»Ð¸",
-                         "ÐœÐ°ÑˆÐ¸Ð½Ñ‹ ÑÐºÐ¾Ñ€Ð¾Ð¹ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸ Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ°Ñ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð°Ñ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ° Ð½Ð° ÐºÑ€Ñ‹ÑˆÐµ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  356.4,
-                         "y":  -590.2,
-                         "z":  28.8
-                     },
-        "badge":  {
-                      "icon":  "hospital",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸ¥"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/PillboxHillMedicalCenter-GTAV.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/RobsLiquor-GTAOee-Morningwood.jpg"
+  },
+  {
+    "id": "store-12792",
+    "name": "Limited LTD Gasoline #14",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-hosp-centralls",
-        "name":  "Central Los Santos ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¸Ð¹ Ñ†ÐµÐ½Ñ‚Ñ€",
-        "category":  "hospital",
-        "categoryLabel":  "Ð‘Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð°",
-        "gameMode":  "both",
-        "owner":  "ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ°",
-        "price":  0,
-        "priceFormatted":  "Ð“Ð¾ÑÐ¿Ð¸Ñ‚Ð°Ð»ÑŒ / Ð¢Ñ€Ð°Ð²Ð¼Ð¿ÑƒÐ½ÐºÑ‚",
-        "zone":  "Ð”ÑÐ²Ð¸Ñ",
-        "description":  "Ð“Ð¾Ñ€Ð¾Ð´ÑÐºÐ°Ñ Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ°. Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸.",
-        "features":  [
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð² Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ðµ Ð¿Ð¾ÑÐ»Ðµ Ð³Ð¸Ð±ÐµÐ»Ð¸",
-                         "ÐœÐ°ÑˆÐ¸Ð½Ñ‹ ÑÐºÐ¾Ñ€Ð¾Ð¹ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸ Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ°Ñ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð°Ñ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ° Ð½Ð° ÐºÑ€Ñ‹ÑˆÐµ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  357.2,
-                         "y":  -1398.1,
-                         "z":  32.5
-                     },
-        "badge":  {
-                      "icon":  "hospital",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸ¥"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/CentralLosSantosMedicalCenter-GTAV.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 1178.6,
+      "y": -310.9,
+      "z": 20
     },
-    {
-        "id":  "svc-hosp-zonah",
-        "name":  "Mount Zonah ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¸Ð¹ Ñ†ÐµÐ½Ñ‚Ñ€",
-        "category":  "hospital",
-        "categoryLabel":  "Ð‘Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð°",
-        "gameMode":  "both",
-        "owner":  "ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ°",
-        "price":  0,
-        "priceFormatted":  "Ð“Ð¾ÑÐ¿Ð¸Ñ‚Ð°Ð»ÑŒ / Ð¢Ñ€Ð°Ð²Ð¼Ð¿ÑƒÐ½ÐºÑ‚",
-        "zone":  "Ð Ð¾ÐºÑ„Ð¾Ñ€Ð´-Ð¥Ð¸Ð»Ð»Ð·",
-        "description":  "Ð“Ð¾Ñ€Ð¾Ð´ÑÐºÐ°Ñ Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ°. Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸.",
-        "features":  [
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð² Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ðµ Ð¿Ð¾ÑÐ»Ðµ Ð³Ð¸Ð±ÐµÐ»Ð¸",
-                         "ÐœÐ°ÑˆÐ¸Ð½Ñ‹ ÑÐºÐ¾Ñ€Ð¾Ð¹ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸ Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ°Ñ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð°Ñ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ° Ð½Ð° ÐºÑ€Ñ‹ÑˆÐµ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  -498.3,
-                         "y":  -335.2,
-                         "z":  34.5
-                     },
-        "badge":  {
-                      "icon":  "hospital",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸ¥"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/MountZonahMedicalCenter-GTAV-Logo.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/LTDGasoline-GTAV-MirrorPark.png"
+  },
+  {
+    "id": "store-12793",
+    "name": "24/7 Supermarket #15",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-hosp-sandyshores",
-        "name":  "Sandy Shores Medical Clinic",
-        "category":  "hospital",
-        "categoryLabel":  "Ð‘Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð°",
-        "gameMode":  "both",
-        "owner":  "Ð—Ð´Ñ€Ð°Ð²Ð¾Ð¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ðµ Ð¾ÐºÑ€ÑƒÐ³Ð° Ð‘Ð»ÐµÐ¹Ð½",
-        "price":  0,
-        "priceFormatted":  "Ð“Ð¾ÑÐ¿Ð¸Ñ‚Ð°Ð»ÑŒ / Ð¢Ñ€Ð°Ð²Ð¼Ð¿ÑƒÐ½ÐºÑ‚",
-        "zone":  "Ð¡ÑÐ½Ð´Ð¸-Ð¨Ð¾Ñ€Ñ",
-        "description":  "Ð“Ð¾Ñ€Ð¾Ð´ÑÐºÐ°Ñ Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ°. Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸.",
-        "features":  [
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð² Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ðµ Ð¿Ð¾ÑÐ»Ðµ Ð³Ð¸Ð±ÐµÐ»Ð¸",
-                         "ÐœÐ°ÑˆÐ¸Ð½Ñ‹ ÑÐºÐ¾Ñ€Ð¾Ð¹ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸ Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ°Ñ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð°Ñ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ° Ð½Ð° ÐºÑ€Ñ‹ÑˆÐµ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  1839.2,
-                         "y":  3672.3,
-                         "z":  34.3
-                     },
-        "badge":  {
-                      "icon":  "hospital",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸ¥"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/SandyShoresMedicalCenter-GTAV.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 364.2,
+      "y": 325.5,
+      "z": 20
     },
-    {
-        "id":  "svc-hosp-paletobay",
-        "name":  "The Bay Care Center",
-        "category":  "hospital",
-        "categoryLabel":  "Ð‘Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð°",
-        "gameMode":  "both",
-        "owner":  "Ð—Ð´Ñ€Ð°Ð²Ð¾Ð¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ðµ Ð¾ÐºÑ€ÑƒÐ³Ð° Ð‘Ð»ÐµÐ¹Ð½",
-        "price":  0,
-        "priceFormatted":  "Ð“Ð¾ÑÐ¿Ð¸Ñ‚Ð°Ð»ÑŒ / Ð¢Ñ€Ð°Ð²Ð¼Ð¿ÑƒÐ½ÐºÑ‚",
-        "zone":  "ÐŸÐ°Ð»ÐµÑ‚Ð¾-Ð‘ÑÐ¹",
-        "description":  "Ð“Ð¾Ñ€Ð¾Ð´ÑÐºÐ°Ñ Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ð° Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ°. Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÐ»Ðµ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸.",
-        "features":  [
-                         "Ð¢Ð¾Ñ‡ÐºÐ° Ð²Ð¾Ð·Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð² Ð±Ð¾Ð»ÑŒÐ½Ð¸Ñ†Ðµ Ð¿Ð¾ÑÐ»Ðµ Ð³Ð¸Ð±ÐµÐ»Ð¸",
-                         "ÐœÐ°ÑˆÐ¸Ð½Ñ‹ ÑÐºÐ¾Ñ€Ð¾Ð¹ Ð¼ÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ¾Ð¹ Ð¿Ð¾Ð¼Ð¾Ñ‰Ð¸ Ð½Ð° Ð¿Ð°Ñ€ÐºÐ¾Ð²ÐºÐµ",
-                         "ÐœÐµÐ´Ð¸Ñ†Ð¸Ð½ÑÐºÐ°Ñ Ð²ÐµÑ€Ñ‚Ð¾Ð»ÐµÑ‚Ð½Ð°Ñ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ° Ð½Ð° ÐºÑ€Ñ‹ÑˆÐµ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  -249.7,
-                         "y":  6319.9,
-                         "z":  32.4
-                     },
-        "badge":  {
-                      "icon":  "hospital",
-                      "color":  "#e74c3c",
-                      "symbol":  "ðŸ¥"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/TheBayCareCenter-GTAV.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-SenoraDesert.png"
+  },
+  {
+    "id": "store-12794",
+    "name": "24/7 Supermarket #16",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-fire-elburro",
-        "name":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ El Burro",
-        "category":  "fire_station",
-        "categoryLabel":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ñ‹Ð¹ Ð´ÐµÐ¿Ð°Ñ€Ñ‚Ð°Ð¼ÐµÐ½Ñ‚ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° (LSFD)",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "zone":  "Ð­Ð»ÑŒ-Ð‘ÑƒÑ€Ñ€Ð¾-Ð¥Ð°Ð¹Ñ‚Ñ",
-        "description":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° Ñ Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸.",
-        "features":  [
-                         "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ñ‹Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ Ð¸ ÑÐ¿Ð°ÑÐ°Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ñ‚ÐµÑ…Ð½Ð¸ÐºÐ° LSFD",
-                         "ÐŸÑ€Ð¾Ñ‚Ð¸Ð²Ð¾Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ð¾Ðµ ÑÐ½Ð°Ñ€ÑÐ¶ÐµÐ½Ð¸Ðµ Ð¸ ÑÐºÐ¸Ð¿Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð”Ð¸ÑÐ¿ÐµÑ‚Ñ‡ÐµÑ€ÑÐºÐ°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° ÑÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð¾Ð³Ð¾ Ñ€ÐµÐ°Ð³Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  1194.2,
-                         "y":  -1464.1,
-                         "z":  34.8
-                     },
-        "badge":  {
-                      "icon":  "fire",
-                      "color":  "#e67e22",
-                      "symbol":  "ðŸš’"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/ElBurroHeightsFireStation-GTAV-FullView.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": 44.7,
+      "y": -1345.6,
+      "z": 20
     },
-    {
-        "id":  "svc-fire-davis",
-        "name":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Davis",
-        "category":  "fire_station",
-        "categoryLabel":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ñ‹Ð¹ Ð´ÐµÐ¿Ð°Ñ€Ñ‚Ð°Ð¼ÐµÐ½Ñ‚ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° (LSFD)",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "zone":  "Ð”ÑÐ²Ð¸Ñ",
-        "description":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° Ñ Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸.",
-        "features":  [
-                         "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ñ‹Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ Ð¸ ÑÐ¿Ð°ÑÐ°Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ñ‚ÐµÑ…Ð½Ð¸ÐºÐ° LSFD",
-                         "ÐŸÑ€Ð¾Ñ‚Ð¸Ð²Ð¾Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ð¾Ðµ ÑÐ½Ð°Ñ€ÑÐ¶ÐµÐ½Ð¸Ðµ Ð¸ ÑÐºÐ¸Ð¿Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð”Ð¸ÑÐ¿ÐµÑ‚Ñ‡ÐµÑ€ÑÐºÐ°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° ÑÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð¾Ð³Ð¾ Ñ€ÐµÐ°Ð³Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  204.3,
-                         "y":  -1647.2,
-                         "z":  29.8
-                     },
-        "badge":  {
-                      "icon":  "fire",
-                      "color":  "#e67e22",
-                      "symbol":  "ðŸš’"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/DavisFireStation-GTAV.PNG"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-SandyShores.png"
+  },
+  {
+    "id": "store-12795",
+    "name": "Limited LTD Gasoline #17",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-fire-rockford",
-        "name":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Rockford Hills",
-        "category":  "fire_station",
-        "categoryLabel":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ñ‹Ð¹ Ð´ÐµÐ¿Ð°Ñ€Ñ‚Ð°Ð¼ÐµÐ½Ñ‚ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° (LSFD)",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "zone":  "Ð Ð¾ÐºÑ„Ð¾Ñ€Ð´-Ð¥Ð¸Ð»Ð»Ð·",
-        "description":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° Ñ Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸.",
-        "features":  [
-                         "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ñ‹Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ Ð¸ ÑÐ¿Ð°ÑÐ°Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ñ‚ÐµÑ…Ð½Ð¸ÐºÐ° LSFD",
-                         "ÐŸÑ€Ð¾Ñ‚Ð¸Ð²Ð¾Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ð¾Ðµ ÑÐ½Ð°Ñ€ÑÐ¶ÐµÐ½Ð¸Ðµ Ð¸ ÑÐºÐ¸Ð¿Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð”Ð¸ÑÐ¿ÐµÑ‚Ñ‡ÐµÑ€ÑÐºÐ°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° ÑÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð¾Ð³Ð¾ Ñ€ÐµÐ°Ð³Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  -634.1,
-                         "y":  -121.3,
-                         "z":  38.2
-                     },
-        "badge":  {
-                      "icon":  "fire",
-                      "color":  "#e67e22",
-                      "symbol":  "ðŸš’"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/RockfordHillsFireStation-GTAV.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": -43.5,
+      "y": -1757.5,
+      "z": 20
     },
-    {
-        "id":  "svc-fire-paleto",
-        "name":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Paleto Bay",
-        "category":  "fire_station",
-        "categoryLabel":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° Ð¾ÐºÑ€ÑƒÐ³Ð° Ð‘Ð»ÐµÐ¹Ð½",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "zone":  "ÐŸÐ°Ð»ÐµÑ‚Ð¾-Ð‘ÑÐ¹",
-        "description":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° Ñ Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸.",
-        "features":  [
-                         "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ñ‹Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ Ð¸ ÑÐ¿Ð°ÑÐ°Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ñ‚ÐµÑ…Ð½Ð¸ÐºÐ° LSFD",
-                         "ÐŸÑ€Ð¾Ñ‚Ð¸Ð²Ð¾Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ð¾Ðµ ÑÐ½Ð°Ñ€ÑÐ¶ÐµÐ½Ð¸Ðµ Ð¸ ÑÐºÐ¸Ð¿Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð”Ð¸ÑÐ¿ÐµÑ‚Ñ‡ÐµÑ€ÑÐºÐ°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° ÑÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð¾Ð³Ð¾ Ñ€ÐµÐ°Ð³Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  -379.2,
-                         "y":  6118.4,
-                         "z":  31.8
-                     },
-        "badge":  {
-                      "icon":  "fire",
-                      "color":  "#e67e22",
-                      "symbol":  "ðŸš’"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/PaletoBayFireStation-GTAV.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/LTDGasoline-GTAV-LittleSeoul.png"
+  },
+  {
+    "id": "store-12796",
+    "name": "Rob's Liquor #18",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "svc-fire-sandyshores",
-        "name":  "Bomberos de Sandy Shores",
-        "category":  "fire_station",
-        "categoryLabel":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "gameMode":  "both",
-        "owner":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° Ð¾ÐºÑ€ÑƒÐ³Ð° Ð‘Ð»ÐµÐ¹Ð½",
-        "price":  0,
-        "priceFormatted":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ",
-        "zone":  "Ð¡ÑÐ½Ð´Ð¸-Ð¨Ð¾Ñ€Ñ",
-        "description":  "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ Ð›Ð¾Ñ-Ð¡Ð°Ð½Ñ‚Ð¾ÑÐ° Ñ Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ñ‹Ð¼Ð¸ Ð¼Ð°ÑˆÐ¸Ð½Ð°Ð¼Ð¸.",
-        "features":  [
-                         "ÐŸÐ¾Ð¶Ð°Ñ€Ð½Ñ‹Ðµ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹ Ð¸ ÑÐ¿Ð°ÑÐ°Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ñ‚ÐµÑ…Ð½Ð¸ÐºÐ° LSFD",
-                         "ÐŸÑ€Ð¾Ñ‚Ð¸Ð²Ð¾Ð¿Ð¾Ð¶Ð°Ñ€Ð½Ð¾Ðµ ÑÐ½Ð°Ñ€ÑÐ¶ÐµÐ½Ð¸Ðµ Ð¸ ÑÐºÐ¸Ð¿Ð¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð”Ð¸ÑÐ¿ÐµÑ‚Ñ‡ÐµÑ€ÑÐºÐ°Ñ ÑÐ»ÑƒÐ¶Ð±Ð° ÑÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð¾Ð³Ð¾ Ñ€ÐµÐ°Ð³Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ"
-                     ],
-        "income":  "Ð­ÐºÑÑ‚Ñ€ÐµÐ½Ð½Ð°Ñ ÑÐ»ÑƒÐ¶Ð±Ð°",
-        "position":  {
-                         "x":  1693.3,
-                         "y":  3584.2,
-                         "z":  35.6
-                     },
-        "badge":  {
-                      "icon":  "fire",
-                      "color":  "#e67e22",
-                      "symbol":  "ðŸš’"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/SandyShoresFireStation-GTAV.png"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": -1203.8,
+      "y": -905.6,
+      "z": 20
     },
-    {
-        "id":  "store-vespucci-masks",
-        "name":  "ÐœÐ°Ð³Ð°Ð·Ð¸Ð½ Ð¼Ð°ÑÐ¾Ðº Ð½Ð° Ð¿Ð»ÑÐ¶Ðµ Ð’ÐµÑÐ¿ÑƒÑ‡Ñ‡Ð¸",
-        "category":  "mask_shop",
-        "categoryLabel":  "ÐœÐ°Ð³Ð°Ð·Ð¸Ð½ Ð¼Ð°ÑÐ¾Ðº",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "ÐœÐ°Ð³Ð°Ð·Ð¸Ð½ Ð¼Ð°ÑÐ¾Ðº",
-        "zone":  "Vespucci Beach - Boardwalk",
-        "description":  "ÐšÑƒÐ»ÑŒÑ‚Ð¾Ð²Ñ‹Ð¹ Ð»Ð°Ñ€ÐµÐº Ð½Ð° Ð½Ð°Ð±ÐµÑ€ÐµÐ¶Ð½Ð¾Ð¹ Ð´Ð»Ñ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ¸ Ð¼Ð°ÑÐ¾Ðº Ð´Ð»Ñ Ð¾Ð³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ð¹ Ð¸ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÐµÑ€Ð°.",
-        "features":  [
-                         "ÐœÐ°ÑÐºÐ¸ Ð´Ð»Ñ Ð¾Ð³Ñ€Ð°Ð±Ð»ÐµÐ½Ð¸Ð¹ Ð¸ Ñ‚Ð°ÐºÑ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð¼Ð°ÑÐºÐ¸Ñ€Ð¾Ð²ÐºÐ°",
-                         "Ð­ÐºÑÐºÐ»ÑŽÐ·Ð¸Ð²Ð½Ñ‹Ðµ Ð³Ð¾Ð»Ð¾Ð²Ð½Ñ‹Ðµ ÑƒÐ±Ð¾Ñ€Ñ‹ Ð¸ ÐºÐ¾ÑÑ‚ÑŽÐ¼Ñ‹",
-                         "ÐšÑƒÐ»ÑŒÑ‚Ð¾Ð²Ð¾Ðµ Ñ€Ð°ÑÐ¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ð° Ð½Ð°Ð±ÐµÑ€ÐµÐ¶Ð½Ð¾Ð¹ Ð’ÐµÑÐ¿ÑƒÑ‡Ñ‡Ð¸-Ð‘Ð¸Ñ‡"
-                     ],
-        "position":  {
-                         "x":  -1338.2,
-                         "y":  -1278.1,
-                         "z":  4.8
-                     },
-        "badge":  {
-                      "icon":  "mask",
-                      "color":  "#1abc9c",
-                      "symbol":  "ðŸŽ­"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/VespucciMoviemasks-Front-GTAV.png"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/RobsLiquor-GTAOee-VespucciCanals.jpg"
+  },
+  {
+    "id": "store-12797",
+    "name": "Rob's Liquor #19",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "barber-paleto",
-        "name":  "PeluquerÃ­a (Paleto Bay)",
-        "category":  "barber",
-        "categoryLabel":  "PeluquerÃ­a",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "PeluquerÃ­a",
-        "zone":  "Paleto Bay",
-        "description":  "PeluquerÃ­a en Paleto Bay.",
-        "features":  [
-                         "PeluquerÃ­a"
-                     ],
-        "position":  {
-                         "x":  -278.1,
-                         "y":  6226.5,
-                         "z":  31.5
-                     },
-        "badge":  {
-                      "icon":  "scissors",
-                      "color":  "#d97706",
-                      "symbol":  "âœ‚ï¸"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Paleto-Bay.jpg"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": -1495.9,
+      "y": -394.4,
+      "z": 20
     },
-    {
-        "id":  "tattoo-paleto",
-        "name":  "SalÃ³n de Tatuajes (Paleto Bay)",
-        "category":  "tattoo",
-        "categoryLabel":  "SalÃ³n de Tatuajes",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Tatuajes",
-        "zone":  "Paleto Bay",
-        "description":  "SalÃ³n de tatuajes en Paleto Bay.",
-        "features":  [
-                         "Tatuajes"
-                     ],
-        "position":  {
-                         "x":  -279.7,
-                         "y":  6185.1,
-                         "z":  31.5
-                     },
-        "badge":  {
-                      "icon":  "pen-nib",
-                      "color":  "#8b5cf6",
-                      "symbol":  "ðŸ’‰"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Salon-Tatuajes-Paleto-Bay.jpg"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/RobsLiquor-GTAVee-MurietaHeights.jpg"
+  },
+  {
+    "id": "store-12922",
+    "name": "Limited LTD Gasoline #20",
+    "price": 0,
+    "category": "convenience_store",
+    "categoryLabel": "Супермаркет 24/7",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🏪",
+      "color": "#2ecc71"
     },
-    {
-        "id":  "tattoo-chumash",
-        "name":  "SalÃ³n de Tatuajes (Chumash)",
-        "category":  "tattoo",
-        "categoryLabel":  "SalÃ³n de Tatuajes",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Tatuajes",
-        "zone":  "Chumash",
-        "description":  "SalÃ³n de tatuajes en Chumash.",
-        "features":  [
-                         "Tatuajes"
-                     ],
-        "position":  {
-                         "x":  -3172.1,
-                         "y":  1071.5,
-                         "z":  20.8
-                     },
-        "badge":  {
-                      "icon":  "pen-nib",
-                      "color":  "#8b5cf6",
-                      "symbol":  "ðŸ’‰"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Tatto-Chumash.jpg"
+    "zone": "Лос-Сантос / Округ Блейн",
+    "position": {
+      "x": -714.3,
+      "y": -913.5,
+      "z": 20
     },
-    {
-        "id":  "clothing-paleto-bay",
-        "name":  "Tienda de Ropa (Paleto Bay)",
-        "category":  "clothing_store",
-        "categoryLabel":  "Tienda de Ropa",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "Discount Store",
-        "zone":  "Paleto Bay",
-        "description":  "Tienda de la franquicia Discount Store en Paleto Bay. Ropa informal, monos de trabajo y estilo rÃºstico.",
-        "features":  [
-                         "Discount Store",
-                         "Moda Informal"
-                     ],
-        "position":  {
-                         "x":  6.6,
-                         "y":  6514.2,
-                         "z":  31.8
-                     },
-        "badge":  {
-                      "icon":  "shirt",
-                      "color":  "#9b59b6",
-                      "symbol":  "ðŸ‘•"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Tienda-Ropa-Paleto-Bay.jpg"
+    "description": "Круглосуточный магазин 24/7 для покупки восстанавливающих здоровье закусок или быстрых налетов на кассу.",
+    "features": [
+      "Восстанавливающие здоровье закуски и газировка",
+      "Торговый автомат Sprunk",
+      "Ограбление кассира для быстрого получения наличных"
+    ],
+    "priceFormatted": "Супермаркет 24/7",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/LTDGasoline-GTAV-Davis.png"
+  },
+  {
+    "id": "carwash-little-seoul",
+    "name": "Автомойка",
+    "price": 15,
+    "category": "car_wash",
+    "categoryLabel": "Автомойка",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🫧",
+      "color": "#3498db"
     },
-    {
-        "id":  "clothing-chumash",
-        "name":  "Tienda de Ropa (Chumash)",
-        "category":  "clothing_store",
-        "categoryLabel":  "Tienda de Ropa",
-        "gameMode":  "both",
-        "price":  0,
-        "priceFormatted":  "SubUrban",
-        "zone":  "Chumash",
-        "description":  "Tienda de la franquicia SubUrban en Chumash. Moda urbana, sudaderas, chaquetas y estilo streetwear.",
-        "features":  [
-                         "SubUrban",
-                         "Moda Streetwear"
-                     ],
-        "position":  {
-                         "x":  -3166.6,
-                         "y":  1055.0,
-                         "z":  20.8
-                     },
-        "badge":  {
-                      "icon":  "shirt",
-                      "color":  "#9b59b6",
-                      "symbol":  "ðŸ‘•"
-                  },
-        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/services/Suburban-Chumash.jpg"
-    }
+    "zone": "Маленький Сеул",
+    "position": {
+      "x": -700,
+      "y": -930,
+      "z": 19
+    },
+    "description": "Автоматическая мойка для быстрой очистки кузова от грязи, пыли и пятен крови.",
+    "features": [
+      "Очистка автомобиля от грязи, крови и пыли",
+      "Cost: $15 per full wash",
+      "Восстанавливает заводской блеск лакокрасочного покрытия"
+    ],
+    "priceFormatted": "Автомойка",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/HandOnCarWash-GTAV-Logo.png"
+  },
+  {
+    "id": "carwash-strawberry",
+    "name": "Автомойка",
+    "price": 15,
+    "category": "car_wash",
+    "categoryLabel": "Автомойка",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "🫧",
+      "color": "#3498db"
+    },
+    "zone": "Strawberry (Innocence Blvd)",
+    "position": {
+      "x": 30,
+      "y": -1390,
+      "z": 32
+    },
+    "description": "Автоматическая мойка для быстрой очистки кузова от грязи, пыли и пятен крови.",
+    "features": [
+      "Очистка автомобиля от грязи, крови и пыли",
+      "Cost: $15 per full wash",
+      "Восстанавливает заводской блеск лакокрасочного покрытия"
+    ],
+    "priceFormatted": "Автомойка",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/CarWash-GTAV-Strawberry.png"
+  },
+  {
+    "id": "service-vanilla-unicorn",
+    "name": "Стрип-клуб Vanilla Unicorn",
+    "price": 0,
+    "category": "strip_club",
+    "categoryLabel": "Стрип-клуб",
+    "gameMode": "both",
+    "badge": {
+      "symbol": "💃",
+      "color": "#e84393"
+    },
+    "zone": "Strawberry (Elgin Avenue)",
+    "position": {
+      "x": 115,
+      "y": -1290,
+      "z": 29
+    },
+    "description": "Заведение для взрослых в Строберри, открыто 24/7.",
+    "features": [
+      "Приватные VIP-комнаты",
+      "Полный ассортимент напитков в баре",
+      "Приобретается Тревором Филипсом в сюжетном режиме"
+    ],
+    "priceFormatted": "Стрип-клуб",
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/VanillaUnicorn-GTAV-Logo.png"
+  },
+  {
+    "id": "svc-police-missionrow",
+    "name": "Mission Row Полицейский участок",
+    "category": "police_station",
+    "categoryLabel": "Полицейский участок",
+    "gameMode": "both",
+    "owner": "Полиция Лос-Сантоса (LSPD)",
+    "price": 0,
+    "priceFormatted": "Полицейский участок",
+    "zone": "Мишн-Роу",
+    "description": "Участок полиции LSPD / Шерифа с патрульными машинами и вертолетной площадкой.",
+    "features": [
+      "Патрульные полицейские машины LSPD на парковке",
+      "Точка возрождения после ареста полицией",
+      "Рядом находится штрафстоянка конфискованных авто"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 428.2,
+      "y": -984.3,
+      "z": 30.7
+    },
+    "badge": {
+      "icon": "shield",
+      "color": "#2980b9",
+      "symbol": "🚓"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/MissionRowPoliceStation-GTAV.png"
+  },
+  {
+    "id": "svc-police-vespucci",
+    "name": "Vespucci Полицейский участок",
+    "category": "police_station",
+    "categoryLabel": "Полицейский участок",
+    "gameMode": "both",
+    "owner": "Полиция Лос-Сантоса (LSPD)",
+    "price": 0,
+    "priceFormatted": "Полицейский участок",
+    "zone": "Каналы Веспуччи",
+    "description": "Участок полиции LSPD / Шерифа с патрульными машинами и вертолетной площадкой.",
+    "features": [
+      "Патрульные полицейские машины LSPD на парковке",
+      "Точка возрождения после ареста полицией",
+      "Рядом находится штрафстоянка конфискованных авто"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": -1108.2,
+      "y": -842.1,
+      "z": 19.3
+    },
+    "badge": {
+      "icon": "shield",
+      "color": "#2980b9",
+      "symbol": "🚓"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/VespucciPoliceStation-GTAV.png"
+  },
+  {
+    "id": "svc-police-vinewood",
+    "name": "Vinewood Полицейский участок",
+    "category": "police_station",
+    "categoryLabel": "Полицейский участок",
+    "gameMode": "both",
+    "owner": "Полиция Лос-Сантоса (LSPD)",
+    "price": 0,
+    "priceFormatted": "Полицейский участок",
+    "zone": "Центр Вайнвуда",
+    "description": "Участок полиции LSPD / Шерифа с патрульными машинами и вертолетной площадкой.",
+    "features": [
+      "Патрульные полицейские машины LSPD на парковке",
+      "Точка возрождения после ареста полицией",
+      "Рядом находится штрафстоянка конфискованных авто"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 638.1,
+      "y": 1.2,
+      "z": 70
+    },
+    "badge": {
+      "icon": "shield",
+      "color": "#2980b9",
+      "symbol": "🚓"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/LSPD_Vinewood_GTAVpc.png"
+  },
+  {
+    "id": "svc-police-davis",
+    "name": "Davis Sheriff's Station",
+    "category": "police_station",
+    "categoryLabel": "Полицейский участок",
+    "gameMode": "both",
+    "owner": "Шериф округа Лос-Сантос",
+    "price": 0,
+    "priceFormatted": "Полицейский участок",
+    "zone": "Дэвис",
+    "description": "Участок полиции LSPD / Шерифа с патрульными машинами и вертолетной площадкой.",
+    "features": [
+      "Патрульные полицейские машины LSPD на парковке",
+      "Точка возрождения после ареста полицией",
+      "Рядом находится штрафстоянка конфискованных авто"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 360.3,
+      "y": -1584.2,
+      "z": 29.3
+    },
+    "badge": {
+      "icon": "shield",
+      "color": "#2980b9",
+      "symbol": "🚓"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/DavisSheriffs_Station-GTAVee-Exterior.jpg"
+  },
+  {
+    "id": "svc-police-rockford",
+    "name": "Rockford Hills Полицейский участок",
+    "category": "police_station",
+    "categoryLabel": "Полицейский участок",
+    "gameMode": "both",
+    "owner": "Полиция Лос-Сантоса (LSPD)",
+    "price": 0,
+    "priceFormatted": "Полицейский участок",
+    "zone": "Рокфорд-Хиллз",
+    "description": "Участок полиции LSPD / Шерифа с патрульными машинами и вертолетной площадкой.",
+    "features": [
+      "Патрульные полицейские машины LSPD на парковке",
+      "Точка возрождения после ареста полицией",
+      "Рядом находится штрафстоянка конфискованных авто"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": -561.4,
+      "y": 131.2,
+      "z": 60.1
+    },
+    "badge": {
+      "icon": "shield",
+      "color": "#2980b9",
+      "symbol": "🚓"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/MissionRowPoliceStation-GTAV.png"
+  },
+  {
+    "id": "svc-police-sandyshores",
+    "name": "Sandy Shores Sheriff's Station",
+    "category": "police_station",
+    "categoryLabel": "Полицейский участок",
+    "gameMode": "both",
+    "owner": "Шериф округа Блейн",
+    "price": 0,
+    "priceFormatted": "Полицейский участок",
+    "zone": "Сэнди-Шорс",
+    "description": "Участок полиции LSPD / Шерифа с патрульными машинами и вертолетной площадкой.",
+    "features": [
+      "Патрульные полицейские машины LSPD на парковке",
+      "Точка возрождения после ареста полицией",
+      "Рядом находится штрафстоянка конфискованных авто"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 1853.4,
+      "y": 3686.2,
+      "z": 34.3
+    },
+    "badge": {
+      "icon": "shield",
+      "color": "#2980b9",
+      "symbol": "🚓"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/SandyShoresSheriffsStation-GTAV.png"
+  },
+  {
+    "id": "svc-police-paletobay",
+    "name": "Paleto Bay Sheriff's Station",
+    "category": "police_station",
+    "categoryLabel": "Полицейский участок",
+    "gameMode": "both",
+    "owner": "Шериф округа Блейн",
+    "price": 0,
+    "priceFormatted": "Полицейский участок",
+    "zone": "Палето-Бэй",
+    "description": "Участок полиции LSPD / Шерифа с патрульными машинами и вертолетной площадкой.",
+    "features": [
+      "Патрульные полицейские машины LSPD на парковке",
+      "Точка возрождения после ареста полицией",
+      "Рядом находится штрафстоянка конфискованных авто"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": -448.2,
+      "y": 6012.3,
+      "z": 31.7
+    },
+    "badge": {
+      "icon": "shield",
+      "color": "#2980b9",
+      "symbol": "🚓"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/PaletoBaySheriffsOffice-GTAV.png"
+  },
+  {
+    "id": "svc-hosp-pillbox",
+    "name": "Pillbox Hill Медицинский центр",
+    "category": "hospital",
+    "categoryLabel": "Больница",
+    "gameMode": "both",
+    "owner": "Медицинская служба Лос-Сантоса",
+    "price": 0,
+    "priceFormatted": "Госпиталь / Травмпункт",
+    "zone": "Пиллбокс-Хилл",
+    "description": "Городская больница Лос-Сантоса. Точка возрождения после медицинской помощи.",
+    "features": [
+      "Точка возрождения в больнице после гибели",
+      "Машины скорой медицинской помощи на парковке",
+      "Медицинская вертолетная площадка на крыше"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 356.4,
+      "y": -590.2,
+      "z": 28.8
+    },
+    "badge": {
+      "icon": "hospital",
+      "color": "#e74c3c",
+      "symbol": "🏥"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/PillboxHillMedicalCenter-GTAV.png"
+  },
+  {
+    "id": "svc-hosp-centralls",
+    "name": "Central Los Santos Медицинский центр",
+    "category": "hospital",
+    "categoryLabel": "Больница",
+    "gameMode": "both",
+    "owner": "Медицинская служба Лос-Сантоса",
+    "price": 0,
+    "priceFormatted": "Госпиталь / Травмпункт",
+    "zone": "Дэвис",
+    "description": "Городская больница Лос-Сантоса. Точка возрождения после медицинской помощи.",
+    "features": [
+      "Точка возрождения в больнице после гибели",
+      "Машины скорой медицинской помощи на парковке",
+      "Медицинская вертолетная площадка на крыше"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 357.2,
+      "y": -1398.1,
+      "z": 32.5
+    },
+    "badge": {
+      "icon": "hospital",
+      "color": "#e74c3c",
+      "symbol": "🏥"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/CentralLosSantosMedicalCenter-GTAV.png"
+  },
+  {
+    "id": "svc-hosp-zonah",
+    "name": "Mount Zonah Медицинский центр",
+    "category": "hospital",
+    "categoryLabel": "Больница",
+    "gameMode": "both",
+    "owner": "Медицинская служба Лос-Сантоса",
+    "price": 0,
+    "priceFormatted": "Госпиталь / Травмпункт",
+    "zone": "Рокфорд-Хиллз",
+    "description": "Городская больница Лос-Сантоса. Точка возрождения после медицинской помощи.",
+    "features": [
+      "Точка возрождения в больнице после гибели",
+      "Машины скорой медицинской помощи на парковке",
+      "Медицинская вертолетная площадка на крыше"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": -498.3,
+      "y": -335.2,
+      "z": 34.5
+    },
+    "badge": {
+      "icon": "hospital",
+      "color": "#e74c3c",
+      "symbol": "🏥"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/MountZonahMedicalCenter-GTAV-Logo.png"
+  },
+  {
+    "id": "svc-hosp-sandyshores",
+    "name": "Sandy Shores Medical Clinic",
+    "category": "hospital",
+    "categoryLabel": "Больница",
+    "gameMode": "both",
+    "owner": "Здравоохранение округа Блейн",
+    "price": 0,
+    "priceFormatted": "Госпиталь / Травмпункт",
+    "zone": "Сэнди-Шорс",
+    "description": "Городская больница Лос-Сантоса. Точка возрождения после медицинской помощи.",
+    "features": [
+      "Точка возрождения в больнице после гибели",
+      "Машины скорой медицинской помощи на парковке",
+      "Медицинская вертолетная площадка на крыше"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 1839.2,
+      "y": 3672.3,
+      "z": 34.3
+    },
+    "badge": {
+      "icon": "hospital",
+      "color": "#e74c3c",
+      "symbol": "🏥"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/SandyShoresMedicalCenter-GTAV.png"
+  },
+  {
+    "id": "svc-hosp-paletobay",
+    "name": "The Bay Care Center",
+    "category": "hospital",
+    "categoryLabel": "Больница",
+    "gameMode": "both",
+    "owner": "Здравоохранение округа Блейн",
+    "price": 0,
+    "priceFormatted": "Госпиталь / Травмпункт",
+    "zone": "Палето-Бэй",
+    "description": "Городская больница Лос-Сантоса. Точка возрождения после медицинской помощи.",
+    "features": [
+      "Точка возрождения в больнице после гибели",
+      "Машины скорой медицинской помощи на парковке",
+      "Медицинская вертолетная площадка на крыше"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": -247.1,
+      "y": 6331.2,
+      "z": 32.4
+    },
+    "badge": {
+      "icon": "hospital",
+      "color": "#e74c3c",
+      "symbol": "🏥"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/TheBayCareCenter-GTAV.png"
+  },
+  {
+    "id": "svc-fire-elburro",
+    "name": "Пожарная часть El Burro",
+    "category": "fire_station",
+    "categoryLabel": "Пожарная часть",
+    "gameMode": "both",
+    "owner": "Пожарный департамент Лос-Сантоса (LSFD)",
+    "price": 0,
+    "priceFormatted": "Пожарная часть",
+    "zone": "Эль-Бурро-Хайтс",
+    "description": "Пожарная часть Лос-Сантоса с пожарными машинами.",
+    "features": [
+      "Пожарные машины и спасательная техника LSFD",
+      "Противопожарное снаряжение и экипировка",
+      "Диспетчерская служба экстренного реагирования"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 1194.2,
+      "y": -1464.1,
+      "z": 34.8
+    },
+    "badge": {
+      "icon": "fire",
+      "color": "#e67e22",
+      "symbol": "🚒"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/ElBurroHeightsFireStation-GTAV-FullView.png"
+  },
+  {
+    "id": "svc-fire-davis",
+    "name": "Пожарная часть Davis",
+    "category": "fire_station",
+    "categoryLabel": "Пожарная часть",
+    "gameMode": "both",
+    "owner": "Пожарный департамент Лос-Сантоса (LSFD)",
+    "price": 0,
+    "priceFormatted": "Пожарная часть",
+    "zone": "Дэвис",
+    "description": "Пожарная часть Лос-Сантоса с пожарными машинами.",
+    "features": [
+      "Пожарные машины и спасательная техника LSFD",
+      "Противопожарное снаряжение и экипировка",
+      "Диспетчерская служба экстренного реагирования"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 204.3,
+      "y": -1647.2,
+      "z": 29.8
+    },
+    "badge": {
+      "icon": "fire",
+      "color": "#e67e22",
+      "symbol": "🚒"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/DavisFireStation-GTAV.PNG"
+  },
+  {
+    "id": "svc-fire-rockford",
+    "name": "Пожарная часть Rockford Hills",
+    "category": "fire_station",
+    "categoryLabel": "Пожарная часть",
+    "gameMode": "both",
+    "owner": "Пожарный департамент Лос-Сантоса (LSFD)",
+    "price": 0,
+    "priceFormatted": "Пожарная часть",
+    "zone": "Рокфорд-Хиллз",
+    "description": "Пожарная часть Лос-Сантоса с пожарными машинами.",
+    "features": [
+      "Пожарные машины и спасательная техника LSFD",
+      "Противопожарное снаряжение и экипировка",
+      "Диспетчерская служба экстренного реагирования"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": -634.1,
+      "y": -121.3,
+      "z": 38.2
+    },
+    "badge": {
+      "icon": "fire",
+      "color": "#e67e22",
+      "symbol": "🚒"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/RockfordHillsFireStation-GTAV.png"
+  },
+  {
+    "id": "svc-fire-paleto",
+    "name": "Пожарная часть Paleto Bay",
+    "category": "fire_station",
+    "categoryLabel": "Пожарная часть",
+    "gameMode": "both",
+    "owner": "Пожарная служба округа Блейн",
+    "price": 0,
+    "priceFormatted": "Пожарная часть",
+    "zone": "Палето-Бэй",
+    "description": "Пожарная часть Лос-Сантоса с пожарными машинами.",
+    "features": [
+      "Пожарные машины и спасательная техника LSFD",
+      "Противопожарное снаряжение и экипировка",
+      "Диспетчерская служба экстренного реагирования"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": -379.2,
+      "y": 6118.4,
+      "z": 31.8
+    },
+    "badge": {
+      "icon": "fire",
+      "color": "#e67e22",
+      "symbol": "🚒"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/PaletoBayFireStation-GTAV.png"
+  },
+  {
+    "id": "svc-fire-sandyshores",
+    "name": "Bomberos de Sandy Shores",
+    "category": "fire_station",
+    "categoryLabel": "Пожарная часть",
+    "gameMode": "both",
+    "owner": "Пожарная служба округа Блейн",
+    "price": 0,
+    "priceFormatted": "Пожарная часть",
+    "zone": "Сэнди-Шорс",
+    "description": "Пожарная часть Лос-Сантоса с пожарными машинами.",
+    "features": [
+      "Пожарные машины и спасательная техника LSFD",
+      "Противопожарное снаряжение и экипировка",
+      "Диспетчерская служба экстренного реагирования"
+    ],
+    "income": "Экстренная служба",
+    "position": {
+      "x": 1693.3,
+      "y": 3584.2,
+      "z": 35.6
+    },
+    "badge": {
+      "icon": "fire",
+      "color": "#e67e22",
+      "symbol": "🚒"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/SandyShoresFireStation-GTAV.png"
+  },
+  {
+    "id": "store-vespucci-masks",
+    "name": "Магазин масок на пляже Веспуччи",
+    "category": "mask_shop",
+    "categoryLabel": "Магазин масок",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Магазин масок",
+    "zone": "Vespucci Beach - Boardwalk",
+    "description": "Культовый ларек на набережной для покупки масок для ограблений и мультиплеера.",
+    "features": [
+      "Маски для ограблений и тактическая маскировка",
+      "Эксклюзивные головные уборы и костюмы",
+      "Культовое расположение на набережной Веспуччи-Бич"
+    ],
+    "position": {
+      "x": -1338.2,
+      "y": -1278.1,
+      "z": 4.8
+    },
+    "badge": {
+      "icon": "mask",
+      "color": "#1abc9c",
+      "symbol": "🎭"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/services/VespucciMoviemasks-Front-GTAV.png"
+  }
 ]

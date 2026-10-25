@@ -1,11 +1,11 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using GTAAPP.Server.Models;
 
 namespace GTAAPP.Server.Services;
 
 /// <summary>
-/// Servicio centralizado para proveer contenido, secciones y artï¿½culos de la Wiki / Guï¿½a de GTA 5 y GTA 6.
-/// Carga los datos de GTA 5 dinï¿½micamente desde los archivos JSON estructurados en wwwroot/data/gta5/guia/.
+/// Servicio centralizado para proveer contenido, secciones y artículos de la Wiki / Guía de GTA 5 y GTA 6.
+/// Carga los datos de GTA 5 dinámicamente desde los archivos JSON estructurados en wwwroot/data/gta5/guia/.
 /// </summary>
 public interface IGuiaService
 {
@@ -64,7 +64,7 @@ public class GuiaService : IGuiaService
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(ex, "Error al cargar archivo de guï¿½a {File}", f);
+                    _logger.LogWarning(ex, "Error al cargar archivo de guía {File}", f);
                 }
             }
         }
@@ -86,7 +86,7 @@ public class GuiaService : IGuiaService
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(ex, "Error al cargar archivo de guï¿½a online {File}", f);
+                    _logger.LogWarning(ex, "Error al cargar archivo de guía online {File}", f);
                 }
             }
         }
@@ -96,16 +96,16 @@ public class GuiaService : IGuiaService
         _manifiestos["gta5"] = new GuiaManifest
         {
             Id = "gta5",
-            Titulo = "Guï¿½a Oficial GTA V",
-            Descripcion = "Guï¿½a enciclopï¿½dica completa del Modo Historia y GTA Online.",
+            Titulo = "Guía Oficial GTA V",
+            Descripcion = "Guía enciclopédica completa del Modo Historia y GTA Online.",
             Secciones = new List<GuiaSeccion>
             {
-                new() { Id = "historia-100", Titulo = "Modo Historia & 100%", Icono = "trophy", Descripcion = "Guï¿½a paso a paso de la campaï¿½a, requisitos del 100% y decisiones clave.", Orden = 1 },
-                new() { Id = "personajes", Titulo = "Protagonistas & Facciones", Icono = "users", Descripcion = "Biografï¿½as, habilidades especiales y misiones personales.", Orden = 2 },
-                new() { Id = "armas", Titulo = "Armas", Icono = "crosshairs", Descripcion = "Catï¿½logo de armamento del modo historia y online.", Orden = 3 },
-                new() { Id = "negocios-economia", Titulo = "Mercado Bursï¿½til", Icono = "trending-up", Descripcion = "Guï¿½a de finanzas y especulaciï¿½n bursï¿½til.", Orden = 4 },
+                new() { Id = "historia-100", Titulo = "Modo Historia & 100%", Icono = "trophy", Descripcion = "Guía paso a paso de la campaña, requisitos del 100% y decisiones clave.", Orden = 1 },
+                new() { Id = "personajes", Titulo = "Protagonistas & Facciones", Icono = "users", Descripcion = "Biografías, habilidades especiales y misiones personales.", Orden = 2 },
+                new() { Id = "armas", Titulo = "Armas", Icono = "crosshairs", Descripcion = "Catálogo de armamento del modo historia y online.", Orden = 3 },
+                new() { Id = "negocios-economia", Titulo = "Mercado Bursátil", Icono = "trending-up", Descripcion = "Guía de finanzas y especulación bursátil.", Orden = 4 },
                 new() { Id = "secretos-misterios", Titulo = "Secretos & Misterios", Icono = "eye", Descripcion = "Archivo de enigmas, sucesos paranormales y mitos.", Orden = 5 },
-                new() { Id = "trucos", Titulo = "Cï¿½digos & Trucos", Icono = "gamepad", Descripcion = "Trucos de salud, armas, nivel de bï¿½squeda y vehï¿½culos.", Orden = 6 }
+                new() { Id = "trucos", Titulo = "Códigos & Trucos", Icono = "gamepad", Descripcion = "Trucos de salud, armas, nivel de búsqueda y vehículos.", Orden = 6 }
             }
         };
     }
@@ -120,8 +120,8 @@ public class GuiaService : IGuiaService
         return new GuiaManifest
         {
             Id = juegoId,
-            Titulo = $"Guï¿½a {juegoId.ToUpper()}",
-            Descripcion = "Guï¿½a completa en construcciï¿½n."
+            Titulo = $"Guía {juegoId.ToUpper()}",
+            Descripcion = "Guía completa en construcción."
         };
     }
 

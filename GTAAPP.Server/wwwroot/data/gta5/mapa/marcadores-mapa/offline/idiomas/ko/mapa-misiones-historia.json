@@ -1,1130 +1,597 @@
-﻿[
-    {
-        "id":  "mission-01",
-        "order":  1,
-        "title":  "í”„ë¡¤ë¡œê·¸ (Prologue)",
-        "character":  "Michael, Trevor",
-        "giver":  "ë©”ì¸ ìŠ¤í† ë¦¬",
-        "category":  "í”„ë¡¤ë¡œê·¸",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027í”„ë¡¤ë¡œê·¸ (Prologue)\u0027. í”Œë ˆì´ì–´ (Michael, Trevor), ì˜ë¢°ì¸: ë©”ì¸ ìŠ¤í† ë¦¬. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Unlocks Los Santos and Franklin",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Game start"
-    },
-    {
-        "id":  "mission-02",
-        "order":  2,
-        "title":  "í”„ëž­í´ë¦°ê³¼ ë¼ë§ˆ",
-        "character":  "Franklin",
-        "giver":  "Simeon Yetarian",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027í”„ëž­í´ë¦°ê³¼ ë¼ë§ˆ\u0027. í”Œë ˆì´ì–´ (Franklin), ì˜ë¢°ì¸: Simeon Yetarian. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "$250",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Prologue"
-    },
-    {
-        "id":  "mission-03",
-        "order":  3,
-        "title":  "ì••ë¥˜ (Repossession)",
-        "character":  "Franklin",
-        "giver":  "Simeon Yetarian",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì••ë¥˜ (Repossession)\u0027. í”Œë ˆì´ì–´ (Franklin), ì˜ë¢°ì¸: Simeon Yetarian. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Experience and reputation with Simeon",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Franklin and Lamar"
-    },
-    {
-        "id":  "mission-04",
-        "order":  4,
-        "title":  "ë³µìž¡í•œ ì‚¬ì • (Complications)",
-        "character":  "Franklin, Michael",
-        "giver":  "Simeon Yetarian",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë³µìž¡í•œ ì‚¬ì • (Complications)\u0027. í”Œë ˆì´ì–´ (Franklin, Michael), ì˜ë¢°ì¸: Simeon Yetarian. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "$300 and Michael unlocked as playable character",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Repossession"
-    },
-    {
-        "id":  "mission-05",
-        "order":  5,
-        "title":  "ì•„ë²„ì§€ì™€ ì•„ë“¤",
-        "character":  "Michael, Franklin",
-        "giver":  "Michael De Santa",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì•„ë²„ì§€ì™€ ì•„ë“¤\u0027. í”Œë ˆì´ì–´ (Michael, Franklin), ì˜ë¢°ì¸: Michael De Santa. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Free vehicle upgrades at Los Santos Customs for Franklin",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Complications"
-    },
-    {
-        "id":  "mission-06",
-        "order":  6,
-        "title":  "ì°¹ (Chop)",
-        "character":  "Franklin",
-        "giver":  "Lamar Davis",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì°¹ (Chop)\u0027. í”Œë ˆì´ì–´ (Franklin), ì˜ë¢°ì¸: Lamar Davis. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Chop unlocked as Franklin\u0027s companion",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Franklin and Lamar"
-    },
-    {
-        "id":  "mission-07",
-        "order":  7,
-        "title":  "ë¶€ë¶€ ìƒë‹´",
-        "character":  "Michael, Franklin",
-        "giver":  "Michael De Santa",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë¶€ë¶€ ìƒë‹´\u0027. í”Œë ˆì´ì–´ (Michael, Franklin), ì˜ë¢°ì¸: Michael De Santa. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "$2.5M debt with Martin Madrazo",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Father/Son"
-    },
-    {
-        "id":  "mission-08",
-        "order":  8,
-        "title":  "ì•„ë¹ ì˜ ê·€ì—¬ìš´ ë”¸",
-        "character":  "Michael",
-        "giver":  "Jimmy De Santa",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì•„ë¹ ì˜ ê·€ì—¬ìš´ ë”¸\u0027. í”Œë ˆì´ì–´ (Michael), ì˜ë¢°ì¸: Jimmy De Santa. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Stamina boost for Michael",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Marriage Counseling"
-    },
-    {
-        "id":  "mission-09",
-        "order":  9,
-        "title":  "ì¹œêµ¬ ìš”ì²­ (Friend Request)",
-        "character":  "Michael",
-        "giver":  "Lester Crest",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì¹œêµ¬ ìš”ì²­ (Friend Request)\u0027. í”Œë ˆì´ì–´ (Michael), ì˜ë¢°ì¸: Lester Crest. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Lester agrees to assist in future heists",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Marriage Counseling"
-    },
-    {
-        "id":  "mission-10",
-        "order":  10,
-        "title":  "ê¸°ë‚˜ê¸´ ì—¬ì •",
-        "character":  "Franklin",
-        "giver":  "Lamar Davis",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ê¸°ë‚˜ê¸´ ì—¬ì •\u0027. í”Œë ˆì´ì–´ (Franklin), ì˜ë¢°ì¸: Lamar Davis. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Weapons and ammunition scavenged during escape",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Chop"
-    },
-    {
-        "id":  "mission-11",
-        "order":  11,
-        "title":  "ë³´ì„ì  ì‚¬ì „ ì¡°ì‚¬",
-        "character":  "Michael",
-        "giver":  "Lester Crest",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë³´ì„ì  ì‚¬ì „ ì¡°ì‚¬\u0027. í”Œë ˆì´ì–´ (Michael), ì˜ë¢°ì¸: Lester Crest. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Jewel Store Heist planning board",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Friend Request"
-    },
-    {
-        "id":  "mission-12",
-        "order":  12,
-        "title":  "ë³´ì„ì  ìŠµê²© (The Jewel Store Job)",
-        "character":  "Michael, Franklin",
-        "giver":  "Lester Crest",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë³´ì„ì  ìŠµê²© (The Jewel Store Job)\u0027. í”Œë ˆì´ì–´ (Michael, Franklin), ì˜ë¢°ì¸: Lester Crest. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Over $1.4M total split between Franklin and Michael",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Casing the Jewel Store"
-    },
-    {
-        "id":  "mission-13",
-        "order":  13,
-        "title":  "ë¯¸ìŠ¤í„° í•„ë¦½ìŠ¤ (Mr. Philips)",
-        "character":  "Trevor",
-        "giver":  "Trevor Philips",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë¯¸ìŠ¤í„° í•„ë¦½ìŠ¤ (Mr. Philips)\u0027. í”Œë ˆì´ì–´ (Trevor), ì˜ë¢°ì¸: Trevor Philips. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Trevor unlocked as playable character",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: The Jewel Store Job"
-    },
-    {
-        "id":  "mission-14",
-        "order":  14,
-        "title":  "íŠ¸ë ˆë²„ í•„ë¦½ìŠ¤ ì—”í„°í”„ë¼ì´ì¦ˆ",
-        "character":  "Trevor",
-        "giver":  "Trevor Philips",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027íŠ¸ë ˆë²„ í•„ë¦½ìŠ¤ ì—”í„°í”„ë¼ì´ì¦ˆ\u0027. í”Œë ˆì´ì–´ (Trevor), ì˜ë¢°ì¸: Trevor Philips. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Consolidates meth empire in Sandy Shores",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Mr. Philips"
-    },
-    {
-        "id":  "mission-15",
-        "order":  15,
-        "title":  "ë¶ˆì•ˆí•œ ë¡  (Nervous Ron)",
-        "character":  "Trevor",
-        "giver":  "Ron Jakowski",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë¶ˆì•ˆí•œ ë¡  (Nervous Ron)\u0027. í”Œë ˆì´ì–´ (Trevor), ì˜ë¢°ì¸: Ron Jakowski. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "McKenzie Airfield hangar unlocked for purchase",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Trevor Philips Industries"
-    },
-    {
-        "id":  "mission-16",
-        "order":  16,
-        "title":  "í¬ë¦¬ìŠ¤í„¸ ë¯¸ë¡œ",
-        "character":  "Trevor",
-        "giver":  "Trevor Philips",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027í¬ë¦¬ìŠ¤í„¸ ë¯¸ë¡œ\u0027. í”Œë ˆì´ì–´ (Trevor), ì˜ë¢°ì¸: Trevor Philips. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Elimination of Blaine County competitors",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Trevor Philips Industries"
-    },
-    {
-        "id":  "mission-17",
-        "order":  17,
-        "title":  "ì¹œêµ¬ë“¤ì˜ ìž¬íšŒ",
-        "character":  "Trevor",
-        "giver":  "Trevor Philips",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì¹œêµ¬ë“¤ì˜ ìž¬íšŒ\u0027. í”Œë ˆì´ì–´ (Trevor), ì˜ë¢°ì¸: Trevor Philips. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Floyd\u0027s Vespucci Beach safehouse unlocked",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Crystal Maze"
-    },
-    {
-        "id":  "mission-18",
-        "order":  18,
-        "title":  "ëª…ì˜ˆëƒ êµ´ìš•ì´ëƒ",
-        "character":  "Michael, Trevor",
-        "giver":  "Michael De Santa",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ëª…ì˜ˆëƒ êµ´ìš•ì´ëƒ\u0027. í”Œë ˆì´ì–´ (Michael, Trevor), ì˜ë¢°ì¸: Michael De Santa. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Initial truce between Michael and Trevor",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Friends Reunited"
-    },
-    {
-        "id":  "mission-19",
-        "order":  19,
-        "title":  "ì„¸ ë†ˆì˜ ê²°í•©",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Dave Norton (FIB)",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì„¸ ë†ˆì˜ ê²°í•©\u0027. í”Œë ˆì´ì–´ (Michael, Franklin, Trevor), ì˜ë¢°ì¸: Dave Norton (FIB). 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Unlocks cooperative FIB field missions",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Fame or Shame"
-    },
-    {
-        "id":  "mission-20",
-        "order":  20,
-        "title":  "ì›ì¹™ëŒ€ë¡œ",
-        "character":  "Michael, Trevor",
-        "giver":  "Steve Haines (FIB)",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì›ì¹™ëŒ€ë¡œ\u0027. í”Œë ˆì´ì–´ (Michael, Trevor), ì˜ë¢°ì¸: Steve Haines (FIB). 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Trevor transports Kerimov safely to the airport",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Three\u0027s Company"
-    },
-    {
-        "id":  "mission-21",
-        "order":  21,
-        "title":  "í›„ë“œ ì‚¬íŒŒë¦¬ (Hood Safari)",
-        "character":  "Franklin, Trevor",
-        "giver":  "Franklin Clinton",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027í›„ë“œ ì‚¬íŒŒë¦¬ (Hood Safari)\u0027. í”Œë ˆì´ì–´ (Franklin, Trevor), ì˜ë¢°ì¸: Franklin Clinton. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "$0 (deal gone bad)",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Three\u0027s Company"
-    },
-    {
-        "id":  "mission-22",
-        "order":  22,
-        "title":  "ë©”ë¦¬ì›¨ë” ìŠµê²©",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Trevor Philips",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë©”ë¦¬ì›¨ë” ìŠµê²©\u0027. í”Œë ˆì´ì–´ (Michael, Franklin, Trevor), ì˜ë¢°ì¸: Trevor Philips. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Experience (device returned without cash payout)",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Hood Safari"
-    },
-    {
-        "id":  "mission-23",
-        "order":  23,
-        "title":  "í˜¸í…” ì•”ì‚´",
-        "character":  "Franklin",
-        "giver":  "Lester Crest",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027í˜¸í…” ì•”ì‚´\u0027. í”Œë ˆì´ì–´ (Franklin), ì˜ë¢°ì¸: Lester Crest. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "$9,000 + massive stock market returns",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Fame or Shame"
-    },
-    {
-        "id":  "mission-24",
-        "order":  24,
-        "title":  "ê¸°ìŠµ ìž‘ì „ (Blitz Play)",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Steve Haines (FIB)",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ê¸°ìŠµ ìž‘ì „ (Blitz Play)\u0027. í”Œë ˆì´ì–´ (Michael, Franklin, Trevor), ì˜ë¢°ì¸: Steve Haines (FIB). 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Black-ops funding for the FIB operation",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Hotel Assassination"
-    },
-    {
-        "id":  "mission-25",
-        "order":  25,
-        "title":  "ë²•ê³¼ ë§žì„œë‹¤...",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Devin Weston",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë²•ê³¼ ë§žì„œë‹¤...\u0027. í”Œë ˆì´ì–´ (Michael, Franklin, Trevor), ì˜ë¢°ì¸: Devin Weston. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Devin Weston unlocked as an employer",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Blitz Play"
-    },
-    {
-        "id":  "mission-26",
-        "order":  26,
-        "title":  "íŒ”ë ˆí†  ìž‘ì—… (Paleto Score)",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "FIB / Lester",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027íŒ”ë ˆí†  ìž‘ì—… (Paleto Score)\u0027. í”Œë ˆì´ì–´ (Michael, Franklin, Trevor), ì˜ë¢°ì¸: FIB / Lester. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Approx. $450,000 take per protagonist",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: I Fought the Law..."
-    },
-    {
-        "id":  "mission-27",
-        "order":  27,
-        "title":  "íƒˆì„  (Derailed)",
-        "character":  "Michael, Trevor",
-        "giver":  "Trevor Philips",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027íƒˆì„  (Derailed)\u0027. í”Œë ˆì´ì–´ (Michael, Trevor), ì˜ë¢°ì¸: Trevor Philips. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Valuable smuggled high-grade contraband",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: The Paleto Score"
-    },
-    {
-        "id":  "mission-28",
-        "order":  28,
-        "title":  "FIB ìŠµê²©",
-        "character":  "Michael, Franklin",
-        "giver":  "Steve Haines",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027FIB ìŠµê²©\u0027. í”Œë ˆì´ì–´ (Michael, Franklin), ì˜ë¢°ì¸: Steve Haines. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Erasure of federal records and legal pressure on Michael",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Derailed"
-    },
-    {
-        "id":  "mission-29",
-        "order":  29,
-        "title":  "ì—°ë°© ì •ë¶€ ë¬¸ì œ",
-        "character":  "Michael, Trevor",
-        "giver":  "Dave Norton",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì—°ë°© ì •ë¶€ ë¬¸ì œ\u0027. í”Œë ˆì´ì–´ (Michael, Trevor), ì˜ë¢°ì¸: Dave Norton. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Survival of Dave Norton and Michael",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: The Bureau Raid"
-    },
-    {
-        "id":  "mission-30",
-        "order":  30,
-        "title":  "ê³¤ê²½ì— ë¹ ì§„ ë¼ë§ˆ",
-        "character":  "Franklin, Michael, Trevor",
-        "giver":  "Tanisha Jackson",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ê³¤ê²½ì— ë¹ ì§„ ë¼ë§ˆ\u0027. í”Œë ˆì´ì–´ (Franklin, Michael, Trevor), ì˜ë¢°ì¸: Tanisha Jackson. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Unbreakable bond with Lamar",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: The Wrap Up"
-    },
-    {
-        "id":  "mission-31",
-        "order":  31,
-        "title":  "ë©œíŠ¸ë‹¤ìš´ (ë¶•ê´´)",
-        "character":  "Michael",
-        "giver":  "Solomon Richards",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ë©œíŠ¸ë‹¤ìš´ (ë¶•ê´´)\u0027. í”Œë ˆì´ì–´ (Michael), ì˜ë¢°ì¸: Solomon Richards. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Full reunion of the De Santa family",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Lamar Down"
-    },
-    {
-        "id":  "mission-32",
-        "order":  32,
-        "title":  "í° ê±° í•œ ë°© (The Big Score)",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Lester Crest",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027í° ê±° í•œ ë°© (The Big Score)\u0027. í”Œë ˆì´ì–´ (Michael, Franklin, Trevor), ì˜ë¢°ì¸: Lester Crest. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Approx. $28,000,000 take for each of the three protagonists",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: Meltdown"
-    },
-    {
-        "id":  "mission-33",
-        "order":  33,
-        "title":  "ì„ íƒ A: í˜„ëª…í•œ ì„ íƒ (íŠ¸ë ˆë²„ ì²˜ì¹˜)",
-        "character":  "Franklin",
-        "giver":  "Steve Haines / Dave Norton",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì„ íƒ A: í˜„ëª…í•œ ì„ íƒ (íŠ¸ë ˆë²„ ì²˜ì¹˜)\u0027. í”Œë ˆì´ì–´ (Franklin), ì˜ë¢°ì¸: Steve Haines / Dave Norton. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Heist money split between Franklin and Michael (Trevor lost)",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: The Big Score"
-    },
-    {
-        "id":  "mission-34",
-        "order":  34,
-        "title":  "ì„ íƒ B: ë•Œê°€ ì™”ë‹¤ (ë§ˆì´í´ ì²˜ì¹˜)",
-        "character":  "Franklin",
-        "giver":  "Devin Weston",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì„ íƒ B: ë•Œê°€ ì™”ë‹¤ (ë§ˆì´í´ ì²˜ì¹˜)\u0027. í”Œë ˆì´ì–´ (Franklin), ì˜ë¢°ì¸: Devin Weston. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "Heist money split between Franklin and Trevor (Michael lost)",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: The Big Score"
-    },
-    {
-        "id":  "mission-35",
-        "order":  35,
-        "title":  "ì„ íƒ C: ì œ3ì˜ ê¸¸ (ëª¨ë‘ êµ¬ì¶œ)",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Lester Crest",
-        "category":  "ìŠ¤í† ë¦¬ ëª¨ë“œ",
-        "description":  "GTA V ìŠ¤í† ë¦¬ ëª¨ë“œ ë©”ì¸ ë¯¸ì…˜: \u0027ì„ íƒ C: ì œ3ì˜ ê¸¸ (ëª¨ë‘ êµ¬ì¶œ)\u0027. í”Œë ˆì´ì–´ (Michael, Franklin, Trevor), ì˜ë¢°ì¸: Lester Crest. 100% ì™„ì„±ì„ ìœ„í•´ ê³¨ë“œ ë©”ë‹¬ ì¡°ê±´ì„ ë‹¬ì„±í•˜ì„¸ìš”.",
-        "goldRequirements":  [
-                                 "ì œí•œ ì‹œê°„ ë‚´ì— ë¯¸ì…˜ ì™„ë£Œ",
-                                 "ì‚¬ê²© ëª…ì¤‘ë¥  70% ì´ìƒ ìœ ì§€",
-                                 "í—¤ë“œìƒ·ìœ¼ë¡œ ì  ì œê±°",
-                                 "ì°¨ëŸ‰ íŒŒì† ìµœì†Œí™”"
-                             ],
-        "reward":  "$28,000,000 for each protagonist and all three alive and playable",
-        "unlockedBy":  "í•´ê¸ˆ ì¡°ê±´: The Big Score"
-    },
-    {
-        "id":  "mission-36",
-        "order":  36,
-        "title":  "CaÃ­da libre",
-        "character":  "Michael, Trevor",
-        "giver":  "MartÃ­n Madrazo",
-        "category":  "Historia",
-        "description":  "Asesinar al primo de MartÃ­n Madrazo (Javier) derribando su jet privado en pleno vuelo con artillerÃ­a pesada y recuperar unos documentos incriminatorios.",
-        "goldRequirements":  [
-                                 "Alcanzar la mÃ¡xima velocidad en la moto SÃ¡nchez",
-                                 "No caerse de la moto SÃ¡nchez durante la persecuciÃ³n",
-                                 "Derribar el aviÃ³n con 3 disparos",
-                                 "Terminar en menos de 09:45"
-                             ],
-        "reward":  "Michael y Trevor son exiliados de Los Santos. Se desbloquea el piso franco de Sandy Shores.",
-        "unlockedBy":  "El ojo en el cielo"
-    },
-    {
-        "id":  "mission-37",
-        "order":  37,
-        "title":  "En el fondo del mar",
-        "character":  "Franklin",
-        "giver":  "Devin Weston",
-        "category":  "Historia",
-        "description":  "Infiltrarse en un rodaje de cine y robar un Aston Martin modificado (Dewbauchee JB 700) equipado con armamento real y artilugios de espÃ­a.",
-        "goldRequirements":  [
-                                 "Entregar el JB 700 con daÃ±os mÃ­nimos",
-                                 "Alcanzar la velocidad mÃ¡xima en el JB 700",
-                                 "Noquear al actor de forma sigilosa",
-                                 "Eyectar al pasajero en menos de 10 segundos"
-                             ],
-        "reward":  "Nueva entrega para el garaje de Devin Weston.",
-        "unlockedBy":  "CaÃ­da libre"
-    },
-    {
-        "id":  "mission-38",
-        "order":  38,
-        "title":  "Pasajero clandestino",
-        "character":  "Trevor",
-        "giver":  "Ron Jakowski",
-        "category":  "Historia",
-        "description":  "Abordar un aviÃ³n de carga de Merryweather en pleno vuelo, tomar el control de la aeronave y sobrevivir al contraataque de los cazas de la base militar.",
-        "goldRequirements":  [
-                                 "Terminar con al menos un 80% de precisiÃ³n",
-                                 "Salir del aviÃ³n de carga conduciendo el todoterreno Mesa"
-                             ],
-        "reward":  "Ninguna. Todo el cargamento se hunde en Alamo Sea.",
-        "unlockedBy":  "En el fondo del mar"
-    },
-    {
-        "id":  "mission-39",
-        "order":  39,
-        "title":  "El bloqueo",
-        "character":  "Michael, Trevor",
-        "giver":  "Lester Crest",
-        "category":  "PreparaciÃ³n",
-        "description":  "Primer plan conjunto diseÃ±ado directamente por Lester y Trevor desde la caravana. Realizar un sondeo y activar la alarma del banco rural de Paleto Bay para medir la fuerza de respuesta tÃ¡ctica de la policÃ­a local.",
-        "goldRequirements":  [
-                                 "Conducir hasta el banco en menos de 03:30",
-                                 "Ganar la carrera de vuelta al laboratorio"
-                             ],
-        "reward":  "Se inician los preparativos para el Golpe de Paleto.",
-        "unlockedBy":  "Pasajero clandestino"
-    },
-    {
-        "id":  "mission-40",
-        "order":  40,
-        "title":  "Depredador",
-        "character":  "Trevor, Michael, Franklin",
-        "giver":  "Trevor Philips",
-        "category":  "Historia",
-        "description":  "Perseguir y aniquilar a los hermanos O\u0027Neil que han sobrevivido y se esconden en el denso bosque de Raton Canyon.",
-        "goldRequirements":  [
-                                 "Terminar con al menos un 70% de precisiÃ³n",
-                                 "Terminar en menos de 09:00",
-                                 "Conseguir 3 tiros a la cabeza",
-                                 "No matar a ningÃºn animal"
-                             ],
-        "reward":  "Ninguna. Venganza y eliminaciÃ³n de los hermanos O\u0027Neil restantes.",
-        "unlockedBy":  "El bloqueo"
-    },
-    {
-        "id":  "mission-41",
-        "order":  41,
-        "title":  "Material militar",
-        "character":  "Trevor, Michael, Franklin",
-        "giver":  "Lester Crest",
-        "category":  "PreparaciÃ³n",
-        "description":  "Emboscar a un convoy militar para robar un camiÃ³n que transporta trajes militares antibalas de cuerpo completo y ametralladoras rotativas (Minigun).",
-        "goldRequirements":  [
-                                 "Matar a 5 soldados con tiros a la cabeza",
-                                 "Detener el convoy usando una bomba adhesiva"
-                             ],
-        "reward":  "Blindaje y armamento pesado asegurado para el Golpe de Paleto.",
-        "unlockedBy":  "Depredador"
-    },
-    {
-        "id":  "mission-42",
-        "order":  42,
-        "title":  "El golpe de Paleto",
-        "character":  "Michael, Trevor, Franklin",
-        "giver":  "Lester Crest",
-        "category":  "Golpe",
-        "description":  "Asalto armado a la entidad bancaria de Paleto Bay con armamento pesado y trajes balÃ­sticos integrales. El equipo resiste el cerco conjunto de fuerzas especiales y militares hasta la llegada de Franklin con maquinaria pesada para abrir paso hacia las vÃ­as del tren.",
-        "goldRequirements":  [
-                                 "Disparar mÃ¡s de 4.000 proyectiles",
-                                 "PrecisiÃ³n de disparo mÃ­nima del 50%",
-                                 "Causar mÃ¡s de $1.000.000 en daÃ±os materiales a Paleto Bay",
-                                 "Completar en menos de 16:00"
-                             ],
-        "reward":  "Aprox. $450.000 netos para cada personaje",
-        "unlockedBy":  "Me enfrentÃ© a la ley..."
-    },
-    {
-        "id":  "mission-43",
-        "order":  43,
-        "title":  "Descarrilado",
-        "character":  "Michael, Trevor",
-        "giver":  "Trevor Philips",
-        "category":  "Historia",
-        "description":  "Abordaje en motocicleta sobre un tren en marcha para forzar una colisiÃ³n sobre el puente del rÃ­o Zancudo. Con los vagones precipitados al agua, Michael accede en embarcaciÃ³n para extraer el cargamento mientras repelen a los efectivos tÃ¡cticos de Merryweather.",
-        "goldRequirements":  [
-                                 "Tiempo inferior a 11:30",
-                                 "Aterrizar en el primer intento sobre el vagÃ³n del tren con la moto",
-                                 "Alcanzar la velocidad mÃ¡xima con la lancha motora"
-                             ],
-        "reward":  "Artefactos de contrabando de alto valor",
-        "unlockedBy":  "Golpe a Paleto Bay"
-    },
-    {
-        "id":  "mission-44",
-        "order":  44,
-        "title":  "El mono se la gana (Monkey Business)",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Steve Haines",
-        "category":  "Historia",
-        "description":  "Infiltrarse en las instalaciones de alta seguridad de Humane Labs por los conductos acuÃ¡ticos para robar una toxina nerviosa experimental para el FIB.",
-        "goldRequirements":  [
-                                 "Aturdir a 8 enemigos con la pistola taser",
-                                 "Conseguir 15 tiros a la cabeza",
-                                 "Terminar con al menos un 70% de precisiÃ³n",
-                                 "Terminar en menos de 13:30"
-                             ],
-        "reward":  "Se salda el acuerdo con Haines. Madrazo detiene la persecuciÃ³n.",
-        "unlockedBy":  "Descarrilado"
-    },
-    {
-        "id":  "mission-45",
-        "order":  45,
-        "title":  "Hang Ten",
-        "character":  "Trevor",
-        "giver":  "Trevor Philips",
-        "category":  "Historia",
-        "description":  "Con la situaciÃ³n insostenible en el piso franco y la tensiÃ³n entre los protagonistas, Trevor necesita una nueva base independiente para planificar el \u0027Gran Golpe\u0027. Ejecutar un cierre violento a la relaciÃ³n de Trevor con Floyd y Debra, y adquirir a la fuerza un nuevo cuartel general en Los Santos.",
-        "goldRequirements":  [
-                                 "Terminar en menos de 04:00"
-                             ],
-        "reward":  "Trevor toma control del club de striptease Vanilla Unicorn, que se convierte en su piso franco en LS.",
-        "unlockedBy":  "El mono se la gana (Monkey Business)"
-    },
-    {
-        "id":  "mission-46",
-        "order":  46,
-        "title":  "Investigando el golpe",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Lester Crest",
-        "category":  "Golpe",
-        "description":  "Realizar un anÃ¡lisis de vulnerabilidades, medir tiempos de respuesta y localizar puntos de acceso en el Banco de la Reserva Federal (\u0027Union Depository\u0027).",
-        "goldRequirements":  [
-                                 "Seguir a los furgones sin que te adviertan sobre la distancia",
-                                 "Encontrar el agujero de construcciÃ³n en menos de 20 segundos",
-                                 "Volar bajo el puente rastreando a los furgones y pasar por un tÃºnel"
-                             ],
-        "reward":  "PlanificaciÃ³n oficial del Gran Golpe (Sutil o Obvio).",
-        "unlockedBy":  "Hang Ten"
-    },
-    {
-        "id":  "mission-47",
-        "order":  47,
-        "title":  "Enterrando el hacha de guerra",
-        "character":  "Michael, Trevor",
-        "giver":  "Michael De Santa",
-        "category":  "Historia",
-        "description":  "Viajar a Ludendorff (North Yankton) bajo la nieve para desenterrar la tumba de \u0027Michael Townley\u0027 y sobrevivir a una emboscada del cÃ¡rtel de Wei Cheng.",
-        "goldRequirements":  [
-                                 "Terminar en menos de 11:00",
-                                 "Conseguir 20 tiros a la cabeza",
-                                 "Terminar con al menos un 80% de precisiÃ³n"
-                             ],
-        "reward":  "Ruptura temporal de la tripulaciÃ³n; Trevor descubre la verdad sobre Brad.",
-        "unlockedBy":  "Investigando el golpe"
-    },
-    {
-        "id":  "mission-48",
-        "order":  48,
-        "title":  "Secuestrador (Pack Man)",
-        "character":  "Franklin, Trevor",
-        "giver":  "Devin Weston",
-        "category":  "Historia",
-        "description":  "Transportar el lote de hipercoches de lujo robados en un camiÃ³n portacoches (\u0027Packer\u0027) hasta el punto de entrega en Paleto Bay, evadiendo una persecuciÃ³n del LSPD.",
-        "goldRequirements":  [
-                                 "Terminar en menos de 12:00",
-                                 "Entregar el JB 700 con daÃ±os mÃ­nimos",
-                                 "Destruir 3 coches de policÃ­a usando las pÃºas"
-                             ],
-        "reward":  "Ninguna. Weston se niega a pagar a los protagonistas.",
-        "unlockedBy":  "Enterrando el hacha de guerra"
-    },
-    {
-        "id":  "mission-49",
-        "order":  49,
-        "title":  "Carne fresca",
-        "character":  "Franklin, Michael",
-        "giver":  "Franklin Clinton",
-        "category":  "Historia",
-        "description":  "Rastrear la seÃ±al del telÃ©fono de Michael, irrumpir en una fÃ¡brica procesadora de carne (Raven Abattoir) y masacrar a las TrÃ­adas para salvarle la vida.",
-        "goldRequirements":  [
-                                 "No cambiar de personaje mÃ¡s de 3 veces",
-                                 "10 tiros a la cabeza y 70% de precisiÃ³n mÃ­nima",
-                                 "Rescatar a Michael en menos de 03:30",
-                                 "No usar puntos de ruta (waypoint) en el mapa"
-                             ],
-        "reward":  "Michael es rescatado y el contacto con Lester se retoma.",
-        "unlockedBy":  "Secuestrador (Pack Man)"
-    },
-    {
-        "id":  "mission-50",
-        "order":  50,
-        "title":  "La balada de Rocco",
-        "character":  "Michael",
-        "giver":  "Solomon Richards",
-        "category":  "Historia",
-        "description":  "Eliminar definitivamente a Rocco Pelosi (el mafioso de Liberty City) tras haber asaltado fÃ­sicamente a Solomon Richards en los estudios de cine.",
-        "goldRequirements":  [
-                                 "Terminar la misiÃ³n en menos de 03:00"
-                             ],
-        "reward":  "Michael es listado como Productor Asociado en la pelÃ­cula de Solomon.",
-        "unlockedBy":  "Carne fresca"
-    },
-    {
-        "id":  "mission-51",
-        "order":  51,
-        "title":  "Limpiando el FIB",
-        "character":  "Michael",
-        "giver":  "Lester Crest",
-        "category":  "Historia",
-        "description":  "Rastrear y obtener los uniformes e identificaciones del personal de limpieza del FIB para poder infiltrarse y borrar los archivos incriminatorios de Steve Haines.",
-        "goldRequirements":  [
-                                 "Comprobar todas las matrÃ­culas del aparcamiento",
-                                 "Seguir al conserje sin ser detectado",
-                                 "Terminar en menos de 09:00"
-                             ],
-        "reward":  "PlanificaciÃ³n oficial del asalto al FIB.",
-        "unlockedBy":  "La balada de Rocco"
-    },
-    {
-        "id":  "mission-52",
-        "order":  52,
-        "title":  "Reuniendo a la familia",
-        "character":  "Michael",
-        "giver":  "Jimmy De Santa",
-        "category":  "Historia",
-        "description":  "Reunir a Amanda, Tracey y Jimmy tras los meses de separaciÃ³n, lidiando con sus respectivos problemas para reconstruir la unidad familiar.",
-        "goldRequirements":  [
-                                 "Terminar en menos de 10:30"
-                             ],
-        "reward":  "La familia De Santa vuelve a la mansiÃ³n. Los vehÃ­culos familiares vuelven a estar disponibles.",
-        "unlockedBy":  "Limpiando el FIB"
-    },
-    {
-        "id":  "mission-53",
-        "order":  53,
-        "title":  "Arquitecto para todo",
-        "character":  "Franklin",
-        "giver":  "Lester Crest",
-        "category":  "PreparaciÃ³n",
-        "description":  "Robar los planos arquitectÃ³nicos de la sede del FIB que porta el arquitecto principal de la obra de ampliaciÃ³n para encontrar fisuras en su seguridad.",
-        "goldRequirements":  [
-                                 "Abandonar el Ã¡rea de construcciÃ³n en menos de 45 segundos tras robar el maletÃ­n"
-                             ],
-        "reward":  "Planos del edificio asegurados para el Golpe al FIB.",
-        "unlockedBy":  "Reuniendo a la familia"
-    },
-    {
-        "id":  "mission-54",
-        "order":  54,
-        "title":  "Problemas legales",
-        "character":  "Michael",
-        "giver":  "Solomon Richards",
-        "category":  "Historia",
-        "description":  "Detener al multimillonario Devin Weston y sus abogados, que han robado la Ãºnica cinta original de la pelÃ­cula para cobrar el seguro y hundir a Solomon.",
-        "goldRequirements":  [
-                                 "Terminar en menos de 05:30",
-                                 "Alcanzar la velocidad mÃ¡xima",
-                                 "Perder el nivel de bÃºsqueda en menos de 2 minutos",
-                                 "Ver la cÃ¡mara de noticias (Weazel News) durante 15 segundos"
-                             ],
-        "reward":  "EliminaciÃ³n de la amenaza sobre la pelÃ­cula \u0027Cataclismo\u0027.",
-        "unlockedBy":  "Arquitecto para todo"
-    },
-    {
-        "id":  "mission-55",
-        "order":  55,
-        "title":  "Asalto al FIB",
-        "character":  "Michael, Franklin",
-        "giver":  "Steve Haines",
-        "category":  "Golpes",
-        "description":  "IncursiÃ³n directa en las oficinas centrales del FIB para eliminar registros clasificados. Dependiendo de la estrategia seleccionada, el asalto se ejecuta mediante inserciÃ³n paracaidista en el tejado o simulando una evacuaciÃ³n del cuerpo de bomberos con detonaciones controladas.",
-        "goldRequirements":  [
-                                 "Completar en menos de 18:00",
-                                 "PrecisiÃ³n mÃ­nima del 70%",
-                                 "Conseguir 20 disparos a la cabeza",
-                                 "Rescatar al miembro del equipo atrapado"
-                             ],
-        "reward":  "Borrado de antecedentes y presiÃ³n legal sobre Michael",
-        "unlockedBy":  "Descarrilado"
-    },
-    {
-        "id":  "mission-56",
-        "order":  56,
-        "title":  "El enredo (The Wrap Up)",
-        "character":  "Michael, Trevor",
-        "giver":  "Dave Norton / Steve Haines",
-        "category":  "Historia",
-        "description":  "Cita en el complejo Kortz Center que deriva en un tiroteo a tres bandas entre divisiones enfrentadas del FIB, la IAA y tropas privadas. Michael queda cercado entre las terrazas del museo hasta la oportuna apariciÃ³n de Trevor desde posiciones elevadas.",
-        "goldRequirements":  [
-                                 "Tiempo de misiÃ³n menor a 07:00",
-                                 "Conseguir 18 disparos a la cabeza",
-                                 "Derribar el helicÃ³ptero de persecuciÃ³n con francotirador"
-                             ],
-        "reward":  "Supervivencia de Dave Norton y Michael",
-        "unlockedBy":  "Asalto al FIB"
-    },
-    {
-        "id":  "mission-57",
-        "order":  57,
-        "title":  "Lamar de problemas",
-        "character":  "Franklin, Michael, Trevor",
-        "giver":  "Tanisha / Franklin",
-        "category":  "Historia",
-        "description":  "Operativo de rescate en el aserradero de Paleto Forest para liberar a Lamar de una emboscada. Franklin reÃºne a Michael y Trevor para coordinar un asalto envolvente en la serrerÃ­a y neutralizar a los captores antes de su evacuaciÃ³n.",
-        "goldRequirements":  [
-                                 "Conseguir 18 disparos a la cabeza",
-                                 "PrecisiÃ³n de disparo mÃ­nima del 70%",
-                                 "Rescatar a Lamar sin que pierda mÃ¡s de un tercio de salud",
-                                 "Completar en menos de 13:30"
-                             ],
-        "reward":  "Amistad inquebrantable de Lamar",
-        "unlockedBy":  "Problemas con los federales"
-    },
-    {
-        "id":  "mission-58",
-        "order":  58,
-        "title":  "Cataclismo (Meltdown)",
-        "character":  "Michael",
-        "giver":  "Jimmy De Santa",
-        "category":  "Historia",
-        "description":  "La premier cinematogrÃ¡fica en Vinewood se ve truncada por la amenaza de Devin Weston contra los De Santa. Michael se desplaza de urgencia a su domicilio para repeler a los mercenarios y asegurar la integridad de Amanda y Tracey en el interior de la mansiÃ³n.",
-        "goldRequirements":  [
-                                 "Tiempo inferior a 06:30",
-                                 "Alcanzar la velocidad mÃ¡xima en el vehÃ­culo durante la carrera hacia la mansiÃ³n",
-                                 "Matar a 12 enemigos con tiros a la cabeza"
-                             ],
-        "reward":  "ReconciliaciÃ³n completa de la familia De Santa",
-        "unlockedBy":  "Lamar en problemas"
-    },
-    {
-        "id":  "mission-59",
-        "order":  59,
-        "title":  "Perforadoras (Drillers)",
-        "character":  "Michael, Trevor, Franklin",
-        "giver":  "Lester Crest",
-        "category":  "PreparaciÃ³n",
-        "description":  "Robar un camiÃ³n de transporte pesado que lleva una gigantesca mÃ¡quina tuneladora. Es obligatorio para perforar la bÃ³veda en el Enfoque \u0027Obvio\u0027.",
-        "goldRequirements":  [
-                                 "Robar la tuneladora sin ser detectado",
-                                 "Terminar en menos de 05:00"
-                             ],
-        "reward":  "MÃ¡quina perforadora tuneladora (Cutter) asegurada para el Golpe Obvio.",
-        "unlockedBy":  "Cataclismo (Meltdown)"
-    },
-    {
-        "id":  "mission-60",
-        "order":  60,
-        "title":  "VÃ­a muerta (Sidetracked)",
-        "character":  "Michael, Trevor, Franklin",
-        "giver":  "Lester Crest",
-        "category":  "PreparaciÃ³n",
-        "description":  "Secuestrar un tren de mercancÃ­as de plataforma plana para cargar en Ã©l los lingotes de oro huidos y transportarlos al punto de extracciÃ³n aÃ©reo. Exclusivo del Enfoque Obvio.",
-        "goldRequirements":  [
-                                 "Terminar en menos de 04:30",
-                                 "Robar el tren sin ser descubierto"
-                             ],
-        "reward":  "Vagones de mercancÃ­as robados para trasladar el oro en el Enfoque Obvio.",
-        "unlockedBy":  "Perforadoras (Drillers)"
-    },
-    {
-        "id":  "mission-61",
-        "order":  61,
-        "title":  "El gran golpe (The Big Score)",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Lester Crest",
-        "category":  "Golpe",
-        "description":  "El asalto definitivo al depÃ³sito de la Union Depository para sustraer la reserva de oro mÃ¡s protegida del paÃ­s. La ejecuciÃ³n admite tanto una maniobra sutil con falsos transportes y hackeo de trÃ¡fico como una perforaciÃ³n subterrÃ¡nea frontal con extracciÃ³n aÃ©rea.",
-        "goldRequirements":  [
-                                 "Conseguir 20 disparos a la cabeza",
-                                 "Completar en menos de 16:00",
-                                 "Soltar el oro sobre el tren con precisiÃ³n milimÃ©trica",
-                                 "PrecisiÃ³n mÃ­nima de disparo del 60%"
-                             ],
-        "reward":  "Aprox. $28.000.000 para cada uno de los tres protagonistas",
-        "unlockedBy":  "El colapso"
-    },
-    {
-        "id":  "mission-62",
-        "order":  62,
-        "title":  "El asesinato del hotel",
-        "character":  "Franklin",
-        "giver":  "Lester Crest",
-        "category":  "Asesinato",
-        "description":  "Contrato de eliminaciÃ³n encargado por Lester para incidir en la cotizaciÃ³n bursÃ¡til. Franklin toma posiciÃ³n frente al hotel Von Crastenburg en Rockford Hills y neutraliza al ejecutivo de Bilkinton Research antes de que su comitiva abandone el lugar.",
-        "goldRequirements":  [
-                                 "Tiempo de misiÃ³n menor a 05:00",
-                                 "Matar al objetivo usando un rifle de francotirador",
-                                 "Dinero obtenido al invertir previamente en Betta Pharmaceuticals"
-                             ],
-        "reward":  "$9.000 + inmensos beneficios en bolsa",
-        "unlockedBy":  "Fama o infamia"
-    },
-    {
-        "id":  "mission-63",
-        "order":  63,
-        "title":  "El asesinato mÃºltiple",
-        "character":  "Franklin",
-        "giver":  "Lester Crest",
-        "category":  "Asesinato",
-        "description":  "Eliminar a un jurado corrupto de 4 personas compradas por la tabacalera Redwood antes de que dicten el veredicto.",
-        "goldRequirements":  [
-                                 "Terminar todos los asesinatos lo mÃ¡s rÃ¡pido posible"
-                             ],
-        "reward":  "Subida masiva de las acciones de Debonaire (DEB) en el LCN.",
-        "unlockedBy":  "El asesinato del hotel"
-    },
-    {
-        "id":  "mission-64",
-        "order":  64,
-        "title":  "El asesinato del vicio",
-        "character":  "Franklin",
-        "giver":  "Lester Crest",
-        "category":  "Asesinato",
-        "description":  "Asesinar a Jackson Skinner, jefe del departamento tecnolÃ³gico de Facade, que vende informaciÃ³n confidencial a sus competidores en la zona de prostituciÃ³n.",
-        "goldRequirements":  [
-                                 "Escapar de la escena sin alertar a los policÃ­as"
-                             ],
-        "reward":  "Las acciones de Fruit Computers (FRT) subirÃ¡n un 50% en BAWSAQ.",
-        "unlockedBy":  "El asesinato mÃºltiple"
-    },
-    {
-        "id":  "mission-65",
-        "order":  65,
-        "title":  "El asesinato del autobÃºs",
-        "character":  "Franklin",
-        "giver":  "Lester Crest",
-        "category":  "Asesinato",
-        "description":  "Asesinar a Isaac Penny, un especulador multimillonario avaro, mientras hace su ruta habitual en el transporte pÃºblico urbano.",
-        "goldRequirements":  [
-                                 "Atropellar al objetivo y huir"
-                             ],
-        "reward":  "ManipulaciÃ³n de las acciones de Vapid Motor Company.",
-        "unlockedBy":  "El asesinato del vicio"
-    },
-    {
-        "id":  "mission-66",
-        "order":  66,
-        "title":  "El asesinato de la obra",
-        "character":  "Franklin",
-        "giver":  "Lester Crest",
-        "category":  "Asesinato",
-        "description":  "Asesinar al jefe criminal de bienes raÃ­ces, Enzo Bonelli, que estÃ¡ escondido en los pisos superiores de un rascacielos en construcciÃ³n vigilado por seguridad privada.",
-        "goldRequirements":  [
-                                 "Derribar el helicÃ³ptero de la vÃ­ctima"
-                             ],
-        "reward":  "ManipulaciÃ³n de las acciones de GoldCoast (GCD) en el LCN.",
-        "unlockedBy":  "El asesinato del autobÃºs"
-    },
-    {
-        "id":  "mission-67",
-        "order":  67,
-        "title":  "OpciÃ³n A: Con sentido comÃºn",
-        "character":  "Franklin",
-        "giver":  "Steve Haines / FIB",
-        "category":  "Final",
-        "description":  "Desenlace forzado por la agencia federal para neutralizar a Trevor. Franklin concierta un encuentro que culmina en una persecuciÃ³n hacia los pozos de petrÃ³leo de El Burro Heights, donde el choque contra un tanque inflamable sella el destino del objetivo.",
-        "goldRequirements":  [
-                                 "Matar a Trevor",
-                                 "Tiempo inferior a 06:00"
-                             ],
-        "reward":  "Reparto del botÃ­n entre Franklin y Michael (Trevor desaparece)",
-        "unlockedBy":  "El gran golpe"
-    },
-    {
-        "id":  "mission-68",
-        "order":  68,
-        "title":  "OpciÃ³n B: Ha llegado la hora",
-        "character":  "Franklin",
-        "giver":  "Devin Weston",
-        "category":  "Final",
-        "description":  "Final bajo coacciÃ³n de Devin Weston para liquidar a Michael. La confrontaciÃ³n se traslada a las alturas de una factorÃ­a siderÃºrgica, finalizando con un forcejeo en las pasarelas metÃ¡licas que precipita a Michael al vacÃ­o.",
-        "goldRequirements":  [
-                                 "Matar a Michael",
-                                 "Tiempo inferior a 07:00"
-                             ],
-        "reward":  "Reparto del botÃ­n entre Franklin y Trevor (Michael desaparece)",
-        "unlockedBy":  "El gran golpe"
-    },
-    {
-        "id":  "mission-69",
-        "order":  69,
-        "title":  "OpciÃ³n C: La tercera vÃ­a",
-        "character":  "Michael, Franklin, Trevor",
-        "giver":  "Lester Crest",
-        "category":  "Final",
-        "description":  "La conclusiÃ³n canÃ³nica donde los tres protagonistas se alÃ­an para zanjar cuentas pendientes. Tras resistir el asedio en la fundiciÃ³n, se dividen los objetivos para eliminar a sus perseguidores del FIB, las trÃ­adas y las bandas rivales, concluyendo con el secuestro de Devin Weston y el despeÃ±amiento de su vehÃ­culo en la costa.",
-        "goldRequirements":  [
-                                 "Tiempo inferior a 21:30",
-                                 "Conseguir 20 disparos a la cabeza",
-                                 "PrecisiÃ³n mÃ­nima del 70%",
-                                 "Eliminar a Cheng con una bomba lapa",
-                                 "Eliminar a Steve Haines con un disparo en la cabeza"
-                             ],
-        "reward":  "$28.000.000 para cada uno y los tres personajes vivos y jugables",
-        "unlockedBy":  "El gran golpe"
-    }
+[
+  {
+    "id": "mission-01",
+    "order": 1,
+    "title": "프롤로그 (Prologue)",
+    "character": "Michael, Trevor",
+    "giver": "메인 스토리",
+    "category": "프롤로그",
+    "description": "GTA V 스토리 모드 메인 미션: '프롤로그 (Prologue)'. 플레이어 (Michael, Trevor), 의뢰인: 메인 스토리. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Unlocks Los Santos and Franklin",
+    "unlockedBy": "해금 조건: Game start"
+  },
+  {
+    "id": "mission-02",
+    "order": 2,
+    "title": "프랭클린과 라마",
+    "character": "Franklin",
+    "giver": "Simeon Yetarian",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '프랭클린과 라마'. 플레이어 (Franklin), 의뢰인: Simeon Yetarian. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "$250",
+    "unlockedBy": "해금 조건: Prologue"
+  },
+  {
+    "id": "mission-03",
+    "order": 3,
+    "title": "압류 (Repossession)",
+    "character": "Franklin",
+    "giver": "Simeon Yetarian",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '압류 (Repossession)'. 플레이어 (Franklin), 의뢰인: Simeon Yetarian. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Experience and reputation with Simeon",
+    "unlockedBy": "해금 조건: Franklin and Lamar"
+  },
+  {
+    "id": "mission-04",
+    "order": 4,
+    "title": "복잡한 사정 (Complications)",
+    "character": "Franklin, Michael",
+    "giver": "Simeon Yetarian",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '복잡한 사정 (Complications)'. 플레이어 (Franklin, Michael), 의뢰인: Simeon Yetarian. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "$300 and Michael unlocked as playable character",
+    "unlockedBy": "해금 조건: Repossession"
+  },
+  {
+    "id": "mission-05",
+    "order": 5,
+    "title": "아버지와 아들",
+    "character": "Michael, Franklin",
+    "giver": "Michael De Santa",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '아버지와 아들'. 플레이어 (Michael, Franklin), 의뢰인: Michael De Santa. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Free vehicle upgrades at Los Santos Customs for Franklin",
+    "unlockedBy": "해금 조건: Complications"
+  },
+  {
+    "id": "mission-06",
+    "order": 6,
+    "title": "찹 (Chop)",
+    "character": "Franklin",
+    "giver": "Lamar Davis",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '찹 (Chop)'. 플레이어 (Franklin), 의뢰인: Lamar Davis. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Chop unlocked as Franklin's companion",
+    "unlockedBy": "해금 조건: Franklin and Lamar"
+  },
+  {
+    "id": "mission-07",
+    "order": 7,
+    "title": "부부 상담",
+    "character": "Michael, Franklin",
+    "giver": "Michael De Santa",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '부부 상담'. 플레이어 (Michael, Franklin), 의뢰인: Michael De Santa. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "$2.5M debt with Martin Madrazo",
+    "unlockedBy": "해금 조건: Father/Son"
+  },
+  {
+    "id": "mission-08",
+    "order": 8,
+    "title": "아빠의 귀여운 딸",
+    "character": "Michael",
+    "giver": "Jimmy De Santa",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '아빠의 귀여운 딸'. 플레이어 (Michael), 의뢰인: Jimmy De Santa. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Stamina boost for Michael",
+    "unlockedBy": "해금 조건: Marriage Counseling"
+  },
+  {
+    "id": "mission-09",
+    "order": 9,
+    "title": "친구 요청 (Friend Request)",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '친구 요청 (Friend Request)'. 플레이어 (Michael), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Lester agrees to assist in future heists",
+    "unlockedBy": "해금 조건: Marriage Counseling"
+  },
+  {
+    "id": "mission-10",
+    "order": 10,
+    "title": "기나긴 여정",
+    "character": "Franklin",
+    "giver": "Lamar Davis",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '기나긴 여정'. 플레이어 (Franklin), 의뢰인: Lamar Davis. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Weapons and ammunition scavenged during escape",
+    "unlockedBy": "해금 조건: Chop"
+  },
+  {
+    "id": "mission-11",
+    "order": 11,
+    "title": "보석점 사전 조사",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '보석점 사전 조사'. 플레이어 (Michael), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Jewel Store Heist planning board",
+    "unlockedBy": "해금 조건: Friend Request"
+  },
+  {
+    "id": "mission-12",
+    "order": 12,
+    "title": "보석점 습격 (The Jewel Store Job)",
+    "character": "Michael, Franklin",
+    "giver": "Lester Crest",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '보석점 습격 (The Jewel Store Job)'. 플레이어 (Michael, Franklin), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Over $1.4M total split between Franklin and Michael",
+    "unlockedBy": "해금 조건: Casing the Jewel Store"
+  },
+  {
+    "id": "mission-13",
+    "order": 13,
+    "title": "미스터 필립스 (Mr. Philips)",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '미스터 필립스 (Mr. Philips)'. 플레이어 (Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Trevor unlocked as playable character",
+    "unlockedBy": "해금 조건: The Jewel Store Job"
+  },
+  {
+    "id": "mission-14",
+    "order": 14,
+    "title": "트레버 필립스 엔터프라이즈",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '트레버 필립스 엔터프라이즈'. 플레이어 (Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Consolidates meth empire in Sandy Shores",
+    "unlockedBy": "해금 조건: Mr. Philips"
+  },
+  {
+    "id": "mission-15",
+    "order": 15,
+    "title": "불안한 론 (Nervous Ron)",
+    "character": "Trevor",
+    "giver": "Ron Jakowski",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '불안한 론 (Nervous Ron)'. 플레이어 (Trevor), 의뢰인: Ron Jakowski. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "McKenzie Airfield hangar unlocked for purchase",
+    "unlockedBy": "해금 조건: Trevor Philips Industries"
+  },
+  {
+    "id": "mission-16",
+    "order": 16,
+    "title": "크리스털 미로",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '크리스털 미로'. 플레이어 (Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Elimination of Blaine County competitors",
+    "unlockedBy": "해금 조건: Trevor Philips Industries"
+  },
+  {
+    "id": "mission-17",
+    "order": 17,
+    "title": "친구들의 재회",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '친구들의 재회'. 플레이어 (Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Floyd's Vespucci Beach safehouse unlocked",
+    "unlockedBy": "해금 조건: Crystal Maze"
+  },
+  {
+    "id": "mission-18",
+    "order": 18,
+    "title": "명예냐 굴욕이냐",
+    "character": "Michael, Trevor",
+    "giver": "Michael De Santa",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '명예냐 굴욕이냐'. 플레이어 (Michael, Trevor), 의뢰인: Michael De Santa. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Initial truce between Michael and Trevor",
+    "unlockedBy": "해금 조건: Friends Reunited"
+  },
+  {
+    "id": "mission-19",
+    "order": 19,
+    "title": "세 놈의 결합",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Dave Norton (FIB)",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '세 놈의 결합'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Dave Norton (FIB). 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Unlocks cooperative FIB field missions",
+    "unlockedBy": "해금 조건: Fame or Shame"
+  },
+  {
+    "id": "mission-20",
+    "order": 20,
+    "title": "원칙대로",
+    "character": "Michael, Trevor",
+    "giver": "Steve Haines (FIB)",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '원칙대로'. 플레이어 (Michael, Trevor), 의뢰인: Steve Haines (FIB). 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Trevor transports Kerimov safely to the airport",
+    "unlockedBy": "해금 조건: Three's Company"
+  },
+  {
+    "id": "mission-21",
+    "order": 21,
+    "title": "후드 사파리 (Hood Safari)",
+    "character": "Franklin, Trevor",
+    "giver": "Franklin Clinton",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '후드 사파리 (Hood Safari)'. 플레이어 (Franklin, Trevor), 의뢰인: Franklin Clinton. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "$0 (deal gone bad)",
+    "unlockedBy": "해금 조건: Three's Company"
+  },
+  {
+    "id": "mission-22",
+    "order": 22,
+    "title": "메리웨더 습격",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Trevor Philips",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '메리웨더 습격'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Experience (device returned without cash payout)",
+    "unlockedBy": "해금 조건: Hood Safari"
+  },
+  {
+    "id": "mission-23",
+    "order": 23,
+    "title": "호텔 암살",
+    "character": "Franklin",
+    "giver": "Lester Crest",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '호텔 암살'. 플레이어 (Franklin), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "$9,000 + massive stock market returns",
+    "unlockedBy": "해금 조건: Fame or Shame"
+  },
+  {
+    "id": "mission-24",
+    "order": 24,
+    "title": "기습 작전 (Blitz Play)",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Steve Haines (FIB)",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '기습 작전 (Blitz Play)'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Steve Haines (FIB). 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Black-ops funding for the FIB operation",
+    "unlockedBy": "해금 조건: Hotel Assassination"
+  },
+  {
+    "id": "mission-25",
+    "order": 25,
+    "title": "법과 맞서다...",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Devin Weston",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '법과 맞서다...'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Devin Weston. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Devin Weston unlocked as an employer",
+    "unlockedBy": "해금 조건: Blitz Play"
+  },
+  {
+    "id": "mission-26",
+    "order": 26,
+    "title": "팔레토 작업 (Paleto Score)",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Lester",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '팔레토 작업 (Paleto Score)'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: FIB / Lester. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Approx. $450,000 take per protagonist",
+    "unlockedBy": "해금 조건: I Fought the Law..."
+  },
+  {
+    "id": "mission-27",
+    "order": 27,
+    "title": "탈선 (Derailed)",
+    "character": "Michael, Trevor",
+    "giver": "Trevor Philips",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '탈선 (Derailed)'. 플레이어 (Michael, Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Valuable smuggled high-grade contraband",
+    "unlockedBy": "해금 조건: The Paleto Score"
+  },
+  {
+    "id": "mission-28",
+    "order": 28,
+    "title": "FIB 습격",
+    "character": "Michael, Franklin",
+    "giver": "Steve Haines",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: 'FIB 습격'. 플레이어 (Michael, Franklin), 의뢰인: Steve Haines. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Erasure of federal records and legal pressure on Michael",
+    "unlockedBy": "해금 조건: Derailed"
+  },
+  {
+    "id": "mission-29",
+    "order": 29,
+    "title": "연방 정부 문제",
+    "character": "Michael, Trevor",
+    "giver": "Dave Norton",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '연방 정부 문제'. 플레이어 (Michael, Trevor), 의뢰인: Dave Norton. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Survival of Dave Norton and Michael",
+    "unlockedBy": "해금 조건: The Bureau Raid"
+  },
+  {
+    "id": "mission-30",
+    "order": 30,
+    "title": "곤경에 빠진 라마",
+    "character": "Franklin, Michael, Trevor",
+    "giver": "Tanisha Jackson",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '곤경에 빠진 라마'. 플레이어 (Franklin, Michael, Trevor), 의뢰인: Tanisha Jackson. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Unbreakable bond with Lamar",
+    "unlockedBy": "해금 조건: The Wrap Up"
+  },
+  {
+    "id": "mission-31",
+    "order": 31,
+    "title": "멜트다운 (붕괴)",
+    "character": "Michael",
+    "giver": "Solomon Richards",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '멜트다운 (붕괴)'. 플레이어 (Michael), 의뢰인: Solomon Richards. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Full reunion of the De Santa family",
+    "unlockedBy": "해금 조건: Lamar Down"
+  },
+  {
+    "id": "mission-32",
+    "order": 32,
+    "title": "큰 거 한 방 (The Big Score)",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Lester Crest",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '큰 거 한 방 (The Big Score)'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Approx. $28,000,000 take for each of the three protagonists",
+    "unlockedBy": "해금 조건: Meltdown"
+  },
+  {
+    "id": "mission-33",
+    "order": 33,
+    "title": "선택 A: 현명한 선택 (트레버 처치)",
+    "character": "Franklin",
+    "giver": "Steve Haines / Dave Norton",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '선택 A: 현명한 선택 (트레버 처치)'. 플레이어 (Franklin), 의뢰인: Steve Haines / Dave Norton. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Heist money split between Franklin and Michael (Trevor lost)",
+    "unlockedBy": "해금 조건: The Big Score"
+  },
+  {
+    "id": "mission-34",
+    "order": 34,
+    "title": "선택 B: 때가 왔다 (마이클 처치)",
+    "character": "Franklin",
+    "giver": "Devin Weston",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '선택 B: 때가 왔다 (마이클 처치)'. 플레이어 (Franklin), 의뢰인: Devin Weston. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "Heist money split between Franklin and Trevor (Michael lost)",
+    "unlockedBy": "해금 조건: The Big Score"
+  },
+  {
+    "id": "mission-35",
+    "order": 35,
+    "title": "선택 C: 제3의 길 (모두 구출)",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Lester Crest",
+    "category": "스토리 모드",
+    "description": "GTA V 스토리 모드 메인 미션: '선택 C: 제3의 길 (모두 구출)'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "goldRequirements": [
+      "제한 시간 내에 미션 완료",
+      "사격 명중률 70% 이상 유지",
+      "헤드샷으로 적 제거",
+      "차량 파손 최소화"
+    ],
+    "reward": "$28,000,000 for each protagonist and all three alive and playable",
+    "unlockedBy": "해금 조건: The Big Score"
+  }
 ]

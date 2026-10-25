@@ -58,7 +58,11 @@ namespace GTAAPP.Server.Controllers
             }
 
             var now = DateTime.UtcNow;
-            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+            var rawIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+            // Anonimización RGPD: Enmascarar el último octeto en IPv4 o la segunda mitad en IPv6
+            var anonymizedIp = rawIp.Contains('.') 
+                ? string.Join('.', rawIp.Split('.').Take(3).Append("0")) 
+                : (rawIp.Contains(':') ? string.Join(':', rawIp.Split(':').Take(3).Append("xxxx")) : "anonymized");
             var userAgent = Request.Headers.UserAgent.ToString();
 
             var record = new
@@ -66,15 +70,25 @@ namespace GTAAPP.Server.Controllers
                 Timestamp = now,
                 Name = name,
                 Message = trimmedMessage,
-                IpAddress = ip,
+                IpAddress = anonymizedIp,
                 UserAgent = userAgent
             };
 
-            // 1. Guardar localmente en App_Data/feedback/ con tope diario anti-llenado de disco (máximo 20 archivos/día)
+            // 1. Guardar localmente en App_Data/feedback/ con retención de 30 días y tope diario
             try
             {
                 var feedbackDir = Path.Combine(_env.ContentRootPath, "App_Data", "feedback");
                 Directory.CreateDirectory(feedbackDir);
+
+                // Purga automática de retención: Eliminar archivos de más de 30 días
+                var cutoff = now.AddDays(-30);
+                foreach (var oldFile in Directory.GetFiles(feedbackDir, "feedback_*.json"))
+                {
+                    if (System.IO.File.GetCreationTimeUtc(oldFile) < cutoff)
+                    {
+                        try { System.IO.File.Delete(oldFile); } catch { }
+                    }
+                }
 
                 var todayPattern = $"feedback_{now:yyyyMMdd}_*.json";
                 var filesToday = Directory.GetFiles(feedbackDir, todayPattern).Length;

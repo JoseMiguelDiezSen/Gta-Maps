@@ -70,16 +70,28 @@ cd $DeployRoot/releases && ls -dt */ | tail -n +6 | xargs rm -rf -- 2>/dev/null 
 
 ssh ${TargetUser}@${TargetHost} $remoteScript
 
-# 5. Health Check y verificación HTTP
-Write-Host "5/5 Ejecutando Health Check..." -ForegroundColor Yellow
+# 5. Health Check y verificación HTTP con Rollback automático
+Write-Host "5/5 Ejecutando Health Check contra endpoint activo de API..." -ForegroundColor Yellow
 Start-Sleep -Seconds 3
-$healthCheck = ssh ${TargetUser}@${TargetHost} "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:5000/api/gta5 || curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:80/"
+$healthCheck = ssh ${TargetUser}@${TargetHost} "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:5000/api/vehicles?lang=es"
 
-if ($healthCheck -eq "200" -or $healthCheck -eq "301" -or $healthCheck -eq "302") {
-    Write-Host "Health Check superado con código HTTP $healthCheck!" -ForegroundColor Green
+if ($healthCheck -eq "200") {
+    Write-Host "Health Check superado con éxito (HTTP 200) en /api/vehicles!" -ForegroundColor Green
     Write-Host "Despliegue completado con éxito: https://gtaexplorer.com" -ForegroundColor Cyan
 } else {
-    Write-Host "Health Check ha respondido HTTP $healthCheck. Comprueba logs en el servidor: journalctl -u gtaworld -n 50" -ForegroundColor Yellow
+    Write-Host "CRÍTICO: Health Check falló con código HTTP $healthCheck. Iniciando rollback automático..." -ForegroundColor Red
+    $rollbackScript = @"
+if [ -n "$PREV_TARGET" ] && [ -d "$PREV_TARGET" ]; then
+    ln -sfn $PREV_TARGET $DeployRoot/current_tmp
+    mv -Tf $DeployRoot/current_tmp $DeployRoot/current
+    systemctl restart gtaworld
+    echo 'Rollback ejecutado hacia release previa:' $PREV_TARGET
+else
+    echo 'No hay release previa disponible para rollback.'
+fi
+"@
+    ssh ${TargetUser}@${TargetHost} $rollbackScript
+    exit 1
 }
 
 # Limpieza local
