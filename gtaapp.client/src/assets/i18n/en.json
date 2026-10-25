@@ -278,6 +278,13 @@
       "toggleWildlife": "Toggle all wildlife",
       "toggleCollectibles": "Toggle all collectibles",
       "toggleStrangePlaces": "Toggle all strange places"
+    },
+    "guia": {
+      "navBrandStory": "GTA 5 - STORY",
+      "navBrandOnline": "GTA 5 - ONLINE",
+      "heroTitle": "LOS SANTOS & BLAINE COUNTY",
+      "heroDescStory": "100% Story Mode Guide, tactical Heist planning, stock market investment with Lester, and San Andreas secrets.",
+      "heroDescOnline": "GTA Online Guide, tactical Heist planning, criminal businesses, vehicles, weapons, and San Andreas secrets."
     }
   },
   "gta6": {
@@ -388,6 +395,13 @@
       "coupleDesc": "police on the lookout for a couple",
       "cctv": "Spotted on CCTV",
       "cctvDesc": "you have been spotted on CCTV"
+    },
+    "guia": {
+      "navBrandStory": "GTA 6 - STORY",
+      "navBrandOnline": "GTA 6 - ONLINE",
+      "heroTitle": "VICE CITY & STATE OF LEONIDA",
+      "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -627,7 +641,11 @@
     "gta6VideosTitle": "GTA VI Videos - Gameplay Clips & Highlights in Leonida | GTA MAPS",
     "gta6VideosDesc": "Curated collection of short gameplay clips, videos, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
     "gta6MomentosTitle": "GTA VI Moments - Gameplay Clips & Situations in Leonida | GTA MAPS",
-    "gta6MomentosDesc": "Curated collection of unique moments, short gameplay clips, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida."
+    "gta6MomentosDesc": "Curated collection of unique moments, short gameplay clips, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta5GuiaTitle": "GTA V Guide - Story Mode: Main Missions, Strangers & Freaks, Mysteries & Trophies | GTA MAPS",
+    "gta5GuiaDesc": "Comprehensive GTA V guide and encyclopedia: 100% completion checklist, 6 tactical heists, stock market with Lester, characters, and Los Santos secrets.",
+    "gta6GuiaTitle": "GTA VI Guide - Database, Jason & Lucia, and State of Leonida | GTA MAPS",
+    "gta6GuiaDesc": "Interactive encyclopedia of GTA VI: Vice City districts, State of Leonida, Jason & Lucia analysis, trunk inventory, and mechanics."
   },
   "videos": {
     "navTitle": "VIDEOS",
@@ -690,5 +708,89 @@
     "rateLimitMessage": "We have already received your suggestions for today. Please wait while they are processed before sending another.",
     "close": "Close",
     "sendAnother": "Send another message"
+  },
+  "guia": {
+    "nav": {
+      "modeStory": "STORY",
+      "modeOnline": "ONLINE",
+      "modeLabel": "MODE:",
+      "switchModeTitle": "Switch between Story Guide and Online Guide",
+      "alreadyOnGta5Guide": "You are already on the GTA 5 Guide",
+      "alreadyOnGta6Guide": "You are already on the GTA 6 Guide",
+      "gta6MapComingSoon": "GTA VI Map (Coming Soon)",
+      "themeDay": "Switch to Day Mode",
+      "themeNight": "Switch to Night Mode",
+      "openNavMenu": "Open navigation menu",
+      "closeNavMenu": "Close menu"
+    },
+    "sidebar": {
+      "contents": "CONTENTS",
+      "categories": "Categories",
+      "back": "Back",
+      "backToCategories": "Back to category index",
+      "backToThemes": "Back to themes",
+      "backToHeists": "Back to heists list",
+      "badgeThemes": "themes",
+      "badgeMissions": "missions",
+      "badgePhases": "phases",
+      "badgeMysteries": "mysteries",
+      "badgeEvents": "events",
+      "badgeChapters": "chaps",
+      "badgeTrophies": "trophies",
+      "badgeHeists": "heists",
+      "badgeVehicles": "vehicles",
+      "badgeBusinesses": "businesses",
+      "badgeCharacters": "characters",
+      "searchPlaceholderDefault": "What are you looking for? (e.g., Fleeca, Dave...)",
+      "searchPlaceholderVehicles": "Search vehicle...",
+      "clearSearch": "Clear search",
+      "noResults": "No results found for \"{{ query }}\""
+    },
+    "trophies": {
+      "kicker": "TROPHIES (PS) · ACHIEVEMENTS (XBOX)",
+      "title": "GTA V Trophies",
+      "desc": "Complete list of all {{ total }} trophies: the coveted Platinum, Gold challenges, Silver feats, and the extensive Bronze list for Story Mode and GTA Online.",
+      "all": "All trophies",
+      "platinum": "Platinum Trophy",
+      "gold": "Gold Trophies",
+      "silver": "Silver Trophies",
+      "bronze": "Bronze Trophies",
+      "badgePlatinum": "Platinum",
+      "badgeGold": "Gold",
+      "badgeSilver": "Silver",
+      "badgeBronze": "Bronze",
+      "loading": "Loading trophies...",
+      "empty": "No trophies found for this filter.",
+      "groupTitle": "{{ tipo }} Trophies",
+      "modes": {
+        "story": "Story",
+        "online": "Online",
+        "both": "Both"
+      },
+      "catalogTitle": "Trophy Catalog"
+    },
+    "weapons": {
+      "title": "WEAPONS",
+      "ammuNationSpecs": "AMMU-NATION SPECIFICATIONS",
+      "campaignUnlock": "Campaign Unlock",
+      "whoHasIt": "Default Weapon / Free",
+      "mapLocation": "Map Location",
+      "backToCategory": "Back to {{ category }}"
+    },
+    "vehicles": {
+      "title": "VEHICLES",
+      "dealersTitle": "DEALERSHIPS",
+      "backToDealers": "Back to dealerships list"
+    },
+    "reader": {
+      "synopsisTitle": "Mission Synopsis",
+      "reward": "Reward",
+      "unlockedAfter": "Unlocked After",
+      "goldMedalTitle": "Gold Medal Objectives (100%)",
+      "backToChapters": "Back to Chapters",
+      "backToList": "Back to List",
+      "scrollToTop": "Back to Chapter Start",
+      "readingTime": "{{ minutes }} min read"
+    }
   }
 }

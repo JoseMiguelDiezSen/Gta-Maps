@@ -410,13 +410,6 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
     // CICLO DE VIDA
     // -----------------------------------------------------------------------
     ngOnInit(): void {
-        if (typeof window !== 'undefined') {
-            (window as any)._closeGtaMapPopup = () => {
-                if (this.map) {
-                    this.map.closePopup();
-                }
-            };
-        }
         if (typeof window !== 'undefined' && window.innerWidth <= 850) {
             this.iconTheme = 'simple';
             this.legendOpen = false;
@@ -440,66 +433,97 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         }
         this.startInGameClock();
 
-        (window as any)._gtaRenameMarker = (id: string) => {
-            const input = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
-            if (input) {
-                input.focus();
-                input.select();
-            }
-        };
+        this.bindCustomMarkerEvents();
+    }
 
-        (window as any)._gtaSaveMarkerName = (id: string, newName: string) => {
-            const found = this.userCustomMarkers.find(m => m.id === id);
-            if (found) {
-                const trimmed = (newName || '').trim();
-                found.name = trimmed || (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
-                if (this.targetCustomMarker?.id === id) {
-                    this.targetCustomMarker.name = found.name;
-                }
-                if (found.marker.getTooltip()) {
-                    found.marker.setTooltipContent(`<b>${this.escapeHtml(found.name)}</b>`);
-                }
-                const existingPopup = found.marker.getPopup();
-                if (existingPopup) {
-                    existingPopup.setContent(this.buildCustomMarkerPopupHtml(found));
-                }
-                const inputEl = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
-                if (inputEl) {
-                    inputEl.setAttribute('value', found.name);
-                }
-                this.saveCustomMarkers();
-                this.cdr.detectChanges();
-            }
-        };
+    private bindCustomMarkerEvents(): void {
+        if (!this.map) return;
+        this.map.on('popupopen', (e: L.PopupEvent) => {
+            const container = e.popup.getElement();
+            if (!container) return;
 
-        (window as any)._gtaDeleteMarker = (id: string) => {
-            const found = this.userCustomMarkers.find(m => m.id === id);
-            if (found && this.playerMarkersLayer) {
-                this.playerMarkersLayer.removeLayer(found.marker);
-                this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== id);
-                if (this.targetCustomMarker?.id === id) {
-                    this.targetCustomMarker = null;
-                }
-                this.saveCustomMarkers();
-                this.cdr.detectChanges();
-            }
-        };
+            // Manejador: Selección de color de la chincheta
+            const colorButtons = container.querySelectorAll<HTMLButtonElement>('.btn-pin-color');
+            colorButtons.forEach(btn => {
+                btn.onclick = () => {
+                    const id = btn.getAttribute('data-marker-id');
+                    const color = btn.getAttribute('data-color');
+                    if (id && color) this.onSetCustomMarkerColor(id, color);
+                };
+            });
 
-        (window as any)._gtaSetMarkerColor = (id: string, color: string) => {
-            const found = this.userCustomMarkers.find(m => m.id === id);
-            if (found) {
-                const inputEl = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
-                if (inputEl && inputEl.value.trim()) {
-                    found.name = inputEl.value.trim();
+            // Manejador: Renombrar chincheta en tiempo real
+            const nameInput = container.querySelector<HTMLInputElement>('.custom-pin-name-input');
+            if (nameInput) {
+                const id = nameInput.getAttribute('data-marker-id');
+                if (id) {
+                    nameInput.oninput = () => this.onSaveCustomMarkerName(id, nameInput.value);
+                    nameInput.onchange = () => this.onSaveCustomMarkerName(id, nameInput.value);
                 }
-                found.color = color;
-                found.marker.setIcon(this.createPushpinIcon(color));
-                this.updateCustomMarkerPopup(found);
-                found.marker.openPopup();
-                this.saveCustomMarkers();
-                this.cdr.detectChanges();
             }
-        };
+
+            // Manejador: Eliminar chincheta
+            const delBtn = container.querySelector<HTMLButtonElement>('.btn-pin-delete');
+            if (delBtn) {
+                delBtn.onclick = () => {
+                    const id = delBtn.getAttribute('data-marker-id');
+                    if (id) this.onDeleteCustomMarker(id);
+                };
+            }
+        });
+    }
+
+    private onSetCustomMarkerColor(id: string, color: string): void {
+        const found = this.userCustomMarkers.find(m => m.id === id);
+        if (found) {
+            const inputEl = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
+            if (inputEl && inputEl.value.trim()) {
+                found.name = inputEl.value.trim();
+            }
+            found.color = color;
+            found.marker.setIcon(this.createPushpinIcon(color));
+            this.updateCustomMarkerPopup(found);
+            found.marker.openPopup();
+            this.saveCustomMarkers();
+            this.cdr.detectChanges();
+        }
+    }
+
+    private onSaveCustomMarkerName(id: string, newName: string): void {
+        const found = this.userCustomMarkers.find(m => m.id === id);
+        if (found) {
+            const trimmed = (newName || '').trim();
+            found.name = trimmed || (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
+            if (this.targetCustomMarker?.id === id) {
+                this.targetCustomMarker.name = found.name;
+            }
+            if (found.marker.getTooltip()) {
+                found.marker.setTooltipContent(`<b>${this.escapeHtml(found.name)}</b>`);
+            }
+            const existingPopup = found.marker.getPopup();
+            if (existingPopup) {
+                existingPopup.setContent(this.buildCustomMarkerPopupHtml(found));
+            }
+            const inputEl = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
+            if (inputEl) {
+                inputEl.setAttribute('value', found.name);
+            }
+            this.saveCustomMarkers();
+            this.cdr.detectChanges();
+        }
+    }
+
+    private onDeleteCustomMarker(id: string): void {
+        const found = this.userCustomMarkers.find(m => m.id === id);
+        if (found && this.playerMarkersLayer) {
+            this.playerMarkersLayer.removeLayer(found.marker);
+            this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== id);
+            if (this.targetCustomMarker?.id === id) {
+                this.targetCustomMarker = null;
+            }
+            this.saveCustomMarkers();
+            this.cdr.detectChanges();
+        }
     }
 
     ngAfterViewInit(): void {
@@ -552,11 +576,6 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         this.collectiblesSub?.unsubscribe();
         window.removeEventListener('resize', this.onWindowResize);
         if (this.clockInterval) clearInterval(this.clockInterval);
-        delete (window as any)._gtaRenameMarker;
-        delete (window as any)._gtaDeleteMarker;
-        delete (window as any)._gtaSetMarkerColor;
-        delete (window as any)._gtaSaveMarkerName;
-        delete (window as any)._closeGtaMapPopup;
         if (this.map) this.map.remove();
     }
 
@@ -1447,7 +1466,9 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         const colorSwatchesHtml = colors.map(c => `
             <button
                 type="button"
-                onclick="window._gtaSetMarkerColor('${item.id}', '${c.key}')"
+                class="btn-pin-color"
+                data-marker-id="${item.id}"
+                data-color="${c.key}"
                 title="${c.title}"
                 style="width: 13px; height: 13px; border-radius: 50%; background: ${c.hex}; border: 1.5px solid ${c.key === activeColor ? '#ffffff' : 'rgba(255,255,255,0.25)'}; cursor: pointer; box-shadow: ${c.key === activeColor ? '0 0 6px #ffffff' : '0 1px 3px rgba(0,0,0,0.5)'}; transform: ${c.key === activeColor ? 'scale(1.2)' : 'scale(1)'}; transition: all 0.15s ease; padding: 0;"
             ></button>
@@ -1459,12 +1480,11 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     <input
                         type="text"
                         id="custom-marker-input-${item.id}"
-                        class="custom-marker-name custom-marker-name-input"
+                        data-marker-id="${item.id}"
+                        class="custom-marker-name custom-marker-name-input custom-pin-name-input"
                         value="${this.escapeHtml(item.name)}"
                         maxlength="45"
                         placeholder="${this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name'}"
-                        oninput="window._gtaSaveMarkerName('${item.id}', this.value)"
-                        onchange="window._gtaSaveMarkerName('${item.id}', this.value)"
                         onkeydown="if(event.key === 'Enter'){ event.preventDefault(); this.blur(); }"
                         title="${this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename'}"
                         style="margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: 100%; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;"
@@ -1478,7 +1498,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                     X: ${markerCoords.x.toFixed(1)} | Y: ${markerCoords.y.toFixed(1)}
                 </div>
                 <div class="custom-marker-actions">
-                    <button type="button" class="btn-marker-action btn-marker-delete" onclick="window._gtaDeleteMarker('${item.id}')" style="width: 100%; padding: 4px 6px; font-size: 10px;">🗑️ ${deleteLbl}</button>
+                    <button type="button" class="btn-marker-action btn-marker-delete btn-pin-delete" data-marker-id="${item.id}" style="width: 100%; padding: 4px 6px; font-size: 10px;">🗑️ ${deleteLbl}</button>
                 </div>
             </div>
         `;

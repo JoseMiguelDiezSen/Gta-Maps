@@ -100,7 +100,58 @@ public class VehiclesService
         var cleanDealer = dealership?.Trim().ToLowerInvariant();
         if (cleanDealer == "especiales") cleanDealer = "pegasus";
 
-        // Si se pide un concesionario concreto, verificamos si existe su archivo modular
+        // 1. Si el idioma solicitado no es español, buscar dataset localizado correspondiente
+        if (!lang.Equals("es", StringComparison.OrdinalIgnoreCase))
+        {
+            string? localizedPath = null;
+            if (cleanDealer == "pegasus")
+            {
+                var hierPegasus = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", lang, "pegasus_vehicles.json");
+                if (File.Exists(hierPegasus)) localizedPath = hierPegasus;
+            }
+
+            if (localizedPath == null)
+            {
+                var hierVehicles = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", lang, "vehicles.json");
+                if (File.Exists(hierVehicles)) localizedPath = hierVehicles;
+            }
+
+            if (localizedPath != null)
+            {
+                var lastWriteLoc = File.GetLastWriteTimeUtc(localizedPath);
+                var locCacheKey = string.IsNullOrEmpty(cleanDealer) ? lang : $"{lang}:{cleanDealer}";
+                lock (_lock)
+                {
+                    if (_cache.TryGetValue(locCacheKey, out var cached) && cached.data != null && cached.lastModified >= lastWriteLoc)
+                    {
+                        return cached.data;
+                    }
+
+                    try
+                    {
+                        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                        using var stream = File.OpenRead(localizedPath);
+                        var list = JsonSerializer.Deserialize<List<GtaVehicle>>(stream, options) ?? [];
+                        foreach (var v in list)
+                        {
+                            if (!string.IsNullOrEmpty(v.ImageUrl) && v.ImageUrl.Contains("/assets/images/gta5/marcadores-mapa/"))
+                            {
+                                v.ImageUrl = v.ImageUrl.Replace("/assets/images/gta5/marcadores-mapa/", "/assets/images/gta5/mapa/marcadores-mapa/");
+                            }
+                        }
+                        _cache[locCacheKey] = (lastWriteLoc, list);
+                        return list;
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Error al cargar dataset localizado de vehículos desde {Path}", localizedPath);
+                        return [];
+                    }
+                }
+            }
+        }
+
+        // Si se pide un concesionario concreto, verificamos si existe su archivo modular en español
         string? dealerPath = null;
         if (!string.IsNullOrEmpty(cleanDealer))
         {
