@@ -9,7 +9,7 @@ param(
 if (-not $TargetHost) { $TargetHost = "161.22.42.84" }
 if (-not $TargetUser) { $TargetUser = "root" }
 
-$DeployRoot = "/var/www/gtaworld"
+$DeployRoot = "/var/www/gtaexplorer"
 $Timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $ReleaseDir = "$DeployRoot/releases/$Timestamp"
 
@@ -49,6 +49,7 @@ tar -xzf $ReleaseDir/publish.tar.gz -C $ReleaseDir/
 rm -f $ReleaseDir/publish.tar.gz
 if [ -d "$ReleaseDir/wwwroot/browser" ]; then
     cp -r $ReleaseDir/wwwroot/browser/* $ReleaseDir/wwwroot/ 2>/dev/null || true
+    rm -rf "$ReleaseDir/wwwroot/browser"
 fi
 
 # Guardar release previa en el servidor para rollback si existe
@@ -61,10 +62,10 @@ ln -sfn $ReleaseDir $DeployRoot/current_tmp
 mv -Tf $DeployRoot/current_tmp $DeployRoot/current
 
 # Reiniciar servicio
-systemctl restart gtaworld
+systemctl restart gtaexplorer
 
-# Mantener solo las ultimas 5 releases para optimizar espacio en disco
-cd $DeployRoot/releases && ls -dt */ | tail -n +6 | xargs rm -rf -- 2>/dev/null || true
+# Mantener solo las ultimas 2 releases para optimizar espacio en disco
+cd $DeployRoot/releases && ls -dt */ | tail -n +3 | xargs rm -rf -- 2>/dev/null || true
 "@
 
 ssh ${TargetUser}@${TargetHost} $remoteScript
@@ -85,7 +86,7 @@ if [ -f "$DeployRoot/.prev_release" ]; then
     if [ -n "`$PREV_TARGET" ] && [ -d "`$PREV_TARGET" ]; then
         ln -sfn `$PREV_TARGET $DeployRoot/current_tmp
         mv -Tf $DeployRoot/current_tmp $DeployRoot/current
-        systemctl restart gtaworld
+        systemctl restart gtaexplorer
         echo 'Rollback ejecutado con éxito hacia release previa:' `$PREV_TARGET
         exit 0
     fi

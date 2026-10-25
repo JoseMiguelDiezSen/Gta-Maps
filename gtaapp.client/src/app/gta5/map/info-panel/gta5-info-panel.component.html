@@ -180,7 +180,7 @@
               type="button"
               class="missions-search-clear"
               (click)="vehicleSearchQuery = ''; onVehicleSearchChange()"
-              title="Borrar búsqueda"
+              [title]="'common.clearSearch' | translate"
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
@@ -337,7 +337,7 @@
               type="button"
               class="missions-search-clear"
               (click)="dealerVehicleSearchQuery = ''"
-              title="Borrar búsqueda"
+              [title]="'common.clearSearch' | translate"
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
@@ -578,7 +578,7 @@
               type="button"
               class="missions-search-clear"
               (click)="weaponSearchQuery = ''"
-              title="Borrar búsqueda"
+              [title]="'common.clearSearch' | translate"
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
@@ -651,7 +651,7 @@
                   <i class="fa-solid vcard-img-icon" [ngClass]="getWeaponIcon(w)"></i>
                 }
                 @if (w.hasMk2) {
-                <span class="vcard-weapon-badge" title="Variante Mk II disponible">⚙️</span>
+                <span class="vcard-weapon-badge" [title]="'common.mk2Available' | translate">⚙️</span>
                 }
                 @if (selectedWeaponSort !== 'none') {
                 <span class="vcard-stat-pill">
@@ -728,7 +728,7 @@
               type="button"
               class="missions-search-clear"
               (click)="missionSearchQuery = ''"
-              title="Borrar búsqueda"
+              [title]="'common.clearSearch' | translate"
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
@@ -843,7 +843,7 @@
               type="button"
               class="missions-search-clear"
               (click)="onlineMissionSearchQuery = ''"
-              title="Borrar búsqueda"
+              [title]="'common.clearSearch' | translate"
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
@@ -1104,7 +1104,7 @@
               type="button"
               class="strangers-search-clear"
               (click)="strangerSearchQuery = ''"
-              title="Borrar búsqueda"
+              [title]="'common.clearSearch' | translate"
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
@@ -1174,7 +1174,7 @@
                     <div class="scard-title-row">
                       <span class="scard-title">{{ m.title }}</span>
                       @if (m.requiredFor100) {
-                      <span class="scard-req100-badge" title="Requerido para el 100% de GTA V">
+                      <span class="scard-req100-badge" [title]="'common.requiredFor100' | translate">
                         <i class="fa-solid fa-award"></i> 100%
                       </span>
                       }
@@ -1602,7 +1602,7 @@
               type="button"
               class="heists-search-clear"
               (click)="heistSearchQuery = ''"
-              title="Borrar búsqueda"
+              [title]="'common.clearSearch' | translate"
             >
               <i class="fa-solid fa-xmark"></i>
             </button>
@@ -2052,7 +2052,7 @@
               {{ selectedWeapon.categoryLabel }}
             </span>
             @if (selectedWeapon.hasMk2) {
-            <span class="vclean-weapon-badge" title="Variante Mk II disponible">
+            <span class="vclean-weapon-badge" [title]="'common.mk2Available' | translate">
               ⚙️ Mk II
             </span>
             }

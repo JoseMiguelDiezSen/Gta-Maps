@@ -528,7 +528,7 @@
     class="feedback-fab"
     (click)="toggleFeedbackPanel($event)"
     [title]="'feedback.buttonTitle' | translate"
-    aria-label="Enviar sugerencias"
+    [attr.aria-label]="'feedback.buttonTitle' | translate"
   >
     <svg class="feedback-fab-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -547,7 +547,7 @@
         </svg>
         <h4 class="feedback-panel-title">{{ 'feedback.modalTitle' | translate }}</h4>
       </div>
-      <button type="button" class="feedback-panel-close" (click)="closeFeedbackModal()" aria-label="Close">✕</button>
+      <button type="button" class="feedback-panel-close" (click)="closeFeedbackModal()" [attr.aria-label]="'feedback.close' | translate">✕</button>
     </div>
 
     @if (feedbackSuccess) {

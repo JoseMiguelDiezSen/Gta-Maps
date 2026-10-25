@@ -132,7 +132,7 @@
     (click)="$event.stopPropagation()"
   >
     <div class="custom-marker-popup-card" [ngClass]="'gta-pin-color-' + (activeCustomMarker.color || 'red')">
-      <div class="custom-marker-popup-close-btn" (click)="closeCustomMarkerPopup()" title="Cerrar">✕</div>
+      <div class="custom-marker-popup-close-btn" (click)="closeCustomMarkerPopup()" [title]="'common.close' | translate">✕</div>
       <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 14px 4px 14px;">
         <input
           type="text"
@@ -165,7 +165,7 @@
         }
       </div>
       <div class="custom-marker-spike-divider" style="width: 100%; height: 1px; margin: 6px 0 5px 0; background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, #ffb833 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%); box-shadow: 0 0 4px rgba(255, 184, 51, 0.35);"></div>
-      <div class="custom-marker-coords" style="text-align: center; font-size: 9.5px; font-family: monospace; color: rgba(255,255,255,0.75); margin: 3px 0 6px 0; letter-spacing: 0.3px; user-select: all;" title="Coordenadas (X, Y)">
+      <div class="custom-marker-coords" style="text-align: center; font-size: 9.5px; font-family: monospace; color: rgba(255,255,255,0.75); margin: 3px 0 6px 0; letter-spacing: 0.3px; user-select: all;" [title]="'common.coordinates' | translate">
         X: {{ (activeCustomMarker.x || 0).toFixed(1) }} | Y: {{ (activeCustomMarker.y || 0).toFixed(1) }}
       </div>
       <div class="custom-marker-actions">
@@ -195,7 +195,7 @@
     <div class="marker-card-body">
       <p class="marker-card-desc">{{ activeMarker.desc }}</p>
       <div class="marker-card-coords">
-        <span>COORDENADAS TÁCTICAS:</span>
+        <span>{{ 'common.tacticalCoords' | translate }}</span>
         <code>X: {{ activeMarker.x.toFixed(1) }} | Y: {{ activeMarker.y.toFixed(1) }}</code>
       </div>
     </div>
@@ -225,8 +225,8 @@
       class="hud-guide-btn"
       routerLink="/gta6-guia-online"
       (click)="exitFullscreen()"
-      title="Ir a guía"
-      aria-label="Ir a guía"
+      [title]="'common.goToGuide' | translate"
+      [attr.aria-label]="'common.goToGuide' | translate"
     >
       <svg class="hud-guide-btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -261,12 +261,12 @@
   <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idéntico a GTA V) -->
   <div class="hud hud-tc">
     <div class="mode-switch-track">
-      <a class="mode-switch-btn mode-historia" routerLink="/gta6-map-offline" title="Cambiar a Modo Historia">
+      <a class="mode-switch-btn mode-historia" routerLink="/gta6-map-offline" [title]="'common.switchToStory' | translate">
         <i class="mode-indicator dot-historia"></i>
         <span class="mode-text-desktop">{{ 'common.story' | translate }}</span>
         <span class="mode-text-mobile">{{ 'common.storyShort' | translate }}</span>
       </a>
-      <div class="mode-switch-btn mode-online is-active" title="Modo GTA Online activo">
+      <div class="mode-switch-btn mode-online is-active" [title]="'common.onlineActive' | translate">
         <i class="mode-indicator dot-online"></i>
         <span class="mode-text-desktop">{{ 'common.online' | translate }}</span>
         <span class="mode-text-mobile">{{ 'common.onlineShort' | translate }}</span>
@@ -611,7 +611,7 @@
           <div class="hud-acc-body" style="padding: 10px 14px;">
             <label class="hud-check-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
               <span class="goty-label-desktop">{{ 'gta6.settings.enableGoty' | translate }}</span>
-              <span class="goty-label-mobile">GOTY 6</span>
+              <span class="goty-label-mobile">{{ 'common.goty6' | translate }}</span>
               <input type="checkbox" class="hud-goty-check" [checked]="gotyService.isEnabled" (change)="gotyService.setBotEnabled($any($event.target).checked)" />
             </label>
           </div>

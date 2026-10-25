@@ -93,3 +93,9 @@ export interface GuiaArticulo extends GuiaArticuloResumen {
   contacto?: string;
   protagonistas?: string[];
 }
+
+export interface GuiaBreadcrumbItem {
+  label: string;
+  clickable: boolean;
+  action?: () => void;
+}
