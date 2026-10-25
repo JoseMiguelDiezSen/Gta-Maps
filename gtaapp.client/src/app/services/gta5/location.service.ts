@@ -14,22 +14,6 @@ export class LocationService {
   ) {}
 
   private normalizeItemImages<T>(item: T): T {
-    if (!item || typeof item !== 'object') return item;
-    const obj = item as Record<string, any>;
-    if (typeof obj['imageUrl'] === 'string') {
-      if (obj['imageUrl'].includes('/assets/images/gta5/marcadores-mapa/')) {
-        obj['imageUrl'] = obj['imageUrl'].replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
-      } else if (obj['imageUrl'].startsWith('assets/images/gta5/marcadores-mapa/')) {
-        obj['imageUrl'] = obj['imageUrl'].replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
-      }
-    }
-    if (typeof obj['thumbnail'] === 'string') {
-      if (obj['thumbnail'].includes('/assets/images/gta5/marcadores-mapa/')) {
-        obj['thumbnail'] = obj['thumbnail'].replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
-      } else if (obj['thumbnail'].startsWith('assets/images/gta5/marcadores-mapa/')) {
-        obj['thumbnail'] = obj['thumbnail'].replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
-      }
-    }
     return item;
   }
 

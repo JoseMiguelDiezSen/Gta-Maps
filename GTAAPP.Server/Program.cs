@@ -182,7 +182,6 @@ builder.Services.AddRateLimiter(options =>
 });
 
 // 7. Servicios singleton y scoped de negocio
-builder.Services.AddSingleton<GTAAPP.Server.Services.LocationsService>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.VehiclesService>();
 builder.Services.AddSingleton<GTAAPP.Server.Services.IGuiaService, GTAAPP.Server.Services.GuiaService>();
 builder.Services.AddScoped<GTAAPP.Server.Services.IEmailService, GTAAPP.Server.Services.EmailService>();

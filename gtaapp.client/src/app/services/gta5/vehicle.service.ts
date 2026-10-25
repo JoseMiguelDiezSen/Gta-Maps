@@ -18,12 +18,6 @@ export class VehicleService {
    * Cuenta con mecanismo de fallback resiliente a assets locales si la API no está disponible.
    */
   private normalizeVehicleImage(vehicle: GtaVehicle): GtaVehicle {
-    if (!vehicle) return vehicle;
-    if (vehicle.imageUrl && vehicle.imageUrl.includes('/assets/images/gta5/marcadores-mapa/')) {
-      vehicle.imageUrl = vehicle.imageUrl.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
-    } else if (vehicle.imageUrl && vehicle.imageUrl.startsWith('assets/images/gta5/marcadores-mapa/')) {
-      vehicle.imageUrl = vehicle.imageUrl.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
-    }
     return vehicle;
   }
 

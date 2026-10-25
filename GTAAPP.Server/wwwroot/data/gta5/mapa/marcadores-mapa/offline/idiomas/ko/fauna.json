@@ -1,338 +1,394 @@
-[
-  {
-    "id": "animal-rabbit-hills",
-    "name": "산토끼",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "바인우드 힐스 및 시골",
-    "description": "산토끼는 산 안드레아스 전역에서 가장 흔한 토착 포유류입니다. 바인우드 힐스, 칠리아드 산, 팔레토 숲, 통바 밸리에서 자연 발생합니다.",
-    "features": [
-      "야생 동물 사진 촬영 챌린지 대상",
-      "언덕과 수풀 지대에서 흔히 발견됨",
-      "빠르게 움직이며 발소리나 차량에 쉽게 놀람"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": -420,
-      "y": 1200,
-      "z": 325
+﻿[
+    {
+        "id":  "animal-rabbit-hills",
+        "name":  "ì‚°í† ë¼",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "ë°”ì¸ìš°ë“œ ížìŠ¤ ë° ì‹œê³¨",
+        "description":  "ì‚°í† ë¼ëŠ” ì‚° ì•ˆë“œë ˆì•„ìŠ¤ ì „ì—­ì—ì„œ ê°€ìž¥ í”í•œ í† ì°© í¬ìœ ë¥˜ìž…ë‹ˆë‹¤. ë°”ì¸ìš°ë“œ ížìŠ¤, ì¹ ë¦¬ì•„ë“œ ì‚°, íŒ”ë ˆí†  ìˆ², í†µë°” ë°¸ë¦¬ì—ì„œ ìžì—° ë°œìƒí•©ë‹ˆë‹¤.",
+        "features":  [
+                         "ì•¼ìƒ ë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì±Œë¦°ì§€ ëŒ€ìƒ",
+                         "ì–¸ë•ê³¼ ìˆ˜í’€ ì§€ëŒ€ì—ì„œ í”ížˆ ë°œê²¬ë¨",
+                         "ë¹ ë¥´ê²Œ ì›€ì§ì´ë©° ë°œì†Œë¦¬ë‚˜ ì°¨ëŸ‰ì— ì‰½ê²Œ ë†€ëžŒ"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  -420,
+                         "y":  1200,
+                         "z":  325
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#1abc9c",
+                      "symbol":  "ðŸ‡"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Rabbit-GTAVe.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#1abc9c",
-      "symbol": "🐇"
+    {
+        "id":  "animal-deer-chiliad",
+        "name":  "í°ê¼¬ë¦¬ì‚¬ìŠ´",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "ì¹ ë¦¬ì•„ë“œ ì‚° ì£¼ë¦½ ì•¼ìƒë³´í˜¸êµ¬ì—­",
+        "description":  "ë¼í†¤ ìºë‹ˆì–¸ê³¼ íŒ”ë ˆí†  ìˆ² ê¹Šì€ ê³³ì— ì„œì‹í•˜ëŠ” ê²½ê³„ì‹¬ ê°•í•œ ì•¼ìƒ ì‚¬ìŠ´.",
+        "features":  [
+                         "íŠ¸ë ˆë²„ ì‚¬ëƒ¥ ë¯¸ì…˜ ë° ì‚¬ì§„ ì´¬ì˜ ì±Œë¦°ì§€",
+                         "ë¶ë¶€ ì‚¼ë¦¼ ì§€ëŒ€ì— ë°€ì§‘ ì„œì‹",
+                         "ì´ì†Œë¦¬ë‚˜ ì†ŒìŒì— ì¦‰ì‹œ ë„ë§ì¹¨"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  -650,
+                         "y":  4520,
+                         "z":  140
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#27ae60",
+                      "symbol":  "ðŸ¦Œ"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Deer-GTAV.png"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Rabbit-GTAVe.png"
-  },
-  {
-    "id": "animal-deer-chiliad",
-    "name": "흰꼬리사슴",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "칠리아드 산 주립 야생보호구역",
-    "description": "라톤 캐니언과 팔레토 숲 깊은 곳에 서식하는 경계심 강한 야생 사슴.",
-    "features": [
-      "트레버 사냥 미션 및 사진 촬영 챌린지",
-      "북부 삼림 지대에 밀집 서식",
-      "총소리나 소음에 즉시 도망침"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": -650,
-      "y": 4520,
-      "z": 140
+    {
+        "id":  "animal-cougar-tongva",
+        "name":  "í“¨ë§ˆ (ë§ˆìš´í‹´ ë¼ì´ì˜¨)",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "í†µë°” ížìŠ¤ / ë°´í–„ ìºë‹ˆì–¸",
+        "description":  "í†µë°” ížì¦ˆì™€ ì¹ ë¦¬ì•„ë“œ ì‚°ì— ì„œì‹í•˜ëŠ” ë§¹ìˆ˜. ë’¤ì—ì„œ ì†Œë¦¬ ì—†ì´ ê¸°ìŠµí•˜ì—¬ ì¼ê²©ì— ì¹˜ëª…ìƒì„ ìž…íž™ë‹ˆë‹¤.",
+        "features":  [
+                         "í•œ ë²ˆì˜ ê³µê²©ìœ¼ë¡œ ì¹˜ëª…íƒ€ë¥¼ ìž…ížˆëŠ” ë§¹ìˆ˜",
+                         "ë®ì¹˜ê¸° ì „ íŠ¹ìœ ì˜ ë‚®ì€ ìœ¼ë¥´ë ê±°ë¦¼",
+                         "ì•ˆì „í•œ ê±°ë¦¬ì—ì„œ ì´¬ì˜ ê¶Œìž¥"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  -1520,
+                         "y":  1540,
+                         "z":  110
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#e67e22",
+                      "symbol":  "ðŸ†"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cougar-GTAV.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#27ae60",
-      "symbol": "🦌"
+    {
+        "id":  "animal-coyote-senora",
+        "name":  "ì½”ìš”í…Œ",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "ê·¸ëžœë“œ ì„¸ë…¸ë¼ ì‚¬ë§‰",
+        "description":  "ê·¸ëžœë“œ ì„¸ë…¸ë¼ ì‚¬ë§‰ê³¼ ìƒŒë”” í•´ì•ˆ ì£¼ë³€ì„ ë¬´ë¦¬ ì§€ì–´ ë°°íšŒí•˜ëŠ” ìœ¡ì‹ ë™ë¬¼.",
+        "features":  [
+                         "ë°¤ì— ì‚¬ë§‰ í‰ì›ì—ì„œ í•˜ìš¸ë§ì„ í•¨",
+                         "ì‹œê³¨ ë„ë¡œ ê·¼ì²˜ë¥¼ í˜¼ìž ë˜ëŠ” ì§ì„ ì§€ì–´ ë°°íšŒ",
+                         "í“¨ë§ˆë³´ë‹¤ ì˜¨ìˆœí•˜ë©° ì°¨ëŸ‰ì„ ë³´ë©´ ë„ë§ì¹¨"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  1240,
+                         "y":  3100,
+                         "z":  40
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#d35400",
+                      "symbol":  "ðŸº"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Coyote-GTAV.jpg"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Deer-GTAV.png"
-  },
-  {
-    "id": "animal-cougar-tongva",
-    "name": "퓨마 (마운틴 라이온)",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "통바 힐스 / 밴햄 캐니언",
-    "description": "통바 힐즈와 칠리아드 산에 서식하는 맹수. 뒤에서 소리 없이 기습하여 일격에 치명상을 입힙니다.",
-    "features": [
-      "한 번의 공격으로 치명타를 입히는 맹수",
-      "덮치기 전 특유의 낮은 으르렁거림",
-      "안전한 거리에서 촬영 권장"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": -1520,
-      "y": 1540,
-      "z": 110
+    {
+        "id":  "animal-boar-bolingbroke",
+        "name":  "ì•¼ìƒ ë©§ë¼ì§€",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "ë³¼ë§ë¸Œë¡œí¬ ížìŠ¤ / ì„¸ë…¸ë¼",
+        "description":  "ì¹ ë¦¬ì•„ë“œ ì‚° ìžì—°ë³´í˜¸êµ¬ì—­ ë¤ë¶ˆ ì†ì— ì„œì‹í•˜ëŠ” ê±°ì¹ ê³  ì–µì„¼ ë©§ë¼ì§€.",
+        "features":  [
+                         "ê¶ì§€ì— ëª°ë¦¬ë©´ ê°•ë ¥í•œ ëŒì§„ ê³µê²©ì„ í•¨",
+                         "ê±´ì¡°í•œ ìˆ˜í’€ê³¼ ì„ ì¸ìž¥ êµ°ë½ì— í”í•¨",
+                         "ì•¼ìƒ ë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ëŒ€ìƒ"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  1820,
+                         "y":  2650,
+                         "z":  46
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#795548",
+                      "symbol":  "ðŸ—"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Boar-GTAVe.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#e67e22",
-      "symbol": "🐆"
+    {
+        "id":  "animal-hawk-vinewood",
+        "name":  "ë¶‰ì€ê¼¬ë¦¬ë§¤",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "ë°”ì¸ìš°ë“œ ížìŠ¤ ì‚°ë“±ì„±ì´",
+        "description":  "ì‚°ì•… ì§€ëŒ€ ìƒê³µì„ ìš°ì•„í•˜ê²Œ ì„ íšŒí•˜ëŠ” ëŒ€í˜• ë§¹ê¸ˆë¥˜.",
+        "features":  [
+                         "ìœ„ì—„ ìžˆëŠ” ì›í˜• í™œê³µ ë¹„í–‰ íŒ¨í„´",
+                         "ì•„ëž˜ì—ì„œë„ ë“¤ë¦¬ëŠ” ë‚ ì¹´ë¡œìš´ ìš¸ìŒì†Œë¦¬",
+                         "ë°”ìœ„, ìš¸íƒ€ë¦¬, ì „ì‹ ì£¼ì— ì•‰ì•„ íœ´ì‹"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  710,
+                         "y":  1195,
+                         "z":  350
+                     },
+        "badge":  {
+                      "icon":  "feather",
+                      "color":  "#f39c12",
+                      "symbol":  "ðŸ¦…"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Hawk-GTAV.jpg"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Cougar-GTAV.png"
-  },
-  {
-    "id": "animal-coyote-senora",
-    "name": "코요테",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "그랜드 세노라 사막",
-    "description": "그랜드 세노라 사막과 샌디 해안 주변을 무리 지어 배회하는 육식 동물.",
-    "features": [
-      "밤에 사막 평원에서 하울링을 함",
-      "시골 도로 근처를 혼자 또는 짝을 지어 배회",
-      "퓨마보다 온순하며 차량을 보면 도망침"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": 1240,
-      "y": 3100,
-      "z": 40
+    {
+        "id":  "animal-cormorant-zancudo",
+        "name":  "ê°€ë§ˆìš°ì§€",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "ë¼ê³  ìž”ì¿ ë„ ìŠµì§€",
+        "description":  "ìž”ì¿ ë„ í˜¸ìˆ˜ ìŠµì§€ëŒ€ì—ì„œ ë¬¼ê³ ê¸°ë¥¼ ì‚¬ëƒ¥í•˜ëŠ” ê¹ƒí„¸ì´ ê²€ì€ ë¬¼ìƒˆ.",
+        "features":  [
+                         "ìŠµì§€, ê°•, í•´ì•ˆ ë§Œì„ ë”°ë¼ í”ížˆ ë°œê²¬ë¨",
+                         "ë°”ìœ„ ìœ„ì—ì„œ ë‚ ê°œë¥¼ íŽ¼ì³ ê¹ƒí„¸ì„ ë§ë¦¼",
+                         "ê³µì‹ ì•¼ìƒ ë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ í•­ëª©"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  -2250,
+                         "y":  2600,
+                         "z":  4
+                     },
+        "badge":  {
+                      "icon":  "feather",
+                      "color":  "#3498db",
+                      "symbol":  "ðŸ¦†"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Great_Cormorant-GTAV.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#d35400",
-      "symbol": "🐺"
+    {
+        "id":  "animal-seagull-pier",
+        "name":  "ê°ˆë§¤ê¸°",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "ë¸ íŽ˜ë¡œ ë¶€ë‘ ë° ë² ìŠ¤í‘¸ì¹˜ í•´ë³€",
+        "description":  "ë¸ íŽ˜ë¡œ, ë² ìŠ¤í‘¸ì¹˜ í•´ë³€ê³¼ í•­ë§Œ ë¶€ë‘ ì£¼ë³€ì„ ë‚ ì•„ë‹¤ë‹ˆëŠ” ë°”ë‹·ìƒˆ.",
+        "features":  [
+                         "ë¶€ë‘ ë‚œê°„ê³¼ ëŒ€ê´€ëžŒì°¨ì— ì•‰ìŒ",
+                         "ëª¨ëž˜ì‚¬ìž¥ì—ì„œ ë§¤ìš° ì‰½ê²Œ ë°œê²¬í•˜ê³  ì´¬ì˜ ê°€ëŠ¥",
+                         "ë¹ ë¥´ê²Œ ì™„ë£Œí•  ìˆ˜ ìžˆëŠ” ì‚¬ì§„ ëª©í‘œ"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  -1680,
+                         "y":  -1070,
+                         "z":  13
+                     },
+        "badge":  {
+                      "icon":  "feather",
+                      "color":  "#00bcd4",
+                      "symbol":  "ðŸ•Šï¸"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Seagull-GTAV.png"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Coyote-GTAV.jpg"
-  },
-  {
-    "id": "animal-boar-bolingbroke",
-    "name": "야생 멧돼지",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "볼링브로크 힐스 / 세노라",
-    "description": "칠리아드 산 자연보호구역 덤불 속에 서식하는 거칠고 억센 멧돼지.",
-    "features": [
-      "궁지에 몰리면 강력한 돌진 공격을 함",
-      "건조한 수풀과 선인장 군락에 흔함",
-      "야생 동물 사진 촬영 대상"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": 1820,
-      "y": 2650,
-      "z": 46
+    {
+        "id":  "animal-shark-paleto",
+        "name":  "ë°±ìƒì•„ë¦¬",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "íŒ”ë ˆí†  ë§Œ ì‹¬í•´",
+        "description":  "ì‚° ì•ˆë“œë ˆì•„ìŠ¤ ì‹¬í•´ë¥¼ ìˆœíšŒí•˜ëŠ” ìœ„í—˜í•œ ë°”ë‹¤ í¬ì‹ìž. ì¡°ìš° ì‹œ \u0027ìœ„í—˜í•œ ì‹¬í•´\u0027 ë„ì „ê³¼ì œë¥¼ íšë“í•©ë‹ˆë‹¤.",
+        "features":  [
+                         "ë…íŠ¹í•œ í‚¬ ëª¨ì…˜ì„ ê°€ì§„ í•´ì–‘ í¬ì‹ìž",
+                         "ì‹¬í•´ì—ì„œ ë¯¸ë‹ˆë§µì— ë¹¨ê°„ìƒ‰ ì ìœ¼ë¡œ í‘œì‹œë¨",
+                         "ë³´íŠ¸ ìœ„ì—ì„œ ì•ˆì „í•˜ê²Œ ì‚¬ì§„ ì´¬ì˜ ê°€ëŠ¥"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  -500,
+                         "y":  6700,
+                         "z":  -10
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#2980b9",
+                      "symbol":  "ðŸ¦ˆ"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Tiger_shark-GTAV.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#795548",
-      "symbol": "🐗"
+    {
+        "id":  "animal-farm-grapeseed",
+        "name":  "ë†ìž¥ ì•”ì†Œ ë° ë¼ì§€",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ê°€ì¶•",
+        "zone":  "ê·¸ë ˆì´í”„ì‹œë“œ ë†ê²½ì§€",
+        "description":  "ì¹ ë¦¬ì•„ë“œ ì‚° ê¸°ìŠ­ì— ìœ„ì¹˜í•œ ê·¸ë ˆì´í”„ì‹œë“œì˜ ë†ìž¥ ìš°ë¦¬ì—ì„œ í’€ì„ ëœ¯ëŠ” ê°€ì¶•ìž…ë‹ˆë‹¤.",
+        "features":  [
+                         "ë‘ ê°€ì¶• ëª¨ë‘ ê°™ì€ ê·¸ë ˆì´í”„ì‹œë“œ ìš°ë¦¬ì— ìœ„ì¹˜",
+                         "ì™„ì „ížˆ ì˜¨ìˆœí•˜ë©° ì‚¬ì§„ ì´¬ì˜ì´ ë§¤ìš° ì‰¬ì›€",
+                         "ëª©ê°€ì ì¸ ì‹œê³¨ í’ê²½"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  2440,
+                         "y":  4970,
+                         "z":  46
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#8d6e63",
+                      "symbol":  "ðŸ„"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cow-GTAV.jpg"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Boar-GTAVe.png"
-  },
-  {
-    "id": "animal-hawk-vinewood",
-    "name": "붉은꼬리매",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "바인우드 힐스 산등성이",
-    "description": "산악 지대 상공을 우아하게 선회하는 대형 맹금류.",
-    "features": [
-      "위엄 있는 원형 활공 비행 패턴",
-      "아래에서도 들리는 날카로운 울음소리",
-      "바위, 울타리, 전신주에 앉아 휴식"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": 710,
-      "y": 1195,
-      "z": 350
+    {
+        "id":  "animal-dolphin-pacific",
+        "name":  "ëŒê³ ëž˜",
+        "category":  "animal",
+        "categoryLabel":  "animal",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "ì•¼ìƒ ë™ë¬¼ í‘œë³¸",
+        "zone":  "íƒœí‰ì–‘ (í¼ì‹œí”½ ë¸”ëŸ¬í”„ìŠ¤ ë° ì¶”ë§ˆì‹œ)",
+        "description":  "ì—°ì•ˆ í•´ì—­ì—ì„œ ë³´íŠ¸ ì˜†ì„ ë›°ì–´ì˜¤ë¥´ë©° í—¤ì—„ì¹˜ëŠ” ì˜ë¦¬í•œ í•´ì–‘ í¬ìœ ë¥˜.",
+        "features":  [
+                         "ìˆ˜ë©´ ìœ„ë¡œ ë›°ì–´ì˜¤ë¥´ëŠ” í•´ì–‘ í¬ìœ ë¥˜",
+                         "ë¨¼ë°”ë‹¤ íŒŒë„ ì†ì—ì„œ ë¬´ë¦¬ ì§€ì–´ ê´€ì°° ê°€ëŠ¥",
+                         "ìŠ¤í† ë¦¬ ëª¨ë“œì—ì„œ ìˆ˜ì¤‘ íŽ˜ìš”í…Œë¥¼ í†µí•´ ì§ì ‘ ì¡°ìž‘ ê°€ëŠ¥í•œ ë™ë¬¼"
+                     ],
+        "income":  "ëª¨ë“  ì•¼ìƒë™ë¬¼ ì‚¬ì§„ ì´¬ì˜ ì‹œ í¬ë¼ì¼„ ìž ìˆ˜ì • í•´ê¸ˆ",
+        "position":  {
+                         "x":  -3150,
+                         "y":  600,
+                         "z":  -15
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#00a8ff",
+                      "symbol":  "ðŸ¬"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
     },
-    "badge": {
-      "icon": "feather",
-      "color": "#f39c12",
-      "symbol": "🦅"
+    {
+        "id":  "animal-orca-south",
+        "name":  "Orca",
+        "category":  "animal",
+        "categoryLabel":  "Fauna Salvaje",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cimen de Fauna",
+        "zone":  "Alta Mar del Sur (OcÃ©ano PacÃ­fico Sur)",
+        "description":  "El cetÃ¡ceo depredador mÃ¡s grande en las costas de San Andreas. Se desliza por aguas profundas y sale a la superficie con sus inconfundibles manchas blancas y negras.",
+        "features":  [
+                         "Enorme mamÃ­fero oceÃ¡nico nadando en aguas profundas del norte",
+                         "Especie marina icÃ³nica visible mar adentro",
+                         "Animal controlable mediante planta de peyote submarina en Modo Historia"
+                     ],
+        "income":  "Fauna marina de ocÃ©ano profundo",
+        "position":  {
+                         "x":  1231.1,
+                         "y":  -3537.4,
+                         "z":  -20
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#2c3e50",
+                      "symbol":  "ðŸ‹"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Orca-GTAV.jpg"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Hawk-GTAV.jpg"
-  },
-  {
-    "id": "animal-cormorant-zancudo",
-    "name": "가마우지",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "라고 잔쿠도 습지",
-    "description": "잔쿠도 호수 습지대에서 물고기를 사냥하는 깃털이 검은 물새.",
-    "features": [
-      "습지, 강, 해안 만을 따라 흔히 발견됨",
-      "바위 위에서 날개를 펼쳐 깃털을 말림",
-      "공식 야생 동물 사진 촬영 항목"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": -2250,
-      "y": 2600,
-      "z": 4
+    {
+        "id":  "animal-whale-east",
+        "name":  "Ballena",
+        "category":  "animal",
+        "categoryLabel":  "Fauna Salvaje",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cimen de Fauna",
+        "zone":  "Alta Mar del Este (OcÃ©ano PacÃ­fico Este)",
+        "description":  "Colosal cetÃ¡ceo que surca las aguas profundas del ocÃ©ano abierto al este de San Andreas.",
+        "features":  [
+                         "Colosal mamÃ­fero oceÃ¡nico avistable mar adentro",
+                         "Especie marina que nada en aguas profundas",
+                         "Animal controlable mediante planta de peyote submarina en Modo Historia"
+                     ],
+        "income":  "Fauna marina de ocÃ©ano profundo",
+        "position":  {
+                         "x":  3509.4,
+                         "y":  2017.8,
+                         "z":  -20
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#0284c7",
+                      "symbol":  "ðŸ³"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Ballena.jpg"
     },
-    "badge": {
-      "icon": "feather",
-      "color": "#3498db",
-      "symbol": "🦆"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Great_Cormorant-GTAV.png"
-  },
-  {
-    "id": "animal-seagull-pier",
-    "name": "갈매기",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "델 페로 부두 및 베스푸치 해변",
-    "description": "델 페로, 베스푸치 해변과 항만 부두 주변을 날아다니는 바닷새.",
-    "features": [
-      "부두 난간과 대관람차에 앉음",
-      "모래사장에서 매우 쉽게 발견하고 촬영 가능",
-      "빠르게 완료할 수 있는 사진 목표"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": -1680,
-      "y": -1070,
-      "z": 13
-    },
-    "badge": {
-      "icon": "feather",
-      "color": "#00bcd4",
-      "symbol": "🕊️"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Seagull-GTAV.png"
-  },
-  {
-    "id": "animal-shark-paleto",
-    "name": "백상아리",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "팔레토 만 심해",
-    "description": "산 안드레아스 심해를 순회하는 위험한 바다 포식자. 조우 시 '위험한 심해' 도전과제를 획득합니다.",
-    "features": [
-      "독특한 킬 모션을 가진 해양 포식자",
-      "심해에서 미니맵에 빨간색 점으로 표시됨",
-      "보트 위에서 안전하게 사진 촬영 가능"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": -500,
-      "y": 6700,
-      "z": -10
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#2980b9",
-      "symbol": "🦈"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Tiger_shark-GTAV.png"
-  },
-  {
-    "id": "animal-farm-grapeseed",
-    "name": "농장 암소 및 돼지",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "가축",
-    "zone": "그레이프시드 농경지",
-    "description": "칠리아드 산 기슭에 위치한 그레이프시드의 농장 우리에서 풀을 뜯는 가축입니다.",
-    "features": [
-      "두 가축 모두 같은 그레이프시드 우리에 위치",
-      "완전히 온순하며 사진 촬영이 매우 쉬움",
-      "목가적인 시골 풍경"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": 2440,
-      "y": 4970,
-      "z": 46
-    },
-    "badge": {
-      "icon": "paw",
-      "color": "#8d6e63",
-      "symbol": "🐄"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Cow-GTAV.jpg"
-  },
-  {
-    "id": "animal-dolphin-pacific",
-    "name": "돌고래",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "태평양 (퍼시픽 블러프스 및 추마시)",
-    "description": "연안 해역에서 보트 옆을 뛰어오르며 헤엄치는 영리한 해양 포유류.",
-    "features": [
-      "수면 위로 뛰어오르는 해양 포유류",
-      "먼바다 파도 속에서 무리 지어 관찰 가능",
-      "스토리 모드에서 수중 페요테를 통해 직접 조작 가능한 동물"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": -3150,
-      "y": 600,
-      "z": -15
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#00a8ff",
-      "symbol": "🐬"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Dolphin_GTASA.png"
-  },
-  {
-    "id": "animal-orca-ocean",
-    "name": "범고래 (오르카)",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "북부 공해 (엘 고르도 등대 및 칠리아드 산)",
-    "description": "산 안드레아스 심해를 순회하는 바다 최강의 포식자.",
-    "features": [
-      "북부 심해에서 헤엄치는 거대한 해양 포유류",
-      "먼바다에서 관찰할 수 있는 상징적인 해양 생물",
-      "스토리 모드에서 수중 페요테를 통해 직접 조작 가능한 동물"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": 3400,
-      "y": 5100,
-      "z": -20
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#2c3e50",
-      "symbol": "🐋"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Orca-GTAV.jpg"
-  }
+    {
+        "id":  "animal-dolphin-east",
+        "name":  "DelfÃ­n del PacÃ­fico",
+        "category":  "animal",
+        "categoryLabel":  "Fauna Salvaje",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cimen de Fauna",
+        "zone":  "Alta Mar del Este (OcÃ©ano PacÃ­fico Este)",
+        "description":  "MamÃ­fero marino inteligente y juguetÃ³n. Nada y salta en pequeÃ±os grupos en las aguas costeras al este de San Andreas.",
+        "features":  [
+                         "MamÃ­fero acuÃ¡tico juguetÃ³n que salta sobre el agua",
+                         "Visible en manadas sobre el oleaje del ocÃ©ano este",
+                         "Animal jugable mediante plantas de peyote submarinas en Modo Historia"
+                     ],
+        "income":  "Vida marina y avistamiento oceÃ¡nico",
+        "position":  {
+                         "x":  4184.0,
+                         "y":  3416.9,
+                         "z":  -15
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#00a8ff",
+                      "symbol":  "ðŸ¬"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
+    }
 ]

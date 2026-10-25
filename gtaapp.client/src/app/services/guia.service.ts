@@ -25,14 +25,12 @@ export class GuiaService {
    * 3. assets/data/{game}/guia/{mode}/{file} (fallback ruta plana)
    */
   private getGuiaJson<T>(game: 'gta5' | 'gta6', mode: 'offline' | 'online', fileName: string, subfolder = ''): Observable<T> {
-    const t = new Date().getTime();
-
     const activeLang = this.translationService ? this.translationService.currentLang : 'es';
     const sub = subfolder ? `${subfolder}/` : '';
 
-    const localizedPath = `assets/data/${game}/guia/${mode}/idiomas/${activeLang}/${sub}${fileName}?t=${t}`;
-    const canonicalPath = `assets/data/${game}/guia/${mode}/idiomas/es/${sub}${fileName}?t=${t}`;
-    const legacyPath = `assets/data/${game}/guia/${mode}/${sub}${fileName}?t=${t}`;
+    const localizedPath = `assets/data/${game}/guia/${mode}/idiomas/${activeLang}/${sub}${fileName}`;
+    const canonicalPath = `assets/data/${game}/guia/${mode}/idiomas/es/${sub}${fileName}`;
+    const legacyPath = `assets/data/${game}/guia/${mode}/${sub}${fileName}`;
 
     if (activeLang === 'es') {
       return this.http.get<T>(canonicalPath).pipe(
@@ -51,13 +49,11 @@ export class GuiaService {
    * Carga un archivo raíz de la guía (ej: catálogo de armas o vehículos) con fallback seguro.
    */
   private getGuiaRootJson<T>(game: 'gta5' | 'gta6', fileName: string): Observable<T> {
-    const t = new Date().getTime();
-
     const activeLang = this.translationService ? this.translationService.currentLang : 'es';
 
-    const localizedPath = `assets/data/${game}/guia/idiomas/${activeLang}/${fileName}?t=${t}`;
-    const canonicalPath = `assets/data/${game}/guia/idiomas/es/${fileName}?t=${t}`;
-    const legacyPath = `assets/data/${game}/guia/${fileName}?t=${t}`;
+    const localizedPath = `assets/data/${game}/guia/idiomas/${activeLang}/${fileName}`;
+    const canonicalPath = `assets/data/${game}/guia/idiomas/es/${fileName}`;
+    const legacyPath = `assets/data/${game}/guia/${fileName}`;
 
     if (activeLang === 'es') {
       return this.http.get<T>(canonicalPath).pipe(
@@ -646,7 +642,7 @@ export class GuiaService {
       files.map(f => this.getGuiaJson<any[]>('gta5', 'online', f, 'misiones').pipe(catchError(() => of([]))))
     ).pipe(
       map(arrays => {
-        const flattened = arrays.reduce((acc: any[], curr: any[]) => acc.concat(curr), [] as any[]);
+        const flattened = arrays.reduce((acc: GuiaArticulo[], curr: GuiaArticulo[]) => acc.concat(curr), [] as GuiaArticulo[]);
         return flattened.sort((a, b) => (a.order || 0) - (b.order || 0));
       }),
       shareReplay(1)
@@ -671,16 +667,7 @@ export class GuiaService {
           const norm = dealershipId.toLowerCase();
           items = items.filter(v => (v.dealership || '').toLowerCase() === norm);
         }
-        return items.map(v => {
-          if (v && v.imageUrl) {
-            if (v.imageUrl.includes('/assets/images/gta5/marcadores-mapa/')) {
-              v.imageUrl = v.imageUrl.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
-            } else if (v.imageUrl.startsWith('assets/images/gta5/marcadores-mapa/')) {
-              v.imageUrl = v.imageUrl.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
-            }
-          }
-          return v;
-        });
+        return items;
       }),
       catchError(() => of([])),
       shareReplay(1)
@@ -714,16 +701,7 @@ export class GuiaService {
           const norm = categoryId.toLowerCase();
           items = items.filter(w => (w.category || '').toLowerCase() === norm);
         }
-        return items.map(w => {
-          if (w && w.imageUrl) {
-            if (w.imageUrl.includes('/assets/images/gta5/marcadores-mapa/')) {
-              w.imageUrl = w.imageUrl.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
-            } else if (w.imageUrl.startsWith('assets/images/gta5/marcadores-mapa/')) {
-              w.imageUrl = w.imageUrl.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
-            }
-          }
-          return w;
-        });
+        return items;
       }),
       catchError(() => of([])),
       shareReplay(1)

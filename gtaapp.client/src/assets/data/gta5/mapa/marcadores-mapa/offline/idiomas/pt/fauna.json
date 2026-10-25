@@ -1,338 +1,394 @@
-[
-  {
-    "id": "animal-rabbit-hills",
-    "name": "Coelho Selvagem",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Colinas de Vinewood e Campo",
-    "description": "O coelho selvagem é o mamífero nativo mais comum em San Andreas. Aparece naturalmente em Vinewood Hills, Monte Chiliad, Floresta Paleto e Vale de Tongva.",
-    "features": [
-      "Animal alvo do Desafio de Fotografia da Vida Selvagem",
-      "Comum em colinas e vegetação arbustiva",
-      "Rápido e facilmente assustado por passos ou veículos"
-    ],
-    "income": "Alvo fotográfico para a recompensa do submersível Kraken",
-    "position": {
-      "x": -420,
-      "y": 1200,
-      "z": 325
+﻿[
+    {
+        "id":  "animal-rabbit-hills",
+        "name":  "Coelho Selvagem",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "Colinas de Vinewood e Campo",
+        "description":  "O coelho selvagem Ã© o mamÃ­fero nativo mais comum em San Andreas. Aparece naturalmente em Vinewood Hills, Monte Chiliad, Floresta Paleto e Vale de Tongva.",
+        "features":  [
+                         "Animal alvo do Desafio de Fotografia da Vida Selvagem",
+                         "Comum em colinas e vegetaÃ§Ã£o arbustiva",
+                         "RÃ¡pido e facilmente assustado por passos ou veÃ­culos"
+                     ],
+        "income":  "Alvo fotogrÃ¡fico para a recompensa do submersÃ­vel Kraken",
+        "position":  {
+                         "x":  -420,
+                         "y":  1200,
+                         "z":  325
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#1abc9c",
+                      "symbol":  "ðŸ‡"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Rabbit-GTAVe.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#1abc9c",
-      "symbol": "🐇"
+    {
+        "id":  "animal-deer-chiliad",
+        "name":  "Veado de Cauda Branca / CorÃ§a",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "Reserva Natural do Monte Chiliad",
+        "description":  "Manadas de veados pastando nas encostas arborizadas do Monte Chiliad e da Floresta Paleto. Presa de caÃ§a clÃ¡ssica de Trevor.",
+        "features":  [
+                         "MissÃµes de caÃ§a de Trevor e desafio de fotografia",
+                         "PopulaÃ§Ã£o densa nas florestas boreais do norte",
+                         "Foge imediatamente com tiros ou barulho"
+                     ],
+        "income":  "CaÃ§a esportiva e alvo fotogrÃ¡fico",
+        "position":  {
+                         "x":  -650,
+                         "y":  4520,
+                         "z":  140
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#27ae60",
+                      "symbol":  "ðŸ¦Œ"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Deer-GTAV.png"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Rabbit-GTAVe.png"
-  },
-  {
-    "id": "animal-deer-chiliad",
-    "name": "Veado de Cauda Branca / Corça",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Reserva Natural do Monte Chiliad",
-    "description": "Manadas de veados pastando nas encostas arborizadas do Monte Chiliad e da Floresta Paleto. Presa de caça clássica de Trevor.",
-    "features": [
-      "Missões de caça de Trevor e desafio de fotografia",
-      "População densa nas florestas boreais do norte",
-      "Foge imediatamente com tiros ou barulho"
-    ],
-    "income": "Caça esportiva e alvo fotográfico",
-    "position": {
-      "x": -650,
-      "y": 4520,
-      "z": 140
+    {
+        "id":  "animal-cougar-tongva",
+        "name":  "Puma / SuÃ§uarana",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "Colinas de Tongva / CÃ¢nion Banham",
+        "description":  "O predador terrestre mais letal de San Andreas. Espreita nas ravinas rochosas e ataca de surpresa com velocidade fatal.",
+        "features":  [
+                         "Predador agressivo com mordida fatal de um golpe",
+                         "Rosnados graves antes de saltar",
+                         "FotografÃ¡vel de uma distÃ¢ncia segura"
+                     ],
+        "income":  "Alvo de fotografia de alto risco",
+        "position":  {
+                         "x":  -1520,
+                         "y":  1540,
+                         "z":  110
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#e67e22",
+                      "symbol":  "ðŸ†"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cougar-GTAV.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#27ae60",
-      "symbol": "🦌"
+    {
+        "id":  "animal-coyote-senora",
+        "name":  "Coiote do Deserto",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "Deserto de Grand Senora",
+        "description":  "CanÃ­deo selvagem carniceiro do deserto, tÃ­pico do Deserto de Grand Senora e dos arredores do aerÃ³dromo de Sandy Shores.",
+        "features":  [
+                         "Uiva pelas planÃ­cies do deserto Ã  noite",
+                         "Ronda sozinho ou em pares perto de estradas rurais",
+                         "Menos agressivo que pumas, foge de veÃ­culos"
+                     ],
+        "income":  "Alvo de fotografia de vida selvagem",
+        "position":  {
+                         "x":  1240,
+                         "y":  3100,
+                         "z":  40
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#d35400",
+                      "symbol":  "ðŸº"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Coyote-GTAV.jpg"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Deer-GTAV.png"
-  },
-  {
-    "id": "animal-cougar-tongva",
-    "name": "Puma / Suçuarana",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Colinas de Tongva / Cânion Banham",
-    "description": "O predador terrestre mais letal de San Andreas. Espreita nas ravinas rochosas e ataca de surpresa com velocidade fatal.",
-    "features": [
-      "Predador agressivo com mordida fatal de um golpe",
-      "Rosnados graves antes de saltar",
-      "Fotografável de uma distância segura"
-    ],
-    "income": "Alvo de fotografia de alto risco",
-    "position": {
-      "x": -1520,
-      "y": 1540,
-      "z": 110
+    {
+        "id":  "animal-boar-bolingbroke",
+        "name":  "Javali Selvagem",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "Colinas de Bolingbroke / Senora",
+        "description":  "Javali robusto forrageando nas colinas ao redor da PenitenciÃ¡ria de Bolingbroke e do Parque Nacional de Senora.",
+        "features":  [
+                         "Investida poderosa se assustado ou encurralado",
+                         "Comum em arbustos secos e cactos",
+                         "Alvo de fotografia da vida selvagem"
+                     ],
+        "income":  "Alvo de fotografia de vida selvagem",
+        "position":  {
+                         "x":  1820,
+                         "y":  2650,
+                         "z":  46
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#795548",
+                      "symbol":  "ðŸ—"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Boar-GTAVe.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#e67e22",
-      "symbol": "🐆"
+    {
+        "id":  "animal-hawk-vinewood",
+        "name":  "GaviÃ£o de Cauda Vermelha",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "Crista de Vinewood Hills",
+        "description":  "Ave de rapina planando em correntes tÃ©rmicas acima do famoso letreiro de Vinewood e do ObservatÃ³rio Galileo.",
+        "features":  [
+                         "Voo circular majestoso no alto",
+                         "Grito agudo caracterÃ­stico audÃ­vel de baixo",
+                         "Pousa em rochas, cercas e postes de energia"
+                     ],
+        "income":  "Alvo de fotografia de aves",
+        "position":  {
+                         "x":  710,
+                         "y":  1195,
+                         "z":  350
+                     },
+        "badge":  {
+                      "icon":  "feather",
+                      "color":  "#f39c12",
+                      "symbol":  "ðŸ¦…"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Hawk-GTAV.jpg"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Cougar-GTAV.png"
-  },
-  {
-    "id": "animal-coyote-senora",
-    "name": "Coiote do Deserto",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Deserto de Grand Senora",
-    "description": "Canídeo selvagem carniceiro do deserto, típico do Deserto de Grand Senora e dos arredores do aeródromo de Sandy Shores.",
-    "features": [
-      "Uiva pelas planícies do deserto à noite",
-      "Ronda sozinho ou em pares perto de estradas rurais",
-      "Menos agressivo que pumas, foge de veículos"
-    ],
-    "income": "Alvo de fotografia de vida selvagem",
-    "position": {
-      "x": 1240,
-      "y": 3100,
-      "z": 40
+    {
+        "id":  "animal-cormorant-zancudo",
+        "name":  "BiguÃ¡ / CormorÃ£o",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "PÃ¢ntanos de Lago Zancudo",
+        "description":  "Ave aquÃ¡tica de plumagem escura mergulhando em busca de peixes nos estuÃ¡rios rasos e pÃ¢ntanos de Lago Zancudo.",
+        "features":  [
+                         "Comum em pÃ¢ntanos, rios e enseadas costeiras",
+                         "Seca a plumagem com asas abertas sobre rochas",
+                         "Entrada oficial de fotografia da vida selvagem"
+                     ],
+        "income":  "Alvo de fotografia de aves aquÃ¡ticas",
+        "position":  {
+                         "x":  -2250,
+                         "y":  2600,
+                         "z":  4
+                     },
+        "badge":  {
+                      "icon":  "feather",
+                      "color":  "#3498db",
+                      "symbol":  "ðŸ¦†"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Great_Cormorant-GTAV.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#d35400",
-      "symbol": "🐺"
+    {
+        "id":  "animal-seagull-pier",
+        "name":  "Gaivota Prateada",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "PÃ­er Del Perro e Praia de Vespucci",
+        "description":  "Ave costeira onipresente que sobrevoa o pÃ­er de Del Perro e as praias movimentadas de Vespucci.",
+        "features":  [
+                         "Pousa nos corrimÃ£os do pÃ­er e na roda-gigante",
+                         "Extremamente fÃ¡cil de avistar e fotografar na areia",
+                         "Alvo fotogrÃ¡fico rÃ¡pido"
+                     ],
+        "income":  "Alvo de foto de vida selvagem costeira",
+        "position":  {
+                         "x":  -1680,
+                         "y":  -1070,
+                         "z":  13
+                     },
+        "badge":  {
+                      "icon":  "feather",
+                      "color":  "#00bcd4",
+                      "symbol":  "ðŸ•Šï¸"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Seagull-GTAV.png"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Coyote-GTAV.jpg"
-  },
-  {
-    "id": "animal-boar-bolingbroke",
-    "name": "Javali Selvagem",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Colinas de Bolingbroke / Senora",
-    "description": "Javali robusto forrageando nas colinas ao redor da Penitenciária de Bolingbroke e do Parque Nacional de Senora.",
-    "features": [
-      "Investida poderosa se assustado ou encurralado",
-      "Comum em arbustos secos e cactos",
-      "Alvo de fotografia da vida selvagem"
-    ],
-    "income": "Alvo de fotografia de vida selvagem",
-    "position": {
-      "x": 1820,
-      "y": 2650,
-      "z": 46
+    {
+        "id":  "animal-shark-paleto",
+        "name":  "Grande TubarÃ£o-Branco",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "Ãguas Profundas de Paleto Bay",
+        "description":  "Predador oceÃ¢nico que patrulha Ã¡guas profundas. Pode saltar, atacar barcos inflÃ¡veis e devorar mergulhadores indefesos.",
+        "features":  [
+                         "Predador marinho supremo com animaÃ§Ãµes de morte Ãºnicas",
+                         "Aparece como ponto vermelho no minimapa em Ã¡guas profundas",
+                         "FotografÃ¡vel com seguranÃ§a de uma embarcaÃ§Ã£o"
+                     ],
+        "income":  "Vida marinha de oceano profundo",
+        "position":  {
+                         "x":  -500,
+                         "y":  6700,
+                         "z":  -10
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#2980b9",
+                      "symbol":  "ðŸ¦ˆ"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Tiger_shark-GTAV.png"
     },
-    "badge": {
-      "icon": "paw",
-      "color": "#795548",
-      "symbol": "🐗"
+    {
+        "id":  "animal-farm-grapeseed",
+        "name":  "Vaca e Porco de Fazenda",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "Gado DomÃ©stico",
+        "zone":  "Terras AgrÃ­colas de Grapeseed",
+        "description":  "Gado domÃ©stico pastando nos currais agrÃ­colas de Grapeseed na base do Monte Chiliad.",
+        "features":  [
+                         "Ambas as espÃ©cies nos mesmos currais de Grapeseed",
+                         "Totalmente inofensivas e fÃ¡ceis de fotografar",
+                         "Ambiente rural idÃ­lico"
+                     ],
+        "income":  "Alvo fotogrÃ¡fico de conclusÃ£o rÃ¡pida",
+        "position":  {
+                         "x":  2440,
+                         "y":  4970,
+                         "z":  46
+                     },
+        "badge":  {
+                      "icon":  "paw",
+                      "color":  "#8d6e63",
+                      "symbol":  "ðŸ„"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cow-GTAV.jpg"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Boar-GTAVe.png"
-  },
-  {
-    "id": "animal-hawk-vinewood",
-    "name": "Gavião de Cauda Vermelha",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Crista de Vinewood Hills",
-    "description": "Ave de rapina planando em correntes térmicas acima do famoso letreiro de Vinewood e do Observatório Galileo.",
-    "features": [
-      "Voo circular majestoso no alto",
-      "Grito agudo característico audível de baixo",
-      "Pousa em rochas, cercas e postes de energia"
-    ],
-    "income": "Alvo de fotografia de aves",
-    "position": {
-      "x": 710,
-      "y": 1195,
-      "z": 350
+    {
+        "id":  "animal-dolphin-pacific",
+        "name":  "Golfinho do PacÃ­fico",
+        "category":  "animal",
+        "categoryLabel":  "Vida Selvagem",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cime Selvagem",
+        "zone":  "Oceano PacÃ­fico (Pacific Bluffs e Chumash)",
+        "description":  "MamÃ­fero marinho inteligente e brincalhÃ£o. Nada e salta em pequenos grupos nas Ã¡guas costeiras de Pacific Bluffs e Chumash.",
+        "features":  [
+                         "MamÃ­fero aquÃ¡tico brincalhÃ£o saltando na superfÃ­cie",
+                         "VisÃ­vel em grupos pelas ondas do oceano aberto",
+                         "Animal jogÃ¡vel via plantas de peiote submarinas no Modo HistÃ³ria"
+                     ],
+        "income":  "Vida marinha e avistamento oceÃ¢nico",
+        "position":  {
+                         "x":  -3150,
+                         "y":  600,
+                         "z":  -15
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#00a8ff",
+                      "symbol":  "ðŸ¬"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
     },
-    "badge": {
-      "icon": "feather",
-      "color": "#f39c12",
-      "symbol": "🦅"
+    {
+        "id":  "animal-orca-south",
+        "name":  "Orca",
+        "category":  "animal",
+        "categoryLabel":  "Fauna Salvaje",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cimen de Fauna",
+        "zone":  "Alta Mar del Sur (OcÃ©ano PacÃ­fico Sur)",
+        "description":  "El cetÃ¡ceo depredador mÃ¡s grande en las costas de San Andreas. Se desliza por aguas profundas y sale a la superficie con sus inconfundibles manchas blancas y negras.",
+        "features":  [
+                         "Enorme mamÃ­fero oceÃ¡nico nadando en aguas profundas del norte",
+                         "Especie marina icÃ³nica visible mar adentro",
+                         "Animal controlable mediante planta de peyote submarina en Modo Historia"
+                     ],
+        "income":  "Fauna marina de ocÃ©ano profundo",
+        "position":  {
+                         "x":  1231.1,
+                         "y":  -3537.4,
+                         "z":  -20
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#2c3e50",
+                      "symbol":  "ðŸ‹"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Orca-GTAV.jpg"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Hawk-GTAV.jpg"
-  },
-  {
-    "id": "animal-cormorant-zancudo",
-    "name": "Biguá / Cormorão",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Pântanos de Lago Zancudo",
-    "description": "Ave aquática de plumagem escura mergulhando em busca de peixes nos estuários rasos e pântanos de Lago Zancudo.",
-    "features": [
-      "Comum em pântanos, rios e enseadas costeiras",
-      "Seca a plumagem com asas abertas sobre rochas",
-      "Entrada oficial de fotografia da vida selvagem"
-    ],
-    "income": "Alvo de fotografia de aves aquáticas",
-    "position": {
-      "x": -2250,
-      "y": 2600,
-      "z": 4
+    {
+        "id":  "animal-whale-east",
+        "name":  "Ballena",
+        "category":  "animal",
+        "categoryLabel":  "Fauna Salvaje",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cimen de Fauna",
+        "zone":  "Alta Mar del Este (OcÃ©ano PacÃ­fico Este)",
+        "description":  "Colosal cetÃ¡ceo que surca las aguas profundas del ocÃ©ano abierto al este de San Andreas.",
+        "features":  [
+                         "Colosal mamÃ­fero oceÃ¡nico avistable mar adentro",
+                         "Especie marina que nada en aguas profundas",
+                         "Animal controlable mediante planta de peyote submarina en Modo Historia"
+                     ],
+        "income":  "Fauna marina de ocÃ©ano profundo",
+        "position":  {
+                         "x":  3509.4,
+                         "y":  2017.8,
+                         "z":  -20
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#0284c7",
+                      "symbol":  "ðŸ³"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Ballena.jpg"
     },
-    "badge": {
-      "icon": "feather",
-      "color": "#3498db",
-      "symbol": "🦆"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Great_Cormorant-GTAV.png"
-  },
-  {
-    "id": "animal-seagull-pier",
-    "name": "Gaivota Prateada",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Píer Del Perro e Praia de Vespucci",
-    "description": "Ave costeira onipresente que sobrevoa o píer de Del Perro e as praias movimentadas de Vespucci.",
-    "features": [
-      "Pousa nos corrimãos do píer e na roda-gigante",
-      "Extremamente fácil de avistar e fotografar na areia",
-      "Alvo fotográfico rápido"
-    ],
-    "income": "Alvo de foto de vida selvagem costeira",
-    "position": {
-      "x": -1680,
-      "y": -1070,
-      "z": 13
-    },
-    "badge": {
-      "icon": "feather",
-      "color": "#00bcd4",
-      "symbol": "🕊️"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Seagull-GTAV.png"
-  },
-  {
-    "id": "animal-shark-paleto",
-    "name": "Grande Tubarão-Branco",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Águas Profundas de Paleto Bay",
-    "description": "Predador oceânico que patrulha águas profundas. Pode saltar, atacar barcos infláveis e devorar mergulhadores indefesos.",
-    "features": [
-      "Predador marinho supremo com animações de morte únicas",
-      "Aparece como ponto vermelho no minimapa em águas profundas",
-      "Fotografável com segurança de uma embarcação"
-    ],
-    "income": "Vida marinha de oceano profundo",
-    "position": {
-      "x": -500,
-      "y": 6700,
-      "z": -10
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#2980b9",
-      "symbol": "🦈"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Tiger_shark-GTAV.png"
-  },
-  {
-    "id": "animal-farm-grapeseed",
-    "name": "Vaca e Porco de Fazenda",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Gado Doméstico",
-    "zone": "Terras Agrícolas de Grapeseed",
-    "description": "Gado doméstico pastando nos currais agrícolas de Grapeseed na base do Monte Chiliad.",
-    "features": [
-      "Ambas as espécies nos mesmos currais de Grapeseed",
-      "Totalmente inofensivas e fáceis de fotografar",
-      "Ambiente rural idílico"
-    ],
-    "income": "Alvo fotográfico de conclusão rápida",
-    "position": {
-      "x": 2440,
-      "y": 4970,
-      "z": 46
-    },
-    "badge": {
-      "icon": "paw",
-      "color": "#8d6e63",
-      "symbol": "🐄"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Cow-GTAV.jpg"
-  },
-  {
-    "id": "animal-dolphin-pacific",
-    "name": "Golfinho do Pacífico",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Oceano Pacífico (Pacific Bluffs e Chumash)",
-    "description": "Mamífero marinho inteligente e brincalhão. Nada e salta em pequenos grupos nas águas costeiras de Pacific Bluffs e Chumash.",
-    "features": [
-      "Mamífero aquático brincalhão saltando na superfície",
-      "Visível em grupos pelas ondas do oceano aberto",
-      "Animal jogável via plantas de peiote submarinas no Modo História"
-    ],
-    "income": "Vida marinha e avistamento oceânico",
-    "position": {
-      "x": -3150,
-      "y": 600,
-      "z": -15
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#00a8ff",
-      "symbol": "🐬"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Dolphin_GTASA.png"
-  },
-  {
-    "id": "animal-orca-ocean",
-    "name": "Orca / Baleia-Assassina",
-    "category": "animal",
-    "categoryLabel": "Vida Selvagem",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécime Selvagem",
-    "zone": "Alto Mar do Norte (Farol El Gordo e Mt. Chiliad)",
-    "description": "O maior cetáceo predador na costa de San Andreas. Desliza em águas profundas e vem à tona com suas marcas pretas e brancas inconfundíveis.",
-    "features": [
-      "Enorme mamífero oceânico nadando em águas profundas do norte",
-      "Espécie marinha icônica visível em alto-mar",
-      "Animal controlável via peiote submarino no Modo História"
-    ],
-    "income": "Vida marinha de oceano profundo",
-    "position": {
-      "x": 3400,
-      "y": 5100,
-      "z": -20
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#2c3e50",
-      "symbol": "🐋"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Orca-GTAV.jpg"
-  }
+    {
+        "id":  "animal-dolphin-east",
+        "name":  "DelfÃ­n del PacÃ­fico",
+        "category":  "animal",
+        "categoryLabel":  "Fauna Salvaje",
+        "gameMode":  "both",
+        "price":  0,
+        "priceFormatted":  "EspÃ©cimen de Fauna",
+        "zone":  "Alta Mar del Este (OcÃ©ano PacÃ­fico Este)",
+        "description":  "MamÃ­fero marino inteligente y juguetÃ³n. Nada y salta en pequeÃ±os grupos en las aguas costeras al este de San Andreas.",
+        "features":  [
+                         "MamÃ­fero acuÃ¡tico juguetÃ³n que salta sobre el agua",
+                         "Visible en manadas sobre el oleaje del ocÃ©ano este",
+                         "Animal jugable mediante plantas de peyote submarinas en Modo Historia"
+                     ],
+        "income":  "Vida marina y avistamiento oceÃ¡nico",
+        "position":  {
+                         "x":  4184.0,
+                         "y":  3416.9,
+                         "z":  -15
+                     },
+        "badge":  {
+                      "icon":  "fish",
+                      "color":  "#00a8ff",
+                      "symbol":  "ðŸ¬"
+                  },
+        "imageUrl":  "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
+    }
 ]

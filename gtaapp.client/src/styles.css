@@ -147,6 +147,120 @@ html, body {
   box-sizing: border-box !important;
 }
 
+/* Pines e Iconos de Misterios y Pasos */
+.gta-step-pin-wrap,
+.gta-single-pin-wrap {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gta-step-pin-pulse,
+.gta-single-pin-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0.45;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.gta-step-pin-badge {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 900;
+  font-family: monospace;
+}
+
+.gta-single-pin-core {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+}
+
+.gta-step-pin-skull-idx {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.gta-popup-hero {
+  position: relative;
+  width: 100%;
+  height: 115px;
+  overflow: hidden;
+  background: #000;
+}
+
+.gta-popup-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gta-popup-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(5, 10, 18, 0.95) 100%);
+}
+
+.gta-popup-hero-text {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  right: 10px;
+}
+
+.gta-popup-steps-summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  color: #38bdf8;
+}
+
+.gta-popup-steps-label {
+  font-weight: 700;
+}
+
+.gta-popup-steps-val {
+  color: #e2e8f0;
+}
+
+
 .gta-mystery-popup.mystery-theme-ocean .leaflet-popup-content-wrapper,
 .gta-mystery-popup.mystery-theme-ocean .leaflet-popup-tip {
   background: #041424 !important;

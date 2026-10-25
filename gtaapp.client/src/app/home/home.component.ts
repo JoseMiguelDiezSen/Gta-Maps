@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     countdown = { days: '00', hours: '00', minutes: '00', seconds: '00' };
     private countdownInterval: ReturnType<typeof setInterval> | undefined;
     private feedbackSub?: import('rxjs').Subscription;
-    private feedbackTimeout?: any;
+    private feedbackTimeout?: ReturnType<typeof setTimeout>;
 
     readonly languages: Language[] = [
         { code: 'en', label: 'English' },

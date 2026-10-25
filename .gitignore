@@ -3,6 +3,14 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# App data & Feedback (H-16)
+App_Data/
+**/App_Data/
+publish/
+*.tar.gz
+gtaapp.client/obj/
+gtaapp.client/dist/
+
 # User-specific files
 *.rsuser
 *.suo

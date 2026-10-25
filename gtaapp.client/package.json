@@ -12,6 +12,9 @@
     "start:default": "ng serve --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\" --host=127.0.0.1"
   },
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "dependencies": {
     "@angular/animations": "^20.3.34",
     "@angular/common": "^20.3.34",

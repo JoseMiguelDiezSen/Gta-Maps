@@ -868,9 +868,19 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     return this.sanitizer.bypassSecurityTrustHtml(out.join('\n'));
   }
 
+  private escapeHtml(str: string): string {
+    return (str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   private formatInline(text: string): string {
     if (!text) return '';
-    let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong class="guide-strong">$1</strong>');
+    const safeText = this.escapeHtml(text);
+    let formatted = safeText.replace(/\*\*(.*?)\*\*/g, '<strong class="guide-strong">$1</strong>');
     formatted = formatted.replace(/\*([^*]+)\*/g, '<em class="guide-em">$1</em>');
     formatted = formatted.replace(/`([^`]+)`/g, '<span class="guide-chip-code">$1</span>');
     return formatted;

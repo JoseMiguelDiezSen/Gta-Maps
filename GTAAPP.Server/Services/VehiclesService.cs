@@ -105,26 +105,13 @@ public class VehiclesService
         if (!string.IsNullOrEmpty(cleanDealer))
         {
             var pMapa = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", "es", "vehicles", $"{cleanDealer}.json");
-            var pNew = Path.Combine(BaseWebRoot, "data", "gta5", "marcadores-mapa", "online", "idiomas", "es", "vehicles", $"{cleanDealer}.json");
-            var pOld = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles", $"{cleanDealer}.json");
             if (File.Exists(pMapa))
             {
                 dealerPath = pMapa;
             }
-            else if (File.Exists(pNew))
-            {
-                dealerPath = pNew;
-            }
-            else if (File.Exists(pOld))
-            {
-                dealerPath = pOld;
-            }
         }
 
-        var modularDirMapa = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", "es", "vehicles");
-        var modularDirNew = Path.Combine(BaseWebRoot, "data", "gta5", "marcadores-mapa", "online", "idiomas", "es", "vehicles");
-        var modularDirOld = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles");
-        var modularDir = Directory.Exists(modularDirMapa) ? modularDirMapa : (Directory.Exists(modularDirNew) ? modularDirNew : modularDirOld);
+        var modularDir = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", "es", "vehicles");
         if (string.IsNullOrEmpty(cleanDealer) && Directory.Exists(modularDir))
         {
             var files = Directory.GetFiles(modularDir, "*.json");

@@ -233,50 +233,7 @@ public class SecurityHeadersMiddleware
             return Task.CompletedTask;
         });
 
-        var shouldEncryptPayload = !_env.IsDevelopment() &&
-                                   isDataRequest &&
-                                   HttpMethods.IsGet(method);
-
-        if (!shouldEncryptPayload)
-        {
-            await _next(context);
-            return;
-        }
-
-        // En producción, evita respuestas 304 vacías o precomprimidas para cifrar siempre el JSON limpio en tránsito
-        context.Request.Headers.Remove("Accept-Encoding");
-        context.Request.Headers.Remove("If-None-Match");
-        context.Request.Headers.Remove("If-Modified-Since");
-
-        var originalBodyStream = context.Response.Body;
-        using var bufferStream = new MemoryStream();
-        context.Response.Body = bufferStream;
-
-        try
-        {
-            await _next(context);
-
-            bufferStream.Position = 0;
-            if (context.Response.StatusCode == StatusCodes.Status200OK && bufferStream.Length > 0)
-            {
-                var plainBytes = bufferStream.ToArray();
-                var encryptedEnvelopeBytes = EncryptPayloadEnvelope(plainBytes);
-
-                context.Response.ContentType = "application/json; charset=utf-8";
-                context.Response.ContentLength = encryptedEnvelopeBytes.Length;
-                context.Response.Headers["Cache-Control"] = "no-store";
-
-                await originalBodyStream.WriteAsync(encryptedEnvelopeBytes);
-            }
-            else if (bufferStream.Length > 0)
-            {
-                await bufferStream.CopyToAsync(originalBodyStream);
-            }
-        }
-        finally
-        {
-            context.Response.Body = originalBodyStream;
-        }
+        await _next(context);
     }
 
     /// <summary>
@@ -341,26 +298,6 @@ public class SecurityHeadersMiddleware
         }
 
         return hash.ToString("x8");
-    }
-
-    /// <summary>
-    /// Cifra en memoria los bytes UTF-8 del JSON original y devuelve el sobre JSON protegido {"_gta_v1":"..."}.
-    /// </summary>
-    /// <param name="plainBytes">Bytes UTF-8 originales del JSON.</param>
-    /// <returns>Bytes UTF-8 del objeto JSON cifrado listo para viajar por la red.</returns>
-    private static byte[] EncryptPayloadEnvelope(byte[] plainBytes)
-    {
-        var cipherBytes = new byte[plainBytes.Length];
-        var keyLen = ShieldSaltBytes.Length;
-
-        for (var i = 0; i < plainBytes.Length; i++)
-        {
-            cipherBytes[i] = (byte)(plainBytes[i] ^ ShieldSaltBytes[i % keyLen]);
-        }
-
-        var base64 = Convert.ToBase64String(cipherBytes);
-        var envelopeJson = $"{{\"_gta_v1\":\"{base64}\"}}";
-        return System.Text.Encoding.UTF8.GetBytes(envelopeJson);
     }
 }
 

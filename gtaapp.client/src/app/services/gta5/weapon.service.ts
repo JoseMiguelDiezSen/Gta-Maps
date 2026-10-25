@@ -13,12 +13,6 @@ export class WeaponService {
   ) {}
 
   private normalizeWeaponImage(weapon: GtaWeapon): GtaWeapon {
-    if (!weapon) return weapon;
-    if (weapon.imageUrl && weapon.imageUrl.includes('/assets/images/gta5/marcadores-mapa/')) {
-      weapon.imageUrl = weapon.imageUrl.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
-    } else if (weapon.imageUrl && weapon.imageUrl.startsWith('assets/images/gta5/marcadores-mapa/')) {
-      weapon.imageUrl = weapon.imageUrl.replace('assets/images/gta5/marcadores-mapa/', 'assets/images/gta5/mapa/marcadores-mapa/');
-    }
     return weapon;
   }
 
