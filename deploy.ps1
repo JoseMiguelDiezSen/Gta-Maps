@@ -51,10 +51,9 @@ if [ -d "$ReleaseDir/wwwroot/browser" ]; then
     cp -r $ReleaseDir/wwwroot/browser/* $ReleaseDir/wwwroot/ 2>/dev/null || true
 fi
 
-# Guardar release previa para rollback si existe
-PREV_TARGET=""
+# Guardar release previa en el servidor para rollback si existe
 if [ -L "$DeployRoot/current" ]; then
-    PREV_TARGET=`$(readlink "$DeployRoot/current")
+    readlink "$DeployRoot/current" > "$DeployRoot/.prev_release"
 fi
 
 # Enlace atomico hacia la nueva version
@@ -81,14 +80,17 @@ if ($healthCheck -eq "200") {
 } else {
     Write-Host "CRÍTICO: Health Check falló con código HTTP $healthCheck. Iniciando rollback automático..." -ForegroundColor Red
     $rollbackScript = @"
-if [ -n "$PREV_TARGET" ] && [ -d "$PREV_TARGET" ]; then
-    ln -sfn $PREV_TARGET $DeployRoot/current_tmp
-    mv -Tf $DeployRoot/current_tmp $DeployRoot/current
-    systemctl restart gtaworld
-    echo 'Rollback ejecutado hacia release previa:' $PREV_TARGET
-else
-    echo 'No hay release previa disponible para rollback.'
+if [ -f "$DeployRoot/.prev_release" ]; then
+    PREV_TARGET=`$(cat "$DeployRoot/.prev_release")
+    if [ -n "`$PREV_TARGET" ] && [ -d "`$PREV_TARGET" ]; then
+        ln -sfn `$PREV_TARGET $DeployRoot/current_tmp
+        mv -Tf $DeployRoot/current_tmp $DeployRoot/current
+        systemctl restart gtaworld
+        echo 'Rollback ejecutado con éxito hacia release previa:' `$PREV_TARGET
+        exit 0
+    fi
 fi
+echo 'No hay release previa disponible para ejecutar el rollback.'
 "@
     ssh ${TargetUser}@${TargetHost} $rollbackScript
     exit 1
