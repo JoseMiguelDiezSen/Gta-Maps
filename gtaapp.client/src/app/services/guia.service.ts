@@ -593,7 +593,7 @@ export class GuiaService {
     ).pipe(
       map(arrays => {
         const flattened = arrays.reduce((acc: GtaMission[], curr: GtaMission[]) => acc.concat(curr), [] as GtaMission[]);
-        return flattened.sort((a, b) => ((a as any).order || 0) - ((b as any).order || 0));
+        return flattened.sort((a, b) => (a.order || 0) - (b.order || 0));
       }),
       shareReplay(1)
     );

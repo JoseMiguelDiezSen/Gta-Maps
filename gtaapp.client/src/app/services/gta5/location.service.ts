@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, forkJoin, map, of } from 'rxjs';
+import { Observable, catchError, forkJoin, map, of, throwError } from 'rxjs';
 import { LocationItem } from '../../models/gta5/location';
 import { CollectibleItem } from '../../models/gta5/collectible';
 import { TranslationService } from '../../i18n';
@@ -17,11 +17,29 @@ export class LocationService {
     return item;
   }
 
-  private fetchJson<T>(primaryPath: string): Observable<T> {
-    return this.http.get<T>(primaryPath).pipe(
+  /**
+   * Carga un archivo JSON canónico de datos.
+   * Si falla, propaga el error (throwError) para que la vista o el llamador no interprete
+   * un error de red o de parseo como si la categoría estuviera vacía.
+   */
+  private fetchJson<T>(path: string): Observable<T> {
+    return this.http.get<T>(path).pipe(
       catchError(err => {
-        console.error(`[LocationService] Error al cargar ${primaryPath}:`, err);
-        return of([] as unknown as T);
+        console.error(`[LocationService] Error crítico al cargar dataset canónico ${path}:`, err);
+        return throwError(() => err);
+      })
+    );
+  }
+
+  /**
+   * Carga un archivo JSON de idioma secundario opcional.
+   * Si no existe o falla, realiza fallback resiliente a lista vacía para no romper la carga base en español.
+   */
+  private fetchOptionalTranslation<T>(path: string): Observable<T | null> {
+    return this.http.get<T>(path).pipe(
+      catchError(err => {
+        console.warn(`[LocationService] Traducción opcional no disponible en ${path}, usando texto base:`, err.statusText || err.message);
+        return of(null);
       })
     );
   }
@@ -98,9 +116,9 @@ export class LocationService {
 
       return forkJoin({
         base: this.fetchJson<LocationItem[]>(primaryBasePath),
-        localized: this.fetchJson<any[]>(primaryLocalizedPath)
+        localized: this.fetchOptionalTranslation<any[]>(primaryLocalizedPath)
       }).pipe(
-        map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized).map(i => this.normalizeItemImages(i)))
+        map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized || []).map(i => this.normalizeItemImages(i)))
       );
     });
 
@@ -143,9 +161,9 @@ export class LocationService {
       ? this.fetchJson<CollectibleItem[]>(primaryBasePath)
       : forkJoin({
           base: this.fetchJson<CollectibleItem[]>(primaryBasePath),
-          localized: this.fetchJson<any[]>(primaryLocalizedPath)
+          localized: this.fetchOptionalTranslation<any[]>(primaryLocalizedPath)
         }).pipe(
-          map(({ base, localized }) => this.mergeLocalizedItems<CollectibleItem>(base, localized))
+          map(({ base, localized }) => this.mergeLocalizedItems<CollectibleItem>(base, localized || []))
         );
 
     return fetch$.pipe(

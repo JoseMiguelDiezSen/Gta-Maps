@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as L from 'leaflet';
 import { LocationItem } from '../../models/gta5/location';
 import { CollectibleItem } from '../../models/gta5/collectible';
+import { escapeHtml } from '../../utils/html-sanitizer';
 
 export interface LocationPopupOptions {
     priceLabel: string;
@@ -26,40 +27,40 @@ export class Gta5MapMarkerService {
         if (isAnimal) {
             priceSectionHtml = '';
         } else if (isShipwreck) {
-            priceSectionHtml = `<div class="popup-service-tag-box popup-shipwreck-box"><span class="service-type-badge">${p.categoryLabel}</span></div>`;
+            priceSectionHtml = `<div class="popup-service-tag-box popup-shipwreck-box"><span class="service-type-badge">${escapeHtml(p.categoryLabel)}</span></div>`;
         } else if (isPurchasable) {
-            priceSectionHtml = `<div class="popup-price-box"><span class="price-title">${options.priceLabel}</span> <span class="price-num">${p.priceFormatted}</span></div>`;
+            priceSectionHtml = `<div class="popup-price-box"><span class="price-title">${escapeHtml(options.priceLabel)}</span> <span class="price-num">${escapeHtml(p.priceFormatted)}</span></div>`;
         } else {
-            priceSectionHtml = `<div class="popup-service-tag-box"><span class="service-type-badge">${p.categoryLabel}</span><span class="service-status-text">${p.priceFormatted || options.pointOfInterestLabel}</span></div>`;
+            priceSectionHtml = `<div class="popup-service-tag-box"><span class="service-type-badge">${escapeHtml(p.categoryLabel)}</span><span class="service-status-text">${escapeHtml(p.priceFormatted || options.pointOfInterestLabel)}</span></div>`;
         }
 
         const incomeHtml = (p.income && !isPublicService && !isAnimal && options.incomeLabel)
-            ? `<div class="popup-row"><span class="popup-tag-lbl">${options.incomeLabel}</span> <span class="popup-tag-val val-income">${p.income}</span></div>`
+            ? `<div class="popup-row"><span class="popup-tag-lbl">${escapeHtml(options.incomeLabel)}</span> <span class="popup-tag-val val-income">${escapeHtml(p.income)}</span></div>`
             : '';
 
         const ownerHtml = (p.owner && !isPublicService && options.buyerLabel)
-            ? `<div class="popup-row"><span class="popup-tag-lbl">${options.buyerLabel}</span> <span class="popup-tag-val">${p.owner}</span></div>`
+            ? `<div class="popup-row"><span class="popup-tag-lbl">${escapeHtml(options.buyerLabel)}</span> <span class="popup-tag-val">${escapeHtml(p.owner)}</span></div>`
             : '';
 
         let rawImg = p.imageUrl || (p as any).thumbnail || (p as any).image;
         const finalImg = rawImg ? (rawImg.startsWith('/') ? rawImg : '/' + rawImg) : '';
         const imageHtml = finalImg
-            ? `<div class="popup-image-box"><img src="${finalImg}" alt="${p.name}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
+            ? `<div class="popup-image-box"><img src="${escapeHtml(finalImg)}" alt="${escapeHtml(p.name)}" class="popup-img" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>`
             : '';
 
         return `
             <div class="gta-popup-card">
                 ${imageHtml}
-                <div class="popup-banner" style="background: linear-gradient(135deg, ${pinColor}33, #0b0f14 85%); border-bottom: 2px solid ${pinColor};">
-                    <span class="popup-badge" style="color: ${pinColor}; border-color: ${pinColor}66">${p.categoryLabel}</span>
-                    <h4 class="popup-title">${p.name}</h4>
-                    <div class="popup-zone">${p.zone}</div>
+                <div class="popup-banner" style="background: linear-gradient(135deg, ${escapeHtml(pinColor)}33, #0b0f14 85%); border-bottom: 2px solid ${escapeHtml(pinColor)};">
+                    <span class="popup-badge" style="color: ${escapeHtml(pinColor)}; border-color: ${escapeHtml(pinColor)}66">${escapeHtml(p.categoryLabel)}</span>
+                    <h4 class="popup-title">${escapeHtml(p.name)}</h4>
+                    <div class="popup-zone">${escapeHtml(p.zone)}</div>
                 </div>
                 <div class="popup-content">
                     ${priceSectionHtml}
                     ${incomeHtml}
                     ${ownerHtml}
-                    <p class="popup-desc">${p.description}</p>
+                    <p class="popup-desc">${escapeHtml(p.description)}</p>
                 </div>
             </div>
         `;

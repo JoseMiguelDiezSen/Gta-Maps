@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.StaticFiles;
 using GTAAPP.Server.Middleware;
 using GTAAPP.Server.Hubs;
+using GTAAPP.Server.Extensions;
 
 // =========================================================================================
 // PUNTO DE ENTRADA Y CONFIGURACIÓN DEL SERVIDOR WEB ASP.NET CORE (.NET 10)
@@ -71,115 +72,8 @@ builder.Services.AddCors(options =>
     });
 });
 
-// 6. Rate Limiting nativo (.NET 10) contra fuerza bruta y scraping masivo de datasets
-builder.Services.AddRateLimiter(options =>
-{
-    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
-    options.OnRejected = async (context, token) =>
-    {
-        context.HttpContext.Response.ContentType = "application/json";
-        if (context.Lease.TryGetMetadata(MetadataName.RetryAfter, out var retryAfter))
-        {
-            context.HttpContext.Response.Headers.RetryAfter = ((int)retryAfter.TotalSeconds).ToString();
-        }
-
-        var rejectedPath = context.HttpContext.Request.Path.Value ?? string.Empty;
-        var isFeedback = rejectedPath.Equals("/api/feedback", StringComparison.OrdinalIgnoreCase);
-
-        await context.HttpContext.Response.WriteAsJsonAsync(new
-        {
-            error = "Too Many Requests",
-            code = isFeedback ? "FEEDBACK_DAILY_LIMIT" : "RATE_LIMIT_EXCEEDED",
-            message = isFeedback
-                ? "Ya hemos recibido tus sugerencias de hoy. Por favor, espera a que se procesen antes de enviar otra."
-                : "Has superado el límite de peticiones permitidas. Por favor, espera unos momentos antes de reintentar."
-        }, cancellationToken: token);
-    };
-
-    // 6.1 Política Global por IP (los archivos estáticos como tiles de mapa, imágenes, css y js quedan 100% EXENTOS)
-    options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
-    {
-        var path = httpContext.Request.Path.Value ?? string.Empty;
-        var isJsonData = path.EndsWith(".json", StringComparison.OrdinalIgnoreCase) ||
-                         path.StartsWith("/assets/data", StringComparison.OrdinalIgnoreCase) ||
-                         path.StartsWith("/data", StringComparison.OrdinalIgnoreCase);
-
-        if (!isJsonData && (
-            path.StartsWith("/assets", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".webp", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".svg", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".js", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".css", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".xml", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".ico", StringComparison.OrdinalIgnoreCase) ||
-            path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase)))
-        {
-            return RateLimitPartition.GetNoLimiter("static-assets");
-        }
-
-        var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
-        return RateLimitPartition.GetSlidingWindowLimiter(
-            partitionKey: clientIp,
-            factory: _ => new SlidingWindowRateLimiterOptions
-            {
-                PermitLimit = 300,
-                Window = TimeSpan.FromMinutes(1),
-                SegmentsPerWindow = 4,
-                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
-                QueueLimit = 0
-            });
-    });
-
-    // 6.2 Política específica 'data-policy' para endpoints de datasets (máximo 60 req/min)
-    options.AddPolicy("data-policy", httpContext =>
-    {
-        var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
-        return RateLimitPartition.GetSlidingWindowLimiter(
-            partitionKey: clientIp,
-            factory: _ => new SlidingWindowRateLimiterOptions
-            {
-                PermitLimit = 60,
-                Window = TimeSpan.FromMinutes(1),
-                SegmentsPerWindow = 4,
-                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
-                QueueLimit = 0
-            });
-    });
-
-    // 6.3 Política específica 'chat-policy' para el endpoint de IA GOTY Bot (máximo 15 req/min por IP)
-    options.AddPolicy("chat-policy", httpContext =>
-    {
-        var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
-        return RateLimitPartition.GetSlidingWindowLimiter(
-            partitionKey: clientIp,
-            factory: _ => new SlidingWindowRateLimiterOptions
-            {
-                PermitLimit = 15,
-                Window = TimeSpan.FromMinutes(1),
-                SegmentsPerWindow = 3,
-                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
-                QueueLimit = 0
-            });
-    });
-
-    // 6.4 Política específica 'feedback-policy' para sugerencias y mensajes de usuario (máximo 2 sugerencias cada 24 horas por IP)
-    options.AddPolicy("feedback-policy", httpContext =>
-    {
-        var clientIp = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown_client";
-        return RateLimitPartition.GetFixedWindowLimiter(
-            partitionKey: clientIp,
-            factory: _ => new FixedWindowRateLimiterOptions
-            {
-                PermitLimit = 2,
-                Window = TimeSpan.FromHours(24),
-                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
-                QueueLimit = 0
-            });
-    });
-});
+// 6. Rate Limiting nativo (.NET 10) modularizado
+builder.Services.AddAppRateLimiting();
 
 // 7. Servicios singleton y scoped de negocio
 builder.Services.AddSingleton<GTAAPP.Server.Services.VehiclesService>();
