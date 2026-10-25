@@ -710,7 +710,12 @@
       "themeDay": "Gündüz Moduna Geç",
       "themeNight": "Gece Moduna Geç",
       "openNavMenu": "Gezinme menüsünü aç",
-      "closeNavMenu": "Menüyü kapat"
+      "closeNavMenu": "Menüyü kapat",
+      "breadcrumb": "Breadcrumb navigation",
+      "chapterNav": "Chapter navigation",
+      "backToChapters": "Back to chapters",
+      "backToChaptersTitle": "Back to Chapters",
+      "protagonists": "GTA V Protagonists"
     },
     "sidebar": {
       "contents": "İÇİNDEKİLER",
@@ -756,7 +761,9 @@
         "online": "Online",
         "both": "Her İkisi"
       },
-      "catalogTitle": "Kupa Kataloğu"
+      "catalogTitle": "Kupa Kataloğu",
+      "provisional": "⚠️ PROVISIONAL",
+      "tabTitle": "TROPHIES"
     },
     "weapons": {
       "title": "SİLAHLAR",
@@ -769,7 +776,9 @@
     "vehicles": {
       "title": "ARAÇLAR",
       "dealersTitle": "GALERİLER",
-      "backToDealers": "Galeriler listesine dön"
+      "backToDealers": "Galeriler listesine dön",
+      "loadingArchive": "Loading Leonida archive...",
+      "descHeader": "VEHICLE DESCRIPTION"
     },
     "reader": {
       "synopsisTitle": "Görev Özeti",
@@ -780,6 +789,36 @@
       "backToList": "Listeye Dön",
       "scrollToTop": "Bölüm Başına Dön",
       "readingTime": "{{ minutes }} dk okuma süresi"
+    },
+    "online": {
+      "loadingDb": "Çok oyunculu veritabanı yükleniyor...",
+      "personajes": "KARAKTERLER",
+      "misterios": "GİZEMLER",
+      "golpes": "SOYGUNLAR",
+      "misionesPrincipales": "ANA GÖREVLER",
+      "negocios": "İŞLETMELER",
+      "tituloGolpes": "Soygunlar",
+      "volverGolpes": "Soygunlar listesine dön",
+      "planificacionYClaves": "Planlama ve Önemli İpuçları",
+      "resumenGolpe": "Soyguna genel bakış",
+      "tituloNegocios": "İşletmeler",
+      "volverSubcategorias": "Alt kategoriler listesine dön",
+      "volverCategorias": "Kategoriler dizinine dön",
+      "horario": "Saat",
+      "ubicacion": "Konum",
+      "zona": "Bölge",
+      "contacto": "İletişim:",
+      "nivel": "Seviye",
+      "jugadores": "Oyuncu Sayısı",
+      "objetivosMision": "Görev Hedefleri",
+      "precioAdquisicion": "Satın Alma Fiyatı",
+      "ubicacionBarrio": "Konum / Mahalle",
+      "potencialIngresos": "Gelir Potansiyeli",
+      "detallesEstrategicos": "Stratejik Konum ve Detaylar",
+      "caracteristicas": "Özellikler ve Ayrıntılar",
+      "navMisterios": "Gizemler arası gezinti",
+      "navMisiones": "Görevler arası gezinti",
+      "navLocales": "Mekanlar arası gezinti"
     }
   },
   "videos": {
@@ -798,7 +837,16 @@
     "atTime": "at",
     "watchClip": "Watch video",
     "backToList": "Back to all videos",
-    "noClips": "No videos available in this category currently."
+    "noClips": "No videos available in this category currently.",
+    "watchFull": "Watch full video",
+    "publishedHeader": "PUBLISHED VIDEOS",
+    "leonidaClip": "LEONIDA CLIP",
+    "privacySettings": "Privacy and cookie settings",
+    "filterCategoryLabel": "Video category filter",
+    "gameplayClipTag": "GAMEPLAY CLIP",
+    "leadMediaPlaceholder": "LEONIDA GAMEPLAY CLIP",
+    "placeholderDesc": "Container prepared for MP4 / WebM video files",
+    "situationDesc": "Situation description"
   },
   "momentos": {
     "navTitle": "MOMENTS",
@@ -817,5 +865,21 @@
     "watchClip": "Watch clip",
     "backToList": "Back to all moments",
     "noClips": "No moments available in this category currently."
+  },
+  "nav": {
+    "menuLabel": "Navigation menu",
+    "homeTitle": "Go to Home",
+    "home": "HOME",
+    "gta5MapTitle": "Go to GTA 5 Map",
+    "gta5Map": "GTA 5 MAP",
+    "gta5GuideTitle": "Go to GTA 5 Guide",
+    "gta5Guide": "GTA 5 GUIDE",
+    "gta6MapTitle": "Go to GTA 6 Map",
+    "gta6Map": "GTA 6 MAP",
+    "gta6GuideTitle": "Go to GTA 6 Guide",
+    "gta6Guide": "GTA 6 GUIDE",
+    "gta6VideosTitle": "GTA 6 Videos",
+    "gta6Videos": "VIDEOS",
+    "themeToggle": "Toggle day/night mode"
   }
 }

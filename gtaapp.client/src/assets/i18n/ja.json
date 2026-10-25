@@ -710,7 +710,12 @@
       "themeDay": "昼間モードに切り替え",
       "themeNight": "夜間モードに切り替え",
       "openNavMenu": "ナビゲーションメニューを開く",
-      "closeNavMenu": "メニューを閉じる"
+      "closeNavMenu": "メニューを閉じる",
+      "breadcrumb": "Breadcrumb navigation",
+      "chapterNav": "Chapter navigation",
+      "backToChapters": "Back to chapters",
+      "backToChaptersTitle": "Back to Chapters",
+      "protagonists": "GTA V Protagonists"
     },
     "sidebar": {
       "contents": "目次",
@@ -756,7 +761,9 @@
         "online": "オンライン",
         "both": "両方"
       },
-      "catalogTitle": "トロフィーカタログ"
+      "catalogTitle": "トロフィーカタログ",
+      "provisional": "⚠️ PROVISIONAL",
+      "tabTitle": "TROPHIES"
     },
     "weapons": {
       "title": "武器",
@@ -769,7 +776,9 @@
     "vehicles": {
       "title": "乗り物",
       "dealersTitle": "ディーラー",
-      "backToDealers": "ディーラー一覧に戻る"
+      "backToDealers": "ディーラー一覧に戻る",
+      "loadingArchive": "Loading Leonida archive...",
+      "descHeader": "VEHICLE DESCRIPTION"
     },
     "reader": {
       "synopsisTitle": "ミッション概要",
@@ -780,6 +789,36 @@
       "backToList": "一覧に戻る",
       "scrollToTop": "ページの先頭に戻る",
       "readingTime": "読了目安: {{ minutes }}分"
+    },
+    "online": {
+      "loadingDb": "マルチプレイヤーデータベースを読み込み中...",
+      "personajes": "登場人物",
+      "misterios": "ミステリー",
+      "golpes": "強盗",
+      "misionesPrincipales": "メインミッション",
+      "negocios": "ビジネス物件",
+      "tituloGolpes": "強盗",
+      "volverGolpes": "強盗リストに戻る",
+      "planificacionYClaves": "計画とポイント",
+      "resumenGolpe": "強盗の概要",
+      "tituloNegocios": "ビジネス物件",
+      "volverSubcategorias": "サブカテゴリー一覧に戻る",
+      "volverCategorias": "カテゴリー一覧に戻る",
+      "horario": "時間帯",
+      "ubicacion": "場所",
+      "zona": "エリア",
+      "contacto": "連絡先:",
+      "nivel": "ランク",
+      "jugadores": "プレイヤー人数",
+      "objetivosMision": "ミッション目標",
+      "precioAdquisicion": "購入価格",
+      "ubicacionBarrio": "場所 / 地域",
+      "potencialIngresos": "収益見込み",
+      "detallesEstrategicos": "戦略的立地と詳細",
+      "caracteristicas": "特徴と仕様",
+      "navMisterios": "ミステリー間の移動",
+      "navMisiones": "ミッション間の移動",
+      "navLocales": "物件間の移動"
     }
   },
   "videos": {
@@ -798,7 +837,16 @@
     "atTime": "at",
     "watchClip": "Watch video",
     "backToList": "Back to all videos",
-    "noClips": "No videos available in this category currently."
+    "noClips": "No videos available in this category currently.",
+    "watchFull": "Watch full video",
+    "publishedHeader": "PUBLISHED VIDEOS",
+    "leonidaClip": "LEONIDA CLIP",
+    "privacySettings": "Privacy and cookie settings",
+    "filterCategoryLabel": "Video category filter",
+    "gameplayClipTag": "GAMEPLAY CLIP",
+    "leadMediaPlaceholder": "LEONIDA GAMEPLAY CLIP",
+    "placeholderDesc": "Container prepared for MP4 / WebM video files",
+    "situationDesc": "Situation description"
   },
   "momentos": {
     "navTitle": "MOMENTS",
@@ -817,5 +865,21 @@
     "watchClip": "Watch clip",
     "backToList": "Back to all moments",
     "noClips": "No moments available in this category currently."
+  },
+  "nav": {
+    "menuLabel": "Navigation menu",
+    "homeTitle": "Go to Home",
+    "home": "HOME",
+    "gta5MapTitle": "Go to GTA 5 Map",
+    "gta5Map": "GTA 5 MAP",
+    "gta5GuideTitle": "Go to GTA 5 Guide",
+    "gta5Guide": "GTA 5 GUIDE",
+    "gta6MapTitle": "Go to GTA 6 Map",
+    "gta6Map": "GTA 6 MAP",
+    "gta6GuideTitle": "Go to GTA 6 Guide",
+    "gta6Guide": "GTA 6 GUIDE",
+    "gta6VideosTitle": "GTA 6 Videos",
+    "gta6Videos": "VIDEOS",
+    "themeToggle": "Toggle day/night mode"
   }
 }

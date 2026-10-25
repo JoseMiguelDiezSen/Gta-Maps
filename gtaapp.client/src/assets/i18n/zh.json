@@ -710,7 +710,12 @@
       "themeDay": "切换至日间模式",
       "themeNight": "切换至夜间模式",
       "openNavMenu": "打开导航菜单",
-      "closeNavMenu": "关闭菜单"
+      "closeNavMenu": "关闭菜单",
+      "breadcrumb": "Breadcrumb navigation",
+      "chapterNav": "Chapter navigation",
+      "backToChapters": "Back to chapters",
+      "backToChaptersTitle": "Back to Chapters",
+      "protagonists": "GTA V Protagonists"
     },
     "sidebar": {
       "contents": "目录",
@@ -756,7 +761,9 @@
         "online": "线上模式",
         "both": "双模式"
       },
-      "catalogTitle": "奖杯目录"
+      "catalogTitle": "奖杯目录",
+      "provisional": "⚠️ PROVISIONAL",
+      "tabTitle": "TROPHIES"
     },
     "weapons": {
       "title": "武器装备",
@@ -769,7 +776,9 @@
     "vehicles": {
       "title": "载具大全",
       "dealersTitle": "车行与车商",
-      "backToDealers": "返回车商列表"
+      "backToDealers": "返回车商列表",
+      "loadingArchive": "Loading Leonida archive...",
+      "descHeader": "VEHICLE DESCRIPTION"
     },
     "reader": {
       "synopsisTitle": "任务简述",
@@ -780,6 +789,36 @@
       "backToList": "返回列表",
       "scrollToTop": "返回章节顶部",
       "readingTime": "预计阅读时间: {{ minutes }} 分钟"
+    },
+    "online": {
+      "loadingDb": "正在加载多人游戏数据库...",
+      "personajes": "人物角色",
+      "misterios": "未解之谜",
+      "golpes": "差事抢劫",
+      "misionesPrincipales": "主要差事",
+      "negocios": "资产产业",
+      "tituloGolpes": "差事抢劫",
+      "volverGolpes": "返回抢劫列表",
+      "planificacionYClaves": "规划与要点",
+      "resumenGolpe": "抢劫差事概览",
+      "tituloNegocios": "资产产业",
+      "volverSubcategorias": "返回子分类列表",
+      "volverCategorias": "返回分类目录",
+      "horario": "时间",
+      "ubicacion": "位置",
+      "zona": "区域",
+      "contacto": "联系人：",
+      "nivel": "等级",
+      "jugadores": "玩家人数",
+      "objetivosMision": "差事目标",
+      "precioAdquisicion": "购买价格",
+      "ubicacionBarrio": "位置 / 街区",
+      "potencialIngresos": "收益潜力",
+      "detallesEstrategicos": "战略位置与详情",
+      "caracteristicas": "特性与规格",
+      "navMisterios": "未解之谜导航",
+      "navMisiones": "差事导航",
+      "navLocales": "场所导航"
     }
   },
   "videos": {
@@ -798,7 +837,16 @@
     "atTime": "at",
     "watchClip": "Watch video",
     "backToList": "Back to all videos",
-    "noClips": "No videos available in this category currently."
+    "noClips": "No videos available in this category currently.",
+    "watchFull": "Watch full video",
+    "publishedHeader": "PUBLISHED VIDEOS",
+    "leonidaClip": "LEONIDA CLIP",
+    "privacySettings": "Privacy and cookie settings",
+    "filterCategoryLabel": "Video category filter",
+    "gameplayClipTag": "GAMEPLAY CLIP",
+    "leadMediaPlaceholder": "LEONIDA GAMEPLAY CLIP",
+    "placeholderDesc": "Container prepared for MP4 / WebM video files",
+    "situationDesc": "Situation description"
   },
   "momentos": {
     "navTitle": "MOMENTS",
@@ -817,5 +865,21 @@
     "watchClip": "Watch clip",
     "backToList": "Back to all moments",
     "noClips": "No moments available in this category currently."
+  },
+  "nav": {
+    "menuLabel": "Navigation menu",
+    "homeTitle": "Go to Home",
+    "home": "HOME",
+    "gta5MapTitle": "Go to GTA 5 Map",
+    "gta5Map": "GTA 5 MAP",
+    "gta5GuideTitle": "Go to GTA 5 Guide",
+    "gta5Guide": "GTA 5 GUIDE",
+    "gta6MapTitle": "Go to GTA 6 Map",
+    "gta6Map": "GTA 6 MAP",
+    "gta6GuideTitle": "Go to GTA 6 Guide",
+    "gta6Guide": "GTA 6 GUIDE",
+    "gta6VideosTitle": "GTA 6 Videos",
+    "gta6Videos": "VIDEOS",
+    "themeToggle": "Toggle day/night mode"
   }
 }

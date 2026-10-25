@@ -710,7 +710,12 @@
       "themeDay": "Passa alla Modalità Giorno",
       "themeNight": "Passa alla Modalità Notte",
       "openNavMenu": "Apri menu di navigazione",
-      "closeNavMenu": "Chiudi menu"
+      "closeNavMenu": "Chiudi menu",
+      "breadcrumb": "Breadcrumb navigation",
+      "chapterNav": "Chapter navigation",
+      "backToChapters": "Back to chapters",
+      "backToChaptersTitle": "Back to Chapters",
+      "protagonists": "GTA V Protagonists"
     },
     "sidebar": {
       "contents": "INDICE",
@@ -756,7 +761,9 @@
         "online": "Online",
         "both": "Entrambi"
       },
-      "catalogTitle": "Catalogo Trofei"
+      "catalogTitle": "Catalogo Trofei",
+      "provisional": "⚠️ PROVISIONAL",
+      "tabTitle": "TROPHIES"
     },
     "weapons": {
       "title": "ARMI",
@@ -769,7 +776,9 @@
     "vehicles": {
       "title": "VEICOLI",
       "dealersTitle": "CONCESSIONARI",
-      "backToDealers": "Torna all'elenco dei concessionari"
+      "backToDealers": "Torna all'elenco dei concessionari",
+      "loadingArchive": "Loading Leonida archive...",
+      "descHeader": "VEHICLE DESCRIPTION"
     },
     "reader": {
       "synopsisTitle": "Sinossi della Missione",
@@ -780,6 +789,36 @@
       "backToList": "Torna all'Elenco",
       "scrollToTop": "Torna all'Inizio del Capitolo",
       "readingTime": "{{ minutes }} min di lettura"
+    },
+    "online": {
+      "loadingDb": "Caricamento database multigiocatore...",
+      "personajes": "PERSONAGGI",
+      "misterios": "MISTERI",
+      "golpes": "COLPI",
+      "misionesPrincipales": "MISSIONI PRINCIPALI",
+      "negocios": "ATTIVITÀ",
+      "tituloGolpes": "Colpi",
+      "volverGolpes": "Torna alla lista dei colpi",
+      "planificacionYClaves": "Pianificazione e Punti Chiave",
+      "resumenGolpe": "Panoramica generale del colpo",
+      "tituloNegocios": "Attività",
+      "volverSubcategorias": "Torna alla lista delle sottocategorie",
+      "volverCategorias": "Torna all'indice delle categorie",
+      "horario": "Orario",
+      "ubicacion": "Posizione",
+      "zona": "Zona",
+      "contacto": "Contatto:",
+      "nivel": "Livello",
+      "jugadores": "Giocatori",
+      "objetivosMision": "Obiettivi della missione",
+      "precioAdquisicion": "Prezzo di acquisto",
+      "ubicacionBarrio": "Posizione / Quartiere",
+      "potencialIngresos": "Potenziale di guadagno",
+      "detallesEstrategicos": "Dettagli e posizione strategica",
+      "caracteristicas": "Caratteristiche e specifiche",
+      "navMisterios": "Navigazione tra misteri",
+      "navMisiones": "Navigazione tra missioni",
+      "navLocales": "Navigazione tra locali"
     }
   },
   "videos": {
@@ -798,7 +837,16 @@
     "atTime": "at",
     "watchClip": "Watch video",
     "backToList": "Back to all videos",
-    "noClips": "No videos available in this category currently."
+    "noClips": "No videos available in this category currently.",
+    "watchFull": "Watch full video",
+    "publishedHeader": "PUBLISHED VIDEOS",
+    "leonidaClip": "LEONIDA CLIP",
+    "privacySettings": "Privacy and cookie settings",
+    "filterCategoryLabel": "Video category filter",
+    "gameplayClipTag": "GAMEPLAY CLIP",
+    "leadMediaPlaceholder": "LEONIDA GAMEPLAY CLIP",
+    "placeholderDesc": "Container prepared for MP4 / WebM video files",
+    "situationDesc": "Situation description"
   },
   "momentos": {
     "navTitle": "MOMENTS",
@@ -817,5 +865,21 @@
     "watchClip": "Watch clip",
     "backToList": "Back to all moments",
     "noClips": "No moments available in this category currently."
+  },
+  "nav": {
+    "menuLabel": "Navigation menu",
+    "homeTitle": "Go to Home",
+    "home": "HOME",
+    "gta5MapTitle": "Go to GTA 5 Map",
+    "gta5Map": "GTA 5 MAP",
+    "gta5GuideTitle": "Go to GTA 5 Guide",
+    "gta5Guide": "GTA 5 GUIDE",
+    "gta6MapTitle": "Go to GTA 6 Map",
+    "gta6Map": "GTA 6 MAP",
+    "gta6GuideTitle": "Go to GTA 6 Guide",
+    "gta6Guide": "GTA 6 GUIDE",
+    "gta6VideosTitle": "GTA 6 Videos",
+    "gta6Videos": "VIDEOS",
+    "themeToggle": "Toggle day/night mode"
   }
 }

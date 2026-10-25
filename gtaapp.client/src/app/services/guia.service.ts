@@ -241,8 +241,8 @@ export class GuiaService {
 
       const obs$ = this.http.get<GuiaManifest>('/api/gta5/guia/manifest').pipe(
         map(manifest => {
-          if (!manifest || !manifest.secciones || manifest.secciones.length === 0) {
-            throw new Error('Empty manifest from API');
+          if (!manifest || !manifest.secciones || manifest.secciones.length === 0 || !manifest.secciones.some(s => s.articulos && s.articulos.length > 0)) {
+            throw new Error('Empty manifest or sections without articles from API');
           }
           return manifest;
         }),
@@ -393,9 +393,24 @@ export class GuiaService {
 
     if (juegoId === 'gta5') {
       return this.http.get<GuiaArticulo>(`/api/gta5/guia/articulos/${encodeURIComponent(articuloId)}`).pipe(
+        switchMap(apiArticulo => {
+          if (apiArticulo && apiArticulo.imagen) {
+            return of(apiArticulo);
+          }
+          return this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'guia-misiones-historia.json').pipe(
+            map(misiones => {
+              const local = misiones.find(m => m.id === articuloId || m.slug === articuloId);
+              if (local && local.imagen) {
+                apiArticulo.imagen = local.imagen;
+              }
+              return apiArticulo;
+            }),
+            catchError(() => of(apiArticulo))
+          );
+        }),
         catchError(() => this.getManifest('gta5').pipe(
           switchMap(manifest => {
-            const sec = manifest.secciones.find(s => s.articulos.some(a => a.id === articuloId || a.slug === articuloId));
+            const sec = manifest.secciones.find(s => s.articulos?.some(a => a.id === articuloId || a.slug === articuloId));
             const isPrologo = sec?.id === 'prologo' || ['prologo-introduccion-guia', 'michael-de-santa', 'franklin-clinton', 'trevor-philips', 'michael-trevor-franklin-intrahistoria', 'requisitos-100', 'golpes-principales', 'finales-opcion-abc'].includes(articuloId);
             const isNegocios = sec?.id === 'negocios-economia' || ['asesinatos-lester-bolsa', 'guia-negocios-propiedades'].includes(articuloId);
             const isExtranos = articuloId.startsWith('eyl-') || sec?.id === 'extranos-locos';

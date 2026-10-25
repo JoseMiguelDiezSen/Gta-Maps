@@ -676,7 +676,7 @@
     "navTitle": "VÍDEOS",
     "heroTag": "CLIPS & SITUACIONES DE GAMEPLAY",
     "heroTitle": "VÍDEOS GTA 6",
-    "heroDesc": "Recopilación audiovisual de clips cortos, fauna, reacciones de NPC y situaciones curiosas en el mundo abierto de Leonida.",
+    "heroDesc": "Recopilación audiovisual de situaciones curiosas, fauna, reacciones de NPC y anécdotas en el mundo abierto de Leonida.",
     "allFilter": "Todos los Vídeos",
     "filterNpc": "NPCs & Reacciones",
     "filterFauna": "Fauna de Leonida",
@@ -688,7 +688,16 @@
     "atTime": "a las",
     "watchClip": "Ver vídeo",
     "backToList": "Volver a todos los vídeos",
-    "noClips": "No hay vídeos disponibles en esta categoría actualmente."
+    "noClips": "No hay vídeos disponibles en esta categoría actualmente.",
+    "watchFull": "Ver vídeo completo",
+    "publishedHeader": "VÍDEOS PUBLICADOS",
+    "leonidaClip": "LEONIDA CLIP",
+    "privacySettings": "Ajustes de privacidad y cookies",
+    "filterCategoryLabel": "Filtro de categorías de vídeos",
+    "gameplayClipTag": "CLIP DE GAMEPLAY",
+    "leadMediaPlaceholder": "LEONIDA GAMEPLAY CLIP",
+    "placeholderDesc": "Contenedor preparado para archivo de vídeo MP4 / WebM",
+    "situationDesc": "Descripción de la situación"
   },
   "momentos": {
     "navTitle": "MOMENTOS",
@@ -746,7 +755,12 @@
       "themeDay": "Cambiar a Modo Día",
       "themeNight": "Cambiar a Modo Noche",
       "openNavMenu": "Abrir menú de navegación",
-      "closeNavMenu": "Cerrar menú"
+      "closeNavMenu": "Cerrar menú",
+      "breadcrumb": "Ruta de navegación",
+      "chapterNav": "Navegación entre capítulos",
+      "backToChapters": "Volver a los capítulos",
+      "backToChaptersTitle": "Volver a los Capítulos",
+      "protagonists": "Protagonistas de GTA V"
     },
     "sidebar": {
       "contents": "CONTENIDOS",
@@ -792,7 +806,9 @@
         "online": "Online",
         "both": "Ambos"
       },
-      "catalogTitle": "Catálogo de Trofeos"
+      "catalogTitle": "Catálogo de Trofeos",
+      "provisional": "⚠️ PROVISIONAL",
+      "tabTitle": "TROFEOS"
     },
     "weapons": {
       "title": "ARMAS",
@@ -805,7 +821,9 @@
     "vehicles": {
       "title": "VEHÍCULOS",
       "dealersTitle": "CONCESIONARIOS",
-      "backToDealers": "Volver al listado de concesionarios"
+      "backToDealers": "Volver al listado de concesionarios",
+      "loadingArchive": "Cargando archivo de Leonida...",
+      "descHeader": "DESCRIPCIÓN DEL VEHÍCULO"
     },
     "reader": {
       "synopsisTitle": "Sinopsis de la misión",
@@ -816,6 +834,52 @@
       "backToList": "Volver al listado",
       "scrollToTop": "Volver al inicio del capítulo",
       "readingTime": "{{ minutes }} min de lectura"
+    },
+    "online": {
+      "loadingDb": "Cargando base de datos multijugador...",
+      "personajes": "PERSONAJES",
+      "misterios": "MISTERIOS",
+      "golpes": "GOLPES",
+      "misionesPrincipales": "MISIONES PRINCIPALES",
+      "negocios": "NEGOCIOS",
+      "tituloGolpes": "Golpes",
+      "volverGolpes": "Volver al listado de golpes",
+      "planificacionYClaves": "Planificación y Claves",
+      "resumenGolpe": "Resumen general del golpe",
+      "tituloNegocios": "Negocios",
+      "volverSubcategorias": "Volver al listado de subcategorías",
+      "volverCategorias": "Volver al índice de categorías",
+      "horario": "Horario",
+      "ubicacion": "Ubicación",
+      "zona": "Zona",
+      "contacto": "Contacto:",
+      "nivel": "Nivel",
+      "jugadores": "Jugadores",
+      "objetivosMision": "Objetivos de la misión",
+      "precioAdquisicion": "Precio de Adquisición",
+      "ubicacionBarrio": "Ubicación / Barrio",
+      "potencialIngresos": "Potencial de Ingresos",
+      "detallesEstrategicos": "Detalles y Ubicación Estratégica",
+      "caracteristicas": "Características y Especificaciones",
+      "navMisterios": "Navegación entre misterios",
+      "navMisiones": "Navegación entre misiones",
+      "navLocales": "Navegación entre locales"
     }
+  },
+  "nav": {
+    "menuLabel": "Menú de navegación",
+    "homeTitle": "Ir a Inicio",
+    "home": "INICIO",
+    "gta5MapTitle": "Ir al Mapa de GTA 5",
+    "gta5Map": "MAPA GTA 5",
+    "gta5GuideTitle": "Ir a la Guía de GTA 5",
+    "gta5Guide": "GUÍA GTA 5",
+    "gta6MapTitle": "Ir al Mapa de GTA 6",
+    "gta6Map": "MAPA GTA 6",
+    "gta6GuideTitle": "Ir a la Guía de GTA 6",
+    "gta6Guide": "GUÍA GTA 6",
+    "gta6VideosTitle": "Vídeos GTA 6",
+    "gta6Videos": "VÍDEOS",
+    "themeToggle": "Cambiar entre modo día y noche"
   }
 }

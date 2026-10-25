@@ -33,9 +33,9 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón INICIO -->
-        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+        <a routerLink="/home" class="nav-link-item" [title]="'nav.homeTitle' | translate">
           <i class="fa-solid fa-house"></i>
-          <span>INICIO</span>
+          <span>{{ 'nav.home' | translate }}</span>
         </a>
 
         <!-- Separador -->
@@ -48,14 +48,14 @@
             <span>GTA 5</span>
           </button>
           <div class="nav-dropdown-menu">
-            <a routerLink="/gta5" class="nav-dropdown-item" title="Ir al Mapa de GTA 5">
+            <a routerLink="/gta5" class="nav-dropdown-item" [title]="'nav.gta5MapTitle' | translate">
               <i class="fa-solid fa-map-location-dot"></i>
-              <span>MAPA GTA 5</span>
+              <span>{{ 'nav.gta5Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
             <a class="nav-dropdown-item is-disabled" [title]="'guia.nav.alreadyOnGta5Guide' | translate">
               <i class="fa-solid fa-book-open"></i>
-              <span>GUÍA GTA 5</span>
+              <span>{{ 'nav.gta5Guide' | translate }}</span>
             </a>
           </div>
         </div>
@@ -78,12 +78,12 @@
               [title]="!isDevAllowed ? ('guia.nav.gta6MapComingSoon' | translate) : ('gta6.hud.launchTitle' | translate)"
             >
               <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-              <span>MAPA GTA 6</span>
+              <span>{{ 'nav.gta6Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
-            <a routerLink="/gta6-guia" class="nav-dropdown-item" title="Ir a la Guía de GTA 6">
+            <a routerLink="/gta6-guia" class="nav-dropdown-item" [title]="'nav.gta6GuideTitle' | translate">
               <i class="fa-solid fa-book-open"></i>
-              <span>GUÍA GTA 6</span>
+              <span>{{ 'nav.gta6Guide' | translate }}</span>
             </a>
           </div>
         </div>
@@ -92,14 +92,27 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón VÍDEOS -->
-        <a routerLink="/gta6-videos" class="nav-link-item" title="Vídeos GTA 6">
+        <a routerLink="/gta6-videos" class="nav-link-item" [title]="'nav.gta6VideosTitle' | translate">
           <i class="fa-solid fa-film"></i>
-          <span>VÍDEOS</span>
+          <span>{{ 'nav.gta6Videos' | translate }}</span>
         </a>
 
         <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
+        <!-- Selector directo entre las guías de GTA 5 -->
+        <div class="mode-switch-track" [attr.aria-label]="'guia.nav.switchModeTitle' | translate">
+          <a class="mode-switch-btn mode-historia" routerLink="/gta5-guia-offline" [title]="'common.story' | translate">
+            <i class="mode-indicator dot-historia"></i>
+            <span class="mode-text-desktop">{{ 'guia.nav.modeStory' | translate }}</span>
+            <span class="mode-text-mobile">{{ 'guia.nav.modeStory' | translate }}</span>
+          </a>
+          <div class="mode-switch-btn mode-online is-active" [title]="'common.online' | translate">
+            <i class="mode-indicator dot-online"></i>
+            <span class="mode-text-desktop">{{ 'guia.nav.modeOnline' | translate }}</span>
+            <span class="mode-text-mobile">{{ 'guia.nav.modeOnline' | translate }}</span>
+          </div>
+        </div>
 
         <!-- Separador final de cierre -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
@@ -128,11 +141,11 @@
       <div class="mobile-nav-links">
         <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-house"></i>
-          <span>INICIO</span>
+          <span>{{ 'nav.home' | translate }}</span>
         </a>
         <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-map-location-dot"></i>
-          <span>GTA 5 MAP</span>
+          <span>{{ 'nav.gta5Map' | translate }}</span>
         </a>
         <a
           [routerLink]="isDevAllowed ? '/gta6' : null"
@@ -141,18 +154,32 @@
           (click)="onGta6MapClick($event); closeMobileNav()"
         >
           <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-          <span>GTA 6 MAP</span>
+          <span>{{ 'nav.gta6Map' | translate }}</span>
         </a>
         <a routerLink="/gta6-guia" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-book-open"></i>
-          <span>GUIA GTA 6</span>
+          <span>{{ 'nav.gta6Guide' | translate }}</span>
         </a>
         <a routerLink="/gta6-videos" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-film"></i>
-          <span>VÍDEOS</span>
+          <span>{{ 'nav.gta6Videos' | translate }}</span>
         </a>
       </div>
 
+      <!-- Selector de modo Historia / Online en móvil -->
+      <div class="mobile-mode-switcher">
+        <span class="mobile-mode-label">{{ 'guia.nav.modeLabel' | translate }}</span>
+        <div class="mode-switch-track">
+          <a class="mode-switch-btn mode-historia" routerLink="/gta5-guia-offline" (click)="closeMobileNav()">
+            <i class="mode-indicator dot-historia"></i>
+            <span>{{ 'guia.nav.modeStory' | translate }}</span>
+          </a>
+          <div class="mode-switch-btn mode-online is-active">
+            <i class="mode-indicator dot-online"></i>
+            <span>{{ 'guia.nav.modeOnline' | translate }}</span>
+          </div>
+        </div>
+      </div>
     </div>
     }
   </nav>
@@ -302,7 +329,7 @@
           </div>
 
           <div class="sidebar-header-bar">
-            <span class="sidebar-header-title">ARMAS</span>
+            <span class="sidebar-header-title">{{ 'guia.weapons.title' | translate }}</span>
           </div>
 
           <div class="guide-categories-list">
@@ -343,7 +370,7 @@
           </div>
 
           <div class="sidebar-header-bar">
-            <span class="sidebar-header-title">PERSONAJES</span>
+            <span class="sidebar-header-title">{{ 'guia.online.personajes' | translate }}</span>
           </div>
 
           <div class="guide-categories-list">
@@ -377,7 +404,7 @@
           </div>
 
           <div class="sidebar-header-bar">
-            <span class="sidebar-header-title">MISTERIOS</span>
+            <span class="sidebar-header-title">{{ 'guia.online.misterios' | translate }}</span>
           </div>
 
           <div class="guide-chapters-list">
@@ -419,7 +446,7 @@
             </div>
 
             <div class="sidebar-header-bar">
-              <span class="sidebar-header-title">GOLPES</span>
+              <span class="sidebar-header-title">{{ 'guia.online.golpes' | translate }}</span>
             </div>
 
             <div class="guide-categories-list">
@@ -453,9 +480,9 @@
           <!-- NIVEL 2: FASES Y MISIONES PREPARATORIAS DEL GOLPE SELECCIONADO -->
           @if (golpeAbierto && (golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])); as g) {
             <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="volverAGolpes()" title="Volver al listado de golpes">
+              <button type="button" class="guide-back-btn" (click)="volverAGolpes()" [title]="'guia.online.volverGolpes' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
-                <span>Golpes</span>
+                <span>{{ 'guia.online.tituloGolpes' | translate }}</span>
               </button>
               <span class="guide-detail-badge">{{ g.setupMissions.length || 0 }} misiones</span>
             </div>
@@ -473,8 +500,8 @@
               >
                 <span class="chapter-card-num"><i class="fa-solid fa-star" style="font-size: 11px;"></i></span>
                 <div class="chapter-card-info">
-                  <span class="chapter-card-title">Planificación y Claves</span>
-                  <span class="chapter-card-sub">Resumen general del golpe</span>
+                  <span class="chapter-card-title">{{ 'guia.online.planificacionYClaves' | translate }}</span>
+                  <span class="chapter-card-sub">{{ 'guia.online.resumenGolpe' | translate }}</span>
                 </div>
               </div>
 
@@ -542,7 +569,7 @@
           </div>
 
           <div class="sidebar-header-bar">
-            <span class="sidebar-header-title">MISIONES PRINCIPALES</span>
+            <span class="sidebar-header-title">{{ 'guia.online.misionesPrincipales' | translate }}</span>
           </div>
 
           <!-- LISTA EN ACORDEÓN DE LOS 18 CONTACTOS -->
@@ -629,7 +656,7 @@
             </div>
 
             <div class="sidebar-header-bar">
-              <span class="sidebar-header-title">NEGOCIOS</span>
+              <span class="sidebar-header-title">{{ 'guia.online.negocios' | translate }}</span>
             </div>
 
             <div class="guide-categories-list">
@@ -661,9 +688,9 @@
           <!-- NIVEL 2: LISTADO DE LOCALES DE LA SUBCATEGORÍA SELECCIONADA -->
           @if (subcategoriaNegocioSeleccionada) {
             <div class="guide-detail-toolbar">
-              <button type="button" class="guide-back-btn" (click)="volverASubcategoriasNegocios()" title="Volver al listado de subcategorías">
+              <button type="button" class="guide-back-btn" (click)="volverASubcategoriasNegocios()" [title]="'guia.online.volverSubcategorias' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
-                <span>Negocios</span>
+                <span>{{ 'guia.online.tituloNegocios' | translate }}</span>
               </button>
               <span class="guide-detail-badge">{{ getNegociosDeSubcategoria(subcategoriaNegocioSeleccionada).length }} locales</span>
             </div>
@@ -705,9 +732,9 @@
 
         @else {
         <div class="guide-detail-toolbar">
-          <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
+          <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.online.volverCategorias' | translate">
             <i class="fa-solid fa-chevron-left"></i>
-            <span>Categorías</span>
+            <span>{{ 'guia.sidebar.categories' | translate }}</span>
           </button>
           <span class="guide-detail-badge">{{ currentSection.articulos.length }} caps</span>
         </div>
@@ -755,7 +782,7 @@
       <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
-          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+          <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
             <ol class="breadcrumb-list">
               @for (item of breadcrumbs; track item.label; let last = $last) {
               <li class="breadcrumb-item" [class.is-active]="last">
@@ -901,7 +928,7 @@
             @if (vehiculoSeleccionado.description) {
             <div class="guide-heading-divider">
               <div class="guide-heading-line"></div>
-              <h3 class="guide-heading-title">DESCRIPCIÓN DEL VEHÍCULO</h3>
+              <h3 class="guide-heading-title">{{ 'guia.vehicles.descHeader' | translate }}</h3>
               <div class="guide-heading-line guide-heading-line--right"></div>
             </div>
             }
@@ -923,7 +950,7 @@
       <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
-          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+          <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
             <ol class="breadcrumb-list">
               @for (item of breadcrumbs; track item.label; let last = $last) {
               <li class="breadcrumb-item" [class.is-active]="last">
@@ -1072,7 +1099,7 @@
             <!-- SEPARADOR CON ESPIGAS ESTILIZADAS OFICIAL DE LA GUÍA -->
             <div class="guide-heading-divider">
               <div class="guide-heading-line"></div>
-              <h3 class="guide-heading-title">ESPECIFICACIONES AMMU-NATION</h3>
+              <h3 class="guide-heading-title">{{ 'guia.weapons.ammuNationSpecs' | translate }}</h3>
               <div class="guide-heading-line guide-heading-line--right"></div>
             </div>
 
@@ -1122,7 +1149,7 @@
         @if ((misterioSeleccionado || (misterios$ | async)?.[0]); as m) {
           <header class="article-header">
             <!-- Miga de pan dinámica (Breadcrumbs) -->
-            <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
               <ol class="breadcrumb-list">
                 @for (item of breadcrumbs; track item.label; let last = $last) {
                 <li class="breadcrumb-item" [class.is-active]="last">
@@ -1151,7 +1178,7 @@
             </nav>
 
             <!-- Navegación Misterio Anterior / Siguiente (Arriba del banner, idéntico a Prólogo) -->
-            <nav class="article-pagination-nav" aria-label="Navegación entre misterios">
+            <nav class="article-pagination-nav" [attr.aria-label]="'guia.online.navMisterios' | translate">
               <div class="pagination-row-prev-next">
                 @if (previousMystery) {
                 <button
@@ -1209,7 +1236,7 @@
               <div class="guide-hud-box">
                 <i class="fa-regular fa-clock box-icon" style="color: #facc15;"></i>
                 <div class="box-content">
-                  <span class="box-label">Horario</span>
+                  <span class="box-label">{{ 'guia.online.horario' | translate }}</span>
                   <span class="box-val" style="color: #fef08a;">{{ m.schedule }}</span>
                 </div>
               </div>
@@ -1219,7 +1246,7 @@
               <div class="guide-hud-box">
                 <i class="fa-solid fa-mountain box-icon" style="color: #38bdf8;"></i>
                 <div class="box-content">
-                  <span class="box-label">Ubicación</span>
+                  <span class="box-label">{{ 'guia.online.ubicacion' | translate }}</span>
                   <span class="box-val">{{ m.location }}</span>
                 </div>
               </div>
@@ -1229,7 +1256,7 @@
               <div class="guide-hud-box">
                 <i class="fa-solid fa-map-pin box-icon" style="color: #ec4899;"></i>
                 <div class="box-content">
-                  <span class="box-label">Zona</span>
+                  <span class="box-label">{{ 'guia.online.zona' | translate }}</span>
                   <span class="box-val">{{ m.zone }}</span>
                 </div>
               </div>
@@ -1239,7 +1266,7 @@
               <div class="guide-hud-box">
                 <i class="fa-solid fa-crosshairs box-icon" style="color: #4ade80;"></i>
                 <div class="box-content">
-                  <span class="box-label">Coordenadas</span>
+                  <span class="box-label">{{ 'gta5.popups.coordinates' | translate }}</span>
                   <span class="box-val" style="font-family: monospace; font-size: 11px;">
                     X: {{ m.position.x }}, Y: {{ m.position.y }}
                   </span>
@@ -1306,7 +1333,7 @@
         @if ((golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])); as g) {
           <header class="article-header">
             <!-- Miga de pan dinámica (Breadcrumbs) -->
-            <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
               <ol class="breadcrumb-list">
                 @for (item of breadcrumbs; track item.label; let last = $last) {
                 <li class="breadcrumb-item" [class.is-active]="last">
@@ -1561,7 +1588,7 @@
         @if ((misionSeleccionada || misionesOnline[0]); as m) {
           <header class="article-header">
             <!-- Miga de pan dinámica (Breadcrumbs) -->
-            <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
               <ol class="breadcrumb-list">
                 @for (item of breadcrumbs; track item.label; let last = $last) {
                 <li class="breadcrumb-item" [class.is-active]="last">
@@ -1590,7 +1617,7 @@
             </nav>
 
             <!-- Navegación Misión Anterior / Siguiente (Arriba del banner, idéntico a offline) -->
-            <nav class="article-pagination-nav" aria-label="Navegación entre misiones">
+            <nav class="article-pagination-nav" [attr.aria-label]="'guia.online.navMisiones' | translate">
               <div class="pagination-row-prev-next">
                 @if (previousMission) {
                 <button
@@ -1628,7 +1655,7 @@
             <div class="article-chapter-banner">
               <div class="chapter-banner-text">
                 <h1 class="article-main-title">{{ m.title }}</h1>
-                <p class="article-lead">Misión #{{ m.order }} de 250@if (m.giver) {<span> · Contacto: <strong>{{ m.giver }}</strong></span>}</p>
+                <p class="article-lead">Misión #{{ m.order }} de 250@if (m.giver) {<span> · {{ 'guia.online.contacto' | translate }} <strong>{{ m.giver }}</strong></span>}</p>
               </div>
             </div>
           </header>
@@ -1640,7 +1667,7 @@
               <div class="guide-hud-box" style="background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.35);">
                 <i class="fa-solid fa-ranking-star box-icon" style="color: #facc15; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Nivel</span>
+                  <span class="box-label">{{ 'guia.online.nivel' | translate }}</span>
                   <span class="box-val" style="color: #facc15; font-weight: 800; font-size: 13.5px;">Nivel {{ m.minLevel }}</span>
                 </div>
               </div>
@@ -1650,7 +1677,7 @@
               <div class="guide-hud-box" style="background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.35);">
                 <i class="fa-solid fa-users box-icon" style="color: #f97316; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Jugadores</span>
+                  <span class="box-label">{{ 'guia.online.jugadores' | translate }}</span>
                   <span class="box-val" style="color: #fb923c; font-weight: 800; font-size: 13.5px;">{{ m.players }}</span>
                 </div>
               </div>
@@ -1660,7 +1687,7 @@
               <div class="guide-hud-box reward-box" style="grid-column: auto;">
                 <i class="fa-solid fa-trophy box-icon" style="color: #10b981;"></i>
                 <div class="box-content">
-                  <span class="box-label">Recompensa</span>
+                  <span class="box-label">{{ 'guia.reader.reward' | translate }}</span>
                   <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ m.reward }}</span>
                 </div>
               </div>
@@ -1670,7 +1697,7 @@
               <div class="guide-hud-box unlock-box" style="grid-column: auto;">
                 <i class="fa-solid fa-location-dot box-icon" style="color: #38bdf8;"></i>
                 <div class="box-content">
-                  <span class="box-label">Ubicación</span>
+                  <span class="box-label">{{ 'guia.online.ubicacion' | translate }}</span>
                   <span class="box-val">{{ m.location || 'Los Santos' }}</span>
                 </div>
               </div>
@@ -1682,7 +1709,7 @@
             <div class="guide-synopsis-block">
               <div class="guide-synopsis-head">
                 <i class="fa-solid fa-book-open"></i>
-                <span>Sinopsis de la misión</span>
+                <span>{{ 'guia.reader.synopsisTitle' | translate }}</span>
               </div>
               <div class="guide-synopsis-body">
                 <p>{{ m.description }}</p>
@@ -1700,7 +1727,7 @@
             <div class="guide-hud-gold-block">
               <div class="guide-hud-gold-head">
                 <i class="fa-solid fa-crosshairs"></i>
-                <span>Objetivos de la misión</span>
+                <span>{{ 'guia.online.objetivosMision' | translate }}</span>
               </div>
               <div class="guide-hud-gold-list">
                 @for (req of m.goldRequirements; track req) {
@@ -1725,7 +1752,7 @@
         @if ((negocioSeleccionado || negociosOnline[0]); as n) {
           <header class="article-header">
             <!-- Miga de pan dinámica (Breadcrumbs) -->
-            <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+            <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
               <ol class="breadcrumb-list">
                 @for (item of breadcrumbs; track item.label; let last = $last) {
                 <li class="breadcrumb-item" [class.is-active]="last">
@@ -1754,7 +1781,7 @@
             </nav>
 
             <!-- Navegación Negocio Anterior / Siguiente (Arriba del banner) -->
-            <nav class="article-pagination-nav" aria-label="Navegación entre locales">
+            <nav class="article-pagination-nav" [attr.aria-label]="'guia.online.navLocales' | translate">
               <div class="pagination-row-prev-next">
                 @if (previousNegocio) {
                 <button
@@ -1814,7 +1841,7 @@
               <div class="guide-hud-box" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35);">
                 <i class="fa-solid fa-dollar-sign box-icon" style="color: #10b981; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Precio de Adquisición</span>
+                  <span class="box-label">{{ 'guia.online.precioAdquisicion' | translate }}</span>
                   <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ n.priceFormatted }}</span>
                 </div>
               </div>
@@ -1824,7 +1851,7 @@
               <div class="guide-hud-box" style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35);">
                 <i class="fa-solid fa-map-pin box-icon" style="color: #38bdf8; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Ubicación / Barrio</span>
+                  <span class="box-label">{{ 'guia.online.ubicacionBarrio' | translate }}</span>
                   <span class="box-val" style="color: #7dd3fc; font-weight: 700;">{{ n.zone }}</span>
                 </div>
               </div>
@@ -1834,7 +1861,7 @@
               <div class="guide-hud-box" style="background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.35);">
                 <i class="fa-solid fa-sack-dollar box-icon" style="color: #facc15; font-size: 18px;"></i>
                 <div class="box-content">
-                  <span class="box-label">Potencial de Ingresos</span>
+                  <span class="box-label">{{ 'guia.online.potencialIngresos' | translate }}</span>
                   <span class="box-val" style="color: #fef08a; font-weight: 700; font-size: 12.5px;">{{ n.income }}</span>
                 </div>
               </div>
@@ -1846,7 +1873,7 @@
             <div class="guide-synopsis-block">
               <div class="guide-synopsis-head">
                 <i class="fa-solid fa-circle-info"></i>
-                <span>Detalles y Ubicación Estratégica</span>
+                <span>{{ 'guia.online.detallesEstrategicos' | translate }}</span>
               </div>
               <div class="guide-synopsis-body">
                 <p>{{ n.description }}</p>
@@ -1859,7 +1886,7 @@
             <div class="guide-synopsis-block" style="margin-top: 18px;">
               <div class="guide-synopsis-head">
                 <i class="fa-solid fa-list-check"></i>
-                <span>Características y Especificaciones</span>
+                <span>{{ 'guia.online.caracteristicas' | translate }}</span>
               </div>
               <div class="guide-synopsis-body">
                 <ul class="guide-list" style="margin: 0; padding: 0; list-style: none;">
@@ -1884,7 +1911,7 @@
       <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
-          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+          <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
             <ol class="breadcrumb-list">
               @for (item of breadcrumbs; track item.label; let last = $last) {
               <li class="breadcrumb-item" [class.is-active]="last">
@@ -1913,7 +1940,7 @@
           </nav>
 
           <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner, idéntico a offline) -->
-          <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
+          <nav class="article-pagination-nav" [attr.aria-label]="'guia.nav.chapterNav' | translate">
             <div class="pagination-row-prev-next">
               @if (capituloAnterior) {
               <button

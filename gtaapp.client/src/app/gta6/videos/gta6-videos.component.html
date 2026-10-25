@@ -9,8 +9,8 @@
           type="button"
           class="mobile-nav-toggle-btn"
           (click)="toggleMobileNav()"
-          [title]="mobileNavOpen ? 'Cerrar menú' : 'Abrir menú de navegación'"
-          aria-label="Menú de navegación"
+          [title]="mobileNavOpen ? ('guia.nav.closeNavMenu' | translate) : ('guia.nav.openNavMenu' | translate)"
+          [attr.aria-label]="'nav.menuLabel' | translate"
         >
           <i class="fa-solid" [ngClass]="mobileNavOpen ? 'fa-xmark' : 'fa-bars'"></i>
         </button>
@@ -19,7 +19,7 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- LOGO DE LA HOME -->
-        <a routerLink="/home" class="wiki-logo-link" title="Ir a Inicio">
+        <a routerLink="/home" class="wiki-logo-link" [title]="'nav.homeTitle' | translate">
           <img src="assets/images/logos/gta-explorer-nav-logo.png" alt="Logo GTA Explorer" class="wiki-nav-logo" width="120" height="38" />
         </a>
 
@@ -34,9 +34,9 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón INICIO -->
-        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+        <a routerLink="/home" class="nav-link-item" [title]="'nav.homeTitle' | translate">
           <i class="fa-solid fa-house"></i>
-          <span>INICIO</span>
+          <span>{{ 'nav.home' | translate }}</span>
         </a>
 
         <!-- Separador -->
@@ -49,14 +49,14 @@
             <span>GTA 5</span>
           </button>
           <div class="nav-dropdown-menu">
-            <a routerLink="/gta5" class="nav-dropdown-item" title="Ir al Mapa de GTA 5">
+            <a routerLink="/gta5" class="nav-dropdown-item" [title]="'nav.gta5MapTitle' | translate">
               <i class="fa-solid fa-map-location-dot"></i>
-              <span>MAPA GTA 5</span>
+              <span>{{ 'nav.gta5Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
-            <a routerLink="/gta5-guia-offline" class="nav-dropdown-item" title="Ir a la Guía de GTA 5">
+            <a routerLink="/gta5-guia-offline" class="nav-dropdown-item" [title]="'nav.gta5GuideTitle' | translate">
               <i class="fa-solid fa-book-open"></i>
-              <span>GUÍA GTA 5</span>
+              <span>{{ 'nav.gta5Guide' | translate }}</span>
             </a>
           </div>
         </div>
@@ -76,15 +76,15 @@
               class="nav-dropdown-item"
               [class.is-disabled]="!isDevAllowed"
               (click)="onGta6MapClick($event)"
-              [title]="!isDevAllowed ? 'Mapa GTA VI (Próximamente)' : 'Ir al Mapa de GTA 6'"
+              [title]="!isDevAllowed ? ('guia.nav.gta6MapComingSoon' | translate) : ('nav.gta6MapTitle' | translate)"
             >
               <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-              <span>MAPA GTA 6</span>
+              <span>{{ 'nav.gta6Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
-            <a routerLink="/gta6-guia-offline" class="nav-dropdown-item" title="Ir a la Guía de GTA 6">
+            <a routerLink="/gta6-guia-offline" class="nav-dropdown-item" [title]="'nav.gta6GuideTitle' | translate">
               <i class="fa-solid fa-book-open"></i>
-              <span>GUÍA GTA 6</span>
+              <span>{{ 'nav.gta6Guide' | translate }}</span>
             </a>
           </div>
         </div>
@@ -93,9 +93,9 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón VÍDEOS GTA 6 -->
-        <a routerLink="/gta6-videos" class="nav-link-item" title="Vídeos GTA 6">
+        <a routerLink="/gta6-videos" class="nav-link-item" [title]="'nav.gta6VideosTitle' | translate">
           <i class="fa-solid fa-film"></i>
-          <span>VÍDEOS</span>
+          <span>{{ 'nav.gta6Videos' | translate }}</span>
         </a>
 
         <!-- Separador final -->
@@ -109,8 +109,8 @@
           class="theme-toggle-switch"
           [class.is-day]="themeMode === 'day'"
           (click)="toggleThemeMode()"
-          [title]="themeMode === 'night' ? 'Cambiar a Modo Día' : 'Cambiar a Modo Noche'"
-          aria-label="Cambiar entre modo día y noche"
+          [title]="themeMode === 'night' ? ('guia.nav.themeDay' | translate) : ('guia.nav.themeNight' | translate)"
+          [attr.aria-label]="'nav.themeToggle' | translate"
         >
           <span class="switch-icon switch-icon-moon">🌙</span>
           <span class="switch-icon switch-icon-sun">☀️</span>
@@ -125,11 +125,11 @@
       <div class="mobile-nav-links">
         <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-house"></i>
-          <span>INICIO</span>
+          <span>{{ 'nav.home' | translate }}</span>
         </a>
         <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-map-location-dot"></i>
-          <span>GTA 5 MAP</span>
+          <span>{{ 'nav.gta5Map' | translate }}</span>
         </a>
         <a
           [routerLink]="isDevAllowed ? '/gta6' : null"
@@ -138,19 +138,19 @@
           (click)="onGta6MapClick($event); closeMobileNav()"
         >
           <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-          <span>GTA 6 MAP</span>
+          <span>{{ 'nav.gta6Map' | translate }}</span>
         </a>
         <a routerLink="/gta5-guia-offline" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-book-open"></i>
-          <span>GUIA GTA 5</span>
+          <span>{{ 'nav.gta5Guide' | translate }}</span>
         </a>
         <a routerLink="/gta6-guia-offline" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-book-open"></i>
-          <span>GUIA GTA 6</span>
+          <span>{{ 'nav.gta6Guide' | translate }}</span>
         </a>
         <a routerLink="/gta6-videos" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-film"></i>
-          <span>VÍDEOS</span>
+          <span>{{ 'nav.gta6Videos' | translate }}</span>
         </a>
       </div>
     </div>
@@ -164,11 +164,11 @@
     <div class="hero-content-inner">
       <div class="hero-tag">
         <i class="fa-solid fa-clapperboard"></i>
-        <span>CLIPS & SITUACIONES DE GAMEPLAY</span>
+        <span>{{ 'videos.heroTag' | translate }}</span>
       </div>
-      <h1 class="hero-main-title">VÍDEOS GTA 6</h1>
+      <h1 class="hero-main-title">{{ 'videos.heroTitle' | translate }}</h1>
       <p class="hero-description">
-        Recopilación audiovisual de situaciones curiosas, fauna, reacciones de NPC y anécdotas en el mundo abierto de Leonida.
+        {{ 'videos.heroDesc' | translate }}
       </p>
     </div>
   </header>
@@ -177,7 +177,7 @@
   <main class="news-main-container">
     
     <!-- BARRA DE FILTROS DE CATEGORÍA -->
-    <nav class="news-filter-bar" aria-label="Filtro de categorías de vídeos">
+    <nav class="news-filter-bar" [attr.aria-label]="'videos.filterCategoryLabel' | translate">
       @for (cat of categoriasFiltro; track cat.id) {
       <button
         type="button"
@@ -211,7 +211,7 @@
         } @else {
           <div class="lead-media-placeholder">
             <i class="fa-solid fa-film"></i>
-            <span>LEONIDA GAMEPLAY CLIP</span>
+            <span>{{ 'videos.leadMediaPlaceholder' | translate }}</span>
           </div>
         }
         <div class="lead-media-gradient"></div>
@@ -250,7 +250,7 @@
 
         <div class="lead-action">
           <span class="action-btn">
-            <span>Ver vídeo completo</span>
+            <span>{{ 'videos.watchFull' | translate }}</span>
             <i class="fa-solid fa-arrow-right"></i>
           </span>
         </div>
@@ -263,7 +263,7 @@
     <div class="section-title-strip">
       <div class="strip-badge">
         <i class="fa-solid fa-film"></i>
-        <span>VÍDEOS PUBLICADOS</span>
+        <span>{{ 'videos.publishedHeader' | translate }}</span>
       </div>
       <div class="strip-line"></div>
     </div>
@@ -288,7 +288,7 @@
           } @else {
             <div class="card-media-placeholder">
               <i class="fa-solid fa-clapperboard"></i>
-              <span>LEONIDA CLIP</span>
+              <span>{{ 'videos.leonidaClip' | translate }}</span>
             </div>
           }
           <div class="media-play-overlay mini">
@@ -317,7 +317,7 @@
 
           <div class="card-footer">
             <span class="read-btn">
-              <span>Ver vídeo</span>
+              <span>{{ 'videos.watchClip' | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </span>
           </div>
@@ -337,7 +337,7 @@
     <div class="reader-nav-bar">
       <button type="button" class="back-link-btn" (click)="volverAlListado()">
         <i class="fa-solid fa-arrow-left"></i>
-        <span>Volver a todos los vídeos</span>
+        <span>{{ 'videos.backToList' | translate }}</span>
       </button>
 
       <span class="reader-category-pill">{{ videoSeleccionado.badge }}</span>
@@ -389,8 +389,8 @@
               <span class="player-big-icon">
                 <i class="fa-solid fa-clapperboard"></i>
               </span>
-              <span class="player-label-primary">CLIP DE GAMEPLAY</span>
-              <span class="player-label-secondary">Contenedor preparado para archivo de vídeo MP4 / WebM</span>
+              <span class="player-label-primary">{{ 'videos.gameplayClipTag' | translate }}</span>
+              <span class="player-label-secondary">{{ 'videos.placeholderDesc' | translate }}</span>
               @if (videoSeleccionado.duracionSegundos) {
                 <span class="player-duration-badge">
                   Duración estimada: {{ formatearDuracion(videoSeleccionado.duracionSegundos) }}
@@ -407,7 +407,7 @@
       <div class="moment-description-card">
         <h2 class="section-heading">
           <i class="fa-solid fa-circle-info" style="color: #ff007f; margin-right: 8px;"></i>
-          Descripción de la situación
+          {{ 'videos.situationDesc' | translate }}
         </h2>
         <p class="section-paragraph moment-main-text">
           {{ videoSeleccionado.descripcion }}
@@ -420,7 +420,7 @@
       <div class="footer-divider"></div>
       <button type="button" class="back-link-btn primary" (click)="volverAlListado()">
         <i class="fa-solid fa-arrow-left"></i>
-        <span>Volver a todos los vídeos</span>
+        <span>{{ 'videos.backToList' | translate }}</span>
       </button>
     </footer>
 
@@ -432,7 +432,7 @@
     <p class="home-footer-text">
       © Copyright 2026 JMD Software, todos los derechos reservados. JMD® y el logotipo JMD® son marcas registradas de The JMD Software.
       <span class="home-footer-sep" aria-hidden="true">·</span>
-      <button type="button" class="home-footer-link" (click)="cookieService.openBanner()">Ajustes de privacidad y cookies</button>
+      <button type="button" class="home-footer-link" (click)="cookieService.openBanner()">{{ 'videos.privacySettings' | translate }}</button>
     </p>
   </footer>
 

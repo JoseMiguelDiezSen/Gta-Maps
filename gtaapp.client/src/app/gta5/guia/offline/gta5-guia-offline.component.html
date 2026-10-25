@@ -34,9 +34,9 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón INICIO -->
-        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+        <a routerLink="/home" class="nav-link-item" [title]="'nav.homeTitle' | translate">
           <i class="fa-solid fa-house"></i>
-          <span>INICIO</span>
+          <span>{{ 'nav.home' | translate }}</span>
         </a>
 
         <!-- Separador -->
@@ -49,14 +49,14 @@
             <span>GTA 5</span>
           </button>
           <div class="nav-dropdown-menu">
-            <a routerLink="/gta5" class="nav-dropdown-item" title="Ir al Mapa de GTA 5">
+            <a routerLink="/gta5" class="nav-dropdown-item" [title]="'nav.gta5MapTitle' | translate">
               <i class="fa-solid fa-map-location-dot"></i>
-              <span>MAPA GTA 5</span>
+              <span>{{ 'nav.gta5Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
             <a class="nav-dropdown-item is-disabled" [title]="'guia.nav.alreadyOnGta5Guide' | translate">
               <i class="fa-solid fa-book-open"></i>
-              <span>GUÍA GTA 5</span>
+              <span>{{ 'nav.gta5Guide' | translate }}</span>
             </a>
           </div>
         </div>
@@ -79,12 +79,12 @@
               [title]="!isDevAllowed ? ('guia.nav.gta6MapComingSoon' | translate) : ('gta6.hud.launchTitle' | translate)"
             >
               <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-              <span>MAPA GTA 6</span>
+              <span>{{ 'nav.gta6Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
-            <a routerLink="/gta6-guia" class="nav-dropdown-item" title="Ir a la Guía de GTA 6">
+            <a routerLink="/gta6-guia" class="nav-dropdown-item" [title]="'nav.gta6GuideTitle' | translate">
               <i class="fa-solid fa-book-open"></i>
-              <span>GUÍA GTA 6</span>
+              <span>{{ 'nav.gta6Guide' | translate }}</span>
             </a>
           </div>
         </div>
@@ -93,9 +93,9 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón VÍDEOS -->
-        <a routerLink="/gta6-videos" class="nav-link-item" title="Vídeos GTA 6">
+        <a routerLink="/gta6-videos" class="nav-link-item" [title]="'nav.gta6VideosTitle' | translate">
           <i class="fa-solid fa-film"></i>
-          <span>VÍDEOS</span>
+          <span>{{ 'nav.gta6Videos' | translate }}</span>
         </a>
 
         <!-- Separador -->
@@ -142,11 +142,11 @@
       <div class="mobile-nav-links">
         <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-house"></i>
-          <span>INICIO</span>
+          <span>{{ 'nav.home' | translate }}</span>
         </a>
         <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-map-location-dot"></i>
-          <span>GTA 5 MAP</span>
+          <span>{{ 'nav.gta5Map' | translate }}</span>
         </a>
         <a
           [routerLink]="isDevAllowed ? '/gta6' : null"
@@ -155,15 +155,15 @@
           (click)="onGta6MapClick($event); closeMobileNav()"
         >
           <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-          <span>GTA 6 MAP</span>
+          <span>{{ 'nav.gta6Map' | translate }}</span>
         </a>
         <a routerLink="/gta6-guia" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-book-open"></i>
-          <span>GUIA GTA 6</span>
+          <span>{{ 'nav.gta6Guide' | translate }}</span>
         </a>
         <a routerLink="/gta6-videos" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-film"></i>
-          <span>VÍDEOS</span>
+          <span>{{ 'nav.gta6Videos' | translate }}</span>
         </a>
       </div>
 
@@ -709,7 +709,7 @@
               </span>
             }
             @if (mostrarTrofeos) {
-              <span class="drawer-breadcrumb-current">TROFEOS</span>
+              <span class="drawer-breadcrumb-current">{{ 'guia.trophies.tabTitle' | translate }}</span>
             }
             @if (categoriaArmaSeleccionada && currentSection?.id === 'armas') {
               <span class="drawer-breadcrumb-sep">›</span>
@@ -843,7 +843,7 @@
       <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
-          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+          <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
             <ol class="breadcrumb-list">
               @for (item of breadcrumbs; track item.label; let last = $last) {
               <li class="breadcrumb-item" [class.is-active]="last">
@@ -1074,7 +1074,7 @@
       <article class="wiki-article-card" [class.is-mystery-article]="selectedArticulo.categoria === 'secretos-misterios' || currentSection?.id === 'secretos-misterios'">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
-          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+          <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
             <ol class="breadcrumb-list">
               @for (item of breadcrumbs; track item.label; let last = $last) {
               <li class="breadcrumb-item" [class.is-active]="last">
@@ -1103,7 +1103,7 @@
           </nav>
 
           <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner de la foto) -->
-          <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
+          <nav class="article-pagination-nav" [attr.aria-label]="'guia.nav.chapterNav' | translate">
             <div class="pagination-row-prev-next">
               @if (capituloAnterior) {
               <button
@@ -1168,7 +1168,7 @@
 
           <!-- Bloque: Protagonistas del Prólogo -->
           @if (selectedArticulo.id === 'prologo-introduccion-guia') {
-            <div class="gta5-protagonists-frames" aria-label="Protagonistas de GTA V">
+            <div class="gta5-protagonists-frames" [attr.aria-label]="'guia.nav.protagonists' | translate">
               @for (p of protagonistas; track p.name) {
                 <div class="gta5-protagonist-frame" [attr.aria-label]="p.label">
                   <img [src]="p.img" [alt]="p.label" loading="lazy" />
@@ -1232,7 +1232,7 @@
         </div>
 
         <!-- Botón de retorno móvil al final del artículo -->
-        <nav class="article-pagination-nav article-pagination-bottom" aria-label="Volver a los capítulos">
+        <nav class="article-pagination-nav article-pagination-bottom" [attr.aria-label]="'guia.nav.backToChapters' | translate">
           <button
             type="button"
             class="pagination-btn pagination-back-mobile"

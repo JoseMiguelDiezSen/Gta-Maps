@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { Gta5MapOnlineComponent }   from './map/online/gta5-map-online.component';
 import { Gta5MapOfflineComponent }  from './map/offline/gta5-map-offline.component';
+import { Gta5GuiaOfflineComponent } from './guia/offline/gta5-guia-offline.component';
 import { Gta5GuiaOnlineComponent }  from './guia/online/gta5-guia-online.component';
 
 const routes: Routes = [
@@ -30,8 +31,14 @@ const routes: Routes = [
   },
   {
     path: 'gta5-guia-offline',
-    redirectTo: 'gta5-guia-online',
-    pathMatch: 'full'
+    component: Gta5GuiaOfflineComponent,
+    data: {
+      titleKey: 'seo.gta5GuiaTitle',
+      descriptionKey: 'seo.gta5GuiaDesc',
+      title: 'Guía GTA V - Modo Historia : Guia para Misiones Principales, Secundarias, Misterios y Trofeos | GTA MAPS',
+      description: 'Guía completa y enciclopedia de GTA V: requisitos del 100%, guía táctica de los 6 golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.',
+      canonical: 'https://gtaexplorer.com/gta5-guia-offline'
+    }
   },
   {
     path: 'gta5-guia-online',

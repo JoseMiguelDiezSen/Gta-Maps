@@ -710,7 +710,12 @@
       "themeDay": "주간 모드로 전환",
       "themeNight": "야간 모드로 전환",
       "openNavMenu": "탐색 메뉴 열기",
-      "closeNavMenu": "메뉴 닫기"
+      "closeNavMenu": "메뉴 닫기",
+      "breadcrumb": "Breadcrumb navigation",
+      "chapterNav": "Chapter navigation",
+      "backToChapters": "Back to chapters",
+      "backToChaptersTitle": "Back to Chapters",
+      "protagonists": "GTA V Protagonists"
     },
     "sidebar": {
       "contents": "목차",
@@ -756,7 +761,9 @@
         "online": "온라인",
         "both": "모두"
       },
-      "catalogTitle": "트로피 카탈로그"
+      "catalogTitle": "트로피 카탈로그",
+      "provisional": "⚠️ PROVISIONAL",
+      "tabTitle": "TROPHIES"
     },
     "weapons": {
       "title": "무기",
@@ -769,7 +776,9 @@
     "vehicles": {
       "title": "이동 수단",
       "dealersTitle": "대리점",
-      "backToDealers": "대리점 목록으로 돌아가기"
+      "backToDealers": "대리점 목록으로 돌아가기",
+      "loadingArchive": "Loading Leonida archive...",
+      "descHeader": "VEHICLE DESCRIPTION"
     },
     "reader": {
       "synopsisTitle": "미션 개요",
@@ -780,6 +789,36 @@
       "backToList": "목록으로 돌아가기",
       "scrollToTop": "챕터 시작 부분으로",
       "readingTime": "예상 읽기 시간: {{ minutes }}분"
+    },
+    "online": {
+      "loadingDb": "멀티플레이어 데이터베이스 로드 중...",
+      "personajes": "등장인물",
+      "misterios": "미스터리",
+      "golpes": "습격",
+      "misionesPrincipales": "주요 임무",
+      "negocios": "사업체",
+      "tituloGolpes": "습격",
+      "volverGolpes": "습격 목록으로 돌아가기",
+      "planificacionYClaves": "계획 및 핵심 정보",
+      "resumenGolpe": "습격 개요",
+      "tituloNegocios": "사업체",
+      "volverSubcategorias": "하위 카테고리 목록으로 돌아가기",
+      "volverCategorias": "카테고리 색인으로 돌아가기",
+      "horario": "시간대",
+      "ubicacion": "위치",
+      "zona": "구역",
+      "contacto": "연락처:",
+      "nivel": "랭크",
+      "jugadores": "플레이어 수",
+      "objetivosMision": "임무 목표",
+      "precioAdquisicion": "구매 가격",
+      "ubicacionBarrio": "위치 / 동네",
+      "potencialIngresos": "수익 잠재력",
+      "detallesEstrategicos": "전략적 위치 및 세부 정보",
+      "caracteristicas": "특징 및 세부 사양",
+      "navMisterios": "미스터리 간 이동",
+      "navMisiones": "임무 간 이동",
+      "navLocales": "사업체 간 이동"
     }
   },
   "videos": {
@@ -798,7 +837,16 @@
     "atTime": "at",
     "watchClip": "Watch video",
     "backToList": "Back to all videos",
-    "noClips": "No videos available in this category currently."
+    "noClips": "No videos available in this category currently.",
+    "watchFull": "Watch full video",
+    "publishedHeader": "PUBLISHED VIDEOS",
+    "leonidaClip": "LEONIDA CLIP",
+    "privacySettings": "Privacy and cookie settings",
+    "filterCategoryLabel": "Video category filter",
+    "gameplayClipTag": "GAMEPLAY CLIP",
+    "leadMediaPlaceholder": "LEONIDA GAMEPLAY CLIP",
+    "placeholderDesc": "Container prepared for MP4 / WebM video files",
+    "situationDesc": "Situation description"
   },
   "momentos": {
     "navTitle": "MOMENTS",
@@ -817,5 +865,21 @@
     "watchClip": "Watch clip",
     "backToList": "Back to all moments",
     "noClips": "No moments available in this category currently."
+  },
+  "nav": {
+    "menuLabel": "Navigation menu",
+    "homeTitle": "Go to Home",
+    "home": "HOME",
+    "gta5MapTitle": "Go to GTA 5 Map",
+    "gta5Map": "GTA 5 MAP",
+    "gta5GuideTitle": "Go to GTA 5 Guide",
+    "gta5Guide": "GTA 5 GUIDE",
+    "gta6MapTitle": "Go to GTA 6 Map",
+    "gta6Map": "GTA 6 MAP",
+    "gta6GuideTitle": "Go to GTA 6 Guide",
+    "gta6Guide": "GTA 6 GUIDE",
+    "gta6VideosTitle": "GTA 6 Videos",
+    "gta6Videos": "VIDEOS",
+    "themeToggle": "Toggle day/night mode"
   }
 }

@@ -710,7 +710,12 @@
       "themeDay": "Mudar para Modo Claro",
       "themeNight": "Mudar para Modo Escuro",
       "openNavMenu": "Abrir menu de navegação",
-      "closeNavMenu": "Fechar menu"
+      "closeNavMenu": "Fechar menu",
+      "breadcrumb": "Breadcrumb navigation",
+      "chapterNav": "Chapter navigation",
+      "backToChapters": "Back to chapters",
+      "backToChaptersTitle": "Back to Chapters",
+      "protagonists": "GTA V Protagonists"
     },
     "sidebar": {
       "contents": "CONTEÚDO",
@@ -756,7 +761,9 @@
         "online": "Online",
         "both": "Ambos"
       },
-      "catalogTitle": "Catálogo de Troféus"
+      "catalogTitle": "Catálogo de Troféus",
+      "provisional": "⚠️ PROVISIONAL",
+      "tabTitle": "TROPHIES"
     },
     "weapons": {
       "title": "ARMAS",
@@ -769,7 +776,9 @@
     "vehicles": {
       "title": "VEÍCULOS",
       "dealersTitle": "CONCESSIONÁRIAS",
-      "backToDealers": "Voltar à lista de concessionárias"
+      "backToDealers": "Voltar à lista de concessionárias",
+      "loadingArchive": "Loading Leonida archive...",
+      "descHeader": "VEHICLE DESCRIPTION"
     },
     "reader": {
       "synopsisTitle": "Sinopse da Missão",
@@ -780,6 +789,36 @@
       "backToList": "Voltar à Lista",
       "scrollToTop": "Voltar ao Início do Capítulo",
       "readingTime": "{{ minutes }} min de leitura"
+    },
+    "online": {
+      "loadingDb": "Carregando banco de dados multijogador...",
+      "personajes": "PERSONAGENS",
+      "misterios": "MISTÉRIOS",
+      "golpes": "GOLPES",
+      "misionesPrincipales": "MISSÕES PRINCIPAIS",
+      "negocios": "NEGÓCIOS",
+      "tituloGolpes": "Golpes",
+      "volverGolpes": "Voltar à lista de golpes",
+      "planificacionYClaves": "Planejamento e Dicas Principais",
+      "resumenGolpe": "Visão geral do golpe",
+      "tituloNegocios": "Negócios",
+      "volverSubcategorias": "Voltar à lista de subcategorias",
+      "volverCategorias": "Voltar ao índice de categorias",
+      "horario": "Horário",
+      "ubicacion": "Localização",
+      "zona": "Zona",
+      "contacto": "Contato:",
+      "nivel": "Nível",
+      "jugadores": "Jogadores",
+      "objetivosMision": "Objetivos da missão",
+      "precioAdquisicion": "Preço de Aquisição",
+      "ubicacionBarrio": "Localização / Bairro",
+      "potencialIngresos": "Potencial de Lucro",
+      "detallesEstrategicos": "Detalhes e Localização Estratégica",
+      "caracteristicas": "Características e Especificações",
+      "navMisterios": "Navegação entre mistérios",
+      "navMisiones": "Navegação entre missões",
+      "navLocales": "Navegação entre locais"
     }
   },
   "videos": {
@@ -798,7 +837,16 @@
     "atTime": "at",
     "watchClip": "Watch video",
     "backToList": "Back to all videos",
-    "noClips": "No videos available in this category currently."
+    "noClips": "No videos available in this category currently.",
+    "watchFull": "Watch full video",
+    "publishedHeader": "PUBLISHED VIDEOS",
+    "leonidaClip": "LEONIDA CLIP",
+    "privacySettings": "Privacy and cookie settings",
+    "filterCategoryLabel": "Video category filter",
+    "gameplayClipTag": "GAMEPLAY CLIP",
+    "leadMediaPlaceholder": "LEONIDA GAMEPLAY CLIP",
+    "placeholderDesc": "Container prepared for MP4 / WebM video files",
+    "situationDesc": "Situation description"
   },
   "momentos": {
     "navTitle": "MOMENTS",
@@ -817,5 +865,21 @@
     "watchClip": "Watch clip",
     "backToList": "Back to all moments",
     "noClips": "No moments available in this category currently."
+  },
+  "nav": {
+    "menuLabel": "Navigation menu",
+    "homeTitle": "Go to Home",
+    "home": "HOME",
+    "gta5MapTitle": "Go to GTA 5 Map",
+    "gta5Map": "GTA 5 MAP",
+    "gta5GuideTitle": "Go to GTA 5 Guide",
+    "gta5Guide": "GTA 5 GUIDE",
+    "gta6MapTitle": "Go to GTA 6 Map",
+    "gta6Map": "GTA 6 MAP",
+    "gta6GuideTitle": "Go to GTA 6 Guide",
+    "gta6Guide": "GTA 6 GUIDE",
+    "gta6VideosTitle": "GTA 6 Videos",
+    "gta6Videos": "VIDEOS",
+    "themeToggle": "Toggle day/night mode"
   }
 }

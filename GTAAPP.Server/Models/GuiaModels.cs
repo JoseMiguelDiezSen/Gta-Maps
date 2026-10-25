@@ -46,6 +46,7 @@ public class GuiaArticuloResumen
 public class GuiaArticulo : GuiaArticuloResumen
 {
     public string ContenidoMarkdown { get; set; } = string.Empty;
+    public string? Imagen { get; set; }
     public string? ImagenPrincipalUrl { get; set; }
     public string? Sinopsis { get; set; }
     public string? Recompensa { get; set; }

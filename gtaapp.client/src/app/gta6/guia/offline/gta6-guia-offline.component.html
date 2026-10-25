@@ -34,9 +34,9 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón INICIO -->
-        <a routerLink="/home" class="nav-link-item" title="Ir al Inicio">
+        <a routerLink="/home" class="nav-link-item" [title]="'nav.homeTitle' | translate">
           <i class="fa-solid fa-house"></i>
-          <span>INICIO</span>
+          <span>{{ 'nav.home' | translate }}</span>
         </a>
 
         <!-- Separador -->
@@ -49,14 +49,14 @@
             <span>GTA 5</span>
           </button>
           <div class="nav-dropdown-menu">
-            <a routerLink="/gta5" class="nav-dropdown-item" title="Ir al Mapa de GTA 5">
+            <a routerLink="/gta5" class="nav-dropdown-item" [title]="'nav.gta5MapTitle' | translate">
               <i class="fa-solid fa-map-location-dot"></i>
-              <span>MAPA GTA 5</span>
+              <span>{{ 'nav.gta5Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
-            <a routerLink="/gta5-guia-offline" class="nav-dropdown-item" title="Ir a la Guía de GTA 5">
+            <a routerLink="/gta5-guia-offline" class="nav-dropdown-item" [title]="'nav.gta5GuideTitle' | translate">
               <i class="fa-solid fa-book-open"></i>
-              <span>GUÍA GTA 5</span>
+              <span>{{ 'nav.gta5Guide' | translate }}</span>
             </a>
           </div>
         </div>
@@ -79,12 +79,12 @@
               [title]="!isDevAllowed ? ('guia.nav.gta6MapComingSoon' | translate) : ('gta6.hud.launchTitle' | translate)"
             >
               <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-              <span>MAPA GTA 6</span>
+              <span>{{ 'nav.gta6Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
             <a class="nav-dropdown-item is-disabled" [title]="'guia.nav.alreadyOnGta6Guide' | translate">
               <i class="fa-solid fa-book-open"></i>
-              <span>GUÍA GTA 6</span>
+              <span>{{ 'nav.gta6Guide' | translate }}</span>
             </a>
           </div>
         </div>
@@ -93,9 +93,9 @@
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
         <!-- Botón VÍDEOS -->
-        <a routerLink="/gta6-videos" class="nav-link-item" title="Vídeos GTA 6">
+        <a routerLink="/gta6-videos" class="nav-link-item" [title]="'nav.gta6VideosTitle' | translate">
           <i class="fa-solid fa-film"></i>
-          <span>VÍDEOS</span>
+          <span>{{ 'nav.gta6Videos' | translate }}</span>
         </a>
 
         <!-- Separador -->
@@ -142,11 +142,11 @@
       <div class="mobile-nav-links">
         <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-house"></i>
-          <span>INICIO</span>
+          <span>{{ 'nav.home' | translate }}</span>
         </a>
         <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-map-location-dot"></i>
-          <span>GTA 5 MAP</span>
+          <span>{{ 'nav.gta5Map' | translate }}</span>
         </a>
         <a
           [routerLink]="isDevAllowed ? '/gta6' : null"
@@ -155,15 +155,15 @@
           (click)="onGta6MapClick($event); closeMobileNav()"
         >
           <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
-          <span>GTA 6 MAP</span>
+          <span>{{ 'nav.gta6Map' | translate }}</span>
         </a>
         <a routerLink="/gta5-guia-offline" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-book-open"></i>
-          <span>GUIA GTA 5</span>
+          <span>{{ 'nav.gta5Guide' | translate }}</span>
         </a>
         <a routerLink="/gta6-videos" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-film"></i>
-          <span>VÍDEOS</span>
+          <span>{{ 'nav.gta6Videos' | translate }}</span>
         </a>
       </div>
 
@@ -593,8 +593,8 @@
         <header class="trophy-panel-header">
           <div class="trophy-panel-title-block">
             <div class="trophy-kicker-row">
-              <span class="trophy-panel-kicker">TROFEOS (PS) · LOGROS (XBOX)</span>
-              <span class="trophy-provisional-badge">⚠️ PROVISIONAL</span>
+              <span class="trophy-panel-kicker">{{ 'guia.trophies.kicker' | translate }}</span>
+              <span class="trophy-provisional-badge">{{ 'guia.trophies.provisional' | translate }}</span>
             </div>
             <h1 class="trophy-panel-title">
               <i class="fa-solid fa-trophy"></i>
@@ -610,7 +610,7 @@
             <div class="trophy-summary-card" style="--trophy-color: #7dd3fc;">
               <i class="fa-solid fa-trophy"></i>
               <span class="trophy-summary-num">{{ trofeosResumen.platino }}</span>
-              <span class="trophy-summary-label">Platino</span>
+              <span class="trophy-summary-label">{{ 'guia.trophies.badgePlatinum' | translate }}</span>
             </div>
             <div class="trophy-summary-card" style="--trophy-color: #fbbf24;">
               <i class="fa-solid fa-medal"></i>
@@ -620,12 +620,12 @@
             <div class="trophy-summary-card" style="--trophy-color: #cbd5e1;">
               <i class="fa-solid fa-award"></i>
               <span class="trophy-summary-num">{{ trofeosResumen.plata }}</span>
-              <span class="trophy-summary-label">Plata</span>
+              <span class="trophy-summary-label">{{ 'guia.trophies.badgeSilver' | translate }}</span>
             </div>
             <div class="trophy-summary-card" style="--trophy-color: #d08b5b;">
               <i class="fa-solid fa-shield-halved"></i>
               <span class="trophy-summary-num">{{ trofeosResumen.bronce }}</span>
-              <span class="trophy-summary-label">Bronce</span>
+              <span class="trophy-summary-label">{{ 'guia.trophies.badgeBronze' | translate }}</span>
             </div>
           </div>
         </header>
@@ -633,7 +633,7 @@
         @if (isLoadingTrofeos) {
         <div class="trophy-loading">
           <i class="fa-solid fa-spinner fa-spin"></i>
-          <span>Cargando trofeos...</span>
+          <span>{{ 'guia.trophies.loading' | translate }}</span>
         </div>
         } @else {
         <div class="trophy-groups">
@@ -679,7 +679,7 @@
           @if (trofeosPorTipo.length === 0) {
           <div class="trophy-empty">
             <i class="fa-solid fa-trophy"></i>
-            <span>No hay trofeos que mostrar para este filtro.</span>
+            <span>{{ 'guia.trophies.empty' | translate }}</span>
           </div>
           }
         </div>
@@ -691,7 +691,7 @@
       @if (isLoadingArticulo && !mostrarTrofeos && currentSection?.id !== 'vehiculos') {
       <div class="wiki-loading-state">
         <div class="wiki-spinner"></div>
-        <p class="wiki-loading-text">Cargando archivo de Leonida...</p>
+        <p class="wiki-loading-text">{{ 'guia.vehicles.loadingArchive' | translate }}</p>
       </div>
       }
 
@@ -700,7 +700,7 @@
       <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
-          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+          <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
             <ol class="breadcrumb-list">
               @for (item of breadcrumbs; track item.label; let last = $last) {
               <li class="breadcrumb-item" [class.is-active]="last">
@@ -848,7 +848,7 @@
             @if (vehiculoSeleccionado.description) {
             <div class="guide-heading-divider">
               <div class="guide-heading-line"></div>
-              <h3 class="guide-heading-title">DESCRIPCIÓN DEL VEHÍCULO</h3>
+              <h3 class="guide-heading-title">{{ 'guia.vehicles.descHeader' | translate }}</h3>
               <div class="guide-heading-line guide-heading-line--right"></div>
             </div>
 
@@ -868,7 +868,7 @@
       <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
-          <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
+          <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
             <ol class="breadcrumb-list">
               @for (item of breadcrumbs; track item.label; let last = $last) {
               <li class="breadcrumb-item" [class.is-active]="last">
@@ -896,7 +896,7 @@
           </nav>
 
           <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner de la foto) -->
-          <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
+          <nav class="article-pagination-nav" [attr.aria-label]="'guia.nav.chapterNav' | translate">
             <div class="pagination-row-prev-next">
               @if (capituloAnterior) {
               <button
@@ -950,7 +950,7 @@
         </div>
 
         <!-- Botón de retorno móvil al final del artículo -->
-        <nav class="article-pagination-nav article-pagination-bottom" aria-label="Volver a los capítulos">
+        <nav class="article-pagination-nav article-pagination-bottom" [attr.aria-label]="'guia.nav.backToChapters' | translate">
           <button
             type="button"
             class="pagination-btn pagination-back-mobile"
