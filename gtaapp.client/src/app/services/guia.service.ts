@@ -525,99 +525,25 @@ export class GuiaService {
         titulo: 'Guía GTA VI & Base de Datos',
         descripcion: 'Compendio interactivo de Vice City y el Estado de Leonida: protagonistas, distritos, mecánicas de sigilo e inventario y análisis criminal.',
         bannerUrl: 'assets/home-bg.jpg',
-        secciones: [
-          /* Secciones retiradas del índice, pendientes de moverse a Noticias:
-
-            //
-            //
-            //
-            //
-            //
-              // empty
-// 2
-// 3
-            //
-          //
-          {
-            id: 'mundo-leonida',
-            titulo: 'Vice City & Regiones de Leonida',
-            icono: 'map-pin',
-            descripcion: 'Guía geográfica de Vice City, Port Gellhorn, Ambrosia y los Cayos de Gellhorn.',
-            orden: 1,
-            articulos: [
-              { id: 'mapa-leonida-zonas', slug: 'mapa-leonida-zonas', titulo: 'Las Regiones del Estado de Leonida', subtitulo: 'Vice City, Port Gellhorn, Ambrosia, Leonard County y los Cayos', categoria: 'mundo-leonida', badge: 'Geografía', tiempoLecturaMinutos: 8 },
-              { id: 'vice-city-distritos', slug: 'vice-city-distritos', titulo: 'Distritos Urbanos de Vice City', subtitulo: 'Vice Beaches, Ocean Drive, Downtown, Little Haiti y Starfish Island', categoria: 'mundo-leonida', badge: 'Distritos', tiempoLecturaMinutos: 6 },
-              { id: 'humedales-pantanos-fauna', slug: 'humedales-pantanos-fauna', titulo: 'Grassrivers y Fauna Salvaje', subtitulo: 'Los pantanos de Leonida, caimanes agresivos, caza y lanchas hidrodeslizadoras', categoria: 'mundo-leonida', badge: 'Ecosistema', tiempoLecturaMinutos: 5 }
-            ]
-          },
-          {
-            id: 'mecanicas-jugabilidad',
-            titulo: 'Mecánicas & Físicas de Juego',
-            icono: 'cpu',
-            descripcion: 'Inventario físico limitado, maleteros de vehículos y balística de última generación.',
-            orden: 2,
-            articulos: [
-              { id: 'inventario-maletero-armas', slug: 'inventario-maletero-armas', titulo: 'Sistema de Inventario Realista y Maleteros', subtitulo: 'Límite de armas portables y equipamiento vehicular estilo RDR2', categoria: 'mecanicas-jugabilidad', badge: 'Mecánicas', tiempoLecturaMinutos: 6 },
-              { id: 'fisicas-vehiculos-personalizacion', slug: 'fisicas-vehiculos-personalizacion', titulo: 'Física de Vehículos, Tracción e Interiores', subtitulo: 'Ajuste de espejos retrovisores, pedales y comportamiento todoterreno', categoria: 'mecanicas-jugabilidad', badge: 'Vehículos', tiempoLecturaMinutos: 5 }
-            ]
-          },
-          {
-            id: 'ia-sistema-policial',
-            titulo: 'Fuerzas del Orden & Redes Sociales',
-            icono: 'shield',
-            descripcion: 'Comportamiento policial avanzado, reconocimiento facial y viralidad digital.',
-            orden: 3,
-            articulos: [
-              { id: 'redes-sociales-policia', slug: 'redes-sociales-policia', titulo: 'Redes Sociales y Sistema Policial Inteligente', subtitulo: 'Grabaciones de testigos, reconocimiento facial y cámaras de tráfico', categoria: 'ia-sistema-policial', badge: 'IA Policial', tiempoLecturaMinutos: 6 },
-              { id: 'patrullas-persecucion-tactica', slug: 'patrullas-persecucion-tactica', titulo: 'Tácticas de Contención y Persecución', subtitulo: 'Bandas de clavos, helicópteros nocturnos con focos y cercos perimetrales', categoria: 'ia-sistema-policial', badge: 'Tácticas', tiempoLecturaMinutos: 5 }
-            ]
-          */
-        ]
+        secciones: []
       };
     }
   }
 
   private getFallbackArticulo(juegoId: 'gta5' | 'gta6' | 'gta6-online', articuloId: string): GuiaArticulo {
-    const manifest = this.getFallbackManifest(juegoId);
-    for (const sec of manifest.secciones) {
-      const found = sec.articulos.find(a => a.id === articuloId || a.slug === articuloId);
-      if (found) {
-        const siblings = sec.articulos.filter(a => a.id !== found.id);
-        const related = siblings.length >= 2
-          ? siblings.slice(0, 2)
-          : manifest.secciones.flatMap(s => s.articulos).filter(a => a.id !== found.id).slice(0, 2);
-
-        return {
-          ...found,
-          tags: ['Guía', sec.titulo, juegoId === 'gta5' ? 'Los Santos' : 'Vice City'],
-          relacionados: related,
-          ultimaActualizacion: new Date().toISOString(),
-          contenidoMarkdown: this.getArticuloMarkdown(articuloId)
-        };
-      }
-    }
-
-    // Default fallback
     return {
-      id: 'requisitos-100',
-      slug: 'requisitos-100',
-      titulo: 'Requisitos para el 100% en GTA V',
-      subtitulo: 'Todo lo estrictamente necesario para desbloquear la estadística del 100% y el logro Carrera Delictiva',
-      categoria: 'historia-100',
-      badge: 'Imprescindible',
-      tiempoLecturaMinutos: 6,
-      tags: ['100%', 'Logros', 'Misiones', 'Coleccionables', 'Trofeos'],
+      id: articuloId,
+      slug: articuloId,
+      titulo: 'Artículo no disponible',
+      subtitulo: 'No se pudo cargar la información del artículo solicitado.',
+      categoria: 'general',
+      badge: 'Aviso',
+      tiempoLecturaMinutos: 0,
+      tags: ['Guía'],
       ultimaActualizacion: new Date().toISOString(),
       relacionados: [],
-      contenidoMarkdown: this.getArticuloMarkdown('requisitos-100')
+      contenidoMarkdown: 'El contenido solicitado no está disponible o no se pudo cargar desde el servidor.'
     };
-  }
-
-  private getArticuloMarkdown(articuloId: string): string {
-    switch (articuloId) {
-      default:
-        return `Información detallada del capítulo en preparación.`;
-    }
   }
 
   getMisteriosGuiaOnline(): Observable<GtaMystery[]> {
