@@ -150,20 +150,10 @@ public class VehiclesService
         // 1. Ruta jerárquica con el idioma solicitado: data/gta5/mapa/marcadores-mapa/online/idiomas/{lang}/vehicles.json
         var hierPathMapa = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", lang, "vehicles.json");
         var esPathMapa = Path.Combine(BaseWebRoot, "data", "gta5", "mapa", "marcadores-mapa", "online", "idiomas", "es", "vehicles.json");
-        // 2. Rutas anteriores y fallback en la raíz
-        var hierPathNew = Path.Combine(BaseWebRoot, "data", "gta5", "marcadores-mapa", "online", "idiomas", lang, "vehicles.json");
-        var esPathNew = Path.Combine(BaseWebRoot, "data", "gta5", "marcadores-mapa", "online", "idiomas", "es", "vehicles.json");
-        var hierPath = Path.Combine(BaseWebRoot, "data", "gta5", "online", lang, "vehicles.json");
-        var esPath = Path.Combine(BaseWebRoot, "data", "gta5", "online", "es", "vehicles.json");
-        var legacyPath = Path.Combine(BaseWebRoot, "data", "vehicles.json");
 
         var fullPath = dealerPath
             ?? (File.Exists(hierPathMapa) ? hierPathMapa
-            : (File.Exists(esPathMapa) ? esPathMapa
-            : (File.Exists(hierPathNew) ? hierPathNew
-            : (File.Exists(esPathNew) ? esPathNew
-            : (File.Exists(hierPath) ? hierPath
-            : (File.Exists(esPath) ? esPath : legacyPath))))));
+            : (File.Exists(esPathMapa) ? esPathMapa : null));
 
         if (!File.Exists(fullPath))
         {

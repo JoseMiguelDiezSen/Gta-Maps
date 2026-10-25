@@ -17,16 +17,11 @@ export class LocationService {
     return item;
   }
 
-  private fetchJsonWithFallback<T>(primaryPath: string, fallbackPath: string): Observable<T> {
+  private fetchJson<T>(primaryPath: string): Observable<T> {
     return this.http.get<T>(primaryPath).pipe(
       catchError(err => {
-        console.warn(`[LocationService] Error al cargar ${primaryPath}, intentando fallback ${fallbackPath}:`, err);
-        return this.http.get<T>(fallbackPath).pipe(
-          catchError(fallbackErr => {
-            console.error(`[LocationService] Error crítico: ambos paths fallaron (${primaryPath} / ${fallbackPath}):`, fallbackErr);
-            return of([] as unknown as T);
-          })
-        );
+        console.error(`[LocationService] Error al cargar ${primaryPath}:`, err);
+        return of([] as unknown as T);
       })
     );
   }
@@ -92,20 +87,18 @@ export class LocationService {
 
     const requests = fileList.map(fileName => {
       const primaryBasePath = `assets/data/gta5/mapa/marcadores-mapa/${modeFolder}/idiomas/es/${fileName}`;
-      const fallbackBasePath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/es/${fileName}`;
 
       if (activeLang === 'es') {
-        return this.fetchJsonWithFallback<LocationItem[]>(primaryBasePath, fallbackBasePath).pipe(
+        return this.fetchJson<LocationItem[]>(primaryBasePath).pipe(
           map(items => (items || []).map(i => this.normalizeItemImages(i)))
         );
       }
 
       const primaryLocalizedPath = `assets/data/gta5/mapa/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/${fileName}`;
-      const fallbackLocalizedPath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/${fileName}`;
 
       return forkJoin({
-        base: this.fetchJsonWithFallback<LocationItem[]>(primaryBasePath, fallbackBasePath),
-        localized: this.fetchJsonWithFallback<any[]>(primaryLocalizedPath, fallbackLocalizedPath)
+        base: this.fetchJson<LocationItem[]>(primaryBasePath),
+        localized: this.fetchJson<any[]>(primaryLocalizedPath)
       }).pipe(
         map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized).map(i => this.normalizeItemImages(i)))
       );
@@ -144,16 +137,13 @@ export class LocationService {
     const modeFolder = isStory ? 'offline' : 'online';
 
     const primaryBasePath = `assets/data/gta5/mapa/marcadores-mapa/${modeFolder}/idiomas/es/collectibles.json`;
-    const fallbackBasePath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/es/collectibles.json`;
-
     const primaryLocalizedPath = `assets/data/gta5/mapa/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/collectibles.json`;
-    const fallbackLocalizedPath = `assets/data/gta5/marcadores-mapa/${modeFolder}/idiomas/${activeLang}/collectibles.json`;
 
     const fetch$: Observable<CollectibleItem[]> = activeLang === 'es'
-      ? this.fetchJsonWithFallback<CollectibleItem[]>(primaryBasePath, fallbackBasePath)
+      ? this.fetchJson<CollectibleItem[]>(primaryBasePath)
       : forkJoin({
-          base: this.fetchJsonWithFallback<CollectibleItem[]>(primaryBasePath, fallbackBasePath),
-          localized: this.fetchJsonWithFallback<any[]>(primaryLocalizedPath, fallbackLocalizedPath)
+          base: this.fetchJson<CollectibleItem[]>(primaryBasePath),
+          localized: this.fetchJson<any[]>(primaryLocalizedPath)
         }).pipe(
           map(({ base, localized }) => this.mergeLocalizedItems<CollectibleItem>(base, localized))
         );
@@ -180,16 +170,13 @@ export class LocationService {
   getCayoPericoLocations(category?: string, lang?: string): Observable<LocationItem[]> {
     const activeLang = lang || this.translationService.currentLanguage() || 'es';
     const primaryBasePath = `assets/data/gta5/mapa/marcadores-mapa/online/idiomas/es/cayo_perico.json`;
-    const fallbackBasePath = `assets/data/gta5/marcadores-mapa/online/idiomas/es/cayo_perico.json`;
-
     const primaryLocalizedPath = `assets/data/gta5/mapa/marcadores-mapa/online/idiomas/${activeLang}/cayo_perico.json`;
-    const fallbackLocalizedPath = `assets/data/gta5/marcadores-mapa/online/idiomas/${activeLang}/cayo_perico.json`;
 
     const fetch$: Observable<LocationItem[]> = activeLang === 'es'
-      ? this.fetchJsonWithFallback<LocationItem[]>(primaryBasePath, fallbackBasePath)
+      ? this.fetchJson<LocationItem[]>(primaryBasePath)
       : forkJoin({
-          base: this.fetchJsonWithFallback<LocationItem[]>(primaryBasePath, fallbackBasePath),
-          localized: this.fetchJsonWithFallback<any[]>(primaryLocalizedPath, fallbackLocalizedPath)
+          base: this.fetchJson<LocationItem[]>(primaryBasePath),
+          localized: this.fetchJson<any[]>(primaryLocalizedPath)
         }).pipe(
           map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized))
         );

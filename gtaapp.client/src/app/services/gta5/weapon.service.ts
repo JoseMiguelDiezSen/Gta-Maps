@@ -26,17 +26,14 @@ export class WeaponService {
     const mode = gameMode === 'story' ? 'offline' : 'online';
 
     const primaryBasePath = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/es/weapons.json`;
-    const fallbackBasePath = `/assets/data/gta5/marcadores-mapa/${mode}/idiomas/es/weapons.json`;
-
     const primaryLocalizedPath = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/${activeLang}/weapons.json`;
-    const fallbackLocalizedPath = `/assets/data/gta5/marcadores-mapa/${mode}/idiomas/${activeLang}/weapons.json`;
 
     const fetchBase$ = this.http.get<GtaWeapon[]>(primaryBasePath).pipe(
-      catchError(() => this.http.get<GtaWeapon[]>(fallbackBasePath).pipe(catchError(() => of([] as GtaWeapon[]))))
+      catchError(() => of([] as GtaWeapon[]))
     );
 
     const fetchLocalized$ = this.http.get<any[]>(primaryLocalizedPath).pipe(
-      catchError(() => this.http.get<any[]>(fallbackLocalizedPath).pipe(catchError(() => of([] as any[]))))
+      catchError(() => of([] as any[]))
     );
 
     const fetch$: Observable<GtaWeapon[]> = activeLang === 'es'
