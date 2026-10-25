@@ -93,34 +93,138 @@ public class GuiaService : IGuiaService
 
         _articulos["gta5"] = articulosGta5;
 
-        var manifestGta5Path = Path.Combine(BaseWebRoot, "data", "gta5", "guia", "manifest.json");
-        if (File.Exists(manifestGta5Path))
+        Func<GuiaArticulo, GuiaArticuloResumen> toResumen = a => new GuiaArticuloResumen
+        {
+            Id = a.Id,
+            Slug = a.Slug,
+            Titulo = a.Titulo,
+            Subtitulo = a.Subtitulo,
+            Categoria = a.Categoria,
+            Badge = a.Badge,
+            TiempoLecturaMinutos = a.TiempoLecturaMinutos
+        };
+
+        var seccionesGta5 = new List<GuiaSeccion>
+        {
+            new GuiaSeccion
+            {
+                Id = "prologo",
+                Titulo = "Inicio",
+                Icono = "book-open",
+                Descripcion = "Introducción a la guía interactiva de Grand Theft Auto V y perfiles de los protagonistas.",
+                Orden = 0,
+                Articulos = articulosGta5.Where(a => a.Categoria == "prologo" || a.Categoria == "historia-100").Select(toResumen).ToList()
+            },
+            new GuiaSeccion
+            {
+                Id = "misiones-historia",
+                Titulo = "Misiones Principales",
+                Icono = "gun",
+                Descripcion = "Guía detallada paso a paso de todas las misiones principales de GTA V.",
+                Orden = 1,
+                Articulos = articulosGta5.Where(a => a.Categoria == "misiones-historia").Select(toResumen).ToList()
+            },
+            new GuiaSeccion
+            {
+                Id = "extranos-locos",
+                Titulo = "Locos y Extraños",
+                Icono = "burst",
+                Descripcion = "Misiones secundarias de Extraños y Locos por todo San Andreas.",
+                Orden = 2,
+                Articulos = articulosGta5.Where(a => a.Categoria == "extranos-locos").Select(toResumen).ToList()
+            },
+            new GuiaSeccion
+            {
+                Id = "armas",
+                Titulo = "Armas",
+                Icono = "gun",
+                Descripcion = "Catálogo de armamento del modo historia, desbloqueos en Ammu-Nation y ubicaciones en el mapa.",
+                Orden = 3,
+                Articulos = CargarArmasResumenGta5(options)
+            },
+            new GuiaSeccion
+            {
+                Id = "negocios-economia",
+                Titulo = "Mercado Bursátil",
+                Icono = "briefcase",
+                Descripcion = "Guía de finanzas, funcionamiento de LCN y BAWSAQ y especulación bursátil.",
+                Orden = 4,
+                Articulos = articulosGta5.Where(a => a.Categoria == "negocios-economia").Select(toResumen).ToList()
+            },
+            new GuiaSeccion
+            {
+                Id = "eventos-aleatorios",
+                Titulo = "Eventos Aleatorios",
+                Icono = "shuffle",
+                Descripcion = "Encuentros fortuitos y eventos dinámicos por todo Los Santos y Blaine County.",
+                Orden = 5,
+                Articulos = articulosGta5.Where(a => a.Categoria == "eventos-aleatorios").Select(toResumen).ToList()
+            },
+            new GuiaSeccion
+            {
+                Id = "secretos-misterios",
+                Titulo = "Misterios",
+                Icono = "ghost",
+                Descripcion = "El misterio de Mount Chiliad, los 4 OVNIs y el asesino de los 8 infinitos.",
+                Orden = 6,
+                Articulos = articulosGta5.Where(a => a.Categoria == "secretos-misterios").Select(toResumen).ToList()
+            },
+            new GuiaSeccion
+            {
+                Id = "trofeos",
+                Titulo = "Trofeos",
+                Icono = "trophy",
+                Descripcion = "Listado de trofeos y logros de GTA V: Platino, Oro, Plata y Bronce.",
+                Orden = 7,
+                Articulos = new List<GuiaArticuloResumen>()
+            }
+        };
+
+        _manifiestos["gta5"] = new GuiaManifest
+        {
+            Id = "gta5",
+            Juego = "Grand Theft Auto V",
+            Titulo = "Guía GTA V",
+            Descripcion = "Compendio interactivo de Los Santos y Blaine County: Modo Historia al 100%, Golpes, Bolsa e Inversiones, y Secretos.",
+            BannerUrl = "assets/images/home/home-bg.jpg",
+            Secciones = seccionesGta5
+        };
+    }
+
+    private List<GuiaArticuloResumen> CargarArmasResumenGta5(JsonSerializerOptions options)
+    {
+        var armasPath = Path.Combine(BaseWebRoot, "data", "gta5", "guia", "guia-weapons-offline.json");
+        if (File.Exists(armasPath))
         {
             try
             {
-                var manifestJson = File.ReadAllText(manifestGta5Path);
-                var manifest = JsonSerializer.Deserialize<GuiaManifest>(manifestJson, options);
-                if (manifest != null)
+                var json = File.ReadAllText(armasPath);
+                using var doc = JsonDocument.Parse(json);
+                var list = new List<GuiaArticuloResumen>();
+                foreach (var el in doc.RootElement.EnumerateArray())
                 {
-                    _manifiestos["gta5"] = manifest;
+                    var id = el.TryGetProperty("id", out var pId) ? pId.GetString() ?? "" : "";
+                    var name = el.TryGetProperty("name", out var pName) ? pName.GetString() ?? "" : "";
+                    var category = el.TryGetProperty("category", out var pCat) ? pCat.GetString() ?? "" : "";
+                    list.Add(new GuiaArticuloResumen
+                    {
+                        Id = id,
+                        Slug = id,
+                        Titulo = name,
+                        Subtitulo = string.IsNullOrEmpty(category) ? "Arma" : category.ToUpperInvariant(),
+                        Categoria = "armas",
+                        Badge = category,
+                        TiempoLecturaMinutos = 2
+                    });
                 }
+                return list;
             }
             catch (Exception ex)
             {
-                _logger.LogWarning(ex, "Error al deserializar manifest.json de GTA 5 desde {Path}", manifestGta5Path);
+                _logger.LogWarning(ex, "Error al cargar armas resumen desde {Path}", armasPath);
             }
         }
-
-        if (!_manifiestos.ContainsKey("gta5"))
-        {
-            _manifiestos["gta5"] = new GuiaManifest
-            {
-                Id = "gta5",
-                Titulo = "Guía Oficial GTA V",
-                Descripcion = "Guía enciclopédica completa del Modo Historia y GTA Online.",
-                Secciones = new List<GuiaSeccion>()
-            };
-        }
+        return new List<GuiaArticuloResumen>();
     }
 
     public GuiaManifest GetGuiaManifest(string juegoId)

@@ -1,3 +1,16 @@
+export interface MysteryPoint {
+  step: number;
+  title?: string;
+  position: {
+    x: number;
+    y: number;
+    z?: number;
+  };
+  description?: string;
+  tip?: string;
+  thumbnail?: string;
+}
+
 export interface GtaMystery {
   id: string;
   order: number;
@@ -19,18 +32,7 @@ export interface GtaMystery {
     z: number;
     tip: string;
   };
-  points?: {
-    step: number;
-    title?: string;
-    position: {
-      x: number;
-      y: number;
-      z?: number;
-    };
-    description?: string;
-    tip?: string;
-    thumbnail?: string;
-  }[];
+  points?: MysteryPoint[];
   description: string;
   summary?: string;
   lore: string;

@@ -19,7 +19,14 @@
     "story": "स्टोरी",
     "online": "ऑनलाइन",
     "storyShort": "क",
-    "onlineShort": "ऑ"
+    "onlineShort": "ऑ",
+    "goToGuide": "Go to guide",
+    "switchToStory": "Switch to Story Mode",
+    "onlineActive": "GTA Online mode active",
+    "storyActive": "Story Mode active",
+    "switchToOnline": "Switch to GTA Online",
+    "goty5": "GOTY 5",
+    "goty6": "GOTY 6"
   },
   "home": {
     "chooseGame": "गेम चुनें",
@@ -33,7 +40,9 @@
     "onlineUsers": "ऑनलाइन उपयोगकर्ता",
     "onlineUser": "ऑनलाइन उपयोगकर्ता",
     "gta5GuiaBtn": "GTA 5 गाइड",
-    "gta6GuiaBtn": "GTA 6 गाइड"
+    "gta6GuiaBtn": "GTA 6 गाइड",
+    "gta6VideosBtn": "VIDEOS",
+    "gta6MomentosBtn": "MOMENTS"
   },
   "cookies": {
     "title": "गोपनीयता और कुकीज़",
@@ -57,7 +66,19 @@
     "closePolicy": "समझ गया",
     "policyTextP1": "GTA Maps में हम आपकी गोपनीयता का सम्मान करते हैं। हम आपका डेटा नहीं बेचते और न ही विज्ञापन ट्रैकिंग करते हैं।",
     "policyTextP2": "आवश्यक कुकीज़ ऑनलाइन काउंटर और आपकी भाषा प्राथमिकताओं को बनाए रखती हैं।",
-    "policyTextP3": "आप सेटिंग आइकन से कभी भी अपनी सहमति संशोधित या वापस ले सकते हैं।"
+    "policyTextP3": "आप सेटिंग आइकन से कभी भी अपनी सहमति संशोधित या वापस ले सकते हैं।",
+    "back": "Back",
+    "tableColName": "Name",
+    "tableColType": "Type",
+    "tableColPurpose": "Purpose",
+    "tableColDuration": "Duration",
+    "typeNecessary": "Necessary",
+    "typePreference": "Preference",
+    "descConsent": "Saves your cookie preferences locally",
+    "descLanguage": "Saves your preferred language (ES / EN)",
+    "descMapSettings": "Saves your active layers, filters, and zoom level",
+    "durationOneYear": "1 year",
+    "durationPersistent": "Persistent"
   },
   "gta5": {
     "hud": {
@@ -122,6 +143,7 @@
       "markers": "मार्कर",
       "noMarkers": "कोई मार्कर नहीं",
       "locateMarker": "मार्कर खोजें",
+      "deleteAllMarkers": "सभी कस्टम मार्कर हटाएं",
       "gotyAssistant": "GOTY सहायक",
       "enableGoty": "GOTY सक्षम करें"
     },
@@ -160,6 +182,7 @@
       "autoShop": "ऑटो शॉप (ट्यूनर्स)",
       "agency": "एजेंसी (The Contract)",
       "salvageYard": "साल्वेज यार्ड (The Chop Shop)",
+      "bailOffice": "जमानत प्रवर्तन कार्यालय (Bottom Dollar)",
       "arenaWar": "एरिना वर्कशॉप (Arena War)",
       "ceoOffice": "सीईओ कार्यालय",
       "vehicleWarehouse": "वाहन गोदाम (I/E)",
@@ -185,6 +208,10 @@
       "convenienceStoreShort": "24/7 दुकानें",
       "maskShop": "मास्क की दुकान (समुद्र तट)",
       "maskShopShort": "मास्क की दुकान",
+      "barber": "नाई की दुकान",
+      "tattoo": "टैटू पार्लर",
+      "clothingStore": "कपड़ों की दुकान",
+      "clothingStoreShort": "कपड़े",
       "carWash": "कार वॉश",
       "carWashShort": "कार वॉश",
       "stripClub": "Vanilla Unicorn (क्लब)",
@@ -270,6 +297,13 @@
       "toggleWildlife": "सभी वन्यजीवों को चालू/बंद करें",
       "toggleCollectibles": "सभी संग्रहणीय वस्तुओं को चालू/बंद करें",
       "toggleStrangePlaces": "सभी रहस्यमयी स्थानों को चालू/बंद करें"
+    },
+    "guia": {
+      "navBrandStory": "GTA V • स्टोरी गाइड",
+      "navBrandOnline": "GTA Online • गाइड",
+      "heroTitle": "GTA V • इंटरएक्टिव गाइड और विकी",
+      "heroDescStory": "लॉस सैंटोस और ब्लेन काउंटी के लिए 100% संपूर्ण गाइड: मुख्य स्टोरी मिशन, डकैती, शेयर बाजार और रहस्य।",
+      "heroDescOnline": "लॉस सैंटोस ऑनलाइन के लिए निश्चित गाइड: डकैती, व्यवसाय, हथियारबंद वाहन और सामरिक रणनीतियां।"
     }
   },
   "gta6": {
@@ -278,7 +312,13 @@
       "inGameTime": "गेम का समय",
       "launchTitle": "GTA VI रिलीज काउंटडाउन",
       "coordsDev": "निर्देशांक कॉपी करने के लिए क्लिक करें",
-      "panelTitle": "स्थान"
+      "panelTitle": "स्थान",
+      "inGameTimeTitle": "In-game time (Vice City)",
+      "expandPanel": "Click to expand Locations",
+      "collapsePanel": "Collapse panel",
+      "settingsTitle": "Settings",
+      "expandSettings": "Click to expand Settings",
+      "collapseSettings": "Collapse settings"
     },
     "canvasHelp": "ज़ूम करने के लिए माउस व्हील, हिलाने के लिए ड्रैग करें",
     "categories": {
@@ -344,6 +384,43 @@
       "coupleDesc": "पुलिस एक पुरुष और महिला की तलाश कर रही है",
       "cctv": "सीसीटीवी कैमरों में कैद",
       "cctvDesc": "सुरक्षा कैमरों ने आपको रिकॉर्ड कर लिया है"
+    },
+    "contextMenu": {
+      "editMarker": "Edit name",
+      "deleteMarker": "Delete this marker",
+      "addMarker": "Add marker here",
+      "centerMap": "Center map here"
+    },
+    "popups": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "settings": {
+      "mapSelector": "Map Type",
+      "iconStyle": "Icon Style",
+      "markerTheme": "Theme",
+      "themeStandard": "Standard",
+      "themeClassic": "Classic",
+      "themeSimple": "Font Awesome",
+      "themeModern": "Neon",
+      "iconSize": "Icon Size",
+      "sizeCompact": "80%",
+      "sizeStandard": "100% (Default)",
+      "sizeLarge": "120%",
+      "police": "Police Mode",
+      "markers": "Markers",
+      "noMarkers": "No markers",
+      "locateMarker": "Locate marker",
+      "deleteAllMarkers": "Delete all",
+      "gotyAssistant": "GOTY Assistant",
+      "enableGoty": "Enable GOTY"
+    },
+    "guia": {
+      "navBrandStory": "GTA 6 - STORY",
+      "navBrandOnline": "GTA 6 - ONLINE",
+      "heroTitle": "VICE CITY & STATE OF LEONIDA",
+      "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -577,7 +654,17 @@
     "gta6OnlineTitle": "GTA VI ऑनलाइन वाइस सिटी अल्ट्रा HD मैप (विज्ञापन-मुक्त) - इंटरएक्टिव गाइड | GTA MAPS",
     "gta6OnlineDesc": "वाइस सिटी और लियोनिडा में GTA 6 ऑनलाइन का पहला 100% विज्ञापन-मुक्त अल्ट्रा HD इंटरएक्टिव मैप। रुचि के स्थान, सड़कें और नई सुविधाएं।",
     "gta6HistoriaTitle": "GTA VI स्टोरी मोड मैप (विज्ञापन-मुक्त) - वाइस सिटी गाइड, जेसन और लूसिया | GTA MAPS",
-    "gta6HistoriaDesc": "जेसन और लूसिया के साथ GTA VI स्टोरी मोड का 100% विज्ञापन-मुक्त इंटरएक्टिव मैप। वाइस सिटी की अल्ट्रा HD खोज, मिशन और रहस्य।"
+    "gta6HistoriaDesc": "जेसन और लूसिया के साथ GTA VI स्टोरी मोड का 100% विज्ञापन-मुक्त इंटरएक्टिव मैप। वाइस सिटी की अल्ट्रा HD खोज, मिशन और रहस्य।",
+    "gta6NoticiasTitle": "GTA VI News & Updates - State of Leonida | GTA MAPS",
+    "gta6NoticiasDesc": "Latest news and updates for Grand Theft Auto VI and the State of Leonida.",
+    "gta6VideosTitle": "GTA VI Videos - Gameplay Clips & Highlights in Leonida | GTA MAPS",
+    "gta6VideosDesc": "Curated collection of short gameplay clips, videos, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta6MomentosTitle": "GTA VI Moments - Gameplay Clips & Situations in Leonida | GTA MAPS",
+    "gta6MomentosDesc": "Curated collection of unique moments, short gameplay clips, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta5GuiaTitle": "GTA V Guide - Story Mode: Main Missions, Strangers & Freaks, Mysteries & Trophies | GTA MAPS",
+    "gta5GuiaDesc": "Comprehensive GTA V guide and encyclopedia: 100% completion checklist, 6 tactical heists, stock market with Lester, characters, and Los Santos secrets.",
+    "gta6GuiaTitle": "GTA VI Guide - Database, Jason & Lucia, and State of Leonida | GTA MAPS",
+    "gta6GuiaDesc": "Interactive encyclopedia of GTA VI: Vice City districts, State of Leonida, Jason & Lucia analysis, trunk inventory, and mechanics."
   },
   "gta6Modal": {
     "title": "GTA VI — विकास में",
@@ -604,5 +691,125 @@
     "rateLimitMessage": "हमें आज के लिए आपके सुझाव पहले ही मिल चुके हैं। कृपया दूसरा सुझाव भेजने से पहले उनके संसाधित होने की प्रतीक्षा करें।",
     "close": "बंद करें",
     "sendAnother": "एक और सुझाव भेजें"
+  },
+  "guia": {
+    "nav": {
+      "modeStory": "स्टोरी",
+      "modeOnline": "ऑनलाइन",
+      "modeLabel": "मोड:",
+      "switchModeTitle": "स्टोरी गाइड और ऑनलाइन गाइड के बीच स्विच करें",
+      "alreadyOnGta5Guide": "आप पहले से ही GTA 5 गाइड पर हैं",
+      "alreadyOnGta6Guide": "आप पहले से ही GTA 6 गाइड पर हैं",
+      "gta6MapComingSoon": "GTA VI नक्शा (जल्द आ रहा है)",
+      "themeDay": "डे मोड में बदलें",
+      "themeNight": "नाइट मोड में बदलें",
+      "openNavMenu": "नेविगेशन मेनू खोलें",
+      "closeNavMenu": "मेनू बंद करें"
+    },
+    "sidebar": {
+      "contents": "सामग्री सूची",
+      "categories": "श्रेणियां",
+      "back": "वापस",
+      "backToCategories": "श्रेणी सूचकांक पर वापस जाएं",
+      "backToThemes": "थीम पर वापस जाएं",
+      "backToHeists": "डकैती सूची पर वापस जाएं",
+      "badgeThemes": "थीम",
+      "badgeMissions": "मिशन",
+      "badgePhases": "चरण",
+      "badgeMysteries": "रहस्य",
+      "badgeEvents": "घटनाएं",
+      "badgeChapters": "अध्याय",
+      "badgeTrophies": "ट्रॉफियां",
+      "badgeHeists": "डकैती",
+      "badgeVehicles": "वाहन",
+      "badgeBusinesses": "व्यवसाय",
+      "badgeCharacters": "पात्र",
+      "searchPlaceholderDefault": "आप क्या खोज रहे हैं? (उदा: Fleeca, Dave...)",
+      "searchPlaceholderVehicles": "वाहन खोजें...",
+      "clearSearch": "खोज साफ़ करें",
+      "noResults": "\"{{ query }}\" के लिए कोई परिणाम नहीं मिला"
+    },
+    "trophies": {
+      "kicker": "ट्रॉफियां (PS) · उपलब्धियां (XBOX)",
+      "title": "GTA V ट्रॉफियां",
+      "desc": "सभी {{ total }} ट्रॉफियों की पूरी सूची: प्रतिष्ठित प्लेटिनम, गोल्ड चुनौतियां, सिल्वर उपलब्धियां और स्टोरी मोड तथा GTA ऑनलाइन के लिए व्यापक कांस्य सूची।",
+      "all": "सभी ट्रॉफियां",
+      "platinum": "प्लेटिनम ट्रॉफी",
+      "gold": "गोल्ड ट्रॉफियां",
+      "silver": "सिल्वर ट्रॉफियां",
+      "bronze": "कांस्य ट्रॉफियां",
+      "badgePlatinum": "प्लेटिनम",
+      "badgeGold": "गोल्ड",
+      "badgeSilver": "सिल्वर",
+      "badgeBronze": "कांस्य",
+      "loading": "ट्रॉफियां लोड हो रही हैं...",
+      "empty": "इस फ़िल्टर के लिए कोई ट्रॉफी नहीं मिली।",
+      "groupTitle": "{{ tipo }} ट्रॉफियां",
+      "modes": {
+        "story": "स्टोरी",
+        "online": "ऑनलाइन",
+        "both": "दोनों"
+      },
+      "catalogTitle": "ट्रॉफी कैटलॉग"
+    },
+    "weapons": {
+      "title": "हथियार",
+      "ammuNationSpecs": "AMMU-NATION विनिर्देश",
+      "campaignUnlock": "अभियान अनलॉक",
+      "whoHasIt": "डिफ़ॉल्ट हथियार / मुफ़्त",
+      "mapLocation": "नक्शे पर स्थान",
+      "backToCategory": "{{ category }} पर वापस जाएं"
+    },
+    "vehicles": {
+      "title": "वाहन",
+      "dealersTitle": "डीलरशिप",
+      "backToDealers": "डीलरशिप सूची पर वापस जाएं"
+    },
+    "reader": {
+      "synopsisTitle": "मिशन सारांश",
+      "reward": "इनाम",
+      "unlockedAfter": "इसके बाद अनलॉक",
+      "goldMedalTitle": "गोल्ड मेडल उद्देश्य (100%)",
+      "backToChapters": "अध्यायों पर वापस जाएं",
+      "backToList": "सूची पर वापस जाएं",
+      "scrollToTop": "अध्याय की शुरुआत में जाएं",
+      "readingTime": "पढ़ने का समय: {{ minutes }} मिनट"
+    }
+  },
+  "videos": {
+    "navTitle": "VIDEOS",
+    "heroTag": "CLIPS & GAMEPLAY HIGHLIGHTS",
+    "heroTitle": "GTA 6 VIDEOS",
+    "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
+    "allFilter": "All Videos",
+    "filterNpc": "NPCs & AI Reactions",
+    "filterFauna": "Leonida Wildlife",
+    "filterPolicia": "Police & Pursuits",
+    "filterFisicas": "Physics & Curiosities",
+    "filterMundo": "Open World",
+    "featuredBadge": "FEATURED VIDEO",
+    "publishedOn": "Published on",
+    "atTime": "at",
+    "watchClip": "Watch video",
+    "backToList": "Back to all videos",
+    "noClips": "No videos available in this category currently."
+  },
+  "momentos": {
+    "navTitle": "MOMENTS",
+    "heroTag": "CLIPS & GAMEPLAY HIGHLIGHTS",
+    "heroTitle": "GTA 6 MOMENTS",
+    "heroDesc": "Audiovisual collection of curious situations, wildlife encounters, NPC reactions and stories across the open world of Leonida.",
+    "allFilter": "All Moments",
+    "filterNpc": "NPCs & AI Reactions",
+    "filterFauna": "Leonida Wildlife",
+    "filterPolicia": "Police & Pursuits",
+    "filterFisicas": "Physics & Curiosities",
+    "filterMundo": "Open World",
+    "featuredBadge": "FEATURED MOMENT",
+    "publishedOn": "Published on",
+    "atTime": "at",
+    "watchClip": "Watch clip",
+    "backToList": "Back to all moments",
+    "noClips": "No moments available in this category currently."
   }
 }

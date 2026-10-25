@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener, inject } from '@angular/core';
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
@@ -42,7 +42,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   renderedContent: SafeHtml = '';
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
-  private toastTimeout: any = null;
+  private toastTimeout: ReturnType<typeof setTimeout> | null = null;
 
   mobileNavOpen: boolean = false;
 
@@ -112,13 +112,13 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   private searchSub?: Subscription;
   private trofeosSub?: Subscription;
 
-  constructor(
-    private guiaService: GuiaService,
-    public cookieService: CookieService,
-    private titleService: Title,
-    private metaService: Meta,
-    private sanitizer: DomSanitizer
-  ) {
+  private readonly guiaService = inject(GuiaService);
+  public readonly cookieService = inject(CookieService);
+  private readonly titleService = inject(Title);
+  private readonly metaService = inject(Meta);
+  private readonly sanitizer = inject(DomSanitizer);
+
+  constructor() {
     this.weaponCounts$ = this.guiaService.getArmasGuiaOffline().pipe(
       map(weapons => {
         const counts: Record<string, number> = {};
@@ -1251,7 +1251,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.articuloSub = this.guiaService.getArticulo('gta5', articuloId).subscribe({
       next: (articulo) => {
         this.selectedArticulo = articulo;
-        this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '', articulo.id);
+        this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '');
         this.isLoadingArticulo = false;
       },
       error: (err) => {
@@ -1322,99 +1322,136 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     );
   }
 
-  private renderMarkdown(raw: string, articuloId?: string): SafeHtml {
+  private renderMarkdown(raw: string): SafeHtml {
     if (!raw) {
       return this.sanitizer.bypassSecurityTrustHtml('');
     }
 
+    const root = document.createElement('div');
     const lines = raw.split('\n');
-    const out: string[] = [];
-    let inList = false;
-    let framesInserted = false;
+    let currentList: HTMLUListElement | null = null;
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
 
-      const isSubBullet = /^\s{2,}[\*\-]\s+(.*)$/.test(line);
-      const isBullet = /^\s*[\*\-]\s+(.*)$/.test(line);
-      if (!isBullet && inList) {
-        out.push('</ul>');
-        inList = false;
+      const isSubBullet = /^\s{2,}[-*]\s+(.*)$/.test(line);
+      const isBullet = /^\s*[-*]\s+(.*)$/.test(line);
+      if (!isBullet && !line.startsWith('> ') && currentList) {
+        root.appendChild(currentList);
+        currentList = null;
       }
 
       if (line.startsWith('### ')) {
-        if (articuloId === 'prologo-introduccion-guia' && !framesInserted) {
-          out.push(`
-            <div class="gta5-protagonists-frames" aria-label="Protagonistas de GTA V">
-              <div class="gta5-protagonist-frame" aria-label="Michael De Santa"><img src="assets/images/gta5/guia/offline/personajes/Michael.png" alt="Michael De Santa" loading="lazy" /><span>Michael</span></div>
-              <div class="gta5-protagonist-frame" aria-label="Trevor Philips"><img src="assets/images/gta5/guia/offline/personajes/Trevor.png" alt="Trevor Philips" loading="lazy" /><span>Trevor</span></div>
-              <div class="gta5-protagonist-frame" aria-label="Franklin Clinton"><img src="assets/images/gta5/guia/offline/personajes/Franklin.png" alt="Franklin Clinton" loading="lazy" /><span>Franklin</span></div>
-            </div>
-          `);
-          framesInserted = true;
-        }
-
         const rawText = line.substring(4).trim();
         const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
-        const heading = this.formatInline(noEmoji);
-        out.push(`
-          <div class="guide-heading-divider">
-            <div class="guide-heading-line"></div>
-            <h3 class="guide-heading-title">${heading}</h3>
-            <div class="guide-heading-line guide-heading-line--right"></div>
-          </div>
-        `);
+        const divider = document.createElement('div');
+        divider.className = 'guide-heading-divider';
+        const leftLine = document.createElement('div');
+        leftLine.className = 'guide-heading-line';
+        const h3 = document.createElement('h3');
+        h3.className = 'guide-heading-title';
+        this.appendInline(h3, noEmoji);
+        const rightLine = document.createElement('div');
+        rightLine.className = 'guide-heading-line guide-heading-line--right';
+        divider.appendChild(leftLine);
+        divider.appendChild(h3);
+        divider.appendChild(rightLine);
+        root.appendChild(divider);
       } else if (line.startsWith('## ')) {
         const rawText = line.substring(3).trim();
         const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
-        const heading = this.formatInline(noEmoji);
-        out.push(`<h2 class="guide-h2">${heading}</h2>`);
+        const h2 = document.createElement('h2');
+        h2.className = 'guide-h2';
+        this.appendInline(h2, noEmoji);
+        root.appendChild(h2);
       } else if (line.startsWith('> ')) {
-        if (!inList) {
-          out.push('<ul class="guide-list">');
-          inList = true;
+        if (!currentList) {
+          currentList = document.createElement('ul');
+          currentList.className = 'guide-list';
         }
-        const text = this.formatInline(line.substring(2).trim());
-        out.push(`<li class="guide-list-item"><span class="guide-list-bullet">&#x203A;</span><span class="guide-list-text">${text}</span></li>`);
+        const li = document.createElement('li');
+        li.className = 'guide-list-item';
+        const bullet = document.createElement('span');
+        bullet.className = 'guide-list-bullet';
+        bullet.textContent = '\u203A';
+        const textSpan = document.createElement('span');
+        textSpan.className = 'guide-list-text';
+        this.appendInline(textSpan, line.substring(2).trim());
+        li.appendChild(bullet);
+        li.appendChild(textSpan);
+        currentList.appendChild(li);
       } else if (line.trim() === '---') {
         continue;
       } else if (isBullet) {
-        if (!inList) {
-          out.push('<ul class="guide-list">');
-          inList = true;
+        if (!currentList) {
+          currentList = document.createElement('ul');
+          currentList.className = 'guide-list';
         }
-        const match = line.match(/^\s*[\*\-]\s+(.*)$/);
-        const text = match ? this.formatInline(match[1]) : '';
-        const subClass = isSubBullet ? ' guide-list-subitem' : '';
-        out.push(`<li class="guide-list-item${subClass}"><span class="guide-list-bullet">&#x203A;</span><span class="guide-list-text">${text}</span></li>`);
+        const match = line.match(/^\s*[-*]\s+(.*)$/);
+        const li = document.createElement('li');
+        li.className = isSubBullet ? 'guide-list-item guide-list-subitem' : 'guide-list-item';
+        const bullet = document.createElement('span');
+        bullet.className = 'guide-list-bullet';
+        bullet.textContent = '\u203A';
+        const textSpan = document.createElement('span');
+        textSpan.className = 'guide-list-text';
+        if (match) {
+          this.appendInline(textSpan, match[1]);
+        }
+        li.appendChild(bullet);
+        li.appendChild(textSpan);
+        currentList.appendChild(li);
       } else if (line.trim().length > 0) {
-        const p = this.formatInline(line);
-        out.push(`<p class="guide-p">${p}</p>`);
+        const p = document.createElement('p');
+        p.className = 'guide-p';
+        this.appendInline(p, line);
+        root.appendChild(p);
       }
     }
 
-    if (inList) {
-      out.push('</ul>');
+    if (currentList) {
+      root.appendChild(currentList);
     }
 
-    return this.sanitizer.bypassSecurityTrustHtml(out.join('\n'));
+    return this.sanitizer.bypassSecurityTrustHtml(root.innerHTML);
   }
 
-  private escapeHtml(str: string): string {
-    return (str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+  private appendInline(parent: HTMLElement, text: string): void {
+    if (!text) return;
+    const tokenRegex = /(\*\*.*?\*\*|\*[^*]+\*|`[^`]+`)/g;
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+    while ((match = tokenRegex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        parent.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+      const token = match[0];
+      if (token.startsWith('**') && token.endsWith('**')) {
+        const strong = document.createElement('strong');
+        strong.className = 'guide-strong';
+        strong.textContent = token.slice(2, -2);
+        parent.appendChild(strong);
+      } else if (token.startsWith('*') && token.endsWith('*')) {
+        const em = document.createElement('em');
+        em.className = 'guide-em';
+        em.textContent = token.slice(1, -1);
+        parent.appendChild(em);
+      } else if (token.startsWith('`') && token.endsWith('`')) {
+        const code = document.createElement('span');
+        code.className = 'guide-chip-code';
+        code.textContent = token.slice(1, -1);
+        parent.appendChild(code);
+      }
+      lastIndex = tokenRegex.lastIndex;
+    }
+    if (lastIndex < text.length) {
+      parent.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
   }
 
-  private formatInline(text: string): string {
-    if (!text) return '';
-    const safeText = this.escapeHtml(text);
-    let formatted = safeText.replace(/\*\*(.*?)\*\*/g, '<strong class="guide-strong">$1</strong>');
-    formatted = formatted.replace(/\*([^*]+)\*/g, '<em class="guide-em">$1</em>');
-    formatted = formatted.replace(/`([^`]+)`/g, '<span class="guide-chip-code">$1</span>');
-    return formatted;
-  }
+  readonly protagonistas = [
+    { name: 'Michael', label: 'Michael De Santa', img: 'assets/images/gta5/guia/offline/personajes/Michael.png' },
+    { name: 'Trevor', label: 'Trevor Philips', img: 'assets/images/gta5/guia/offline/personajes/Trevor.png' },
+    { name: 'Franklin', label: 'Franklin Clinton', img: 'assets/images/gta5/guia/offline/personajes/Franklin.png' }
+  ] as const;
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnChanges, OnDestroy, SimpleChanges, effect } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, OnDestroy, SimpleChanges, effect, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GtaVehicle, DealerCategory } from '../../../models/gta5/vehicle';
 import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../../models/gta5/mission';
@@ -22,7 +22,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   @Input() gameMode: 'story' | 'online' = 'online';
   @Input() game: 'gta5' | 'gta6' = 'gta5';
   @Output() closeDrawer = new EventEmitter<void>();
-  @Output() locateOnMap = new EventEmitter<any>();
+  @Output() locateOnMap = new EventEmitter<GtaMystery>();
 
   // Subscripciones RxJS para evitar fugas y peticiones huérfanas
   private vehiclesSub?: Subscription;
@@ -182,12 +182,12 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   // Definición centralizada de concesionarios (extraída a vehiculos.config.ts)
   readonly dealers: DealerCategory[] = CONCESIONARIOS_GTA5;
 
-  constructor(
-    private vehicleService: VehicleService,
-    private missionService: MissionService,
-    private weaponService: WeaponService,
-    readonly translationService: TranslationService
-  ) {
+  private readonly vehicleService = inject(VehicleService);
+  private readonly missionService = inject(MissionService);
+  private readonly weaponService = inject(WeaponService);
+  readonly translationService = inject(TranslationService);
+
+  constructor() {
     effect(() => {
       // Reset cached values on language switch
       this.vehicleCache = {};
@@ -257,7 +257,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   get visibleDealers(): DealerCategory[] {
     if (this.game === 'gta6') {
       const isEs = (this.translationService.currentLang || 'es') === 'es';
-      return isEs ? (GTA6_DEALERS_ES as any) : (GTA6_DEALERS_EN as any);
+      return isEs ? (GTA6_DEALERS_ES as unknown as DealerCategory[]) : (GTA6_DEALERS_EN as unknown as DealerCategory[]);
     }
     if (this._cachedVisDealersKey !== this.gameMode) {
       this._cachedVisDealersKey = this.gameMode;
@@ -316,8 +316,10 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       if (this.selectedVehicleSort !== 'none') {
         const sortKey = this.selectedVehicleSort;
         list = [...list].sort((a, b) => {
-          const statA = (a as any)[sortKey] ?? 0;
-          const statB = (b as any)[sortKey] ?? 0;
+          const recA = a as unknown as Record<string, unknown>;
+          const recB = b as unknown as Record<string, unknown>;
+          const statA = typeof recA[sortKey] === 'number' ? (recA[sortKey] as number) : 0;
+          const statB = typeof recB[sortKey] === 'number' ? (recB[sortKey] as number) : 0;
           if (statB !== statA) {
             return statB - statA;
           }
@@ -1310,7 +1312,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     if (event) {
       event.stopPropagation();
     }
-    this.locateOnMap.emit(mission);
+    this.locateOnMap.emit(mission as unknown as GtaMystery);
   }
 
   getMysteryImage(m: GtaMystery | null | undefined): string {
@@ -1406,8 +1408,10 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       if (this.selectedWeaponSort !== 'none') {
         const sortKey = this.selectedWeaponSort;
         list = [...list].sort((a, b) => {
-          const statA = (a as any)[sortKey] ?? 0;
-          const statB = (b as any)[sortKey] ?? 0;
+          const recA = a as unknown as Record<string, unknown>;
+          const recB = b as unknown as Record<string, unknown>;
+          const statA = typeof recA[sortKey] === 'number' ? (recA[sortKey] as number) : 0;
+          const statB = typeof recB[sortKey] === 'number' ? (recB[sortKey] as number) : 0;
           if (statB !== statA) {
             return statB - statA;
           }

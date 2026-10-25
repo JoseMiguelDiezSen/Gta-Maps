@@ -47,9 +47,24 @@ public class GuiaArticulo : GuiaArticuloResumen
 {
     public string ContenidoMarkdown { get; set; } = string.Empty;
     public string? ImagenPrincipalUrl { get; set; }
+    public string? Sinopsis { get; set; }
+    public string? Recompensa { get; set; }
+    public string? DesbloqueadoTras { get; set; }
+    public string? Contacto { get; set; }
+    public string? Ubicacion { get; set; }
+    public List<string> Protagonistas { get; set; } = new();
+    public List<string> RequisitosOro { get; set; } = new();
+    public Dictionary<string, object>? DetallesTecnicos { get; set; }
     public List<string> Tags { get; set; } = new();
     public DateTime UltimaActualizacion { get; set; }
     public List<GuiaArticuloRelacionado> Relacionados { get; set; } = new();
+}
+
+public class GuiaRequisitoOro
+{
+    public string Titulo { get; set; } = string.Empty;
+    public string Descripcion { get; set; } = string.Empty;
+    public int? TiempoSegundos { get; set; }
 }
 
 public class GuiaArticuloRelacionado

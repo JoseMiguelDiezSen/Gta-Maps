@@ -19,7 +19,14 @@
     "story": "스토리 모드",
     "online": "온라인",
     "storyShort": "스",
-    "onlineShort": "온"
+    "onlineShort": "온",
+    "goToGuide": "Go to guide",
+    "switchToStory": "Switch to Story Mode",
+    "onlineActive": "GTA Online mode active",
+    "storyActive": "Story Mode active",
+    "switchToOnline": "Switch to GTA Online",
+    "goty5": "GOTY 5",
+    "goty6": "GOTY 6"
   },
   "home": {
     "chooseGame": "게임 선택",
@@ -33,7 +40,9 @@
     "onlineUsers": "온라인 사용자",
     "onlineUser": "온라인 사용자",
     "gta5GuiaBtn": "GTA 5 공략 가이드",
-    "gta6GuiaBtn": "GTA 6 공략 가이드"
+    "gta6GuiaBtn": "GTA 6 공략 가이드",
+    "gta6VideosBtn": "VIDEOS",
+    "gta6MomentosBtn": "MOMENTS"
   },
   "cookies": {
     "title": "개인정보 보호 설정",
@@ -57,7 +66,19 @@
     "closePolicy": "닫기",
     "policyTextP1": "GTA Maps는 사용자 경험을 최적화하고 인터페이스 설정을 유지하기 위해 쿠키를 사용합니다.",
     "policyTextP2": "필수 쿠키는 사이트 작동에 반드시 필요하며, 분석 및 환경설정 쿠키는 사용자의 동의 하에만 활성화됩니다.",
-    "policyTextP3": "하단 링크를 통해 언제든지 쿠키 설정을 변경하거나 동의를 철회할 수 있습니다."
+    "policyTextP3": "하단 링크를 통해 언제든지 쿠키 설정을 변경하거나 동의를 철회할 수 있습니다.",
+    "back": "Back",
+    "tableColName": "Name",
+    "tableColType": "Type",
+    "tableColPurpose": "Purpose",
+    "tableColDuration": "Duration",
+    "typeNecessary": "Necessary",
+    "typePreference": "Preference",
+    "descConsent": "Saves your cookie preferences locally",
+    "descLanguage": "Saves your preferred language (ES / EN)",
+    "descMapSettings": "Saves your active layers, filters, and zoom level",
+    "durationOneYear": "1 year",
+    "durationPersistent": "Persistent"
   },
   "gta5": {
     "hud": {
@@ -122,6 +143,7 @@
       "markers": "마커",
       "noMarkers": "표시할 마커가 없습니다",
       "locateMarker": "마커 위치 찾기",
+      "deleteAllMarkers": "모든 사용자 지정 마커 삭제",
       "gotyAssistant": "GOTY 어시스턴트",
       "enableGoty": "GOTY 어시스턴트 활성화"
     },
@@ -160,6 +182,7 @@
       "autoShop": "튜닝 샵",
       "agency": "사무소",
       "salvageYard": "폐차장",
+      "bailOffice": "보석금 집행 사무소 (바텀 달러)",
       "arenaWar": "아레나 워 워크샵",
       "ceoOffice": "CEO 오피스",
       "vehicleWarehouse": "차량 창고",
@@ -185,6 +208,10 @@
       "convenienceStoreShort": "편의점",
       "maskShop": "가면 상점",
       "maskShopShort": "가면",
+      "barber": "이발소",
+      "tattoo": "문신 시술소",
+      "clothingStore": "옷 가게",
+      "clothingStoreShort": "의류",
       "carWash": "세차장",
       "carWashShort": "세차장",
       "stripClub": "스트립 클럽",
@@ -270,6 +297,13 @@
       "toggleWildlife": "야생 동물 표시/숨기기",
       "toggleCollectibles": "수집품 표시/숨기기",
       "toggleStrangePlaces": "미스터리 장소 표시/숨기기"
+    },
+    "guia": {
+      "navBrandStory": "GTA V • 스토리 가이드",
+      "navBrandOnline": "GTA Online • 가이드",
+      "heroTitle": "GTA V • 인터랙티브 가이드 & 위키",
+      "heroDescStory": "로스 산토스와 블레인 카운티 100% 공략집: 메인 스토리 미션, 습격, 주식 시장 및 비밀.",
+      "heroDescOnline": "로스 산토스 온라인 완벽 가이드: 습격, 비즈니스 사업장, 무기화된 이동 수단 및 작전 전략."
     }
   },
   "gta6": {
@@ -278,7 +312,13 @@
       "inGameTime": "게임 내 시간",
       "launchTitle": "GTA VI 출시까지 남은 시간",
       "coordsDev": "개발자 좌표",
-      "panelTitle": "레오니다 컨트롤 패널"
+      "panelTitle": "레오니다 컨트롤 패널",
+      "inGameTimeTitle": "In-game time (Vice City)",
+      "expandPanel": "Click to expand Locations",
+      "collapsePanel": "Collapse panel",
+      "settingsTitle": "Settings",
+      "expandSettings": "Click to expand Settings",
+      "collapseSettings": "Collapse settings"
     },
     "canvasHelp": "지도를 드래그하여 이동하고 마우스 휠로 확대/축소하세요.",
     "categories": {
@@ -344,6 +384,43 @@
       "coupleDesc": "제이슨과 루시아는 범죄 도중 서로를 엄호할 수 있습니다.",
       "cctv": "보안 감시 카메라",
       "cctvDesc": "CCTV 카메라가 침입자를 감지하여 경찰을 호출합니다."
+    },
+    "contextMenu": {
+      "editMarker": "Edit name",
+      "deleteMarker": "Delete this marker",
+      "addMarker": "Add marker here",
+      "centerMap": "Center map here"
+    },
+    "popups": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "settings": {
+      "mapSelector": "Map Type",
+      "iconStyle": "Icon Style",
+      "markerTheme": "Theme",
+      "themeStandard": "Standard",
+      "themeClassic": "Classic",
+      "themeSimple": "Font Awesome",
+      "themeModern": "Neon",
+      "iconSize": "Icon Size",
+      "sizeCompact": "80%",
+      "sizeStandard": "100% (Default)",
+      "sizeLarge": "120%",
+      "police": "Police Mode",
+      "markers": "Markers",
+      "noMarkers": "No markers",
+      "locateMarker": "Locate marker",
+      "deleteAllMarkers": "Delete all",
+      "gotyAssistant": "GOTY Assistant",
+      "enableGoty": "Enable GOTY"
+    },
+    "guia": {
+      "navBrandStory": "GTA 6 - STORY",
+      "navBrandOnline": "GTA 6 - ONLINE",
+      "heroTitle": "VICE CITY & STATE OF LEONIDA",
+      "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -577,7 +654,17 @@
     "gta6OnlineTitle": "GTA VI 온라인 바이스 시티 울트라 HD 지도 (광고 없음) - 인터랙티브 가이드 | GTA MAPS",
     "gta6OnlineDesc": "바이스 시티와 레오니다를 탐험하는 차세대 GTA 6 온라인 100% 광고 없는 울트라 HD 지도. 주요 지점, 도로 및 최신 멀티플레이어 정보.",
     "gta6HistoriaTitle": "GTA VI 스토리 모드 지도 (광고 없음) - 바이스 시티 가이드, 제이슨 & 루시아 | GTA MAPS",
-    "gta6HistoriaDesc": "제이슨과 루시아와 함께하는 GTA VI 스토리 모드 광고 없는 지도. 바이스 시티 울트라 HD 탐험, 미션, 수집품 및 숨겨진 비밀."
+    "gta6HistoriaDesc": "제이슨과 루시아와 함께하는 GTA VI 스토리 모드 광고 없는 지도. 바이스 시티 울트라 HD 탐험, 미션, 수집품 및 숨겨진 비밀.",
+    "gta6NoticiasTitle": "GTA VI News & Updates - State of Leonida | GTA MAPS",
+    "gta6NoticiasDesc": "Latest news and updates for Grand Theft Auto VI and the State of Leonida.",
+    "gta6VideosTitle": "GTA VI Videos - Gameplay Clips & Highlights in Leonida | GTA MAPS",
+    "gta6VideosDesc": "Curated collection of short gameplay clips, videos, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta6MomentosTitle": "GTA VI Moments - Gameplay Clips & Situations in Leonida | GTA MAPS",
+    "gta6MomentosDesc": "Curated collection of unique moments, short gameplay clips, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta5GuiaTitle": "GTA V Guide - Story Mode: Main Missions, Strangers & Freaks, Mysteries & Trophies | GTA MAPS",
+    "gta5GuiaDesc": "Comprehensive GTA V guide and encyclopedia: 100% completion checklist, 6 tactical heists, stock market with Lester, characters, and Los Santos secrets.",
+    "gta6GuiaTitle": "GTA VI Guide - Database, Jason & Lucia, and State of Leonida | GTA MAPS",
+    "gta6GuiaDesc": "Interactive encyclopedia of GTA VI: Vice City districts, State of Leonida, Jason & Lucia analysis, trunk inventory, and mechanics."
   },
   "gta6Modal": {
     "title": "GTA VI — 개발 중",
@@ -604,5 +691,125 @@
     "rateLimitMessage": "오늘의 제안이 이미 접수되었습니다. 처리될 때까지 잠시 기다려 주세요.",
     "close": "닫기",
     "sendAnother": "다른 제안 보내기"
+  },
+  "guia": {
+    "nav": {
+      "modeStory": "스토리",
+      "modeOnline": "온라인",
+      "modeLabel": "모드:",
+      "switchModeTitle": "스토리 가이드와 온라인 가이드 간 전환",
+      "alreadyOnGta5Guide": "이미 GTA 5 가이드를 보고 있습니다",
+      "alreadyOnGta6Guide": "이미 GTA 6 가이드를 보고 있습니다",
+      "gta6MapComingSoon": "GTA VI 지도 (출시 예정)",
+      "themeDay": "주간 모드로 전환",
+      "themeNight": "야간 모드로 전환",
+      "openNavMenu": "탐색 메뉴 열기",
+      "closeNavMenu": "메뉴 닫기"
+    },
+    "sidebar": {
+      "contents": "목차",
+      "categories": "카테고리",
+      "back": "뒤로",
+      "backToCategories": "카테고리 목록으로 돌아가기",
+      "backToThemes": "테마 목록으로 돌아가기",
+      "backToHeists": "습격 목록으로 돌아가기",
+      "badgeThemes": "테마",
+      "badgeMissions": "미션",
+      "badgePhases": "단계",
+      "badgeMysteries": "미스터리",
+      "badgeEvents": "이벤트",
+      "badgeChapters": "챕터",
+      "badgeTrophies": "트로피",
+      "badgeHeists": "습격",
+      "badgeVehicles": "이동 수단",
+      "badgeBusinesses": "사업장",
+      "badgeCharacters": "등장인물",
+      "searchPlaceholderDefault": "무엇을 찾으시나요? (예: Fleeca, Dave...)",
+      "searchPlaceholderVehicles": "이동 수단 검색...",
+      "clearSearch": "검색 초기화",
+      "noResults": "\"{{ query }}\"에 대한 검색 결과가 없습니다"
+    },
+    "trophies": {
+      "kicker": "트로피 (PS) · 도전 과제 (XBOX)",
+      "title": "GTA V 트로피",
+      "desc": "총 {{ total }}개의 전체 트로피 목록: 탐나는 플래티넘, 골드 도전 과제, 실버 업적, 스토리 모드 및 GTA 온라인의 방대한 브론즈 목록.",
+      "all": "모든 트로피",
+      "platinum": "플래티넘 트로피",
+      "gold": "골드 트로피",
+      "silver": "실버 트로피",
+      "bronze": "브론즈 트로피",
+      "badgePlatinum": "플래티넘",
+      "badgeGold": "골드",
+      "badgeSilver": "실버",
+      "badgeBronze": "브론즈",
+      "loading": "트로피 불러오는 중...",
+      "empty": "해당 필터에 맞는 트로피가 없습니다.",
+      "groupTitle": "{{ tipo }} 트로피",
+      "modes": {
+        "story": "스토리",
+        "online": "온라인",
+        "both": "모두"
+      },
+      "catalogTitle": "트로피 카탈로그"
+    },
+    "weapons": {
+      "title": "무기",
+      "ammuNationSpecs": "아뮤네이션 제원 사양",
+      "campaignUnlock": "캠페인 해금 조건",
+      "whoHasIt": "기본 지급 / 무료",
+      "mapLocation": "지도 위치",
+      "backToCategory": "{{ category }}(으)로 돌아가기"
+    },
+    "vehicles": {
+      "title": "이동 수단",
+      "dealersTitle": "대리점",
+      "backToDealers": "대리점 목록으로 돌아가기"
+    },
+    "reader": {
+      "synopsisTitle": "미션 개요",
+      "reward": "보상",
+      "unlockedAfter": "해금 조건",
+      "goldMedalTitle": "골드 메달 달성 조건 (100%)",
+      "backToChapters": "챕터 목록으로 돌아가기",
+      "backToList": "목록으로 돌아가기",
+      "scrollToTop": "챕터 시작 부분으로",
+      "readingTime": "예상 읽기 시간: {{ minutes }}분"
+    }
+  },
+  "videos": {
+    "navTitle": "VIDEOS",
+    "heroTag": "CLIPS & GAMEPLAY HIGHLIGHTS",
+    "heroTitle": "GTA 6 VIDEOS",
+    "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
+    "allFilter": "All Videos",
+    "filterNpc": "NPCs & AI Reactions",
+    "filterFauna": "Leonida Wildlife",
+    "filterPolicia": "Police & Pursuits",
+    "filterFisicas": "Physics & Curiosities",
+    "filterMundo": "Open World",
+    "featuredBadge": "FEATURED VIDEO",
+    "publishedOn": "Published on",
+    "atTime": "at",
+    "watchClip": "Watch video",
+    "backToList": "Back to all videos",
+    "noClips": "No videos available in this category currently."
+  },
+  "momentos": {
+    "navTitle": "MOMENTS",
+    "heroTag": "CLIPS & GAMEPLAY HIGHLIGHTS",
+    "heroTitle": "GTA 6 MOMENTS",
+    "heroDesc": "Audiovisual collection of curious situations, wildlife encounters, NPC reactions and stories across the open world of Leonida.",
+    "allFilter": "All Moments",
+    "filterNpc": "NPCs & AI Reactions",
+    "filterFauna": "Leonida Wildlife",
+    "filterPolicia": "Police & Pursuits",
+    "filterFisicas": "Physics & Curiosities",
+    "filterMundo": "Open World",
+    "featuredBadge": "FEATURED MOMENT",
+    "publishedOn": "Published on",
+    "atTime": "at",
+    "watchClip": "Watch clip",
+    "backToList": "Back to all moments",
+    "noClips": "No moments available in this category currently."
   }
 }

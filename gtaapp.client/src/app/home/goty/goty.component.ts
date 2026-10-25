@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked, HostListener, effect } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener, effect, inject } from '@angular/core';
 import { GotyService } from '../../services/goty.service';
 import { TranslationService } from '../../i18n';
 import { GotyMessage } from '../../models/gta5/goty';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./goty.component.css'],
   standalone: false
 })
-export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class GotyComponent implements OnInit, OnDestroy {
   @ViewChild('scrollContainer') private scrollContainer?: ElementRef;
 
   isOpen = false;
@@ -28,7 +28,7 @@ export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
   private initialTop = 0;
   private initialLeft = 0;
 
-  private timers: any[] = [];
+  private timers: ReturnType<typeof setTimeout>[] = [];
   private replySub?: Subscription;
 
   private static readonly SUBTITLES: Record<string, string> = {
@@ -63,10 +63,10 @@ export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
     ko: { placeholder: (b) => `${b}에게 질문...`, talk: (b) => `${b}와 대화하기`, send: '메시지 전송', close: '채팅 닫기' }
   };
 
-  constructor(
-    public gotyService: GotyService,
-    private translationService: TranslationService
-  ) {
+  public readonly gotyService = inject(GotyService);
+  private readonly translationService = inject(TranslationService);
+
+  constructor() {
     effect(() => {
       this.translationService.currentLanguage();
       this.loadWelcomeMessage();
@@ -162,8 +162,6 @@ export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
   }
 
-  ngAfterViewChecked(): void {}
-
   get avatarSrc(): string {
     return '/assets/images/goty/goty.webp';
   }
@@ -254,19 +252,36 @@ export class GotyComponent implements OnInit, OnDestroy, AfterViewChecked {
     if (this.scrollContainer) {
       try {
         this.scrollContainer.nativeElement.scrollTop = this.scrollContainer.nativeElement.scrollHeight;
-      } catch (err) {}
+      } catch {
+        // Ignorar error de scroll
+      }
     }
   }
 
   formatMarkdown(text: string): string {
     if (!text) return '';
-    const escaped = text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-    const withBold = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    return withBold.replace(/\n/g, '<br>');
+    const root = document.createElement('div');
+    const lines = text.split('\n');
+    lines.forEach((line, lineIdx) => {
+      if (lineIdx > 0) {
+        root.appendChild(document.createElement('br'));
+      }
+      const boldRegex = /\*\*(.*?)\*\*/g;
+      let lastIndex = 0;
+      let match: RegExpExecArray | null;
+      while ((match = boldRegex.exec(line)) !== null) {
+        if (match.index > lastIndex) {
+          root.appendChild(document.createTextNode(line.slice(lastIndex, match.index)));
+        }
+        const strong = document.createElement('strong');
+        strong.textContent = match[1];
+        root.appendChild(strong);
+        lastIndex = boldRegex.lastIndex;
+      }
+      if (lastIndex < line.length) {
+        root.appendChild(document.createTextNode(line.slice(lastIndex)));
+      }
+    });
+    return root.innerHTML;
   }
 }

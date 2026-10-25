@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SeoService } from './services/seo.service';
 
 @Component({
@@ -8,5 +8,5 @@ import { SeoService } from './services/seo.service';
     standalone: false
 })
 export class AppComponent {
-    constructor(private seoService: SeoService) {}
+    private readonly seoService = inject(SeoService);
 }

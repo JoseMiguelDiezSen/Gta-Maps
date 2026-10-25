@@ -192,7 +192,7 @@ function analyzeJsonFiles() {
   const largestFiles = Object.entries(fileMetrics)
     .map(([file, meta]) => ({ file, ...meta }))
     .sort((a, b) => b.sizeBytes - a.sizeBytes)
-    .slice(0, 35);
+    .slice(0, 75);
 
   return {
     totalFiles: jsonFiles.length,

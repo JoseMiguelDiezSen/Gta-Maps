@@ -1,6 +1,6 @@
 <!-- BANNER PRINCIPAL DE COOKIES -->
+@if (cookieService.isBannerVisible()) {
 <div
-  *ngIf="cookieService.isBannerVisible()"
   class="cookie-banner-wrapper"
   role="dialog"
   aria-live="polite"
@@ -25,15 +25,16 @@
         </div>
       </div>
 
-      <button
-        *ngIf="cookieService.hasConsented()"
-        type="button"
-        class="cookie-close-x"
-        (click)="cookieService.closeBanner()"
-        aria-label="Cerrar"
-      >
-        ✕
-      </button>
+      @if (cookieService.hasConsented()) {
+        <button
+          type="button"
+          class="cookie-close-x"
+          (click)="cookieService.closeBanner()"
+          [attr.aria-label]="'common.close' | translate"
+        >
+          ✕
+        </button>
+      }
     </div>
 
     <!-- DESCRIPCIÓN CONCISA -->
@@ -45,7 +46,8 @@
     </p>
 
     <!-- PANEL DE CONFIGURACIÓN DETALLADA (EXPANDIBLE) -->
-    <div class="cookie-config-panel" *ngIf="isConfiguring()">
+    @if (isConfiguring()) {
+    <div class="cookie-config-panel">
       <!-- CATEGORÍA: NECESARIAS -->
       <div class="cookie-category-item">
         <div class="cookie-category-info">
@@ -103,10 +105,11 @@
         </div>
       </div>
     </div>
+    }
 
     <!-- BOTONES DE ACCIÓN -->
     <div class="cookie-banner-actions">
-      <ng-container *ngIf="!isConfiguring()">
+      @if (!isConfiguring()) {
         <button type="button" class="cookie-btn cookie-btn-accept" (click)="onAcceptAll()">
           {{ 'cookies.acceptAll' | translate }}
         </button>
@@ -116,9 +119,7 @@
         <button type="button" class="cookie-btn cookie-btn-config" (click)="toggleConfigure()">
           ⚙️ {{ 'cookies.configure' | translate }}
         </button>
-      </ng-container>
-
-      <ng-container *ngIf="isConfiguring()">
+      } @else {
         <button type="button" class="cookie-btn cookie-btn-accept" (click)="saveConfig()">
           ✓ {{ 'cookies.saveSelection' | translate }}
         </button>
@@ -126,15 +127,17 @@
           {{ 'cookies.acceptAll' | translate }}
         </button>
         <button type="button" class="cookie-btn cookie-btn-back" (click)="toggleConfigure()">
-          Volver
+          {{ 'cookies.back' | translate }}
         </button>
-      </ng-container>
+      }
     </div>
   </div>
 </div>
+}
 
 <!-- MODAL DE POLÍTICA DE COOKIES Y PRIVACIDAD -->
-<div class="cookie-modal-backdrop" *ngIf="showPolicyModal()" (click)="closePolicy()">
+@if (showPolicyModal()) {
+<div class="cookie-modal-backdrop" (click)="closePolicy()">
   <div class="cookie-modal-content" (click)="$event.stopPropagation()">
     <div class="cookie-modal-header">
       <h3 class="cookie-modal-title">🛡️ {{ 'cookies.policyModalTitle' | translate }}</h3>
@@ -147,28 +150,28 @@
 
       <div class="cookie-policy-table">
         <div class="cookie-policy-row header-row">
-          <span>Nombre</span>
-          <span>Tipo</span>
-          <span>Finalidad</span>
-          <span>Duración</span>
+          <span>{{ 'cookies.tableColName' | translate }}</span>
+          <span>{{ 'cookies.tableColType' | translate }}</span>
+          <span>{{ 'cookies.tableColPurpose' | translate }}</span>
+          <span>{{ 'cookies.tableColDuration' | translate }}</span>
         </div>
         <div class="cookie-policy-row">
           <code>gtaapp_cookie_consent_v1</code>
-          <span class="type-tag essential">Necesaria</span>
-          <span>Guarda tus preferencias de cookies de forma local</span>
-          <span>1 año</span>
+          <span class="type-tag essential">{{ 'cookies.typeNecessary' | translate }}</span>
+          <span>{{ 'cookies.descConsent' | translate }}</span>
+          <span>{{ 'cookies.durationOneYear' | translate }}</span>
         </div>
         <div class="cookie-policy-row">
           <code>gtaapp_language</code>
-          <span class="type-tag essential">Necesaria</span>
-          <span>Guarda tu idioma preferido (ES / EN)</span>
-          <span>1 año</span>
+          <span class="type-tag essential">{{ 'cookies.typeNecessary' | translate }}</span>
+          <span>{{ 'cookies.descLanguage' | translate }}</span>
+          <span>{{ 'cookies.durationOneYear' | translate }}</span>
         </div>
         <div class="cookie-policy-row">
           <code>gta5_map_settings</code>
-          <span class="type-tag pref">Preferencia</span>
-          <span>Guarda tus capas activas, filtros y nivel de zoom</span>
-          <span>Persistente</span>
+          <span class="type-tag pref">{{ 'cookies.typePreference' | translate }}</span>
+          <span>{{ 'cookies.descMapSettings' | translate }}</span>
+          <span>{{ 'cookies.durationPersistent' | translate }}</span>
         </div>
       </div>
     </div>
@@ -179,3 +182,4 @@
     </div>
   </div>
 </div>
+}

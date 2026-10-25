@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { VideoItem, CategoriaFiltroVideo, CategoriaVideo } from '../../models/gta6';
@@ -16,7 +16,7 @@ export class Gta6VideosComponent implements OnInit, OnDestroy {
   readonly isDevAllowed: boolean = isDevAccessAllowed();
   mobileNavOpen: boolean = false;
   toastMessage: string | null = null;
-  private toastTimeout: any = null;
+  private toastTimeout: ReturnType<typeof setTimeout> | null = null;
   themeMode: 'night' | 'day' = 'night';
   categoriaSeleccionada: CategoriaVideo = 'todas';
   videoSeleccionado: VideoItem | null = null;
@@ -34,12 +34,12 @@ export class Gta6VideosComponent implements OnInit, OnDestroy {
     { id: 'mundo', label: 'Mundo Abierto', icono: 'fa-solid fa-earth-americas' }
   ];
 
-  constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private videosService: VideosGta6Service,
-    public cookieService: CookieService
-  ) {}
+  private readonly titleService = inject(Title);
+  private readonly metaService = inject(Meta);
+  private readonly videosService = inject(VideosGta6Service);
+  public readonly cookieService = inject(CookieService);
+
+  constructor() {}
 
   ngOnInit(): void {
     this.cargarVideos();

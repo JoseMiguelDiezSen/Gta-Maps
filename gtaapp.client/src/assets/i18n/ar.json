@@ -19,7 +19,14 @@
     "story": "القصة",
     "online": "أونلاين",
     "storyShort": "ق",
-    "onlineShort": "أ"
+    "onlineShort": "أ",
+    "goToGuide": "Go to guide",
+    "switchToStory": "Switch to Story Mode",
+    "onlineActive": "GTA Online mode active",
+    "storyActive": "Story Mode active",
+    "switchToOnline": "Switch to GTA Online",
+    "goty5": "GOTY 5",
+    "goty6": "GOTY 6"
   },
   "home": {
     "chooseGame": "اختر اللعبة",
@@ -33,7 +40,9 @@
     "onlineUsers": "مستخدمون متصلون",
     "onlineUser": "مستخدم متصل",
     "gta5GuiaBtn": "دليل GTA 5",
-    "gta6GuiaBtn": "دليل GTA 6"
+    "gta6GuiaBtn": "دليل GTA 6",
+    "gta6VideosBtn": "VIDEOS",
+    "gta6MomentosBtn": "MOMENTS"
   },
   "cookies": {
     "title": "الخصوصية وملفات تعريف الارتباط",
@@ -57,7 +66,19 @@
     "closePolicy": "فهمت",
     "policyTextP1": "في GTA Maps نحترم خصوصيتك. نحن لا نبيع بياناتك ولا نقوم بأي تتبع إعلاني.",
     "policyTextP2": "تضمن ملفات تعريف الارتباط الضرورية عمل عداد المتصلين وحفظ تفضيلات اللغة الخاصة بك.",
-    "policyTextP3": "يمكنك تعديل أو إلغاء موافقتك في أي وقت عبر أيقونة الإعدادات."
+    "policyTextP3": "يمكنك تعديل أو إلغاء موافقتك في أي وقت عبر أيقونة الإعدادات.",
+    "back": "Back",
+    "tableColName": "Name",
+    "tableColType": "Type",
+    "tableColPurpose": "Purpose",
+    "tableColDuration": "Duration",
+    "typeNecessary": "Necessary",
+    "typePreference": "Preference",
+    "descConsent": "Saves your cookie preferences locally",
+    "descLanguage": "Saves your preferred language (ES / EN)",
+    "descMapSettings": "Saves your active layers, filters, and zoom level",
+    "durationOneYear": "1 year",
+    "durationPersistent": "Persistent"
   },
   "gta5": {
     "hud": {
@@ -122,6 +143,7 @@
       "markers": "العلامات",
       "noMarkers": "لا توجد علامات",
       "locateMarker": "تحديد موقع العلامة",
+      "deleteAllMarkers": "حذف جميع العلامات المخصصة",
       "gotyAssistant": "مساعد GOTY",
       "enableGoty": "تفعيل GOTY"
     },
@@ -160,6 +182,7 @@
       "autoShop": "ورش تعديل السيارات (Tuners)",
       "agency": "وكالات (The Contract)",
       "salvageYard": "ساحات الخردة (The Chop Shop)",
+      "bailOffice": "مكتب إنفاذ الكفالات (Bottom Dollar)",
       "arenaWar": "ورشة أرينا (Arena War)",
       "ceoOffice": "مكاتب الرؤساء التنفيذيين (CEO)",
       "vehicleWarehouse": "مستودعات المركبات (I/E)",
@@ -185,6 +208,10 @@
       "convenienceStoreShort": "متاجر 24/7",
       "maskShop": "متجر الأقنعة (الشاطئ)",
       "maskShopShort": "متجر الأقنعة",
+      "barber": "صالون حلاقة",
+      "tattoo": "استوديو وشم",
+      "clothingStore": "متجر ملابس",
+      "clothingStoreShort": "ملابس",
       "carWash": "محطات غسيل السيارات",
       "carWashShort": "غسيل سيارات",
       "stripClub": "Vanilla Unicorn (نادي)",
@@ -270,6 +297,13 @@
       "toggleWildlife": "تفعيل أو تعطيل الحياة البرية",
       "toggleCollectibles": "تفعيل أو تعطيل جميع المقتنيات",
       "toggleStrangePlaces": "تفعيل أو تعطيل جميع الأماكن الغامضة"
+    },
+    "guia": {
+      "navBrandStory": "GTA V • دليل القصة",
+      "navBrandOnline": "GTA Online • الدليل",
+      "heroTitle": "GTA V • الدليل التفاعلي والموسوعة",
+      "heroDescStory": "دليل إرشادي شامل بنسبة 100% للوس سانتوس ومقاطعة بلين: مهام القصة الرئيسية، السرقات، سوق الأسهم والأسرار.",
+      "heroDescOnline": "الدليل النهائي للوس سانتوس أونلاين: السرقات، المشاريع التجارية، المركبات المسلحة والاستراتيجيات الميدانية."
     }
   },
   "gta6": {
@@ -278,7 +312,13 @@
       "inGameTime": "توقيت اللعبة",
       "launchTitle": "إطلاق GTA VI",
       "coordsDev": "انقر لنسخ الإحداثيات",
-      "panelTitle": "المواقع"
+      "panelTitle": "المواقع",
+      "inGameTimeTitle": "In-game time (Vice City)",
+      "expandPanel": "Click to expand Locations",
+      "collapsePanel": "Collapse panel",
+      "settingsTitle": "Settings",
+      "expandSettings": "Click to expand Settings",
+      "collapseSettings": "Collapse settings"
     },
     "canvasHelp": "عجلة الفأرة للتكبير/التصغير، اسحب للتحريك",
     "categories": {
@@ -344,6 +384,43 @@
       "coupleDesc": "الشرطة تبحث عن رجل وامرأة",
       "cctv": "تم الرصد بواسطة كاميرات المراقبة",
       "cctvDesc": "رصدتك كاميرات المراقبة الأمنية"
+    },
+    "contextMenu": {
+      "editMarker": "Edit name",
+      "deleteMarker": "Delete this marker",
+      "addMarker": "Add marker here",
+      "centerMap": "Center map here"
+    },
+    "popups": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "settings": {
+      "mapSelector": "Map Type",
+      "iconStyle": "Icon Style",
+      "markerTheme": "Theme",
+      "themeStandard": "Standard",
+      "themeClassic": "Classic",
+      "themeSimple": "Font Awesome",
+      "themeModern": "Neon",
+      "iconSize": "Icon Size",
+      "sizeCompact": "80%",
+      "sizeStandard": "100% (Default)",
+      "sizeLarge": "120%",
+      "police": "Police Mode",
+      "markers": "Markers",
+      "noMarkers": "No markers",
+      "locateMarker": "Locate marker",
+      "deleteAllMarkers": "Delete all",
+      "gotyAssistant": "GOTY Assistant",
+      "enableGoty": "Enable GOTY"
+    },
+    "guia": {
+      "navBrandStory": "GTA 6 - STORY",
+      "navBrandOnline": "GTA 6 - ONLINE",
+      "heroTitle": "VICE CITY & STATE OF LEONIDA",
+      "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -577,7 +654,17 @@
     "gta6OnlineTitle": "خريطة GTA VI Online فايس سيتي بدقة Ultra HD (بدون إعلانات) - الدليل التفاعلي | GTA MAPS",
     "gta6OnlineDesc": "أول خريطة تفاعلية بدقة Ultra HD لـ GTA 6 Online في فايس سيتي وليونيدا 100% بدون إعلانات. نقاط الاهتمام، الطرق، المواقع وأحدث الميزات.",
     "gta6HistoriaTitle": "خريطة قصة GTA VI بدون إعلانات - دليل فايس سيتي وجيسون ولوسيا | GTA MAPS",
-    "gta6HistoriaDesc": "خريطة تفاعلية لنمط القصة في GTA VI بدون إعلانات مع جيسون ولوسيا. استكشاف فايس سيتي بدقة Ultra HD مع المهمات والمقتنيات والأسرار."
+    "gta6HistoriaDesc": "خريطة تفاعلية لنمط القصة في GTA VI بدون إعلانات مع جيسون ولوسيا. استكشاف فايس سيتي بدقة Ultra HD مع المهمات والمقتنيات والأسرار.",
+    "gta6NoticiasTitle": "GTA VI News & Updates - State of Leonida | GTA MAPS",
+    "gta6NoticiasDesc": "Latest news and updates for Grand Theft Auto VI and the State of Leonida.",
+    "gta6VideosTitle": "GTA VI Videos - Gameplay Clips & Highlights in Leonida | GTA MAPS",
+    "gta6VideosDesc": "Curated collection of short gameplay clips, videos, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta6MomentosTitle": "GTA VI Moments - Gameplay Clips & Situations in Leonida | GTA MAPS",
+    "gta6MomentosDesc": "Curated collection of unique moments, short gameplay clips, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta5GuiaTitle": "GTA V Guide - Story Mode: Main Missions, Strangers & Freaks, Mysteries & Trophies | GTA MAPS",
+    "gta5GuiaDesc": "Comprehensive GTA V guide and encyclopedia: 100% completion checklist, 6 tactical heists, stock market with Lester, characters, and Los Santos secrets.",
+    "gta6GuiaTitle": "GTA VI Guide - Database, Jason & Lucia, and State of Leonida | GTA MAPS",
+    "gta6GuiaDesc": "Interactive encyclopedia of GTA VI: Vice City districts, State of Leonida, Jason & Lucia analysis, trunk inventory, and mechanics."
   },
   "gta6Modal": {
     "title": "GTA VI — قيد التطوير",
@@ -604,5 +691,125 @@
     "rateLimitMessage": "لقد تلقينا اقتراحاتك لهذا اليوم بالفعل. يرجى الانتظار حتى تتم معالجتها قبل إرسال اقتراح آخر.",
     "close": "إغلاق",
     "sendAnother": "إرسال اقتراح آخر"
+  },
+  "guia": {
+    "nav": {
+      "modeStory": "القصة",
+      "modeOnline": "أونلاين",
+      "modeLabel": "الوضع:",
+      "switchModeTitle": "التبديل بين دليل القصة ودليل أونلاين",
+      "alreadyOnGta5Guide": "أنت بالفعل في دليل GTA 5",
+      "alreadyOnGta6Guide": "أنت بالفعل في دليل GTA 6",
+      "gta6MapComingSoon": "خريطة GTA VI (قريباً)",
+      "themeDay": "التبديل إلى الوضع النهاري",
+      "themeNight": "التبديل إلى الوضع الليلي",
+      "openNavMenu": "فتح قائمة التنقل",
+      "closeNavMenu": "إغلاق القائمة"
+    },
+    "sidebar": {
+      "contents": "المحتويات",
+      "categories": "الفئات",
+      "back": "رجوع",
+      "backToCategories": "العودة إلى فهرس الفئات",
+      "backToThemes": "العودة إلى المواضيع",
+      "backToHeists": "العودة إلى قائمة السرقات",
+      "badgeThemes": "مواضيع",
+      "badgeMissions": "مهام",
+      "badgePhases": "مراحل",
+      "badgeMysteries": "أسرار",
+      "badgeEvents": "أحداث",
+      "badgeChapters": "فصول",
+      "badgeTrophies": "جوائز",
+      "badgeHeists": "سرقات",
+      "badgeVehicles": "مركبات",
+      "badgeBusinesses": "مشاريع",
+      "badgeCharacters": "شخصيات",
+      "searchPlaceholderDefault": "عن ماذا تبحث؟ (مثال: Fleeca، Dave...)",
+      "searchPlaceholderVehicles": "بحث عن مركبة...",
+      "clearSearch": "مسح البحث",
+      "noResults": "لم يتم العثور على نتائج لـ \"{{ query }}\""
+    },
+    "trophies": {
+      "kicker": "الجوائز (PS) · الإنجازات (XBOX)",
+      "title": "جوائز GTA V",
+      "desc": "قائمة كاملة بجميع الجوائز البالغ عددها {{ total }}: البلاتين المرغوب، وتحديات الذهب، وإنجازات الفضة، وقائمة البرونز الشاملة لطور القصة وGTA أونلاين.",
+      "all": "جميع الجوائز",
+      "platinum": "جائزة بلاتينية",
+      "gold": "جوائز ذهبية",
+      "silver": "جوائز فضية",
+      "bronze": "جوائز برونزية",
+      "badgePlatinum": "بلاتين",
+      "badgeGold": "ذهب",
+      "badgeSilver": "فضة",
+      "badgeBronze": "برونز",
+      "loading": "جار تحميل الجوائز...",
+      "empty": "لم يتم العثور على جوائز لهذا الفلتر.",
+      "groupTitle": "جوائز {{ tipo }}",
+      "modes": {
+        "story": "القصة",
+        "online": "أونلاين",
+        "both": "كلاهما"
+      },
+      "catalogTitle": "كتالوج الجوائز"
+    },
+    "weapons": {
+      "title": "الأسلحة",
+      "ammuNationSpecs": "مواصفات متجر AMMU-NATION",
+      "campaignUnlock": "الفتح في الحملة",
+      "whoHasIt": "سلاح افتراضي / مجاني",
+      "mapLocation": "الموقع على الخريطة",
+      "backToCategory": "العودة إلى {{ category }}"
+    },
+    "vehicles": {
+      "title": "المركبات",
+      "dealersTitle": "معارض السيارات",
+      "backToDealers": "العودة إلى قائمة المعارض"
+    },
+    "reader": {
+      "synopsisTitle": "ملخص المهمة",
+      "reward": "المكافأة",
+      "unlockedAfter": "يفتح بعد",
+      "goldMedalTitle": "أهداف الميدالية الذهبية (100%)",
+      "backToChapters": "العودة إلى الفصول",
+      "backToList": "العودة إلى القائمة",
+      "scrollToTop": "العودة إلى بداية الفصل",
+      "readingTime": "وقت القراءة: {{ minutes }} دقيقة"
+    }
+  },
+  "videos": {
+    "navTitle": "VIDEOS",
+    "heroTag": "CLIPS & GAMEPLAY HIGHLIGHTS",
+    "heroTitle": "GTA 6 VIDEOS",
+    "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
+    "allFilter": "All Videos",
+    "filterNpc": "NPCs & AI Reactions",
+    "filterFauna": "Leonida Wildlife",
+    "filterPolicia": "Police & Pursuits",
+    "filterFisicas": "Physics & Curiosities",
+    "filterMundo": "Open World",
+    "featuredBadge": "FEATURED VIDEO",
+    "publishedOn": "Published on",
+    "atTime": "at",
+    "watchClip": "Watch video",
+    "backToList": "Back to all videos",
+    "noClips": "No videos available in this category currently."
+  },
+  "momentos": {
+    "navTitle": "MOMENTS",
+    "heroTag": "CLIPS & GAMEPLAY HIGHLIGHTS",
+    "heroTitle": "GTA 6 MOMENTS",
+    "heroDesc": "Audiovisual collection of curious situations, wildlife encounters, NPC reactions and stories across the open world of Leonida.",
+    "allFilter": "All Moments",
+    "filterNpc": "NPCs & AI Reactions",
+    "filterFauna": "Leonida Wildlife",
+    "filterPolicia": "Police & Pursuits",
+    "filterFisicas": "Physics & Curiosities",
+    "filterMundo": "Open World",
+    "featuredBadge": "FEATURED MOMENT",
+    "publishedOn": "Published on",
+    "atTime": "at",
+    "watchClip": "Watch clip",
+    "backToList": "Back to all moments",
+    "noClips": "No moments available in this category currently."
   }
 }

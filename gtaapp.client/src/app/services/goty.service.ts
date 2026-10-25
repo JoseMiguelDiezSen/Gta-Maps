@@ -1,4 +1,4 @@
-import { Injectable, isDevMode } from '@angular/core';
+import { Injectable, isDevMode, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, forkJoin, catchError, map } from 'rxjs';
 import { GotyMessage, GotyGameMode } from '../models/gta5/goty';
@@ -135,10 +135,10 @@ export class GotyService {
     }
   };
 
-  constructor(
-    private http: HttpClient,
-    private translationService: TranslationService
-  ) {
+  private readonly http = inject(HttpClient);
+  private readonly translationService = inject(TranslationService);
+
+  constructor() {
     const saved = localStorage.getItem('goty_bot_enabled');
     if (saved !== null) {
       this.isBotEnabled = saved === 'true';
@@ -327,7 +327,7 @@ export class GotyService {
           bestIntent = intents.find(i => i.id === 'default') || null;
         }
 
-        let defaultFallback = lang === 'en'
+        const defaultFallback = lang === 'en'
           ? 'My backup brain is ready. What do you need on the map?'
           : 'Mi cerebro de reserva está listo. Dime qué necesitas.';
 

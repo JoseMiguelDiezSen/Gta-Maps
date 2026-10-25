@@ -9,7 +9,11 @@
     "test": "ng test",
     "prestart": "node aspnetcore-https",
     "start:windows": "ng serve --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\" --host=127.0.0.1",
-    "start:default": "ng serve --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\" --host=127.0.0.1"
+    "start:default": "ng serve --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\" --host=127.0.0.1",
+    "lint": "eslint src/",
+    "quality": "node ../quality/audit-runner.mjs",
+    "quality:dashboard": "node ../quality/dashboard-server.mjs",
+    "quality:watch": "node ../quality/watch-runner.mjs"
   },
   "private": true,
   "engines": {
@@ -34,9 +38,13 @@
     "@angular/build": "^20.3.40",
     "@angular/cli": "~20.3.40",
     "@angular/compiler-cli": "^20.3.34",
+    "@eslint/js": "^10.0.1",
     "@types/jasmine": "^7.0.0",
     "@types/leaflet": "^1.9.22",
+    "angular-eslint": "^22.6.0",
+    "eslint": "^10.13.0",
     "run-script-os": "^1.1.6",
-    "typescript": "~5.8.3"
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.72.0"
   }
 }

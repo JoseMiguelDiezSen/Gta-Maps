@@ -138,7 +138,7 @@ const routes: Routes = [
 
     // Redirecciones por compatibilidad
     { path: 'gta6-guia',      redirectTo: '/gta6-guia-offline', pathMatch: 'full' },
-    { path: 'gta5-guia',      redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
+    { path: 'gta5-guia',      redirectTo: '/gta5-guia-online', pathMatch: 'full' },
     { path: 'gta6-momentos', redirectTo: '/gta6-videos', pathMatch: 'full' },
     { path: 'gta6-noticias', redirectTo: '/gta6-videos', pathMatch: 'full' },
     { path: 'noticias',      redirectTo: '/gta6-videos', pathMatch: 'full' },
@@ -155,8 +155,8 @@ const routes: Routes = [
     { path: 'gta5/online',   redirectTo: '/gta5-map-online', pathMatch: 'full' },
     { path: 'gta5/historia', redirectTo: '/gta5-map-offline', pathMatch: 'full' },
     { path: 'gta5historia',  redirectTo: '/gta5-map-offline', pathMatch: 'full' },
-    { path: 'gta5/guia',     redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
-    { path: 'gta5/guia/offline', redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
+    { path: 'gta5/guia',     redirectTo: '/gta5-guia-online', pathMatch: 'full' },
+    { path: 'gta5/guia/offline', redirectTo: '/gta5-guia-online', pathMatch: 'full' },
     { path: 'gta5/guia/online',  redirectTo: '/gta5-guia-online', pathMatch: 'full' },
     { path: 'gta5guia',      redirectTo: '/gta5-guia', pathMatch: 'full' },
     { path: 'gt5',           redirectTo: '/gta5-map-online', pathMatch: 'full' },

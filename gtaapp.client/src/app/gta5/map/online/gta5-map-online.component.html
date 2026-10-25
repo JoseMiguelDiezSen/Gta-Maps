@@ -8,15 +8,15 @@
   <div id="gta-map"></div>
 
   <!-- MENU CONTEXTUAL (click derecho sobre el mapa o marcador) -->
+  @if (ctxOpen) {
   <div
     class="hud-ctx"
-    *ngIf="ctxOpen"
     [style.left.px]="ctxX"
     [style.top.px]="ctxY"
     (click)="$event.stopPropagation()"
   >
     <!-- Opciones específicas cuando se hace clic derecho sobre un marcador de usuario -->
-    <ng-container *ngIf="isMarkerContext && targetCustomMarker">
+    @if (isMarkerContext && targetCustomMarker) {
       <div class="hud-ctx-header" style="padding: 6px 12px; font-size: 11px; font-weight: 800; color: #ffb833; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 4px;">
         {{ targetCustomMarker.name }}
       </div>
@@ -27,12 +27,13 @@
         {{ 'gta5.contextMenu.deleteMarker' | translate }}
       </button>
       <div class="hud-ctx-sep"></div>
-    </ng-container>
+    }
 
     <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
       {{ 'gta5.contextMenu.addMarker' | translate }}
     </button>
   </div>
+  }
 
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
   <div class="hud hud-tl">
@@ -57,8 +58,8 @@
       class="hud-guide-btn"
       routerLink="/gta5-guia-online"
       (click)="exitFullscreen()"
-      title="Ir a guía"
-      aria-label="Ir a guía"
+      [title]="'common.goToGuide' | translate"
+      [attr.aria-label]="'common.goToGuide' | translate"
     >
       <svg class="hud-guide-btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -74,18 +75,17 @@
       (click)="toggleFullscreen()"
     >
       <svg class="hud-fullscreen-btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <ng-container *ngIf="!isFullscreen">
+        @if (!isFullscreen) {
           <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
           <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
           <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
           <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
-        </ng-container>
-        <ng-container *ngIf="isFullscreen">
+        } @else {
           <path d="M9 3v4a2 2 0 0 1-2 2H3"/>
           <path d="M15 3v4a2 2 0 0 0 2 2h4"/>
           <path d="M9 21v-4a2 2 0 0 0-2-2H3"/>
           <path d="M15 21v-4a2 2 0 0 1 2-2h4"/>
-        </ng-container>
+        }
       </svg>
     </button>
     </div>
@@ -108,12 +108,12 @@
   <!-- PARTE CENTRAL SUPERIOR: Selector de Modo (Switch elegante idéntico al estilo de los paneles) -->
   <div class="hud hud-tc">
     <div class="mode-switch-track">
-      <a class="mode-switch-btn mode-historia" routerLink="/gta5-map-offline" title="Cambiar a Modo Historia">
+      <a class="mode-switch-btn mode-historia" routerLink="/gta5-map-offline" [title]="'common.switchToStory' | translate">
         <i class="mode-indicator dot-historia"></i>
         <span class="mode-text-desktop">{{ 'common.story' | translate }}</span>
         <span class="mode-text-mobile">{{ 'common.storyShort' | translate }}</span>
       </a>
-      <div class="mode-switch-btn mode-online is-active" title="Modo GTA Online activo">
+      <div class="mode-switch-btn mode-online is-active" [title]="'common.onlineActive' | translate">
         <i class="mode-indicator dot-online"></i>
         <span class="mode-text-desktop">{{ 'common.online' | translate }}</span>
         <span class="mode-text-mobile">{{ 'common.onlineShort' | translate }}</span>
@@ -145,13 +145,14 @@
       </div>
 
       <!-- Contenido desplegado del Panel de control con scroll general -->
-      <div class="hud-legend-body" *ngIf="legendOpen">
+      @if (legendOpen) {
+      <div class="hud-legend-body">
 
       
       <!-- ========================================== -->
       <!-- VISTA CAYO PERICO: ACCORDEONES EXCLUSIVOS -->
       <!-- ========================================== -->
-      <ng-container *ngIf="selectedCity === 'cp'">
+      @if (selectedCity === 'cp') {
         <!-- CAYO 1: Puntos de Interés del Golpe -->
         <div class="hud-acc" [class.is-open]="accordion['cayo_poi']">
           <div class="hud-acc-head">
@@ -168,7 +169,8 @@
               [title]="'gta5.cayoPerico.togglePoi' | translate"
             />
           </div>
-          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_poi']">
+          @if (accordion['cayo_poi']) {
+          <div class="hud-acc-body hud-acc-scroll">
             <button type="button" class="legend-btn" [class.is-active]="layerFilters['infiltration_points']" (click)="toggleLayer('infiltration_points')">
               <i class="legend-dot dot-cayo-poi"></i>
               <span class="legend-name">{{ 'gta5.layers.infiltrationPoints' | translate }}</span>
@@ -195,6 +197,7 @@
               <span class="legend-count">{{ getCayoCategoryCount('control_tower') }}</span>
             </button>
           </div>
+          }
         </div>
 
         <!-- CAYO 2: Reconocimiento de la Isla -->
@@ -213,7 +216,8 @@
               [title]="'gta5.cayoPerico.toggleScoping' | translate"
             />
           </div>
-          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_scoping']">
+          @if (accordion['cayo_scoping']) {
+          <div class="hud-acc-body hud-acc-scroll">
             <button type="button" class="legend-btn" [class.is-active]="layerFilters['secondary_targets']" (click)="toggleLayer('secondary_targets')">
               <i class="legend-dot" style="background:#22c55e; box-shadow:0 0 6px #22c55e;"></i>
               <span class="legend-name">{{ 'gta5.layers.secondaryTargets' | translate }}</span>
@@ -250,6 +254,7 @@
               <span class="legend-count">{{ getCayoCategoryCount('water_tower') }}</span>
             </button>
           </div>
+          }
         </div>
 
         <!-- CAYO 3: Armas Exclusivas -->
@@ -268,7 +273,8 @@
               [title]="'gta5.cayoPerico.toggleWeapons' | translate"
             />
           </div>
-          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_armas']">
+          @if (accordion['cayo_armas']) {
+          <div class="hud-acc-body hud-acc-scroll">
             <button type="button" class="legend-btn" [class.is-active]="layerFilters['combat_shotgun']" (click)="toggleLayer('combat_shotgun')">
               <i class="legend-dot" style="background:#e11d48; box-shadow:0 0 6px #e11d48;"></i>
               <span class="legend-name">{{ 'gta5.layers.combatShotgun' | translate }}</span>
@@ -280,6 +286,7 @@
               <span class="legend-count">{{ getCayoCategoryCount('perico_pistol') }}</span>
             </button>
           </div>
+          }
         </div>
 
         <!-- CAYO 4: Vehículos y Spawns -->
@@ -298,7 +305,8 @@
               [title]="'gta5.cayoPerico.toggleVehicles' | translate"
             />
           </div>
-          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_vehiculos']">
+          @if (accordion['cayo_vehiculos']) {
+          <div class="hud-acc-body hud-acc-scroll">
             <button type="button" class="legend-btn" [class.is-active]="layerFilters['spawns_forklift']" (click)="toggleLayer('spawns_forklift')">
               <i class="legend-dot" style="background:#eab308; box-shadow:0 0 6px #eab308;"></i>
               <span class="legend-name">{{ 'gta5.layers.spawnsForklift' | translate }}</span>
@@ -335,6 +343,7 @@
               <span class="legend-count">{{ getCayoCategoryCount('spawns_weaponized_dinghy') }}</span>
             </button>
           </div>
+          }
         </div>
 
         <!-- CAYO 5: Coleccionables Diarios -->
@@ -353,7 +362,8 @@
               [title]="'gta5.cayoPerico.toggleDailies' | translate"
             />
           </div>
-          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['cayo_diarios']">
+          @if (accordion['cayo_diarios']) {
+          <div class="hud-acc-body hud-acc-scroll">
             <button type="button" class="legend-btn" [class.is-active]="layerFilters['treasure_chests']" (click)="toggleLayer('treasure_chests')">
               <i class="legend-dot" style="background:#facc15; box-shadow:0 0 6px #facc15;"></i>
               <span class="legend-name">{{ 'gta5.layers.treasureChests' | translate }}</span>
@@ -365,13 +375,14 @@
               <span class="legend-count">{{ getCayoCategoryCount('buried_stashes') }}</span>
             </button>
           </div>
+          }
         </div>
-      </ng-container>
+      }
 
       <!-- ========================================== -->
       <!-- VISTA LOS SANTOS: ACCORDEONES ORIGINALES  -->
       <!-- ========================================== -->
-      <ng-container *ngIf="selectedCity === 'ls'">
+      @if (selectedCity === 'ls') {
 <!-- DESPLEGABLE 1: Propiedades -->
       <div class="hud-acc" [class.is-open]="accordion['propiedades']">
         <div class="hud-acc-head">
@@ -389,7 +400,8 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['propiedades']">
+        @if (accordion['propiedades']) {
+        <div class="hud-acc-body hud-acc-scroll">
           <!-- Mansiones (A Safehouse in the Hills) -->
             <button
               type="button"
@@ -450,6 +462,7 @@
               <span class="legend-count">{{ getCategoryCount('garage') }}</span>
             </button>
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE 2: Negocios -->
@@ -469,7 +482,8 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['negocios']">
+        @if (accordion['negocios']) {
+        <div class="hud-acc-body hud-acc-scroll">
             <!-- Negocios de Cocaína -->
             <button
               type="button"
@@ -686,6 +700,7 @@
               <span class="legend-count">{{ getCategoryCount('bail_office') }}</span>
             </button>
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE 3: Vehículos -->
@@ -705,7 +720,8 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['vehiculos']">
+        @if (accordion['vehiculos']) {
+        <div class="hud-acc-body hud-acc-scroll">
           <!-- Los Santos Customs (Disponible en Historia y Online) -->
           <button
             type="button"
@@ -754,6 +770,7 @@
             <span class="legend-count">{{ getCategoryCount('ls_car_meet') }}</span>
           </button>
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE 4: Servicios -->
@@ -773,7 +790,8 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['servicios']">
+        @if (accordion['servicios']) {
+        <div class="hud-acc-body hud-acc-scroll">
           <!-- Comisarías de Policía -->
           <button
             type="button"
@@ -906,6 +924,7 @@
             <span class="legend-count">{{ getCategoryCount('clothing_store') }}</span>
           </button>
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE 5: Actividades y Deportes -->
@@ -925,7 +944,8 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['actividades']">
+        @if (accordion['actividades']) {
+        <div class="hud-acc-body hud-acc-scroll">
           <!-- Golf -->
           <button type="button" class="legend-btn" [class.is-active]="layerFilters['golf']" (click)="toggleLayer('golf')">
             <i class="legend-dot dot-golf"></i>
@@ -969,6 +989,7 @@
             <span class="legend-count">{{ getCategoryCount('parachuting') }}</span>
           </button>
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE 6: Trabajos Roleplay (Los 7 puestos activos) -->
@@ -988,20 +1009,26 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['roleplay']">
+        @if (accordion['roleplay']) {
+        <div class="hud-acc-body hud-acc-scroll">
+          @for (group of roleplayGroups; track group.name) {
           <button
-            *ngFor="let group of roleplayGroups"
             type="button"
             class="legend-btn"
             [class.is-active]="isRoleplayGroupActive(group.keys)"
             (click)="toggleRoleplayGroup(group.keys)"
           >
             <i class="legend-dot" [style.background]="group.color" [style.box-shadow]="'0 0 6px ' + group.color"></i>
-            <span class="legend-name" *ngIf="group.nameKey">{{ group.nameKey | translate }}</span>
-            <span class="legend-name" *ngIf="!group.nameKey">{{ group.name }}</span>
+            @if (group.nameKey) {
+              <span class="legend-name">{{ group.nameKey | translate }}</span>
+            } @else {
+              <span class="legend-name">{{ group.name }}</span>
+            }
             <span class="legend-count">{{ group.count }}</span>
           </button>
+          }
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE: Personajes y Contactos -->
@@ -1021,9 +1048,10 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['personajes']">
+        @if (accordion['personajes']) {
+        <div class="hud-acc-body hud-acc-scroll">
+          @for (char of contactCharacters; track char.id) {
           <div
-            *ngFor="let char of contactCharacters"
             class="legend-char-row"
             [class.is-active]="layerFilters[char.id]"
           >
@@ -1056,7 +1084,9 @@
               </svg>
             </button>
           </div>
+          }
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE: Fauna y Vida Salvaje (12 Hábitats de Fauna y Fotografía) -->
@@ -1076,9 +1106,10 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['fauna']">
+        @if (accordion['fauna']) {
+        <div class="hud-acc-body hud-acc-scroll">
+          @for (group of faunaGroups; track group.id) {
           <div
-            *ngFor="let group of faunaGroups"
             class="legend-char-row"
             [class.is-active]="isFaunaGroupActive(group.keys)"
           >
@@ -1089,15 +1120,18 @@
               (click)="toggleFaunaGroup(group.keys)"
               [title]="group.name"
             >
-              <img *ngIf="group.imageUrl" [src]="group.imageUrl" class="legend-animal-thumb" [alt]="group.name" onerror="this.style.display='none'" />
-              <i *ngIf="!group.imageUrl" class="legend-dot" [style.background]="group.color" [style.box-shadow]="'0 0 6px ' + group.color"></i>
+              @if (group.imageUrl) {
+                <img [src]="group.imageUrl" class="legend-animal-thumb" [alt]="group.name" onerror="this.style.display='none'" />
+              } @else {
+                <i class="legend-dot" [style.background]="group.color" [style.box-shadow]="'0 0 6px ' + group.color"></i>
+              }
               <span class="legend-name">{{ group.name }}</span>
               <span class="legend-count">{{ group.count }}</span>
             </button>
 
             <!-- Botón de localización y zoom directo SOLO para L.S. Tourist -->
+            @if (group.id === 'animal-ls-tourist') {
             <button
-              *ngIf="group.id === 'animal-ls-tourist'"
               type="button"
               class="char-zoom-btn"
               (click)="zoomToCharacter(faunaAnimals[0], $event)"
@@ -1112,8 +1146,11 @@
                 <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
               </svg>
             </button>
+            }
           </div>
+          }
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE 7: Coleccionables -->
@@ -1133,7 +1170,8 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['coleccionables']">
+        @if (accordion['coleccionables']) {
+        <div class="hud-acc-body hud-acc-scroll">
           <!-- Naipes de Baraja (54) -->
           <button
             type="button"
@@ -1194,6 +1232,7 @@
             <span class="legend-count">{{ getCollectibleCount('radio_antenna') }}</span>
           </button>
         </div>
+        }
       </div>
 
       <!-- DESPLEGABLE 8: Lugares extraños -->
@@ -1213,7 +1252,8 @@
           />
         </div>
 
-        <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['lugares']">
+        @if (accordion['lugares']) {
+        <div class="hud-acc-body hud-acc-scroll">
           <!-- OVNI -->
           <button
             type="button"
@@ -1251,9 +1291,11 @@
           </button>
 
         </div>
+        }
       </div>
-      </ng-container>
+      }
       </div>
+      }
 
     </div>
   </div>
@@ -1280,7 +1322,8 @@
         </button>
       </div>
 
-      <div class="hud-settings-body" *ngIf="settingsOpen">
+      @if (settingsOpen) {
+      <div class="hud-settings-body">
         <!-- DESPLEGABLE: Selector de mapa -->
         <div class="hud-acc" [class.is-open]="accordion['mapa']">
           <div class="hud-acc-head">
@@ -1289,7 +1332,8 @@
               <span class="hud-acc-title">{{ 'gta5.settings.mapSelector' | translate }}</span>
             </div>
           </div>
-          <div class="hud-acc-body" *ngIf="accordion['mapa']">
+          @if (accordion['mapa']) {
+          <div class="hud-acc-body">
             <div class="hud-field">
 
               <select
@@ -1297,16 +1341,18 @@
                 class="hud-field-select"
                 (change)="switchMapType($any($event.target).value)"
               >
+                @for (type of mapTypes; track type.id) {
                 <option
-                  *ngFor="let type of mapTypes"
                   [value]="type.id"
                   [selected]="currentMapType === type.id"
                 >
                   {{ type.label }}
                 </option>
+                }
               </select>
             </div>
           </div>
+          }
         </div>
 
         <!-- DESPLEGABLE: Estilo Iconos -->
@@ -1317,7 +1363,8 @@
               <span class="hud-acc-title">{{ 'gta5.settings.iconStyle' | translate }}</span>
             </div>
           </div>
-          <div class="hud-acc-body" *ngIf="accordion['zona']">
+          @if (accordion['zona']) {
+          <div class="hud-acc-body">
             <div class="hud-field">
               <label class="hud-field-label" for="iconThemeSelect">{{ 'gta5.settings.markerTheme' | translate }}</label>
               <select
@@ -1346,6 +1393,7 @@
               </select>
             </div>
           </div>
+          }
         </div>
 
         <!-- DESPLEGABLE 4: Marcadores -->
@@ -1356,8 +1404,10 @@
               <span class="hud-acc-title">{{ 'gta5.settings.markers' | translate }}</span>
             </div>
           </div>
-          <div class="hud-acc-body hud-acc-scroll" *ngIf="accordion['marcadores']">
-            <div *ngFor="let cm of userCustomMarkers" class="legend-char-row" [class.is-active]="cm.visible !== false">
+          @if (accordion['marcadores']) {
+          <div class="hud-acc-body hud-acc-scroll">
+            @for (cm of userCustomMarkers; track cm.name) {
+            <div class="legend-char-row" [class.is-active]="cm.visible !== false">
               <button
                 type="button"
                 class="legend-btn legend-char-btn"
@@ -1384,7 +1434,9 @@
                 </svg>
               </button>
             </div>
-            <div class="hud-markers-footer" *ngIf="userCustomMarkers.length > 0" style="margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.08);">
+            }
+            @if (userCustomMarkers.length > 0) {
+            <div class="hud-markers-footer" style="margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.08);">
               <button
                 type="button"
                 class="btn-marker-action btn-marker-delete"
@@ -1395,10 +1447,14 @@
                 <span>{{ 'gta5.settings.deleteAllMarkers' | translate }}</span>
               </button>
             </div>
-            <div class="hud-acc-empty" *ngIf="userCustomMarkers.length === 0">
+            }
+            @if (userCustomMarkers.length === 0) {
+            <div class="hud-acc-empty">
               {{ 'gta5.settings.noMarkers' | translate }}
             </div>
+            }
           </div>
+          }
         </div>
 
         <!-- DESPLEGABLE: Asistente GOTY -->
@@ -1409,15 +1465,18 @@
               <span class="hud-acc-title">{{ 'gta5.settings.gotyAssistant' | translate }}</span>
             </div>
           </div>
-          <div class="hud-acc-body" *ngIf="accordion['goty']" style="padding: 10px 14px;">
+          @if (accordion['goty']) {
+          <div class="hud-acc-body" style="padding: 10px 14px;">
             <label class="hud-check-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
               <span class="goty-label-desktop">{{ 'gta5.settings.enableGoty' | translate }}</span>
-              <span class="goty-label-mobile">GOTY 5</span>
+              <span class="goty-label-mobile">{{ 'common.goty5' | translate }}</span>
               <input type="checkbox" class="hud-goty-check" [checked]="gotyService.isEnabled" (change)="gotyService.setBotEnabled($any($event.target).checked)" />
             </label>
           </div>
+          }
         </div>
       </div>
+      }
     </div>
   </div>
 
@@ -1446,7 +1505,7 @@
     <span class="coord-sep">|</span>
     <span class="coord-axis">Y:</span>
     <span class="coord-val">{{ mouseCoords.y.toFixed(1) }}</span>
-    <span *ngIf="coordsCopied" class="coord-copied">✓</span>
+    @if (coordsCopied) { <span class="coord-copied">✓</span> }
   </div>
 
   <!-- BOTÓN LATERAL EN ESQUINA SUP-DER: PERFIL Y PROGRESO (Alineado a la altura del panel de la izquierda) -->

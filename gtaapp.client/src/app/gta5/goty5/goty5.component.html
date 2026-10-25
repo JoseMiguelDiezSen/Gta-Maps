@@ -1,4 +1,5 @@
-<div class="goty-wrapper" *ngIf="gotyService.isEnabled" [class.is-open]="isOpen" [class.is-angry]="isAngryAvatar" [class.is-dragging]="isDragging" [style.top.px]="wrapperTop" [style.left.px]="wrapperLeft">
+@if (gotyService.isEnabled) {
+<div class="goty-wrapper" [class.is-open]="isOpen" [class.is-angry]="isAngryAvatar" [class.is-dragging]="isDragging" [style.top.px]="wrapperTop" [style.left.px]="wrapperLeft">
 
   <!-- BOTÓN FLOTANTE AVATAR (Arrastrable y Clickable) -->
   <button
@@ -16,7 +17,8 @@
   </button>
 
   <!-- VENTANA POPUP DE CHAT -->
-  <div class="goty-chat-card" *ngIf="isOpen">
+  @if (isOpen) {
+  <div class="goty-chat-card">
     <!-- Cabecera -->
     <div class="goty-chat-header" (mousedown)="onDragStart($event)" (touchstart)="onDragStart($event)">
       <div class="goty-header-left">
@@ -35,26 +37,32 @@
 
     <!-- Cuerpo de mensajes con autoscroll -->
     <div class="goty-chat-body" #scrollContainer>
+      @for (msg of messages; track msg.id) {
       <div
-        *ngFor="let msg of messages"
         class="goty-msg-row"
         [class.is-user]="msg.sender === 'user'"
         [class.is-bot]="msg.sender === 'goty'"
       >
         <div class="goty-msg-bubble">
-          <div class="goty-msg-text" *ngIf="msg.sender === 'user'">{{ msg.text }}</div>
-          <div class="goty-msg-text" *ngIf="msg.sender === 'goty'" [innerHTML]="formatMarkdown(msg.text)"></div>
+          @if (msg.sender === 'user') {
+            <div class="goty-msg-text">{{ msg.text }}</div>
+          } @else if (msg.sender === 'goty') {
+            <div class="goty-msg-text" [innerHTML]="formatMarkdown(msg.text)"></div>
+          }
         </div>
       </div>
+      }
 
       <!-- Indicador escribiendo... -->
-      <div class="goty-msg-row is-bot" *ngIf="isTyping">
+      @if (isTyping) {
+      <div class="goty-msg-row is-bot">
         <div class="goty-msg-bubble goty-typing-bubble">
           <span class="goty-typing-dot"></span>
           <span class="goty-typing-dot"></span>
           <span class="goty-typing-dot"></span>
         </div>
       </div>
+      }
     </div>
 
     <!-- Barra de entrada de texto -->
@@ -79,5 +87,7 @@
       </button>
     </div>
   </div>
+  }
 
 </div>
+}

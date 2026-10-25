@@ -1,9 +1,9 @@
-import { Component, AfterViewInit, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewChild, ElementRef, OnDestroy, inject } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaService } from '../../../services/guia.service';
-import { GuiaArticulo, GuiaArticuloResumen, GuiaSeccion } from '../../../models/guia';
+import { GuiaArticulo, GuiaArticuloResumen, GuiaNegocioOnline, GuiaSeccion } from '../../../models/guia';
 import { DealerCategory, GtaVehicle } from '../../../models/gta5/vehicle';
 import { VehicleService } from '../../../services/gta5/vehicle.service';
 import { CONCESIONARIOS_GTA5 } from '../../map/info-panel/vehiculos.config';
@@ -101,8 +101,8 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
   readonly misterios$: Observable<GtaMystery[]>;
   readonly golpes$: Observable<GtaHeist[]>;
   readonly misionesOnline$: Observable<GtaMission[]>;
-  readonly negociosOnline$: Observable<any[]>;
-  negociosOnline: any[] = [];
+  readonly negociosOnline$: Observable<GuiaNegocioOnline[]>;
+  negociosOnline: GuiaNegocioOnline[] = [];
 
   concesionarioSeleccionado: DealerCategory | null = null;
   vehiculosConcesionario$: Observable<GtaVehicle[]> | null = null;
@@ -150,7 +150,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
   ];
 
   subcategoriaNegocioSeleccionada: SubcategoriaNegocioOnline | null = null;
-  negocioSeleccionado: any | null = null;
+  negocioSeleccionado: GuiaNegocioOnline | null = null;
 
   readonly subcategoriasNegocios: SubcategoriaNegocioOnline[] = [
     { id: 'warehouse', titulo: 'Almacenes de Mercancía Especial', icono: 'box', color: '#16a085' },
@@ -164,15 +164,15 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     { id: 'doc_forgery', titulo: 'Falsificación de Documentos', icono: 'id-card', color: '#f97316' }
   ];
 
-  constructor(
-    public cookieService: CookieService,
-    private locationService: LocationService,
-    private vehicleService: VehicleService,
-    private weaponService: WeaponService,
-    private missionService: MissionService,
-    private guiaService: GuiaService,
-    private sanitizer: DomSanitizer
-  ) {
+  public readonly cookieService = inject(CookieService);
+  private readonly locationService = inject(LocationService);
+  private readonly vehicleService = inject(VehicleService);
+  private readonly weaponService = inject(WeaponService);
+  private readonly missionService = inject(MissionService);
+  private readonly guiaService = inject(GuiaService);
+  private readonly sanitizer = inject(DomSanitizer);
+
+  constructor() {
     this.personajes$ = this.locationService
       .getProperties('online', 'character')
       .pipe(shareReplay(1));
@@ -359,11 +359,11 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     this.subcategoriaNegocioSeleccionada = null;
   }
 
-  seleccionarNegocio(negocio: any): void {
+  seleccionarNegocio(negocio: GuiaNegocioOnline): void {
     this.negocioSeleccionado = negocio;
   }
 
-  getNegociosDeSubcategoria(subcat: SubcategoriaNegocioOnline | null): any[] {
+  getNegociosDeSubcategoria(subcat: SubcategoriaNegocioOnline | null): GuiaNegocioOnline[] {
     if (!subcat) return this.negociosOnline;
     return this.negociosOnline.filter(n => n.category === subcat.id);
   }
@@ -372,14 +372,14 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     return this.negociosOnline.filter(n => n.category === subcat.id).length;
   }
 
-  get previousNegocio(): any | null {
+  get previousNegocio(): GuiaNegocioOnline | null {
     if (!this.negocioSeleccionado) return null;
     const list = this.getNegociosDeSubcategoria(this.subcategoriaNegocioSeleccionada);
     const idx = list.findIndex(n => n.id === this.negocioSeleccionado?.id);
     return idx > 0 ? list[idx - 1] : null;
   }
 
-  get nextNegocio(): any | null {
+  get nextNegocio(): GuiaNegocioOnline | null {
     if (!this.negocioSeleccionado) return null;
     const list = this.getNegociosDeSubcategoria(this.subcategoriaNegocioSeleccionada);
     const idx = list.findIndex(n => n.id === this.negocioSeleccionado?.id);
@@ -570,81 +570,124 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
       return this.sanitizer.bypassSecurityTrustHtml('');
     }
 
+    const root = document.createElement('div');
     const lines = raw.split('\n');
-    const out: string[] = [];
-    let inList = false;
+    let currentList: HTMLUListElement | null = null;
 
     for (const line of lines) {
-      const isSubBullet = /^\s{2,}[\*\-]\s+(.*)$/.test(line);
-      const isBullet = /^\s*[\*\-]\s+(.*)$/.test(line);
-      if (!isBullet && inList) {
-        out.push('</ul>');
-        inList = false;
+      const isSubBullet = /^\s{2,}[-*]\s+(.*)$/.test(line);
+      const isBullet = /^\s*[-*]\s+(.*)$/.test(line);
+      if (!isBullet && !line.startsWith('> ') && currentList) {
+        root.appendChild(currentList);
+        currentList = null;
       }
 
       if (line.startsWith('### ')) {
         const rawText = line.substring(4).trim();
         const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
-        const heading = this.formatInline(noEmoji);
-        out.push(`
-          <div class="guide-heading-divider">
-            <div class="guide-heading-line"></div>
-            <h3 class="guide-heading-title">${heading}</h3>
-            <div class="guide-heading-line guide-heading-line--right"></div>
-          </div>
-        `);
+        const divider = document.createElement('div');
+        divider.className = 'guide-heading-divider';
+        const leftLine = document.createElement('div');
+        leftLine.className = 'guide-heading-line';
+        const h3 = document.createElement('h3');
+        h3.className = 'guide-heading-title';
+        this.appendInline(h3, noEmoji);
+        const rightLine = document.createElement('div');
+        rightLine.className = 'guide-heading-line guide-heading-line--right';
+        divider.appendChild(leftLine);
+        divider.appendChild(h3);
+        divider.appendChild(rightLine);
+        root.appendChild(divider);
       } else if (line.startsWith('## ')) {
         const rawText = line.substring(3).trim();
         const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
-        const heading = this.formatInline(noEmoji);
-        out.push(`<h2 class="guide-h2">${heading}</h2>`);
+        const h2 = document.createElement('h2');
+        h2.className = 'guide-h2';
+        this.appendInline(h2, noEmoji);
+        root.appendChild(h2);
       } else if (line.startsWith('> ')) {
-        if (!inList) {
-          out.push('<ul class="guide-list">');
-          inList = true;
+        if (!currentList) {
+          currentList = document.createElement('ul');
+          currentList.className = 'guide-list';
         }
-        const text = this.formatInline(line.substring(2).trim());
-        out.push(`<li class="guide-list-item"><span class="guide-list-bullet">&#x203A;</span><span class="guide-list-text">${text}</span></li>`);
+        const li = document.createElement('li');
+        li.className = 'guide-list-item';
+        const bullet = document.createElement('span');
+        bullet.className = 'guide-list-bullet';
+        bullet.textContent = '\u203A';
+        const textSpan = document.createElement('span');
+        textSpan.className = 'guide-list-text';
+        this.appendInline(textSpan, line.substring(2).trim());
+        li.appendChild(bullet);
+        li.appendChild(textSpan);
+        currentList.appendChild(li);
       } else if (line.trim() === '---') {
         continue;
       } else if (isBullet) {
-        if (!inList) {
-          out.push('<ul class="guide-list">');
-          inList = true;
+        if (!currentList) {
+          currentList = document.createElement('ul');
+          currentList.className = 'guide-list';
         }
-        const match = line.match(/^\s*[\*\-]\s+(.*)$/);
-        const text = match ? this.formatInline(match[1]) : '';
-        const subClass = isSubBullet ? ' guide-list-subitem' : '';
-        out.push(`<li class="guide-list-item${subClass}"><span class="guide-list-bullet">&#x203A;</span><span class="guide-list-text">${text}</span></li>`);
+        const match = line.match(/^\s*[-*]\s+(.*)$/);
+        const li = document.createElement('li');
+        li.className = isSubBullet ? 'guide-list-item guide-list-subitem' : 'guide-list-item';
+        const bullet = document.createElement('span');
+        bullet.className = 'guide-list-bullet';
+        bullet.textContent = '\u203A';
+        const textSpan = document.createElement('span');
+        textSpan.className = 'guide-list-text';
+        if (match) {
+          this.appendInline(textSpan, match[1]);
+        }
+        li.appendChild(bullet);
+        li.appendChild(textSpan);
+        currentList.appendChild(li);
       } else if (line.trim().length > 0) {
-        const p = this.formatInline(line);
-        out.push(`<p class="guide-p">${p}</p>`);
+        const p = document.createElement('p');
+        p.className = 'guide-p';
+        this.appendInline(p, line);
+        root.appendChild(p);
       }
     }
 
-    if (inList) {
-      out.push('</ul>');
+    if (currentList) {
+      root.appendChild(currentList);
     }
 
-    return this.sanitizer.bypassSecurityTrustHtml(out.join('\n'));
+    return this.sanitizer.bypassSecurityTrustHtml(root.innerHTML);
   }
 
-  private escapeHtml(str: string): string {
-    return (str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
-  private formatInline(text: string): string {
-    if (!text) return '';
-    const safeText = this.escapeHtml(text);
-    let formatted = safeText.replace(/\*\*(.*?)\*\*/g, '<strong class="guide-strong">$1</strong>');
-    formatted = formatted.replace(/\*([^*]+)\*/g, '<em class="guide-em">$1</em>');
-    formatted = formatted.replace(/`([^`]+)`/g, '<span class="guide-chip-code">$1</span>');
-    return formatted;
+  private appendInline(parent: HTMLElement, text: string): void {
+    if (!text) return;
+    const tokenRegex = /(\*\*.*?\*\*|\*[^*]+\*|`[^`]+`)/g;
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+    while ((match = tokenRegex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        parent.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+      const token = match[0];
+      if (token.startsWith('**') && token.endsWith('**')) {
+        const strong = document.createElement('strong');
+        strong.className = 'guide-strong';
+        strong.textContent = token.slice(2, -2);
+        parent.appendChild(strong);
+      } else if (token.startsWith('*') && token.endsWith('*')) {
+        const em = document.createElement('em');
+        em.className = 'guide-em';
+        em.textContent = token.slice(1, -1);
+        parent.appendChild(em);
+      } else if (token.startsWith('`') && token.endsWith('`')) {
+        const code = document.createElement('span');
+        code.className = 'guide-chip-code';
+        code.textContent = token.slice(1, -1);
+        parent.appendChild(code);
+      }
+      lastIndex = tokenRegex.lastIndex;
+    }
+    if (lastIndex < text.length) {
+      parent.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
   }
 
   onSearch(): void {

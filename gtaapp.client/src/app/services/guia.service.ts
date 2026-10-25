@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { forkJoin, Observable, of } from 'rxjs';
 import { catchError, map, shareReplay, switchMap } from 'rxjs/operators';
-import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeosCatalogo } from '../models/guia';
+import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, GuiaNegocioOnline, TrofeosCatalogo } from '../models/guia';
 import { GtaMission, GtaHeist } from '../models/gta5/mission';
 import { GtaMystery } from '../models/gta5/mystery';
 import { GtaVehicle } from '../models/gta5/vehicle';
@@ -15,10 +15,10 @@ import { TranslationService } from '../i18n';
 export class GuiaService {
   private manifestCache = new Map<string, Observable<GuiaManifest>>();
 
-  constructor(
-    private http: HttpClient,
-    private translationService: TranslationService
-  ) {}
+  private readonly http = inject(HttpClient);
+  private readonly translationService = inject(TranslationService);
+
+  constructor() {}
 
   /**
    * Carga un archivo JSON de la guía soportando localización con fallback progresivo:
@@ -95,11 +95,11 @@ export class GuiaService {
   /**
    * Fusiona artículos canónicos (fuente de verdad técnica) con textos localizados opcionales.
    */
-  private mergeLocalizedArticulos(baseItems: GuiaArticulo[], localizedItems: any[]): GuiaArticulo[] {
+  private mergeLocalizedArticulos(baseItems: GuiaArticulo[], localizedItems: Partial<GuiaArticulo>[]): GuiaArticulo[] {
     if (!baseItems || baseItems.length === 0) return (localizedItems as GuiaArticulo[]) || [];
     if (!localizedItems || localizedItems.length === 0) return baseItems;
 
-    const locMap = new Map<string, any>();
+    const locMap = new Map<string, Partial<GuiaArticulo>>();
     localizedItems.forEach(item => {
       if (item && item.id) locMap.set(item.id, item);
     });
@@ -146,14 +146,14 @@ export class GuiaService {
 
 
     if (juegoId === 'gta5') {
-      const obs$ = forkJoin({
+      const buildLocalFallback$ = () => forkJoin({
         prologo: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'prologo-guia-offline.json'),
         misiones: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'guia-misiones-historia.json'),
         extranos: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'extranos-locos.json'),
         negocios: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'bolsa.json'),
         eventos: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'eventos-aleatorios.json'),
         misterios: this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', 'misterios-guia-offline.json'),
-        armas: this.getGuiaRootJson<any[]>('gta5', 'guia-weapons-offline.json')
+        armas: this.getGuiaRootJson<GtaWeapon[]>('gta5', 'guia-weapons-offline.json')
       }).pipe(
         map(res => ({
           id: 'gta5',
@@ -236,7 +236,20 @@ export class GuiaService {
             }
           ]
         })),
-        catchError(() => of(this.getFallbackManifest('gta5'))),
+        catchError(() => of(this.getFallbackManifest('gta5')))
+      );
+
+      const obs$ = this.http.get<GuiaManifest>('/api/gta5/guia/manifest').pipe(
+        map(manifest => {
+          if (!manifest || !manifest.secciones || manifest.secciones.length === 0) {
+            throw new Error('Empty manifest from API');
+          }
+          return manifest;
+        }),
+        catchError(err => {
+          console.warn('[GuiaService] Falló /api/gta5/guia/manifest, usando fallback local:', err);
+          return buildLocalFallback$();
+        }),
         shareReplay(1)
       );
       this.manifestCache.set(cacheKey, obs$);
@@ -379,43 +392,45 @@ export class GuiaService {
     }
 
     if (juegoId === 'gta5') {
-      return this.getManifest('gta5').pipe(
-        switchMap(manifest => {
-          const sec = manifest.secciones.find(s => s.articulos.some(a => a.id === articuloId || a.slug === articuloId));
-          const isPrologo = sec?.id === 'prologo' || ['prologo-introduccion-guia', 'michael-de-santa', 'franklin-clinton', 'trevor-philips', 'michael-trevor-franklin-intrahistoria', 'requisitos-100', 'golpes-principales', 'finales-opcion-abc'].includes(articuloId);
-          const isNegocios = sec?.id === 'negocios-economia' || ['asesinatos-lester-bolsa', 'guia-negocios-propiedades'].includes(articuloId);
-          const isExtranos = articuloId.startsWith('eyl-') || sec?.id === 'extranos-locos';
-          const isMisterio = sec?.id === 'secretos-misterios' || ['ghost_jolene', 'underwater_', 'tunnel_', 'mount_chiliad', 'thelma_', 'infinity_', 'nothing_here', 'fridgit_', 'yellow_jack', 'greyfriars_', 'ufos_', 'sasquatch_'].some(prefix => articuloId.startsWith(prefix)) || articuloId.includes('misterio') || articuloId.includes('chiliad') || articuloId.includes('cranley');
-          const isEvento = articuloId.startsWith('evento-') || sec?.id === 'eventos-aleatorios';
-          const jsonFileName = isPrologo
-              ? 'prologo-guia-offline.json'
-              : isNegocios
-              ? 'bolsa.json'
-              : isExtranos 
-              ? 'extranos-locos.json'
-              : isMisterio
-              ? 'misterios-guia-offline.json'
-              : isEvento
-              ? 'eventos-aleatorios.json'
-              : 'guia-misiones-historia.json';
-              
-          return this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', jsonFileName).pipe(
-            map(misiones => {
-              const found = misiones.find(m => m.id === articuloId || m.slug === articuloId);
-              if (found) {
-                const siblings = misiones.filter(m => m.id !== found.id);
-                return {
-                  ...found,
-                  tags: found.tags || ['Guía', sec?.titulo || 'Historia', 'GTA V', found.badge || 'Los Santos'],
-                  relacionados: siblings.slice(0, 2).map(m => ({ id: m.id, titulo: m.titulo, slug: m.slug })),
-                  ultimaActualizacion: new Date().toISOString()
-                } as GuiaArticulo;
-              }
-              return this.getFallbackArticulo(juegoId, articuloId);
-            }),
-            catchError(() => of(this.getFallbackArticulo(juegoId, articuloId)))
-          );
-        })
+      return this.http.get<GuiaArticulo>(`/api/gta5/guia/articulos/${encodeURIComponent(articuloId)}`).pipe(
+        catchError(() => this.getManifest('gta5').pipe(
+          switchMap(manifest => {
+            const sec = manifest.secciones.find(s => s.articulos.some(a => a.id === articuloId || a.slug === articuloId));
+            const isPrologo = sec?.id === 'prologo' || ['prologo-introduccion-guia', 'michael-de-santa', 'franklin-clinton', 'trevor-philips', 'michael-trevor-franklin-intrahistoria', 'requisitos-100', 'golpes-principales', 'finales-opcion-abc'].includes(articuloId);
+            const isNegocios = sec?.id === 'negocios-economia' || ['asesinatos-lester-bolsa', 'guia-negocios-propiedades'].includes(articuloId);
+            const isExtranos = articuloId.startsWith('eyl-') || sec?.id === 'extranos-locos';
+            const isMisterio = sec?.id === 'secretos-misterios' || ['ghost_jolene', 'underwater_', 'tunnel_', 'mount_chiliad', 'thelma_', 'infinity_', 'nothing_here', 'fridgit_', 'yellow_jack', 'greyfriars_', 'ufos_', 'sasquatch_'].some(prefix => articuloId.startsWith(prefix)) || articuloId.includes('misterio') || articuloId.includes('chiliad') || articuloId.includes('cranley');
+            const isEvento = articuloId.startsWith('evento-') || sec?.id === 'eventos-aleatorios';
+            const jsonFileName = isPrologo
+                ? 'prologo-guia-offline.json'
+                : isNegocios
+                ? 'bolsa.json'
+                : isExtranos 
+                ? 'extranos-locos.json'
+                : isMisterio
+                ? 'misterios-guia-offline.json'
+                : isEvento
+                ? 'eventos-aleatorios.json'
+                : 'guia-misiones-historia.json';
+                
+            return this.getGuiaJson<GuiaArticulo[]>('gta5', 'offline', jsonFileName).pipe(
+              map(misiones => {
+                const found = misiones.find(m => m.id === articuloId || m.slug === articuloId);
+                if (found) {
+                  const siblings = misiones.filter(m => m.id !== found.id);
+                  return {
+                    ...found,
+                    tags: found.tags || ['Guía', sec?.titulo || 'Historia', 'GTA V', found.badge || 'Los Santos'],
+                    relacionados: siblings.slice(0, 2).map(m => ({ id: m.id, titulo: m.titulo, slug: m.slug })),
+                    ultimaActualizacion: new Date().toISOString()
+                  } as GuiaArticulo;
+                }
+                return this.getFallbackArticulo(juegoId, articuloId);
+              }),
+              catchError(() => of(this.getFallbackArticulo(juegoId, articuloId)))
+            );
+          })
+        ))
       );
     }
 
@@ -599,8 +614,8 @@ export class GuiaService {
     );
   }
 
-  getNegociosGuiaOnline(): Observable<GuiaArticulo[]> {
-    return this.getGuiaJson<GuiaArticulo[]>('gta5', 'online', 'businesses-guide.json').pipe(
+  getNegociosGuiaOnline(): Observable<GuiaNegocioOnline[]> {
+    return this.getGuiaJson<GuiaNegocioOnline[]>('gta5', 'online', 'businesses-guide.json').pipe(
       catchError(() => of([])),
       shareReplay(1)
     );

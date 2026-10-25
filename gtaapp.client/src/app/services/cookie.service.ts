@@ -94,9 +94,10 @@ export class CookieService {
   }
 
   private updateGtagConsent(prefs: CookiePreferences): void {
-    if (typeof (window as any).gtag === 'function') {
+    const win = window as Window & { gtag?: (action: string, command: string, params: Record<string, string>) => void };
+    if (typeof win.gtag === 'function') {
       const status = prefs.analytics ? 'granted' : 'denied';
-      (window as any).gtag('consent', 'update', {
+      win.gtag('consent', 'update', {
         'analytics_storage': status
       });
     }

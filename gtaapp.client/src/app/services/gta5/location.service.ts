@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, forkJoin, map, of, throwError } from 'rxjs';
 import { LocationItem } from '../../models/gta5/location';
@@ -8,12 +8,25 @@ import { TranslationService } from '../../i18n';
 @Injectable({ providedIn: 'root' })
 export class LocationService {
 
-  constructor(
-    private http: HttpClient,
-    private translationService: TranslationService
-  ) {}
+  private readonly http = inject(HttpClient);
+  private readonly translationService = inject(TranslationService);
 
   private normalizeItemImages<T>(item: T): T {
+    if (!item || typeof item !== 'object') return item;
+    const loc = item as { imageUrl?: string; thumbnail?: string; image?: string };
+    const fixPath = (path?: string): string | undefined => {
+      if (!path || typeof path !== 'string') return path;
+      if (path.includes('/assets/images/gta5/marcadores-mapa/')) {
+        return path.replace('/assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+      }
+      if (path.startsWith('assets/images/gta5/marcadores-mapa/')) {
+        return path.replace('assets/images/gta5/marcadores-mapa/', '/assets/images/gta5/mapa/marcadores-mapa/');
+      }
+      return path;
+    };
+    if (loc.imageUrl) loc.imageUrl = fixPath(loc.imageUrl);
+    if (loc.thumbnail) loc.thumbnail = fixPath(loc.thumbnail);
+    if (loc.image) loc.image = fixPath(loc.image);
     return item;
   }
 
@@ -48,11 +61,11 @@ export class LocationService {
    * Fusiona elementos canónicos (fuente de verdad espacial/métrica) con traducciones idiomáticas.
    * Garantiza que las coordenadas x/y/z y los identificadores siempre provengan de la base canónica.
    */
-  private mergeLocalizedItems<T extends { id: string; position?: any; badge?: any }>(baseItems: T[], localizedItems: any[]): T[] {
+  private mergeLocalizedItems<T extends { id: string; position?: unknown; badge?: unknown }>(baseItems: T[], localizedItems: Partial<T>[]): T[] {
     if (!baseItems || baseItems.length === 0) return (localizedItems as T[]) || [];
     if (!localizedItems || localizedItems.length === 0) return baseItems;
 
-    const locMap = new Map<string, any>();
+    const locMap = new Map<string, Partial<T>>();
     localizedItems.forEach(item => {
       if (item && item.id) locMap.set(item.id, item);
     });
@@ -116,7 +129,7 @@ export class LocationService {
 
       return forkJoin({
         base: this.fetchJson<LocationItem[]>(primaryBasePath),
-        localized: this.fetchOptionalTranslation<any[]>(primaryLocalizedPath)
+        localized: this.fetchOptionalTranslation<Partial<LocationItem>[]>(primaryLocalizedPath)
       }).pipe(
         map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized || []).map(i => this.normalizeItemImages(i)))
       );
@@ -161,7 +174,7 @@ export class LocationService {
       ? this.fetchJson<CollectibleItem[]>(primaryBasePath)
       : forkJoin({
           base: this.fetchJson<CollectibleItem[]>(primaryBasePath),
-          localized: this.fetchOptionalTranslation<any[]>(primaryLocalizedPath)
+          localized: this.fetchOptionalTranslation<Partial<CollectibleItem>[]>(primaryLocalizedPath)
         }).pipe(
           map(({ base, localized }) => this.mergeLocalizedItems<CollectibleItem>(base, localized || []))
         );
@@ -194,9 +207,9 @@ export class LocationService {
       ? this.fetchJson<LocationItem[]>(primaryBasePath)
       : forkJoin({
           base: this.fetchJson<LocationItem[]>(primaryBasePath),
-          localized: this.fetchJson<any[]>(primaryLocalizedPath)
+          localized: this.fetchOptionalTranslation<Partial<LocationItem>[]>(primaryLocalizedPath)
         }).pipe(
-          map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized))
+          map(({ base, localized }) => this.mergeLocalizedItems<LocationItem>(base, localized || []))
         );
 
     return fetch$.pipe(

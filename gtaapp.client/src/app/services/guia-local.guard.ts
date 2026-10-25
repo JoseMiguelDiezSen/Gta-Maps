@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuiaLocalGuard implements CanActivate {
-  constructor(private readonly router: Router) {}
+  private readonly router = inject(Router);
 
   canActivate(): boolean | UrlTree {
     const isLocal = typeof window !== 'undefined' &&

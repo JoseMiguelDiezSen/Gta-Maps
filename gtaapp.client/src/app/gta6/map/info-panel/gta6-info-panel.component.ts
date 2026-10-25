@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { TranslationService } from '../../../i18n';
 import { Gta6DealerCategory, Gta6Vehicle } from '../../../models/gta6/vehicle';
 import { Gta6Mission, Gta6Heist } from '../../../models/gta6/mission';
@@ -28,7 +28,7 @@ export class Gta6InfoPanelComponent implements OnChanges {
   @Input() isOpen = false;
   @Input() gameMode: 'story' | 'online' = 'online';
   @Output() closeDrawer = new EventEmitter<void>();
-  @Output() locateOnMap = new EventEmitter<any>();
+  @Output() locateOnMap = new EventEmitter<Gta6Vehicle | Gta6Mission | Gta6Heist | Gta6Weapon | Gta6Mystery>();
 
   drawerView: string = 'tabs';
   activeDrawerTab = 'vehiculos';
@@ -82,7 +82,7 @@ export class Gta6InfoPanelComponent implements OnChanges {
   private _cachedFMysKey = '';
   private _cachedFMys: Gta6Mystery[] = [];
 
-  constructor(public translationService: TranslationService) {}
+  public readonly translationService = inject(TranslationService);
 
   get isEs(): boolean {
     return (this.translationService.currentLang || 'es') === 'es';

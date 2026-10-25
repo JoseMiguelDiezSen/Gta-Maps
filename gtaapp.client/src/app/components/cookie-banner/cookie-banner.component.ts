@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CookieService } from '../../services/cookie.service';
 
 @Component({
@@ -8,13 +8,15 @@ import { CookieService } from '../../services/cookie.service';
   standalone: false
 })
 export class CookieBannerComponent {
+  public readonly cookieService = inject(CookieService);
+
   isConfiguring = signal<boolean>(false);
   showPolicyModal = signal<boolean>(false);
 
   tempAnalytics = signal<boolean>(true);
   tempPreferences = signal<boolean>(true);
 
-  constructor(public readonly cookieService: CookieService) {
+  constructor() {
     const current = this.cookieService.preferences();
     this.tempAnalytics.set(current.analytics);
     this.tempPreferences.set(current.preferences);

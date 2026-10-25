@@ -19,7 +19,14 @@
     "story": "Storia",
     "online": "Online",
     "storyShort": "S",
-    "onlineShort": "O"
+    "onlineShort": "O",
+    "goToGuide": "Go to guide",
+    "switchToStory": "Switch to Story Mode",
+    "onlineActive": "GTA Online mode active",
+    "storyActive": "Story Mode active",
+    "switchToOnline": "Switch to GTA Online",
+    "goty5": "GOTY 5",
+    "goty6": "GOTY 6"
   },
   "home": {
     "chooseGame": "Scegli il gioco",
@@ -59,7 +66,19 @@
     "closePolicy": "Ho capito",
     "policyTextP1": "Su GTA Maps rispettiamo la tua privacy. Non vendiamo i tuoi dati né effettuiamo tracciamento pubblicitario.",
     "policyTextP2": "I cookie necessari garantiscono il contatore online e le tue preferenze linguistiche.",
-    "policyTextP3": "Puoi modificare o revocare il tuo consenso in qualsiasi momento tramite l'icona delle impostazioni."
+    "policyTextP3": "Puoi modificare o revocare il tuo consenso in qualsiasi momento tramite l'icona delle impostazioni.",
+    "back": "Back",
+    "tableColName": "Name",
+    "tableColType": "Type",
+    "tableColPurpose": "Purpose",
+    "tableColDuration": "Duration",
+    "typeNecessary": "Necessary",
+    "typePreference": "Preference",
+    "descConsent": "Saves your cookie preferences locally",
+    "descLanguage": "Saves your preferred language (ES / EN)",
+    "descMapSettings": "Saves your active layers, filters, and zoom level",
+    "durationOneYear": "1 year",
+    "durationPersistent": "Persistent"
   },
   "gta5": {
     "hud": {
@@ -124,6 +143,7 @@
       "markers": "Indicatori",
       "noMarkers": "Nessun indicatore",
       "locateMarker": "Localizza indicatore",
+      "deleteAllMarkers": "Elimina tutti i segnalini personalizzati",
       "gotyAssistant": "Assistente GOTY",
       "enableGoty": "Attiva GOTY"
     },
@@ -188,6 +208,10 @@
       "convenienceStoreShort": "Negozi 24/7",
       "maskShop": "Negozio di Maschere (Spiaggia)",
       "maskShopShort": "Negozio di Maschere",
+      "barber": "Barbiere",
+      "tattoo": "Negozio di Tatuaggi",
+      "clothingStore": "Negozio di Abbigliamento",
+      "clothingStoreShort": "Abbigliamento",
       "carWash": "Autolavaggi",
       "carWashShort": "Autolavaggio",
       "stripClub": "Vanilla Unicorn (Club)",
@@ -273,6 +297,13 @@
       "toggleWildlife": "Attiva o disattiva tutta la fauna selvatica",
       "toggleCollectibles": "Attiva o disattiva tutti i collezionabili",
       "toggleStrangePlaces": "Attiva o disattiva tutti i luoghi curiosi"
+    },
+    "guia": {
+      "navBrandStory": "GTA V • Guida Storia",
+      "navBrandOnline": "GTA Online • Guida",
+      "heroTitle": "GTA V • Guida Interattiva & Wiki",
+      "heroDescStory": "Compendio completo al 100% per Los Santos e Blaine County: Storia principale, Colpi, Mercato azionario e Segreti.",
+      "heroDescOnline": "La guida definitiva a Los Santos Online: Colpi, Attività, Veicoli armati e Strategie operative."
     }
   },
   "gta6": {
@@ -281,7 +312,13 @@
       "inGameTime": "Ora di gioco",
       "launchTitle": "Lancio GTA VI",
       "coordsDev": "Fai clic per copiare le coordinate",
-      "panelTitle": "Posizioni"
+      "panelTitle": "Posizioni",
+      "inGameTimeTitle": "In-game time (Vice City)",
+      "expandPanel": "Click to expand Locations",
+      "collapsePanel": "Collapse panel",
+      "settingsTitle": "Settings",
+      "expandSettings": "Click to expand Settings",
+      "collapseSettings": "Collapse settings"
     },
     "canvasHelp": "Rotella del mouse per ingrandire/ridurre, trascina per spostare",
     "categories": {
@@ -347,6 +384,43 @@
       "coupleDesc": "la polizia sta cercando una coppia",
       "cctv": "Inquadrato dalle telecamere CCTV",
       "cctvDesc": "sei stato ripreso dalle telecamere di sorveglianza"
+    },
+    "contextMenu": {
+      "editMarker": "Edit name",
+      "deleteMarker": "Delete this marker",
+      "addMarker": "Add marker here",
+      "centerMap": "Center map here"
+    },
+    "popups": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "settings": {
+      "mapSelector": "Map Type",
+      "iconStyle": "Icon Style",
+      "markerTheme": "Theme",
+      "themeStandard": "Standard",
+      "themeClassic": "Classic",
+      "themeSimple": "Font Awesome",
+      "themeModern": "Neon",
+      "iconSize": "Icon Size",
+      "sizeCompact": "80%",
+      "sizeStandard": "100% (Default)",
+      "sizeLarge": "120%",
+      "police": "Police Mode",
+      "markers": "Markers",
+      "noMarkers": "No markers",
+      "locateMarker": "Locate marker",
+      "deleteAllMarkers": "Delete all",
+      "gotyAssistant": "GOTY Assistant",
+      "enableGoty": "Enable GOTY"
+    },
+    "guia": {
+      "navBrandStory": "GTA 6 - STORY",
+      "navBrandOnline": "GTA 6 - ONLINE",
+      "heroTitle": "VICE CITY & STATE OF LEONIDA",
+      "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -580,7 +654,17 @@
     "gta6OnlineTitle": "Mappa GTA VI Online Vice City Ultra HD - Guida Interattiva e Novità (Senza Pubblicità) | GTA MAPS",
     "gta6OnlineDesc": "Prima mappa interattiva in Ultra HD di GTA 6 Online a Vice City e Leonida 100% senza pubblicità. Punti di interesse, strade, segreti e novità.",
     "gta6HistoriaTitle": "Mappa GTA VI Modalità Storia - Guida Vice City, Jason & Lucia (Senza Pubblicità) | GTA MAPS",
-    "gta6HistoriaDesc": "Mappa interattiva della modalità storia di GTA VI senza pubblicità con Jason e Lucia. Esplorazione Ultra HD di Vice City, missioni, collezionabili e segreti."
+    "gta6HistoriaDesc": "Mappa interattiva della modalità storia di GTA VI senza pubblicità con Jason e Lucia. Esplorazione Ultra HD di Vice City, missioni, collezionabili e segreti.",
+    "gta6NoticiasTitle": "GTA VI News & Updates - State of Leonida | GTA MAPS",
+    "gta6NoticiasDesc": "Latest news and updates for Grand Theft Auto VI and the State of Leonida.",
+    "gta6VideosTitle": "GTA VI Videos - Gameplay Clips & Highlights in Leonida | GTA MAPS",
+    "gta6VideosDesc": "Curated collection of short gameplay clips, videos, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta6MomentosTitle": "GTA VI Moments - Gameplay Clips & Situations in Leonida | GTA MAPS",
+    "gta6MomentosDesc": "Curated collection of unique moments, short gameplay clips, unexpected NPC encounters and surreal open-world situations in GTA 6 Leonida.",
+    "gta5GuiaTitle": "GTA V Guide - Story Mode: Main Missions, Strangers & Freaks, Mysteries & Trophies | GTA MAPS",
+    "gta5GuiaDesc": "Comprehensive GTA V guide and encyclopedia: 100% completion checklist, 6 tactical heists, stock market with Lester, characters, and Los Santos secrets.",
+    "gta6GuiaTitle": "GTA VI Guide - Database, Jason & Lucia, and State of Leonida | GTA MAPS",
+    "gta6GuiaDesc": "Interactive encyclopedia of GTA VI: Vice City districts, State of Leonida, Jason & Lucia analysis, trunk inventory, and mechanics."
   },
   "gta6Modal": {
     "title": "GTA VI — In sviluppo",
@@ -607,5 +691,125 @@
     "rateLimitMessage": "Abbiamo già ricevuto i tuoi suggerimenti di oggi. Attendi che vengano elaborati prima di inviarne un altro.",
     "close": "Chiudi",
     "sendAnother": "Invia un altro suggerimento"
+  },
+  "guia": {
+    "nav": {
+      "modeStory": "STORIA",
+      "modeOnline": "ONLINE",
+      "modeLabel": "MODALITÀ:",
+      "switchModeTitle": "Passa tra la Guida Storia e la Guida Online",
+      "alreadyOnGta5Guide": "Sei già sulla Guida di GTA 5",
+      "alreadyOnGta6Guide": "Sei già sulla Guida di GTA 6",
+      "gta6MapComingSoon": "Mappa GTA VI (Prossimamente)",
+      "themeDay": "Passa alla Modalità Giorno",
+      "themeNight": "Passa alla Modalità Notte",
+      "openNavMenu": "Apri menu di navigazione",
+      "closeNavMenu": "Chiudi menu"
+    },
+    "sidebar": {
+      "contents": "INDICE",
+      "categories": "Categorie",
+      "back": "Indietro",
+      "backToCategories": "Torna all'indice delle categorie",
+      "backToThemes": "Torna ai temi",
+      "backToHeists": "Torna all'elenco dei colpi",
+      "badgeThemes": "temi",
+      "badgeMissions": "missioni",
+      "badgePhases": "fasi",
+      "badgeMysteries": "misteri",
+      "badgeEvents": "eventi",
+      "badgeChapters": "cap.",
+      "badgeTrophies": "trofei",
+      "badgeHeists": "colpi",
+      "badgeVehicles": "veicoli",
+      "badgeBusinesses": "attività",
+      "badgeCharacters": "personaggi",
+      "searchPlaceholderDefault": "Cosa stai cercando? (es. Fleeca, Dave...)",
+      "searchPlaceholderVehicles": "Cerca veicolo...",
+      "clearSearch": "Cancella ricerca",
+      "noResults": "Nessun risultato trovato per \"{{ query }}\""
+    },
+    "trophies": {
+      "kicker": "TROFEI (PS) · OBIETTIVI (XBOX)",
+      "title": "Trofei GTA V",
+      "desc": "Elenco completo di tutti i {{ total }} trofei: l'ambito Platino, le sfide d'Oro, le imprese d'Argento e l'ampia lista di Bronzo per la Modalità Storia e GTA Online.",
+      "all": "Tutti i trofei",
+      "platinum": "Trofeo di Platino",
+      "gold": "Trofei d'Oro",
+      "silver": "Trofei d'Argento",
+      "bronze": "Trofei di Bronzo",
+      "badgePlatinum": "Platino",
+      "badgeGold": "Oro",
+      "badgeSilver": "Argento",
+      "badgeBronze": "Bronzo",
+      "loading": "Caricamento trofei...",
+      "empty": "Nessun trofeo trovato per questo filtro.",
+      "groupTitle": "Trofei {{ tipo }}",
+      "modes": {
+        "story": "Storia",
+        "online": "Online",
+        "both": "Entrambi"
+      },
+      "catalogTitle": "Catalogo Trofei"
+    },
+    "weapons": {
+      "title": "ARMI",
+      "ammuNationSpecs": "SPECIFICHE AMMU-NATION",
+      "campaignUnlock": "Sblocco Campagna",
+      "whoHasIt": "Arma Predefinita / Gratuita",
+      "mapLocation": "Posizione sulla Mappa",
+      "backToCategory": "Torna a {{ category }}"
+    },
+    "vehicles": {
+      "title": "VEICOLI",
+      "dealersTitle": "CONCESSIONARI",
+      "backToDealers": "Torna all'elenco dei concessionari"
+    },
+    "reader": {
+      "synopsisTitle": "Sinossi della Missione",
+      "reward": "Ricompensa",
+      "unlockedAfter": "Sbloccato Dopo",
+      "goldMedalTitle": "Obiettivi Medaglia d'Oro (100%)",
+      "backToChapters": "Torna ai Capitoli",
+      "backToList": "Torna all'Elenco",
+      "scrollToTop": "Torna all'Inizio del Capitolo",
+      "readingTime": "{{ minutes }} min di lettura"
+    }
+  },
+  "videos": {
+    "navTitle": "VIDEOS",
+    "heroTag": "CLIPS & GAMEPLAY HIGHLIGHTS",
+    "heroTitle": "GTA 6 VIDEOS",
+    "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
+    "allFilter": "All Videos",
+    "filterNpc": "NPCs & AI Reactions",
+    "filterFauna": "Leonida Wildlife",
+    "filterPolicia": "Police & Pursuits",
+    "filterFisicas": "Physics & Curiosities",
+    "filterMundo": "Open World",
+    "featuredBadge": "FEATURED VIDEO",
+    "publishedOn": "Published on",
+    "atTime": "at",
+    "watchClip": "Watch video",
+    "backToList": "Back to all videos",
+    "noClips": "No videos available in this category currently."
+  },
+  "momentos": {
+    "navTitle": "MOMENTS",
+    "heroTag": "CLIPS & GAMEPLAY HIGHLIGHTS",
+    "heroTitle": "GTA 6 MOMENTS",
+    "heroDesc": "Audiovisual collection of curious situations, wildlife encounters, NPC reactions and stories across the open world of Leonida.",
+    "allFilter": "All Moments",
+    "filterNpc": "NPCs & AI Reactions",
+    "filterFauna": "Leonida Wildlife",
+    "filterPolicia": "Police & Pursuits",
+    "filterFisicas": "Physics & Curiosities",
+    "filterMundo": "Open World",
+    "featuredBadge": "FEATURED MOMENT",
+    "publishedOn": "Published on",
+    "atTime": "at",
+    "watchClip": "Watch clip",
+    "backToList": "Back to all moments",
+    "noClips": "No moments available in this category currently."
   }
 }

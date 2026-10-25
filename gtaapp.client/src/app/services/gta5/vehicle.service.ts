@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, catchError, of, map, forkJoin } from 'rxjs';
 import { GtaVehicle } from '../../models/gta5/vehicle';
@@ -7,10 +7,8 @@ import { TranslationService } from '../../i18n';
 @Injectable({ providedIn: 'root' })
 export class VehicleService {
 
-  constructor(
-    private http: HttpClient,
-    private translationService: TranslationService
-  ) {}
+  private readonly http = inject(HttpClient);
+  private readonly translationService = inject(TranslationService);
 
   /**
    * Obtiene el catálogo de vehículos de GTA 5.
@@ -69,7 +67,7 @@ export class VehicleService {
 
     const fetchLocalized = () => {
       const p1 = `/assets/data/gta5/mapa/marcadores-mapa/${mode}/idiomas/${activeLang}/vehicles.json`;
-      return this.http.get<any[]>(p1).pipe(catchError(() => of([] as any[])));
+      return this.http.get<Partial<GtaVehicle>[]>(p1).pipe(catchError(() => of([] as Partial<GtaVehicle>[])));
     };
 
     const fetch$: Observable<GtaVehicle[]> = activeLang === 'es'
@@ -82,7 +80,7 @@ export class VehicleService {
             if (!base || base.length === 0) return (localized as GtaVehicle[]) || [];
             if (!localized || localized.length === 0) return base;
 
-            const locMap = new Map<string, any>();
+            const locMap = new Map<string, Partial<GtaVehicle>>();
             localized.forEach(v => {
               if (v && v.id) locMap.set(v.id, v);
             });

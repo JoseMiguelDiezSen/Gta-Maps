@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -41,6 +41,26 @@ export interface Gta6MarkerItem {
     desc?: string;
 }
 
+export interface Gta6UserCustomMarker {
+    id: string;
+    name: string;
+    color?: string;
+    x?: number;
+    y?: number;
+    visible?: boolean;
+}
+
+export interface Gta6MapTypeItem {
+    id: string;
+    label: string;
+    file: string;
+    w: number;
+    h: number;
+    desc?: string;
+    icon?: string;
+    preview?: string;
+}
+
 // ---------------------------------------------------------------------------
 // GTA VI — MODO ONLINE (Plataforma táctica interactiva con sistema de marcadores)
 // ---------------------------------------------------------------------------
@@ -80,7 +100,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
     ctxWorldX = 0;
     ctxWorldY = 0;
     isMarkerContext = false;
-    targetCustomMarker: any = null;
+    targetCustomMarker: Gta6UserCustomMarker | null = null;
 
     // Marcador activo seleccionado
     activeMarker: Gta6MarkerItem | null = null;
@@ -216,19 +236,19 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         return this.policiaItems.some(item => this.layerFilters[item.id]);
     }
 
-    constructor(
-        readonly translationService: TranslationService,
-        public gotyService: GotyService,
-        private router: Router,
-        private http: HttpClient
-    ) {}
+    readonly translationService = inject(TranslationService);
+    public readonly gotyService = inject(GotyService);
+    private readonly router = inject(Router);
+    private readonly http = inject(HttpClient);
+
+    constructor() {}
 
     zones: Gta6ZoneLabel[] = [];
     private zonesSub?: Subscription;
 
-    private _cachedMapTypesGta6O: any[] | null = null;
+    private _cachedMapTypesGta6O: Gta6MapTypeItem[] | null = null;
     private _lastLangGta6O = '';
-    get mapTypes() {
+    get mapTypes(): Gta6MapTypeItem[] {
         if (!this._cachedMapTypesGta6O || this._lastLangGta6O !== this.translationService.currentLang) {
             this._lastLangGta6O = this.translationService.currentLang;
             this._cachedMapTypesGta6O = [
@@ -241,7 +261,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
                 }
             ];
         }
-        return this._cachedMapTypesGta6O;
+        return this._cachedMapTypesGta6O || [];
     }
 
     legendOpen = true;
@@ -268,7 +288,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         goty: false
     };
 
-    userCustomMarkers: { id: string; name: string; color?: string; x?: number; y?: number; visible?: boolean }[] = [];
+    userCustomMarkers: Gta6UserCustomMarker[] = [];
     layerFilters: { [key: string]: boolean } = {};
     private clockInterval: ReturnType<typeof setInterval> | undefined;
 
@@ -534,7 +554,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         this.targetCustomMarker = null;
     }
 
-    activeCustomMarker: { id: string; name: string; color?: string; x?: number; y?: number; visible?: boolean } | null = null;
+    activeCustomMarker: Gta6UserCustomMarker | null = null;
 
     readonly pushpinPalettes: Record<string, { s0: string; s35: string; s85: string; s100: string; rim1: string; rim2: string; hex: string }> = {
         red:    { s0: '#ff7575', s35: '#e61919', s85: '#a80707', s100: '#5a0000', rim1: '#8f0505', rim2: '#ff4444', hex: '#e61919' },
@@ -561,7 +581,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         return this.pushpinPalettes[c] ? c : 'red';
     }
 
-    selectCustomMarker(cm: any, event?: MouseEvent): void {
+    selectCustomMarker(cm: Gta6UserCustomMarker, event?: MouseEvent): void {
         if (event) {
             event.stopPropagation();
         }
@@ -573,23 +593,23 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         this.activeCustomMarker = null;
     }
 
-    setCustomMarkerColor(cm: any, colorKey: string): void {
+    setCustomMarkerColor(cm: Gta6UserCustomMarker, colorKey: string): void {
         cm.color = colorKey;
         this.saveCustomMarkers();
     }
 
-    onCustomMarkerNameChange(cm: any): void {
+    onCustomMarkerNameChange(_cm: Gta6UserCustomMarker): void {
         this.saveCustomMarkers();
     }
 
-    updateCustomMarkerName(cm: any, newName: string): void {
+    updateCustomMarkerName(cm: Gta6UserCustomMarker, newName: string): void {
         if (newName && newName.trim() !== '') {
             cm.name = newName.trim();
             this.saveCustomMarkers();
         }
     }
 
-    deleteCustomMarker(cm: any): void {
+    deleteCustomMarker(cm: Gta6UserCustomMarker): void {
         this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== cm.id);
         if (this.activeCustomMarker?.id === cm.id) {
             this.activeCustomMarker = null;
@@ -620,7 +640,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         };
     }
 
-    toggleCustomMarker(cm: any): void {
+    toggleCustomMarker(cm: Gta6UserCustomMarker): void {
         cm.visible = cm.visible === false ? true : false;
         this.saveCustomMarkers();
     }
@@ -632,7 +652,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         this.saveCustomMarkers();
     }
 
-    focusCustomMarker(cm: any): void {
+    focusCustomMarker(cm: Gta6UserCustomMarker): void {
         if (!cm) return;
         if (cm.visible === false) {
             cm.visible = true;
@@ -653,7 +673,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         this.activeMarker = null;
     }
 
-    openMarkerContext(cm: any, event: MouseEvent): void {
+    openMarkerContext(cm: Gta6UserCustomMarker, event: MouseEvent): void {
         event.preventDefault();
         event.stopPropagation();
         this.targetCustomMarker = cm;
@@ -714,7 +734,9 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
                     }));
                 }
             }
-        } catch { }
+        } catch {
+            // Ignorar marcador corrupto o fallo de deserialización
+        }
     }
 
     onCanvasMouseMove(event: MouseEvent): void {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, of, map, forkJoin } from 'rxjs';
 import { GtaMission, GtaStrangerMission, GtaHeist } from '../../models/gta5/mission';
@@ -8,10 +8,10 @@ import { TranslationService } from '../../i18n';
 @Injectable({ providedIn: 'root' })
 export class MissionService {
 
-  constructor(
-    private http: HttpClient,
-    private translationService: TranslationService
-  ) {}
+
+    private readonly http = inject(HttpClient);
+    private readonly translationService = inject(TranslationService);
+
 
   /**
    * Carga la lista base canÃ³nica y superpone traducciones idiomÃ¡ticas disponibles.
@@ -62,13 +62,13 @@ export class MissionService {
 
     return forkJoin({
       base: this.fetchWithFallback<T>(baseCandidates),
-      localized: this.fetchWithFallback<any>(locCandidates)
+      localized: this.fetchWithFallback<Partial<T>>(locCandidates)
     }).pipe(
       map(({ base, localized }) => {
         if (!base || base.length === 0) return (localized as T[]) || [];
         if (!localized || localized.length === 0) return base;
 
-        const locMap = new Map<string, any>();
+        const locMap = new Map<string, Partial<T>>();
         localized.forEach(item => {
           if (item && item.id) locMap.set(item.id, item);
         });

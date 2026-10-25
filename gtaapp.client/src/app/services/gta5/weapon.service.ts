@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, of, map, forkJoin } from 'rxjs';
 import { GtaWeapon } from '../../models/gta5/weapon';
@@ -7,10 +7,8 @@ import { TranslationService } from '../../i18n';
 @Injectable({ providedIn: 'root' })
 export class WeaponService {
 
-  constructor(
-    private http: HttpClient,
-    private translationService: TranslationService
-  ) {}
+  private readonly http = inject(HttpClient);
+  private readonly translationService = inject(TranslationService);
 
   private normalizeWeaponImage(weapon: GtaWeapon): GtaWeapon {
     if (!weapon) return weapon;
@@ -38,8 +36,8 @@ export class WeaponService {
       catchError(() => of([] as GtaWeapon[]))
     );
 
-    const fetchLocalized$ = this.http.get<any[]>(primaryLocalizedPath).pipe(
-      catchError(() => of([] as any[]))
+    const fetchLocalized$ = this.http.get<Partial<GtaWeapon>[]>(primaryLocalizedPath).pipe(
+      catchError(() => of([] as Partial<GtaWeapon>[]))
     );
 
     const fetch$: Observable<GtaWeapon[]> = activeLang === 'es'
@@ -52,7 +50,7 @@ export class WeaponService {
             if (!base || base.length === 0) return (localized as GtaWeapon[]) || [];
             if (!localized || localized.length === 0) return base;
 
-            const locMap = new Map<string, any>();
+            const locMap = new Map<string, Partial<GtaWeapon>>();
             localized.forEach(w => {
               if (w && w.id) locMap.set(w.id, w);
             });

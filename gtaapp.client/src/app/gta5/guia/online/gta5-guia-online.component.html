@@ -100,19 +100,6 @@
         <!-- Separador -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
 
-        <!-- Selector directo entre las guías de GTA 5 -->
-        <div class="mode-switch-track" [attr.aria-label]="'guia.nav.switchModeTitle' | translate">
-          <a class="mode-switch-btn mode-historia" routerLink="/gta5-guia-offline" [title]="'common.story' | translate">
-            <i class="mode-indicator dot-historia"></i>
-            <span class="mode-text-desktop">{{ 'guia.nav.modeStory' | translate }}</span>
-            <span class="mode-text-mobile">{{ 'guia.nav.modeStory' | translate }}</span>
-          </a>
-          <a class="mode-switch-btn mode-online is-active" routerLink="/gta5-guia-online" [title]="'common.online' | translate">
-            <i class="mode-indicator dot-online"></i>
-            <span class="mode-text-desktop">{{ 'guia.nav.modeOnline' | translate }}</span>
-            <span class="mode-text-mobile">{{ 'guia.nav.modeOnline' | translate }}</span>
-          </a>
-        </div>
 
         <!-- Separador final de cierre -->
         <span class="nav-spike-divider" aria-hidden="true"></span>
@@ -136,7 +123,8 @@
     </div>
 
     <!-- MENÚ DESPLEGABLE MÓVIL (DRAWER) -->
-    <div class="mobile-nav-drawer" *ngIf="mobileNavOpen">
+    @if (mobileNavOpen) {
+    <div class="mobile-nav-drawer">
       <div class="mobile-nav-links">
         <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-house"></i>
@@ -165,21 +153,8 @@
         </a>
       </div>
 
-      <!-- Selector de modo Historia / Online en móvil -->
-      <div class="mobile-mode-switcher">
-        <span class="mobile-mode-label">{{ 'guia.nav.modeLabel' | translate }}</span>
-        <div class="mode-switch-track">
-          <a class="mode-switch-btn mode-historia" routerLink="/gta5-guia-offline" (click)="closeMobileNav()">
-            <i class="mode-indicator dot-historia"></i>
-            <span>{{ 'guia.nav.modeStory' | translate }}</span>
-          </a>
-          <a class="mode-switch-btn mode-online is-active" routerLink="/gta5-guia-online" (click)="closeMobileNav()">
-            <i class="mode-indicator dot-online"></i>
-            <span>{{ 'guia.nav.modeOnline' | translate }}</span>
-          </a>
-        </div>
-      </div>
     </div>
+    }
   </nav>
 
   <!-- BANNER HERO DE LOS SANTOS (CIUDAD DE FONDO) -->
@@ -200,14 +175,15 @@
     <aside class="wiki-sidebar">
 
       <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
-      <div class="sidebar-header-bar" *ngIf="!currentSection">
+      @if (!currentSection) {
+      <div class="sidebar-header-bar">
         <span class="sidebar-header-title">{{ 'guia.sidebar.contents' | translate }}</span>
       </div>
 
       <!-- VISTA 1: LISTA DE CATEGORÍAS (DRILL-DOWN NIVEL 1) -->
-      <nav class="guide-categories-list" *ngIf="!currentSection">
+      <nav class="guide-categories-list">
+        @for (seccion of secciones; track seccion.id) {
         <div
-          *ngFor="let seccion of secciones"
           class="guide-cat-card"
           [style.--cat-accent]="getSectionColor(seccion.id)"
           (click)="openSection(seccion)"
@@ -231,27 +207,33 @@
             <i class="fa-solid fa-chevron-right"></i>
           </div>
         </div>
+        }
 
         <!-- SEPARADOR DE ESPIGA DETRÁS DEL ÚLTIMO PANEL -->
         <div class="guide-cat-list-divider" aria-hidden="true"></div>
       </nav>
+      }
 
       <!-- VISTA 2: LISTADO DE CAPÍTULOS DE LA CATEGORÍA (DRILL-DOWN NIVEL 2) -->
-      <div class="guide-section-detail-view" *ngIf="currentSection" [style.--cat-accent]="getSectionColor(currentSection.id)">
+      @if (currentSection) {
+      <div class="guide-section-detail-view" [style.--cat-accent]="getSectionColor(currentSection.id)">
         <!-- SUB-VISTA: LISTADO DE CONCESIONARIOS (VEHÍCULOS) -->
-        <ng-container *ngIf="currentSection.id === 'vehiculos'">
+        @if (currentSection.id === 'vehiculos') {
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
               <span>{{ 'guia.sidebar.categories' | translate }}</span>
             </button>
-            <span class="guide-detail-badge" *ngIf="concesionarioSeleccionado">
+            @if (concesionarioSeleccionado) {
+            <span class="guide-detail-badge">
               {{ busquedaVehiculos ? vehiculosFiltrados.length : vehiculosConcesionario.length }} {{ getBadgeLabelVehiculos() }}
             </span>
+            }
           </div>
 
           <!-- Buscador dinámico según el panel/concesionario seleccionado -->
-          <div class="sidebar-search-box" *ngIf="concesionarioSeleccionado">
+          @if (concesionarioSeleccionado) {
+          <div class="sidebar-search-box">
             <div class="search-input-wrapper">
               <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -265,8 +247,8 @@
                 autocomplete="off"
                 spellcheck="false"
               />
+              @if (busquedaVehiculos) {
               <button
-                *ngIf="busquedaVehiculos"
                 type="button"
                 class="search-clear-btn"
                 (click)="limpiarBusquedaVehiculos()"
@@ -274,16 +256,18 @@
               >
                 ✕
               </button>
+              }
             </div>
           </div>
+          }
 
           <div class="sidebar-header-bar">
             <span class="sidebar-header-title">{{ 'guia.vehicles.title' | translate }}</span>
           </div>
 
           <div class="guide-categories-list">
+            @for (concesionario of concesionarios; track concesionario.id) {
             <div
-              *ngFor="let concesionario of concesionarios"
               class="guide-cat-card"
               [class.is-active]="concesionarioSeleccionado?.id === concesionario.id"
               [style.--cat-accent]="concesionario.color"
@@ -301,14 +285,15 @@
                 <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
+            }
 
             <!-- SEPARADOR DE ESPIGA AL FINAL -->
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
-        </ng-container>
+        }
 
         <!-- SUB-VISTA: LISTADO DE CATEGORÍAS DE ARMAS -->
-        <ng-container *ngIf="currentSection.id === 'armas'">
+        @else if (currentSection.id === 'armas') {
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
@@ -321,8 +306,8 @@
           </div>
 
           <div class="guide-categories-list">
+            @for (cat of weaponCategories; track cat.id) {
             <div
-              *ngFor="let cat of weaponCategories"
               class="guide-cat-card"
               [class.is-active]="categoriaArmaSeleccionada?.id === cat.id"
               [style.--cat-accent]="cat.color"
@@ -340,14 +325,15 @@
                 <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
+            }
 
             <!-- SEPARADOR DE ESPIGA AL FINAL -->
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
-        </ng-container>
+        }
 
         <!-- SUB-VISTA: LISTADO DE PERSONAJES -->
-        <ng-container *ngIf="currentSection.id === 'personajes'">
+        @else if (currentSection.id === 'personajes') {
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
@@ -361,8 +347,8 @@
           </div>
 
           <div class="guide-categories-list">
+            @for (personaje of personajes$ | async; track personaje.name) {
             <div
-              *ngFor="let personaje of personajes$ | async"
               class="guide-cat-card"
               [title]="personaje.name"
             >
@@ -373,14 +359,15 @@
                 <span class="guide-cat-title">{{ personaje.name }}</span>
               </div>
             </div>
+            }
 
             <!-- SEPARADOR DE ESPIGA AL FINAL -->
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
-        </ng-container>
+        }
 
         <!-- SUB-VISTA: LISTADO DE MISTERIOS -->
-        <ng-container *ngIf="currentSection.id === 'misterios'">
+        @else if (currentSection.id === 'misterios') {
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
@@ -394,8 +381,8 @@
           </div>
 
           <div class="guide-chapters-list">
+            @for (m of misterios$ | async; track m.id; let idx = $index) {
             <div
-              *ngFor="let m of misterios$ | async; let idx = index"
               class="guide-chapter-card"
               [class.is-active]="(misterioSeleccionado?.id || (misterios$ | async)?.[0]?.id) === m.id"
               (click)="seleccionarMisterio(m)"
@@ -404,22 +391,25 @@
 
               <div class="chapter-card-info">
                 <span class="chapter-card-title">{{ m.title }}</span>
-                <span class="chapter-card-sub" *ngIf="m.location">
+                @if (m.location) {
+                <span class="chapter-card-sub">
                   <i class="fa-solid fa-location-dot" style="font-size: 9.5px; margin-right: 3px; opacity: 0.75;"></i>{{ m.location }}
                 </span>
+                }
               </div>
             </div>
+            }
 
             <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
-        </ng-container>
+        }
  
         <!-- SUB-VISTA: LISTADO DE GOLPES (NIVEL 1 Y NIVEL 2) -->
-        <ng-container *ngIf="currentSection.id === 'golpes'">
+        @else if (currentSection.id === 'golpes') {
 
           <!-- NIVEL 1: LISTADO DE LOS 12 GOLPES -->
-          <ng-container *ngIf="!golpeAbierto">
+          @if (!golpeAbierto) {
             <div class="guide-detail-toolbar">
               <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -433,8 +423,8 @@
             </div>
 
             <div class="guide-categories-list">
+              @for (g of (golpes.length ? golpes : (golpes$ | async) || []); track g.id) {
               <div
-                *ngFor="let g of (golpes.length ? golpes : (golpes$ | async) || [])"
                 class="guide-cat-card"
                 [class.is-active]="(golpeSeleccionado?.id || (golpes.length ? golpes[0].id : (golpes$ | async)?.[0]?.id)) === g.id"
                 [style.--cat-accent]="g.badgeColor || '#2ecc71'"
@@ -446,19 +436,22 @@
                 <div class="guide-cat-info">
                   <span class="guide-cat-title">{{ g.title }}</span>
                 </div>
-                <span class="guide-cat-badge" *ngIf="g.setupMissions?.length">{{ g.setupMissions.length }}</span>
+                @if (g.setupMissions.length) {
+                <span class="guide-cat-badge">{{ g.setupMissions.length }}</span>
+                }
                 <div class="guide-cat-arrow">
                   <i class="fa-solid fa-chevron-right"></i>
                 </div>
               </div>
+              }
 
               <!-- SEPARADOR DE ESPIGA AL FINAL -->
               <div class="guide-cat-list-divider" aria-hidden="true"></div>
             </div>
-          </ng-container>
+          }
 
           <!-- NIVEL 2: FASES Y MISIONES PREPARATORIAS DEL GOLPE SELECCIONADO -->
-          <ng-container *ngIf="golpeAbierto && (golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])) as g">
+          @if (golpeAbierto && (golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])); as g) {
             <div class="guide-detail-toolbar">
               <button type="button" class="guide-back-btn" (click)="volverAGolpes()" title="Volver al listado de golpes">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -486,8 +479,8 @@
               </div>
 
               <!-- Misiones y Fases preparatorias -->
+              @for (s of g.setupMissions; track s.name || $index; let idx = $index) {
               <div
-                *ngFor="let s of g.setupMissions; let idx = index"
                 class="guide-chapter-card"
                 [class.is-active]="faseSeleccionadaIndex === idx"
                 (click)="seleccionarFaseGolpe(idx)"
@@ -496,19 +489,22 @@
 
                 <div class="chapter-card-info">
                   <span class="chapter-card-title">{{ s.name }}</span>
-                  <span class="chapter-card-sub" *ngIf="s.type">{{ s.type }}</span>
+                  @if (s.type) {
+                  <span class="chapter-card-sub">{{ s.type }}</span>
+                  }
                 </div>
               </div>
+              }
 
               <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
               <div class="guide-cat-list-divider" aria-hidden="true"></div>
             </div>
-          </ng-container>
+          }
 
-        </ng-container>
+        }
 
         <!-- SUB-VISTA: LISTADO DE MISIONES PRINCIPALES (GTA ONLINE - ACORDEÓN DESPLEGABLE) -->
-        <ng-container *ngIf="currentSection.id === 'misiones-principales'">
+        @else if (currentSection.id === 'misiones-principales') {
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
@@ -532,8 +528,8 @@
                 autocomplete="off"
                 spellcheck="false"
               />
+              @if (busquedaMisiones) {
               <button
-                *ngIf="busquedaMisiones"
                 type="button"
                 class="search-clear-btn"
                 (click)="limpiarBusquedaMisiones()"
@@ -541,6 +537,7 @@
               >
                 ✕
               </button>
+              }
             </div>
           </div>
 
@@ -550,8 +547,8 @@
 
           <!-- LISTA EN ACORDEÓN DE LOS 18 CONTACTOS -->
           <div class="guide-accordion-list">
+            @for (grupo of getGruposMisionesOnline(); track grupo.id) {
             <div
-              *ngFor="let grupo of getGruposMisionesOnline(); trackBy: trackByCategoriaId"
               class="guide-accordion-group"
               [style.--cat-accent]="grupo.color"
             >
@@ -579,8 +576,8 @@
               <div class="guide-accordion-collapse" [class.is-open]="isGrupoMisionExpanded(grupo.id)">
                 <div class="guide-accordion-collapse-inner">
                   <div class="guide-accordion-chapters">
+                    @for (m of grupo.misiones; track m.id; let idx = $index) {
                     <div
-                      *ngFor="let m of grupo.misiones; let idx = index; trackBy: trackByMisionId"
                       class="guide-chapter-card"
                       [class.is-active]="misionSeleccionada?.id === m.id"
                       [style.--cat-accent]="grupo.color"
@@ -593,30 +590,36 @@
                       </div>
 
                       <div class="chapter-card-meta">
-                        <span class="chapter-card-badge" *ngIf="m.minLevel">Nv. {{ m.minLevel }}</span>
+                        @if (m.minLevel) {
+                        <span class="chapter-card-badge">Nv. {{ m.minLevel }}</span>
+                        }
                       </div>
                     </div>
+                    }
                   </div>
                 </div>
               </div>
             </div>
+            }
 
             <!-- Sin resultados de búsqueda -->
-            <div *ngIf="busquedaMisiones && getGruposMisionesOnline().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+            @if (busquedaMisiones && getGruposMisionesOnline().length === 0) {
+            <div style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
               <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
               <span>No se encontraron misiones para "{{ busquedaMisiones }}"</span>
             </div>
+            }
 
             <!-- Separador de espiga al final -->
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
-        </ng-container>
+        }
 
         <!-- SUB-VISTA: LISTADO DE NEGOCIOS ONLINE -->
-        <ng-container *ngIf="currentSection.id === 'negocios'">
+        @else if (currentSection.id === 'negocios') {
 
           <!-- NIVEL 1: LISTADO DE SUBCATEGORÍAS DE NEGOCIOS -->
-          <ng-container *ngIf="!subcategoriaNegocioSeleccionada">
+          @if (!subcategoriaNegocioSeleccionada) {
             <div class="guide-detail-toolbar">
               <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -630,8 +633,8 @@
             </div>
 
             <div class="guide-categories-list">
+              @for (subcat of subcategoriasNegocios; track subcat.id) {
               <div
-                *ngFor="let subcat of subcategoriasNegocios"
                 class="guide-cat-card"
                 [style.--cat-accent]="subcat.color"
                 (click)="seleccionarSubcategoriaNegocio(subcat)"
@@ -648,14 +651,15 @@
                   <i class="fa-solid fa-chevron-right"></i>
                 </div>
               </div>
+              }
 
               <!-- SEPARADOR DE ESPIGA AL FINAL -->
               <div class="guide-cat-list-divider" aria-hidden="true"></div>
             </div>
-          </ng-container>
+          }
 
           <!-- NIVEL 2: LISTADO DE LOCALES DE LA SUBCATEGORÍA SELECCIONADA -->
-          <ng-container *ngIf="subcategoriaNegocioSeleccionada">
+          @if (subcategoriaNegocioSeleccionada) {
             <div class="guide-detail-toolbar">
               <button type="button" class="guide-back-btn" (click)="volverASubcategoriasNegocios()" title="Volver al listado de subcategorías">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -669,8 +673,8 @@
             </div>
 
             <div class="guide-chapters-list">
+              @for (n of getNegociosDeSubcategoria(subcategoriaNegocioSeleccionada); track n.id; let idx = $index) {
               <div
-                *ngFor="let n of getNegociosDeSubcategoria(subcategoriaNegocioSeleccionada); let idx = index"
                 class="guide-chapter-card"
                 [class.is-active]="negocioSeleccionado?.id === n.id"
                 (click)="seleccionarNegocio(n)"
@@ -679,22 +683,27 @@
 
                 <div class="chapter-card-info">
                   <span class="chapter-card-title">{{ n.name }}</span>
-                  <span class="chapter-card-sub" *ngIf="n.zone">{{ n.zone }}</span>
+                  @if (n.zone) {
+                  <span class="chapter-card-sub">{{ n.zone }}</span>
+                  }
                 </div>
 
                 <div class="chapter-card-meta">
-                  <span class="chapter-card-badge" *ngIf="n.priceFormatted">{{ n.priceFormatted }}</span>
+                  @if (n.priceFormatted) {
+                  <span class="chapter-card-badge">{{ n.priceFormatted }}</span>
+                  }
                 </div>
               </div>
+              }
 
               <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
               <div class="guide-cat-list-divider" aria-hidden="true"></div>
             </div>
-          </ng-container>
+          }
 
-        </ng-container>
+        }
 
-        <ng-container *ngIf="currentSection.id !== 'vehiculos' && currentSection.id !== 'armas' && currentSection.id !== 'personajes' && currentSection.id !== 'misterios' && currentSection.id !== 'golpes' && currentSection.id !== 'misiones-principales' && currentSection.id !== 'negocios'">
+        @else {
         <div class="guide-detail-toolbar">
           <button type="button" class="guide-back-btn" (click)="backToSections()" title="Volver al índice de categorías">
             <i class="fa-solid fa-chevron-left"></i>
@@ -708,8 +717,8 @@
         </div>
 
         <div class="guide-chapters-list">
+          @for (art of currentSection.articulos; track art.id; let idx = $index) {
           <div
-            *ngFor="let art of currentSection.articulos; let idx = index"
             class="guide-chapter-card"
             [class.is-active]="selectedArticulo?.id === art.id"
             (click)="seleccionarArticulo(art.id)"
@@ -718,54 +727,70 @@
 
             <div class="chapter-card-info">
               <span class="chapter-card-title">{{ art.titulo }}</span>
-              <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+              @if (art.subtitulo) {
+              <span class="chapter-card-sub">{{ art.subtitulo }}</span>
+              }
             </div>
 
             <div class="chapter-card-meta">
-              <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
+              @if (art.badge) {
+              <span class="chapter-card-badge">{{ art.badge }}</span>
+              }
             </div>
           </div>
+          }
 
           <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
           <div class="guide-cat-list-divider" aria-hidden="true"></div>
         </div>
-        </ng-container>
+        }
       </div>
+      }
     </aside>
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
     <main class="wiki-content-area">
       <!-- Panel del concesionario seleccionado: título + grid de vehículos -->
-      <article *ngIf="concesionarioSeleccionado" class="wiki-article-card">
+      @if (concesionarioSeleccionado) {
+      <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
             <ol class="breadcrumb-list">
-              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+              @for (item of breadcrumbs; track item.label; let last = $last) {
+              <li class="breadcrumb-item" [class.is-active]="last">
+                @if (item.clickable && !last) {
                 <button
-                  *ngIf="item.clickable && !last"
                   type="button"
                   class="breadcrumb-link"
                   (click)="item.action ? item.action() : null"
                 >
                   {{ item.label }}
                 </button>
-                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                }
+                @if (!item.clickable || last) {
+                <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                   {{ item.label }}
                 </span>
-                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                }
+                @if (!last) {
+                <span class="breadcrumb-separator" aria-hidden="true">
                   <i class="fa-solid fa-chevron-right"></i>
                 </span>
+                }
               </li>
+              }
             </ol>
           </nav>
 
-          <div class="article-meta-row" *ngIf="vehiculoSeleccionado">
+          @if (vehiculoSeleccionado) {
+          <div class="article-meta-row">
             <button type="button" class="guide-back-btn" (click)="volverAlGridVehiculos()" [title]="'Volver a ' + concesionarioSeleccionado.name">
               <i class="fa-solid fa-chevron-left"></i>
               <span>{{ concesionarioSeleccionado.name }}</span>
             </button>
           </div>
+          }
 
           <div class="article-chapter-banner">
             <div class="chapter-banner-text">
@@ -776,44 +801,57 @@
 
         <div class="article-body">
           <!-- GRID DE VEHÍCULOS -->
-          <div class="vehiculos-grid" *ngIf="!vehiculoSeleccionado && vehiculosFiltrados.length > 0">
-            <div class="vehiculo-card" *ngFor="let vehiculo of vehiculosFiltrados" (click)="seleccionarVehiculo(vehiculo)">
+          @if (!vehiculoSeleccionado && vehiculosFiltrados.length > 0) {
+          <div class="vehiculos-grid">
+            @for (vehiculo of vehiculosFiltrados; track vehiculo.id || vehiculo.name) {
+            <div class="vehiculo-card" (click)="seleccionarVehiculo(vehiculo)">
               <div class="vehiculo-card-media">
+                @if (!vehiculo.imgFailed) {
                 <img
-                  *ngIf="!vehiculo.imgFailed"
                   [src]="vehiculo.imageUrl"
                   [alt]="vehiculo.name"
                   class="vehiculo-card-img"
                   loading="lazy"
                   (error)="vehiculo.imgFailed = true"
                 />
-                <i *ngIf="vehiculo.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getVehicleIcon(vehiculo)"></i>
+                }
+                @if (vehiculo.imgFailed) {
+                <i class="fa-solid vehiculo-card-fallback" [ngClass]="getVehicleIcon(vehiculo)"></i>
+                }
               </div>
               <div class="vehiculo-card-info">
                 <span class="vehiculo-card-name">{{ vehiculo.name }}</span>
                 <span class="vehiculo-card-price">{{ vehiculo.priceFormatted }}</span>
               </div>
             </div>
+            }
           </div>
+          }
 
           <!-- Mensaje cuando la búsqueda no produce resultados -->
-          <div class="trophy-empty" *ngIf="!vehiculoSeleccionado && vehiculosConcesionario.length > 0 && vehiculosFiltrados.length === 0" style="padding: 60px 0; text-align: center; color: rgba(255,255,255,0.6);">
+          @if (!vehiculoSeleccionado && vehiculosConcesionario.length > 0 && vehiculosFiltrados.length === 0) {
+          <div class="trophy-empty" style="padding: 60px 0; text-align: center; color: rgba(255,255,255,0.6);">
             <i class="fa-solid fa-car-burst" style="font-size: 28px; margin-right: 10px; opacity: 0.5;"></i>
             <span>{{ 'guia.sidebar.noResults' | translate:{ query: busquedaVehiculos } }}</span>
           </div>
+          }
 
           <!-- DETALLE DEL VEHÍCULO -->
-          <div class="vehiculo-detail" *ngIf="vehiculoSeleccionado">
+          @if (vehiculoSeleccionado) {
+          <div class="vehiculo-detail">
             <div class="vehiculo-detail-layout">
               <div class="vehiculo-detail-media">
+                @if (!vehiculoSeleccionado.imgFailed) {
                 <img
-                  *ngIf="!vehiculoSeleccionado.imgFailed"
                   [src]="vehiculoSeleccionado.imageUrl"
                   [alt]="vehiculoSeleccionado.name"
                   class="vehiculo-detail-img"
                   (error)="vehiculoSeleccionado.imgFailed = true"
                 />
-                <i *ngIf="vehiculoSeleccionado.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getVehicleIcon(vehiculoSeleccionado)"></i>
+                }
+                @if (vehiculoSeleccionado.imgFailed) {
+                <i class="fa-solid vehiculo-card-fallback" [ngClass]="getVehicleIcon(vehiculoSeleccionado)"></i>
+                }
               </div>
 
               <div class="vehiculo-detail-info">
@@ -827,9 +865,11 @@
 
                 <div class="vehiculo-detail-badges">
                   <span class="vehiculo-detail-badge">{{ vehiculoSeleccionado.class }}</span>
-                  <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon" *ngIf="vehiculoSeleccionado.weaponized">
+                  @if (vehiculoSeleccionado.weaponized) {
+                  <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon">
                     {{ 'transports.catalog.weaponized' | translate }}
                   </span>
+                  }
                 </div>
 
                 <div class="vehiculo-stats">
@@ -858,51 +898,67 @@
             </div>
 
             <!-- SEPARADOR CON ESPIGAS ESTILIZADAS OFICIAL DE LA GUÍA -->
-            <div class="guide-heading-divider" *ngIf="vehiculoSeleccionado.description">
+            @if (vehiculoSeleccionado.description) {
+            <div class="guide-heading-divider">
               <div class="guide-heading-line"></div>
               <h3 class="guide-heading-title">DESCRIPCIÓN DEL VEHÍCULO</h3>
               <div class="guide-heading-line guide-heading-line--right"></div>
             </div>
+            }
 
             <!-- CONTENIDO EDITORIAL DE DESCRIPCIÓN DEL VEHÍCULO -->
-            <p class="vehiculo-descripcion-texto" *ngIf="vehiculoSeleccionado.description">
+            @if (vehiculoSeleccionado.description) {
+            <p class="vehiculo-descripcion-texto">
               {{ vehiculoSeleccionado.description }}
             </p>
+            }
           </div>
+          }
         </div>
       </article>
+      }
 
       <!-- Panel de la categoría de armas seleccionada: título + grid de armas + detalle -->
-      <article *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'" class="wiki-article-card">
+      @if (categoriaArmaSeleccionada && currentSection?.id === 'armas') {
+      <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
             <ol class="breadcrumb-list">
-              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+              @for (item of breadcrumbs; track item.label; let last = $last) {
+              <li class="breadcrumb-item" [class.is-active]="last">
+                @if (item.clickable && !last) {
                 <button
-                  *ngIf="item.clickable && !last"
                   type="button"
                   class="breadcrumb-link"
                   (click)="item.action ? item.action() : null"
                 >
                   {{ item.label }}
                 </button>
-                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                }
+                @if (!item.clickable || last) {
+                <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                   {{ item.label }}
                 </span>
-                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                }
+                @if (!last) {
+                <span class="breadcrumb-separator" aria-hidden="true">
                   <i class="fa-solid fa-chevron-right"></i>
                 </span>
+                }
               </li>
+              }
             </ol>
           </nav>
 
-          <div class="article-meta-row" *ngIf="armaSeleccionada">
+          @if (armaSeleccionada) {
+          <div class="article-meta-row">
             <button type="button" class="guide-back-btn" (click)="volverAlGridArmas()" [title]="'Volver a ' + categoriaArmaSeleccionada.name">
               <i class="fa-solid fa-chevron-left"></i>
               <span>{{ categoriaArmaSeleccionada.name }}</span>
             </button>
           </div>
+          }
 
           <div class="article-chapter-banner">
             <div class="chapter-banner-text">
@@ -913,38 +969,49 @@
 
         <div class="article-body">
           <!-- GRID DE ARMAS -->
-          <div class="vehiculos-grid" *ngIf="!armaSeleccionada">
-            <div class="vehiculo-card" *ngFor="let arma of armasCategoria$ | async" (click)="seleccionarArma(arma)">
+          @if (!armaSeleccionada) {
+          <div class="vehiculos-grid">
+            @for (arma of armasCategoria$ | async; track arma.id || arma.name) {
+            <div class="vehiculo-card" (click)="seleccionarArma(arma)">
               <div class="vehiculo-card-media">
+                @if (!arma.imgFailed) {
                 <img
-                  *ngIf="!arma.imgFailed"
                   [src]="arma.imageUrl"
                   [alt]="arma.name"
                   class="vehiculo-card-img"
                   loading="lazy"
                   (error)="arma.imgFailed = true"
                 />
-                <i *ngIf="arma.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(arma)"></i>
+                }
+                @if (arma.imgFailed) {
+                <i class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(arma)"></i>
+                }
               </div>
               <div class="vehiculo-card-info">
                 <span class="vehiculo-card-name">{{ arma.name }}</span>
                 <span class="vehiculo-card-price">{{ arma.priceFormatted }}</span>
               </div>
             </div>
+            }
           </div>
+          }
 
           <!-- DETALLE DEL ARMA -->
-          <div class="vehiculo-detail" *ngIf="armaSeleccionada">
+          @if (armaSeleccionada) {
+          <div class="vehiculo-detail">
             <div class="vehiculo-detail-layout">
               <div class="vehiculo-detail-media">
+                @if (!armaSeleccionada.imgFailed) {
                 <img
-                  *ngIf="!armaSeleccionada.imgFailed"
                   [src]="armaSeleccionada.imageUrl"
                   [alt]="armaSeleccionada.name"
                   class="vehiculo-detail-img"
                   (error)="armaSeleccionada.imgFailed = true"
                 />
-                <i *ngIf="armaSeleccionada.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(armaSeleccionada)"></i>
+                }
+                @if (armaSeleccionada.imgFailed) {
+                <i class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(armaSeleccionada)"></i>
+                }
               </div>
 
               <div class="vehiculo-detail-info">
@@ -957,16 +1024,24 @@
                 </div>
 
                 <div class="vehiculo-detail-badges">
-                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.categoryLabel">{{ armaSeleccionada.categoryLabel }}</span>
-                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.realCounterpart">
+                  @if (armaSeleccionada.categoryLabel) {
+                  <span class="vehiculo-detail-badge">{{ armaSeleccionada.categoryLabel }}</span>
+                  }
+                  @if (armaSeleccionada.realCounterpart) {
+                  <span class="vehiculo-detail-badge">
                     {{ armaSeleccionada.realCounterpart }}
                   </span>
-                  <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon" *ngIf="armaSeleccionada.hasMk2">
+                  }
+                  @if (armaSeleccionada.hasMk2) {
+                  <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon">
                     {{ 'transports.weapons.mk2Badge' | translate }}
                   </span>
-                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.rankUnlock && armaSeleccionada.rankUnlock > 1">
+                  }
+                  @if (armaSeleccionada.rankUnlock && armaSeleccionada.rankUnlock > 1) {
+                  <span class="vehiculo-detail-badge">
                     {{ 'transports.weapons.rankUnlock' | translate }}: {{ armaSeleccionada.rankUnlock }}
                   </span>
+                  }
                 </div>
 
                 <div class="vehiculo-stats">
@@ -1002,87 +1077,111 @@
             </div>
 
             <!-- CONTENIDO DE DESCRIPCIÓN DEL ARMA -->
-            <p class="vehiculo-descripcion-texto" *ngIf="armaSeleccionada.description">
+            @if (armaSeleccionada.description) {
+            <p class="vehiculo-descripcion-texto">
               {{ armaSeleccionada.description }}
             </p>
+            }
 
             <!-- CARGADOR Y ACCESORIOS -->
-            <div class="vclean-desc-box" *ngIf="armaSeleccionada.clipSize" style="margin-top: 14px;">
+            @if (armaSeleccionada.clipSize) {
+            <div class="vclean-desc-box" style="margin-top: 14px;">
               <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 6px;">
                 <i class="fa-solid fa-box-archive"></i>
                 <span>{{ 'transports.weapons.clipSize' | translate }}</span>
               </div>
               <p class="vehiculo-descripcion-texto" style="margin-top: 0;">{{ armaSeleccionada.clipSize }}</p>
             </div>
+            }
 
-            <div class="vclean-desc-box" *ngIf="armaSeleccionada.attachments && armaSeleccionada.attachments.length > 0" style="margin-top: 14px;">
+            @if (armaSeleccionada.attachments && armaSeleccionada.attachments.length > 0) {
+            <div class="vclean-desc-box" style="margin-top: 14px;">
               <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 8px;">
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                 <span>{{ 'transports.weapons.attachmentsTitle' | translate }}</span>
               </div>
               <div class="vehiculo-detail-badges">
-                <span class="vehiculo-detail-badge" *ngFor="let att of armaSeleccionada.attachments" style="border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.08); color: #7dd3fc;">
+                @for (att of armaSeleccionada.attachments; track att) {
+                <span class="vehiculo-detail-badge" style="border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.08); color: #7dd3fc;">
                   <i class="fa-solid fa-circle-check" style="margin-right: 4px; font-size: 10px;"></i>
                   {{ att }}
                 </span>
+                }
               </div>
             </div>
+            }
           </div>
+          }
         </div>
       </article>
+      }
 
       <!-- Panel de Misterios (IDÉNTICO A GUÍA OFFLINE) -->
-      <article *ngIf="currentSection?.id === 'misterios'" class="wiki-article-card">
-        <ng-container *ngIf="(misterioSeleccionado || (misterios$ | async)?.[0]) as m">
+      @if (currentSection?.id === 'misterios') {
+      <article class="wiki-article-card">
+        @if ((misterioSeleccionado || (misterios$ | async)?.[0]); as m) {
           <header class="article-header">
             <!-- Miga de pan dinámica (Breadcrumbs) -->
             <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
               <ol class="breadcrumb-list">
-                <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                @for (item of breadcrumbs; track item.label; let last = $last) {
+                <li class="breadcrumb-item" [class.is-active]="last">
+                  @if (item.clickable && !last) {
                   <button
-                    *ngIf="item.clickable && !last"
                     type="button"
                     class="breadcrumb-link"
                     (click)="item.action ? item.action() : null"
                   >
                     {{ item.label }}
                   </button>
-                  <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  }
+                  @if (!item.clickable || last) {
+                  <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                     {{ item.label }}
                   </span>
-                  <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  }
+                  @if (!last) {
+                  <span class="breadcrumb-separator" aria-hidden="true">
                     <i class="fa-solid fa-chevron-right"></i>
                   </span>
+                  }
                 </li>
+                }
               </ol>
             </nav>
 
             <!-- Navegación Misterio Anterior / Siguiente (Arriba del banner, idéntico a Prólogo) -->
             <nav class="article-pagination-nav" aria-label="Navegación entre misterios">
               <div class="pagination-row-prev-next">
+                @if (previousMystery) {
                 <button
                   type="button"
                   class="pagination-btn pagination-prev"
-                  *ngIf="previousMystery"
                   (click)="selectPreviousMystery()"
                   [title]="previousMystery.title"
                 >
                   <span class="pagination-arrow">←</span>
                   <span class="pagination-title">{{ previousMystery.title }}</span>
                 </button>
-                <div *ngIf="!previousMystery" class="pagination-spacer"></div>
+                }
+                @if (!previousMystery) {
+                <div class="pagination-spacer"></div>
+                }
 
+                @if (nextMystery) {
                 <button
                   type="button"
                   class="pagination-btn pagination-next"
-                  *ngIf="nextMystery"
                   (click)="selectNextMystery()"
                   [title]="nextMystery.title"
                 >
                   <span class="pagination-title">{{ nextMystery.title }}</span>
                   <span class="pagination-arrow">→</span>
                 </button>
-                <div *ngIf="!nextMystery" class="pagination-spacer"></div>
+                }
+                @if (!nextMystery) {
+                <div class="pagination-spacer"></div>
+                }
               </div>
             </nav>
 
@@ -1090,42 +1189,54 @@
             <div class="article-chapter-banner article-chapter-banner--mystery" [class.has-image]="getMysteryImage(m)" style="border-color: rgba(168, 85, 247, 0.4); border-left: 4px solid #a855f7;">
               <div class="chapter-banner-text">
                 <h1 class="article-main-title">{{ m.title }}</h1>
-                <p class="article-lead" *ngIf="m.location">{{ m.location }}{{ m.zone ? ' · ' + m.zone : '' }}</p>
+                @if (m.location) {
+                <p class="article-lead">{{ m.location }}{{ m.zone ? ' · ' + m.zone : '' }}</p>
+                }
               </div>
-              <div class="chapter-banner-media" *ngIf="getMysteryImage(m)">
+              @if (getMysteryImage(m)) {
+              <div class="chapter-banner-media">
                 <img [src]="getMysteryImage(m)" [alt]="m.title" class="chapter-banner-img" />
               </div>
+              }
             </div>
           </header>
 
           <div class="article-body">
             <!-- Grid de datos HUD en una sola línea -->
-            <div class="guide-hud-grid guide-hud-grid--inline" *ngIf="m.schedule || m.location || m.zone || m.position">
-              <div class="guide-hud-box" *ngIf="m.schedule">
+            @if (m.schedule || m.location || m.zone || m.position) {
+            <div class="guide-hud-grid guide-hud-grid--inline">
+              @if (m.schedule) {
+              <div class="guide-hud-box">
                 <i class="fa-regular fa-clock box-icon" style="color: #facc15;"></i>
                 <div class="box-content">
                   <span class="box-label">Horario</span>
                   <span class="box-val" style="color: #fef08a;">{{ m.schedule }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="m.location">
+              @if (m.location) {
+              <div class="guide-hud-box">
                 <i class="fa-solid fa-mountain box-icon" style="color: #38bdf8;"></i>
                 <div class="box-content">
                   <span class="box-label">Ubicación</span>
                   <span class="box-val">{{ m.location }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="m.zone">
+              @if (m.zone) {
+              <div class="guide-hud-box">
                 <i class="fa-solid fa-map-pin box-icon" style="color: #ec4899;"></i>
                 <div class="box-content">
                   <span class="box-label">Zona</span>
                   <span class="box-val">{{ m.zone }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="m.position">
+              @if (m.position) {
+              <div class="guide-hud-box">
                 <i class="fa-solid fa-crosshairs box-icon" style="color: #4ade80;"></i>
                 <div class="box-content">
                   <span class="box-label">Coordenadas</span>
@@ -1134,10 +1245,13 @@
                   </span>
                 </div>
               </div>
+              }
             </div>
+            }
 
             <!-- Sinopsis / Descripción (idéntico a offline guide-synopsis-block) -->
-            <div class="guide-synopsis-block" *ngIf="m.description">
+            @if (m.description) {
+            <div class="guide-synopsis-block">
               <div class="guide-synopsis-head" style="color: #c084fc;">
                 <i class="fa-solid fa-book-open"></i>
                 <span>{{ 'transports.mysteries.synopsis' | translate }}</span>
@@ -1146,9 +1260,11 @@
                 <p>{{ m.description }}</p>
               </div>
             </div>
+            }
 
             <!-- Trasfondo / Lore (idéntico a offline guide-synopsis-block) -->
-            <div class="guide-synopsis-block" *ngIf="m.lore">
+            @if (m.lore) {
+            <div class="guide-synopsis-block">
               <div class="guide-synopsis-head" style="color: #c084fc;">
                 <i class="fa-solid fa-book-skull"></i>
                 <span>{{ 'transports.mysteries.loreTitle' | translate }}</span>
@@ -1157,125 +1273,166 @@
                 <p>{{ m.lore }}</p>
               </div>
             </div>
+            }
 
             <!-- Mecánicas (idéntico a offline guide-hud-gold-block) -->
-            <div class="guide-hud-gold-block" *ngIf="m.mechanics && m.mechanics.length > 0">
+            @if (m.mechanics && m.mechanics.length > 0) {
+            <div class="guide-hud-gold-block">
               <div class="guide-hud-gold-head">
                 <i class="fa-solid fa-binoculars"></i>
                 <span>{{ 'transports.mysteries.mechanicsTitle' | translate }}</span>
               </div>
               <div class="guide-hud-gold-list">
-                <div class="gold-goal-item" *ngFor="let mech of m.mechanics">
+                @for (mech of m.mechanics; track mech) {
+                <div class="gold-goal-item">
                   <div class="gold-goal-check">
                     <i class="fa-solid fa-check"></i>
                   </div>
                   <span class="gold-goal-text">{{ mech }}</span>
                 </div>
+                }
               </div>
             </div>
+            }
 
           </div>
-        </ng-container>
+        }
       </article>
+      }
 
       <!-- Panel de Golpes (IDÉNTICO A GUÍA OFFLINE) -->
-      <article *ngIf="currentSection?.id === 'golpes'" class="wiki-article-card">
-        <ng-container *ngIf="(golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])) as g">
+      @if (currentSection?.id === 'golpes') {
+      <article class="wiki-article-card">
+        @if ((golpeSeleccionado || (golpes.length ? golpes[0] : (golpes$ | async)?.[0])); as g) {
           <header class="article-header">
             <!-- Miga de pan dinámica (Breadcrumbs) -->
             <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
               <ol class="breadcrumb-list">
-                <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                @for (item of breadcrumbs; track item.label; let last = $last) {
+                <li class="breadcrumb-item" [class.is-active]="last">
+                  @if (item.clickable && !last) {
                   <button
-                    *ngIf="item.clickable && !last"
                     type="button"
                     class="breadcrumb-link"
                     (click)="item.action ? item.action() : null"
                   >
                     {{ item.label }}
                   </button>
-                  <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  }
+                  @if (!item.clickable || last) {
+                  <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                     {{ item.label }}
                   </span>
-                  <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  }
+                  @if (!last) {
+                  <span class="breadcrumb-separator" aria-hidden="true">
                     <i class="fa-solid fa-chevron-right"></i>
                   </span>
+                  }
                 </li>
+                }
               </ol>
             </nav>
 
             <div class="article-meta-row">
-              <span *ngIf="g.categoryLabel" class="article-chip-badge">{{ g.categoryLabel }}</span>
-              <span class="article-chip-badge" *ngIf="g.potentialTake?.normal" style="color: #34d399; border-color: rgba(52, 211, 153, 0.4);">
+              @if (g.categoryLabel) {
+              <span class="article-chip-badge">{{ g.categoryLabel }}</span>
+              }
+              @if (g.potentialTake.normal) {
+              <span class="article-chip-badge" style="color: #34d399; border-color: rgba(52, 211, 153, 0.4);">
                 {{ g.potentialTake.normal }}
               </span>
-              <span class="article-read-meta" *ngIf="g.players">
+              }
+              @if (g.players) {
+              <span class="article-read-meta">
                 <i class="fa-solid fa-users" style="margin-right: 4px;"></i>
                 <span>{{ g.players }}</span>
               </span>
+              }
             </div>
 
             <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) idéntico a offline -->
             <div class="article-chapter-banner" [class.has-image]="g.thumbnail">
               <div class="chapter-banner-text">
                 <h1 class="article-main-title">{{ g.title }}</h1>
-                <p class="article-lead" *ngIf="g.titleEn && g.titleEn !== g.title">{{ g.titleEn }}</p>
-                <p class="article-lead" *ngIf="g.target || g.location">{{ g.target || g.location }}</p>
+                @if (g.titleEn && g.titleEn !== g.title) {
+                <p class="article-lead">{{ g.titleEn }}</p>
+                }
+                @if (g.target || g.location) {
+                <p class="article-lead">{{ g.target || g.location }}</p>
+                }
               </div>
-              <div class="chapter-banner-media" *ngIf="g.thumbnail">
+              @if (g.thumbnail) {
+              <div class="chapter-banner-media">
                 <img [src]="g.thumbnail" [alt]="g.title" class="chapter-banner-img" />
               </div>
+              }
             </div>
           </header>
 
           <div class="article-body">
             <!-- Claves del golpe (Grid de datos HUD) -->
             <div class="guide-hud-grid golpe-info-grid">
-              <div class="guide-hud-box" *ngIf="g.setupCostFormatted">
+              @if (g.setupCostFormatted) {
+              <div class="guide-hud-box">
                 <i class="fa-solid fa-receipt box-icon" style="color: #f59e0b;"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.setupCost' | translate }}</span>
                   <span class="box-val">{{ g.setupCostFormatted }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="g.target">
+              @if (g.target) {
+              <div class="guide-hud-box">
                 <i class="fa-solid fa-crosshairs box-icon" style="color: #ef4444;"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.target' | translate }}</span>
                   <span class="box-val">{{ g.target }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="g.location">
+              @if (g.location) {
+              <div class="guide-hud-box">
                 <i class="fa-solid fa-location-dot box-icon" style="color: #38bdf8;"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.location' | translate }}</span>
                   <span class="box-val">{{ g.location }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="g.potentialTake">
+              @if (g.potentialTake) {
+              <div class="guide-hud-box">
                 <i class="fa-solid fa-money-bill-wave box-icon" style="color: #10b981;"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
                   <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ g.potentialTake.normal }}</span>
-                  <span class="box-sub" *ngIf="g.potentialTake.hard" style="font-size: 11px; color: #94a3b8;">Difícil: {{ g.potentialTake.hard }}</span>
-                  <span class="box-sub" *ngIf="g.potentialTake.description" style="font-size: 11px; color: #94a3b8;">{{ g.potentialTake.description }}</span>
+                  @if (g.potentialTake.hard) {
+                  <span class="box-sub" style="font-size: 11px; color: #94a3b8;">Difícil: {{ g.potentialTake.hard }}</span>
+                  }
+                  @if (g.potentialTake.description) {
+                  <span class="box-sub" style="font-size: 11px; color: #94a3b8;">{{ g.potentialTake.description }}</span>
+                  }
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="g.propertyRequired">
+              @if (g.propertyRequired) {
+              <div class="guide-hud-box">
                 <i class="fa-solid fa-building box-icon" style="color: #a855f7;"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
                   <span class="box-val">{{ g.propertyRequired }}</span>
                 </div>
               </div>
+              }
             </div>
 
             <!-- Sinopsis / Información y Planificación -->
-            <div class="guide-synopsis-block" *ngIf="g.description">
+            @if (g.description) {
+            <div class="guide-synopsis-block">
               <div class="guide-synopsis-head">
                 <i class="fa-solid fa-book-open"></i>
                 <span>{{ 'transports.heists.synopsis' | translate }}</span>
@@ -1284,144 +1441,186 @@
                 <p>{{ g.description }}</p>
               </div>
             </div>
+            }
 
             <!-- Enfoques tácticos disponibles (ej. Diamond Casino) -->
-            <div class="golpe-block" *ngIf="g.approaches && g.approaches.length > 0">
+            @if (g.approaches && g.approaches.length > 0) {
+            <div class="golpe-block">
               <div class="golpe-block-head" style="color: #ffb833;">
                 <i class="fa-solid fa-masks-theater"></i>
                 <span>{{ 'transports.heists.approachesTitle' | translate }}</span>
               </div>
               <div class="golpe-approaches-list">
-                <div class="golpe-approach-card" *ngFor="let app of g.approaches">
+                @for (app of g.approaches; track app.name) {
+                <div class="golpe-approach-card">
                   <div class="golpe-approach-title">
                     <i class="fa-solid fa-shield-halved"></i>
                     <span>{{ app.name }}</span>
                   </div>
                   <p class="golpe-approach-desc">{{ app.description }}</p>
                 </div>
+                }
               </div>
             </div>
+            }
 
             <!-- Misiones de Preparación -->
-            <div class="golpe-block" *ngIf="g.setupMissions && g.setupMissions.length > 0">
+            @if (g.setupMissions && g.setupMissions.length > 0) {
+            <div class="golpe-block">
               <div class="golpe-block-head" style="color: #38bdf8;">
                 <i class="fa-solid fa-list-check"></i>
                 <span>{{ 'transports.heists.setupsTitle' | translate }} ({{ g.setupMissions.length }})</span>
               </div>
               <div class="golpe-setups-list">
-                <div class="golpe-setup-item" *ngFor="let s of g.setupMissions; let idx = index" [id]="'setup-mission-' + idx" [class.is-active]="faseSeleccionadaIndex === idx">
+                @for (s of g.setupMissions; track s.name || $index; let idx = $index) {
+                <div class="golpe-setup-item" [id]="'setup-mission-' + idx" [class.is-active]="faseSeleccionadaIndex === idx">
                   <div class="golpe-setup-num">{{ idx + 1 }}</div>
                   <div class="golpe-setup-body">
                     <div class="golpe-setup-head">
                       <span class="golpe-setup-name">{{ s.name }}</span>
-                      <span class="golpe-setup-type" *ngIf="s.type">{{ s.type }}</span>
+                      @if (s.type) {
+                      <span class="golpe-setup-type">{{ s.type }}</span>
+                      }
                     </div>
-                    <p class="golpe-setup-desc" *ngIf="s.description">{{ s.description }}</p>
+                    @if (s.description) {
+                    <p class="golpe-setup-desc">{{ s.description }}</p>
+                    }
                   </div>
                 </div>
+                }
               </div>
             </div>
+            }
 
             <!-- Desafíos de Élite -->
-            <div class="guide-hud-gold-block" *ngIf="g.eliteChallenges && g.eliteChallenges.length > 0">
+            @if (g.eliteChallenges && g.eliteChallenges.length > 0) {
+            <div class="guide-hud-gold-block">
               <div class="guide-hud-gold-head" style="color: #f59e0b;">
                 <i class="fa-solid fa-stopwatch"></i>
                 <span>{{ 'transports.heists.eliteTitle' | translate }}</span>
-                <span class="golpe-elite-reward" *ngIf="g.eliteReward" style="margin-left: 8px; font-size: 12px; color: #34d399;">+{{ g.eliteReward }}</span>
+                @if (g.eliteReward) {
+                <span class="golpe-elite-reward" style="margin-left: 8px; font-size: 12px; color: #34d399;">+{{ g.eliteReward }}</span>
+                }
               </div>
               <div class="guide-hud-gold-list">
-                <div class="gold-goal-item" *ngFor="let ec of g.eliteChallenges">
+                @for (ec of g.eliteChallenges; track ec) {
+                <div class="gold-goal-item">
                   <div class="gold-goal-check" style="color: #f59e0b; border-color: #f59e0b;">
                     <i class="fa-solid fa-check"></i>
                   </div>
                   <span class="gold-goal-text">{{ ec }}</span>
                 </div>
+                }
               </div>
             </div>
+            }
 
             <!-- Vehículos desbloqueados -->
-            <div class="golpe-block" *ngIf="g.unlockedVehicles && g.unlockedVehicles.length > 0">
+            @if (g.unlockedVehicles && g.unlockedVehicles.length > 0) {
+            <div class="golpe-block">
               <div class="golpe-block-head" style="color: #a78bfa;">
                 <i class="fa-solid fa-car"></i>
                 <span>{{ 'transports.heists.unlockedVehicles' | translate }}</span>
               </div>
               <div class="golpe-vehicles-tags">
-                <span class="golpe-vehicle-tag" *ngFor="let v of g.unlockedVehicles">
+                @for (v of g.unlockedVehicles; track v) {
+                <span class="golpe-vehicle-tag">
                   <i class="fa-solid fa-tag"></i>
                   {{ v }}
                 </span>
+                }
               </div>
             </div>
+            }
 
             <!-- Consejos tácticos -->
-            <div class="guide-synopsis-block" *ngIf="g.tips && g.tips.length > 0" style="border-left-color: #34d399;">
+            @if (g.tips && g.tips.length > 0) {
+            <div class="guide-synopsis-block" style="border-left-color: #34d399;">
               <div class="guide-synopsis-head" style="color: #34d399;">
                 <i class="fa-solid fa-lightbulb"></i>
                 <span>{{ 'transports.heists.tipsTitle' | translate }}</span>
               </div>
               <div class="guide-synopsis-body">
-                <div class="golpe-list-item" *ngFor="let tip of g.tips">
+                @for (tip of g.tips; track tip) {
+                <div class="golpe-list-item">
                   <p style="margin: 4px 0;">• {{ tip }}</p>
                 </div>
+                }
               </div>
             </div>
+            }
 
           </div>
-        </ng-container>
+        }
       </article>
+      }
 
       <!-- Panel de Misiones Principales (GTA ONLINE) -->
-      <article *ngIf="currentSection?.id === 'misiones-principales'" class="wiki-article-card">
-        <ng-container *ngIf="(misionSeleccionada || misionesOnline[0]) as m">
+      @if (currentSection?.id === 'misiones-principales') {
+      <article class="wiki-article-card">
+        @if ((misionSeleccionada || misionesOnline[0]); as m) {
           <header class="article-header">
             <!-- Miga de pan dinámica (Breadcrumbs) -->
             <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
               <ol class="breadcrumb-list">
-                <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                @for (item of breadcrumbs; track item.label; let last = $last) {
+                <li class="breadcrumb-item" [class.is-active]="last">
+                  @if (item.clickable && !last) {
                   <button
-                    *ngIf="item.clickable && !last"
                     type="button"
                     class="breadcrumb-link"
                     (click)="item.action ? item.action() : null"
                   >
                     {{ item.label }}
                   </button>
-                  <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  }
+                  @if (!item.clickable || last) {
+                  <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                     {{ item.label }}
                   </span>
-                  <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  }
+                  @if (!last) {
+                  <span class="breadcrumb-separator" aria-hidden="true">
                     <i class="fa-solid fa-chevron-right"></i>
                   </span>
+                  }
                 </li>
+                }
               </ol>
             </nav>
 
             <!-- Navegación Misión Anterior / Siguiente (Arriba del banner, idéntico a offline) -->
             <nav class="article-pagination-nav" aria-label="Navegación entre misiones">
               <div class="pagination-row-prev-next">
+                @if (previousMission) {
                 <button
                   type="button"
                   class="pagination-btn pagination-prev"
-                  *ngIf="previousMission"
                   (click)="selectPreviousMission()"
                   [title]="previousMission.title"
                 >
                   <span class="pagination-arrow">←</span>
                   <span class="pagination-title">{{ previousMission.title }}</span>
                 </button>
-                <div *ngIf="!previousMission" class="pagination-spacer"></div>
+                }
+                @if (!previousMission) {
+                <div class="pagination-spacer"></div>
+                }
 
+                @if (nextMission) {
                 <button
                   type="button"
                   class="pagination-btn pagination-next"
-                  *ngIf="nextMission"
                   (click)="selectNextMission()"
                   [title]="nextMission.title"
                 >
                   <span class="pagination-title">{{ nextMission.title }}</span>
                   <span class="pagination-arrow">→</span>
                 </button>
-                <div *ngIf="!nextMission" class="pagination-spacer"></div>
+                }
+                @if (!nextMission) {
+                <div class="pagination-spacer"></div>
+                }
               </div>
             </nav>
 
@@ -1429,7 +1628,7 @@
             <div class="article-chapter-banner">
               <div class="chapter-banner-text">
                 <h1 class="article-main-title">{{ m.title }}</h1>
-                <p class="article-lead">Misión #{{ m.order }} de 250<span *ngIf="m.giver"> · Contacto: <strong>{{ m.giver }}</strong></span></p>
+                <p class="article-lead">Misión #{{ m.order }} de 250@if (m.giver) {<span> · Contacto: <strong>{{ m.giver }}</strong></span>}</p>
               </div>
             </div>
           </header>
@@ -1437,41 +1636,50 @@
           <div class="article-body">
             <!-- Grid de datos HUD superior (4 tarjetas en línea: Nivel mínimo, Jugadores, Recompensa, Desbloqueado tras) -->
             <div class="guide-hud-grid" style="margin-bottom: 16px; grid-template-columns: repeat(4, minmax(0, 1fr));">
-              <div class="guide-hud-box" *ngIf="m.minLevel" style="background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.35);">
+              @if (m.minLevel) {
+              <div class="guide-hud-box" style="background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.35);">
                 <i class="fa-solid fa-ranking-star box-icon" style="color: #facc15; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">Nivel</span>
                   <span class="box-val" style="color: #facc15; font-weight: 800; font-size: 13.5px;">Nivel {{ m.minLevel }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="m.players" style="background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.35);">
+              @if (m.players) {
+              <div class="guide-hud-box" style="background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.35);">
                 <i class="fa-solid fa-users box-icon" style="color: #f97316; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">Jugadores</span>
                   <span class="box-val" style="color: #fb923c; font-weight: 800; font-size: 13.5px;">{{ m.players }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box reward-box" *ngIf="m.reward" style="grid-column: auto;">
+              @if (m.reward) {
+              <div class="guide-hud-box reward-box" style="grid-column: auto;">
                 <i class="fa-solid fa-trophy box-icon" style="color: #10b981;"></i>
                 <div class="box-content">
                   <span class="box-label">Recompensa</span>
                   <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ m.reward }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box unlock-box" *ngIf="m.location || m.unlockedBy" style="grid-column: auto;">
+              @if (m.location || m.unlockedBy) {
+              <div class="guide-hud-box unlock-box" style="grid-column: auto;">
                 <i class="fa-solid fa-location-dot box-icon" style="color: #38bdf8;"></i>
                 <div class="box-content">
                   <span class="box-label">Ubicación</span>
                   <span class="box-val">{{ m.location || 'Los Santos' }}</span>
                 </div>
               </div>
+              }
             </div>
 
             <!-- Sinopsis / Descripción de la misión -->
-            <div class="guide-synopsis-block" *ngIf="m.description">
+            @if (m.description) {
+            <div class="guide-synopsis-block">
               <div class="guide-synopsis-head">
                 <i class="fa-solid fa-book-open"></i>
                 <span>Sinopsis de la misión</span>
@@ -1480,81 +1688,103 @@
                 <p>{{ m.description }}</p>
               </div>
             </div>
+            }
 
             <!-- Contenido Editorial Detallado de la Misión (Fuera de la Sinopsis) -->
-            <div class="narrative-editorial-body" *ngIf="m.contenidoMarkdown" [innerHTML]="renderMissionMarkdown(m)" style="margin-bottom: 24px;"></div>
+            @if (m.contenidoMarkdown) {
+            <div class="narrative-editorial-body" [innerHTML]="renderMissionMarkdown(m)" style="margin-bottom: 24px;"></div>
+            }
 
             <!-- Objetivos de la misión -->
-            <div class="guide-hud-gold-block" *ngIf="m.goldRequirements && m.goldRequirements.length > 0">
+            @if (m.goldRequirements && m.goldRequirements.length > 0) {
+            <div class="guide-hud-gold-block">
               <div class="guide-hud-gold-head">
                 <i class="fa-solid fa-crosshairs"></i>
                 <span>Objetivos de la misión</span>
               </div>
               <div class="guide-hud-gold-list">
-                <div class="gold-goal-item" *ngFor="let req of m.goldRequirements">
+                @for (req of m.goldRequirements; track req) {
+                <div class="gold-goal-item">
                   <div class="gold-goal-check">
                     <i class="fa-solid fa-check"></i>
                   </div>
                   <span class="gold-goal-text">{{ req }}</span>
                 </div>
+                }
               </div>
             </div>
+            }
           </div>
-        </ng-container>
+        }
       </article>
+      }
 
       <!-- Panel de Negocios y Propiedades Criminales (GTA ONLINE) -->
-      <article *ngIf="currentSection?.id === 'negocios'" class="wiki-article-card">
-        <ng-container *ngIf="(negocioSeleccionado || negociosOnline[0]) as n">
+      @if (currentSection?.id === 'negocios') {
+      <article class="wiki-article-card">
+        @if ((negocioSeleccionado || negociosOnline[0]); as n) {
           <header class="article-header">
             <!-- Miga de pan dinámica (Breadcrumbs) -->
             <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
               <ol class="breadcrumb-list">
-                <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+                @for (item of breadcrumbs; track item.label; let last = $last) {
+                <li class="breadcrumb-item" [class.is-active]="last">
+                  @if (item.clickable && !last) {
                   <button
-                    *ngIf="item.clickable && !last"
                     type="button"
                     class="breadcrumb-link"
                     (click)="item.action ? item.action() : null"
                   >
                     {{ item.label }}
                   </button>
-                  <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  }
+                  @if (!item.clickable || last) {
+                  <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                     {{ item.label }}
                   </span>
-                  <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                  }
+                  @if (!last) {
+                  <span class="breadcrumb-separator" aria-hidden="true">
                     <i class="fa-solid fa-chevron-right"></i>
                   </span>
+                  }
                 </li>
+                }
               </ol>
             </nav>
 
             <!-- Navegación Negocio Anterior / Siguiente (Arriba del banner) -->
             <nav class="article-pagination-nav" aria-label="Navegación entre locales">
               <div class="pagination-row-prev-next">
+                @if (previousNegocio) {
                 <button
                   type="button"
                   class="pagination-btn pagination-prev"
-                  *ngIf="previousNegocio"
                   (click)="seleccionarNegocio(previousNegocio)"
                   [title]="previousNegocio.name"
                 >
                   <span class="pagination-arrow">←</span>
                   <span class="pagination-title">{{ previousNegocio.name }}</span>
                 </button>
-                <div *ngIf="!previousNegocio" class="pagination-spacer"></div>
+                }
+                @if (!previousNegocio) {
+                <div class="pagination-spacer"></div>
+                }
 
+                @if (nextNegocio) {
                 <button
                   type="button"
                   class="pagination-btn pagination-next"
-                  *ngIf="nextNegocio"
                   (click)="seleccionarNegocio(nextNegocio)"
                   [title]="nextNegocio.name"
                 >
                   <span class="pagination-title">{{ nextNegocio.name }}</span>
                   <span class="pagination-arrow">→</span>
                 </button>
-                <div *ngIf="!nextNegocio" class="pagination-spacer"></div>
+                }
+                @if (!nextNegocio) {
+                <div class="pagination-spacer"></div>
+                }
               </div>
             </nav>
 
@@ -1562,47 +1792,58 @@
             <div class="article-chapter-banner" [class.has-image]="n.imageUrl">
               <div class="chapter-banner-text">
                 <h1 class="article-main-title">{{ n.name }}</h1>
-                <p class="article-lead" *ngIf="n.categoryLabel || n.zone">
+                @if (n.categoryLabel || n.zone) {
+                <p class="article-lead">
                   <span>{{ n.categoryLabel }}</span>
-                  <span *ngIf="n.zone"> · <strong>{{ n.zone }}</strong></span>
+                  @if (n.zone) {<span> · <strong>{{ n.zone }}</strong></span>}
                 </p>
+                }
               </div>
-              <div class="chapter-banner-media" *ngIf="n.imageUrl">
+              @if (n.imageUrl) {
+              <div class="chapter-banner-media">
                 <img [src]="n.imageUrl" [alt]="n.name" class="chapter-banner-img" />
               </div>
+              }
             </div>
           </header>
 
           <div class="article-body">
             <!-- Grid de datos HUD superior (Precio, Zona, Ingresos) -->
             <div class="guide-hud-grid" style="margin-bottom: 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-              <div class="guide-hud-box" *ngIf="n.priceFormatted" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35);">
+              @if (n.priceFormatted) {
+              <div class="guide-hud-box" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35);">
                 <i class="fa-solid fa-dollar-sign box-icon" style="color: #10b981; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">Precio de Adquisición</span>
                   <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ n.priceFormatted }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="n.zone" style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35);">
+              @if (n.zone) {
+              <div class="guide-hud-box" style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35);">
                 <i class="fa-solid fa-map-pin box-icon" style="color: #38bdf8; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">Ubicación / Barrio</span>
                   <span class="box-val" style="color: #7dd3fc; font-weight: 700;">{{ n.zone }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="n.income" style="background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.35);">
+              @if (n.income) {
+              <div class="guide-hud-box" style="background: rgba(250, 204, 21, 0.1); border: 1px solid rgba(250, 204, 21, 0.35);">
                 <i class="fa-solid fa-sack-dollar box-icon" style="color: #facc15; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">Potencial de Ingresos</span>
                   <span class="box-val" style="color: #fef08a; font-weight: 700; font-size: 12.5px;">{{ n.income }}</span>
                 </div>
               </div>
+              }
             </div>
 
             <!-- Descripción del local -->
-            <div class="guide-synopsis-block" *ngIf="n.description">
+            @if (n.description) {
+            <div class="guide-synopsis-block">
               <div class="guide-synopsis-head">
                 <i class="fa-solid fa-circle-info"></i>
                 <span>Detalles y Ubicación Estratégica</span>
@@ -1611,78 +1852,98 @@
                 <p>{{ n.description }}</p>
               </div>
             </div>
+            }
 
             <!-- Características y Ventajas Clave -->
-            <div class="guide-synopsis-block" *ngIf="n.features && n.features.length > 0" style="margin-top: 18px;">
+            @if (n.features && n.features.length > 0) {
+            <div class="guide-synopsis-block" style="margin-top: 18px;">
               <div class="guide-synopsis-head">
                 <i class="fa-solid fa-list-check"></i>
                 <span>Características y Especificaciones</span>
               </div>
               <div class="guide-synopsis-body">
                 <ul class="guide-list" style="margin: 0; padding: 0; list-style: none;">
-                  <li class="guide-list-item" *ngFor="let feat of n.features" style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
+                  @for (feat of n.features; track feat) {
+                  <li class="guide-list-item" style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
                     <span class="guide-list-bullet" style="color: #38bdf8; font-weight: bold;">›</span>
                     <span class="guide-list-text">{{ feat }}</span>
                   </li>
+                  }
                 </ul>
               </div>
             </div>
+            }
 
           </div>
-        </ng-container>
+        }
       </article>
+      }
 
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="selectedArticulo && !concesionarioSeleccionado && !categoriaArmaSeleccionada && currentSection?.id !== 'misterios' && currentSection?.id !== 'golpes' && currentSection?.id !== 'misiones-principales' && currentSection?.id !== 'armas' && currentSection?.id !== 'vehiculos' && currentSection?.id !== 'negocios'" class="wiki-article-card">
+      @if (selectedArticulo && !concesionarioSeleccionado && !categoriaArmaSeleccionada && currentSection?.id !== 'misterios' && currentSection?.id !== 'golpes' && currentSection?.id !== 'misiones-principales' && currentSection?.id !== 'armas' && currentSection?.id !== 'vehiculos' && currentSection?.id !== 'negocios') {
+      <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
             <ol class="breadcrumb-list">
-              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+              @for (item of breadcrumbs; track item.label; let last = $last) {
+              <li class="breadcrumb-item" [class.is-active]="last">
+                @if (item.clickable && !last) {
                 <button
-                  *ngIf="item.clickable && !last"
                   type="button"
                   class="breadcrumb-link"
                   (click)="item.action ? item.action() : null"
                 >
                   {{ item.label }}
                 </button>
-                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                }
+                @if (!item.clickable || last) {
+                <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                   {{ item.label }}
                 </span>
-                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                }
+                @if (!last) {
+                <span class="breadcrumb-separator" aria-hidden="true">
                   <i class="fa-solid fa-chevron-right"></i>
                 </span>
+                }
               </li>
+              }
             </ol>
           </nav>
 
           <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner, idéntico a offline) -->
           <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
             <div class="pagination-row-prev-next">
+              @if (capituloAnterior) {
               <button
                 type="button"
                 class="pagination-btn pagination-prev"
-                *ngIf="capituloAnterior"
                 (click)="seleccionarArticulo(capituloAnterior.id)"
                 [title]="capituloAnterior.titulo"
               >
                 <span class="pagination-arrow">←</span>
                 <span class="pagination-title">{{ capituloAnterior.titulo }}</span>
               </button>
-              <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
+              }
+              @if (!capituloAnterior) {
+              <div class="pagination-spacer"></div>
+              }
 
+              @if (capituloSiguiente) {
               <button
                 type="button"
                 class="pagination-btn pagination-next"
-                *ngIf="capituloSiguiente"
                 (click)="seleccionarArticulo(capituloSiguiente.id)"
                 [title]="capituloSiguiente.titulo"
               >
                 <span class="pagination-title">{{ capituloSiguiente.titulo }}</span>
                 <span class="pagination-arrow">→</span>
               </button>
-              <div *ngIf="!capituloSiguiente" class="pagination-spacer"></div>
+              }
+              @if (!capituloSiguiente) {
+              <div class="pagination-spacer"></div>
+              }
             </div>
           </nav>
 
@@ -1690,7 +1951,9 @@
           <div class="article-chapter-banner">
             <div class="chapter-banner-text">
               <h1 class="article-main-title">{{ selectedArticulo.titulo }}</h1>
-              <p class="article-lead" *ngIf="selectedArticulo.subtitulo">{{ selectedArticulo.subtitulo }}</p>
+              @if (selectedArticulo.subtitulo) {
+              <p class="article-lead">{{ selectedArticulo.subtitulo }}</p>
+              }
             </div>
           </div>
         </header>
@@ -1700,6 +1963,7 @@
           <div class="narrative-editorial-body" [innerHTML]="renderedContent"></div>
         </div>
       </article>
+      }
     </main>
   </div>
 
@@ -1713,10 +1977,10 @@
   </footer>
 
   <!-- BOTÓN FLOTANTE VOLVER ARRIBA -->
+  @if (showScrollTop) {
   <button
     type="button"
     class="scroll-top-btn"
-    *ngIf="showScrollTop"
     (click)="scrollToTop()"
     [title]="'guia.reader.scrollToTop' | translate"
     [attr.aria-label]="'guia.reader.scrollToTop' | translate"
@@ -1725,4 +1989,5 @@
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+  }
 </div>

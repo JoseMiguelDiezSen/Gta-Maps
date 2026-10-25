@@ -120,7 +120,8 @@
     </div>
 
     <!-- MENÚ DESPLEGABLE MÓVIL (DRAWER) -->
-    <div class="mobile-nav-drawer" *ngIf="mobileNavOpen">
+    @if (mobileNavOpen) {
+    <div class="mobile-nav-drawer">
       <div class="mobile-nav-links">
         <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-house"></i>
@@ -153,10 +154,12 @@
         </a>
       </div>
     </div>
+    }
   </nav>
 
   <!-- BANNER HERO DE VÍDEOS (VISIBLE EN EL LISTADO) -->
-  <header *ngIf="!videoSeleccionado" class="news-hero-banner">
+  @if (!videoSeleccionado) {
+  <header class="news-hero-banner">
     <div class="hero-bg-overlay"></div>
     <div class="hero-content-inner">
       <div class="hero-tag">
@@ -171,41 +174,46 @@
   </header>
 
   <!-- VISTA 1: FEED DE VÍDEOS CON TARJETA DESTACADA Y GRID -->
-  <main *ngIf="!videoSeleccionado" class="news-main-container">
+  <main class="news-main-container">
     
     <!-- BARRA DE FILTROS DE CATEGORÍA -->
     <nav class="news-filter-bar" aria-label="Filtro de categorías de vídeos">
+      @for (cat of categoriasFiltro; track cat.id) {
       <button
-        *ngFor="let cat of categoriasFiltro"
         type="button"
         class="filter-pill"
         [class.is-active]="categoriaSeleccionada === cat.id"
         (click)="filtrarCategoria(cat.id)"
       >
-        <i *ngIf="cat.icono" [class]="cat.icono" style="margin-right: 6px;"></i>
+        @if (cat.icono) {
+          <i [class]="cat.icono" style="margin-right: 6px;"></i>
+        }
         <span>{{ cat.label }}</span>
       </button>
+      }
     </nav>
 
     <!-- VÍDEO DESTACADO PRINCIPAL (LEAD VIDEO) -->
+    @if (videoDestacado) {
     <article
-      *ngIf="videoDestacado"
       class="news-featured-lead moment-featured-card"
       (click)="abrirVideo(videoDestacado)"
       role="button"
       tabindex="0"
     >
       <div class="lead-media-wrapper">
-        <img
-          *ngIf="videoDestacado.thumbnailUrl"
-          [src]="videoDestacado.thumbnailUrl"
-          [alt]="videoDestacado.titulo"
-          class="lead-media-image"
-        />
-        <div *ngIf="!videoDestacado.thumbnailUrl" class="lead-media-placeholder">
-          <i class="fa-solid fa-film"></i>
-          <span>LEONIDA GAMEPLAY CLIP</span>
-        </div>
+        @if (videoDestacado.thumbnailUrl) {
+          <img
+            [src]="videoDestacado.thumbnailUrl"
+            [alt]="videoDestacado.titulo"
+            class="lead-media-image"
+          />
+        } @else {
+          <div class="lead-media-placeholder">
+            <i class="fa-solid fa-film"></i>
+            <span>LEONIDA GAMEPLAY CLIP</span>
+          </div>
+        }
         <div class="lead-media-gradient"></div>
         <div class="media-play-overlay">
           <span class="play-circle-btn">
@@ -213,9 +221,11 @@
           </span>
         </div>
         <span class="lead-badge">{{ videoDestacado.badge }}</span>
-        <span *ngIf="videoDestacado.duracionSegundos" class="duration-chip">
-          <i class="fa-solid fa-play"></i> {{ formatearDuracion(videoDestacado.duracionSegundos) }}
-        </span>
+        @if (videoDestacado.duracionSegundos) {
+          <span class="duration-chip">
+            <i class="fa-solid fa-play"></i> {{ formatearDuracion(videoDestacado.duracionSegundos) }}
+          </span>
+        }
       </div>
 
       <div class="lead-body">
@@ -223,12 +233,16 @@
           <span class="meta-date">
             <i class="fa-regular fa-calendar"></i> {{ videoDestacado.fecha }}
           </span>
-          <span *ngIf="videoDestacado.hora" class="meta-time">
-            · <i class="fa-regular fa-clock"></i> {{ videoDestacado.hora }}
-          </span>
-          <span *ngIf="videoDestacado.duracionSegundos" class="meta-duration-text">
-            · <i class="fa-solid fa-video"></i> {{ formatearDuracion(videoDestacado.duracionSegundos) }}
-          </span>
+          @if (videoDestacado.hora) {
+            <span class="meta-time">
+              · <i class="fa-regular fa-clock"></i> {{ videoDestacado.hora }}
+            </span>
+          }
+          @if (videoDestacado.duracionSegundos) {
+            <span class="meta-duration-text">
+              · <i class="fa-solid fa-video"></i> {{ formatearDuracion(videoDestacado.duracionSegundos) }}
+            </span>
+          }
         </div>
 
         <h2 class="lead-title">{{ videoDestacado.titulo }}</h2>
@@ -242,51 +256,60 @@
         </div>
       </div>
     </article>
+    }
 
     <!-- CABECERA DE SECCIÓN DE VÍDEOS RECIENTES -->
-    <div class="section-title-strip" *ngIf="videosSecundarios.length > 0">
+    @if (videosSecundarios.length > 0) {
+    <div class="section-title-strip">
       <div class="strip-badge">
         <i class="fa-solid fa-film"></i>
         <span>VÍDEOS PUBLICADOS</span>
       </div>
       <div class="strip-line"></div>
     </div>
+    }
 
     <!-- GRID DE TARJETAS DE VÍDEOS -->
     <section class="news-grid moments-grid">
+      @for (item of videosSecundarios; track item.id) {
       <article
-        *ngFor="let item of videosSecundarios"
         class="news-card moment-card"
         (click)="abrirVideo(item)"
         role="button"
         tabindex="0"
       >
         <div class="card-media-wrapper">
-          <img
-            *ngIf="item.thumbnailUrl"
-            [src]="item.thumbnailUrl"
-            [alt]="item.titulo"
-            class="card-media-image"
-          />
-          <div *ngIf="!item.thumbnailUrl" class="card-media-placeholder">
-            <i class="fa-solid fa-clapperboard"></i>
-            <span>LEONIDA CLIP</span>
-          </div>
+          @if (item.thumbnailUrl) {
+            <img
+              [src]="item.thumbnailUrl"
+              [alt]="item.titulo"
+              class="card-media-image"
+            />
+          } @else {
+            <div class="card-media-placeholder">
+              <i class="fa-solid fa-clapperboard"></i>
+              <span>LEONIDA CLIP</span>
+            </div>
+          }
           <div class="media-play-overlay mini">
             <span class="play-circle-btn mini">
               <i class="fa-solid fa-play"></i>
             </span>
           </div>
           <span class="card-badge">{{ item.badge }}</span>
-          <span *ngIf="item.duracionSegundos" class="duration-chip mini">
-            {{ formatearDuracion(item.duracionSegundos) }}
-          </span>
+          @if (item.duracionSegundos) {
+            <span class="duration-chip mini">
+              {{ formatearDuracion(item.duracionSegundos) }}
+            </span>
+          }
         </div>
 
         <div class="card-content">
           <div class="card-meta">
             <span class="card-date">{{ item.fecha }}</span>
-            <span *ngIf="item.hora" class="card-time">· {{ item.hora }}</span>
+            @if (item.hora) {
+              <span class="card-time">· {{ item.hora }}</span>
+            }
           </div>
 
           <h3 class="card-title">{{ item.titulo }}</h3>
@@ -300,12 +323,15 @@
           </div>
         </div>
       </article>
+      }
     </section>
 
   </main>
+  }
 
   <!-- VISTA 2: REPRODUCTOR / DETALLE DEL VÍDEO -->
-  <main *ngIf="videoSeleccionado" class="article-reader-container moment-player-container">
+  @if (videoSeleccionado) {
+  <main class="article-reader-container moment-player-container">
     
     <!-- BARRA SUPERIOR DE RETORNO -->
     <div class="reader-nav-bar">
@@ -321,10 +347,14 @@
     <header class="reader-header">
       <div class="reader-meta-bar">
         <span class="meta-item"><i class="fa-regular fa-calendar"></i> {{ videoSeleccionado.fecha }}</span>
-        <span *ngIf="videoSeleccionado.hora" class="meta-bullet">·</span>
-        <span *ngIf="videoSeleccionado.hora" class="meta-item"><i class="fa-regular fa-clock"></i> {{ videoSeleccionado.hora }}</span>
-        <span *ngIf="videoSeleccionado.duracionSegundos" class="meta-bullet">·</span>
-        <span *ngIf="videoSeleccionado.duracionSegundos" class="meta-item"><i class="fa-solid fa-video"></i> {{ formatearDuracion(videoSeleccionado.duracionSegundos) }}</span>
+        @if (videoSeleccionado.hora) {
+          <span class="meta-bullet">·</span>
+          <span class="meta-item"><i class="fa-regular fa-clock"></i> {{ videoSeleccionado.hora }}</span>
+        }
+        @if (videoSeleccionado.duracionSegundos) {
+          <span class="meta-bullet">·</span>
+          <span class="meta-item"><i class="fa-solid fa-video"></i> {{ formatearDuracion(videoSeleccionado.duracionSegundos) }}</span>
+        }
       </div>
 
       <h1 class="reader-title">{{ videoSeleccionado.titulo }}</h1>
@@ -333,39 +363,43 @@
     <!-- ÁREA REPRODUCTORA AUDIOVISUAL DEL VÍDEO -->
     <figure class="reader-hero-media moment-player-box">
       <!-- Si el clip tiene URL de vídeo real -->
-      <video
-        *ngIf="videoSeleccionado.videoUrl"
-        class="moment-video-player"
-        controls
-        playsinline
-        preload="metadata"
-        [src]="videoSeleccionado.videoUrl"
-        [poster]="videoSeleccionado.thumbnailUrl || ''"
-      >
-        Tu navegador no soporta reproducción de vídeo HTML5.
-      </video>
-
-      <!-- Si aún no se ha subido el archivo de vídeo (maqueta preparada para futuros clips) -->
-      <div *ngIf="!videoSeleccionado.videoUrl" class="moment-placeholder-player">
-        <img
-          *ngIf="videoSeleccionado.thumbnailUrl"
-          [src]="videoSeleccionado.thumbnailUrl"
-          [alt]="videoSeleccionado.titulo"
-          class="placeholder-bg-image"
-        />
-        <div class="player-overlay-hud">
-          <div class="player-center-content">
-            <span class="player-big-icon">
-              <i class="fa-solid fa-clapperboard"></i>
-            </span>
-            <span class="player-label-primary">CLIP DE GAMEPLAY</span>
-            <span class="player-label-secondary">Contenedor preparado para archivo de vídeo MP4 / WebM</span>
-            <span *ngIf="videoSeleccionado.duracionSegundos" class="player-duration-badge">
-              Duración estimada: {{ formatearDuracion(videoSeleccionado.duracionSegundos) }}
-            </span>
+      @if (videoSeleccionado.videoUrl) {
+        <video
+          class="moment-video-player"
+          controls
+          playsinline
+          preload="metadata"
+          [src]="videoSeleccionado.videoUrl"
+          [poster]="videoSeleccionado.thumbnailUrl || ''"
+        >
+          Tu navegador no soporta reproducción de vídeo HTML5.
+        </video>
+      } @else {
+        <!-- Si aún no se ha subido el archivo de vídeo (maqueta preparada para futuros clips) -->
+        <div class="moment-placeholder-player">
+          @if (videoSeleccionado.thumbnailUrl) {
+            <img
+              [src]="videoSeleccionado.thumbnailUrl"
+              [alt]="videoSeleccionado.titulo"
+              class="placeholder-bg-image"
+            />
+          }
+          <div class="player-overlay-hud">
+            <div class="player-center-content">
+              <span class="player-big-icon">
+                <i class="fa-solid fa-clapperboard"></i>
+              </span>
+              <span class="player-label-primary">CLIP DE GAMEPLAY</span>
+              <span class="player-label-secondary">Contenedor preparado para archivo de vídeo MP4 / WebM</span>
+              @if (videoSeleccionado.duracionSegundos) {
+                <span class="player-duration-badge">
+                  Duración estimada: {{ formatearDuracion(videoSeleccionado.duracionSegundos) }}
+                </span>
+              }
+            </div>
           </div>
         </div>
-      </div>
+      }
     </figure>
 
     <!-- CUERPO DESCRIPTIVO DEL VÍDEO -->
@@ -391,6 +425,7 @@
     </footer>
 
   </main>
+  }
 
   <!-- FOOTER OFICIAL -->
   <footer class="home-footer">
@@ -402,9 +437,11 @@
   </footer>
 
   <!-- TOAST DE COPIADO O AVISO -->
-  <div class="wiki-toast" *ngIf="toastMessage" role="status">
+  @if (toastMessage) {
+  <div class="wiki-toast" role="status">
     <span class="toast-icon">ℹ</span>
     <span class="toast-text">{{ toastMessage }}</span>
   </div>
+  }
 
 </div>

@@ -1,14 +1,16 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, HostListener, ViewChild, ChangeDetectorRef, effect } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, HostListener, ViewChild, ChangeDetectorRef, effect, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as L from 'leaflet';
 import { LocationService } from '../../../services/gta5/location.service';
 import { LocationItem, RoleplayJobGroup, FaunaAnimalGroup } from '../../../models/gta5/location';
 import { CollectibleItem } from '../../../models/gta5/collectible';
+import { GtaMystery, MysteryPoint } from '../../../models/gta5/mystery';
 import { TranslationService } from '../../../i18n';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GotyService } from '../../../services/goty.service';
 import { Gta5MysteryPopupService } from '../../../services/gta5/gta5-mystery-popup.service';
 import { Gta5MapMarkerService } from '../../../services/gta5/gta5-map-marker.service';
+import { gta5WorldToLatLng, gta5LatLngToWorld } from '../../../utils/gta5-map-projection';
 
 @Component({
     selector: 'app-gta5-map-online',
@@ -473,7 +475,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     inGameHours = 12;
     inGameMinutes = 0;
     inGameTimeStr = '12:00';
-    private clockInterval: any;
+    private clockInterval: ReturnType<typeof setInterval> | null = null;
 
     // Panel de Ajustes
     settingsOpen = true;
@@ -498,18 +500,18 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     // Panel Lateral (Drawer) de Transportes & Catálogo
     profileDrawerOpen = false;
 
-    constructor(
-        private locationService: LocationService,
-        readonly translationService: TranslationService,
-        private router: Router,
-        private route: ActivatedRoute,
-        public gotyService: GotyService,
-        private cdr: ChangeDetectorRef,
-        private mysteryPopupService: Gta5MysteryPopupService,
-        private mapMarkerService: Gta5MapMarkerService
-    ) {
+    private readonly locationService = inject(LocationService);
+    readonly translationService = inject(TranslationService);
+    private readonly router = inject(Router);
+    private readonly route = inject(ActivatedRoute);
+    public readonly gotyService = inject(GotyService);
+    private readonly cdr = inject(ChangeDetectorRef);
+    private readonly mysteryPopupService = inject(Gta5MysteryPopupService);
+    private readonly mapMarkerService = inject(Gta5MapMarkerService);
+
+    constructor() {
         effect(() => {
-            const lang = this.translationService.currentLanguage();
+            this.translationService.currentLanguage();
             if (this.map) {
                 if (this.selectedCity === 'cp') {
                     this.loadCayoPerico();
@@ -747,40 +749,138 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     private createPushpinIcon(colorKey = 'red'): L.DivIcon {
         const pal = this.pushpinPalettes[colorKey] || this.pushpinPalettes['red'];
         const gradId = 'gtaPinHeadOnline_' + colorKey;
+        const wrap = document.createElement('div');
+        wrap.className = 'classic-pushpin-wrapper';
+
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('width', '32');
+        svg.setAttribute('height', '40');
+        svg.setAttribute('viewBox', '0 0 32 40');
+        svg.setAttribute('fill', 'none');
+
+        const defs = document.createElementNS(svgNS, 'defs');
+        const radial = document.createElementNS(svgNS, 'radialGradient');
+        radial.setAttribute('id', gradId);
+        radial.setAttribute('cx', '35%');
+        radial.setAttribute('cy', '30%');
+        radial.setAttribute('r', '65%');
+
+        const radialStops = [
+            { offset: '0%', color: pal.s0 },
+            { offset: '35%', color: pal.s35 },
+            { offset: '85%', color: pal.s85 },
+            { offset: '100%', color: pal.s100 }
+        ];
+        radialStops.forEach(s => {
+            const stop = document.createElementNS(svgNS, 'stop');
+            stop.setAttribute('offset', s.offset);
+            stop.setAttribute('stop-color', s.color);
+            radial.appendChild(stop);
+        });
+        defs.appendChild(radial);
+
+        const linear = document.createElementNS(svgNS, 'linearGradient');
+        linear.setAttribute('id', 'gtaSteelNeedle');
+        linear.setAttribute('x1', '0%');
+        linear.setAttribute('y1', '0%');
+        linear.setAttribute('x2', '100%');
+        linear.setAttribute('y2', '0%');
+
+        const linearStops = [
+            { offset: '0%', color: '#d6dadf' },
+            { offset: '45%', color: '#ffffff' },
+            { offset: '75%', color: '#8c939a' },
+            { offset: '100%', color: '#4d5156' }
+        ];
+        linearStops.forEach(s => {
+            const stop = document.createElementNS(svgNS, 'stop');
+            stop.setAttribute('offset', s.offset);
+            stop.setAttribute('stop-color', s.color);
+            linear.appendChild(stop);
+        });
+        defs.appendChild(linear);
+
+        const filter = document.createElementNS(svgNS, 'filter');
+        filter.setAttribute('id', 'gtaPinShadow');
+        filter.setAttribute('x', '0');
+        filter.setAttribute('y', '0');
+        filter.setAttribute('width', '32');
+        filter.setAttribute('height', '40');
+        filter.setAttribute('filterUnits', 'userSpaceOnUse');
+        const dropShadow = document.createElementNS(svgNS, 'feDropShadow');
+        dropShadow.setAttribute('dx', '1');
+        dropShadow.setAttribute('dy', '3');
+        dropShadow.setAttribute('stdDeviation', '1.8');
+        dropShadow.setAttribute('flood-color', '#000000');
+        dropShadow.setAttribute('flood-opacity', '0.65');
+        filter.appendChild(dropShadow);
+        defs.appendChild(filter);
+        svg.appendChild(defs);
+
+        const g = document.createElementNS(svgNS, 'g');
+        g.setAttribute('filter', 'url(#gtaPinShadow)');
+
+        const polygon = document.createElementNS(svgNS, 'polygon');
+        polygon.setAttribute('points', '14.8,20 17.2,20 16.3,38 15.7,38');
+        polygon.setAttribute('fill', 'url(#gtaSteelNeedle)');
+        g.appendChild(polygon);
+
+        const line = document.createElementNS(svgNS, 'line');
+        line.setAttribute('x1', '16');
+        line.setAttribute('y1', '20');
+        line.setAttribute('x2', '16');
+        line.setAttribute('y2', '38');
+        line.setAttribute('stroke', '#ffffff');
+        line.setAttribute('stroke-width', '0.6');
+        line.setAttribute('opacity', '0.9');
+        g.appendChild(line);
+
+        const path = document.createElementNS(svgNS, 'path');
+        path.setAttribute('d', 'M10.5,20 C10.5,15.5 12.5,13.5 16,13.5 C19.5,13.5 21.5,15.5 21.5,20 Z');
+        path.setAttribute('fill', `url(#${gradId})`);
+        g.appendChild(path);
+
+        const el1 = document.createElementNS(svgNS, 'ellipse');
+        el1.setAttribute('cx', '16');
+        el1.setAttribute('cy', '13.5');
+        el1.setAttribute('rx', '7.2');
+        el1.setAttribute('ry', '2.2');
+        el1.setAttribute('fill', pal.rim1);
+        g.appendChild(el1);
+
+        const el2 = document.createElementNS(svgNS, 'ellipse');
+        el2.setAttribute('cx', '16');
+        el2.setAttribute('cy', '12.8');
+        el2.setAttribute('rx', '6.9');
+        el2.setAttribute('ry', '1.9');
+        el2.setAttribute('fill', pal.rim2);
+        g.appendChild(el2);
+
+        const el3 = document.createElementNS(svgNS, 'ellipse');
+        el3.setAttribute('cx', '16');
+        el3.setAttribute('cy', '7.5');
+        el3.setAttribute('rx', '7.8');
+        el3.setAttribute('ry', '6.8');
+        el3.setAttribute('fill', `url(#${gradId})`);
+        g.appendChild(el3);
+
+        const el4 = document.createElementNS(svgNS, 'ellipse');
+        el4.setAttribute('cx', '13.5');
+        el4.setAttribute('cy', '5.2');
+        el4.setAttribute('rx', '3.2');
+        el4.setAttribute('ry', '1.9');
+        el4.setAttribute('fill', '#ffffff');
+        el4.setAttribute('opacity', '0.8');
+        el4.setAttribute('transform', 'rotate(-18 13.5 5.2)');
+        g.appendChild(el4);
+
+        svg.appendChild(g);
+        wrap.appendChild(svg);
+
         return L.divIcon({
             className: 'gta-classic-pushpin-icon',
-            html: `
-                <div class="classic-pushpin-wrapper">
-                    <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <radialGradient id="${gradId}" cx="35%" cy="30%" r="65%">
-                                <stop offset="0%" stop-color="${pal.s0}"/>
-                                <stop offset="35%" stop-color="${pal.s35}"/>
-                                <stop offset="85%" stop-color="${pal.s85}"/>
-                                <stop offset="100%" stop-color="${pal.s100}"/>
-                            </radialGradient>
-                            <linearGradient id="gtaSteelNeedle" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#d6dadf"/>
-                                <stop offset="45%" stop-color="#ffffff"/>
-                                <stop offset="75%" stop-color="#8c939a"/>
-                                <stop offset="100%" stop-color="#4d5156"/>
-                            </linearGradient>
-                            <filter id="gtaPinShadow" x="0" y="0" width="32" height="40" filterUnits="userSpaceOnUse">
-                                <feDropShadow dx="1" dy="3" stdDeviation="1.8" flood-color="#000000" flood-opacity="0.65"/>
-                            </filter>
-                        </defs>
-                        <g filter="url(#gtaPinShadow)">
-                            <polygon points="14.8,20 17.2,20 16.3,38 15.7,38" fill="url(#gtaSteelNeedle)"/>
-                            <line x1="16" y1="20" x2="16" y2="38" stroke="#ffffff" stroke-width="0.6" opacity="0.9"/>
-                            <path d="M10.5,20 C10.5,15.5 12.5,13.5 16,13.5 C19.5,13.5 21.5,15.5 21.5,20 Z" fill="url(#${gradId})"/>
-                            <ellipse cx="16" cy="13.5" rx="7.2" ry="2.2" fill="${pal.rim1}"/>
-                            <ellipse cx="16" cy="12.8" rx="6.9" ry="1.9" fill="${pal.rim2}"/>
-                            <ellipse cx="16" cy="7.5" rx="7.8" ry="6.8" fill="url(#${gradId})"/>
-                            <ellipse cx="13.5" cy="5.2" rx="3.2" ry="1.9" fill="#ffffff" opacity="0.8" transform="rotate(-18 13.5 5.2)"/>
-                        </g>
-                    </svg>
-                </div>
-            `,
+            html: wrap,
             iconSize: [32, 40],
             iconAnchor: [16, 38],
             popupAnchor: [0, -36]
@@ -795,15 +895,6 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 setTimeout(() => this.coordsCopied = false, 1800);
             });
         }
-    }
-
-    private escapeHtml(str: string): string {
-        return (str || '')
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;');
     }
 
     saveCustomMarkers(): void {
@@ -897,7 +988,9 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 }
                 this.userCustomMarkers.push(markerObj);
             }
-        } catch { }
+        } catch {
+            // Ignorar errores de lectura de localStorage
+        }
     }
 
     private _locatingMarkerHandler: (() => void) | null = null;
@@ -953,7 +1046,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         this.map.flyTo(cm.latLng, targetZoom, { animate: true, duration: 0.6 });
     }
 
-    private buildCustomMarkerPopupHtml(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string; x?: number; y?: number }): string {
+    private buildCustomMarkerPopupHtml(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string; x?: number; y?: number }): HTMLElement {
         const deleteLbl = this.translationService.t('gta5.popups.delete');
         const activeColor = item.color || 'red';
 
@@ -972,55 +1065,94 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             ? { x: item.x, y: item.y }
             : this.latLngToWorld(item.latLng.lat, item.latLng.lng);
 
-        const colorSwatchesHtml = colors.map(c => `
-            <button
-                type="button"
-                class="btn-pin-color"
-                data-marker-id="${item.id}"
-                data-color="${c.key}"
-                title="${c.title}"
-                style="width: 13px; height: 13px; border-radius: 50%; background: ${c.hex}; border: 1.5px solid ${c.key === activeColor ? '#ffffff' : 'rgba(255,255,255,0.25)'}; cursor: pointer; box-shadow: ${c.key === activeColor ? '0 0 6px #ffffff' : '0 1px 3px rgba(0,0,0,0.5)'}; transform: ${c.key === activeColor ? 'scale(1.2)' : 'scale(1)'}; transition: all 0.15s ease; padding: 0;"
-            ></button>
-        `).join('');
+        const card = document.createElement('div');
+        card.className = 'custom-marker-popup-card';
+        card.style.borderTop = `2px solid ${activeColorObj.hex}`;
+        card.style.borderRadius = '8px';
 
-        return `
-            <div class="custom-marker-popup-card" style="border-top: 2px solid ${activeColorObj.hex}; border-radius: 8px;">
-                <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 16px 4px 16px;">
-                    <input
-                        type="text"
-                        id="custom-marker-input-${item.id}"
-                        data-marker-id="${item.id}"
-                        class="custom-marker-name custom-marker-name-input custom-pin-name-input"
-                        value="${this.escapeHtml(item.name)}"
-                        maxlength="45"
-                        placeholder="${this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name'}"
-                        onkeydown="if(event.key === 'Enter'){ event.preventDefault(); this.blur(); }"
-                        title="${this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename'}"
-                        style="margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: 100%; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;"
-                    />
-                </div>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin: 4px 0 5px 0; padding: 3px 6px; background: rgba(0,0,0,0.45); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
-                    ${colorSwatchesHtml}
-                </div>
-                <div class="custom-marker-spike-divider" style="width: 100%; height: 1px; margin: 6px 0 5px 0; background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, #ffb833 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%); box-shadow: 0 0 4px rgba(255, 184, 51, 0.35);"></div>
-                <div class="custom-marker-coords" style="text-align: center; font-size: 9.5px; font-family: monospace; color: rgba(255,255,255,0.75); margin: 3px 0 6px 0; letter-spacing: 0.3px; user-select: all;" title="Coordenadas (X, Y)">
-                    X: ${markerCoords.x.toFixed(1)} | Y: ${markerCoords.y.toFixed(1)}
-                </div>
-                <div class="custom-marker-actions">
-                    <button type="button" class="btn-marker-action btn-marker-delete btn-pin-delete" data-marker-id="${item.id}" style="width: 100%; padding: 4px 6px; font-size: 10px;">
-                        <span>🗑️</span> ${deleteLbl}
-                    </button>
-                </div>
-            </div>
-        `;
+        const titleRow = document.createElement('div');
+        titleRow.className = 'custom-marker-title-row';
+        titleRow.style.cssText = 'display: flex; justify-content: center; text-align: center; margin: 0 16px 4px 16px;';
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = `custom-marker-input-${item.id}`;
+        input.setAttribute('data-marker-id', item.id);
+        input.className = 'custom-marker-name custom-marker-name-input custom-pin-name-input';
+        input.value = item.name;
+        input.maxLength = 45;
+        input.placeholder = this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name';
+        input.title = this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename';
+        input.style.cssText = 'margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: 100%; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;';
+        input.addEventListener('keydown', (event: KeyboardEvent) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                input.blur();
+            }
+        });
+        titleRow.appendChild(input);
+        card.appendChild(titleRow);
+
+        const swatchesContainer = document.createElement('div');
+        swatchesContainer.style.cssText = 'display: flex; align-items: center; justify-content: center; gap: 5px; margin: 4px 0 5px 0; padding: 3px 6px; background: rgba(0,0,0,0.45); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);';
+
+        colors.forEach(c => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-pin-color';
+            btn.setAttribute('data-marker-id', item.id);
+            btn.setAttribute('data-color', c.key);
+            btn.title = c.title;
+            const isActive = c.key === activeColor;
+            btn.style.width = '13px';
+            btn.style.height = '13px';
+            btn.style.borderRadius = '50%';
+            btn.style.background = c.hex;
+            btn.style.border = isActive ? '1.5px solid #ffffff' : '1.5px solid rgba(255,255,255,0.25)';
+            btn.style.cursor = 'pointer';
+            btn.style.boxShadow = isActive ? '0 0 6px #ffffff' : '0 1px 3px rgba(0,0,0,0.5)';
+            btn.style.transform = isActive ? 'scale(1.2)' : 'scale(1)';
+            btn.style.transition = 'all 0.15s ease';
+            btn.style.padding = '0';
+            swatchesContainer.appendChild(btn);
+        });
+        card.appendChild(swatchesContainer);
+
+        const divider = document.createElement('div');
+        divider.className = 'custom-marker-spike-divider';
+        divider.style.cssText = 'width: 100%; height: 1px; margin: 6px 0 5px 0; background: linear-gradient(90deg, transparent 0%, rgba(255, 184, 51, 0.25) 25%, #ffb833 50%, rgba(255, 184, 51, 0.25) 75%, transparent 100%); box-shadow: 0 0 4px rgba(255, 184, 51, 0.35);';
+        card.appendChild(divider);
+
+        const coordsDiv = document.createElement('div');
+        coordsDiv.className = 'custom-marker-coords';
+        coordsDiv.style.cssText = 'text-align: center; font-size: 9.5px; font-family: monospace; color: rgba(255,255,255,0.75); margin: 3px 0 6px 0; letter-spacing: 0.3px; user-select: all;';
+        coordsDiv.title = this.translationService.t('gta5.popups.coordinates');
+        coordsDiv.textContent = `X: ${markerCoords.x.toFixed(1)} | Y: ${markerCoords.y.toFixed(1)}`;
+        card.appendChild(coordsDiv);
+
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'custom-marker-actions';
+        const deleteBtn = document.createElement('button');
+        deleteBtn.type = 'button';
+        deleteBtn.className = 'btn-marker-action btn-marker-delete btn-pin-delete';
+        deleteBtn.setAttribute('data-marker-id', item.id);
+        deleteBtn.style.cssText = 'width: 100%; padding: 4px 6px; font-size: 10px;';
+        const trashSpan = document.createElement('span');
+        trashSpan.textContent = '🗑️';
+        deleteBtn.appendChild(trashSpan);
+        deleteBtn.appendChild(document.createTextNode(` ${deleteLbl}`));
+        actionsDiv.appendChild(deleteBtn);
+        card.appendChild(actionsDiv);
+
+        return card;
     }
 
     private updateCustomMarkerPopup(item: { id: string; name: string; marker: L.Marker; latLng: L.LatLng; color?: string; x?: number; y?: number }): void {
         const activeColor = item.color || 'red';
-        const html = this.buildCustomMarkerPopupHtml(item);
+        const contentEl = this.buildCustomMarkerPopupHtml(item);
         const existingPopup = item.marker.getPopup();
         if (existingPopup) {
-            existingPopup.setContent(html);
+            existingPopup.setContent(contentEl);
             existingPopup.options.autoPan = false;
             existingPopup.options.className = `gta-custom-pin-popup gta-pin-color-${activeColor}`;
             const container = existingPopup.getElement();
@@ -1030,13 +1162,16 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                     .trim() + ` gta-pin-color-${activeColor}`;
             }
         } else {
-            item.marker.bindPopup(html, { className: `gta-custom-pin-popup gta-pin-color-${activeColor}`, maxWidth: 190, minWidth: 140, autoPan: false });
+            item.marker.bindPopup(contentEl, { className: `gta-custom-pin-popup gta-pin-color-${activeColor}`, maxWidth: 190, minWidth: 140, autoPan: false });
         }
 
+        const tooltipBold = document.createElement('b');
+        tooltipBold.textContent = item.name;
+
         if (item.marker.getTooltip()) {
-            item.marker.setTooltipContent(`<b>${this.escapeHtml(item.name)}</b>`);
+            item.marker.setTooltipContent(tooltipBold);
         } else {
-            item.marker.bindTooltip(`<b>${this.escapeHtml(item.name)}</b>`, {
+            item.marker.bindTooltip(tooltipBold, {
                 direction: 'top',
                 offset: [0, -32],
                 className: 'gta-leaflet-tooltip'
@@ -1106,7 +1241,9 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 this.targetCustomMarker.name = found.name;
             }
             if (found.marker.getTooltip()) {
-                found.marker.setTooltipContent('<b>' + this.escapeHtml(found.name) + '</b>');
+                const tooltipBold = document.createElement('b');
+                tooltipBold.textContent = found.name;
+                found.marker.setTooltipContent(tooltipBold);
             }
             const existingPopup = found.marker.getPopup();
             if (existingPopup) {
@@ -1238,7 +1375,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         return Math.max(1.2, Math.min(this.maxZoom, Math.round(targetZoom * 10) / 10));
     }
 
-    private computeMinZoom(imageSize: number): number {
+    private computeMinZoom(_imageSize: number): number {
         const el = document.getElementById('gta-map');
         const height = el ? el.clientHeight : 0;
         const width = el ? el.clientWidth : 0;
@@ -1455,21 +1592,24 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         this.districts.forEach(d => {
             const [lat, lng] = this.worldToLatLng(d.x, d.y);
             const calculatedSize = Math.max(8, Math.round((d.size + 1) * scale));
+            const labelEl = document.createElement('div');
+            labelEl.className = `gta-district-label-text ${d.isMajor ? 'is-major' : 'is-minor'}`;
+            labelEl.style.color = 'rgba(255, 255, 255, 0.92)';
+            labelEl.style.fontFamily = "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+            labelEl.style.fontSize = `${calculatedSize}px`;
+            labelEl.style.fontWeight = '700';
+            labelEl.style.textTransform = 'uppercase';
+            labelEl.style.letterSpacing = letterSpacing;
+            labelEl.style.textShadow = '0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.8)';
+            labelEl.style.whiteSpace = 'nowrap';
+            labelEl.style.pointerEvents = 'none';
+            labelEl.style.userSelect = 'none';
+            labelEl.style.textAlign = 'center';
+            labelEl.textContent = d.name;
+
             const icon = L.divIcon({
                 className: 'gta-district-label-pin',
-                html: `<div class="gta-district-label-text ${d.isMajor ? 'is-major' : 'is-minor'}" style="
-                    color: rgba(255, 255, 255, 0.92);
-                    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-                    font-size: ${calculatedSize}px;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    letter-spacing: ${letterSpacing};
-                    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.8);
-                    white-space: nowrap;
-                    pointer-events: none;
-                    user-select: none;
-                    text-align: center;
-                ">${d.name}</div>`,
+                html: labelEl,
                 iconSize: [260, 30],
                 iconAnchor: [130, 15]
             });
@@ -1484,33 +1624,10 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
      * Soporta tanto Cayo Perico como Los Santos (incluyendo la escala HD de satélite).
      */
     worldToLatLng(x: number, y: number): [number, number] {
-        // Conversión para Cayo Perico
-        if (this.selectedCity === 'cp') {
-            const ptX = ((x - 3700) / 2000) * 10000;
-            const ptY = ((-4150 - y) / 2000) * 10000;
-            const lat = -ptY / 64;
-            const lng = ptX / 64;
-            return [lat, lng];
-        }
-
-        // Conversión para mapa Satélite HD de Los Santos
-        if (this.currentMapType === 'Satellite') {
-            const lng = 128 * ((x + 4140) / 9000);
-            const lat = - 192 * ((8400 - y) / 13500);
-            return [lat, lng];
-        }
-
-        // Proyección estándar oficial (0.660 píxeles por metro in-game)
-        const originX = 3753.6;
-        const originY = 5529.6;
-        const scale = 0.660;
-
-        const px = originX + (scale * x);
-        const py = originY - (scale * y);
-
-        const lat = -py / 128;
-        const lng = px / 128;
-        return [lat, lng];
+        return gta5WorldToLatLng(x, y, {
+            mapType: this.currentMapType,
+            selectedCity: this.selectedCity
+        });
     }
 
     /**
@@ -1518,43 +1635,10 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
      * Se usa en la telemetría en tiempo real al mover el ratón sobre el mapa.
      */
     latLngToWorld(lat: number, lng: number): { x: number; y: number } {
-        // Conversión inversa para Cayo Perico
-        if (this.selectedCity === 'cp') {
-            const ptX = lng * 64;
-            const ptY = -lat * 64;
-            const x = 3700 + (ptX / 10000) * 2000;
-            const y = -4150 - (ptY / 10000) * 2000;
-            return {
-                x: Math.round(x * 10) / 10,
-                y: Math.round(y * 10) / 10
-            };
-        }
-
-        // Conversión inversa para Satélite HD
-        if (this.currentMapType === 'Satellite') {
-            const x = (lng / 128) * 9000 - 4140;
-            const y = 8400 - (-lat / 192) * 13500;
-            return {
-                x: Math.round(x * 10) / 10,
-                y: Math.round(y * 10) / 10
-            };
-        }
-
-        // Conversión inversa estándar
-        const originX = 3753.6;
-        const originY = 5529.6;
-        const scale = 0.660;
-
-        const px = lng * 128;
-        const py = -lat * 128;
-
-        const x = (px - originX) / scale;
-        const y = (originY - py) / scale;
-
-        return {
-            x: Math.round(x * 10) / 10,
-            y: Math.round(y * 10) / 10
-        };
+        return gta5LatLngToWorld(lat, lng, {
+            mapType: this.currentMapType,
+            selectedCity: this.selectedCity
+        });
     }
 
     switchCity(city: 'ls' | 'cp'): void {
@@ -1633,31 +1717,42 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             const badgeColor = loc.badge?.color || '#f97316';
             const badgeSymbol = loc.badge?.symbol || '•';
 
-            let pinHtml: string;
+            const pinEl = document.createElement('div');
             let pinClass: string;
             let pinIconSize: [number, number];
             let pinIconAnchor: [number, number];
             let pinPopupAnchor: [number, number];
 
             if (this.iconTheme === 'standard') {
-                pinHtml = `<div class="gta-pin-standard-empty"></div>`;
+                pinEl.className = 'gta-pin-standard-empty';
                 pinClass = 'gta-pin-wrapper-empty';
                 pinIconSize = [0, 0];
                 pinIconAnchor = [0, 0];
                 pinPopupAnchor = [0, 0];
             } else if (this.iconTheme === 'simple') {
                 const faIcon = cayoFaIcons[loc.category] || loc.badge?.icon || 'location-dot';
-                pinHtml = `<div style="color: ${badgeColor}; font-size: 20px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIcon}"></i></div>`;
+                pinEl.style.color = badgeColor;
+                pinEl.style.fontSize = '20px';
+                pinEl.style.filter = 'drop-shadow(0px 2px 3px rgba(0,0,0,0.9))';
+                pinEl.style.textAlign = 'center';
+                pinEl.style.lineHeight = '1';
+                const iconTag = document.createElement('i');
+                iconTag.className = `fa-solid fa-${faIcon}`;
+                pinEl.appendChild(iconTag);
                 pinClass = 'gta-pin-wrapper-fa';
                 pinIconSize = [20, 20];
                 pinIconAnchor = [10, 10];
                 pinPopupAnchor = [0, -10];
             } else {
-                pinHtml = `
-                    <div class="gta-pin gta-pin-${loc.category}" style="--pin-color: ${badgeColor}; border-color: ${badgeColor};">
-                        <span class="gta-pin-symbol" style="color: ${badgeColor}; font-weight: 800;">${badgeSymbol}</span>
-                    </div>
-                `;
+                pinEl.className = `gta-pin gta-pin-${loc.category}`;
+                pinEl.style.setProperty('--pin-color', badgeColor);
+                pinEl.style.borderColor = badgeColor;
+                const symSpan = document.createElement('span');
+                symSpan.className = 'gta-pin-symbol';
+                symSpan.style.color = badgeColor;
+                symSpan.style.fontWeight = '800';
+                symSpan.textContent = badgeSymbol;
+                pinEl.appendChild(symSpan);
                 pinClass = 'gta-pin-wrapper';
                 pinIconSize = [22, 22];
                 pinIconAnchor = [11, 22];
@@ -1666,7 +1761,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
 
             const icon = L.divIcon({
                 className: pinClass,
-                html: pinHtml,
+                html: pinEl,
                 iconSize: pinIconSize,
                 iconAnchor: pinIconAnchor,
                 popupAnchor: pinPopupAnchor
@@ -1677,9 +1772,19 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 this.translationService.t('gta5.popups.coordinates') || 'Coordenadas'
             );
 
+            const tooltipEl = document.createElement('div');
+            const nameBold = document.createElement('b');
+            nameBold.textContent = loc.name;
+            tooltipEl.appendChild(nameBold);
+            tooltipEl.appendChild(document.createElement('br'));
+            const catSpan = document.createElement('span');
+            catSpan.style.color = badgeColor;
+            catSpan.textContent = loc.categoryLabel;
+            tooltipEl.appendChild(catSpan);
+
             const marker = L.marker([lat, lng], { icon })
                 .bindPopup(popupHtml, { maxWidth: 300, className: 'gta-leaflet-popup' })
-                .bindTooltip(`<b>${loc.name}</b><br><span style="color:${badgeColor}">${loc.categoryLabel}</span>`, {
+                .bindTooltip(tooltipEl, {
                     direction: 'top',
                     offset: [0, -26],
                     className: 'gta-leaflet-tooltip'
@@ -1779,8 +1884,6 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             if (p.category === 'tattoo') pinSymbol = '💉';
             if (p.category === 'clothing_store') pinSymbol = '👕';
 
-            const pinInnerHtml = `<span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span>`;
-
             // Icono: FA "simple" o círculo neón según tema seleccionado
             const pinColor = p.badge?.color || '#ffb833';
             let faIconProp = p.badge?.icon || 'location-dot';
@@ -1790,7 +1893,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             if (p.category === 'clothing_store') faIconProp = 'shirt';
             const iconSizeProp: [number, number] = (p.category === 'shipwreck' || p.category === 'fake_ufo') ? [22, 22] : [20, 20];
 
-            let pinHtml: string;
+            const pinEl = document.createElement('div');
             let pinClass: string;
             let pinIconSize: [number, number];
             let pinIconAnchor: [number, number];
@@ -1799,37 +1902,56 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             // 1. Icono especial para OVNI
             if (p.category === 'fake_ufo') {
                 const ufoSymbol = p.badge?.symbol || '🛸';
-                pinHtml = `<div style="font-size: 26px; filter: drop-shadow(0 0 8px ${pinColor}) drop-shadow(0px 2px 4px rgba(0,0,0,0.9)); text-align: center; line-height:1; cursor: pointer;">${ufoSymbol}</div>`;
+                pinEl.style.fontSize = '26px';
+                pinEl.style.filter = `drop-shadow(0 0 8px ${pinColor}) drop-shadow(0px 2px 4px rgba(0,0,0,0.9))`;
+                pinEl.style.textAlign = 'center';
+                pinEl.style.lineHeight = '1';
+                pinEl.style.cursor = 'pointer';
+                pinEl.textContent = ufoSymbol;
                 pinClass = 'gta-pin-wrapper-fa';
                 pinIconSize = [26, 26];
                 pinIconAnchor = [13, 13];
                 pinPopupAnchor = [0, -13];
             } else if (this.iconTheme === 'standard') {
                 // 2. Tema Estándar: marcador vacío sin vincular (pendiente de definir)
-                pinHtml = `<div class="gta-pin-standard-empty"></div>`;
+                pinEl.className = 'gta-pin-standard-empty';
                 pinClass = 'gta-pin-wrapper-empty';
                 pinIconSize = [0, 0];
                 pinIconAnchor = [0, 0];
                 pinPopupAnchor = [0, 0];
             } else if (this.iconTheme === 'simple') {
                 // 3. Tema Font Awesome: iconos vectoriales limpios
-                pinHtml = `<div style="color: ${pinColor}; font-size: ${iconSizeProp[0]}px; filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.9)); text-align: center; line-height:1;"><i class="fa-solid fa-${faIconProp}"></i></div>`;
+                pinEl.style.color = pinColor;
+                pinEl.style.fontSize = `${iconSizeProp[0]}px`;
+                pinEl.style.filter = 'drop-shadow(0px 2px 3px rgba(0,0,0,0.9))';
+                pinEl.style.textAlign = 'center';
+                pinEl.style.lineHeight = '1';
+                const iconTag = document.createElement('i');
+                iconTag.className = `fa-solid fa-${faIconProp}`;
+                pinEl.appendChild(iconTag);
                 pinClass = 'gta-pin-wrapper-fa';
                 pinIconSize = iconSizeProp;
                 pinIconAnchor = [iconSizeProp[0] / 2, iconSizeProp[1] / 2];
                 pinPopupAnchor = [0, -iconSizeProp[1] / 2];
             } else {
                 // 4. Tema Clásico: pin circular con color de categoría y emoji o símbolo
-                pinHtml = `<div class="gta-pin gta-pin-${p.category}" style="--pin-color: ${pinColor}"><span class="gta-pin-symbol" style="color: ${p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)'}; font-weight: 800;">${pinSymbol}</span></div>`;
+                pinEl.className = `gta-pin gta-pin-${p.category}`;
+                pinEl.style.setProperty('--pin-color', pinColor);
+                const symSpan = document.createElement('span');
+                symSpan.className = 'gta-pin-symbol';
+                symSpan.style.color = p.category === 'character' ? '#f5cd2f' : 'var(--pin-color, #ffb833)';
+                symSpan.style.fontWeight = '800';
+                symSpan.textContent = pinSymbol;
+                pinEl.appendChild(symSpan);
                 pinClass = 'gta-pin-wrapper';
                 pinIconSize = [22, 22];
-            pinIconAnchor = [11, 22];
-            pinPopupAnchor = [0, -20];
+                pinIconAnchor = [11, 22];
+                pinPopupAnchor = [0, -20];
             }
 
             const icon = L.divIcon({
                 className: pinClass,
-                html: pinHtml,
+                html: pinEl,
                 iconSize: pinIconSize,
                 iconAnchor: pinIconAnchor,
                 popupAnchor: pinPopupAnchor
@@ -1842,13 +1964,19 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 buyerLabel: this.translationService.t('gta5.popups.buyer')
             });
 
-            const tooltipPrice = isPurchasable
-                ? `<br><span style="color:#2ecc71">${p.priceFormatted}</span>`
-                : `<br><span style="color:#3498db">${p.categoryLabel}</span>`;
+            const tooltipEl = document.createElement('div');
+            const nameBold = document.createElement('b');
+            nameBold.textContent = p.name;
+            tooltipEl.appendChild(nameBold);
+            tooltipEl.appendChild(document.createElement('br'));
+            const subSpan = document.createElement('span');
+            subSpan.style.color = isPurchasable ? '#2ecc71' : '#3498db';
+            subSpan.textContent = isPurchasable ? p.priceFormatted : p.categoryLabel;
+            tooltipEl.appendChild(subSpan);
 
             const marker = L.marker([lat, lng], { icon })
                 .bindPopup(popupHtml, { maxWidth: 300, minWidth: 280, className: 'gta-leaflet-popup' })
-                .bindTooltip(`<b>${p.name}</b>${tooltipPrice}`, {
+                .bindTooltip(tooltipEl, {
                     direction: 'top',
                     offset: [0, -26],
                     className: 'gta-leaflet-tooltip'
@@ -1878,7 +2006,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             const colFaIconOnline = item.badge?.icon || 'star';
             const pinSymbol = item.badge?.symbol || '•';
 
-            let htmlContent: string;
+            const htmlEl = document.createElement('div');
             let iconDivClass: string;
             let iconSize: [number, number];
             let iconAnchor: [number, number];
@@ -1886,21 +2014,36 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
 
             // 1. Estándar: vacío sin vincular
             if (this.iconTheme === 'standard') {
-                htmlContent = `<div class="gta-pin-collectible-standard-empty"></div>`;
+                htmlEl.className = 'gta-pin-collectible-standard-empty';
                 iconDivClass = 'gta-pin-collectible-wrapper-empty';
                 iconSize = [0, 0];
                 iconAnchor = [0, 0];
                 popupAnchor = [0, 0];
             } else if (this.iconTheme === 'simple') {
                 // 2. Font Awesome: icono vectorial fa-solid
-                htmlContent = `<div style="color: ${colColorOnline}; font-size: 13px; filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8)); text-align: center; line-height:1;"><i class="fa-solid fa-${colFaIconOnline}"></i></div>`;
+                htmlEl.style.color = colColorOnline;
+                htmlEl.style.fontSize = '13px';
+                htmlEl.style.filter = 'drop-shadow(0px 1px 2px rgba(0,0,0,0.8))';
+                htmlEl.style.textAlign = 'center';
+                htmlEl.style.lineHeight = '1';
+                const iconTag = document.createElement('i');
+                iconTag.className = `fa-solid fa-${colFaIconOnline}`;
+                htmlEl.appendChild(iconTag);
                 iconDivClass = 'gta-pin-collectible-wrapper-fa';
                 iconSize = [16, 16];
                 iconAnchor = [8, 8];
                 popupAnchor = [0, -8];
             } else {
                 // 3. Clásico: cuadrado o círculo con color de categoría y símbolo
-                htmlContent = `<div class="gta-pin-collectible" style="background: ${colColorOnline}"><span class="gta-pin-col-symbol" style="color: ${colColorOnline}; font-weight: 700; line-height: 1;">${pinSymbol}</span></div>`;
+                htmlEl.className = 'gta-pin-collectible';
+                htmlEl.style.background = colColorOnline;
+                const symSpan = document.createElement('span');
+                symSpan.className = 'gta-pin-col-symbol';
+                symSpan.style.color = colColorOnline;
+                symSpan.style.fontWeight = '700';
+                symSpan.style.lineHeight = '1';
+                symSpan.textContent = pinSymbol;
+                htmlEl.appendChild(symSpan);
                 iconDivClass = 'gta-pin-collectible-wrapper';
                 iconSize = [17, 17];
                 iconAnchor = [8.5, 17];
@@ -1909,7 +2052,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
 
             const icon = L.divIcon({
                 className: iconDivClass,
-                html: htmlContent,
+                html: htmlEl,
                 iconSize,
                 iconAnchor,
                 popupAnchor
@@ -1921,9 +2064,19 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 this.translationService.t('gta5.popups.reward')
             );
 
+            const tooltipEl = document.createElement('div');
+            const nameBold = document.createElement('b');
+            nameBold.textContent = item.name;
+            tooltipEl.appendChild(nameBold);
+            tooltipEl.appendChild(document.createElement('br'));
+            const catSpan = document.createElement('span');
+            catSpan.style.color = item.badge?.color || '#ffb833';
+            catSpan.textContent = `${item.categoryLabel} (#${item.number}/${item.total})`;
+            tooltipEl.appendChild(catSpan);
+
             const marker = L.marker([lat, lng], { icon })
                 .bindPopup(popupHtml, { maxWidth: 320, className: 'gta-leaflet-popup' })
-                .bindTooltip(`<b>${item.name}</b><br><span style="color:${(item.badge?.color || '#ffb833')}">${item.categoryLabel} (#${item.number}/${item.total})</span>`, {
+                .bindTooltip(tooltipEl, {
                     direction: 'top',
                     offset: [0, -12],
                     className: 'gta-leaflet-tooltip'
@@ -2142,7 +2295,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
      * Centra el mapa sobre la ubicación del misterio, cierra el drawer lateral
      * y genera un marcador destacado con animación y popup informativo.
      */
-    focusMysteryLocation(mystery: any): void {
+    focusMysteryLocation(mystery: GtaMystery): void {
         if (!this.map || !mystery?.position) return;
         this.closeProfileDrawer();
 
@@ -2193,7 +2346,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         if (mystery.points && Array.isArray(mystery.points) && mystery.points.length > 0) {
             const latLngs: L.LatLngTuple[] = [];
 
-            mystery.points.forEach((pt: any, idx: number) => {
+            mystery.points.forEach((pt: MysteryPoint, idx: number) => {
                 const stepNum = pt.step || (idx + 1);
                 const [ptLat, ptLng] = this.worldToLatLng(pt.position.x, pt.position.y);
                 latLngs.push([ptLat, ptLng]);

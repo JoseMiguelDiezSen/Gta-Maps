@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
@@ -8,10 +8,9 @@ import { VideoItem } from '../../models/gta6';
   providedIn: 'root'
 })
 export class VideosGta6Service {
+  private readonly http = inject(HttpClient);
   private readonly dataUrl = 'assets/data/gta6/videos.json';
   private cache$?: Observable<VideoItem[]>;
-
-  constructor(private http: HttpClient) {}
 
   /**
    * Obtiene la lista completa de vídeos de GTA 6 desde el archivo JSON estructurado.

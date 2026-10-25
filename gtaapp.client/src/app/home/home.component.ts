@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { APP_VERSION } from '../../environments/version';
@@ -62,15 +62,15 @@ export class HomeComponent implements OnInit, OnDestroy {
         { code: 'ko', label: '한국어' }
     ];
 
-    constructor(
-        private readonly elementRef: ElementRef,
-        private readonly translationService: TranslationService,
-        public readonly usuariosActivosService: UsuariosActivosService,
-        public readonly cookieService: CookieService,
-        private readonly router: Router,
-        private readonly route: ActivatedRoute,
-        private readonly http: HttpClient
-    ) {
+    private readonly elementRef = inject(ElementRef);
+    private readonly translationService = inject(TranslationService);
+    public readonly usuariosActivosService = inject(UsuariosActivosService);
+    public readonly cookieService = inject(CookieService);
+    private readonly router = inject(Router);
+    private readonly route = inject(ActivatedRoute);
+    private readonly http = inject(HttpClient);
+
+    constructor() {
         this.selectedCode = this.translationService.currentLang;
     }
 
@@ -204,7 +204,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (event) {
             event.preventDefault();
         }
-        this.router.navigate(['/gta5-guia']);
+        this.router.navigate(['/gta5-guia-online']);
     }
 
     goToGta6Guia(event?: Event): void {

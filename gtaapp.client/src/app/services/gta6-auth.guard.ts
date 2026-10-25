@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Gta6AuthGuard implements CanActivate {
-  constructor(private readonly router: Router) {}
+  private readonly router = inject(Router);
 
   canActivate(): boolean | UrlTree {
     const isUnlocked = localStorage.getItem('gta6_unlocked') === 'true';

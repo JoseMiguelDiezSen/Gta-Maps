@@ -113,7 +113,7 @@ export const GTA6_DEALERS = GTA6_DEALERS_ES;
 /**
  * Catálogo Demo de Vehículos de GTA VI por Concesionario
  */
-export const GTA6_VEHICLES_BY_DEALER: Record<string, any[]> = {
+export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
   vice_luxury: [
     {
       id: 'gta6_v1',

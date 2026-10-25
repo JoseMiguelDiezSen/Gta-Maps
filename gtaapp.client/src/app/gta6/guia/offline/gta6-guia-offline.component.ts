@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener, inject } from '@angular/core';
 import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
@@ -43,7 +43,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
   mobileNavOpen: boolean = false;
-  private toastTimeout: any = null;
+  private toastTimeout: ReturnType<typeof setTimeout> | null = null;
 
   mostrarTrofeos: boolean = false;
   isLoadingTrofeos: boolean = false;
@@ -190,13 +190,13 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   private searchSub?: Subscription;
   private trofeosSub?: Subscription;
 
-  constructor(
-    private guiaService: GuiaService,
-    public cookieService: CookieService,
-    private titleService: Title,
-    private metaService: Meta,
-    private sanitizer: DomSanitizer
-  ) {
+  private readonly guiaService = inject(GuiaService);
+  public readonly cookieService = inject(CookieService);
+  private readonly titleService = inject(Title);
+  private readonly metaService = inject(Meta);
+  private readonly sanitizer = inject(DomSanitizer);
+
+  constructor() {
     this.dealerCounts$ = forkJoin(
       this.concesionarios.map(d =>
         this.guiaService.getVehiculosGuiaGta6('offline', d.id).pipe(
@@ -804,85 +804,152 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }
 
     const lines = raw.split('\n');
-    const out: string[] = [];
+    const root = document.createElement('div');
     const toc: { id: string; text: string }[] = [];
-    let inList = false;
+    let currentList: HTMLUListElement | null = null;
     let sectionCounter = 1;
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
 
-      const isSubBullet = /^\s{2,}[\*\-]\s+(.*)$/.test(line);
-      const isBullet = /^\s*[\*\-]\s+(.*)$/.test(line);
-      if (!isBullet && inList) {
-        out.push('</ul>');
-        inList = false;
+      const isSubBullet = /^\s{2,}[-*]\s+(.*)$/.test(line);
+      const isBullet = /^\s*[-*]\s+(.*)$/.test(line);
+      if (!isBullet && currentList) {
+        root.appendChild(currentList);
+        currentList = null;
       }
 
       if (line.startsWith('### ')) {
         const rawText = line.substring(4).trim();
-        const heading = this.formatInline(rawText);
         const secId = `sec-g6-${sectionCounter++}`;
         const cleanText = rawText.replace(/\*\*/g, '').replace(/`/g, '');
         toc.push({ id: secId, text: cleanText });
-        out.push(`<h3 class="guide-h3" id="${secId}"><span class="guide-h3-accent"></span>${heading}</h3>`);
+
+        const h3 = document.createElement('h3');
+        h3.className = 'guide-h3';
+        h3.id = secId;
+        const accent = document.createElement('span');
+        accent.className = 'guide-h3-accent';
+        h3.appendChild(accent);
+        this.appendInline(h3, rawText);
+        root.appendChild(h3);
       } else if (line.startsWith('## ')) {
-        const heading = this.formatInline(line.substring(3));
-        out.push(`<h2 class="guide-h2">${heading}</h2>`);
+        const h2 = document.createElement('h2');
+        h2.className = 'guide-h2';
+        this.appendInline(h2, line.substring(3));
+        root.appendChild(h2);
       } else if (line.startsWith('> ')) {
-        const calloutText = this.formatInline(line.substring(2));
-        out.push(`
-          <div class="guide-callout">
-            <div class="guide-callout-icon">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-            </div>
-            <div class="guide-callout-body">${calloutText}</div>
-          </div>
-        `);
+        const callout = document.createElement('div');
+        callout.className = 'guide-callout';
+        const iconDiv = document.createElement('div');
+        iconDiv.className = 'guide-callout-icon';
+
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('width', '20');
+        svg.setAttribute('height', '20');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2');
+
+        const circle = document.createElementNS(svgNS, 'circle');
+        circle.setAttribute('cx', '12');
+        circle.setAttribute('cy', '12');
+        circle.setAttribute('r', '10');
+        svg.appendChild(circle);
+
+        const l1 = document.createElementNS(svgNS, 'line');
+        l1.setAttribute('x1', '12');
+        l1.setAttribute('y1', '16');
+        l1.setAttribute('x2', '12');
+        l1.setAttribute('y2', '12');
+        svg.appendChild(l1);
+
+        const l2 = document.createElementNS(svgNS, 'line');
+        l2.setAttribute('x1', '12');
+        l2.setAttribute('y1', '8');
+        l2.setAttribute('x2', '12.01');
+        l2.setAttribute('y2', '8');
+        svg.appendChild(l2);
+
+        iconDiv.appendChild(svg);
+        callout.appendChild(iconDiv);
+
+        const bodyDiv = document.createElement('div');
+        bodyDiv.className = 'guide-callout-body';
+        this.appendInline(bodyDiv, line.substring(2));
+        callout.appendChild(bodyDiv);
+        root.appendChild(callout);
       } else if (line.trim() === '---') {
-        out.push('<hr class="guide-divider-line" />');
+        const hr = document.createElement('hr');
+        hr.className = 'guide-divider-line';
+        root.appendChild(hr);
       } else if (isBullet) {
-        if (!inList) {
-          out.push('<ul class="guide-list">');
-          inList = true;
+        if (!currentList) {
+          currentList = document.createElement('ul');
+          currentList.className = 'guide-list';
         }
-        const match = line.match(/^\s*[\*\-]\s+(.*)$/);
-        const text = match ? this.formatInline(match[1]) : '';
-        const subClass = isSubBullet ? ' guide-list-subitem' : '';
-        out.push(`<li class="guide-list-item${subClass}"><span class="guide-list-bullet">›</span><span class="guide-list-text">${text}</span></li>`);
+        const match = line.match(/^\s*[-*]\s+(.*)$/);
+        const li = document.createElement('li');
+        li.className = isSubBullet ? 'guide-list-item guide-list-subitem' : 'guide-list-item';
+        const bullet = document.createElement('span');
+        bullet.className = 'guide-list-bullet';
+        bullet.textContent = '\u203A';
+        li.appendChild(bullet);
+        const textSpan = document.createElement('span');
+        textSpan.className = 'guide-list-text';
+        if (match) {
+          this.appendInline(textSpan, match[1]);
+        }
+        li.appendChild(textSpan);
+        currentList.appendChild(li);
       } else if (line.trim().length > 0) {
-        const p = this.formatInline(line);
-        out.push(`<p class="guide-p">${p}</p>`);
+        const p = document.createElement('p');
+        p.className = 'guide-p';
+        this.appendInline(p, line);
+        root.appendChild(p);
       }
     }
 
-    if (inList) {
-      out.push('</ul>');
+    if (currentList) {
+      root.appendChild(currentList);
     }
 
     this.articleToc = toc;
-    return this.sanitizer.bypassSecurityTrustHtml(out.join('\n'));
+    return this.sanitizer.bypassSecurityTrustHtml(root.innerHTML);
   }
 
-  private escapeHtml(str: string): string {
-    return (str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
-  private formatInline(text: string): string {
-    if (!text) return '';
-    const safeText = this.escapeHtml(text);
-    let formatted = safeText.replace(/\*\*(.*?)\*\*/g, '<strong class="guide-strong">$1</strong>');
-    formatted = formatted.replace(/\*([^*]+)\*/g, '<em class="guide-em">$1</em>');
-    formatted = formatted.replace(/`([^`]+)`/g, '<span class="guide-chip-code">$1</span>');
-    return formatted;
+  private appendInline(parent: HTMLElement, text: string): void {
+    if (!text) return;
+    const tokenRegex = /(\*\*.*?\*\*|\*[^*]+\*|`[^`]+`)/g;
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+    while ((match = tokenRegex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        parent.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+      const token = match[0];
+      if (token.startsWith('**') && token.endsWith('**')) {
+        const strong = document.createElement('strong');
+        strong.className = 'guide-strong';
+        strong.textContent = token.slice(2, -2);
+        parent.appendChild(strong);
+      } else if (token.startsWith('*') && token.endsWith('*')) {
+        const em = document.createElement('em');
+        em.className = 'guide-em';
+        em.textContent = token.slice(1, -1);
+        parent.appendChild(em);
+      } else if (token.startsWith('`') && token.endsWith('`')) {
+        const code = document.createElement('span');
+        code.className = 'guide-chip-code';
+        code.textContent = token.slice(1, -1);
+        parent.appendChild(code);
+      }
+      lastIndex = tokenRegex.lastIndex;
+    }
+    if (lastIndex < text.length) {
+      parent.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
   }
 }

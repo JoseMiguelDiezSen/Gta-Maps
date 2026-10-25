@@ -103,11 +103,11 @@
 
         <!-- Selector directo entre las guías de GTA 5 -->
         <div class="mode-switch-track" [attr.aria-label]="'guia.nav.switchModeTitle' | translate">
-          <a class="mode-switch-btn mode-historia is-active" routerLink="/gta5-guia-offline" [title]="'common.story' | translate">
+          <div class="mode-switch-btn mode-historia is-active" [title]="'common.story' | translate">
             <i class="mode-indicator dot-historia"></i>
             <span class="mode-text-desktop">{{ 'guia.nav.modeStory' | translate }}</span>
             <span class="mode-text-mobile">{{ 'guia.nav.modeStory' | translate }}</span>
-          </a>
+          </div>
           <a class="mode-switch-btn mode-online" routerLink="/gta5-guia-online" [title]="'common.online' | translate">
             <i class="mode-indicator dot-online"></i>
             <span class="mode-text-desktop">{{ 'guia.nav.modeOnline' | translate }}</span>
@@ -137,7 +137,8 @@
     </div>
 
     <!-- MENÚ DESPLEGABLE MÓVIL (DRAWER) -->
-    <div class="mobile-nav-drawer" *ngIf="mobileNavOpen">
+    @if (mobileNavOpen) {
+    <div class="mobile-nav-drawer">
       <div class="mobile-nav-links">
         <a routerLink="/home" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-house"></i>
@@ -170,10 +171,10 @@
       <div class="mobile-mode-switcher">
         <span class="mobile-mode-label">{{ 'guia.nav.modeLabel' | translate }}</span>
         <div class="mode-switch-track">
-          <a class="mode-switch-btn mode-historia is-active" routerLink="/gta5-guia-offline" (click)="closeMobileNav()">
+          <div class="mode-switch-btn mode-historia is-active">
             <i class="mode-indicator dot-historia"></i>
             <span>{{ 'guia.nav.modeStory' | translate }}</span>
-          </a>
+          </div>
           <a class="mode-switch-btn mode-online" routerLink="/gta5-guia-online" (click)="closeMobileNav()">
             <i class="mode-indicator dot-online"></i>
             <span>{{ 'guia.nav.modeOnline' | translate }}</span>
@@ -181,6 +182,7 @@
         </div>
       </div>
     </div>
+    }
   </nav>
 
   <!-- BANNER HERO DE LOS SANTOS (CIUDAD DE FONDO) -->
@@ -201,14 +203,15 @@
     <aside class="wiki-sidebar">
 
       <!-- Cabecera del Sidebar (Vista Principal de Categorías) -->
-      <div class="sidebar-header-bar" *ngIf="!currentSection">
+      @if (!currentSection) {
+      <div class="sidebar-header-bar">
         <span class="sidebar-header-title">{{ 'guia.sidebar.contents' | translate }}</span>
       </div>
 
       <!-- VISTA 1: LISTA DE CATEGORÍAS (DRILL-DOWN NIVEL 1) -->
-      <nav class="guide-categories-list" *ngIf="!currentSection">
+      <nav class="guide-categories-list">
+        @for (seccion of secciones; track seccion.id) {
         <div
-          *ngFor="let seccion of secciones"
           class="guide-cat-card"
           [class.is-accent-light]="isLightAccentSection(seccion.id)"
           [style.--cat-accent]="getSectionColor(seccion.id)"
@@ -233,19 +236,22 @@
             <i class="fa-solid fa-chevron-right"></i>
           </div>
         </div>
+        }
 
         <!-- SEPARADOR DE ESPIGA DETRÁS DEL ÚLTIMO PANEL -->
         <div class="guide-cat-list-divider" aria-hidden="true"></div>
       </nav>
+      }
 
       <!-- VISTA 2: LISTADO DE CAPÍTULOS DE LA CATEGORÍA (DRILL-DOWN NIVEL 2) -->
-      <div class="guide-section-detail-view" *ngIf="currentSection" [style.--cat-accent]="currentSubcategory ? getSubcategoriaActualColor() : getSectionColor(currentSection.id)">
+      @if (currentSection) {
+      <div class="guide-section-detail-view" [style.--cat-accent]="currentSubcategory ? getSubcategoriaActualColor() : getSectionColor(currentSection.id)">
         
         <!-- CASO A: SECCIONES CON TEMÁTICAS (EXTRAÑOS Y LOCOS / MISIONES PRINCIPALES) -->
-        <ng-container *ngIf="hasSubcategorias(currentSection)">
+        @if (hasSubcategorias(currentSection)) {
           
           <!-- SUB-VISTA A1: LISTADO DE TEMÁTICAS / SUBCATEGORÍAS -->
-          <ng-container *ngIf="!currentSubcategory">
+          @if (!currentSubcategory) {
             <div class="guide-detail-toolbar">
               <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -259,8 +265,8 @@
             </div>
 
             <div class="guide-categories-list">
+              @for (subcat of getSubcategoriasTematicas(currentSection); track subcat.id) {
               <div
-                *ngFor="let subcat of getSubcategoriasTematicas(currentSection)"
                 class="guide-cat-card"
                 [style.--cat-accent]="subcat.color || getSectionColor(currentSection.id)"
                 (click)="openSubcategory(subcat.id)"
@@ -276,12 +282,13 @@
                   <i class="fa-solid fa-chevron-right"></i>
                 </div>
               </div>
+              }
             </div>
-          </ng-container>
+          }
 
 
           <!-- SUB-VISTA A4: MISIONES DE CUALQUIER OTRA TEMÁTICA REGULAR (FRANKLIN, TONYA, ETC.) -->
-          <ng-container *ngIf="currentSubcategory && currentSubcategory !== 'golpes'">
+          @if (currentSubcategory && currentSubcategory !== 'golpes') {
             <div class="guide-detail-toolbar">
               <button type="button" class="guide-back-btn" (click)="backToSubcategories()" [title]="'guia.sidebar.backToThemes' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -295,8 +302,8 @@
             </div>
 
             <div class="guide-chapters-list">
+              @for (art of articulosSubcategoriaActual; track art.id; let idx = $index) {
               <div
-                *ngFor="let art of articulosSubcategoriaActual; let idx = index"
                 class="guide-chapter-card"
                 [class.is-active]="selectedArticulo?.id === art.id"
                 (click)="seleccionarArticulo(art.id)"
@@ -305,16 +312,19 @@
                 
                 <div class="chapter-card-info">
                   <span class="chapter-card-title">{{ getCleanMissionTitle(art.titulo) }}</span>
-                  <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+                  @if (art.subtitulo) {
+                    <span class="chapter-card-sub">{{ art.subtitulo }}</span>
+                  }
                 </div>
               </div>
+              }
             </div>
-          </ng-container>
+          }
 
-        </ng-container>
+        }
 
         <!-- CASO B0: SECCIÓN DE TROFEOS (Navegación por categorías de trofeo) -->
-        <ng-container *ngIf="currentSection?.id === 'trofeos'">
+        @if (currentSection.id === 'trofeos') {
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
@@ -388,13 +398,13 @@
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
           </div>
-        </ng-container>
+        }
 
         <!-- CASO GOLPES: SECCIÓN DE GOLPES Y ATRACOS (NIVEL 1 -> 6 GOLPES -> FASES) -->
-        <ng-container *ngIf="currentSection?.id === 'golpes'">
+        @if (currentSection.id === 'golpes') {
           
           <!-- SUB-VISTA G1: SELECCIÓN DE UNO DE LOS 6 GOLPES -->
-          <ng-container *ngIf="!currentGolpe">
+          @if (!currentGolpe) {
             <div class="guide-detail-toolbar">
               <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -408,8 +418,8 @@
             </div>
 
             <div class="guide-categories-list">
+              @for (golpe of getGolpesList(); track golpe.id) {
               <div
-                *ngFor="let golpe of getGolpesList()"
                 class="guide-cat-card"
                 [style.--cat-accent]="golpe.color"
                 (click)="openGolpe(golpe.id)"
@@ -425,11 +435,12 @@
                   <i class="fa-solid fa-chevron-right"></i>
                 </div>
               </div>
+              }
             </div>
-          </ng-container>
+          }
 
           <!-- SUB-VISTA G2: FASES PREPARATORIAS Y GOLPE FINAL DEL GOLPE SELECCIONADO -->
-          <ng-container *ngIf="currentGolpe">
+          @if (currentGolpe) {
             <div class="guide-detail-toolbar">
               <button type="button" class="guide-back-btn" (click)="backToGolpes()" [title]="'guia.sidebar.backToHeists' | translate">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -443,8 +454,8 @@
             </div>
 
             <div class="guide-chapters-list">
+              @for (art of articulosSubcategoriaActual; track art.id; let idx = $index) {
               <div
-                *ngFor="let art of articulosSubcategoriaActual; let idx = index"
                 class="guide-chapter-card"
                 [ngClass]="getPersonajeClass(art.badge)"
                 [class.is-active]="selectedArticulo?.id === art.id"
@@ -454,20 +465,25 @@
                 
                 <div class="chapter-card-info">
                   <span class="chapter-card-title">{{ art.titulo }}</span>
-                  <span class="chapter-card-sub" *ngIf="art.subtitulo">{{ art.subtitulo }}</span>
+                  @if (art.subtitulo) {
+                    <span class="chapter-card-sub">{{ art.subtitulo }}</span>
+                  }
                 </div>
 
-                <div class="chapter-card-meta">
-                  <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
-                </div>
+                @if (art.badge) {
+                  <div class="chapter-card-meta">
+                    <span class="chapter-card-badge">{{ art.badge }}</span>
+                  </div>
+                }
               </div>
+              }
             </div>
-          </ng-container>
+          }
 
-        </ng-container>
+        }
 
         <!-- CASO ARMAS: LISTADO DE CATEGORÍAS DE ARMAS (DRILL-DOWN NIVEL 2) -->
-        <ng-container *ngIf="currentSection?.id === 'armas'">
+        @if (currentSection.id === 'armas') {
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
@@ -480,8 +496,8 @@
           </div>
 
           <div class="guide-categories-list">
+            @for (cat of weaponCategories; track cat.id) {
             <div
-              *ngFor="let cat of weaponCategories"
               class="guide-cat-card"
               [class.is-active]="categoriaArmaSeleccionada?.id === cat.id"
               [style.--cat-accent]="cat.color"
@@ -499,14 +515,15 @@
                 <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
+            }
 
             <!-- SEPARADOR DE ESPIGA AL FINAL -->
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
-        </ng-container>
+        }
 
         <!-- CASO B: SECCIONES ESTÁNDAR (PRÓLOGO, 100%, ETC.) -->
-        <ng-container *ngIf="!hasSubcategorias(currentSection) && currentSection?.id !== 'trofeos' && currentSection?.id !== 'golpes' && currentSection?.id !== 'armas'">
+        @if (!hasSubcategorias(currentSection) && currentSection.id !== 'trofeos' && currentSection.id !== 'golpes' && currentSection.id !== 'armas') {
           <div class="guide-detail-toolbar">
             <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
               <i class="fa-solid fa-chevron-left"></i>
@@ -516,7 +533,8 @@
           </div>
 
           <!-- Buscador en tiempo real de la sección (Misiones principales / Eventos aleatorios) -->
-          <div class="sidebar-search-box" *ngIf="hasBuscadorSeccion(currentSection.id)">
+          @if (hasBuscadorSeccion(currentSection.id)) {
+          <div class="sidebar-search-box">
             <div class="search-input-wrapper">
               <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -530,8 +548,8 @@
                 autocomplete="off"
                 spellcheck="false"
               />
+              @if (busquedaOffline) {
               <button
-                *ngIf="busquedaOffline"
                 type="button"
                 class="search-clear-btn"
                 (click)="limpiarBusquedaOffline()"
@@ -539,16 +557,20 @@
               >
                 ✕
               </button>
+              }
             </div>
           </div>
+          }
 
           <div class="sidebar-header-bar">
             <span class="sidebar-header-title">{{ currentSection.titulo | uppercase }}</span>
           </div>
 
           <!-- ACORDEÓN DESPLEGABLE: LOCOS Y EXTRAÑOS Y MISIONES PRINCIPALES -->
-          <div class="guide-accordion-list" *ngIf="isAccordionSection(currentSection.id)">
-            <div *ngFor="let grupo of getGruposAccordion(); trackBy: trackByGrupoId" class="guide-accordion-group" [style.--cat-accent]="grupo.color">
+          @if (isAccordionSection(currentSection.id)) {
+          <div class="guide-accordion-list">
+            @for (grupo of getGruposAccordion(); track grupo.id) {
+            <div class="guide-accordion-group" [style.--cat-accent]="grupo.color">
               <!-- Cabecera de la serie/personaje (estilo potente de tarjeta) -->
               <div
                 class="guide-cat-card guide-accordion-header"
@@ -572,8 +594,8 @@
               <div class="guide-accordion-collapse" [class.is-open]="isGrupoExpanded(grupo.id)">
                 <div class="guide-accordion-collapse-inner">
                   <div class="guide-accordion-chapters">
+                    @for (art of grupo.articulos; track art.id; let idx = $index) {
                     <div
-                      *ngFor="let art of grupo.articulos; let idx = index; trackBy: trackByArticuloId"
                       class="guide-chapter-card"
                       [ngClass]="getPersonajeClass(art.badge)"
                       [class.is-active]="selectedArticulo?.id === art.id"
@@ -583,29 +605,37 @@
                       <div class="chapter-card-info">
                         <span class="chapter-card-title">{{ art.titulo }}</span>
                       </div>
+                      @if (art.badge) {
                       <div class="chapter-card-meta">
-                        <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
+                        <span class="chapter-card-badge">{{ art.badge }}</span>
                       </div>
+                      }
                     </div>
+                    }
                   </div>
                 </div>
               </div>
             </div>
+            }
 
             <!-- Sin resultados de búsqueda en sección con acordeón -->
-            <div *ngIf="busquedaOffline && getGruposAccordion().length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+            @if (busquedaOffline && getGruposAccordion().length === 0) {
+            <div style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
               <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
               <span>{{ 'guia.sidebar.noResults' | translate:{ query: busquedaOffline } }}</span>
             </div>
+            }
 
             <!-- SEPARADOR DE ESPIGA AL FINAL -->
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
+          }
 
           <!-- OTRAS SECCIONES: LISTA PLANA CONTINUA -->
-          <div class="guide-chapters-list" *ngIf="!isAccordionSection(currentSection.id)">
+          @if (!isAccordionSection(currentSection.id)) {
+          <div class="guide-chapters-list">
+            @for (art of (hasBuscadorSeccion(currentSection.id) ? articulosFiltradosSeccion : currentSection.articulos); track art.id; let idx = $index) {
             <div
-              *ngFor="let art of (hasBuscadorSeccion(currentSection.id) ? articulosFiltradosSeccion : currentSection.articulos); let idx = index"
               class="guide-chapter-card"
               [ngClass]="getPersonajeClass(art.badge)"
               [class.is-active]="selectedArticulo?.id === art.id"
@@ -615,27 +645,41 @@
               
               <div class="chapter-card-info">
                 <span class="chapter-card-title">{{ art.titulo }}</span>
-                <span class="chapter-card-sub" *ngIf="art.subtitulo && currentSection?.id !== 'prologo'">
-                  <i *ngIf="currentSection?.id === 'secretos-misterios'" class="fa-solid fa-location-dot" style="font-size: 9.5px; margin-right: 3px; opacity: 0.75;"></i>{{ art.subtitulo }}
+                @if (art.subtitulo && currentSection.id !== 'prologo') {
+                <span class="chapter-card-sub">
+                  @if (currentSection.id === 'secretos-misterios') {
+                    <i class="fa-solid fa-location-dot" style="font-size: 9.5px; margin-right: 3px; opacity: 0.75;"></i>
+                  }
+                  {{ art.subtitulo }}
                 </span>
+                }
               </div>
 
-              <div class="chapter-card-meta" *ngIf="currentSection?.id !== 'secretos-misterios'">
-                <span class="chapter-card-badge" *ngIf="art.badge">{{ art.badge }}</span>
-              </div>
+              @if (currentSection.id !== 'secretos-misterios') {
+                @if (art.badge) {
+                <div class="chapter-card-meta">
+                  <span class="chapter-card-badge">{{ art.badge }}</span>
+                </div>
+                }
+              }
             </div>
+            }
 
             <!-- Sin resultados de búsqueda -->
-            <div *ngIf="hasBuscadorSeccion(currentSection.id) && busquedaOffline && articulosFiltradosSeccion.length === 0" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
+            @if (hasBuscadorSeccion(currentSection.id) && busquedaOffline && articulosFiltradosSeccion.length === 0) {
+            <div style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 12.5px;">
               <i class="fa-solid fa-magnifying-glass" style="margin-right: 6px; opacity: 0.7;"></i>
               <span>{{ 'guia.sidebar.noResults' | translate:{ query: busquedaOffline } }}</span>
             </div>
+            }
 
             <!-- SEPARADOR DE ESPIGA AL FINAL DEL ÚLTIMO CAPÍTULO -->
             <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
-        </ng-container>
+          }
+        }
       </div>
+      }
     </aside>
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
@@ -656,41 +700,48 @@
         <div class="drawer-title-group">
           <div class="drawer-breadcrumb">
             <span class="drawer-breadcrumb-link" (click)="goToCategoriesFromReading()">{{ 'guia.sidebar.contents' | translate }}</span>
-            <span class="drawer-breadcrumb-sep" *ngIf="currentSection || mostrarTrofeos">›</span>
-            <span
-              class="drawer-breadcrumb-link"
-              *ngIf="currentSection && !mostrarTrofeos"
-              (click)="closeMobileReading()"
-            >
-              {{ currentSection.titulo }}
-            </span>
-            <span class="drawer-breadcrumb-current" *ngIf="mostrarTrofeos">TROFEOS</span>
-            <span class="drawer-breadcrumb-sep" *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'">›</span>
-            <span class="drawer-breadcrumb-current" *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'">
-              {{ armaSeleccionada ? armaSeleccionada.name : categoriaArmaSeleccionada.name }}
-            </span>
-            <span class="drawer-breadcrumb-sep" *ngIf="selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas'">›</span>
-            <span class="drawer-breadcrumb-current" *ngIf="selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas'">
-              {{ cleanBreadcrumbTitle(selectedArticulo.titulo) }}
-            </span>
+            @if (currentSection || mostrarTrofeos) {
+              <span class="drawer-breadcrumb-sep">›</span>
+            }
+            @if (currentSection && !mostrarTrofeos) {
+              <span class="drawer-breadcrumb-link" (click)="closeMobileReading()">
+                {{ currentSection.titulo }}
+              </span>
+            }
+            @if (mostrarTrofeos) {
+              <span class="drawer-breadcrumb-current">TROFEOS</span>
+            }
+            @if (categoriaArmaSeleccionada && currentSection?.id === 'armas') {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">
+                {{ armaSeleccionada ? armaSeleccionada.name : categoriaArmaSeleccionada.name }}
+              </span>
+            }
+            @if (selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas') {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">
+                {{ cleanBreadcrumbTitle(selectedArticulo.titulo) }}
+              </span>
+            }
           </div>
-          <h2 class="drawer-title" *ngIf="armaSeleccionada && currentSection?.id === 'armas'">
-            {{ armaSeleccionada.name }}
-          </h2>
-          <h2 class="drawer-title" *ngIf="categoriaArmaSeleccionada && !armaSeleccionada && currentSection?.id === 'armas'">
-            {{ categoriaArmaSeleccionada.name }}
-          </h2>
-          <h2 class="drawer-title" *ngIf="selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas'">
-            {{ (selectedArticulo.categoria === 'extranos-locos' || currentSubcategory) ? getCleanMissionTitle(selectedArticulo.titulo) : selectedArticulo.titulo }}
-          </h2>
-          <h2 class="drawer-title" *ngIf="mostrarTrofeos">
-            {{ 'guia.trophies.catalogTitle' | translate }}
-          </h2>
+          @if (armaSeleccionada && currentSection?.id === 'armas') {
+            <h2 class="drawer-title">{{ armaSeleccionada.name }}</h2>
+          }
+          @if (categoriaArmaSeleccionada && !armaSeleccionada && currentSection?.id === 'armas') {
+            <h2 class="drawer-title">{{ categoriaArmaSeleccionada.name }}</h2>
+          }
+          @if (selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas') {
+            <h2 class="drawer-title">{{ (selectedArticulo.categoria === 'extranos-locos' || currentSubcategory) ? getCleanMissionTitle(selectedArticulo.titulo) : selectedArticulo.titulo }}</h2>
+          }
+          @if (mostrarTrofeos) {
+            <h2 class="drawer-title">{{ 'guia.trophies.catalogTitle' | translate }}</h2>
+          }
         </div>
       </div>
 
       <!-- PANEL DE TROFEOS (CATÁLOGO COMPLETO) -->
-      <article *ngIf="mostrarTrofeos" class="wiki-article-card trophy-panel">
+      @if (mostrarTrofeos) {
+      <article class="wiki-article-card trophy-panel">
         <header class="trophy-panel-header">
           <div class="trophy-panel-title-block">
             <span class="trophy-panel-kicker">{{ 'guia.trophies.kicker' | translate }}</span>
@@ -728,15 +779,18 @@
           </div>
         </header>
 
-        <div class="trophy-loading" *ngIf="isLoadingTrofeos">
+        @if (isLoadingTrofeos) {
+        <div class="trophy-loading">
           <i class="fa-solid fa-spinner fa-spin"></i>
           <span>{{ 'guia.trophies.loading' | translate }}</span>
         </div>
+        }
 
-        <div class="trophy-groups" *ngIf="!isLoadingTrofeos">
+        @if (!isLoadingTrofeos) {
+        <div class="trophy-groups">
+          @for (grupo of trofeosPorTipo; track grupo.tipo) {
           <section
             class="trophy-group"
-            *ngFor="let grupo of trofeosPorTipo"
             [style.--trophy-color]="getTrofeoTipoColor(grupo.tipo)"
           >
             <div class="trophy-group-head">
@@ -746,7 +800,8 @@
             </div>
 
             <div class="trophy-grid">
-              <div class="trophy-card" *ngFor="let trofeo of grupo.trofeos">
+              @for (trofeo of grupo.trofeos; track trofeo.id) {
+              <div class="trophy-card">
                 <div class="trophy-card-icon">
                   <i class="fa-solid" [ngClass]="getTrofeoTipoIcono(trofeo.tipo)"></i>
                 </div>
@@ -759,53 +814,71 @@
                     </span>
                   </div>
                   <p class="trophy-card-desc">{{ trofeo.descripcion }}</p>
-                  <p class="trophy-card-tip" *ngIf="trofeo.pista">
+                  @if (trofeo.pista) {
+                  <p class="trophy-card-tip">
                     <i class="fa-solid fa-lightbulb"></i>
                     <span>{{ trofeo.pista }}</span>
                   </p>
+                  }
                 </div>
               </div>
+              }
             </div>
           </section>
+          }
 
-          <div class="trophy-empty" *ngIf="trofeosPorTipo.length === 0 && !isLoadingTrofeos">
+          @if (trofeosPorTipo.length === 0 && !isLoadingTrofeos) {
+          <div class="trophy-empty">
             <i class="fa-solid fa-trophy"></i>
             <span>{{ 'guia.trophies.empty' | translate }}</span>
           </div>
+          }
         </div>
+        }
       </article>
+      }
 
       <!-- Panel de la categoría de armas seleccionada: título + grid de armas + detalle -->
-      <article *ngIf="categoriaArmaSeleccionada && currentSection?.id === 'armas'" class="wiki-article-card">
+      @if (categoriaArmaSeleccionada && currentSection?.id === 'armas') {
+      <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
             <ol class="breadcrumb-list">
-              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+              @for (item of breadcrumbs; track item.label; let last = $last) {
+              <li class="breadcrumb-item" [class.is-active]="last">
+                @if (item.clickable && !last) {
                 <button
-                  *ngIf="item.clickable && !last"
                   type="button"
                   class="breadcrumb-link"
                   (click)="item.action ? item.action() : null"
                 >
                   {{ item.label }}
                 </button>
-                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                }
+                @if (!item.clickable || last) {
+                <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                   {{ item.label }}
                 </span>
-                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                }
+                @if (!last) {
+                <span class="breadcrumb-separator" aria-hidden="true">
                   <i class="fa-solid fa-chevron-right"></i>
                 </span>
+                }
               </li>
+              }
             </ol>
           </nav>
 
-          <div class="article-meta-row" *ngIf="armaSeleccionada">
+          @if (armaSeleccionada) {
+          <div class="article-meta-row">
             <button type="button" class="guide-back-btn" (click)="volverAlGridArmas()" [title]="'Volver a ' + categoriaArmaSeleccionada.name">
               <i class="fa-solid fa-chevron-left"></i>
               <span>{{ categoriaArmaSeleccionada.name }}</span>
             </button>
           </div>
+          }
 
           <div class="article-chapter-banner">
             <div class="chapter-banner-text">
@@ -816,60 +889,79 @@
 
         <div class="article-body">
           <!-- GRID DE ARMAS -->
-          <div class="vehiculos-grid" *ngIf="!armaSeleccionada">
-            <div class="vehiculo-card" *ngFor="let arma of armasCategoria$ | async" (click)="seleccionarArma(arma)">
+          @if (!armaSeleccionada) {
+          <div class="vehiculos-grid">
+            @for (arma of armasCategoria$ | async; track arma.id) {
+            <div class="vehiculo-card" (click)="seleccionarArma(arma)">
               <div class="vehiculo-card-media">
+                @if (!arma.imgFailed) {
                 <img
-                  *ngIf="!arma.imgFailed"
                   [src]="arma.imageUrl"
                   [alt]="arma.name"
                   class="vehiculo-card-img"
                   loading="lazy"
                   (error)="arma.imgFailed = true"
                 />
-                <i *ngIf="arma.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(arma)"></i>
+                } @else {
+                <i class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(arma)"></i>
+                }
               </div>
               <div class="vehiculo-card-info">
                 <span class="vehiculo-card-name">{{ arma.name }}</span>
                 <span class="vehiculo-card-price">{{ arma.priceFormatted }}</span>
               </div>
             </div>
+            }
           </div>
+          }
 
           <!-- DETALLE DEL ARMA -->
-          <div class="vehiculo-detail" *ngIf="armaSeleccionada">
+          @if (armaSeleccionada) {
+          <div class="vehiculo-detail">
             <div class="vehiculo-detail-layout">
               <div class="vehiculo-detail-media">
+                @if (!armaSeleccionada.imgFailed) {
                 <img
-                  *ngIf="!armaSeleccionada.imgFailed"
                   [src]="armaSeleccionada.imageUrl"
                   [alt]="armaSeleccionada.name"
                   class="vehiculo-detail-img"
                   (error)="armaSeleccionada.imgFailed = true"
                 />
-                <i *ngIf="armaSeleccionada.imgFailed" class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(armaSeleccionada)"></i>
+                } @else {
+                <i class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(armaSeleccionada)"></i>
+                }
               </div>
 
               <div class="vehiculo-detail-info">
                 <span class="vehiculo-detail-maker">{{ armaSeleccionada.manufacturer }}</span>
                 <h2 class="vehiculo-detail-name">{{ armaSeleccionada.name }}</h2>
 
-                <div class="vehiculo-price-box" *ngIf="armaSeleccionada.priceFormatted">
+                @if (armaSeleccionada.priceFormatted) {
+                <div class="vehiculo-price-box">
                   <span class="vehiculo-price-lbl">{{ 'transports.weapons.buyPrice' | translate }}</span>
                   <span class="vehiculo-price-val">{{ armaSeleccionada.priceFormatted }}</span>
                 </div>
+                }
 
                 <div class="vehiculo-detail-badges">
-                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.categoryLabel">{{ armaSeleccionada.categoryLabel }}</span>
-                  <span class="vehiculo-detail-badge" *ngIf="armaSeleccionada.realCounterpart">
-                    {{ armaSeleccionada.realCounterpart }}
-                  </span>
-                  <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon" *ngIf="armaSeleccionada.hasMk2">
-                    {{ 'transports.weapons.mk2Badge' | translate }}
-                  </span>
-                  <span class="vehiculo-detail-badge" *ngIf="(armaSeleccionada.rankUnlock ?? 0) > 1">
-                    {{ 'transports.weapons.rankUnlock' | translate }}: {{ armaSeleccionada.rankUnlock }}
-                  </span>
+                  @if (armaSeleccionada.categoryLabel) {
+                    <span class="vehiculo-detail-badge">{{ armaSeleccionada.categoryLabel }}</span>
+                  }
+                  @if (armaSeleccionada.realCounterpart) {
+                    <span class="vehiculo-detail-badge">
+                      {{ armaSeleccionada.realCounterpart }}
+                    </span>
+                  }
+                  @if (armaSeleccionada.hasMk2) {
+                    <span class="vehiculo-detail-badge vehiculo-detail-badge--weapon">
+                      {{ 'transports.weapons.mk2Badge' | translate }}
+                    </span>
+                  }
+                  @if ((armaSeleccionada.rankUnlock ?? 0) > 1) {
+                    <span class="vehiculo-detail-badge">
+                      {{ 'transports.weapons.rankUnlock' | translate }}: {{ armaSeleccionada.rankUnlock }}
+                    </span>
+                  }
                 </div>
 
                 <div class="vehiculo-stats">
@@ -906,112 +998,140 @@
 
             <!-- DESBLOQUEO EN MODO HISTORIA Y QUIÉN LA TIENE -->
             <div class="guide-hud-grid" style="margin-bottom: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-              <div class="guide-hud-box" *ngIf="armaSeleccionada.misionDesbloqueo" style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35);">
+              @if (armaSeleccionada.misionDesbloqueo) {
+              <div class="guide-hud-box" style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.35);">
                 <i class="fa-solid fa-lock-open box-icon" style="color: #ef4444; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'guia.weapons.campaignUnlock' | translate }}</span>
                   <span class="box-val" style="color: #fca5a5; font-weight: 700;">{{ armaSeleccionada.misionDesbloqueo }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="armaSeleccionada.desbloqueoGratuito" style="background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.35);">
+              @if (armaSeleccionada.desbloqueoGratuito) {
+              <div class="guide-hud-box" style="background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.35);">
                 <i class="fa-solid fa-user-check box-icon" style="color: #22c55e; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'guia.weapons.whoHasIt' | translate }}</span>
                   <span class="box-val" style="color: #86efac; font-weight: 700;">{{ armaSeleccionada.desbloqueoGratuito }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box" *ngIf="armaSeleccionada.ubicacionesMapa" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.35);">
+              @if (armaSeleccionada.ubicacionesMapa) {
+              <div class="guide-hud-box" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.35);">
                 <i class="fa-solid fa-map-location-dot box-icon" style="color: #38bdf8; font-size: 18px;"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'guia.weapons.mapLocation' | translate }}</span>
                   <span class="box-val" style="color: #7dd3fc; font-weight: 700;">{{ armaSeleccionada.ubicacionesMapa }}</span>
                 </div>
               </div>
+              }
             </div>
 
             <!-- CONTENIDO DE DESCRIPCIÓN DEL ARMA -->
-            <p class="vehiculo-descripcion-texto" *ngIf="armaSeleccionada.description">
+            @if (armaSeleccionada.description) {
+            <p class="vehiculo-descripcion-texto">
               {{ armaSeleccionada.description }}
             </p>
+            }
 
             <!-- CARGADOR Y ACCESORIOS -->
-            <div class="vclean-desc-box" *ngIf="armaSeleccionada.clipSize" style="margin-top: 14px;">
+            @if (armaSeleccionada.clipSize) {
+            <div class="vclean-desc-box" style="margin-top: 14px;">
               <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 6px;">
                 <i class="fa-solid fa-box-archive"></i>
                 <span>{{ 'transports.weapons.clipSize' | translate }}</span>
               </div>
               <p class="vehiculo-descripcion-texto" style="margin-top: 0;">{{ armaSeleccionada.clipSize }}</p>
             </div>
+            }
 
-            <div class="vclean-desc-box" *ngIf="armaSeleccionada.attachments && armaSeleccionada.attachments.length > 0" style="margin-top: 14px;">
+            @if (armaSeleccionada.attachments && armaSeleccionada.attachments.length > 0) {
+            <div class="vclean-desc-box" style="margin-top: 14px;">
               <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 8px;">
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                 <span>{{ 'transports.weapons.attachmentsTitle' | translate }}</span>
               </div>
               <div class="vehiculo-detail-badges">
-                <span class="vehiculo-detail-badge" *ngFor="let att of armaSeleccionada.attachments" style="border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.08); color: #7dd3fc;">
+                @for (att of armaSeleccionada.attachments; track att) {
+                <span class="vehiculo-detail-badge" style="border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.08); color: #7dd3fc;">
                   <i class="fa-solid fa-circle-check" style="margin-right: 4px; font-size: 10px;"></i>
                   {{ att }}
                 </span>
+                }
               </div>
             </div>
+            }
           </div>
+          }
         </div>
       </article>
+      }
 
       <!-- Lector del Artículo Seleccionado -->
-      <article *ngIf="selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas'" class="wiki-article-card" [class.is-mystery-article]="selectedArticulo.categoria === 'secretos-misterios' || currentSection?.id === 'secretos-misterios'">
+      @if (selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'armas') {
+      <article class="wiki-article-card" [class.is-mystery-article]="selectedArticulo.categoria === 'secretos-misterios' || currentSection?.id === 'secretos-misterios'">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
           <nav class="guide-breadcrumbs" aria-label="Ruta de navegación">
             <ol class="breadcrumb-list">
-              <li *ngFor="let item of breadcrumbs; let last = last" class="breadcrumb-item" [class.is-active]="last">
+              @for (item of breadcrumbs; track item.label; let last = $last) {
+              <li class="breadcrumb-item" [class.is-active]="last">
+                @if (item.clickable && !last) {
                 <button
-                  *ngIf="item.clickable && !last"
                   type="button"
                   class="breadcrumb-link"
                   (click)="item.action ? item.action() : null"
                 >
                   {{ item.label }}
                 </button>
-                <span *ngIf="!item.clickable || last" class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                }
+                @if (!item.clickable || last) {
+                <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
                   {{ item.label }}
                 </span>
-                <span *ngIf="!last" class="breadcrumb-separator" aria-hidden="true">
+                }
+                @if (!last) {
+                <span class="breadcrumb-separator" aria-hidden="true">
                   <i class="fa-solid fa-chevron-right"></i>
                 </span>
+                }
               </li>
+              }
             </ol>
           </nav>
 
           <!-- Navegación Capítulo Anterior / Siguiente (Arriba del banner de la foto) -->
           <nav class="article-pagination-nav" aria-label="Navegación entre capítulos">
             <div class="pagination-row-prev-next">
+              @if (capituloAnterior) {
               <button
                 type="button"
                 class="pagination-btn pagination-prev"
-                *ngIf="capituloAnterior"
                 (click)="seleccionarArticulo(capituloAnterior.id)"
                 [title]="capituloAnterior.titulo"
               >
                 <span class="pagination-arrow">←</span>
                 <span class="pagination-title">{{ (capituloAnterior.categoria === 'extranos-locos' || currentSubcategory) ? getCleanMissionTitle(capituloAnterior.titulo) : capituloAnterior.titulo }}</span>
               </button>
-              <div *ngIf="!capituloAnterior" class="pagination-spacer"></div>
+              } @else {
+              <div class="pagination-spacer"></div>
+              }
 
+              @if (capituloSiguiente) {
               <button
                 type="button"
                 class="pagination-btn pagination-next"
-                *ngIf="capituloSiguiente"
                 (click)="seleccionarArticulo(capituloSiguiente.id)"
                 [title]="capituloSiguiente.titulo"
               >
                 <span class="pagination-title">{{ (capituloSiguiente.categoria === 'extranos-locos' || currentSubcategory) ? getCleanMissionTitle(capituloSiguiente.titulo) : capituloSiguiente.titulo }}</span>
                 <span class="pagination-arrow">→</span>
               </button>
-              <div *ngIf="!capituloSiguiente" class="pagination-spacer"></div>
+              } @else {
+              <div class="pagination-spacer"></div>
+              }
             </div>
           </nav>
 
@@ -1019,18 +1139,23 @@
           <div class="article-chapter-banner" [class.article-chapter-banner--mystery]="selectedArticulo.categoria === 'secretos-misterios' || currentSection?.id === 'secretos-misterios'" [class.has-image]="getArticuloImage(selectedArticulo)">
             <div class="chapter-banner-text">
               <h1 class="article-main-title">{{ (selectedArticulo.categoria === 'extranos-locos' || currentSubcategory) ? getCleanMissionTitle(selectedArticulo.titulo) : selectedArticulo.titulo }}</h1>
-              <p class="article-lead" *ngIf="selectedArticulo.subtitulo">{{ selectedArticulo.subtitulo }}</p>
+              @if (selectedArticulo.subtitulo) {
+                <p class="article-lead">{{ selectedArticulo.subtitulo }}</p>
+              }
             </div>
-            <div class="chapter-banner-media" *ngIf="getArticuloImage(selectedArticulo)">
+            @if (getArticuloImage(selectedArticulo)) {
+            <div class="chapter-banner-media">
               <img [src]="getArticuloImage(selectedArticulo)" [alt]="selectedArticulo.titulo" class="chapter-banner-img" (error)="onImageError(selectedArticulo.id)" />
             </div>
+            }
           </div>
         </header>
 
         <!-- Contenido Formateado Editorialmente -->
         <div class="article-body">
           <!-- Bloque: Sinopsis de la misión (solo para misiones, nunca en misterios) -->
-          <div class="guide-synopsis-block" *ngIf="selectedArticulo.sinopsis && selectedArticulo.categoria !== 'secretos-misterios' && currentSection?.id !== 'secretos-misterios'">
+          @if (selectedArticulo.sinopsis && selectedArticulo.categoria !== 'secretos-misterios' && currentSection?.id !== 'secretos-misterios') {
+          <div class="guide-synopsis-block">
             <div class="guide-synopsis-head">
               <i class="fa-solid fa-book-open"></i>
               <span>{{ 'guia.reader.synopsisTitle' | translate }}</span>
@@ -1039,46 +1164,71 @@
               <p>{{ selectedArticulo.sinopsis }}</p>
             </div>
           </div>
+          }
+
+          <!-- Bloque: Protagonistas del Prólogo -->
+          @if (selectedArticulo.id === 'prologo-introduccion-guia') {
+            <div class="gta5-protagonists-frames" aria-label="Protagonistas de GTA V">
+              @for (p of protagonistas; track p.name) {
+                <div class="gta5-protagonist-frame" [attr.aria-label]="p.label">
+                  <img [src]="p.img" [alt]="p.label" loading="lazy" />
+                  <span>{{ p.name }}</span>
+                </div>
+              }
+            </div>
+          }
 
           <div class="narrative-editorial-body" [innerHTML]="renderedContent" (click)="onContentClick($event)"></div>
 
           <!-- Bloque: Tarjetas HUD de Recompensa, Desbloqueo y Medalla de Oro -->
-          <div class="guide-mission-hud-section" *ngIf="selectedArticulo.recompensa || selectedArticulo.desbloqueadoTras || (selectedArticulo.requisitosOro && selectedArticulo.requisitosOro.length > 0)">
+          @if (selectedArticulo.recompensa || selectedArticulo.desbloqueadoTras || (selectedArticulo.requisitosOro && selectedArticulo.requisitosOro.length > 0)) {
+          <div class="guide-mission-hud-section">
             <!-- Grid de Recompensa y Desbloqueo -->
-            <div class="guide-hud-grid" *ngIf="selectedArticulo.recompensa || selectedArticulo.desbloqueadoTras">
-              <div class="guide-hud-box reward-box" *ngIf="selectedArticulo.recompensa">
+            @if (selectedArticulo.recompensa || selectedArticulo.desbloqueadoTras) {
+            <div class="guide-hud-grid">
+              @if (selectedArticulo.recompensa) {
+              <div class="guide-hud-box reward-box">
                 <i class="fa-solid fa-trophy box-icon"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'guia.reader.reward' | translate }}</span>
                   <span class="box-val">{{ selectedArticulo.recompensa }}</span>
                 </div>
               </div>
+              }
 
-              <div class="guide-hud-box unlock-box" *ngIf="selectedArticulo.desbloqueadoTras">
+              @if (selectedArticulo.desbloqueadoTras) {
+              <div class="guide-hud-box unlock-box">
                 <i class="fa-solid fa-lock-open box-icon"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'guia.reader.unlockedAfter' | translate }}</span>
                   <span class="box-val">{{ selectedArticulo.desbloqueadoTras }}</span>
                 </div>
               </div>
+              }
             </div>
+            }
 
             <!-- Caja de Medalla de Oro 100% -->
-            <div class="guide-hud-gold-block" *ngIf="selectedArticulo.requisitosOro && selectedArticulo.requisitosOro.length > 0">
+            @if (selectedArticulo.requisitosOro && selectedArticulo.requisitosOro.length > 0) {
+            <div class="guide-hud-gold-block">
               <div class="guide-hud-gold-head">
                 <i class="fa-solid fa-medal"></i>
                 <span>{{ 'guia.reader.goldMedalTitle' | translate }}</span>
               </div>
               <div class="guide-hud-gold-list">
-                <div class="gold-goal-item" *ngFor="let req of selectedArticulo.requisitosOro">
+                @for (req of selectedArticulo.requisitosOro; track req) {
+                <div class="gold-goal-item">
                   <div class="gold-goal-check">
                     <i class="fa-solid fa-check"></i>
                   </div>
                   <span class="gold-goal-text">{{ req }}</span>
                 </div>
+                }
               </div>
             </div>
+            }
           </div>
+          }
         </div>
 
         <!-- Botón de retorno móvil al final del artículo -->
@@ -1094,6 +1244,7 @@
           </button>
         </nav>
       </article>
+      }
     </main>
   </div>
 
@@ -1107,10 +1258,10 @@
   </footer>
 
   <!-- BOTÓN FLOTANTE VOLVER ARRIBA -->
+  @if (showScrollTop) {
   <button
     type="button"
     class="scroll-top-btn"
-    *ngIf="showScrollTop"
     (click)="scrollToTop()"
     [title]="'guia.reader.scrollToTop' | translate"
     [attr.aria-label]="'guia.reader.scrollToTop' | translate"
@@ -1119,10 +1270,13 @@
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+  }
 
   <!-- TOAST DE COPIADO RÁPIDO -->
-  <div class="wiki-toast" *ngIf="toastMessage" role="status">
+  @if (toastMessage) {
+  <div class="wiki-toast" role="status">
     <span class="toast-icon">✓</span>
     <span class="toast-text">{{ toastMessage }}</span>
   </div>
+  }
 </div>

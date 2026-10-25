@@ -11,7 +11,7 @@ export class TranslationService {
   readonly supportedLanguages: readonly LanguageInfo[] = SUPPORTED_LANGUAGES;
 
   // Cache en memoria de los diccionarios cargados desde JSON
-  private readonly loadedDictionaries = signal<Record<string, any>>({});
+  private readonly loadedDictionaries = signal<Record<string, Record<string, unknown>>>({});
 
   // Reactivo con Angular Signals
   readonly currentLanguage = signal<LanguageCode>(this.detectInitialLanguage());
@@ -37,8 +37,9 @@ export class TranslationService {
     this.loadLanguage(initialLang);
     if (initialLang !== DEFAULT_LANGUAGE) {
       if (typeof window !== 'undefined') {
-        if ('requestIdleCallback' in window) {
-          (window as any).requestIdleCallback(() => setTimeout(() => this.loadLanguage(DEFAULT_LANGUAGE), 4000));
+        const win = window as Window & { requestIdleCallback?: (cb: () => void) => number };
+        if (typeof win.requestIdleCallback === 'function') {
+          win.requestIdleCallback(() => setTimeout(() => this.loadLanguage(DEFAULT_LANGUAGE), 4000));
         } else {
           setTimeout(() => this.loadLanguage(DEFAULT_LANGUAGE), 5000);
         }
@@ -55,7 +56,7 @@ export class TranslationService {
     const current = this.loadedDictionaries();
     if (current[code]) return; // Ya está cargado en caché de memoria
 
-    this.http.get<any>(`assets/i18n/${code}.json`).subscribe({
+    this.http.get<Record<string, unknown>>(`assets/i18n/${code}.json`).subscribe({
       next: (dict) => {
         this.loadedDictionaries.update(prev => ({
           ...prev,
@@ -139,7 +140,9 @@ export class TranslationService {
         if (urlLang && SUPPORTED_LANGUAGES.some(l => l.code === urlLang)) {
           try {
             localStorage.setItem(STORAGE_KEY, urlLang);
-          } catch {}
+          } catch {
+            // Ignorar fallo de almacenamiento
+          }
           return urlLang;
         }
       } catch {
@@ -169,12 +172,12 @@ export class TranslationService {
       if (navigator.language) {
         candidates.push(navigator.language);
       }
-      const navAny = navigator as any;
-      if (navAny.userLanguage) {
-        candidates.push(navAny.userLanguage);
+      const navLegacy = navigator as unknown as { userLanguage?: string; browserLanguage?: string };
+      if (navLegacy.userLanguage) {
+        candidates.push(navLegacy.userLanguage);
       }
-      if (navAny.browserLanguage) {
-        candidates.push(navAny.browserLanguage);
+      if (navLegacy.browserLanguage) {
+        candidates.push(navLegacy.browserLanguage);
       }
 
       for (const raw of candidates) {
@@ -213,15 +216,15 @@ export class TranslationService {
     }
   }
 
-  private resolvePath(obj: any, path: string): any {
+  private resolvePath(obj: unknown, path: string): unknown {
     if (!obj || typeof obj !== 'object') return undefined;
 
     const parts = path.split('.');
-    let curr = obj;
+    let curr: unknown = obj;
 
     for (const part of parts) {
-      if (curr === undefined || curr === null) return undefined;
-      curr = curr[part];
+      if (curr === undefined || curr === null || typeof curr !== 'object') return undefined;
+      curr = (curr as Record<string, unknown>)[part];
     }
 
     return curr;

@@ -1,4 +1,4 @@
-import { Injectable, Inject, PLATFORM_ID, effect } from '@angular/core';
+import { Injectable, PLATFORM_ID, effect, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -21,15 +21,15 @@ export class SeoService {
   private readonly defaultDescriptionKey = 'seo.defaultDesc';
   private readonly baseUrl = 'https://gtaexplorer.com';
 
-  constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private translationService: TranslationService,
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
+  private readonly titleService = inject(Title);
+  private readonly metaService = inject(Meta);
+  private readonly router = inject(Router);
+  private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly translationService = inject(TranslationService);
+  private readonly document = inject(DOCUMENT);
+  private readonly platformId: object = inject(PLATFORM_ID);
+
+  constructor() {
     this.initRouteListener();
 
     // Reacciona en tiempo real a cualquier cambio de idioma en la app
@@ -101,12 +101,15 @@ export class SeoService {
     this.metaService.updateTag({ name: 'twitter:description', content: description });
 
     // 6. Notificar a Google Analytics (GA4) la nueva vista de página en SPA
-    if (isPlatformBrowser(this.platformId) && typeof (window as any).gtag === 'function') {
-      (window as any).gtag('event', 'page_view', {
-        page_title: title,
-        page_location: window.location.href,
-        page_path: this.router.url
-      });
+    if (isPlatformBrowser(this.platformId)) {
+      const win = window as Window & { gtag?: (action: string, eventName: string, params: Record<string, string>) => void };
+      if (typeof win.gtag === 'function') {
+        win.gtag('event', 'page_view', {
+          page_title: title,
+          page_location: window.location.href,
+          page_path: this.router.url
+        });
+      }
     }
   }
 
@@ -124,7 +127,7 @@ export class SeoService {
         this.document.head.appendChild(link);
       }
       link.setAttribute('href', url);
-    } catch (e) {
+    } catch {
       // Ignorar en entornos sin DOM completo
     }
   }
@@ -159,7 +162,7 @@ export class SeoService {
       defaultLink.setAttribute('hreflang', 'x-default');
       defaultLink.setAttribute('href', cleanUrl);
       this.document.head.appendChild(defaultLink);
-    } catch (e) {
+    } catch {
       // Ignorar en entornos sin DOM completo
     }
   }

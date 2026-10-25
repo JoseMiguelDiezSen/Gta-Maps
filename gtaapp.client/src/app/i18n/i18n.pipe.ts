@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform, inject } from '@angular/core';
 import { TranslationService } from './i18n.service';
 import { TranslationParams } from './i18n.types';
 
@@ -8,7 +8,7 @@ import { TranslationParams } from './i18n.types';
   standalone: false
 })
 export class TranslatePipe implements PipeTransform {
-  constructor(private readonly translationService: TranslationService) {}
+  private readonly translationService = inject(TranslationService);
 
   transform(key: string, params?: TranslationParams): string {
     return this.translationService.translate(key, params);

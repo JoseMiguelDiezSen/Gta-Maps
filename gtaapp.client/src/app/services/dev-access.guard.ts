@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
 
 /**
@@ -19,7 +19,7 @@ export function isDevAccessAllowed(): boolean {
   providedIn: 'root'
 })
 export class DevAccessGuard implements CanActivate {
-  constructor(private readonly router: Router) {}
+  private readonly router = inject(Router);
 
   canActivate(): boolean | UrlTree {
     if (isDevAccessAllowed()) {

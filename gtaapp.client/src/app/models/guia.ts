@@ -26,6 +26,26 @@ export interface GuiaArticuloResumen {
   tiempoLecturaMinutos: number;
 }
 
+export interface GuiaNegocioOnline {
+  id: string;
+  name: string;
+  category: string;
+  categoryLabel?: string;
+  gameMode?: string;
+  price?: number;
+  priceFormatted?: string;
+  zone?: string;
+  description?: string;
+  features?: string[];
+  income?: string;
+  imageUrl?: string;
+  position?: {
+    x: number;
+    y: number;
+    z?: number;
+  };
+}
+
 export interface GuiaArticuloRelacionado {
   id: string;
   titulo: string;
