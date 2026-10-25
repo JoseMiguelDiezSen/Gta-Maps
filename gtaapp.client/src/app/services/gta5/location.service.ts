@@ -19,7 +19,15 @@ export class LocationService {
 
   private fetchJsonWithFallback<T>(primaryPath: string, fallbackPath: string): Observable<T> {
     return this.http.get<T>(primaryPath).pipe(
-      catchError(() => this.http.get<T>(fallbackPath).pipe(catchError(() => of([] as unknown as T))))
+      catchError(err => {
+        console.warn(`[LocationService] Error al cargar ${primaryPath}, intentando fallback ${fallbackPath}:`, err);
+        return this.http.get<T>(fallbackPath).pipe(
+          catchError(fallbackErr => {
+            console.error(`[LocationService] Error crítico: ambos paths fallaron (${primaryPath} / ${fallbackPath}):`, fallbackErr);
+            return of([] as unknown as T);
+          })
+        );
+      })
     );
   }
 

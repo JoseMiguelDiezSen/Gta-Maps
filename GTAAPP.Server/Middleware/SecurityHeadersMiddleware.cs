@@ -8,16 +8,6 @@ namespace GTAAPP.Server.Middleware;
 public class SecurityHeadersMiddleware
 {
     /// <summary>
-    /// Clave compartida para validar el pase dinámico (X-GTA-Shield) generado por el interceptor de Angular.
-    /// </summary>
-    private const string ShieldSalt = "GTA-WORLD-SHIELD-2026-V1";
-
-    /// <summary>
-    /// Bytes UTF-8 precalculados de la clave para cifrado rápido en tránsito.
-    /// </summary>
-    private static readonly byte[] ShieldSaltBytes = System.Text.Encoding.UTF8.GetBytes(ShieldSalt);
-
-    /// <summary>
     /// Firmas de herramientas automatizadas de scraping, descarga masiva y bots de extracción de datos bloqueados.
     /// </summary>
     private static readonly string[] BlockedScraperSignatures =
@@ -93,12 +83,9 @@ public class SecurityHeadersMiddleware
 
         if (isDataRequest && !HttpMethods.IsOptions(method))
         {
-            var isDirectBrowserNavigation = secFetchMode.Equals("navigate", StringComparison.OrdinalIgnoreCase) ||
-                                            secFetchDest.Equals("document", StringComparison.OrdinalIgnoreCase);
             var isCrossSite = secFetchSite.Equals("cross-site", StringComparison.OrdinalIgnoreCase);
-            var shieldToken = context.Request.Headers["X-GTA-Shield"].ToString();
 
-            if (isDirectBrowserNavigation || isCrossSite || !IsValidShieldToken(shieldToken))
+            if (isCrossSite)
             {
                 context.Response.StatusCode = StatusCodes.Status403Forbidden;
                 context.Response.ContentType = "application/json; charset=utf-8";
@@ -252,52 +239,6 @@ public class SecurityHeadersMiddleware
         }
 
         return false;
-    }
-
-    /// <summary>
-    /// Valida el token dinámico temporal (X-GTA-Shield) generado por el interceptor de Angular.
-    /// Acepta una ventana de tolerancia de ±5 minutos para compensar desajustes de reloj del cliente.
-    /// </summary>
-    /// <param name="token">Valor de la cabecera X-GTA-Shield con formato 'minuto.hashHex'.</param>
-    /// <returns>True si el pase dinámico es auténtico y está en ventana temporal válida; de lo contrario, False.</returns>
-    private static bool IsValidShieldToken(string token)
-    {
-        if (string.IsNullOrWhiteSpace(token))
-        {
-            return false;
-        }
-
-        var parts = token.Split('.');
-        if (parts.Length != 2 || !long.TryParse(parts[0], out var clientMinuteSlot))
-        {
-            return false;
-        }
-
-        var currentMinuteSlot = DateTimeOffset.UtcNow.ToUnixTimeSeconds() / 60;
-        if (Math.Abs(currentMinuteSlot - clientMinuteSlot) > 5)
-        {
-            return false;
-        }
-
-        var expectedHex = ComputeFnv1aHex($"{clientMinuteSlot}:{ShieldSalt}");
-        return string.Equals(parts[1], expectedHex, StringComparison.OrdinalIgnoreCase);
-    }
-
-    /// <summary>
-    /// Calcula el hash determinista FNV-1a de 32 bits en formato hexadecimal de 8 caracteres.
-    /// </summary>
-    /// <param name="input">Cadena de entrada a firmar.</param>
-    /// <returns>Cadena hexadecimal en minúsculas de 8 dígitos.</returns>
-    private static string ComputeFnv1aHex(string input)
-    {
-        uint hash = 0x811c9dc5u;
-        foreach (var c in input)
-        {
-            hash ^= c;
-            hash = unchecked(hash * 0x01000193u);
-        }
-
-        return hash.ToString("x8");
     }
 }
 

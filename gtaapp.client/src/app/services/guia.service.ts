@@ -34,13 +34,24 @@ export class GuiaService {
 
     if (activeLang === 'es') {
       return this.http.get<T>(canonicalPath).pipe(
-        catchError(() => this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T))))
+        catchError(err => {
+          console.warn(`[GuiaService] Falló lectura de ${canonicalPath}, intentando ${legacyPath}:`, err);
+          return this.http.get<T>(legacyPath).pipe(
+            catchError(legacyErr => {
+              console.error(`[GuiaService] Error crítico cargando guía para ${fileName}:`, legacyErr);
+              return of([] as unknown as T);
+            })
+          );
+        })
       );
     }
 
     return this.http.get<T>(localizedPath).pipe(
       catchError(() => this.http.get<T>(canonicalPath).pipe(
-        catchError(() => this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T))))
+        catchError(err => {
+          console.warn(`[GuiaService] Falló localización para ${fileName}, cayendo a ruta base:`, err);
+          return this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T)));
+        })
       ))
     );
   }
@@ -57,13 +68,24 @@ export class GuiaService {
 
     if (activeLang === 'es') {
       return this.http.get<T>(canonicalPath).pipe(
-        catchError(() => this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T))))
+        catchError(err => {
+          console.warn(`[GuiaService] Falló lectura de ${canonicalPath}, intentando ${legacyPath}:`, err);
+          return this.http.get<T>(legacyPath).pipe(
+            catchError(legacyErr => {
+              console.error(`[GuiaService] Error crítico cargando guía para ${fileName}:`, legacyErr);
+              return of([] as unknown as T);
+            })
+          );
+        })
       );
     }
 
     return this.http.get<T>(localizedPath).pipe(
       catchError(() => this.http.get<T>(canonicalPath).pipe(
-        catchError(() => this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T))))
+        catchError(err => {
+          console.warn(`[GuiaService] Falló localización para ${fileName}, cayendo a ruta base:`, err);
+          return this.http.get<T>(legacyPath).pipe(catchError(() => of([] as unknown as T)));
+        })
       ))
     );
   }
