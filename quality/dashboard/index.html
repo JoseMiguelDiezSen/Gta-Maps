@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTA Explorer · Panel Local de Control de Calidad</title>
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --surface: #131822;
+      --surface-alt: #1a2130;
+      --border: #263044;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #f5b82e;
+      --green: #2ecc71;
+      --red: #ff5252;
+      --orange: #ff9800;
+      --blue: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 20px 28px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, #f5b82e, #d97706);
+      color: #000;
+      font-weight: 900;
+      padding: 8px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+    }
+    .brand h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+    .brand p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    button {
+      background: var(--surface-alt);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.15s;
+    }
+    button:hover { border-color: var(--accent); color: var(--accent); }
+    button.primary {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+    button.primary:hover { filter: brightness(1.1); color: #000; }
+    button:disabled { opacity: 0.5; cursor: wait; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .kpi-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .kpi-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+    }
+    .kpi-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .gate-passed { color: var(--green); border-color: rgba(46, 204, 113, 0.45); }
+    .gate-failed { color: var(--red); border-color: rgba(255, 82, 82, 0.45); }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .tab {
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      border-radius: 0;
+      padding: 10px 16px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 600;
+      background: var(--surface-alt);
+    }
+    tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .badge.error { background: rgba(255, 82, 82, 0.18); color: var(--red); }
+    .badge.warning { background: rgba(255, 152, 0, 0.18); color: var(--orange); }
+    .badge.info { background: rgba(56, 189, 248, 0.18); color: var(--blue); }
+    .badge.new { background: rgba(46, 204, 113, 0.2); color: var(--green); }
+    .badge.base { background: rgba(139, 148, 158, 0.2); color: var(--muted); }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--surface-alt);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--green);
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    input, select {
+      background: var(--surface-alt);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 7px 11px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+    input { min-width: 260px; }
+    code {
+      font-family: Consolas, monospace;
+      font-size: 0.8rem;
+      color: var(--blue);
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="brand-badge">GTA QA</div>
+      <div>
+        <h1>GTA Explorer · Centro Local de Control de Calidad</h1>
+        <p id="meta-timestamp">Cargando análisis...</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="primary" id="btn-run" onclick="triggerRun(false, false)">▶ Ejecutar Análisis Ahora</button>
+      <button id="btn-run-build" onclick="triggerRun(true, false)">⚙ Analizar + Compilar .NET</button>
+      <button id="btn-baseline" onclick="triggerRun(false, true)" title="Fija el estado actual como nueva línea base">📌 Actualizar Baseline</button>
+    </div>
+  </header>
+
+  <section class="kpi-grid">
+    <div class="kpi-card" id="kpi-gate-card">
+      <div class="kpi-label">Quality Gate (Barrera)</div>
+      <div class="kpi-value" id="kpi-gate">---</div>
+      <div class="kpi-sub" id="kpi-gate-sub">Evaluando problemas nuevos</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Problemas Nuevos (Desde Baseline)</div>
+      <div class="kpi-value" id="kpi-new">0</div>
+      <div class="kpi-sub" id="kpi-new-sub">0 errores · 0 avisos</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Deuda Preexistente (Baseline)</div>
+      <div class="kpi-value" id="kpi-pre">0</div>
+      <div class="kpi-sub" id="kpi-resolved">0 resueltos desde el inicio</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Peso de Archivos JSON</div>
+      <div class="kpi-value" id="kpi-json">0 MB</div>
+      <div class="kpi-sub" id="kpi-json-sub">0 archivos auditados</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Idiomas i18n (13 Locales)</div>
+      <div class="kpi-value" id="kpi-i18n">13</div>
+      <div class="kpi-sub" id="kpi-i18n-sub">Base: es.json</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Compilación TypeScript</div>
+      <div class="kpi-value" id="kpi-build">---</div>
+      <div class="kpi-sub" id="kpi-build-sub">tsconfig.app.json</div>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" onclick="switchTab('issues', this)">🔍 Explorador de Hallazgos (Nuevos vs Preexistentes)</button>
+    <button class="tab" onclick="switchTab('json', this)">📦 Crecimiento de JSON (Top 35)</button>
+    <button class="tab" onclick="switchTab('i18n', this)">🌍 Estado de Internacionalización (13 Idiomas)</button>
+    <button class="tab" onclick="switchTab('code', this)">🧬 HTML en TypeScript y Textos Hardcodeados</button>
+    <button class="tab" onclick="switchTab('sonar', this)">📡 SonarQube Local & Comandos</button>
+  </nav>
+
+  <!-- TAB 1: EXPLORADOR GENERAL DE HALLAZGOS -->
+  <section id="tab-issues" class="panel active">
+    <div class="card">
+      <h2>
+        <span>Listado de Hallazgos</span>
+        <span id="issues-count-label" style="font-size:0.85rem;color:var(--muted)"></span>
+      </h2>
+      <div class="filters">
+        <select id="filter-scope" onchange="renderIssuesTable()">
+          <option value="all">Todos (Nuevos + Preexistentes)</option>
+          <option value="new">Solo Problemas NUEVOS</option>
+          <option value="pre">Solo Preexistentes (Baseline)</option>
+        </select>
+        <select id="filter-category" onchange="renderIssuesTable()">
+          <option value="all">Todas las Categorías</option>
+          <option value="json">JSON (Crecimiento / Sintaxis / Vacíos)</option>
+          <option value="i18n">Internacionalización (i18n)</option>
+          <option value="embedded-html">HTML incrustado en TypeScript</option>
+          <option value="hardcoded-i18n">Textos de UI Hardcodeados</option>
+          <option value="architecture">Arquitectura / Monolitos</option>
+          <option value="eslint">Angular ESLint</option>
+        </select>
+        <select id="filter-severity" onchange="renderIssuesTable()">
+          <option value="all">Todas las Severidades</option>
+          <option value="error">Errores</option>
+          <option value="warning">Warnings</option>
+          <option value="info">Info</option>
+        </select>
+        <input type="text" id="filter-search" placeholder="Filtrar por archivo, regla o texto..." oninput="renderIssuesTable()" />
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Severidad</th>
+            <th>Categoría / Regla</th>
+            <th>Archivo y Línea</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody id="issues-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TAB 2: CRECIMIENTO DE JSON -->
+  <section id="tab-json" class="panel">
+    <div class="card">
+      <h2>Top 35 Archivos JSON más pesados (Vigilancia de Crecimiento Descontrolado)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Archivo JSON</th>
+            <th>Tamaño (KB)</th>
+            <th>Líneas</th>
+            <th>Elementos Raíz</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody id="json-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TAB 3: INTERNACIONALIZACIÓN -->
+  <section id="tab-i18n" class="panel">
+    <div class="card">
+      <h2>Cobertura y Sincronización de los 13 Idiomas frente a <code>es.json</code></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Idioma</th>
+            <th>Cobertura</th>
+            <th>Claves Totales</th>
+            <th>Claves Faltantes</th>
+            <th>Claves Huérfanas (Extra)</th>
+            <th>Idénticas a ES</th>
+            <th>Muestra de Claves Faltantes</th>
+          </tr>
+        </thead>
+        <tbody id="i18n-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TAB 4: HTML EN TS Y HARDCODED TEXT -->
+  <section id="tab-code" class="panel">
+    <div class="card">
+      <h2>HTML Incrustado en TypeScript y Textos de Interfaz Hardcodeados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Archivo</th>
+            <th>Línea</th>
+            <th>Descripción y Fragmento</th>
+          </tr>
+        </thead>
+        <tbody id="code-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TAB 5: SONARQUBE & COMANDOS -->
+  <section id="tab-sonar" class="panel">
+    <div class="card">
+      <h2>Integración con SonarQube Community Build Local y Automatización</h2>
+      <p style="margin-bottom:12px;color:var(--muted)">
+        El sistema está configurado con barrera automática en <code>.git/hooks/pre-commit</code> y configuración lista en <code>sonar-project.properties</code>.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Acción</th>
+            <th>Comando Rápido</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ejecutar Auditoría Completa</strong></td>
+            <td><code>node quality/audit-runner.mjs</code></td>
+            <td>Analiza los 486 JSON, los 13 idiomas, HTML en TS, textos hardcodeados, Angular ESLint y compilación TS en ~12 segundos.</td>
+          </tr>
+          <tr>
+            <td><strong>Abrir este Panel Gráfico</strong></td>
+            <td><code>node quality/dashboard-server.mjs</code></td>
+            <td>Levanta el servidor web local en <code>http://localhost:4321</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>Modo Vigilancia Automática</strong></td>
+            <td><code>node quality/watch-runner.mjs</code></td>
+            <td>Re-ejecuta automáticamente las comprobaciones tras cada tanda de cambios guardados en disco.</td>
+          </tr>
+          <tr>
+            <td><strong>SonarQube Community Build (Local)</strong></td>
+            <td><code>powershell -ExecutionPolicy Bypass -File quality/sonarqube-local.ps1</code></td>
+            <td>Inicia SonarQube Community Build local en <code>http://localhost:9000</code> y lanza el SonarScanner sobre el proyecto.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script>
+    let currentReport = null;
+
+    function switchTab(name, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    async function loadReport() {
+      const res = await fetch('/api/report');
+      currentReport = await res.json();
+      renderDashboard();
+    }
+
+    async function triggerRun(withBuild, updateBaseline) {
+      const btn = document.getElementById('btn-run');
+      btn.disabled = true;
+      btn.textContent = '⏳ Analizando...';
+      try {
+        const res = await fetch(`/api/run?build=${withBuild ? 1 : 0}&baseline=${updateBaseline ? 1 : 0}`, { method: 'POST' });
+        const data = await res.json();
+        if (data.report) {
+          currentReport = data.report;
+          renderDashboard();
+        }
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '▶ Ejecutar Análisis Ahora';
+      }
+    }
+
+    function renderDashboard() {
+      if (!currentReport) return;
+      const r = currentReport;
+      document.getElementById('meta-timestamp').textContent =
+        `Último análisis: ${new Date(r.timestamp).toLocaleString()} · Duración: ${(r.durationMs / 1000).toFixed(1)}s`;
+
+      const gateCard = document.getElementById('kpi-gate-card');
+      const gateVal = document.getElementById('kpi-gate');
+      gateCard.className = 'kpi-card ' + (r.qualityGate.passed ? 'gate-passed' : 'gate-failed');
+      gateVal.textContent = r.qualityGate.passed ? 'PASSED ✓' : 'FAILED ✕';
+      document.getElementById('kpi-gate-sub').textContent =
+        r.qualityGate.passed ? 'Sin errores críticos nuevos' : `${r.qualityGate.newErrorsCount} errores nuevos / compilación`;
+
+      document.getElementById('kpi-new').textContent = r.summary.newIssuesCount;
+      document.getElementById('kpi-new-sub').textContent =
+        `${r.qualityGate.newErrorsCount} errores · ${r.qualityGate.newWarningsCount} avisos`;
+
+      document.getElementById('kpi-pre').textContent = r.summary.preexistingIssuesCount;
+      const resBaseline = r.summary.resolvedSinceBaseline || 0;
+      const resCumul = r.summary.resolvedCumulative || 0;
+      document.getElementById('kpi-resolved').textContent =
+        `${resCumul} resueltos en total (${resBaseline} desde última foto)`;
+
+      document.getElementById('kpi-json').textContent = `${r.jsonAnalysis.totalSizeMB} MB`;
+      document.getElementById('kpi-json-sub').textContent =
+        `${r.jsonAnalysis.totalFiles} archivos JSON (${r.summary.byCategory.json} alertas)`;
+
+      const langs = Object.values(r.i18nAnalysis.languageSummary || {});
+      const avgCov = langs.length
+        ? (langs.reduce((acc, l) => acc + l.coveragePct, 0) / langs.length).toFixed(1)
+        : 100;
+      document.getElementById('kpi-i18n').textContent = `${avgCov}%`;
+      document.getElementById('kpi-i18n-sub').textContent =
+        `Cobertura media en 13 idiomas (${r.i18nAnalysis.totalBaseKeys} claves base)`;
+
+      const tsOk = r.buildChecks?.angularTypeCheck?.success;
+      document.getElementById('kpi-build').textContent = tsOk ? 'OK ✓' : 'ERROR ✕';
+      document.getElementById('kpi-build').style.color = tsOk ? 'var(--green)' : 'var(--red)';
+
+      renderIssuesTable();
+      renderJsonTable();
+      renderI18nTable();
+      renderCodeTable();
+    }
+
+    function renderIssuesTable() {
+      if (!currentReport) return;
+      const scope = document.getElementById('filter-scope').value;
+      const cat = document.getElementById('filter-category').value;
+      const sev = document.getElementById('filter-severity').value;
+      const q = document.getElementById('filter-search').value.toLowerCase().trim();
+
+      const filtered = (currentReport.issues || []).filter(i => {
+        if (scope === 'new' && !i.isNew) return false;
+        if (scope === 'pre' && i.isNew) return false;
+        if (cat !== 'all' && i.category !== cat) return false;
+        if (sev !== 'all' && i.severity !== sev) return false;
+        if (q && !(`${i.file} ${i.rule} ${i.message}`.toLowerCase().includes(q))) return false;
+        return true;
+      });
+
+      document.getElementById('issues-count-label').textContent =
+        `Mostrando ${Math.min(filtered.length, 300)} de ${filtered.length} hallazgos`;
+
+      const tbody = document.getElementById('issues-tbody');
+      tbody.innerHTML = filtered.slice(0, 300).map(i => `
+        <tr>
+          <td><span class="badge ${i.isNew ? 'new' : 'base'}">${i.isNew ? 'NUEVO' : 'BASELINE'}</span></td>
+          <td><span class="badge ${i.severity}">${i.severity}</span></td>
+          <td><strong>${escapeHtml(i.category)}</strong><br><span style="color:var(--muted);font-size:0.78rem">${escapeHtml(i.rule)}</span></td>
+          <td><code>${escapeHtml(i.file)}:${i.line || 1}</code></td>
+          <td>${escapeHtml(i.message)}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderJsonTable() {
+      const list = currentReport?.jsonAnalysis?.largestFiles || [];
+      const tbody = document.getElementById('json-tbody');
+      tbody.innerHTML = list.map((f, idx) => {
+        const badge = f.sizeKB >= 300
+          ? '<span class="badge error">CRÍTICO (>300 KB)</span>'
+          : f.sizeKB >= 120
+            ? '<span class="badge warning">VIGILANCIA (>120 KB)</span>'
+            : '<span class="badge info">NORMAL</span>';
+        return `
+          <tr>
+            <td>${idx + 1}</td>
+            <td><code>${escapeHtml(f.file)}</code></td>
+            <td><strong>${f.sizeKB} KB</strong></td>
+            <td>${f.lines}</td>
+            <td>${f.itemCount}</td>
+            <td>${badge}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderI18nTable() {
+      const summary = currentReport?.i18nAnalysis?.languageSummary || {};
+      const tbody = document.getElementById('i18n-tbody');
+      tbody.innerHTML = Object.entries(summary).map(([lang, s]) => `
+        <tr>
+          <td><strong>${lang.toUpperCase()}</strong></td>
+          <td>
+            <strong>${s.coveragePct}%</strong>
+            <div class="progress-bar"><div class="progress-fill" style="width:${s.coveragePct}%"></div></div>
+          </td>
+          <td>${s.totalKeys} / ${s.baseKeys}</td>
+          <td>${s.missingCount > 0 ? `<span class="badge warning">${s.missingCount} faltan</span>` : '<span class="badge new">0</span>'}</td>
+          <td>${s.extraCount > 0 ? `<span class="badge info">${s.extraCount} extra</span>` : '0'}</td>
+          <td>${s.identicalToBaseCount}</td>
+          <td><code>${escapeHtml((s.missingSample || []).slice(0, 4).join(', '))}</code></td>
+        </tr>
+      `).join('');
+    }
+
+    function renderCodeTable() {
+      const list = (currentReport?.issues || []).filter(
+        i => i.category === 'embedded-html' || i.category === 'hardcoded-i18n' || i.category === 'architecture'
+      );
+      const tbody = document.getElementById('code-tbody');
+      tbody.innerHTML = list.slice(0, 250).map(i => `
+        <tr>
+          <td><span class="badge ${i.category === 'embedded-html' ? 'warning' : 'info'}">${escapeHtml(i.category)}</span></td>
+          <td><code>${escapeHtml(i.file)}</code></td>
+          <td>${i.line || 1}</td>
+          <td>${escapeHtml(i.message)}</td>
+        </tr>
+      `).join('');
+    }
+
+    loadReport();
+  </script>
+</body>
+</html>
