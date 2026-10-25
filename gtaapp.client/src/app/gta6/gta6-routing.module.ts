@@ -6,13 +6,11 @@ import { Gta6MapOfflineComponent }  from './map/offline/gta6-map-offline.compone
 import { Gta6GuiaOfflineComponent } from './guia/offline/gta6-guia-offline.component';
 import { Gta6GuiaOnlineComponent }  from './guia/online/gta6-guia-online.component';
 import { Gta6VideosComponent }      from './videos/gta6-videos.component';
-import { DevAccessGuard }           from '../services/dev-access.guard';
 
 const routes: Routes = [
   {
     path: 'gta6-map-online',
     component: Gta6MapOnlineComponent,
-    canActivate: [DevAccessGuard],
     data: {
       titleKey: 'seo.gta6OnlineTitle',
       descriptionKey: 'seo.gta6OnlineDesc',
@@ -24,7 +22,6 @@ const routes: Routes = [
   {
     path: 'gta6-map-offline',
     component: Gta6MapOfflineComponent,
-    canActivate: [DevAccessGuard],
     data: {
       titleKey: 'seo.gta6HistoriaTitle',
       descriptionKey: 'seo.gta6HistoriaDesc',

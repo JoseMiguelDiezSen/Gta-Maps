@@ -117,7 +117,7 @@ namespace GTAAPP.Server.Controllers
             // 2. Envío por email vía SMTP con plantilla HTML
             try
             {
-                await _emailService.EnviarFeedbackAsync(name, trimmedMessage, ip, userAgent);
+                await _emailService.EnviarFeedbackAsync(name, trimmedMessage, anonymizedIp, userAgent);
             }
             catch (Exception ex)
             {

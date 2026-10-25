@@ -619,7 +619,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 }
                 const existingPopup = found.marker.getPopup();
                 if (existingPopup) {
-                    (existingPopup as any)._content = this.buildCustomMarkerPopupHtml(found);
+                    existingPopup.setContent(this.buildCustomMarkerPopupHtml(found));
                 }
                 const inputEl = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
                 if (inputEl) {
@@ -1088,7 +1088,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             existingPopup.setContent(html);
             existingPopup.options.autoPan = false;
             existingPopup.options.className = `gta-custom-pin-popup gta-pin-color-${activeColor}`;
-            const container = (existingPopup as any)._container as HTMLElement | undefined;
+            const container = existingPopup.getElement();
             if (container) {
                 container.className = container.className
                     .replace(/gta-pin-color-\w+/g, '')

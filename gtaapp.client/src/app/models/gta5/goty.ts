@@ -6,7 +6,7 @@ export interface GotyMessage {
   quickReplies?: string[];
   action?: {
     type: 'openTab' | 'filter' | 'locate';
-    payload: any;
+    payload: unknown;
     label: string;
   };
   isAngry?: boolean;

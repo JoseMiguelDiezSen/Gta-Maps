@@ -93,21 +93,34 @@ public class GuiaService : IGuiaService
 
         _articulos["gta5"] = articulosGta5;
 
-        _manifiestos["gta5"] = new GuiaManifest
+        var manifestGta5Path = Path.Combine(BaseWebRoot, "data", "gta5", "guia", "manifest.json");
+        if (File.Exists(manifestGta5Path))
         {
-            Id = "gta5",
-            Titulo = "Guía Oficial GTA V",
-            Descripcion = "Guía enciclopédica completa del Modo Historia y GTA Online.",
-            Secciones = new List<GuiaSeccion>
+            try
             {
-                new() { Id = "historia-100", Titulo = "Modo Historia & 100%", Icono = "trophy", Descripcion = "Guía paso a paso de la campaña, requisitos del 100% y decisiones clave.", Orden = 1 },
-                new() { Id = "personajes", Titulo = "Protagonistas & Facciones", Icono = "users", Descripcion = "Biografías, habilidades especiales y misiones personales.", Orden = 2 },
-                new() { Id = "armas", Titulo = "Armas", Icono = "crosshairs", Descripcion = "Catálogo de armamento del modo historia y online.", Orden = 3 },
-                new() { Id = "negocios-economia", Titulo = "Mercado Bursátil", Icono = "trending-up", Descripcion = "Guía de finanzas y especulación bursátil.", Orden = 4 },
-                new() { Id = "secretos-misterios", Titulo = "Secretos & Misterios", Icono = "eye", Descripcion = "Archivo de enigmas, sucesos paranormales y mitos.", Orden = 5 },
-                new() { Id = "trucos", Titulo = "Códigos & Trucos", Icono = "gamepad", Descripcion = "Trucos de salud, armas, nivel de búsqueda y vehículos.", Orden = 6 }
+                var manifestJson = File.ReadAllText(manifestGta5Path);
+                var manifest = JsonSerializer.Deserialize<GuiaManifest>(manifestJson, options);
+                if (manifest != null)
+                {
+                    _manifiestos["gta5"] = manifest;
+                }
             }
-        };
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Error al deserializar manifest.json de GTA 5 desde {Path}", manifestGta5Path);
+            }
+        }
+
+        if (!_manifiestos.ContainsKey("gta5"))
+        {
+            _manifiestos["gta5"] = new GuiaManifest
+            {
+                Id = "gta5",
+                Titulo = "Guía Oficial GTA V",
+                Descripcion = "Guía enciclopédica completa del Modo Historia y GTA Online.",
+                Secciones = new List<GuiaSeccion>()
+            };
+        }
     }
 
     public GuiaManifest GetGuiaManifest(string juegoId)
@@ -223,19 +236,35 @@ public class GuiaService : IGuiaService
 
         _articulos["gta6"] = articulosGta6;
 
-        _manifiestos["gta6"] = new GuiaManifest
+        var manifestGta6Path = Path.Combine(BaseWebRoot, "data", "gta6", "guia", "manifest.json");
+        if (File.Exists(manifestGta6Path))
         {
-            Id = "gta6",
-            Juego = "Grand Theft Auto VI",
-            Titulo = "Base de Datos & Guía Oficial de GTA VI",
-            Descripcion = "Toda la información confirmada, regiones de Leonida, análisis de tráileres, personajes y mecánicas de la próxima obra maestra de Rockstar Games.",
-            BannerUrl = "assets/gta6-banner.jpg",
-            Secciones = new List<GuiaSeccion>
+            try
             {
-                new() { Id = "prologo", Titulo = "Prólogo & Leonida", Icono = "book-open", Descripcion = "Introducción al Estado de Leonida, Vice City y perfiles de los protagonistas.", Orden = 0 },
-                new() { Id = "misiones", Titulo = "Misiones & Golpes", Icono = "crosshairs", Descripcion = "Campañas criminales y atracos en Leonida.", Orden = 1 },
-                new() { Id = "vehiculos", Titulo = "Vehículos", Icono = "car", Descripcion = "Catálogo de vehículos, deportivos, embarcaciones y aeronaves.", Orden = 2 }
+                var manifestJson = File.ReadAllText(manifestGta6Path);
+                var manifest = JsonSerializer.Deserialize<GuiaManifest>(manifestJson, options);
+                if (manifest != null)
+                {
+                    _manifiestos["gta6"] = manifest;
+                }
             }
-        };
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Error al deserializar manifest.json de GTA 6 desde {Path}", manifestGta6Path);
+            }
+        }
+
+        if (!_manifiestos.ContainsKey("gta6"))
+        {
+            _manifiestos["gta6"] = new GuiaManifest
+            {
+                Id = "gta6",
+                Juego = "Grand Theft Auto VI",
+                Titulo = "Base de Datos & Guía Oficial de GTA VI",
+                Descripcion = "Compendio interactivo de Vice City y el Estado de Leonida.",
+                BannerUrl = "assets/gta6-banner.jpg",
+                Secciones = new List<GuiaSeccion>()
+            };
+        }
     }
 }

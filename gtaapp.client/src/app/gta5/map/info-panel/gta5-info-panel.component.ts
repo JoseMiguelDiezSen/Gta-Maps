@@ -977,16 +977,16 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   onDealerLogoError(dealer: DealerCategory): void {
-    if (dealer.logoUrl && dealer.logoUrl.includes('/mapa/marcadores-mapa/')) {
-      dealer.logoUrl = dealer.logoUrl.replace('/mapa/marcadores-mapa/', '/marcadores-mapa/');
+    if (dealer.logoUrl && !dealer.logoUrl.includes('/mapa/marcadores-mapa/')) {
+      dealer.logoUrl = dealer.logoUrl.replace('/marcadores-mapa/', '/mapa/marcadores-mapa/');
       return;
     }
     dealer.logoFailed = true;
   }
 
   onVehicleImgError(v: GtaVehicle): void {
-    if (v.imageUrl && v.imageUrl.includes('/mapa/marcadores-mapa/')) {
-      v.imageUrl = v.imageUrl.replace('/mapa/marcadores-mapa/', '/marcadores-mapa/');
+    if (v.imageUrl && !v.imageUrl.includes('/mapa/marcadores-mapa/')) {
+      v.imageUrl = v.imageUrl.replace('/marcadores-mapa/', '/mapa/marcadores-mapa/');
       return;
     }
     v.imgFailed = true;
@@ -1362,8 +1362,8 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   onWeaponImgError(w: GtaWeapon): void {
-    if (w.imageUrl && w.imageUrl.includes('/mapa/marcadores-mapa/')) {
-      w.imageUrl = w.imageUrl.replace('/mapa/marcadores-mapa/', '/marcadores-mapa/');
+    if (w.imageUrl && !w.imageUrl.includes('/mapa/marcadores-mapa/')) {
+      w.imageUrl = w.imageUrl.replace('/marcadores-mapa/', '/mapa/marcadores-mapa/');
       return;
     }
     w.imgFailed = true;

@@ -3,8 +3,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { forkJoin, Observable, of } from 'rxjs';
 import { catchError, map, shareReplay, switchMap } from 'rxjs/operators';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeosCatalogo } from '../models/guia';
+import { GtaMission, GtaHeist } from '../models/gta5/mission';
 import { GtaMystery } from '../models/gta5/mystery';
-import { GtaHeist } from '../models/gta5/mission';
+import { GtaVehicle } from '../models/gta5/vehicle';
+import { GtaWeapon } from '../models/gta5/weapon';
 import { TranslationService } from '../i18n';
 
 @Injectable({
@@ -562,7 +564,7 @@ export class GuiaService {
     );
   }
 
-  getMisionesGuiaOnline(): Observable<any[]> {
+  getMisionesGuiaOnline(): Observable<GtaMission[]> {
 
 
     const files = [
@@ -587,27 +589,25 @@ export class GuiaService {
     ];
 
     return forkJoin(
-      files.map(f => this.getGuiaJson<any[]>('gta5', 'online', f, 'misiones').pipe(catchError(() => of([]))))
+      files.map(f => this.getGuiaJson<GtaMission[]>('gta5', 'online', f, 'misiones').pipe(catchError(() => of([]))))
     ).pipe(
       map(arrays => {
-        const flattened = arrays.reduce((acc: GuiaArticulo[], curr: GuiaArticulo[]) => acc.concat(curr), [] as GuiaArticulo[]);
-        return flattened.sort((a, b) => (a.order || 0) - (b.order || 0));
+        const flattened = arrays.reduce((acc: GtaMission[], curr: GtaMission[]) => acc.concat(curr), [] as GtaMission[]);
+        return flattened.sort((a, b) => ((a as any).order || 0) - ((b as any).order || 0));
       }),
       shareReplay(1)
     );
   }
 
-  getNegociosGuiaOnline(): Observable<any[]> {
-
-    return this.getGuiaJson<any[]>('gta5', 'online', 'businesses-guide.json').pipe(
+  getNegociosGuiaOnline(): Observable<GuiaArticulo[]> {
+    return this.getGuiaJson<GuiaArticulo[]>('gta5', 'online', 'businesses-guide.json').pipe(
       catchError(() => of([])),
       shareReplay(1)
     );
   }
 
-  getVehiculosGuiaOnline(dealershipId?: string): Observable<any[]> {
-
-    return this.getGuiaRootJson<any[]>('gta5', 'guia-vehicles-online.json').pipe(
+  getVehiculosGuiaOnline(dealershipId?: string): Observable<GtaVehicle[]> {
+    return this.getGuiaRootJson<GtaVehicle[]>('gta5', 'guia-vehicles-online.json').pipe(
       map(list => {
         if (!list) return [];
         let items = list;
@@ -622,9 +622,8 @@ export class GuiaService {
     );
   }
 
-  getVehiculosGuiaGta6(mode: 'offline' | 'online', dealershipId?: string): Observable<any[]> {
-
-    return this.getGuiaJson<any[]>('gta6', mode, `vehiculos-guia-${mode}.json`).pipe(
+  getVehiculosGuiaGta6(mode: 'offline' | 'online', dealershipId?: string): Observable<GtaVehicle[]> {
+    return this.getGuiaJson<GtaVehicle[]>('gta6', mode, `vehiculos-guia-${mode}.json`).pipe(
       map(list => {
         if (!list) return [];
         let items = list;
@@ -639,9 +638,8 @@ export class GuiaService {
     );
   }
 
-  getArmasGuiaOnline(categoryId?: string): Observable<any[]> {
-
-    return this.getGuiaRootJson<any[]>('gta5', 'guia-weapons-online.json').pipe(
+  getArmasGuiaOnline(categoryId?: string): Observable<GtaWeapon[]> {
+    return this.getGuiaRootJson<GtaWeapon[]>('gta5', 'guia-weapons-online.json').pipe(
       map(list => {
         if (!list) return [];
         let items = list;
@@ -656,9 +654,8 @@ export class GuiaService {
     );
   }
 
-  getArmasGuiaOffline(categoryId?: string): Observable<any[]> {
-
-    return this.getGuiaRootJson<any[]>('gta5', 'guia-weapons-offline.json').pipe(
+  getArmasGuiaOffline(categoryId?: string): Observable<GtaWeapon[]> {
+    return this.getGuiaRootJson<GtaWeapon[]>('gta5', 'guia-weapons-offline.json').pipe(
       map(list => {
         if (!list) return [];
         let items = list;
