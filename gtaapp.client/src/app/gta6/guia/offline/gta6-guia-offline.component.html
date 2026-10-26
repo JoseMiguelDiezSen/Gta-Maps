@@ -344,7 +344,7 @@
               </svg>
               <input
                 type="text"
-                class="sidebar-search-input"
+                class="sidebar-search-input" aria-label="{{ getPlaceholderBuscadorVehiculos() }}"
                 [(ngModel)]="busquedaVehiculos"
                 [placeholder]="getPlaceholderBuscadorVehiculos()"
                 autocomplete="off"
@@ -412,7 +412,7 @@
               </svg>
               <input
                 type="text"
-                class="sidebar-search-input"
+                class="sidebar-search-input" aria-label="{{ getPlaceholderBuscador(currentSection.id) }}"
                 [(ngModel)]="busquedaOffline"
                 [placeholder]="getPlaceholderBuscador(currentSection.id)"
                 autocomplete="off"

@@ -285,12 +285,12 @@
         <span id="issues-count-label" style="font-size:0.85rem;color:var(--muted)"></span>
       </h2>
       <div class="filters">
-        <select id="filter-scope" onchange="renderIssuesTable()">
+        <select id="filter-scope" aria-label="Filtrar por ámbito" onchange="renderIssuesTable()">
           <option value="all">Todos (Nuevos + Preexistentes)</option>
           <option value="new">Solo Problemas NUEVOS</option>
           <option value="pre">Solo Preexistentes (Baseline)</option>
         </select>
-        <select id="filter-category" onchange="renderIssuesTable()">
+        <select id="filter-category" aria-label="Filtrar por categoría" onchange="renderIssuesTable()">
           <option value="all">Todas las Categorías</option>
           <option value="json">JSON (Crecimiento / Sintaxis / Vacíos)</option>
           <option value="i18n">Internacionalización (i18n)</option>
@@ -299,13 +299,13 @@
           <option value="architecture">Arquitectura / Monolitos</option>
           <option value="eslint">Angular ESLint</option>
         </select>
-        <select id="filter-severity" onchange="renderIssuesTable()">
+        <select id="filter-severity" aria-label="Filtrar por severidad" onchange="renderIssuesTable()">
           <option value="all">Todas las Severidades</option>
           <option value="error">Errores</option>
           <option value="warning">Warnings</option>
           <option value="info">Info</option>
         </select>
-        <input type="text" id="filter-search" placeholder="Filtrar por archivo, regla o texto..." oninput="renderIssuesTable()" />
+        <input type="text" id="filter-search" aria-label="Filtrar por archivo, regla o texto" placeholder="Filtrar por archivo, regla o texto..." oninput="renderIssuesTable()" />
       </div>
       <table>
         <thead>

@@ -155,7 +155,7 @@
             <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
             <input
               type="text"
-              class="missions-search-input"
+              class="missions-search-input" aria-label="{{ 'transports.catalog.searchPlaceholder' | translate }}"
               [(ngModel)]="vehicleSearchQuery"
               [placeholder]="'transports.catalog.searchPlaceholder' | translate"
             />
@@ -270,7 +270,7 @@
           <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
           <input
             type="text"
-            class="missions-search-input"
+            class="missions-search-input" aria-label="{{ 'transports.catalog.searchPlaceholder' | translate }}"
             [(ngModel)]="dealerVehicleSearchQuery"
             [placeholder]="'transports.catalog.searchPlaceholder' | translate"
           />
@@ -290,7 +290,7 @@
         <div class="missions-dropdowns-row">
           <div class="strangers-series-select-wrap">
             <select
-              class="strangers-series-select"
+              class="strangers-series-select" aria-label="{{ 'transports.catalog.category' | translate }}"
               [(ngModel)]="selectedVehicleClass"
               (ngModelChange)="setVehicleCategory($event)"
             >
@@ -304,7 +304,7 @@
 
           <div class="strangers-series-select-wrap">
             <select
-              class="strangers-series-select"
+              class="strangers-series-select" aria-label="{{ 'transports.catalog.sortDefault' | translate }}"
               [(ngModel)]="selectedVehicleSort"
               (ngModelChange)="setVehicleSort($event)"
             >
@@ -485,7 +485,7 @@
           <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
           <input
             type="text"
-            class="missions-search-input"
+            class="missions-search-input" aria-label="{{ 'transports.weapons.searchPlaceholder' | translate }}"
             [(ngModel)]="weaponSearchQuery"
             [placeholder]="'transports.weapons.searchPlaceholder' | translate"
           />
@@ -505,7 +505,7 @@
         <div class="missions-dropdowns-row">
           <div class="strangers-series-select-wrap">
             <select
-              class="strangers-series-select"
+              class="strangers-series-select" aria-label="{{ 'transports.weapons.category' | translate }}"
               [(ngModel)]="selectedWeaponCategory"
               (ngModelChange)="setWeaponCategory($event)"
             >
@@ -519,7 +519,7 @@
 
           <div class="strangers-series-select-wrap">
             <select
-              class="strangers-series-select"
+              class="strangers-series-select" aria-label="{{ 'transports.weapons.sortDefault' | translate }}"
               [(ngModel)]="selectedWeaponSort"
               (ngModelChange)="setWeaponSort($event)"
             >
@@ -710,7 +710,7 @@
           <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
           <input
             type="text"
-            class="missions-search-input"
+            class="missions-search-input" aria-label="{{ 'transports.missions.searchPlaceholder' | translate }}"
             [(ngModel)]="missionSearchQuery"
             [placeholder]="'transports.missions.searchPlaceholder' | translate"
           />
@@ -926,7 +926,7 @@
           <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
           <input
             type="text"
-            class="heists-search-input"
+            class="heists-search-input" aria-label="{{ 'transports.heists.searchPlaceholder' | translate }}"
             [(ngModel)]="heistSearchQuery"
             [placeholder]="'transports.heists.searchPlaceholder' | translate"
           />
@@ -1179,7 +1179,7 @@
           <i class="fa-solid fa-magnifying-glass heists-search-icon"></i>
           <input
             type="text"
-            class="heists-search-input"
+            class="heists-search-input" aria-label="{{ 'transports.mysteries.searchPlaceholder' | translate }}"
             [(ngModel)]="mysterySearchQuery"
             [placeholder]="'transports.mysteries.searchPlaceholder' | translate"
           />
@@ -1197,7 +1197,7 @@
 
         <div class="strangers-series-select-wrap">
           <select
-            class="strangers-series-select"
+            class="strangers-series-select" aria-label="{{ 'transports.mysteries.all' | translate }}"
             [(ngModel)]="selectedMysteryCategoryFilter"
             (ngModelChange)="setMysteryCategoryFilter($event)"
           >

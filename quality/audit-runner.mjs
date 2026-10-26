@@ -227,7 +227,7 @@ function extractPlaceholders(str) {
   let m;
   while ((m = reDouble.exec(str)) !== null) matches.add(m[1]);
   while ((m = reSingle.exec(str)) !== null) matches.add(m[1]);
-  return [...matches].sort();
+  return [...matches].sort((a, b) => a.localeCompare(b));
 }
 
 function analyzeI18n() {

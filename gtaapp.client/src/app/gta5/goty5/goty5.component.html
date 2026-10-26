@@ -69,7 +69,7 @@
     <div class="goty-chat-footer">
       <input
         type="text"
-        class="goty-input"
+        class="goty-input" aria-label="{{ inputPlaceholder }}"
         [(ngModel)]="userInput"
         (keydown)="onKeyDown($event)"
         [placeholder]="inputPlaceholder"

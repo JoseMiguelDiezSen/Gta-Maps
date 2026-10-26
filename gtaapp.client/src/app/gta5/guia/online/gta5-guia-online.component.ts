@@ -575,8 +575,8 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     let currentList: HTMLUListElement | null = null;
 
     for (const line of lines) {
-      const isSubBullet = /^\s{2,}[-*]\s+(.*)$/.test(line);
-      const isBullet = /^\s*[-*]\s+(.*)$/.test(line);
+      const isSubBullet = /^\s{2,}[-*]\s+/.test(line);
+      const isBullet = /^\s*[-*]\s+/.test(line);
       if (!isBullet && !line.startsWith('> ') && currentList) {
         root.appendChild(currentList);
         currentList = null;
@@ -628,7 +628,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
           currentList = document.createElement('ul');
           currentList.className = 'guide-list';
         }
-        const match = line.match(/^\s*[-*]\s+(.*)$/);
+        const match = line.match(/^\s*[-*]\s+(.*)/);
         const li = document.createElement('li');
         li.className = isSubBullet ? 'guide-list-item guide-list-subitem' : 'guide-list-item';
         const bullet = document.createElement('span');
@@ -1155,10 +1155,10 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
 
   getCleanMissionTitle(title?: string): string {
     if (!title) return '';
-    return title
-      .replace(/^\d+\.\s*/, '')
-      .replace(/\s*\((Tonya|Beverly|Hao|Barry|Mary-Ann|Cletus|Dom|Maude|Patrulla|Peter Dreyfuss|Epsilon|Josh|Nigel|Abigail[^)]*|[^)]*Sasquatch[^)]*)\s*\d*\)$/i, '')
-      .trim();
+    const clean = title.replace(/^\d+\.\s*/, '').trim();
+    const idx = clean.lastIndexOf('(');
+    const hasTag = idx > 0 && clean.endsWith(')') && /^(?:Tonya|Beverly|Hao|Barry|Mary-Ann|Cletus|Dom|Maude|Patrulla|Peter Dreyfuss|Epsilon|Josh|Nigel|Abigail|Sasquatch)/i.test(clean.slice(idx + 1, -1));
+    return hasTag ? clean.slice(0, idx).trim() : clean;
   }
 
   cleanBreadcrumbTitle(title?: string): string {

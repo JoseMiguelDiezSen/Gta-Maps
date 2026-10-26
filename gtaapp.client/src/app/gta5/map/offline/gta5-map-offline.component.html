@@ -146,7 +146,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.properties' | translate }}"
               [checked]="isSectionAllActive(storyPropertyKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(storyPropertyKeys, $event)"
@@ -201,7 +201,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.businesses' | translate }}"
               [checked]="isSectionAllActive(storyBusinessKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(storyBusinessKeys, $event)"
@@ -234,7 +234,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.vehicles' | translate }}"
               [checked]="isSectionAllActive(storyVehicleKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(storyVehicleKeys, $event)"
@@ -265,7 +265,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.services' | translate }}"
               [checked]="isSectionAllActive(serviceKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(serviceKeys, $event)"
@@ -336,7 +336,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.activities' | translate }}"
               [checked]="isSectionAllActive(activityKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(activityKeys, $event)"
@@ -400,7 +400,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.characters' | translate }}"
               [checked]="isSectionAllActive(characterKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(characterKeys, $event)"
@@ -450,7 +450,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.fauna' | translate }}"
               [checked]="isSectionAllActive(faunaKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(faunaKeys, $event)"
@@ -513,7 +513,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.collectibles' | translate }}"
               [checked]="isSectionAllActive(storyCollectibleKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(storyCollectibleKeys, $event)"
@@ -576,7 +576,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.strangePlaces' | translate }}"
               [checked]="isSectionAllActive(strangeKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(strangeKeys, $event)"
@@ -646,7 +646,7 @@
           @if (accordion['mapa']) {
           <div class="hud-acc-body">
             <div class="hud-field">
-              <select id="mapTypeSelectHistoria" class="hud-field-select" (change)="switchMapType($any($event.target).value)">
+              <select id="mapTypeSelectHistoria" class="hud-field-select" aria-label="{{ 'gta5.settings.mapSelector' | translate }}" (change)="switchMapType($any($event.target).value)">
                 @for (type of mapTypes; track type.id) {
                 <option [value]="type.id" [selected]="currentMapType === type.id">
                   {{ type.label }}

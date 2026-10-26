@@ -162,7 +162,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.cayoPerico.heistPoi' | translate }}"
               [checked]="isSectionAllActive(cayoPoiKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(cayoPoiKeys, $event)"
@@ -209,7 +209,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.cayoPerico.heistScoping' | translate }}"
               [checked]="isSectionAllActive(cayoScopingKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(cayoScopingKeys, $event)"
@@ -266,7 +266,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.cayoPerico.weapons' | translate }}"
               [checked]="isSectionAllActive(cayoWeaponKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(cayoWeaponKeys, $event)"
@@ -298,7 +298,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.cayoPerico.vehicles' | translate }}"
               [checked]="isSectionAllActive(cayoVehicleKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(cayoVehicleKeys, $event)"
@@ -355,7 +355,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ 'gta5.cayoPerico.dailyCollectibles' | translate }}"
               [checked]="isSectionAllActive(cayoDailyKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(cayoDailyKeys, $event)"
@@ -392,7 +392,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.properties' | translate }}"
             [checked]="isSectionAllActive(currentPropertyKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(currentPropertyKeys, $event)"
@@ -474,7 +474,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.businesses' | translate }}"
             [checked]="isSectionAllActive(businessKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(businessKeys, $event)"
@@ -712,7 +712,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.vehicles' | translate }}"
             [checked]="isSectionAllActive(currentVehicleKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(currentVehicleKeys, $event)"
@@ -782,7 +782,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.services' | translate }}"
             [checked]="isSectionAllActive(serviceKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(serviceKeys, $event)"
@@ -936,7 +936,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.activities' | translate }}"
             [checked]="isSectionAllActive(activityKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(activityKeys, $event)"
@@ -1001,7 +1001,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.roleplay' | translate }}"
             [checked]="isSectionAllActive(roleplayKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(roleplayKeys, $event)"
@@ -1040,7 +1040,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.characters' | translate }}"
             [checked]="isSectionAllActive(characterKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(characterKeys, $event)"
@@ -1098,7 +1098,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.wildlife' | translate }}"
             [checked]="isSectionAllActive(faunaKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(faunaKeys, $event)"
@@ -1162,7 +1162,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.collectibles' | translate }}"
             [checked]="isSectionAllActive(collectibleKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(collectibleKeys, $event)"
@@ -1244,7 +1244,7 @@
           </div>
           <input
             type="checkbox"
-            class="hud-acc-check"
+            class="hud-acc-check" aria-label="{{ 'gta5.categories.strangePlaces' | translate }}"
             [checked]="isSectionAllActive(strangeKeys)"
             (click)="$event.stopPropagation()"
             (change)="onSectionCheckboxChange(strangeKeys, $event)"
@@ -1338,7 +1338,7 @@
 
               <select
                 id="mapTypeSelect"
-                class="hud-field-select"
+                class="hud-field-select" aria-label="{{ 'gta5.settings.mapSelector' | translate }}"
                 (change)="switchMapType($any($event.target).value)"
               >
                 @for (type of mapTypes; track type.id) {

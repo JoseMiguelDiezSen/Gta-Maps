@@ -195,11 +195,11 @@
 
     <!-- VÍDEO DESTACADO PRINCIPAL (LEAD VIDEO) -->
     @if (videoDestacado) {
-    <article
+    <div
       class="news-featured-lead moment-featured-card"
       (click)="abrirVideo(videoDestacado)"
-      role="button"
-      tabindex="0"
+      (keydown.enter)="abrirVideo(videoDestacado)"
+      role="button" tabindex="0"
     >
       <div class="lead-media-wrapper">
         @if (videoDestacado.thumbnailUrl) {
@@ -255,7 +255,7 @@
           </span>
         </div>
       </div>
-    </article>
+    </div>
     }
 
     <!-- CABECERA DE SECCIÓN DE VÍDEOS RECIENTES -->
@@ -272,11 +272,11 @@
     <!-- GRID DE TARJETAS DE VÍDEOS -->
     <section class="news-grid moments-grid">
       @for (item of videosSecundarios; track item.id) {
-      <article
+      <div
         class="news-card moment-card"
         (click)="abrirVideo(item)"
-        role="button"
-        tabindex="0"
+        (keydown.enter)="abrirVideo(item)"
+        role="button" tabindex="0"
       >
         <div class="card-media-wrapper">
           @if (item.thumbnailUrl) {
@@ -322,7 +322,7 @@
             </span>
           </div>
         </div>
-      </article>
+      </div>
       }
     </section>
 

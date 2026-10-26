@@ -568,7 +568,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       for (const m of this.onlineMissions) {
         if (m.category) set.add(m.category);
       }
-      this._cachedOCat = Array.from(set).sort();
+      this._cachedOCat = Array.from(set).sort((a, b) => a.localeCompare(b));
     }
     return this._cachedOCat;
   }

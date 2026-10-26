@@ -341,7 +341,7 @@
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check"
+              class="hud-acc-check" aria-label="{{ getCategoryTitle(category) }}"
               [checked]="isSectionAllActive(itemKeys(category))"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(itemKeys(category), $event)"
@@ -416,7 +416,7 @@
 
               <select
                 id="mapTypeSelect"
-                class="hud-field-select"
+                class="hud-field-select" aria-label="{{ 'gta6.map.hud.settings.mapType' | translate }}"
                 (change)="switchMapType($any($event.target).value)"
               >
                 @for (type of mapTypes; track type.id) {

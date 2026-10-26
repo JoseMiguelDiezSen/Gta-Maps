@@ -812,8 +812,8 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
 
-      const isSubBullet = /^\s{2,}[-*]\s+(.*)$/.test(line);
-      const isBullet = /^\s*[-*]\s+(.*)$/.test(line);
+      const isSubBullet = /^\s{2,}[-*]\s+/.test(line);
+      const isBullet = /^\s*[-*]\s+/.test(line);
       if (!isBullet && currentList) {
         root.appendChild(currentList);
         currentList = null;
@@ -890,7 +890,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
           currentList = document.createElement('ul');
           currentList.className = 'guide-list';
         }
-        const match = line.match(/^\s*[-*]\s+(.*)$/);
+        const match = line.match(/^\s*[-*]\s+(.*)/);
         const li = document.createElement('li');
         li.className = isSubBullet ? 'guide-list-item guide-list-subitem' : 'guide-list-item';
         const bullet = document.createElement('span');
