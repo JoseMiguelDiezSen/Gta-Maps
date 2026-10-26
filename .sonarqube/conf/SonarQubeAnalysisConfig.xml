@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AnalysisConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
-  <SonarConfigDir>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\conf</SonarConfigDir>
-  <SonarOutputDir>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\out</SonarOutputDir>
-  <SonarBinDir>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\bin</SonarBinDir>
-  <SonarScannerWorkingDirectory>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp</SonarScannerWorkingDirectory>
+  <SonarConfigDir>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\conf</SonarConfigDir>
+  <SonarOutputDir>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\out</SonarOutputDir>
+  <SonarBinDir>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\bin</SonarBinDir>
+  <SonarScannerWorkingDirectory>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP</SonarScannerWorkingDirectory>
   <JavaExePath>C:\Users\josem\.sonar\cache\d35f31e712f0fcf6ac5a093edc90204fbff22f720ba3950bd09d331d5e621636\OpenJDK21U-jre_x64_windows_hotspot_21.0.12.1_1.zip_extracted\jdk-21.0.12.1+1-jre\bin\java.exe</JavaExePath>
   <EngineJarPath>C:\Users\josem\.sonar\cache\f55ab10baa576e7b19e1a1f514771fc47a1da99bf448ff36f83d801036fe6b36\sonar-scanner-engine-community-13.15.0.6376.jar</EngineJarPath>
   <ScanAllAnalysis>true</ScanAllAnalysis>
@@ -15,7 +15,7 @@
   <AdditionalConfig>
     <ConfigSetting Id="BuildUri" />
     <ConfigSetting Id="UnchangedFilesPath" />
-    <ConfigSetting Id="sonar.pullrequest.cache.basepath" Value="C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp" />
+    <ConfigSetting Id="sonar.pullrequest.cache.basepath" Value="C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP" />
     <ConfigSetting Id="settings.file.path" Value="C:\Users\josem\.dotnet\tools\.store\dotnet-sonarscanner\12.0.0\dotnet-sonarscanner\12.0.0\tools\netcoreapp3.1\any\SonarQube.Analysis.xml" />
   </AdditionalConfig>
   <ServerSettings>
@@ -176,8 +176,8 @@
   <AnalyzersSettings>
     <AnalyzerSettings>
       <Language>cs</Language>
-      <RulesetPath>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\conf\Sonar-cs.ruleset</RulesetPath>
-      <DeactivatedRulesetPath>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\conf\Sonar-cs-none.ruleset</DeactivatedRulesetPath>
+      <RulesetPath>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\conf\Sonar-cs.ruleset</RulesetPath>
+      <DeactivatedRulesetPath>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\conf\Sonar-cs-none.ruleset</DeactivatedRulesetPath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="10.35.0.4138" StaticResourceName="SonarAnalyzer-csharp-10.35.0.4138.zip">
           <AssemblyPaths>
@@ -189,13 +189,13 @@
         </AnalyzerPlugin>
       </AnalyzerPlugins>
       <AdditionalFilePaths>
-        <Path>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\conf\cs\SonarLint.xml</Path>
+        <Path>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\conf\cs\SonarLint.xml</Path>
       </AdditionalFilePaths>
     </AnalyzerSettings>
     <AnalyzerSettings>
       <Language>vbnet</Language>
-      <RulesetPath>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\conf\Sonar-vbnet.ruleset</RulesetPath>
-      <DeactivatedRulesetPath>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\conf\Sonar-vbnet-none.ruleset</DeactivatedRulesetPath>
+      <RulesetPath>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\conf\Sonar-vbnet.ruleset</RulesetPath>
+      <DeactivatedRulesetPath>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\conf\Sonar-vbnet-none.ruleset</DeactivatedRulesetPath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="vbnet" Version="10.35.0.4138" StaticResourceName="SonarAnalyzer-vbnet-10.35.0.4138.zip">
           <AssemblyPaths>
@@ -207,7 +207,7 @@
         </AnalyzerPlugin>
       </AnalyzerPlugins>
       <AdditionalFilePaths>
-        <Path>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAApp\.sonarqube\conf\vbnet\SonarLint.xml</Path>
+        <Path>C:\Users\josem\source\repos\JoseMiguelDiezSen\GTAAPP\.sonarqube\conf\vbnet\SonarLint.xml</Path>
       </AdditionalFilePaths>
     </AnalyzerSettings>
   </AnalyzersSettings>

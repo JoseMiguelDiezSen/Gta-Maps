@@ -197,21 +197,21 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (!this.isDevAllowed) {
             return;
         }
-        this.router.navigate(['/gta6-map-online']);
+        this.router.navigate(['/gta6-map-online']).catch(err => console.error('[Home] Error al navegar al mapa de GTA 6:', err));
     }
 
     goToGta5Guia(event?: Event): void {
         if (event) {
             event.preventDefault();
         }
-        this.router.navigate(['/gta5-guia-online']);
+        this.router.navigate(['/gta5-guia-online']).catch(err => console.error('[Home] Error al navegar a la guía de GTA 5:', err));
     }
 
     goToGta6Guia(event?: Event): void {
         if (event) {
             event.preventDefault();
         }
-        this.router.navigate(['/gta6-guia-offline']);
+        this.router.navigate(['/gta6-guia-offline']).catch(err => console.error('[Home] Error al navegar a la guía de GTA 6:', err));
     }
 
     toggleFeedbackPanel(event?: Event): void {

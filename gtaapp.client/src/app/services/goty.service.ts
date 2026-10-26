@@ -335,7 +335,7 @@ export class GotyService {
         let isAngry = false;
 
         if (bestIntent && bestIntent.responses.length > 0) {
-          const randomIndex = Math.floor(Math.random() * bestIntent.responses.length);
+          const randomIndex = crypto.getRandomValues(new Uint32Array(1))[0] % bestIntent.responses.length;
           let rawText = bestIntent.responses[randomIndex];
           if (rawText.includes('[ANGRY]') || bestIntent.isAngry) {
             isAngry = true;

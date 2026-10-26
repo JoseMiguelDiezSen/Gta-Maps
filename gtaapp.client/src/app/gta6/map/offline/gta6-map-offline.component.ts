@@ -462,9 +462,9 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
     switchGame(game: string): void {
         this.selectedGame = game;
         if (game === 'gta5') {
-            this.router.navigate(['/gta5-map-offline']);
+            this.router.navigate(['/gta5-map-offline']).catch(err => console.error('[GTA6 Historia] Error en la navegación entre mapas:', err));
         } else {
-            this.router.navigate(['/gta6-map-offline']);
+            this.router.navigate(['/gta6-map-offline']).catch(err => console.error('[GTA6 Historia] Error en la navegación entre mapas:', err));
         }
     }
 
@@ -537,7 +537,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
             navigator.clipboard.writeText(text).then(() => {
                 this.coordsCopied = true;
                 setTimeout(() => this.coordsCopied = false, 1800);
-            });
+            }).catch(err => console.error('[GTA6 Historia] Error al copiar coordenadas al portapapeles:', err));
         }
     }
 
@@ -697,7 +697,7 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
             const num = this.userCustomMarkers.length + 1;
             const defaultName = (this.translationService.currentLang === 'es' ? 'Marcador ' : 'Marker ') + num;
             const newMarker = {
-                id: 'cm_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9),
+                id: 'cm_' + Date.now() + '_' + crypto.randomUUID(),
                 name: defaultName,
                 color: 'red',
                 x: this.ctxWorldX !== undefined ? this.ctxWorldX : 1200,
@@ -734,11 +734,11 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
                 if (Array.isArray(parsed)) {
                     this.userCustomMarkers = parsed.map((item, idx) => ({
                         ...item,
-                        id: item.id || ('cm_' + Date.now() + '_' + idx + '_' + Math.random().toString(36).substring(2, 7)),
+                        id: item.id || ('cm_' + Date.now() + '_' + idx + '_' + crypto.randomUUID()),
                         name: item.name || ((this.translationService.currentLang === 'es' ? 'Marcador ' : 'Marker ') + (idx + 1)),
                         color: item.color || 'red',
-                        x: typeof item.x === 'number' ? item.x : (parseFloat(item.x) || 1200),
-                        y: typeof item.y === 'number' ? item.y : (parseFloat(item.y) || 675),
+                        x: typeof item.x === 'number' ? item.x : (Number.parseFloat(item.x) || 1200),
+                        y: typeof item.y === 'number' ? item.y : (Number.parseFloat(item.y) || 675),
                         visible: item.visible !== false
                     }));
                 }

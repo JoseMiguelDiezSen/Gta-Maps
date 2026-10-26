@@ -1242,7 +1242,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 break;
             case 'marcador':
                 if (this.ctxLatLng && this.playerMarkersLayer) {
-                    const id = 'custom-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
+                    const id = 'custom-' + Date.now() + '-' + crypto.randomUUID();
                     const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
                     const world = this.latLngToWorld(this.ctxLatLng.lat, this.ctxLatLng.lng);
                     const m = L.marker(this.ctxLatLng, { icon: this.createPushpinIcon('red') });
@@ -1359,7 +1359,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 const isVisible = item.visible !== false;
                 const m = L.marker(latLng, { icon: this.createPushpinIcon(color) });
                 const markerObj = {
-                    id: item.id || ('custom-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9)),
+                    id: item.id || ('custom-' + Date.now() + '-' + crypto.randomUUID()),
                     name: item.name || 'Marcador',
                     marker: m,
                     latLng: latLng,

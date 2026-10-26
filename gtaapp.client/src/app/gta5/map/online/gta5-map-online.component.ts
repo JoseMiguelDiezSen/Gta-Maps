@@ -526,9 +526,9 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     switchGame(game: string): void {
         this.selectedGame = game;
         if (game === 'gta6') {
-            this.router.navigate(['/gta6-map-online']);
+            this.router.navigate(['/gta6-map-online']).catch(err => console.error('[Online] Error en la navegación entre mapas:', err));
         } else {
-            this.router.navigate(['/gta5-map-online']);
+            this.router.navigate(['/gta5-map-online']).catch(err => console.error('[Online] Error en la navegación entre mapas:', err));
         }
     }
 
@@ -668,7 +668,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 break;
             case 'marcador':
                 if (this.ctxLatLng && this.playerMarkersLayer) {
-                    const id = 'custom-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
+                    const id = 'custom-' + Date.now() + '-' + crypto.randomUUID();
                     const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
                     const customIcon = this.createPushpinIcon('red');
                     const m = L.marker(this.ctxLatLng, { icon: customIcon });
@@ -893,7 +893,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             navigator.clipboard.writeText(text).then(() => {
                 this.coordsCopied = true;
                 setTimeout(() => this.coordsCopied = false, 1800);
-            });
+            }).catch(err => console.error('[Online] Error al copiar coordenadas al portapapeles:', err));
         }
     }
 
@@ -934,10 +934,10 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             for (const item of parsed) {
                 let wx: number;
                 let wy: number;
-                if (typeof item.x === 'number' && typeof item.y === 'number' && !isNaN(item.x) && !isNaN(item.y)) {
+                if (typeof item.x === 'number' && typeof item.y === 'number' && !Number.isNaN(item.x) && !Number.isNaN(item.y)) {
                     wx = item.x;
                     wy = item.y;
-                } else if (typeof item.lat === 'number' && typeof item.lng === 'number' && !isNaN(item.lat) && !isNaN(item.lng)) {
+                } else if (typeof item.lat === 'number' && typeof item.lng === 'number' && !Number.isNaN(item.lat) && !Number.isNaN(item.lng)) {
                     const derived = this.latLngToWorld(item.lat, item.lng);
                     wx = derived.x;
                     wy = derived.y;
@@ -951,7 +951,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 const isVisible = item.visible !== false;
                 const m = L.marker(latLng, { icon: this.createPushpinIcon(color) });
                 const markerObj = {
-                    id: item.id || ('custom-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9)),
+                    id: item.id || ('custom-' + Date.now() + '-' + crypto.randomUUID()),
                     name: item.name || 'Marcador',
                     marker: m,
                     latLng: latLng,

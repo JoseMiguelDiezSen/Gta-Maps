@@ -11,7 +11,8 @@ namespace GTAAPP.Server.Services;
 /// </summary>
 public class VehiclesService
 {
-    private static readonly Regex SafeLangRegex = new(@"^[a-z]{2,5}$", RegexOptions.Compiled);
+    private static readonly Regex SafeLangRegex = new(@"^[a-z]{2,5}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
+    private static readonly JsonSerializerOptions JsonOptions = new() { PropertyNameCaseInsensitive = true };
 
     /// <summary>
     /// Entorno de alojamiento para resolver rutas físicas hacia wwwroot.
@@ -132,12 +133,11 @@ public class VehiclesService
 
                     try
                     {
-                        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                         var combined = new List<GtaVehicle>();
                         foreach (var file in files)
                         {
                             using var s = File.OpenRead(file);
-                            var subList = JsonSerializer.Deserialize<List<GtaVehicle>>(s, options);
+                            var subList = JsonSerializer.Deserialize<List<GtaVehicle>>(s, JsonOptions);
                             if (subList != null)
                             {
                                 foreach (var v in subList)
@@ -189,9 +189,8 @@ public class VehiclesService
 
             try
             {
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 using var stream = File.OpenRead(fullPath);
-                var list = JsonSerializer.Deserialize<List<GtaVehicle>>(stream, options) ?? [];
+                var list = JsonSerializer.Deserialize<List<GtaVehicle>>(stream, JsonOptions) ?? [];
                 foreach (var v in list)
                 {
                     if (!string.IsNullOrEmpty(v.ImageUrl) && v.ImageUrl.Contains("/assets/images/gta5/marcadores-mapa/"))
