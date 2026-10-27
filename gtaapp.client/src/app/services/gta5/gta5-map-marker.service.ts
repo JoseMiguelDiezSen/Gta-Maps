@@ -8,6 +8,7 @@ export interface LocationPopupOptions {
     pointOfInterestLabel: string;
     incomeLabel?: string;
     buyerLabel?: string;
+    robbableStoreLabel?: string;
 }
 
 @Injectable({
@@ -21,6 +22,7 @@ export class Gta5MapMarkerService {
         const isShipwreck = p.category === 'shipwreck';
         const isAnimal = p.category === 'animal' || (p.id && p.id.startsWith('animal-')) || p.categoryLabel === 'Fauna Salvaje';
         const isPublicService = p.category === 'hospital' || p.category === 'police_station' || p.category === 'fire_station';
+        const isConvenienceStore = p.category === 'convenience_store';
 
         const card = document.createElement('div');
         card.className = 'gta-popup-card';
@@ -76,6 +78,14 @@ export class Gta5MapMarkerService {
             tagBadge.textContent = p.categoryLabel;
             tagBox.appendChild(tagBadge);
             content.appendChild(tagBox);
+        } else if (isConvenienceStore) {
+            const tagBox = document.createElement('div');
+            tagBox.className = 'popup-service-tag-box popup-shipwreck-box';
+            const tagBadge = document.createElement('span');
+            tagBadge.className = 'service-type-badge';
+            tagBadge.textContent = options.robbableStoreLabel || 'Tienda atracable';
+            tagBox.appendChild(tagBadge);
+            content.appendChild(tagBox);
         } else if (isPurchasable) {
             const priceBox = document.createElement('div');
             priceBox.className = 'popup-price-box';
@@ -129,7 +139,21 @@ export class Gta5MapMarkerService {
         if (p.description) {
             const desc = document.createElement('p');
             desc.className = 'popup-desc';
-            desc.textContent = p.description;
+            const spanMatch = p.description.match(/^(.*?)<span[^>]*>([^<]*)<\/span>/s);
+            if (spanMatch) {
+                const textNode = document.createTextNode(spanMatch[1]);
+                const spanNode = document.createElement('span');
+                spanNode.style.display = 'block';
+                spanNode.style.marginTop = '6px';
+                spanNode.style.paddingLeft = '8px';
+                spanNode.style.color = '#3498db';
+                spanNode.style.fontSize = '11px';
+                spanNode.style.fontWeight = '500';
+                spanNode.textContent = spanMatch[2];
+                desc.append(textNode, spanNode);
+            } else {
+                desc.textContent = p.description;
+            }
             content.appendChild(desc);
         }
 

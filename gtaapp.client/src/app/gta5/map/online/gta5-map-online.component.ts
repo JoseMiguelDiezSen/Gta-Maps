@@ -356,25 +356,25 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         low_apartment: false,
         garage: false,
         purchasable_business: true,
-        hangar: true,
-        coke_lockup: true,
-        weed_farm: true,
-        meth_lab: true,
-        cash_factory: true,
-        doc_forgery: true,
-        bunker: true,
-        facility: true,
-        bail_office: true,
+        hangar: false,
+        coke_lockup: false,
+        weed_farm: false,
+        meth_lab: false,
+        cash_factory: false,
+        doc_forgery: false,
+        bunker: false,
+        facility: false,
+        bail_office: false,
         auto_shop: true,
         agency: true,
         salvage_yard: true,
-        arena_war: true,
+        arena_war: false,
         vehicle_warehouse: true,
         warehouse: true,
-        nightclub: true,
-        arcade: true,
+        nightclub: false,
+        arcade: false,
         ceo_office: true,
-        mc_business: true,
+        mc_business: false,
         ls_customs: false,
         bennys: false,
         hao_garage: false,
@@ -719,10 +719,13 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 break;
             case 'borrar_este_marcador':
                 if (this.targetCustomMarker && this.playerMarkersLayer) {
+                    this.targetCustomMarker.marker.closePopup();
+                    this.map?.closePopup();
                     this.playerMarkersLayer.removeLayer(this.targetCustomMarker.marker);
                     this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== this.targetCustomMarker!.id);
                     this.targetCustomMarker = null;
                     this.saveCustomMarkers();
+                    this.cdr.detectChanges();
                 }
                 break;
             case 'borrar':
@@ -1136,11 +1139,17 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         deleteBtn.type = 'button';
         deleteBtn.className = 'btn-marker-action btn-marker-delete btn-pin-delete';
         deleteBtn.setAttribute('data-marker-id', item.id);
-        deleteBtn.style.cssText = 'width: 100%; padding: 4px 6px; font-size: 10px;';
+        deleteBtn.style.cssText = 'width: 100%; padding: 4px 6px; font-size: 10px; cursor: pointer;';
         const trashSpan = document.createElement('span');
         trashSpan.textContent = '🗑️';
         deleteBtn.appendChild(trashSpan);
         deleteBtn.appendChild(document.createTextNode(` ${deleteLbl}`));
+        L.DomEvent.disableClickPropagation(deleteBtn);
+        deleteBtn.onclick = (ev: MouseEvent) => {
+            ev.stopPropagation();
+            ev.preventDefault();
+            this.onDeleteCustomMarker(item.id);
+        };
         actionsDiv.appendChild(deleteBtn);
         card.appendChild(actionsDiv);
 
@@ -1261,6 +1270,8 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     private onDeleteCustomMarker(id: string): void {
         const found = this.userCustomMarkers.find(m => m.id === id);
         if (found && this.playerMarkersLayer) {
+            found.marker.closePopup();
+            this.map?.closePopup();
             this.playerMarkersLayer.removeLayer(found.marker);
             this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== id);
             if (this.targetCustomMarker?.id === id) {
@@ -1548,7 +1559,9 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         }
 
         this.renderDistrictLabels();
-        this.updateIconStyle(); this.loadCustomMarkers();
+        this.updateIconStyle();
+        this.loadCustomMarkers();
+        this.bindCustomMarkerEvents();
 
         this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
             this.mouseCoords = this.latLngToWorld(e.latlng.lat, e.latlng.lng);
@@ -1961,7 +1974,8 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 priceLabel: this.translationService.t('gta5.popups.price'),
                 pointOfInterestLabel: this.translationService.t('gta5.popups.pointOfInterest'),
                 incomeLabel: this.translationService.t('gta5.popups.income'),
-                buyerLabel: this.translationService.t('gta5.popups.buyer')
+                buyerLabel: this.translationService.t('gta5.popups.buyer'),
+                robbableStoreLabel: this.translationService.t('gta5.popups.robbableStore')
             });
 
             const tooltipEl = document.createElement('div');

@@ -520,6 +520,8 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
     private onDeleteCustomMarker(id: string): void {
         const found = this.userCustomMarkers.find(m => m.id === id);
         if (found && this.playerMarkersLayer) {
+            found.marker.closePopup();
+            this.map?.closePopup();
             this.playerMarkersLayer.removeLayer(found.marker);
             this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== id);
             if (this.targetCustomMarker?.id === id) {
@@ -981,7 +983,8 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
 
             const popupHtml = this.mapMarkerService.buildLocationPopupHtml(p, {
                 priceLabel: this.translationService.t('gta5.popups.price'),
-                pointOfInterestLabel: this.translationService.t('gta5.popups.pointOfInterest')
+                pointOfInterestLabel: this.translationService.t('gta5.popups.pointOfInterest'),
+                robbableStoreLabel: this.translationService.t('gta5.popups.robbableStore')
             });
 
             const tooltipEl = document.createElement('div');
@@ -1292,10 +1295,13 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 break;
             case 'borrar_este_marcador':
                 if (this.targetCustomMarker && this.playerMarkersLayer) {
+                    this.targetCustomMarker.marker.closePopup();
+                    this.map?.closePopup();
                     this.playerMarkersLayer.removeLayer(this.targetCustomMarker.marker);
                     this.userCustomMarkers = this.userCustomMarkers.filter(m => m.id !== this.targetCustomMarker!.id);
                     this.targetCustomMarker = null;
                     this.saveCustomMarkers();
+                    this.cdr.detectChanges();
                 }
                 break;
             case 'borrar':
@@ -1617,6 +1623,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         deleteBtn.setAttribute('data-marker-id', item.id);
         deleteBtn.style.cssText = 'width: 100%; padding: 4px 6px; font-size: 10px; cursor: pointer;';
         deleteBtn.textContent = `🗑️ ${deleteLbl}`;
+        L.DomEvent.disableClickPropagation(deleteBtn);
         deleteBtn.onclick = (ev: MouseEvent) => {
             ev.stopPropagation();
             ev.preventDefault();
