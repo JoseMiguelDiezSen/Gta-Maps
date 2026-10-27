@@ -319,7 +319,7 @@
   },
   {
     "id": "store-12785",
-    "name": "Convenience Store #7",
+    "name": "Liquor ACE",
     "price": 0,
     "category": "convenience_store",
     "categoryLabel": "Supermercado 24/7",
@@ -328,19 +328,19 @@
       "symbol": "🏪",
       "color": "#2ecc71"
     },
-    "zone": "Los Santos / Blaine County",
+    "zone": "Alamo Sea / Sandy Shores",
     "position": {
-      "x": 1420.3,
-      "y": 3590.9,
+      "x": 1392.6,
+      "y": 3604.4,
       "z": 20
     },
-    "description": "Tienda de ultramarinos 24/7 en Los Santos / Blaine County. Aperitivos y bebidas para recuperar vida, cajero ATM y caja registradora.",
+    "description": "Licorería Liquor ACE en Alamo Sea. Aperitivos, bebidas y el laboratorio clandestino de Trevor Philips Enterprises.",
     "features": [
       "Snacks y refrescos restauradores de salud",
-      "Máquina expendedora de Sprunk",
-      "Atracar al cajero para conseguir dinero al instante"
+      "Licorería y ultramarinos",
+      "Sede de Trevor Philips Enterprises"
     ],
-    "priceFormatted": "Supermercado 24/7",
+    "priceFormatted": "Licorería",
     "imageUrl": "/assets/images/gta5/marcadores-mapa/services/247-GTAVee-BarbarenoRd.png"
   },
   {
@@ -356,8 +356,8 @@
     },
     "zone": "Los Santos / Blaine County",
     "position": {
-      "x": 1995.3,
-      "y": 3729.7,
+      "x": 1963.4,
+      "y": 3749.8,
       "z": 20
     },
     "description": "Tienda de ultramarinos 24/7 en Los Santos / Blaine County. Aperitivos y bebidas para recuperar vida, cajero ATM y caja registradora.",
@@ -382,8 +382,8 @@
     },
     "zone": "Los Santos / Blaine County",
     "position": {
-      "x": 2706.6,
-      "y": 3251.3,
+      "x": 2675.1,
+      "y": 3276.2,
       "z": 20
     },
     "description": "Tienda de ultramarinos 24/7 en Los Santos / Blaine County. Aperitivos y bebidas para recuperar vida, cajero ATM y caja registradora.",
@@ -408,8 +408,8 @@
     },
     "zone": "Los Santos / Blaine County",
     "position": {
-      "x": 1735.3,
-      "y": 4903.2,
+      "x": 1702.4,
+      "y": 4929.3,
       "z": 20
     },
     "description": "Tienda de ultramarinos 24/7 en Los Santos / Blaine County. Aperitivos y bebidas para recuperar vida, cajero ATM y caja registradora.",
@@ -1096,8 +1096,8 @@
     ],
     "income": "Servicio de Emergencias",
     "position": {
-      "x": -247.1,
-      "y": 6331.2,
+      "x": -249.7,
+      "y": 6319.9,
       "z": 32.4
     },
     "badge": {
@@ -1280,6 +1280,106 @@
     "imageUrl": "/assets/images/gta5/marcadores-mapa/services/VespucciMoviemasks-Front-GTAV.png"
   },
   {
+    "id": "barber-paleto",
+    "name": "Peluquería (Paleto Bay)",
+    "category": "barber",
+    "categoryLabel": "Peluquería",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Peluquería",
+    "zone": "Paleto Bay",
+    "description": "Peluquería en Paleto Bay.",
+    "features": [
+      "Peluquería"
+    ],
+    "position": {
+      "x": -278.1,
+      "y": 6226.5,
+      "z": 31.5
+    },
+    "badge": {
+      "icon": "scissors",
+      "color": "#d97706",
+      "symbol": "✂️"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Paleto-Bay.jpg"
+  },
+  {
+    "id": "barber-sandyshores",
+    "name": "Peluquería (Sandy Shores)",
+    "category": "barber",
+    "categoryLabel": "Peluquería",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Peluquería",
+    "zone": "Sandy Shores",
+    "description": "Barbería y peluquería en Sandy Shores.",
+    "features": [
+      "Peluquería"
+    ],
+    "position": {
+      "x": 1929.9,
+      "y": 3724.8,
+      "z": 32.8
+    },
+    "badge": {
+      "icon": "scissors",
+      "color": "#d97706",
+      "symbol": "✂️"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Sandy-Shores.jpg"
+  },
+  {
+    "id": "tattoo-paleto",
+    "name": "Salón de Tatuajes (Paleto Bay)",
+    "category": "tattoo",
+    "categoryLabel": "Salón de Tatuajes",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Tatuajes",
+    "zone": "Paleto Bay",
+    "description": "Salón de tatuajes en Paleto Bay.",
+    "features": [
+      "Tatuajes"
+    ],
+    "position": {
+      "x": -279.7,
+      "y": 6185.1,
+      "z": 31.5
+    },
+    "badge": {
+      "icon": "pen-nib",
+      "color": "#8b5cf6",
+      "symbol": "💉"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Salon-Tatuajes-Paleto-Bay.jpg"
+  },
+  {
+    "id": "tattoo-sandyshores",
+    "name": "Salón de Tatuajes (Sandy Shores)",
+    "category": "tattoo",
+    "categoryLabel": "Salón de Tatuajes",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Tatuajes",
+    "zone": "Sandy Shores",
+    "description": "Salón de tatuajes en Sandy Shores.",
+    "features": [
+      "Tatuajes"
+    ],
+    "position": {
+      "x": 1863.9,
+      "y": 3753.2,
+      "z": 33.0
+    },
+    "badge": {
+      "icon": "pen-nib",
+      "color": "#8b5cf6",
+      "symbol": "💉"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Salon-Tatuajes-Sandy-Shores.jpg"
+  },
+  {
     "id": "tattoo-chumash",
     "name": "Salón de Tatuajes (Chumash)",
     "category": "tattoo",
@@ -1355,5 +1455,31 @@
       "symbol": "👕"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Suburban-Chumash.jpg"
+  },
+  {
+    "id": "clothing-grapeseed",
+    "name": "Tienda de Ropa (Grapeseed)",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Discount Store",
+    "zone": "Grapeseed",
+    "description": "Tienda de la franquicia Discount Store en Grapeseed. Ropa de trabajo, camisas y estilo rústico.",
+    "features": [
+      "Discount Store",
+      "Moda Informal"
+    ],
+    "position": {
+      "x": 1694.2,
+      "y": 4823.1,
+      "z": 42.0
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/DiscountStore-Grapeseed.jpg"
   }
 ]

@@ -153,25 +153,25 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
     // -----------------------------------------------------------------------
     layerFilters: { [key: string]: boolean } = {
         // Casas de protagonistas
-        safehouse_michael:    true,
-        safehouse_franklin:   true,
-        safehouse_trevor:     true,
+        safehouse_michael:    false,
+        safehouse_franklin:   false,
+        safehouse_trevor:     false,
         // Negocios comprables historia
-        purchasable_business: false,
+        purchasable_business: true,
         // Talleres
         ls_customs:  false,
         hao_garage:  false,
         // Servicios
-        police_station:    true,
-        hospital:          true,
-        fire_station:      true,
-        service:           true,
-        convenience_store: true,
-        mask_shop:         true,
-        car_wash:          true,
-        strip_club:        true,
-        barber:            true,
-        tattoo:            true,
+        police_station:    false,
+        hospital:          false,
+        fire_station:      false,
+        service:           false,
+        convenience_store: false,
+        mask_shop:         false,
+        car_wash:          false,
+        strip_club:        false,
+        barber:            false,
+        tattoo:            false,
         // Actividades
         activity: false,
         golf: false,
@@ -182,9 +182,9 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         knife_flight: false,
         parachuting: false,
         // Lugares extraños
-        fake_ufo:   true,
-        shipwreck:  true,
-        cave:       true,
+        fake_ufo:   false,
+        shipwreck:  false,
+        cave:       false,
         // Coleccionables de Historia
         letter_scrap:   false,
         spaceship_part: false,
@@ -686,6 +686,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         this.playerMarkersLayer = L.layerGroup().addTo(this.map);
         this.collectibleMarkersLayer = L.layerGroup().addTo(this.map);
 
+        this.bindCustomMarkerEvents();
         this.renderDistrictLabels();
         this.loadProperties();
         this.loadCollectibles();
@@ -1614,8 +1615,13 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         deleteBtn.type = 'button';
         deleteBtn.className = 'btn-marker-action btn-marker-delete btn-pin-delete';
         deleteBtn.setAttribute('data-marker-id', item.id);
-        deleteBtn.style.cssText = 'width: 100%; padding: 4px 6px; font-size: 10px;';
+        deleteBtn.style.cssText = 'width: 100%; padding: 4px 6px; font-size: 10px; cursor: pointer;';
         deleteBtn.textContent = `🗑️ ${deleteLbl}`;
+        deleteBtn.onclick = (ev: MouseEvent) => {
+            ev.stopPropagation();
+            ev.preventDefault();
+            this.onDeleteCustomMarker(item.id);
+        };
         actionsDiv.appendChild(deleteBtn);
         card.appendChild(actionsDiv);
 
