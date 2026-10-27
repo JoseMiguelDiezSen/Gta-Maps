@@ -14,7 +14,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -599,10 +599,10 @@ function analyzeCodeQualityAndHardcoding() {
 function runAngularEslint() {
   const issues = [];
   try {
-    const cmd = 'npx eslint "src/**/*.ts" "src/**/*.html" -f json';
+    const eslintJs = path.join(CLIENT_DIR, 'node_modules', 'eslint', 'bin', 'eslint.js');
     let stdout = '';
     try {
-      stdout = execSync(cmd, { cwd: CLIENT_DIR, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], maxBuffer: 25 * 1024 * 1024 });
+      stdout = execFileSync(process.execPath, [eslintJs, 'src/**/*.ts', 'src/**/*.html', '-f', 'json'], { cwd: CLIENT_DIR, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], maxBuffer: 25 * 1024 * 1024 });
     } catch (err) {
       // ESLint devuelve exit code 1 cuando encuentra errores, pero emite el JSON en stdout
       stdout = err.stdout || '[]';
@@ -662,7 +662,8 @@ function runBuildChecks() {
   // Siempre ejecutamos TypeScript TypeCheck rápido (tsc --noEmit) porque tarda ~2-3s y valida compilación TS sin escribir a disco
   const t0 = Date.now();
   try {
-    execSync('npx tsc --noEmit -p tsconfig.app.json', { cwd: CLIENT_DIR, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
+    const tscJs = path.join(CLIENT_DIR, 'node_modules', 'typescript', 'bin', 'tsc');
+    execFileSync(process.execPath, [tscJs, '--noEmit', '-p', 'tsconfig.app.json'], { cwd: CLIENT_DIR, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
     results.angularTypeCheck = { executed: true, success: true, durationMs: Date.now() - t0, output: 'Compilación TypeScript (tsconfig.app.json) limpia: 0 errores.' };
   } catch (err) {
     results.angularTypeCheck = {
@@ -676,7 +677,10 @@ function runBuildChecks() {
   if (WITH_BUILD) {
     const b0 = Date.now();
     try {
-      const out = execSync('dotnet build GTAAPP.Server/GTAAPP.Server.csproj --no-restore -v minimal', {
+      const dotnetBin = process.platform === 'win32'
+        ? path.join(process.env.ProgramFiles || 'C:\\Program Files', 'dotnet', 'dotnet.exe')
+        : '/usr/share/dotnet/dotnet';
+      const out = execFileSync(dotnetBin, ['build', 'GTAAPP.Server/GTAAPP.Server.csproj', '--no-restore', '-v', 'minimal'], {
         cwd: ROOT_DIR,
         encoding: 'utf8',
         stdio: ['pipe', 'pipe', 'pipe'],

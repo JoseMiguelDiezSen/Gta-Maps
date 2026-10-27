@@ -152,10 +152,10 @@ public class SecurityHeadersMiddleware
             var headers = context.Response.Headers;
 
             // 1. Evita Clickjacking (Iframe embedding no autorizado en cualquier sitio)
-            headers["X-Frame-Options"] = "DENY";
+            headers.XFrameOptions = "DENY";
 
             // 2. Previene MIME-type sniffing asegurando charset=utf-8 para evitar corrupción de idioma (mojibake)
-            headers["X-Content-Type-Options"] = "nosniff";
+            headers.XContentTypeOptions = "nosniff";
 
             // Asegura que las respuestas de texto, JSON o JS declaren explícitamente charset=utf-8
             var ct = context.Response.ContentType;
@@ -177,7 +177,7 @@ public class SecurityHeadersMiddleware
             headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), vr=()";
 
             // 5. Deshabilita el auditor XSS antiguo de navegadores obsoletos en favor de una CSP moderna
-            headers["X-XSS-Protection"] = "0";
+            headers.XXSSProtection = "0";
 
             // 6. Prohíbe políticas entre dominios de Adobe Flash / Silverlight / PDFs externos
             headers["X-Permitted-Cross-Domain-Policies"] = "none";
@@ -198,7 +198,7 @@ public class SecurityHeadersMiddleware
                           "form-action 'self';" +
                           (context.Request.IsHttps ? " upgrade-insecure-requests;" : "");
 
-                headers["Content-Security-Policy"] = csp;
+                headers.ContentSecurityPolicy = csp;
             }
 
             // 8. Ocultar información técnica del servidor para no exponer la versión de Kestrel o ASP.NET
@@ -211,9 +211,9 @@ public class SecurityHeadersMiddleware
             {
                 if (!headers.ContainsKey("Cache-Control"))
                 {
-                    headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
-                    headers["Pragma"] = "no-cache";
-                    headers["Expires"] = "0";
+                    headers.CacheControl = "no-cache, no-store, must-revalidate";
+                    headers.Pragma = "no-cache";
+                    headers.Expires = "0";
                 }
             }
 

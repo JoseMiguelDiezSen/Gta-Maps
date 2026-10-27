@@ -15,9 +15,11 @@ namespace GTAAPP.Server.Controllers;
 [ApiController]
 [Route("api/vehicles")]
 [EnableRateLimiting("data-policy")]
-public class VehiclesController : ControllerBase
+public partial class VehiclesController : ControllerBase
 {
-    private static readonly Regex SafeQueryRegex = new(@"^[a-zA-Z0-9_\-]+$", RegexOptions.Compiled);
+    [GeneratedRegex(@"^[a-zA-Z0-9_\-]+$", RegexOptions.None, matchTimeoutMilliseconds: 1000)]
+    private static partial Regex GetSafeQueryRegex();
+    private static readonly Regex SafeQueryRegex = GetSafeQueryRegex();
 
     private readonly VehiclesService _service;
 

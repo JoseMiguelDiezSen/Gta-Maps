@@ -24,7 +24,10 @@ if (!fs.existsSync(baseFolder)) {
 }
 
 if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
-  spawn('dotnet', [
+  const dotnetCmd = process.platform === 'win32'
+    ? path.join(process.env.ProgramFiles || 'C:\\Program Files', 'dotnet', 'dotnet.exe')
+    : '/usr/share/dotnet/dotnet';
+  spawn(dotnetCmd, [
     'dev-certs',
     'https',
     '--export-path',

@@ -32,19 +32,19 @@ export class GotyComponent implements OnInit, OnDestroy {
   private replySub?: Subscription;
 
   private static readonly SUBTITLES: Record<string, string> = {
-    es: 'Asistente de GTA Maps',
-    en: 'GTA Maps Assistant',
-    pt: 'Assistente do GTA Maps',
-    zh: 'GTA Maps 官方向导',
-    fr: 'Assistant GTA Maps',
-    de: 'GTA Maps Assistent',
-    it: 'Assistente GTA Maps',
-    ru: 'Ассистент GTA Maps',
-    ar: 'مساعد GTA Maps',
-    ja: 'GTA Maps アシスタント',
-    hi: 'GTA Maps सहायक',
-    tr: 'GTA Maps Asistanı',
-    ko: 'GTA Maps 어시스턴트'
+    es: 'Asistente de GTA Explorer',
+    en: 'GTA Explorer Assistant',
+    pt: 'Assistente do GTA Explorer',
+    zh: 'GTA Explorer 官方向导',
+    fr: 'Assistant GTA Explorer',
+    de: 'GTA Explorer Assistent',
+    it: 'Assistente GTA Explorer',
+    ru: 'Ассистент GTA Explorer',
+    ar: 'مساعد GTA Explorer',
+    ja: 'GTA Explorer アシスタント',
+    hi: 'GTA Explorer सहायक',
+    tr: 'GTA Explorer Asistanı',
+    ko: 'GTA Explorer 어시스턴트'
   };
 
   private static readonly UI_STRINGS: Record<string, { placeholder: (b: string) => string; talk: (b: string) => string; send: string; close: string }> = {

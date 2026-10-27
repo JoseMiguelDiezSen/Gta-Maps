@@ -14,7 +14,7 @@ const routes: Routes = [
     data: {
       titleKey: 'seo.gta6OnlineTitle',
       descriptionKey: 'seo.gta6OnlineDesc',
-      title: 'Mapa GTA VI Online Vice City Ultra HD - Mapa Interactivo y Novedades | GTA MAPS',
+      title: 'Mapa GTA VI Online | GTA Explorer',
       description: 'Mapa interactivo en HD de GTA 6 Online en Vice City y Leonida. Puntos de interés, carreteras, secretos, noticias y novedades.',
       canonical: 'https://gtaexplorer.com/gta6-map-online'
     }
@@ -25,7 +25,7 @@ const routes: Routes = [
     data: {
       titleKey: 'seo.gta6HistoriaTitle',
       descriptionKey: 'seo.gta6HistoriaDesc',
-      title: 'Mapa GTA VI Modo Historia - Guía de Vice City, Jason & Lucia | GTA MAPS',
+      title: 'Mapa GTA VI Modo Historia | GTA Explorer',
       description: 'Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Mapa HD de Vice City, Misiones, Coleccionables y secretos.',
       canonical: 'https://gtaexplorer.com/gta6-map-offline'
     }
@@ -36,7 +36,7 @@ const routes: Routes = [
     data: {
       titleKey: 'seo.gta6GuiaTitle',
       descriptionKey: 'seo.gta6GuiaDesc',
-      title: 'Guía GTA VI - Base de Datos, Jason & Lucia y Estado de Leonida | GTA MAPS',
+      title: 'Guía GTA VI Modo Historia | GTA Explorer',
       description: 'Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.',
       canonical: 'https://gtaexplorer.com/gta6-guia-offline'
     }
@@ -45,7 +45,8 @@ const routes: Routes = [
     path: 'gta6-guia-online',
     component: Gta6GuiaOnlineComponent,
     data: {
-      title: 'Guía GTA VI Online | GTA MAPS',
+      titleKey: 'seo.gta6GuiaOnlineTitle',
+      title: 'Guía GTA VI Online | GTA Explorer',
       description: 'Guía específica de GTA VI Online en preparación.',
       canonical: 'https://gtaexplorer.com/gta6-guia-online'
     }
@@ -56,7 +57,7 @@ const routes: Routes = [
     data: {
       titleKey: 'seo.gta6VideosTitle',
       descriptionKey: 'seo.gta6VideosDesc',
-      title: 'Vídeos GTA VI - Clips de Gameplay & Situaciones en Leonida | GTA MAPS',
+      title: 'Vídeos GTA VI | GTA Explorer',
       description: 'Recopilación de vídeos, clips breves de gameplay, situaciones curiosas y surrealistas en Grand Theft Auto VI y el Estado de Leonida.',
       canonical: 'https://gtaexplorer.com/gta6-videos'
     }

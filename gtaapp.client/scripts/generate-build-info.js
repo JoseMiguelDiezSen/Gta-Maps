@@ -1,10 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
+
+const gitBin = process.platform === 'win32'
+  ? path.join(process.env.ProgramFiles || 'C:\\Program Files', 'Git', 'cmd', 'git.exe')
+  : '/usr/bin/git';
 
 function getGitCommitHash() {
   try {
-    return execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim();
+    return execFileSync(gitBin, ['rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim();
   } catch {
     return 'dev';
   }
@@ -12,7 +16,7 @@ function getGitCommitHash() {
 
 function getCommitDate() {
   try {
-    const gitDate = execSync('git log -1 --format="%cd" --date=format:"%d/%m/%Y %H:%M"', { encoding: 'utf8' }).trim();
+    const gitDate = execFileSync(gitBin, ['log', '-1', '--format=%cd', '--date=format:%d/%m/%Y %H:%M'], { encoding: 'utf8' }).trim();
     if (gitDate) return gitDate;
   } catch {
     // Fallback a hora actual si no hay git

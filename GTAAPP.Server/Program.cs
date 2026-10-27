@@ -212,4 +212,4 @@ app.MapGet("/robots.txt", (IWebHostEnvironment env) =>
 app.MapFallbackToFile("/index.html");
 
 // Inicio del servidor
-app.Run();
+await app.RunAsync();

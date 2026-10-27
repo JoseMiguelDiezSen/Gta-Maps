@@ -12,7 +12,7 @@ namespace GTAAPP.Server.Services
         /// <summary>
         /// Obtiene una respuesta conversacional de GOTY con soporte multi-idioma y personalidad criminal de GTA.
         /// </summary>
-        Task<string> GetChatResponseAsync(string userMessage, string context, string lang = "es");
+        Task<string?> GetChatResponseAsync(string userMessage, string context, string lang = "es");
     }
 
     public class GotyService : IGotyService
@@ -26,7 +26,7 @@ namespace GTAAPP.Server.Services
             _configuration = configuration;
         }
 
-        public async Task<string> GetChatResponseAsync(string userMessage, string context, string lang = "es")
+        public async Task<string?> GetChatResponseAsync(string userMessage, string context, string lang = "es")
         {
             var apiKey = _configuration["Gemini:ApiKey"];
             if (string.IsNullOrEmpty(apiKey))

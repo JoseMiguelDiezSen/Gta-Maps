@@ -12,6 +12,7 @@
   <SonarQubeHostUrl>http://localhost:9000</SonarQubeHostUrl>
   <SonarQubeVersion>26.10.0.133078</SonarQubeVersion>
   <SonarProjectKey>gta_explorer</SonarProjectKey>
+  <SonarProjectVersion>1.1</SonarProjectVersion>
   <AdditionalConfig>
     <ConfigSetting Id="BuildUri" />
     <ConfigSetting Id="UnchangedFilesPath" />
@@ -171,6 +172,8 @@
   </ServerSettings>
   <LocalSettings>
     <Property Name="sonar.host.url">http://localhost:9000</Property>
+    <Property Name="sonar.exclusions">**/node_modules/**,**/dist/**,**/bin/**,**/obj/**,**/wwwroot/**,**/*.spec.ts,**/assets/**</Property>
+    <Property Name="sonar.cpd.exclusions">**/*.css,**/*.scss,**/assets/**,**/wwwroot/**,**/dist/**,**/map/**,**/guia/**,**/goty*/**</Property>
   </LocalSettings>
   <ScannerOptsSettings />
   <AnalyzersSettings>

@@ -177,7 +177,10 @@ namespace GTAAPP.Server.Services
                 await smtpClient.SendAsync(message);
                 await smtpClient.DisconnectAsync(true);
 
-                _logger.LogInformation("Email enviado con éxito a {To}", to);
+                if (_logger.IsEnabled(LogLevel.Information))
+                {
+                    _logger.LogInformation("Email enviado con éxito a {To}", to);
+                }
                 return true;
             }
             catch (Exception ex)

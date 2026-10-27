@@ -16,6 +16,7 @@ namespace GTAAPP.Server.Controllers
     [EnableRateLimiting("feedback-policy")]
     public class FeedbackController : ControllerBase
     {
+        private static readonly JsonSerializerOptions IndentedJsonOptions = new() { WriteIndented = true };
         private readonly ILogger<FeedbackController> _logger;
         private readonly IHostEnvironment _env;
         private readonly GTAAPP.Server.Services.IEmailService _emailService;
@@ -98,11 +99,13 @@ namespace GTAAPP.Server.Controllers
                     var fileName = $"feedback_{now:yyyyMMdd_HHmmss}_{Guid.NewGuid():N}.json";
                     var filePath = Path.Combine(feedbackDir, fileName);
 
-                    var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
-                    var jsonContent = JsonSerializer.Serialize(record, jsonOptions);
+                    var jsonContent = JsonSerializer.Serialize(record, IndentedJsonOptions);
                     await System.IO.File.WriteAllTextAsync(filePath, jsonContent);
 
-                    _logger.LogInformation("Sugerencia guardada correctamente en {FilePath}", filePath);
+                    if (_logger.IsEnabled(LogLevel.Information))
+                    {
+                        _logger.LogInformation("Sugerencia guardada correctamente en {FilePath}", filePath);
+                    }
                 }
                 else
                 {

@@ -241,7 +241,7 @@ export class GuiaService {
         catchError(() => of(this.getFallbackManifest('gta5')))
       );
 
-      const obs$ = this.http.get<GuiaManifest>('/api/gta5/guia/manifest').pipe(
+      const obs$ = this.http.get<GuiaManifest>('/api/gta5/guia/manifest', { params: new HttpParams().set('lang', lang) }).pipe(
         map(manifest => {
           if (!manifest || !manifest.secciones || manifest.secciones.length === 0 || !manifest.secciones.some(s => s.articulos && s.articulos.length > 0)) {
             throw new Error('Empty manifest or sections without articles from API');
@@ -394,7 +394,7 @@ export class GuiaService {
     }
 
     if (juegoId === 'gta5') {
-      return this.http.get<GuiaArticulo>(`/api/gta5/guia/articulos/${encodeURIComponent(articuloId)}`).pipe(
+      return this.http.get<GuiaArticulo>(`/api/gta5/guia/articulos/${encodeURIComponent(articuloId)}`, { params: new HttpParams().set('lang', this.translationService ? this.translationService.currentLang : 'es') }).pipe(
         switchMap(apiArticulo => {
           if (apiArticulo && apiArticulo.imagen) {
             return of(apiArticulo);
@@ -509,7 +509,7 @@ export class GuiaService {
    * Busca artículos en la guía
    */
   buscarArticulos(juegoId: 'gta5' | 'gta6' | 'gta6-online', query: string): Observable<GuiaArticuloResumen[]> {
-    const params = new HttpParams().set('q', query);
+    const params = new HttpParams().set('q', query).set('lang', this.translationService ? this.translationService.currentLang : 'es');
     return this.http.get<GuiaArticuloResumen[]>(`/api/${juegoId}/guia/buscar`, { params }).pipe(
       catchError(() => {
         const q = (query || '').toLowerCase().trim();

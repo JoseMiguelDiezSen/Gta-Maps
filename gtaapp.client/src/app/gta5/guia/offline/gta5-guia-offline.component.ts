@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener, inject } from '@angular/core';
-import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../../models/guia';
@@ -39,7 +39,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   searchResults: GuiaArticuloResumen[] = [];
   isLoading: boolean = true;
   isLoadingArticulo: boolean = false;
-  renderedContent: SafeHtml = '';
+  renderedContent: string = '';
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
   private toastTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -116,7 +116,6 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   public readonly cookieService = inject(CookieService);
   private readonly titleService = inject(Title);
   private readonly metaService = inject(Meta);
-  private readonly sanitizer = inject(DomSanitizer);
 
   constructor() {
     this.weaponCounts$ = this.guiaService.getArmasGuiaOffline().pipe(
@@ -1323,9 +1322,9 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     );
   }
 
-  private renderMarkdown(raw: string): SafeHtml {
+  private renderMarkdown(raw: string): string {
     if (!raw) {
-      return this.sanitizer.bypassSecurityTrustHtml('');
+      return '';
     }
 
     const root = document.createElement('div');
@@ -1414,7 +1413,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       root.appendChild(currentList);
     }
 
-    return this.sanitizer.bypassSecurityTrustHtml(Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join(''));
+    return Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join('');
   }
 
   private appendInline(parent: HTMLElement, text: string): void {

@@ -31,9 +31,9 @@ public class GTA5GuiaController : ControllerBase
     /// </summary>
     [HttpGet]
     [HttpGet("manifest")]
-    public ActionResult<GuiaManifest> GetManifest()
+    public ActionResult<GuiaManifest> GetManifest([FromQuery] string? lang = null)
     {
-        var manifest = _guiaService.GetGuiaManifest("gta5");
+        var manifest = _guiaService.GetGuiaManifest("gta5", lang);
         return Ok(manifest);
     }
 
@@ -41,9 +41,9 @@ public class GTA5GuiaController : ControllerBase
     /// GET /api/gta5/guia/secciones → Listado de categorías temáticas de la guía.
     /// </summary>
     [HttpGet("secciones")]
-    public ActionResult<List<GuiaSeccion>> GetSecciones()
+    public ActionResult<List<GuiaSeccion>> GetSecciones([FromQuery] string? lang = null)
     {
-        var secciones = _guiaService.GetSecciones("gta5");
+        var secciones = _guiaService.GetSecciones("gta5", lang);
         return Ok(secciones);
     }
 
@@ -51,14 +51,14 @@ public class GTA5GuiaController : ControllerBase
     /// GET /api/gta5/guia/articulos/{id} → Detalle completo de un artículo específico por ID o slug.
     /// </summary>
     [HttpGet("articulos/{id}")]
-    public ActionResult<GuiaArticulo> GetArticulo(string id)
+    public ActionResult<GuiaArticulo> GetArticulo(string id, [FromQuery] string? lang = null)
     {
         if (string.IsNullOrWhiteSpace(id) || id.Length > 80)
         {
             return BadRequest(new { error = "Identificador de artículo no válido." });
         }
 
-        var articulo = _guiaService.GetArticulo("gta5", id.Trim());
+        var articulo = _guiaService.GetArticulo("gta5", id.Trim(), lang);
         if (articulo == null)
         {
             return NotFound(new { error = "Artículo no encontrado en la guía de GTA V." });
@@ -71,7 +71,7 @@ public class GTA5GuiaController : ControllerBase
     /// GET /api/gta5/guia/buscar?q=... → Búsqueda de artículos en la guía de GTA V.
     /// </summary>
     [HttpGet("buscar")]
-    public ActionResult<List<GuiaArticuloResumen>> Buscar([FromQuery] string? q)
+    public ActionResult<List<GuiaArticuloResumen>> Buscar([FromQuery] string? q, [FromQuery] string? lang = null)
     {
         if (string.IsNullOrWhiteSpace(q))
         {
@@ -84,7 +84,7 @@ public class GTA5GuiaController : ControllerBase
             cleanQuery = cleanQuery.Substring(0, 80);
         }
 
-        var resultados = _guiaService.BuscarArticulos("gta5", cleanQuery);
+        var resultados = _guiaService.BuscarArticulos("gta5", cleanQuery, lang);
         return Ok(resultados);
     }
 }

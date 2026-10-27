@@ -10,7 +10,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -18,9 +18,13 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const BASELINE_FILE = path.join(__dirname, 'baseline.json');
 
+const GIT_BIN = process.platform === 'win32'
+  ? path.join(process.env.ProgramFiles || 'C:\\Program Files', 'Git', 'cmd', 'git.exe')
+  : '/usr/bin/git';
+
 function getStagedFiles() {
   try {
-    const out = execSync('git diff --cached --name-only --diff-filter=ACMR', { cwd: ROOT_DIR, encoding: 'utf8' });
+    const out = execFileSync(GIT_BIN, ['diff', '--cached', '--name-only', '--diff-filter=ACMR'], { cwd: ROOT_DIR, encoding: 'utf8' });
     return out.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
   } catch {
     return [];
@@ -63,7 +67,7 @@ function main() {
   // 2. Ejecutar el motor de auditoría completo con barrera de Quality Gate (--gate)
   if (errors.length === 0) {
     try {
-      execSync(`node "${path.join(__dirname, 'audit-runner.mjs')}" --gate`, {
+      execFileSync(process.execPath, [path.join(__dirname, 'audit-runner.mjs'), '--gate'], {
         cwd: ROOT_DIR,
         stdio: 'inherit',
       });

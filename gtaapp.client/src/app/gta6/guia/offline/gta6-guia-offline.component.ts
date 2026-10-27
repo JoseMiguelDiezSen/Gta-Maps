@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener, inject } from '@angular/core';
-import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../../models/guia';
@@ -37,7 +37,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   expandedGrupos: Set<string> = new Set<string>();
   isLoading: boolean = true;
   isLoadingArticulo: boolean = false;
-  renderedContent: SafeHtml = '';
+  renderedContent: string = '';
   articleToc: { id: string; text: string }[] = [];
   readingProgress: number = 0;
   showScrollTop: boolean = false;
@@ -194,7 +194,6 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   public readonly cookieService = inject(CookieService);
   private readonly titleService = inject(Title);
   private readonly metaService = inject(Meta);
-  private readonly sanitizer = inject(DomSanitizer);
 
   constructor() {
     this.dealerCounts$ = forkJoin(
@@ -797,10 +796,10 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }
   }
 
-  private renderMarkdown(raw: string): SafeHtml {
+  private renderMarkdown(raw: string): string {
     if (!raw) {
       this.articleToc = [];
-      return this.sanitizer.bypassSecurityTrustHtml('');
+      return '';
     }
 
     const lines = raw.split('\n');
@@ -917,7 +916,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }
 
     this.articleToc = toc;
-    return this.sanitizer.bypassSecurityTrustHtml(Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join(''));
+    return Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join('');
   }
 
   private appendInline(parent: HTMLElement, text: string): void {

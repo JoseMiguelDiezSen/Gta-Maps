@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 const now = new Date();
 const day = String(now.getDate()).padStart(2, '0');
@@ -12,7 +12,10 @@ const timestamp = `${day}/${month}/${year} ${hours}:${minutes}`;
 
 let commitHash = 'pending';
 try {
-  commitHash = execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim();
+  const gitBin = process.platform === 'win32'
+    ? path.join(process.env.ProgramFiles || 'C:\\Program Files', 'Git', 'cmd', 'git.exe')
+    : '/usr/bin/git';
+  commitHash = execFileSync(gitBin, ['rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim();
 } catch {}
 
 const targetFile = path.resolve(__dirname, '../src/environments/version.ts');

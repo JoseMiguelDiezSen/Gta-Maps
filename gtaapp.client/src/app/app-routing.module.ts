@@ -75,6 +75,7 @@ const routes: Routes = [
         path: 'gta5-guia-online',
         component: Gta5GuiaOnlineComponent,
         data: {
+            titleKey: 'seo.gta5GuiaOnlineTitle',
             title: 'Guía GTA V Online | GTA MAPS',
             description: 'Guía específica de GTA V Online en preparación.',
             canonical: 'https://gtaworld.dev/gta5-guia-online'
@@ -119,6 +120,7 @@ const routes: Routes = [
         path: 'gta6-guia-online',
         component: Gta6GuiaOnlineComponent,
         data: {
+            titleKey: 'seo.gta6GuiaOnlineTitle',
             title: 'Guía GTA VI Online | GTA MAPS',
             description: 'Guía específica de GTA VI Online en preparación.',
             canonical: 'https://gtaworld.dev/gta6-guia-online'

@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, OnInit, ViewChild, ElementRef, OnDestroy, inject } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaService } from '../../../services/guia.service';
@@ -85,7 +84,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
 
   currentSection: GuiaSeccion | null = null;
   selectedArticulo: GuiaArticulo | null = null;
-  renderedContent: SafeHtml = '';
+  renderedContent: string = '';
   searchQuery: string = '';
   searchResults: GuiaArticuloResumen[] = [];
   showScrollTop: boolean = false;
@@ -170,7 +169,6 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
   private readonly weaponService = inject(WeaponService);
   private readonly missionService = inject(MissionService);
   private readonly guiaService = inject(GuiaService);
-  private readonly sanitizer = inject(DomSanitizer);
 
   constructor() {
     this.personajes$ = this.locationService
@@ -565,9 +563,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     this.renderedContent = this.renderMarkdown(this.selectedArticulo.contenidoMarkdown);
   }
 
-  private renderMarkdown(raw: string): SafeHtml {
+  private renderMarkdown(raw: string): string {
     if (!raw) {
-      return this.sanitizer.bypassSecurityTrustHtml('');
+      return '';
     }
 
     const root = document.createElement('div');
@@ -654,7 +652,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
       root.appendChild(currentList);
     }
 
-    return this.sanitizer.bypassSecurityTrustHtml(Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join(''));
+    return Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join('');
   }
 
   private appendInline(parent: HTMLElement, text: string): void {
@@ -845,9 +843,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     this.busquedaMisiones = '';
   }
 
-  renderMissionMarkdown(m: GtaMission | null | undefined): SafeHtml {
+  renderMissionMarkdown(m: GtaMission | null | undefined): string {
     if (!m || !m.contenidoMarkdown) {
-      return this.sanitizer.bypassSecurityTrustHtml('');
+      return '';
     }
     return this.renderMarkdown(m.contenidoMarkdown);
   }
