@@ -1693,7 +1693,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         const now = new Date();
         const totalReal = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
         const inGameTotal = (totalReal * 30) % 86400;
-        this.inGameHours = Math.floor(inGameTotal / 3600);
+        this.inGameHours = (Math.floor(inGameTotal / 3600) - 6 + 24) % 24;
         this.inGameMinutes = Math.floor((inGameTotal % 3600) / 60);
         this.updateInGameTimeString();
 
