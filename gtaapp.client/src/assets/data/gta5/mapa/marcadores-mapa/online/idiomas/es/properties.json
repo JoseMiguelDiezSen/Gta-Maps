@@ -86,7 +86,7 @@
   },
   {
     "id": "bunker-desert",
-    "name": "Búnker de Grand Senora Desert",
+    "name": "Búnker",
     "category": "bunker",
     "categoryLabel": "Búnkeres",
     "gameMode": "online",
@@ -110,7 +110,7 @@
       "color": "#d35400",
       "symbol": "🛡️"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/properties/Bunker-GTAO-GrandSenoraDesert.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/properties/bunker-grand-senora-desert.jpg"
   },
   {
     "id": "bunker-paleto",
@@ -282,13 +282,13 @@
   },
   {
     "id": "bunker-oilfields",
-    "name": "Búnker del campo petrolero",
+    "name": "Búnker",
     "category": "bunker",
     "categoryLabel": "Búnkeres",
     "gameMode": "online",
     "price": 2035000,
     "priceFormatted": "$2,035,000",
-    "zone": "Gran Desierto Senora",
+    "zone": "Campo Petrolífero de Grand Senora",
     "description": "Búnker subterráneo ubicado en los campos petrolíferos de Grand Senora.",
     "features": [
       "Campos petrolíferos de Grand Senora",
@@ -306,7 +306,7 @@
       "color": "#d35400",
       "symbol": "🛡️"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/properties/Gunrunning-GTAO-OfficialScreen-Bunker.jpg"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/properties/bunker-campo-petrolifero.jpg"
   },
   {
     "id": "facility-desert",
@@ -427,8 +427,8 @@
     "category": "facility",
     "categoryLabel": "Instalaciones",
     "gameMode": "online",
-    "price": 2599000,
-    "priceFormatted": "$2,599,000",
+    "price": 1670000,
+    "priceFormatted": "$1,670,000",
     "zone": "Lago Zancudo",
     "description": "Base subterránea escondida en los pantanos de Lago Zancudo. Acceso costero y fluvial protegido.",
     "features": [
@@ -438,16 +438,16 @@
     ],
     "income": "Atracos Doomsday y cañón orbital",
     "position": {
-      "x": -2840,
-      "y": 3000,
-      "z": 9
+      "x": -2224.2,
+      "y": 2401.5,
+      "z": 32.8
     },
     "badge": {
       "icon": "satellite",
       "color": "#8e44ad",
       "symbol": "🛰️"
     },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/properties/Facilities-GTAO-LagoZancudo.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/properties/Facilities-GTAO-LagoZancudo.png"
   },
   {
     "id": "facility-paleto",
@@ -535,20 +535,19 @@
   },
   {
     "id": "facility-land-act",
-    "name": "Instalaciones del embalse",
+    "name": "Instalación del Embalse Land Act",
     "category": "facility",
-    "categoryLabel": "Instalaciones",
+    "categoryLabel": "Instalación",
     "gameMode": "online",
     "price": 2950000,
     "priceFormatted": "$2,950,000",
     "zone": "Embalse Land Act",
-    "description": "Instalación secreta del Juicio Final ubicada en el embalse Land Act (Tataviam Mountains), al noreste de la presa. Acceso por pista de montaña.",
+    "description": "Instalación secreta subterránea en Tataviam Mountains, al noreste de la presa.<span style=\"display: block; margin-top: 6px; padding-left: 8px; color: #3498db; font-size: 11px; font-weight: 500;\">• Cañón orbital y atracos del Juicio Final</span>",
     "features": [
       "La distancia más corta a la ciudad de Los Santos",
       "Máximo secreto en un valle cerrado",
       "Vistas privilegiadas al embalse y presa"
     ],
-    "income": "Atracos Doomsday y cañón orbital",
     "position": {
       "x": 1860,
       "y": 280,
@@ -558,8 +557,7 @@
       "icon": "satellite",
       "color": "#8e44ad",
       "symbol": "🛰️"
-    },
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/properties/Facilities-GTAO-LandActReservoir.png"
+    }
   },
   {
     "id": "autoshop-burton",
@@ -1325,8 +1323,8 @@
     ],
     "income": "Hasta $100,000 por coche",
     "position": {
-      "x": 905,
-      "y": -2120,
+      "x": 1006.1,
+      "y": -1854.2,
       "z": 30
     },
     "badge": {
