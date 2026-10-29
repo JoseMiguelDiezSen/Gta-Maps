@@ -1571,22 +1571,17 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             this.mouseCoords = this.latLngToWorld(e.latlng.lat, e.latlng.lng);
         });
 
-        const closeOtherTooltips = (activeTip?: L.Tooltip) => {
-            this.map?.eachLayer((layer: any) => {
-                if (typeof layer.closeTooltip === 'function' && typeof layer.isTooltipOpen === 'function' && layer.isTooltipOpen()) {
-                    if (!activeTip || layer.getTooltip() !== activeTip) {
-                        layer.closeTooltip();
-                    }
-                }
-            });
-        };
-
+        let currentTooltip: L.Tooltip | null = null;
         this.map.on('tooltipopen', (e: L.TooltipEvent) => {
-            closeOtherTooltips(e.tooltip);
+            if (currentTooltip && currentTooltip !== e.tooltip) {
+                this.map?.closeTooltip(currentTooltip);
+            }
+            currentTooltip = e.tooltip;
         });
-
-        this.map.on('movestart zoomstart click popupopen mouseout', () => {
-            closeOtherTooltips();
+        this.map.on('tooltipclose', (e: L.TooltipEvent) => {
+            if (currentTooltip === e.tooltip) {
+                currentTooltip = null;
+            }
         });
     }
 

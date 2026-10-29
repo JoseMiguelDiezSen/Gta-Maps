@@ -611,6 +611,13 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
         this.saveCustomMarkers();
     }
 
+    onCustomMarkerBlur(cm: Gta6UserCustomMarker): void {
+        const defaultName = (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
+        const trimmed = (cm.name || '').trim();
+        cm.name = trimmed || defaultName;
+        this.saveCustomMarkers();
+    }
+
     updateCustomMarkerName(cm: Gta6UserCustomMarker, newName: string): void {
         if (newName && newName.trim() !== '') {
             cm.name = newName.trim();
@@ -708,9 +715,24 @@ export class Gta6MapOfflineComponent implements OnInit, OnDestroy {
             this.saveCustomMarkers();
             this.activeCustomMarker = newMarker;
             this.activeMarker = null;
+            setTimeout(() => {
+                const el = document.getElementById('custom-marker-title-' + newMarker.id) as HTMLInputElement | null;
+                if (el) {
+                    el.focus();
+                    el.select();
+                }
+            }, 80);
         } else if (action === 'editar_marcador' && this.targetCustomMarker) {
-            this.activeCustomMarker = this.targetCustomMarker;
+            const target = this.targetCustomMarker;
+            this.activeCustomMarker = target;
             this.activeMarker = null;
+            setTimeout(() => {
+                const el = document.getElementById('custom-marker-title-' + target.id) as HTMLInputElement | null;
+                if (el) {
+                    el.focus();
+                    el.select();
+                }
+            }, 80);
         } else if (action === 'borrar_este_marcador' && this.targetCustomMarker) {
             this.deleteCustomMarker(this.targetCustomMarker);
         } else if (action === 'borrar') {
