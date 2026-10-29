@@ -836,6 +836,12 @@
   font-size: 11px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   font-family: inherit;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+:host ::ng-deep .gta-leaflet-tooltip * {
+  pointer-events: none !important;
 }
 
 .app-home-link {

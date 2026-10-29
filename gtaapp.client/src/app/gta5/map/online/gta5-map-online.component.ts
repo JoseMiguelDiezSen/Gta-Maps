@@ -1087,11 +1087,24 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         input.placeholder = this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name';
         input.title = this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename';
         input.style.cssText = 'margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: 100%; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;';
+        L.DomEvent.disableClickPropagation(input);
+        L.DomEvent.disableScrollPropagation(input);
+        input.addEventListener('mousedown', (e) => e.stopPropagation());
+        input.addEventListener('click', (e) => e.stopPropagation());
+        input.addEventListener('dblclick', (e) => e.stopPropagation());
         input.addEventListener('keydown', (event: KeyboardEvent) => {
+            event.stopPropagation();
             if (event.key === 'Enter') {
                 event.preventDefault();
                 input.blur();
             }
+        });
+        input.addEventListener('blur', () => {
+            const defaultName = this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker';
+            const trimmed = input.value.trim();
+            const finalName = trimmed || defaultName;
+            input.value = finalName;
+            this.onSaveCustomMarkerName(item.id, finalName);
         });
         titleRow.appendChild(input);
         card.appendChild(titleRow);
@@ -1244,23 +1257,14 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     private onSaveCustomMarkerName(id: string, newName: string): void {
         const found = this.userCustomMarkers.find(m => m.id === id);
         if (found) {
-            const trimmed = (newName || '').trim();
-            found.name = trimmed || (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
+            found.name = newName;
             if (this.targetCustomMarker?.id === id) {
                 this.targetCustomMarker.name = found.name;
             }
             if (found.marker.getTooltip()) {
                 const tooltipBold = document.createElement('b');
-                tooltipBold.textContent = found.name;
+                tooltipBold.textContent = found.name || (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
                 found.marker.setTooltipContent(tooltipBold);
-            }
-            const existingPopup = found.marker.getPopup();
-            if (existingPopup) {
-                existingPopup.setContent(this.buildCustomMarkerPopupHtml(found));
-            }
-            const inputEl = document.getElementById('custom-marker-input-' + id) as HTMLInputElement | null;
-            if (inputEl) {
-                inputEl.setAttribute('value', found.name);
             }
             this.saveCustomMarkers();
             this.cdr.detectChanges();
@@ -1565,6 +1569,24 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
 
         this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
             this.mouseCoords = this.latLngToWorld(e.latlng.lat, e.latlng.lng);
+        });
+
+        const closeOtherTooltips = (activeTip?: L.Tooltip) => {
+            this.map?.eachLayer((layer: any) => {
+                if (typeof layer.closeTooltip === 'function' && typeof layer.isTooltipOpen === 'function' && layer.isTooltipOpen()) {
+                    if (!activeTip || layer.getTooltip() !== activeTip) {
+                        layer.closeTooltip();
+                    }
+                }
+            });
+        };
+
+        this.map.on('tooltipopen', (e: L.TooltipEvent) => {
+            closeOtherTooltips(e.tooltip);
+        });
+
+        this.map.on('movestart zoomstart click popupopen mouseout', () => {
+            closeOtherTooltips();
         });
     }
 
