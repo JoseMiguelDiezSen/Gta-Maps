@@ -18,7 +18,9 @@ export class Gta5MapMarkerService {
 
     buildLocationPopupHtml(p: LocationItem, options: LocationPopupOptions): HTMLElement {
         const pinColor = p.badge?.color || '#ffb833';
-        const isPurchasable = (p.price != null && p.price > 0) || !!p.priceFormatted;
+        const isClothingStore = p.category === 'clothing_store';
+        const isAmmuNation = !!(p.id && p.id.startsWith('ammu-'));
+        const isPurchasable = !isClothingStore && !isAmmuNation && ((p.price != null && p.price > 0) || !!p.priceFormatted);
         const isShipwreck = p.category === 'shipwreck';
         const isAnimal = p.category === 'animal' || (p.id && p.id.startsWith('animal-')) || p.categoryLabel === 'Fauna Salvaje';
         const isPublicService = p.category === 'hospital' || p.category === 'police_station' || p.category === 'fire_station';
@@ -68,8 +70,8 @@ export class Gta5MapMarkerService {
         const content = document.createElement('div');
         content.className = 'popup-content';
 
-        if (isAnimal) {
-            // Sin sección de precio para fauna
+        if (isAnimal || isAmmuNation) {
+            // Sin sección de precio ni etiquetas para fauna ni Ammu-Nation
         } else if (isShipwreck) {
             const tagBox = document.createElement('div');
             tagBox.className = 'popup-service-tag-box popup-shipwreck-box';
@@ -84,6 +86,14 @@ export class Gta5MapMarkerService {
             const tagBadge = document.createElement('span');
             tagBadge.className = 'service-type-badge';
             tagBadge.textContent = options.robbableStoreLabel || 'Tienda atracable';
+            tagBox.appendChild(tagBadge);
+            content.appendChild(tagBox);
+        } else if (isClothingStore) {
+            const tagBox = document.createElement('div');
+            tagBox.className = 'popup-service-tag-box popup-shipwreck-box';
+            const tagBadge = document.createElement('span');
+            tagBadge.className = 'service-type-badge';
+            tagBadge.textContent = p.priceFormatted || p.categoryLabel;
             tagBox.appendChild(tagBadge);
             content.appendChild(tagBox);
         } else if (isPurchasable) {

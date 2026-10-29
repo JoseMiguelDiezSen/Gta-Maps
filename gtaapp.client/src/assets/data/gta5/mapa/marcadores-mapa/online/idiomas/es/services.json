@@ -5,8 +5,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Tienda de Armas",
     "zone": "Vinewood",
     "description": "Armería Ammu-Nation oficial en Vinewood. Venta de fusiles, blindajes, munición, explosivos y galería de tiro.",
     "features": [
@@ -32,8 +30,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Tienda de Armas",
     "zone": "Pillbox Hill",
     "description": "Armería Ammu-Nation oficial en Pillbox Hill. Venta de fusiles, blindajes, munición, explosivos y galería de tiro.",
     "features": [
@@ -59,8 +55,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Tienda de Armas",
     "zone": "Chumash",
     "description": "Armería Ammu-Nation oficial en Chumash. Venta de fusiles, blindajes, munición, explosivos y galería de tiro.",
     "features": [
@@ -86,8 +80,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Entrada libre",
     "zone": "Sandy Shores",
     "description": "Armería Ammu-Nation oficial en Sandy Shores. Venta de fusiles, blindajes, munición, explosivos y galería de tiro.",
     "features": [
@@ -113,8 +105,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Tienda de Armas",
     "zone": "Paleto Bay",
     "description": "Armería Ammu-Nation oficial en Paleto Bay. Venta de fusiles, blindajes, munición, explosivos y galería de tiro.",
     "features": [
@@ -140,8 +130,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Tienda de Armas",
     "zone": "Cypress Flats",
     "description": "Armería Ammu-Nation oficial en Cypress Flats. Venta de fusiles, blindajes, munición, explosivos y galería de tiro.",
     "features": [
@@ -167,8 +155,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Entrada libre",
     "zone": "Fort Zancudo",
     "description": "Armería Ammu-Nation oficial en Fort Zancudo (Ruta 68). Venta de fusiles, blindajes, munición y explosivos.",
     "features": [
@@ -193,8 +179,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Tienda de Armas",
     "zone": "Tataviam Mountains",
     "description": "Armería Ammu-Nation oficial en Tataviam Mountains (Autopista Palomino). Venta de fusiles, blindajes, munición y explosivos.",
     "features": [
@@ -219,8 +203,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Tienda de Armas",
     "zone": "La Mesa",
     "description": "Armería Ammu-Nation oficial en La Mesa (Popular St). Venta de fusiles, blindajes, munición y explosivos.",
     "features": [
@@ -245,8 +227,6 @@
     "category": "service",
     "categoryLabel": "Tiendas y Servicios",
     "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Tienda de Armas",
     "zone": "Little Seoul",
     "description": "Armería Ammu-Nation oficial en Little Seoul. Venta de fusiles, blindajes, munición y explosivos.",
     "features": [
@@ -1434,6 +1414,131 @@
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Sandy-Shores.jpg"
   },
   {
+    "id": "barber-rockfordhills",
+    "name": "Peluquería Bob Mulét (Rockford Hills)",
+    "category": "barber",
+    "categoryLabel": "Peluquería",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Peluquería",
+    "zone": "Rockford Hills",
+    "description": "Salón de belleza y peluquería de lujo Bob Mulét en Rockford Hills.",
+    "features": [
+      "Peluquería"
+    ],
+    "position": {
+      "x": -818.6,
+      "y": -187.0,
+      "z": 37.5
+    },
+    "badge": {
+      "icon": "scissors",
+      "color": "#d97706",
+      "symbol": "✂️"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Bob-Mulet.jpg"
+  },
+  {
+    "id": "barber-davis",
+    "name": "Peluquería Herr Kutz (Davis)",
+    "category": "barber",
+    "categoryLabel": "Peluquería",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Peluquería",
+    "zone": "Davis",
+    "description": "Barbería tradicional Herr Kutz en Davis.",
+    "features": [
+      "Peluquería"
+    ],
+    "position": {
+      "x": 135.1,
+      "y": -1711.5,
+      "z": 29.3
+    },
+    "badge": {
+      "icon": "scissors",
+      "color": "#d97706",
+      "symbol": "✂️"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Herr-Kutz-Davis.jpg"
+  },
+  {
+    "id": "barber-mirrorpark",
+    "name": "Peluquería Herr Kutz (Mirror Park)",
+    "category": "barber",
+    "categoryLabel": "Peluquería",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Peluquería",
+    "zone": "Mirror Park",
+    "description": "Barbería Herr Kutz en Mirror Park.",
+    "features": [
+      "Peluquería"
+    ],
+    "position": {
+      "x": 1210.5,
+      "y": -473.4,
+      "z": 66.2
+    },
+    "badge": {
+      "icon": "scissors",
+      "color": "#d97706",
+      "symbol": "✂️"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Herr-Kutz-Mirror-Park.jpg"
+  },
+  {
+    "id": "barber-hawick",
+    "name": "Peluquería Herr Kutz (Hawick)",
+    "category": "barber",
+    "categoryLabel": "Peluquería",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Peluquería",
+    "zone": "Hawick",
+    "description": "Barbería Herr Kutz en Hawick.",
+    "features": [
+      "Peluquería"
+    ],
+    "position": {
+      "x": -40.9,
+      "y": -145.9,
+      "z": 56.2
+    },
+    "badge": {
+      "icon": "scissors",
+      "color": "#d97706",
+      "symbol": "✂️"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Herr-Kutz-Hawick.jpg"
+  },
+  {
+    "id": "barber-vespucci",
+    "name": "Peluquería Beach Combover (Vespucci Beach)",
+    "category": "barber",
+    "categoryLabel": "Peluquería",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Peluquería",
+    "zone": "Vespucci Beach",
+    "description": "Barbería costera Beach Combover en Vespucci Beach.",
+    "features": [
+      "Peluquería"
+    ],
+    "position": {
+      "x": -1308.2,
+      "y": -1039.8,
+      "z": 5.6
+    },
+    "badge": {
+      "icon": "scissors",
+      "color": "#d97706",
+      "symbol": "✂️"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Peluqueria-Beach-Combover-Vespucci.jpg"
+  },
+  {
     "id": "tattoo-paleto",
     "name": "Salón de Tatuajes (Paleto Bay)",
     "category": "tattoo",
@@ -1509,6 +1614,81 @@
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tatto-Chumash.jpg"
   },
   {
+    "id": "tattoo-vinewood",
+    "name": "Salón de Tatuajes (Vinewood)",
+    "category": "tattoo",
+    "categoryLabel": "Salón de Tatuajes",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Tatuajes",
+    "zone": "Vinewood",
+    "description": "Salón de tatuajes en Vinewood.",
+    "features": [
+      "Tatuajes"
+    ],
+    "position": {
+      "x": 252.9,
+      "y": -50.6,
+      "z": 69.9
+    },
+    "badge": {
+      "icon": "pen-nib",
+      "color": "#8b5cf6",
+      "symbol": "💉"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tattoo-Vinewood.jpg"
+  },
+  {
+    "id": "tattoo-vespucci",
+    "name": "Salón de Tatuajes (Vespucci Beach)",
+    "category": "tattoo",
+    "categoryLabel": "Salón de Tatuajes",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Tatuajes",
+    "zone": "Vespucci Beach",
+    "description": "Salón de tatuajes en Vespucci Beach.",
+    "features": [
+      "Tatuajes"
+    ],
+    "position": {
+      "x": -1154.1,
+      "y": -1424.5,
+      "z": 4.9
+    },
+    "badge": {
+      "icon": "pen-nib",
+      "color": "#8b5cf6",
+      "symbol": "💉"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tattoo-Vespucci.jpg"
+  },
+  {
+    "id": "tattoo-elburro",
+    "name": "Salón de Tatuajes (El Burro Heights)",
+    "category": "tattoo",
+    "categoryLabel": "Salón de Tatuajes",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Tatuajes",
+    "zone": "El Burro Heights",
+    "description": "Salón de tatuajes en El Burro Heights.",
+    "features": [
+      "Tatuajes"
+    ],
+    "position": {
+      "x": 1326.5,
+      "y": -1651.4,
+      "z": 52.2
+    },
+    "badge": {
+      "icon": "pen-nib",
+      "color": "#8b5cf6",
+      "symbol": "💉"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tattoo-El-Burro-Heights.jpg"
+  },
+  {
     "id": "clothing-paleto-bay",
     "name": "Tienda de Ropa",
     "category": "clothing_store",
@@ -1567,7 +1747,7 @@
     "categoryLabel": "Tienda de Ropa",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Entrada libre",
+    "priceFormatted": "Discount Store",
     "zone": "Grapeseed",
     "description": "Sucursal de Discount Store en Grapeseed. Ropa de trabajo, camisas a cuadros y estética rústica para la vida en el campo.",
     "features": [
@@ -1585,5 +1765,291 @@
       "symbol": "👕"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tienda-Ropa-Grapeseed.jpg"
+  },
+  {
+    "id": "clothing-discount-strawberry",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Discount Store",
+    "zone": "Strawberry",
+    "description": "Tienda de la franquicia Discount Store en Strawberry. Ropa informal, monos de trabajo y prendas económicas.",
+    "features": [
+      "Discount Store",
+      "Moda Informal"
+    ],
+    "position": {
+      "x": 81.5,
+      "y": -1393.1,
+      "z": 29.4
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tienda-Ropa-Strawberry-Discount.jpg"
+  },
+  {
+    "id": "clothing-discount-zancudo",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Discount Store",
+    "zone": "Great Chaparral",
+    "description": "Sucursal de Discount Store en Route 68 cerca de Fort Zancudo. Ropa informal y monos de trabajo.",
+    "features": [
+      "Discount Store",
+      "Moda Informal"
+    ],
+    "position": {
+      "x": -1096.1,
+      "y": 2707.2,
+      "z": 19.1
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tienda-Ropa-Route68-Discount.jpg"
+  },
+  {
+    "id": "clothing-discount-harmony",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Discount Store",
+    "zone": "Harmony",
+    "description": "Sucursal de Discount Store en Route 68 (Harmony / Desierto de Senora). Ropa informal y de trabajo.",
+    "features": [
+      "Discount Store",
+      "Moda Informal"
+    ],
+    "position": {
+      "x": 1198.8,
+      "y": 2702.6,
+      "z": 38.2
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Tienda-Ropa-Harmony-Discount.jpg"
+  },
+  {
+    "id": "clothing-suburban-delperro",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "SubUrban",
+    "zone": "Del Perro",
+    "description": "Tienda de la franquicia SubUrban en Del Perro Plaza. Moda urbana, sudaderas, gorras y estilo streetwear.",
+    "features": [
+      "SubUrban",
+      "Moda Streetwear"
+    ],
+    "position": {
+      "x": -1199.6,
+      "y": -778.7,
+      "z": 17.3
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Suburban-Del-Perro.jpg"
+  },
+  {
+    "id": "clothing-suburban-senora",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "SubUrban",
+    "zone": "Grand Senora Desert",
+    "description": "Tienda de la franquicia SubUrban en Grand Senora Desert (Route 68). Moda urbana y prendas de abrigo.",
+    "features": [
+      "SubUrban",
+      "Moda Streetwear"
+    ],
+    "position": {
+      "x": 616.3,
+      "y": 2747.4,
+      "z": 42.0
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Suburban-Grand-Senora.jpg"
+  },
+  {
+    "id": "clothing-suburban-hawick",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "SubUrban",
+    "zone": "Hawick",
+    "description": "Tienda de la franquicia SubUrban en Hawick. Moda urbana, zapatillas y estilo streetwear.",
+    "features": [
+      "SubUrban",
+      "Moda Streetwear"
+    ],
+    "position": {
+      "x": 129.0,
+      "y": -211.2,
+      "z": 54.5
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Suburban-Hawick.jpg"
+  },
+  {
+    "id": "clothing-ponsonbys-rockford",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Ponsonbys",
+    "zone": "Rockford Hills",
+    "description": "Boutique de lujo Ponsonbys en Rockford Hills. Trajes a medida, vestidos de alta costura y moda exclusiva.",
+    "features": [
+      "Ponsonbys",
+      "Alta Costura y Trajes"
+    ],
+    "position": {
+      "x": -713.2,
+      "y": -154.9,
+      "z": 37.4
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Ponsonbys-Rockford-Hills.jpg"
+  },
+  {
+    "id": "clothing-ponsonbys-burton",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Ponsonbys",
+    "zone": "Burton",
+    "description": "Boutique de lujo Ponsonbys en Burton. Trajes italianos, vestidos de gala y accesorios premium.",
+    "features": [
+      "Ponsonbys",
+      "Alta Costura y Trajes"
+    ],
+    "position": {
+      "x": -154.3,
+      "y": -301.9,
+      "z": 38.7
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Ponsonbys-Burton.jpg"
+  },
+  {
+    "id": "clothing-ponsonbys-morningwood",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Ponsonbys",
+    "zone": "Morningwood",
+    "description": "Boutique de lujo Ponsonbys en Morningwood. Moda de diseño, trajes elegantes y calzado de lujo.",
+    "features": [
+      "Ponsonbys",
+      "Alta Costura y Trajes"
+    ],
+    "position": {
+      "x": -1452.4,
+      "y": -235.9,
+      "z": 49.8
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Ponsonbys-Morningwood.jpg"
+  },
+  {
+    "id": "clothing-binco-vespucci",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Binco",
+    "zone": "Vespucci Canals",
+    "description": "Tienda de ropa informal de la franquicia Binco en Vespucci Canals. Ropa económica y estilo casual.",
+    "features": [
+      "Binco",
+      "Ropa Económica y Casual"
+    ],
+    "position": {
+      "x": -818.0,
+      "y": -1078.7,
+      "z": 11.1
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Binco-Vespucci.jpg"
+  },
+  {
+    "id": "clothing-binco-textile",
+    "name": "Tienda de Ropa",
+    "category": "clothing_store",
+    "categoryLabel": "Tienda de Ropa",
+    "gameMode": "online",
+    "price": 0,
+    "priceFormatted": "Binco",
+    "zone": "Textile City",
+    "description": "Tienda de ropa informal de la franquicia Binco en Textile City. Gran variedad de camisetas, pantalones y complementos.",
+    "features": [
+      "Binco",
+      "Ropa Económica y Casual"
+    ],
+    "position": {
+      "x": 424.3,
+      "y": -810.7,
+      "z": 29.5
+    },
+    "badge": {
+      "icon": "shirt",
+      "color": "#9b59b6",
+      "symbol": "👕"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/services/Binco-Textile-City.jpg"
   }
 ]
