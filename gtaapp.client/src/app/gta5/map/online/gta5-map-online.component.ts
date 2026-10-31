@@ -2398,9 +2398,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 const m = L.marker([ptLat, ptLng], { icon: stepIcon }).addTo(this.map!);
                 m.bindPopup(ptPopupHtml, {
                     className: `gta-leaflet-popup gta-mystery-popup ${themeClass}`,
-                    maxWidth: 320,
-                    minWidth: 260,
-                    closeButton: false
+                    maxWidth: 280
                 });
                 this.mysteryMarkers.push(m);
             });
@@ -2426,9 +2424,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             if (this.mysteryMarker) {
                 this.mysteryMarker.bindPopup(popupHtml, {
                     className: `gta-leaflet-popup gta-mystery-popup ${themeClass}`,
-                    maxWidth: 320,
-                    minWidth: 260,
-                    closeButton: false
+                    maxWidth: 280
                 }).openPopup();
             }
         }, 850);

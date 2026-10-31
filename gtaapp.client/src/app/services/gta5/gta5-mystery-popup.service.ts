@@ -162,10 +162,7 @@ export class Gta5MysteryPopupService {
         zone.className = 'popup-zone';
         const locIcon = document.createElement('i');
         locIcon.className = 'fa-solid fa-location-dot';
-        const posText = point?.position
-            ? ` (X: ${point.position.x.toFixed(1)} | Y: ${point.position.y.toFixed(1)})`
-            : '';
-        zone.append(locIcon, document.createTextNode(` ${mystery.zone || mystery.location || 'San Andreas'}${posText}`));
+        zone.append(locIcon, document.createTextNode(` ${mystery.zone || mystery.location || 'San Andreas'}`));
         content.appendChild(zone);
 
         if (mystery.schedule) {
@@ -261,10 +258,7 @@ export class Gta5MysteryPopupService {
         zone.className = 'popup-zone';
         const locIcon = document.createElement('i');
         locIcon.className = 'fa-solid fa-location-dot';
-        const posText = mystery.position
-            ? ` (X: ${mystery.position.x.toFixed(1)} | Y: ${mystery.position.y.toFixed(1)})`
-            : '';
-        zone.append(locIcon, document.createTextNode(` ${mystery.zone || mystery.location || 'San Andreas'}${posText}`));
+        zone.append(locIcon, document.createTextNode(` ${mystery.zone || mystery.location || 'San Andreas'}`));
         content.appendChild(zone);
 
         if (mystery.schedule) {
