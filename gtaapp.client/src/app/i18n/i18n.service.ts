@@ -163,7 +163,12 @@ export class TranslationService {
       // Ignorar fallo de localStorage (modo incógnito estricto / sandbox)
     }
 
-    // 3. Detección automática según idiomas configurados en el navegador del usuario
+    // 3. Evitar que rastreadores de buscadores (ej. Googlebot en-US) alteren por navigator.language la URL canónica base sin ?lang=
+    if (typeof navigator !== 'undefined' && /bot|crawl|spider|google-inspectiontool|googleother|lighthouse/i.test(navigator.userAgent || '')) {
+      return DEFAULT_LANGUAGE;
+    }
+
+    // 4. Detección automática según idiomas configurados en el navegador del usuario
     if (typeof navigator !== 'undefined') {
       const candidates: string[] = [];
       if (Array.isArray(navigator.languages)) {

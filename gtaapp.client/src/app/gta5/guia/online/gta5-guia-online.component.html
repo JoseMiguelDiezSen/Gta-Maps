@@ -48,7 +48,7 @@
             <span>GTA 5</span>
           </button>
           <div class="nav-dropdown-menu">
-            <a routerLink="/gta5" class="nav-dropdown-item" [title]="'nav.gta5MapTitle' | translate">
+            <a routerLink="/gta5-map-online" class="nav-dropdown-item" [title]="'nav.gta5MapTitle' | translate">
               <i class="fa-solid fa-map-location-dot"></i>
               <span>{{ 'nav.gta5Map' | translate }}</span>
             </a>
@@ -71,7 +71,7 @@
           </button>
           <div class="nav-dropdown-menu">
             <a
-              [routerLink]="isDevAllowed ? '/gta6' : null"
+              [routerLink]="isDevAllowed ? '/gta6-map-online' : null"
               class="nav-dropdown-item"
               [class.is-disabled]="!isDevAllowed"
               (click)="onGta6MapClick($event)"
@@ -81,7 +81,7 @@
               <span>{{ 'nav.gta6Map' | translate }}</span>
             </a>
             <span class="nav-dropdown-divider" aria-hidden="true"></span>
-            <a routerLink="/gta6-guia" class="nav-dropdown-item" [title]="'nav.gta6GuideTitle' | translate">
+            <a routerLink="/gta6-guia-offline" class="nav-dropdown-item" [title]="'nav.gta6GuideTitle' | translate">
               <i class="fa-solid fa-book-open"></i>
               <span>{{ 'nav.gta6Guide' | translate }}</span>
             </a>
@@ -143,12 +143,12 @@
           <i class="fa-solid fa-house"></i>
           <span>{{ 'nav.home' | translate }}</span>
         </a>
-        <a routerLink="/gta5" class="mobile-nav-link" (click)="closeMobileNav()">
+        <a routerLink="/gta5-map-online" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-map-location-dot"></i>
           <span>{{ 'nav.gta5Map' | translate }}</span>
         </a>
         <a
-          [routerLink]="isDevAllowed ? '/gta6' : null"
+          [routerLink]="isDevAllowed ? '/gta6-map-online' : null"
           class="mobile-nav-link"
           [class.nav-link-disabled]="!isDevAllowed"
           (click)="onGta6MapClick($event); closeMobileNav()"
@@ -156,7 +156,7 @@
           <i class="fa-solid" [ngClass]="isDevAllowed ? 'fa-map-location-dot' : 'fa-lock'"></i>
           <span>{{ 'nav.gta6Map' | translate }}</span>
         </a>
-        <a routerLink="/gta6-guia" class="mobile-nav-link" (click)="closeMobileNav()">
+        <a routerLink="/gta6-guia-offline" class="mobile-nav-link" (click)="closeMobileNav()">
           <i class="fa-solid fa-book-open"></i>
           <span>{{ 'nav.gta6Guide' | translate }}</span>
         </a>

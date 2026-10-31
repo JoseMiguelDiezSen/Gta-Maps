@@ -1,27 +1,17 @@
 # robots.txt para gtaexplorer.com
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /hubs/
 
 # Rastreadores de Inteligencia Artificial (OpenAI, Anthropic, Perplexity, Google Gemini)
 User-agent: GPTBot
-Allow: /
-
 User-agent: OAI-SearchBot
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: anthropic-ai
-Allow: /
-
 User-agent: PerplexityBot
-Allow: /
-
 User-agent: Google-Extended
 Allow: /
-
-# Bloquear rutas de servidor y APIs internas
 Disallow: /api/
 Disallow: /hubs/
 

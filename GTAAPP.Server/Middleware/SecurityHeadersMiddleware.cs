@@ -51,11 +51,11 @@ public class SecurityHeadersMiddleware
         var method = context.Request.Method;
         var path = context.Request.Path.Value ?? string.Empty;
 
-        // Bloqueo definitivo (404) de cualquier solicitud a los archivos de logo de la marca antigua
+        // Bloqueo definitivo (410 Gone) de cualquier solicitud a los archivos de logo de la marca antigua para purga inmediata en Google Images
         if (path.Contains("gta-world-logo", StringComparison.OrdinalIgnoreCase) ||
             path.Contains("gta-world-nav-logo", StringComparison.OrdinalIgnoreCase))
         {
-            context.Response.StatusCode = StatusCodes.Status404NotFound;
+            context.Response.StatusCode = StatusCodes.Status410Gone;
             return;
         }
 

@@ -74,10 +74,10 @@ ssh ${TargetUser}@${TargetHost} $remoteScript
 # 5. Health Check y verificación HTTP con Rollback automático
 Write-Host "5/5 Ejecutando Health Check contra endpoint activo de API..." -ForegroundColor Yellow
 Start-Sleep -Seconds 6
-$healthCheck = ssh ${TargetUser}@${TargetHost} "curl --retry 5 --retry-delay 2 --retry-connrefused -A 'Mozilla/5.0 (GTAExplorer-HealthCheck)' -s -o /dev/null -w '%{http_code}' http://127.0.0.1:5000/"
+$healthCheck = ssh ${TargetUser}@${TargetHost} "curl --retry 5 --retry-delay 2 --retry-connrefused -A 'Mozilla/5.0 (GTAExplorer-HealthCheck)' -s -o /dev/null -w '%{http_code}' http://127.0.0.1:5000/home"
 
 if ($healthCheck -eq "200") {
-    Write-Host "Health Check superado con éxito (HTTP 200) en /api/vehicles!" -ForegroundColor Green
+    Write-Host "Health Check superado con éxito (HTTP 200) en /home!" -ForegroundColor Green
     Write-Host "Despliegue completado con éxito: https://gtaexplorer.com" -ForegroundColor Cyan
 } else {
     Write-Host "CRÍTICO: Health Check falló con código HTTP $healthCheck. Iniciando rollback automático..." -ForegroundColor Red

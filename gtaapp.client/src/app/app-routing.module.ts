@@ -23,7 +23,7 @@ const routes: Routes = [
             titleKey: 'seo.homeTitle',
             descriptionKey: 'seo.homeDesc',
             title: 'GTA Explorer - Mapas GTA HD con asistente IA integrado y Guias Interactivas',
-            description: 'Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.',
+            description: 'Plataforma multilingüe en 13 idiomas de Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas y Misterios.',
             canonical: 'https://gtaexplorer.com/home'
         }
     },
@@ -158,9 +158,9 @@ const routes: Routes = [
     { path: 'gta5/historia', redirectTo: '/gta5-map-offline', pathMatch: 'full' },
     { path: 'gta5historia',  redirectTo: '/gta5-map-offline', pathMatch: 'full' },
     { path: 'gta5/guia',     redirectTo: '/gta5-guia-online', pathMatch: 'full' },
-    { path: 'gta5/guia/offline', redirectTo: '/gta5-guia-online', pathMatch: 'full' },
+    { path: 'gta5/guia/offline', redirectTo: '/gta5-guia-offline', pathMatch: 'full' },
     { path: 'gta5/guia/online',  redirectTo: '/gta5-guia-online', pathMatch: 'full' },
-    { path: 'gta5guia',      redirectTo: '/gta5-guia', pathMatch: 'full' },
+    { path: 'gta5guia',      redirectTo: '/gta5-guia-online', pathMatch: 'full' },
     { path: 'gt5',           redirectTo: '/gta5-map-online', pathMatch: 'full' },
     { path: 'gta6',          redirectTo: '/gta6-map-online', pathMatch: 'full' },
     { path: 'gta6online',    redirectTo: '/gta6-map-online', pathMatch: 'full' },

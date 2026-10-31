@@ -46,8 +46,9 @@ const routes: Routes = [
     component: Gta6GuiaOnlineComponent,
     data: {
       titleKey: 'seo.gta6GuiaOnlineTitle',
+      descriptionKey: 'seo.gta6GuiaOnlineDesc',
       title: 'Guía GTA VI Online | GTA Explorer',
-      description: 'Guía específica de GTA VI Online en preparación.',
+      description: 'Guía interactiva y base de datos de GTA VI Online: primeros pasos, misiones, operaciones y catálogo de vehículos en Vice City y Leonida.',
       canonical: 'https://gtaexplorer.com/gta6-guia-online'
     }
   },

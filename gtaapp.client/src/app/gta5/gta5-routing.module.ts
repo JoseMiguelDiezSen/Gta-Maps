@@ -45,8 +45,9 @@ const routes: Routes = [
     component: Gta5GuiaOnlineComponent,
     data: {
       titleKey: 'seo.gta5GuiaOnlineTitle',
+      descriptionKey: 'seo.gta5GuiaOnlineDesc',
       title: 'Guía GTA V Online | GTA Explorer',
-      description: 'Guía específica de GTA V Online en preparación.',
+      description: 'Guía completa de GTA V Online: misiones de contacto, golpes, negocios, propiedades, vehículos, armas y misterios de Los Santos.',
       canonical: 'https://gtaexplorer.com/gta5-guia-online'
     }
   }
