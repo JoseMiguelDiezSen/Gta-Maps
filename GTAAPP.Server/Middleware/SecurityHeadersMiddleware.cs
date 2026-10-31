@@ -16,7 +16,7 @@ public class SecurityHeadersMiddleware
         "curl/", "wget/", "httrack", "libwww-perl", "lwp-trivial",
         "go-http-client", "java/", "okhttp", "apache-httpclient",
         "postmanruntime", "insomnia", "axios/", "node-fetch", "undici",
-        "gptbot", "ccbot", "claudebot", "bytespider", "petalbot"
+        "bytespider", "petalbot"
     ];
 
     /// <summary>
@@ -50,6 +50,14 @@ public class SecurityHeadersMiddleware
     {
         var method = context.Request.Method;
         var path = context.Request.Path.Value ?? string.Empty;
+
+        // Bloqueo definitivo (404) de cualquier solicitud a los archivos de logo de la marca antigua
+        if (path.Contains("gta-world-logo", StringComparison.OrdinalIgnoreCase) ||
+            path.Contains("gta-world-nav-logo", StringComparison.OrdinalIgnoreCase))
+        {
+            context.Response.StatusCode = StatusCodes.Status404NotFound;
+            return;
+        }
 
         // =========================================================================
         // 1. ESCUDO ANTI-SCRAPING: BLOQUEO DE BOTS Y HERRAMIENTAS DE EXTRACCIÓN
@@ -98,9 +106,8 @@ public class SecurityHeadersMiddleware
             }
         }
 
-        // Protección de tiles del mapa e imágenes contra clonado desde dominios externos
-        var isProtectedMedia = path.StartsWith("/assets/mapas/", StringComparison.OrdinalIgnoreCase) ||
-                               path.StartsWith("/assets/images/", StringComparison.OrdinalIgnoreCase);
+        // Protección de tiles del mapa contra clonado desde dominios externos
+        var isProtectedMedia = path.StartsWith("/assets/mapas/", StringComparison.OrdinalIgnoreCase);
 
         if (isProtectedMedia && secFetchSite.Equals("cross-site", StringComparison.OrdinalIgnoreCase))
         {

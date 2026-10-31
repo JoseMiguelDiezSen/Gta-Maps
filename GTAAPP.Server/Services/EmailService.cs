@@ -64,9 +64,9 @@ namespace GTAAPP.Server.Services
                 var safeSubjectName = nombre.Replace("\r", string.Empty).Replace("\n", string.Empty).Trim();
 
                 var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("GTA MAPS Feedback", userName));
+                message.From.Add(new MailboxAddress("GTA Explorer Feedback", userName));
                 message.To.Add(new MailboxAddress("Admin", to));
-                message.Subject = $"[GTA MAPS] Sugerencia de {safeSubjectName}";
+                message.Subject = $"[GTA Explorer] Sugerencia de {safeSubjectName}";
                 var encodedNombre = System.Net.WebUtility.HtmlEncode(nombre);
                 var encodedMensaje = System.Net.WebUtility.HtmlEncode(mensaje).Replace("\n", "<br />");
                 var encodedIp = System.Net.WebUtility.HtmlEncode(ip);
@@ -79,7 +79,7 @@ namespace GTAAPP.Server.Services
 <head>
     <meta charset=""UTF-8"">
     <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
-    <title>Sugerencia GTA MAPS</title>
+    <title>Sugerencia GTA Explorer</title>
 </head>
 <body style=""margin: 0; padding: 20px; background-color: #0f172a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #e2e8f0;"">
     <table role=""presentation"" width=""100%"" border=""0"" cellspacing=""0"" cellpadding=""0"">
@@ -90,7 +90,7 @@ namespace GTAAPP.Server.Services
                     <tr>
                         <td style=""background: linear-gradient(135deg, #e11d48, #9333ea); padding: 25px 30px; text-align: center;"">
                             <h1 style=""margin: 0; color: #ffffff; font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;"">
-                                🗺️ GTA MAPS
+                                🗺️ GTA EXPLORER
                             </h1>
                             <p style=""margin: 5px 0 0; color: rgba(255,255,255,0.85); font-size: 13px;"">
                                 Nueva sugerencia recibida desde la web
@@ -135,7 +135,7 @@ namespace GTAAPP.Server.Services
                     <tr>
                         <td style=""background-color: #0f172a; padding: 15px 30px; text-align: center; border-top: 1px solid #334155;"">
                             <p style=""margin: 0; color: #64748b; font-size: 11px;"">
-                                Este correo se ha generado automáticamente desde el formulario de sugerencias de <a href=""https://gtaworld.dev"" style=""color: #38bdf8; text-decoration: none;"">gtaworld.dev</a>.
+                                Este correo se ha generado automáticamente desde el formulario de sugerencias de <a href=""https://gtaexplorer.com"" style=""color: #38bdf8; text-decoration: none;"">gtaexplorer.com</a>.
                             </p>
                         </td>
                     </tr>
@@ -146,7 +146,7 @@ namespace GTAAPP.Server.Services
 </body>
 </html>";
 
-                var plainText = $"[GTA MAPS - Sugerencia]\n\n" +
+                var plainText = $"[GTA Explorer - Sugerencia]\n\n" +
                                 $"Usuario: {nombre}\n" +
                                 $"Fecha: {fechaUtc}\n" +
                                 $"IP: {ip}\n\n" +

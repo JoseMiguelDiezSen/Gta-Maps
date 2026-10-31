@@ -51,6 +51,7 @@ if [ -d "$ReleaseDir/wwwroot/browser" ]; then
     cp -r $ReleaseDir/wwwroot/browser/* $ReleaseDir/wwwroot/ 2>/dev/null || true
     rm -rf "$ReleaseDir/wwwroot/browser"
 fi
+rm -f $ReleaseDir/wwwroot/assets/images/logos/gta-world* 2>/dev/null || true
 
 # Guardar release previa en el servidor para rollback si existe
 if [ -L "$DeployRoot/current" ]; then

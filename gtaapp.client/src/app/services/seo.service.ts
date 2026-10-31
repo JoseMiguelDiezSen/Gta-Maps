@@ -66,7 +66,7 @@ export class SeoService {
     const descKey = data.descriptionKey || this.defaultDescriptionKey;
 
     const translatedTitle = this.translationService.t(titleKey);
-    const title = translatedTitle && translatedTitle !== titleKey ? translatedTitle : (data.title || 'GTA World');
+    const title = translatedTitle && translatedTitle !== titleKey ? translatedTitle : (data.title || 'GTA Explorer');
 
     const translatedDesc = this.translationService.t(descKey);
     const description = translatedDesc && translatedDesc !== descKey ? translatedDesc : (data.description || '');
@@ -90,17 +90,14 @@ export class SeoService {
     // 3. Etiqueta canonical
     this.updateCanonicalUrl(canonicalUrl);
 
-    // 4. Etiquetas hreflang para internacionalización (Google & SEO)
-    this.updateHreflangTags(canonicalUrl);
-
-    // 5. Open Graph y Twitter Cards sincronizados por ruta
+    // 4. Open Graph y Twitter Cards sincronizados por ruta
     this.metaService.updateTag({ property: 'og:url', content: canonicalUrl });
     this.metaService.updateTag({ property: 'og:title', content: title });
     this.metaService.updateTag({ property: 'og:description', content: description });
     this.metaService.updateTag({ name: 'twitter:title', content: title });
     this.metaService.updateTag({ name: 'twitter:description', content: description });
 
-    // 6. Notificar a Google Analytics (GA4) la nueva vista de página en SPA
+    // 5. Notificar a Google Analytics (GA4) la nueva vista de página en SPA
     if (isPlatformBrowser(this.platformId)) {
       const win = window as Window & { gtag?: (action: string, eventName: string, params: Record<string, string>) => void };
       if (typeof win.gtag === 'function') {
@@ -127,41 +124,6 @@ export class SeoService {
         this.document.head.appendChild(link);
       }
       link.setAttribute('href', url);
-    } catch {
-      // Ignorar en entornos sin DOM completo
-    }
-  }
-
-  /**
-   * Genera y actualiza las etiquetas <link rel="alternate" hreflang="..." href="..."> en el <head>
-   * para todos los idiomas soportados en cualquier pantalla, incluyendo x-default.
-   */
-  private updateHreflangTags(baseCanonicalUrl: string): void {
-    if (!isPlatformBrowser(this.platformId)) return;
-
-    try {
-      // Limpiar etiquetas hreflang anteriores para evitar duplicados
-      const existingHreflangs = this.document.querySelectorAll('link[rel="alternate"][hreflang]');
-      existingHreflangs.forEach(el => el.remove());
-
-      // Base URL limpia sin parámetros
-      const cleanUrl = baseCanonicalUrl.split('?')[0];
-
-      // 1. Añadir etiqueta para cada idioma soportado
-      for (const lang of this.translationService.supportedLanguages) {
-        const link = this.document.createElement('link');
-        link.setAttribute('rel', 'alternate');
-        link.setAttribute('hreflang', lang.code);
-        link.setAttribute('href', `${cleanUrl}?lang=${lang.code}`);
-        this.document.head.appendChild(link);
-      }
-
-      // 2. Añadir x-default (versión canónica por defecto para cualquier región sin coincidencia directa)
-      const defaultLink = this.document.createElement('link');
-      defaultLink.setAttribute('rel', 'alternate');
-      defaultLink.setAttribute('hreflang', 'x-default');
-      defaultLink.setAttribute('href', cleanUrl);
-      this.document.head.appendChild(defaultLink);
     } catch {
       // Ignorar en entornos sin DOM completo
     }

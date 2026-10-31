@@ -160,13 +160,8 @@ app.UseStaticFiles(new StaticFileOptions
             ctx.Context.Response.Headers.Pragma = "no-cache";
             ctx.Context.Response.Headers.Expires = "0";
         }
-        // Archivos estáticos inmutables (imágenes, fuentes, estilos y scripts compilados)
+        // Archivos estáticos inmutables (tiles webp, fuentes, estilos y scripts compilados)
         else if (path.EndsWith(".webp", StringComparison.OrdinalIgnoreCase) ||
-                 path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
-                 path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
-                 path.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-                 path.EndsWith(".svg", StringComparison.OrdinalIgnoreCase) ||
-                 path.EndsWith(".ico", StringComparison.OrdinalIgnoreCase) ||
                  path.EndsWith(".otf", StringComparison.OrdinalIgnoreCase) ||
                  path.EndsWith(".woff2", StringComparison.OrdinalIgnoreCase) ||
                  path.EndsWith(".woff", StringComparison.OrdinalIgnoreCase) ||
@@ -176,8 +171,13 @@ app.UseStaticFiles(new StaticFileOptions
         {
             ctx.Context.Response.Headers.CacheControl = "public, max-age=31536000, immutable";
         }
-        // Datasets JSON y archivos SEO
-        else if (path.EndsWith(".json", StringComparison.OrdinalIgnoreCase) ||
+        // Iconos, imágenes PNG/JPG/SVG, datasets JSON y archivos SEO (revalidación diaria sin bloqueo de 1 año)
+        else if (path.EndsWith(".ico", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".svg", StringComparison.OrdinalIgnoreCase) ||
+                 path.EndsWith(".json", StringComparison.OrdinalIgnoreCase) ||
                  path.EndsWith(".xml", StringComparison.OrdinalIgnoreCase) ||
                  path.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
         {
@@ -208,8 +208,177 @@ app.MapGet("/robots.txt", (IWebHostEnvironment env) =>
         : Results.NotFound();
 });
 
-// Enrutamiento fallback SPA (Single Page Application) hacia index.html de Angular
-app.MapFallbackToFile("/index.html");
+// Enrutamiento SEO y fallback SPA estrictamente acotado a las 10 rutas públicas oficiales
+var seoRoutes = new Dictionary<string, (string Title, string Description, string Canonical)>(StringComparer.OrdinalIgnoreCase)
+{
+    ["/"] = (
+        "GTA Explorer - Mapas GTA HD con asistente IA integrado y Guías Interactivas",
+        "Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas, Misterios.",
+        "https://gtaexplorer.com/home"
+    ),
+    ["/home"] = (
+        "GTA Explorer - Mapas GTA HD con asistente IA integrado y Guías Interactivas",
+        "Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas, Misterios.",
+        "https://gtaexplorer.com/home"
+    ),
+    ["/gta5-map-online"] = (
+        "Mapa GTA V Online | GTA Explorer",
+        "Mapa interactivo en HD de GTA 5 Online y Cayo Perico. Misiones, Propiedades, Vehiculos, Armas, Negocios, Golpes, Misterios y asistente IA en tiempo real.",
+        "https://gtaexplorer.com/gta5-map-online"
+    ),
+    ["/gta5-map-offline"] = (
+        "Mapa GTA V Modo Historia | GTA Explorer",
+        "Mapa interactivo de GTA V en HD: Misiones Principales, Cartas, Coleccionables , Saltos, Misterios",
+        "https://gtaexplorer.com/gta5-map-offline"
+    ),
+    ["/gta5-guia-offline"] = (
+        "Guía GTA V Modo Historia | GTA Explorer",
+        "Guía completa y enciclopedia de GTA V: requisitos del 100%, guía táctica de los 6 golpes, bolsa de valores con Lester, personajes y misterios de Los Santos.",
+        "https://gtaexplorer.com/gta5-guia-offline"
+    ),
+    ["/gta5-guia-online"] = (
+        "Guía GTA V Online | GTA Explorer",
+        "Guía específica de GTA V Online en preparación.",
+        "https://gtaexplorer.com/gta5-guia-online"
+    ),
+    ["/gta6-map-online"] = (
+        "Mapa GTA VI Online | GTA Explorer",
+        "Mapa interactivo en HD de GTA 6 Online en Vice City y Leonida. Puntos de interés, carreteras, secretos, noticias y novedades.",
+        "https://gtaexplorer.com/gta6-map-online"
+    ),
+    ["/gta6-map-offline"] = (
+        "Mapa GTA VI Modo Historia | GTA Explorer",
+        "Mapa interactivo del modo historia de GTA VI con Jason y Lucia. Mapa HD de Vice City, Misiones, Coleccionables y secretos.",
+        "https://gtaexplorer.com/gta6-map-offline"
+    ),
+    ["/gta6-guia-offline"] = (
+        "Guía GTA VI Modo Historia | GTA Explorer",
+        "Enciclopedia interactiva de GTA VI: distritos de Vice City, estado de Leonida, análisis de Jason & Lucia, inventario en maleteros y mecánicas.",
+        "https://gtaexplorer.com/gta6-guia-offline"
+    ),
+    ["/gta6-guia-online"] = (
+        "Guía GTA VI Online | GTA Explorer",
+        "Guía específica de GTA VI Online en preparación.",
+        "https://gtaexplorer.com/gta6-guia-online"
+    ),
+    ["/gta6-videos"] = (
+        "Vídeos GTA VI | GTA Explorer",
+        "Recopilación de vídeos y clips breves de gameplay, situaciones curiosas y surrealistas en Grand Theft Auto VI y el Estado de Leonida.",
+        "https://gtaexplorer.com/gta6-videos"
+    )
+};
+
+var legacyRedirects = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+{
+    ["/index.html"] = "/home",
+    ["/gta6-guia"] = "/gta6-guia-offline",
+    ["/gta5-guia"] = "/gta5-guia-online",
+    ["/gta6-momentos"] = "/gta6-videos",
+    ["/gta6-noticias"] = "/gta6-videos",
+    ["/noticias"] = "/gta6-videos",
+    ["/gta6/noticias"] = "/gta6-videos",
+    ["/gta6noticias"] = "/gta6-videos",
+    ["/momentos"] = "/gta6-videos",
+    ["/gta6/momentos"] = "/gta6-videos",
+    ["/gta6momentos"] = "/gta6-videos",
+    ["/videos"] = "/gta6-videos",
+    ["/gta6/videos"] = "/gta6-videos",
+    ["/gta6videos"] = "/gta6-videos",
+    ["/gta5"] = "/gta5-map-online",
+    ["/gta5online"] = "/gta5-map-online",
+    ["/gta5/online"] = "/gta5-map-online",
+    ["/gta5/historia"] = "/gta5-map-offline",
+    ["/gta5historia"] = "/gta5-map-offline",
+    ["/gta5/guia"] = "/gta5-guia-online",
+    ["/gta5/guia/offline"] = "/gta5-guia-offline",
+    ["/gta5/guia/online"] = "/gta5-guia-online",
+    ["/gta5guia"] = "/gta5-guia-online",
+    ["/gt5"] = "/gta5-map-online",
+    ["/gta6"] = "/gta6-map-online",
+    ["/gta6online"] = "/gta6-map-online",
+    ["/gta6/online"] = "/gta6-map-online",
+    ["/gta6/historia"] = "/gta6-map-offline",
+    ["/gta6historia"] = "/gta6-map-offline",
+    ["/gta6/guia"] = "/gta6-guia-offline",
+    ["/gta6/guia/offline"] = "/gta6-guia-offline",
+    ["/gta6/guia/online"] = "/gta6-guia-online",
+    ["/gta6guia"] = "/gta6-guia-offline"
+};
+
+app.MapFallback(async (HttpContext ctx, IWebHostEnvironment env) =>
+{
+    var reqPath = (ctx.Request.Path.Value ?? "/").TrimEnd('/');
+    if (string.IsNullOrEmpty(reqPath))
+    {
+        reqPath = "/";
+    }
+
+    if (legacyRedirects.TryGetValue(reqPath, out var targetRoute))
+    {
+        ctx.Response.StatusCode = StatusCodes.Status301MovedPermanently;
+        ctx.Response.Headers.Location = $"https://gtaexplorer.com{targetRoute}";
+        return;
+    }
+
+    if (!seoRoutes.TryGetValue(reqPath, out var seo))
+    {
+        ctx.Response.StatusCode = StatusCodes.Status404NotFound;
+        ctx.Response.ContentType = "text/plain; charset=utf-8";
+        await ctx.Response.WriteAsync("404 Not Found");
+        return;
+    }
+
+    var indexPath = Path.Combine(env.WebRootPath, "index.html");
+    if (!File.Exists(indexPath))
+    {
+        ctx.Response.StatusCode = StatusCodes.Status404NotFound;
+        return;
+    }
+
+    var html = await File.ReadAllTextAsync(indexPath);
+    var canonicalUrl = seo.Canonical;
+
+    html = html
+        .Replace(
+            "<title>GTA Explorer - Mapas GTA HD con asistente IA integrado y Guías Interactivas</title>",
+            $"<title>{seo.Title}</title>",
+            StringComparison.Ordinal)
+        .Replace(
+            "<meta name=\"description\" content=\"Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas, Misterios.\">",
+            $"<meta name=\"description\" content=\"{seo.Description}\">",
+            StringComparison.Ordinal)
+        .Replace(
+            "<link rel=\"canonical\" href=\"https://gtaexplorer.com/home\">",
+            $"<link rel=\"canonical\" href=\"{canonicalUrl}\">",
+            StringComparison.Ordinal)
+        .Replace(
+            "<meta property=\"og:url\" content=\"https://gtaexplorer.com/home\">",
+            $"<meta property=\"og:url\" content=\"{canonicalUrl}\">",
+            StringComparison.Ordinal)
+        .Replace(
+            "<meta property=\"og:title\" content=\"GTA Explorer - Mapas y Guías de GTA 5 & GTA 6\">",
+            $"<meta property=\"og:title\" content=\"{seo.Title}\">",
+            StringComparison.Ordinal)
+        .Replace(
+            "<meta property=\"og:description\" content=\"Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.\">",
+            $"<meta property=\"og:description\" content=\"{seo.Description}\">",
+            StringComparison.Ordinal)
+        .Replace(
+            "<meta name=\"twitter:title\" content=\"GTA Explorer - Mapas y Guías de GTA 5 & GTA 6\">",
+            $"<meta name=\"twitter:title\" content=\"{seo.Title}\">",
+            StringComparison.Ordinal)
+        .Replace(
+            "<meta name=\"twitter:description\" content=\"Mapas HD y Guias Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6, GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehiculos, Armas, Misterios.\">",
+            $"<meta name=\"twitter:description\" content=\"{seo.Description}\">",
+            StringComparison.Ordinal);
+
+    ctx.Response.StatusCode = StatusCodes.Status200OK;
+    ctx.Response.ContentType = "text/html; charset=utf-8";
+    ctx.Response.Headers.CacheControl = "no-cache, no-store, must-revalidate";
+    ctx.Response.Headers.Pragma = "no-cache";
+    ctx.Response.Headers.Expires = "0";
+    await ctx.Response.WriteAsync(html);
+});
 
 // Inicio del servidor
 await app.RunAsync();
