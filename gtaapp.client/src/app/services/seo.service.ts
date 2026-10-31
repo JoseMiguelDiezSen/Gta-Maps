@@ -79,7 +79,7 @@ export class SeoService {
       : (data.description || (fallbackDefaultDesc !== this.defaultDescriptionKey ? fallbackDefaultDesc : ''));
 
     const rawPath = this.router.url.split('?')[0].split('#')[0] || '/home';
-    const cleanPath = rawPath === '/' ? '/home' : rawPath.replace(/\/+$/, '').toLowerCase();
+    const cleanPath = rawPath === '/' ? '/home' : (rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath).toLowerCase();
     const baseCanonical = data.canonical || `${this.baseUrl}${cleanPath}`;
     const activeLang = this.translationService.currentLanguage();
     const localizedCanonical = activeLang && activeLang !== DEFAULT_LANGUAGE

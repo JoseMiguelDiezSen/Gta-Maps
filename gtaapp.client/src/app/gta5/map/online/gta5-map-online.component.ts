@@ -408,29 +408,29 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         knife_flight: false,
         parachuting: false,
         // Cayo Perico
-        infiltration_points: false,
-        escape_points: false,
-        compound_entry_points: false,
-        power_station: false,
-        control_tower: false,
-        secondary_targets: false,
-        bolt_cutters: false,
-        grappling_eq: false,
-        guard_clothing: false,
-        supply_truck: false,
-        cutting_powder: false,
-        water_tower: false,
-        combat_shotgun: false,
-        perico_pistol: false,
-        treasure_chests: false,
-        buried_stashes: false,
-        spawns_forklift: false,
-        spawns_manchez_scout: false,
-        spawns_verus: false,
-        spawns_winky: false,
-        spawns_squaddie: false,
-        spawns_dinghy: false,
-        spawns_weaponized_dinghy: false
+        infiltration_points: true,
+        escape_points: true,
+        compound_entry_points: true,
+        power_station: true,
+        control_tower: true,
+        secondary_targets: true,
+        bolt_cutters: true,
+        grappling_eq: true,
+        guard_clothing: true,
+        supply_truck: true,
+        cutting_powder: true,
+        water_tower: true,
+        combat_shotgun: true,
+        perico_pistol: true,
+        treasure_chests: true,
+        buried_stashes: true,
+        spawns_forklift: true,
+        spawns_manchez_scout: true,
+        spawns_verus: true,
+        spawns_winky: true,
+        spawns_squaddie: true,
+        spawns_dinghy: true,
+        spawns_weaponized_dinghy: true
     };
 
     // Propiedades y ubicaciones cargadas
@@ -1697,7 +1697,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 this.cayoPericoLocations = locations;
                 locations.forEach(loc => {
                     if (this.layerFilters[loc.category] === undefined) {
-                        this.layerFilters[loc.category] = false;
+                        this.layerFilters[loc.category] = true;
                     }
                 });
                 this.renderCayoPericoMarkers();

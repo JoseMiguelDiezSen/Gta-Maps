@@ -130,7 +130,17 @@ public class GuiaService : IGuiaService
                         if (json.TrimStart().StartsWith('['))
                         {
                             var list = JsonSerializer.Deserialize<List<GuiaArticulo>>(json, JsonOptions);
-                            if (list != null) articulosGta5.AddRange(list);
+                            if (list != null)
+                        {
+                            var existingIds = new HashSet<string>(articulosGta5.Select(a => a.Id), StringComparer.OrdinalIgnoreCase);
+                            foreach (var item in list)
+                            {
+                                if (!existingIds.Contains(item.Id))
+                                {
+                                    articulosGta5.Add(item);
+                                }
+                            }
+                        }
                         }
                         else if (json.TrimStart().StartsWith('{'))
                         {
@@ -157,7 +167,17 @@ public class GuiaService : IGuiaService
                         if (json.TrimStart().StartsWith('['))
                         {
                             var list = JsonSerializer.Deserialize<List<GuiaArticulo>>(json, JsonOptions);
-                            if (list != null) articulosGta5.AddRange(list);
+                            if (list != null)
+                        {
+                            var existingIds = new HashSet<string>(articulosGta5.Select(a => a.Id), StringComparer.OrdinalIgnoreCase);
+                            foreach (var item in list)
+                            {
+                                if (!existingIds.Contains(item.Id))
+                                {
+                                    articulosGta5.Add(item);
+                                }
+                            }
+                        }
                         }
                     }
                     catch (Exception ex)
