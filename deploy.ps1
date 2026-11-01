@@ -18,6 +18,8 @@ Write-Host "Iniciando proceso de despliegue de GTA EXPLORER [Release $Timestamp]
 # 1. Compilar Release
 Write-Host "1/5 Compilando frontend y backend..." -ForegroundColor Yellow
 Remove-Item -Path ./publish -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path "GTAAPP.Server/obj/Release" -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path "gtaapp.client/obj/Release" -Recurse -Force -ErrorAction SilentlyContinue
 dotnet publish GTAAPP.Server/GTAAPP.Server.csproj -c Release -o ./publish
 
 if ($LASTEXITCODE -ne 0) {

@@ -233,7 +233,7 @@
   },
   {
     "id": "biz-car-scrapyard",
-    "name": "Salvage Yard Coches",
+    "name": "Car Scrapyard",
     "category": "purchasable_business",
     "categoryLabel": "Purchasable Businesses",
     "gameMode": "story",
@@ -247,7 +247,7 @@
       "Maximum $5,000 weekly scrap cap",
       "Available for all 3 protagonists"
     ],
-    "income": "$150 per destroyed vehicle (hasta $5,000/sem)",
+    "income": "$150 per destroyed vehicle (up to $5,000/wk)",
     "position": {
       "x": 1289.2,
       "y": -2072.5,
@@ -441,13 +441,13 @@
     "categoryLabel": "Hangars",
     "gameMode": "both",
     "price": 1378000,
-    "priceFormatted": "$1,378,000 (Historia) / $1,200,000 (Online)",
-    "zone": "Aeropuerto Internacional LSIA",
+    "priceFormatted": "$1,378,000 (Story Mode) / $1,200,000 (Online)",
+    "zone": "Los Santos International Airport (LSIA)",
     "description": "Civilian hangar at LSIA (New Empire Way). In Story Mode Michael and Franklin can purchase it to store planes; in Online it serves Smuggler's Run.",
     "features": [
-      "Almacenamiento de hasta 20 aeronaves",
+      "Storage capacity for up to 20 aircraft",
       "Free access to LSIA commercial runways without wanted level",
-      "Adquirible por Michael y Franklin en Modo Historia"
+      "Purchasable by Michael and Franklin in Story Mode"
     ],
     "income": "Air freight smuggling cargo missions",
     "position": {
@@ -461,7 +461,7 @@
       "symbol": "✈️"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/properties/Hangars-GTAO-LSIA1.jpg",
-    "owner": "Franklin Clinton / Michael De Santa (Historia) / Jugador (Online)"
+    "owner": "Franklin Clinton / Michael De Santa (Story Mode) / Player (Online)"
   },
   {
     "id": "hangar-lsia-1",
@@ -470,15 +470,15 @@
     "categoryLabel": "Hangars",
     "gameMode": "both",
     "price": 1378000,
-    "priceFormatted": "$1,378,000 (Historia) / $1,525,000 (Online)",
-    "zone": "Aeropuerto Internacional LSIA",
+    "priceFormatted": "$1,378,000 (Story Mode) / $1,525,000 (Online)",
+    "zone": "Los Santos International Airport (LSIA)",
     "description": "Spacious hangar on New Empire Way at LSIA for storing private jets, bombers, and helicopters.",
     "features": [
-      "Pistas comerciales directas y despegue frontal",
-      "Guardado de jets militares y aeronaves civiles",
-      "Adquirible por Michael y Franklin en Modo Historia"
+      "Direct commercial runway and frontal takeoff access",
+      "Storage for military jets and civilian aircraft",
+      "Purchasable by Michael and Franklin in Story Mode"
     ],
-    "income": "Misiones de contrabando Smuggler's Run",
+    "income": "Smuggler's Run air freight smuggling missions",
     "position": {
       "x": -1169,
       "y": -3440,
@@ -490,7 +490,7 @@
       "symbol": "✈️"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/properties/Hangars-GTAO-LSIA1.jpg",
-    "owner": "Franklin Clinton / Michael De Santa (Historia) / Jugador (Online)"
+    "owner": "Franklin Clinton / Michael De Santa (Story Mode) / Player (Online)"
   },
   {
     "id": "hangar-grand-senora-airfield",
@@ -498,17 +498,17 @@
     "category": "hangar",
     "categoryLabel": "Hangars",
     "gameMode": "both",
-    "owner": "Trevor Philips (Historia) / Pegasus & Ron (Online)",
+    "owner": "Trevor Philips (Story Mode) / Pegasus & Ron (Online)",
     "price": 0,
     "priceFormatted": "Active Airbase / Airfield",
     "zone": "Grand Senora Desert",
     "description": "Primary Blaine County airfield with crossed runways, hangars, and helipad. Trevor's operations base and Pegasus drop-off hub.",
     "features": [
-      "Doble pista de aterrizaje para aeronaves de gran porte",
-      "Hangares principales y zona de repostaje",
+      "Dual paved runways for heavy and military aircraft",
+      "Primary hangars and aircraft refueling bays",
       "Key Pegasus delivery hub in Sandy Shores"
     ],
-    "income": "Acceso libre / Centro de operaciones",
+    "income": "Free airfield access / Headquarters",
     "position": {
       "x": 1730,
       "y": 3280,

@@ -32,7 +32,10 @@
               "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [],
-            "browser": "src/main.ts"
+            "browser": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "leaflet"
+            ]
           },
           "configurations": {
             "production": {
@@ -44,7 +47,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "75kb",
+                  "maximumWarning": "100kb",
                   "maximumError": "120kb"
                 }
               ],

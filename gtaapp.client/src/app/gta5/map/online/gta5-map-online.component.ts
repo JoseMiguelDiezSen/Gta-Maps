@@ -1785,8 +1785,8 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 pinEl.appendChild(symSpan);
                 pinClass = 'gta-pin-wrapper';
                 pinIconSize = [22, 22];
-                pinIconAnchor = [11, 11];
-                pinPopupAnchor = [0, -12];
+                pinIconAnchor = [11, 22];
+                pinPopupAnchor = [0, -20];
             }
 
             const icon = L.divIcon({
@@ -1951,8 +1951,8 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 pinEl.appendChild(blipImg);
                 pinClass = 'gta-pin-wrapper-blip';
                 pinIconSize = [22, 22];
-                pinIconAnchor = [11, 11];
-                pinPopupAnchor = [0, -12];
+                pinIconAnchor = [11, 22];
+                pinPopupAnchor = [0, -20];
             } else if (this.iconTheme === 'simple') {
                 // 3. Tema Font Awesome: iconos vectoriales limpios
                 pinEl.style.color = pinColor;
@@ -1979,8 +1979,8 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 pinEl.appendChild(symSpan);
                 pinClass = 'gta-pin-wrapper';
                 pinIconSize = [22, 22];
-                pinIconAnchor = [11, 11];
-                pinPopupAnchor = [0, -12];
+                pinIconAnchor = [11, 22];
+                pinPopupAnchor = [0, -20];
             }
 
             const icon = L.divIcon({
@@ -2134,8 +2134,8 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 htmlEl.appendChild(symSpan);
                 iconDivClass = 'gta-pin-collectible-wrapper';
                 iconSize = [17, 17];
-                iconAnchor = [8.5, 8.5];
-                popupAnchor = [0, -10];
+                iconAnchor = [8.5, 17];
+                popupAnchor = [0, -15];
             }
 
             const icon = L.divIcon({
