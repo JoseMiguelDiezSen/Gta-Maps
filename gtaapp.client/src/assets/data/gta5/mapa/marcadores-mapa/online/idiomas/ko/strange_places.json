@@ -157,28 +157,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-7",
-    "name": "Chumash Boat (West)",
-    "category": "shipwreck",
-    "categoryLabel": "난파선 보물상자",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "산 안드레아스",
-    "description": "해저 깊은 곳에 가라앉은 잔해. 주변에 숨겨진 현금 가방을 찾을 수 있습니다.",
-    "features": [],
-    "position": {
-      "x": -3450,
-      "y": 950,
-      "z": -40
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-8",
     "name": "Tugboat (Zancudo)",
     "category": "shipwreck",
@@ -456,6 +434,94 @@
       "icon": "mountain",
       "color": "#a0522d",
       "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "shipwreck-submarino-hundido",
+    "name": "침몰한 잠수함",
+    "category": "shipwreck",
+    "categoryLabel": "난파선 및 잔해",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "태평양",
+    "description": "금속 구조물에 얹혀 있는 침몰한 잠수함",
+    "features": [],
+    "position": {
+      "x": -2814.6,
+      "y": -485.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-fuselaje-avion-comercial",
+    "name": "여객기 동체 잔해",
+    "category": "shipwreck",
+    "categoryLabel": "난파선 및 잔해",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "북부 해안 근처에 가라앉은 여객기 동체.",
+    "features": [],
+    "position": {
+      "x": -918.6,
+      "y": 6664.4,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-cabina-avion-comercial",
+    "name": "여객기 조종석 잔해",
+    "category": "shipwreck",
+    "categoryLabel": "난파선 및 잔해",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "북부 해저에 가라앉은 여객기 조종석.",
+    "features": [],
+    "position": {
+      "x": -1002,
+      "y": 6704.5,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-avioneta-hundida",
+    "name": "침몰한 경비행기",
+    "category": "shipwreck",
+    "categoryLabel": "난파선 및 잔해",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "칠리아드 산 / 북동부 해안",
+    "description": "북동부 해안 수역에 가라앉은 경비행기 잔해.",
+    "features": [],
+    "position": {
+      "x": 3265.8,
+      "y": 6445.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   }
 ]

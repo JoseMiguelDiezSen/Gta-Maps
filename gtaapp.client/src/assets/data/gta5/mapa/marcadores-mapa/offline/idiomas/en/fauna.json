@@ -280,34 +280,6 @@
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cow-GTAV.jpg"
   },
   {
-    "id": "animal-dolphin-pacific",
-    "name": "Pacific Dolphin",
-    "category": "animal",
-    "categoryLabel": "Wildlife",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "Pacific Ocean (Pacific Bluffs & Chumash)",
-    "description": "Intelligent and playful marine mammal. Swims and leaps in small pods in the open coastal waters off Pacific Bluffs and Chumash.",
-    "features": [
-      "Playful aquatic mammal leaping across the water surface",
-      "Visible in pods across open ocean swells",
-      "Playable animal via underwater peyote plants in Story Mode"
-    ],
-    "income": "Marine life & ocean sighting",
-    "position": {
-      "x": -3150,
-      "y": 600,
-      "z": -15
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#00a8ff",
-      "symbol": "🐬"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
-  },
-  {
     "id": "animal-orca-south",
     "name": "Orca / Killer Whale",
     "category": "animal",
@@ -380,7 +352,7 @@
     ],
     "income": "Marine wildlife and ocean sightings",
     "position": {
-      "x": 4184.0,
+      "x": 4184,
       "y": 3416.9,
       "z": -15
     },
@@ -390,5 +362,55 @@
       "symbol": "🐬"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
+  },
+  {
+    "id": "animal-delfines-costa-oeste",
+    "name": "Dolphins",
+    "category": "animal",
+    "categoryLabel": "Wildlife",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Pacific Ocean",
+    "description": "Pod of dolphins spotted in Pacific Ocean waters.",
+    "features": [
+      "Pod of dolphins spotted in Pacific Ocean waters."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3173.7,
+      "y": -112.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐬"
+    }
+  },
+  {
+    "id": "animal-orcas-costa-oeste",
+    "name": "Orcas (Killer Whales)",
+    "category": "animal",
+    "categoryLabel": "Wildlife",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Pacific Ocean",
+    "description": "Pod of killer whales spotted in deep Pacific waters.",
+    "features": [
+      "Pod of killer whales spotted in deep Pacific waters."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3595,
+      "y": 1425.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐋"
+    }
   }
 ]

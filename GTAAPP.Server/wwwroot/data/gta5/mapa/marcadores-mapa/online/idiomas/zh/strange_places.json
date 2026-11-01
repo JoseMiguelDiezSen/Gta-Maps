@@ -157,28 +157,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-7",
-    "name": "Chumash Boat (West)",
-    "category": "shipwreck",
-    "categoryLabel": "水下沉船遗迹",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "圣安地列斯",
-    "description": "沉睡在圣安地列斯海床上的水下遗骸，常暗藏秘密钱箱与未解之谜。",
-    "features": [],
-    "position": {
-      "x": -3450,
-      "y": 950,
-      "z": -40
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-8",
     "name": "Tugboat (Zancudo)",
     "category": "shipwreck",
@@ -456,6 +434,94 @@
       "icon": "mountain",
       "color": "#a0522d",
       "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "shipwreck-submarino-hundido",
+    "name": "沉没潜艇",
+    "category": "shipwreck",
+    "categoryLabel": "沉船与残骸",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "太平洋",
+    "description": "停靠在金属结构上的沉没潜艇",
+    "features": [],
+    "position": {
+      "x": -2814.6,
+      "y": -485.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-fuselaje-avion-comercial",
+    "name": "客机机身残骸",
+    "category": "shipwreck",
+    "categoryLabel": "沉船与残骸",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "北部海岸附近水下的客机机身残骸。",
+    "features": [],
+    "position": {
+      "x": -918.6,
+      "y": 6664.4,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-cabina-avion-comercial",
+    "name": "客机驾驶舱残骸",
+    "category": "shipwreck",
+    "categoryLabel": "沉船与残骸",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "北部海底沉没的客机驾驶舱残骸。",
+    "features": [],
+    "position": {
+      "x": -1002,
+      "y": 6704.5,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-avioneta-hundida",
+    "name": "沉没轻型飞机",
+    "category": "shipwreck",
+    "categoryLabel": "沉船与残骸",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "乞力耶德山 / 东北海岸",
+    "description": "东北海岸水下沉没的轻型飞机残骸。",
+    "features": [],
+    "position": {
+      "x": 3265.8,
+      "y": 6445.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   }
 ]

@@ -157,28 +157,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-7",
-    "name": "Chumash Boat (West)",
-    "category": "shipwreck",
-    "categoryLabel": "Batık Gemi Sandığı",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Okyanusun derinliklerinde yatan batık enkazı. Çevresinde gizli para dolu çantalar bulunabilir.",
-    "features": [],
-    "position": {
-      "x": -3450,
-      "y": 950,
-      "z": -40
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-8",
     "name": "Tugboat (Zancudo)",
     "category": "shipwreck",
@@ -456,6 +434,94 @@
       "icon": "mountain",
       "color": "#a0522d",
       "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "shipwreck-submarino-hundido",
+    "name": "Batık Denizaltı",
+    "category": "shipwreck",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Pasifik Okyanusu",
+    "description": "Metal yapı üzerinde duran batık denizaltı",
+    "features": [],
+    "position": {
+      "x": -2814.6,
+      "y": -485.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-fuselaje-avion-comercial",
+    "name": "Yolcu Uçağı Gövdesi",
+    "category": "shipwreck",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "Kuzey kıyısı açıklarında batık yolcu uçağı gövdesi.",
+    "features": [],
+    "position": {
+      "x": -918.6,
+      "y": 6664.4,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-cabina-avion-comercial",
+    "name": "Yolcu Uçağı Kokpiti",
+    "category": "shipwreck",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "Kuzey deniz tabanında batık yolcu uçağı kokpiti.",
+    "features": [],
+    "position": {
+      "x": -1002,
+      "y": 6704.5,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-avioneta-hundida",
+    "name": "Batık Hafif Uçak",
+    "category": "shipwreck",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Chiliad Dağı / Kuzeydoğu Kıyısı",
+    "description": "Kuzeydoğu kıyı sularında batık hafif uçak enkazı.",
+    "features": [],
+    "position": {
+      "x": 3265.8,
+      "y": 6445.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   }
 ]

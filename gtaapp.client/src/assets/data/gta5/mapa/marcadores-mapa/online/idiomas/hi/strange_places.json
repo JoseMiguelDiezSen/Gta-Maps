@@ -157,28 +157,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-7",
-    "name": "Chumash Boat (West)",
-    "category": "shipwreck",
-    "categoryLabel": "जहाज का मलबा",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "सैन एंड्रियास",
-    "description": "समुद्र के गहरे तल में डूबा हुआ मलबा। इसके आसपास छुपे हुए नकदी से भरे ब्रीफकेस मिल सकते हैं।",
-    "features": [],
-    "position": {
-      "x": -3450,
-      "y": 950,
-      "z": -40
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-8",
     "name": "Tugboat (Zancudo)",
     "category": "shipwreck",
@@ -456,6 +434,94 @@
       "icon": "mountain",
       "color": "#a0522d",
       "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "shipwreck-submarino-hundido",
+    "name": "डूबी हुई पनडुब्बी",
+    "category": "shipwreck",
+    "categoryLabel": "जहाज के मलबे और अवशेष",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "प्रशांत महासागर",
+    "description": "धातु के ढांचे पर टिकी हुई डूबी हुई पनडुब्बी",
+    "features": [],
+    "position": {
+      "x": -2814.6,
+      "y": -485.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-fuselaje-avion-comercial",
+    "name": "व्यावसायिक विमान का ढाँचा",
+    "category": "shipwreck",
+    "categoryLabel": "जहाज के मलबे और अवशेष",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "उत्तरी तट पर पानी में डूबा हुआ वाणिज्यिक विमान का ढाँचा।",
+    "features": [],
+    "position": {
+      "x": -918.6,
+      "y": 6664.4,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-cabina-avion-comercial",
+    "name": "व्यावसायिक विमान का कॉकपिट",
+    "category": "shipwreck",
+    "categoryLabel": "जहाज के मलबे और अवशेष",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "उत्तरी समुद्र तल पर डूबा हुआ वाणिज्यिक विमान का कॉकपिट।",
+    "features": [],
+    "position": {
+      "x": -1002,
+      "y": 6704.5,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-avioneta-hundida",
+    "name": "डूबा हुआ हल्का विमान",
+    "category": "shipwreck",
+    "categoryLabel": "जहाज के मलबे और अवशेष",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "माउंट चिलियाड / उत्तर-पूर्वी तट",
+    "description": "उत्तर-पूर्वी तटीय जल में डूबे हुए हल्के विमान का मलबा।",
+    "features": [],
+    "position": {
+      "x": 3265.8,
+      "y": 6445.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   }
 ]

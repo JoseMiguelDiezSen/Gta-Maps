@@ -157,28 +157,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-7",
-    "name": "Barco Chumash (Oeste)",
-    "category": "shipwreck",
-    "categoryLabel": "Naufrágios e Destroços",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Naufrágio em frente a Chumash.",
-    "features": [],
-    "position": {
-      "x": -3450,
-      "y": 950,
-      "z": -40
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-8",
     "name": "Rebocador (Zancudo)",
     "category": "shipwreck",
@@ -456,6 +434,94 @@
       "icon": "mountain",
       "color": "#a0522d",
       "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "shipwreck-submarino-hundido",
+    "name": "Submarino afundado",
+    "category": "shipwreck",
+    "categoryLabel": "Naufrágios e Destroços",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Oceano Pacífico",
+    "description": "Submarino afundado apoiado em estrutura metálica",
+    "features": [],
+    "position": {
+      "x": -2814.6,
+      "y": -485.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-fuselaje-avion-comercial",
+    "name": "Fuselagem de avião comercial",
+    "category": "shipwreck",
+    "categoryLabel": "Naufrágios e Destroços",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "Fuselagem submersa de avião comercial na costa norte.",
+    "features": [],
+    "position": {
+      "x": -918.6,
+      "y": 6664.4,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-cabina-avion-comercial",
+    "name": "Cabine de avião comercial",
+    "category": "shipwreck",
+    "categoryLabel": "Naufrágios e Destroços",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "Cabine submersa de avião comercial no fundo do mar ao norte.",
+    "features": [],
+    "position": {
+      "x": -1002,
+      "y": 6704.5,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-avioneta-hundida",
+    "name": "Monomotor afundado",
+    "category": "shipwreck",
+    "categoryLabel": "Naufrágios e Destroços",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Monte Chiliad / Costa Nordeste",
+    "description": "Destroços de um monomotor afundado nas águas da costa nordeste.",
+    "features": [],
+    "position": {
+      "x": 3265.8,
+      "y": 6445.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   }
 ]

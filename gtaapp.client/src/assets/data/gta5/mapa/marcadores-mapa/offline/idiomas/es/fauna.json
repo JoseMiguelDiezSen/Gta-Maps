@@ -280,34 +280,6 @@
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cow-GTAV.jpg"
   },
   {
-    "id": "animal-dolphin-pacific",
-    "name": "Delfín del Pacífico",
-    "category": "animal",
-    "categoryLabel": "Fauna Salvaje",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécimen de Fauna",
-    "zone": "Océano Pacífico (Pacific Bluffs y Chumash)",
-    "description": "Mamífero marino inteligente y juguetón. Nada y salta en pequeños grupos en las aguas costeras frente a Pacific Bluffs y Chumash.",
-    "features": [
-      "Mamífero acuático juguetón que salta sobre el agua",
-      "Visible en manadas sobre el oleaje del océano abierto",
-      "Animal jugable mediante plantas de peyote submarinas en Modo Historia"
-    ],
-    "income": "Vida marina y avistamiento oceánico",
-    "position": {
-      "x": -3150,
-      "y": 600,
-      "z": -15
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#00a8ff",
-      "symbol": "🐬"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
-  },
-  {
     "id": "animal-orca-south",
     "name": "Orca",
     "category": "animal",
@@ -380,7 +352,7 @@
     ],
     "income": "Vida marina y avistamiento oceánico",
     "position": {
-      "x": 4184.0,
+      "x": 4184,
       "y": 3416.9,
       "z": -15
     },
@@ -390,5 +362,55 @@
       "symbol": "🐬"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
+  },
+  {
+    "id": "animal-delfines-costa-oeste",
+    "name": "Delfines",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Océano Pacífico",
+    "description": "Manada de delfines avistados en aguas del océano Pacífico.",
+    "features": [
+      "Manada de delfines avistados en aguas del océano Pacífico."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3173.7,
+      "y": -112.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐬"
+    }
+  },
+  {
+    "id": "animal-orcas-costa-oeste",
+    "name": "Orcas",
+    "category": "animal",
+    "categoryLabel": "Fauna Salvaje",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Océano Pacífico",
+    "description": "Grupo de orcas avistadas en aguas profundas del océano Pacífico.",
+    "features": [
+      "Grupo de orcas avistadas en aguas profundas del océano Pacífico."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3595,
+      "y": 1425.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐋"
+    }
   }
 ]

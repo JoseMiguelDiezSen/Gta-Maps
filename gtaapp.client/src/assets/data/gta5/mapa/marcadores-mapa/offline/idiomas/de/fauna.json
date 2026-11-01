@@ -280,34 +280,6 @@
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cow-GTAV.jpg"
   },
   {
-    "id": "animal-dolphin-pacific",
-    "name": "Pazifischer Delfin",
-    "category": "animal",
-    "categoryLabel": "Wildtier",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Espécimen de Fauna",
-    "zone": "Pazifischer Ozean (Pacific Bluffs y Chumash)",
-    "description": "Intelligenter Meeressäuger, der in den Küstengewässern und offenen Meeren von San Andreas schwimmt.",
-    "features": [
-      "Mamífero acuático juguetón que salta sobre el agua",
-      "Visible en manadas sobre el oleaje del océano abierto",
-      "Animal jugable mediante plantas de peyote submarinas en Modo Historia"
-    ],
-    "income": "Kraken-Tauchboot-Belohnung nach Fotos",
-    "position": {
-      "x": -3150,
-      "y": 600,
-      "z": -15
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#00a8ff",
-      "symbol": "🐬"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
-  },
-  {
     "id": "animal-orca-south",
     "name": "Orca / Killer Whale",
     "category": "animal",
@@ -390,5 +362,55 @@
       "symbol": "🐬"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
+  },
+  {
+    "id": "animal-delfines-costa-oeste",
+    "name": "Delfine",
+    "category": "animal",
+    "categoryLabel": "Tierwelt",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Pazifischer Ozean",
+    "description": "Gruppe von Delfinen im Pazifischen Ozean gesichtet.",
+    "features": [
+      "Gruppe von Delfinen im Pazifischen Ozean gesichtet."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3173.7,
+      "y": -112.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐬"
+    }
+  },
+  {
+    "id": "animal-orcas-costa-oeste",
+    "name": "Orcas (Schwertwale)",
+    "category": "animal",
+    "categoryLabel": "Tierwelt",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Pazifischer Ozean",
+    "description": "Gruppe von Schwertwalen im Pazifischen Ozean gesichtet.",
+    "features": [
+      "Gruppe von Schwertwalen im Pazifischen Ozean gesichtet."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3595,
+      "y": 1425.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐋"
+    }
   }
 ]

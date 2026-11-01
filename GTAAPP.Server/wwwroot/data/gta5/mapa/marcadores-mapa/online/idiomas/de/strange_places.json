@@ -157,28 +157,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-7",
-    "name": "Barco Chumash (Oeste)",
-    "category": "shipwreck",
-    "categoryLabel": "Schiffswrack",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Unterwasserwrack im Meer von San Andreas mit versteckten Geldkoffern und Geheimnissen.",
-    "features": [],
-    "position": {
-      "x": -3450,
-      "y": 950,
-      "z": -40
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-8",
     "name": "Remolcador (Zancudo)",
     "category": "shipwreck",
@@ -456,6 +434,94 @@
       "icon": "mountain",
       "color": "#a0522d",
       "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "shipwreck-submarino-hundido",
+    "name": "Gesunkenes U-Boot",
+    "category": "shipwreck",
+    "categoryLabel": "Schiffswracks & Trümmer",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Pazifischer Ozean",
+    "description": "Gesunkenes U-Boot ruht auf Metallstruktur",
+    "features": [],
+    "position": {
+      "x": -2814.6,
+      "y": -485.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-fuselaje-avion-comercial",
+    "name": "Rumpf eines Verkehrsflugzeugs",
+    "category": "shipwreck",
+    "categoryLabel": "Schiffswracks & Trümmer",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "Versunkener Rumpf eines Verkehrsflugzeugs vor der Nordküste.",
+    "features": [],
+    "position": {
+      "x": -918.6,
+      "y": 6664.4,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-cabina-avion-comercial",
+    "name": "Cockpit eines Verkehrsflugzeugs",
+    "category": "shipwreck",
+    "categoryLabel": "Schiffswracks & Trümmer",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "Versunkenes Cockpit eines Verkehrsflugzeugs auf dem nördlichen Meeresboden.",
+    "features": [],
+    "position": {
+      "x": -1002,
+      "y": 6704.5,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-avioneta-hundida",
+    "name": "Gesunkenes Leichtflugzeug",
+    "category": "shipwreck",
+    "categoryLabel": "Schiffswracks & Trümmer",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Mount Chiliad / Nordostküste",
+    "description": "Wrack eines leichten Flugzeugs vor der Nordostküste.",
+    "features": [],
+    "position": {
+      "x": 3265.8,
+      "y": 6445.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   }
 ]

@@ -179,28 +179,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-7",
-    "name": "Chumash Boat (West)",
-    "category": "shipwreck",
-    "categoryLabel": "難破船の宝箱",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "サンアンドレアス州",
-    "description": "海底深くに沈む残骸。周辺には現金入りブリーフケースが隠されています。",
-    "features": [],
-    "position": {
-      "x": -3450,
-      "y": 950,
-      "z": -40
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-8",
     "name": "Tugboat (Zancudo)",
     "category": "shipwreck",
@@ -478,6 +456,94 @@
       "icon": "mountain",
       "color": "#a0522d",
       "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "shipwreck-submarino-hundido",
+    "name": "沈没した潜水艦",
+    "category": "shipwreck",
+    "categoryLabel": "難破船と残骸",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "太平洋",
+    "description": "金属構造物の上に横たわる沈没した潜水艦",
+    "features": [],
+    "position": {
+      "x": -2814.6,
+      "y": -485.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-fuselaje-avion-comercial",
+    "name": "旅客機の胴体",
+    "category": "shipwreck",
+    "categoryLabel": "難破船と残骸",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "北部海岸沖に沈没した旅客機の胴体。",
+    "features": [],
+    "position": {
+      "x": -918.6,
+      "y": 6664.4,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-cabina-avion-comercial",
+    "name": "旅客機のコックピット",
+    "category": "shipwreck",
+    "categoryLabel": "難破船と残骸",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "北部の海底に沈没した旅客機のコックピット。",
+    "features": [],
+    "position": {
+      "x": -1002,
+      "y": 6704.5,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-avioneta-hundida",
+    "name": "沈没した小型飛行機",
+    "category": "shipwreck",
+    "categoryLabel": "難破船と残骸",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "チリアド山 / 北東海岸",
+    "description": "北東海岸沖に沈没した小型飛行機の残骸。",
+    "features": [],
+    "position": {
+      "x": 3265.8,
+      "y": 6445.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   }
 ]

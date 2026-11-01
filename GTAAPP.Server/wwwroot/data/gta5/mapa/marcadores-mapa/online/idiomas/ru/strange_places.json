@@ -157,28 +157,6 @@
     }
   },
   {
-    "id": "shipwreck-ship-7",
-    "name": "Chumash Boat (West)",
-    "category": "shipwreck",
-    "categoryLabel": "Затонувший корабль",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "Сан-Андреас",
-    "description": "Подводные обломки на океанском дне Сан-Андреаса со спрятанными чемоданами с деньгами.",
-    "features": [],
-    "position": {
-      "x": -3450,
-      "y": 950,
-      "z": -40
-    },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
-  },
-  {
     "id": "shipwreck-ship-8",
     "name": "Tugboat (Zancudo)",
     "category": "shipwreck",
@@ -456,6 +434,94 @@
       "icon": "mountain",
       "color": "#a0522d",
       "symbol": "🕳️"
+    }
+  },
+  {
+    "id": "shipwreck-submarino-hundido",
+    "name": "Затонувшая подлодка",
+    "category": "shipwreck",
+    "categoryLabel": "Кораблекрушения и обломки",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Тихий океан",
+    "description": "Затонувшая подводная лодка на металлической конструкции",
+    "features": [],
+    "position": {
+      "x": -2814.6,
+      "y": -485.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-fuselaje-avion-comercial",
+    "name": "Фюзеляж пассажирского самолета",
+    "category": "shipwreck",
+    "categoryLabel": "Кораблекрушения и обломки",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "Затонувший фюзеляж пассажирского авиалайнера у северного побережья.",
+    "features": [],
+    "position": {
+      "x": -918.6,
+      "y": 6664.4,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-cabina-avion-comercial",
+    "name": "Кабина пассажирского самолета",
+    "category": "shipwreck",
+    "categoryLabel": "Кораблекрушения и обломки",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Paleto Bay",
+    "description": "Затонувшая кабина пассажирского авиалайнера на северном морском дне.",
+    "features": [],
+    "position": {
+      "x": -1002,
+      "y": 6704.5,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-avioneta-hundida",
+    "name": "Затонувший легкомоторный самолет",
+    "category": "shipwreck",
+    "categoryLabel": "Кораблекрушения и обломки",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Гора Чилиад / Северо-восточное побережье",
+    "description": "Обломки легкомоторного самолета у северо-восточного побережья.",
+    "features": [],
+    "position": {
+      "x": 3265.8,
+      "y": 6445.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   }
 ]

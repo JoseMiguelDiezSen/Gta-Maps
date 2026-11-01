@@ -280,34 +280,6 @@
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cow-GTAV.jpg"
   },
   {
-    "id": "animal-dolphin-pacific",
-    "name": "Delfino del Pacifico",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Esemplare di fauna",
-    "zone": "Oceano Pacifico (Pacific Bluffs e Chumash)",
-    "description": "Intelligente mammifero marino che nuota nelle acque costiere e in mare aperto a San Andreas.",
-    "features": [
-      "Mammifero acquatico che salta sulla superficie dell'acqua",
-      "Visibile in banchi sulle onde dell'oceano aperto",
-      "Animale giocabile tramite piante di peyote subacquee nella modalità Storia"
-    ],
-    "income": "Ricompensa sottomarino Kraken con fotografie",
-    "position": {
-      "x": -3150,
-      "y": 600,
-      "z": -15
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#00a8ff",
-      "symbol": "🐬"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
-  },
-  {
     "id": "animal-orca-south",
     "name": "Orca / Killer Whale",
     "category": "animal",
@@ -390,5 +362,55 @@
       "symbol": "🐬"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
+  },
+  {
+    "id": "animal-delfines-costa-oeste",
+    "name": "Delfini",
+    "category": "animal",
+    "categoryLabel": "Fauna selvatica",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Oceano Pacifico",
+    "description": "Gruppo di delfini avvistati nelle acque dell'Oceano Pacifico.",
+    "features": [
+      "Gruppo di delfini avvistati nelle acque dell'Oceano Pacifico."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3173.7,
+      "y": -112.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐬"
+    }
+  },
+  {
+    "id": "animal-orcas-costa-oeste",
+    "name": "Orche",
+    "category": "animal",
+    "categoryLabel": "Fauna selvatica",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "Oceano Pacifico",
+    "description": "Gruppo di orche avvistato nelle acque profonde dell'Oceano Pacifico.",
+    "features": [
+      "Gruppo di orche avvistato nelle acque profonde dell'Oceano Pacifico."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3595,
+      "y": 1425.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐋"
+    }
   }
 ]

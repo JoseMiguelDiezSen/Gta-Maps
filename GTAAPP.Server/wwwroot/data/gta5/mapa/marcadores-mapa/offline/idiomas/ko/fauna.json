@@ -280,34 +280,6 @@
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Cow-GTAV.jpg"
   },
   {
-    "id": "animal-dolphin-pacific",
-    "name": "돌고래",
-    "category": "animal",
-    "categoryLabel": "animal",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "태평양 (퍼시픽 블러프스 및 추마시)",
-    "description": "연안 해역에서 보트 옆을 뛰어오르며 헤엄치는 영리한 해양 포유류.",
-    "features": [
-      "수면 위로 뛰어오르는 해양 포유류",
-      "먼바다 파도 속에서 무리 지어 관찰 가능",
-      "스토리 모드에서 수중 페요테를 통해 직접 조작 가능한 동물"
-    ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
-    "position": {
-      "x": -3150,
-      "y": 600,
-      "z": -15
-    },
-    "badge": {
-      "icon": "fish",
-      "color": "#00a8ff",
-      "symbol": "🐬"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
-  },
-  {
     "id": "animal-orca-south",
     "name": "Orca / Killer Whale",
     "category": "animal",
@@ -390,5 +362,55 @@
       "symbol": "🐬"
     },
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Dolphin_GTASA.png"
+  },
+  {
+    "id": "animal-delfines-costa-oeste",
+    "name": "돌고래",
+    "category": "animal",
+    "categoryLabel": "야생 동물",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "태평양",
+    "description": "태평양 해역에서 목격된 돌고래 무리.",
+    "features": [
+      "태평양 해역에서 목격된 돌고래 무리."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3173.7,
+      "y": -112.6,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐬"
+    }
+  },
+  {
+    "id": "animal-orcas-costa-oeste",
+    "name": "범고래",
+    "category": "animal",
+    "categoryLabel": "야생 동물",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Espécimen de Fauna",
+    "zone": "태평양",
+    "description": "태평양 깊은 바다에서 목격된 범고래 무리.",
+    "features": [
+      "태평양 깊은 바다에서 목격된 범고래 무리."
+    ],
+    "income": "Vida marina y avistamiento oceánico",
+    "position": {
+      "x": -3595,
+      "y": 1425.7,
+      "z": 0
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐋"
+    }
   }
 ]
