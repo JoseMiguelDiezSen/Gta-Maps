@@ -308,24 +308,24 @@
     "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Dolphin_GTASA.png"
   },
   {
-    "id": "animal-orca-ocean",
-    "name": "범고래 (오르카)",
+    "id": "animal-orca-south",
+    "name": "Orca / Killer Whale",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "Wildlife",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "야생 동물 표본",
-    "zone": "북부 공해 (엘 고르도 등대 및 칠리아드 산)",
-    "description": "산 안드레아스 심해를 순회하는 바다 최강의 포식자.",
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Southern High Seas (South Pacific Ocean)",
+    "description": "The largest predatory cetacean off the shores of San Andreas. Glides through deep waters and surfaces to breach with unmistakable black-and-white patterns.",
     "features": [
-      "북부 심해에서 헤엄치는 거대한 해양 포유류",
-      "먼바다에서 관찰할 수 있는 상징적인 해양 생물",
-      "스토리 모드에서 수중 페요테를 통해 직접 조작 가능한 동물"
+      "Massive oceanic mammal swimming in northern deep waters",
+      "Iconic marine species visible offshore",
+      "Controllable animal via underwater peyote plant in Story Mode"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "Deep ocean marine wildlife",
     "position": {
-      "x": 3400,
-      "y": 5100,
+      "x": 1231.1,
+      "y": -3537.4,
       "z": -20
     },
     "badge": {
@@ -334,5 +334,61 @@
       "symbol": "🐋"
     },
     "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Orca-GTAV.jpg"
+  },
+  {
+    "id": "animal-whale-east",
+    "name": "Whale",
+    "category": "animal",
+    "categoryLabel": "Wildlife",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Eastern High Seas (Pacific Ocean)",
+    "description": "Colossal whale swimming in the deep open waters of eastern San Andreas.",
+    "features": [
+      "Colossal oceanic mammal spotted offshore",
+      "Deep water marine sighting along the coastline",
+      "Playable animal via underwater peyote plant in Story Mode"
+    ],
+    "income": "Deep ocean marine wildlife",
+    "position": {
+      "x": 3509.4,
+      "y": 2017.8,
+      "z": -20
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#0284c7",
+      "symbol": "🐳"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/fauna/Ballena.jpg"
+  },
+  {
+    "id": "animal-dolphin-east",
+    "name": "Pacific Dolphin",
+    "category": "animal",
+    "categoryLabel": "Wildlife",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Wildlife Specimen",
+    "zone": "Eastern High Seas (Pacific Ocean)",
+    "description": "Intelligent and playful marine mammal. Swims and leaps in small pods in the oceanic waters east of San Andreas.",
+    "features": [
+      "Playful aquatic mammal that leaps above the water",
+      "Spotted in pods riding the waves of the eastern ocean",
+      "Playable animal via underwater peyote plants in Story Mode"
+    ],
+    "income": "Marine wildlife and ocean sightings",
+    "position": {
+      "x": 4184,
+      "y": 3416.9,
+      "z": -15
+    },
+    "badge": {
+      "icon": "fish",
+      "color": "#00a8ff",
+      "symbol": "🐬"
+    },
+    "imageUrl": "/assets/images/gta5/marcadores-mapa/fauna/Dolphin_GTASA.png"
   }
 ]

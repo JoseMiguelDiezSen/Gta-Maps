@@ -973,8 +973,8 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 iconElement = el;
                 iconDivClass = 'gta-pin-wrapper';
                 iconSize = [22, 22];
-                iconAnchor = [11, 22];
-                popupAnchor = [0, -20];
+                iconAnchor = [11, 11];
+                popupAnchor = [0, -12];
             }
 
             const icon = L.divIcon({
@@ -1097,8 +1097,8 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 iconElement = el;
                 iconDivClass = 'gta-pin-collectible-wrapper';
                 iconSize = [17, 17];
-                iconAnchor = [8.5, 17];
-                popupAnchor = [0, -15];
+                iconAnchor = [8.5, 8.5];
+                popupAnchor = [0, -10];
             }
 
             const icon = L.divIcon({

@@ -22,28 +22,6 @@
     }
   },
   {
-    "id": "shipwreck-plane-4",
-    "name": "Plane (SE)",
-    "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Sunken plane in the southeast.",
-    "features": [],
-    "position": {
-      "x": 2800,
-      "y": -1500,
-      "z": -45
-    },
-    "badge": {
-      "icon": "plane",
-      "color": "#f59e0b",
-      "symbol": "✈️"
-    }
-  },
-  {
     "id": "shipwreck-plane-5",
     "name": "Sunken Commercial Plane",
     "category": "shipwreck",
@@ -63,50 +41,53 @@
       "icon": "plane",
       "color": "#f59e0b",
       "symbol": "✈️"
-    }
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/AvionComercialHundido.jpg"
   },
   {
-    "id": "shipwreck-ship-1",
-    "name": "Merryweather Sub (North)",
+    "id": "shipwreck-plane-6",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Cola-Avion-Us.jpg",
+    "name": "US Plane Tail Wreck",
     "category": "shipwreck",
     "categoryLabel": "Shipwrecks & Sunken Remains",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Submarine wreck to the north.",
+    "zone": "Paleto Bay Coast",
+    "description": "Submerged tail section of a downed military aircraft off the coast of Paleto Bay.",
     "features": [],
     "position": {
-      "x": 600,
-      "y": 6800,
-      "z": -100
+      "x": -1021.9,
+      "y": 6499.6,
+      "z": 0
     },
     "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   },
   {
-    "id": "shipwreck-ship-3",
-    "name": "Sunken Yacht (SE)",
+    "id": "shipwreck-plane-7",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Turbina-Gigante-Avion.jpg",
+    "name": "Giant Aircraft Engine",
     "category": "shipwreck",
     "categoryLabel": "Shipwrecks & Sunken Remains",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Yacht wreck to the SE.",
+    "zone": "Paleto Bay Coast",
+    "description": "Massive jet engine turbine from a crashed aircraft resting on the seabed off Paleto Bay.",
     "features": [],
     "position": {
-      "x": 3200,
-      "y": -1200,
-      "z": -50
+      "x": -989.6,
+      "y": 6358.7,
+      "z": 0
     },
     "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   },
   {
@@ -217,29 +198,8 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    }
-  },
-  {
-    "id": "shipwreck-ship-10",
-    "name": "Gordo Wreck (NE)",
-    "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "",
-    "zone": "San Andreas",
-    "description": "Wreckage near Mount Gordo.",
-    "features": [],
-    "position": {
-      "x": 2500,
-      "y": 5000,
-      "z": -70
     },
-    "badge": {
-      "icon": "ship",
-      "color": "#3b82f6",
-      "symbol": "🚢"
-    }
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/barco-naugrago-olifantus.jpg"
   },
   {
     "id": "shipwreck-ship-11",
@@ -261,7 +221,8 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    }
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RestosBarcoViejo.jpg"
   },
   {
     "id": "shipwreck-ship-12",
@@ -283,7 +244,8 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    }
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RestosTanqueYNaufragio.jpg"
   },
   {
     "id": "shipwreck-ship-13",
@@ -305,7 +267,8 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    }
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/GranCargueroHundido.jpg"
   },
   {
     "id": "shipwreck-ship-14",
@@ -327,7 +290,8 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    }
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RemolcaddorHundido.jpg"
   },
   {
     "id": "shipwreck-ship-15",
@@ -349,6 +313,99 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
+    },
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/TanqueMilitarHundido.jpg"
+  },
+  {
+    "id": "shipwreck-ship-16",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RemolcaddorHundido.jpg",
+    "name": "Sunken Tugboat",
+    "category": "shipwreck",
+    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Mount Gordo Coast",
+    "description": "Remains of an old industrial tugboat sunken on the northeastern seabed of San Andreas.",
+    "features": [],
+    "position": {
+      "x": 3787,
+      "y": 6300.9,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-ship-17",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Submarino-Nuclear-Hundido.jpg",
+    "name": "Sunken Nuclear Submarine",
+    "category": "shipwreck",
+    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "North Ocean Coast",
+    "description": "Decommissioned nuclear submarine wreckage resting in the deep waters of northern San Andreas.",
+    "features": [],
+    "position": {
+      "x": 2653.7,
+      "y": 6656.1,
+      "z": 0
+    },
+    "badge": {
+      "icon": "ship",
+      "color": "#3b82f6",
+      "symbol": "🚢"
+    }
+  },
+  {
+    "id": "shipwreck-plane-8",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/cabina-avion-naufrago-zancudo.jpg",
+    "name": "Cargo Plane Cockpit Wreck",
+    "category": "shipwreck",
+    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Fort Zancudo Coast",
+    "description": "Cockpit section of a cargo aircraft wreckage lying on the seabed off Fort Zancudo.",
+    "features": [],
+    "position": {
+      "x": -3342,
+      "y": 3674.8,
+      "z": -40
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
+    }
+  },
+  {
+    "id": "shipwreck-plane-9",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/avion-carga-naufrago-zancudo.jpg",
+    "name": "Cargo Plane Fuselage Wreck",
+    "category": "shipwreck",
+    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "",
+    "zone": "Fort Zancudo Coast",
+    "description": "Fuselage section of a crashed cargo plane lying submerged off the coast of Fort Zancudo.",
+    "features": [],
+    "position": {
+      "x": -3236,
+      "y": 3670.5,
+      "z": -40
+    },
+    "badge": {
+      "icon": "plane",
+      "color": "#f59e0b",
+      "symbol": "✈️"
     }
   },
   {
@@ -375,105 +432,29 @@
       "icon": "user-astronaut",
       "color": "#9b59b6",
       "symbol": "🛸"
-    }
-  },
-  {
-    "id": "strange-cave-submerged",
-    "name": "Underwater Cave",
-    "category": "cave",
-    "categoryLabel": "Underwater Cave",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Strange Place",
-    "zone": "San Andreas",
-    "description": "Submerged rocky cave and cavern located in the deep ocean waters south of Los Santos. Accessible by submarine or scuba gear.",
-    "features": [
-      "Rocky cavern on the seabed",
-      "Accessible with scuba gear or submersible"
-    ],
-    "position": {
-      "x": 1091.3,
-      "y": -3566.8,
-      "z": -40
     },
-    "badge": {
-      "icon": "water",
-      "color": "#0ea5e9",
-      "symbol": "🕳️"
-    }
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Ovni.jpg"
   },
   {
-    "id": "strange-cave-tataviam",
-    "name": "Cave",
+    "id": "strange-cave-rocosa",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/La-Cueva.jpg",
+    "name": "Rocky Cavern",
     "category": "cave",
-    "categoryLabel": "Cave",
+    "categoryLabel": "Caves",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Strange Place",
-    "zone": "San Andreas",
-    "description": "Natural coastal cave located in the rock formations.",
-    "features": [
-      "Natural cave accessible by land or sea",
-      "East coast rocky cave"
-    ],
+    "priceFormatted": "",
+    "zone": "Tongva Hills",
+    "description": "Hidden natural rocky cave nestled in the hills of Tongva Valley.",
+    "features": [],
     "position": {
-      "x": 2960.3,
-      "y": 809.6,
-      "z": 5
+      "x": -1925.2,
+      "y": 1377.1,
+      "z": 20
     },
     "badge": {
       "icon": "mountain",
       "color": "#a0522d",
-      "symbol": "🕳️"
-    }
-  },
-  {
-    "id": "strange-cave-submerged-east",
-    "name": "Underwater Cave",
-    "category": "cave",
-    "categoryLabel": "Underwater Cave",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Strange Place",
-    "zone": "San Andreas (East Coast)",
-    "description": "Submerged rocky cave and grotto in the deep waters of the east coast.",
-    "features": [
-      "Underwater cave in the eastern ocean bed",
-      "Accessible via diving equipment or submersible"
-    ],
-    "position": {
-      "x": 3756.5,
-      "y": 2686.2,
-      "z": -35
-    },
-    "badge": {
-      "icon": "water",
-      "color": "#0ea5e9",
-      "symbol": "🕳️"
-    }
-  },
-  {
-    "id": "strange-cave-submerged-northeast",
-    "name": "Underwater Cave",
-    "category": "cave",
-    "categoryLabel": "Underwater Cave",
-    "gameMode": "both",
-    "price": 0,
-    "priceFormatted": "Strange Place",
-    "zone": "San Andreas (Northeast Coast)",
-    "description": "Submerged rocky cave and grotto in the deep seabed off the northeast coast.",
-    "features": [
-      "Underwater cave in the northeastern ocean bed",
-      "Accessible via diving equipment or submersible"
-    ],
-    "position": {
-      "x": 4002.1,
-      "y": 3879.2,
-      "z": -35
-    },
-    "badge": {
-      "icon": "water",
-      "color": "#0ea5e9",
       "symbol": "🕳️"
     }
   }
