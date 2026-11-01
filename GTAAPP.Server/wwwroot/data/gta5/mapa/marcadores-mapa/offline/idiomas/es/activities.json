@@ -28,32 +28,116 @@
     "total": 1
   },
   {
-    "id": "activity-darts-1",
-    "name": "Dardos - Yellow Jack Inn",
-    "category": "darts",
-    "categoryLabel": "Dardos",
+    "id": "activity-skatepark-highway",
+    "name": "Skatepark",
+    "category": "skateparks",
+    "categoryLabel": "Skate Parks",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Gratis",
-    "zone": "Grand Senora Desert",
-    "description": "Diana de dardos en la taberna histórica Yellow Jack Inn en el desierto de Grand Senora. Gana una partida de 301 cerrando con doble para el 100%.",
+    "zone": "Los Santos Oeste",
+    "description": "Skatepark situado bajo la autopista.",
     "features": [
-      "Reglas clásicas 301 con cierre en doble",
-      "Requerido para el 100% del juego",
-      "Juega en solitario o queda con amigos"
+      "Pistas y bowls de patinaje bajo la autopista",
+      "Protegido de la intemperie",
+      "Ideal para trucos con BMX y skate"
     ],
     "position": {
-      "x": 1990.2,
-      "y": 3053.4,
-      "z": 47.2
+      "x": 711.6,
+      "y": -1235.9,
+      "z": 26
     },
     "badge": {
-      "icon": "bullseye",
-      "color": "#f97316",
-      "symbol": "🎯"
+      "icon": "skateboard",
+      "color": "#27ae60",
+      "symbol": "🛹"
     },
     "number": 1,
-    "total": 1
+    "total": 4
+  },
+  {
+    "id": "activity-skatepark-vespucci",
+    "name": "Skatepark",
+    "category": "skateparks",
+    "categoryLabel": "Skate Parks",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Vespucci Beach",
+    "description": "Amplio skatepark en la playa.",
+    "features": [
+      "Múltiples bowls junto al paseo marítimo",
+      "Pistas de hormigón al aire libre",
+      "Punto clásico de encuentro skater"
+    ],
+    "position": {
+      "x": -1373.2,
+      "y": -1397.5,
+      "z": 6
+    },
+    "badge": {
+      "icon": "skateboard",
+      "color": "#27ae60",
+      "symbol": "🛹"
+    },
+    "number": 2,
+    "total": 4
+  },
+  {
+    "id": "activity-skatepark-littleseoul",
+    "name": "Skatepark",
+    "category": "skateparks",
+    "categoryLabel": "Skate Parks",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Little Seoul",
+    "description": "Pequeño skatepark entre edificios.",
+    "features": [
+      "Rampas y barandillas compactas entre bloques",
+      "Entorno urbano cerrado",
+      "Área técnica para trucos callejeros"
+    ],
+    "position": {
+      "x": -939.5,
+      "y": -792.4,
+      "z": 18
+    },
+    "badge": {
+      "icon": "skateboard",
+      "color": "#27ae60",
+      "symbol": "🛹"
+    },
+    "number": 3,
+    "total": 4
+  },
+  {
+    "id": "activity-skatepark-hawick",
+    "name": "Skatepark",
+    "category": "skateparks",
+    "categoryLabel": "Skate Parks",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Gratis",
+    "zone": "Hawick",
+    "description": "Skatepark en azotea de edificio.",
+    "features": [
+      "Pistas de patinaje en azotea",
+      "Vistas panorámicas a Vinewood y Hawick",
+      "Halfpipe y rampas elevadas"
+    ],
+    "position": {
+      "x": 283.2,
+      "y": -198.5,
+      "z": 62
+    },
+    "badge": {
+      "icon": "skateboard",
+      "color": "#27ae60",
+      "symbol": "🛹"
+    },
+    "number": 4,
+    "total": 4
   },
   {
     "id": "activity-tennis-vespucci-beach",
@@ -68,7 +152,7 @@
     "description": "Pista de tenis reglamentaria situada en Vespucci Beach (Melanoma St). Gana al menos 1 set de tenis contra cualquier oponente para el 100% del juego.",
     "features": [],
     "position": {
-      "x": -1157.0,
+      "x": -1157,
       "y": -1627.2,
       "z": 4.4
     },
@@ -93,7 +177,7 @@
     "description": "Pista de tenis reglamentaria situada en Mirror Park. Gana al menos 1 set de tenis contra cualquier oponente para el 100% del juego.",
     "features": [],
     "position": {
-      "x": 492.0,
+      "x": 492,
       "y": -240.6,
       "z": 52.8
     },
@@ -167,7 +251,7 @@
     "position": {
       "x": -1373.6,
       "y": -123.7,
-      "z": 55.0
+      "z": 55
     },
     "badge": {
       "icon": "tennis",
@@ -3001,7 +3085,7 @@
     "position": {
       "x": -778.7,
       "y": -1454.2,
-      "z": 15.0
+      "z": 15
     },
     "badge": {
       "icon": "parachute",
@@ -3025,7 +3109,7 @@
     "position": {
       "x": 150.8,
       "y": -742.6,
-      "z": 260.0
+      "z": 260
     },
     "badge": {
       "icon": "parachute",
@@ -3049,7 +3133,7 @@
     "position": {
       "x": 451.3,
       "y": 5604.1,
-      "z": 785.0
+      "z": 785
     },
     "badge": {
       "icon": "parachute",
@@ -3071,9 +3155,9 @@
     "description": "Salto en paracaídas de Junk Energy en Rockford Hills. Atraviesa los puntos de control y aterriza en la diana para conseguir la medalla de oro.",
     "features": [],
     "position": {
-      "x": -821.0,
+      "x": -821,
       "y": 297.3,
-      "z": 85.0
+      "z": 85
     },
     "badge": {
       "icon": "parachute",
@@ -3097,7 +3181,7 @@
     "position": {
       "x": 733.9,
       "y": 1297.3,
-      "z": 360.0
+      "z": 360
     },
     "badge": {
       "icon": "parachute",
@@ -3121,7 +3205,7 @@
     "position": {
       "x": -848.8,
       "y": 4731.7,
-      "z": 230.0
+      "z": 230
     },
     "badge": {
       "icon": "parachute",
@@ -3145,7 +3229,7 @@
     "position": {
       "x": -2952.1,
       "y": 442.5,
-      "z": 15.0
+      "z": 15
     },
     "badge": {
       "icon": "parachute",
@@ -3169,7 +3253,7 @@
     "position": {
       "x": 864.4,
       "y": 5668.3,
-      "z": 785.0
+      "z": 785
     },
     "badge": {
       "icon": "parachute",
@@ -3193,7 +3277,7 @@
     "position": {
       "x": -1720.1,
       "y": -1131.6,
-      "z": 15.0
+      "z": 15
     },
     "badge": {
       "icon": "parachute",
@@ -3217,7 +3301,7 @@
     "position": {
       "x": -136.9,
       "y": 6357.2,
-      "z": 35.0
+      "z": 35
     },
     "badge": {
       "icon": "parachute",

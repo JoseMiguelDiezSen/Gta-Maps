@@ -28,32 +28,116 @@
     "total": 1
   },
   {
-    "id": "activity-darts-1",
-    "name": "Дартс - Yellow Jack Inn",
-    "category": "darts",
-    "categoryLabel": "Дартс",
+    "id": "activity-skatepark-highway",
+    "name": "Скейт-парк",
+    "category": "skateparks",
+    "categoryLabel": "Скейт-парки",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Бесплатно",
-    "zone": "Пустыня Гранд-Сенора",
-    "description": "Развлечения и спортивные активности в Лос-Сантосе (Дартс). Соревнуйтесь с соперниками или ставьте рекорды в локации Пустыня Гранд-Сенора.",
+    "zone": "Западный Лос-Сантос",
+    "description": "Скейт-парк под эстакадой шоссе.",
     "features": [
-      "Классические правила 301 с удвоением",
-      "Требуется для 100% прохождения",
-      "В одиночку или с друзьями"
+      "Боулы и рейлы под эстакадой",
+      "Крытая городская площадка",
+      "Идеально для трюков на BMX и скейте"
     ],
     "position": {
-      "x": 1990.2,
-      "y": 3053.4,
-      "z": 47.2
+      "x": 711.6,
+      "y": -1235.9,
+      "z": 26
     },
     "badge": {
-      "icon": "bullseye",
-      "color": "#f97316",
-      "symbol": "🎯"
+      "icon": "skateboard",
+      "color": "#27ae60",
+      "symbol": "🛹"
     },
     "number": 1,
-    "total": 1
+    "total": 4
+  },
+  {
+    "id": "activity-skatepark-vespucci",
+    "name": "Скейт-парк",
+    "category": "skateparks",
+    "categoryLabel": "Скейт-парки",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Бесплатно",
+    "zone": "Веспуччи-Бич",
+    "description": "Просторный скейт-парк прямо на пляже.",
+    "features": [
+      "Несколько боулов у набережной",
+      "Бетонная площадка под открытым небом",
+      "Культовое место скейтеров"
+    ],
+    "position": {
+      "x": -1373.2,
+      "y": -1397.5,
+      "z": 6
+    },
+    "badge": {
+      "icon": "skateboard",
+      "color": "#27ae60",
+      "symbol": "🛹"
+    },
+    "number": 2,
+    "total": 4
+  },
+  {
+    "id": "activity-skatepark-littleseoul",
+    "name": "Скейт-парк",
+    "category": "skateparks",
+    "categoryLabel": "Скейт-парки",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Бесплатно",
+    "zone": "Литл-Сеул",
+    "description": "Небольшой скейт-парк среди зданий.",
+    "features": [
+      "Компактные рампы между жилыми домами",
+      "Уединенное городское пространство",
+      "Идеально для стрит-трюков"
+    ],
+    "position": {
+      "x": -939.5,
+      "y": -792.4,
+      "z": 18
+    },
+    "badge": {
+      "icon": "skateboard",
+      "color": "#27ae60",
+      "symbol": "🛹"
+    },
+    "number": 3,
+    "total": 4
+  },
+  {
+    "id": "activity-skatepark-hawick",
+    "name": "Скейт-парк",
+    "category": "skateparks",
+    "categoryLabel": "Скейт-парки",
+    "gameMode": "both",
+    "price": 0,
+    "priceFormatted": "Бесплатно",
+    "zone": "Хавик",
+    "description": "Скейт-парк на крыше здания.",
+    "features": [
+      "Скейт-площадка на крыше",
+      "Панорамный вид на Вайнвуд",
+      "Уникальная приподнятая рампа"
+    ],
+    "position": {
+      "x": 283.2,
+      "y": -198.5,
+      "z": 62
+    },
+    "badge": {
+      "icon": "skateboard",
+      "color": "#27ae60",
+      "symbol": "🛹"
+    },
+    "number": 4,
+    "total": 4
   },
   {
     "id": "activity-tennis-vespucci-beach",

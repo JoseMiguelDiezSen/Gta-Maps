@@ -157,7 +157,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     // Claves de Actividades y Deportes
     readonly activityKeys = [
         'golf',
-        'darts',
+        'skateparks',
         'tennis',
         'stunt_jump',
         'under_the_bridge',
@@ -1903,7 +1903,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             if (p.category === 'car_wash') pinSymbol = '🚿';
             if (p.category === 'arena_war') pinSymbol = '🏟️';
             if (p.category === 'golf') pinSymbol = '⛳';
-            if (p.category === 'darts') pinSymbol = '🎯';
+            if (p.category === 'skateparks') pinSymbol = '🛹';
             if (p.category === 'tennis') pinSymbol = '🎾';
             if (p.category === 'stunt_jump') pinSymbol = '🚧';
             if (p.category === 'under_the_bridge') pinSymbol = '🛩️';

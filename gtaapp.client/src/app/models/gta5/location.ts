@@ -55,7 +55,7 @@ export type LocationCategory =
   | 'cave'
   | 'activity'
   | 'golf'
-  | 'darts'
+  | 'skateparks'
   | 'tennis'
   | 'stunt_jump'
   | 'under_the_bridge'
