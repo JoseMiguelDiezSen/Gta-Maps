@@ -1561,7 +1561,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
 
         const titleRow = document.createElement('div');
         titleRow.className = 'custom-marker-title-row';
-        titleRow.style.cssText = 'display: flex; justify-content: center; text-align: center; margin: 0 14px 4px 14px;';
+        titleRow.style.cssText = 'display: flex; justify-content: center; text-align: center; margin: 0 0 5px 0; padding: 0 24px;';
 
         const input = document.createElement('input');
         input.type = 'text';
@@ -1572,7 +1572,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         input.maxLength = 45;
         input.placeholder = this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name';
         input.title = this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename';
-        input.style.cssText = 'margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: 100%; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;';
+        input.style.cssText = 'margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: auto; max-width: 95px; min-width: 60px; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;';
         L.DomEvent.disableClickPropagation(input);
         L.DomEvent.disableScrollPropagation(input);
         input.addEventListener('mousedown', (e) => e.stopPropagation());

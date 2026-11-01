@@ -1,4 +1,4 @@
-<div #wikiShell class="wiki-shell gta5-theme" [class.mode-day]="themeMode === 'day'" (scroll)="onShellScroll()">
+<div #wikiShell class="wiki-shell gta5-theme" [class.mode-day]="themeMode === 'day'" [class.is-mobile-reading]="isMobileReadingOpen" (scroll)="onShellScroll()">
   <!-- BARRA DE NAVEGACIÓN SUPERIOR HUD -->
   <nav class="wiki-top-nav">
     <div class="nav-container">
@@ -777,6 +777,78 @@
 
     <!-- ÁREA CENTRAL DE LECTURA EDITORIAL -->
     <main class="wiki-content-area">
+
+      <!-- BARRA DE RETORNO Y BREADCRUMB MÓVIL (ESTILO INFO-PANEL MAPA) -->
+      <div class="mobile-reading-header">
+        <button
+          type="button"
+          class="drawer-large-back-btn"
+          (click)="closeMobileReading()"
+          [title]="'guia.reader.backToList' | translate"
+          [attr.aria-label]="'guia.reader.backToList' | translate"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <div class="drawer-title-group">
+          <div class="drawer-breadcrumb">
+            <span class="drawer-breadcrumb-link" (click)="goToCategoriesFromReading()">{{ 'guia.sidebar.contents' | translate }}</span>
+            @if (currentSection) {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-link" (click)="closeMobileReading()">
+                {{ currentSection.titulo }}
+              </span>
+            }
+            @if (concesionarioSeleccionado && currentSection?.id === 'vehiculos') {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">{{ vehiculoSeleccionado ? vehiculoSeleccionado.name : concesionarioSeleccionado.name }}</span>
+            }
+            @if (categoriaArmaSeleccionada && currentSection?.id === 'armas') {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">{{ armaSeleccionada ? armaSeleccionada.name : categoriaArmaSeleccionada.name }}</span>
+            }
+            @if (currentSection?.id === 'misterios' && misterioSeleccionado) {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">{{ misterioSeleccionado.title }}</span>
+            }
+            @if (currentSection?.id === 'golpes' && golpeSeleccionado) {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">{{ golpeSeleccionado.title }}</span>
+            }
+            @if (currentSection?.id === 'misiones-principales' && misionSeleccionada) {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">{{ misionSeleccionada.title }}</span>
+            }
+            @if (currentSection?.id === 'negocios' && negocioSeleccionado) {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">{{ negocioSeleccionado.name }}</span>
+            }
+            @if (selectedArticulo && !concesionarioSeleccionado && !categoriaArmaSeleccionada && currentSection?.id !== 'misterios' && currentSection?.id !== 'golpes' && currentSection?.id !== 'misiones-principales' && currentSection?.id !== 'armas' && currentSection?.id !== 'vehiculos' && currentSection?.id !== 'negocios') {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">{{ cleanBreadcrumbTitle(selectedArticulo.titulo) }}</span>
+            }
+          </div>
+          @if (vehiculoSeleccionado && currentSection?.id === 'vehiculos') {
+            <h2 class="drawer-title">{{ vehiculoSeleccionado.name }}</h2>
+          } @else if (concesionarioSeleccionado && !vehiculoSeleccionado && currentSection?.id === 'vehiculos') {
+            <h2 class="drawer-title">{{ concesionarioSeleccionado.name }}</h2>
+          } @else if (armaSeleccionada && currentSection?.id === 'armas') {
+            <h2 class="drawer-title">{{ armaSeleccionada.name }}</h2>
+          } @else if (categoriaArmaSeleccionada && !armaSeleccionada && currentSection?.id === 'armas') {
+            <h2 class="drawer-title">{{ categoriaArmaSeleccionada.name }}</h2>
+          } @else if (currentSection?.id === 'misterios' && misterioSeleccionado) {
+            <h2 class="drawer-title">{{ misterioSeleccionado.title }}</h2>
+          } @else if (currentSection?.id === 'golpes' && golpeSeleccionado) {
+            <h2 class="drawer-title">{{ golpeSeleccionado.title }}</h2>
+          } @else if (currentSection?.id === 'misiones-principales' && misionSeleccionada) {
+            <h2 class="drawer-title">{{ misionSeleccionada.title }}</h2>
+          } @else if (currentSection?.id === 'negocios' && negocioSeleccionado) {
+            <h2 class="drawer-title">{{ negocioSeleccionado.name }}</h2>
+          } @else if (selectedArticulo) {
+            <h2 class="drawer-title">{{ selectedArticulo.titulo }}</h2>
+          }
+        </div>
+      </div>
       <!-- Panel del concesionario seleccionado: título + grid de vehículos -->
       @if (concesionarioSeleccionado) {
       <article class="wiki-article-card">
@@ -1972,6 +2044,17 @@
               <div class="pagination-spacer"></div>
               }
             </div>
+
+            <!-- BOTÓN VOLVER AL ÍNDICE (Solo visible en Móvil en el pie del artículo) -->
+            <button
+              type="button"
+              class="pagination-btn pagination-back-mobile"
+              (click)="closeMobileReading()"
+              [title]="'guia.reader.backToList' | translate"
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>{{ 'guia.reader.backToList' | translate }}</span>
+            </button>
           </nav>
 
           <!-- Panel estilizado del capítulo: Título y Subtítulo -->

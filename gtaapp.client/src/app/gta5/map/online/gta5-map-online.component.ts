@@ -1075,7 +1075,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
 
         const titleRow = document.createElement('div');
         titleRow.className = 'custom-marker-title-row';
-        titleRow.style.cssText = 'display: flex; justify-content: center; text-align: center; margin: 0 16px 4px 16px;';
+        titleRow.style.cssText = 'display: flex; justify-content: center; text-align: center; margin: 0 0 5px 0; padding: 0 24px;';
 
         const input = document.createElement('input');
         input.type = 'text';
@@ -1086,7 +1086,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         input.maxLength = 45;
         input.placeholder = this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name';
         input.title = this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename';
-        input.style.cssText = 'margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: 100%; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;';
+        input.style.cssText = 'margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: auto; max-width: 95px; min-width: 60px; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;';
         L.DomEvent.disableClickPropagation(input);
         L.DomEvent.disableScrollPropagation(input);
         input.addEventListener('mousedown', (e) => e.stopPropagation());
@@ -1943,12 +1943,16 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 pinIconAnchor = [13, 13];
                 pinPopupAnchor = [0, -13];
             } else if (this.iconTheme === 'standard') {
-                // 2. Tema Estándar: marcador vacío sin vincular (pendiente de definir)
-                pinEl.className = 'gta-pin-standard-empty';
-                pinClass = 'gta-pin-wrapper-empty';
-                pinIconSize = [0, 0];
-                pinIconAnchor = [0, 0];
-                pinPopupAnchor = [0, 0];
+                // 2. Tema Estándar: Radar Blips oficiales de Rockstar Games
+                const blipImg = document.createElement('img');
+                blipImg.src = this.getStandardBlipUrl(p.category, p.id);
+                blipImg.className = 'gta-radar-blip';
+                blipImg.alt = p.name;
+                pinEl.appendChild(blipImg);
+                pinClass = 'gta-pin-wrapper-blip';
+                pinIconSize = [22, 22];
+                pinIconAnchor = [11, 22];
+                pinPopupAnchor = [0, -20];
             } else if (this.iconTheme === 'simple') {
                 // 3. Tema Font Awesome: iconos vectoriales limpios
                 pinEl.style.color = pinColor;
@@ -2016,6 +2020,59 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             marker.addTo(map);
             this.propertyMarkers.push({ marker, property: p });
         });
+    }
+
+    private getStandardBlipUrl(category: string, id: string): string {
+        const blipsMap: Record<string, string> = {
+            mansion: 'safehouse.png',
+            luxury_apartment: 'safehouse.png',
+            mid_apartment: 'safehouse.png',
+            low_apartment: 'safehouse.png',
+            garage: 'garage.png',
+            bunker: 'bunker.png',
+            hangar: 'hangar.png',
+            facility: 'facility.png',
+            nightclub: 'nightclub.png',
+            arcade: 'arcade.png',
+            auto_shop: 'auto_shop.png',
+            agency: 'agency.png',
+            salvage_yard: 'salvage_yard.png',
+            bail_office: 'bail_office.png',
+            ceo_office: 'office.png',
+            vehicle_warehouse: 'warehouse_vehicle.png',
+            warehouse: 'warehouse.png',
+            coke_lockup: 'coke.png',
+            weed_farm: 'weed.png',
+            meth_lab: 'meth.png',
+            cash_factory: 'cash.png',
+            doc_forgery: 'doc_forgery.png',
+            service: 'gun_shop.png',
+            ls_customs: 'car_mod_shop.png',
+            bennys: 'car_mod_shop.png',
+            hao_garage: 'car_mod_shop.png',
+            ls_car_meet: 'car_mod_shop.png',
+            police_station: 'police_station.png',
+            hospital: 'hospital.png',
+            fire_station: 'fire_station.png',
+            convenience_store: 'convenience_store.png',
+            mask_shop: 'mask.png',
+            car_wash: 'car_wash.png',
+            strip_club: 'strip_club.png',
+            barber: 'barber.png',
+            tattoo: 'tattoo.png',
+            clothing_store: 'clothes_store.png',
+            golf: 'golf.png',
+            tennis: 'tennis.png',
+            darts: 'darts.png',
+            parachuting: 'parachute.png',
+            arena_war: 'arena_war.png'
+        };
+
+        if (id && id.startsWith('ammu-')) {
+            return 'assets/images/gta5/mapa/blips/gun_shop.png';
+        }
+        const fileName = blipsMap[category] || 'safehouse.png';
+        return `assets/images/gta5/mapa/blips/${fileName}`;
     }
 
     /**

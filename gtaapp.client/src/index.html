@@ -1,13 +1,30 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-648ZN9QNPD"></script>
+  <!-- Google tag (gtag.js) diferido para no bloquear el First Contentful Paint -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-648ZN9QNPD');
+    (function() {
+      var loaded = false;
+      function initGtag() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-648ZN9QNPD';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-648ZN9QNPD');
+      }
+      var events = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+      function onInteract() {
+        events.forEach(function(e) { window.removeEventListener(e, onInteract, { passive: true }); });
+        initGtag();
+      }
+      events.forEach(function(e) { window.addEventListener(e, onInteract, { passive: true, once: true }); });
+      setTimeout(initGtag, 3500);
+    })();
   </script>
 
   <meta charset="utf-8">

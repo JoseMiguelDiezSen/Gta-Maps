@@ -90,6 +90,35 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
   showScrollTop: boolean = false;
   mobileNavOpen: boolean = false;
 
+  /* Estado de navegación por niveles en móvil (estilo Info-Panel) */
+  isMobileReadingOpen: boolean = false;
+
+  openMobileReading(): void {
+    this.isMobileReadingOpen = true;
+    this.scrollToTop();
+  }
+
+  closeMobileReading(): void {
+    this.isMobileReadingOpen = false;
+    this.scrollToTop();
+  }
+
+  goToCategoriesFromReading(): void {
+    this.isMobileReadingOpen = false;
+    this.currentSection = null;
+    this.limpiarConcesionario();
+    this.limpiarArma();
+    this.limpiarMisterio();
+    this.limpiarGolpe();
+    this.limpiarMision();
+    this.limpiarNegocio();
+    this.scrollToTop();
+  }
+
+  private isMobileView(): boolean {
+    return typeof window !== 'undefined' && window.innerWidth <= 850;
+  }
+
   private readonly onlineArticulosContenido = new Map<string, GuiaArticulo>();
 
   @ViewChild('wikiShell') wikiShellRef?: ElementRef<HTMLDivElement>;
@@ -242,7 +271,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   ngOnInit(): void {
-    this.seleccionarArticulo(this.secciones[0].articulos[0].id);
+    this.seleccionarArticulo(this.secciones[0].articulos[0].id, false);
     this.golpes$.subscribe(list => {
       this.golpes = list;
     });
@@ -339,12 +368,16 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
 
   backToSections(): void {
     this.currentSection = null;
+    this.isMobileReadingOpen = false;
     this.limpiarConcesionario();
     this.limpiarArma();
     this.limpiarMisterio();
     this.limpiarGolpe();
     this.limpiarMision();
     this.limpiarNegocio();
+    if (this.isMobileView()) {
+      this.scrollToTop();
+    }
   }
 
   seleccionarSubcategoriaNegocio(subcat: SubcategoriaNegocioOnline): void {
@@ -359,6 +392,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
 
   seleccionarNegocio(negocio: GuiaNegocioOnline): void {
     this.negocioSeleccionado = negocio;
+    if (this.isMobileView()) {
+      this.openMobileReading();
+    }
   }
 
   getNegociosDeSubcategoria(subcat: SubcategoriaNegocioOnline | null): GuiaNegocioOnline[] {
@@ -393,6 +429,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     this.golpeSeleccionado = g;
     this.golpeAbierto = true;
     this.faseSeleccionadaIndex = null;
+    if (this.isMobileView()) {
+      this.openMobileReading();
+    }
   }
 
   volverAGolpes(): void {
@@ -420,6 +459,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
 
   seleccionarMisterio(m: GtaMystery): void {
     this.misterioSeleccionado = m;
+    if (this.isMobileView()) {
+      this.openMobileReading();
+    }
   }
 
   volverAlGridMisterios(): void {
@@ -493,10 +535,16 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
 
   seleccionarVehiculo(vehiculo: GtaVehicle): void {
     this.vehiculoSeleccionado = vehiculo;
+    if (this.isMobileView()) {
+      this.openMobileReading();
+    }
   }
 
   volverAlGridVehiculos(): void {
     this.vehiculoSeleccionado = null;
+    if (this.isMobileView()) {
+      this.closeMobileReading();
+    }
   }
 
   getVehicleIcon(v: GtaVehicle | null): string {
@@ -530,10 +578,16 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
 
   seleccionarArma(arma: GtaWeapon): void {
     this.armaSeleccionada = arma;
+    if (this.isMobileView()) {
+      this.openMobileReading();
+    }
   }
 
   volverAlGridArmas(): void {
     this.armaSeleccionada = null;
+    if (this.isMobileView()) {
+      this.closeMobileReading();
+    }
   }
 
   getWeaponIcon(arma: GtaWeapon | null): string {
@@ -547,7 +601,7 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     this.armaSeleccionada = null;
   }
 
-  seleccionarArticulo(articuloId: string): void {
+  seleccionarArticulo(articuloId: string, openMobile: boolean = true): void {
     const resumen = this.secciones
       .flatMap(seccion => seccion.articulos)
       .find(articulo => articulo.id === articuloId);
@@ -561,6 +615,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
       relacionados: contenido?.relacionados ?? []
     };
     this.renderedContent = this.renderMarkdown(this.selectedArticulo.contenidoMarkdown);
+    if (openMobile && this.isMobileView()) {
+      this.openMobileReading();
+    }
   }
 
   private renderMarkdown(raw: string): string {
@@ -830,6 +887,9 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     if (cat) {
       this.categoriaMisionSeleccionada = cat;
       this.expandedGruposMisiones.add(cat.id);
+    }
+    if (this.isMobileView()) {
+      this.openMobileReading();
     }
   }
 

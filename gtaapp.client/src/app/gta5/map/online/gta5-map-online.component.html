@@ -17,20 +17,21 @@
   >
     <!-- Opciones específicas cuando se hace clic derecho sobre un marcador de usuario -->
     @if (isMarkerContext && targetCustomMarker) {
-      <div class="hud-ctx-header" style="padding: 6px 12px; font-size: 11px; font-weight: 800; color: #ffb833; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 4px;">
-        {{ targetCustomMarker.name }}
-      </div>
+      <div class="hud-ctx-header">{{ targetCustomMarker.name }}</div>
       <button type="button" class="hud-ctx-item" (click)="runCtxAction('editar_marcador')">
-        {{ 'gta5.contextMenu.editMarker' | translate }}
+        <span class="hud-ctx-ico">✏️</span>
+        <span>{{ 'gta5.contextMenu.editMarker' | translate }}</span>
       </button>
       <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar_este_marcador')">
-        {{ 'gta5.contextMenu.deleteMarker' | translate }}
+        <span class="hud-ctx-ico">🗑️</span>
+        <span>{{ 'gta5.contextMenu.deleteMarker' | translate }}</span>
       </button>
       <div class="hud-ctx-sep"></div>
     }
 
     <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
-      {{ 'gta5.contextMenu.addMarker' | translate }}
+      <span class="hud-ctx-ico">📍</span>
+      <span>{{ 'gta5.contextMenu.addMarker' | translate }}</span>
     </button>
   </div>
   }

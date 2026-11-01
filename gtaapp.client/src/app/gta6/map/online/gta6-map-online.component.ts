@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild, inject, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -72,6 +72,7 @@ export interface Gta6MapTypeItem {
     standalone: false
 })
 export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
+    private cdr = inject(ChangeDetectorRef);
     @ViewChild('mapWrapper', { static: true }) private mapWrapper!: ElementRef<HTMLElement>;
     isFullscreen = false;
 
@@ -92,6 +93,7 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
     private panStartY = 0;
     private panStartBgX = 0;
     private panStartBgY = 0;
+    private panMoved = false;
 
     // Menú contextual en el canvas
     ctxOpen = false;
@@ -587,6 +589,13 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         }
         this.activeCustomMarker = cm;
         this.activeMarker = null;
+        setTimeout(() => {
+            const el = document.getElementById('custom-marker-title-' + cm.id) as HTMLInputElement | null;
+            if (el) {
+                el.focus();
+                el.select();
+            }
+        }, 60);
     }
 
     closeCustomMarkerPopup(): void {
@@ -594,25 +603,55 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
     }
 
     setCustomMarkerColor(cm: Gta6UserCustomMarker, colorKey: string): void {
+        const el = document.getElementById('custom-marker-title-' + cm.id) as HTMLInputElement | null;
+        if (el && el.value.trim()) {
+            cm.name = el.value.trim();
+        }
         cm.color = colorKey;
         this.saveCustomMarkers();
+        this.cdr.detectChanges();
+    }
+
+    onSaveCustomMarkerName(id: string, newName: string): void {
+        const found = this.userCustomMarkers.find(m => m.id === id);
+        if (found) {
+            found.name = newName;
+            if (this.activeCustomMarker?.id === id) {
+                this.activeCustomMarker.name = newName;
+            }
+            if (this.targetCustomMarker?.id === id) {
+                this.targetCustomMarker.name = newName;
+            }
+            this.saveCustomMarkers();
+            this.cdr.detectChanges();
+        }
     }
 
     onCustomMarkerNameChange(_cm: Gta6UserCustomMarker): void {
         this.saveCustomMarkers();
     }
 
-    onCustomMarkerBlur(cm: Gta6UserCustomMarker): void {
+    onCustomMarkerBlur(cm: Gta6UserCustomMarker, currentValue?: string): void {
         const defaultName = (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
-        const trimmed = (cm.name || '').trim();
-        cm.name = trimmed || defaultName;
+        const val = currentValue !== undefined ? currentValue : cm.name;
+        const trimmed = (val || '').trim();
+        const finalName = trimmed || defaultName;
+        cm.name = finalName;
+        if (this.activeCustomMarker?.id === cm.id) {
+            this.activeCustomMarker.name = finalName;
+        }
+        if (this.targetCustomMarker?.id === cm.id) {
+            this.targetCustomMarker.name = finalName;
+        }
         this.saveCustomMarkers();
+        this.cdr.detectChanges();
     }
 
     updateCustomMarkerName(cm: Gta6UserCustomMarker, newName: string): void {
         if (newName && newName.trim() !== '') {
             cm.name = newName.trim();
             this.saveCustomMarkers();
+            this.cdr.detectChanges();
         }
     }
 
@@ -832,9 +871,9 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
             this.canvasW = el.clientWidth;
             this.canvasH = el.clientHeight;
         }
+        this.panMoved = false;
         if (this.zoom <= this.minZoom || !this.canvasW) { return; }
 
-        event.preventDefault();
         this.isPanning = true;
         this.panStartX = event.clientX;
         this.panStartY = event.clientY;
@@ -842,9 +881,33 @@ export class Gta6MapOnlineComponent implements OnInit, OnDestroy {
         this.panStartBgY = this.bgPosY;
     }
 
+    onCanvasClick(event: MouseEvent): void {
+        if (this.panMoved) {
+            this.panMoved = false;
+            return;
+        }
+        const target = event.target as HTMLElement;
+        if (target && target.closest('.gta6-marker-pin, .gta-custom-pin-popup-container, .gta6-marker-card-modal, .hud-ctx')) {
+            return;
+        }
+        this.closeCustomMarkerPopup();
+        this.closeMarkerModal();
+        this.closeContextMenu();
+    }
+
+    @HostListener('document:keydown.escape')
+    onEscapePress(): void {
+        this.closeCustomMarkerPopup();
+        this.closeMarkerModal();
+        this.closeContextMenu();
+    }
+
     @HostListener('document:mousemove', ['$event'])
     onDocumentMouseMove(event: MouseEvent): void {
         if (!this.isPanning) { return; }
+        if (Math.abs(event.clientX - this.panStartX) > 4 || Math.abs(event.clientY - this.panStartY) > 4) {
+            this.panMoved = true;
+        }
         const base = this.coverScale();
         this.bgPosX = this.clampPan(
             this.panStartBgX + (event.clientX - this.panStartX),

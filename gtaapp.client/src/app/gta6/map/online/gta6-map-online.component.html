@@ -11,6 +11,7 @@
     (wheel)="onCanvasWheel($event)"
     (mousedown)="onCanvasMouseDown($event)"
     (mousemove)="onCanvasMouseMove($event)"
+    (click)="onCanvasClick($event)"
     [style.backgroundImage]="canvasBgImage"
     [style.backgroundSize]="canvasBgSize"
     [style.backgroundPosition]="canvasBgPos"
@@ -109,16 +110,19 @@
         {{ targetCustomMarker.name }}
       </div>
       <button type="button" class="hud-ctx-item" (click)="runCtxAction('editar_marcador')">
-        {{ 'gta6.contextMenu.editMarker' | translate }}
+        <span class="hud-ctx-ico">✏️</span>
+        <span>{{ 'gta6.contextMenu.editMarker' | translate }}</span>
       </button>
       <button type="button" class="hud-ctx-item hud-ctx-item-danger" (click)="runCtxAction('borrar_este_marcador')">
-        {{ 'gta6.contextMenu.deleteMarker' | translate }}
+        <span class="hud-ctx-ico">🗑️</span>
+        <span>{{ 'gta6.contextMenu.deleteMarker' | translate }}</span>
       </button>
       <div class="hud-ctx-sep"></div>
     }
 
     <button type="button" class="hud-ctx-item" (click)="runCtxAction('marcador')">
-      {{ 'gta6.contextMenu.addMarker' | translate }}
+      <span class="hud-ctx-ico">📍</span>
+      <span>{{ 'gta6.contextMenu.addMarker' | translate }}</span>
     </button>
   </div>
   }
@@ -132,22 +136,24 @@
     (click)="$event.stopPropagation()"
   >
     <div class="custom-marker-popup-card" [ngClass]="'gta-pin-color-' + (activeCustomMarker.color || 'red')">
-      <div class="custom-marker-popup-close-btn" (click)="closeCustomMarkerPopup()" [title]="'common.close' | translate">✕</div>
-      <div class="custom-marker-title-row" style="display: flex; justify-content: center; text-align: center; margin: 0 14px 4px 14px;">
+      <div class="custom-marker-title-row">
         <input
           type="text"
           id="custom-marker-title-{{activeCustomMarker.id}}"
           class="custom-marker-name custom-marker-name-input"
-          [(ngModel)]="activeCustomMarker.name"
-          (ngModelChange)="onCustomMarkerNameChange(activeCustomMarker)"
+          [value]="activeCustomMarker.name"
+          (input)="onSaveCustomMarkerName(activeCustomMarker.id, $any($event.target).value)"
+          (mousedown)="$event.stopPropagation()"
+          (click)="$event.stopPropagation()"
           (keydown)="$event.stopPropagation()"
           (keydown.enter)="$any($event.target).blur()"
-          (blur)="onCustomMarkerBlur(activeCustomMarker)"
+          (blur)="onCustomMarkerBlur(activeCustomMarker, $any($event.target).value)"
           [placeholder]="translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name'"
           maxlength="45"
           [title]="'gta6.popups.edit' | translate"
-          style="margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: 100%; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;"
+          style="margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: auto; max-width: 95px; min-width: 60px; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;"
         />
+        <div class="custom-marker-popup-close-btn" (click)="closeCustomMarkerPopup()" [title]="'common.close' | translate">✕</div>
       </div>
       <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin: 4px 0 5px 0; padding: 3px 6px; background: rgba(0,0,0,0.45); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);">
         @for (c of customColorList; track c.key) {
