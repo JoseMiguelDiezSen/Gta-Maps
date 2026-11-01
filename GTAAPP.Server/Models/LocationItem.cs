@@ -130,6 +130,12 @@ public class LocationItem
     public List<string> Features { get; set; } = [];
 
     /// <summary>
+    /// Capacidad numérica de almacenamiento para almacenes o garajes (ej. 16, 42, 111 cajas).
+    /// </summary>
+    [JsonPropertyName("capacity")]
+    public int? Capacity { get; set; }
+
+    /// <summary>
     /// Rendimiento o ingresos semanales generados en el caso de negocios (ej. "$9,300 / semana", "Hasta $50,000 / día en el juego").
     /// </summary>
     [JsonPropertyName("income")]

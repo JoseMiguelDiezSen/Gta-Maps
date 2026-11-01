@@ -76,6 +76,7 @@ export interface LocationItem {
   zone: string;
   description: string;
   features?: string[];
+  capacity?: number;
   income?: string;
   position: MapPosition;
   badge: MapBadge;

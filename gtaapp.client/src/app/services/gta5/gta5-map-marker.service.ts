@@ -149,21 +149,7 @@ export class Gta5MapMarkerService {
         if (p.description) {
             const desc = document.createElement('p');
             desc.className = 'popup-desc';
-            const spanMatch = p.description.match(/^(.*?)<span[^>]*>([^<]*)<\/span>/s);
-            if (spanMatch) {
-                const textNode = document.createTextNode(spanMatch[1]);
-                const spanNode = document.createElement('span');
-                spanNode.style.display = 'block';
-                spanNode.style.marginTop = '6px';
-                spanNode.style.paddingLeft = '8px';
-                spanNode.style.color = '#3498db';
-                spanNode.style.fontSize = '11px';
-                spanNode.style.fontWeight = '500';
-                spanNode.textContent = spanMatch[2];
-                desc.append(textNode, spanNode);
-            } else {
-                desc.textContent = p.description;
-            }
+            desc.textContent = p.description;
             content.appendChild(desc);
         }
 

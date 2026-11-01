@@ -128,7 +128,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 90,
       handling: 92,
       dealership: 'vice_luxury',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/cheetah.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/cheetah.png'],
       description: 'Superdeportivo icónico con alerón activo de fibra de carbono y motor V12 biturbo refrigerado por aire.'
     },
     {
@@ -144,7 +144,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 92,
       handling: 94,
       dealership: 'vice_luxury',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/torero.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/torero.png'],
       description: 'Descapotable agresivo de diseño ochentero con puertas de tijera e interiores en cuero fucsia neón.'
     },
     {
@@ -160,7 +160,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 88,
       handling: 95,
       dealership: 'vice_luxury',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/comet2.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/comet2.png'],
       description: 'El rey de las avenidas costeras de Ocean Beach: tracción total y escape deportivo de competición.'
     }
   ],
@@ -178,7 +178,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 80,
       handling: 84,
       dealership: 'sunshine_autos',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/dominator.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/dominator.png'],
       description: 'Músculo americano de alta cilindrada con sobrealimentador visible en el capó y tracción trasera pura.'
     },
     {
@@ -194,7 +194,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 75,
       handling: 80,
       dealership: 'sunshine_autos',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/buccaneer.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/buccaneer.png'],
       description: 'Un cupé de lujo clásico con defensas cromadas pulidas a espejo e interiores tapizados en terciopelo.'
     },
     {
@@ -210,7 +210,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 78,
       handling: 82,
       dealership: 'sunshine_autos',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/sabregt.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/sabregt.png'],
       description: 'Chasis reforzado y pintura bitono clásica para carreras callejeras en el centro de Port Gellhorn.'
     }
   ],
@@ -228,7 +228,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 90,
       handling: 96,
       dealership: 'ocean_drive_customs',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/sultanrs.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/sultanrs.png'],
       description: 'Sedán de rally convertido en monstruo del asfalto con jaula antivuelco y alerón de alta carga.'
     },
     {
@@ -244,7 +244,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 91,
       handling: 97,
       dealership: 'ocean_drive_customs',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/elegy.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/elegy.png'],
       description: 'Leyenda del drift japonés con kit de carrocería ensanchado y suspensión rebajada.'
     }
   ],
@@ -262,7 +262,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 70,
       handling: 88,
       dealership: 'everglades_marine',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/dinghy.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/dinghy.png'],
       description: 'Hidrodeslizador propulsado por hélice aeronáutica para deslizarse a toda velocidad sobre ciénagas y aguas bajas.'
     },
     {
@@ -278,7 +278,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 74,
       handling: 85,
       dealership: 'everglades_marine',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/toro.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/toro.png'],
       description: 'Lancha de lujo con casco de teca y motores fueraborda triples para escapadas a alta mar.'
     },
     {
@@ -294,7 +294,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 78,
       handling: 86,
       dealership: 'everglades_marine',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/bifta.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/bifta.png'],
       description: 'Camioneta con snorkel de admisión alta, suspensión de largo recorrido y neumáticos de barro profundo.'
     }
   ],
@@ -312,7 +312,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 85,
       handling: 90,
       dealership: 'leonida_aviation',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/supervolito.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/supervolito.png'],
       description: 'Helicóptero VIP con rotor silencioso y cabina presurizada con champán a bordo.'
     },
     {
@@ -328,7 +328,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 70,
       handling: 80,
       dealership: 'leonida_aviation',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/dodo.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/dodo.png'],
       description: 'Hidroavión clásico con flotadores reforzados para aterrizar en cualquier cayo de Gellhorn.'
     }
   ],
@@ -346,7 +346,7 @@ export const GTA6_VEHICLES_BY_DEALER: Record<string, Gta6Vehicle[]> = {
       braking: 75,
       handling: 91,
       dealership: 'gta6_especiales',
-      images: ['assets/images/gta5/marcadores-mapa/vehicles/speeder.png'],
+      images: ['assets/images/gta5/mapa/marcadores-mapa/vehicles/speeder.png'],
       description: 'Lancha rápida con compartimentos ocultos y radar antidetención costera.'
     }
   ]
@@ -365,7 +365,7 @@ export const GTA6_STORY_MISSIONS_ES: Gta6Mission[] = [
     location: 'Port Gellhorn',
     type: 'Prólogo / Cooperativa',
     category: 'Prólogo',
-    thumbnail: 'assets/images/gta5/marcadores-mapa/properties/Tequilala-GTAV.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/Tequilala-GTAV-Logo.png',
     description: 'Atraco a mano armada en la licorería de Port Gellhorn y huida coordinada esquivando el cerco policial.',
     goldRequirements: ['Tiempo menor a 05:30', 'Disparos a la cabeza: 8', 'Sin daños graves en el coche']
   },
@@ -378,7 +378,7 @@ export const GTA6_STORY_MISSIONS_ES: Gta6Mission[] = [
     location: 'Vice Beaches',
     type: 'Infiltración',
     category: 'Operaciones',
-    thumbnail: 'assets/images/gta5/marcadores-mapa/properties/Pitchers-GTAV.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/Pitchers-GTAV.png',
     description: 'Recuperar un alijo de diamantes en un hotel art déco durante una fiesta privada en la terraza.',
     goldRequirements: ['Sigilo absoluto', 'Noquear a 4 guardias', 'Escapar por los tejados']
   },
@@ -391,7 +391,7 @@ export const GTA6_STORY_MISSIONS_ES: Gta6Mission[] = [
     location: 'Grassrivers',
     type: 'Persecución en Hidrodeslizador',
     category: 'Contrabando',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/TheHenHouse-GTAV.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/TheHenHouse-GTAVee.jpg',
     description: 'Interceptar un cargamento clandestino en los manglares pantanosos antes de que llegue a los guardacostas.',
     goldRequirements: ['Destruir 3 lanchas rivales', 'No encallar en el fango', 'Precisión de tiro: 75%']
   }
@@ -407,7 +407,7 @@ export const GTA6_STORY_MISSIONS_EN: Gta6Mission[] = [
     location: 'Port Gellhorn',
     type: 'Prologue / Co-op',
     category: 'Prologue',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/Tequilala-GTAV.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/Tequilala-GTAV-Logo.png',
     description: 'Armed robbery at the Port Gellhorn liquor store and coordinated escape through the police perimeter.',
     goldRequirements: ['Time under 05:30', 'Headshots: 8', 'No critical vehicle damage']
   },
@@ -433,7 +433,7 @@ export const GTA6_STORY_MISSIONS_EN: Gta6Mission[] = [
     location: 'Grassrivers',
     type: 'Airboat Chase',
     category: 'Contraband',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/TheHenHouse-GTAV.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/TheHenHouse-GTAVee.jpg',
     description: 'Intercept a contraband shipment in the murky swamplands before coast guard patrol arrives.',
     goldRequirements: ['Destroy 3 enemy boats', 'No grounding in mud', 'Accuracy 75%']
   }
@@ -454,7 +454,7 @@ export const GTA6_HEISTS_ES: Gta6Heist[] = [
     badgeIcon: 'fa-sack-dollar',
     categoryLabel: 'Golpe a Gran Escala',
     players: '2-4 Jugadores',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/businesses/Nightclubs-GTAO-Interior.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/businesses/Nightclubs-GTAO-HeaderOverview.png',
     potentialTake: {
       normal: '$4,200,000',
       hard: '$4,850,000',
@@ -478,7 +478,7 @@ export const GTA6_HEISTS_ES: Gta6Heist[] = [
     badgeIcon: 'fa-building-columns',
     categoryLabel: 'Asalto Blindado',
     players: '2 Jugadores',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/businesses/WarehouseInterior-GTAO.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/businesses/WarehouseInterior2-GTAO-SS1.png',
     potentialTake: {
       normal: '$2,800,000',
       hard: '$3,200,000',
@@ -505,7 +505,7 @@ export const GTA6_HEISTS_EN: Gta6Heist[] = [
     badgeIcon: 'fa-sack-dollar',
     categoryLabel: 'Grand Scale Heist',
     players: '2-4 Players',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/businesses/Nightclubs-GTAO-Interior.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/businesses/Nightclubs-GTAO-HeaderOverview.png',
     potentialTake: {
       normal: '$4,200,000',
       hard: '$4,850,000',
@@ -529,7 +529,7 @@ export const GTA6_HEISTS_EN: Gta6Heist[] = [
     badgeIcon: 'fa-building-columns',
     categoryLabel: 'Armored Raid',
     players: '2 Players',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/businesses/WarehouseInterior-GTAO.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/businesses/WarehouseInterior2-GTAO-SS1.png',
     potentialTake: {
       normal: '$2,800,000',
       hard: '$3,200,000',
@@ -607,7 +607,7 @@ export const GTA6_MYSTERIES_ES: Gta6Mystery[] = [
     schedule: 'Siempre Activo',
     badgeColor: '#ff4fe0',
     badgeIcon: 'fa-satellite-dish',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/MazeBankWest-GTAO.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/MazeBankWest-GTAV.png',
     description: 'Antena de telecomunicaciones en la azotea de un rascacielos que intercepta transmisiones gubernamentales cifradas.',
     descriptionSnippet: 'Antena de telecomunicaciones en la azotea que intercepta transmisiones gubernamentales cifradas.',
     fullStory: 'Documentos filtrados de la FIB sugieren un programa de vigilancia masiva sobre toda la península de Leonida.',
@@ -679,7 +679,7 @@ export const GTA6_MYSTERIES_EN: Gta6Mystery[] = [
     schedule: 'Always Active',
     badgeColor: '#ff4fe0',
     badgeIcon: 'fa-satellite-dish',
-    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/MazeBankWest-GTAO.png',
+    thumbnail: 'assets/images/gta5/mapa/marcadores-mapa/properties/MazeBankWest-GTAV.png',
     description: 'Rooftop telecommunications antenna intercepting encrypted government transmissions.',
     descriptionSnippet: 'Rooftop antenna intercepting encrypted government transmissions.',
     fullStory: 'Leaked FIB documents suggest a mass surveillance program across the entire Leonida peninsula.',

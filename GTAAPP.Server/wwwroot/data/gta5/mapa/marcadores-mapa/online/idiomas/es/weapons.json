@@ -5,7 +5,7 @@
     "name": "Pistola",
     "nameEn": "Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolas",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Beretta 92FS / Taurus PT92",
     "price": 350,
@@ -27,7 +27,7 @@
     "badgeColor": "#ffb833",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/pistol.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/pistol.png"
   },
   {
     "id": "combat_pistol",
@@ -35,7 +35,7 @@
     "name": "Pistola de Combate",
     "nameEn": "Combat Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolas",
     "manufacturer": "Hawk & Little",
     "realCounterpart": "Glock 17 (9x19mm)",
     "price": 550,
@@ -57,7 +57,7 @@
     "badgeColor": "#ffb833",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/combat_pistol.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/combat_pistol.png"
   },
   {
     "id": "ap_pistol",
@@ -65,7 +65,7 @@
     "name": "Pistola Perforante (AP)",
     "nameEn": "AP Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolas",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt SCAMP / OTs-33 Pernach",
     "price": 5000,
@@ -76,18 +76,18 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "18 proyectiles (36 ampliado)",
-    "description": "High-rate-of-fire armor-piercing automatic pistol. Empty a 36-round clip in seconds during high-speed drive-by shootings.",
+    "description": "Pistola automática perforante de alta cadencia de disparo. Vacía un cargador de 36 proyectiles en segundos durante tiroteos a alta velocidad desde vehículos.",
     "attachments": [
       "Cargador ampliado",
       "Linterna táctica",
       "Silenciador",
-      "Luxury Finish"
+      "Acabado de lujo"
     ],
     "icon": "fa-gun",
     "badgeColor": "#ffb833",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/ap_pistol.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/ap_pistol.png"
   },
   {
     "id": "heavy_revolver",
@@ -95,7 +95,7 @@
     "name": "Revólver Pesado",
     "nameEn": "Heavy Revolver",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolas",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Taurus Raging Bull (.44 Magnum)",
     "price": 5900,
@@ -108,14 +108,14 @@
     "clipSize": "6 proyectiles",
     "description": "A colossal handgun packing devastating stopping power. Capable of dropping armored targets with a single, well-placed round.",
     "attachments": [
-      "VIP Luxury Finish",
-      "Collector Engraving"
+      "Acabado de lujo VIP",
+      "Grabado de coleccionista"
     ],
     "icon": "fa-gun",
     "badgeColor": "#e74c3c",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/heavy_revolver.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/heavy_revolver.png"
   },
   {
     "id": "perico_pistol",
@@ -123,7 +123,7 @@
     "name": "Pistola de Perico",
     "nameEn": "Perico Pistol",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolas",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Custom Engraved Gold Walther PPK",
     "price": 0,
@@ -136,13 +136,13 @@
     "clipSize": "Un solo disparo",
     "description": "Pistola de oro macizo artesanal recuperada de la caja fuerte del despacho privado de El Rubio en su complejo fortificado de Cayo Perico.",
     "attachments": [
-      "Native 24K Gold Inlay"
+      "Incrustación de oro puro de 24 quilates"
     ],
     "icon": "fa-gun",
     "badgeColor": "#eab308",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/perico_pistol.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/perico_pistol.png"
   },
   {
     "id": "up_n_atomizer",
@@ -150,7 +150,7 @@
     "name": "Up-n-Atomizer",
     "nameEn": "Up-n-Atomizer",
     "category": "pistols",
-    "categoryLabel": "Special Weapons",
+    "categoryLabel": "Armas Especiales",
     "manufacturer": "Republic Space Rangers",
     "realCounterpart": "Alien Electromagnetic Ray Gun",
     "price": 399000,
@@ -163,21 +163,21 @@
     "clipSize": "Infinite ammo (Heat cooldown)",
     "description": "Sci-fi weapon projecting high-impact energy shockwaves that launch vehicles and sentries into the air.",
     "attachments": [
-      "Themed Futuristic Tints"
+      "Tintes temáticos futuristas"
     ],
     "icon": "fa-atom",
     "badgeColor": "#a855f7",
     "hasMk2": false,
     "gameMode": "online",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/up_n_atomizer.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/up_n_atomizer.png"
   },
   {
     "id": "stungun",
     "order": 7,
-    "name": "Stun Gun",
+    "name": "Pistola Eléctrica (Táser)",
     "nameEn": "Stun Gun",
     "category": "pistols",
-    "categoryLabel": "Handguns",
+    "categoryLabel": "Pistolas",
     "manufacturer": "Coil",
     "realCounterpart": "Taser X26",
     "price": 375000,
@@ -190,13 +190,13 @@
     "clipSize": "High-voltage probes (4s recharge)",
     "description": "Non-lethal electrical conductive device firing twin electrified probes to incapacitate any target instantly.",
     "attachments": [
-      "Tactical Polymer Finish"
+      "Acabado de polímero táctico"
     ],
     "icon": "fa-bolt",
     "badgeColor": "#38bdf8",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/stungun.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/stungun.png"
   },
   {
     "id": "micro_smg",
@@ -204,7 +204,7 @@
     "name": "Micro Subfusil",
     "nameEn": "Micro SMG",
     "category": "smgs",
-    "categoryLabel": "Submachine Guns",
+    "categoryLabel": "Subfusiles",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "IMI Micro Uzi (9mm)",
     "price": 3750,
@@ -221,13 +221,13 @@
       "Linterna táctica",
       "Silenciador",
       "Mira telescópica",
-      "Luxury Finish"
+      "Acabado de lujo"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/micro_smg.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/micro_smg.png"
   },
   {
     "id": "smg",
@@ -235,7 +235,7 @@
     "name": "Subfusil Estándar",
     "nameEn": "SMG",
     "category": "smgs",
-    "categoryLabel": "Submachine Guns",
+    "categoryLabel": "Subfusiles",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Heckler & Koch MP5A3",
     "price": 7500,
@@ -252,21 +252,21 @@
       "Cargador de tambor",
       "Linterna táctica",
       "Silenciador",
-      "Holographic Sight"
+      "Mira holográfica"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/smg.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/smg.png"
   },
   {
     "id": "combat_mg",
     "order": 10,
-    "name": "Combat MG",
+    "name": "Ametralladora de Combate",
     "nameEn": "Combat MG",
     "category": "smgs",
-    "categoryLabel": "Light Machine Guns",
+    "categoryLabel": "Ametralladoras Ligeras",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "M249 SAW / FN Minimi (5.56mm)",
     "price": 14800,
@@ -276,19 +276,19 @@
     "fireRate": 6.5,
     "accuracy": 5.5,
     "range": 6,
-    "clipSize": "100 proyectiles",
-    "description": "Heavy squad automatic weapon with a massive belt capacity, capable of shredding enemy squads and disabling air support.",
+    "clipSize": "100 proyectiles (200 con cargador ampliado)",
+    "description": "Arma automática pesada de pelotón con gran capacidad de cinta, capaz de destrozar escuadras enemigas e inutilizar apoyo aéreo.",
     "attachments": [
-      "200-Round Box Magazine",
+      "Cargador de caja de 200 proyectiles",
       "Mira telescópica",
       "Empuñadura",
-      "Gold Luxury Tint"
+      "Tinte dorado de lujo"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#e74c3c",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/combat_mg.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/combat_mg.png"
   },
   {
     "id": "gusenberg_sweeper",
@@ -296,7 +296,7 @@
     "name": "Gusenberg Sweeper",
     "nameEn": "Gusenberg Sweeper",
     "category": "smgs",
-    "categoryLabel": "Submachine Guns",
+    "categoryLabel": "Subfusiles",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Thompson M1928 (Tommy Gun .45 ACP)",
     "price": 14600,
@@ -309,13 +309,13 @@
     "clipSize": "30 proyectiles",
     "description": "Prohibition era icon featuring iconic circular drum magazines and an unmistakable firing signature.",
     "attachments": [
-      "50-Round Drum Magazine"
+      "Cargador de tambor de 50 proyectiles"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#f59e0b",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/gusenberg_sweeper.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/gusenberg_sweeper.png"
   },
   {
     "id": "assault_rifle",
@@ -323,7 +323,7 @@
     "name": "Fusil de Asalto",
     "nameEn": "Assault Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Fusiles de Asalto",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "AK-47 / Norinco Type 56",
     "price": 8550,
@@ -341,13 +341,13 @@
       "Mira telescópica",
       "Silenciador",
       "Empuñadura",
-      "Yusuf Amir Gold Finish"
+      "Acabado de oro Yusuf Amir"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/assault_rifle.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/assault_rifle.png"
   },
   {
     "id": "carbine_rifle",
@@ -355,7 +355,7 @@
     "name": "Carabina",
     "nameEn": "Carbine Rifle",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Fusiles de Asalto",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M4A1 (5.56x45mm NATO)",
     "price": 13000,
@@ -369,9 +369,9 @@
     "description": "All-around military workhorse rifle with full Picatinny rail modularity, crisp handling, and controllable recoil patterns.",
     "attachments": [
       "Cargador ampliado",
-      "Box Drum",
-      "Holographic Sight",
-      "Tactical Flashlight",
+      "Cargador de tambor de caja",
+      "Mira holográfica",
+      "Linterna táctica",
       "Silenciador",
       "Empuñadura"
     ],
@@ -379,7 +379,7 @@
     "badgeColor": "#10b981",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/carbine_rifle.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/carbine_rifle.png"
   },
   {
     "id": "special_carbine",
@@ -387,7 +387,7 @@
     "name": "Carabina Especial",
     "nameEn": "Special Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Fusiles de Asalto",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Heckler & Koch G36C",
     "price": 14750,
@@ -401,16 +401,16 @@
     "description": "German engineered lightweight polymer rifle. Renowned across Los Santos for laser precision and minimal recoil bloom.",
     "attachments": [
       "Cargador ampliado",
-      "100-Round Drum",
-      "Optical Scope",
+      "Cargador de tambor de 100 proyectiles",
+      "Mira óptica",
       "Silenciador",
-      "Ergonomic Grip"
+      "Empuñadura ergonómica"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/special_carbine.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/special_carbine.png"
   },
   {
     "id": "service_carbine",
@@ -418,7 +418,7 @@
     "name": "Carabina de servicio",
     "nameEn": "Service Carbine",
     "category": "rifles",
-    "categoryLabel": "Assault Rifles",
+    "categoryLabel": "Fusiles de Asalto",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Colt M16A4 / M16",
     "price": 370000,
@@ -441,7 +441,7 @@
     "badgeColor": "#10b981",
     "hasMk2": false,
     "gameMode": "online",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/service_carbine.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/service_carbine.png"
   },
   {
     "id": "pump_shotgun",
@@ -449,7 +449,7 @@
     "name": "Escopeta Corredera",
     "nameEn": "Pump Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Escopetas",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Mossberg 590 (12 Gauge)",
     "price": 3500,
@@ -463,14 +463,14 @@
     "description": "Classic 12-gauge law enforcement pump action shotgun. Devastating point-blank stopping power with dense buckshot spread.",
     "attachments": [
       "Linterna táctica",
-      "Shotgun Suppressor",
-      "Luxury Engraving"
+      "Silenciador para escopeta",
+      "Grabado de lujo"
     ],
     "icon": "fa-fire",
     "badgeColor": "#ea580c",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/pump_shotgun.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/pump_shotgun.png"
   },
   {
     "id": "assault_shotgun",
@@ -478,7 +478,7 @@
     "name": "Escopeta de Asalto",
     "nameEn": "Assault Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Escopetas",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "UTAS UTS-15 / Fostech Origin-12",
     "price": 10000,
@@ -491,8 +491,8 @@
     "clipSize": "8 shells (32 drum)",
     "description": "Fully automatic combat shotgun equipped with a 32-round drum magazine, creating an impenetrable wall of lead in close quarters.",
     "attachments": [
-      "32-Shell Drum Magazine",
-      "Tactical Flashlight",
+      "Cargador de tambor de 32 cartuchos",
+      "Linterna táctica",
       "Empuñadura",
       "Silenciador"
     ],
@@ -500,7 +500,7 @@
     "badgeColor": "#ea580c",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/assault_shotgun.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/assault_shotgun.png"
   },
   {
     "id": "combat_shotgun",
@@ -508,7 +508,7 @@
     "name": "Escopeta de combate",
     "nameEn": "Combat Shotgun",
     "category": "shotguns",
-    "categoryLabel": "Shotguns",
+    "categoryLabel": "Escopetas",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Franchi SPAS-12 (12 Gauge)",
     "price": 295000,
@@ -528,7 +528,7 @@
     "badgeColor": "#ea580c",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/combat_shotgun.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/combat_shotgun.png"
   },
   {
     "id": "sniper_rifle",
@@ -536,7 +536,7 @@
     "name": "Fusil de Francotirador",
     "nameEn": "Sniper Rifle",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "Fusiles de Francotirador",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Accuracy International AWP (7.62x51mm)",
     "price": 20000,
@@ -549,15 +549,15 @@
     "clipSize": "10 proyectiles",
     "description": "Precision bolt-action long range marksman rifle engineered to eliminate threats from hundreds of yards away.",
     "attachments": [
-      "Advanced High-Power Scope",
+      "Mira avanzada de alta potencia",
       "Silenciador",
-      "Luxury Engraving"
+      "Grabado de lujo"
     ],
     "icon": "fa-bullseye",
     "badgeColor": "#6366f1",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/sniper_rifle.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/sniper_rifle.png"
   },
   {
     "id": "heavy_sniper",
@@ -565,7 +565,7 @@
     "name": "Francotirador Pesado",
     "nameEn": "Heavy Sniper",
     "category": "snipers",
-    "categoryLabel": "Sniper Rifles",
+    "categoryLabel": "Fusiles de Francotirador",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Barrett M82A1 (.50 BMG Anti-Materiel)",
     "price": 38150,
@@ -579,14 +579,14 @@
     "description": "Massive .50 BMG anti-materiel sniper rifle. Capable of disabling helicopter rotors, piercing vehicle armor, and eliminating targets across extreme render distances.",
     "attachments": [
       "Mira avanzada",
-      "Thermal / Night Vision Scope (Mk II)",
-      "Explosive Rounds (Mk II)"
+      "Mira térmica / visión nocturna (Mk II)",
+      "Munición explosiva (Mk II)"
     ],
     "icon": "fa-bullseye",
     "badgeColor": "#6366f1",
     "hasMk2": true,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/heavy_sniper.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/heavy_sniper.png"
   },
   {
     "id": "rpg",
@@ -607,13 +607,13 @@
     "clipSize": "1 rocket (20 capacity)",
     "description": "Unguided shoulder-fired anti-tank rocket launcher. Engineered to vaporize tanks, convoys, and fortified positions with catastrophic blast shockwaves.",
     "attachments": [
-      "VIP Gold Plated Finish"
+      "Acabado chapado en oro VIP"
     ],
     "icon": "fa-bomb",
     "badgeColor": "#dc2626",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/rpg.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/rpg.png"
   },
   {
     "id": "homing_launcher",
@@ -634,13 +634,13 @@
     "clipSize": "1 heat-seeking missile (10 capacity)",
     "description": "Portable surface-to-air missile system featuring infrared lock-on capabilities that track airborne and high-velocity ground targets.",
     "attachments": [
-      "Special Edition Military Finish"
+      "Acabado militar edición especial"
     ],
     "icon": "fa-rocket",
     "badgeColor": "#dc2626",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/homing_launcher.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/homing_launcher.png"
   },
   {
     "id": "minigun",
@@ -659,15 +659,15 @@
     "accuracy": 4.5,
     "range": 6.5,
     "clipSize": "999 proyectiles",
-    "description": "The ultimate infantry fire-support weapon. Six rotating electrically driven barrels unleashing relentless suppressing fire.",
+    "description": "El arma definitiva de apoyo de fuego de infantería. Seis cañones rotatorios de accionamiento eléctrico que desatan un implacable fuego de supresión sobre vehículos y personal.",
     "attachments": [
-      "Gold Luxury Finish"
+      "Acabado de lujo dorado"
     ],
     "icon": "fa-bahai",
     "badgeColor": "#dc2626",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/minigun.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/minigun.png"
   },
   {
     "id": "railgun",
@@ -688,13 +688,13 @@
     "clipSize": "1 kinetic slug (20 capacity)",
     "description": "Experimental military prototype using electromagnetic acceleration to propel solid metallic slugs at hypersonic velocity with instant lethal impact.",
     "attachments": [
-      "Custom Coil Metallic Tints"
+      "Tintes metálicos Coil personalizados"
     ],
     "icon": "fa-bolt-lightning",
     "badgeColor": "#06b6d4",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/railgun.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/railgun.png"
   },
   {
     "id": "knife",
@@ -715,13 +715,13 @@
     "clipSize": "Arma blanca de combate cuerpo a cuerpo",
     "description": "Cuchillo de combate de hoja fija de acero al carbono de 7 pulgadas. Silencioso y letal para eliminaciones sigilosas por la espalda.",
     "attachments": [
-      "Forged Steel Finish"
+      "Acabado en acero forjado"
     ],
     "icon": "fa-hand-back-fist",
     "badgeColor": "#94a3b8",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/knife.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/knife.png"
   },
   {
     "id": "stone_hatchet",
@@ -742,13 +742,13 @@
     "clipSize": "Pasiva: Modo Furia de Piedra",
     "description": "Antigua hacha de piedra nativa americana. Al asestar un golpe letal se activa el 'Modo Furia', otorgando invulnerabilidad temporal y regeneración acelerada de salud.",
     "attachments": [
-      "Traditional Leather Wraps"
+      "Empuñadura de cuero tradicional"
     ],
     "icon": "fa-hand-back-fist",
     "badgeColor": "#f97316",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/stone_hatchet.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/stone_hatchet.png"
   },
   {
     "id": "sticky_bomb",
@@ -756,7 +756,7 @@
     "name": "Bomba Adhesiva",
     "nameEn": "Sticky Bomb",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "Arrojadizos y Explosivos",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "C4 Plastic Explosive with Remote Cellphone Detonator",
     "price": 600,
@@ -769,13 +769,13 @@
     "clipSize": "Up to 25 remote charges",
     "description": "C4 plastic explosive block with adhesive backing. Attach to any surface or vehicle and detonate on command via cellular trigger.",
     "attachments": [
-      "Remote Cellular Trigger"
+      "Detonador remoto por móvil"
     ],
     "icon": "fa-burst",
     "badgeColor": "#e11d48",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/sticky_bomb.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/sticky_bomb.png"
   },
   {
     "id": "proximity_mine",
@@ -783,7 +783,7 @@
     "name": "Mina de Proximidad",
     "nameEn": "Proximity Mine",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "Arrojadizos y Explosivos",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Laser-Tripped Tactical Landmine",
     "price": 1000,
@@ -796,13 +796,13 @@
     "clipSize": "Hasta 5 minas desplegadas",
     "description": "Mina antipersona y antivehículo con sensores de proximidad por láser que detona de forma instantánea al detectar movimiento en su radio de acción.",
     "attachments": [
-      "Thermal Motion Trigger"
+      "Detonador por sensor térmico"
     ],
     "icon": "fa-burst",
     "badgeColor": "#e11d48",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/proximity_mine.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/proximity_mine.png"
   },
   {
     "id": "grenade",
@@ -810,7 +810,7 @@
     "name": "Granada de Mano",
     "nameEn": "Grenade",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "Arrojadizos y Explosivos",
     "manufacturer": "Hawk & Little",
     "realCounterpart": "M26 / Mk 2 Fragmentation Grenade",
     "price": 250,
@@ -827,6 +827,6 @@
     "badgeColor": "#e11d48",
     "hasMk2": false,
     "gameMode": "both",
-    "imageUrl": "/assets/images/gta5/marcadores-mapa/weapons/grenade.png"
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/weapons/grenade.png"
   }
 ]

@@ -2413,7 +2413,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             themeClass = 'mystery-theme-conspiracy';
             bgGradient = 'linear-gradient(180deg, #05262e 0%, #031217 100%)';
             accentColor = '#06b6d4';
-        } else if (mystery.category === 'crimes') {
+        } else if (mystery.category === 'crime' || mystery.category === 'crimes') {
             themeClass = 'mystery-theme-crimes';
             bgGradient = 'linear-gradient(180deg, #2a0a10 0%, #120306 100%)';
             accentColor = '#ef4444';

@@ -267,7 +267,7 @@ export class GuiaService {
         juego: 'Grand Theft Auto VI',
         titulo: 'Guía GTA VI & Base de Datos',
         descripcion: 'Compendio interactivo de Vice City y el Estado de Leonida: protagonistas, distritos, mecánicas de sigilo e inventario y análisis criminal.',
-        bannerUrl: 'assets/home-bg.jpg',
+        bannerUrl: 'assets/images/home/home-bg.jpg',
         secciones: [
           {
             id: 'prologo',
@@ -318,7 +318,7 @@ export class GuiaService {
           juego: 'Grand Theft Auto VI Online',
           titulo: 'Guía GTA VI Online & Base de Datos',
           descripcion: 'Compendio interactivo multijugador de Vice City y el Estado de Leonida.',
-          bannerUrl: 'assets/home-bg.jpg',
+          bannerUrl: 'assets/images/home/home-bg.jpg',
           secciones: [
             {
               id: 'prologo',
@@ -540,7 +540,7 @@ export class GuiaService {
         juego: 'Grand Theft Auto V',
         titulo: 'Guía GTA V',
         descripcion: 'Compendio interactivo de Los Santos y Blaine County: Modo Historia al 100%, Golpes, Bolsa e Inversiones, y Secretos.',
-        bannerUrl: 'assets/home-bg.jpg',
+        bannerUrl: 'assets/images/home/home-bg.jpg',
         secciones: []
       };
     } else if (juegoId === 'gta6-online') {
@@ -549,7 +549,7 @@ export class GuiaService {
         juego: 'Grand Theft Auto VI Online',
         titulo: 'Guía GTA VI Online & Base de Datos',
         descripcion: 'Compendio interactivo multijugador de Vice City y el Estado de Leonida.',
-        bannerUrl: 'assets/home-bg.jpg',
+        bannerUrl: 'assets/images/home/home-bg.jpg',
         secciones: []
       };
     } else {
@@ -558,7 +558,7 @@ export class GuiaService {
         juego: 'Grand Theft Auto VI',
         titulo: 'Guía GTA VI & Base de Datos',
         descripcion: 'Compendio interactivo de Vice City y el Estado de Leonida: protagonistas, distritos, mecánicas de sigilo e inventario y análisis criminal.',
-        bannerUrl: 'assets/home-bg.jpg',
+        bannerUrl: 'assets/images/home/home-bg.jpg',
         secciones: []
       };
     }

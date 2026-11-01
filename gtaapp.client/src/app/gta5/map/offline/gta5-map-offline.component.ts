@@ -1777,7 +1777,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             themeClass = 'mystery-theme-mission';
             bgGradient = 'linear-gradient(180deg, #091a13 0%, #040c08 100%)';
             accentColor = mystery.badgeColor || '#2ecc71';
-        } else if (mystery.category === 'crimes') {
+        } else if (mystery.category === 'crime' || mystery.category === 'crimes') {
             themeClass = 'mystery-theme-crimes';
             bgGradient = 'linear-gradient(180deg, #2a0a10 0%, #120306 100%)';
             accentColor = '#ef4444';
