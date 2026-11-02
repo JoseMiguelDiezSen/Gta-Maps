@@ -7,6 +7,10 @@ import { GtaWeapon } from '../../../models/gta5/weapon';
 import { VehicleService } from '../../../services/gta5/vehicle.service';
 import { MissionService } from '../../../services/gta5/mission.service';
 import { WeaponService } from '../../../services/gta5/weapon.service';
+import { EventService } from '../../../services/gta5/event.service';
+import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, GTA_SLASHERS_LIST } from '../../../models/gta5/event';
+import * as L from 'leaflet';
+import { gta5WorldToLatLng } from '../../../utils/gta5-map-projection';
 import { TranslationService } from '../../../i18n';
 import { CONCESIONARIOS_GTA5, SPECIAL_DEALER_IDS } from './vehiculos.config';
 import { GTA6_DEALERS_ES, GTA6_DEALERS_EN } from '../../../gta6/map/info-panel/gta6.config';
@@ -46,12 +50,6 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   private _cachedFGV: GtaVehicle[] = [];
   private _cachedFSMKey = '';
   private _cachedFSM: GtaMission[] = [];
-  private _cachedOCLKey = '';
-  private _cachedOCL: { id: string; name: string; count: number; icon: string; color: string }[] = [];
-  private _cachedOCatKey = '';
-  private _cachedOCat: string[] = [];
-  private _cachedFOMKey = '';
-  private _cachedFOM: GtaMission[] = [];
   private _cachedSSLKey = '';
   private _cachedSSL: { id: string; name: string; count: number; icon: string; color: string }[] = [];
   private _cachedFStMKey = '';
@@ -77,7 +75,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this._cachedDrawerTabs = isOnline ? [
         { id: 'vehiculos', label: this.translationService.t('transports.tabs.vehicles') || 'Vehículos', icon: 'fa-car-side' },
         { id: 'armas', label: this.translationService.t('transports.tabs.armas') || 'Armas', icon: 'fa-gun' },
-        { id: 'misiones', label: this.translationService.t('transports.tabs.missions') || 'Misiones', icon: 'fa-bullseye' },
+        { id: 'eventos', label: this.translationService.t('transports.tabs.events') || 'Eventos', icon: 'fa-calendar-days' },
         { id: 'golpes', label: this.translationService.t('transports.tabs.golpes') || 'Golpes', icon: 'fa-sack-dollar' },
         { id: 'misterios', label: this.translationService.t('transports.tabs.misterios') || 'Misterios', icon: 'fa-user-secret' }
       ] : [
@@ -99,14 +97,6 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   heistSearchQuery = '';
   selectedHeistCategoryFilter = 'all'; // 'all' | 'classic' | 'doomsday' | 'casino' | 'cayo_perico' | 'raid'
   selectedHeist: GtaHeist | null = null;
-
-  // Misiones GTA Online (Contactos y Operaciones)
-  onlineMissions: GtaMission[] = [];
-  onlineMissionsLoading = false;
-  onlineMissionsError = false;
-  onlineMissionSearchQuery = '';
-  selectedOnlineContactFilter = 'all'; // 'all' | 'gerald' | 'simeon' | 'lamar' | 'lester' | 'madrazo' | 'trevor' | 'agatha' | 'special'
-  selectedOnlineCategoryFilter = 'all';
 
   // Misiones Modo Historia (Campaña Principal)
   storyMissions: GtaMission[] = [];
@@ -145,8 +135,23 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   selectedWeaponSort: 'none' | 'damage' | 'fireRate' | 'accuracy' | 'range' | 'price' = 'none';
   selectedWeapon: GtaWeapon | null = null;
 
-  // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail'
-  drawerView: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' = 'tabs';
+  // Eventos Estacionales GTA Online (Halloween, Navidad, etc.)
+  eventsCategories: GtaEventCategory[] = [];
+  eventsLoading = false;
+  eventsError = false;
+  selectedEventCategory: GtaEventCategory | null = null;
+  selectedEventSubcategory: GtaEventSubcategory | null = null;
+  selectedEventItem: GtaEventItem | null = null;
+  private eventsSub?: Subscription;
+
+  // Asesinos de Halloween
+  readonly slashersList: GtaSlasherInfo[] = GTA_SLASHERS_LIST;
+  activeSlasherId: string | null = null;
+  private slasherMap?: L.Map;
+  private slasherCircles: { [id: string]: L.Circle[] } = {};
+
+  // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' | 'event-subcategories' | 'event-detail'
+  drawerView: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' | 'event-subcategories' | 'event-detail' = 'tabs';
   selectedMission: GtaMission | null = null;
 
   // Concesionario actualmente abierto en la vista de grid
@@ -185,6 +190,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   private readonly vehicleService = inject(VehicleService);
   private readonly missionService = inject(MissionService);
   private readonly weaponService = inject(WeaponService);
+  private readonly eventService = inject(EventService);
   readonly translationService = inject(TranslationService);
 
   constructor() {
@@ -207,9 +213,11 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
         if (this.onlineMysteries.length > 0) this.loadOnlineMysteries(true, this.selectedMystery?.id);
         if (this.weapons.length > 0) this.loadWeapons(true, this.selectedWeapon?.id);
       } else {
-        if (this.onlineMissions.length > 0) this.loadOnlineMissions(true, this.selectedMission?.id);
         if (this.onlineHeists.length > 0 || this.activeDrawerTab === 'golpes' || this.drawerView === 'heist-detail') {
           this.loadOnlineHeists(true, this.selectedHeist?.id);
+        }
+        if (this.eventsCategories.length > 0 || this.activeDrawerTab === 'eventos') {
+          this.loadOnlineEvents(true);
         }
         if (this.onlineMysteries.length > 0) this.loadOnlineMysteries(true, this.selectedMystery?.id);
         if (this.weapons.length > 0) this.loadWeapons(true, this.selectedWeapon?.id);
@@ -224,8 +232,11 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this.weapons = [];
       this.selectedWeapon = null;
       this.storyMissions = [];
-      this.onlineMissions = [];
       this.onlineHeists = [];
+      this.eventsCategories = [];
+      this.selectedEventCategory = null;
+      this.selectedEventSubcategory = null;
+      this.selectedEventItem = null;
       this.dealerVehicles = [];
       this.allVehicles = [];
       this.vehicleSearchQuery = '';
@@ -236,20 +247,20 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
       if (this.activeDrawerTab === 'misterios') this.loadOnlineMysteries(true);
       if (this.activeDrawerTab === 'armas') this.loadWeapons(true);
-      if (this.activeDrawerTab === 'misiones') {
-        if (this.gameMode === 'story') this.loadStoryMissions(true);
-        else this.loadOnlineMissions(true);
+      if (this.activeDrawerTab === 'misiones' && this.gameMode === 'story') {
+        this.loadStoryMissions(true);
       }
+      if (this.activeDrawerTab === 'eventos') this.loadOnlineEvents(true);
       if (this.activeDrawerTab === 'golpes') this.loadOnlineHeists(true);
     }
     if (changes['isOpen'] && changes['isOpen'].currentValue) {
       if (this.activeDrawerTab === 'vehiculos' && this.allVehicles.length === 0) this.loadAllVehicles();
       if (this.activeDrawerTab === 'misterios' && this.onlineMysteries.length === 0) this.loadOnlineMysteries();
       if (this.activeDrawerTab === 'armas' && this.weapons.length === 0) this.loadWeapons();
-      if (this.activeDrawerTab === 'misiones') {
-        if (this.gameMode === 'story' && this.storyMissions.length === 0) this.loadStoryMissions();
-        else if (this.gameMode === 'online' && this.onlineMissions.length === 0) this.loadOnlineMissions();
+      if (this.activeDrawerTab === 'misiones' && this.gameMode === 'story' && this.storyMissions.length === 0) {
+        this.loadStoryMissions();
       }
+      if (this.activeDrawerTab === 'eventos' && this.eventsCategories.length === 0) this.loadOnlineEvents();
       if (this.activeDrawerTab === 'golpes' && this.onlineHeists.length === 0) this.loadOnlineHeists();
     }
   }
@@ -454,7 +465,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   setDrawerTab(tabId: string): void {
     this.activeDrawerTab = tabId;
-    if (this.drawerView === 'dealer-grid' || this.drawerView === 'vehicle-detail' || this.drawerView === 'mission-detail' || this.drawerView === 'stranger-detail' || this.drawerView === 'heist-detail' || this.drawerView === 'mystery-detail' || this.drawerView === 'weapon-detail') {
+    if (this.drawerView !== 'tabs') {
       this.drawerView = 'tabs';
       this.activeDealerId = null;
       this.selectedVehicle = null;
@@ -463,6 +474,9 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this.selectedHeist = null;
       this.selectedMystery = null;
       this.selectedWeapon = null;
+      this.selectedEventCategory = null;
+      this.selectedEventSubcategory = null;
+      this.selectedEventItem = null;
     }
     if (tabId === 'armas' && this.weapons.length === 0) {
       this.loadWeapons();
@@ -478,8 +492,8 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
         this.loadOnlineMysteries();
       }
     } else {
-      if (tabId === 'misiones' && this.onlineMissions.length === 0) {
-        this.loadOnlineMissions();
+      if (tabId === 'eventos' && this.eventsCategories.length === 0) {
+        this.loadOnlineEvents();
       }
       if (tabId === 'golpes' && this.onlineHeists.length === 0) {
         this.loadOnlineHeists();
@@ -488,148 +502,6 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
         this.loadOnlineMysteries();
       }
     }
-  }
-
-  // -------------------------------------------------------------
-  // MISIONES GTA ONLINE (CONTACTOS Y OPERACIONES)
-  // -------------------------------------------------------------
-  loadOnlineMissions(force = false, keepSelectedId?: string): void {
-    if (this.onlineMissions.length > 0 && !force) return;
-    this.onlineMissionsLoading = true;
-    this.onlineMissionsError = false;
-    this.missionsSub?.unsubscribe();
-    this.missionsSub = this.missionService.getOnlineMissions().subscribe({
-      next: (missions) => {
-        this.onlineMissions = missions;
-        if (keepSelectedId) {
-          this.selectedMission = missions.find(m => m.id === keepSelectedId) || null;
-        }
-        this.onlineMissionsLoading = false;
-      },
-      error: (err) => {
-        console.error('Error al cargar misiones de GTA Online:', err);
-        this.onlineMissionsLoading = false;
-        this.onlineMissionsError = true;
-      }
-    });
-  }
-
-  setOnlineContactFilter(filter: string): void {
-    this.selectedOnlineContactFilter = filter;
-  }
-
-  setOnlineCategoryFilter(category: string): void {
-    this.selectedOnlineCategoryFilter = category;
-  }
-
-  get onlineContactsList(): { id: string; name: string; count: number; icon: string; color: string }[] {
-    const key = `${this.onlineMissions ? this.onlineMissions.length : 0}`;
-    if (this._cachedOCLKey !== key) {
-      this._cachedOCLKey = key;
-      this._cachedOCL = [
-        { id: 'all', name: 'Todos', count: this.onlineMissions.length, icon: 'fa-globe', color: '#ffb833' },
-        { id: 'gerald', name: 'Gerald', count: this.getOnlineContactCount('gerald'), icon: 'fa-pills', color: '#9b59b6' },
-        { id: 'simeon', name: 'Simeon', count: this.getOnlineContactCount('simeon'), icon: 'fa-car', color: '#f1c40f' },
-        { id: 'lamar', name: 'Lamar', count: this.getOnlineContactCount('lamar'), icon: 'fa-cannabis', color: '#2ecc71' },
-        { id: 'lester', name: 'Lester', count: this.getOnlineContactCount('lester'), icon: 'fa-laptop-code', color: '#3498db' },
-        { id: 'madrazo', name: 'Madrazo', count: this.getOnlineContactCount('madrazo'), icon: 'fa-crosshairs', color: '#e74c3c' },
-        { id: 'trevor', name: 'Trevor / Ron', count: this.getOnlineContactCount('trevor'), icon: 'fa-skull', color: '#e67e22' },
-        { id: 'agatha', name: 'Agatha Baker', count: this.getOnlineContactCount('agatha'), icon: 'fa-gem', color: '#d4af37' },
-        { id: 'special', name: 'Operaciones Especiales', count: this.getOnlineContactCount('special'), icon: 'fa-shield-halved', color: '#1abc9c' }
-      ];
-    }
-    return this._cachedOCL;
-  }
-
-  getOnlineContactCount(filter: string): number {
-    const f = filter.toLowerCase();
-    if (f === 'all') return this.onlineMissions.length;
-    if (f === 'trevor') {
-      return this.onlineMissions.filter(m => m.character.toLowerCase().includes('trevor') || m.character.toLowerCase().includes('ron')).length;
-    }
-    if (f === 'special') {
-      return this.onlineMissions.filter(m =>
-        m.character.toLowerCase().includes('brendan') ||
-        m.character.toLowerCase().includes('agente 14') ||
-        m.character.toLowerCase().includes('securoserv') ||
-        m.character.toLowerCase().includes('franklin') ||
-        m.character.toLowerCase().includes('dax') ||
-        m.character.toLowerCase().includes('vincent')
-      ).length;
-    }
-    return this.onlineMissions.filter(m => m.character.toLowerCase().includes(f)).length;
-  }
-
-  get onlineCategories(): string[] {
-    const key = `${this.onlineMissions ? this.onlineMissions.length : 0}`;
-    if (this._cachedOCatKey !== key) {
-      this._cachedOCatKey = key;
-      const set = new Set<string>();
-      for (const m of this.onlineMissions) {
-        if (m.category) set.add(m.category);
-      }
-      this._cachedOCat = Array.from(set).sort((a, b) => a.localeCompare(b));
-    }
-    return this._cachedOCat;
-  }
-
-  get filteredOnlineMissions(): GtaMission[] {
-    const key = `${this.onlineMissions ? this.onlineMissions.length : 0}_${this.selectedOnlineContactFilter}_${this.selectedOnlineCategoryFilter}_${this.onlineMissionSearchQuery}`;
-    if (this._cachedFOMKey !== key) {
-      this._cachedFOMKey = key;
-      let list = this.onlineMissions;
-      const cf = this.selectedOnlineContactFilter.toLowerCase();
-      if (cf !== 'all') {
-        if (cf === 'trevor') {
-          list = list.filter(m => m.character.toLowerCase().includes('trevor') || m.character.toLowerCase().includes('ron'));
-        } else if (cf === 'special') {
-          list = list.filter(m =>
-            m.character.toLowerCase().includes('brendan') ||
-            m.character.toLowerCase().includes('agente 14') ||
-            m.character.toLowerCase().includes('securoserv') ||
-            m.character.toLowerCase().includes('franklin') ||
-            m.character.toLowerCase().includes('dax') ||
-            m.character.toLowerCase().includes('vincent')
-          );
-        } else {
-          list = list.filter(m => m.character.toLowerCase().includes(cf));
-        }
-      }
-
-      if (this.selectedOnlineCategoryFilter !== 'all') {
-        list = list.filter(m => m.category === this.selectedOnlineCategoryFilter);
-      }
-
-      const q = this.onlineMissionSearchQuery.trim().toLowerCase();
-      if (q) {
-        list = list.filter(m =>
-          m.title.toLowerCase().includes(q) ||
-          m.description.toLowerCase().includes(q) ||
-          m.giver.toLowerCase().includes(q) ||
-          m.character.toLowerCase().includes(q) ||
-          m.category.toLowerCase().includes(q)
-        );
-      }
-      this._cachedFOM = list;
-    }
-    return this._cachedFOM;
-  }
-
-  getOnlineContactBadgeClass(char: string): string {
-    const c = char.toLowerCase();
-    if (c.includes('gerald')) return 'badge-gerald';
-    if (c.includes('simeon')) return 'badge-simeon';
-    if (c.includes('lamar')) return 'badge-lamar';
-    if (c.includes('lester')) return 'badge-lester';
-    if (c.includes('madrazo')) return 'badge-madrazo';
-    if (c.includes('trevor') || c.includes('ron')) return 'badge-trevor';
-    if (c.includes('agatha')) return 'badge-agatha';
-    if (c.includes('brendan')) return 'badge-darcy';
-    if (c.includes('franklin')) return 'badge-franklin';
-    if (c.includes('dax')) return 'badge-dax';
-    if (c.includes('vincent')) return 'badge-vincent';
-    if (c.includes('agente') || c.includes('securoserv')) return 'badge-tactical';
-    return 'badge-neutral';
   }
 
   openMissionDetail(mission: GtaMission): void {
@@ -643,7 +515,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   get currentMissionsList(): GtaMission[] {
-    return this.gameMode === 'story' ? this.storyMissions : this.onlineMissions;
+    return this.storyMissions;
   }
 
   get previousMission(): GtaMission | null {
@@ -931,7 +803,11 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   onBreadcrumbBack(): void {
-    if (this.drawerView === 'vehicle-detail') {
+    if (this.drawerView === 'event-detail') {
+      this.closeEventDetail();
+    } else if (this.drawerView === 'event-subcategories') {
+      this.closeEventSubcategories();
+    } else if (this.drawerView === 'vehicle-detail') {
       this.backToDealerGrid();
     } else if (this.drawerView === 'dealer-grid') {
       this.closeDealerGrid();
@@ -946,6 +822,193 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     } else if (this.drawerView === 'weapon-detail') {
       this.closeWeaponDetail();
     }
+  }
+
+  // -------------------------------------------------------------
+  // EVENTOS ESTACIONALES GTA ONLINE
+  // -------------------------------------------------------------
+  loadOnlineEvents(force = false): void {
+    if (this.eventsCategories.length > 0 && !force) return;
+    this.eventsLoading = true;
+    this.eventsError = false;
+    this.eventsSub?.unsubscribe();
+    this.eventsSub = this.eventService.getOnlineEvents().subscribe({
+      next: (categories) => {
+        this.eventsCategories = categories;
+        this.eventsLoading = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar eventos de GTA Online:', err);
+        this.eventsLoading = false;
+        this.eventsError = true;
+      }
+    });
+  }
+
+  openEventCategory(cat: GtaEventCategory): void {
+    this.selectedEventCategory = cat;
+    this.selectedEventSubcategory = null;
+    this.selectedEventItem = null;
+    this.drawerView = 'event-subcategories';
+  }
+
+  closeEventSubcategories(): void {
+    this.selectedEventCategory = null;
+    this.selectedEventSubcategory = null;
+    this.selectedEventItem = null;
+    this.drawerView = 'tabs';
+  }
+
+  openEventDetail(item: GtaEventItem, subcat?: GtaEventSubcategory): void {
+    this.selectedEventItem = item;
+    if (subcat) {
+      this.selectedEventSubcategory = subcat;
+    }
+    this.drawerView = 'event-detail';
+    if (item.id === 'slasher-clown' || item.id === 'asesinos-disfrazados') {
+      setTimeout(() => this.initSlasherMiniMap(), 150);
+    }
+  }
+
+  closeEventDetail(): void {
+    this.destroySlasherMiniMap();
+    this.selectedEventItem = null;
+    this.drawerView = this.selectedEventCategory ? 'event-subcategories' : 'tabs';
+  }
+
+  initSlasherMiniMap(): void {
+    this.destroySlasherMiniMap();
+    const container = document.getElementById('slasher-mini-map');
+    if (!container) return;
+
+    const mapBounds = L.latLngBounds([[-90, -25], [26, 89]]);
+
+    this.slasherMap = L.map(container, {
+      crs: L.CRS.Simple,
+      minZoom: 0,
+      maxZoom: 3,
+      center: [-33, 29.5],
+      maxBounds: mapBounds,
+      maxBoundsViscosity: 1.0,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      touchZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      zoomControl: false,
+      attributionControl: false
+    });
+
+    L.tileLayer('assets/mapas/gta5/Atlas/{z}_{x}_{y}.jpg', {
+      tileSize: 256,
+      minZoom: 0,
+      maxNativeZoom: 3,
+      noWrap: true,
+      bounds: mapBounds,
+      className: 'slasher-radar-tiles'
+    }).addTo(this.slasherMap);
+
+    this.slasherCircles = {};
+    this.slashersList.forEach(s => {
+      this.slasherCircles[s.id] = [];
+      if (s.zones && s.zones.length > 0) {
+        s.zones.forEach(z => {
+          const [lat, lng] = gta5WorldToLatLng(z.x, z.y);
+          const circle = L.circle([lat, lng], {
+            radius: z.radius * 0.0055,
+            color: s.color,
+            weight: 2,
+            opacity: 0.85,
+            fillColor: s.color,
+            fillOpacity: 0.22
+          }).addTo(this.slasherMap!);
+          this.slasherCircles[s.id].push(circle);
+        });
+      }
+    });
+
+    setTimeout(() => {
+      this.slasherMap?.invalidateSize();
+      this.slasherMap?.fitBounds(mapBounds.pad(-0.06));
+    }, 200);
+  }
+
+  selectSlasher(slasherId: string): void {
+    this.activeSlasherId = this.activeSlasherId === slasherId ? null : slasherId;
+
+    this.slashersList.forEach(s => {
+      const circles = this.slasherCircles[s.id] || [];
+      const isSelected = this.activeSlasherId === s.id;
+      const noneSelected = this.activeSlasherId === null;
+
+      circles.forEach(circle => {
+        if (isSelected) {
+          circle.setStyle({ fillOpacity: 0.65, weight: 3.5, opacity: 1 });
+        } else if (noneSelected) {
+          circle.setStyle({ fillOpacity: 0.22, weight: 2, opacity: 0.85 });
+        } else {
+          circle.setStyle({ fillOpacity: 0.06, weight: 1, opacity: 0.20 });
+        }
+      });
+    });
+  }
+
+  destroySlasherMiniMap(): void {
+    if (this.slasherMap) {
+      this.slasherMap.remove();
+      this.slasherMap = undefined;
+    }
+    this.slasherCircles = {};
+    this.activeSlasherId = null;
+  }
+
+  onLocateSlasher(slasher: GtaSlasherInfo, event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    const zone = slasher.zones && slasher.zones.length > 0 ? slasher.zones[0] : null;
+    if (zone) {
+      this.locateOnMap.emit({
+        id: slasher.id,
+        title: slasher.name,
+        color: slasher.color,
+        zones: slasher.zones,
+        position: { x: zone.x, y: zone.y, z: 0 }
+      } as unknown as GtaMystery);
+    }
+  }
+
+  get currentEventItemsList(): GtaEventItem[] {
+    if (this.selectedEventSubcategory) {
+      return this.selectedEventSubcategory.items || [];
+    }
+    if (this.selectedEventCategory) {
+      return this.selectedEventCategory.subcategories.flatMap(sc => sc.items);
+    }
+    return [];
+  }
+
+  get previousEventItem(): GtaEventItem | null {
+    if (!this.selectedEventItem || this.currentEventItemsList.length === 0) return null;
+    const idx = this.currentEventItemsList.findIndex(i => i.id === this.selectedEventItem!.id);
+    return idx > 0 ? this.currentEventItemsList[idx - 1] : null;
+  }
+
+  get nextEventItem(): GtaEventItem | null {
+    if (!this.selectedEventItem || this.currentEventItemsList.length === 0) return null;
+    const idx = this.currentEventItemsList.findIndex(i => i.id === this.selectedEventItem!.id);
+    return (idx >= 0 && idx < this.currentEventItemsList.length - 1) ? this.currentEventItemsList[idx + 1] : null;
+  }
+
+  selectPreviousEventItem(): void {
+    const prev = this.previousEventItem;
+    if (prev) this.selectedEventItem = prev;
+  }
+
+  selectNextEventItem(): void {
+    const next = this.nextEventItem;
+    if (next) this.selectedEventItem = next;
   }
 
   selectVehicle(v: GtaVehicle): void {
@@ -1492,9 +1555,11 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.destroySlasherMiniMap();
     this.vehiclesSub?.unsubscribe();
     this.missionsSub?.unsubscribe();
     this.strangersSub?.unsubscribe();
+    this.eventsSub?.unsubscribe();
     this.heistsSub?.unsubscribe();
     this.mysteriesSub?.unsubscribe();
     this.weaponsSub?.unsubscribe();

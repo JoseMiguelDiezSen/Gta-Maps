@@ -1,0 +1,170 @@
+[
+  {
+    "id": "halloween",
+    "title": "Halloween Events",
+    "icon": "fa-ghost",
+    "color": "#ef4444",
+    "badge": "October",
+    "description": "Paranormal phenomena and sinister encounters plaguing Los Santos and Blaine County during the Halloween season.",
+    "subcategories": [
+      {
+        "id": "asesinos",
+        "title": "Slashers",
+        "icon": "fa-mask",
+        "color": "#e74c3c",
+        "description": "Psychopaths and serial killers lurking in the dark during the darkest nights of San Andreas.",
+        "items": [
+          {
+            "id": "slasher-clown",
+            "title": "The Slasher Clown",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "A maniac with sinister face paint and a twisted smile armed with a dagger. Stalks players roaming dark alleys alone on foot between 21:00 and 05:00.",
+            "reward": "Commemorative clown tee and $50,000",
+            "period": "Halloween Season (21:00 - 05:00)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#e74c3c",
+            "details": [
+              "Requires being in free roam session for at least 16 minutes.",
+              "Only spawns if the player is not inside weaponized or flying vehicles.",
+              "An ominous sound cue plays when the stalker draws near."
+            ]
+          },
+          {
+            "id": "slasher-driver",
+            "title": "The Phantom Car",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "A classic black muscle car engulfed in phantom flames steered by an ethereal demonic figure. Relentlessly chases players down to run them over.",
+            "reward": "Flaming Pumpkin Mask and 2,000 RP",
+            "period": "Halloween Season (22:00 - 05:00)",
+            "badgeIcon": "fa-fire",
+            "badgeColor": "#e67e22",
+            "details": [
+              "Vehicle resists common collision damage until the driver is taken down.",
+              "The car's fire does not extinguish under rain.",
+              "Destruction awards instant cash bonus."
+            ]
+          },
+          {
+            "id": "slasher-psycho",
+            "title": "The Paleto Butcher",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "A hulking murderer wearing a bloodstained apron and surgical mask brandishing a rusty chainsaw, lurking in the dense northern woods.",
+            "reward": "Bloody Slasher Mask and $50,000",
+            "period": "Halloween Season (21:00 - 05:00)",
+            "badgeIcon": "fa-skull",
+            "badgeColor": "#c0392b",
+            "details": [
+              "Possesses significantly higher health pool than regular NPCs.",
+              "Immune to knockdown from standard bullet impacts.",
+              "Drops heavy ammunition and full first-aid kit upon defeat."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fantasmas",
+        "title": "Ghosts",
+        "icon": "fa-spaghetti-monster-flying",
+        "color": "#9b59b6",
+        "description": "Paranormal sightings and ethereal manifestations documented by the San Andreas Paranormal Society.",
+        "items": [
+          {
+            "id": "ghost-gordo",
+            "title": "Ghost of Mount Gordo",
+            "category": "halloween",
+            "subcategory": "fantasmas",
+            "description": "The tragic spirit of Celene Mountain, appearing strictly for sixty real-time seconds between 23:00 and 00:00 on the cliff overlooking El Gordo Lighthouse.",
+            "reward": "Paranormal photo challenge progress and $20,000",
+            "period": "Halloween Nights (23:00 - 00:00)",
+            "badgeIcon": "fa-ghost",
+            "badgeColor": "#9b59b6",
+            "details": [
+              "Fades away immediately if the player gets closer than 5 meters.",
+              "The word 'JOCK' is inscribed in blood on the rock surface.",
+              "Must photograph the apparition with Snapmatic to log evidence."
+            ]
+          },
+          {
+            "id": "ghost-johnson",
+            "title": "Apparition of Leonora Johnson",
+            "category": "halloween",
+            "subcategory": "fantasmas",
+            "description": "The tragic 1970s Vinewood starlet manifests levitating in gloom near the Pacific Bluffs mausoleum, whispering lamentations of the unsolved crime.",
+            "reward": "Collector bonus and $20,000",
+            "period": "Halloween Nights (00:00 - 02:00)",
+            "badgeIcon": "fa-camera",
+            "badgeColor": "#8e44ad",
+            "details": [
+              "Appears floating over an unmarked tombstone.",
+              "Snapmatic camera required to capture the spectral evidence.",
+              "Photographing all 10 ghosts unlocks the Ghosts Exposed livery for the Albany Brigham."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "navidad",
+    "title": "Holiday Events",
+    "icon": "fa-sleigh",
+    "color": "#ffffff",
+    "badge": "December",
+    "description": "Winter festive celebrations featuring snowfall across San Andreas, opportunistic festive muggers, and collectible snowmen.",
+    "subcategories": [
+      {
+        "id": "gooch",
+        "title": "The Gooch",
+        "icon": "fa-hat-cowboy",
+        "color": "#2ecc71",
+        "description": "A sinister green furry creature wearing Santa attire that ambushes unsuspecting players in free roam.",
+        "items": [
+          {
+            "id": "gooch-ambush",
+            "title": "The Gooch Ambush",
+            "category": "navidad",
+            "subcategory": "gooch",
+            "description": "Emerges from a green cloud of smoke with a cackling laugh, knocks the player down, robs cash and snacks, and runs away quickly.",
+            "reward": "The Gooch Mask, reclaimed stolen items + $25,000",
+            "period": "Festive Surprise Season",
+            "badgeIcon": "fa-sack-dollar",
+            "badgeColor": "#27ae60",
+            "details": [
+              "Requires at least 2 players in the session and carrying pocket cash.",
+              "Player must chase and eliminate him before he escapes to reclaim loot.",
+              "First defeat unlocks the full Gooch Festive Outfit."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "snowmen",
+        "title": "Snowmen",
+        "icon": "fa-snowflake",
+        "color": "#3498db",
+        "description": "25 festive snowmen placed throughout the snowy state of San Andreas waiting to be destroyed.",
+        "items": [
+          {
+            "id": "snowmen-hunt",
+            "title": "Snowmen Destruction",
+            "category": "navidad",
+            "subcategory": "snowmen",
+            "description": "Handcrafted frozen statues found in parks, rooftops, backyards and porches across San Andreas. Can be destroyed by ramming, shooting, or explosives.",
+            "reward": "The Snowman Outfit + $125,000 upon destroying all 25",
+            "period": "Festive Surprise Season",
+            "badgeIcon": "fa-snowflake",
+            "badgeColor": "#2980b9",
+            "details": [
+              "Each destroyed snowman rewards $5,000 and 1,000 RP.",
+              "Completing all 25 awards a bonus lump sum of $125,000.",
+              "Emits a distinct jingle bell audio cue when standing near."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

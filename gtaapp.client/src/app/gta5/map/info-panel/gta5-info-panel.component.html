@@ -39,6 +39,26 @@
       </span>
       }
 
+      <!-- BREADCRUMB dinámico de eventos -->
+      @if (drawerView === 'event-subcategories' || drawerView === 'event-detail') {
+      <span class="drawer-badge drawer-breadcrumb">
+        <span class="drawer-breadcrumb-link" (click)="closeEventSubcategories()">{{ 'transports.tabs.events' | translate }}</span>
+        @if (selectedEventCategory) {
+          <span class="drawer-breadcrumb-sep">›</span>
+          <span
+            class="drawer-breadcrumb-link"
+            [class.drawer-breadcrumb-current]="drawerView === 'event-subcategories'"
+            (click)="closeEventDetail()"
+            [title]="selectedEventCategory.title"
+          >{{ selectedEventCategory.title }}</span>
+        }
+        @if (drawerView === 'event-detail' && selectedEventItem) {
+          <span class="drawer-breadcrumb-sep">›</span>
+          <span class="drawer-breadcrumb-current vehicle-crumb-name" [title]="selectedEventItem.title">{{ selectedEventItem.title }}</span>
+        }
+      </span>
+      }
+
       <!-- BREADCRUMB dinámico de misión -->
       @if (drawerView === 'mission-detail') {
       <span class="drawer-badge drawer-breadcrumb">
@@ -121,6 +141,12 @@
       @if (drawerView === 'weapon-detail') {
       <h3 class="drawer-title">{{ selectedWeapon?.name }}</h3>
       }
+      @if (drawerView === 'event-subcategories') {
+      <h3 class="drawer-title">{{ selectedEventCategory?.title }}</h3>
+      }
+      @if (drawerView === 'event-detail') {
+      <h3 class="drawer-title vehicle-detail-header-title">{{ selectedEventItem?.title }}</h3>
+      }
     </div>
     <button type="button" class="drawer-close-btn" (click)="onClose()" [title]="'transports.closeTitle' | translate">
       <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
@@ -143,7 +169,7 @@
     >
       <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
       @if (tab.id !== 'misterios') {
-      <span class="drawer-tab-label">{{ ('transports.tabs.' + (tab.id === 'vehiculos' ? 'vehicles' : tab.id === 'misiones' ? 'missions' : tab.id === 'armas' ? 'armas' : tab.id)) | translate }}</span>
+      <span class="drawer-tab-label">{{ ('transports.tabs.' + (tab.id === 'vehiculos' ? 'vehicles' : tab.id === 'misiones' ? 'missions' : tab.id === 'eventos' ? 'events' : tab.id === 'armas' ? 'armas' : tab.id)) | translate }}</span>
       }
     </button>
     }
@@ -151,7 +177,7 @@
   }
 
   <!-- ====== CUERPO ====== -->
-  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'" [class.is-stranger-view]="drawerView === 'stranger-detail'" [class.is-heist-view]="drawerView === 'heist-detail'" [class.is-weapon-view]="drawerView === 'weapon-detail'">
+  <div class="drawer-body" [class.is-dealer-view]="drawerView === 'dealer-grid'" [class.is-vehicle-view]="drawerView === 'vehicle-detail'" [class.is-mission-view]="drawerView === 'mission-detail'" [class.is-stranger-view]="drawerView === 'stranger-detail'" [class.is-heist-view]="drawerView === 'heist-detail'" [class.is-weapon-view]="drawerView === 'weapon-detail'" [class.is-event-view]="drawerView === 'event-subcategories' || drawerView === 'event-detail'">
 
     <!-- ============ VISTA: LISTA DE CONCESIONARIOS (TAB Vehículos) ============ -->
     @if (drawerView === 'tabs' && activeDrawerTab === 'vehiculos') {
@@ -797,121 +823,68 @@
 
       </div>
       }
+    }
 
-      <!-- En Modo Online: catálogo de misiones de contacto y operaciones de GTA Online -->
-      @if (gameMode === 'online') {
+    <!-- ============ TAB: EVENTOS ESTACIONALES (GTA Online) ============ -->
+    @if (drawerView === 'tabs' && activeDrawerTab === 'eventos') {
       <div class="dealers-tab-scroll">
-
-        <!-- Estado de carga -->
-        @if (onlineMissionsLoading) {
+        @if (eventsLoading) {
         <div class="missions-state-loading">
           <div class="vgrid-spinner"></div>
-          <span>{{ 'transports.missions.onlineLoading' | translate }}</span>
+          <span>{{ 'transports.events.title' | translate }}</span>
         </div>
         }
 
-        <!-- Estado de error -->
-        @if (onlineMissionsError && !onlineMissionsLoading) {
+        @if (eventsError && !eventsLoading) {
         <div class="missions-state-error">
           <i class="fa-solid fa-triangle-exclamation error-icon"></i>
-          <span>{{ 'transports.missions.error' | translate }}</span>
-          <button type="button" class="missions-retry-btn" (click)="loadOnlineMissions(true)">
+          <span>{{ 'transports.events.empty' | translate }}</span>
+          <button type="button" class="missions-retry-btn" (click)="loadOnlineEvents(true)">
             <i class="fa-solid fa-rotate-right"></i> {{ 'transports.missions.retry' | translate }}
           </button>
         </div>
         }
 
-        @if (!onlineMissionsLoading && !onlineMissionsError && onlineMissions.length > 0) {
-          <!-- Separador Misiones (Título en la parte superior) -->
+        @if (!eventsLoading && !eventsError && eventsCategories.length > 0) {
           <div class="dealer-section-divider">
             <div class="dealer-section-divider-line"></div>
-            <span class="dealer-section-divider-label">{{ 'transports.tabs.missions' | translate }}</span>
+            <span class="dealer-section-divider-label">{{ 'transports.tabs.events' | translate }}</span>
             <div class="dealer-section-divider-line"></div>
           </div>
 
-          <!-- Barra de Búsqueda de misiones -->
-          <div class="missions-search-box">
-            <i class="fa-solid fa-magnifying-glass missions-search-icon"></i>
-            <input
-              type="text"
-              class="missions-search-input" aria-label="{{ 'transports.missions.searchOnlinePlaceholder' | translate }}"
-              [(ngModel)]="onlineMissionSearchQuery"
-              [placeholder]="'transports.missions.searchOnlinePlaceholder' | translate"
-            />
-            @if (onlineMissionSearchQuery) {
-            <button
-              type="button"
-              class="missions-search-clear"
-              (click)="onlineMissionSearchQuery = ''"
-              [title]="'common.clearSearch' | translate"
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-            }
-          </div>
-
-          <!-- Estado vacío tras búsqueda -->
-          @if (filteredOnlineMissions.length === 0) {
-          <div class="missions-state-empty">
-            <i class="fa-solid fa-crosshairs empty-icon"></i>
-            <span>{{ 'transports.missions.empty' | translate }}</span>
-          </div>
-          }
-
-          <!-- Lista de misiones de GTA Online (Cards altas con flecha de entrada) -->
-          @if (filteredOnlineMissions.length > 0) {
-          <div class="missions-list">
-            @for (m of filteredOnlineMissions; track m.id || m.order) {
+          <div class="mysteries-list">
+            @for (cat of eventsCategories; track cat.id) {
             <div
-              class="mission-list-card"
-              (click)="openMissionDetail(m)"
-              [style.--m-accent]="getMissionAccentColor(m)"
+              class="mcard-item"
+              (click)="openEventCategory(cat)"
+              [style.--m-color]="cat.color"
             >
-              <!-- Icono temático distintivo como en vehículos -->
-              <div class="mcard-icon-box">
-                <i class="fa-solid" [ngClass]="getMissionIcon(m)"></i>
+              <!-- Icono temático del evento -->
+              <div class="mcard-icon-box" [style.background]="cat.color + '20'" [style.color]="cat.color" [style.borderColor]="cat.color + '50'">
+                <i class="fa-solid" [ngClass]="cat.icon"></i>
               </div>
 
-              <!-- Información central limpia con espacio para respirar -->
-              <div class="mcard-info">
-                <div class="mcard-title-row">
-                  <span class="mcard-title">{{ m.title }}</span>
-                  <span class="mcard-num">#{{ m.order < 10 ? '0' + m.order : m.order }}</span>
-                </div>
-                <div class="mcard-meta-row">
-                  <span class="mcard-cat">{{ m.category }}</span>
-                  <span class="mcard-char-badge" [ngClass]="getOnlineContactBadgeClass(m.character)">
-                    <i class="fa-solid fa-circle char-mini-dot"></i>
-                    <span>{{ m.character }}</span>
+              <!-- Contenido principal -->
+              <div class="mcard-content">
+                <div class="mcard-title">{{ cat.title }}</div>
+                <div class="mcard-meta-line">
+                  <span class="mcard-cat-badge" [style.color]="cat.color" [style.borderColor]="cat.color + '40'">
+                    {{ cat.badge }}
                   </span>
                 </div>
               </div>
 
-              <!-- Botón de localización directa en el mapa (fuera, en la tarjeta) -->
-              @if (m.position) {
-              <button
-                type="button"
-                class="mcard-locate-btn"
-                (click)="onLocateMission(m, $event)"
-                [title]="'transports.mysteries.locateOnMap' | translate"
-                style="margin-right: 8px; z-index: 2; color: #ffffff; border-color: rgba(255, 255, 255, 0.45); background: rgba(255, 255, 255, 0.12);"
-              >
-                <i class="fa-solid fa-location-crosshairs"></i>
-              </button>
-              }
-
-              <!-- Flecha de entrada a la derecha -->
-              <div class="mcard-arrow-box">
-                <i class="fa-solid fa-chevron-right mcard-arrow"></i>
+              <!-- Flecha circular derecha -->
+              <div class="mcard-actions">
+                <div class="mcard-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
               </div>
             </div>
             }
           </div>
-          }
         }
-
       </div>
-      }
     }
 
     <!-- ============ VISTA: DETALLE DE MISIÓN (PANEL LIMPIO) ============ -->
@@ -960,7 +933,7 @@
               <h2 class="mdetail-hero-title">{{ selectedMission.title }}</h2>
 
               <div class="mdetail-hero-chars">
-                <span class="mdetail-char-pill" [ngClass]="gameMode === 'online' ? getOnlineContactBadgeClass(selectedMission.character) : getCharacterBadgeClass(selectedMission.character)">
+                <span class="mdetail-char-pill" [ngClass]="getCharacterBadgeClass(selectedMission.character)">
                   <i class="fa-solid fa-user"></i>
                   <span>{{ selectedMission.character }}</span>
                 </span>
@@ -1025,8 +998,8 @@
             @if (selectedMission.goldRequirements && selectedMission.goldRequirements.length > 0) {
             <div class="mdetail-block gold-block">
               <div class="mdetail-block-head gold-head">
-                <i class="fa-solid" [ngClass]="gameMode === 'online' ? 'fa-crosshairs' : 'fa-medal'"></i>
-                <span>{{ (gameMode === 'online' ? 'transports.missions.onlineObjectives' : 'transports.missions.goldObjectives') | translate }}</span>
+                <i class="fa-solid fa-medal"></i>
+                <span>{{ 'transports.missions.goldObjectives' | translate }}</span>
               </div>
               <div class="mdetail-gold-list">
                 @for (req of selectedMission.goldRequirements; track req) {
@@ -1053,6 +1026,200 @@
 
         </div>
 
+      </div>
+    }
+
+    <!-- ============ VISTA: SUBCATEGORÍAS DEL EVENTO (NIVEL 2) ============ -->
+    @if (drawerView === 'event-subcategories' && selectedEventCategory) {
+      <div class="dealers-tab-scroll">
+        <div class="dealer-section-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label" [style.color]="selectedEventCategory.color">{{ selectedEventCategory.title }}</span>
+          <div class="dealer-section-divider-line"></div>
+        </div>
+
+        @for (sub of selectedEventCategory.subcategories; track sub.id) {
+          <div class="mysteries-list">
+            @for (item of sub.items; track item.id) {
+            <div
+              class="mcard-item"
+              (click)="openEventDetail(item, sub)"
+              [style.--m-color]="selectedEventCategory.color"
+            >
+              <!-- Icono temático -->
+              <div class="mcard-icon-box" [style.background]="selectedEventCategory.color + '20'" [style.color]="selectedEventCategory.color" [style.borderColor]="selectedEventCategory.color + '50'">
+                <i class="fa-solid" [ngClass]="item.badgeIcon || selectedEventCategory.icon"></i>
+              </div>
+
+              <!-- Contenido principal -->
+              <div class="mcard-content">
+                <div class="mcard-title">{{ item.title }}</div>
+                <div class="mcard-meta-line">
+                  <span class="mcard-cat-badge" [style.color]="selectedEventCategory.color" [style.borderColor]="selectedEventCategory.color + '40'">
+                    {{ selectedEventCategory.title }}
+                  </span>
+                  @if (item.reward) {
+                  <span class="mcard-time-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3);">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>{{ item.reward }}</span>
+                  </span>
+                  }
+                </div>
+              </div>
+
+              <!-- Flecha circular derecha -->
+              <div class="mcard-actions">
+                <div class="mcard-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        }
+      </div>
+    }
+
+    <!-- ============ VISTA: DETALLE DE EVENTO (NIVEL 3 - FICHA FINAL) ============ -->
+    @if (drawerView === 'event-detail' && selectedEventItem) {
+      <div class="mdetail-container" [style.--m-accent]="selectedEventItem.badgeColor || '#f39c12'">
+        <!-- Barra superior de navegación interna (stepper) -->
+        <div class="mdetail-top-bar is-centered">
+          <div class="mdetail-stepper">
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!previousEventItem"
+              (click)="selectPreviousEventItem()"
+              [title]="'transports.missions.prevMission' | translate"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <span class="mdetail-step-label">
+              {{ selectedEventItem.title }}
+            </span>
+            <button
+              type="button"
+              class="mdetail-step-btn"
+              [disabled]="!nextEventItem"
+              (click)="selectNextEventItem()"
+              [title]="'transports.missions.nextMission' | translate"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenido scrolleable del evento -->
+        <div class="mdetail-body">
+          <div class="mdetail-main-card">
+            <!-- Cabecera / Hero del evento -->
+            <div class="mdetail-hero">
+              <div class="mdetail-hero-badges">
+                <span class="mdetail-hero-cat">{{ selectedEventItem.period || ('transports.tabs.events' | translate) }}</span>
+              </div>
+              <h2 class="mdetail-hero-title">{{ selectedEventItem.title }}</h2>
+            </div>
+
+            @if (selectedEventItem.id === 'slasher-clown') {
+              <!-- LISTA DE ASESINOS (Formato estándar unificado mcard-item) -->
+              <div class="mysteries-list">
+                @for (s of slashersList; track s.id) {
+                <div
+                  class="mcard-item mcard-slasher-item"
+                  [style.--m-color]="s.color"
+                >
+                  <!-- Imagen oficial del asesino destacada -->
+                  <div class="mcard-icon-box mcard-slasher-thumb" [style.background]="s.color + '20'" [style.color]="s.color" [style.borderColor]="s.color + '50'">
+                    @if (s.image) {
+                      <img [src]="s.image" [alt]="s.name" />
+                    } @else {
+                      <i class="fa-solid" [ngClass]="s.icon || 'fa-skull'"></i>
+                    }
+                  </div>
+
+                  <!-- Contenido principal: 3 niveles limpios -->
+                  <div class="mcard-content">
+                    <div class="mcard-title">{{ s.name }}</div>
+                    <div class="mcard-weapon-line">
+                      <i class="fa-solid fa-skull"></i>
+                      <span>{{ s.weapon }}</span>
+                    </div>
+                    <div class="mcard-loc-line">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <span class="mcard-loc-text">{{ s.area }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Botón oficial de localización (idéntico a Misterios) -->
+                  <div class="mcard-actions">
+                    <button
+                      type="button"
+                      class="mcard-locate-btn"
+                      (click)="onLocateSlasher(s, $event)"
+                      [title]="'transports.mysteries.locateOnMap' | translate"
+                    >
+                      <i class="fa-solid fa-location-crosshairs"></i>
+                    </button>
+                  </div>
+                </div>
+                }
+              </div>
+            } @else {
+              <!-- Bloque: Sinopsis / Descripción -->
+              <div class="mdetail-block">
+                <div class="mdetail-block-head">
+                  <i class="fa-solid fa-book-open"></i>
+                  <span>{{ 'transports.missions.synopsis' | translate }}</span>
+                </div>
+                <div class="mdetail-synopsis">
+                  <p>{{ selectedEventItem.description }}</p>
+                </div>
+              </div>
+
+              <!-- Bloque: Recompensa -->
+              @if (selectedEventItem.reward) {
+              <div class="mdetail-grid">
+                <div class="mdetail-box reward-box">
+                  <i class="fa-solid fa-trophy box-icon"></i>
+                  <div class="box-content">
+                    <span class="box-label">{{ 'transports.missions.reward' | translate }}</span>
+                    <span class="box-val">{{ selectedEventItem.reward }}</span>
+                  </div>
+                </div>
+              </div>
+              }
+
+              <!-- Bloque: Detalles y Condiciones -->
+              @if (selectedEventItem.details && selectedEventItem.details.length > 0) {
+              <div class="mdetail-block gold-block">
+                <div class="mdetail-block-head gold-head">
+                  <i class="fa-solid fa-list-check"></i>
+                  <span>{{ 'transports.events.subcategoriesTitle' | translate }}</span>
+                </div>
+                <div class="mdetail-gold-list">
+                  @for (det of selectedEventItem.details; track det) {
+                  <div class="gold-goal-item">
+                    <div class="gold-goal-check">
+                      <i class="fa-solid fa-check"></i>
+                    </div>
+                    <span class="gold-goal-text">{{ det }}</span>
+                  </div>
+                  }
+                </div>
+              </div>
+              }
+            }
+
+            <!-- Botón de retorno al pie -->
+            <div class="mdetail-bottom-action">
+              <button type="button" class="mdetail-return-btn" (click)="closeEventDetail()">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>{{ 'transports.events.backToCategories' | translate }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     }
 

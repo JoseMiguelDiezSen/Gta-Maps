@@ -115,18 +115,6 @@ export class MissionService {
   }
 
   /**
-   * Obtiene la lista oficial de Misiones de Contacto de GTA Online.
-   */
-  getOnlineMissions(lang?: string): Observable<GtaMission[]> {
-    const activeLang = lang || this.translationService.currentLanguage() || 'es';
-    return this.loadWithFallback<GtaMission>(
-      '/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/es/mapa-misiones-online.json',
-      `/assets/data/gta5/mapa/marcadores-mapa/online/idiomas/${activeLang}/mapa-misiones-online.json`,
-      activeLang
-    );
-  }
-
-  /**
    * Obtiene la lista oficial de Golpes (Heists) de GTA Online.
    */
   getOnlineHeists(lang?: string): Observable<GtaHeist[]> {

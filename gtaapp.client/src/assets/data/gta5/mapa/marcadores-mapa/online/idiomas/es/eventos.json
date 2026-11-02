@@ -1,0 +1,129 @@
+[
+  {
+    "id": "halloween",
+    "title": "Eventos de Halloween",
+    "icon": "fa-ghost",
+    "color": "#ef4444",
+    "badge": "Octubre",
+    "description": "Eventos paranormales y apariciones siniestras que asolan Los Santos y Blaine County durante la temporada de Halloween.",
+    "subcategories": [
+      {
+        "id": "halloween-items",
+        "title": "Eventos de Halloween",
+        "icon": "fa-ghost",
+        "color": "#ef4444",
+        "description": "Eventos paranormales y apariciones siniestras que asolan Los Santos y Blaine County durante la temporada de Halloween.",
+        "items": [
+          {
+            "id": "slasher-clown",
+            "title": "Los Asesinos Disfrazados",
+            "category": "halloween",
+            "subcategory": "halloween-items",
+            "description": "Un maníaco con tétrica pintura facial y sonrisa macabra armado con un puñal. Acecha en callejones oscuros y ataca cuando el jugador se encuentra a solas a pie entre las 21:00 y las 05:00.",
+            "reward": "Camiseta conmemorativa de payaso y $50,000",
+            "period": "Temporada de Halloween (21:00 - 05:00)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#e74c3c",
+            "details": [
+              "Requiere estar al menos 16 minutos en la sesión libre.",
+              "Aparece exclusivamente si el jugador no va a bordo de vehículos armados o aéreos.",
+              "Se reproduce una melodía siniestra cuando inicia el acecho."
+            ]
+          },
+          {
+            "id": "ghost-gordo",
+            "title": "Fantasmas",
+            "category": "halloween",
+            "subcategory": "halloween-items",
+            "description": "El legendario espectro de Celene Mountain, visible únicamente durante sesenta segundos reales entre las 23:00 y las 00:00 en el risco escarpado que domina el faro de El Gordo.",
+            "reward": "Fotografía paranormal completada y $20,000",
+            "period": "Noches de Halloween (23:00 - 00:00)",
+            "badgeIcon": "fa-ghost",
+            "badgeColor": "#9b59b6",
+            "details": [
+              "Si el jugador se aproxima a menos de 5 metros, el espectro se desvanece de inmediato.",
+              "En la roca aparece escrita con sangre la palabra 'JOCK'.",
+              "Debe fotografiarla para registrar el progreso en el diario paranormal."
+            ]
+          },
+          {
+            "id": "slasher-driver",
+            "title": "Christine",
+            "category": "halloween",
+            "subcategory": "halloween-items",
+            "description": "Un deportivo clásico de color negro envuelto en llamas espectrales conducido por una silueta demoníaca. Persigue implacablemente a toda velocidad con el objetivo de atropellar al objetivo.",
+            "reward": "Máscara de Calabaza Llameante y 2,000 RP",
+            "period": "Temporada de Halloween (22:00 - 05:00)",
+            "badgeIcon": "fa-fire",
+            "badgeColor": "#e67e22",
+            "details": [
+              "El coche es inmune a colisiones convencionales hasta abatir al conductor.",
+              "El fuego del vehículo no se extingue bajo la lluvia.",
+              "Al destruirlo se obtiene una recompensa monetaria inmediata."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "navidad",
+    "title": "Eventos de Navidad",
+    "icon": "fa-sleigh",
+    "color": "#ffffff",
+    "badge": "Diciembre",
+    "description": "Celebraciones festivas de invierno con mantos de nieve, asaltantes oportunistas y regalos festivos en Los Santos.",
+    "subcategories": [
+      {
+        "id": "gooch",
+        "title": "El Grinch (The Gooch)",
+        "icon": "fa-hat-cowboy",
+        "color": "#2ecc71",
+        "description": "Una siniestra criatura peluda de color verde vestida de Papá Noel que embosca sin piedad a los residentes desprevenidos.",
+        "items": [
+          {
+            "id": "gooch-ambush",
+            "title": "Aparición de The Gooch",
+            "category": "navidad",
+            "subcategory": "gooch",
+            "description": "Aparece entre una densa nube de humo verde con una risa estridente. Derriba al jugador de espaldas, le arrebata dinero en efectivo y aperitivos del inventario, y huye a pie velozmente.",
+            "reward": "Máscara oficial de The Gooch y recuperación del botín + $25,000",
+            "period": "Festividades Navideñas",
+            "badgeIcon": "fa-sack-dollar",
+            "badgeColor": "#27ae60",
+            "details": [
+              "Requiere al menos 2 jugadores en la sesión y llevar dinero encima.",
+              "Hay que perseguirlo de inmediato antes de que desaparezca para abatirle.",
+              "La primera vez que lo abates desbloquea la indumentaria completa de The Gooch."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "snowmen",
+        "title": "Muñecos de Nieve",
+        "icon": "fa-snowflake",
+        "color": "#3498db",
+        "description": "25 muñecos de nieve festivos distribuidos a lo largo y ancho del mapa nevado listos para ser destruidos.",
+        "items": [
+          {
+            "id": "snowmen-hunt",
+            "title": "Cacería de Muñecos de Nieve",
+            "category": "navidad",
+            "subcategory": "snowmen",
+            "description": "Figuras heladas artesanales ubicadas en parques, azoteas, jardines y porches de San Andreas. Se pueden destruir atropellándolos, con armas de fuego o explosivos.",
+            "reward": "Atuendo de Muñeco de Nieve (El Muñeco de Nieve) + $125,000 al completar los 25",
+            "period": "Festividades Navideñas",
+            "badgeIcon": "fa-snowflake",
+            "badgeColor": "#2980b9",
+            "details": [
+              "Cada muñeco destruido otorga $5,000 y 1,000 RP.",
+              "Al destruir los 25 muñecos se entrega un bono final de $125,000.",
+              "Emiten un suave sonido de campanillas al aproximarse a su ubicación."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

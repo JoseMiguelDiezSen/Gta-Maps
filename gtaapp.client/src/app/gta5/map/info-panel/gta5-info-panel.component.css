@@ -3536,6 +3536,24 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   transition: transform 0.2s ease;
 }
 
+.mcard-slasher-thumb {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  min-height: 58px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.mcard-slasher-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9px;
+  display: block;
+}
+
 .mcard-item:hover .mcard-icon-box {
   transform: scale(1.08);
 }
@@ -3586,6 +3604,20 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   padding: 1px 6px;
   border-radius: 4px;
   border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.mcard-weapon-line {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--m-color, #f87171);
+}
+
+.mcard-weapon-line i {
+  font-size: 10px;
+  flex-shrink: 0;
 }
 
 .mcard-loc-line {
@@ -3771,3 +3803,5 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.9);
 }
+
+
