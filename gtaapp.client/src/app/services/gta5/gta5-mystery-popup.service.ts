@@ -9,6 +9,8 @@ export interface MysteryPopupData {
         description?: string;
         tip?: string;
         position: { x: number; y: number };
+        thumbnail?: string;
+        thumbnails?: string[];
     };
     stepNum?: number;
     isSkull?: boolean;
@@ -102,37 +104,71 @@ export class Gta5MysteryPopupService {
         card.className = 'gta-popup-card';
         card.style.background = bgGradient;
 
-        if (thumbnailUrl) {
+        const thumbs: string[] = (point?.thumbnails && point.thumbnails.length > 0)
+            ? point.thumbnails
+            : (thumbnailUrl ? [thumbnailUrl] : []);
+
+        if (thumbs.length > 0) {
             const hero = document.createElement('div');
             hero.className = 'gta-popup-hero';
             hero.style.borderBottom = `2px solid ${pinColor}`;
 
+            let currentIdx = 0;
             const img = document.createElement('img');
-            img.src = thumbnailUrl;
+            img.src = thumbs[0];
             img.alt = pointTitle;
             img.className = 'gta-popup-hero-img';
             img.onerror = () => { img.style.display = 'none'; };
 
-            const overlay = document.createElement('div');
-            overlay.className = 'gta-popup-hero-overlay';
-
-            const badge = document.createElement('span');
-            badge.className = 'popup-badge';
-            badge.style.color = pinColor;
-            badge.style.border = `1px solid ${pinColor}88`;
-            const bIcon = document.createElement('i');
-            bIcon.className = `fa-solid ${badgeIcon}`;
-            badge.append(bIcon, document.createTextNode(badgeLabel));
-
-            const textWrap = document.createElement('div');
-            textWrap.className = 'gta-popup-hero-text';
-            const title = document.createElement('h4');
-            title.className = 'popup-title';
-            title.textContent = pointTitle;
-            textWrap.appendChild(title);
-
-            hero.append(img, overlay, badge, textWrap);
+            hero.append(img);
             card.appendChild(hero);
+
+            if (thumbs.length > 1) {
+                const switcherBar = document.createElement('div');
+                switcherBar.className = 'gta-popup-switcher-bar';
+
+                const switcher = document.createElement('div');
+                switcher.className = 'gta-popup-switcher';
+
+                const prevBtn = document.createElement('button');
+                prevBtn.type = 'button';
+                prevBtn.className = 'gta-popup-switcher-btn';
+                prevBtn.setAttribute('aria-label', 'Foto anterior');
+                prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+
+                const counter = document.createElement('span');
+                counter.className = 'gta-popup-switcher-count';
+                counter.textContent = `1 / ${thumbs.length}`;
+
+                const nextBtn = document.createElement('button');
+                nextBtn.type = 'button';
+                nextBtn.className = 'gta-popup-switcher-btn';
+                nextBtn.setAttribute('aria-label', 'Foto siguiente');
+                nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+
+                L.DomEvent.disableClickPropagation(switcherBar);
+
+                const updatePhoto = (newIdx: number) => {
+                    currentIdx = (newIdx + thumbs.length) % thumbs.length;
+                    img.src = thumbs[currentIdx];
+                    img.style.display = 'block';
+                    counter.textContent = `${currentIdx + 1} / ${thumbs.length}`;
+                };
+
+                L.DomEvent.on(prevBtn, 'click', (e: Event) => {
+                    L.DomEvent.stop(e);
+                    updatePhoto(currentIdx - 1);
+                });
+
+                L.DomEvent.on(nextBtn, 'click', (e: Event) => {
+                    L.DomEvent.stop(e);
+                    updatePhoto(currentIdx + 1);
+                });
+
+                switcher.append(prevBtn, counter, nextBtn);
+                switcherBar.appendChild(switcher);
+                card.appendChild(switcherBar);
+            }
         } else {
             const banner = document.createElement('div');
             banner.className = 'popup-banner';

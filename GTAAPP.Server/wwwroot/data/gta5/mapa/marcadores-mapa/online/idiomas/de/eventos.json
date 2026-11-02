@@ -1,0 +1,170 @@
+[
+  {
+    "id": "halloween",
+    "title": "Halloween-Events",
+    "icon": "fa-ghost",
+    "color": "#f39c12",
+    "badge": "Oktober",
+    "description": "Paranormale Phänomene und unheimliche Begegnungen, die Los Santos und Blaine County während der Halloween-Saison heimsuchen.",
+    "subcategories": [
+      {
+        "id": "asesinos",
+        "title": "Schlitzer",
+        "icon": "fa-mask",
+        "color": "#e74c3c",
+        "description": "Psychopathen und Serienmörder, die in den dunkelsten Nächten von San Andreas im Schatten lauern.",
+        "items": [
+          {
+            "id": "slasher-clown",
+            "title": "Der Killer-Clown",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "Ein Wahnsinniger mit düsterer Gesichtsbemalung und teuflischem Grinsen, bewaffnet mit einem Dolch. Er lauert in dunklen Gassen und greift an, wenn der Spieler zwischen 21:00 und 05:00 Uhr allein zu Fuß unterwegs ist.",
+            "reward": "Clown-Gedenk-T-Shirt und 50.000 $",
+            "period": "Halloween-Saison (21:00 - 05:00 Uhr)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#e74c3c",
+            "details": [
+              "Erfordert mindestens 16 Minuten Aufenthalt im freien Modus.",
+              "Erscheint nur, wenn der Spieler nicht in bewaffneten oder fliegenden Fahrzeugen sitzt.",
+              "Eine unheimliche Melodie ertönt, sobald die Pirsch beginnt."
+            ]
+          },
+          {
+            "id": "slasher-driver",
+            "title": "Das Geisterfahrzeug",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "Ein klassischer schwarzer Sportwagen, der in gespenstische Flammen gehüllt ist und von einer dämonischen Gestalt gesteuert wird. Er jagt unerbittlich mit Vollgas, um sein Ziel zu überfahren.",
+            "reward": "Flammende Kürbismaske und 2.000 RP",
+            "period": "Halloween-Saison (22:00 - 05:00 Uhr)",
+            "badgeIcon": "fa-fire",
+            "badgeColor": "#e67e22",
+            "details": [
+              "Das Fahrzeug ist gegen herkömmliche Kollisionen immun, bis der Fahrer ausgeschaltet wird.",
+              "Die Flammen des Fahrzeugs erlöschen selbst bei Regen nicht.",
+              "Bei Zerstörung wird eine sofortige Bargeldbelohnung gewährt."
+            ]
+          },
+          {
+            "id": "slasher-psycho",
+            "title": "Der Schlächter von Paleto",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "Ein hünenhafter Mörder mit blutverschmierter Schürze und OP-Maske, bewaffnet mit einer rostigen Kettensäge. Er lauert in den dichten Wäldern des Nordens.",
+            "reward": "Blutige Schlitzer-Maske und 50.000 $",
+            "period": "Halloween-Saison (21:00 - 05:00 Uhr)",
+            "badgeIcon": "fa-skull",
+            "badgeColor": "#c0392b",
+            "details": [
+              "Verfügt über deutlich mehr Gesundheit als ein gewöhnlicher NPC.",
+              "Immun gegen Niederschlagen durch reguläre Projektile.",
+              "Hinterlässt nach dem Besiegen schwere Munition und ein Erste-Hilfe-Set."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fantasmas",
+        "title": "Geister",
+        "icon": "fa-spaghetti-monster-flying",
+        "color": "#9b59b6",
+        "description": "Paranormale Erscheinungen und ätherische Manifestationen, dokumentiert von der Parapsychologischen Gesellschaft von San Andreas.",
+        "items": [
+          {
+            "id": "ghost-gordo",
+            "title": "Das Gespenst von Mount Gordo",
+            "category": "halloween",
+            "subcategory": "fantasmas",
+            "description": "Der legendäre Geist von Jolene Cranley-Evans, der exakt sechzig reale Sekunden lang zwischen 23:00 und 00:00 Uhr auf der Klippe über dem Leuchtturm von El Gordo sichtbar ist.",
+            "reward": "Fortschritt bei paranormaler Foto-Herausforderung und 20.000 $",
+            "period": "Halloween-Nächte (23:00 - 00:00 Uhr)",
+            "badgeIcon": "fa-ghost",
+            "badgeColor": "#9b59b6",
+            "details": [
+              "Nähert sich der Spieler auf weniger als 5 Meter, löst sich das Gespenst sofort auf.",
+              "Auf dem Felsen steht das Wort 'JOCK' mit Blut geschrieben.",
+              "Muss fotografiert werden, um den Fortschritt im paranormalen Tagebuch zu speichern."
+            ]
+          },
+          {
+            "id": "ghost-johnson",
+            "title": "Das Phantom von Leonora Johnson",
+            "category": "halloween",
+            "subcategory": "fantasmas",
+            "description": "Die tragische Vinewood-Schauspielerin, die 1975 ermordet wurde, schwebt im Dämmerlicht nahe dem Mausoleum von Pacific Bluffs und klagt über das ungelöste Verbrechen.",
+            "reward": "Sammlerbonus und 20.000 $",
+            "period": "Halloween-Nächte (00:00 - 02:00 Uhr)",
+            "badgeIcon": "fa-camera",
+            "badgeColor": "#8e44ad",
+            "details": [
+              "Erscheint schwebend über einem namenlosen Grabstein.",
+              "Erfordert die Snapmatic-Kamera zur Erfassung des spektralen Beweises.",
+              "Das Fotografieren aller 10 Geister schaltet das Design Ghosts Exposed für den Albany Brigham frei."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "navidad",
+    "title": "Weihnachts-Events",
+    "icon": "fa-sleigh",
+    "color": "#27ae60",
+    "badge": "Dezember",
+    "description": "Winterliche Festtage mit Schneedecke, opportunistischen Räubern und Feiertagsgeschenken in Los Santos.",
+    "subcategories": [
+      {
+        "id": "gooch",
+        "title": "Der Gooch",
+        "icon": "fa-hat-cowboy",
+        "color": "#2ecc71",
+        "description": "Eine finstere, pelzige grüne Kreatur im Weihnachtsmann-Kostüm, die ahnungslose Bewohner im freien Spiel überfällt.",
+        "items": [
+          {
+            "id": "gooch-ambush",
+            "title": "Auftauchen des Gooch",
+            "category": "navidad",
+            "subcategory": "gooch",
+            "description": "Erscheint aus einer dichten grünen Rauchwolke mit schrillem Lachen. Stößt den Spieler zu Boden, stiehlt Bargeld und Snacks und flieht blitzschnell zu Fuß.",
+            "reward": "Offizielle Gooch-Maske, Beuterückgewinnung + 25.000 $",
+            "period": "Weihnachtsfeiertage",
+            "badgeIcon": "fa-sack-dollar",
+            "badgeColor": "#27ae60",
+            "details": [
+              "Erfordert mindestens 2 Spieler in der Sitzung und Bargeld in der Tasche.",
+              "Muss sofort verfolgt und ausgeschaltet werden, bevor er verschwindet.",
+              "Beim ersten Sieg wird das komplette Gooch-Weihnachtsoutfit freigeschaltet."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "snowmen",
+        "title": "Schneemänner",
+        "icon": "fa-snowflake",
+        "color": "#3498db",
+        "description": "25 festliche Schneemänner, die überall auf der verschneiten Karte verteilt sind und zerstört werden müssen.",
+        "items": [
+          {
+            "id": "snowmen-hunt",
+            "title": "Schneemann-Jagd",
+            "category": "navidad",
+            "subcategory": "snowmen",
+            "description": "Handgefertigte Eisfiguren in Parks, auf Dächern, in Gärten und auf Veranden von San Andreas. Können durch Überfahren, Schusswaffen oder Sprengstoff zerstört werden.",
+            "reward": "Schneemann-Outfit + 125.000 $ nach Zerstörung aller 25",
+            "period": "Weihnachtsfeiertage",
+            "badgeIcon": "fa-snowflake",
+            "badgeColor": "#2980b9",
+            "details": [
+              "Jeder zerstörte Schneemann bringt 5.000 $ und 1.000 RP.",
+              "Das Zerstören aller 25 Schneemänner gewährt einen finalen Bonus von 125.000 $.",
+              "Geben ein feines Glockenläuten von sich, wenn man sich ihrer Position nähert."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

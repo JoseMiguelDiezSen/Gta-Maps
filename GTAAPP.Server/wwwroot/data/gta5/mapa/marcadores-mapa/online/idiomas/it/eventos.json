@@ -1,0 +1,170 @@
+[
+  {
+    "id": "halloween",
+    "title": "Eventi di Halloween",
+    "icon": "fa-ghost",
+    "color": "#f39c12",
+    "badge": "Ottobre",
+    "description": "Fenomeni paranormali e apparizioni sinistre che infestano Los Santos e Blaine County durante la stagione di Halloween.",
+    "subcategories": [
+      {
+        "id": "asesinos",
+        "title": "Assassini",
+        "icon": "fa-mask",
+        "color": "#e74c3c",
+        "description": "Psicopatici e serial killer in agguato nell'ombra durante le notti più buie di San Andreas.",
+        "items": [
+          {
+            "id": "slasher-clown",
+            "title": "Il Clown Assassino",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "Un maniaco dal trucco facciale spettrale e dal sorriso macabro armato di pugnale. Si aggira nei vicoli bui e attacca quando il giocatore si trova da solo a piedi tra le 21:00 e le 05:00.",
+            "reward": "Maglietta commemorativa da clown e 50.000 $",
+            "period": "Stagione di Halloween (21:00 - 05:00)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#e74c3c",
+            "details": [
+              "Richiede di restare almeno 16 minuti in sessione libera.",
+              "Appare esclusivamente se il giocatore non si trova a bordo di veicoli armati o aerei.",
+              "Una melodia sinistra risuona quando inizia l'agguato."
+            ]
+          },
+          {
+            "id": "slasher-driver",
+            "title": "Il Conducente Fantasma",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "Una sportiva classica nera avvolta da fiamme spettrali guidata da una sagoma demoniaca. Insegue senza sosta a tutta velocità con l'obiettivo di travolgere il bersaglio.",
+            "reward": "Maschera di zucca fiammeggiante e 2.000 RP",
+            "period": "Stagione di Halloween (22:00 - 05:00)",
+            "badgeIcon": "fa-fire",
+            "badgeColor": "#e67e22",
+            "details": [
+              "L'auto è immune alle collisioni fino all'eliminazione del conducente.",
+              "Le fiamme del veicolo non si estinguono sotto la pioggia.",
+              "Distruggendola si ottiene una ricompensa immediata in denaro."
+            ]
+          },
+          {
+            "id": "slasher-psycho",
+            "title": "Il Macellaio di Paleto",
+            "category": "halloween",
+            "subcategory": "asesinos",
+            "description": "Un mastodontico assassino con grembiule insanguinato e maschera chirurgica armato di motosega arrugginita. Si nasconde nella fitta vegetazione boschiva del nord.",
+            "reward": "Maschera Slasher insanguinata e 50.000 $",
+            "period": "Stagione di Halloween (21:00 - 05:00)",
+            "badgeIcon": "fa-skull",
+            "badgeColor": "#c0392b",
+            "details": [
+              "Possiede una salute notevolmente superiore a quella di un normale PNG.",
+              "Immune all'atterramento da impatto di proiettili comuni.",
+              "Una volta sconfitto rilascia munizioni pesanti e un kit medico completo."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fantasmas",
+        "title": "Fantasmi",
+        "icon": "fa-spaghetti-monster-flying",
+        "color": "#9b59b6",
+        "description": "Fenomeni paranormali e manifestazioni eteree documentate dalla società di ricerca sul paranormale di San Andreas.",
+        "items": [
+          {
+            "id": "ghost-gordo",
+            "title": "Fantasma di Mount Gordo",
+            "category": "halloween",
+            "subcategory": "fantasmas",
+            "description": "Il leggendario spettro di Jolene Cranley-Evans, visibile esclusivamente per sessanta secondi reali tra le 23:00 e mezzanotte sul dirupo che sovrasta il faro di El Gordo.",
+            "reward": "Fotografia paranormale completata e 20.000 $",
+            "period": "Notti di Halloween (23:00 - 00:00)",
+            "badgeIcon": "fa-ghost",
+            "badgeColor": "#9b59b6",
+            "details": [
+              "Se il giocatore si avvicina a meno di 5 metri, lo spettro svanisce immediatamente.",
+              "Sulla roccia compare la scritta di sangue 'JOCK'.",
+              "Scatta una foto con Snapmatic per registrare i progressi nel diario paranormale."
+            ]
+          },
+          {
+            "id": "ghost-johnson",
+            "title": "Lo Spettro di Leonora Johnson",
+            "category": "halloween",
+            "subcategory": "fantasmas",
+            "description": "La tragica attrice della vecchia Vinewood assassinata nel 1975 si materializza fluttuando nella penombra vicino al mausoleo di Pacific Bluffs, sussurrando lamenti per il delitto irrisolto.",
+            "reward": "Bonus collezionista e 20.000 $",
+            "period": "Notti di Halloween (00:00 - 02:00)",
+            "badgeIcon": "fa-camera",
+            "badgeColor": "#8e44ad",
+            "details": [
+              "Appare a mezz'aria sopra una lapide senza nome.",
+              "Richiede la fotocamera Snapmatic per immortalare la prova spettrale.",
+              "Fotografare tutti e 10 i fantasmi sblocca la livrea tematica Ghosts Exposed per la Albany Brigham."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "navidad",
+    "title": "Eventi di Natale",
+    "icon": "fa-sleigh",
+    "color": "#27ae60",
+    "badge": "Dicembre",
+    "description": "Celebrazioni invernali con manti di neve, rapinatori opportunisti e regali festivi a Los Santos.",
+    "subcategories": [
+      {
+        "id": "gooch",
+        "title": "The Gooch",
+        "icon": "fa-hat-cowboy",
+        "color": "#2ecc71",
+        "description": "Una sinistra creatura pelosa di colore verde vestita da Babbo Natale che tende imboscate spietate ai residenti ignari.",
+        "items": [
+          {
+            "id": "gooch-ambush",
+            "title": "Apparizione di The Gooch",
+            "category": "navidad",
+            "subcategory": "gooch",
+            "description": "Sbuca da una densa nuvola di fumo verde con una risata stridula. Fa cadere il giocatore alle spalle, gli ruba contanti e snack dall'inventario e fugge rapidamente a piedi.",
+            "reward": "Maschera ufficiale di The Gooch, recupero della refurtiva + 25.000 $",
+            "period": "Festività natalizie",
+            "badgeIcon": "fa-sack-dollar",
+            "badgeColor": "#27ae60",
+            "details": [
+              "Richiede almeno 2 giocatori nella sessione e contanti con sé.",
+              "Bisogna inseguirlo immediatamente prima che sparisca per abbatterlo.",
+              "La prima volta che lo sconfiggi sblocca il costume festivo completo di The Gooch."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "snowmen",
+        "title": "Pupazzi di Neve",
+        "icon": "fa-snowflake",
+        "color": "#3498db",
+        "description": "25 pupazzi di neve festivi distribuiti lungo tutta la mappa innevata pronti per essere distrutti.",
+        "items": [
+          {
+            "id": "snowmen-hunt",
+            "title": "Caccia ai Pupazzi di Neve",
+            "category": "navidad",
+            "subcategory": "snowmen",
+            "description": "Figure di ghiaccio artigianali posizionate in parchi, tetti, giardini e verande di San Andreas. Possono essere distrutte investendole, con armi da fuoco o esplosivi.",
+            "reward": "Costume da Pupazzo di Neve + 125.000 $ dopo aver distrutto tutti i 25",
+            "period": "Festività natalizie",
+            "badgeIcon": "fa-snowflake",
+            "badgeColor": "#2980b9",
+            "details": [
+              "Ogni pupazzo distrutto conferisce 5.000 $ e 1.000 RP.",
+              "Distruggere tutti i 25 pupazzi assegna un bonus finale di 125.000 $.",
+              "Emettono un tenue suono di campanellini quando ci si avvicina alla loro posizione."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

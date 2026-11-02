@@ -147,8 +147,13 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   // Asesinos de Halloween
   readonly slashersList: GtaSlasherInfo[] = GTA_SLASHERS_LIST;
   activeSlasherId: string | null = null;
+  locatedSlasherIds = new Set<string>();
   private slasherMap?: L.Map;
   private slasherCircles: { [id: string]: L.Circle[] } = {};
+
+  isSlasherLocated(id: string): boolean {
+    return this.locatedSlasherIds.has(id);
+  }
 
   // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' | 'event-subcategories' | 'event-detail'
   drawerView: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' | 'event-subcategories' | 'event-detail' = 'tabs';
@@ -845,6 +850,43 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     });
   }
 
+  getEventCategoryBanner(id: string): string {
+    if (id === 'halloween') {
+      return 'assets/images/gta5/mapa/marcadores-mapa/activities/events/eventos-hallowen.jpg';
+    }
+    if (id === 'navidad') {
+      return 'assets/images/gta5/mapa/marcadores-mapa/activities/events/eventos-navidad.jpg';
+    }
+    return '';
+  }
+
+  getEventCategorySummaryTags(cat: GtaEventCategory): Array<{ title: string; icon: string }> {
+    if (cat.id === 'halloween') {
+      const items = cat.subcategories?.[0]?.items || [];
+      return items.map(it => ({
+        title: it.title,
+        icon: it.badgeIcon || 'fa-skull'
+      }));
+    }
+    return (cat.subcategories || []).map(sub => ({
+      title: sub.title,
+      icon: sub.icon || 'fa-snowflake'
+    }));
+  }
+
+  getEventItemBanner(itemId: string): string {
+    if (itemId === 'slasher-clown' || itemId === 'asesinos-disfrazados') {
+      return 'assets/images/gta5/mapa/marcadores-mapa/activities/events/slashers-event.png';
+    }
+    if (itemId === 'ghost-gordo' || itemId === 'ghosts-exposed' || itemId === 'fantasmas') {
+      return 'assets/images/gta5/mapa/marcadores-mapa/activities/events/ghosth-event.png';
+    }
+    if (itemId === 'slasher-driver' || itemId === 'phantom-car' || itemId === 'christine') {
+      return 'assets/images/gta5/mapa/marcadores-mapa/activities/events/phantom-car-event.png';
+    }
+    return '';
+  }
+
   openEventCategory(cat: GtaEventCategory): void {
     this.selectedEventCategory = cat;
     this.selectedEventSubcategory = null;
@@ -881,14 +923,16 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     const container = document.getElementById('slasher-mini-map');
     if (!container) return;
 
-    const mapBounds = L.latLngBounds([[-90, -25], [26, 89]]);
+    const islandBounds = L.latLngBounds([[-90, -25], [26, 89]]);
 
     this.slasherMap = L.map(container, {
       crs: L.CRS.Simple,
-      minZoom: 0,
-      maxZoom: 3,
-      center: [-33, 29.5],
-      maxBounds: mapBounds,
+      minZoom: 1.5,
+      maxZoom: 3.5,
+      zoomSnap: 0.05,
+      zoom: 2.15,
+      center: [-38, 29.5],
+      maxBounds: islandBounds,
       maxBoundsViscosity: 1.0,
       dragging: false,
       scrollWheelZoom: false,
@@ -900,12 +944,11 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       attributionControl: false
     });
 
-    L.tileLayer('assets/mapas/gta5/Atlas/{z}_{x}_{y}.jpg', {
+    L.tileLayer('assets/mapas/gta5/Roadmap/{z}_{x}_{y}.jpg', {
       tileSize: 256,
-      minZoom: 0,
-      maxNativeZoom: 3,
+      minNativeZoom: 3,
+      maxNativeZoom: 4,
       noWrap: true,
-      bounds: mapBounds,
       className: 'slasher-radar-tiles'
     }).addTo(this.slasherMap);
 
@@ -919,9 +962,9 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
             radius: z.radius * 0.0055,
             color: s.color,
             weight: 2,
-            opacity: 0.85,
+            opacity: 0.9,
             fillColor: s.color,
-            fillOpacity: 0.22
+            fillOpacity: 0.25
           }).addTo(this.slasherMap!);
           this.slasherCircles[s.id].push(circle);
         });
@@ -929,8 +972,10 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     });
 
     setTimeout(() => {
-      this.slasherMap?.invalidateSize();
-      this.slasherMap?.fitBounds(mapBounds.pad(-0.06));
+      if (this.slasherMap) {
+        this.slasherMap.invalidateSize();
+        this.slasherMap.setView([-38, 29.5], 2.15);
+      }
     }, 200);
   }
 
@@ -967,16 +1012,24 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     if (event) {
       event.stopPropagation();
     }
-    const zone = slasher.zones && slasher.zones.length > 0 ? slasher.zones[0] : null;
-    if (zone) {
-      this.locateOnMap.emit({
-        id: slasher.id,
-        title: slasher.name,
-        color: slasher.color,
-        zones: slasher.zones,
-        position: { x: zone.x, y: zone.y, z: 0 }
-      } as unknown as GtaMystery);
+    const isCurrentlyActive = this.locatedSlasherIds.has(slasher.id);
+    if (isCurrentlyActive) {
+      this.locatedSlasherIds.delete(slasher.id);
+    } else {
+      this.locatedSlasherIds.add(slasher.id);
     }
+    const active = !isCurrentlyActive;
+    const zone = slasher.zones && slasher.zones.length > 0 ? slasher.zones[0] : null;
+
+    this.locateOnMap.emit({
+      id: slasher.id,
+      title: slasher.name,
+      color: slasher.color,
+      zones: slasher.zones,
+      active,
+      isSlasherToggle: true,
+      position: zone ? { x: zone.x, y: zone.y, z: 0 } : undefined
+    } as unknown as GtaMystery);
   }
 
   get currentEventItemsList(): GtaEventItem[] {

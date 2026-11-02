@@ -266,8 +266,8 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 .drawer-tabs {
   display: flex;
   align-items: stretch;
-  gap: 6px;
-  padding: 12px 20px 0 24px;
+  gap: 5px;
+  padding: 12px 14px 0 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(0, 0, 0, 0.25);
 }
@@ -277,19 +277,19 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   flex: 1;
   min-width: 0;
-  padding: 10px 4px 11px;
+  padding: 10px 2px 11px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: none;
   border-radius: 8px 8px 0 0;
   color: rgba(255, 255, 255, 0.6);
   font-family: inherit;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.15px;
+  letter-spacing: 0;
   cursor: pointer;
   transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
@@ -3802,6 +3802,166 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   font-size: 13.5px;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.9);
+}
+
+/* Radar Táctico de Asesinos (Fijo y sobrio) */
+.slasher-radar-container {
+  margin: 0 16px 14px 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #434343;
+}
+
+.slasher-mini-map {
+  width: 100%;
+  height: 220px;
+  background: #434343;
+}
+
+:host ::ng-deep .slasher-radar-tiles {
+  filter: grayscale(100%) contrast(140%) brightness(95%);
+}
+
+.mcard-slasher-item {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mcard-slasher-item.is-active {
+  border-color: var(--m-color, #ef4444);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--m-color, #ef4444) 30%, transparent);
+}
+
+.mcard-locate-btn.is-located {
+  background: var(--m-color, #ef4444);
+  color: #ffffff;
+  border-color: var(--m-color, #ef4444);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--m-color, #ef4444) 60%, transparent);
+}
+
+/* ====== BANNERS HERO PARA CATEGORÍAS DE EVENTOS ====== */
+.events-banners-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 16px 16px 16px;
+}
+
+.event-hero-banner {
+  position: relative;
+  height: 125px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  background-color: #0c1017;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+}
+
+.event-hero-banner:hover {
+  transform: translateY(-2px);
+  border-color: var(--hero-accent, #ef4444);
+  box-shadow: 0 6px 22px color-mix(in srgb, var(--hero-accent, #ef4444) 35%, transparent);
+}
+
+.event-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center right;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.event-hero-banner:hover .event-hero-bg {
+  transform: scale(1.05);
+}
+
+.event-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(12, 16, 23, 0.94) 0%, rgba(12, 16, 23, 0.7) 48%, rgba(12, 16, 23, 0.25) 100%);
+  z-index: 2;
+}
+
+.event-hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.event-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--hero-accent, #ef4444);
+  margin-bottom: 4px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.event-hero-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.event-hero-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.event-hero-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.event-hero-tag-item i {
+  color: var(--hero-accent, #ef4444);
+}
+
+.event-hero-action {
+  position: relative;
+  z-index: 3;
+  margin-right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.event-hero-banner:hover .event-hero-action {
+  background: var(--hero-accent, #ef4444);
+  border-color: var(--hero-accent, #ef4444);
+  transform: translateX(3px);
 }
 
 

@@ -9,6 +9,7 @@ export interface MysteryPoint {
   description?: string;
   tip?: string;
   thumbnail?: string;
+  thumbnails?: string[];
 }
 
 export interface GtaMystery {

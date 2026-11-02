@@ -107,7 +107,7 @@ export const GTA_SLASHERS_LIST: GtaSlasherInfo[] = [
     icon: 'fa-wrench',
     image: 'assets/images/gta5/mapa/marcadores-mapa/activities/slashers/driver.png',
     zones: [
-      { x: 950, y: 1550, radius: 450 },
+      { x: 950, y: 2300, radius: 450 },
       { x: -350, y: -2150, radius: 550 }
     ]
   }

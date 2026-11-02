@@ -114,15 +114,12 @@
       class="drawer-tab"
       role="tab"
       [class.is-active]="activeDrawerTab === tab.id"
-      [class.is-icon-only]="tab.id === 'misterios'"
       [attr.aria-selected]="activeDrawerTab === tab.id"
       [title]="tab.label"
       (click)="setDrawerTab(tab.id)"
     >
       <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
-      @if (tab.id !== 'misterios') {
-        <span class="drawer-tab-label">{{ tab.label }}</span>
-      }
+      <span class="drawer-tab-label">{{ tab.label }}</span>
     </button>
     }
   </div>

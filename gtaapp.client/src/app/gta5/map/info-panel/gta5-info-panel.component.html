@@ -162,15 +162,12 @@
       class="drawer-tab"
       role="tab"
       [class.is-active]="activeDrawerTab === tab.id"
-      [class.is-icon-only]="tab.id === 'misterios'"
       [attr.aria-selected]="activeDrawerTab === tab.id"
       [title]="tab.label"
       (click)="setDrawerTab(tab.id)"
     >
       <i class="fa-solid drawer-tab-icon" [ngClass]="tab.icon"></i>
-      @if (tab.id !== 'misterios') {
       <span class="drawer-tab-label">{{ ('transports.tabs.' + (tab.id === 'vehiculos' ? 'vehicles' : tab.id === 'misiones' ? 'missions' : tab.id === 'eventos' ? 'events' : tab.id === 'armas' ? 'armas' : tab.id)) | translate }}</span>
-      }
     </button>
     }
   </div>
@@ -852,33 +849,45 @@
             <div class="dealer-section-divider-line"></div>
           </div>
 
-          <div class="mysteries-list">
+          <div class="events-banners-list">
             @for (cat of eventsCategories; track cat.id) {
             <div
-              class="mcard-item"
+              class="event-hero-banner"
               (click)="openEventCategory(cat)"
-              [style.--m-color]="cat.color"
+              [style.--hero-accent]="cat.color"
             >
-              <!-- Icono temático del evento -->
-              <div class="mcard-icon-box" [style.background]="cat.color + '20'" [style.color]="cat.color" [style.borderColor]="cat.color + '50'">
-                <i class="fa-solid" [ngClass]="cat.icon"></i>
-              </div>
+              <!-- Imagen panorámica de fondo -->
+              <div
+                class="event-hero-bg"
+                [style.backgroundImage]="'url(' + getEventCategoryBanner(cat.id) + ')'"
+              ></div>
+
+              <!-- Degradado cinematográfico oscuro -->
+              <div class="event-hero-overlay"></div>
 
               <!-- Contenido principal -->
-              <div class="mcard-content">
-                <div class="mcard-title">{{ cat.title }}</div>
-                <div class="mcard-meta-line">
-                  <span class="mcard-cat-badge" [style.color]="cat.color" [style.borderColor]="cat.color + '40'">
-                    {{ cat.badge }}
-                  </span>
+              <div class="event-hero-content">
+                <div class="event-hero-badge">
+                  <i class="fa-solid" [ngClass]="cat.icon"></i>
+                  <span>{{ cat.badge }}</span>
+                </div>
+                <div class="event-hero-title">{{ cat.title }}</div>
+                <div class="event-hero-tags">
+                  @for (tag of getEventCategorySummaryTags(cat); track tag.title; let isLast = $last) {
+                    <span class="event-hero-tag-item">
+                      <i class="fa-solid" [ngClass]="tag.icon"></i>
+                      <span>{{ tag.title }}</span>
+                    </span>
+                    @if (!isLast) {
+                      <span class="sep">•</span>
+                    }
+                  }
                 </div>
               </div>
 
               <!-- Flecha circular derecha -->
-              <div class="mcard-actions">
-                <div class="mcard-chevron">
-                  <i class="fa-solid fa-chevron-right"></i>
-                </div>
+              <div class="event-hero-action">
+                <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
             }
@@ -1039,39 +1048,30 @@
         </div>
 
         @for (sub of selectedEventCategory.subcategories; track sub.id) {
-          <div class="mysteries-list">
+          <div class="events-banners-list">
             @for (item of sub.items; track item.id) {
             <div
-              class="mcard-item"
+              class="event-hero-banner"
               (click)="openEventDetail(item, sub)"
-              [style.--m-color]="selectedEventCategory.color"
+              [style.--hero-accent]="item.badgeColor || selectedEventCategory.color"
             >
-              <!-- Icono temático -->
-              <div class="mcard-icon-box" [style.background]="selectedEventCategory.color + '20'" [style.color]="selectedEventCategory.color" [style.borderColor]="selectedEventCategory.color + '50'">
-                <i class="fa-solid" [ngClass]="item.badgeIcon || selectedEventCategory.icon"></i>
-              </div>
+              <!-- Imagen panorámica de fondo -->
+              <div
+                class="event-hero-bg"
+                [style.backgroundImage]="'url(' + getEventItemBanner(item.id) + ')'"
+              ></div>
 
-              <!-- Contenido principal -->
-              <div class="mcard-content">
-                <div class="mcard-title">{{ item.title }}</div>
-                <div class="mcard-meta-line">
-                  <span class="mcard-cat-badge" [style.color]="selectedEventCategory.color" [style.borderColor]="selectedEventCategory.color + '40'">
-                    {{ selectedEventCategory.title }}
-                  </span>
-                  @if (item.reward) {
-                  <span class="mcard-time-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.3);">
-                    <i class="fa-solid fa-trophy"></i>
-                    <span>{{ item.reward }}</span>
-                  </span>
-                  }
-                </div>
+              <!-- Degradado cinematográfico oscuro -->
+              <div class="event-hero-overlay"></div>
+
+              <!-- Contenido principal limpio -->
+              <div class="event-hero-content">
+                <div class="event-hero-title">{{ item.title }}</div>
               </div>
 
               <!-- Flecha circular derecha -->
-              <div class="mcard-actions">
-                <div class="mcard-chevron">
-                  <i class="fa-solid fa-chevron-right"></i>
-                </div>
+              <div class="event-hero-action">
+                <i class="fa-solid fa-chevron-right"></i>
               </div>
             </div>
             }
@@ -1121,13 +1121,33 @@
               <h2 class="mdetail-hero-title">{{ selectedEventItem.title }}</h2>
             </div>
 
+            <!-- Bloque: Recompensa del evento -->
+            @if (selectedEventItem.reward) {
+            <div class="mdetail-grid" style="margin-bottom: 14px;">
+              <div class="mdetail-box reward-box">
+                <i class="fa-solid fa-trophy box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.missions.reward' | translate }}</span>
+                  <span class="box-val">{{ selectedEventItem.reward }}</span>
+                </div>
+              </div>
+            </div>
+            }
+
             @if (selectedEventItem.id === 'slasher-clown') {
+              <!-- Radar Táctico Fijo de San Andreas -->
+              <div class="slasher-radar-container">
+                <div id="slasher-mini-map" class="slasher-mini-map"></div>
+              </div>
+
               <!-- LISTA DE ASESINOS (Formato estándar unificado mcard-item) -->
               <div class="mysteries-list">
                 @for (s of slashersList; track s.id) {
                 <div
                   class="mcard-item mcard-slasher-item"
+                  [class.is-active]="activeSlasherId === s.id"
                   [style.--m-color]="s.color"
+                  (click)="selectSlasher(s.id)"
                 >
                   <!-- Imagen oficial del asesino destacada -->
                   <div class="mcard-icon-box mcard-slasher-thumb" [style.background]="s.color + '20'" [style.color]="s.color" [style.borderColor]="s.color + '50'">
@@ -1156,10 +1176,15 @@
                     <button
                       type="button"
                       class="mcard-locate-btn"
+                      [class.is-located]="isSlasherLocated(s.id)"
                       (click)="onLocateSlasher(s, $event)"
                       [title]="'transports.mysteries.locateOnMap' | translate"
                     >
-                      <i class="fa-solid fa-location-crosshairs"></i>
+                      @if (isSlasherLocated(s.id)) {
+                        <i class="fa-solid fa-circle-check"></i>
+                      } @else {
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                      }
                     </button>
                   </div>
                 </div>
@@ -1176,19 +1201,6 @@
                   <p>{{ selectedEventItem.description }}</p>
                 </div>
               </div>
-
-              <!-- Bloque: Recompensa -->
-              @if (selectedEventItem.reward) {
-              <div class="mdetail-grid">
-                <div class="mdetail-box reward-box">
-                  <i class="fa-solid fa-trophy box-icon"></i>
-                  <div class="box-content">
-                    <span class="box-label">{{ 'transports.missions.reward' | translate }}</span>
-                    <span class="box-val">{{ selectedEventItem.reward }}</span>
-                  </div>
-                </div>
-              </div>
-              }
 
               <!-- Bloque: Detalles y Condiciones -->
               @if (selectedEventItem.details && selectedEventItem.details.length > 0) {

@@ -2368,6 +2368,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
 
     private mysteryMarker: L.Marker | null = null;
     private mysteryMarkers: L.Marker[] = [];
+    private slasherCirclesMap: Map<string, L.Circle[]> = new Map();
 
     private getMysteryThumbnail(thumb?: string): string {
         if (!thumb) return '';
@@ -2384,7 +2385,51 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
      * y genera un marcador destacado con animación y popup informativo.
      */
     focusMysteryLocation(mystery: GtaMystery): void {
-        if (!this.map || !mystery?.position) return;
+        if (!this.map) return;
+
+        const anyMystery = mystery as any;
+
+        // Comportamiento Switch Multiselección para Asesinos de Halloween (solo círculos, sin iconos ni agresividad de zoom)
+        if (anyMystery.isSlasherToggle) {
+            const slasherId = anyMystery.id;
+            const existingCircles = this.slasherCirclesMap.get(slasherId);
+
+            if (existingCircles && existingCircles.length > 0) {
+                existingCircles.forEach(c => c.remove());
+                this.slasherCirclesMap.delete(slasherId);
+            }
+
+            if (anyMystery.active && anyMystery.zones && Array.isArray(anyMystery.zones)) {
+                const circles: L.Circle[] = [];
+                const circleColor = anyMystery.color || '#ef4444';
+
+                anyMystery.zones.forEach((z: any) => {
+                    const [zLat, zLng] = this.worldToLatLng(z.x, z.y);
+                    const scaleFactor = this.currentMapType === 'Satellite' ? 0.01422 : 0.0055;
+                    const zoneCircle = L.circle([zLat, zLng], {
+                        radius: z.radius * scaleFactor,
+                        color: circleColor,
+                        weight: 3.5,
+                        opacity: 1.0,
+                        fillColor: circleColor,
+                        fillOpacity: 0.38,
+                        dashArray: '6, 4'
+                    }).addTo(this.map!);
+                    circles.push(zoneCircle);
+                });
+
+                this.slasherCirclesMap.set(slasherId, circles);
+
+                // Desplazamiento suave (panTo) sin alterar el zoom del usuario
+                if (anyMystery.position) {
+                    const [lat, lng] = this.worldToLatLng(anyMystery.position.x, anyMystery.position.y);
+                    this.map.panTo([lat, lng], { animate: true, duration: 0.8 });
+                }
+            }
+            return;
+        }
+
+        if (!mystery?.position) return;
         this.closeProfileDrawer();
 
         if (this.selectedCity === 'cp') {
