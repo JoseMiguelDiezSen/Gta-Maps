@@ -8,7 +8,7 @@ import { VehicleService } from '../../../services/gta5/vehicle.service';
 import { MissionService } from '../../../services/gta5/mission.service';
 import { WeaponService } from '../../../services/gta5/weapon.service';
 import { EventService } from '../../../services/gta5/event.service';
-import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, GTA_SLASHERS_LIST, GtaGhostInfo, GTA_GHOSTS_LIST, GtaYetiClue, GTA_YETI_CLUES_LIST, GTA_YETI_ZONE, GtaSnowmanInfo, GTA_SNOWMEN_LIST } from '../../../models/gta5/event';
+import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, getSlashersList, GtaGhostInfo, getGhostsList, GtaYetiClue, getYetiCluesList, GTA_YETI_ZONE, GtaSnowmanInfo, getSnowmenList } from '../../../models/gta5/event';
 import { GtaTimeService } from '../../../services/gta5/gta-time.service';
 import * as L from 'leaflet';
 import { gta5WorldToLatLng } from '../../../utils/gta5-map-projection';
@@ -146,7 +146,9 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   private eventsSub?: Subscription;
 
   // Asesinos de Halloween
-  readonly slashersList: GtaSlasherInfo[] = GTA_SLASHERS_LIST;
+  get slashersList(): GtaSlasherInfo[] {
+    return getSlashersList(this.translationService.currentLang);
+  }
   activeSlasherId: string | null = null;
   locatedSlasherIds = new Set<string>();
   private slasherMap?: L.Map;
@@ -157,7 +159,9 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   // Fantasmas al descubierto (Ghosts Exposed)
-  readonly ghostsList: GtaGhostInfo[] = GTA_GHOSTS_LIST;
+  get ghostsList(): GtaGhostInfo[] {
+    return getGhostsList(this.translationService.currentLang);
+  }
   activeGhostId: string | null = null;
   locatedGhostIds = new Set<string>();
   private ghostsMap?: L.Map;
@@ -172,7 +176,9 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   // La Caza del Yeti
-  readonly yetiCluesList: GtaYetiClue[] = GTA_YETI_CLUES_LIST;
+  get yetiCluesList(): GtaYetiClue[] {
+    return getYetiCluesList(this.translationService.currentLang);
+  }
   readonly yetiZone = GTA_YETI_ZONE;
   activeYetiClueId: string | null = null;
   locatedYetiClueIds = new Set<string>();
@@ -188,7 +194,9 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
 
   // Los 25 Muñecos de Nieve (Christmas Snowmen)
-  readonly snowmenList: GtaSnowmanInfo[] = GTA_SNOWMEN_LIST;
+  get snowmenList(): GtaSnowmanInfo[] {
+    return getSnowmenList(this.translationService.currentLang);
+  }
   activeSnowmanId: string | null = null;
   locatedSnowmanIds = new Set<string>();
   private snowmenMap?: L.Map;

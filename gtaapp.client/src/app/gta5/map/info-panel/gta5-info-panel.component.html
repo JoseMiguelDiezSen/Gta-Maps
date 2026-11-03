@@ -1314,10 +1314,10 @@
               <div class="mdetail-block gold-block" style="margin-top: 10px;">
                 <div class="mdetail-block-head gold-head">
                   <i class="fa-solid fa-moon"></i>
-                  <span>FASE 2: ENCUENTRO NOCTURNO (21:00 - 06:00)</span>
+                  <span>{{ 'transports.events.yetiPhase2Title' | translate }}</span>
                 </div>
                 <div class="mdetail-synopsis" style="padding: 10px 14px; font-size: 12px; color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
-                  Una vez investigadas las 5 pistas, adéntrate en el área delimitada de Chiliad Wilderness durante la noche. El Yeti emergerá de la maleza y cargará contra ti. Abátelo para conseguir la recompensa final.
+                  {{ 'transports.events.yetiPhase2Desc' | translate }}
                 </div>
               </div>
             } @else if (selectedEventItem.id === 'snowmen-hunt' || selectedEventItem.id === 'snowmen') {
@@ -1376,10 +1376,10 @@
               <div class="mdetail-block gold-block" style="margin-top: 10px;">
                 <div class="mdetail-block-head gold-head">
                   <i class="fa-solid fa-award"></i>
-                  <span>RECOMPENSA Y BONIFICACIÓN FESTIVA</span>
+                  <span>{{ 'transports.events.snowmenRewardTitle' | translate }}</span>
                 </div>
                 <div class="mdetail-synopsis" style="padding: 10px 14px; font-size: 12px; color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
-                  Destruye cada muñeco embistiéndolo con un vehículo, disparándole o con explosivos ($5,000 y 1,000 RP por unidad). Al completar los 25 muñecos recibirás una bonificación adicional de $125,000 y el <strong>Atuendo de Muñeco de Nieve</strong>.
+                  {{ 'transports.events.snowmenRewardDesc' | translate }}
                 </div>
               </div>
             } @else {
@@ -2006,7 +2006,7 @@
               <option value="casino">{{ 'transports.heists.casino' | translate }} ({{ getHeistCategoryCount('casino') }})</option>
               <option value="cayo_perico">{{ 'transports.heists.cayoPerico' | translate }} ({{ getHeistCategoryCount('cayo_perico') }})</option>
               <option value="raid">{{ 'transports.heists.raid' | translate }} ({{ getHeistCategoryCount('raid') }})</option>
-              <option value="kortz_center">Kortz Center ({{ getHeistCategoryCount('kortz_center') }})</option>
+              <option value="kortz_center">{{ 'transports.heists.kortzCenter' | translate }} ({{ getHeistCategoryCount('kortz_center') }})</option>
             </select>
             <i class="fa-solid fa-chevron-down heists-select-icon"></i>
           </div>
@@ -2156,7 +2156,7 @@
                 <i class="fa-solid fa-id-badge box-icon"></i>
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.minLevel' | translate }}</span>
-                  <span class="box-val">Nv. {{ selectedHeist.minLevel }}</span>
+                  <span class="box-val">{{ 'transports.heists.levelPrefix' | translate }} {{ selectedHeist.minLevel }}</span>
                 </div>
               </div>
               }
@@ -2216,7 +2216,7 @@
                   <span class="heist-payout-main">{{ selectedHeist.potentialTake.normal }}</span>
                   @if (selectedHeist.potentialTake.hard) {
                   <span class="heist-payout-badge">
-                    Difícil: {{ selectedHeist.potentialTake.hard }}
+                    {{ 'transports.heists.hardLabel' | translate }}: {{ selectedHeist.potentialTake.hard }}
                   </span>
                   }
                 </div>

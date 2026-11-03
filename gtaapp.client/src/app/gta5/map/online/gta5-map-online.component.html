@@ -93,8 +93,8 @@
       type="button"
       class="hud-fullscreen-btn"
       [class.is-active]="isFullscreen"
-      [title]="isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'"
-      [attr.aria-label]="isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'"
+      [title]="isFullscreen ? ('common.exitFullscreen' | translate) : ('common.fullscreen' | translate)"
+      [attr.aria-label]="isFullscreen ? ('common.exitFullscreen' | translate) : ('common.fullscreen' | translate)"
       (click)="toggleFullscreen()"
     >
       <svg class="hud-fullscreen-btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">

@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import * as L from 'leaflet';
 import { GtaMystery } from '../../models/gta5/mystery';
+import { TranslationService } from '../translation.service';
 
 export interface MysteryPopupData {
     mystery: GtaMystery;
@@ -24,6 +25,7 @@ export interface MysteryPopupData {
     providedIn: 'root'
 })
 export class Gta5MysteryPopupService {
+    private readonly translationService = inject(TranslationService);
 
     createStepIcon(stepNum: number, isSkull: boolean, pinColor: string): L.DivIcon {
         const wrap = document.createElement('div');
@@ -95,9 +97,9 @@ export class Gta5MysteryPopupService {
 
     buildStepPopupHtml(data: MysteryPopupData): HTMLElement {
         const { mystery, point, stepNum = 1, isSkull = false, pinColor, pinIcon, bgGradient, thumbnailUrl } = data;
-        const pointTitle = point?.title || `${mystery.title} (Punto ${stepNum})`;
+        const pointTitle = point?.title || `${mystery.title} (${this.translationService.t('transports.mysteries.point')} ${stepNum})`;
         const pointDesc = point?.description || point?.tip || mystery.description;
-        const badgeLabel = isSkull ? `Cadáver #${stepNum - 4}` : `${mystery.categoryLabel || 'Misterio'} #${stepNum}`;
+        const badgeLabel = isSkull ? `${this.translationService.t('transports.mysteries.corpse')} #${stepNum - 4}` : `${mystery.categoryLabel || this.translationService.t('transports.mysteries.defaultLabel')} #${stepNum}`;
         const badgeIcon = isSkull ? 'fa-skull' : pinIcon;
 
         const card = document.createElement('div');
@@ -133,7 +135,7 @@ export class Gta5MysteryPopupService {
                 const prevBtn = document.createElement('button');
                 prevBtn.type = 'button';
                 prevBtn.className = 'gta-popup-switcher-btn';
-                prevBtn.setAttribute('aria-label', 'Foto anterior');
+                prevBtn.setAttribute('aria-label', this.translationService.t('transports.mysteries.prevPhoto'));
                 const prevIcon = document.createElement('i');
                 prevIcon.className = 'fa-solid fa-chevron-left';
                 prevBtn.appendChild(prevIcon);
@@ -145,7 +147,7 @@ export class Gta5MysteryPopupService {
                 const nextBtn = document.createElement('button');
                 nextBtn.type = 'button';
                 nextBtn.className = 'gta-popup-switcher-btn';
-                nextBtn.setAttribute('aria-label', 'Foto siguiente');
+                nextBtn.setAttribute('aria-label', this.translationService.t('transports.mysteries.nextPhoto'));
                 const nextIcon = document.createElement('i');
                 nextIcon.className = 'fa-solid fa-chevron-right';
                 nextBtn.appendChild(nextIcon);
@@ -232,7 +234,7 @@ export class Gta5MysteryPopupService {
     buildSinglePopupHtml(data: MysteryPopupData): HTMLElement {
         const { mystery, pinColor, pinIcon, bgGradient, thumbnailUrl } = data;
         const safeTitle = mystery.title;
-        const safeCategoryLabel = mystery.categoryLabel || 'Misterio';
+        const safeCategoryLabel = mystery.categoryLabel || this.translationService.t('transports.mysteries.defaultLabel');
 
         const card = document.createElement('div');
         card.className = 'gta-popup-card';
@@ -328,10 +330,10 @@ export class Gta5MysteryPopupService {
             label.className = 'gta-popup-steps-label';
             const routeIcon = document.createElement('i');
             routeIcon.className = 'fa-solid fa-route';
-            label.append(routeIcon, document.createTextNode(' Cadena de Investigación:'));
+            label.append(routeIcon, document.createTextNode(` ${this.translationService.t('transports.mysteries.investigationChain')}`));
             const val = document.createElement('span');
             val.className = 'gta-popup-steps-val';
-            val.textContent = `${mystery.points.length} Localizaciones registradas`;
+            val.textContent = `${mystery.points.length} ${this.translationService.t('transports.mysteries.recordedLocations')}`;
             summary.append(label, val);
             content.appendChild(summary);
         }

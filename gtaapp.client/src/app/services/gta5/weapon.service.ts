@@ -61,8 +61,10 @@ export class WeaponService {
               return {
                 ...b,
                 name: trans.name || b.name,
+                categoryLabel: trans.categoryLabel || b.categoryLabel,
                 description: trans.description || b.description,
-                priceFormatted: trans.priceFormatted || b.priceFormatted
+                priceFormatted: trans.priceFormatted || b.priceFormatted,
+                attachments: trans.attachments || b.attachments
               };
             });
           })

@@ -11,7 +11,7 @@ import { GotyService } from '../../../services/goty.service';
 import { Gta5MysteryPopupService } from '../../../services/gta5/gta5-mystery-popup.service';
 import { Gta5MapMarkerService } from '../../../services/gta5/gta5-map-marker.service';
 import { GtaTimeService } from '../../../services/gta5/gta-time.service';
-import { GTA_GHOSTS_LIST, GtaGhostInfo } from '../../../models/gta5/event';
+import { getGhostsList, GtaGhostInfo } from '../../../models/gta5/event';
 import { gta5WorldToLatLng, gta5LatLngToWorld } from '../../../utils/gta5-map-projection';
 
 @Component({
@@ -539,7 +539,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             if (!transition) return;
             const currentH = transition.current;
             if (currentH >= 20 || currentH < 6) {
-                const ghost = GTA_GHOSTS_LIST.find(g => g.startHour === currentH);
+                const ghost = getGhostsList(this.translationService.currentLang).find(g => g.startHour === currentH);
                 if (ghost) {
                     this.showGhostNotification(ghost);
                 }
@@ -706,7 +706,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             case 'marcador':
                 if (this.ctxLatLng && this.playerMarkersLayer) {
                     const id = 'custom-' + Date.now() + '-' + crypto.randomUUID();
-                    const name = 'Marcador ' + (this.userCustomMarkers.length + 1);
+                    const name = this.translationService.t('gta5.settings.defaultMarkerName') + ' ' + (this.userCustomMarkers.length + 1);
                     const customIcon = this.createPushpinIcon('red');
                     const m = L.marker(this.ctxLatLng, { icon: customIcon });
                     const world = this.latLngToWorld(this.ctxLatLng.lat, this.ctxLatLng.lng);
@@ -992,7 +992,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 const m = L.marker(latLng, { icon: this.createPushpinIcon(color) });
                 const markerObj = {
                     id: item.id || ('custom-' + Date.now() + '-' + crypto.randomUUID()),
-                    name: item.name || 'Marcador',
+                    name: item.name || this.translationService.t('gta5.settings.defaultMarkerName'),
                     marker: m,
                     latLng: latLng,
                     color: color,
@@ -1635,13 +1635,13 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         { name: 'Sandy Shores', x: 1700, y: 3600, size: 15, isMajor: true },
         { name: 'Grapeseed', x: 2300, y: 4800, size: 13, isMajor: false },
         { name: 'Paleto Bay', x: -300, y: 6200, size: 15, isMajor: true },
-        { name: 'Monte Chiliad', x: 400, y: 5500, size: 14, isMajor: true },
+        { name: 'Monte Chiliad', nameEn: 'Mount Chiliad', x: 400, y: 5500, size: 14, isMajor: true },
         { name: 'Chumash', x: -3100, y: 1100, size: 13, isMajor: false },
         { name: 'Fort Zancudo', x: -2100, y: 3000, size: 13, isMajor: false },
         { name: 'Great Chaparral', x: -300, y: 1500, size: 13, isMajor: false },
         { name: 'Harmony', x: 600, y: 2700, size: 13, isMajor: false },
         { name: 'El Burro Heights', x: 1400, y: -1800, size: 12, isMajor: false },
-        { name: 'Puerto de Los Santos', x: 500, y: -2600, size: 12, isMajor: false },
+        { name: 'Puerto de Los Santos', nameEn: 'Port of Los Santos', x: 500, y: -2600, size: 12, isMajor: false },
         { name: 'Palomino Highlands', x: 2700, y: -1200, size: 13, isMajor: false }
     ];
 
@@ -1672,7 +1672,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             labelEl.style.pointerEvents = 'none';
             labelEl.style.userSelect = 'none';
             labelEl.style.textAlign = 'center';
-            labelEl.textContent = d.name;
+            labelEl.textContent = (this.translationService.currentLang !== 'es' && d.nameEn) ? d.nameEn : d.name;
 
             const icon = L.divIcon({
                 className: 'gta-district-label-pin',

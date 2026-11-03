@@ -27,6 +27,8 @@
     "switchToOnline": "Cambiar a GTA Online",
     "goty5": "GOTY 5",
     "goty6": "GOTY 6",
+    "fullscreen": "Pantalla completa",
+    "exitFullscreen": "Salir de pantalla completa",
     "coordinates": "Coordenadas (X, Y)",
     "tacticalCoords": "COORDENADAS TÁCTICAS:",
     "clearSearch": "Borrar búsqueda",
@@ -148,6 +150,7 @@
       "regionChumash": "Costa Oeste",
       "police": "Policía",
       "markers": "Marcadores",
+      "defaultMarkerName": "Marcador",
       "noMarkers": "Sin marcadores",
       "locateMarker": "Localizar marcador",
       "deleteAllMarkers": "Eliminar todos",
@@ -351,6 +354,7 @@
       "sizeLarge": "120%",
       "police": "Modo Policía",
       "markers": "Marcadores",
+      "defaultMarkerName": "Marcador",
       "noMarkers": "Sin marcadores",
       "locateMarker": "Localizar marcador",
       "deleteAllMarkers": "Eliminar todos",
@@ -553,6 +557,9 @@
       "casino": "Diamond Casino",
       "cayoPerico": "Cayo Perico",
       "raid": "Incursiones",
+      "kortzCenter": "Kortz Center",
+      "levelPrefix": "Nv.",
+      "hardLabel": "Difícil",
       "loading": "Cargando catálogo oficial de Golpes...",
       "error": "Error al conectar con la base de datos de golpes.",
       "retry": "Reintentar",
@@ -647,7 +654,14 @@
       "observationTitle": "Punto de Observación Recomendado",
       "returnToList": "Volver a la lista de misterios",
       "prevMystery": "Misterio anterior",
-      "nextMystery": "Misterio siguiente"
+      "nextMystery": "Misterio siguiente",
+      "point": "Punto",
+      "corpse": "Cadáver",
+      "defaultLabel": "Misterio",
+      "prevPhoto": "Foto anterior",
+      "nextPhoto": "Foto siguiente",
+      "investigationChain": "Cadena de Investigación:",
+      "recordedLocations": "Localizaciones registradas"
     },
     "events": {
       "title": "Eventos Especiales",
@@ -658,7 +672,11 @@
       "activeNow": "Activo ahora",
       "statusOpen": "Abierto",
       "statusComingSoon": "Próximamente",
-      "statusUnavailable": "No disponible"
+      "statusUnavailable": "No disponible",
+      "yetiPhase2Title": "FASE 2: ENCUENTRO NOCTURNO (21:00 - 06:00)",
+      "yetiPhase2Desc": "Una vez investigadas las 5 pistas, adéntrate en el área delimitada de Chiliad Wilderness durante la noche. El Yeti emergerá de la maleza y cargará contra ti. Abátelo para conseguir la recompensa final.",
+      "snowmenRewardTitle": "RECOMPENSA Y BONIFICACIÓN FESTIVA",
+      "snowmenRewardDesc": "Destruye cada muñeco embistiéndolo con un vehículo, disparándole o con explosivos ($5,000 y 1,000 RP por unidad). Al completar los 25 muñecos recibirás una bonificación adicional de $125,000 y el Atuendo de Muñeco de Nieve."
     }
   },
   "seo": {

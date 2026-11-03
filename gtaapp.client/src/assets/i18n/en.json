@@ -27,6 +27,8 @@
     "switchToOnline": "Switch to GTA Online",
     "goty5": "GOTY 5",
     "goty6": "GOTY 6",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit fullscreen",
     "coordinates": "Coordinates (X, Y)",
     "tacticalCoords": "TACTICAL COORDINATES:",
     "clearSearch": "Clear search",
@@ -148,6 +150,7 @@
       "regionChumash": "West Coast (Chumash)",
       "police": "Police",
       "markers": "Markers",
+      "defaultMarkerName": "Marker",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -351,6 +354,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "Marker",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -553,6 +557,9 @@
       "casino": "Diamond Casino",
       "cayoPerico": "Cayo Perico",
       "raid": "Raids",
+      "kortzCenter": "Kortz Center",
+      "levelPrefix": "Lv.",
+      "hardLabel": "Hard",
       "loading": "Loading official Heists catalog...",
       "error": "Could not connect to the heists database.",
       "retry": "Retry",
@@ -647,7 +654,14 @@
       "observationTitle": "Recommended Observation Point",
       "returnToList": "Return to mysteries list",
       "prevMystery": "Previous mystery",
-      "nextMystery": "Next mystery"
+      "nextMystery": "Next mystery",
+      "point": "Point",
+      "corpse": "Body",
+      "defaultLabel": "Mystery",
+      "prevPhoto": "Previous photo",
+      "nextPhoto": "Next photo",
+      "investigationChain": "Investigation Chain:",
+      "recordedLocations": "Recorded locations"
     },
     "events": {
       "title": "Special Events",
@@ -658,7 +672,11 @@
       "activeNow": "Active now",
       "statusOpen": "Open",
       "statusComingSoon": "Coming Soon",
-      "statusUnavailable": "Unavailable"
+      "statusUnavailable": "Unavailable",
+      "yetiPhase2Title": "PHASE 2: NIGHT ENCOUNTER (21:00 - 06:00)",
+      "yetiPhase2Desc": "Once all 5 clues have been investigated, enter the designated Chiliad Wilderness search zone at night. The Yeti will emerge from the brush and charge at you. Take it down to claim the final reward.",
+      "snowmenRewardTitle": "FESTIVE REWARD & BONUS",
+      "snowmenRewardDesc": "Destroy each snowman by ramming it with a vehicle, shooting it, or using explosives ($5,000 and 1,000 RP each). Upon completing all 25 snowmen, you will receive an extra $125,000 bonus and The Snowman Outfit."
     }
   },
   "seo": {
