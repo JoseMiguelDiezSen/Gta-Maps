@@ -1,106 +1,106 @@
 [
   {
     "id": "halloween",
-    "title": "Eventos de Halloween",
+    "title": "Événements d'Halloween",
     "icon": "fa-ghost",
     "color": "#f39c12",
-    "badge": "Octubre",
-    "description": "Eventos paranormales y apariciones siniestras que asolan Los Santos y Blaine County durante la temporada de Halloween.",
+    "badge": "Octobre",
+    "description": "Phénomènes paranormaux et apparitions sinistres qui hantent Los Santos et Blaine County durant la saison d'Halloween.",
     "subcategories": [
       {
         "id": "asesinos",
-        "title": "Asesinos",
+        "title": "Tueurs en série",
         "icon": "fa-mask",
         "color": "#e74c3c",
-        "description": "Psicópatas y asesinos en serie que acechan en las sombras durante las noches más oscuras de San Andreas.",
+        "description": "Psychopathes et tueurs en série qui rôdent dans l'ombre pendant les nuits les plus sombres de San Andreas.",
         "items": [
           {
             "id": "slasher-clown",
-            "title": "El Payaso Asesino",
+            "title": "Le Clown Tueur",
             "category": "halloween",
             "subcategory": "asesinos",
-            "description": "Un maníaco con tétrica pintura facial y sonrisa macabra armado con un puñal. Acecha en callejones oscuros y ataca cuando el jugador se encuentra a solas a pie entre las 21:00 y las 05:00.",
-            "reward": "Camiseta conmemorativa de payaso y $50,000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
+            "description": "Un maniaque au maquillage facial lugubre et au sourire macabre armé d'un poignard. Il rôde dans les ruelles sombres et attaque quand le joueur est seul à pied entre 21h00 et 05h00.",
+            "reward": "T-shirt commémoratif de clown et 50 000 $",
+            "period": "Saison d'Halloween (21h00 - 05h00)",
             "badgeIcon": "fa-mask",
             "badgeColor": "#e74c3c",
             "details": [
-              "Requiere estar al menos 16 minutos en la sesión libre.",
-              "Aparece exclusivamente si el jugador no va a bordo de vehículos armados o aéreos.",
-              "Se reproduce una melodía siniestra cuando inicia el acecho."
+              "Nécessite de rester au moins 16 minutes en session libre.",
+              "Apparaît exclusivement si le joueur n'est pas à bord d'un véhicule armé ou aérien.",
+              "Une mélodie sinistre retentit lorsque la traque commence."
             ]
           },
           {
             "id": "slasher-driver",
-            "title": "El Conductor Fantasma",
+            "title": "Le Conducteur Fantôme",
             "category": "halloween",
             "subcategory": "asesinos",
-            "description": "Un deportivo clásico de color negro envuelto en llamas espectrales conducido por una silueta demoníaca. Persigue implacablemente a toda velocidad con el objetivo de atropellar al objetivo.",
-            "reward": "Máscara de Calabaza Llameante y 2,000 RP",
-            "period": "Temporada de Halloween (22:00 - 05:00)",
+            "description": "Une sportive classique noire enveloppée de flammes spectrales conduite par une silhouette démoniaque. Elle poursuit impitoyablement à toute allure dans le but d'écraser sa cible.",
+            "reward": "Masque de citrouille enflammée et 2 000 RP",
+            "period": "Saison d'Halloween (22h00 - 05h00)",
             "badgeIcon": "fa-fire",
             "badgeColor": "#e67e22",
             "details": [
-              "El coche es inmune a colisiones convencionales hasta abatir al conductor.",
-              "El fuego del vehículo no se extingue bajo la lluvia.",
-              "Al destruirlo se obtiene una recompensa monetaria inmediata."
+              "La voiture est immunisée contre les collisions jusqu'à l'élimination du conducteur.",
+              "Les flammes du véhicule ne s'éteignent pas sous la pluie.",
+              "Sa destruction octroie une récompense financière immédiate."
             ]
           },
           {
             "id": "slasher-psycho",
-            "title": "El Carnicero de Paleto",
+            "title": "Le Boucher de Paleto",
             "category": "halloween",
             "subcategory": "asesinos",
-            "description": "Un descomunal asesino ataviado con delantal ensangrentado y máscara quirúrgica portando una motosierra oxidada. Se oculta entre la densa vegetación boscosa del norte.",
-            "reward": "Máscara Slasher ensangrentada y $50,000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
+            "description": "Un assassin colossal vêtu d'un tablier ensanglanté et d'un masque chirurgical armé d'une tronçonneuse rouillée. Il se cache dans la dense végétation boisée du nord.",
+            "reward": "Masque Slasher ensanglanté et 50 000 $",
+            "period": "Saison d'Halloween (21h00 - 05h00)",
             "badgeIcon": "fa-skull",
             "badgeColor": "#c0392b",
             "details": [
-              "Posee una barra de salud muy superior a la de un PNJ estándar.",
-              "Inmune al derribo por impacto de proyectiles comunes.",
-              "Al ser derrotado arroja munición pesada y botiquín completo."
+              "Possède une barre de santé très supérieure à celle d'un PNJ standard.",
+              "Immunisé contre les chutes dues aux impacts de projectiles courants.",
+              "Une fois vaincu, il laisse tomber des munitions lourdes et une trousse de secours."
             ]
           }
         ]
       },
       {
         "id": "fantasmas",
-        "title": "Fantasmas",
+        "title": "Fantômes",
         "icon": "fa-spaghetti-monster-flying",
         "color": "#9b59b6",
-        "description": "Fenómenos paranormales y manifestaciones etéreas documentadas por la sociedad investigadora de San Andreas.",
+        "description": "Phénomènes paranormaux et manifestations éthérées documentés par la société d'investigation de San Andreas.",
         "items": [
           {
             "id": "ghost-gordo",
-            "title": "Fantasma del Monte Gordo",
+            "title": "Fantôme du Mont Gordo",
             "category": "halloween",
             "subcategory": "fantasmas",
-            "description": "El legendario espectro de Celene Mountain, visible únicamente durante sesenta segundos reales entre las 23:00 y las 00:00 en el risco escarpado que domina el faro de El Gordo.",
-            "reward": "Fotografía paranormal completada y $20,000",
-            "period": "Noches de Halloween (23:00 - 00:00)",
+            "description": "Le légendaire spectre de Jolene Cranley-Evans, visible uniquement pendant soixante secondes réelles entre 23h00 et minuit sur la falaise escarpée dominant le phare d'El Gordo.",
+            "reward": "Photographie paranormale réussie et 20 000 $",
+            "period": "Nuits d'Halloween (23h00 - 00h00)",
             "badgeIcon": "fa-ghost",
             "badgeColor": "#9b59b6",
             "details": [
-              "Si el jugador se aproxima a menos de 5 metros, el espectro se desvanece de inmediato.",
-              "En la roca aparece escrita con sangre la palabra 'JOCK'.",
-              "Debe fotografiarla para registrar el progreso en el diario paranormal."
+              "Si le joueur s'approche à moins de 5 mètres, le spectre s'évanouit immédiatement.",
+              "Le mot 'JOCK' apparaît tracé avec du sang sur le rocher.",
+              "Prenez-le en photo pour enregistrer votre progression dans le journal paranormal."
             ]
           },
           {
             "id": "ghost-johnson",
-            "title": "El Espectro de Leonora Johnson",
+            "title": "Le Spectre de Leonora Johnson",
             "category": "halloween",
             "subcategory": "fantasmas",
-            "description": "La trágica actriz del viejo Vinewood asesinada en 1975 se materializa flotando en penumbra cerca del mausoleo de Pacific Bluffs, susurrando lamentos del crimen sin resolver.",
-            "reward": "Bonificación de coleccionista y $20,000",
-            "period": "Noches de Halloween (00:00 - 02:00)",
+            "description": "La tragique actrice du vieux Vinewood assassinée en 1975 se matérialise en flottant dans la pénombre près du mausolée de Pacific Bluffs, murmurant les lamentations de son meurtre non résolu.",
+            "reward": "Bonus de collectionneur et 20 000 $",
+            "period": "Nuits d'Halloween (00h00 - 02h00)",
             "badgeIcon": "fa-camera",
             "badgeColor": "#8e44ad",
             "details": [
-              "Aparece levitando sobre una lápida sin nombre.",
-              "Requiere cámara Snapmatic para capturar la evidencia espectral.",
-              "Fotografiar los 10 fantasmas desbloquea la librea temática Ghosts Exposed para el Albany Brigham."
+              "Apparaît en lévitation au-dessus d'une tombe anonyme.",
+              "Nécessite l'appareil photo Snapmatic pour capturer la preuve spectrale.",
+              "Photographier les 10 fantômes débloque le motif thématique Ghosts Exposed pour l'Albany Brigham."
             ]
           }
         ]
@@ -109,58 +109,58 @@
   },
   {
     "id": "navidad",
-    "title": "Eventos de Navidad",
+    "title": "Événements de Noël",
     "icon": "fa-sleigh",
     "color": "#27ae60",
-    "badge": "Diciembre",
-    "description": "Celebraciones festivas de invierno con mantos de nieve, asaltantes oportunistas y regalos festivos en Los Santos.",
+    "badge": "Décembre",
+    "description": "Célébrations festives d'hiver avec chutes de neige, braqueurs opportunistes et cadeaux de fête dans tout Los Santos.",
     "subcategories": [
       {
         "id": "gooch",
-        "title": "El Grinch (The Gooch)",
+        "title": "The Gooch",
         "icon": "fa-hat-cowboy",
         "color": "#2ecc71",
-        "description": "Una siniestra criatura peluda de color verde vestida de Papá Noel que embosca sin piedad a los residentes desprevenidos.",
+        "description": "Une créature sinistre et poilue de couleur verte vêtue d'un costume de Père Noël qui tend des embuscades impitoyables aux résidents imprudents.",
         "items": [
           {
             "id": "gooch-ambush",
-            "title": "Aparición de The Gooch",
+            "title": "Apparition de The Gooch",
             "category": "navidad",
             "subcategory": "gooch",
-            "description": "Aparece entre una densa nube de humo verde con una risa estridente. Derriba al jugador de espaldas, le arrebata dinero en efectivo y aperitivos del inventario, y huye a pie velozmente.",
-            "reward": "Máscara oficial de The Gooch y recuperación del botín + $25,000",
-            "period": "Festividades Navideñas",
+            "description": "Surgit dans un épais nuage de fumée verte avec un rire strident. Il renverse le joueur par surprise, lui dérobe de l'argent liquide et des encas, puis s'enfuit à toutes jambes.",
+            "reward": "Masque officiel de The Gooch et récupération du butin + 25 000 $",
+            "period": "Fêtes de fin d'année",
             "badgeIcon": "fa-sack-dollar",
             "badgeColor": "#27ae60",
             "details": [
-              "Requiere al menos 2 jugadores en la sesión y llevar dinero encima.",
-              "Hay que perseguirlo de inmediato antes de que desaparezca para abatirle.",
-              "La primera vez que lo abates desbloquea la indumentaria completa de The Gooch."
+              "Nécessite au moins 2 joueurs en session et de l'argent liquide sur soi.",
+              "Poursuivez-le sans attendre avant qu'il ne disparaisse pour l'éliminer.",
+              "La première élimination débloque la tenue intégrale de The Gooch."
             ]
           }
         ]
       },
       {
         "id": "snowmen",
-        "title": "Muñecos de Nieve",
+        "title": "Bonhommes de neige",
         "icon": "fa-snowflake",
         "color": "#3498db",
-        "description": "25 muñecos de nieve festivos distribuidos a lo largo y ancho del mapa nevado listos para ser destruidos.",
+        "description": "25 bonhommes de neige festifs répartis aux quatre coins de la carte enneigée prêts à être détruits.",
         "items": [
           {
             "id": "snowmen-hunt",
-            "title": "Cacería de Muñecos de Nieve",
+            "title": "Chasse aux bonhommes de neige",
             "category": "navidad",
             "subcategory": "snowmen",
-            "description": "Figuras heladas artesanales ubicadas en parques, azoteas, jardines y porches de San Andreas. Se pueden destruir atropellándolos, con armas de fuego o explosivos.",
-            "reward": "Atuendo de Muñeco de Nieve (El Muñeco de Nieve) + $125,000 al completar los 25",
-            "period": "Festividades Navideñas",
+            "description": "Figures glacées artisanales situées dans les parcs, sur les toits, jardins et perrons de San Andreas. À détruire en les percutant, par balles ou à l'explosif.",
+            "reward": "Tenue de bonhomme de neige + 125 000 $ en détruisant les 25",
+            "period": "Fêtes de fin d'année",
             "badgeIcon": "fa-snowflake",
             "badgeColor": "#2980b9",
             "details": [
-              "Cada muñeco destruido otorga $5,000 y 1,000 RP.",
-              "Al destruir los 25 muñecos se entrega un bono final de $125,000.",
-              "Emiten un suave sonido de campanillas al aproximarse a su ubicación."
+              "Chaque bonhomme de neige détruit rapporte 5 000 $ et 1 000 RP.",
+              "Détruire les 25 bonhommes octroie un bonus final de 125 000 $.",
+              "Ils émettent un tintement de clochettes caractéristique à leur approche."
             ]
           }
         ]

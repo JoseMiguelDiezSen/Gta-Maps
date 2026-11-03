@@ -147,7 +147,14 @@ export class Gta6InfoPanelComponent implements OnChanges {
     const key = `${this.gameMode}_${this.translationService.currentLang}`;
     if (this._cachedTabsKey !== key) {
       this._cachedTabsKey = key;
-      this._cachedDrawerTabs = [
+      const isOnline = this.gameMode === 'online';
+      this._cachedDrawerTabs = isOnline ? [
+        { id: 'vehiculos', label: this.translationService.t('transports.tabs.vehicles') || 'Vehículos', icon: 'fa-car-side' },
+        { id: 'armas', label: this.translationService.t('transports.tabs.armas') || 'Armas', icon: 'fa-gun' },
+        { id: 'eventos', label: this.translationService.t('transports.tabs.events') || 'Eventos', icon: 'fa-calendar-days' },
+        { id: 'golpes', label: this.translationService.t('transports.tabs.golpes') || 'Golpes', icon: 'fa-sack-dollar' },
+        { id: 'misterios', label: this.translationService.t('transports.tabs.misterios') || 'Misterios', icon: 'fa-user-secret' }
+      ] : [
         { id: 'vehiculos', label: this.translationService.t('transports.tabs.vehicles') || 'Vehículos', icon: 'fa-car-side' },
         { id: 'armas', label: this.translationService.t('transports.tabs.armas') || 'Armas', icon: 'fa-gun' },
         { id: 'misiones', label: this.translationService.t('transports.tabs.missions') || 'Misiones', icon: 'fa-bullseye' },
@@ -156,6 +163,28 @@ export class Gta6InfoPanelComponent implements OnChanges {
       ];
     }
     return this._cachedDrawerTabs;
+  }
+
+  get gta6EventsCategories(): { id: string; title: string; icon: string; color: string; badge: string; banner: string }[] {
+    const isEs = (this.translationService.currentLang || 'es') === 'es';
+    return [
+      {
+        id: 'halloween',
+        title: isEs ? 'Eventos de Halloween' : 'Halloween Events',
+        icon: 'fa-ghost',
+        color: '#ef4444',
+        badge: isEs ? 'Octubre' : 'October',
+        banner: 'assets/images/gta5/mapa/marcadores-mapa/activities/events/eventos-hallowen.jpg'
+      },
+      {
+        id: 'navidad',
+        title: isEs ? 'Eventos de Navidad' : 'Christmas Events',
+        icon: 'fa-sleigh',
+        color: '#ffffff',
+        badge: isEs ? 'Diciembre' : 'December',
+        banner: 'assets/images/gta5/mapa/marcadores-mapa/activities/events/eventos-navidad.jpg'
+      }
+    ];
   }
 
   setDrawerTab(tabId: string): void {

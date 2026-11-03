@@ -134,7 +134,9 @@ export class Gta5MysteryPopupService {
                 prevBtn.type = 'button';
                 prevBtn.className = 'gta-popup-switcher-btn';
                 prevBtn.setAttribute('aria-label', 'Foto anterior');
-                prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+                const prevIcon = document.createElement('i');
+                prevIcon.className = 'fa-solid fa-chevron-left';
+                prevBtn.appendChild(prevIcon);
 
                 const counter = document.createElement('span');
                 counter.className = 'gta-popup-switcher-count';
@@ -144,7 +146,9 @@ export class Gta5MysteryPopupService {
                 nextBtn.type = 'button';
                 nextBtn.className = 'gta-popup-switcher-btn';
                 nextBtn.setAttribute('aria-label', 'Foto siguiente');
-                nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+                const nextIcon = document.createElement('i');
+                nextIcon.className = 'fa-solid fa-chevron-right';
+                nextBtn.appendChild(nextIcon);
 
                 L.DomEvent.disableClickPropagation(switcherBar);
 

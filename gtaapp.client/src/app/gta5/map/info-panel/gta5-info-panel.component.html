@@ -853,6 +853,7 @@
             @for (cat of eventsCategories; track cat.id) {
             <div
               class="event-hero-banner"
+              [class.is-locked]="isCategoryLocked(cat)"
               (click)="openEventCategory(cat)"
               [style.--hero-accent]="cat.color"
             >
@@ -867,27 +868,31 @@
 
               <!-- Contenido principal -->
               <div class="event-hero-content">
-                <div class="event-hero-badge">
-                  <i class="fa-solid" [ngClass]="cat.icon"></i>
-                  <span>{{ cat.badge }}</span>
+                <div class="event-hero-meta-row">
+                  <div class="event-hero-badge">
+                    <i class="fa-solid" [ngClass]="cat.icon"></i>
+                    <span>{{ cat.badge }}</span>
+                  </div>
+                  <span
+                    class="event-hero-status-pill"
+                    [class.is-open]="cat.id === 'halloween'"
+                    [class.is-locked]="cat.id === 'navidad'"
+                  >
+                    @if (cat.id === 'halloween') {
+                      <i class="fa-solid fa-circle" style="font-size: 6px;"></i>
+                      <span>{{ 'transports.events.statusOpen' | translate }}</span>
+                    } @else {
+                      <i class="fa-solid" [ngClass]="isCategoryLocked(cat) ? 'fa-lock' : 'fa-clock'" style="font-size: 9px;"></i>
+                      <span>{{ 'transports.events.statusComingSoon' | translate }}</span>
+                    }
+                  </span>
                 </div>
                 <div class="event-hero-title">{{ cat.title }}</div>
-                <div class="event-hero-tags">
-                  @for (tag of getEventCategorySummaryTags(cat); track tag.title; let isLast = $last) {
-                    <span class="event-hero-tag-item">
-                      <i class="fa-solid" [ngClass]="tag.icon"></i>
-                      <span>{{ tag.title }}</span>
-                    </span>
-                    @if (!isLast) {
-                      <span class="sep">•</span>
-                    }
-                  }
-                </div>
               </div>
 
-              <!-- Flecha circular derecha -->
-              <div class="event-hero-action">
-                <i class="fa-solid fa-chevron-right"></i>
+              <!-- Flecha circular derecha / candado si está bloqueado en producción -->
+              <div class="event-hero-action" [class.is-locked]="isCategoryLocked(cat)">
+                <i class="fa-solid" [ngClass]="isCategoryLocked(cat) ? 'fa-lock' : 'fa-chevron-right'"></i>
               </div>
             </div>
             }
@@ -1096,7 +1101,7 @@
               <i class="fa-solid fa-chevron-left"></i>
             </button>
             <span class="mdetail-step-label">
-              {{ selectedEventItem.title }}
+              {{ currentEventItemIndex }} / {{ currentEventItemsList.length }}
             </span>
             <button
               type="button"
@@ -1118,21 +1123,10 @@
               <div class="mdetail-hero-badges">
                 <span class="mdetail-hero-cat">{{ selectedEventItem.period || ('transports.tabs.events' | translate) }}</span>
               </div>
-              <h2 class="mdetail-hero-title">{{ selectedEventItem.title }}</h2>
+              @if (selectedEventItem.id !== 'slasher-clown' && selectedEventItem.id !== 'ghost-gordo' && selectedEventItem.id !== 'fantasmas-descubierto') {
+                <h2 class="mdetail-hero-title">{{ selectedEventItem.title }}</h2>
+              }
             </div>
-
-            <!-- Bloque: Recompensa del evento -->
-            @if (selectedEventItem.reward) {
-            <div class="mdetail-grid" style="margin-bottom: 14px;">
-              <div class="mdetail-box reward-box">
-                <i class="fa-solid fa-trophy box-icon"></i>
-                <div class="box-content">
-                  <span class="box-label">{{ 'transports.missions.reward' | translate }}</span>
-                  <span class="box-val">{{ selectedEventItem.reward }}</span>
-                </div>
-              </div>
-            </div>
-            }
 
             @if (selectedEventItem.id === 'slasher-clown') {
               <!-- Radar Táctico Fijo de San Andreas -->
@@ -1190,6 +1184,66 @@
                 </div>
                 }
               </div>
+            } @else if (selectedEventItem.id === 'ghost-gordo' || selectedEventItem.id === 'fantasmas-descubierto') {
+              <!-- Radar Táctico Fijo de San Andreas para Fantasmas al descubierto -->
+              <div class="slasher-radar-container">
+                <div id="ghosts-mini-map" class="slasher-mini-map"></div>
+              </div>
+
+              <!-- LISTA DE LOS 10 FANTASMAS (Scroll interno e ítems sutiles) -->
+              <div class="ghosts-scroll-list">
+                @for (g of ghostsList; track g.id) {
+                <div
+                  class="ghost-compact-card"
+                  [class.is-active]="activeGhostId === g.id || isGhostActive(g)"
+                  [class.is-current-active]="isGhostActive(g)"
+                  [style.--m-color]="isGhostActive(g) ? '#f1c40f' : '#9b59b6'"
+                  (click)="selectGhost(g.id)"
+                >
+                  <!-- Badge numérico o miniatura compacta -->
+                  <div class="ghost-thumb-box" [class.has-img]="!!g.image">
+                    @if (g.image) {
+                      <img [src]="g.image" [alt]="g.name" />
+                    } @else {
+                      <span class="ghost-order-num">#{{ g.order < 10 ? '0' + g.order : g.order }}</span>
+                    }
+                  </div>
+
+                  <!-- Contenido compacto -->
+                  <div class="ghost-card-body">
+                    <div class="ghost-card-title-row">
+                      <span class="ghost-card-name">{{ g.name }}</span>
+                    </div>
+                    <div class="ghost-card-meta">
+                      <span class="ghost-meta-time">
+                        <i class="fa-solid fa-clock"></i> {{ g.timeWindow }}
+                      </span>
+                      <span class="ghost-meta-sep">•</span>
+                      <span class="ghost-meta-loc" [title]="g.location">
+                        <i class="fa-solid fa-location-dot"></i> {{ g.location }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Botón de localización -->
+                  <div class="ghost-card-action">
+                    <button
+                      type="button"
+                      class="mcard-locate-btn ghost-locate-btn"
+                      [class.is-located]="isGhostLocated(g.id)"
+                      (click)="onLocateGhost(g, $event)"
+                      [title]="'transports.mysteries.locateOnMap' | translate"
+                    >
+                      @if (isGhostLocated(g.id)) {
+                        <i class="fa-solid fa-circle-check"></i>
+                      } @else {
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                      }
+                    </button>
+                  </div>
+                </div>
+                }
+              </div>
             } @else {
               <!-- Bloque: Sinopsis / Descripción -->
               <div class="mdetail-block">
@@ -1221,6 +1275,19 @@
                 </div>
               </div>
               }
+            }
+
+            <!-- Bloque: Recompensa del evento al pie -->
+            @if (selectedEventItem.reward && selectedEventItem.id !== 'slasher-clown' && selectedEventItem.id !== 'ghost-gordo' && selectedEventItem.id !== 'fantasmas-descubierto') {
+            <div class="mdetail-grid" style="margin-top: 4px; margin-bottom: 2px;">
+              <div class="mdetail-box reward-box">
+                <i class="fa-solid fa-trophy box-icon"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.missions.reward' | translate }}</span>
+                  <span class="box-val">{{ selectedEventItem.reward }}</span>
+                </div>
+              </div>
+            </div>
             }
 
             <!-- Botón de retorno al pie -->

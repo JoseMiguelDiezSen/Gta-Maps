@@ -3815,7 +3815,7 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 
 .slasher-mini-map {
   width: 100%;
-  height: 220px;
+  height: 270px;
   background: #434343;
 }
 
@@ -3834,11 +3834,183 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 0 12px color-mix(in srgb, var(--m-color, #ef4444) 30%, transparent);
 }
 
+.mcard-slasher-item.is-current-active {
+  border-color: #f1c40f;
+  background: rgba(241, 196, 15, 0.08);
+  box-shadow: 0 0 16px rgba(241, 196, 15, 0.35);
+  animation: ghost-pulse 2.2s infinite ease-in-out;
+}
+
+@keyframes ghost-pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(241, 196, 15, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(241, 196, 15, 0.55);
+  }
+}
+
+.ghost-active-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(241, 196, 15, 0.2);
+  border: 1px solid rgba(241, 196, 15, 0.6);
+  color: #f1c40f;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
 .mcard-locate-btn.is-located {
   background: var(--m-color, #ef4444);
   color: #ffffff;
   border-color: var(--m-color, #ef4444);
   box-shadow: 0 0 10px color-mix(in srgb, var(--m-color, #ef4444) 60%, transparent);
+}
+
+/* ====== VISTA COMPACTA Y SCROLL INTERNO: FANTASMAS AL DESCUBIERTO ====== */
+
+.ghosts-scroll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-height: 120px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.ghost-compact-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(13, 19, 26, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--m-color, #9b59b6);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.ghost-compact-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 25, 36, 0.98) 100%);
+  border-color: var(--m-color, #9b59b6);
+  transform: translateX(2px);
+}
+
+.ghost-compact-card.is-active {
+  border-color: var(--m-color, #9b59b6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--m-color, #9b59b6) 30%, transparent);
+}
+
+.ghost-compact-card.is-current-active {
+  border-color: #f1c40f;
+  background: rgba(241, 196, 15, 0.08);
+  box-shadow: 0 0 14px rgba(241, 196, 15, 0.35);
+  animation: ghost-pulse 2.2s infinite ease-in-out;
+}
+
+.ghost-thumb-box {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ghost-thumb-box.has-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.ghost-order-num {
+  font-family: 'Consolas', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--m-color, #9b59b6);
+}
+
+.ghost-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ghost-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ghost-card-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ghost-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ghost-meta-time {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ghost-meta-sep {
+  opacity: 0.4;
+}
+
+.ghost-meta-loc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ghost-card-action {
+  flex-shrink: 0;
+}
+
+.ghost-locate-btn {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  font-size: 12px;
+  border-radius: 6px;
 }
 
 /* ====== BANNERS HERO PARA CATEGORÍAS DE EVENTOS ====== */
@@ -3888,14 +4060,36 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   z-index: 2;
 }
 
+.event-hero-banner.is-locked {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.event-hero-banner.is-locked:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+.event-hero-banner.is-locked:hover .event-hero-bg {
+  transform: none;
+}
+
 .event-hero-content {
   position: relative;
   z-index: 3;
-  padding: 0 18px;
+  padding: 10px 18px 0 18px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
+}
+
+.event-hero-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
 }
 
 .event-hero-badge {
@@ -3907,8 +4101,33 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: var(--hero-accent, #ef4444);
-  margin-bottom: 4px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.event-hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  backdrop-filter: blur(4px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.event-hero-status-pill.is-open {
+  background: rgba(46, 204, 113, 0.18);
+  border: 1px solid rgba(46, 204, 113, 0.45);
+  color: #2ecc71;
+}
+
+.event-hero-status-pill.is-locked {
+  background: rgba(241, 196, 15, 0.16);
+  border: 1px solid rgba(241, 196, 15, 0.4);
+  color: #f1c40f;
 }
 
 .event-hero-title {
@@ -3916,7 +4135,7 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.3px;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
@@ -3958,7 +4177,13 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   backdrop-filter: blur(4px);
 }
 
-.event-hero-banner:hover .event-hero-action {
+.event-hero-action.is-locked {
+  color: rgba(255, 255, 255, 0.45);
+  border-color: rgba(255, 255, 255, 0.12);
+  cursor: not-allowed;
+}
+
+.event-hero-banner:not(.is-locked):hover .event-hero-action {
   background: var(--hero-accent, #ef4444);
   border-color: var(--hero-accent, #ef4444);
   transform: translateX(3px);

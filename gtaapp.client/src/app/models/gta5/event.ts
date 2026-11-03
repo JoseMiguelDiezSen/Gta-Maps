@@ -112,3 +112,141 @@ export const GTA_SLASHERS_LIST: GtaSlasherInfo[] = [
     ]
   }
 ];
+
+export interface GtaGhostInfo {
+  id: string;
+  order: number;
+  name: string;
+  location: string;
+  startHour: number;
+  endHour: number;
+  timeWindow: string;
+  x: number;
+  y: number;
+  z?: number;
+  image?: string;
+  description: string;
+}
+
+export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
+  {
+    id: 'ghost-paleto',
+    order: 1,
+    name: 'Fantasma de Paleto Bay',
+    location: 'Procopio Drive, cerca de Beeker\'s Garage',
+    startHour: 20,
+    endHour: 21,
+    timeWindow: '20:00 - 21:00',
+    x: -122.8,
+    y: 6463.2,
+    description: 'Casa deteriorada en Procopio Drive. Puede aparecer en la ventana del ático o en la construcción trasera.'
+  },
+  {
+    id: 'ghost-strawberry',
+    order: 2,
+    name: 'Fantasma de Strawberry',
+    location: 'Bajo el paso elevado, al norte de Vanilla Unicorn',
+    startHour: 21,
+    endHour: 22,
+    timeWindow: '21:00 - 22:00',
+    x: 1828.6,
+    y: 3680.1,
+    description: 'Bajo el paso elevado de la autopista. Revisar la pared con grafitis y el refugio de lona.'
+  },
+  {
+    id: 'ghost-grapeseed',
+    order: 3,
+    name: 'Fantasma de Grapeseed',
+    location: 'Granero al norte de McKenzie Field',
+    startHour: 22,
+    endHour: 23,
+    timeWindow: '22:00 - 23:00',
+    x: 2438.4,
+    y: 4976.2,
+    description: 'Granero en la zona superior del edificio. Revisar ambos extremos del pajar.'
+  },
+  {
+    id: 'ghost-miriam-turner',
+    order: 4,
+    name: 'Fantasma de Miriam Turner Overpass',
+    location: 'Pilar del puente próximo al aeropuerto',
+    startHour: 23,
+    endHour: 0,
+    timeWindow: '23:00 - 00:00',
+    x: 3391.8,
+    y: 5178.6,
+    description: 'En lo alto del pilar del puente próximo al aeropuerto internacional. Buscar en la plataforma superior.'
+  },
+  {
+    id: 'ghost-lighthouse',
+    order: 5,
+    name: 'Fantasma del Faro de El Gordo',
+    location: 'Isla del faro, al este de Mount Gordo',
+    startHour: 1,
+    endHour: 2,
+    timeWindow: '01:00 - 02:00',
+    x: -1810.2,
+    y: 2190.5,
+    description: 'En la isla del faro. Puede aparecer en la plataforma inferior o en la parte superior del faro.'
+  },
+  {
+    id: 'ghost-slaughterhouse',
+    order: 6,
+    name: 'Fantasma de Raven Slaughterhouse',
+    location: 'Cypress Flats, detrás del almacén Raven',
+    startHour: 2,
+    endHour: 3,
+    timeWindow: '02:00 - 03:00',
+    x: -2320.5,
+    y: 410.2,
+    description: 'Zona industrial de Cypress Flats. Revisar la estructura ferroviaria y el entorno de la grúa.'
+  },
+  {
+    id: 'ghost-burned-house',
+    order: 7,
+    name: 'Fantasma de Casa Incendiada',
+    location: 'Joshua Road, cerca de Stoner Cement Works, Harmony',
+    startHour: 3,
+    endHour: 4,
+    timeWindow: '03:00 - 04:00',
+    x: -1200.5,
+    y: -800.8,
+    description: 'Casa abandonada junto a Joshua Road en Harmony. Revisar el porche y la parte trasera.'
+  },
+  {
+    id: 'ghost-little-seoul',
+    order: 8,
+    name: 'Fantasma de Iglesia de Little Seoul',
+    location: 'Campanario de la Iglesia de Little Seoul',
+    startHour: 4,
+    endHour: 5,
+    timeWindow: '04:00 - 05:00',
+    x: 1650.5,
+    y: -10.2,
+    description: 'En lo alto del campanario. Ubicación elevada, conviene fotografiar desde un punto con buena visibilidad.'
+  },
+  {
+    id: 'ghost-twohoots',
+    order: 9,
+    name: 'Fantasma de Two Hoots Falls',
+    location: 'Cascada de Two Hoots Falls, Tongva Hills',
+    startHour: 5,
+    endHour: 6,
+    timeWindow: '05:00 - 06:00',
+    x: -1430.5,
+    y: -570.2,
+    description: 'Cascada al este de la mansión de la zona. Buscar junto a la caída de agua y en los márgenes superiores.'
+  },
+  {
+    id: 'ghost-devin-weston',
+    order: 10,
+    name: 'Fantasma de Devin Weston',
+    location: 'Acantilado de Paleto Cove',
+    startHour: 0,
+    endHour: 1,
+    timeWindow: '00:00 - 01:00 (Requiere los 9 anteriores)',
+    x: -1605.5,
+    y: 5258.0,
+    description: 'El empresario de GTA V aparece flotando frente al acantilado de Paleto Cove, en el lugar relacionado con el desenlace de su historia.'
+  }
+];

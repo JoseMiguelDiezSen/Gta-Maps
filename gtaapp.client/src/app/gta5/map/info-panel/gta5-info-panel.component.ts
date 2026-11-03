@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnChanges, OnDestroy, SimpleChanges, effect, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, OnDestroy, SimpleChanges, ChangeDetectorRef, effect, inject, isDevMode } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GtaVehicle, DealerCategory } from '../../../models/gta5/vehicle';
 import { GtaMission, GtaStrangerMission, StrangerSeriesGroup, GtaHeist } from '../../../models/gta5/mission';
@@ -8,7 +8,8 @@ import { VehicleService } from '../../../services/gta5/vehicle.service';
 import { MissionService } from '../../../services/gta5/mission.service';
 import { WeaponService } from '../../../services/gta5/weapon.service';
 import { EventService } from '../../../services/gta5/event.service';
-import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, GTA_SLASHERS_LIST } from '../../../models/gta5/event';
+import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, GTA_SLASHERS_LIST, GtaGhostInfo, GTA_GHOSTS_LIST } from '../../../models/gta5/event';
+import { GtaTimeService } from '../../../services/gta5/gta-time.service';
 import * as L from 'leaflet';
 import { gta5WorldToLatLng } from '../../../utils/gta5-map-projection';
 import { TranslationService } from '../../../i18n';
@@ -155,6 +156,21 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     return this.locatedSlasherIds.has(id);
   }
 
+  // Fantasmas al descubierto (Ghosts Exposed)
+  readonly ghostsList: GtaGhostInfo[] = GTA_GHOSTS_LIST;
+  activeGhostId: string | null = null;
+  locatedGhostIds = new Set<string>();
+  private ghostsMap?: L.Map;
+  private ghostsMarkers: { [id: string]: L.CircleMarker } = {};
+
+  isGhostLocated(id: string): boolean {
+    return this.locatedGhostIds.has(id);
+  }
+
+  isGhostActive(ghost: GtaGhostInfo): boolean {
+    return this.gtaTimeService.isHourActive(ghost.startHour, ghost.endHour);
+  }
+
   // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' | 'event-subcategories' | 'event-detail'
   drawerView: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' | 'event-subcategories' | 'event-detail' = 'tabs';
   selectedMission: GtaMission | null = null;
@@ -196,9 +212,19 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   private readonly missionService = inject(MissionService);
   private readonly weaponService = inject(WeaponService);
   private readonly eventService = inject(EventService);
+  public readonly gtaTimeService = inject(GtaTimeService);
+  private readonly cdr = inject(ChangeDetectorRef);
   readonly translationService = inject(TranslationService);
 
   constructor() {
+    effect(() => {
+      const transition = this.gtaTimeService.hourChanged();
+      if (transition) {
+        this.updateGhostsMarkersStatus();
+        this.cdr.markForCheck();
+      }
+    });
+
     effect(() => {
       // Reset cached values on language switch
       this.vehicleCache = {};
@@ -887,7 +913,21 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     return '';
   }
 
+  isCategoryLocked(cat: GtaEventCategory): boolean {
+    if (cat.id !== 'navidad') return false;
+    if (typeof window !== 'undefined') {
+      const host = window.location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1' || host.startsWith('192.168.') || isDevMode()) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   openEventCategory(cat: GtaEventCategory): void {
+    if (this.isCategoryLocked(cat)) {
+      return;
+    }
     this.selectedEventCategory = cat;
     this.selectedEventSubcategory = null;
     this.selectedEventItem = null;
@@ -907,13 +947,20 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this.selectedEventSubcategory = subcat;
     }
     this.drawerView = 'event-detail';
-    if (item.id === 'slasher-clown' || item.id === 'asesinos-disfrazados') {
+    const isSlasher = item.id === 'slasher-clown' || item.id === 'asesinos-disfrazados';
+    const isGhost = item.id === 'ghost-gordo' || item.id === 'fantasmas-descubierto';
+
+    if (isSlasher) {
       setTimeout(() => this.initSlasherMiniMap(), 150);
+    }
+    if (isGhost) {
+      setTimeout(() => this.initGhostsMiniMap(), 150);
     }
   }
 
   closeEventDetail(): void {
     this.destroySlasherMiniMap();
+    this.destroyGhostsMiniMap();
     this.selectedEventItem = null;
     this.drawerView = this.selectedEventCategory ? 'event-subcategories' : 'tabs';
   }
@@ -930,8 +977,8 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       minZoom: 1.5,
       maxZoom: 3.5,
       zoomSnap: 0.05,
-      zoom: 2.15,
-      center: [-38, 29.5],
+      zoom: 2.05,
+      center: [-36.5, 29.5],
       maxBounds: islandBounds,
       maxBoundsViscosity: 1.0,
       dragging: false,
@@ -974,7 +1021,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     setTimeout(() => {
       if (this.slasherMap) {
         this.slasherMap.invalidateSize();
-        this.slasherMap.setView([-38, 29.5], 2.15);
+        this.slasherMap.setView([-36.5, 29.5], 2.05);
       }
     }, 200);
   }
@@ -1001,8 +1048,16 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   destroySlasherMiniMap(): void {
     if (this.slasherMap) {
-      this.slasherMap.remove();
+      try {
+        this.slasherMap.remove();
+      } catch {
+        // ignore
+      }
       this.slasherMap = undefined;
+    }
+    const container = document.getElementById('slasher-mini-map');
+    if (container && (container as unknown as { _leaflet_id?: number })._leaflet_id) {
+      delete (container as unknown as { _leaflet_id?: number })._leaflet_id;
     }
     this.slasherCircles = {};
     this.activeSlasherId = null;
@@ -1032,6 +1087,133 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     } as unknown as GtaMystery);
   }
 
+  initGhostsMiniMap(): void {
+    this.destroyGhostsMiniMap();
+    const container = document.getElementById('ghosts-mini-map');
+    if (!container) return;
+
+    const islandBounds = L.latLngBounds([[-90, -25], [26, 89]]);
+
+    this.ghostsMap = L.map(container, {
+      crs: L.CRS.Simple,
+      minZoom: 1.5,
+      maxZoom: 3.5,
+      zoomSnap: 0.05,
+      zoom: 2.05,
+      center: [-36.5, 29.5],
+      maxBounds: islandBounds,
+      maxBoundsViscosity: 1.0,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      touchZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      zoomControl: false,
+      attributionControl: false
+    });
+
+    L.tileLayer('assets/mapas/gta5/Roadmap/{z}_{x}_{y}.jpg', {
+      tileSize: 256,
+      minNativeZoom: 3,
+      maxNativeZoom: 4,
+      noWrap: true,
+      className: 'leaflet-tile-juego'
+    }).addTo(this.ghostsMap);
+
+    this.ghostsMarkers = {};
+    this.ghostsList.forEach(g => {
+      const [lat, lng] = gta5WorldToLatLng(g.x, g.y);
+      const isActive = this.isGhostActive(g);
+
+      const marker = L.circleMarker([lat, lng], {
+        radius: isActive ? 8 : 5,
+        color: isActive ? '#f1c40f' : '#9b59b6',
+        weight: isActive ? 3 : 2,
+        fillColor: isActive ? '#f1c40f' : '#8e44ad',
+        fillOpacity: isActive ? 0.95 : 0.65
+      }).addTo(this.ghostsMap!);
+
+      marker.bindTooltip(`#${g.order.toString().padStart(2, '0')} ${g.name} (${g.timeWindow})`, {
+        direction: 'top',
+        className: 'slasher-radar-tooltip'
+      });
+
+      marker.on('click', () => {
+        this.selectGhost(g.id);
+      });
+
+      this.ghostsMarkers[g.id] = marker;
+    });
+
+    setTimeout(() => {
+      if (this.ghostsMap) {
+        this.ghostsMap.invalidateSize();
+        this.ghostsMap.setView([-36.5, 29.5], 2.05);
+      }
+    }, 200);
+  }
+
+  updateGhostsMarkersStatus(): void {
+    if (!this.ghostsMap) return;
+    this.ghostsList.forEach(g => {
+      const marker = this.ghostsMarkers[g.id];
+      if (!marker) return;
+      const isActive = this.isGhostActive(g);
+      marker.setStyle({
+        radius: isActive ? 9 : 5,
+        color: isActive ? '#f1c40f' : '#9b59b6',
+        weight: isActive ? 3.5 : 2,
+        fillColor: isActive ? '#f1c40f' : '#8e44ad',
+        fillOpacity: isActive ? 0.95 : 0.65
+      });
+    });
+  }
+
+  selectGhost(ghostId: string): void {
+    this.activeGhostId = this.activeGhostId === ghostId ? null : ghostId;
+  }
+
+  destroyGhostsMiniMap(): void {
+    if (this.ghostsMap) {
+      try {
+        this.ghostsMap.remove();
+      } catch {
+        // ignore
+      }
+      this.ghostsMap = undefined;
+    }
+    const container = document.getElementById('ghosts-mini-map');
+    if (container && (container as unknown as { _leaflet_id?: number })._leaflet_id) {
+      delete (container as unknown as { _leaflet_id?: number })._leaflet_id;
+    }
+    this.ghostsMarkers = {};
+    this.activeGhostId = null;
+  }
+
+  onLocateGhost(ghost: GtaGhostInfo, event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    const isCurrentlyActive = this.locatedGhostIds.has(ghost.id);
+    if (isCurrentlyActive) {
+      this.locatedGhostIds.delete(ghost.id);
+    } else {
+      this.locatedGhostIds.add(ghost.id);
+    }
+    const active = !isCurrentlyActive;
+
+    this.locateOnMap.emit({
+      id: ghost.id,
+      title: `#${ghost.order.toString().padStart(2, '0')} ${ghost.name}`,
+      color: '#9b59b6',
+      description: `${ghost.location} (${ghost.timeWindow})`,
+      active,
+      isGhostToggle: true,
+      position: { x: ghost.x, y: ghost.y, z: ghost.z || 0 }
+    } as unknown as GtaMystery);
+  }
+
   get currentEventItemsList(): GtaEventItem[] {
     if (this.selectedEventSubcategory) {
       return this.selectedEventSubcategory.items || [];
@@ -1040,6 +1222,12 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       return this.selectedEventCategory.subcategories.flatMap(sc => sc.items);
     }
     return [];
+  }
+
+  get currentEventItemIndex(): number {
+    if (!this.selectedEventItem || this.currentEventItemsList.length === 0) return 0;
+    const idx = this.currentEventItemsList.findIndex(i => i.id === this.selectedEventItem!.id);
+    return idx >= 0 ? idx + 1 : 1;
   }
 
   get previousEventItem(): GtaEventItem | null {
@@ -1056,12 +1244,20 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   selectPreviousEventItem(): void {
     const prev = this.previousEventItem;
-    if (prev) this.selectedEventItem = prev;
+    if (prev) {
+      this.destroySlasherMiniMap();
+      this.destroyGhostsMiniMap();
+      this.openEventDetail(prev);
+    }
   }
 
   selectNextEventItem(): void {
     const next = this.nextEventItem;
-    if (next) this.selectedEventItem = next;
+    if (next) {
+      this.destroySlasherMiniMap();
+      this.destroyGhostsMiniMap();
+      this.openEventDetail(next);
+    }
   }
 
   selectVehicle(v: GtaVehicle): void {
@@ -1609,6 +1805,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   ngOnDestroy(): void {
     this.destroySlasherMiniMap();
+    this.destroyGhostsMiniMap();
     this.vehiclesSub?.unsubscribe();
     this.missionsSub?.unsubscribe();
     this.strangersSub?.unsubscribe();

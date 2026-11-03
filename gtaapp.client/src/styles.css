@@ -101,20 +101,23 @@ html, body {
   transform: scale(1.08);
 }
 
-/* Categorías específicas para popups de misterios */
-.gta-mystery-popup {
-  max-width: 250px !important;
-  width: 250px !important;
+/* Categorías específicas para popups de misterios y eventos */
+.gta-mystery-popup,
+.gta-ghost-popup {
+  max-width: 260px !important;
+  width: 260px !important;
 }
 
-.gta-mystery-popup .leaflet-popup-content-wrapper {
+.gta-mystery-popup .leaflet-popup-content-wrapper,
+.gta-ghost-popup .leaflet-popup-content-wrapper {
   padding: 0 !important;
   overflow: hidden !important;
   border-radius: 12px !important;
   box-sizing: border-box !important;
 }
 
-.gta-mystery-popup .leaflet-popup-content {
+.gta-mystery-popup .leaflet-popup-content,
+.gta-ghost-popup .leaflet-popup-content {
   margin: 0 !important;
   padding: 0 !important;
   width: 100% !important;

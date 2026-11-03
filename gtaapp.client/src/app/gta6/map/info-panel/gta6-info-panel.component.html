@@ -691,8 +691,60 @@
       </div>
     }
 
-    <!-- ============ TAB 3: MISIONES (MAQUETACIÓN MCARD-ITEM) ============ -->
-    @if (drawerView === 'tabs' && activeDrawerTab === 'misiones') {
+    <!-- ============ TAB 3: EVENTOS (ONLINE) ============ -->
+    @if (drawerView === 'tabs' && (activeDrawerTab === 'eventos' || (activeDrawerTab === 'misiones' && gameMode === 'online'))) {
+      <div class="dealers-tab-scroll">
+
+        <!-- Separador Eventos (Título en la parte superior) -->
+        <div class="dealer-section-divider">
+          <div class="dealer-section-divider-line"></div>
+          <span class="dealer-section-divider-label">{{ 'transports.tabs.events' | translate }}</span>
+          <div class="dealer-section-divider-line"></div>
+        </div>
+
+        <div class="events-banners-list">
+          @for (cat of gta6EventsCategories; track cat.id) {
+          <div
+            class="event-hero-banner is-locked"
+            [style.--hero-accent]="cat.color"
+          >
+            <!-- Imagen panorámica de fondo -->
+            <div
+              class="event-hero-bg"
+              [style.backgroundImage]="'url(' + cat.banner + ')'"
+            ></div>
+
+            <!-- Degradado cinematográfico oscuro -->
+            <div class="event-hero-overlay"></div>
+
+            <!-- Contenido principal -->
+            <div class="event-hero-content">
+              <div class="event-hero-meta-row">
+                <div class="event-hero-badge">
+                  <i class="fa-solid" [ngClass]="cat.icon"></i>
+                  <span>{{ cat.badge }}</span>
+                </div>
+                <span class="event-hero-status-pill is-locked">
+                  <i class="fa-solid fa-lock" style="font-size: 9px;"></i>
+                  <span>{{ 'transports.events.statusUnavailable' | translate }}</span>
+                </span>
+              </div>
+              <div class="event-hero-title">{{ cat.title }}</div>
+            </div>
+
+            <!-- Candado bloqueado -->
+            <div class="event-hero-action is-locked">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+          </div>
+          }
+        </div>
+
+      </div>
+    }
+
+    <!-- ============ TAB 3: MISIONES (MODO HISTORIA) ============ -->
+    @if (drawerView === 'tabs' && activeDrawerTab === 'misiones' && gameMode !== 'online') {
       <div class="dealers-tab-scroll">
 
         <!-- Separador Misiones (Título en la parte superior) -->

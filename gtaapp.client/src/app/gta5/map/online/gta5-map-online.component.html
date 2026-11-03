@@ -36,6 +36,28 @@
   </div>
   }
 
+  <!-- Notificación táctica flotante de Halloween: Aparición de Fantasma -->
+  @if (activeGhostNotification) {
+  <div class="hud-ghost-toast" (click)="locateNotificationGhost()">
+    <div class="hud-ghost-toast-icon">
+      <i class="fa-solid fa-ghost"></i>
+    </div>
+    <div class="hud-ghost-toast-body">
+      <div class="hud-ghost-toast-badge">{{ 'transports.events.title' | translate }} &bull; {{ activeGhostNotification.timeWindow }}</div>
+      <div class="hud-ghost-toast-title">
+        <span>#{{ activeGhostNotification.order < 10 ? '0' + activeGhostNotification.order : activeGhostNotification.order }} {{ activeGhostNotification.name }}</span>
+      </div>
+      <div class="hud-ghost-toast-sub">{{ activeGhostNotification.location }}</div>
+    </div>
+    <div class="hud-ghost-toast-actions">
+      <span class="hud-ghost-toast-pill">{{ 'transports.mysteries.locateOnMap' | translate }}</span>
+      <button type="button" class="hud-ghost-toast-close" (click)="$event.stopPropagation(); dismissGhostNotification()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+  }
+
   <!-- ESQUINA SUP-IZQ: Identidad y HUD Status (barra horizontal alargada) -->
   <div class="hud hud-tl">
     <h1 class="hud-title">

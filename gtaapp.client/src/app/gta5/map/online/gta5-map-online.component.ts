@@ -10,6 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { GotyService } from '../../../services/goty.service';
 import { Gta5MysteryPopupService } from '../../../services/gta5/gta5-mystery-popup.service';
 import { Gta5MapMarkerService } from '../../../services/gta5/gta5-map-marker.service';
+import { GtaTimeService } from '../../../services/gta5/gta-time.service';
+import { GTA_GHOSTS_LIST, GtaGhostInfo } from '../../../models/gta5/event';
 import { gta5WorldToLatLng, gta5LatLngToWorld } from '../../../utils/gta5-map-projection';
 
 @Component({
@@ -471,11 +473,16 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     selectedGame = 'gta5';
     selectedZone = 'all';
 
-    // Hora del juego en Los Santos (1 minuto en el juego = 2 segundos reales)
-    inGameHours = 12;
-    inGameMinutes = 0;
-    inGameTimeStr = '12:00';
-    private clockInterval: ReturnType<typeof setInterval> | null = null;
+    // Hora del juego en Los Santos (consumida reactivamente desde GtaTimeService)
+    get inGameHours(): number {
+        return this.gtaTimeService.hours();
+    }
+    get inGameMinutes(): number {
+        return this.gtaTimeService.minutes();
+    }
+    get inGameTimeStr(): string {
+        return this.gtaTimeService.timeString();
+    }
 
     // Panel de Ajustes
     settingsOpen = true;
@@ -497,6 +504,10 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     mouseCoords: { x: number; y: number } = { x: 0, y: 0 };
     coordsCopied = false;
 
+    // Notificación HUD en tiempo real para eventos de Halloween (Fantasmas al descubierto)
+    activeGhostNotification: GtaGhostInfo | null = null;
+    private ghostNotificationTimeout: ReturnType<typeof setTimeout> | null = null;
+
     // Panel Lateral (Drawer) de Transportes & Catálogo
     profileDrawerOpen = false;
 
@@ -508,6 +519,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     private readonly cdr = inject(ChangeDetectorRef);
     private readonly mysteryPopupService = inject(Gta5MysteryPopupService);
     private readonly mapMarkerService = inject(Gta5MapMarkerService);
+    public readonly gtaTimeService = inject(GtaTimeService);
 
     constructor() {
         effect(() => {
@@ -521,6 +533,57 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                 }
             }
         });
+
+        effect(() => {
+            const transition = this.gtaTimeService.hourChanged();
+            if (!transition) return;
+            const currentH = transition.current;
+            if (currentH >= 20 || currentH < 6) {
+                const ghost = GTA_GHOSTS_LIST.find(g => g.startHour === currentH);
+                if (ghost) {
+                    this.showGhostNotification(ghost);
+                }
+            }
+        });
+    }
+
+    showGhostNotification(ghost: GtaGhostInfo): void {
+        if (this.ghostNotificationTimeout) {
+            clearTimeout(this.ghostNotificationTimeout);
+        }
+        this.activeGhostNotification = ghost;
+        this.cdr.markForCheck();
+        this.ghostNotificationTimeout = setTimeout(() => {
+            this.activeGhostNotification = null;
+            this.ghostNotificationTimeout = null;
+            this.cdr.markForCheck();
+        }, 20000);
+    }
+
+    dismissGhostNotification(): void {
+        if (this.ghostNotificationTimeout) {
+            clearTimeout(this.ghostNotificationTimeout);
+            this.ghostNotificationTimeout = null;
+        }
+        this.activeGhostNotification = null;
+        this.cdr.markForCheck();
+    }
+
+    locateNotificationGhost(): void {
+        if (!this.activeGhostNotification || !this.map) return;
+        const g = this.activeGhostNotification;
+        const [lat, lng] = this.worldToLatLng(g.x, g.y);
+        this.map.setView([lat, lng], 5, { animate: true });
+        this.focusMysteryLocation({
+            id: g.id,
+            title: `#${g.order < 10 ? '0' + g.order : g.order} ${g.name}`,
+            color: '#9b59b6',
+            description: `${g.location} (${g.timeWindow})`,
+            active: true,
+            isGhostToggle: true,
+            position: { x: g.x, y: g.y, z: g.z || 0 }
+        } as unknown as GtaMystery);
+        this.dismissGhostNotification();
     }
 
     switchGame(game: string): void {
@@ -575,33 +638,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             });
         }
 
-        this.startInGameClock();
-
         this.bindCustomMarkerEvents();
-    }
-
-    private startInGameClock(): void {
-        const now = new Date();
-        const totalRealSecondsToday = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-        const inGameTotalSeconds = (totalRealSecondsToday * 30) % 86400;
-        this.inGameHours = (Math.floor(inGameTotalSeconds / 3600) - 6 + 24) % 24;
-        this.inGameMinutes = Math.floor((inGameTotalSeconds % 3600) / 60);
-        this.updateInGameTimeString();
-
-        this.clockInterval = setInterval(() => {
-            this.inGameMinutes++;
-            if (this.inGameMinutes >= 60) {
-                this.inGameMinutes = 0;
-                this.inGameHours = (this.inGameHours + 1) % 24;
-            }
-            this.updateInGameTimeString();
-        }, 2000);
-    }
-
-    private updateInGameTimeString(): void {
-        const hh = this.inGameHours.toString().padStart(2, '0');
-        const mm = this.inGameMinutes.toString().padStart(2, '0');
-        this.inGameTimeStr = `${hh}:${mm}`;
     }
 
     toggleSettings(): void {
@@ -1336,9 +1373,9 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         this.collectiblesSub?.unsubscribe();
         this.cayoSub?.unsubscribe();
         window.removeEventListener('resize', this.onWindowResize);
-        if (this.clockInterval) {
-            clearInterval(this.clockInterval);
-        }
+        this.dismissGhostNotification();
+        this.slasherCirclesMap.clear();
+        this.ghostMarkersMap.clear();
         if (this.map) {
             this.map.remove();
         }
@@ -2369,6 +2406,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     private mysteryMarker: L.Marker | null = null;
     private mysteryMarkers: L.Marker[] = [];
     private slasherCirclesMap: Map<string, L.Circle[]> = new Map();
+    private ghostMarkersMap: Map<string, L.CircleMarker> = new Map();
 
     private getMysteryThumbnail(thumb?: string): string {
         if (!thumb) return '';
@@ -2425,6 +2463,73 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
                     const [lat, lng] = this.worldToLatLng(anyMystery.position.x, anyMystery.position.y);
                     this.map.panTo([lat, lng], { animate: true, duration: 0.8 });
                 }
+            }
+            return;
+        }
+
+        // Comportamiento Switch Multiselección para Fantasmas al descubierto
+        if (anyMystery.isGhostToggle) {
+            const ghostId = anyMystery.id;
+            const existingMarker = this.ghostMarkersMap.get(ghostId);
+
+            if (existingMarker) {
+                existingMarker.remove();
+                this.ghostMarkersMap.delete(ghostId);
+            }
+
+            if (anyMystery.active && anyMystery.position) {
+                const [gLat, gLng] = this.worldToLatLng(anyMystery.position.x, anyMystery.position.y);
+                const pinColor = anyMystery.color || '#9b59b6';
+                const pinIcon = 'fa-ghost';
+
+                // Pin oficial de la aplicación (idéntico al sistema de misterios)
+                const ghostIcon = this.mysteryPopupService.createSingleMysteryIcon('fa-ghost', pinColor);
+
+                const marker = L.marker([gLat, gLng], { icon: ghostIcon }).addTo(this.map!);
+
+                const card = document.createElement('div');
+                card.className = 'gta-popup-card';
+                card.style.minWidth = '260px';
+                card.style.maxWidth = '300px';
+                card.style.padding = '14px 16px';
+                card.style.background = '#0c1017';
+                card.style.borderRadius = '10px';
+                card.style.borderTop = `3px solid ${pinColor}`;
+
+                const badge = document.createElement('div');
+                badge.style.fontSize = '10px';
+                badge.style.fontWeight = '800';
+                badge.style.textTransform = 'uppercase';
+                badge.style.letterSpacing = '0.5px';
+                badge.style.color = pinColor;
+                badge.style.marginBottom = '6px';
+                badge.textContent = this.translationService.t('transports.events.title') || 'EVENTO';
+
+                const title = document.createElement('div');
+                title.style.fontSize = '14px';
+                title.style.fontWeight = '800';
+                title.style.color = '#ffffff';
+                title.style.marginBottom = '6px';
+                title.style.paddingRight = '18px';
+                title.style.lineHeight = '1.25';
+                title.textContent = anyMystery.title;
+
+                const desc = document.createElement('div');
+                desc.style.fontSize = '12px';
+                desc.style.color = 'rgba(255, 255, 255, 0.8)';
+                desc.style.lineHeight = '1.4';
+                desc.textContent = anyMystery.description || '';
+
+                card.append(badge, title, desc);
+
+                marker.bindPopup(card, {
+                    className: 'gta-leaflet-popup gta-mystery-popup',
+                    maxWidth: 320,
+                    minWidth: 260
+                }).openPopup();
+
+                this.ghostMarkersMap.set(ghostId, marker as unknown as L.CircleMarker);
+                this.map.panTo([gLat, gLng], { animate: true, duration: 0.8 });
             }
             return;
         }
