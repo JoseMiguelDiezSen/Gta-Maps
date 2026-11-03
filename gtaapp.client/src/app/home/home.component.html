@@ -457,22 +457,22 @@
 
   <!-- BOTONES SECUNDARIOS: GUÍAS DE GTA 5 Y GTA 6 -->
   <div class="home-guide-actions">
-    <button
-      type="button"
+    <a
       class="home-guide-btn home-guide-btn-gta5"
-      (click)="goToGta5Guia($event)"
+      routerLink="/gta5-guia-offline"
+      style="text-decoration: none;"
       [title]="'home.gta5GuiaBtn' | translate"
     >
       <span class="home-guide-btn-text">{{ 'home.gta5GuiaBtn' | translate }}</span>
-    </button>
-    <button
-      type="button"
+    </a>
+    <a
       class="home-guide-btn home-guide-btn-gta6"
-      (click)="goToGta6Guia($event)"
+      routerLink="/gta6-guia-offline"
+      style="text-decoration: none;"
       [title]="'home.gta6GuiaBtn' | translate"
     >
       <span class="home-guide-btn-text">{{ 'home.gta6GuiaBtn' | translate }}</span>
-    </button>
+    </a>
   </div>
 
   <div class="home-last-update" [title]="('common.lastUpdate' | translate) + ': ' + ultimaActualizacion + ' (' + ('common.commit' | translate) + ' ' + buildCommit + ')'">
