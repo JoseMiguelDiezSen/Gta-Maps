@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../../models/guia';
@@ -116,6 +117,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   public readonly cookieService = inject(CookieService);
   private readonly titleService = inject(Title);
   private readonly metaService = inject(Meta);
+  private readonly route = inject(ActivatedRoute);
 
   constructor() {
     this.weaponCounts$ = this.guiaService.getArmasGuiaOffline().pipe(
@@ -380,7 +382,10 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
         this.secciones = data.secciones || [];
         this.isLoading = false;
         
-        if (this.secciones.length > 0 && this.secciones[0].articulos.length > 0) {
+        const capParam = this.route.snapshot.queryParams['capitulo'];
+        if (capParam) {
+          this.seleccionarArticulo(capParam, false);
+        } else if (this.secciones.length > 0 && this.secciones[0].articulos.length > 0) {
           this.seleccionarArticulo(this.secciones[0].articulos[0].id, false);
         }
       },

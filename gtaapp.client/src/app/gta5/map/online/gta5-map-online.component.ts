@@ -2467,8 +2467,8 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             return;
         }
 
-        // Comportamiento Switch Multiselección para Fantasmas al descubierto
-        if (anyMystery.isGhostToggle) {
+        // Comportamiento Switch Multiselección para Fantasmas y Eventos por Pistas
+        if (anyMystery.isGhostToggle || anyMystery.isEventToggle) {
             const ghostId = anyMystery.id;
             const existingMarker = this.ghostMarkersMap.get(ghostId);
 
@@ -2480,10 +2480,10 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             if (anyMystery.active && anyMystery.position) {
                 const [gLat, gLng] = this.worldToLatLng(anyMystery.position.x, anyMystery.position.y);
                 const pinColor = anyMystery.color || '#9b59b6';
-                const pinIcon = 'fa-ghost';
+                const pinIcon = anyMystery.icon || (anyMystery.isGhostToggle ? 'fa-ghost' : 'fa-paw');
 
                 // Pin oficial de la aplicación (idéntico al sistema de misterios)
-                const ghostIcon = this.mysteryPopupService.createSingleMysteryIcon('fa-ghost', pinColor);
+                const ghostIcon = this.mysteryPopupService.createSingleMysteryIcon(pinIcon, pinColor);
 
                 const marker = L.marker([gLat, gLng], { icon: ghostIcon }).addTo(this.map!);
 

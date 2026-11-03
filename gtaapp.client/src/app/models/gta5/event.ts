@@ -138,8 +138,9 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     startHour: 20,
     endHour: 21,
     timeWindow: '20:00 - 21:00',
-    x: -122.8,
-    y: 6463.2,
+    x: 63.8,
+    y: 6664.9,
+    z: 32.3,
     description: 'Casa deteriorada en Procopio Drive. Puede aparecer en la ventana del ático o en la construcción trasera.'
   },
   {
@@ -150,8 +151,9 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     startHour: 21,
     endHour: 22,
     timeWindow: '21:00 - 22:00',
-    x: 1828.6,
-    y: 3680.1,
+    x: 122.8,
+    y: -1180.9,
+    z: 31.2,
     description: 'Bajo el paso elevado de la autopista. Revisar la pared con grafitis y el refugio de lona.'
   },
   {
@@ -162,21 +164,23 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     startHour: 22,
     endHour: 23,
     timeWindow: '22:00 - 23:00',
-    x: 2438.4,
-    y: 4976.2,
+    x: 1907.8,
+    y: 4931.9,
+    z: 55.5,
     description: 'Granero en la zona superior del edificio. Revisar ambos extremos del pajar.'
   },
   {
     id: 'ghost-miriam-turner',
     order: 4,
     name: 'Fantasma de Miriam Turner Overpass',
-    location: 'Pilar del puente próximo al aeropuerto',
+    location: 'Pilar del puente colgante hacia Elysian Island',
     startHour: 23,
     endHour: 0,
     timeWindow: '23:00 - 00:00',
-    x: 3391.8,
-    y: 5178.6,
-    description: 'En lo alto del pilar del puente próximo al aeropuerto internacional. Buscar en la plataforma superior.'
+    x: -550.6,
+    y: -2238.8,
+    z: 122.8,
+    description: 'En lo alto de la torre del puente colgante que cruza hacia Elysian Island / Puerto.'
   },
   {
     id: 'ghost-lighthouse',
@@ -186,8 +190,9 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     startHour: 1,
     endHour: 2,
     timeWindow: '01:00 - 02:00',
-    x: -1810.2,
-    y: 2190.5,
+    x: 3428.9,
+    y: 5175.5,
+    z: 36.4,
     description: 'En la isla del faro. Puede aparecer en la plataforma inferior o en la parte superior del faro.'
   },
   {
@@ -198,21 +203,23 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     startHour: 2,
     endHour: 3,
     timeWindow: '02:00 - 03:00',
-    x: -2320.5,
-    y: 410.2,
-    description: 'Zona industrial de Cypress Flats. Revisar la estructura ferroviaria y el entorno de la grúa.'
+    x: 1006.6,
+    y: -2167.5,
+    z: 34.7,
+    description: 'Zona industrial de Cypress Flats. Revisar la estructura ferroviaria y el tejado del matadero.'
   },
   {
     id: 'ghost-burned-house',
     order: 7,
     name: 'Fantasma de Casa Incendiada',
-    location: 'Joshua Road, cerca de Stoner Cement Works, Harmony',
+    location: 'Joshua Road, cerca del Río Zancudo / Harmony',
     startHour: 3,
     endHour: 4,
     timeWindow: '03:00 - 04:00',
-    x: -1200.5,
-    y: -800.8,
-    description: 'Casa abandonada junto a Joshua Road en Harmony. Revisar el porche y la parte trasera.'
+    x: 162.7,
+    y: 3132.7,
+    z: 44.2,
+    description: 'Casa abandonada calcinada junto a Joshua Road. Revisar el porche y la parte trasera.'
   },
   {
     id: 'ghost-little-seoul',
@@ -222,9 +229,10 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     startHour: 4,
     endHour: 5,
     timeWindow: '04:00 - 05:00',
-    x: 1650.5,
-    y: -10.2,
-    description: 'En lo alto del campanario. Ubicación elevada, conviene fotografiar desde un punto con buena visibilidad.'
+    x: -765.8,
+    y: -692.7,
+    z: 71.6,
+    description: 'En lo alto del campanario de la iglesia. Revisar la parte superior de la torre.'
   },
   {
     id: 'ghost-twohoots',
@@ -234,9 +242,10 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     startHour: 5,
     endHour: 6,
     timeWindow: '05:00 - 06:00',
-    x: -1430.5,
-    y: -570.2,
-    description: 'Cascada al este de la mansión de la zona. Buscar junto a la caída de agua y en los márgenes superiores.'
+    x: -1648.2,
+    y: 2082.6,
+    z: 88.5,
+    description: 'Cascada en Tongva Hills. Buscar junto a la caída de agua y en los márgenes de roca.'
   },
   {
     id: 'ghost-devin-weston',
@@ -246,9 +255,10 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     startHour: 0,
     endHour: 1,
     timeWindow: '00:00 - 01:00 (Requiere los 9 anteriores)',
-    x: -1605.5,
-    y: 5258.0,
-    description: 'El empresario de GTA V aparece flotando frente al acantilado de Paleto Cove, en el lugar relacionado con el desenlace de su historia.'
+    x: -1617.0,
+    y: 5173.0,
+    z: 8.1,
+    description: 'El empresario de GTA V aparece flotando frente al acantilado de Paleto Cove.'
   }
 ];
 

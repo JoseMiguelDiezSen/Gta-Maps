@@ -1294,6 +1294,8 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       color: '#06b6d4',
       description: clue.description,
       active,
+      isEventToggle: true,
+      icon: clue.icon || 'fa-paw',
       position: { x: clue.x, y: clue.y, z: clue.z || 0 }
     } as unknown as GtaMystery);
   }

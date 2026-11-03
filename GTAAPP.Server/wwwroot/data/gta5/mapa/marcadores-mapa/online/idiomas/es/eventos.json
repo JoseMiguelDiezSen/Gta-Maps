@@ -75,47 +75,85 @@
     "description": "Celebraciones festivas de invierno con mantos de nieve, asaltantes oportunistas y regalos festivos en Los Santos.",
     "subcategories": [
       {
-        "id": "gooch",
-        "title": "El Grinch (The Gooch)",
-        "icon": "fa-hat-cowboy",
-        "color": "#2ecc71",
-        "description": "Una siniestra criatura peluda de color verde vestida de Papá Noel que embosca sin piedad a los residentes desprevenidos.",
+        "id": "navidad-items",
+        "title": "Eventos de Navidad",
+        "icon": "fa-sleigh",
+        "color": "#38bdf8",
+        "description": "Celebraciones festivas de invierno con mantos de nieve, asaltantes oportunistas y regalos festivos en Los Santos.",
         "items": [
           {
-            "id": "gooch-ambush",
-            "title": "Aparición de The Gooch",
+            "id": "gooch",
+            "title": "The Gooch (El Cabronazo)",
             "category": "navidad",
-            "subcategory": "gooch",
-            "description": "Aparece entre una densa nube de humo verde con una risa estridente. Derriba al jugador de espaldas, le arrebata dinero en efectivo y aperitivos del inventario, y huye a pie velozmente.",
-            "reward": "Máscara oficial de The Gooch y recuperación del botín + $25,000",
-            "period": "Festividades Navideñas",
-            "badgeIcon": "fa-sack-dollar",
-            "badgeColor": "#27ae60",
+            "subcategory": "navidad-items",
+            "description": "El Grinch particular de Rockstar Games. Un personaje disfrazado que aparece por sorpresa envuelto en humo verde, derriba al jugador y le roba dinero y provisiones del inventario.",
+            "reward": "Atuendo completo y máscara de The Gooch + Recuperación de lo robado y dinero extra",
+            "period": "Festividades Navideñas (Aparición aleatoria)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#22c55e",
             "details": [
-              "Requiere al menos 2 jugadores en la sesión y llevar dinero encima.",
-              "Hay que perseguirlo de inmediato antes de que desaparezca para abatirle.",
-              "La primera vez que lo abates desbloquea la indumentaria completa de The Gooch."
+              "Aparición: aleatoria en mundo libre (sin coordenadas fijas ni hora de aparición concreta).",
+              "Requisitos de sesión: estar en una sesión con al menos 2 jugadores y un mínimo de 48 minutos de antigüedad.",
+              "Condición del jugador: encontrarse en el exterior a pie y llevar dinero en efectivo o aperitivos encima.",
+              "Mecánica: perseguirlo y eliminarlo de inmediato antes de que consiga escapar para recuperar lo robado y desbloquear la recompensa."
             ]
-          }
-        ]
-      },
-      {
-        "id": "snowmen",
-        "title": "Muñecos de Nieve",
-        "icon": "fa-snowflake",
-        "color": "#3498db",
-        "description": "25 muñecos de nieve festivos distribuidos a lo largo y ancho del mapa nevado listos para ser destruidos.",
-        "items": [
+          },
+          {
+            "id": "weazel-plaza",
+            "title": "Tiroteo de Weazel Plaza",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Tributo cinematográfico a Die Hard (La jungla de cristal). Un asalto armado en la azotea del rascacielos Weazel Plaza desata un intenso tiroteo entre una banda de atracadores y la policía de Los Santos con helicópteros involucrados.",
+            "reward": "Pistola WM 29 + Acabado 'Season's Greetings' (Pistol Mk II) + $25,000 y RP",
+            "period": "Festividades Navideñas (20:00 - 06:00)",
+            "badgeIcon": "fa-gun",
+            "badgeColor": "#f59e0b",
+            "position": {
+              "x": -915.7,
+              "y": -442.7,
+              "z": 80
+            },
+            "details": [
+              "Ubicación fija: azotea del rascacielos Weazel Plaza (Rockford Hills).",
+              "Horario de activación: entre las 20:00 y las 06:00 (hora del juego).",
+              "Requisitos de sesión: haber permanecido al menos 20 minutos en la sesión libre.",
+              "Radio de activación: aproximarse a menos de 400 metros del edificio durante la franja nocturna.",
+              "Mecánica: subir a la azotea, eliminar a los asaltantes armados y asegurar el botín para conseguir la pistola exclusiva WM 29."
+            ]
+          },
+          {
+            "id": "yeti-hunt",
+            "title": "La Caza del Yeti",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Una perturbadora investigación en los densos bosques de Chiliad Mountain State Wilderness. Examina las 5 pistas abandonadas por una feroz criatura mitológica antes de enfrentarte cara a cara con el mítico Yeti bajo el manto de la noche.",
+            "reward": "Atuendo oficial del Yeti + $50,000 bono final ($10,000 por cada pista)",
+            "period": "Festividades Navideñas (21:00 - 06:00)",
+            "badgeIcon": "fa-paw",
+            "badgeColor": "#06b6d4",
+            "position": {
+              "x": -1560,
+              "y": 4480,
+              "z": 20
+            },
+            "details": [
+              "Zona de investigación: Chiliad Mountain State Wilderness (Raton Canyon / Cassidy Creek).",
+              "Fase 1 (Pistas): Localizar y examinar 5 pistas ensangrentadas repartidas por la espesura ($10,000 y 1,000 RP cada una).",
+              "Efecto sonoro: Al aproximarse a una pista se escucha un latido de corazón distorsionado.",
+              "Fase 2 (Acecho nocturno): Tras reunir las 5 pistas, adentrarse en la zona entre las 21:00 y las 06:00 (hora del juego).",
+              "Mecánica final: Sobrevivir a la feroz emboscada del Yeti y abatirlo para desbloquear el atuendo de cuerpo entero."
+            ]
+          },
           {
             "id": "snowmen-hunt",
             "title": "Cacería de Muñecos de Nieve",
             "category": "navidad",
-            "subcategory": "snowmen",
-            "description": "Figuras heladas artesanales ubicadas en parques, azoteas, jardines y porches de San Andreas. Se pueden destruir atropellándolos, con armas de fuego o explosivos.",
+            "subcategory": "navidad-items",
+            "description": "25 muñecos de nieve festivos distribuidos a lo largo y ancho del mapa nevado listos para ser destruidos.",
             "reward": "Atuendo de Muñeco de Nieve (El Muñeco de Nieve) + $125,000 al completar los 25",
             "period": "Festividades Navideñas",
             "badgeIcon": "fa-snowflake",
-            "badgeColor": "#2980b9",
+            "badgeColor": "#38bdf8",
             "details": [
               "Cada muñeco destruido otorga $5,000 y 1,000 RP.",
               "Al destruir los 25 muñecos se entrega un bono final de $125,000.",
