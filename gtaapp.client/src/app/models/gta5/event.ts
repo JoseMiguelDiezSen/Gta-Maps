@@ -333,3 +333,267 @@ export const GTA_YETI_ZONE = {
   radius: 280,
   timeWindow: '21:00 - 06:00'
 };
+
+export interface GtaSnowmanInfo {
+  id: string;
+  order: number;
+  name: string;
+  zone: string;
+  description: string;
+  x: number;
+  y: number;
+  z?: number;
+}
+
+export const GTA_SNOWMEN_LIST: GtaSnowmanInfo[] = [
+  {
+    id: 'snowman-01',
+    order: 1,
+    name: '12 Sustancia Road',
+    zone: 'El Burro Heights',
+    description: 'En el patio delantero de la vivienda en 12 Sustancia Road.',
+    x: 1341.5,
+    y: -1586.9,
+    z: 50.0
+  },
+  {
+    id: 'snowman-02',
+    order: 2,
+    name: 'East Mirror Drive',
+    zone: 'Mirror Park',
+    description: 'Frente a una de las residencias familiares en East Mirror Drive.',
+    x: 1052.0,
+    y: -432.0,
+    z: 66.0
+  },
+  {
+    id: 'snowman-03',
+    order: 3,
+    name: 'Broker Park',
+    zone: 'East Vinewood',
+    description: 'Junto a la fuente central del parque recreativo Broker Park.',
+    x: 645.0,
+    y: 162.0,
+    z: 92.0
+  },
+  {
+    id: 'snowman-04',
+    order: 4,
+    name: 'Spanish Avenue',
+    zone: 'Hawick',
+    description: 'En el callejón ajardinado entre dos viviendas residenciales.',
+    x: 322.0,
+    y: -212.0,
+    z: 54.0
+  },
+  {
+    id: 'snowman-05',
+    order: 5,
+    name: 'Cubo Rojo de Legion Square',
+    zone: 'Downtown Los Santos',
+    description: 'Junto a la escultura cúbica roja en la plaza central de Legion Square.',
+    x: 215.0,
+    y: -930.0,
+    z: 30.0
+  },
+  {
+    id: 'snowman-06',
+    order: 6,
+    name: 'BJ Smith Recreational Center',
+    zone: 'Chamberlain Hills',
+    description: 'Junto a la rampa de skate half-pipe del polideportivo.',
+    x: -215.0,
+    y: -1680.0,
+    z: 34.0
+  },
+  {
+    id: 'snowman-07',
+    order: 7,
+    name: 'Goma Street',
+    zone: 'Vespucci Canals',
+    description: 'Bajo la sombra de una palmera junto al paseo peatonal de Goma Street.',
+    x: -1085.0,
+    y: -1145.0,
+    z: 2.0
+  },
+  {
+    id: 'snowman-08',
+    order: 8,
+    name: 'Decker Park',
+    zone: 'Vespucci Canals',
+    description: 'Sobre la superficie de la rampa de skate half-pipe de Decker Park.',
+    x: -1005.0,
+    y: -1365.0,
+    z: 5.0
+  },
+  {
+    id: 'snowman-09',
+    order: 9,
+    name: 'Mansión De Santa',
+    zone: 'Rockford Hills',
+    description: 'En el jardín delantero de la mansión familiar de Michael en Portola Drive.',
+    x: -813.0,
+    y: 178.0,
+    z: 72.0
+  },
+  {
+    id: 'snowman-10',
+    order: 10,
+    name: 'Parque Canino de Vinewood',
+    zone: 'Vinewood Hills',
+    description: 'En la zona verde vallada del parque de adiestramiento canino.',
+    x: -568.0,
+    y: 468.0,
+    z: 104.0
+  },
+  {
+    id: 'snowman-11',
+    order: 11,
+    name: 'Observatorio Galileo',
+    zone: 'Vinewood Hills',
+    description: 'En la terraza mirador del ala este del Observatorio Galileo.',
+    x: -438.0,
+    y: 1106.0,
+    z: 326.0
+  },
+  {
+    id: 'snowman-12',
+    order: 12,
+    name: 'North Rockford Drive',
+    zone: 'Vinewood Hills',
+    description: 'Frente a la entrada ajardinada de una villa en North Rockford Drive.',
+    x: -910.0,
+    y: 605.0,
+    z: 142.0
+  },
+  {
+    id: 'snowman-13',
+    order: 13,
+    name: 'Great Ocean Highway (Banham Canyon)',
+    zone: 'Banham Canyon',
+    description: 'En el patio trasero de una residencia sobre los acantilados de la autopista.',
+    x: -2165.0,
+    y: -412.0,
+    z: 13.0
+  },
+  {
+    id: 'snowman-14',
+    order: 14,
+    name: 'Banham Canyon Drive',
+    zone: 'Banham Canyon',
+    description: 'En la parte trasera de una casa de madera en la ladera del cañón.',
+    x: -1855.0,
+    y: -352.0,
+    z: 49.0
+  },
+  {
+    id: 'snowman-15',
+    order: 15,
+    name: 'Cruce Tongva Drive y Zancudo Road',
+    zone: 'Tongva Valley',
+    description: 'En la bifurcación de caminos entre Tongva Drive y Zancudo Road.',
+    x: -1452.0,
+    y: 888.0,
+    z: 182.0
+  },
+  {
+    id: 'snowman-16',
+    order: 16,
+    name: 'Joshua Road',
+    zone: 'Grand Senora Desert',
+    description: 'En la entrada delantera de una casa rústica a lo largo de Joshua Road.',
+    x: 672.0,
+    y: 2695.0,
+    z: 41.0
+  },
+  {
+    id: 'snowman-17',
+    order: 17,
+    name: 'Cherry Pie Farm',
+    zone: 'Grand Senora Desert',
+    description: 'Frente a una edificación rural junto a los campos de Cherry Pie Farm.',
+    x: 2435.0,
+    y: 4975.0,
+    z: 46.0
+  },
+  {
+    id: 'snowman-18',
+    order: 18,
+    name: 'Puesto de Martin Madrazo',
+    zone: 'Grand Senora Desert',
+    description: 'Frente a un edificio en ruinas del puesto oculto del Cartel Madrazo.',
+    x: 1395.0,
+    y: 3613.0,
+    z: 38.0
+  },
+  {
+    id: 'snowman-19',
+    order: 19,
+    name: 'Parque de Caravanas Senora',
+    zone: 'RON Alternates Wind Farm',
+    description: 'Delante de un remolque en el campamento residencial junto al parque eólico.',
+    x: 2355.0,
+    y: 2582.0,
+    z: 47.0
+  },
+  {
+    id: 'snowman-20',
+    order: 20,
+    name: 'Remolque de Trevor Philips',
+    zone: 'Sandy Shores',
+    description: 'A escasos metros del remolque de Trevor en Zancudo Avenue.',
+    x: 1974.8,
+    y: 3819.3,
+    z: 33.4
+  },
+  {
+    id: 'snowman-21',
+    order: 21,
+    name: 'Calle Principal de Grapeseed',
+    zone: 'Grapeseed',
+    description: 'Frente a una vivienda agrícola en Grapeseed Main Street.',
+    x: 1715.0,
+    y: 4805.0,
+    z: 42.0
+  },
+  {
+    id: 'snowman-22',
+    order: 22,
+    name: 'Casa de Ursula (Faro de El Gordo)',
+    zone: 'Mount Gordo',
+    description: 'En el porche de la cabaña aislada de Ursula en el sendero del faro.',
+    x: 3345.0,
+    y: 5142.0,
+    z: 18.0
+  },
+  {
+    id: 'snowman-23',
+    order: 23,
+    name: 'Restaurante Up-n-Atom',
+    zone: 'Procopio Beach',
+    description: 'Junto al gran letrero publicitario del Up-n-Atom Diner en la costa norte.',
+    x: 79.3,
+    y: 6340.0,
+    z: 31.0
+  },
+  {
+    id: 'snowman-24',
+    order: 24,
+    name: 'Paleto Boulevard',
+    zone: 'Paleto Bay',
+    description: 'En el patio trasero de una vivienda residencial a lo largo de Paleto Boulevard.',
+    x: -382.0,
+    y: 6172.0,
+    z: 31.0
+  },
+  {
+    id: 'snowman-25',
+    order: 25,
+    name: 'Muelle Sonar Collections',
+    zone: 'Paleto Cove',
+    description: 'Al este de las instalaciones del muelle de búsqueda submarina junto a la autopista.',
+    x: -1015.0,
+    y: 5320.0,
+    z: 44.0
+  }
+];

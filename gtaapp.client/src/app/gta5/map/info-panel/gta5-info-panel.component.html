@@ -1127,7 +1127,7 @@
               @if (selectedEventItem.id !== 'slasher-clown' && selectedEventItem.id !== 'ghost-gordo' && selectedEventItem.id !== 'fantasmas-descubierto') {
                 <h2 class="mdetail-hero-title">{{ selectedEventItem.title }}</h2>
               }
-              @if (selectedEventItem.position && selectedEventItem.id !== 'yeti-hunt' && selectedEventItem.id !== 'yeti') {
+              @if (selectedEventItem.position && selectedEventItem.id !== 'yeti-hunt' && selectedEventItem.id !== 'yeti' && selectedEventItem.id !== 'snowmen-hunt' && selectedEventItem.id !== 'snowmen') {
                 <div class="mystery-locate-action-bar" style="margin-top: 10px;">
                   <button
                     type="button"
@@ -1318,6 +1318,68 @@
                 </div>
                 <div class="mdetail-synopsis" style="padding: 10px 14px; font-size: 12px; color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
                   Una vez investigadas las 5 pistas, adéntrate en el área delimitada de Chiliad Wilderness durante la noche. El Yeti emergerá de la maleza y cargará contra ti. Abátelo para conseguir la recompensa final.
+                </div>
+              </div>
+            } @else if (selectedEventItem.id === 'snowmen-hunt' || selectedEventItem.id === 'snowmen') {
+              <!-- Radar Táctico de San Andreas para los 25 Muñecos de Nieve -->
+              <div class="slasher-radar-container">
+                <div id="snowmen-mini-map" class="slasher-mini-map"></div>
+              </div>
+
+              <!-- LISTA DE LOS 25 MUÑECOS DE NIEVE -->
+              <div class="ghosts-scroll-list">
+                @for (s of snowmenList; track s.id) {
+                <div
+                  class="ghost-compact-card"
+                  [class.is-active]="activeSnowmanId === s.id"
+                  [style.--m-color]="'#38bdf8'"
+                  (click)="selectSnowman(s.id)"
+                >
+                  <!-- Badge numérico -->
+                  <div class="ghost-thumb-box">
+                    <span class="ghost-order-num">#{{ s.order < 10 ? '0' + s.order : s.order }}</span>
+                  </div>
+
+                  <!-- Contenido del muñeco -->
+                  <div class="ghost-card-body">
+                    <div class="ghost-card-title-row">
+                      <span class="ghost-card-name">{{ s.name }}</span>
+                    </div>
+                    <div class="ghost-card-meta">
+                      <span class="ghost-meta-loc" [title]="s.description">
+                        <i class="fa-solid fa-location-dot"></i> {{ s.zone }} &bull; {{ s.description }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Botón de localización en el mapa grande -->
+                  <div class="ghost-card-action">
+                    <button
+                      type="button"
+                      class="mcard-locate-btn ghost-locate-btn"
+                      [class.is-located]="isSnowmanLocated(s.id)"
+                      (click)="onLocateSnowman(s, $event)"
+                      [title]="'transports.mysteries.locateOnMap' | translate"
+                    >
+                      @if (isSnowmanLocated(s.id)) {
+                        <i class="fa-solid fa-circle-check"></i>
+                      } @else {
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                      }
+                    </button>
+                  </div>
+                </div>
+                }
+              </div>
+
+              <!-- Bloque especial: Recompensas y Mecánica de los Muñecos -->
+              <div class="mdetail-block gold-block" style="margin-top: 10px;">
+                <div class="mdetail-block-head gold-head">
+                  <i class="fa-solid fa-award"></i>
+                  <span>RECOMPENSA Y BONIFICACIÓN FESTIVA</span>
+                </div>
+                <div class="mdetail-synopsis" style="padding: 10px 14px; font-size: 12px; color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+                  Destruye cada muñeco embistiéndolo con un vehículo, disparándole o con explosivos ($5,000 y 1,000 RP por unidad). Al completar los 25 muñecos recibirás una bonificación adicional de $125,000 y el <strong>Atuendo de Muñeco de Nieve</strong>.
                 </div>
               </div>
             } @else {

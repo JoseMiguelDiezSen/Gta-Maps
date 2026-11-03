@@ -8,7 +8,7 @@ import { VehicleService } from '../../../services/gta5/vehicle.service';
 import { MissionService } from '../../../services/gta5/mission.service';
 import { WeaponService } from '../../../services/gta5/weapon.service';
 import { EventService } from '../../../services/gta5/event.service';
-import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, GTA_SLASHERS_LIST, GtaGhostInfo, GTA_GHOSTS_LIST, GtaYetiClue, GTA_YETI_CLUES_LIST, GTA_YETI_ZONE } from '../../../models/gta5/event';
+import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, GTA_SLASHERS_LIST, GtaGhostInfo, GTA_GHOSTS_LIST, GtaYetiClue, GTA_YETI_CLUES_LIST, GTA_YETI_ZONE, GtaSnowmanInfo, GTA_SNOWMEN_LIST } from '../../../models/gta5/event';
 import { GtaTimeService } from '../../../services/gta5/gta-time.service';
 import * as L from 'leaflet';
 import { gta5WorldToLatLng } from '../../../utils/gta5-map-projection';
@@ -185,6 +185,17 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   isYetiActive(): boolean {
     return this.gtaTimeService.isHourActive(21, 6);
+  }
+
+  // Los 25 Muñecos de Nieve (Christmas Snowmen)
+  readonly snowmenList: GtaSnowmanInfo[] = GTA_SNOWMEN_LIST;
+  activeSnowmanId: string | null = null;
+  locatedSnowmanIds = new Set<string>();
+  private snowmenMap?: L.Map;
+  private snowmenMarkers: { [id: string]: L.CircleMarker } = {};
+
+  isSnowmanLocated(id: string): boolean {
+    return this.locatedSnowmanIds.has(id);
   }
 
   // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' | 'event-subcategories' | 'event-detail'
@@ -985,6 +996,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     const isSlasher = item.id === 'slasher-clown' || item.id === 'asesinos-disfrazados';
     const isGhost = item.id === 'ghost-gordo' || item.id === 'fantasmas-descubierto';
     const isYeti = item.id === 'yeti-hunt' || item.id === 'yeti';
+    const isSnowman = item.id === 'snowmen-hunt' || item.id === 'snowmen';
 
     if (isSlasher) {
       setTimeout(() => this.initSlasherMiniMap(), 150);
@@ -995,12 +1007,16 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     if (isYeti) {
       setTimeout(() => this.initYetiMiniMap(), 150);
     }
+    if (isSnowman) {
+      setTimeout(() => this.initSnowmenMiniMap(), 150);
+    }
   }
 
   closeEventDetail(): void {
     this.destroySlasherMiniMap();
     this.destroyGhostsMiniMap();
     this.destroyYetiMiniMap();
+    this.destroySnowmenMiniMap();
     this.selectedEventItem = null;
     this.drawerView = this.selectedEventCategory ? 'event-subcategories' : 'tabs';
   }
@@ -1397,6 +1413,139 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     this.yetiMarkers = {};
   }
 
+  initSnowmenMiniMap(): void {
+    this.destroySnowmenMiniMap();
+    const container = document.getElementById('snowmen-mini-map');
+    if (!container) return;
+
+    const islandBounds = L.latLngBounds([[-90, -25], [26, 89]]);
+
+    this.snowmenMap = L.map(container, {
+      crs: L.CRS.Simple,
+      minZoom: 1.5,
+      maxZoom: 3.5,
+      zoomSnap: 0.05,
+      zoom: 2.05,
+      center: [-36.5, 29.5],
+      maxBounds: islandBounds,
+      maxBoundsViscosity: 1.0,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      touchZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      zoomControl: false,
+      attributionControl: false
+    });
+
+    L.tileLayer('assets/mapas/gta5/Roadmap/{z}_{x}_{y}.jpg', {
+      tileSize: 256,
+      minNativeZoom: 3,
+      maxNativeZoom: 4,
+      noWrap: true,
+      className: 'leaflet-tile-juego'
+    }).addTo(this.snowmenMap);
+
+    this.snowmenMarkers = {};
+    this.snowmenList.forEach(s => {
+      const [lat, lng] = gta5WorldToLatLng(s.x, s.y);
+      const isSelected = this.activeSnowmanId === s.id;
+
+      const marker = L.circleMarker([lat, lng], {
+        radius: isSelected ? 8 : 5,
+        color: isSelected ? '#ffffff' : '#38bdf8',
+        weight: isSelected ? 3 : 2,
+        fillColor: isSelected ? '#38bdf8' : '#0284c7',
+        fillOpacity: isSelected ? 1 : 0.85
+      }).addTo(this.snowmenMap!);
+
+      marker.bindTooltip(`#${s.order.toString().padStart(2, '0')} ${s.name} (${s.zone})`, {
+        direction: 'top',
+        className: 'slasher-radar-tooltip'
+      });
+
+      marker.on('click', () => {
+        this.selectSnowman(s.id);
+      });
+
+      this.snowmenMarkers[s.id] = marker;
+    });
+
+    setTimeout(() => {
+      if (this.snowmenMap) {
+        this.snowmenMap.invalidateSize();
+        this.snowmenMap.setView([-36.5, 29.5], 2.05);
+      }
+    }, 200);
+  }
+
+  selectSnowman(id: string): void {
+    if (this.activeSnowmanId === id) {
+      this.activeSnowmanId = null;
+    } else {
+      this.activeSnowmanId = id;
+    }
+    this.updateSnowmenMarkersAppearance();
+  }
+
+  private updateSnowmenMarkersAppearance(): void {
+    if (!this.snowmenMap) return;
+    this.snowmenList.forEach(s => {
+      const marker = this.snowmenMarkers[s.id];
+      if (!marker) return;
+      const isSelected = this.activeSnowmanId === s.id;
+      marker.setStyle({
+        radius: isSelected ? 8 : 5,
+        color: isSelected ? '#ffffff' : '#38bdf8',
+        weight: isSelected ? 3 : 2,
+        fillColor: isSelected ? '#38bdf8' : '#0284c7',
+        fillOpacity: isSelected ? 1 : 0.85
+      });
+    });
+  }
+
+  destroySnowmenMiniMap(): void {
+    if (this.snowmenMap) {
+      try {
+        this.snowmenMap.remove();
+      } catch {
+        // ignore
+      }
+      this.snowmenMap = undefined;
+    }
+    const container = document.getElementById('snowmen-mini-map');
+    if (container && (container as unknown as { _leaflet_id?: number })._leaflet_id) {
+      delete (container as unknown as { _leaflet_id?: number })._leaflet_id;
+    }
+    this.snowmenMarkers = {};
+    this.activeSnowmanId = null;
+  }
+
+  onLocateSnowman(snowman: GtaSnowmanInfo, event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    const isCurrentlyActive = this.locatedSnowmanIds.has(snowman.id);
+    if (isCurrentlyActive) {
+      this.locatedSnowmanIds.delete(snowman.id);
+    } else {
+      this.locatedSnowmanIds.add(snowman.id);
+    }
+    const active = !isCurrentlyActive;
+
+    this.locateOnMap.emit({
+      id: snowman.id,
+      title: `#${snowman.order.toString().padStart(2, '0')} ${snowman.name}`,
+      color: '#38bdf8',
+      description: `${snowman.zone} - ${snowman.description}`,
+      active,
+      isEventToggle: true,
+      icon: 'fa-snowflake',
+      position: { x: snowman.x, y: snowman.y, z: snowman.z || 0 }
+    } as unknown as GtaMystery);
+  }
+
   get currentEventItemsList(): GtaEventItem[] {
     if (this.selectedEventSubcategory) {
       return this.selectedEventSubcategory.items || [];
@@ -1431,6 +1580,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this.destroySlasherMiniMap();
       this.destroyGhostsMiniMap();
       this.destroyYetiMiniMap();
+      this.destroySnowmenMiniMap();
       this.openEventDetail(prev);
     }
   }
@@ -1441,6 +1591,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this.destroySlasherMiniMap();
       this.destroyGhostsMiniMap();
       this.destroyYetiMiniMap();
+      this.destroySnowmenMiniMap();
       this.openEventDetail(next);
     }
   }
@@ -1992,6 +2143,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     this.destroySlasherMiniMap();
     this.destroyGhostsMiniMap();
     this.destroyYetiMiniMap();
+    this.destroySnowmenMiniMap();
     this.vehiclesSub?.unsubscribe();
     this.missionsSub?.unsubscribe();
     this.strangersSub?.unsubscribe();
