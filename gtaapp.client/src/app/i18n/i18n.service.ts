@@ -2,6 +2,7 @@ import { Injectable, signal, computed, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LanguageCode, LanguageInfo, TranslationParams } from './i18n.types';
 import { DEFAULT_LANGUAGE, STORAGE_KEY, SUPPORTED_LANGUAGES } from './i18n.config';
+import { APP_VERSION } from '../../environments/version';
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +57,8 @@ export class TranslationService {
     const current = this.loadedDictionaries();
     if (current[code]) return; // Ya está cargado en caché de memoria
 
-    this.http.get<Record<string, unknown>>(`assets/i18n/${code}.json`).subscribe({
+    const v = APP_VERSION?.timestamp ? encodeURIComponent(APP_VERSION.timestamp) : '1';
+    this.http.get<Record<string, unknown>>(`assets/i18n/${code}.json?v=${v}`).subscribe({
       next: (dict) => {
         this.loadedDictionaries.update(prev => ({
           ...prev,

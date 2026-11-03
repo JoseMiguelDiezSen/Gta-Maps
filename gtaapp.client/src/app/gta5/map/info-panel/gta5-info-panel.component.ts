@@ -8,7 +8,7 @@ import { VehicleService } from '../../../services/gta5/vehicle.service';
 import { MissionService } from '../../../services/gta5/mission.service';
 import { WeaponService } from '../../../services/gta5/weapon.service';
 import { EventService } from '../../../services/gta5/event.service';
-import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, GTA_SLASHERS_LIST, GtaGhostInfo, GTA_GHOSTS_LIST } from '../../../models/gta5/event';
+import { GtaEventCategory, GtaEventSubcategory, GtaEventItem, GtaSlasherInfo, GTA_SLASHERS_LIST, GtaGhostInfo, GTA_GHOSTS_LIST, GtaYetiClue, GTA_YETI_CLUES_LIST, GTA_YETI_ZONE } from '../../../models/gta5/event';
 import { GtaTimeService } from '../../../services/gta5/gta-time.service';
 import * as L from 'leaflet';
 import { gta5WorldToLatLng } from '../../../utils/gta5-map-projection';
@@ -169,6 +169,22 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   isGhostActive(ghost: GtaGhostInfo): boolean {
     return this.gtaTimeService.isHourActive(ghost.startHour, ghost.endHour);
+  }
+
+  // La Caza del Yeti
+  readonly yetiCluesList: GtaYetiClue[] = GTA_YETI_CLUES_LIST;
+  readonly yetiZone = GTA_YETI_ZONE;
+  activeYetiClueId: string | null = null;
+  locatedYetiClueIds = new Set<string>();
+  private yetiMap?: L.Map;
+  private yetiMarkers: { [id: string]: L.CircleMarker } = {};
+
+  isYetiClueLocated(id: string): boolean {
+    return this.locatedYetiClueIds.has(id);
+  }
+
+  isYetiActive(): boolean {
+    return this.gtaTimeService.isHourActive(21, 6);
   }
 
   // Vista activa del drawer: 'tabs' | 'dealer-grid' | 'vehicle-detail' | 'mission-detail' | 'stranger-detail' | 'heist-detail' | 'mystery-detail' | 'weapon-detail' | 'event-subcategories' | 'event-detail'
@@ -910,6 +926,15 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     if (itemId === 'slasher-driver' || itemId === 'phantom-car' || itemId === 'christine') {
       return 'assets/images/gta5/mapa/marcadores-mapa/activities/events/phantom-car-event.png';
     }
+    if (itemId === 'gooch' || itemId === 'the-gooch') {
+      return 'assets/images/gta5/mapa/marcadores-mapa/activities/events/christmas-banner.jpg';
+    }
+    if (itemId === 'weazel-plaza') {
+      return 'assets/images/gta5/mapa/marcadores-mapa/properties/weazel-plaza.jpg';
+    }
+    if (itemId === 'yeti-hunt' || itemId === 'yeti') {
+      return 'assets/images/gta5/mapa/marcadores-mapa/activities/events/christmas-banner.jpg';
+    }
     return '';
   }
 
@@ -922,6 +947,16 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       }
     }
     return true;
+  }
+
+  getEventStatusLabel(cat: GtaEventCategory): string {
+    const isEs = (this.translationService.currentLang || 'es') === 'es';
+    if (cat.id === 'halloween') {
+      const t = this.translationService.t('transports.events.statusOpen');
+      return (!t || t.includes('.')) ? (isEs ? 'Abierto' : 'Open') : t;
+    }
+    const t = this.translationService.t('transports.events.statusComingSoon');
+    return (!t || t.includes('.')) ? (isEs ? 'Próximamente' : 'Coming Soon') : t;
   }
 
   openEventCategory(cat: GtaEventCategory): void {
@@ -949,6 +984,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     this.drawerView = 'event-detail';
     const isSlasher = item.id === 'slasher-clown' || item.id === 'asesinos-disfrazados';
     const isGhost = item.id === 'ghost-gordo' || item.id === 'fantasmas-descubierto';
+    const isYeti = item.id === 'yeti-hunt' || item.id === 'yeti';
 
     if (isSlasher) {
       setTimeout(() => this.initSlasherMiniMap(), 150);
@@ -956,11 +992,15 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     if (isGhost) {
       setTimeout(() => this.initGhostsMiniMap(), 150);
     }
+    if (isYeti) {
+      setTimeout(() => this.initYetiMiniMap(), 150);
+    }
   }
 
   closeEventDetail(): void {
     this.destroySlasherMiniMap();
     this.destroyGhostsMiniMap();
+    this.destroyYetiMiniMap();
     this.selectedEventItem = null;
     this.drawerView = this.selectedEventCategory ? 'event-subcategories' : 'tabs';
   }
@@ -1214,6 +1254,147 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     } as unknown as GtaMystery);
   }
 
+  onLocateEvent(item: GtaEventItem, event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    if (!item.position) return;
+    this.locateOnMap.emit({
+      id: item.id,
+      title: item.title,
+      color: item.badgeColor || '#f59e0b',
+      position: item.position
+    } as unknown as GtaMystery);
+  }
+
+  selectYetiClue(id: string): void {
+    if (this.activeYetiClueId === id) {
+      this.activeYetiClueId = null;
+    } else {
+      this.activeYetiClueId = id;
+    }
+    this.updateYetiMarkersAppearance();
+  }
+
+  onLocateYetiClue(clue: GtaYetiClue, event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    const isCurrentlyActive = this.locatedYetiClueIds.has(clue.id);
+    if (isCurrentlyActive) {
+      this.locatedYetiClueIds.delete(clue.id);
+    } else {
+      this.locatedYetiClueIds.add(clue.id);
+    }
+    const active = !isCurrentlyActive;
+
+    this.locateOnMap.emit({
+      id: clue.id,
+      title: `#${clue.order.toString().padStart(2, '0')} ${clue.name}`,
+      color: '#06b6d4',
+      description: clue.description,
+      active,
+      position: { x: clue.x, y: clue.y, z: clue.z || 0 }
+    } as unknown as GtaMystery);
+  }
+
+  private updateYetiMarkersAppearance(): void {
+    if (!this.yetiMap) return;
+    this.yetiCluesList.forEach(c => {
+      const marker = this.yetiMarkers[c.id];
+      if (!marker) return;
+      const isSelected = this.activeYetiClueId === c.id;
+      marker.setStyle({
+        radius: isSelected ? 8 : 6,
+        color: isSelected ? '#ffffff' : '#06b6d4',
+        weight: isSelected ? 3 : 2,
+        fillColor: isSelected ? '#38bdf8' : '#0284c7',
+        fillOpacity: isSelected ? 1 : 0.85
+      });
+    });
+  }
+
+  initYetiMiniMap(): void {
+    this.destroyYetiMiniMap();
+    const container = document.getElementById('yeti-mini-map');
+    if (!container) return;
+
+    const [centerLat, centerLng] = gta5WorldToLatLng(this.yetiZone.x, this.yetiZone.y);
+    const islandBounds = L.latLngBounds([[-90, -25], [26, 89]]);
+
+    this.yetiMap = L.map(container, {
+      crs: L.CRS.Simple,
+      minZoom: 1.5,
+      maxZoom: 4,
+      zoomSnap: 0.05,
+      zoom: 3.1,
+      center: [centerLat, centerLng],
+      maxBounds: islandBounds,
+      maxBoundsViscosity: 1.0,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      touchZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      zoomControl: false,
+      attributionControl: false
+    });
+
+    L.tileLayer('assets/mapas/gta5/Roadmap/{z}_{x}_{y}.jpg', {
+      tileSize: 256,
+      minNativeZoom: 3,
+      maxNativeZoom: 4,
+      noWrap: true,
+      className: 'leaflet-tile-juego'
+    }).addTo(this.yetiMap);
+
+    // Círculo perimetral de acecho nocturno del Yeti
+    const [zoneLat, zoneLng] = gta5WorldToLatLng(this.yetiZone.x, this.yetiZone.y);
+    const zoneRadiusLeaflet = (this.yetiZone.radius / 12000) * 85;
+    L.circle([zoneLat, zoneLng], {
+      radius: zoneRadiusLeaflet,
+      color: '#06b6d4',
+      weight: 2,
+      fillColor: '#06b6d4',
+      fillOpacity: 0.18,
+      dashArray: '6, 6'
+    }).addTo(this.yetiMap);
+
+    this.yetiMarkers = {};
+    this.yetiCluesList.forEach(c => {
+      const [lat, lng] = gta5WorldToLatLng(c.x, c.y);
+      const isSelected = this.activeYetiClueId === c.id;
+
+      const marker = L.circleMarker([lat, lng], {
+        radius: isSelected ? 8 : 6,
+        color: isSelected ? '#ffffff' : '#06b6d4',
+        weight: isSelected ? 3 : 2,
+        fillColor: isSelected ? '#38bdf8' : '#0284c7',
+        fillOpacity: isSelected ? 1 : 0.85
+      }).addTo(this.yetiMap!);
+
+      marker.bindTooltip(`#${c.order.toString().padStart(2, '0')} ${c.name}`, {
+        direction: 'top',
+        className: 'slasher-radar-tooltip'
+      });
+
+      marker.on('click', () => {
+        this.selectYetiClue(c.id);
+      });
+
+      this.yetiMarkers[c.id] = marker;
+    });
+  }
+
+  destroyYetiMiniMap(): void {
+    if (this.yetiMap) {
+      this.yetiMap.remove();
+      this.yetiMap = undefined;
+    }
+    this.yetiMarkers = {};
+  }
+
   get currentEventItemsList(): GtaEventItem[] {
     if (this.selectedEventSubcategory) {
       return this.selectedEventSubcategory.items || [];
@@ -1247,6 +1428,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     if (prev) {
       this.destroySlasherMiniMap();
       this.destroyGhostsMiniMap();
+      this.destroyYetiMiniMap();
       this.openEventDetail(prev);
     }
   }
@@ -1256,6 +1438,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     if (next) {
       this.destroySlasherMiniMap();
       this.destroyGhostsMiniMap();
+      this.destroyYetiMiniMap();
       this.openEventDetail(next);
     }
   }
@@ -1806,6 +1989,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   ngOnDestroy(): void {
     this.destroySlasherMiniMap();
     this.destroyGhostsMiniMap();
+    this.destroyYetiMiniMap();
     this.vehiclesSub?.unsubscribe();
     this.missionsSub?.unsubscribe();
     this.strangersSub?.unsubscribe();

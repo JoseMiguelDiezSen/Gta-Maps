@@ -115,8 +115,10 @@
       }
 
       @if (drawerView === 'tabs') {
-      <h3 class="drawer-title">
-        <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
+      <h3 class="drawer-title drawer-title-gtainfo">
+        <span class="drawer-title-icon-badge">
+          <i class="fa-solid fa-mobile-screen-button drawer-title-icon"></i>
+        </span>
         <span>{{ 'transports.title' | translate }}</span>
       </h3>
       }
@@ -149,7 +151,7 @@
       }
     </div>
     <button type="button" class="drawer-close-btn" (click)="onClose()" [title]="'transports.closeTitle' | translate">
-      <i class="fa-solid fa-chevron-right drawer-close-caret"></i>
+      <i class="fa-solid fa-arrow-right"></i>
     </button>
   </div>
 
@@ -880,11 +882,10 @@
                   >
                     @if (cat.id === 'halloween') {
                       <i class="fa-solid fa-circle" style="font-size: 6px;"></i>
-                      <span>{{ 'transports.events.statusOpen' | translate }}</span>
                     } @else {
                       <i class="fa-solid" [ngClass]="isCategoryLocked(cat) ? 'fa-lock' : 'fa-clock'" style="font-size: 9px;"></i>
-                      <span>{{ 'transports.events.statusComingSoon' | translate }}</span>
                     }
+                    <span>{{ getEventStatusLabel(cat) }}</span>
                   </span>
                 </div>
                 <div class="event-hero-title">{{ cat.title }}</div>
@@ -1126,6 +1127,19 @@
               @if (selectedEventItem.id !== 'slasher-clown' && selectedEventItem.id !== 'ghost-gordo' && selectedEventItem.id !== 'fantasmas-descubierto') {
                 <h2 class="mdetail-hero-title">{{ selectedEventItem.title }}</h2>
               }
+              @if (selectedEventItem.position && selectedEventItem.id !== 'yeti-hunt' && selectedEventItem.id !== 'yeti') {
+                <div class="mystery-locate-action-bar" style="margin-top: 10px;">
+                  <button
+                    type="button"
+                    class="mystery-locate-cta-btn"
+                    (click)="onLocateEvent(selectedEventItem)"
+                    [style.--btn-accent]="selectedEventItem.badgeColor || '#f59e0b'"
+                  >
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <span>{{ 'transports.mysteries.locateOnMap' | translate }}</span>
+                  </button>
+                </div>
+              }
             </div>
 
             @if (selectedEventItem.id === 'slasher-clown') {
@@ -1244,6 +1258,68 @@
                 </div>
                 }
               </div>
+            } @else if (selectedEventItem.id === 'yeti-hunt' || selectedEventItem.id === 'yeti') {
+              <!-- Radar Táctico de Chiliad Wilderness para la Caza del Yeti -->
+              <div class="slasher-radar-container">
+                <div id="yeti-mini-map" class="slasher-mini-map"></div>
+              </div>
+
+              <!-- LISTA DE LAS 5 PISTAS DEL YETI -->
+              <div class="ghosts-scroll-list">
+                @for (c of yetiCluesList; track c.id) {
+                <div
+                  class="ghost-compact-card"
+                  [class.is-active]="activeYetiClueId === c.id"
+                  [style.--m-color]="'#06b6d4'"
+                  (click)="selectYetiClue(c.id)"
+                >
+                  <!-- Badge numérico -->
+                  <div class="ghost-thumb-box">
+                    <span class="ghost-order-num">#0{{ c.order }}</span>
+                  </div>
+
+                  <!-- Contenido de la pista -->
+                  <div class="ghost-card-body">
+                    <div class="ghost-card-title-row">
+                      <span class="ghost-card-name">{{ c.name }}</span>
+                    </div>
+                    <div class="ghost-card-meta">
+                      <span class="ghost-meta-loc" [title]="c.description">
+                        <i class="fa-solid" [ngClass]="c.icon || 'fa-magnifying-glass'"></i> {{ c.description }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Botón de localización en el mapa grande -->
+                  <div class="ghost-card-action">
+                    <button
+                      type="button"
+                      class="mcard-locate-btn ghost-locate-btn"
+                      [class.is-located]="isYetiClueLocated(c.id)"
+                      (click)="onLocateYetiClue(c, $event)"
+                      [title]="'transports.mysteries.locateOnMap' | translate"
+                    >
+                      @if (isYetiClueLocated(c.id)) {
+                        <i class="fa-solid fa-circle-check"></i>
+                      } @else {
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                      }
+                    </button>
+                  </div>
+                </div>
+                }
+              </div>
+
+              <!-- Bloque especial: Fase 2 Encuentro Nocturno con el Yeti -->
+              <div class="mdetail-block gold-block" style="margin-top: 10px;">
+                <div class="mdetail-block-head gold-head">
+                  <i class="fa-solid fa-moon"></i>
+                  <span>FASE 2: ENCUENTRO NOCTURNO (21:00 - 06:00)</span>
+                </div>
+                <div class="mdetail-synopsis" style="padding: 10px 14px; font-size: 12px; color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+                  Una vez investigadas las 5 pistas, adéntrate en el área delimitada de Chiliad Wilderness durante la noche. El Yeti emergerá de la maleza y cargará contra ti. Abátelo para conseguir la recompensa final.
+                </div>
+              </div>
             } @else {
               <!-- Bloque: Sinopsis / Descripción -->
               <div class="mdetail-block">
@@ -1261,7 +1337,7 @@
               <div class="mdetail-block gold-block">
                 <div class="mdetail-block-head gold-head">
                   <i class="fa-solid fa-list-check"></i>
-                  <span>{{ 'transports.events.subcategoriesTitle' | translate }}</span>
+                  <span>{{ 'transports.events.conditionsTitle' | translate }}</span>
                 </div>
                 <div class="mdetail-gold-list">
                   @for (det of selectedEventItem.details; track det) {

@@ -10,6 +10,7 @@ export interface GtaEventItem {
   badgeColor?: string;
   thumbnail?: string;
   details?: string[];
+  position?: { x: number; y: number; z?: number };
 }
 
 export interface GtaEventSubcategory {
@@ -250,3 +251,75 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     description: 'El empresario de GTA V aparece flotando frente al acantilado de Paleto Cove, en el lugar relacionado con el desenlace de su historia.'
   }
 ];
+
+export interface GtaYetiClue {
+  id: string;
+  order: number;
+  name: string;
+  description: string;
+  x: number;
+  y: number;
+  z?: number;
+  icon?: string;
+  image?: string;
+}
+
+export const GTA_YETI_CLUES_LIST: GtaYetiClue[] = [
+  {
+    id: 'yeti-car-wreck',
+    order: 1,
+    name: 'Vehículo accidentado',
+    description: 'Coche volcado y aplastado debajo del puente en el lecho del río.',
+    x: -1573,
+    y: 4467,
+    z: 12,
+    icon: 'fa-car-burst'
+  },
+  {
+    id: 'yeti-body-parts',
+    order: 2,
+    name: 'Restos humanos mutilados',
+    description: 'Extremidades y restos desmembrados junto a las rocas de la orilla.',
+    x: -1685,
+    y: 4492,
+    z: 15,
+    icon: 'fa-skull'
+  },
+  {
+    id: 'yeti-bloodied-tent',
+    order: 3,
+    name: 'Tienda de campaña ensangrentada',
+    description: 'Campamento destrozado y cubierto de sangre en la ladera norte.',
+    x: -1524,
+    y: 4578,
+    z: 36,
+    icon: 'fa-campground'
+  },
+  {
+    id: 'yeti-ripped-shirt',
+    order: 4,
+    name: 'Camisa desgarrada',
+    description: 'Ropa ensangrentada colgando de la maleza en el sendero.',
+    x: -1452,
+    y: 4504,
+    z: 32,
+    icon: 'fa-shirt'
+  },
+  {
+    id: 'yeti-dead-deer',
+    order: 5,
+    name: 'Ciervo destripado',
+    description: 'Cadáver animal mutilado en la orilla sur bajo el acantilado.',
+    x: -1560,
+    y: 4380,
+    z: 16,
+    icon: 'fa-bone'
+  }
+];
+
+export const GTA_YETI_ZONE = {
+  x: -1560,
+  y: 4480,
+  radius: 280,
+  timeWindow: '21:00 - 06:00'
+};

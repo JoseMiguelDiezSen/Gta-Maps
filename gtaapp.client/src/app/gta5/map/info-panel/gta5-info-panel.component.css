@@ -79,15 +79,17 @@
 }
 
 .hud-profile-drawer.is-gta6 .drawer-close-btn {
-  border-color: rgba(255, 79, 224, 0.35);
+  background: rgba(255, 79, 224, 0.14);
+  border-color: rgba(255, 79, 224, 0.45);
   color: #ff4fe0;
 }
 
 .hud-profile-drawer.is-gta6 .drawer-close-btn:hover {
-  background: rgba(255, 79, 224, 0.25);
-  border-color: rgba(255, 79, 224, 0.7);
+  background: rgba(255, 79, 224, 0.35);
+  border-color: #ff4fe0;
   color: #fff;
-  box-shadow: 0 0 10px rgba(255, 79, 224, 0.4);
+  transform: translateX(3px);
+  box-shadow: 0 0 14px rgba(255, 79, 224, 0.5);
 }
 
 .hud-profile-drawer.is-gta6 .drawer-tab.is-active {
@@ -239,27 +241,76 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   color: #ffb833;
 }
 
-.drawer-close-btn {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffb833;
+/* Título principal de la infocard con tipografía GTA */
+.drawer-title-gtainfo {
+  font-family: 'Pricedown', sans-serif;
+  font-size: 21px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  gap: 10px;
+}
+
+/* Badge circular con estética de botón de mapa (radial gradient blanco/metálico) */
+.drawer-title-icon-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f0f2f7 50%, #ccd1dc 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.9),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.drawer-title-icon-badge .drawer-title-icon {
+  font-size: 14px;
+  color: #0c1017;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  line-height: 1;
+}
+
+.hud-profile-drawer.is-gta6 .drawer-title-gtainfo {
+  color: #ff4fe0;
+  text-shadow: 0 0 12px rgba(255, 79, 224, 0.5);
+}
+
+.hud-profile-drawer.is-gta6 .drawer-title-icon-badge {
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 79, 224, 0.45);
+}
+
+.drawer-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 184, 51, 0.14);
+  border: 1px solid rgba(255, 184, 51, 0.45);
+  border-radius: 8px;
+  color: #ffb833;
+  font-size: 15px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: all 0.15s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   padding: 0;
 }
 
 .drawer-close-btn:hover {
-  background: rgba(255, 184, 51, 0.2);
-  border-color: rgba(255, 165, 0, 0.5);
+  background: rgba(255, 184, 51, 0.35);
+  border-color: #ffb833;
   color: #fff;
+  transform: translateX(3px);
+  box-shadow: 0 0 14px rgba(255, 184, 51, 0.5);
 }
 
 /* ====== TABS DEL DRAWER ====== */
@@ -645,6 +696,35 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
 
   .mcard-desc-snippet {
     font-size: 10.5px;
+  }
+
+  .events-banners-list {
+    padding: 0 10px 14px 10px;
+    gap: 10px;
+  }
+
+  .event-hero-banner {
+    height: auto;
+    min-height: 105px;
+    padding: 10px 0;
+  }
+
+  .event-hero-content {
+    padding: 0 12px 0 14px;
+  }
+
+  .event-hero-title {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .event-hero-action {
+    margin-right: 12px;
+    margin-left: 6px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
   }
 }
 
@@ -4083,11 +4163,13 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   flex-direction: column;
   justify-content: center;
   flex: 1;
+  min-width: 0;
 }
 
 .event-hero-meta-row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 5px;
 }
@@ -4166,6 +4248,9 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   margin-right: 16px;
   width: 36px;
   height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.2);

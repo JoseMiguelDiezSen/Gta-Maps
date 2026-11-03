@@ -67,7 +67,7 @@
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1200;
+  z-index: 1300;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -183,4 +183,35 @@
 
 .hud-ghost-toast-close:hover {
   color: #ffffff;
+}
+
+/* ====== RESPONSIVE MÓVIL (<= 850px) ====== */
+@media screen and (max-width: 850px) {
+  .hud-ghost-toast {
+    top: max(56px, calc(env(safe-area-inset-top, 0px) + 54px));
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+    padding: 8px 12px;
+    gap: 10px;
+    z-index: 1300;
+  }
+
+  .hud-ghost-toast-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+
+  .hud-ghost-toast-title {
+    font-size: 12px;
+  }
+
+  .hud-ghost-toast-sub {
+    font-size: 10px;
+  }
+
+  .hud-ghost-toast-pill {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
 }

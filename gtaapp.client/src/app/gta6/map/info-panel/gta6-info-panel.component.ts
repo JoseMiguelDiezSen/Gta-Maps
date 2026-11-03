@@ -187,6 +187,12 @@ export class Gta6InfoPanelComponent implements OnChanges {
     ];
   }
 
+  getEventStatusUnavailableLabel(): string {
+    const isEs = (this.translationService.currentLang || 'es') === 'es';
+    const t = this.translationService.t('transports.events.statusUnavailable');
+    return (!t || t.includes('.')) ? (isEs ? 'No disponible' : 'Unavailable') : t;
+  }
+
   setDrawerTab(tabId: string): void {
     this.activeDrawerTab = tabId;
     this.drawerView = 'tabs';
