@@ -174,7 +174,7 @@
   {
     "id": "stungun",
     "order": 7,
-    "name": "Stun Gun",
+    "name": "Электрошокер",
     "nameEn": "Stun Gun",
     "category": "pistols",
     "categoryLabel": "Пистолеты",
@@ -187,10 +187,10 @@
     "fireRate": 1,
     "accuracy": 4,
     "range": 2,
-    "clipSize": "High-voltage probes (4s recharge)",
+    "clipSize": "Высоковольтные зонды (перезарядка 4 с)",
     "description": "Официальное оружие из сети Ammu-Nation (Coil). Урон: 1/10, Точность: 4/10, Скорострельность: 1/10.",
     "attachments": [
-      "Tactical Polymer Finish"
+      "Тактическое полимерное покрытие"
     ],
     "icon": "fa-bolt",
     "badgeColor": "#38bdf8",
@@ -204,7 +204,7 @@
     "name": "Микро-ПП",
     "nameEn": "Micro SMG",
     "category": "smgs",
-    "categoryLabel": "Submachine Guns",
+    "categoryLabel": "Пистолеты-пулеметы",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "IMI Micro Uzi (9mm)",
     "price": 3750,
@@ -221,7 +221,7 @@
       "Тактический фонарик",
       "Глушитель",
       "Оптический прицел",
-      "Luxury Finish"
+      "Роскошная отделка"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
@@ -235,7 +235,7 @@
     "name": "Пистолет-пулемет (SMG)",
     "nameEn": "SMG",
     "category": "smgs",
-    "categoryLabel": "Submachine Guns",
+    "categoryLabel": "Пистолеты-пулеметы",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Heckler & Koch MP5A3",
     "price": 7500,
@@ -263,10 +263,10 @@
   {
     "id": "combat_mg",
     "order": 10,
-    "name": "Combat MG",
+    "name": "Боевой пулемет",
     "nameEn": "Combat MG",
     "category": "smgs",
-    "categoryLabel": "Light Machine Guns",
+    "categoryLabel": "Ручные пулеметы",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "M249 SAW / FN Minimi (5.56mm)",
     "price": 14800,
@@ -279,10 +279,10 @@
     "clipSize": "100 патронов",
     "description": "Официальное оружие из сети Ammu-Nation (Shrewsbury). Урон: 7.5/10, Точность: 5.5/10, Скорострельность: 6.5/10.",
     "attachments": [
-      "200-Round Box Magazine",
+      "Коробчатый магазин на 200 патронов",
       "Оптический прицел",
       "Рукоятка",
-      "Gold Luxury Tint"
+      "Роскошная позолота"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#e74c3c",
@@ -293,10 +293,10 @@
   {
     "id": "gusenberg_sweeper",
     "order": 11,
-    "name": "Gusenberg Sweeper",
+    "name": "Пистолет-пулемет Гузенберга",
     "nameEn": "Gusenberg Sweeper",
     "category": "smgs",
-    "categoryLabel": "Submachine Guns",
+    "categoryLabel": "Пистолеты-пулеметы",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Thompson M1928 (Tommy Gun .45 ACP)",
     "price": 14600,
@@ -309,7 +309,7 @@
     "clipSize": "30 патронов",
     "description": "Официальное оружие из сети Ammu-Nation (Vom Feuer). Урон: 5/10, Точность: 4.5/10, Скорострельность: 7.5/10.",
     "attachments": [
-      "50-Round Drum Magazine"
+      "Барабанный магазин на 50 патронов"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#f59e0b",
@@ -415,7 +415,7 @@
   {
     "id": "service_carbine",
     "order": 15,
-    "name": "Service Carbine",
+    "name": "Табельный карабин",
     "nameEn": "Service Carbine",
     "category": "rifles",
     "categoryLabel": "Штурмовые винтовки",
@@ -432,10 +432,10 @@
     "description": "Официальное оружие из сети Ammu-Nation (Vom Feuer). Урон: 6.8/10, Точность: 6.8/10, Скорострельность: 6.8/10.",
     "attachments": [
       "Увеличенный магазин",
-      "Telescopic Scope",
+      "Телескопический прицел",
       "Глушитель",
       "Рукоятка",
-      "Tactical Light"
+      "Тактический фонарь"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
@@ -699,7 +699,7 @@
   {
     "id": "knife",
     "order": 25,
-    "name": "Knife",
+    "name": "Нож",
     "nameEn": "Knife",
     "category": "melee",
     "categoryLabel": "Оружие ближнего боя",
@@ -712,10 +712,10 @@
     "fireRate": 3,
     "accuracy": 1,
     "range": 1,
-    "clipSize": "Close combat bladed weapon",
+    "clipSize": "Холодное клинковое оружие ближнего боя",
     "description": "Официальное оружие из сети Ammu-Nation (Shrewsbury). Урон: 2/10, Точность: 1/10, Скорострельность: 3/10.",
     "attachments": [
-      "Forged Steel Finish"
+      "Отделка из кованой стали"
     ],
     "icon": "fa-hand-back-fist",
     "badgeColor": "#94a3b8",
@@ -726,23 +726,23 @@
   {
     "id": "stone_hatchet",
     "order": 26,
-    "name": "Stone Hatchet",
+    "name": "Каменный топор",
     "nameEn": "Stone Hatchet",
     "category": "melee",
     "categoryLabel": "Оружие ближнего боя",
     "manufacturer": "Native American / RDR2",
     "realCounterpart": "Sacred Stone Tomahawk",
     "price": 0,
-    "priceFormatted": "Free (Maude Bounty Challenge)",
+    "priceFormatted": "Бесплатно (испытание охотника за головами Мод)",
     "rankUnlock": 1,
     "damage": 5,
     "fireRate": 2.5,
     "accuracy": 1,
     "range": 1,
-    "clipSize": "Passive: Stone Rage Mode",
+    "clipSize": "Пассивный навык: режим ярости",
     "description": "Официальное оружие из сети Ammu-Nation (Native American / RDR2). Урон: 5/10, Точность: 1/10, Скорострельность: 2.5/10.",
     "attachments": [
-      "Traditional Leather Wraps"
+      "Традиционная кожаная обмотка"
     ],
     "icon": "fa-hand-back-fist",
     "badgeColor": "#f97316",
@@ -766,10 +766,10 @@
     "fireRate": 1.5,
     "accuracy": 2,
     "range": 2.5,
-    "clipSize": "Up to 25 remote charges",
+    "clipSize": "До 25 дистанционных зарядов",
     "description": "Официальное оружие из сети Ammu-Nation (Shrewsbury). Урон: 9.5/10, Точность: 2/10, Скорострельность: 1.5/10.",
     "attachments": [
-      "Remote Cellular Trigger"
+      "Дистанционный детонатор на телефоне"
     ],
     "icon": "fa-burst",
     "badgeColor": "#e11d48",
@@ -780,7 +780,7 @@
   {
     "id": "proximity_mine",
     "order": 28,
-    "name": "Proximity Mine",
+    "name": "Неконтактная мина",
     "nameEn": "Proximity Mine",
     "category": "throwables",
     "categoryLabel": "Метательное оружие и взрывчатка",
@@ -793,10 +793,10 @@
     "fireRate": 1,
     "accuracy": 2,
     "range": 2,
-    "clipSize": "Up to 5 active deployed mines",
+    "clipSize": "До 5 активных установленных мин",
     "description": "Официальное оружие из сети Ammu-Nation (Shrewsbury). Урон: 9.5/10, Точность: 2/10, Скорострельность: 1/10.",
     "attachments": [
-      "Thermal Motion Trigger"
+      "Тепловой датчик движения"
     ],
     "icon": "fa-burst",
     "badgeColor": "#e11d48",
@@ -807,10 +807,10 @@
   {
     "id": "grenade",
     "order": 29,
-    "name": "Frag Grenade",
+    "name": "Осколочная граната",
     "nameEn": "Grenade",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "Метательное оружие и взрывчатка",
     "manufacturer": "Hawk & Little",
     "realCounterpart": "M26 / Mk 2 Fragmentation Grenade",
     "price": 250,
@@ -820,7 +820,7 @@
     "fireRate": 1.5,
     "accuracy": 2,
     "range": 3,
-    "clipSize": "Up to 25 grenades",
+    "clipSize": "До 25 гранат",
     "description": "Стандартная осколочная граната. Выдерните чеку, бросьте в сторону вражеских позиций, и она взорвется через 5 секунд.",
     "attachments": [],
     "icon": "fa-burst",
