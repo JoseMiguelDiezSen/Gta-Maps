@@ -331,16 +331,18 @@ export class Gta5MapMarkerService {
         const content = document.createElement('div');
         content.className = 'popup-content';
 
-        const hintRow = document.createElement('div');
-        hintRow.className = 'popup-row';
-        const hintLbl = document.createElement('span');
-        hintLbl.className = 'popup-tag-lbl';
-        hintLbl.textContent = hintLabel;
-        const hintVal = document.createElement('span');
-        hintVal.className = 'popup-tag-val';
-        hintVal.textContent = item.hint || '';
-        hintRow.append(hintLbl, document.createTextNode(' '), hintVal);
-        content.appendChild(hintRow);
+        if (item.hint) {
+            const hintRow = document.createElement('div');
+            hintRow.className = 'popup-row';
+            const hintLbl = document.createElement('span');
+            hintLbl.className = 'popup-tag-lbl';
+            hintLbl.textContent = hintLabel;
+            const hintVal = document.createElement('span');
+            hintVal.className = 'popup-tag-val';
+            hintVal.textContent = item.hint;
+            hintRow.append(hintLbl, document.createTextNode(' '), hintVal);
+            content.appendChild(hintRow);
+        }
 
         if (item.reward) {
             const rewardRow = document.createElement('div');
