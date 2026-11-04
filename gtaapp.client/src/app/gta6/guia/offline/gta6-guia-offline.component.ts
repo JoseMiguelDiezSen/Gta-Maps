@@ -3,7 +3,6 @@ import { Title, Meta } from '@angular/platform-browser';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../../models/guia';
-import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { Subscription, Observable, forkJoin, map, shareReplay } from 'rxjs';
 import { GRUPOS_MISIONES_GTA6 } from './misiones-grupos.config';
 import { DealerCategory, GtaVehicle } from '../../../models/gta5/vehicle';
@@ -22,7 +21,6 @@ export interface GuiaBreadcrumbItem {
   standalone: false
 })
 export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewInit {
-  readonly isDevAllowed: boolean = isDevAccessAllowed();
 
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
@@ -42,7 +40,6 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   readingProgress: number = 0;
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
-  mobileNavOpen: boolean = false;
   private toastTimeout: ReturnType<typeof setTimeout> | null = null;
 
   mostrarTrofeos: boolean = false;
@@ -371,14 +368,6 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.toastTimeout = setTimeout(() => {
       this.toastMessage = null;
     }, 2800);
-  }
-
-  toggleMobileNav(): void {
-    this.mobileNavOpen = !this.mobileNavOpen;
-  }
-
-  closeMobileNav(): void {
-    this.mobileNavOpen = false;
   }
 
   cargarGuia(): void {
@@ -759,12 +748,8 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.themeMode = this.themeMode === 'night' ? 'day' : 'night';
   }
 
-  onGta6MapClick(event: Event): void {
-    if (!this.isDevAllowed) {
-      event.preventDefault();
-      event.stopPropagation();
-      this.mostrarToast('El mapa de GTA 6 estará disponible próximamente');
-    }
+  onGta6MapBlocked(): void {
+    this.mostrarToast('El mapa de GTA 6 estará disponible próximamente');
   }
 
   onSearch(): void {
@@ -800,6 +785,10 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (!raw) {
       this.articleToc = [];
       return '';
+    }
+
+    if (raw.trim().startsWith('<')) {
+      return raw;
     }
 
     const lines = raw.split('\n');
@@ -890,9 +879,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
         callout.appendChild(bodyDiv);
         root.appendChild(callout);
       } else if (line.trim() === '---') {
-        const hr = document.createElement('hr');
-        hr.className = 'guide-divider-line';
-        root.appendChild(hr);
+        // Separador plano continuo omitido
       } else if (isBullet) {
         if (!currentList) {
           currentList = document.createElement('ul');
@@ -963,7 +950,6 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   readonly protagonistas = [
     { name: 'Lucia', label: 'Lucia Caminos', img: 'assets/images/gta6/guia/offline/personajes/Lucia.png' },
-    { name: 'Jason', label: 'Jason Duval', img: 'assets/images/gta6/guia/offline/personajes/Jason.png' },
-    { name: 'Jason y Lucia', label: 'Jason Duval y Lucia Caminos', img: 'assets/images/gta6/guia/offline/personajes/Duo.png' }
+    { name: 'Jason', label: 'Jason Duval', img: 'assets/images/gta6/guia/offline/personajes/Jason.png' }
   ] as const;
 }

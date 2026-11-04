@@ -37,6 +37,13 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('./gta6/gta6.module').then(m => m.Gta6Module)
     },
+    // ── Carga Perezosa (Lazy Loading) de Acerca De ────────────────────────
+    {
+        path: 'acerca-de',
+        loadChildren: () => import('./acerca-de/acerca-de.module').then(m => m.AcercaDeModule)
+    },
+    { path: 'about', redirectTo: '/acerca-de', pathMatch: 'full'
+    },
     /* Rutas migradas a Gta5Module y Gta6Module (Lazy Loading)
     {
         path: 'gta5-map-online',

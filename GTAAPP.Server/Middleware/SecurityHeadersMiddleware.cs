@@ -197,8 +197,9 @@ public class SecurityHeadersMiddleware
                           "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; " +
                           "style-src 'self' 'unsafe-inline'; " +
                           "font-src 'self' data:; " +
-                          "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com; " +
+                          "img-src 'self' data: blob: https://img.youtube.com https://i.ytimg.com https://*.google-analytics.com https://*.googletagmanager.com; " +
                           "connect-src 'self' ws: wss: https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; " +
+                          "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; " +
                           "object-src 'none'; " +
                           "frame-ancestors 'none'; " +
                           "base-uri 'self'; " +

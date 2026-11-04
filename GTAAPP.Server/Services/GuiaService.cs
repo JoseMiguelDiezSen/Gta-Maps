@@ -627,6 +627,61 @@ public class GuiaService : IGuiaService
                 var manifest = JsonSerializer.Deserialize<GuiaManifest>(manifestJson, JsonOptions);
                 if (manifest != null)
                 {
+                    foreach (var sec in manifest.Secciones)
+                    {
+                        if (sec.Id == "prologo")
+                        {
+                            sec.Articulos = articulosGta6
+                                .Where(a => string.Equals(a.Categoria, "prologo", StringComparison.OrdinalIgnoreCase) ||
+                                            string.Equals(a.Categoria, "mundo-leonida", StringComparison.OrdinalIgnoreCase) ||
+                                            string.Equals(a.Categoria, "mecanicas-jugabilidad", StringComparison.OrdinalIgnoreCase) ||
+                                            string.Equals(a.Categoria, "ia-sistema-policial", StringComparison.OrdinalIgnoreCase))
+                                .Select(a => new GuiaArticuloResumen
+                                {
+                                    Id = a.Id,
+                                    Titulo = a.Titulo,
+                                    Subtitulo = a.Subtitulo,
+                                    Slug = a.Slug,
+                                    Categoria = a.Categoria,
+                                    Badge = a.Badge,
+                                    TiempoLecturaMinutos = a.TiempoLecturaMinutos
+                                })
+                                .ToList();
+                        }
+                        else if (sec.Id == "misiones-historia")
+                        {
+                            sec.Articulos = articulosGta6
+                                .Where(a => string.Equals(a.Categoria, "misiones-historia", StringComparison.OrdinalIgnoreCase) ||
+                                            string.Equals(a.Categoria, "misiones", StringComparison.OrdinalIgnoreCase))
+                                .Select(a => new GuiaArticuloResumen
+                                {
+                                    Id = a.Id,
+                                    Titulo = a.Titulo,
+                                    Subtitulo = a.Subtitulo,
+                                    Slug = a.Slug,
+                                    Categoria = a.Categoria,
+                                    Badge = a.Badge,
+                                    TiempoLecturaMinutos = a.TiempoLecturaMinutos
+                                })
+                                .ToList();
+                        }
+                        else
+                        {
+                            sec.Articulos = articulosGta6
+                                .Where(a => string.Equals(a.Categoria, sec.Id, StringComparison.OrdinalIgnoreCase))
+                                .Select(a => new GuiaArticuloResumen
+                                {
+                                    Id = a.Id,
+                                    Titulo = a.Titulo,
+                                    Subtitulo = a.Subtitulo,
+                                    Slug = a.Slug,
+                                    Categoria = a.Categoria,
+                                    Badge = a.Badge,
+                                    TiempoLecturaMinutos = a.TiempoLecturaMinutos
+                                })
+                                .ToList();
+                        }
+                    }
                     _manifiestos["gta6"] = manifest;
                 }
             }

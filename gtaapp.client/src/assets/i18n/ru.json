@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "Полноэкранный режим",
+    "exitFullscreen": "Выйти из полноэкранного режима"
   },
   "home": {
     "chooseGame": "Выберите игру",
@@ -148,6 +150,7 @@
       "regionChumash": "Западное побережье",
       "police": "Полиция",
       "markers": "Метки",
+      "defaultMarkerName": "Метка",
       "noMarkers": "Нет меток",
       "locateMarker": "Найти метку",
       "deleteAllMarkers": "Удалить все пользовательские метки",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "Метка",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "События"
     },
     "catalog": {
+      "category": "Категория транспорта",
       "searchPlaceholder": "Поиск транспорта...",
       "loading": "Загрузка каталога {{ dealer }}...",
       "error": "Не удалось загрузить каталог. Проверьте соединение.",
@@ -575,9 +580,13 @@
       "tipsTitle": "Советы по проникновению и отходу",
       "returnToList": "Вернуться к каталогу ограблений",
       "prevHeist": "Предыдущее ограбление",
-      "nextHeist": "Следующее ограбление"
+      "nextHeist": "Следующее ограбление",
+      "kortzCenter": "Кортц-центр",
+      "levelPrefix": "Ур.",
+      "hardLabel": "Сложно"
     },
     "weapons": {
+      "category": "Категория оружия",
       "searchPlaceholder": "Поиск оружия, производителя, реального прототипа...",
       "all": "Все оружие",
       "allCategories": "Все категории",
@@ -647,7 +656,14 @@
       "observationTitle": "Рекомендуемая точка наблюдения",
       "returnToList": "Вернуться к списку тайн",
       "prevMystery": "Предыдущая тайна",
-      "nextMystery": "Следующая тайна"
+      "nextMystery": "Следующая тайна",
+      "point": "Точка",
+      "corpse": "Труп",
+      "defaultLabel": "Тайна",
+      "prevPhoto": "Предыдущее фото",
+      "nextPhoto": "Следующее фото",
+      "investigationChain": "Цепочка расследования:",
+      "recordedLocations": "Зафиксированные локации"
     },
     "events": {
       "title": "Особые события",
@@ -658,7 +674,12 @@
       "statusOpen": "Открыто",
       "statusComingSoon": "Скоро",
       "statusUnavailable": "Недоступно",
-      "statusClosed": "Закрыто"
+      "statusClosed": "Закрыто",
+      "conditionsTitle": "Условия и механики",
+      "yetiPhase2Title": "ФАЗА 2: НОЧНАЯ ВСТРЕЧА (21:00 - 06:00)",
+      "yetiPhase2Desc": "После исследования всех 5 улик войдите в зону поиска Chiliad Wilderness ночью. Йети выскочит из зарослей и нападет на вас. Уничтожьте его, чтобы забрать финальную награду.",
+      "snowmenRewardTitle": "ПРАЗДНИЧНАЯ НАГРАДА И БОНУС",
+      "snowmenRewardDesc": "Уничтожайте снеговиков тараном на транспорте, стрельбой или взрывчаткой ($5,000 и 1,000 RP за каждого). Уничтожив все 25, вы получите бонус $125,000 и костюм снеговика."
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "Сюжет",
+    "filterOnline": "Онлайн",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "О проекте",
+    "about": "О НАС",
     "themeToggle": "Toggle day/night mode"
   }
 }

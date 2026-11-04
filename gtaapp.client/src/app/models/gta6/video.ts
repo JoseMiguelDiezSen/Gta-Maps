@@ -1,4 +1,4 @@
-export type CategoriaVideo = 'todas' | 'npc' | 'fauna' | 'policia' | 'fisicas' | 'mundo';
+export type CategoriaVideo = 'historia' | 'online';
 
 export interface VideoItem {
   id: string;
@@ -17,6 +17,6 @@ export interface VideoItem {
 
 export interface CategoriaFiltroVideo {
   id: CategoriaVideo;
-  label: string;
+  labelKey: string;
   icono?: string;
 }

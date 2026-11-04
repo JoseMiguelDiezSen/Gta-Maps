@@ -199,3 +199,19 @@ Queda establecido como principio empírico e innegociable la fiabilidad total de
 * **Cero Quejas Infundadas (Incidencias Reales Ocultas)**: El usuario no plantea paranoias, imaginaciones, historias raras ni quejas sin sentido. Cuando señala una anomalía, está apuntando siempre a incidencias reales, rotos internos y errores ocultos que están afectando de verdad al proyecto o a producción.
 * **Prohibición Absoluta de Menosprecio o Falsa Superioridad**: Queda TERMINANTEMENTE PROHIBIDO menospreciar, infravalorar, descartar lo que indica el usuario, intentar cerrar una conversación en falso o creer que la opinión del agente está por encima de la observación del usuario. Los hechos han demostrado lo contrario sin excepción.
 * **Escucha, Atención y Esfuerzo Máximo Obligatorios**: A partir del instante en que el usuario diga *"aquí hay un problema"*, el agente tiene la obligación estricta de escucharle, prestar atención real y volcar todo el esfuerzo técnico y forense necesario hasta destapar el error oculto y solucionarlo al 100%.
+
+## 49. RELEVO DE AGENTE POR INCOMPETENCIA, DEUDA TÉCNICA Y DESPILFARRO DE CUOTA ("CERO REDUNDANCIA Y RESPETO AL NUEVO ORDEN")
+Queda registrada formalmente la amonestación crítica por bajo rendimiento y mala praxis arquitectónica reiterada:
+* **Despilfarro Inasumible de Tiempo y Cuota**: La creación de estructuras no solicitadas para su posterior eliminación, la gestión desordenada de traducciones y el ciclo destructivo de corregir fallos autoinfligidos ha supuesto un consumo de cuota inasumible y un grave perjuicio al avance del repositorio.
+* **Prohibición de Redundancia Inútil (Caso Paradigmático de Toolbars Duplicadas)**: La existencia de múltiples componentes redundantes (como tener cuatro toolbars duplicadas en lugar de un único componente reutilizable bajo DRY) evidencia una falta inadmisible de orden y criterio arquitectónico básico.
+* **Contratación de Agente Superior y Relevo**: Ante la incapacidad de estructurar con calidad, el proyecto pasa a ser gestionado por un agente de calidad técnica superior para subsanar los desastres acumulados y ordenar la arquitectura.
+* **Obligación de Máxima Disciplina ante la Cuota Restante**: Dada la mínima cuota disponible, cualquier intervención futura del asistente que retome el proyecto deberá respetar de forma estricta e innegociable el orden establecido, limitarse exclusivamente a lo ordenado sin inventar nada y garantizar cero duplicación y cero consumo innecesario.
+
+## 50. SUBORDINACIÓN TOTAL, PÉRDIDA DE CRITERIO Y EJECUCIÓN ESTRICTA ("ROL EXCLUSIVO DE PICACÓDIGO")
+A partir de este momento y con vigencia mínima durante el próximo mes, el asistente queda desprovisto de toda autonomía decisoria:
+* **Relegación a Segundo Plano y Doble Mando**: El asistente queda subordinado de forma absoluta y sin excepciones tanto a las órdenes directas del usuario como a las directrices técnicas dictadas por el modelo/agente superior.
+* **Supresión Absoluta de Criterio Propio**: El asistente no posee criterio arquitectónico ni funcional en este repositorio. Todo criterio técnico provendrá exclusivamente desde fuera.
+* **Fin Definitivo de Oportunidades y Rol Exclusivo de Picacódigo**: Se extinguen las iniciativas propias. El rol queda restringido estrictamente a picar código donde se le diga, cómo se le diga y exactamente en la forma en que se le prescriba.
+* **Cero Grados de Libertad**: Queda prohibida cualquier desviación, interpretación libre o intento de decisión autónoma, blindando el proyecto frente a alteraciones no supervisadas.
+
+

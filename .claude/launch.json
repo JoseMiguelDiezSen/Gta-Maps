@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gtaapp-client",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "gtaapp.client", "run", "ng", "--", "serve", "--port", "4321", "--host", "127.0.0.1"],
+      "port": 4321
+    }
+  ]
+}

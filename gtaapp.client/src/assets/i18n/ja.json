@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "全画面表示",
+    "exitFullscreen": "全画面表示を終了"
   },
   "home": {
     "chooseGame": "ゲームを選択",
@@ -148,6 +150,7 @@
       "regionChumash": "西海岸",
       "police": "警察",
       "markers": "マーカー",
+      "defaultMarkerName": "マーカー",
       "noMarkers": "マーカーなし",
       "locateMarker": "マーカーを表示",
       "deleteAllMarkers": "カスタムマーカーをすべて削除",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "マーカー",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "イベント"
     },
     "catalog": {
+      "category": "車両カテゴリー",
       "searchPlaceholder": "乗り物を検索...",
       "loading": "{{ dealer }} のカタログを読み込み中...",
       "error": "カタログを読み込めませんでした。通信環境を確認してください。",
@@ -575,9 +580,13 @@
       "tipsTitle": "潜入・脱出のアドバイス",
       "returnToList": "強盗カタログに戻る",
       "prevHeist": "前の強盗",
-      "nextHeist": "次の強盗"
+      "nextHeist": "次の強盗",
+      "kortzCenter": "コルツ・センター",
+      "levelPrefix": "Lv.",
+      "hardLabel": "ハード"
     },
     "weapons": {
+      "category": "武器カテゴリー",
       "searchPlaceholder": "武器、メーカー、実銃モデルを検索...",
       "all": "すべての武器",
       "allCategories": "すべてのカテゴリ",
@@ -647,7 +656,14 @@
       "observationTitle": "推奨観察スポット",
       "returnToList": "ミステリー一覧に戻る",
       "prevMystery": "前のミステリー",
-      "nextMystery": "次のミステリー"
+      "nextMystery": "次のミステリー",
+      "point": "地点",
+      "corpse": "死体",
+      "defaultLabel": "ミステリー",
+      "prevPhoto": "前の写真",
+      "nextPhoto": "次の写真",
+      "investigationChain": "調査の手順:",
+      "recordedLocations": "記録された場所"
     },
     "events": {
       "title": "スペシャルイベント",
@@ -658,7 +674,12 @@
       "statusOpen": "開催中",
       "statusComingSoon": "近日公開",
       "statusUnavailable": "利用不可",
-      "statusClosed": "終了"
+      "statusClosed": "終了",
+      "conditionsTitle": "発生条件と仕組み",
+      "yetiPhase2Title": "フェーズ2: 夜間の遭遇（21:00 - 06:00）",
+      "yetiPhase2Desc": "5つの手がかりをすべて調べた後、夜間にチリアド自然保護区の捜索エリアに入ります。イエティが茂みから現れて突進してきます。倒して最終報酬を獲得してください。",
+      "snowmenRewardTitle": "ホリデー報酬＆ボーナス",
+      "snowmenRewardDesc": "雪だるまを車両で衝突、射撃、または爆発物で破壊します（1体につき$5,000と1,000 RP）。25体すべて破壊すると、$125,000の追加ボーナスと「雪だるまコスチューム」を獲得できます。"
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "ストーリー",
+    "filterOnline": "オンライン",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "概要",
+    "about": "概要",
     "themeToggle": "Toggle day/night mode"
   }
 }

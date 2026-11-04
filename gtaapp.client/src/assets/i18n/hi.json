@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "पूर्ण स्क्रीन",
+    "exitFullscreen": "पूर्ण स्क्रीन से बाहर निकलें"
   },
   "home": {
     "chooseGame": "गेम चुनें",
@@ -148,6 +150,7 @@
       "regionChumash": "पश्चिमी तट",
       "police": "पुलिस",
       "markers": "मार्कर",
+      "defaultMarkerName": "मार्कर",
       "noMarkers": "कोई मार्कर नहीं",
       "locateMarker": "मार्कर खोजें",
       "deleteAllMarkers": "सभी कस्टम मार्कर हटाएं",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "मार्कर",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "इवेंट्स"
     },
     "catalog": {
+      "category": "वाहन श्रेणी",
       "searchPlaceholder": "वाहन खोजें...",
       "loading": "{{ dealer }} कैटलॉग लोड हो रहा है...",
       "error": "कैटलॉग लोड नहीं हो सका। अपना कनेक्शन जांचें।",
@@ -575,9 +580,13 @@
       "tipsTitle": "घुसपैठ और भागने के टिप्स",
       "returnToList": "डकैती सूची पर वापस जाएं",
       "prevHeist": "पिछली डकैती",
-      "nextHeist": "अगली डकैती"
+      "nextHeist": "अगली डकैती",
+      "kortzCenter": "Kortz Center",
+      "levelPrefix": "स्तर",
+      "hardLabel": "कठिन"
     },
     "weapons": {
+      "category": "हथियार श्रेणी",
       "searchPlaceholder": "हथियार, निर्माता, वास्तविक मॉडल खोजें...",
       "all": "सभी हथियार",
       "allCategories": "सभी श्रेणियां",
@@ -647,7 +656,14 @@
       "observationTitle": "अनुशंसित अवलोकन बिंदु",
       "returnToList": "रहस्य सूची पर वापस जाएं",
       "prevMystery": "पिछला रहस्य",
-      "nextMystery": "अगला रहस्य"
+      "nextMystery": "अगला रहस्य",
+      "point": "बिंदु",
+      "corpse": "शव",
+      "defaultLabel": "रहस्य",
+      "prevPhoto": "पिछली तस्वीर",
+      "nextPhoto": "अगली तस्वीर",
+      "investigationChain": "जांच श्रृंखला:",
+      "recordedLocations": "दर्ज स्थान"
     },
     "events": {
       "title": "विशेष इवेंट्स",
@@ -658,7 +674,12 @@
       "statusOpen": "खुला है",
       "statusComingSoon": "जल्द आ रहा है",
       "statusUnavailable": "उपलब्ध नहीं",
-      "statusClosed": "बंद"
+      "statusClosed": "बंद",
+      "conditionsTitle": "शर्तें और कार्यप्रणाली",
+      "yetiPhase2Title": "चरण 2: रात का सामना (21:00 - 06:00)",
+      "yetiPhase2Desc": "सभी 5 सुरागों की जांच करने के बाद, रात में चिलियाड वाइल्डरनेस खोज क्षेत्र में प्रवेश करें। येती झाड़ियों से निकलकर आप पर हमला करेगा। अंतिम इनाम पाने के लिए उसे मार गिराएं।",
+      "snowmenRewardTitle": "उत्सव इनाम और बोनस",
+      "snowmenRewardDesc": "प्रत्येक स्नोमैन को वाहन से टक्कर मारकर, गोली मारकर या विस्फोटकों से नष्ट करें ($5,000 और 1,000 RP प्रति यूनिट)। सभी 25 स्नोमैन को नष्ट करने पर आपको $125,000 का अतिरिक्त बोनस और स्नोमैन पोशाक मिलेगी।"
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "कहानी",
+    "filterOnline": "ऑनलाइन",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "के बारे में",
+    "about": "के बारे में",
     "themeToggle": "Toggle day/night mode"
   }
 }

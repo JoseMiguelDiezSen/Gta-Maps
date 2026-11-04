@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "Tam Ekran",
+    "exitFullscreen": "Tam Ekrandan Çık"
   },
   "home": {
     "chooseGame": "Oyunu seçin",
@@ -148,6 +150,7 @@
       "regionChumash": "Chumash",
       "police": "Polis İstasyonları",
       "markers": "İşaretçiler",
+      "defaultMarkerName": "İşaretçi",
       "noMarkers": "İşaretçi bulunamadı",
       "locateMarker": "İşaretçiyi Bul",
       "deleteAllMarkers": "Tüm Özel İşaretçileri Sil",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "İşaretçi",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "Etkinlikler"
     },
     "catalog": {
+      "category": "Araç kategorisi",
       "searchPlaceholder": "Araç ara (model, marka, sınıf)...",
       "loading": "{{ dealer }} kataloğu yükleniyor...",
       "error": "Araç kataloğu yüklenirken hata oluştu",
@@ -575,9 +580,13 @@
       "tipsTitle": "Taktikler ve İpuçları",
       "returnToList": "Listeye Dön",
       "prevHeist": "Önceki Soygun",
-      "nextHeist": "Sonraki Soygun"
+      "nextHeist": "Sonraki Soygun",
+      "kortzCenter": "Kortz Center",
+      "levelPrefix": "Sv.",
+      "hardLabel": "Zor"
     },
     "weapons": {
+      "category": "Silah kategorisi",
       "searchPlaceholder": "Silah ara (ad, üretici, kategori)...",
       "all": "Tümü",
       "allCategories": "Tüm Kategoriler",
@@ -647,7 +656,14 @@
       "observationTitle": "Gözlem Notları",
       "returnToList": "Listeye Dön",
       "prevMystery": "Önceki Gizem",
-      "nextMystery": "Sonraki Gizem"
+      "nextMystery": "Sonraki Gizem",
+      "point": "Nokta",
+      "corpse": "Ceset",
+      "defaultLabel": "Gizem",
+      "prevPhoto": "Önceki Fotoğraf",
+      "nextPhoto": "Sonraki Fotoğraf",
+      "investigationChain": "Soruşturma Zinciri:",
+      "recordedLocations": "Kaydedilen Konumlar"
     },
     "events": {
       "title": "Özel Etkinlikler",
@@ -658,7 +674,12 @@
       "statusOpen": "Açık",
       "statusComingSoon": "Yakında",
       "statusUnavailable": "Kullanılamıyor",
-      "statusClosed": "Kapalı"
+      "statusClosed": "Kapalı",
+      "conditionsTitle": "Koşullar ve Mekanikler",
+      "yetiPhase2Title": "2. AŞAMA: GECE KARŞILAŞMASI (21:00 - 06:00)",
+      "yetiPhase2Desc": "5 ipucu da araştırıldıktan sonra gece vakti Chiliad Wilderness arama alanına girin. Yeti çalılıklardan fırlayıp üzerinize saldıracaktır. Son ödülü almak için onu etkisiz hale getirin.",
+      "snowmenRewardTitle": "FESTİVAL ÖDÜLÜ VE BONUS",
+      "snowmenRewardDesc": "Her kardan adamı araçla çarparak, ateş ederek veya patlayıcıyla yok edin (tane başına 5.000 $ ve 1.000 RP). 25 kardan adamın tamamını yok ettiğinizde 125.000 $ ek bonus ve Kardan Adam Kıyafeti kazanırsınız."
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "Hikaye",
+    "filterOnline": "Çevrimiçi",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "Hakkında",
+    "about": "HAKKINDA",
     "themeToggle": "Toggle day/night mode"
   }
 }

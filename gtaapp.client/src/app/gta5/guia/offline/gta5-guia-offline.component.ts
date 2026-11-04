@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen, TrofeoItem, TrofeoTipo, TrofeosResumen } from '../../../models/guia';
-import { isDevAccessAllowed } from '../../../services/dev-access.guard';
 import { GtaWeapon } from '../../../models/gta5/weapon';
 import { WEAPON_CATEGORIES_GTA5, WeaponCategoryConfig } from '../../map/info-panel/weapons.config';
 import { Subscription, Observable, shareReplay, map } from 'rxjs';
@@ -25,7 +24,6 @@ export interface GuiaBreadcrumbItem {
   standalone: false
 })
 export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewInit {
-  readonly isDevAllowed: boolean = isDevAccessAllowed();
 
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
@@ -44,16 +42,6 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
   private toastTimeout: ReturnType<typeof setTimeout> | null = null;
-
-  mobileNavOpen: boolean = false;
-
-  toggleMobileNav(): void {
-    this.mobileNavOpen = !this.mobileNavOpen;
-  }
-
-  closeMobileNav(): void {
-    this.mobileNavOpen = false;
-  }
 
   /* Estado de navegación por niveles en móvil (estilo Info-Panel Coches/Armas) */
   isMobileReadingOpen: boolean = false;
@@ -1256,7 +1244,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.articuloSub = this.guiaService.getArticulo('gta5', articuloId).subscribe({
       next: (articulo) => {
         this.selectedArticulo = articulo;
-        this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '');
+        this.renderedContent = articulo.contenidoMarkdown || '';
         this.isLoadingArticulo = false;
       },
       error: (err) => {
@@ -1270,12 +1258,8 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.themeMode = this.themeMode === 'night' ? 'day' : 'night';
   }
 
-  onGta6MapClick(event: Event): void {
-    if (!this.isDevAllowed) {
-      event.preventDefault();
-      event.stopPropagation();
-      this.mostrarToast('El mapa de GTA 6 estará disponible próximamente');
-    }
+  onGta6MapBlocked(): void {
+    this.mostrarToast('El mapa de GTA 6 estará disponible próximamente');
   }
 
   onSearch(): void {
@@ -1325,133 +1309,6 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       clean(a.subtitulo).includes(query) ||
       clean(a.badge).includes(query)
     );
-  }
-
-  private renderMarkdown(raw: string): string {
-    if (!raw) {
-      return '';
-    }
-
-    const root = document.createElement('div');
-    const lines = raw.split('\n');
-    let currentList: HTMLUListElement | null = null;
-
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-
-      const isSubBullet = /^\s{2,}[-*]\s+/.test(line);
-      const isBullet = /^\s*[-*]\s+/.test(line);
-      if (!isBullet && !line.startsWith('> ') && currentList) {
-        root.appendChild(currentList);
-        currentList = null;
-      }
-
-      if (line.startsWith('### ')) {
-        const rawText = line.substring(4).trim();
-        const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
-        const divider = document.createElement('div');
-        divider.className = 'guide-heading-divider';
-        const leftLine = document.createElement('div');
-        leftLine.className = 'guide-heading-line';
-        const h3 = document.createElement('h3');
-        h3.className = 'guide-heading-title';
-        this.appendInline(h3, noEmoji);
-        const rightLine = document.createElement('div');
-        rightLine.className = 'guide-heading-line guide-heading-line--right';
-        divider.appendChild(leftLine);
-        divider.appendChild(h3);
-        divider.appendChild(rightLine);
-        root.appendChild(divider);
-      } else if (line.startsWith('## ')) {
-        const rawText = line.substring(3).trim();
-        const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
-        const h2 = document.createElement('h2');
-        h2.className = 'guide-h2';
-        this.appendInline(h2, noEmoji);
-        root.appendChild(h2);
-      } else if (line.startsWith('> ')) {
-        if (!currentList) {
-          currentList = document.createElement('ul');
-          currentList.className = 'guide-list';
-        }
-        const li = document.createElement('li');
-        li.className = 'guide-list-item';
-        const bullet = document.createElement('span');
-        bullet.className = 'guide-list-bullet';
-        bullet.textContent = '\u203A';
-        const textSpan = document.createElement('span');
-        textSpan.className = 'guide-list-text';
-        this.appendInline(textSpan, line.substring(2).trim());
-        li.appendChild(bullet);
-        li.appendChild(textSpan);
-        currentList.appendChild(li);
-      } else if (line.trim() === '---') {
-        continue;
-      } else if (isBullet) {
-        if (!currentList) {
-          currentList = document.createElement('ul');
-          currentList.className = 'guide-list';
-        }
-        const match = line.match(/^\s*[-*]\s+(.*)/);
-        const li = document.createElement('li');
-        li.className = isSubBullet ? 'guide-list-item guide-list-subitem' : 'guide-list-item';
-        const bullet = document.createElement('span');
-        bullet.className = 'guide-list-bullet';
-        bullet.textContent = '\u203A';
-        const textSpan = document.createElement('span');
-        textSpan.className = 'guide-list-text';
-        if (match) {
-          this.appendInline(textSpan, match[1]);
-        }
-        li.appendChild(bullet);
-        li.appendChild(textSpan);
-        currentList.appendChild(li);
-      } else if (line.trim().length > 0) {
-        const p = document.createElement('p');
-        p.className = 'guide-p';
-        this.appendInline(p, line);
-        root.appendChild(p);
-      }
-    }
-
-    if (currentList) {
-      root.appendChild(currentList);
-    }
-
-    return Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join('');
-  }
-
-  private appendInline(parent: HTMLElement, text: string): void {
-    if (!text) return;
-    const tokenRegex = /(\*\*.*?\*\*|\*[^*]+\*|`[^`]+`)/g;
-    let lastIndex = 0;
-    let match: RegExpExecArray | null;
-    while ((match = tokenRegex.exec(text)) !== null) {
-      if (match.index > lastIndex) {
-        parent.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-      }
-      const token = match[0];
-      if (token.startsWith('**') && token.endsWith('**')) {
-        const strong = document.createElement('strong');
-        strong.className = 'guide-strong';
-        strong.textContent = token.slice(2, -2);
-        parent.appendChild(strong);
-      } else if (token.startsWith('*') && token.endsWith('*')) {
-        const em = document.createElement('em');
-        em.className = 'guide-em';
-        em.textContent = token.slice(1, -1);
-        parent.appendChild(em);
-      } else if (token.startsWith('`') && token.endsWith('`')) {
-        const code = document.createElement('span');
-        code.className = 'guide-chip-code';
-        code.textContent = token.slice(1, -1);
-        parent.appendChild(code);
-      }
-      lastIndex = tokenRegex.lastIndex;
-    }
-    if (lastIndex < text.length) {
-      parent.appendChild(document.createTextNode(text.slice(lastIndex)));
-    }
   }
 
   readonly protagonistas = [

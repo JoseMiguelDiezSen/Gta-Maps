@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "ملء الشاشة",
+    "exitFullscreen": "الخروج من ملء الشاشة"
   },
   "home": {
     "chooseGame": "اختر اللعبة",
@@ -148,6 +150,7 @@
       "regionChumash": "الساحل الغربي",
       "police": "الشرطة",
       "markers": "العلامات",
+      "defaultMarkerName": "علامة",
       "noMarkers": "لا توجد علامات",
       "locateMarker": "تحديد موقع العلامة",
       "deleteAllMarkers": "حذف جميع العلامات المخصصة",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "علامة",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "الفعاليات"
     },
     "catalog": {
+      "category": "فئة المركبة",
       "searchPlaceholder": "بحث عن مركبة...",
       "loading": "جار تحميل كتالوج {{ dealer }}...",
       "error": "تعذر تحميل الكتالوج. تحقق من اتصالك بالإنترنت.",
@@ -575,9 +580,13 @@
       "tipsTitle": "نصائح التسلل والهروب",
       "returnToList": "العودة إلى كتالوج السطو",
       "prevHeist": "السطو السابق",
-      "nextHeist": "السطو التالي"
+      "nextHeist": "السطو التالي",
+      "kortzCenter": "Kortz Center",
+      "levelPrefix": "مستوى",
+      "hardLabel": "صعب"
     },
     "weapons": {
+      "category": "فئة السلاح",
       "searchPlaceholder": "بحث عن سلاح، الشركة المصنعة، النظير الحقيقي...",
       "all": "جميع الأسلحة",
       "allCategories": "جميع الفئات",
@@ -647,7 +656,14 @@
       "observationTitle": "نقطة المراقبة الموصى بها",
       "returnToList": "العودة إلى قائمة الألغاز",
       "prevMystery": "اللغز السابق",
-      "nextMystery": "اللغز التالي"
+      "nextMystery": "اللغز التالي",
+      "point": "نقطة",
+      "corpse": "جثة",
+      "defaultLabel": "لغز",
+      "prevPhoto": "الصورة السابقة",
+      "nextPhoto": "الصورة التالية",
+      "investigationChain": "سلسلة التحقيق:",
+      "recordedLocations": "المواقع المسجلة"
     },
     "events": {
       "title": "فعاليات خاصة",
@@ -658,7 +674,12 @@
       "statusOpen": "مفتوح",
       "statusComingSoon": "قريباً",
       "statusUnavailable": "غير متوفر",
-      "statusClosed": "مغلق"
+      "statusClosed": "مغلق",
+      "conditionsTitle": "الشروط والآليات",
+      "yetiPhase2Title": "المرحلة 2: مواجهة ليلية (21:00 - 06:00)",
+      "yetiPhase2Desc": "بمجرد فحص الأدلة الخمسة، ادخل منطقة البحث في Chiliad Wilderness ليلاً. سيظهر اليتي من بين الشجيرات ويهجم عليك. اقضِ عليه للحصول على المكافأة النهائية.",
+      "snowmenRewardTitle": "مكافأة ومكافأة احتفالية",
+      "snowmenRewardDesc": "دمر كل رجل ثلج بصدمه بسيارة أو إطلاق النار عليه أو باستخدام المتفجرات (5,000 دولار و1,000 نقطة RP لكل واحد). عند تدمير الـ 25 بالكامل ستحصل على مكافأة إضافية قدرها 125,000 دولار وزي رجل الثلج."
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "القصة",
+    "filterOnline": "أونلاين",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "حول",
+    "about": "حول",
     "themeToggle": "Toggle day/night mode"
   }
 }

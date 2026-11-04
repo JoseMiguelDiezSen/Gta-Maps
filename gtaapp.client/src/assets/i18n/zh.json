@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "全屏",
+    "exitFullscreen": "退出全屏"
   },
   "home": {
     "chooseGame": "选择游戏",
@@ -148,6 +150,7 @@
       "regionChumash": "丘马什 (西海岸)",
       "police": "警方系统",
       "markers": "自定义标记",
+      "defaultMarkerName": "标记",
       "noMarkers": "暂无自定义标记",
       "locateMarker": "定位标记",
       "deleteAllMarkers": "删除所有自定义标记",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "标记",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "活动"
     },
     "catalog": {
+      "category": "车辆类别",
       "searchPlaceholder": "搜索载具名称、型号或品牌...",
       "loading": "正在加载 {{ dealer }} 展厅目录...",
       "error": "无法加载载具目录，请检查网络连接。",
@@ -575,9 +580,13 @@
       "tipsTitle": "潜入与撤离绝密技巧",
       "returnToList": "返回抢劫差事大全",
       "prevHeist": "上一抢劫",
-      "nextHeist": "下一抢劫"
+      "nextHeist": "下一抢劫",
+      "kortzCenter": "科尔茨中心",
+      "levelPrefix": "等级",
+      "hardLabel": "困难"
     },
     "weapons": {
+      "category": "武器类别",
       "searchPlaceholder": "搜索武器名称、制造商、现实原型...",
       "all": "全部武器",
       "allCategories": "所有武器类别",
@@ -647,7 +656,14 @@
       "observationTitle": "绝佳观测与拍照点",
       "returnToList": "返回神秘事件列表",
       "prevMystery": "上一档案",
-      "nextMystery": "下一档案"
+      "nextMystery": "下一档案",
+      "point": "点",
+      "corpse": "尸体",
+      "defaultLabel": "谜团",
+      "prevPhoto": "上一张照片",
+      "nextPhoto": "下一张照片",
+      "investigationChain": "调查链：",
+      "recordedLocations": "已记录位置"
     },
     "events": {
       "title": "特殊活动",
@@ -658,7 +674,12 @@
       "statusOpen": "开放",
       "statusComingSoon": "即将推出",
       "statusUnavailable": "不可用",
-      "statusClosed": "已结束"
+      "statusClosed": "已结束",
+      "conditionsTitle": "触发条件与机制",
+      "yetiPhase2Title": "第二阶段：深夜遭遇（21:00 - 06:00）",
+      "yetiPhase2Desc": "调查全部 5 条线索后，在夜间前往乞力耶德荒野搜寻区域。雪怪会从灌木丛中冲出袭击你。将其击毙即可领取最终奖励。",
+      "snowmenRewardTitle": "节日奖励与额外加成",
+      "snowmenRewardDesc": "通过载具撞击、射击或爆炸物摧毁雪人（每个可得 $5,000 和 1,000 RP）。摧毁全部 25 个雪人后，将获得额外的 $125,000 奖励和雪人套装。"
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "故事模式",
+    "filterOnline": "线上",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "关于",
+    "about": "关于",
     "themeToggle": "Toggle day/night mode"
   }
 }

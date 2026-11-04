@@ -258,7 +258,7 @@ export class GuiaService {
       return obs$;
     }
 
-    const obsGta6$ = forkJoin({
+    const buildLocalGta6Fallback$ = () => forkJoin({
       prologo: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'inicio-guia-offline.json'),
       misiones: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'misiones-guia-offline.json')
     }).pipe(
@@ -266,8 +266,8 @@ export class GuiaService {
         id: 'gta6',
         juego: 'Grand Theft Auto VI',
         titulo: 'Guía GTA VI & Base de Datos',
-        descripcion: 'Compendio interactivo de Vice City y el Estado de Leonida: protagonistas, distritos, mecánicas de sigilo e inventario y análisis criminal.',
-        bannerUrl: 'assets/images/home/home-bg.jpg',
+        descripcion: 'Guía del Modo Historia al 100%, planificación táctica de Golpes, asaltos delictivos con Jason y Lucia y secretos de Leonida.',
+        bannerUrl: 'assets/images/gta6/guia/banner-vice-city.jpg',
         secciones: [
           {
             id: 'prologo',
@@ -303,7 +303,20 @@ export class GuiaService {
           }
         ]
       })),
-      catchError(() => of(this.getFallbackManifest('gta6'))),
+      catchError(() => of(this.getFallbackManifest('gta6')))
+    );
+
+    const obsGta6$ = this.http.get<GuiaManifest>('/api/gta6/guia/manifest').pipe(
+      map(manifest => {
+        if (!manifest || !manifest.secciones || manifest.secciones.length === 0 || !manifest.secciones.some(s => s.articulos && s.articulos.length > 0)) {
+          throw new Error('Empty manifest or sections without articles from API');
+        }
+        return manifest;
+      }),
+      catchError(err => {
+        console.warn('[GuiaService] Falló /api/gta6/guia/manifest, usando fallback local:', err);
+        return buildLocalGta6Fallback$();
+      }),
       shareReplay(1)
     );
     this.manifestCache.set(cacheKey, obsGta6$);
@@ -557,7 +570,7 @@ export class GuiaService {
         id: 'gta6',
         juego: 'Grand Theft Auto VI',
         titulo: 'Guía GTA VI & Base de Datos',
-        descripcion: 'Compendio interactivo de Vice City y el Estado de Leonida: protagonistas, distritos, mecánicas de sigilo e inventario y análisis criminal.',
+        descripcion: 'Guía del Modo Historia al 100%, planificación táctica de Golpes, asaltos delictivos con Jason y Lucia y secretos de Leonida.',
         bannerUrl: 'assets/images/home/home-bg.jpg',
         secciones: []
       };

@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "Schermo intero",
+    "exitFullscreen": "Esci da schermo intero"
   },
   "home": {
     "chooseGame": "Scegli il gioco",
@@ -148,6 +150,7 @@
       "regionChumash": "Costa Ovest",
       "police": "Polizia",
       "markers": "Indicatori",
+      "defaultMarkerName": "Segnalino",
       "noMarkers": "Nessun indicatore",
       "locateMarker": "Localizza indicatore",
       "deleteAllMarkers": "Elimina tutti i segnalini personalizzati",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "Segnalino",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "Eventi"
     },
     "catalog": {
+      "category": "Categoria veicolo",
       "searchPlaceholder": "Cerca veicolo...",
       "loading": "Caricamento catalogo di {{ dealer }}...",
       "error": "Impossibile caricare il catalogo. Controlla la tua connessione.",
@@ -575,9 +580,13 @@
       "tipsTitle": "Consigli per Infiltrazione e Fuga",
       "returnToList": "Torna al catalogo dei colpi",
       "prevHeist": "Colpo precedente",
-      "nextHeist": "Colpo successivo"
+      "nextHeist": "Colpo successivo",
+      "kortzCenter": "Kortz Center",
+      "levelPrefix": "Liv.",
+      "hardLabel": "Difficile"
     },
     "weapons": {
+      "category": "Categoria arma",
       "searchPlaceholder": "Cerca arma, produttore, controparte reale...",
       "all": "Tutte le Armi",
       "allCategories": "Tutte le categorie",
@@ -647,7 +656,14 @@
       "observationTitle": "Punto di Osservazione Consigliato",
       "returnToList": "Torna all'elenco dei misteri",
       "prevMystery": "Mistero precedente",
-      "nextMystery": "Mistero successivo"
+      "nextMystery": "Mistero successivo",
+      "point": "Punto",
+      "corpse": "Cadavere",
+      "defaultLabel": "Mistero",
+      "prevPhoto": "Foto precedente",
+      "nextPhoto": "Foto successiva",
+      "investigationChain": "Catena di indagine:",
+      "recordedLocations": "Posizioni registrate"
     },
     "events": {
       "title": "Eventi speciali",
@@ -658,7 +674,12 @@
       "statusOpen": "Aperto",
       "statusComingSoon": "Prossimamente",
       "statusUnavailable": "Non disponible",
-      "statusClosed": "Chiuso"
+      "statusClosed": "Chiuso",
+      "conditionsTitle": "Condizioni e Meccaniche",
+      "yetiPhase2Title": "FASE 2: INCONTRO NOTTURNO (21:00 - 06:00)",
+      "yetiPhase2Desc": "Una volta esaminati tutti e 5 gli indizi, addentrati nell'area di ricerca di Chiliad Wilderness durante la notte. Lo Yeti emergerà dalla boscaglia e ti caricherà. Abbattilo per ottenere la ricompensa finale.",
+      "snowmenRewardTitle": "RICOMPENSA E BONUS NATALIZIO",
+      "snowmenRewardDesc": "Distruggi ogni pupazzo di neve speronandolo con un veicolo, sparandogli o usando esplosivi (5.000 $ e 1.000 RP ciascuno). Distruggendoli tutti e 25 otterrai un bonus di 125.000 $ e il completo da pupazzo di neve."
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "Storia",
+    "filterOnline": "Online",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "Info",
+    "about": "INFO",
     "themeToggle": "Toggle day/night mode"
   }
 }

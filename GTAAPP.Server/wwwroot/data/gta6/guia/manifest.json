@@ -1,30 +1,37 @@
 {
   "id": "gta6",
   "juego": "Grand Theft Auto VI",
-  "titulo": "Base de Datos & Guía Oficial de GTA VI",
-  "descripcion": "Toda la información confirmada, regiones de Leonida, análisis de tráileres, personajes y mecánicas de la próxima obra maestra de Rockstar Games.",
+  "titulo": "Guía GTA VI & Base de Datos",
+  "descripcion": "Guía del Modo Historia al 100%, planificación táctica de Golpes, asaltos delictivos con Jason y Lucia y secretos de Leonida.",
   "bannerUrl": "assets/images/gta6/guia/banner-vice-city.jpg",
   "secciones": [
     {
       "id": "prologo",
-      "titulo": "Prólogo & Leonida",
+      "titulo": "Inicio",
       "icono": "book-open",
       "descripcion": "Introducción al Estado de Leonida, Vice City y perfiles de los protagonistas.",
       "orden": 0
     },
     {
-      "id": "misiones",
-      "titulo": "Misiones & Golpes",
-      "icono": "crosshairs",
-      "descripcion": "Campañas criminales y atracos en Leonida.",
+      "id": "misiones-historia",
+      "titulo": "Misiones Principales",
+      "icono": "gun",
+      "descripcion": "Guía de las misiones principales de GTA VI.",
       "orden": 1
+    },
+    {
+      "id": "trofeos",
+      "titulo": "Trofeos",
+      "icono": "trophy",
+      "descripcion": "Listado provisional de trofeos y logros de GTA VI: Platino, Oro, Plata y Bronce.",
+      "orden": 2
     },
     {
       "id": "vehiculos",
       "titulo": "Vehículos",
       "icono": "car",
-      "descripcion": "Catálogo de vehículos, deportivos, embarcaciones y aeronaves.",
-      "orden": 2
+      "descripcion": "Catálogo de vehículos, deportivos, embarcaciones y aeronaves de Leonida.",
+      "orden": 3
     }
   ]
 }

@@ -446,11 +446,11 @@
           <div class="hud-acc-head">
             <div class="hud-acc-toggle" (click)="toggleSection('fauna')">
               <span class="hud-acc-caret"></span>
-              <span class="hud-acc-title">{{ 'gta5.categories.fauna' | translate }}</span>
+              <span class="hud-acc-title">{{ 'gta5.categories.wildlife' | translate }}</span>
             </div>
             <input
               type="checkbox"
-              class="hud-acc-check" aria-label="{{ 'gta5.categories.fauna' | translate }}"
+              class="hud-acc-check" aria-label="{{ 'gta5.categories.wildlife' | translate }}"
               [checked]="isSectionAllActive(faunaKeys)"
               (click)="$event.stopPropagation()"
               (change)="onSectionCheckboxChange(faunaKeys, $event)"

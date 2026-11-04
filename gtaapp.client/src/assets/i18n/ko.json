@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "전체 화면",
+    "exitFullscreen": "전체 화면 종료"
   },
   "home": {
     "chooseGame": "게임 선택",
@@ -148,6 +150,7 @@
       "regionChumash": "추마시",
       "police": "경찰서",
       "markers": "마커",
+      "defaultMarkerName": "마커",
       "noMarkers": "표시할 마커가 없습니다",
       "locateMarker": "마커 위치 찾기",
       "deleteAllMarkers": "모든 사용자 지정 마커 삭제",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "마커",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "이벤트"
     },
     "catalog": {
+      "category": "차량 카테고리",
       "searchPlaceholder": "차량 검색 (모델명, 제조사, 차종)...",
       "loading": "{{ dealer }} 카탈로그 로딩 중...",
       "error": "차량 카탈로그 로드 중 오류 발생",
@@ -575,9 +580,13 @@
       "tipsTitle": "전략 및 팁",
       "returnToList": "목록으로",
       "prevHeist": "이전 습격",
-      "nextHeist": "다음 습격"
+      "nextHeist": "다음 습격",
+      "kortzCenter": "코츠 센터",
+      "levelPrefix": "Lv.",
+      "hardLabel": "어려움"
     },
     "weapons": {
+      "category": "무기 카테고리",
       "searchPlaceholder": "무기 검색 (이름, 제조사, 카테고리)...",
       "all": "전체",
       "allCategories": "모든 카테고리",
@@ -647,7 +656,14 @@
       "observationTitle": "관찰 기록",
       "returnToList": "목록으로",
       "prevMystery": "이전 미스터리",
-      "nextMystery": "다음 미스터리"
+      "nextMystery": "다음 미스터리",
+      "point": "지점",
+      "corpse": "시체",
+      "defaultLabel": "미스터리",
+      "prevPhoto": "이전 사진",
+      "nextPhoto": "다음 사진",
+      "investigationChain": "조사 과정:",
+      "recordedLocations": "기록된 위치"
     },
     "events": {
       "title": "특별 이벤트",
@@ -658,7 +674,12 @@
       "statusOpen": "진행 중",
       "statusComingSoon": "출시 예정",
       "statusUnavailable": "이용 불가",
-      "statusClosed": "종료됨"
+      "statusClosed": "종료됨",
+      "conditionsTitle": "조건 및 진행 방식",
+      "yetiPhase2Title": "2단계: 야간 조우 (21:00 - 06:00)",
+      "yetiPhase2Desc": "5개의 단서를 모두 조사한 후 밤에 칠리아드 황무지 탐색 구역으로 진입하세요. 설인이 덤불에서 튀어나와 공격해 옵니다. 설인을 처치하여 최종 보상을 획득하세요.",
+      "snowmenRewardTitle": "홀리데이 보상 및 보너스",
+      "snowmenRewardDesc": "차량으로 들이받거나 사격 또는 폭발물로 눈사람을 파괴하세요(개당 $5,000 및 1,000 RP). 25개를 모두 파괴하면 추가 보너스 $125,000와 눈사람 복장을 획득합니다."
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "스토리",
+    "filterOnline": "온라인",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "정보",
+    "about": "정보",
     "themeToggle": "Toggle day/night mode"
   }
 }

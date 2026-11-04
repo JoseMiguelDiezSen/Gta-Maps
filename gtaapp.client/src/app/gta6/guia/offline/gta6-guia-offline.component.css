@@ -1,95 +1,4 @@
 @import './guia-gta6offline-responsive.css';
-/* ===== SELECTOR DE MODO (HISTORIA / ONLINE) ===== */
-.mode-switch-track {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 4px;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-.mode-switch-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 5px 12px;
-  border-radius: 7px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  text-decoration: none;
-  border: 1px solid transparent;
-  color: rgba(255, 255, 255, 0.55);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
-  user-select: none;
-}
-
-.mode-text-desktop { display: inline; }
-.mode-text-mobile { display: none; }
-
-.mode-indicator {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-}
-
-/* Modo Historia */
-.dot-historia {
-  background: #ff5252;
-  box-shadow: 0 0 6px rgba(255, 82, 82, 0.6);
-}
-
-.mode-historia:hover:not(.is-active) {
-  color: #ff9e9e;
-  background: rgba(255, 82, 82, 0.12);
-  border-color: rgba(255, 82, 82, 0.35);
-}
-
-.mode-historia.is-active {
-  color: #ffd1d1;
-  background: rgba(239, 68, 68, 0.28);
-  border-color: rgba(239, 68, 68, 0.7);
-  box-shadow: 0 0 14px rgba(239, 68, 68, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
-  cursor: default;
-}
-
-.mode-historia.is-active .dot-historia {
-  box-shadow: 0 0 8px #ff4d4d, 0 0 14px #ff1a1a;
-  transform: scale(1.15);
-}
-
-/* Modo Online */
-.dot-online {
-  background: #22c55e;
-  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
-}
-
-.mode-online:hover:not(.is-active) {
-  color: #a7f3d0;
-  background: rgba(34, 197, 94, 0.12);
-  border-color: rgba(34, 197, 94, 0.35);
-}
-
-.mode-online.is-active {
-  color: #b9ffce;
-  background: rgba(34, 197, 94, 0.28);
-  border-color: rgba(34, 197, 94, 0.7);
-  box-shadow: 0 0 14px rgba(34, 197, 94, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2);
-  cursor: default;
-}
-
-.mode-online.is-active .dot-online {
-  box-shadow: 0 0 8px #22c55e, 0 0 14px #15803d;
-  transform: scale(1.15);
-}
 /* ==========================================================================
    ESTILOS WIKI & BASE DE DATOS GTA VI (VICE CITY & LEONIDA NEON NOIR)
    ========================================================================== */
@@ -134,21 +43,6 @@
     linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
   background-size: 20px 20px, 20px 20px;
   color: #0f172a;
-}
-
-.wiki-shell.mode-day .wiki-top-nav {
-  background: #ffffff;
-  border-bottom-color: #ec4899;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-}
-
-.wiki-shell.mode-day .nav-brand-sep {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-.wiki-shell.mode-day .nav-brand-title {
-  color: #0f172a;
-  text-shadow: none;
 }
 
 .wiki-shell.mode-day .wiki-sidebar {
@@ -274,440 +168,6 @@
 
 .wiki-shell.mode-day .home-footer-link {
   color: #0f172a;
-}
-
-/* ==========================================================================
-   1. BARRA DE NAVEGACIÓN SUPERIOR (HUD NAV)
-   ========================================================================== */
-.wiki-top-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(8, 11, 18, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 2px solid #ec4899;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-}
-
-.nav-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-shrink: 0;
-}
-
-.wiki-logo-link {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  margin: 0 16px;
-}
-
-.wiki-nav-logo {
-  height: 38px;
-  width: auto;
-  max-width: 120px;
-  max-height: 38px;
-  object-fit: contain;
-  display: block;
-  transition: filter 0.2s ease;
-}
-
-.wiki-shell.mode-day .wiki-nav-logo {
-  filter: brightness(0);
-}
-
-.nav-spike-divider {
-  display: block;
-  width: 1px;
-  height: 42px;
-  background: linear-gradient(180deg, transparent 0%, rgba(255, 184, 51, 0.85) 50%, transparent 100%);
-  border-radius: 1px;
-  box-shadow: 0 0 6px rgba(255, 184, 51, 0.4);
-  flex-shrink: 0;
-}
-
-.wiki-shell.mode-day .nav-spike-divider {
-  background: linear-gradient(180deg, transparent 0%, rgba(217, 119, 6, 0.85) 50%, transparent 100%);
-  box-shadow: none;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  margin-left: 14px;
-}
-
-.nav-brand-title {
-  margin: 0;
-  font-size: 32px;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-family: 'Pricedown', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  line-height: 1;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-  transform: translateY(-2px);
-  transition: color 0.25s ease, text-shadow 0.25s ease;
-}
-
-.wiki-shell.mode-day .nav-brand-title {
-  color: #000000;
-  text-shadow: none;
-}
-
-/* ==========================================================================
-   ENLACES DE NAVEGACIÓN HUD (TIPOGRAFÍA GTA)
-   ========================================================================== */
-.nav-link-item {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 4px;
-  border-radius: 0;
-  background: transparent;
-  border: none;
-  color: #f1f5f9;
-  text-decoration: none;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  line-height: 1;
-  box-shadow: none;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
-}
-
-.nav-link-item::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ffb833 50%, transparent);
-  box-shadow: 0 0 8px rgba(255, 184, 51, 0.75);
-  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-}
-
-.nav-link-item i {
-  font-size: 11.5px;
-  color: #ffb833;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 5px;
-  background: rgba(255, 184, 51, 0.08);
-  border: 1px solid rgba(255, 184, 51, 0.28);
-  flex-shrink: 0;
-}
-
-.nav-link-item:hover {
-  color: #ffffff;
-
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-}
-
-.nav-link-item:hover::after {
-  width: 100%;
-  left: 0;
-
-}
-
-.nav-link-item:hover i {
-  background: rgba(255, 184, 51, 0.22);
-  border-color: #ffb833;
-  box-shadow: 0 0 10px rgba(255, 184, 51, 0.45);
-
-  color: #ffffff;
-}
-
-/* ==========================================================================
-   DESPLEGABLE NAVEGACIÓN HUD (DROPDOWNS GTA 5 Y GTA 6)
-   ========================================================================== */
-.nav-dropdown-wrapper {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.nav-link-item.dropdown-trigger {
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  outline: none;
-}
-
-.nav-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%) translateY(-6px);
-  min-width: 170px;
-  background: rgba(11, 15, 23, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 184, 51, 0.35);
-  border-radius: 8px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 184, 51, 0.15);
-  padding: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.22s;
-  z-index: 1000;
-}
-
-.nav-dropdown-menu::before {
-  content: '';
-  position: absolute;
-  top: -12px;
-  left: 0;
-  right: 0;
-  height: 12px;
-}
-
-.nav-dropdown-wrapper:hover .nav-dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
-}
-
-.nav-dropdown-divider {
-  display: block;
-  height: 1px;
-  margin: 3px 6px;
-  background: linear-gradient(90deg, transparent, rgba(255, 184, 51, 0.45) 50%, transparent);
-}
-
-.nav-dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 7px 10px;
-  border-radius: 6px;
-  color: #f1f5f9;
-  text-decoration: none;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  background: transparent;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.nav-dropdown-item i {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
-  background: rgba(255, 184, 51, 0.08);
-  border: 1px solid rgba(255, 184, 51, 0.25);
-  font-size: 10.5px;
-  color: #ffb833;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-}
-
-.nav-dropdown-item:hover:not(.is-disabled) {
-  background: rgba(255, 184, 51, 0.12);
-  color: #ffffff;
-  transform: translateX(2px);
-  box-shadow: inset 0 0 10px rgba(255, 184, 51, 0.15);
-}
-
-.nav-dropdown-item:hover:not(.is-disabled) i {
-  background: rgba(255, 184, 51, 0.28);
-  border-color: #ffb833;
-  color: #ffffff;
-  box-shadow: 0 0 8px rgba(255, 184, 51, 0.5);
-  transform: scale(1.1);
-}
-
-.nav-dropdown-item.is-disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  pointer-events: auto;
-}
-
-.nav-dropdown-item.is-disabled:hover {
-  transform: none;
-  background: transparent;
-  box-shadow: none;
-}
-
-.nav-dropdown-item.is-disabled:hover i {
-  transform: none;
-  box-shadow: none;
-  background: rgba(255, 184, 51, 0.08);
-  border-color: rgba(255, 184, 51, 0.25);
-  color: #ffb833;
-}
-
-/* Modo día */
-.wiki-shell.mode-day .nav-link-item {
-  color: #334155;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.wiki-shell.mode-day .nav-link-item::after {
-  background: linear-gradient(90deg, transparent, #d97706 50%, transparent);
-  box-shadow: 0 0 6px rgba(217, 119, 6, 0.45);
-  text-shadow: none;
-}
-
-.wiki-shell.mode-day .nav-link-item i {
-  background: rgba(217, 119, 6, 0.08);
-  border: 1px solid rgba(217, 119, 6, 0.28);
-  color: #d97706;
-}
-
-.wiki-shell.mode-day .nav-link-item:hover {
-  color: #0f172a;
-  background: transparent;
-}
-
-.wiki-shell.mode-day .nav-link-item:hover i {
-  background: rgba(217, 119, 6, 0.18);
-  border-color: #d97706;
-  color: #78350f;
-  box-shadow: 0 0 8px rgba(217, 119, 6, 0.35);
-
-}
-
-.nav-link-item.nav-link-disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-
-
-  pointer-events: auto;
-}
-
-.nav-link-item.nav-link-disabled:hover {
-  transform: none;
-  color: #f1f5f9;
-  text-shadow: none;
-}
-
-.nav-link-item.nav-link-disabled:hover i {
-  transform: none;
-  box-shadow: none;
-  color: #ffb833;
-}
-
-.wiki-shell.mode-day .nav-link-item.nav-link-disabled:hover {
-  color: #d97706;
-  text-shadow: none;
-}
-
-.wiki-shell.mode-day .nav-link-item.nav-link-disabled:hover i {
-  color: #d97706;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.theme-toggle-switch {
-  position: relative;
-  width: 58px;
-  height: 30px;
-  background: #150f26;
-  border: 2px solid rgba(236, 72, 153, 0.35);
-  border-radius: 30px;
-  padding: 0 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.theme-toggle-switch.is-day {
-  background: #ec4899;
-  border-color: #f472b6;
-}
-
-.switch-icon {
-  font-size: 13px;
-  line-height: 1;
-  user-select: none;
-  z-index: 1;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.switch-icon-moon {
-  opacity: 1;
-}
-
-.theme-toggle-switch.is-day .switch-icon-moon {
-  opacity: 0.3;
-}
-
-.switch-icon-sun {
-  opacity: 0.3;
-}
-
-.theme-toggle-switch.is-day .switch-icon-sun {
-  opacity: 1;
-}
-
-.switch-thumb {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 20px;
-  height: 20px;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
-}
-
-.theme-toggle-switch.is-day .switch-thumb {
-  transform: translateX(28px);
-  background: #fdf2f8;
-  box-shadow: 0 0 8px rgba(236, 72, 153, 0.6);
 }
 
 /* Barra de Progreso de Lectura */
@@ -1770,6 +1230,7 @@
   line-height: 1.8;
 }
 
+:host ::ng-deep .narrative-editorial-body h2,
 :host ::ng-deep .narrative-editorial-body .guide-h2 {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 21px;
@@ -1782,6 +1243,7 @@
   border-bottom: none;
 }
 
+:host ::ng-deep .narrative-editorial-body h3,
 .narrative-editorial-body .guide-h3 {
   display: flex;
   align-items: center;
@@ -1806,9 +1268,10 @@
 .gta6-protagonists-frames,
 :host ::ng-deep .narrative-editorial-body .gta6-protagonists-frames {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin: 24px 0 28px;
+  grid-template-columns: repeat(2, minmax(0, 260px));
+  justify-content: center;
+  gap: 24px;
+  margin: 24px auto 28px;
 }
 
 .gta6-protagonist-frame,
@@ -1863,6 +1326,7 @@
   text-transform: uppercase;
 }
 
+:host ::ng-deep .narrative-editorial-body p,
 :host ::ng-deep .narrative-editorial-body .guide-p {
   margin: 0 0 16px 0;
   line-height: 1.75;
@@ -1892,6 +1356,7 @@
   line-height: 1.6;
 }
 
+:host ::ng-deep .narrative-editorial-body ul,
 :host ::ng-deep .narrative-editorial-body .guide-list {
   list-style: none;
   padding: 0;
@@ -1901,6 +1366,7 @@
   gap: 8px;
 }
 
+:host ::ng-deep .narrative-editorial-body li,
 :host ::ng-deep .narrative-editorial-body .guide-list-item {
   display: flex;
   align-items: baseline;

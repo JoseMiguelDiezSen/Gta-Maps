@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "Plein écran",
+    "exitFullscreen": "Quitter le plein écran"
   },
   "home": {
     "chooseGame": "Choisissez le jeu",
@@ -148,6 +150,7 @@
       "regionChumash": "Chumash (Côte Ouest)",
       "police": "Système policier",
       "markers": "Marqueurs personnalisés",
+      "defaultMarkerName": "Marqueur",
       "noMarkers": "Aucun marqueur personnalisé",
       "locateMarker": "Localiser le marqueur",
       "deleteAllMarkers": "Supprimer tous les marqueurs personnalisés",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "Marqueur",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "Événements"
     },
     "catalog": {
+      "category": "Catégorie de véhicule",
       "searchPlaceholder": "Rechercher un véhicule...",
       "loading": "Chargement du catalogue de {{ dealer }}...",
       "error": "Impossible de charger le catalogue. Vérifiez votre connexion.",
@@ -575,9 +580,13 @@
       "tipsTitle": "Conseils d'Infiltration et de Fuite",
       "returnToList": "Retour au catalogue des braquages",
       "prevHeist": "Braquage précédent",
-      "nextHeist": "Braquage suivant"
+      "nextHeist": "Braquage suivant",
+      "kortzCenter": "Kortz Center",
+      "levelPrefix": "Niv.",
+      "hardLabel": "Difficile"
     },
     "weapons": {
+      "category": "Catégorie d'arme",
       "searchPlaceholder": "Rechercher une arme, fabricant, modèle réel...",
       "all": "Toutes les Armes",
       "allCategories": "Toutes les catégories",
@@ -647,7 +656,14 @@
       "observationTitle": "Point d'Observation Recommandé",
       "returnToList": "Retour à la liste des mystères",
       "prevMystery": "Mystère précédent",
-      "nextMystery": "Mystère suivant"
+      "nextMystery": "Mystère suivant",
+      "point": "Point",
+      "corpse": "Cadavre",
+      "defaultLabel": "Mystère",
+      "prevPhoto": "Photo précédente",
+      "nextPhoto": "Photo suivante",
+      "investigationChain": "Chaîne d'enquête :",
+      "recordedLocations": "Emplacements enregistrés"
     },
     "events": {
       "title": "Événements spéciaux",
@@ -658,7 +674,12 @@
       "statusOpen": "Ouvert",
       "statusComingSoon": "Bientôt disponible",
       "statusUnavailable": "Non disponible",
-      "statusClosed": "Fermé"
+      "statusClosed": "Fermé",
+      "conditionsTitle": "Conditions et Mécanismes",
+      "yetiPhase2Title": "PHASE 2 : RENCONTRE NOCTURNE (21:00 - 06:00)",
+      "yetiPhase2Desc": "Une fois les 5 indices examinés, pénétrez dans la zone de recherche de Chiliad Wilderness pendant la nuit. Le Yéti surgira des fourrés et chargera. Éliminez-le pour obtenir la récompense finale.",
+      "snowmenRewardTitle": "RÉCOMPENSE ET BONUS FESTIF",
+      "snowmenRewardDesc": "Détruisez chaque bonhomme de neige en le percutant avec un véhicule, en lui tirant dessus ou avec des explosifs (5 000 $ et 1 000 RP chacun). Après avoir détruit les 25, vous recevrez un bonus de 125 000 $ et la tenue de bonhomme de neige."
     }
   },
   "seo": {
@@ -695,6 +716,8 @@
     "heroTitle": "VIDÉOS GTA 6",
     "heroDesc": "Recueil audiovisuel de clips courts, faune sauvage, réactions de PNJ et anecdotes dans le monde ouvert de Leonida.",
     "allFilter": "Toutes les Vidéos",
+    "filterHistoria": "Histoire",
+    "filterOnline": "En ligne",
     "filterNpc": "PNJ & Réactions IA",
     "filterFauna": "Faune de Leonida",
     "filterPolicia": "Police & Poursuites",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "À propos",
+    "about": "À PROPOS",
     "themeToggle": "Toggle day/night mode"
   }
 }

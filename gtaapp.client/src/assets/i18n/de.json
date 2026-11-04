@@ -32,7 +32,9 @@
     "clearSearch": "Clear search",
     "gta6Info": "GTA VI INFO",
     "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V"
+    "requiredFor100": "Required for 100% of GTA V",
+    "fullscreen": "Vollbild",
+    "exitFullscreen": "Vollbild beenden"
   },
   "home": {
     "chooseGame": "Wähle das Spiel",
@@ -148,6 +150,7 @@
       "regionChumash": "Chumash (Westküste)",
       "police": "Polizeisystem",
       "markers": "Eigene Marker",
+      "defaultMarkerName": "Markierung",
       "noMarkers": "Keine eigenen Marker vorhanden",
       "locateMarker": "Marker lokalisieren",
       "deleteAllMarkers": "Alle eigenen Marker löschen",
@@ -416,6 +419,7 @@
       "sizeLarge": "120%",
       "police": "Police Mode",
       "markers": "Markers",
+      "defaultMarkerName": "Markierung",
       "noMarkers": "No markers",
       "locateMarker": "Locate marker",
       "deleteAllMarkers": "Delete all",
@@ -451,6 +455,7 @@
       "events": "Events"
     },
     "catalog": {
+      "category": "Fahrzeugkategorie",
       "searchPlaceholder": "Fahrzeug suchen...",
       "loading": "Katalog von {{ dealer }} wird geladen...",
       "error": "Katalog konnte nicht geladen werden. Bitte Verbindung prüfen.",
@@ -575,9 +580,13 @@
       "tipsTitle": "Tipps für Infiltration & Flucht",
       "returnToList": "Zurück zum Katalog",
       "prevHeist": "Vorheriger Überfall",
-      "nextHeist": "Nächster Überfall"
+      "nextHeist": "Nächster Überfall",
+      "kortzCenter": "Kortz Center",
+      "levelPrefix": "St.",
+      "hardLabel": "Schwer"
     },
     "weapons": {
+      "category": "Waffenkategorie",
       "searchPlaceholder": "Waffe, Hersteller, reales Vorbild suchen...",
       "all": "Alle Waffen",
       "allCategories": "Alle Kategorien",
@@ -647,7 +656,14 @@
       "observationTitle": "Empfohlener Beobachtungspunkt",
       "returnToList": "Zurück zur Mysterienliste",
       "prevMystery": "Vorheriges Mysterium",
-      "nextMystery": "Nächstes Mysterium"
+      "nextMystery": "Nächstes Mysterium",
+      "point": "Punkt",
+      "corpse": "Leiche",
+      "defaultLabel": "Mysterium",
+      "prevPhoto": "Vorheriges Foto",
+      "nextPhoto": "Nächstes Foto",
+      "investigationChain": "Ermittlungskette:",
+      "recordedLocations": "Erfasste Orte"
     },
     "events": {
       "title": "Spezial-Events",
@@ -658,7 +674,12 @@
       "statusOpen": "Geöffnet",
       "statusComingSoon": "Demnächst",
       "statusUnavailable": "Nicht verfügbar",
-      "statusClosed": "Geschlossen"
+      "statusClosed": "Geschlossen",
+      "conditionsTitle": "Bedingungen und Mechaniken",
+      "yetiPhase2Title": "PHASE 2: NÄCHTLICHE BEGEGNUNG (21:00 - 06:00)",
+      "yetiPhase2Desc": "Sobald alle 5 Hinweise untersucht wurden, betritt nachts das Suchgebiet in der Chiliad-Wildnis. Der Yeti bricht aus dem Dickicht hervor und greift dich an. Erlege ihn, um die finale Belohnung zu erhalten.",
+      "snowmenRewardTitle": "FESTLICHE BELOHNUNG & BONUS",
+      "snowmenRewardDesc": "Zerstöre jeden Schneemann, indem du ihn mit einem Fahrzeug rammsst, abschießt oder Sprengstoff einsetzt (je 5.000 $ und 1.000 RP). Nach allen 25 Schneemännern erhältst du 125.000 $ Bonus und das Schneemann-Outfit."
     }
   },
   "seo": {
@@ -844,6 +865,8 @@
     "heroTitle": "GTA 6 VIDEOS",
     "heroDesc": "Audiovisual collection of short gameplay clips, wildlife encounters, NPC reactions and curiosities across the open world of Leonida.",
     "allFilter": "All Videos",
+    "filterHistoria": "Story",
+    "filterOnline": "Online",
     "filterNpc": "NPCs & AI Reactions",
     "filterFauna": "Leonida Wildlife",
     "filterPolicia": "Police & Pursuits",
@@ -897,6 +920,8 @@
     "gta6Guide": "GTA 6 GUIDE",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
+    "aboutTitle": "Über",
+    "about": "ÜBER",
     "themeToggle": "Toggle day/night mode"
   }
 }

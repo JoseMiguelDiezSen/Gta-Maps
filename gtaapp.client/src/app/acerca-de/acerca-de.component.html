@@ -1,0 +1,53 @@
+<div #wikiShell class="wiki-shell gta5-theme" [class.mode-day]="themeMode === 'day'" (scroll)="onShellScroll($event)">
+  
+  <app-top-nav
+    activePage="about"
+    [themeMode]="themeMode"
+    (themeToggle)="toggleThemeMode()">
+  </app-top-nav>
+
+
+  <!-- BANNER HERO OFICIAL (IDÉNTICO A LA GUÍA) -->
+  <header class="wiki-hero-banner">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content-inner">
+      <h2 class="hero-main-title">Acerca de GTA Explorer</h2>
+      <p class="hero-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+    </div>
+  </header>
+
+  <!-- CUERPO PRINCIPAL CON LOREM IPSUM (ESTÉTICA EDITORIAL DE LA APP) -->
+  <div class="wiki-body-layout" style="display: flex; flex-direction: column; max-width: 1200px; margin: 0 auto; padding: 32px 24px; box-sizing: border-box; flex: 1 0 auto; width: 100%;">
+    <!-- SEPARADOR EDITORIAL OFICIAL -->
+    <div class="guide-heading-divider">
+      <div class="guide-heading-line"></div>
+      <h3 class="guide-heading-title">GTA EXPLORER</h3>
+      <div class="guide-heading-line guide-heading-line--right"></div>
+    </div>
+
+    <div style="background: rgba(11, 15, 23, 0.85); border: 1px solid rgba(255, 184, 51, 0.25); border-radius: 8px; padding: 32px; line-height: 1.8; color: #cbd5e1; font-size: 15px;">
+      <!-- Espacio reservado para foto (sin rellenar) -->
+      <div class="about-photo-slot">
+        <!-- <img src="" alt="" /> -->
+      </div>
+
+      <p style="margin: 0 0 20px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+      
+      <p style="margin: 0 0 20px 0;">Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum.</p>
+
+      <p style="margin: 0;">Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER IDÉNTICO AL DE LA HOME -->
+  <footer class="home-footer">
+    <p class="home-footer-text">
+      {{ 'home.copyright' | translate }}
+      <span class="home-footer-sep" aria-hidden="true">·</span>
+      <button type="button" class="home-footer-link" (click)="cookieService.openBanner()">{{ 'cookies.reopenTooltip' | translate }}</button>
+    </p>
+  </footer>
+
+</div>
