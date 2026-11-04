@@ -572,47 +572,20 @@ public class GuiaService : IGuiaService
     {
         var articulosGta6 = new List<GuiaArticulo>();
 
-        var offlineDir = Path.Combine(BaseWebRoot, "data", "gta6", "guia", "offline");
-        if (Directory.Exists(offlineDir))
+        // Solo artículos del Modo Historia: la guía online se sirve desde el cliente,
+        // y los vehículos y trofeos de esta carpeta no son artículos.
+        var offlineDir = Path.Combine(BaseWebRoot, "data", "gta6", "guia", "offline", "idiomas", "es");
+        foreach (var fileName in new[] { "prologo-guia-offline.json", "misiones-guia-offline.json" })
         {
-            var files = Directory.GetFiles(offlineDir, "*.json");
-            foreach (var f in files)
+            var f = Path.Combine(offlineDir, fileName);
+            try
             {
-                try
-                {
-                    var json = File.ReadAllText(f);
-                    if (json.TrimStart().StartsWith('['))
-                    {
-                        var list = JsonSerializer.Deserialize<List<GuiaArticulo>>(json, JsonOptions);
-                        if (list != null) articulosGta6.AddRange(list);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogWarning(ex, "Error al cargar archivo de guía GTA6 {File}", f);
-                }
+                var list = JsonSerializer.Deserialize<List<GuiaArticulo>>(File.ReadAllText(f), JsonOptions);
+                if (list != null) articulosGta6.AddRange(list);
             }
-        }
-
-        var onlineDir = Path.Combine(BaseWebRoot, "data", "gta6", "guia", "online");
-        if (Directory.Exists(onlineDir))
-        {
-            var files = Directory.GetFiles(onlineDir, "*.json");
-            foreach (var f in files)
+            catch (Exception ex)
             {
-                try
-                {
-                    var json = File.ReadAllText(f);
-                    if (json.TrimStart().StartsWith('['))
-                    {
-                        var list = JsonSerializer.Deserialize<List<GuiaArticulo>>(json, JsonOptions);
-                        if (list != null) articulosGta6.AddRange(list);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogWarning(ex, "Error al cargar archivo de guía online GTA6 {File}", f);
-                }
+                _logger.LogWarning(ex, "Error al cargar archivo de guía GTA6 {File}", f);
             }
         }
 

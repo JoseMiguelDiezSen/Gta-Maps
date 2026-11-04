@@ -259,7 +259,7 @@ export class GuiaService {
     }
 
     const buildLocalGta6Fallback$ = () => forkJoin({
-      prologo: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'inicio-guia-offline.json'),
+      prologo: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'prologo-guia-offline.json'),
       misiones: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'misiones-guia-offline.json')
     }).pipe(
       map(res => ({
@@ -289,7 +289,7 @@ export class GuiaService {
             id: 'trofeos',
             titulo: 'Trofeos',
             icono: 'trophy',
-            descripcion: 'Listado provisional de trofeos y logros de GTA VI: Platino, Oro, Plata y Bronce.',
+            descripcion: 'Trofeos y logros de GTA VI: Platino, Oro, Plata y Bronce.',
             orden: 2,
             articulos: []
           },
@@ -466,7 +466,7 @@ export class GuiaService {
 
 
     return forkJoin([
-      this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'inicio-guia-offline.json').pipe(catchError(() => of([]))),
+      this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'prologo-guia-offline.json').pipe(catchError(() => of([]))),
       this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'misiones-guia-offline.json').pipe(catchError(() => of([])))
     ]).pipe(
       map(([prologo, misiones]) => {
@@ -501,7 +501,7 @@ export class GuiaService {
    * Obtiene el catálogo de trofeos de GTA V (listado real en español).
    */
   getTrofeos(juegoId: 'gta5' | 'gta6'): Observable<TrofeosCatalogo> {
-    const fileName = juegoId === 'gta5' ? 'trofeos.json' : 'trofeos-gta6.json';
+    const fileName = 'trofeos.json';
 
 
     return this.getGuiaJson<TrofeosCatalogo>(juegoId, 'offline', fileName).pipe(

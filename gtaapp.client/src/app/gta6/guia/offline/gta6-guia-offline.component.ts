@@ -36,7 +36,6 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   isLoading: boolean = true;
   isLoadingArticulo: boolean = false;
   renderedContent: string = '';
-  articleToc: { id: string; text: string }[] = [];
   readingProgress: number = 0;
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
@@ -67,6 +66,12 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       return this.concesionarios.length;
     }
     return seccion.articulos.length;
+  }
+
+  /** Sección de artículos todavía sin contenido: se muestra el aviso de lanzamiento. */
+  get seccionPendiente(): boolean {
+    const sec = this.currentSection;
+    return !!sec && sec.id !== 'trofeos' && sec.id !== 'vehiculos' && sec.articulos.length === 0;
   }
 
   /* Estado de navegación por niveles en móvil (estilo Info-Panel) */
@@ -418,6 +423,9 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       }
       if (sec.articulos && sec.articulos.length > 0) {
         this.seleccionarArticulo(sec.articulos[0].id, false);
+      } else {
+        this.selectedArticulo = null;
+        this.isMobileReadingOpen = true;
       }
     }
     if (this.isMobileView()) {
@@ -447,6 +455,9 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       .pipe(shareReplay(1));
     this.vehiculosSub = this.vehiculosConcesionario$.subscribe(list => {
       this.vehiculosConcesionario = list || [];
+      if (this.vehiculosConcesionario.length === 0) {
+        this.isMobileReadingOpen = true;
+      }
     });
   }
 
@@ -472,19 +483,19 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   getPlaceholderBuscadorVehiculos(): string {
     const catId = this.concesionarioSeleccionado?.id;
-    if (catId === 'airgator_marine' || catId === 'barcos') return 'Buscar aerodeslizador o embarcación...';
-    if (catId === 'leonida_aviation' || catId === 'aviones' || catId === 'helicopteros') return 'Buscar aeronave o helicóptero...';
-    if (catId === 'leonida_powersports' || catId === 'motos') return 'Buscar moto o quad...';
-    if (catId === 'vice_fleet' || catId === 'especiales') return 'Buscar vehículo policial o táctico...';
+    if (catId === 'airgator_marine') return 'Buscar aerodeslizador o embarcación...';
+    if (catId === 'leonida_aviation') return 'Buscar aeronave o helicóptero...';
+    if (catId === 'leonida_powersports') return 'Buscar moto o quad...';
+    if (catId === 'vice_fleet') return 'Buscar vehículo policial o táctico...';
     if (catId === 'vice_luxury') return 'Buscar superdeportivo de lujo...';
     return 'Buscar vehículo en Sunshine Autos...';
   }
 
   getBadgeLabelVehiculos(): string {
     const catId = this.concesionarioSeleccionado?.id;
-    if (catId === 'airgator_marine' || catId === 'barcos') return 'embarcaciones';
-    if (catId === 'leonida_aviation' || catId === 'aviones' || catId === 'helicopteros') return 'aeronaves';
-    if (catId === 'leonida_powersports' || catId === 'motos') return 'motos y quads';
+    if (catId === 'airgator_marine') return 'embarcaciones';
+    if (catId === 'leonida_aviation') return 'aeronaves';
+    if (catId === 'leonida_powersports') return 'motos y quads';
     return 'vehículos';
   }
 
@@ -731,7 +742,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.articuloSub = this.guiaService.getArticulo('gta6', articuloId).subscribe({
       next: (articulo) => {
         this.selectedArticulo = articulo;
-        this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '');
+        this.renderedContent = articulo.contenidoMarkdown || '';
         this.isLoadingArticulo = false;
         if (openMobile && this.isMobileView()) {
           this.openMobileReading();
@@ -781,175 +792,19 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }
   }
 
-  private renderMarkdown(raw: string): string {
-    if (!raw) {
-      this.articleToc = [];
-      return '';
-    }
-
-    if (raw.trim().startsWith('<')) {
-      return raw;
-    }
-
-    const lines = raw.split('\n');
-    const root = document.createElement('div');
-    const toc: { id: string; text: string }[] = [];
-    let currentList: HTMLUListElement | null = null;
-    let sectionCounter = 1;
-
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-
-      const isSubBullet = /^\s{2,}[-*]\s+/.test(line);
-      const isBullet = /^\s*[-*]\s+/.test(line);
-      if (!isBullet && currentList) {
-        root.appendChild(currentList);
-        currentList = null;
-      }
-
-      if (line.startsWith('### ')) {
-        const rawText = line.substring(4).trim();
-        const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
-        const secId = `sec-g6-${sectionCounter++}`;
-        const cleanText = noEmoji.replace(/\*\*/g, '').replace(/`/g, '');
-        toc.push({ id: secId, text: cleanText });
-
-        const divider = document.createElement('div');
-        divider.className = 'guide-heading-divider';
-        const leftLine = document.createElement('div');
-        leftLine.className = 'guide-heading-line';
-        const h3 = document.createElement('h3');
-        h3.className = 'guide-heading-title';
-        h3.id = secId;
-        this.appendInline(h3, noEmoji);
-        const rightLine = document.createElement('div');
-        rightLine.className = 'guide-heading-line guide-heading-line--right';
-        divider.appendChild(leftLine);
-        divider.appendChild(h3);
-        divider.appendChild(rightLine);
-        root.appendChild(divider);
-      } else if (line.startsWith('## ')) {
-        const rawText = line.substring(3).trim();
-        const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
-        const h2 = document.createElement('h2');
-        h2.className = 'guide-h2';
-        this.appendInline(h2, noEmoji);
-        root.appendChild(h2);
-      } else if (line.startsWith('> ')) {
-        const callout = document.createElement('div');
-        callout.className = 'guide-callout';
-        const iconDiv = document.createElement('div');
-        iconDiv.className = 'guide-callout-icon';
-
-        const svgNS = 'http://www.w3.org/2000/svg';
-        const svg = document.createElementNS(svgNS, 'svg');
-        svg.setAttribute('viewBox', '0 0 24 24');
-        svg.setAttribute('width', '20');
-        svg.setAttribute('height', '20');
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'currentColor');
-        svg.setAttribute('stroke-width', '2');
-
-        const circle = document.createElementNS(svgNS, 'circle');
-        circle.setAttribute('cx', '12');
-        circle.setAttribute('cy', '12');
-        circle.setAttribute('r', '10');
-        svg.appendChild(circle);
-
-        const l1 = document.createElementNS(svgNS, 'line');
-        l1.setAttribute('x1', '12');
-        l1.setAttribute('y1', '16');
-        l1.setAttribute('x2', '12');
-        l1.setAttribute('y2', '12');
-        svg.appendChild(l1);
-
-        const l2 = document.createElementNS(svgNS, 'line');
-        l2.setAttribute('x1', '12');
-        l2.setAttribute('y1', '8');
-        l2.setAttribute('x2', '12.01');
-        l2.setAttribute('y2', '8');
-        svg.appendChild(l2);
-
-        iconDiv.appendChild(svg);
-        callout.appendChild(iconDiv);
-
-        const bodyDiv = document.createElement('div');
-        bodyDiv.className = 'guide-callout-body';
-        this.appendInline(bodyDiv, line.substring(2));
-        callout.appendChild(bodyDiv);
-        root.appendChild(callout);
-      } else if (line.trim() === '---') {
-        // Separador plano continuo omitido
-      } else if (isBullet) {
-        if (!currentList) {
-          currentList = document.createElement('ul');
-          currentList.className = 'guide-list';
-        }
-        const match = line.match(/^\s*[-*]\s+(.*)/);
-        const li = document.createElement('li');
-        li.className = isSubBullet ? 'guide-list-item guide-list-subitem' : 'guide-list-item';
-        const bullet = document.createElement('span');
-        bullet.className = 'guide-list-bullet';
-        bullet.textContent = '\u203A';
-        li.appendChild(bullet);
-        const textSpan = document.createElement('span');
-        textSpan.className = 'guide-list-text';
-        if (match) {
-          this.appendInline(textSpan, match[1]);
-        }
-        li.appendChild(textSpan);
-        currentList.appendChild(li);
-      } else if (line.trim().length > 0) {
-        const p = document.createElement('p');
-        p.className = 'guide-p';
-        this.appendInline(p, line);
-        root.appendChild(p);
-      }
-    }
-
-    if (currentList) {
-      root.appendChild(currentList);
-    }
-
-    this.articleToc = toc;
-    return Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join('');
-  }
-
-  private appendInline(parent: HTMLElement, text: string): void {
-    if (!text) return;
-    const tokenRegex = /(\*\*.*?\*\*|\*[^*]+\*|`[^`]+`)/g;
-    let lastIndex = 0;
-    let match: RegExpExecArray | null;
-    while ((match = tokenRegex.exec(text)) !== null) {
-      if (match.index > lastIndex) {
-        parent.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-      }
-      const token = match[0];
-      if (token.startsWith('**') && token.endsWith('**')) {
-        const strong = document.createElement('strong');
-        strong.className = 'guide-strong';
-        strong.textContent = token.slice(2, -2);
-        parent.appendChild(strong);
-      } else if (token.startsWith('*') && token.endsWith('*')) {
-        const em = document.createElement('em');
-        em.className = 'guide-em';
-        em.textContent = token.slice(1, -1);
-        parent.appendChild(em);
-      } else if (token.startsWith('`') && token.endsWith('`')) {
-        const code = document.createElement('span');
-        code.className = 'guide-chip-code';
-        code.textContent = token.slice(1, -1);
-        parent.appendChild(code);
-      }
-      lastIndex = tokenRegex.lastIndex;
-    }
-    if (lastIndex < text.length) {
-      parent.appendChild(document.createTextNode(text.slice(lastIndex)));
-    }
-  }
-
   readonly protagonistas = [
     { name: 'Lucia', label: 'Lucia Caminos', img: 'assets/images/gta6/guia/offline/personajes/Lucia.png' },
     { name: 'Jason', label: 'Jason Duval', img: 'assets/images/gta6/guia/offline/personajes/Jason.png' }
   ] as const;
+
+  /** Fotos que no han cargado: su marco se oculta hasta que exista el archivo. */
+  private readonly fotosFallidas = new Set<string>();
+
+  get protagonistasVisibles() {
+    return this.protagonistas.filter(p => !this.fotosFallidas.has(p.name));
+  }
+
+  onFotoProtagonistaError(nombre: string): void {
+    this.fotosFallidas.add(nombre);
+  }
 }

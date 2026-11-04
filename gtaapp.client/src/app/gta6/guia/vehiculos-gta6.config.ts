@@ -2,7 +2,7 @@
 
 /**
  * Concesionarios temáticos de GTA VI.
- * Compatible con la estructura JSON de assets/data/gta6/guia/concesionarios-gta6.json
+ * Sus `id` son los valores válidos de `dealership` en los vehiculos-guia-*.json.
  */
 export const CATEGORIAS_VEHICULOS_GTA6: DealerCategory[] = [
   {

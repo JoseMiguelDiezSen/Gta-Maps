@@ -419,18 +419,20 @@
           <div class="trophy-panel-title-block">
             <div class="trophy-kicker-row">
               <span class="trophy-panel-kicker">{{ 'guia.trophies.kicker' | translate }}</span>
-              <span class="trophy-provisional-badge">{{ 'guia.trophies.provisional' | translate }}</span>
             </div>
             <h1 class="trophy-panel-title">
               <i class="fa-solid fa-trophy"></i>
               Trofeos de GTA VI
             </h1>
+            @if (trofeosResumen.total > 0) {
             <p class="trophy-panel-sub">
-              Listado completo y en español de los {{ trofeosResumen.total }} trofeos (plantilla provisional): el ansiado Platino, los desafíos de Oro,
+              Listado completo y en español de los {{ trofeosResumen.total }} trofeos: el ansiado Platino, los desafíos de Oro,
               los retos de Plata y la larga lista de Bronce del Modo Historia y de GTA Online.
             </p>
+            }
           </div>
 
+          @if (trofeosResumen.total > 0) {
           <div class="trophy-summary-grid">
             <div class="trophy-summary-card" style="--trophy-color: #7dd3fc;">
               <i class="fa-solid fa-trophy"></i>
@@ -453,6 +455,7 @@
               <span class="trophy-summary-label">{{ 'guia.trophies.badgeBronze' | translate }}</span>
             </div>
           </div>
+          }
         </header>
 
         @if (isLoadingTrofeos) {
@@ -504,7 +507,7 @@
           @if (trofeosPorTipo.length === 0) {
           <div class="trophy-empty">
             <i class="fa-solid fa-trophy"></i>
-            <span>{{ 'guia.trophies.empty' | translate }}</span>
+            <span>{{ 'gta6.guia.pendingLaunch' | translate }}</span>
           </div>
           }
         </div>
@@ -513,6 +516,15 @@
       }
 
       <!-- Estado de carga -->
+      @if (seccionPendiente) {
+      <article class="wiki-article-card">
+        <div class="trophy-empty">
+          <i class="fa-solid fa-hourglass-half"></i>
+          <span>{{ 'gta6.guia.pendingLaunch' | translate }}</span>
+        </div>
+      </article>
+      }
+
       @if (isLoadingArticulo && !mostrarTrofeos && currentSection?.id !== 'vehiculos') {
       <div class="wiki-loading-state">
         <div class="wiki-spinner"></div>
@@ -574,6 +586,13 @@
         </header>
 
         <div class="article-body">
+          @if (!vehiculoSeleccionado && (vehiculosConcesionario$ | async)?.length === 0) {
+          <div class="trophy-empty">
+            <i class="fa-solid fa-hourglass-half"></i>
+            <span>{{ 'gta6.guia.pendingLaunch' | translate }}</span>
+          </div>
+          }
+
           <!-- GRID DE VEHÍCULOS -->
           @if (!vehiculoSeleccionado && vehiculosFiltrados.length > 0) {
           <div class="vehiculos-grid">
@@ -772,11 +791,11 @@
         <!-- Contenido Formateado Editorialmente -->
         <div class="article-body">
           <!-- Bloque: Protagonistas del Prólogo -->
-          @if (selectedArticulo.id === 'prologo-introduccion-gta6') {
+          @if (selectedArticulo.id === 'prologo-introduccion-gta6' && protagonistasVisibles.length > 0) {
             <div class="gta6-protagonists-frames" [attr.aria-label]="'guia.nav.protagonists' | translate">
-              @for (p of protagonistas; track p.name) {
+              @for (p of protagonistasVisibles; track p.name) {
                 <div class="gta6-protagonist-frame" [attr.aria-label]="p.label">
-                  <img [src]="p.img" [alt]="p.label" loading="lazy" />
+                  <img [src]="p.img" [alt]="p.label" loading="lazy" (error)="onFotoProtagonistaError(p.name)" />
                   <span>{{ p.name }}</span>
                 </div>
               }

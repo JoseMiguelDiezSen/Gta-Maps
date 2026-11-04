@@ -49,11 +49,15 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
   isLoading: boolean = true;
   isLoadingArticulo: boolean = false;
   renderedContent: string = '';
-  articleToc: { id: string; text: string }[] = [];
   readingProgress: number = 0;
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
   private toastTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  /** Sin artículo que mostrar: la guía online espera al lanzamiento del juego. */
+  get seccionPendiente(): boolean {
+    return !this.isLoading && !this.isLoadingArticulo && !this.selectedArticulo && this.currentSection?.id !== 'vehiculos';
+  }
 
   /* Estado de navegación por niveles en móvil (estilo Info-Panel) */
   isMobileReadingOpen: boolean = false;
@@ -374,6 +378,9 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     }
     if (sec.articulos && sec.articulos.length > 0) {
       this.seleccionarArticulo(sec.articulos[0].id, false);
+    } else {
+      this.selectedArticulo = null;
+      this.isMobileReadingOpen = true;
     }
     if (this.isMobileView()) {
       this.scrollToTop();
@@ -400,6 +407,9 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
       .pipe(shareReplay(1));
     this.vehiculosSub = this.vehiculosConcesionario$.subscribe(list => {
       this.vehiculosConcesionario = list || [];
+      if (this.vehiculosConcesionario.length === 0) {
+        this.isMobileReadingOpen = true;
+      }
     });
   }
 
@@ -425,20 +435,18 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
 
   getPlaceholderBuscadorVehiculos(): string {
     const catId = this.concesionarioSeleccionado?.id;
-    if (catId === 'barcos') return 'Buscar embarcación...';
-    if (catId === 'aviones') return 'Buscar avión...';
-    if (catId === 'helicopteros') return 'Buscar helicóptero...';
-    if (catId === 'motos') return 'Buscar moto...';
-    if (catId === 'especiales') return 'Buscar vehículo militar o especial...';
+    if (catId === 'airgator_marine') return 'Buscar embarcación...';
+    if (catId === 'leonida_aviation') return 'Buscar avión o helicóptero...';
+    if (catId === 'leonida_powersports') return 'Buscar moto...';
+    if (catId === 'vice_fleet') return 'Buscar vehículo militar o especial...';
     return 'Buscar vehículo por modelo o marca...';
   }
 
   getBadgeLabelVehiculos(): string {
     const catId = this.concesionarioSeleccionado?.id;
-    if (catId === 'barcos') return 'embarcaciones';
-    if (catId === 'aviones') return 'aeronaves';
-    if (catId === 'helicopteros') return 'helicópteros';
-    if (catId === 'motos') return 'motos';
+    if (catId === 'airgator_marine') return 'embarcaciones';
+    if (catId === 'leonida_aviation') return 'aeronaves';
+    if (catId === 'leonida_powersports') return 'motos';
     return 'vehículos';
   }
 
@@ -490,7 +498,7 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     this.articuloSub = this.guiaService.getArticulo('gta6-online', articuloId).subscribe({
       next: (articulo) => {
         this.selectedArticulo = articulo;
-        this.renderedContent = this.renderMarkdown(articulo.contenidoMarkdown || '');
+        this.renderedContent = articulo.contenidoMarkdown || '';
         this.isLoadingArticulo = false;
         if (openMobile && this.isMobileView()) {
           this.openMobileReading();
@@ -537,164 +545,6 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  private renderMarkdown(raw: string): string {
-    if (!raw) {
-      this.articleToc = [];
-      return '';
-    }
-
-    if (raw.trim().startsWith('<')) {
-      return raw;
-    }
-
-    const lines = raw.split('\n');
-    const root = document.createElement('div');
-    const toc: { id: string; text: string }[] = [];
-    let currentList: HTMLUListElement | null = null;
-    let sectionCounter = 1;
-
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-
-      const isSubBullet = /^\s{2,}[-*]\s+/.test(line);
-      const isBullet = /^\s*[-*]\s+/.test(line);
-      if (!isBullet && currentList) {
-        root.appendChild(currentList);
-        currentList = null;
-      }
-
-      if (line.startsWith('### ')) {
-        const rawText = line.substring(4).trim();
-        const secId = `sec-g6o-${sectionCounter++}`;
-        const cleanText = rawText.replace(/\*\*/g, '').replace(/`/g, '');
-        toc.push({ id: secId, text: cleanText });
-
-        const h3 = document.createElement('h3');
-        h3.className = 'guide-h3';
-        h3.id = secId;
-        const accent = document.createElement('span');
-        accent.className = 'guide-h3-accent';
-        h3.appendChild(accent);
-        this.appendInline(h3, rawText);
-        root.appendChild(h3);
-      } else if (line.startsWith('## ')) {
-        const h2 = document.createElement('h2');
-        h2.className = 'guide-h2';
-        this.appendInline(h2, line.substring(3));
-        root.appendChild(h2);
-      } else if (line.startsWith('> ')) {
-        const callout = document.createElement('div');
-        callout.className = 'guide-callout';
-        const iconDiv = document.createElement('div');
-        iconDiv.className = 'guide-callout-icon';
-
-        const svgNS = 'http://www.w3.org/2000/svg';
-        const svg = document.createElementNS(svgNS, 'svg');
-        svg.setAttribute('viewBox', '0 0 24 24');
-        svg.setAttribute('width', '20');
-        svg.setAttribute('height', '20');
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'currentColor');
-        svg.setAttribute('stroke-width', '2');
-
-        const circle = document.createElementNS(svgNS, 'circle');
-        circle.setAttribute('cx', '12');
-        circle.setAttribute('cy', '12');
-        circle.setAttribute('r', '10');
-        svg.appendChild(circle);
-
-        const l1 = document.createElementNS(svgNS, 'line');
-        l1.setAttribute('x1', '12');
-        l1.setAttribute('y1', '16');
-        l1.setAttribute('x2', '12');
-        l1.setAttribute('y2', '12');
-        svg.appendChild(l1);
-
-        const l2 = document.createElementNS(svgNS, 'line');
-        l2.setAttribute('x1', '12');
-        l2.setAttribute('y1', '8');
-        l2.setAttribute('x2', '12.01');
-        l2.setAttribute('y2', '8');
-        svg.appendChild(l2);
-
-        iconDiv.appendChild(svg);
-        callout.appendChild(iconDiv);
-
-        const bodyDiv = document.createElement('div');
-        bodyDiv.className = 'guide-callout-body';
-        this.appendInline(bodyDiv, line.substring(2));
-        callout.appendChild(bodyDiv);
-        root.appendChild(callout);
-      } else if (line.trim() === '---') {
-        // Separador plano continuo omitido
-      } else if (isBullet) {
-        if (!currentList) {
-          currentList = document.createElement('ul');
-          currentList.className = 'guide-list';
-        }
-        const match = line.match(/^\s*[-*]\s+(.*)/);
-        const li = document.createElement('li');
-        li.className = isSubBullet ? 'guide-list-item guide-list-subitem' : 'guide-list-item';
-        const bullet = document.createElement('span');
-        bullet.className = 'guide-list-bullet';
-        bullet.textContent = '\u203A';
-        li.appendChild(bullet);
-        const textSpan = document.createElement('span');
-        textSpan.className = 'guide-list-text';
-        if (match) {
-          this.appendInline(textSpan, match[1]);
-        }
-        li.appendChild(textSpan);
-        currentList.appendChild(li);
-      } else if (line.trim().length > 0) {
-        const p = document.createElement('p');
-        p.className = 'guide-p';
-        this.appendInline(p, line);
-        root.appendChild(p);
-      }
-    }
-
-    if (currentList) {
-      root.appendChild(currentList);
-    }
-
-    this.articleToc = toc;
-    return Array.from(root.childNodes).map(node => new XMLSerializer().serializeToString(node)).join('');
-  }
-
-  private appendInline(parent: HTMLElement, text: string): void {
-    if (!text) return;
-    const tokenRegex = /(\*\*.*?\*\*|\*[^*]+\*|`[^`]+`)/g;
-    let lastIndex = 0;
-    let match: RegExpExecArray | null;
-    while ((match = tokenRegex.exec(text)) !== null) {
-      if (match.index > lastIndex) {
-        parent.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-      }
-      const token = match[0];
-      if (token.startsWith('**') && token.endsWith('**')) {
-        const strong = document.createElement('strong');
-        strong.className = 'guide-strong';
-        strong.textContent = token.slice(2, -2);
-        parent.appendChild(strong);
-      } else if (token.startsWith('*') && token.endsWith('*')) {
-        const em = document.createElement('em');
-        em.className = 'guide-em';
-        em.textContent = token.slice(1, -1);
-        parent.appendChild(em);
-      } else if (token.startsWith('`') && token.endsWith('`')) {
-        const code = document.createElement('span');
-        code.className = 'guide-chip-code';
-        code.textContent = token.slice(1, -1);
-        parent.appendChild(code);
-      }
-      lastIndex = tokenRegex.lastIndex;
-    }
-    if (lastIndex < text.length) {
-      parent.appendChild(document.createTextNode(text.slice(lastIndex)));
     }
   }
 }
