@@ -504,9 +504,28 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
     mouseCoords: { x: number; y: number } = { x: 0, y: 0 };
     coordsCopied = false;
 
-    // Notificación HUD en tiempo real para eventos de Halloween (Fantasmas al descubierto)
-    activeGhostNotification: GtaGhostInfo | null = null;
-    private ghostNotificationTimeout: ReturnType<typeof setTimeout> | null = null;
+    // Notificación HUD en tiempo real para eventos nocturnos
+    activeNotification: {
+        id: string;
+        type: 'ghost' | 'event';
+        title: string;
+        subtitle: string;
+        badge: string;
+        icon: string;
+        color: string;
+        position: { x: number; y: number; z?: number };
+    } | null = null;
+    private notificationQueue: Array<{
+        id: string;
+        type: 'ghost' | 'event';
+        title: string;
+        subtitle: string;
+        badge: string;
+        icon: string;
+        color: string;
+        position: { x: number; y: number; z?: number };
+    }> = [];
+    private notificationTimeout: ReturnType<typeof setTimeout> | null = null;
 
     // Panel Lateral (Drawer) de Transportes & Catálogo
     profileDrawerOpen = false;
@@ -537,53 +556,112 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         effect(() => {
             const transition = this.gtaTimeService.hourChanged();
             if (!transition) return;
-            const currentH = transition.current;
-            if (currentH >= 20 || currentH < 6) {
-                const ghost = getGhostsList(this.translationService.currentLang).find(g => g.startHour === currentH);
-                if (ghost) {
-                    this.showGhostNotification(ghost);
-                }
-            }
+            this.checkTimedEventsNotification(transition.current, false);
         });
     }
 
-    showGhostNotification(ghost: GtaGhostInfo): void {
-        if (this.ghostNotificationTimeout) {
-            clearTimeout(this.ghostNotificationTimeout);
-        }
-        this.activeGhostNotification = ghost;
-        this.cdr.markForCheck();
-        this.ghostNotificationTimeout = setTimeout(() => {
-            this.activeGhostNotification = null;
-            this.ghostNotificationTimeout = null;
-            this.cdr.markForCheck();
-        }, 20000);
+    private checkTimedEventsNotification(_currentH: number, _isInitial: boolean): void {
+        // Notificaciones desactivadas por solicitud
+        return;
     }
 
-    dismissGhostNotification(): void {
-        if (this.ghostNotificationTimeout) {
-            clearTimeout(this.ghostNotificationTimeout);
-            this.ghostNotificationTimeout = null;
+    enqueueNotification(notification: {
+        id: string;
+        type: 'ghost' | 'event';
+        title: string;
+        subtitle: string;
+        badge: string;
+        icon: string;
+        color: string;
+        position: { x: number; y: number; z?: number };
+    }): void {
+        if (this.activeNotification?.id === notification.id) return;
+        if (this.notificationQueue.some(n => n.id === notification.id)) return;
+
+        if (!this.activeNotification) {
+            this.displayNotification(notification);
+        } else {
+            this.notificationQueue.push(notification);
         }
-        this.activeGhostNotification = null;
+    }
+
+    private displayNotification(notification: {
+        id: string;
+        type: 'ghost' | 'event';
+        title: string;
+        subtitle: string;
+        badge: string;
+        icon: string;
+        color: string;
+        position: { x: number; y: number; z?: number };
+    }): void {
+        if (this.notificationTimeout) {
+            clearTimeout(this.notificationTimeout);
+        }
+        this.activeNotification = notification;
         this.cdr.markForCheck();
+
+        this.notificationTimeout = setTimeout(() => {
+            this.dismissNotification();
+        }, 16000);
+    }
+
+    dismissNotification(): void {
+        if (this.notificationTimeout) {
+            clearTimeout(this.notificationTimeout);
+            this.notificationTimeout = null;
+        }
+        this.activeNotification = null;
+        this.cdr.markForCheck();
+
+        if (this.notificationQueue.length > 0) {
+            const next = this.notificationQueue.shift()!;
+            setTimeout(() => this.displayNotification(next), 400);
+        }
+    }
+
+    locateNotification(): void {
+        if (!this.activeNotification || !this.map) return;
+        const n = this.activeNotification;
+        const [lat, lng] = this.worldToLatLng(n.position.x, n.position.y);
+        this.map.setView([lat, lng], 5, { animate: true });
+
+        if (n.type === 'ghost') {
+            this.focusMysteryLocation({
+                id: n.id,
+                title: n.title,
+                color: n.color,
+                description: n.subtitle,
+                active: true,
+                isGhostToggle: true,
+                position: n.position
+            } as unknown as GtaMystery);
+        } else {
+            this.focusMysteryLocation({
+                id: n.id,
+                title: n.title,
+                color: n.color,
+                description: n.subtitle,
+                active: true,
+                isEventToggle: true,
+                icon: n.icon,
+                position: n.position
+            } as unknown as GtaMystery);
+        }
+
+        this.dismissNotification();
+    }
+
+    get activeGhostNotification(): GtaGhostInfo | null {
+        return null;
     }
 
     locateNotificationGhost(): void {
-        if (!this.activeGhostNotification || !this.map) return;
-        const g = this.activeGhostNotification;
-        const [lat, lng] = this.worldToLatLng(g.x, g.y);
-        this.map.setView([lat, lng], 5, { animate: true });
-        this.focusMysteryLocation({
-            id: g.id,
-            title: `#${g.order < 10 ? '0' + g.order : g.order} ${g.name}`,
-            color: '#9b59b6',
-            description: `${g.location} (${g.timeWindow})`,
-            active: true,
-            isGhostToggle: true,
-            position: { x: g.x, y: g.y, z: g.z || 0 }
-        } as unknown as GtaMystery);
-        this.dismissGhostNotification();
+        this.locateNotification();
+    }
+
+    dismissGhostNotification(): void {
+        this.dismissNotification();
     }
 
     switchGame(game: string): void {

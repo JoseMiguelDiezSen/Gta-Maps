@@ -1209,13 +1209,14 @@
 }
 
 .golpe-info-grid {
-  margin-bottom: 4px;
+  margin-bottom: 24px;
 }
 
 .golpe-block {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .golpe-block-head {
@@ -1384,20 +1385,31 @@
 .golpe-vehicles-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
 }
 
 .golpe-vehicle-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
+  gap: 8px;
+  font-size: 13px;
   font-weight: 600;
-  color: #c4b5fd;
-  background: rgba(167, 139, 250, 0.12);
-  border: 1px solid rgba(167, 139, 250, 0.28);
-  border-radius: 6px;
-  padding: 4px 10px;
+  color: #ddd6fe;
+  background: rgba(167, 139, 250, 0.14);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 8px;
+  padding: 8px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.golpe-vehicle-tag:hover {
+  transform: translateY(-2px);
+  border-color: rgba(167, 139, 250, 0.6);
+}
+
+.article-body .guide-hud-gold-block {
+  margin-bottom: 24px;
 }
 
 /* Modo Día */

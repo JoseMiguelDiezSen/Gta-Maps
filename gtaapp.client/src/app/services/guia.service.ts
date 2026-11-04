@@ -259,7 +259,7 @@ export class GuiaService {
     }
 
     const obsGta6$ = forkJoin({
-      prologo: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'prologo-guia-offline.json'),
+      prologo: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'inicio-guia-offline.json'),
       misiones: this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'misiones-guia-offline.json')
     }).pipe(
       map(res => ({
@@ -453,7 +453,7 @@ export class GuiaService {
 
 
     return forkJoin([
-      this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'prologo-guia-offline.json').pipe(catchError(() => of([]))),
+      this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'inicio-guia-offline.json').pipe(catchError(() => of([]))),
       this.getGuiaJson<GuiaArticulo[]>('gta6', 'offline', 'misiones-guia-offline.json').pipe(catchError(() => of([])))
     ]).pipe(
       map(([prologo, misiones]) => {

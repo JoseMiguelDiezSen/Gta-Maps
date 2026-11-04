@@ -971,8 +971,8 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   getEventStatusLabel(cat: GtaEventCategory): string {
     const isEs = (this.translationService.currentLang || 'es') === 'es';
     if (cat.id === 'halloween') {
-      const t = this.translationService.t('transports.events.statusOpen');
-      return (!t || t.includes('.')) ? (isEs ? 'Abierto' : 'Open') : t;
+      const t = this.translationService.t('transports.events.statusClosed');
+      return (!t || t.includes('.')) ? (isEs ? 'Cerrado' : 'Closed') : t;
     }
     const t = this.translationService.t('transports.events.statusComingSoon');
     return (!t || t.includes('.')) ? (isEs ? 'Próximamente' : 'Coming Soon') : t;

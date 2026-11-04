@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import * as L from 'leaflet';
 import { GtaMystery } from '../../models/gta5/mystery';
-import { TranslationService } from '../translation.service';
+import { TranslationService } from '../../i18n';
 
 export interface MysteryPopupData {
     mystery: GtaMystery;

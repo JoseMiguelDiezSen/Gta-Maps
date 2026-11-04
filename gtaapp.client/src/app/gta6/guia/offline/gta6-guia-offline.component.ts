@@ -820,22 +820,31 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
       if (line.startsWith('### ')) {
         const rawText = line.substring(4).trim();
+        const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
         const secId = `sec-g6-${sectionCounter++}`;
-        const cleanText = rawText.replace(/\*\*/g, '').replace(/`/g, '');
+        const cleanText = noEmoji.replace(/\*\*/g, '').replace(/`/g, '');
         toc.push({ id: secId, text: cleanText });
 
+        const divider = document.createElement('div');
+        divider.className = 'guide-heading-divider';
+        const leftLine = document.createElement('div');
+        leftLine.className = 'guide-heading-line';
         const h3 = document.createElement('h3');
-        h3.className = 'guide-h3';
+        h3.className = 'guide-heading-title';
         h3.id = secId;
-        const accent = document.createElement('span');
-        accent.className = 'guide-h3-accent';
-        h3.appendChild(accent);
-        this.appendInline(h3, rawText);
-        root.appendChild(h3);
+        this.appendInline(h3, noEmoji);
+        const rightLine = document.createElement('div');
+        rightLine.className = 'guide-heading-line guide-heading-line--right';
+        divider.appendChild(leftLine);
+        divider.appendChild(h3);
+        divider.appendChild(rightLine);
+        root.appendChild(divider);
       } else if (line.startsWith('## ')) {
+        const rawText = line.substring(3).trim();
+        const noEmoji = rawText.replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '').trim();
         const h2 = document.createElement('h2');
         h2.className = 'guide-h2';
-        this.appendInline(h2, line.substring(3));
+        this.appendInline(h2, noEmoji);
         root.appendChild(h2);
       } else if (line.startsWith('> ')) {
         const callout = document.createElement('div');
@@ -951,4 +960,10 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       parent.appendChild(document.createTextNode(text.slice(lastIndex)));
     }
   }
+
+  readonly protagonistas = [
+    { name: 'Lucia', label: 'Lucia Caminos', img: 'assets/images/gta6/guia/offline/personajes/Lucia.png' },
+    { name: 'Jason', label: 'Jason Duval', img: 'assets/images/gta6/guia/offline/personajes/Jason.png' },
+    { name: 'Jason y Lucia', label: 'Jason Duval y Lucia Caminos', img: 'assets/images/gta6/guia/offline/personajes/Duo.png' }
+  ] as const;
 }

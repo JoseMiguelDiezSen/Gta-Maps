@@ -1433,23 +1433,6 @@
               </ol>
             </nav>
 
-            <div class="article-meta-row">
-              @if (g.categoryLabel) {
-              <span class="article-chip-badge">{{ g.categoryLabel }}</span>
-              }
-              @if (g.potentialTake.normal) {
-              <span class="article-chip-badge" style="color: #34d399; border-color: rgba(52, 211, 153, 0.4);">
-                {{ g.potentialTake.normal }}
-              </span>
-              }
-              @if (g.players) {
-              <span class="article-read-meta">
-                <i class="fa-solid fa-users" style="margin-right: 4px;"></i>
-                <span>{{ g.players }}</span>
-              </span>
-              }
-            </div>
-
             <!-- Panel estilizado del capítulo: Título y Subtítulo integrados con Foto a 2 columnas (50/50) idéntico a offline -->
             <div class="article-chapter-banner" [class.has-image]="g.thumbnail">
               <div class="chapter-banner-text">
@@ -1482,6 +1465,39 @@
               </div>
               }
 
+              @if (g.players) {
+              <div class="guide-hud-box">
+                <i class="fa-solid fa-users box-icon" style="color: #38bdf8;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.players' | translate }}</span>
+                  <span class="box-val">{{ g.players }}</span>
+                </div>
+              </div>
+              }
+
+              @if (g.propertyRequired) {
+              <div class="guide-hud-box">
+                <i class="fa-solid fa-building box-icon" style="color: #a855f7;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
+                  <span class="box-val">{{ g.propertyRequired }}</span>
+                </div>
+              </div>
+              }
+
+              @if (g.potentialTake) {
+              <div class="guide-hud-box">
+                <i class="fa-solid fa-money-bill-wave box-icon" style="color: #10b981;"></i>
+                <div class="box-content">
+                  <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
+                  <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ g.potentialTake.normal }}</span>
+                  @if (g.potentialTake.hard) {
+                  <span class="box-sub" style="font-size: 11px; color: #94a3b8;">Difícil: {{ g.potentialTake.hard }}</span>
+                  }
+                </div>
+              </div>
+              }
+
               @if (g.target) {
               <div class="guide-hud-box">
                 <i class="fa-solid fa-crosshairs box-icon" style="color: #ef4444;"></i>
@@ -1498,32 +1514,6 @@
                 <div class="box-content">
                   <span class="box-label">{{ 'transports.heists.location' | translate }}</span>
                   <span class="box-val">{{ g.location }}</span>
-                </div>
-              </div>
-              }
-
-              @if (g.potentialTake) {
-              <div class="guide-hud-box">
-                <i class="fa-solid fa-money-bill-wave box-icon" style="color: #10b981;"></i>
-                <div class="box-content">
-                  <span class="box-label">{{ 'transports.heists.potentialTake' | translate }}</span>
-                  <span class="box-val highlight-gold" style="color: #34d399; font-weight: 800;">{{ g.potentialTake.normal }}</span>
-                  @if (g.potentialTake.hard) {
-                  <span class="box-sub" style="font-size: 11px; color: #94a3b8;">Difícil: {{ g.potentialTake.hard }}</span>
-                  }
-                  @if (g.potentialTake.description) {
-                  <span class="box-sub" style="font-size: 11px; color: #94a3b8;">{{ g.potentialTake.description }}</span>
-                  }
-                </div>
-              </div>
-              }
-
-              @if (g.propertyRequired) {
-              <div class="guide-hud-box">
-                <i class="fa-solid fa-building box-icon" style="color: #a855f7;"></i>
-                <div class="box-content">
-                  <span class="box-label">{{ 'transports.heists.property' | translate }}</span>
-                  <span class="box-val">{{ g.propertyRequired }}</span>
                 </div>
               </div>
               }
@@ -1591,6 +1581,23 @@
             </div>
             }
 
+            <!-- Consejos tácticos -->
+            @if (g.tips && g.tips.length > 0) {
+            <div class="guide-synopsis-block" style="border-left-color: #34d399;">
+              <div class="guide-synopsis-head" style="color: #34d399;">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>{{ 'transports.heists.tipsTitle' | translate }}</span>
+              </div>
+              <div class="guide-synopsis-body">
+                @for (tip of g.tips; track tip) {
+                <div class="golpe-list-item">
+                  <p style="margin: 4px 0;">• {{ tip }}</p>
+                </div>
+                }
+              </div>
+            </div>
+            }
+
             <!-- Desafíos de Élite -->
             @if (g.eliteChallenges && g.eliteChallenges.length > 0) {
             <div class="guide-hud-gold-block">
@@ -1598,7 +1605,7 @@
                 <i class="fa-solid fa-stopwatch"></i>
                 <span>{{ 'transports.heists.eliteTitle' | translate }}</span>
                 @if (g.eliteReward) {
-                <span class="golpe-elite-reward" style="margin-left: 8px; font-size: 12px; color: #34d399;">+{{ g.eliteReward }}</span>
+                <span class="golpe-elite-reward" style="margin-left: 8px; font-size: 12px; color: #34d399;">{{ g.eliteReward }}</span>
                 }
               </div>
               <div class="guide-hud-gold-list">
@@ -1627,23 +1634,6 @@
                   <i class="fa-solid fa-tag"></i>
                   {{ v }}
                 </span>
-                }
-              </div>
-            </div>
-            }
-
-            <!-- Consejos tácticos -->
-            @if (g.tips && g.tips.length > 0) {
-            <div class="guide-synopsis-block" style="border-left-color: #34d399;">
-              <div class="guide-synopsis-head" style="color: #34d399;">
-                <i class="fa-solid fa-lightbulb"></i>
-                <span>{{ 'transports.heists.tipsTitle' | translate }}</span>
-              </div>
-              <div class="guide-synopsis-body">
-                @for (tip of g.tips; track tip) {
-                <div class="golpe-list-item">
-                  <p style="margin: 4px 0;">• {{ tip }}</p>
-                </div>
                 }
               </div>
             </div>

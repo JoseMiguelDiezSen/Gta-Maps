@@ -1100,19 +1100,529 @@ export const GTA_SNOWMEN_LIST_EN: GtaSnowmanInfo[] = [
   }
 ];
 
+export const GTA_SLASHERS_LIST_PT: GtaSlasherInfo[] = [
+  {
+    id: 'sack',
+    name: 'O Assassino do Saco',
+    alias: 'Homem do Saco',
+    color: '#9ca3af',
+    weapon: 'Machete',
+    area: 'Paleto Bay, florestas do norte e Monte Chiliad',
+    time: '21:00 - 05:00',
+    icon: 'fa-skull',
+    image: 'assets/images/gta5/mapa/marcadores-mapa/activities/slashers/sack.png',
+    zones: [
+      { x: 0, y: 5600, radius: 2700 }
+    ]
+  },
+  {
+    id: 'clown',
+    name: 'O Palhaço',
+    alias: 'Palhaço Assassino',
+    color: '#a855f7',
+    weapon: 'Canivete automático',
+    area: 'Todo o núcleo urbano de Los Santos',
+    time: '21:00 - 05:00',
+    icon: 'fa-mask',
+    image: 'assets/images/gta5/mapa/marcadores-mapa/activities/slashers/clown.png',
+    zones: [
+      { x: -150, y: -1600, radius: 2400 }
+    ]
+  },
+  {
+    id: 'psycho',
+    name: 'O Psicopata',
+    alias: 'O Mascarado',
+    color: '#ec4899',
+    weapon: 'Taco de beisebol',
+    area: 'Vinewood Hills, Tongva Hills e Banham Canyon',
+    time: '21:00 - 05:00',
+    icon: 'fa-baseball-bat-ball',
+    image: 'assets/images/gta5/mapa/marcadores-mapa/activities/slashers/psycho.png',
+    zones: [
+      { x: -1900, y: -200, radius: 950 },
+      { x: -600, y: 600, radius: 1050 },
+      { x: -1200, y: -800, radius: 650 },
+      { x: -400, y: -600, radius: 600 }
+    ]
+  },
+  {
+    id: 'driver',
+    name: 'O Motorista',
+    alias: 'Piloto Assassino',
+    color: '#f97316',
+    weapon: 'Chave inglesa',
+    area: 'Circuito Redwood Lights e Porto de Los Santos',
+    time: '21:00 - 05:00',
+    icon: 'fa-wrench',
+    image: 'assets/images/gta5/mapa/marcadores-mapa/activities/slashers/driver.png',
+    zones: [
+      { x: 950, y: 2300, radius: 450 },
+      { x: -350, y: -2150, radius: 550 }
+    ]
+  }
+];
+
+export const GTA_GHOSTS_LIST_PT: GtaGhostInfo[] = [
+  {
+    id: 'ghost-paleto',
+    order: 1,
+    name: 'Fantasma de Paleto Bay',
+    location: 'Procopio Drive, perto da Beeker\'s Garage',
+    startHour: 20,
+    endHour: 21,
+    timeWindow: '20:00 - 21:00',
+    x: 63.8,
+    y: 6664.9,
+    z: 32.3,
+    description: 'Casa deteriorada em Procopio Drive. Pode aparecer na janela do sótão ou na construção dos fundos.'
+  },
+  {
+    id: 'ghost-strawberry',
+    order: 2,
+    name: 'Fantasma de Strawberry',
+    location: 'Debaixo do viaduto, ao norte do Vanilla Unicorn',
+    startHour: 21,
+    endHour: 22,
+    timeWindow: '21:00 - 22:00',
+    x: 122.8,
+    y: -1180.9,
+    z: 31.2,
+    description: 'Debaixo do viaduto da autoestrada. Verifique a parede com grafites e o abrigo de lona.'
+  },
+  {
+    id: 'ghost-grapeseed',
+    order: 3,
+    name: 'Fantasma de Grapeseed',
+    location: 'Celeiro ao norte do McKenzie Field',
+    startHour: 22,
+    endHour: 23,
+    timeWindow: '22:00 - 23:00',
+    x: 1907.8,
+    y: 4931.9,
+    z: 55.5,
+    description: 'Celeiro, na parte superior do edifício. Verifique ambas as extremidades do palheiro.'
+  },
+  {
+    id: 'ghost-miriam-turner',
+    order: 4,
+    name: 'Fantasma do Miriam Turner Overpass',
+    location: 'Torre da ponte suspensa em direção a Elysian Island',
+    startHour: 23,
+    endHour: 0,
+    timeWindow: '23:00 - 00:00',
+    x: -550.6,
+    y: -2238.8,
+    z: 122.8,
+    description: 'No alto da torre da ponte suspensa que cruza para Elysian Island / Porto.'
+  },
+  {
+    id: 'ghost-lighthouse',
+    order: 5,
+    name: 'Fantasma do Farol de El Gordo',
+    location: 'Ilha do farol, a leste de Mount Gordo',
+    startHour: 1,
+    endHour: 2,
+    timeWindow: '01:00 - 02:00',
+    x: 3428.9,
+    y: 5175.5,
+    z: 36.4,
+    description: 'Na ilha do farol. Pode aparecer na plataforma inferior ou na parte superior do farol.'
+  },
+  {
+    id: 'ghost-slaughterhouse',
+    order: 6,
+    name: 'Fantasma do Raven Slaughterhouse',
+    location: 'Cypress Flats, atrás do armazém Raven',
+    startHour: 2,
+    endHour: 3,
+    timeWindow: '02:00 - 03:00',
+    x: 1006.6,
+    y: -2167.5,
+    z: 34.7,
+    description: 'Zona industrial de Cypress Flats. Verifique a estrutura ferroviária e o telhado do matadouro.'
+  },
+  {
+    id: 'ghost-burned-house',
+    order: 7,
+    name: 'Fantasma da Casa Incendiada',
+    location: 'Joshua Road, perto do Rio Zancudo / Harmony',
+    startHour: 3,
+    endHour: 4,
+    timeWindow: '03:00 - 04:00',
+    x: 162.7,
+    y: 3132.7,
+    z: 44.2,
+    description: 'Casa abandonada e carbonizada junto à Joshua Road. Verifique a varanda e os fundos.'
+  },
+  {
+    id: 'ghost-little-seoul',
+    order: 8,
+    name: 'Fantasma da Igreja de Little Seoul',
+    location: 'Campanário da Igreja de Little Seoul',
+    startHour: 4,
+    endHour: 5,
+    timeWindow: '04:00 - 05:00',
+    x: -765.8,
+    y: -692.7,
+    z: 71.6,
+    description: 'No alto do campanário da igreja. Verifique a parte superior da torre.'
+  },
+  {
+    id: 'ghost-twohoots',
+    order: 9,
+    name: 'Fantasma de Two Hoots Falls',
+    location: 'Cachoeira de Two Hoots Falls, Tongva Hills',
+    startHour: 5,
+    endHour: 6,
+    timeWindow: '05:00 - 06:00',
+    x: -1648.2,
+    y: 2082.6,
+    z: 88.5,
+    description: 'Cachoeira em Tongva Hills. Procure junto à queda d\'água e nas margens de rocha.'
+  },
+  {
+    id: 'ghost-devin-weston',
+    order: 10,
+    name: 'Fantasma de Devin Weston',
+    location: 'Penhasco de Paleto Cove',
+    startHour: 0,
+    endHour: 1,
+    timeWindow: '00:00 - 01:00 (Requer os 9 anteriores)',
+    x: -1617.0,
+    y: 5173.0,
+    z: 8.1,
+    description: 'O empresário de GTA V aparece flutuando diante do penhasco de Paleto Cove.'
+  }
+];
+
+export const GTA_YETI_CLUES_LIST_PT: GtaYetiClue[] = [
+  {
+    id: 'yeti-car-wreck',
+    order: 1,
+    name: 'Veículo acidentado',
+    description: 'Carro capotado e amassado debaixo da ponte, no leito do rio.',
+    x: -1573,
+    y: 4467,
+    z: 12,
+    icon: 'fa-car-burst'
+  },
+  {
+    id: 'yeti-body-parts',
+    order: 2,
+    name: 'Restos humanos mutilados',
+    description: 'Membros e restos desmembrados junto às rochas da margem.',
+    x: -1685,
+    y: 4492,
+    z: 15,
+    icon: 'fa-skull'
+  },
+  {
+    id: 'yeti-bloodied-tent',
+    order: 3,
+    name: 'Barraca ensanguentada',
+    description: 'Acampamento destruído e coberto de sangue na encosta norte.',
+    x: -1524,
+    y: 4578,
+    z: 36,
+    icon: 'fa-campground'
+  },
+  {
+    id: 'yeti-ripped-shirt',
+    order: 4,
+    name: 'Camisa rasgada',
+    description: 'Roupa ensanguentada pendurada no mato da trilha.',
+    x: -1452,
+    y: 4504,
+    z: 32,
+    icon: 'fa-shirt'
+  },
+  {
+    id: 'yeti-dead-deer',
+    order: 5,
+    name: 'Cervo estripado',
+    description: 'Carcaça de animal mutilado na margem sul, sob o penhasco.',
+    x: -1560,
+    y: 4380,
+    z: 16,
+    icon: 'fa-bone'
+  }
+];
+
+export const GTA_SNOWMEN_LIST_PT: GtaSnowmanInfo[] = [
+  {
+    id: 'snowman-01',
+    order: 1,
+    name: '12 Sustancia Road',
+    zone: 'El Burro Heights',
+    description: 'No jardim da frente da casa em 12 Sustancia Road.',
+    x: 1341.5,
+    y: -1586.9,
+    z: 50.0
+  },
+  {
+    id: 'snowman-02',
+    order: 2,
+    name: 'East Mirror Drive',
+    zone: 'Mirror Park',
+    description: 'Em frente a uma das residências familiares em East Mirror Drive.',
+    x: 1052.0,
+    y: -432.0,
+    z: 66.0
+  },
+  {
+    id: 'snowman-03',
+    order: 3,
+    name: 'Broker Park',
+    zone: 'East Vinewood',
+    description: 'Junto à fonte central do parque Broker Park.',
+    x: 645.0,
+    y: 162.0,
+    z: 92.0
+  },
+  {
+    id: 'snowman-04',
+    order: 4,
+    name: 'Spanish Avenue',
+    zone: 'Hawick',
+    description: 'No beco ajardinado entre duas casas residenciais.',
+    x: 322.0,
+    y: -212.0,
+    z: 54.0
+  },
+  {
+    id: 'snowman-05',
+    order: 5,
+    name: 'Cubo Vermelho da Legion Square',
+    zone: 'Downtown Los Santos',
+    description: 'Junto à escultura em forma de cubo vermelho na praça central da Legion Square.',
+    x: 215.0,
+    y: -930.0,
+    z: 30.0
+  },
+  {
+    id: 'snowman-06',
+    order: 6,
+    name: 'BJ Smith Recreational Center',
+    zone: 'Chamberlain Hills',
+    description: 'Junto à rampa de skate half-pipe do centro esportivo.',
+    x: -215.0,
+    y: -1680.0,
+    z: 34.0
+  },
+  {
+    id: 'snowman-07',
+    order: 7,
+    name: 'Goma Street',
+    zone: 'Vespucci Canals',
+    description: 'Sob a sombra de uma palmeira junto à calçada de Goma Street.',
+    x: -1085.0,
+    y: -1145.0,
+    z: 2.0
+  },
+  {
+    id: 'snowman-08',
+    order: 8,
+    name: 'Decker Park',
+    zone: 'Vespucci Canals',
+    description: 'Sobre a rampa de skate half-pipe de Decker Park.',
+    x: -1005.0,
+    y: -1365.0,
+    z: 5.0
+  },
+  {
+    id: 'snowman-09',
+    order: 9,
+    name: 'Mansão De Santa',
+    zone: 'Rockford Hills',
+    description: 'No jardim da frente da mansão da família de Michael em Portola Drive.',
+    x: -813.0,
+    y: 178.0,
+    z: 72.0
+  },
+  {
+    id: 'snowman-10',
+    order: 10,
+    name: 'Parque Canino de Vinewood',
+    zone: 'Vinewood Hills',
+    description: 'Na área verde cercada do parque de adestramento canino.',
+    x: -568.0,
+    y: 468.0,
+    z: 104.0
+  },
+  {
+    id: 'snowman-11',
+    order: 11,
+    name: 'Observatório Galileo',
+    zone: 'Vinewood Hills',
+    description: 'No terraço mirante da ala leste do Observatório Galileo.',
+    x: -438.0,
+    y: 1106.0,
+    z: 326.0
+  },
+  {
+    id: 'snowman-12',
+    order: 12,
+    name: 'North Rockford Drive',
+    zone: 'Vinewood Hills',
+    description: 'Em frente à entrada ajardinada de uma vila em North Rockford Drive.',
+    x: -910.0,
+    y: 605.0,
+    z: 142.0
+  },
+  {
+    id: 'snowman-13',
+    order: 13,
+    name: 'Great Ocean Highway (Banham Canyon)',
+    zone: 'Banham Canyon',
+    description: 'No quintal de uma residência sobre os penhascos da autoestrada.',
+    x: -2165.0,
+    y: -412.0,
+    z: 13.0
+  },
+  {
+    id: 'snowman-14',
+    order: 14,
+    name: 'Banham Canyon Drive',
+    zone: 'Banham Canyon',
+    description: 'Atrás de uma casa de madeira na encosta do desfiladeiro.',
+    x: -1855.0,
+    y: -352.0,
+    z: 49.0
+  },
+  {
+    id: 'snowman-15',
+    order: 15,
+    name: 'Cruzamento Tongva Drive e Zancudo Road',
+    zone: 'Tongva Valley',
+    description: 'Na bifurcação entre Tongva Drive e Zancudo Road.',
+    x: -1452.0,
+    y: 888.0,
+    z: 182.0
+  },
+  {
+    id: 'snowman-16',
+    order: 16,
+    name: 'Joshua Road',
+    zone: 'Grand Senora Desert',
+    description: 'Na entrada de uma casa rústica ao longo da Joshua Road.',
+    x: 672.0,
+    y: 2695.0,
+    z: 41.0
+  },
+  {
+    id: 'snowman-17',
+    order: 17,
+    name: 'Cherry Pie Farm',
+    zone: 'Grand Senora Desert',
+    description: 'Em frente a uma construção rural junto aos campos da Cherry Pie Farm.',
+    x: 2435.0,
+    y: 4975.0,
+    z: 46.0
+  },
+  {
+    id: 'snowman-18',
+    order: 18,
+    name: 'Esconderijo de Martin Madrazo',
+    zone: 'Grand Senora Desert',
+    description: 'Em frente a um edifício em ruínas do posto oculto do Cartel Madrazo.',
+    x: 1395.0,
+    y: 3613.0,
+    z: 38.0
+  },
+  {
+    id: 'snowman-19',
+    order: 19,
+    name: 'Parque de Trailers de Senora',
+    zone: 'RON Alternates Wind Farm',
+    description: 'Em frente a um trailer no acampamento residencial junto ao parque eólico.',
+    x: 2355.0,
+    y: 2582.0,
+    z: 47.0
+  },
+  {
+    id: 'snowman-20',
+    order: 20,
+    name: 'Trailer de Trevor Philips',
+    zone: 'Sandy Shores',
+    description: 'A poucos metros do trailer de Trevor em Zancudo Avenue.',
+    x: 1974.8,
+    y: 3819.3,
+    z: 33.4
+  },
+  {
+    id: 'snowman-21',
+    order: 21,
+    name: 'Rua Principal de Grapeseed',
+    zone: 'Grapeseed',
+    description: 'Em frente a uma casa de fazenda em Grapeseed Main Street.',
+    x: 1715.0,
+    y: 4805.0,
+    z: 42.0
+  },
+  {
+    id: 'snowman-22',
+    order: 22,
+    name: 'Casa de Ursula (Farol de El Gordo)',
+    zone: 'Mount Gordo',
+    description: 'Na varanda da cabana isolada de Ursula, na trilha do farol.',
+    x: 3345.0,
+    y: 5142.0,
+    z: 18.0
+  },
+  {
+    id: 'snowman-23',
+    order: 23,
+    name: 'Restaurante Up-n-Atom',
+    zone: 'Procopio Beach',
+    description: 'Junto ao grande letreiro do Up-n-Atom Diner, na costa norte.',
+    x: 79.3,
+    y: 6340.0,
+    z: 31.0
+  },
+  {
+    id: 'snowman-24',
+    order: 24,
+    name: 'Paleto Boulevard',
+    zone: 'Paleto Bay',
+    description: 'No quintal de uma residência ao longo de Paleto Boulevard.',
+    x: -382.0,
+    y: 6172.0,
+    z: 31.0
+  },
+  {
+    id: 'snowman-25',
+    order: 25,
+    name: 'Cais Sonar Collections',
+    zone: 'Paleto Cove',
+    description: 'A leste das instalações do cais de busca submarina, junto à autoestrada.',
+    x: -1015.0,
+    y: 5320.0,
+    z: 44.0
+  }
+];
+
 export function getSlashersList(lang: string): GtaSlasherInfo[] {
-  return lang === 'es' ? GTA_SLASHERS_LIST : GTA_SLASHERS_LIST_EN;
+  if (lang === 'es') return GTA_SLASHERS_LIST;
+  if (lang === 'pt') return GTA_SLASHERS_LIST_PT;
+  return GTA_SLASHERS_LIST_EN;
 }
 
 export function getGhostsList(lang: string): GtaGhostInfo[] {
-  return lang === 'es' ? GTA_GHOSTS_LIST : GTA_GHOSTS_LIST_EN;
+  if (lang === 'es') return GTA_GHOSTS_LIST;
+  if (lang === 'pt') return GTA_GHOSTS_LIST_PT;
+  return GTA_GHOSTS_LIST_EN;
 }
 
 export function getYetiCluesList(lang: string): GtaYetiClue[] {
-  return lang === 'es' ? GTA_YETI_CLUES_LIST : GTA_YETI_CLUES_LIST_EN;
+  if (lang === 'es') return GTA_YETI_CLUES_LIST;
+  if (lang === 'pt') return GTA_YETI_CLUES_LIST_PT;
+  return GTA_YETI_CLUES_LIST_EN;
 }
 
 export function getSnowmenList(lang: string): GtaSnowmanInfo[] {
-  return lang === 'es' ? GTA_SNOWMEN_LIST : GTA_SNOWMEN_LIST_EN;
+  if (lang === 'es') return GTA_SNOWMEN_LIST;
+  if (lang === 'pt') return GTA_SNOWMEN_LIST_PT;
+  return GTA_SNOWMEN_LIST_EN;
 }
 

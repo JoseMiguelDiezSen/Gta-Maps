@@ -36,22 +36,22 @@
   </div>
   }
 
-  <!-- Notificación táctica flotante de Halloween: Aparición de Fantasma -->
-  @if (activeGhostNotification) {
-  <div class="hud-ghost-toast" (click)="locateNotificationGhost()">
+  <!-- Notificación táctica flotante HUD para Eventos Nocturnos en Tiempo Real -->
+  @if (activeNotification) {
+  <div class="hud-ghost-toast" [style.--toast-accent]="activeNotification.color" (click)="locateNotification()">
     <div class="hud-ghost-toast-icon">
-      <i class="fa-solid fa-ghost"></i>
+      <i class="fa-solid" [ngClass]="activeNotification.icon"></i>
     </div>
     <div class="hud-ghost-toast-body">
-      <div class="hud-ghost-toast-badge">{{ 'transports.events.title' | translate }} &bull; {{ activeGhostNotification.timeWindow }}</div>
+      <div class="hud-ghost-toast-badge">{{ activeNotification.badge }}</div>
       <div class="hud-ghost-toast-title">
-        <span>#{{ activeGhostNotification.order < 10 ? '0' + activeGhostNotification.order : activeGhostNotification.order }} {{ activeGhostNotification.name }}</span>
+        <span>{{ activeNotification.title }}</span>
       </div>
-      <div class="hud-ghost-toast-sub">{{ activeGhostNotification.location }}</div>
+      <div class="hud-ghost-toast-sub">{{ activeNotification.subtitle }}</div>
     </div>
     <div class="hud-ghost-toast-actions">
       <span class="hud-ghost-toast-pill">{{ 'transports.mysteries.locateOnMap' | translate }}</span>
-      <button type="button" class="hud-ghost-toast-close" (click)="$event.stopPropagation(); dismissGhostNotification()">
+      <button type="button" class="hud-ghost-toast-close" (click)="$event.stopPropagation(); dismissNotification()" [title]="'transports.closeTitle' | translate">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>

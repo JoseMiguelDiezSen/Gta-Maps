@@ -946,6 +946,18 @@
 
         <!-- Contenido Formateado Editorialmente -->
         <div class="article-body">
+          <!-- Bloque: Protagonistas del Prólogo -->
+          @if (selectedArticulo.id === 'prologo-introduccion-gta6') {
+            <div class="gta6-protagonists-frames" [attr.aria-label]="'guia.nav.protagonists' | translate">
+              @for (p of protagonistas; track p.name) {
+                <div class="gta6-protagonist-frame" [attr.aria-label]="p.label">
+                  <img [src]="p.img" [alt]="p.label" loading="lazy" />
+                  <span>{{ p.name }}</span>
+                </div>
+              }
+            </div>
+          }
+
           <div class="narrative-editorial-body" [innerHTML]="renderedContent" (click)="onContentClick($event)"></div>
         </div>
 
