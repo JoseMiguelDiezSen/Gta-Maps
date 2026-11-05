@@ -9,9 +9,9 @@
     "price": 0,
     "priceFormatted": "탈출 지점",
     "zone": "활주로",
-    "description": "카요 페리코 섬 탈출 위치 (활주로). 보트, 비행기 또는 수영으로 섬을 이탈합니다.",
+    "description": "Kosatka 잠수함을 이용한 탈출 지점. 해안 밖에 있는 잠수함까지 헤엄치거나 배를 타고 가세요.",
     "features": [
-      "습격 탈출 포인트",
+      "사전 정찰 아이템",
       "주요 정찰 포인트"
     ],
     "position": {
@@ -27,17 +27,17 @@
   },
   {
     "id": "cp-escape-2",
-    "name": "탈출 지점",
+    "name": "탈출 지점 #2",
     "category": "escape_points",
     "categoryLabel": "탈출 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "탈출 지점",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬 탈출 위치 (카요 페리코). 보트, 비행기 또는 수영으로 섬을 이탈합니다.",
+    "zone": "Cayo Perico",
+    "description": "주 부두: 순찰정과 정박한 배를 이용하는 탈출 또는 침투 지점.",
     "features": [
-      "습격 탈출 포인트",
+      "사전 정찰 아이템",
       "주요 정찰 포인트"
     ],
     "position": {
@@ -53,7 +53,7 @@
   },
   {
     "id": "cp-escape-3",
-    "name": "탈출 지점",
+    "name": "탈출 지점 #3",
     "category": "escape_points",
     "categoryLabel": "탈출 지점",
     "gameMode": "online",
@@ -61,9 +61,9 @@
     "price": 0,
     "priceFormatted": "탈출 지점",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬 탈출 위치 (경작지 및 농장). 보트, 비행기 또는 수영으로 섬을 이탈합니다.",
+    "description": "북쪽 부두: 주 경로가 감시받을 때 좋은 보조 해상 탈출 지점.",
     "features": [
-      "습격 탈출 포인트",
+      "사전 정찰 아이템",
       "주요 정찰 포인트"
     ],
     "position": {
@@ -79,7 +79,7 @@
   },
   {
     "id": "cp-escape-4",
-    "name": "탈출 지점",
+    "name": "탈출 지점 #4",
     "category": "escape_points",
     "categoryLabel": "탈출 지점",
     "gameMode": "online",
@@ -87,9 +87,9 @@
     "price": 0,
     "priceFormatted": "탈출 지점",
     "zone": "활주로",
-    "description": "카요 페리코 섬 탈출 위치 (활주로). 보트, 비행기 또는 수영으로 섬을 이탈합니다.",
+    "description": "활주로: 섬 북쪽에서 활주로나 공중 접근으로 탈출하는 주요 지점.",
     "features": [
-      "습격 탈출 포인트",
+      "사전 정찰 아이템",
       "주요 정찰 포인트"
     ],
     "position": {
@@ -113,9 +113,9 @@
     "price": 0,
     "priceFormatted": "침투 지점",
     "zone": "활주로",
-    "description": "활주로을(를) 통한 전술적 침투 지점 (코사트카, 벨럼, 롱핀 등).",
+    "description": "RO-86 Alkonost 스텔스 폭격기에서 하는 고고도 HALO 강하.",
     "features": [
-      "습격 시작 포인트",
+      "사전 정찰 아이템",
       "저택 전략적 진입 루트"
     ],
     "position": {
@@ -131,17 +131,17 @@
   },
   {
     "id": "cp-infiltration-2",
-    "name": "침투 지점",
+    "name": "침투 지점 #2",
     "category": "infiltration_points",
     "categoryLabel": "침투 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "침투 지점",
-    "zone": "카요 페리코",
-    "description": "카요 페리코을(를) 통한 전술적 침투 지점 (코사트카, 벨럼, 롱핀 등).",
+    "zone": "Cayo Perico",
+    "description": "Annihilator Stealth 스텔스 헬리콥터로 북쪽 강하 지점에 침투.",
     "features": [
-      "습격 시작 포인트",
+      "사전 정찰 아이템",
       "저택 전략적 진입 루트"
     ],
     "position": {
@@ -157,7 +157,7 @@
   },
   {
     "id": "cp-infiltration-3",
-    "name": "침투 지점",
+    "name": "침투 지점 #3",
     "category": "infiltration_points",
     "categoryLabel": "침투 지점",
     "gameMode": "online",
@@ -165,9 +165,9 @@
     "price": 0,
     "priceFormatted": "침투 지점",
     "zone": "엘 루비오의 저택",
-    "description": "엘 루비오의 저택을(를) 통한 전술적 침투 지점 (코사트카, 벨럼, 롱핀 등).",
+    "description": "Annihilator Stealth 스텔스 헬리콥터로 남쪽 강하 지점에 침투.",
     "features": [
-      "습격 시작 포인트",
+      "사전 정찰 아이템",
       "저택 전략적 진입 루트"
     ],
     "position": {
@@ -183,17 +183,17 @@
   },
   {
     "id": "cp-infiltration-4",
-    "name": "침투 지점",
+    "name": "침투 지점 #4",
     "category": "infiltration_points",
     "categoryLabel": "침투 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "침투 지점",
-    "zone": "카요 페리코",
-    "description": "카요 페리코을(를) 통한 전술적 침투 지점 (코사트카, 벨럼, 롱핀 등).",
+    "zone": "Cayo Perico",
+    "description": "Longfin 고속정이나 순찰정을 이용해 서쪽 해변으로 접근.",
     "features": [
-      "습격 시작 포인트",
+      "사전 정찰 아이템",
       "저택 전략적 진입 루트"
     ],
     "position": {
@@ -209,17 +209,17 @@
   },
   {
     "id": "cp-infiltration-5",
-    "name": "침투 지점",
+    "name": "침투 지점 #5",
     "category": "infiltration_points",
     "categoryLabel": "침투 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "침투 지점",
-    "zone": "카요 페리코",
-    "description": "카요 페리코을(를) 통한 전술적 침투 지점 (코사트카, 벨럼, 롱핀 등).",
+    "zone": "Cayo Perico",
+    "description": "배를 타고 주 부두로 곧장 해상 침투.",
     "features": [
-      "습격 시작 포인트",
+      "사전 정찰 아이템",
       "저택 전략적 진입 루트"
     ],
     "position": {
@@ -235,7 +235,7 @@
   },
   {
     "id": "cp-infiltration-6",
-    "name": "침투 지점",
+    "name": "침투 지점 #6",
     "category": "infiltration_points",
     "categoryLabel": "침투 지점",
     "gameMode": "online",
@@ -243,9 +243,9 @@
     "price": 0,
     "priceFormatted": "침투 지점",
     "zone": "경작지 및 농장",
-    "description": "경작지 및 농장을(를) 통한 전술적 침투 지점 (코사트카, 벨럼, 롱핀 등).",
+    "description": "배를 타고 북쪽 부두로 해상 침투.",
     "features": [
-      "습격 시작 포인트",
+      "사전 정찰 아이템",
       "저택 전략적 진입 루트"
     ],
     "position": {
@@ -261,7 +261,7 @@
   },
   {
     "id": "cp-infiltration-7",
-    "name": "침투 지점",
+    "name": "침투 지점 #7",
     "category": "infiltration_points",
     "categoryLabel": "침투 지점",
     "gameMode": "online",
@@ -269,9 +269,9 @@
     "price": 0,
     "priceFormatted": "침투 지점",
     "zone": "활주로",
-    "description": "활주로을(를) 통한 전술적 침투 지점 (코사트카, 벨럼, 롱핀 등).",
+    "description": "밀수업자로 위장한 Velum 비행기로 접근.",
     "features": [
-      "습격 시작 포인트",
+      "사전 정찰 아이템",
       "저택 전략적 진입 루트"
     ],
     "position": {
@@ -287,7 +287,7 @@
   },
   {
     "id": "cp-infiltration-8",
-    "name": "침투 지점",
+    "name": "침투 지점 #8",
     "category": "infiltration_points",
     "categoryLabel": "침투 지점",
     "gameMode": "online",
@@ -295,9 +295,9 @@
     "price": 0,
     "priceFormatted": "침투 지점",
     "zone": "엘 루비오의 저택",
-    "description": "엘 루비오의 저택을(를) 통한 전술적 침투 지점 (코사트카, 벨럼, 롱핀 등).",
+    "description": "잠수 배수 터널: 토치를 이용해 엘 루비오의 저택으로 들어가는 가장 은밀한 입구.",
     "features": [
-      "습격 시작 포인트",
+      "사전 정찰 아이템",
       "저택 전략적 진입 루트"
     ],
     "position": {
@@ -313,18 +313,18 @@
   },
   {
     "id": "cp-cutting-powder-1",
-    "name": "약화용 가루",
+    "name": "수질 오염용 화학 가루",
     "category": "cutting_powder",
-    "categoryLabel": "약화용 가루",
+    "categoryLabel": "수질 오염용 화학 가루",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "약화용 가루",
+    "priceFormatted": "수질 오염용 화학 가루",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cp_0.webp",
     "zone": "주 부두",
-    "description": "급수탑에 투입하여 섬 내 경비병들의 사격 명중률과 시야 경계도를 크게 떨어뜨리는 화학 가루.",
+    "description": "섬 경비원들을 약화시키고 방향 감각을 잃게 하려면 급수탑에 부으세요.",
     "features": [
-      "적 경비병 명중률 및 시야 저하",
+      "사전 정찰 아이템",
       "식수원 무력화"
     ],
     "position": {
@@ -340,18 +340,18 @@
   },
   {
     "id": "cp-cutting-powder-2",
-    "name": "약화용 가루",
+    "name": "수질 오염용 화학 가루 #2",
     "category": "cutting_powder",
-    "categoryLabel": "약화용 가루",
+    "categoryLabel": "수질 오염용 화학 가루",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "약화용 가루",
+    "priceFormatted": "수질 오염용 화학 가루",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cp_1.webp",
     "zone": "주 부두",
-    "description": "급수탑에 투입하여 섬 내 경비병들의 사격 명중률과 시야 경계도를 크게 떨어뜨리는 화학 가루.",
+    "description": "섬 경비원들을 약화시키고 방향 감각을 잃게 하려면 급수탑에 부으세요.",
     "features": [
-      "적 경비병 명중률 및 시야 저하",
+      "사전 정찰 아이템",
       "식수원 무력화"
     ],
     "position": {
@@ -367,18 +367,18 @@
   },
   {
     "id": "cp-cutting-powder-3",
-    "name": "약화용 가루",
+    "name": "수질 오염용 화학 가루 #3",
     "category": "cutting_powder",
-    "categoryLabel": "약화용 가루",
+    "categoryLabel": "수질 오염용 화학 가루",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "약화용 가루",
+    "priceFormatted": "수질 오염용 화학 가루",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cp_2.webp",
-    "zone": "카요 페리코",
-    "description": "급수탑에 투입하여 섬 내 경비병들의 사격 명중률과 시야 경계도를 크게 떨어뜨리는 화학 가루.",
+    "zone": "Cayo Perico",
+    "description": "섬 경비원들을 약화시키고 방향 감각을 잃게 하려면 급수탑에 부으세요.",
     "features": [
-      "적 경비병 명중률 및 시야 저하",
+      "사전 정찰 아이템",
       "식수원 무력화"
     ],
     "position": {
@@ -394,17 +394,17 @@
   },
   {
     "id": "cp-water-tower-1",
-    "name": "Water Tower",
+    "name": "급수탑",
     "category": "water_tower",
     "categoryLabel": "급수탑",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "급수탑",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "zone": "Cayo Perico",
+    "description": "화학 가루를 넣을 수 있는 식수 저장 탱크.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -420,7 +420,7 @@
   },
   {
     "id": "cp-water-tower-2",
-    "name": "Water Tower #2",
+    "name": "급수탑 #2",
     "category": "water_tower",
     "categoryLabel": "급수탑",
     "gameMode": "online",
@@ -428,9 +428,9 @@
     "price": 0,
     "priceFormatted": "급수탑",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "화학 가루를 넣을 수 있는 식수 저장 탱크.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -448,16 +448,16 @@
     "id": "cp-grappling-eq-1",
     "name": "등반용 갈고리",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_0.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -473,18 +473,18 @@
   },
   {
     "id": "cp-grappling-eq-2",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #2",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_1.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -500,18 +500,18 @@
   },
   {
     "id": "cp-grappling-eq-3",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #3",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_2.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -527,18 +527,18 @@
   },
   {
     "id": "cp-grappling-eq-4",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #4",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_3.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -554,18 +554,18 @@
   },
   {
     "id": "cp-grappling-eq-5",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #5",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_4.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -581,18 +581,18 @@
   },
   {
     "id": "cp-grappling-eq-6",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #6",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_5.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -608,18 +608,18 @@
   },
   {
     "id": "cp-grappling-eq-7",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #7",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_6.webp",
     "zone": "경작지 및 농장",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -635,18 +635,18 @@
   },
   {
     "id": "cp-grappling-eq-8",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #8",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_7.webp",
     "zone": "경작지 및 농장",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -662,18 +662,18 @@
   },
   {
     "id": "cp-grappling-eq-9",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #9",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_8.webp",
     "zone": "경작지 및 농장",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -689,18 +689,18 @@
   },
   {
     "id": "cp-grappling-eq-10",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #10",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_9.webp",
     "zone": "주 부두",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -716,18 +716,18 @@
   },
   {
     "id": "cp-grappling-eq-11",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #11",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_10.webp",
     "zone": "주 부두",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -743,18 +743,18 @@
   },
   {
     "id": "cp-grappling-eq-12",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #12",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_11.webp",
     "zone": "주 부두",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -770,18 +770,18 @@
   },
   {
     "id": "cp-grappling-eq-13",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #13",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_12.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -797,18 +797,18 @@
   },
   {
     "id": "cp-grappling-eq-14",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #14",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_13.webp",
     "zone": "엘 루비오의 저택",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -824,18 +824,18 @@
   },
   {
     "id": "cp-grappling-eq-15",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #15",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_14.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -851,18 +851,18 @@
   },
   {
     "id": "cp-grappling-eq-16",
-    "name": "등반용 갈고리",
+    "name": "등반용 갈고리 #16",
     "category": "grappling_eq",
-    "categoryLabel": "등반용 갈고리 (그래플링 훅)",
+    "categoryLabel": "등반용 갈고리",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "등반용 갈고리 (그래플링 훅)",
+    "priceFormatted": "등반용 갈고리",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_15.webp",
-    "zone": "카요 페리코",
-    "description": "키카드 없이 저택 외벽을 넘어 침투하기 위한 등반용 갈고리.",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오 저택의 바깥 담장을 오르기 위한 갈고리와 밧줄.",
     "features": [
-      "저택 외벽 등반",
+      "사전 정찰 아이템",
       "정문 경비 우회"
     ],
     "position": {
@@ -886,10 +886,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_0.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -905,7 +905,7 @@
   },
   {
     "id": "cp-bolt-cutters-2",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #2",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -914,9 +914,9 @@
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_1.webp",
     "zone": "활주로",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -932,7 +932,7 @@
   },
   {
     "id": "cp-bolt-cutters-3",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #3",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -941,9 +941,9 @@
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_2.webp",
     "zone": "활주로",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -959,7 +959,7 @@
   },
   {
     "id": "cp-bolt-cutters-4",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #4",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -967,10 +967,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_3.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -986,7 +986,7 @@
   },
   {
     "id": "cp-bolt-cutters-5",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #5",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -994,10 +994,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_4.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1013,7 +1013,7 @@
   },
   {
     "id": "cp-bolt-cutters-6",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #6",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1021,10 +1021,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_5.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1040,7 +1040,7 @@
   },
   {
     "id": "cp-bolt-cutters-7",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #7",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1048,10 +1048,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_6.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1067,7 +1067,7 @@
   },
   {
     "id": "cp-bolt-cutters-8",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #8",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1076,9 +1076,9 @@
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_7.webp",
     "zone": "경작지 및 농장",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1094,7 +1094,7 @@
   },
   {
     "id": "cp-bolt-cutters-9",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #9",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1103,9 +1103,9 @@
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_8.webp",
     "zone": "주 부두",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1121,7 +1121,7 @@
   },
   {
     "id": "cp-bolt-cutters-10",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #10",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1130,9 +1130,9 @@
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_9.webp",
     "zone": "주 부두",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1148,7 +1148,7 @@
   },
   {
     "id": "cp-bolt-cutters-11",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #11",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1157,9 +1157,9 @@
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_10.webp",
     "zone": "주 부두",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1175,7 +1175,7 @@
   },
   {
     "id": "cp-bolt-cutters-12",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #12",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1183,10 +1183,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_11.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1202,7 +1202,7 @@
   },
   {
     "id": "cp-bolt-cutters-13",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #13",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1211,9 +1211,9 @@
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_12.webp",
     "zone": "북쪽 부두",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1229,7 +1229,7 @@
   },
   {
     "id": "cp-bolt-cutters-14",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #14",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1237,10 +1237,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_13.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1256,7 +1256,7 @@
   },
   {
     "id": "cp-bolt-cutters-15",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #15",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1264,10 +1264,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_14.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1283,7 +1283,7 @@
   },
   {
     "id": "cp-bolt-cutters-16",
-    "name": "볼트 커터",
+    "name": "볼트 커터 #16",
     "category": "bolt_cutters",
     "categoryLabel": "볼트 커터",
     "gameMode": "online",
@@ -1291,10 +1291,10 @@
     "price": 0,
     "priceFormatted": "볼트 커터",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_15.webp",
-    "zone": "카요 페리코",
-    "description": "자물쇠를 소음 없이 절단하여 경보 없이 보조 목표물을 회수하는 도구.",
+    "zone": "Cayo Perico",
+    "description": "주변 경비원에게 들키지 않고 전리품 철창을 열 수 있는 조용한 도구.",
     "features": [
-      "무소음 자물쇠 절단",
+      "사전 정찰 아이템",
       "스텔스 추가 전리품 획득"
     ],
     "position": {
@@ -1310,17 +1310,17 @@
   },
   {
     "id": "cp-control-tower-1",
-    "name": "Control Tower",
+    "name": "관제탑",
     "category": "control_tower",
-    "categoryLabel": "관제탑 (대공 방어)",
+    "categoryLabel": "관제탑",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "관제탑 (대공 방어)",
+    "priceFormatted": "관제탑",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "관제탑을 해킹해 대공 방어를 끄고 전술 지원을 받을 수 있게 하세요.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -1336,7 +1336,7 @@
   },
   {
     "id": "cp-power-station-1",
-    "name": "Power Station",
+    "name": "발전소",
     "category": "power_station",
     "categoryLabel": "발전소",
     "gameMode": "online",
@@ -1344,9 +1344,9 @@
     "price": 0,
     "priceFormatted": "발전소",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "발전기를 조작해 섬의 보안 조명과 CCTV 카메라를 끄세요.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -1362,18 +1362,18 @@
   },
   {
     "id": "cp-secondary-target-1",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_0.webp",
     "zone": "활주로",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "활주로의 큰 격납고 안에 있습니다(위층에 올라가려면 지게차가 필요).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1389,18 +1389,18 @@
   },
   {
     "id": "cp-secondary-target-2",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #2",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_1.webp",
     "zone": "활주로",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "활주로의 큰 격납고 안에 있습니다(위층에 올라가려면 지게차가 필요).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1416,18 +1416,18 @@
   },
   {
     "id": "cp-secondary-target-3",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #3",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_2.webp",
     "zone": "활주로",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "활주로의 큰 격납고 안에 있습니다(위층에 올라가려면 지게차가 필요).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1443,18 +1443,18 @@
   },
   {
     "id": "cp-secondary-target-4",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #4",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_3.webp",
     "zone": "활주로",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "활주로의 큰 격납고 안에 있습니다(위층에 올라가려면 지게차가 필요).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1470,18 +1470,18 @@
   },
   {
     "id": "cp-secondary-target-5",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #5",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_4.webp",
     "zone": "활주로",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1497,18 +1497,18 @@
   },
   {
     "id": "cp-secondary-target-6",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #6",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_5.webp",
     "zone": "활주로",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1524,18 +1524,18 @@
   },
   {
     "id": "cp-secondary-target-7",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #7",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_6.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1551,18 +1551,18 @@
   },
   {
     "id": "cp-secondary-target-8",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #8",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_7.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1578,18 +1578,18 @@
   },
   {
     "id": "cp-secondary-target-9",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #9",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_8.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "열려면 두 명의 플레이어가 동시에 키카드를 긁어야 합니다.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1605,18 +1605,18 @@
   },
   {
     "id": "cp-secondary-target-10",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #10",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_9.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "열려면 두 명의 플레이어가 동시에 키카드를 긁어야 합니다.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1632,18 +1632,18 @@
   },
   {
     "id": "cp-secondary-target-11",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #11",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_10.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "열려면 두 명의 플레이어가 동시에 키카드를 긁어야 합니다.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1659,18 +1659,18 @@
   },
   {
     "id": "cp-secondary-target-12",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #12",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_11.webp",
     "zone": "경작지 및 농장",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1686,18 +1686,18 @@
   },
   {
     "id": "cp-secondary-target-13",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #13",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_12.webp",
     "zone": "경작지 및 농장",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1713,18 +1713,18 @@
   },
   {
     "id": "cp-secondary-target-14",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #14",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_13.webp",
     "zone": "주 부두",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1740,18 +1740,18 @@
   },
   {
     "id": "cp-secondary-target-15",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #15",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_14.webp",
     "zone": "주 부두",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1767,18 +1767,18 @@
   },
   {
     "id": "cp-secondary-target-16",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #16",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_15.webp",
     "zone": "주 부두",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1794,18 +1794,18 @@
   },
   {
     "id": "cp-secondary-target-17",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #17",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_0.webp",
     "zone": "주 부두",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1821,18 +1821,18 @@
   },
   {
     "id": "cp-secondary-target-18",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #18",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_1.webp",
     "zone": "주 부두",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1848,18 +1848,18 @@
   },
   {
     "id": "cp-secondary-target-19",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #19",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_2.webp",
     "zone": "주 부두",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1875,18 +1875,18 @@
   },
   {
     "id": "cp-secondary-target-20",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #20",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_3.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "열려면 두 명의 플레이어가 동시에 키카드를 긁어야 합니다.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1902,18 +1902,18 @@
   },
   {
     "id": "cp-secondary-target-21",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #21",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_4.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "열려면 두 명의 플레이어가 동시에 키카드를 긁어야 합니다.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1929,18 +1929,18 @@
   },
   {
     "id": "cp-secondary-target-22",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #22",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_5.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "열려면 두 명의 플레이어가 동시에 키카드를 긁어야 합니다.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1956,18 +1956,18 @@
   },
   {
     "id": "cp-secondary-target-23",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #23",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_6.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -1983,18 +1983,18 @@
   },
   {
     "id": "cp-secondary-target-24",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #24",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_7.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "zone": "Cayo Perico",
+    "description": "가방을 채울 값비싼 보조 전리품(현금, 코카인, 마리화나, 금 또는 그림).",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2010,18 +2010,18 @@
   },
   {
     "id": "cp-secondary-target-25",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_0.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "요새화된 엘 루비오의 저택 안.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2037,18 +2037,18 @@
   },
   {
     "id": "cp-secondary-target-26",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #2",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_1.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "요새화된 엘 루비오의 저택 안.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2064,18 +2064,18 @@
   },
   {
     "id": "cp-secondary-target-27",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #3",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_2.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "요새화된 엘 루비오의 저택 안.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2091,18 +2091,18 @@
   },
   {
     "id": "cp-secondary-target-28",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #4",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_3.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "요새화된 엘 루비오의 저택 안.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2118,18 +2118,18 @@
   },
   {
     "id": "cp-secondary-target-29",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #5",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_4.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "요새화된 엘 루비오의 저택 안.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2145,18 +2145,18 @@
   },
   {
     "id": "cp-secondary-target-30",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #6",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_5.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "요새화된 엘 루비오의 저택 안.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2172,18 +2172,18 @@
   },
   {
     "id": "cp-secondary-target-31",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #7",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_6.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "요새화된 엘 루비오의 저택 안.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2199,18 +2199,18 @@
   },
   {
     "id": "cp-secondary-target-32",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #8",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_7.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "요새화된 엘 루비오의 저택 안.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2226,18 +2226,18 @@
   },
   {
     "id": "cp-secondary-target-33",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_0.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "엘 루비오의 개인 사무실 안에 있는 값진 미술품과 그림.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2253,18 +2253,18 @@
   },
   {
     "id": "cp-secondary-target-34",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #2",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_1.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "엘 루비오의 개인 사무실 안에 있는 값진 미술품과 그림.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2280,18 +2280,18 @@
   },
   {
     "id": "cp-secondary-target-35",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #3",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_2.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "엘 루비오의 개인 사무실 안에 있는 값진 미술품과 그림.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2307,18 +2307,18 @@
   },
   {
     "id": "cp-secondary-target-36",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #4",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_3.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "엘 루비오의 개인 사무실 안에 있는 값진 미술품과 그림.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2334,18 +2334,18 @@
   },
   {
     "id": "cp-secondary-target-37",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #5",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_4.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "엘 루비오의 개인 사무실 안에 있는 값진 미술품과 그림.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2361,18 +2361,18 @@
   },
   {
     "id": "cp-secondary-target-38",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #6",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_5.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "엘 루비오의 개인 사무실 안에 있는 값진 미술품과 그림.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2388,18 +2388,18 @@
   },
   {
     "id": "cp-secondary-target-39",
-    "name": "보조 목표물 (금 / 코카인 / 현금 / 그림)",
+    "name": "보조 목표물 #7",
     "category": "secondary_targets",
-    "categoryLabel": "보조 목표물 (금/코카인/현금/그림)",
+    "categoryLabel": "보조 목표물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "보조 목표물 (금/코카인/현금/그림)",
+    "priceFormatted": "보조 목표물",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_6.webp",
     "zone": "엘 루비오의 저택",
-    "description": "섬 내 창고에 보관된 고가치 전리품 (금괴, 코카인, 현금 다발, 예술품).",
+    "description": "엘 루비오의 개인 사무실 안에 있는 값진 미술품과 그림.",
     "features": [
-      "가방 완충 획득",
+      "사전 정찰 아이템",
       "수백만 달러 추가 습격 보너스"
     ],
     "position": {
@@ -2415,18 +2415,18 @@
   },
   {
     "id": "cp-guard-clothing-1",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_0.webp",
     "zone": "활주로",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2442,18 +2442,18 @@
   },
   {
     "id": "cp-guard-clothing-2",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #2",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_1.webp",
     "zone": "활주로",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2469,18 +2469,18 @@
   },
   {
     "id": "cp-guard-clothing-3",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #3",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_2.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "zone": "Cayo Perico",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2496,18 +2496,18 @@
   },
   {
     "id": "cp-guard-clothing-4",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #4",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_3.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "zone": "Cayo Perico",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2523,18 +2523,18 @@
   },
   {
     "id": "cp-guard-clothing-5",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #5",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_4.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "zone": "Cayo Perico",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2550,18 +2550,18 @@
   },
   {
     "id": "cp-guard-clothing-6",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #6",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_5.webp",
     "zone": "경작지 및 농장",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2577,18 +2577,18 @@
   },
   {
     "id": "cp-guard-clothing-7",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #7",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_6.webp",
     "zone": "경작지 및 농장",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2604,18 +2604,18 @@
   },
   {
     "id": "cp-guard-clothing-8",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #8",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_7.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "zone": "Cayo Perico",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2631,18 +2631,18 @@
   },
   {
     "id": "cp-guard-clothing-9",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #9",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_8.webp",
     "zone": "주 부두",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2658,18 +2658,18 @@
   },
   {
     "id": "cp-guard-clothing-10",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #10",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_9.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "zone": "Cayo Perico",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2685,18 +2685,18 @@
   },
   {
     "id": "cp-guard-clothing-11",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #11",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_10.webp",
     "zone": "남부 해안",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2712,18 +2712,18 @@
   },
   {
     "id": "cp-guard-clothing-12",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #12",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_11.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "zone": "Cayo Perico",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2739,18 +2739,18 @@
   },
   {
     "id": "cp-guard-clothing-13",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #13",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_12.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "zone": "Cayo Perico",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2766,18 +2766,18 @@
   },
   {
     "id": "cp-guard-clothing-14",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #14",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_13.webp",
-    "zone": "카요 페리코",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "zone": "Cayo Perico",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2793,18 +2793,18 @@
   },
   {
     "id": "cp-guard-clothing-15",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #15",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_14.webp",
     "zone": "주 부두",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2820,18 +2820,18 @@
   },
   {
     "id": "cp-guard-clothing-16",
-    "name": "경비원 복장 위장",
+    "name": "경비원 복장 #16",
     "category": "guard_clothing",
-    "categoryLabel": "경비원 복장 위장",
+    "categoryLabel": "경비원 복장",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "경비원 복장 위장",
+    "priceFormatted": "경비원 복장",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_15.webp",
     "zone": "주 부두",
-    "description": "섬 내부를 의심받지 않고 자유롭게 이동할 수 있는 카르텔 용병 위장복.",
+    "description": "적의 감지 범위를 크게 줄여 주는 경비원 위장 복장.",
     "features": [
-      "위장을 통한 안전한 이동",
+      "사전 정찰 아이템",
       "경비병 시야각 대폭 축소"
     ],
     "position": {
@@ -2855,9 +2855,9 @@
     "price": 0,
     "priceFormatted": "보급 트럭",
     "zone": "활주로",
-    "description": "경비원 위장복 착용 시 저택 정문을 교전 없이 그대로 통과할 수 있는 트럭.",
+    "description": "경비원 복장을 입고 정문으로 곧장 들어가기 위한 다용도 트럭.",
     "features": [
-      "저택 직접 진입",
+      "사전 정찰 아이템",
       "전투 없는 게이트 통과"
     ],
     "position": {
@@ -2873,7 +2873,7 @@
   },
   {
     "id": "cp-supply-truck-2",
-    "name": "보급 트럭",
+    "name": "보급 트럭 #2",
     "category": "supply_truck",
     "categoryLabel": "보급 트럭",
     "gameMode": "online",
@@ -2881,9 +2881,9 @@
     "price": 0,
     "priceFormatted": "보급 트럭",
     "zone": "경작지 및 농장",
-    "description": "경비원 위장복 착용 시 저택 정문을 교전 없이 그대로 통과할 수 있는 트럭.",
+    "description": "경비원 복장을 입고 정문으로 곧장 들어가기 위한 다용도 트럭.",
     "features": [
-      "저택 직접 진입",
+      "사전 정찰 아이템",
       "전투 없는 게이트 통과"
     ],
     "position": {
@@ -2899,7 +2899,7 @@
   },
   {
     "id": "cp-supply-truck-3",
-    "name": "보급 트럭",
+    "name": "보급 트럭 #3",
     "category": "supply_truck",
     "categoryLabel": "보급 트럭",
     "gameMode": "online",
@@ -2907,9 +2907,9 @@
     "price": 0,
     "priceFormatted": "보급 트럭",
     "zone": "주 부두",
-    "description": "경비원 위장복 착용 시 저택 정문을 교전 없이 그대로 통과할 수 있는 트럭.",
+    "description": "경비원 복장을 입고 정문으로 곧장 들어가기 위한 다용도 트럭.",
     "features": [
-      "저택 직접 진입",
+      "사전 정찰 아이템",
       "전투 없는 게이트 통과"
     ],
     "position": {
@@ -2925,17 +2925,17 @@
   },
   {
     "id": "cp-supply-truck-4",
-    "name": "보급 트럭",
+    "name": "보급 트럭 #4",
     "category": "supply_truck",
     "categoryLabel": "보급 트럭",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "보급 트럭",
-    "zone": "카요 페리코",
-    "description": "경비원 위장복 착용 시 저택 정문을 교전 없이 그대로 통과할 수 있는 트럭.",
+    "zone": "Cayo Perico",
+    "description": "경비원 복장을 입고 정문으로 곧장 들어가기 위한 다용도 트럭.",
     "features": [
-      "저택 직접 진입",
+      "사전 정찰 아이템",
       "전투 없는 게이트 통과"
     ],
     "position": {
@@ -2959,9 +2959,9 @@
     "price": 0,
     "priceFormatted": "보급 트럭",
     "zone": "엘 루비오의 저택",
-    "description": "경비원 위장복 착용 시 저택 정문을 교전 없이 그대로 통과할 수 있는 트럭.",
+    "description": "보급 트럭: 경비원 복장을 입고 몰고 가서 저택 정문으로 들어가세요.",
     "features": [
-      "저택 직접 진입",
+      "사전 정찰 아이템",
       "전투 없는 게이트 통과"
     ],
     "position": {
@@ -2977,17 +2977,17 @@
   },
   {
     "id": "cp-compound-entry-1",
-    "name": "Compound Entry Points",
+    "name": "저택 진입 지점",
     "category": "compound_entry_points",
-    "categoryLabel": "저택 진입 경로",
+    "categoryLabel": "저택 진입 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "저택 진입 경로",
+    "priceFormatted": "저택 진입 지점",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "요새화된 엘 루비오 저택으로 들어가는 진입 지점.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -3003,17 +3003,17 @@
   },
   {
     "id": "cp-compound-entry-2",
-    "name": "Compound Entry Points",
+    "name": "저택 진입 지점",
     "category": "compound_entry_points",
-    "categoryLabel": "저택 진입 경로",
+    "categoryLabel": "저택 진입 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "저택 진입 경로",
+    "priceFormatted": "저택 진입 지점",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "요새화된 엘 루비오 저택으로 들어가는 진입 지점.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -3029,17 +3029,17 @@
   },
   {
     "id": "cp-compound-entry-3",
-    "name": "Compound Entry Points #2",
+    "name": "저택 진입 지점 #2",
     "category": "compound_entry_points",
-    "categoryLabel": "저택 진입 경로",
+    "categoryLabel": "저택 진입 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "저택 진입 경로",
+    "priceFormatted": "저택 진입 지점",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "요새화된 엘 루비오 저택으로 들어가는 진입 지점.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -3055,17 +3055,17 @@
   },
   {
     "id": "cp-compound-entry-4",
-    "name": "Compound Entry Points",
+    "name": "저택 진입 지점",
     "category": "compound_entry_points",
-    "categoryLabel": "저택 진입 경로",
+    "categoryLabel": "저택 진입 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "저택 진입 경로",
+    "priceFormatted": "저택 진입 지점",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "요새화된 엘 루비오 저택으로 들어가는 진입 지점.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -3081,17 +3081,17 @@
   },
   {
     "id": "cp-compound-entry-5",
-    "name": "Compound Entry Points #2",
+    "name": "저택 진입 지점 #2",
     "category": "compound_entry_points",
-    "categoryLabel": "저택 진입 경로",
+    "categoryLabel": "저택 진입 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "저택 진입 경로",
+    "priceFormatted": "저택 진입 지점",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "요새화된 엘 루비오 저택으로 들어가는 진입 지점.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -3107,17 +3107,17 @@
   },
   {
     "id": "cp-compound-entry-6",
-    "name": "Compound Entry Points",
+    "name": "저택 진입 지점",
     "category": "compound_entry_points",
-    "categoryLabel": "저택 진입 경로",
+    "categoryLabel": "저택 진입 지점",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "저택 진입 경로",
+    "priceFormatted": "저택 진입 지점",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "요새화된 엘 루비오 저택으로 들어가는 진입 지점.",
     "features": [
-      "주요 정찰 포인트",
+      "사전 정찰 아이템",
       "습격 전략 최적화"
     ],
     "position": {
@@ -3135,14 +3135,14 @@
     "id": "cp-combat-shotgun-1",
     "name": "Combat Shotgun",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_0.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3162,14 +3162,14 @@
     "id": "cp-combat-shotgun-2",
     "name": "Combat Shotgun #2",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_1.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3189,14 +3189,14 @@
     "id": "cp-combat-shotgun-3",
     "name": "Combat Shotgun #3",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_2.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3216,14 +3216,14 @@
     "id": "cp-combat-shotgun-4",
     "name": "Combat Shotgun #4",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_3.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3243,14 +3243,14 @@
     "id": "cp-combat-shotgun-5",
     "name": "Combat Shotgun #5",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_4.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3270,14 +3270,14 @@
     "id": "cp-combat-shotgun-6",
     "name": "Combat Shotgun #6",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_5.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3297,14 +3297,14 @@
     "id": "cp-combat-shotgun-7",
     "name": "Combat Shotgun #7",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_6.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3324,14 +3324,14 @@
     "id": "cp-combat-shotgun-8",
     "name": "Combat Shotgun #8",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_7.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3351,14 +3351,14 @@
     "id": "cp-combat-shotgun-9",
     "name": "Combat Shotgun #9",
     "category": "combat_shotgun",
-    "categoryLabel": "컴뱃 샷건",
+    "categoryLabel": "Combat Shotgun",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "컴뱃 샷건",
+    "priceFormatted": "Combat Shotgun",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_8.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "저택 담장에 기대어 놓인 전용 무기. 획득하면 Ammu-Nation에서 잠금이 해제됩니다.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3378,13 +3378,13 @@
     "id": "cp-perico-pistol-1",
     "name": "Perico Pistol",
     "category": "perico_pistol",
-    "categoryLabel": "황금 페리코 피스톨",
+    "categoryLabel": "Perico Pistol",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "황금 페리코 피스톨",
+    "priceFormatted": "Perico Pistol",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오 책상 서랍 안에 있는 금색 각인 권총(열쇠 필요).",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3402,19 +3402,19 @@
   },
   {
     "id": "cp-treasure-chest-1",
-    "name": "Treasure Chests #7",
+    "name": "보물상자 #7",
     "category": "treasure_chests",
-    "categoryLabel": "일일 보물상자",
+    "categoryLabel": "보물상자",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 25000,
-    "priceFormatted": "일일 보물상자",
+    "priceFormatted": "$25,000",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_tc_l_6.webp",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "$25,000와 1,000 RP를 보상으로 주는 GTA Online의 일일 수집 상자.",
     "features": [
-      "주요 정찰 포인트",
-      "습격 전략 최적화"
+      "사전 정찰 아이템",
+      "일일 보상: $25,000 + 1,000 RP"
     ],
     "income": "$25,000",
     "position": {
@@ -3430,19 +3430,19 @@
   },
   {
     "id": "cp-treasure-chest-2",
-    "name": "Treasure Chests",
+    "name": "보물상자",
     "category": "treasure_chests",
-    "categoryLabel": "일일 보물상자",
+    "categoryLabel": "보물상자",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 25000,
-    "priceFormatted": "일일 보물상자",
+    "priceFormatted": "$25,000",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_tc_w_0.webp",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "zone": "Cayo Perico",
+    "description": "$25,000와 1,000 RP를 보상으로 주는 GTA Online의 일일 수집 상자.",
     "features": [
-      "주요 정찰 포인트",
-      "습격 전략 최적화"
+      "사전 정찰 아이템",
+      "일일 보상: $25,000 + 1,000 RP"
     ],
     "income": "$25,000",
     "position": {
@@ -3458,19 +3458,19 @@
   },
   {
     "id": "cp-buried-stash-1",
-    "name": "Buried Stashes #14",
+    "name": "묻힌 은닉물 #14",
     "category": "buried_stashes",
-    "categoryLabel": "해변에 묻힌 은닉물",
+    "categoryLabel": "묻힌 은닉물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 25000,
-    "priceFormatted": "해변에 묻힌 은닉물",
+    "priceFormatted": "$25,000",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bs_13.webp",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "zone": "Cayo Perico",
+    "description": "모래 속에 묻힌 일일 은닉물. 금속 탐지기로 파내세요($25,000 + 1,000 RP).",
     "features": [
-      "주요 정찰 포인트",
-      "습격 전략 최적화"
+      "사전 정찰 아이템",
+      "일일 보상: $25,000 + 1,000 RP"
     ],
     "income": "$25,000",
     "position": {
@@ -3486,19 +3486,19 @@
   },
   {
     "id": "cp-buried-stash-2",
-    "name": "Buried Stashes #17",
+    "name": "묻힌 은닉물 #17",
     "category": "buried_stashes",
-    "categoryLabel": "해변에 묻힌 은닉물",
+    "categoryLabel": "묻힌 은닉물",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 25000,
-    "priceFormatted": "해변에 묻힌 은닉물",
+    "priceFormatted": "$25,000",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bs_0.webp",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "모래 속에 묻힌 일일 은닉물. 금속 탐지기로 파내세요($25,000 + 1,000 RP).",
     "features": [
-      "주요 정찰 포인트",
-      "습격 전략 최적화"
+      "사전 정찰 아이템",
+      "일일 보상: $25,000 + 1,000 RP"
     ],
     "income": "$25,000",
     "position": {
@@ -3514,15 +3514,15 @@
   },
   {
     "id": "cp-spawn-forklift-1",
-    "name": "Spawns Forklift",
+    "name": "지게차 스폰",
     "category": "spawns_forklift",
-    "categoryLabel": "지게차",
+    "categoryLabel": "지게차 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "지게차",
+    "priceFormatted": "지게차 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "격납고의 높은 전리품 철창에 닿도록 상자를 들어 올리는 지게차.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3541,15 +3541,15 @@
   },
   {
     "id": "cp-spawn-verus-1",
-    "name": "Spawns Verus",
+    "name": "Verus 스폰",
     "category": "spawns_verus",
-    "categoryLabel": "베러스 오프로드",
+    "categoryLabel": "Verus 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "베러스 오프로드",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Verus 스폰",
+    "zone": "Cayo Perico",
+    "description": "험준한 정글 지형을 위한 Dinka Verus 사륜 오토바이.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3568,15 +3568,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-1",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scout 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Manchez Scout 스폰",
+    "zone": "Cayo Perico",
+    "description": "섬을 탐험하는 데 가장 빠른 지상 이동 수단인 Manchez Scout 오프로드 오토바이.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3595,15 +3595,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-2",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scout #2 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Manchez Scout 스폰",
+    "zone": "Cayo Perico",
+    "description": "섬을 탐험하는 데 가장 빠른 지상 이동 수단인 Manchez Scout 오프로드 오토바이.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3622,15 +3622,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-3",
-    "name": "Spawns Manchez Scout #3",
+    "name": "Manchez Scout #3 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "섬을 탐험하는 데 가장 빠른 지상 이동 수단인 Manchez Scout 오프로드 오토바이.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3649,15 +3649,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-4",
-    "name": "Spawns Manchez Scout #4",
+    "name": "Manchez Scout #4 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Manchez Scout 스폰",
+    "zone": "Cayo Perico",
+    "description": "섬을 탐험하는 데 가장 빠른 지상 이동 수단인 Manchez Scout 오프로드 오토바이.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3676,15 +3676,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-5",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scout 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Manchez Scout 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3703,15 +3703,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-6",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scout 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "남부 해안",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (남부 해안). 작전 계획 수립에 필수적입니다.",
+    "description": "강탈 마무리 단계에서 탈출용으로 준비된 빠른 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3730,15 +3730,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-7",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scout #2 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "남부 해안",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (남부 해안). 작전 계획 수립에 필수적입니다.",
+    "description": "강탈 마무리 단계에서 탈출용으로 준비된 빠른 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3757,15 +3757,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-8",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scout 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3784,15 +3784,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-9",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scout #2 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3811,15 +3811,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-10",
-    "name": "Spawns Manchez Scout #3",
+    "name": "Manchez Scout #3 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3838,15 +3838,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-11",
-    "name": "Spawns Manchez Scout #4",
+    "name": "Manchez Scout #4 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Manchez Scout 스폰",
+    "zone": "Cayo Perico",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3865,15 +3865,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-12",
-    "name": "Spawns Manchez Scout #5",
+    "name": "Manchez Scout #5 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Manchez Scout 스폰",
+    "zone": "Cayo Perico",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3892,15 +3892,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-13",
-    "name": "Spawns Manchez Scout #6",
+    "name": "Manchez Scout #6 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3919,15 +3919,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-14",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scout 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3946,15 +3946,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-15",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scout #2 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -3973,15 +3973,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-16",
-    "name": "Spawns Manchez Scout #3",
+    "name": "Manchez Scout #3 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "남부 해안",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (남부 해안). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4000,15 +4000,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-17",
-    "name": "Spawns Manchez Scout #4",
+    "name": "Manchez Scout #4 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4027,15 +4027,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-18",
-    "name": "Spawns Manchez Scout #5",
+    "name": "Manchez Scout #5 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4054,15 +4054,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-19",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scout 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Manchez Scout 스폰",
+    "zone": "Cayo Perico",
+    "description": "섬을 탐험하는 데 가장 빠른 지상 이동 수단인 Manchez Scout 오프로드 오토바이.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4081,15 +4081,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-20",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scout 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Manchez Scout 스폰",
+    "zone": "Cayo Perico",
+    "description": "섬을 탐험하는 데 가장 빠른 지상 이동 수단인 Manchez Scout 오프로드 오토바이.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4108,15 +4108,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-21",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scout #2 스폰",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "만체스 스카우트 오토바이",
+    "categoryLabel": "Manchez Scout 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "만체스 스카우트 오토바이",
+    "priceFormatted": "Manchez Scout 스폰",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "섬을 탐험하는 데 가장 빠른 지상 이동 수단인 Manchez Scout 오프로드 오토바이.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4135,15 +4135,15 @@
   },
   {
     "id": "cp-spawn-winky-1",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4162,15 +4162,15 @@
   },
   {
     "id": "cp-spawn-winky-2",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4189,15 +4189,15 @@
   },
   {
     "id": "cp-spawn-winky-3",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4216,15 +4216,15 @@
   },
   {
     "id": "cp-spawn-winky-4",
-    "name": "Spawns Winky #4",
+    "name": "Winky #4 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4243,15 +4243,15 @@
   },
   {
     "id": "cp-spawn-winky-5",
-    "name": "Spawns Winky #5",
+    "name": "Winky #5 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4270,15 +4270,15 @@
   },
   {
     "id": "cp-spawn-winky-6",
-    "name": "Spawns Winky #6",
+    "name": "Winky #6 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4297,15 +4297,15 @@
   },
   {
     "id": "cp-spawn-winky-7",
-    "name": "Spawns Winky #7",
+    "name": "Winky #7 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4324,15 +4324,15 @@
   },
   {
     "id": "cp-spawn-winky-8",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4351,15 +4351,15 @@
   },
   {
     "id": "cp-spawn-winky-9",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4378,15 +4378,15 @@
   },
   {
     "id": "cp-spawn-winky-10",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "남부 해안",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (남부 해안). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4405,15 +4405,15 @@
   },
   {
     "id": "cp-spawn-winky-11",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "강탈 마무리 단계에서 탈출용으로 준비된 빠른 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4432,15 +4432,15 @@
   },
   {
     "id": "cp-spawn-winky-12",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4459,15 +4459,15 @@
   },
   {
     "id": "cp-spawn-winky-13",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4486,15 +4486,15 @@
   },
   {
     "id": "cp-spawn-winky-14",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4513,15 +4513,15 @@
   },
   {
     "id": "cp-spawn-winky-15",
-    "name": "Spawns Winky #4",
+    "name": "Winky #4 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4540,15 +4540,15 @@
   },
   {
     "id": "cp-spawn-winky-16",
-    "name": "Spawns Winky #5",
+    "name": "Winky #5 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4567,15 +4567,15 @@
   },
   {
     "id": "cp-spawn-winky-17",
-    "name": "Spawns Winky #6",
+    "name": "Winky #6 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4594,15 +4594,15 @@
   },
   {
     "id": "cp-spawn-winky-18",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4621,15 +4621,15 @@
   },
   {
     "id": "cp-spawn-winky-19",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4648,15 +4648,15 @@
   },
   {
     "id": "cp-spawn-winky-20",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4675,15 +4675,15 @@
   },
   {
     "id": "cp-spawn-winky-21",
-    "name": "Spawns Winky #4",
+    "name": "Winky #4 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4702,15 +4702,15 @@
   },
   {
     "id": "cp-spawn-winky-22",
-    "name": "Spawns Winky #5",
+    "name": "Winky #5 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4729,15 +4729,15 @@
   },
   {
     "id": "cp-spawn-winky-23",
-    "name": "Spawns Winky #6",
+    "name": "Winky #6 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4756,15 +4756,15 @@
   },
   {
     "id": "cp-spawn-winky-24",
-    "name": "Spawns Winky #7",
+    "name": "Winky #7 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4783,15 +4783,15 @@
   },
   {
     "id": "cp-spawn-winky-25",
-    "name": "Spawns Winky #8",
+    "name": "Winky #8 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 중 섬을 돌아다니기에 알맞은 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4810,15 +4810,15 @@
   },
   {
     "id": "cp-spawn-winky-26",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4837,15 +4837,15 @@
   },
   {
     "id": "cp-spawn-winky-27",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4864,15 +4864,15 @@
   },
   {
     "id": "cp-spawn-winky-28",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4891,15 +4891,15 @@
   },
   {
     "id": "cp-spawn-winky-29",
-    "name": "Spawns Winky #4",
+    "name": "Winky #4 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4918,15 +4918,15 @@
   },
   {
     "id": "cp-spawn-winky-30",
-    "name": "Spawns Winky #5",
+    "name": "Winky #5 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4945,15 +4945,15 @@
   },
   {
     "id": "cp-spawn-winky-31",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4972,15 +4972,15 @@
   },
   {
     "id": "cp-spawn-winky-32",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -4999,15 +4999,15 @@
   },
   {
     "id": "cp-spawn-winky-33",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5026,15 +5026,15 @@
   },
   {
     "id": "cp-spawn-winky-34",
-    "name": "Spawns Winky #4",
+    "name": "Winky #4 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5053,15 +5053,15 @@
   },
   {
     "id": "cp-spawn-winky-35",
-    "name": "Spawns Winky #5",
+    "name": "Winky #5 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5080,15 +5080,15 @@
   },
   {
     "id": "cp-spawn-winky-36",
-    "name": "Spawns Winky #6",
+    "name": "Winky #6 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5107,15 +5107,15 @@
   },
   {
     "id": "cp-spawn-winky-37",
-    "name": "Spawns Winky #7",
+    "name": "Winky #7 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5134,15 +5134,15 @@
   },
   {
     "id": "cp-spawn-winky-38",
-    "name": "Spawns Winky #8",
+    "name": "Winky #8 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "남부 해안",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (남부 해안). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5161,15 +5161,15 @@
   },
   {
     "id": "cp-spawn-winky-39",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5188,15 +5188,15 @@
   },
   {
     "id": "cp-spawn-winky-40",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5215,15 +5215,15 @@
   },
   {
     "id": "cp-spawn-winky-41",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5242,15 +5242,15 @@
   },
   {
     "id": "cp-spawn-winky-42",
-    "name": "Spawns Winky #4",
+    "name": "Winky #4 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5269,15 +5269,15 @@
   },
   {
     "id": "cp-spawn-winky-43",
-    "name": "Spawns Winky #5",
+    "name": "Winky #5 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5296,15 +5296,15 @@
   },
   {
     "id": "cp-spawn-winky-44",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5323,15 +5323,15 @@
   },
   {
     "id": "cp-spawn-winky-45",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5350,15 +5350,15 @@
   },
   {
     "id": "cp-spawn-winky-46",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5377,15 +5377,15 @@
   },
   {
     "id": "cp-spawn-winky-47",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5404,15 +5404,15 @@
   },
   {
     "id": "cp-spawn-winky-48",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5431,15 +5431,15 @@
   },
   {
     "id": "cp-spawn-winky-49",
-    "name": "Spawns Winky #4",
+    "name": "Winky #4 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5458,15 +5458,15 @@
   },
   {
     "id": "cp-spawn-winky-50",
-    "name": "Spawns Winky #5",
+    "name": "Winky #5 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5485,15 +5485,15 @@
   },
   {
     "id": "cp-spawn-winky-51",
-    "name": "Spawns Winky #6",
+    "name": "Winky #6 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5512,15 +5512,15 @@
   },
   {
     "id": "cp-spawn-winky-52",
-    "name": "Spawns Winky",
+    "name": "Winky 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5539,15 +5539,15 @@
   },
   {
     "id": "cp-spawn-winky-53",
-    "name": "Spawns Winky #2",
+    "name": "Winky #2 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5566,15 +5566,15 @@
   },
   {
     "id": "cp-spawn-winky-54",
-    "name": "Spawns Winky #3",
+    "name": "Winky #3 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5593,15 +5593,15 @@
   },
   {
     "id": "cp-spawn-winky-55",
-    "name": "Spawns Winky #4",
+    "name": "Winky #4 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5620,15 +5620,15 @@
   },
   {
     "id": "cp-spawn-winky-56",
-    "name": "Spawns Winky #5",
+    "name": "Winky #5 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5647,15 +5647,15 @@
   },
   {
     "id": "cp-spawn-winky-57",
-    "name": "Spawns Winky #6",
+    "name": "Winky #6 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5674,15 +5674,15 @@
   },
   {
     "id": "cp-spawn-winky-58",
-    "name": "Spawns Winky #7",
+    "name": "Winky #7 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5701,15 +5701,15 @@
   },
   {
     "id": "cp-spawn-winky-59",
-    "name": "Spawns Winky #8",
+    "name": "Winky #8 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
+    "priceFormatted": "Winky 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5728,15 +5728,15 @@
   },
   {
     "id": "cp-spawn-winky-60",
-    "name": "Spawns Winky #9",
+    "name": "Winky #9 스폰",
     "category": "spawns_winky",
-    "categoryLabel": "윙키 군용 지프",
+    "categoryLabel": "Winky 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "윙키 군용 지프",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Winky 스폰",
+    "zone": "Cayo Perico",
+    "description": "엘 루비오의 섬 순찰대가 흔히 사용하는 Winky 군용 지프.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5755,15 +5755,15 @@
   },
   {
     "id": "cp-spawn-squaddie-1",
-    "name": "Spawns Squaddie",
+    "name": "Squaddie 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
+    "priceFormatted": "Squaddie 스폰",
     "zone": "활주로",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (활주로). 작전 계획 수립에 필수적입니다.",
+    "description": "4인승 경량 군용 다목적 차량 Mammoth Squaddie.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5782,15 +5782,15 @@
   },
   {
     "id": "cp-spawn-squaddie-2",
-    "name": "Spawns Squaddie #2",
+    "name": "Squaddie #2 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Squaddie 스폰",
+    "zone": "Cayo Perico",
+    "description": "4인승 경량 군용 다목적 차량 Mammoth Squaddie.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5809,15 +5809,15 @@
   },
   {
     "id": "cp-spawn-squaddie-3",
-    "name": "Spawns Squaddie #3",
+    "name": "Squaddie #3 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
+    "priceFormatted": "Squaddie 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "4인승 경량 군용 다목적 차량 Mammoth Squaddie.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5836,15 +5836,15 @@
   },
   {
     "id": "cp-spawn-squaddie-4",
-    "name": "Spawns Squaddie #4",
+    "name": "Squaddie #4 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
+    "priceFormatted": "Squaddie 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "4인승 경량 군용 다목적 차량 Mammoth Squaddie.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5863,15 +5863,15 @@
   },
   {
     "id": "cp-spawn-squaddie-5",
-    "name": "Spawns Squaddie #5",
+    "name": "Squaddie #5 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Squaddie 스폰",
+    "zone": "Cayo Perico",
+    "description": "4인승 경량 군용 다목적 차량 Mammoth Squaddie.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5890,15 +5890,15 @@
   },
   {
     "id": "cp-spawn-squaddie-6",
-    "name": "Spawns Squaddie",
+    "name": "Squaddie 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
+    "priceFormatted": "Squaddie 스폰",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5917,15 +5917,15 @@
   },
   {
     "id": "cp-spawn-squaddie-7",
-    "name": "Spawns Squaddie #2",
+    "name": "Squaddie #2 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
+    "priceFormatted": "Squaddie 스폰",
     "zone": "엘 루비오의 저택",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (엘 루비오의 저택). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5944,15 +5944,15 @@
   },
   {
     "id": "cp-spawn-squaddie-8",
-    "name": "Spawns Squaddie #3",
+    "name": "Squaddie #3 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Squaddie 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5971,15 +5971,15 @@
   },
   {
     "id": "cp-spawn-squaddie-9",
-    "name": "Spawns Squaddie #4",
+    "name": "Squaddie #4 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Squaddie 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -5998,15 +5998,15 @@
   },
   {
     "id": "cp-spawn-squaddie-10",
-    "name": "Spawns Squaddie #5",
+    "name": "Squaddie #5 스폰",
     "category": "spawns_squaddie",
-    "categoryLabel": "스쿼디 장갑차",
+    "categoryLabel": "Squaddie 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "스쿼디 장갑차",
+    "priceFormatted": "Squaddie 스폰",
     "zone": "남부 해안",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (남부 해안). 작전 계획 수립에 필수적입니다.",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6025,15 +6025,15 @@
   },
   {
     "id": "cp-spawn-dinghy-1",
-    "name": "Spawns Dinghy",
+    "name": "Dinghy 보트 스폰",
     "category": "spawns_dinghy",
-    "categoryLabel": "딩기 보트",
+    "categoryLabel": "Dinghy 보트 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "딩기 보트",
+    "priceFormatted": "Dinghy 보트 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "해안을 빠르게 이동하기 위한 Nagasaki Dinghy 고무보트.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6052,15 +6052,15 @@
   },
   {
     "id": "cp-spawn-dinghy-2",
-    "name": "Spawns Dinghy #2",
+    "name": "Dinghy 보트 #2 스폰",
     "category": "spawns_dinghy",
-    "categoryLabel": "딩기 보트",
+    "categoryLabel": "Dinghy 보트 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "딩기 보트",
+    "priceFormatted": "Dinghy 보트 스폰",
     "zone": "주 부두",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (주 부두). 작전 계획 수립에 필수적입니다.",
+    "description": "해안을 빠르게 이동하기 위한 Nagasaki Dinghy 고무보트.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6079,15 +6079,15 @@
   },
   {
     "id": "cp-spawn-dinghy-3",
-    "name": "Spawns Dinghy #3",
+    "name": "Dinghy 보트 #3 스폰",
     "category": "spawns_dinghy",
-    "categoryLabel": "딩기 보트",
+    "categoryLabel": "Dinghy 보트 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "딩기 보트",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Dinghy 보트 스폰",
+    "zone": "Cayo Perico",
+    "description": "해안을 빠르게 이동하기 위한 Nagasaki Dinghy 고무보트.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6106,15 +6106,15 @@
   },
   {
     "id": "cp-spawn-dinghy-4",
-    "name": "Spawns Dinghy #4",
+    "name": "Dinghy 보트 #4 스폰",
     "category": "spawns_dinghy",
-    "categoryLabel": "딩기 보트",
+    "categoryLabel": "Dinghy 보트 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "딩기 보트",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Dinghy 보트 스폰",
+    "zone": "Cayo Perico",
+    "description": "해안을 빠르게 이동하기 위한 Nagasaki Dinghy 고무보트.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6133,15 +6133,15 @@
   },
   {
     "id": "cp-spawn-dinghy-5",
-    "name": "Spawns Dinghy #5",
+    "name": "Dinghy 보트 #5 스폰",
     "category": "spawns_dinghy",
-    "categoryLabel": "딩기 보트",
+    "categoryLabel": "Dinghy 보트 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "딩기 보트",
+    "priceFormatted": "Dinghy 보트 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "해안을 빠르게 이동하기 위한 Nagasaki Dinghy 고무보트.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6160,15 +6160,15 @@
   },
   {
     "id": "cp-spawn-dinghy-6",
-    "name": "Spawns Dinghy #6",
+    "name": "Dinghy 보트 #6 스폰",
     "category": "spawns_dinghy",
-    "categoryLabel": "딩기 보트",
+    "categoryLabel": "Dinghy 보트 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "딩기 보트",
+    "priceFormatted": "Dinghy 보트 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "해안을 빠르게 이동하기 위한 Nagasaki Dinghy 고무보트.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6187,15 +6187,15 @@
   },
   {
     "id": "cp-spawn-dinghy-7",
-    "name": "Spawns Dinghy",
+    "name": "Dinghy 보트 스폰",
     "category": "spawns_dinghy",
-    "categoryLabel": "딩기 보트",
+    "categoryLabel": "Dinghy 보트 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "딩기 보트",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "Dinghy 보트 스폰",
+    "zone": "Cayo Perico",
+    "description": "정찰 임무 중 섬을 탐험하기에 훌륭한 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6214,15 +6214,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-1",
-    "name": "Spawns Weaponized Dinghy",
+    "name": "무장 Dinghy 스폰",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "무장 딩기 보트",
+    "categoryLabel": "무장 Dinghy 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "무장 딩기 보트",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "무장 Dinghy 스폰",
+    "zone": "Cayo Perico",
+    "description": "강탈 마무리 단계에서 탈출용으로 준비된 빠른 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6241,15 +6241,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-2",
-    "name": "Spawns Weaponized Dinghy #2",
+    "name": "무장 Dinghy #2 스폰",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "무장 딩기 보트",
+    "categoryLabel": "무장 Dinghy 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "무장 딩기 보트",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "무장 Dinghy 스폰",
+    "zone": "Cayo Perico",
+    "description": "강탈 마무리 단계에서 탈출용으로 준비된 빠른 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6268,15 +6268,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-3",
-    "name": "Spawns Weaponized Dinghy #3",
+    "name": "무장 Dinghy #3 스폰",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "무장 딩기 보트",
+    "categoryLabel": "무장 Dinghy 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "무장 딩기 보트",
+    "priceFormatted": "무장 Dinghy 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "강탈 마무리 단계에서 탈출용으로 준비된 빠른 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6295,15 +6295,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-4",
-    "name": "Spawns Weaponized Dinghy #4",
+    "name": "무장 Dinghy #4 스폰",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "무장 딩기 보트",
+    "categoryLabel": "무장 Dinghy 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "무장 딩기 보트",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "무장 Dinghy 스폰",
+    "zone": "Cayo Perico",
+    "description": "강탈 마무리 단계에서 탈출용으로 준비된 빠른 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6322,15 +6322,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-5",
-    "name": "Spawns Weaponized Dinghy #5",
+    "name": "무장 Dinghy #5 스폰",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "무장 딩기 보트",
+    "categoryLabel": "무장 Dinghy 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "무장 딩기 보트",
-    "zone": "카요 페리코",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (카요 페리코). 작전 계획 수립에 필수적입니다.",
+    "priceFormatted": "무장 Dinghy 스폰",
+    "zone": "Cayo Perico",
+    "description": "강탈 마무리 단계에서 탈출용으로 준비된 빠른 차량.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6349,15 +6349,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-6",
-    "name": "Spawns Weaponized Dinghy",
+    "name": "무장 Dinghy 스폰",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "무장 딩기 보트",
+    "categoryLabel": "무장 Dinghy 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "무장 딩기 보트",
+    "priceFormatted": "무장 Dinghy 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6376,15 +6376,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-7",
-    "name": "Spawns Weaponized Dinghy #2",
+    "name": "무장 Dinghy #2 스폰",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "무장 딩기 보트",
+    "categoryLabel": "무장 Dinghy 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "무장 딩기 보트",
+    "priceFormatted": "무장 Dinghy 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"
@@ -6403,15 +6403,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-8",
-    "name": "Spawns Weaponized Dinghy #3",
+    "name": "무장 Dinghy #3 스폰",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "무장 딩기 보트",
+    "categoryLabel": "무장 Dinghy 스폰",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "무장 딩기 보트",
+    "priceFormatted": "무장 Dinghy 스폰",
     "zone": "경작지 및 농장",
-    "description": "카요 페리코 섬의 중요 정찰 지점 (경작지 및 농장). 작전 계획 수립에 필수적입니다.",
+    "description": "순찰 중인 경비원에게 들키지 않고 이용하기 좋은 은밀한 탈출 경로.",
     "features": [
       "주요 정찰 포인트",
       "습격 전략 최적화"

@@ -9,9 +9,9 @@
     "price": 0,
     "priceFormatted": "脱出ポイント",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島からの脱出地点（滑走路）。ボート、飛行機、または海泳ぎで離脱。",
+    "description": "潜水艦Kosatkaによる脱出ポイント。海岸から離れた沖にある潜水艦まで泳ぐか、船で向かいましょう。",
     "features": [
-      "強盗の離脱ポイント",
+      "強盗の下見アイテム",
       "重要な偵察ポイント"
     ],
     "position": {
@@ -27,17 +27,17 @@
   },
   {
     "id": "cp-escape-2",
-    "name": "脱出ポイント",
+    "name": "脱出ポイント #2",
     "category": "escape_points",
     "categoryLabel": "脱出ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "脱出ポイント",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島からの脱出地点（カヨ・ペリコ）。ボート、飛行機、または海泳ぎで離脱。",
+    "zone": "Cayo Perico",
+    "description": "メインドック:巡視艇や停泊中の船を使った脱出または潜入ポイント。",
     "features": [
-      "強盗の離脱ポイント",
+      "強盗の下見アイテム",
       "重要な偵察ポイント"
     ],
     "position": {
@@ -53,17 +53,17 @@
   },
   {
     "id": "cp-escape-3",
-    "name": "脱出ポイント",
+    "name": "脱出ポイント #3",
     "category": "escape_points",
     "categoryLabel": "脱出ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "脱出ポイント",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島からの脱出地点（農園・畑）。ボート、飛行機、または海泳ぎで離脱。",
+    "zone": "農地と畑",
+    "description": "ノースドック:メインのルートが監視されているときに便利な、海上の第二の脱出ポイント。",
     "features": [
-      "強盗の離脱ポイント",
+      "強盗の下見アイテム",
       "重要な偵察ポイント"
     ],
     "position": {
@@ -79,7 +79,7 @@
   },
   {
     "id": "cp-escape-4",
-    "name": "脱出ポイント",
+    "name": "脱出ポイント #4",
     "category": "escape_points",
     "categoryLabel": "脱出ポイント",
     "gameMode": "online",
@@ -87,9 +87,9 @@
     "price": 0,
     "priceFormatted": "脱出ポイント",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島からの脱出地点（滑走路）。ボート、飛行機、または海泳ぎで離脱。",
+    "description": "滑走路:島の北側で、滑走路や空からの進入で脱出するメインポイント。",
     "features": [
-      "強盗の離脱ポイント",
+      "強盗の下見アイテム",
       "重要な偵察ポイント"
     ],
     "position": {
@@ -113,9 +113,9 @@
     "price": 0,
     "priceFormatted": "潜入ポイント",
     "zone": "滑走路",
-    "description": "滑走路からの戦術的潜入ポイント（潜水艦コサトカ、ベラム、ロングフィンなど）。",
+    "description": "ステルス爆撃機RO-86 Alkonostからの高高度HALOジャンプ。",
     "features": [
-      "強盗の潜入ポイント",
+      "強盗の下見アイテム",
       "エル・ルビオ邸への戦略的侵入路"
     ],
     "position": {
@@ -131,17 +131,17 @@
   },
   {
     "id": "cp-infiltration-2",
-    "name": "潜入ポイント",
+    "name": "潜入ポイント #2",
     "category": "infiltration_points",
     "categoryLabel": "潜入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "潜入ポイント",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコからの戦術的潜入ポイント（潜水艦コサトカ、ベラム、ロングフィンなど）。",
+    "zone": "Cayo Perico",
+    "description": "ステルスヘリコプターAnnihilator Stealthで北の降下地点に潜入します。",
     "features": [
-      "強盗の潜入ポイント",
+      "強盗の下見アイテム",
       "エル・ルビオ邸への戦略的侵入路"
     ],
     "position": {
@@ -157,7 +157,7 @@
   },
   {
     "id": "cp-infiltration-3",
-    "name": "潜入ポイント",
+    "name": "潜入ポイント #3",
     "category": "infiltration_points",
     "categoryLabel": "潜入ポイント",
     "gameMode": "online",
@@ -165,9 +165,9 @@
     "price": 0,
     "priceFormatted": "潜入ポイント",
     "zone": "エル・ルビオの邸宅",
-    "description": "エル・ルビオの邸宅からの戦術的潜入ポイント（潜水艦コサトカ、ベラム、ロングフィンなど）。",
+    "description": "ステルスヘリコプターAnnihilator Stealthで南の降下地点に潜入します。",
     "features": [
-      "強盗の潜入ポイント",
+      "強盗の下見アイテム",
       "エル・ルビオ邸への戦略的侵入路"
     ],
     "position": {
@@ -183,17 +183,17 @@
   },
   {
     "id": "cp-infiltration-4",
-    "name": "潜入ポイント",
+    "name": "潜入ポイント #4",
     "category": "infiltration_points",
     "categoryLabel": "潜入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "潜入ポイント",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコからの戦術的潜入ポイント（潜水艦コサトカ、ベラム、ロングフィンなど）。",
+    "zone": "Cayo Perico",
+    "description": "高速ボートLongfinまたは巡視艇を使い、西のビーチから接近します。",
     "features": [
-      "強盗の潜入ポイント",
+      "強盗の下見アイテム",
       "エル・ルビオ邸への戦略的侵入路"
     ],
     "position": {
@@ -209,17 +209,17 @@
   },
   {
     "id": "cp-infiltration-5",
-    "name": "潜入ポイント",
+    "name": "潜入ポイント #5",
     "category": "infiltration_points",
     "categoryLabel": "潜入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "潜入ポイント",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコからの戦術的潜入ポイント（潜水艦コサトカ、ベラム、ロングフィンなど）。",
+    "zone": "Cayo Perico",
+    "description": "ボートでメインドックに直接海から潜入します。",
     "features": [
-      "強盗の潜入ポイント",
+      "強盗の下見アイテム",
       "エル・ルビオ邸への戦略的侵入路"
     ],
     "position": {
@@ -235,17 +235,17 @@
   },
   {
     "id": "cp-infiltration-6",
-    "name": "潜入ポイント",
+    "name": "潜入ポイント #6",
     "category": "infiltration_points",
     "categoryLabel": "潜入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "潜入ポイント",
-    "zone": "農園・畑",
-    "description": "農園・畑からの戦術的潜入ポイント（潜水艦コサトカ、ベラム、ロングフィンなど）。",
+    "zone": "農地と畑",
+    "description": "ボートでノースドックに海から潜入します。",
     "features": [
-      "強盗の潜入ポイント",
+      "強盗の下見アイテム",
       "エル・ルビオ邸への戦略的侵入路"
     ],
     "position": {
@@ -261,7 +261,7 @@
   },
   {
     "id": "cp-infiltration-7",
-    "name": "潜入ポイント",
+    "name": "潜入ポイント #7",
     "category": "infiltration_points",
     "categoryLabel": "潜入ポイント",
     "gameMode": "online",
@@ -269,9 +269,9 @@
     "price": 0,
     "priceFormatted": "潜入ポイント",
     "zone": "滑走路",
-    "description": "滑走路からの戦術的潜入ポイント（潜水艦コサトカ、ベラム、ロングフィンなど）。",
+    "description": "密輸業者に扮して、飛行機Velumで接近します。",
     "features": [
-      "強盗の潜入ポイント",
+      "強盗の下見アイテム",
       "エル・ルビオ邸への戦略的侵入路"
     ],
     "position": {
@@ -287,7 +287,7 @@
   },
   {
     "id": "cp-infiltration-8",
-    "name": "潜入ポイント",
+    "name": "潜入ポイント #8",
     "category": "infiltration_points",
     "categoryLabel": "潜入ポイント",
     "gameMode": "online",
@@ -295,9 +295,9 @@
     "price": 0,
     "priceFormatted": "潜入ポイント",
     "zone": "エル・ルビオの邸宅",
-    "description": "エル・ルビオの邸宅からの戦術的潜入ポイント（潜水艦コサトカ、ベラム、ロングフィンなど）。",
+    "description": "水没した排水トンネル:トーチを使う、エル・ルビオの邸宅への最もステルス性の高い侵入口。",
     "features": [
-      "強盗の潜入ポイント",
+      "強盗の下見アイテム",
       "エル・ルビオ邸への戦略的侵入路"
     ],
     "position": {
@@ -313,18 +313,18 @@
   },
   {
     "id": "cp-cutting-powder-1",
-    "name": "弱体化粉末",
+    "name": "水用の化学粉末",
     "category": "cutting_powder",
-    "categoryLabel": "弱体化粉末",
+    "categoryLabel": "水用の化学粉末",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "弱体化粉末",
+    "priceFormatted": "水用の化学粉末",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cp_0.webp",
     "zone": "メインドック",
-    "description": "給水塔に投入することで島内警備員の射撃精度と視界警戒度を低下させる粉末。",
+    "description": "給水塔に投入して、島の警備員を弱らせ、方向感覚を狂わせます。",
     "features": [
-      "敵警備員の警戒度と命中率低下",
+      "強盗の下見アイテム",
       "給水設備のサボタージュ"
     ],
     "position": {
@@ -340,18 +340,18 @@
   },
   {
     "id": "cp-cutting-powder-2",
-    "name": "弱体化粉末",
+    "name": "水用の化学粉末 #2",
     "category": "cutting_powder",
-    "categoryLabel": "弱体化粉末",
+    "categoryLabel": "水用の化学粉末",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "弱体化粉末",
+    "priceFormatted": "水用の化学粉末",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cp_1.webp",
     "zone": "メインドック",
-    "description": "給水塔に投入することで島内警備員の射撃精度と視界警戒度を低下させる粉末。",
+    "description": "給水塔に投入して、島の警備員を弱らせ、方向感覚を狂わせます。",
     "features": [
-      "敵警備員の警戒度と命中率低下",
+      "強盗の下見アイテム",
       "給水設備のサボタージュ"
     ],
     "position": {
@@ -367,18 +367,18 @@
   },
   {
     "id": "cp-cutting-powder-3",
-    "name": "弱体化粉末",
+    "name": "水用の化学粉末 #3",
     "category": "cutting_powder",
-    "categoryLabel": "弱体化粉末",
+    "categoryLabel": "水用の化学粉末",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "弱体化粉末",
+    "priceFormatted": "水用の化学粉末",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cp_2.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "給水塔に投入することで島内警備員の射撃精度と視界警戒度を低下させる粉末。",
+    "zone": "Cayo Perico",
+    "description": "給水塔に投入して、島の警備員を弱らせ、方向感覚を狂わせます。",
     "features": [
-      "敵警備員の警戒度と命中率低下",
+      "強盗の下見アイテム",
       "給水設備のサボタージュ"
     ],
     "position": {
@@ -394,17 +394,17 @@
   },
   {
     "id": "cp-water-tower-1",
-    "name": "Water Tower",
+    "name": "給水塔",
     "category": "water_tower",
     "categoryLabel": "給水塔",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "給水塔",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "zone": "Cayo Perico",
+    "description": "化学粉末を投入できる飲料水の貯水タンク。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -420,17 +420,17 @@
   },
   {
     "id": "cp-water-tower-2",
-    "name": "Water Tower #2",
+    "name": "給水塔 #2",
     "category": "water_tower",
     "categoryLabel": "給水塔",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
     "priceFormatted": "給水塔",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "zone": "農地と畑",
+    "description": "化学粉末を投入できる飲料水の貯水タンク。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -446,18 +446,18 @@
   },
   {
     "id": "cp-grappling-eq-1",
-    "name": "グラップリングフック",
+    "name": "登攀装備",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_0.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -473,18 +473,18 @@
   },
   {
     "id": "cp-grappling-eq-2",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #2",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_1.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -500,18 +500,18 @@
   },
   {
     "id": "cp-grappling-eq-3",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #3",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_2.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -527,18 +527,18 @@
   },
   {
     "id": "cp-grappling-eq-4",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #4",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_3.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -554,18 +554,18 @@
   },
   {
     "id": "cp-grappling-eq-5",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #5",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_4.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -581,18 +581,18 @@
   },
   {
     "id": "cp-grappling-eq-6",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #6",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_5.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -608,18 +608,18 @@
   },
   {
     "id": "cp-grappling-eq-7",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #7",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_6.webp",
-    "zone": "農園・畑",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "農地と畑",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -635,18 +635,18 @@
   },
   {
     "id": "cp-grappling-eq-8",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #8",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_7.webp",
-    "zone": "農園・畑",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "農地と畑",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -662,18 +662,18 @@
   },
   {
     "id": "cp-grappling-eq-9",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #9",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_8.webp",
-    "zone": "農園・畑",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "農地と畑",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -689,18 +689,18 @@
   },
   {
     "id": "cp-grappling-eq-10",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #10",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_9.webp",
     "zone": "メインドック",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -716,18 +716,18 @@
   },
   {
     "id": "cp-grappling-eq-11",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #11",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_10.webp",
     "zone": "メインドック",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -743,18 +743,18 @@
   },
   {
     "id": "cp-grappling-eq-12",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #12",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_11.webp",
     "zone": "メインドック",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -770,18 +770,18 @@
   },
   {
     "id": "cp-grappling-eq-13",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #13",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_12.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -797,18 +797,18 @@
   },
   {
     "id": "cp-grappling-eq-14",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #14",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_13.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -824,18 +824,18 @@
   },
   {
     "id": "cp-grappling-eq-15",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #15",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_14.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -851,18 +851,18 @@
   },
   {
     "id": "cp-grappling-eq-16",
-    "name": "グラップリングフック",
+    "name": "登攀装備 #16",
     "category": "grappling_eq",
-    "categoryLabel": "グラップリングフック",
+    "categoryLabel": "登攀装備",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "グラップリングフック",
+    "priceFormatted": "登攀装備",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_ge_15.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "キーカードなしで屋敷の外壁を乗り越えるための登山用フック。",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの邸宅の外壁をよじ登るためのフックとロープ。",
     "features": [
-      "要塞外壁の乗り越え",
+      "強盗の下見アイテム",
       "正面ゲートの警備回避"
     ],
     "position": {
@@ -886,10 +886,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_0.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -905,7 +905,7 @@
   },
   {
     "id": "cp-bolt-cutters-2",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #2",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -914,9 +914,9 @@
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_1.webp",
     "zone": "滑走路",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -932,7 +932,7 @@
   },
   {
     "id": "cp-bolt-cutters-3",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #3",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -941,9 +941,9 @@
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_2.webp",
     "zone": "滑走路",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -959,7 +959,7 @@
   },
   {
     "id": "cp-bolt-cutters-4",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #4",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -967,10 +967,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_3.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -986,7 +986,7 @@
   },
   {
     "id": "cp-bolt-cutters-5",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #5",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -994,10 +994,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_4.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1013,7 +1013,7 @@
   },
   {
     "id": "cp-bolt-cutters-6",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #6",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1021,10 +1021,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_5.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1040,7 +1040,7 @@
   },
   {
     "id": "cp-bolt-cutters-7",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #7",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1048,10 +1048,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_6.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1067,7 +1067,7 @@
   },
   {
     "id": "cp-bolt-cutters-8",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #8",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1075,10 +1075,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_7.webp",
-    "zone": "農園・畑",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "農地と畑",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1094,7 +1094,7 @@
   },
   {
     "id": "cp-bolt-cutters-9",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #9",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1103,9 +1103,9 @@
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_8.webp",
     "zone": "メインドック",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1121,7 +1121,7 @@
   },
   {
     "id": "cp-bolt-cutters-10",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #10",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1130,9 +1130,9 @@
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_9.webp",
     "zone": "メインドック",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1148,7 +1148,7 @@
   },
   {
     "id": "cp-bolt-cutters-11",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #11",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1157,9 +1157,9 @@
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_10.webp",
     "zone": "メインドック",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1175,7 +1175,7 @@
   },
   {
     "id": "cp-bolt-cutters-12",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #12",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1183,10 +1183,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_11.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1202,7 +1202,7 @@
   },
   {
     "id": "cp-bolt-cutters-13",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #13",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1210,10 +1210,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_12.webp",
-    "zone": "北ドック",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "ノースドック",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1229,7 +1229,7 @@
   },
   {
     "id": "cp-bolt-cutters-14",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #14",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1237,10 +1237,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_13.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1256,7 +1256,7 @@
   },
   {
     "id": "cp-bolt-cutters-15",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #15",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1264,10 +1264,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_14.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1283,7 +1283,7 @@
   },
   {
     "id": "cp-bolt-cutters-16",
-    "name": "ボルトカッター",
+    "name": "ボルトカッター #16",
     "category": "bolt_cutters",
     "categoryLabel": "ボルトカッター",
     "gameMode": "online",
@@ -1291,10 +1291,10 @@
     "price": 0,
     "priceFormatted": "ボルトカッター",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bc_15.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "倉庫の南京錠をサイレントで切断し、警報なしでサブターゲットを回収する工具。",
+    "zone": "Cayo Perico",
+    "description": "近くの警備員に気づかれずに戦利品のケージを静かに開ける道具。",
     "features": [
-      "無音での鍵切断",
+      "強盗の下見アイテム",
       "追加獲物のステルス回収"
     ],
     "position": {
@@ -1310,17 +1310,17 @@
   },
   {
     "id": "cp-control-tower-1",
-    "name": "Control Tower",
+    "name": "管制塔",
     "category": "control_tower",
-    "categoryLabel": "管制塔（対空防衛）",
+    "categoryLabel": "管制塔",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "管制塔（対空防衛）",
+    "priceFormatted": "管制塔",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "管制塔をハッキングして防空システムを無効にし、戦術支援を可能にします。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -1336,7 +1336,7 @@
   },
   {
     "id": "cp-power-station-1",
-    "name": "Power Station",
+    "name": "発電所",
     "category": "power_station",
     "categoryLabel": "発電所",
     "gameMode": "online",
@@ -1344,9 +1344,9 @@
     "price": 0,
     "priceFormatted": "発電所",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "発電機を操作して、島の防犯用スポットライトと防犯カメラを無効にします。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -1362,18 +1362,18 @@
   },
   {
     "id": "cp-secondary-target-1",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_0.webp",
     "zone": "滑走路",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "滑走路の大きな格納庫の中にあります(上の階に上がるにはフォークリフトが必要)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1389,18 +1389,18 @@
   },
   {
     "id": "cp-secondary-target-2",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #2",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_1.webp",
     "zone": "滑走路",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "滑走路の大きな格納庫の中にあります(上の階に上がるにはフォークリフトが必要)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1416,18 +1416,18 @@
   },
   {
     "id": "cp-secondary-target-3",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #3",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_2.webp",
     "zone": "滑走路",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "滑走路の大きな格納庫の中にあります(上の階に上がるにはフォークリフトが必要)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1443,18 +1443,18 @@
   },
   {
     "id": "cp-secondary-target-4",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #4",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_3.webp",
     "zone": "滑走路",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "滑走路の大きな格納庫の中にあります(上の階に上がるにはフォークリフトが必要)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1470,18 +1470,18 @@
   },
   {
     "id": "cp-secondary-target-5",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #5",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_4.webp",
     "zone": "滑走路",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1497,18 +1497,18 @@
   },
   {
     "id": "cp-secondary-target-6",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #6",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_5.webp",
     "zone": "滑走路",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1524,18 +1524,18 @@
   },
   {
     "id": "cp-secondary-target-7",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #7",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_6.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1551,18 +1551,18 @@
   },
   {
     "id": "cp-secondary-target-8",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #8",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_7.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1578,18 +1578,18 @@
   },
   {
     "id": "cp-secondary-target-9",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #9",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_8.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "開けるには、二人のプレイヤーが同時にキーカードを通す必要があります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1605,18 +1605,18 @@
   },
   {
     "id": "cp-secondary-target-10",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #10",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_9.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "開けるには、二人のプレイヤーが同時にキーカードを通す必要があります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1632,18 +1632,18 @@
   },
   {
     "id": "cp-secondary-target-11",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #11",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_10.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "開けるには、二人のプレイヤーが同時にキーカードを通す必要があります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1659,18 +1659,18 @@
   },
   {
     "id": "cp-secondary-target-12",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #12",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_11.webp",
-    "zone": "農園・畑",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "農地と畑",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1686,18 +1686,18 @@
   },
   {
     "id": "cp-secondary-target-13",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #13",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_12.webp",
-    "zone": "農園・畑",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "農地と畑",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1713,18 +1713,18 @@
   },
   {
     "id": "cp-secondary-target-14",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #14",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_13.webp",
     "zone": "メインドック",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1740,18 +1740,18 @@
   },
   {
     "id": "cp-secondary-target-15",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #15",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_14.webp",
     "zone": "メインドック",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1767,18 +1767,18 @@
   },
   {
     "id": "cp-secondary-target-16",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #16",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_15.webp",
     "zone": "メインドック",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1794,18 +1794,18 @@
   },
   {
     "id": "cp-secondary-target-17",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #17",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_0.webp",
     "zone": "メインドック",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1821,18 +1821,18 @@
   },
   {
     "id": "cp-secondary-target-18",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #18",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_1.webp",
     "zone": "メインドック",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1848,18 +1848,18 @@
   },
   {
     "id": "cp-secondary-target-19",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #19",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_2.webp",
     "zone": "メインドック",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1875,18 +1875,18 @@
   },
   {
     "id": "cp-secondary-target-20",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #20",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_3.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "開けるには、二人のプレイヤーが同時にキーカードを通す必要があります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1902,18 +1902,18 @@
   },
   {
     "id": "cp-secondary-target-21",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #21",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_4.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "開けるには、二人のプレイヤーが同時にキーカードを通す必要があります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1929,18 +1929,18 @@
   },
   {
     "id": "cp-secondary-target-22",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #22",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_5.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "開けるには、二人のプレイヤーが同時にキーカードを通す必要があります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1956,18 +1956,18 @@
   },
   {
     "id": "cp-secondary-target-23",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #23",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_6.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -1983,18 +1983,18 @@
   },
   {
     "id": "cp-secondary-target-24",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #24",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_i_7.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "zone": "Cayo Perico",
+    "description": "バッグを満たすための貴重なサブの戦利品(現金、コカイン、マリファナ、金、絵画)。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2010,18 +2010,18 @@
   },
   {
     "id": "cp-secondary-target-25",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_0.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "要塞化されたエル・ルビオの邸宅の中にあります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2037,18 +2037,18 @@
   },
   {
     "id": "cp-secondary-target-26",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #2",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_1.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "要塞化されたエル・ルビオの邸宅の中にあります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2064,18 +2064,18 @@
   },
   {
     "id": "cp-secondary-target-27",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #3",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_2.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "要塞化されたエル・ルビオの邸宅の中にあります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2091,18 +2091,18 @@
   },
   {
     "id": "cp-secondary-target-28",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #4",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_3.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "要塞化されたエル・ルビオの邸宅の中にあります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2118,18 +2118,18 @@
   },
   {
     "id": "cp-secondary-target-29",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #5",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_4.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "要塞化されたエル・ルビオの邸宅の中にあります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2145,18 +2145,18 @@
   },
   {
     "id": "cp-secondary-target-30",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #6",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_5.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "要塞化されたエル・ルビオの邸宅の中にあります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2172,18 +2172,18 @@
   },
   {
     "id": "cp-secondary-target-31",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #7",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_6.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "要塞化されたエル・ルビオの邸宅の中にあります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2199,18 +2199,18 @@
   },
   {
     "id": "cp-secondary-target-32",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #8",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_c_7.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "要塞化されたエル・ルビオの邸宅の中にあります。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2226,18 +2226,18 @@
   },
   {
     "id": "cp-secondary-target-33",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_0.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "エル・ルビオの個人オフィスの中にある貴重な美術品と絵画。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2253,18 +2253,18 @@
   },
   {
     "id": "cp-secondary-target-34",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #2",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_1.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "エル・ルビオの個人オフィスの中にある貴重な美術品と絵画。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2280,18 +2280,18 @@
   },
   {
     "id": "cp-secondary-target-35",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #3",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_2.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "エル・ルビオの個人オフィスの中にある貴重な美術品と絵画。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2307,18 +2307,18 @@
   },
   {
     "id": "cp-secondary-target-36",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #4",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_3.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "エル・ルビオの個人オフィスの中にある貴重な美術品と絵画。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2334,18 +2334,18 @@
   },
   {
     "id": "cp-secondary-target-37",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #5",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_4.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "エル・ルビオの個人オフィスの中にある貴重な美術品と絵画。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2361,18 +2361,18 @@
   },
   {
     "id": "cp-secondary-target-38",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #6",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_5.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "エル・ルビオの個人オフィスの中にある貴重な美術品と絵画。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2388,18 +2388,18 @@
   },
   {
     "id": "cp-secondary-target-39",
-    "name": "サブターゲット（金塊 / コカイン / 現金 / 絵画）",
+    "name": "サブターゲット #7",
     "category": "secondary_targets",
-    "categoryLabel": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "categoryLabel": "サブターゲット",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "サブターゲット（金塊/コカイン/現金/絵画）",
+    "priceFormatted": "サブターゲット",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_st_p_6.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "島内の倉庫に保管された高額物品（金塊、コカイン、札束、名画）。",
+    "description": "エル・ルビオの個人オフィスの中にある貴重な美術品と絵画。",
     "features": [
-      "戦利品バッグの満タン化",
+      "強盗の下見アイテム",
       "莫大な追加現金ボーナス"
     ],
     "position": {
@@ -2415,18 +2415,18 @@
   },
   {
     "id": "cp-guard-clothing-1",
-    "name": "警備員の変装服",
+    "name": "警備員の服",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_0.webp",
     "zone": "滑走路",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2442,18 +2442,18 @@
   },
   {
     "id": "cp-guard-clothing-2",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #2",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_1.webp",
     "zone": "滑走路",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2469,18 +2469,18 @@
   },
   {
     "id": "cp-guard-clothing-3",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #3",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_2.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "Cayo Perico",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2496,18 +2496,18 @@
   },
   {
     "id": "cp-guard-clothing-4",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #4",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_3.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "Cayo Perico",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2523,18 +2523,18 @@
   },
   {
     "id": "cp-guard-clothing-5",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #5",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_4.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "Cayo Perico",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2550,18 +2550,18 @@
   },
   {
     "id": "cp-guard-clothing-6",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #6",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_5.webp",
-    "zone": "農園・畑",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "農地と畑",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2577,18 +2577,18 @@
   },
   {
     "id": "cp-guard-clothing-7",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #7",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_6.webp",
-    "zone": "農園・畑",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "農地と畑",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2604,18 +2604,18 @@
   },
   {
     "id": "cp-guard-clothing-8",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #8",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_7.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "Cayo Perico",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2631,18 +2631,18 @@
   },
   {
     "id": "cp-guard-clothing-9",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #9",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_8.webp",
     "zone": "メインドック",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2658,18 +2658,18 @@
   },
   {
     "id": "cp-guard-clothing-10",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #10",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_9.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "Cayo Perico",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2685,18 +2685,18 @@
   },
   {
     "id": "cp-guard-clothing-11",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #11",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_10.webp",
     "zone": "南海岸",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2712,18 +2712,18 @@
   },
   {
     "id": "cp-guard-clothing-12",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #12",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_11.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "Cayo Perico",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2739,18 +2739,18 @@
   },
   {
     "id": "cp-guard-clothing-13",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #13",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_12.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "Cayo Perico",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2766,18 +2766,18 @@
   },
   {
     "id": "cp-guard-clothing-14",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #14",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_13.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "zone": "Cayo Perico",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2793,18 +2793,18 @@
   },
   {
     "id": "cp-guard-clothing-15",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #15",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_14.webp",
     "zone": "メインドック",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2820,18 +2820,18 @@
   },
   {
     "id": "cp-guard-clothing-16",
-    "name": "警備員の変装服",
+    "name": "警備員の服 #16",
     "category": "guard_clothing",
-    "categoryLabel": "警備員の変装服",
+    "categoryLabel": "警備員の服",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "警備員の変装服",
+    "priceFormatted": "警備員の服",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_gc_15.webp",
     "zone": "メインドック",
-    "description": "島内を怪しまれずに自由に移動できるカルテル傭兵の迷彩服。",
+    "description": "敵の索敵範囲を大幅に狭める警備員の変装。",
     "features": [
-      "変装による安全な移動",
+      "強盗の下見アイテム",
       "警備員の視界範囲を大幅縮小"
     ],
     "position": {
@@ -2847,17 +2847,17 @@
   },
   {
     "id": "cp-supply-truck-1",
-    "name": "補給トラック",
+    "name": "サプライトラック",
     "category": "supply_truck",
-    "categoryLabel": "補給トラック",
+    "categoryLabel": "サプライトラック",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "補給トラック",
+    "priceFormatted": "サプライトラック",
     "zone": "滑走路",
-    "description": "変装服着用時に屋敷の正門ゲートを銃撃戦なしでそのまま通過できるトラック。",
+    "description": "警備員の服を着て、正面ゲートから直接入るための作業用トラック。",
     "features": [
-      "屋敷への直接進入",
+      "強盗の下見アイテム",
       "戦闘なしでのゲート通過"
     ],
     "position": {
@@ -2873,17 +2873,17 @@
   },
   {
     "id": "cp-supply-truck-2",
-    "name": "補給トラック",
+    "name": "サプライトラック #2",
     "category": "supply_truck",
-    "categoryLabel": "補給トラック",
+    "categoryLabel": "サプライトラック",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "補給トラック",
-    "zone": "農園・畑",
-    "description": "変装服着用時に屋敷の正門ゲートを銃撃戦なしでそのまま通過できるトラック。",
+    "priceFormatted": "サプライトラック",
+    "zone": "農地と畑",
+    "description": "警備員の服を着て、正面ゲートから直接入るための作業用トラック。",
     "features": [
-      "屋敷への直接進入",
+      "強盗の下見アイテム",
       "戦闘なしでのゲート通過"
     ],
     "position": {
@@ -2899,17 +2899,17 @@
   },
   {
     "id": "cp-supply-truck-3",
-    "name": "補給トラック",
+    "name": "サプライトラック #3",
     "category": "supply_truck",
-    "categoryLabel": "補給トラック",
+    "categoryLabel": "サプライトラック",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "補給トラック",
+    "priceFormatted": "サプライトラック",
     "zone": "メインドック",
-    "description": "変装服着用時に屋敷の正門ゲートを銃撃戦なしでそのまま通過できるトラック。",
+    "description": "警備員の服を着て、正面ゲートから直接入るための作業用トラック。",
     "features": [
-      "屋敷への直接進入",
+      "強盗の下見アイテム",
       "戦闘なしでのゲート通過"
     ],
     "position": {
@@ -2925,17 +2925,17 @@
   },
   {
     "id": "cp-supply-truck-4",
-    "name": "補給トラック",
+    "name": "サプライトラック #4",
     "category": "supply_truck",
-    "categoryLabel": "補給トラック",
+    "categoryLabel": "サプライトラック",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "補給トラック",
-    "zone": "カヨ・ペリコ",
-    "description": "変装服着用時に屋敷の正門ゲートを銃撃戦なしでそのまま通過できるトラック。",
+    "priceFormatted": "サプライトラック",
+    "zone": "Cayo Perico",
+    "description": "警備員の服を着て、正面ゲートから直接入るための作業用トラック。",
     "features": [
-      "屋敷への直接進入",
+      "強盗の下見アイテム",
       "戦闘なしでのゲート通過"
     ],
     "position": {
@@ -2951,17 +2951,17 @@
   },
   {
     "id": "cp-supply-truck-5",
-    "name": "補給トラック",
+    "name": "サプライトラック",
     "category": "supply_truck",
-    "categoryLabel": "補給トラック",
+    "categoryLabel": "サプライトラック",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "補給トラック",
+    "priceFormatted": "サプライトラック",
     "zone": "エル・ルビオの邸宅",
-    "description": "変装服着用時に屋敷の正門ゲートを銃撃戦なしでそのまま通過できるトラック。",
+    "description": "サプライトラック:警備員の服を着て運転し、邸宅の正面ゲートから入ります。",
     "features": [
-      "屋敷への直接進入",
+      "強盗の下見アイテム",
       "戦闘なしでのゲート通過"
     ],
     "position": {
@@ -2977,17 +2977,17 @@
   },
   {
     "id": "cp-compound-entry-1",
-    "name": "Compound Entry Points",
+    "name": "邸宅への侵入ポイント",
     "category": "compound_entry_points",
-    "categoryLabel": "屋敷の侵入経路",
+    "categoryLabel": "邸宅への侵入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "屋敷の侵入経路",
+    "priceFormatted": "邸宅への侵入ポイント",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "要塞化されたエル・ルビオの邸宅への侵入口。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -3003,17 +3003,17 @@
   },
   {
     "id": "cp-compound-entry-2",
-    "name": "Compound Entry Points",
+    "name": "邸宅への侵入ポイント",
     "category": "compound_entry_points",
-    "categoryLabel": "屋敷の侵入経路",
+    "categoryLabel": "邸宅への侵入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "屋敷の侵入経路",
+    "priceFormatted": "邸宅への侵入ポイント",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "要塞化されたエル・ルビオの邸宅への侵入口。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -3029,17 +3029,17 @@
   },
   {
     "id": "cp-compound-entry-3",
-    "name": "Compound Entry Points #2",
+    "name": "邸宅への侵入ポイント #2",
     "category": "compound_entry_points",
-    "categoryLabel": "屋敷の侵入経路",
+    "categoryLabel": "邸宅への侵入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "屋敷の侵入経路",
+    "priceFormatted": "邸宅への侵入ポイント",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "要塞化されたエル・ルビオの邸宅への侵入口。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -3055,17 +3055,17 @@
   },
   {
     "id": "cp-compound-entry-4",
-    "name": "Compound Entry Points",
+    "name": "邸宅への侵入ポイント",
     "category": "compound_entry_points",
-    "categoryLabel": "屋敷の侵入経路",
+    "categoryLabel": "邸宅への侵入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "屋敷の侵入経路",
+    "priceFormatted": "邸宅への侵入ポイント",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "要塞化されたエル・ルビオの邸宅への侵入口。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -3081,17 +3081,17 @@
   },
   {
     "id": "cp-compound-entry-5",
-    "name": "Compound Entry Points #2",
+    "name": "邸宅への侵入ポイント #2",
     "category": "compound_entry_points",
-    "categoryLabel": "屋敷の侵入経路",
+    "categoryLabel": "邸宅への侵入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "屋敷の侵入経路",
+    "priceFormatted": "邸宅への侵入ポイント",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "要塞化されたエル・ルビオの邸宅への侵入口。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -3107,17 +3107,17 @@
   },
   {
     "id": "cp-compound-entry-6",
-    "name": "Compound Entry Points",
+    "name": "邸宅への侵入ポイント",
     "category": "compound_entry_points",
-    "categoryLabel": "屋敷の侵入経路",
+    "categoryLabel": "邸宅への侵入ポイント",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "屋敷の侵入経路",
+    "priceFormatted": "邸宅への侵入ポイント",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "要塞化されたエル・ルビオの邸宅への侵入口。",
     "features": [
-      "重要偵察ポイント",
+      "強盗の下見アイテム",
       "強盗作戦の最適化"
     ],
     "position": {
@@ -3133,7 +3133,7 @@
   },
   {
     "id": "cp-combat-shotgun-1",
-    "name": "Combat Shotgun",
+    "name": "コンバットショットガン",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3142,7 +3142,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_0.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3160,7 +3160,7 @@
   },
   {
     "id": "cp-combat-shotgun-2",
-    "name": "Combat Shotgun #2",
+    "name": "コンバットショットガン #2",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3169,7 +3169,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_1.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3187,7 +3187,7 @@
   },
   {
     "id": "cp-combat-shotgun-3",
-    "name": "Combat Shotgun #3",
+    "name": "コンバットショットガン #3",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3196,7 +3196,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_2.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3214,7 +3214,7 @@
   },
   {
     "id": "cp-combat-shotgun-4",
-    "name": "Combat Shotgun #4",
+    "name": "コンバットショットガン #4",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3223,7 +3223,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_3.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3241,7 +3241,7 @@
   },
   {
     "id": "cp-combat-shotgun-5",
-    "name": "Combat Shotgun #5",
+    "name": "コンバットショットガン #5",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3250,7 +3250,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_4.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3268,7 +3268,7 @@
   },
   {
     "id": "cp-combat-shotgun-6",
-    "name": "Combat Shotgun #6",
+    "name": "コンバットショットガン #6",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3277,7 +3277,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_5.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3295,7 +3295,7 @@
   },
   {
     "id": "cp-combat-shotgun-7",
-    "name": "Combat Shotgun #7",
+    "name": "コンバットショットガン #7",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3304,7 +3304,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_6.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3322,7 +3322,7 @@
   },
   {
     "id": "cp-combat-shotgun-8",
-    "name": "Combat Shotgun #8",
+    "name": "コンバットショットガン #8",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3331,7 +3331,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_7.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3349,7 +3349,7 @@
   },
   {
     "id": "cp-combat-shotgun-9",
-    "name": "Combat Shotgun #9",
+    "name": "コンバットショットガン #9",
     "category": "combat_shotgun",
     "categoryLabel": "コンバットショットガン",
     "gameMode": "online",
@@ -3358,7 +3358,7 @@
     "priceFormatted": "コンバットショットガン",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_cs_8.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "邸宅の壁に立てかけられた限定武器。入手するとAmmu-Nationで購入できるようになります。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3376,15 +3376,15 @@
   },
   {
     "id": "cp-perico-pistol-1",
-    "name": "Perico Pistol",
+    "name": "Perico ピストル",
     "category": "perico_pistol",
-    "categoryLabel": "黄金のペリコピストル",
+    "categoryLabel": "Perico ピストル",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "黄金のペリコピストル",
+    "priceFormatted": "Perico ピストル",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオのオフィスにある机の引き出しの中の、装飾が刻まれた金のピストル(鍵が必要)。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3402,19 +3402,19 @@
   },
   {
     "id": "cp-treasure-chest-1",
-    "name": "Treasure Chests #7",
+    "name": "宝箱 #7",
     "category": "treasure_chests",
-    "categoryLabel": "デイリー宝箱",
+    "categoryLabel": "宝箱",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 25000,
-    "priceFormatted": "デイリー宝箱",
+    "priceFormatted": "$25,000",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_tc_l_6.webp",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "GTA Onlineで毎日集められる宝箱。報酬は$25,000と1,000 RP。",
     "features": [
-      "重要偵察ポイント",
-      "強盗作戦の最適化"
+      "強盗の下見アイテム",
+      "毎日の報酬:$25,000 + 1,000 RP"
     ],
     "income": "$25,000",
     "position": {
@@ -3430,19 +3430,19 @@
   },
   {
     "id": "cp-treasure-chest-2",
-    "name": "Treasure Chests",
+    "name": "宝箱",
     "category": "treasure_chests",
-    "categoryLabel": "デイリー宝箱",
+    "categoryLabel": "宝箱",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 25000,
-    "priceFormatted": "デイリー宝箱",
+    "priceFormatted": "$25,000",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_tc_w_0.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "zone": "Cayo Perico",
+    "description": "GTA Onlineで毎日集められる宝箱。報酬は$25,000と1,000 RP。",
     "features": [
-      "重要偵察ポイント",
-      "強盗作戦の最適化"
+      "強盗の下見アイテム",
+      "毎日の報酬:$25,000 + 1,000 RP"
     ],
     "income": "$25,000",
     "position": {
@@ -3458,19 +3458,19 @@
   },
   {
     "id": "cp-buried-stash-1",
-    "name": "Buried Stashes #14",
+    "name": "埋められた隠し財宝 #14",
     "category": "buried_stashes",
-    "categoryLabel": "砂浜の埋蔵キャッシュ",
+    "categoryLabel": "埋められた隠し財宝",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 25000,
-    "priceFormatted": "砂浜の埋蔵キャッシュ",
+    "priceFormatted": "$25,000",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bs_13.webp",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "zone": "Cayo Perico",
+    "description": "砂に埋められた毎日の隠し財宝。金属探知機を使って掘り出しましょう($25,000 + 1,000 RP)。",
     "features": [
-      "重要偵察ポイント",
-      "強盗作戦の最適化"
+      "強盗の下見アイテム",
+      "毎日の報酬:$25,000 + 1,000 RP"
     ],
     "income": "$25,000",
     "position": {
@@ -3486,19 +3486,19 @@
   },
   {
     "id": "cp-buried-stash-2",
-    "name": "Buried Stashes #17",
+    "name": "埋められた隠し財宝 #17",
     "category": "buried_stashes",
-    "categoryLabel": "砂浜の埋蔵キャッシュ",
+    "categoryLabel": "埋められた隠し財宝",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 25000,
-    "priceFormatted": "砂浜の埋蔵キャッシュ",
+    "priceFormatted": "$25,000",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/cayo_perico/cp_bs_0.webp",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "砂に埋められた毎日の隠し財宝。金属探知機を使って掘り出しましょう($25,000 + 1,000 RP)。",
     "features": [
-      "重要偵察ポイント",
-      "強盗作戦の最適化"
+      "強盗の下見アイテム",
+      "毎日の報酬:$25,000 + 1,000 RP"
     ],
     "income": "$25,000",
     "position": {
@@ -3514,15 +3514,15 @@
   },
   {
     "id": "cp-spawn-forklift-1",
-    "name": "Spawns Forklift",
+    "name": "フォークリフトの出現地点",
     "category": "spawns_forklift",
-    "categoryLabel": "フォークリフト",
+    "categoryLabel": "フォークリフトの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "フォークリフト",
+    "priceFormatted": "フォークリフトの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "箱を持ち上げて、格納庫の高い位置にある戦利品のケージに届くようにするフォークリフト。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3541,15 +3541,15 @@
   },
   {
     "id": "cp-spawn-verus-1",
-    "name": "Spawns Verus",
+    "name": "Verusの出現地点",
     "category": "spawns_verus",
-    "categoryLabel": "全地形対応車ヴェルス",
+    "categoryLabel": "Verusの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "全地形対応車ヴェルス",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Verusの出現地点",
+    "zone": "Cayo Perico",
+    "description": "険しいジャングルの地形向けの四輪バギー、Dinka Verus。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3568,15 +3568,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-1",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scoutの出現地点",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "Cayo Perico",
+    "description": "島を探索するのに最も速い陸上の乗り物、オフロードバイクのManchez Scout。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3595,15 +3595,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-2",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scoutの出現地点 #2",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "Cayo Perico",
+    "description": "島を探索するのに最も速い陸上の乗り物、オフロードバイクのManchez Scout。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3622,15 +3622,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-3",
-    "name": "Spawns Manchez Scout #3",
+    "name": "Manchez Scoutの出現地点 #3",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "農地と畑",
+    "description": "島を探索するのに最も速い陸上の乗り物、オフロードバイクのManchez Scout。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3649,15 +3649,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-4",
-    "name": "Spawns Manchez Scout #4",
+    "name": "Manchez Scoutの出現地点 #4",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "Cayo Perico",
+    "description": "島を探索するのに最も速い陸上の乗り物、オフロードバイクのManchez Scout。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3676,15 +3676,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-5",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scoutの出現地点",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3703,15 +3703,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-6",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scoutの出現地点",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "南海岸",
-    "description": "カヨ・ペリコ島の重要スポット（南海岸）。偵察と作戦立案に必須。",
+    "description": "強盗のフィナーレの脱出に使える高速な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3730,15 +3730,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-7",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scoutの出現地点 #2",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "南海岸",
-    "description": "カヨ・ペリコ島の重要スポット（南海岸）。偵察と作戦立案に必須。",
+    "description": "強盗のフィナーレの脱出に使える高速な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3757,15 +3757,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-8",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scoutの出現地点",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3784,15 +3784,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-9",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scoutの出現地点 #2",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3811,15 +3811,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-10",
-    "name": "Spawns Manchez Scout #3",
+    "name": "Manchez Scoutの出現地点 #3",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3838,15 +3838,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-11",
-    "name": "Spawns Manchez Scout #4",
+    "name": "Manchez Scoutの出現地点 #4",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "Cayo Perico",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3865,15 +3865,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-12",
-    "name": "Spawns Manchez Scout #5",
+    "name": "Manchez Scoutの出現地点 #5",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "Cayo Perico",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3892,15 +3892,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-13",
-    "name": "Spawns Manchez Scout #6",
+    "name": "Manchez Scoutの出現地点 #6",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3919,15 +3919,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-14",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scoutの出現地点",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3946,15 +3946,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-15",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scoutの出現地点 #2",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "農地と畑",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -3973,15 +3973,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-16",
-    "name": "Spawns Manchez Scout #3",
+    "name": "Manchez Scoutの出現地点 #3",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "南海岸",
-    "description": "カヨ・ペリコ島の重要スポット（南海岸）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4000,15 +4000,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-17",
-    "name": "Spawns Manchez Scout #4",
+    "name": "Manchez Scoutの出現地点 #4",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4027,15 +4027,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-18",
-    "name": "Spawns Manchez Scout #5",
+    "name": "Manchez Scoutの出現地点 #5",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4054,15 +4054,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-19",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scoutの出現地点",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "Cayo Perico",
+    "description": "島を探索するのに最も速い陸上の乗り物、オフロードバイクのManchez Scout。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4081,15 +4081,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-20",
-    "name": "Spawns Manchez Scout",
+    "name": "Manchez Scoutの出現地点",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Manchez Scoutの出現地点",
+    "zone": "Cayo Perico",
+    "description": "島を探索するのに最も速い陸上の乗り物、オフロードバイクのManchez Scout。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4108,15 +4108,15 @@
   },
   {
     "id": "cp-spawn-manchez-scout-21",
-    "name": "Spawns Manchez Scout #2",
+    "name": "Manchez Scoutの出現地点 #2",
     "category": "spawns_manchez_scout",
-    "categoryLabel": "マンチェススカウト",
+    "categoryLabel": "Manchez Scoutの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "マンチェススカウト",
+    "priceFormatted": "Manchez Scoutの出現地点",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "島を探索するのに最も速い陸上の乗り物、オフロードバイクのManchez Scout。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4135,15 +4135,15 @@
   },
   {
     "id": "cp-spawn-winky-1",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4162,15 +4162,15 @@
   },
   {
     "id": "cp-spawn-winky-2",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4189,15 +4189,15 @@
   },
   {
     "id": "cp-spawn-winky-3",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4216,15 +4216,15 @@
   },
   {
     "id": "cp-spawn-winky-4",
-    "name": "Spawns Winky #4",
+    "name": "Winkyの出現地点 #4",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4243,15 +4243,15 @@
   },
   {
     "id": "cp-spawn-winky-5",
-    "name": "Spawns Winky #5",
+    "name": "Winkyの出現地点 #5",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4270,15 +4270,15 @@
   },
   {
     "id": "cp-spawn-winky-6",
-    "name": "Spawns Winky #6",
+    "name": "Winkyの出現地点 #6",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4297,15 +4297,15 @@
   },
   {
     "id": "cp-spawn-winky-7",
-    "name": "Spawns Winky #7",
+    "name": "Winkyの出現地点 #7",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4324,15 +4324,15 @@
   },
   {
     "id": "cp-spawn-winky-8",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4351,15 +4351,15 @@
   },
   {
     "id": "cp-spawn-winky-9",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4378,15 +4378,15 @@
   },
   {
     "id": "cp-spawn-winky-10",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "南海岸",
-    "description": "カヨ・ペリコ島の重要スポット（南海岸）。偵察と作戦立案に必須。",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4405,15 +4405,15 @@
   },
   {
     "id": "cp-spawn-winky-11",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "強盗のフィナーレの脱出に使える高速な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4432,15 +4432,15 @@
   },
   {
     "id": "cp-spawn-winky-12",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "農地と畑",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4459,15 +4459,15 @@
   },
   {
     "id": "cp-spawn-winky-13",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4486,15 +4486,15 @@
   },
   {
     "id": "cp-spawn-winky-14",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4513,15 +4513,15 @@
   },
   {
     "id": "cp-spawn-winky-15",
-    "name": "Spawns Winky #4",
+    "name": "Winkyの出現地点 #4",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4540,15 +4540,15 @@
   },
   {
     "id": "cp-spawn-winky-16",
-    "name": "Spawns Winky #5",
+    "name": "Winkyの出現地点 #5",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4567,15 +4567,15 @@
   },
   {
     "id": "cp-spawn-winky-17",
-    "name": "Spawns Winky #6",
+    "name": "Winkyの出現地点 #6",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4594,15 +4594,15 @@
   },
   {
     "id": "cp-spawn-winky-18",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4621,15 +4621,15 @@
   },
   {
     "id": "cp-spawn-winky-19",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4648,15 +4648,15 @@
   },
   {
     "id": "cp-spawn-winky-20",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4675,15 +4675,15 @@
   },
   {
     "id": "cp-spawn-winky-21",
-    "name": "Spawns Winky #4",
+    "name": "Winkyの出現地点 #4",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4702,15 +4702,15 @@
   },
   {
     "id": "cp-spawn-winky-22",
-    "name": "Spawns Winky #5",
+    "name": "Winkyの出現地点 #5",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4729,15 +4729,15 @@
   },
   {
     "id": "cp-spawn-winky-23",
-    "name": "Spawns Winky #6",
+    "name": "Winkyの出現地点 #6",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4756,15 +4756,15 @@
   },
   {
     "id": "cp-spawn-winky-24",
-    "name": "Spawns Winky #7",
+    "name": "Winkyの出現地点 #7",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4783,15 +4783,15 @@
   },
   {
     "id": "cp-spawn-winky-25",
-    "name": "Spawns Winky #8",
+    "name": "Winkyの出現地点 #8",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "下見中に島を移動するのに適した乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4810,15 +4810,15 @@
   },
   {
     "id": "cp-spawn-winky-26",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4837,15 +4837,15 @@
   },
   {
     "id": "cp-spawn-winky-27",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4864,15 +4864,15 @@
   },
   {
     "id": "cp-spawn-winky-28",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4891,15 +4891,15 @@
   },
   {
     "id": "cp-spawn-winky-29",
-    "name": "Spawns Winky #4",
+    "name": "Winkyの出現地点 #4",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4918,15 +4918,15 @@
   },
   {
     "id": "cp-spawn-winky-30",
-    "name": "Spawns Winky #5",
+    "name": "Winkyの出現地点 #5",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4945,15 +4945,15 @@
   },
   {
     "id": "cp-spawn-winky-31",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4972,15 +4972,15 @@
   },
   {
     "id": "cp-spawn-winky-32",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -4999,15 +4999,15 @@
   },
   {
     "id": "cp-spawn-winky-33",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5026,15 +5026,15 @@
   },
   {
     "id": "cp-spawn-winky-34",
-    "name": "Spawns Winky #4",
+    "name": "Winkyの出現地点 #4",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "農地と畑",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5053,15 +5053,15 @@
   },
   {
     "id": "cp-spawn-winky-35",
-    "name": "Spawns Winky #5",
+    "name": "Winkyの出現地点 #5",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5080,15 +5080,15 @@
   },
   {
     "id": "cp-spawn-winky-36",
-    "name": "Spawns Winky #6",
+    "name": "Winkyの出現地点 #6",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5107,15 +5107,15 @@
   },
   {
     "id": "cp-spawn-winky-37",
-    "name": "Spawns Winky #7",
+    "name": "Winkyの出現地点 #7",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5134,15 +5134,15 @@
   },
   {
     "id": "cp-spawn-winky-38",
-    "name": "Spawns Winky #8",
+    "name": "Winkyの出現地点 #8",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "南海岸",
-    "description": "カヨ・ペリコ島の重要スポット（南海岸）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5161,15 +5161,15 @@
   },
   {
     "id": "cp-spawn-winky-39",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5188,15 +5188,15 @@
   },
   {
     "id": "cp-spawn-winky-40",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5215,15 +5215,15 @@
   },
   {
     "id": "cp-spawn-winky-41",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5242,15 +5242,15 @@
   },
   {
     "id": "cp-spawn-winky-42",
-    "name": "Spawns Winky #4",
+    "name": "Winkyの出現地点 #4",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5269,15 +5269,15 @@
   },
   {
     "id": "cp-spawn-winky-43",
-    "name": "Spawns Winky #5",
+    "name": "Winkyの出現地点 #5",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5296,15 +5296,15 @@
   },
   {
     "id": "cp-spawn-winky-44",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5323,15 +5323,15 @@
   },
   {
     "id": "cp-spawn-winky-45",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5350,15 +5350,15 @@
   },
   {
     "id": "cp-spawn-winky-46",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5377,15 +5377,15 @@
   },
   {
     "id": "cp-spawn-winky-47",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "農地と畑",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5404,15 +5404,15 @@
   },
   {
     "id": "cp-spawn-winky-48",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5431,15 +5431,15 @@
   },
   {
     "id": "cp-spawn-winky-49",
-    "name": "Spawns Winky #4",
+    "name": "Winkyの出現地点 #4",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5458,15 +5458,15 @@
   },
   {
     "id": "cp-spawn-winky-50",
-    "name": "Spawns Winky #5",
+    "name": "Winkyの出現地点 #5",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5485,15 +5485,15 @@
   },
   {
     "id": "cp-spawn-winky-51",
-    "name": "Spawns Winky #6",
+    "name": "Winkyの出現地点 #6",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5512,15 +5512,15 @@
   },
   {
     "id": "cp-spawn-winky-52",
-    "name": "Spawns Winky",
+    "name": "Winkyの出現地点",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5539,15 +5539,15 @@
   },
   {
     "id": "cp-spawn-winky-53",
-    "name": "Spawns Winky #2",
+    "name": "Winkyの出現地点 #2",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5566,15 +5566,15 @@
   },
   {
     "id": "cp-spawn-winky-54",
-    "name": "Spawns Winky #3",
+    "name": "Winkyの出現地点 #3",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5593,15 +5593,15 @@
   },
   {
     "id": "cp-spawn-winky-55",
-    "name": "Spawns Winky #4",
+    "name": "Winkyの出現地点 #4",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5620,15 +5620,15 @@
   },
   {
     "id": "cp-spawn-winky-56",
-    "name": "Spawns Winky #5",
+    "name": "Winkyの出現地点 #5",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5647,15 +5647,15 @@
   },
   {
     "id": "cp-spawn-winky-57",
-    "name": "Spawns Winky #6",
+    "name": "Winkyの出現地点 #6",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5674,15 +5674,15 @@
   },
   {
     "id": "cp-spawn-winky-58",
-    "name": "Spawns Winky #7",
+    "name": "Winkyの出現地点 #7",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5701,15 +5701,15 @@
   },
   {
     "id": "cp-spawn-winky-59",
-    "name": "Spawns Winky #8",
+    "name": "Winkyの出現地点 #8",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
+    "priceFormatted": "Winkyの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5728,15 +5728,15 @@
   },
   {
     "id": "cp-spawn-winky-60",
-    "name": "Spawns Winky #9",
+    "name": "Winkyの出現地点 #9",
     "category": "spawns_winky",
-    "categoryLabel": "軍用ジープウィンキー",
+    "categoryLabel": "Winkyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "軍用ジープウィンキー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Winkyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "エル・ルビオの島の巡回部隊がよく使っている軍用ジープ、Winky。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5755,15 +5755,15 @@
   },
   {
     "id": "cp-spawn-squaddie-1",
-    "name": "Spawns Squaddie",
+    "name": "Squaddieの出現地点",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
+    "priceFormatted": "Squaddieの出現地点",
     "zone": "滑走路",
-    "description": "カヨ・ペリコ島の重要スポット（滑走路）。偵察と作戦立案に必須。",
+    "description": "4人乗りの軽量軍用多目的車、Mammoth Squaddie。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5782,15 +5782,15 @@
   },
   {
     "id": "cp-spawn-squaddie-2",
-    "name": "Spawns Squaddie #2",
+    "name": "Squaddieの出現地点 #2",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Squaddieの出現地点",
+    "zone": "Cayo Perico",
+    "description": "4人乗りの軽量軍用多目的車、Mammoth Squaddie。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5809,15 +5809,15 @@
   },
   {
     "id": "cp-spawn-squaddie-3",
-    "name": "Spawns Squaddie #3",
+    "name": "Squaddieの出現地点 #3",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
+    "priceFormatted": "Squaddieの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "4人乗りの軽量軍用多目的車、Mammoth Squaddie。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5836,15 +5836,15 @@
   },
   {
     "id": "cp-spawn-squaddie-4",
-    "name": "Spawns Squaddie #4",
+    "name": "Squaddieの出現地点 #4",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
+    "priceFormatted": "Squaddieの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "4人乗りの軽量軍用多目的車、Mammoth Squaddie。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5863,15 +5863,15 @@
   },
   {
     "id": "cp-spawn-squaddie-5",
-    "name": "Spawns Squaddie #5",
+    "name": "Squaddieの出現地点 #5",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Squaddieの出現地点",
+    "zone": "Cayo Perico",
+    "description": "4人乗りの軽量軍用多目的車、Mammoth Squaddie。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5890,15 +5890,15 @@
   },
   {
     "id": "cp-spawn-squaddie-6",
-    "name": "Spawns Squaddie",
+    "name": "Squaddieの出現地点",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
+    "priceFormatted": "Squaddieの出現地点",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5917,15 +5917,15 @@
   },
   {
     "id": "cp-spawn-squaddie-7",
-    "name": "Spawns Squaddie #2",
+    "name": "Squaddieの出現地点 #2",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
+    "priceFormatted": "Squaddieの出現地点",
     "zone": "エル・ルビオの邸宅",
-    "description": "カヨ・ペリコ島の重要スポット（エル・ルビオの邸宅）。偵察と作戦立案に必須。",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5944,15 +5944,15 @@
   },
   {
     "id": "cp-spawn-squaddie-8",
-    "name": "Spawns Squaddie #3",
+    "name": "Squaddieの出現地点 #3",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Squaddieの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5971,15 +5971,15 @@
   },
   {
     "id": "cp-spawn-squaddie-9",
-    "name": "Spawns Squaddie #4",
+    "name": "Squaddieの出現地点 #4",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Squaddieの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -5998,15 +5998,15 @@
   },
   {
     "id": "cp-spawn-squaddie-10",
-    "name": "Spawns Squaddie #5",
+    "name": "Squaddieの出現地点 #5",
     "category": "spawns_squaddie",
-    "categoryLabel": "スクアディ",
+    "categoryLabel": "Squaddieの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "スクアディ",
+    "priceFormatted": "Squaddieの出現地点",
     "zone": "南海岸",
-    "description": "カヨ・ペリコ島の重要スポット（南海岸）。偵察と作戦立案に必須。",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6025,15 +6025,15 @@
   },
   {
     "id": "cp-spawn-dinghy-1",
-    "name": "Spawns Dinghy",
+    "name": "Dinghyボートの出現地点",
     "category": "spawns_dinghy",
-    "categoryLabel": "ディンギーボート",
+    "categoryLabel": "Dinghyボートの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "ディンギーボート",
+    "priceFormatted": "Dinghyボートの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "海岸を素早く移動するためのゴムボート、Nagasaki Dinghy。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6052,15 +6052,15 @@
   },
   {
     "id": "cp-spawn-dinghy-2",
-    "name": "Spawns Dinghy #2",
+    "name": "Dinghyボートの出現地点 #2",
     "category": "spawns_dinghy",
-    "categoryLabel": "ディンギーボート",
+    "categoryLabel": "Dinghyボートの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "ディンギーボート",
+    "priceFormatted": "Dinghyボートの出現地点",
     "zone": "メインドック",
-    "description": "カヨ・ペリコ島の重要スポット（メインドック）。偵察と作戦立案に必須。",
+    "description": "海岸を素早く移動するためのゴムボート、Nagasaki Dinghy。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6079,15 +6079,15 @@
   },
   {
     "id": "cp-spawn-dinghy-3",
-    "name": "Spawns Dinghy #3",
+    "name": "Dinghyボートの出現地点 #3",
     "category": "spawns_dinghy",
-    "categoryLabel": "ディンギーボート",
+    "categoryLabel": "Dinghyボートの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "ディンギーボート",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Dinghyボートの出現地点",
+    "zone": "Cayo Perico",
+    "description": "海岸を素早く移動するためのゴムボート、Nagasaki Dinghy。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6106,15 +6106,15 @@
   },
   {
     "id": "cp-spawn-dinghy-4",
-    "name": "Spawns Dinghy #4",
+    "name": "Dinghyボートの出現地点 #4",
     "category": "spawns_dinghy",
-    "categoryLabel": "ディンギーボート",
+    "categoryLabel": "Dinghyボートの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "ディンギーボート",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Dinghyボートの出現地点",
+    "zone": "Cayo Perico",
+    "description": "海岸を素早く移動するためのゴムボート、Nagasaki Dinghy。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6133,15 +6133,15 @@
   },
   {
     "id": "cp-spawn-dinghy-5",
-    "name": "Spawns Dinghy #5",
+    "name": "Dinghyボートの出現地点 #5",
     "category": "spawns_dinghy",
-    "categoryLabel": "ディンギーボート",
+    "categoryLabel": "Dinghyボートの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "ディンギーボート",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "Dinghyボートの出現地点",
+    "zone": "農地と畑",
+    "description": "海岸を素早く移動するためのゴムボート、Nagasaki Dinghy。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6160,15 +6160,15 @@
   },
   {
     "id": "cp-spawn-dinghy-6",
-    "name": "Spawns Dinghy #6",
+    "name": "Dinghyボートの出現地点 #6",
     "category": "spawns_dinghy",
-    "categoryLabel": "ディンギーボート",
+    "categoryLabel": "Dinghyボートの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "ディンギーボート",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "Dinghyボートの出現地点",
+    "zone": "農地と畑",
+    "description": "海岸を素早く移動するためのゴムボート、Nagasaki Dinghy。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6187,15 +6187,15 @@
   },
   {
     "id": "cp-spawn-dinghy-7",
-    "name": "Spawns Dinghy",
+    "name": "Dinghyボートの出現地点",
     "category": "spawns_dinghy",
-    "categoryLabel": "ディンギーボート",
+    "categoryLabel": "Dinghyボートの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "ディンギーボート",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "Dinghyボートの出現地点",
+    "zone": "Cayo Perico",
+    "description": "下見ミッション中に島を探索するのに最適な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6214,15 +6214,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-1",
-    "name": "Spawns Weaponized Dinghy",
+    "name": "武装Dinghyの出現地点",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "武装ディンギー",
+    "categoryLabel": "武装Dinghyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "武装ディンギー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "武装Dinghyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "強盗のフィナーレの脱出に使える高速な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6241,15 +6241,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-2",
-    "name": "Spawns Weaponized Dinghy #2",
+    "name": "武装Dinghyの出現地点 #2",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "武装ディンギー",
+    "categoryLabel": "武装Dinghyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "武装ディンギー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "武装Dinghyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "強盗のフィナーレの脱出に使える高速な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6268,15 +6268,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-3",
-    "name": "Spawns Weaponized Dinghy #3",
+    "name": "武装Dinghyの出現地点 #3",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "武装ディンギー",
+    "categoryLabel": "武装Dinghyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "武装ディンギー",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "武装Dinghyの出現地点",
+    "zone": "農地と畑",
+    "description": "強盗のフィナーレの脱出に使える高速な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6295,15 +6295,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-4",
-    "name": "Spawns Weaponized Dinghy #4",
+    "name": "武装Dinghyの出現地点 #4",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "武装ディンギー",
+    "categoryLabel": "武装Dinghyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "武装ディンギー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "武装Dinghyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "強盗のフィナーレの脱出に使える高速な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6322,15 +6322,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-5",
-    "name": "Spawns Weaponized Dinghy #5",
+    "name": "武装Dinghyの出現地点 #5",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "武装ディンギー",
+    "categoryLabel": "武装Dinghyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "武装ディンギー",
-    "zone": "カヨ・ペリコ",
-    "description": "カヨ・ペリコ島の重要スポット（カヨ・ペリコ）。偵察と作戦立案に必須。",
+    "priceFormatted": "武装Dinghyの出現地点",
+    "zone": "Cayo Perico",
+    "description": "強盗のフィナーレの脱出に使える高速な乗り物。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6349,15 +6349,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-6",
-    "name": "Spawns Weaponized Dinghy",
+    "name": "武装Dinghyの出現地点",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "武装ディンギー",
+    "categoryLabel": "武装Dinghyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "武装ディンギー",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "武装Dinghyの出現地点",
+    "zone": "農地と畑",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6376,15 +6376,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-7",
-    "name": "Spawns Weaponized Dinghy #2",
+    "name": "武装Dinghyの出現地点 #2",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "武装ディンギー",
+    "categoryLabel": "武装Dinghyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "武装ディンギー",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "武装Dinghyの出現地点",
+    "zone": "農地と畑",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"
@@ -6403,15 +6403,15 @@
   },
   {
     "id": "cp-spawn-weaponized-dinghy-8",
-    "name": "Spawns Weaponized Dinghy #3",
+    "name": "武装Dinghyの出現地点 #3",
     "category": "spawns_weaponized_dinghy",
-    "categoryLabel": "武装ディンギー",
+    "categoryLabel": "武装Dinghyの出現地点",
     "gameMode": "online",
     "owner": "Cayo Perico",
     "price": 0,
-    "priceFormatted": "武装ディンギー",
-    "zone": "農園・畑",
-    "description": "カヨ・ペリコ島の重要スポット（農園・畑）。偵察と作戦立案に必須。",
+    "priceFormatted": "武装Dinghyの出現地点",
+    "zone": "農地と畑",
+    "description": "巡回中の警備員に気づかれない、おすすめのステルス脱出ルート。",
     "features": [
       "重要偵察ポイント",
       "強盗作戦の最適化"

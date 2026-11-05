@@ -1,106 +1,65 @@
 [
   {
     "id": "halloween",
-    "title": "Eventos de Halloween",
+    "title": "할로윈 이벤트",
     "icon": "fa-ghost",
-    "color": "#f39c12",
-    "badge": "Octubre",
-    "description": "Eventos paranormales y apariciones siniestras que asolan Los Santos y Blaine County durante la temporada de Halloween.",
+    "color": "#ef4444",
+    "badge": "10월",
+    "description": "할로윈 시즌 동안 Los Santos와 Blaine County를 뒤덮는 초자연 현상과 섬뜩한 출현.",
     "subcategories": [
       {
-        "id": "asesinos",
-        "title": "Asesinos",
-        "icon": "fa-mask",
-        "color": "#e74c3c",
-        "description": "Psicópatas y asesinos en serie que acechan en las sombras durante las noches más oscuras de San Andreas.",
+        "id": "halloween-items",
+        "title": "할로윈 이벤트",
+        "icon": "fa-ghost",
+        "color": "#ef4444",
+        "description": "할로윈 시즌 동안 Los Santos와 Blaine County를 뒤덮는 초자연 현상과 섬뜩한 출현.",
         "items": [
           {
             "id": "slasher-clown",
-            "title": "El Payaso Asesino",
+            "title": "할로윈 살인마",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un maníaco con tétrica pintura facial y sonrisa macabra armado con un puñal. Acecha en callejones oscuros y ataca cuando el jugador se encuentra a solas a pie entre las 21:00 y las 05:00.",
-            "reward": "Camiseta conmemorativa de payaso y $50,000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
+            "subcategory": "halloween-items",
+            "description": "섬뜩한 얼굴 페인트와 음산한 미소를 짓고 단검으로 무장한 광인. 어두운 골목에 숨어 있다가 21:00에서 05:00 사이에 플레이어가 걸어서 혼자 있을 때 공격합니다.",
+            "reward": "기념 광대 티셔츠와 $50,000",
+            "period": "할로윈 시즌 (21:00 - 05:00)",
             "badgeIcon": "fa-mask",
             "badgeColor": "#e74c3c",
             "details": [
-              "Requiere estar al menos 16 minutos en la sesión libre.",
-              "Aparece exclusivamente si el jugador no va a bordo de vehículos armados o aéreos.",
-              "Se reproduce una melodía siniestra cuando inicia el acecho."
+              "자유 모드 세션에 최소 16분 이상 있어야 합니다.",
+              "무장 차량이나 항공 차량에 타고 있지 않을 때만 나타납니다.",
+              "추적이 시작되면 음산한 멜로디가 흘러나옵니다."
+            ]
+          },
+          {
+            "id": "ghost-gordo",
+            "title": "드러난 유령들",
+            "category": "halloween",
+            "subcategory": "halloween-items",
+            "description": "Gordo 산의 전설적인 유령으로, 23:00에서 00:00 사이 El Gordo 등대를 내려다보는 가파른 절벽에서 실제 시간으로 육십 초 동안만 보입니다.",
+            "reward": "초자연 사진 촬영 완료와 $20,000",
+            "period": "할로윈 밤 (23:00 - 00:00)",
+            "badgeIcon": "fa-ghost",
+            "badgeColor": "#9b59b6",
+            "details": [
+              "플레이어가 5미터 이내로 다가가면 유령이 즉시 사라집니다.",
+              "바위에 피로 쓴 'JOCK'이라는 단어가 나타납니다.",
+              "초자연 일지에 진행 상황을 기록하려면 이를 촬영해야 합니다."
             ]
           },
           {
             "id": "slasher-driver",
-            "title": "El Conductor Fantasma",
+            "title": "유령 자동차",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un deportivo clásico de color negro envuelto en llamas espectrales conducido por una silueta demoníaca. Persigue implacablemente a toda velocidad con el objetivo de atropellar al objetivo.",
-            "reward": "Máscara de Calabaza Llameante y 2,000 RP",
-            "period": "Temporada de Halloween (22:00 - 05:00)",
+            "subcategory": "halloween-items",
+            "description": "악마 같은 실루엣이 모는 유령의 불길에 휩싸인 검은색 클래식 스포츠카. 표적을 치기 위해 전속력으로 끈질기게 쫓아옵니다.",
+            "reward": "불타는 호박 마스크와 2,000 RP",
+            "period": "할로윈 시즌 (22:00 - 05:00)",
             "badgeIcon": "fa-fire",
             "badgeColor": "#e67e22",
             "details": [
-              "El coche es inmune a colisiones convencionales hasta abatir al conductor.",
-              "El fuego del vehículo no se extingue bajo la lluvia.",
-              "Al destruirlo se obtiene una recompensa monetaria inmediata."
-            ]
-          },
-          {
-            "id": "slasher-psycho",
-            "title": "El Carnicero de Paleto",
-            "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un descomunal asesino ataviado con delantal ensangrentado y máscara quirúrgica portando una motosierra oxidada. Se oculta entre la densa vegetación boscosa del norte.",
-            "reward": "Máscara Slasher ensangrentada y $50,000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
-            "badgeIcon": "fa-skull",
-            "badgeColor": "#c0392b",
-            "details": [
-              "Posee una barra de salud muy superior a la de un PNJ estándar.",
-              "Inmune al derribo por impacto de proyectiles comunes.",
-              "Al ser derrotado arroja munición pesada y botiquín completo."
-            ]
-          }
-        ]
-      },
-      {
-        "id": "fantasmas",
-        "title": "Fantasmas",
-        "icon": "fa-spaghetti-monster-flying",
-        "color": "#9b59b6",
-        "description": "Fenómenos paranormales y manifestaciones etéreas documentadas por la sociedad investigadora de San Andreas.",
-        "items": [
-          {
-            "id": "ghost-gordo",
-            "title": "Fantasma del Monte Gordo",
-            "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "El legendario espectro de Celene Mountain, visible únicamente durante sesenta segundos reales entre las 23:00 y las 00:00 en el risco escarpado que domina el faro de El Gordo.",
-            "reward": "Fotografía paranormal completada y $20,000",
-            "period": "Noches de Halloween (23:00 - 00:00)",
-            "badgeIcon": "fa-ghost",
-            "badgeColor": "#9b59b6",
-            "details": [
-              "Si el jugador se aproxima a menos de 5 metros, el espectro se desvanece de inmediato.",
-              "En la roca aparece escrita con sangre la palabra 'JOCK'.",
-              "Debe fotografiarla para registrar el progreso en el diario paranormal."
-            ]
-          },
-          {
-            "id": "ghost-johnson",
-            "title": "El Espectro de Leonora Johnson",
-            "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "La trágica actriz del viejo Vinewood asesinada en 1975 se materializa flotando en penumbra cerca del mausoleo de Pacific Bluffs, susurrando lamentos del crimen sin resolver.",
-            "reward": "Bonificación de coleccionista y $20,000",
-            "period": "Noches de Halloween (00:00 - 02:00)",
-            "badgeIcon": "fa-camera",
-            "badgeColor": "#8e44ad",
-            "details": [
-              "Aparece levitando sobre una lápida sin nombre.",
-              "Requiere cámara Snapmatic para capturar la evidencia espectral.",
-              "Fotografiar los 10 fantasmas desbloquea la librea temática Ghosts Exposed para el Albany Brigham."
+              "차량은 운전자를 쓰러뜨리기 전까지 일반적인 충돌에 면역입니다.",
+              "차량의 불은 비가 와도 꺼지지 않습니다.",
+              "파괴하면 즉시 현금 보상을 받습니다."
             ]
           }
         ]
@@ -109,58 +68,96 @@
   },
   {
     "id": "navidad",
-    "title": "Eventos de Navidad",
+    "title": "크리스마스 이벤트",
     "icon": "fa-sleigh",
-    "color": "#27ae60",
-    "badge": "Diciembre",
-    "description": "Celebraciones festivas de invierno con mantos de nieve, asaltantes oportunistas y regalos festivos en Los Santos.",
+    "color": "#ffffff",
+    "badge": "12월",
+    "description": "눈 덮인 풍경, 기회를 노리는 강도, 축제 선물이 가득한 Los Santos의 겨울 축제.",
     "subcategories": [
       {
-        "id": "gooch",
-        "title": "El Grinch (The Gooch)",
-        "icon": "fa-hat-cowboy",
-        "color": "#2ecc71",
-        "description": "Una siniestra criatura peluda de color verde vestida de Papá Noel que embosca sin piedad a los residentes desprevenidos.",
+        "id": "navidad-items",
+        "title": "크리스마스 이벤트",
+        "icon": "fa-sleigh",
+        "color": "#38bdf8",
+        "description": "눈 덮인 풍경, 기회를 노리는 강도, 축제 선물이 가득한 Los Santos의 겨울 축제.",
         "items": [
           {
-            "id": "gooch-ambush",
-            "title": "Aparición de The Gooch",
+            "id": "gooch",
+            "title": "The Gooch",
             "category": "navidad",
-            "subcategory": "gooch",
-            "description": "Aparece entre una densa nube de humo verde con una risa estridente. Derriba al jugador de espaldas, le arrebata dinero en efectivo y aperitivos del inventario, y huye a pie velozmente.",
-            "reward": "Máscara oficial de The Gooch y recuperación del botín + $25,000",
-            "period": "Festividades Navideñas",
-            "badgeIcon": "fa-sack-dollar",
-            "badgeColor": "#27ae60",
+            "subcategory": "navidad-items",
+            "description": "Rockstar Games 특유의 그린치. 변장한 인물이 초록색 연기에 싸여 불쑥 나타나 플레이어를 쓰러뜨리고 소지품에서 돈과 물품을 훔쳐 갑니다.",
+            "reward": "The Gooch 전체 의상과 마스크 + 도난당한 물품 회수와 추가 보너스 돈",
+            "period": "크리스마스 시즌 (무작위 출현)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#22c55e",
             "details": [
-              "Requiere al menos 2 jugadores en la sesión y llevar dinero encima.",
-              "Hay que perseguirlo de inmediato antes de que desaparezca para abatirle.",
-              "La primera vez que lo abates desbloquea la indumentaria completa de The Gooch."
+              "출현: 자유 모드에서 무작위로 나타남(고정 좌표나 정해진 출현 시간 없음).",
+              "세션 조건: 플레이어가 2명 이상이고 생성된 지 최소 48분 이상 된 세션에 있어야 합니다.",
+              "플레이어 조건: 야외에서 걸어 다니며 현금이나 간식을 소지하고 있어야 합니다.",
+              "방식: 도망치기 전에 즉시 쫓아가 처치하여 도난당한 물품을 되찾고 보상을 해금합니다."
             ]
-          }
-        ]
-      },
-      {
-        "id": "snowmen",
-        "title": "Muñecos de Nieve",
-        "icon": "fa-snowflake",
-        "color": "#3498db",
-        "description": "25 muñecos de nieve festivos distribuidos a lo largo y ancho del mapa nevado listos para ser destruidos.",
-        "items": [
+          },
+          {
+            "id": "weazel-plaza",
+            "title": "Weazel Plaza 총격전",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "다이하드에 바치는 영화적 오마주. Weazel Plaza 고층 빌딩 옥상에서 벌어진 무장 강도 사건이 강도단과 Los Santos 경찰, 헬리콥터까지 얽힌 격렬한 총격전으로 번집니다.",
+            "reward": "WM 29 권총 + 'Season's Greetings' 마감(Pistol Mk II) + $25,000와 RP",
+            "period": "크리스마스 시즌 (20:00 - 06:00)",
+            "badgeIcon": "fa-gun",
+            "badgeColor": "#f59e0b",
+            "position": {
+              "x": -915.7,
+              "y": -442.7,
+              "z": 80
+            },
+            "details": [
+              "고정 위치: Weazel Plaza 고층 빌딩 옥상(Rockford Hills).",
+              "활성화 시간: 20:00에서 06:00 사이(게임 내 시간).",
+              "세션 조건: 자유 모드 세션에 최소 20분 이상 머물러 있어야 합니다.",
+              "활성화 반경: 야간 시간대에 건물에서 400미터 이내로 접근해야 합니다.",
+              "방식: 옥상에 올라 무장 강도들을 처치하고 전리품을 확보해 전용 WM 29 권총을 얻으세요."
+            ]
+          },
+          {
+            "id": "yeti-hunt",
+            "title": "예티 사냥",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Chiliad Mountain State Wilderness의 울창한 숲에서 벌어지는 섬뜩한 수사. 사나운 신화 속 생물이 남긴 단서 5개를 조사한 뒤, 밤의 장막 아래에서 전설의 예티와 정면으로 맞서세요.",
+            "reward": "공식 예티 의상 + 최종 보너스 $50,000(단서당 $10,000)",
+            "period": "크리스마스 시즌 (21:00 - 06:00)",
+            "badgeIcon": "fa-paw",
+            "badgeColor": "#06b6d4",
+            "position": {
+              "x": -1560,
+              "y": 4480,
+              "z": 20
+            },
+            "details": [
+              "수사 지역: Chiliad Mountain State Wilderness(Raton Canyon / Cassidy Creek).",
+              "1단계(단서): 숲 곳곳에 흩어진 피 묻은 단서 5개를 찾아 조사하기(각각 $10,000와 1,000 RP).",
+              "음향 효과: 단서에 다가가면 일그러진 심장 박동 소리가 들립니다.",
+              "2단계(밤의 추적): 단서 5개를 모두 모은 뒤 21:00에서 06:00 사이(게임 내 시간)에 해당 지역으로 들어가기.",
+              "최종 방식: 예티의 사나운 매복에서 살아남아 쓰러뜨리면 전신 의상이 해금됩니다."
+            ]
+          },
           {
             "id": "snowmen-hunt",
-            "title": "Cacería de Muñecos de Nieve",
+            "title": "눈사람 사냥",
             "category": "navidad",
-            "subcategory": "snowmen",
-            "description": "Figuras heladas artesanales ubicadas en parques, azoteas, jardines y porches de San Andreas. Se pueden destruir atropellándolos, con armas de fuego o explosivos.",
-            "reward": "Atuendo de Muñeco de Nieve (El Muñeco de Nieve) + $125,000 al completar los 25",
-            "period": "Festividades Navideñas",
+            "subcategory": "navidad-items",
+            "description": "눈 덮인 지도 곳곳에 흩어져 파괴되기를 기다리는 축제 눈사람 25개.",
+            "reward": "눈사람 의상(눈사람) + 25개를 모두 완료하면 $125,000",
+            "period": "크리스마스 시즌",
             "badgeIcon": "fa-snowflake",
-            "badgeColor": "#2980b9",
+            "badgeColor": "#38bdf8",
             "details": [
-              "Cada muñeco destruido otorga $5,000 y 1,000 RP.",
-              "Al destruir los 25 muñecos se entrega un bono final de $125,000.",
-              "Emiten un suave sonido de campanillas al aproximarse a su ubicación."
+              "눈사람을 하나 파괴할 때마다 $5,000와 1,000 RP를 받습니다.",
+              "눈사람 25개를 모두 파괴하면 최종 보너스 $125,000가 지급됩니다.",
+              "눈사람이 있는 위치에 다가가면 부드러운 방울 소리가 납니다."
             ]
           }
         ]

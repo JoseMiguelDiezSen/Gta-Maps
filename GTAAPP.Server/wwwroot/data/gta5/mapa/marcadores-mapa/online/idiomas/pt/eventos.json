@@ -3,80 +3,39 @@
     "id": "halloween",
     "title": "Eventos de Halloween",
     "icon": "fa-ghost",
-    "color": "#f39c12",
+    "color": "#ef4444",
     "badge": "Outubro",
     "description": "Eventos paranormais e aparições sinistras que assolam Los Santos e Blaine County durante a temporada de Halloween.",
     "subcategories": [
       {
-        "id": "asesinos",
-        "title": "Assassinos",
-        "icon": "fa-mask",
-        "color": "#e74c3c",
-        "description": "Psicopatas e assassinos em série que espreitam nas sombras durante as noites mais escuras de San Andreas.",
+        "id": "halloween-items",
+        "title": "Eventos de Halloween",
+        "icon": "fa-ghost",
+        "color": "#ef4444",
+        "description": "Eventos paranormais e aparições sinistras que assolam Los Santos e Blaine County durante a temporada de Halloween.",
         "items": [
           {
             "id": "slasher-clown",
-            "title": "O Palhaço Assassino",
+            "title": "Assassinos de Halloween",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Um maníaco com pintura facial sinistra e sorriso macabro armado com um punhal. Espreita em becos escuros e ataca quando o jogador está sozinho a pé entre as 21:00 e as 05:00.",
+            "subcategory": "halloween-items",
+            "description": "Um maníaco com tétrica pintura facial e sorriso macabro, armado com um punhal. Espreita em becos escuros e ataca quando o jogador está sozinho a pé entre 21:00 e 05:00.",
             "reward": "Camiseta comemorativa de palhaço e $50.000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
+            "period": "Época de Halloween (21:00 - 05:00)",
             "badgeIcon": "fa-mask",
             "badgeColor": "#e74c3c",
             "details": [
-              "Requer estar há pelo menos 16 minutos na sessão livre.",
+              "Requer estar pelo menos 16 minutos na sessão livre.",
               "Aparece exclusivamente se o jogador não estiver a bordo de veículos armados ou aéreos.",
-              "Uma melodia sinistra toca quando a perseguição começa."
+              "Toca uma melodia sinistra quando a perseguição começa."
             ]
           },
-          {
-            "id": "slasher-driver",
-            "title": "O Motorista Fantasma",
-            "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Um esportivo clássico preto envolto em chamas espectrais conduzido por uma silhueta demoníaca. Persegue implacavelmente em alta velocidade com o objetivo de atropelar o alvo.",
-            "reward": "Máscara de Abóbora Flamejante e 2.000 RP",
-            "period": "Temporada de Halloween (22:00 - 05:00)",
-            "badgeIcon": "fa-fire",
-            "badgeColor": "#e67e22",
-            "details": [
-              "O carro é imune a colisões convencionais até abater o motorista.",
-              "O fogo do veículo não se apaga sob a chuva.",
-              "Ao destruí-lo, uma recompensa monetária imediata é concedida."
-            ]
-          },
-          {
-            "id": "slasher-psycho",
-            "title": "O Açougueiro de Paleto",
-            "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Um assassino descomunal vestindo avental ensanguentado e máscara cirúrgica empunhando uma motosserra enferrujada. Oculta-se na densa vegetação florestal do norte.",
-            "reward": "Máscara Slasher ensanguentada e $50.000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
-            "badgeIcon": "fa-skull",
-            "badgeColor": "#c0392b",
-            "details": [
-              "Possui uma barra de saúde muito superior à de um PNJ padrão.",
-              "Imune a quedas por impacto de projéteis comuns.",
-              "Ao ser derrotado, derruba munição pesada e kit médico completo."
-            ]
-          }
-        ]
-      },
-      {
-        "id": "fantasmas",
-        "title": "Fantasmas",
-        "icon": "fa-spaghetti-monster-flying",
-        "color": "#9b59b6",
-        "description": "Fenômenos paranormais e manifestações etéreas documentadas pela sociedade investigadora de San Andreas.",
-        "items": [
           {
             "id": "ghost-gordo",
-            "title": "Fantasma do Monte Gordo",
+            "title": "Fantasmas Revelados",
             "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "O lendário espectro de Jolene Cranley-Evans, visível unicamente durante sessenta segundos reais entre as 23:00 e as 00:00 no penhasco escarpado que domina o farol de El Gordo.",
+            "subcategory": "halloween-items",
+            "description": "O lendário espectro do Monte Gordo, visível somente durante sessenta segundos reais entre 23:00 e 00:00 no penhasco escarpado que domina o farol de El Gordo.",
             "reward": "Fotografia paranormal concluída e $20.000",
             "period": "Noites de Halloween (23:00 - 00:00)",
             "badgeIcon": "fa-ghost",
@@ -84,23 +43,23 @@
             "details": [
               "Se o jogador se aproximar a menos de 5 metros, o espectro desaparece imediatamente.",
               "Na rocha aparece escrita com sangue a palavra 'JOCK'.",
-              "Deve fotografá-lo para registrar o progresso no diário paranormal."
+              "É preciso fotografá-la para registrar o progresso no diário paranormal."
             ]
           },
           {
-            "id": "ghost-johnson",
-            "title": "O Espectro de Leonora Johnson",
+            "id": "slasher-driver",
+            "title": "O Carro Fantasma",
             "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "A trágica atriz da antiga Vinewood assassinada em 1975 materializa-se flutuando na penumbra perto do mausoléu de Pacific Bluffs, sussurrando lamentos do crime não solucionado.",
-            "reward": "Bônus de colecionador e $20.000",
-            "period": "Noites de Halloween (00:00 - 02:00)",
-            "badgeIcon": "fa-camera",
-            "badgeColor": "#8e44ad",
+            "subcategory": "halloween-items",
+            "description": "Um esportivo clássico preto envolto em chamas espectrais, conduzido por uma silhueta demoníaca. Persegue implacavelmente em alta velocidade com o objetivo de atropelar o alvo.",
+            "reward": "Máscara de Abóbora Flamejante e 2.000 RP",
+            "period": "Época de Halloween (22:00 - 05:00)",
+            "badgeIcon": "fa-fire",
+            "badgeColor": "#e67e22",
             "details": [
-              "Aparece levitando sobre uma lápide sem nome.",
-              "Requer câmera Snapmatic para capturar a evidência espectral.",
-              "Fotografar os 10 fantasmas desbloqueia a estampa temática Ghosts Exposed para o Albany Brigham."
+              "O carro é imune a colisões convencionais até que o motorista seja abatido.",
+              "O fogo do veículo não se apaga com a chuva.",
+              "Ao destruí-lo, obtém-se uma recompensa em dinheiro imediata."
             ]
           }
         ]
@@ -111,56 +70,94 @@
     "id": "navidad",
     "title": "Eventos de Natal",
     "icon": "fa-sleigh",
-    "color": "#27ae60",
+    "color": "#ffffff",
     "badge": "Dezembro",
     "description": "Celebrações festivas de inverno com mantos de neve, assaltantes oportunistas e presentes festivos em Los Santos.",
     "subcategories": [
       {
-        "id": "gooch",
-        "title": "The Gooch",
-        "icon": "fa-hat-cowboy",
-        "color": "#2ecc71",
-        "description": "Uma criatura sinistra e peluda de cor verde vestida de Papai Noel que embosca impiedosamente os moradores desavisados.",
+        "id": "navidad-items",
+        "title": "Eventos de Natal",
+        "icon": "fa-sleigh",
+        "color": "#38bdf8",
+        "description": "Celebrações festivas de inverno com mantos de neve, assaltantes oportunistas e presentes festivos em Los Santos.",
         "items": [
           {
-            "id": "gooch-ambush",
-            "title": "Aparição de The Gooch",
+            "id": "gooch",
+            "title": "The Gooch",
             "category": "navidad",
-            "subcategory": "gooch",
-            "description": "Surge em uma densa nuvem de fumaça verde com uma risada estridente. Derruba o jogador pelas costas, rouba dinheiro em espécie e lanches do inventário e foge a pé rapidamente.",
-            "reward": "Máscara oficial de The Gooch e recuperação do saque + $25.000",
-            "period": "Festas de Fim de Ano",
-            "badgeIcon": "fa-sack-dollar",
-            "badgeColor": "#27ae60",
+            "subcategory": "navidad-items",
+            "description": "O Grinch particular da Rockstar Games. Um personagem fantasiado que aparece de surpresa envolto em fumaça verde, derruba o jogador e rouba seu dinheiro e provisões do inventário.",
+            "reward": "Traje completo e máscara de The Gooch + Recuperação do que foi roubado e dinheiro extra",
+            "period": "Festividades Natalinas (Aparição aleatória)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#22c55e",
             "details": [
-              "Requer pelo menos 2 jogadores na sessão e dinheiro no bolso.",
-              "É preciso persegui-lo imediatamente antes que desapareça para abatê-lo.",
-              "A primeira vez que o abate desbloqueia o traje completo de The Gooch."
+              "Aparição: aleatória no mundo livre (sem coordenadas fixas nem horário de aparição específico).",
+              "Requisitos de sessão: estar em uma sessão com pelo menos 2 jogadores e um mínimo de 48 minutos de duração.",
+              "Condição do jogador: estar ao ar livre, a pé, e levar dinheiro em espécie ou lanches consigo.",
+              "Mecânica: persegui-lo e eliminá-lo imediatamente antes que consiga escapar, para recuperar o que foi roubado e desbloquear a recompensa."
             ]
-          }
-        ]
-      },
-      {
-        "id": "snowmen",
-        "title": "Bonecos de Neve",
-        "icon": "fa-snowflake",
-        "color": "#3498db",
-        "description": "25 bonecos de neve festivos distribuídos por todo o mapa coberto de neve prontos para serem destruídos.",
-        "items": [
+          },
+          {
+            "id": "weazel-plaza",
+            "title": "Tiroteio da Weazel Plaza",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Tributo cinematográfico a Die Hard (Duro de Matar). Um assalto armado no terraço do arranha-céu Weazel Plaza desencadeia um intenso tiroteio entre uma gangue de assaltantes e a polícia de Los Santos, com helicópteros envolvidos.",
+            "reward": "Pistola WM 29 + Acabamento 'Season's Greetings' (Pistol Mk II) + $25.000 e RP",
+            "period": "Festividades Natalinas (20:00 - 06:00)",
+            "badgeIcon": "fa-gun",
+            "badgeColor": "#f59e0b",
+            "position": {
+              "x": -915.7,
+              "y": -442.7,
+              "z": 80
+            },
+            "details": [
+              "Local fixo: terraço do arranha-céu Weazel Plaza (Rockford Hills).",
+              "Horário de ativação: entre 20:00 e 06:00 (hora do jogo).",
+              "Requisitos de sessão: ter permanecido pelo menos 20 minutos na sessão livre.",
+              "Raio de ativação: aproximar-se a menos de 400 metros do prédio durante o período noturno.",
+              "Mecânica: subir ao terraço, eliminar os assaltantes armados e garantir o saque para conseguir a pistola exclusiva WM 29."
+            ]
+          },
+          {
+            "id": "yeti-hunt",
+            "title": "A Caça ao Yeti",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Uma perturbadora investigação nas densas florestas de Chiliad Mountain State Wilderness. Examine as 5 pistas deixadas por uma feroz criatura mitológica antes de enfrentar cara a cara o mítico Yeti sob o manto da noite.",
+            "reward": "Traje oficial do Yeti + $50.000 de bônus final ($10.000 por cada pista)",
+            "period": "Festividades Natalinas (21:00 - 06:00)",
+            "badgeIcon": "fa-paw",
+            "badgeColor": "#06b6d4",
+            "position": {
+              "x": -1560,
+              "y": 4480,
+              "z": 20
+            },
+            "details": [
+              "Zona de investigação: Chiliad Mountain State Wilderness (Raton Canyon / Cassidy Creek).",
+              "Fase 1 (Pistas): Localizar e examinar 5 pistas ensanguentadas espalhadas pela mata ($10.000 e 1.000 RP cada uma).",
+              "Efeito sonoro: Ao se aproximar de uma pista, ouve-se um batimento cardíaco distorcido.",
+              "Fase 2 (Perseguição noturna): Depois de reunir as 5 pistas, entrar na zona entre 21:00 e 06:00 (hora do jogo).",
+              "Mecânica final: Sobreviver à feroz emboscada do Yeti e abatê-lo para desbloquear o traje de corpo inteiro."
+            ]
+          },
           {
             "id": "snowmen-hunt",
             "title": "Caça aos Bonecos de Neve",
             "category": "navidad",
-            "subcategory": "snowmen",
-            "description": "Figuras geladas artesanais espalhadas por parques, telhados, jardins e varandas de San Andreas. Podem ser destruídas atropelando-as, com armas de fogo ou explosivos.",
-            "reward": "Traje de Boneco de Neve + $125.000 ao completar os 25",
-            "period": "Festas de Fim de Ano",
+            "subcategory": "navidad-items",
+            "description": "25 bonecos de neve festivos espalhados por todo o mapa nevado, prontos para serem destruídos.",
+            "reward": "Traje de Boneco de Neve (O Boneco de Neve) + $125.000 ao completar os 25",
+            "period": "Festividades Natalinas",
             "badgeIcon": "fa-snowflake",
-            "badgeColor": "#2980b9",
+            "badgeColor": "#38bdf8",
             "details": [
               "Cada boneco destruído concede $5.000 e 1.000 RP.",
-              "Ao destruir os 25 bonecos, é concedido um bônus final de $125.000.",
-              "Emitem um suave som de sinos ao se aproximar de sua localização."
+              "Ao destruir os 25 bonecos, é entregue um bônus final de $125.000.",
+              "Emitem um suave som de guizos ao se aproximar de sua localização."
             ]
           }
         ]

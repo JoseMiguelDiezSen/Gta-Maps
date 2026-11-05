@@ -5,28 +5,28 @@
     "icon": "fa-ghost",
     "color": "#ef4444",
     "badge": "Octobre",
-    "description": "Phénomènes paranormaux et apparitions sinistres qui hantent Los Santos et Blaine County durant la saison d'Halloween.",
+    "description": "Événements paranormaux et apparitions sinistres qui hantent Los Santos et Blaine County pendant la saison d'Halloween.",
     "subcategories": [
       {
         "id": "halloween-items",
         "title": "Événements d'Halloween",
         "icon": "fa-ghost",
         "color": "#ef4444",
-        "description": "Phénomènes paranormaux et apparitions sinistres qui hantent Los Santos et Blaine County durant la saison d'Halloween.",
+        "description": "Événements paranormaux et apparitions sinistres qui hantent Los Santos et Blaine County pendant la saison d'Halloween.",
         "items": [
           {
             "id": "slasher-clown",
             "title": "Tueurs d'Halloween",
             "category": "halloween",
             "subcategory": "halloween-items",
-            "description": "Un maniaque au maquillage facial lugubre et au sourire macabre armé d'un poignard. Il rôde dans les ruelles sombres et attaque quand le joueur est seul à pied entre 21h00 et 05h00.",
-            "reward": "T-shirt commémoratif de clown et 50 000 $",
-            "period": "Saison d'Halloween (21h00 - 05h00)",
+            "description": "Un maniaque au maquillage lugubre et au sourire macabre, armé d'un poignard. Il rôde dans les ruelles sombres et attaque lorsque le joueur est seul à pied entre 21:00 et 05:00.",
+            "reward": "T-shirt commémoratif de clown et $50.000",
+            "period": "Saison d'Halloween (21:00 - 05:00)",
             "badgeIcon": "fa-mask",
             "badgeColor": "#e74c3c",
             "details": [
-              "Nécessite de rester au moins 16 minutes en session libre.",
-              "Apparaît exclusivement si le joueur n'est pas à bord d'un véhicule armé ou aérien.",
+              "Il faut avoir passé au moins 16 minutes dans la session libre.",
+              "Apparaît uniquement si le joueur n'est pas à bord de véhicules armés ou aériens.",
               "Une mélodie sinistre retentit lorsque la traque commence."
             ]
           },
@@ -35,31 +35,31 @@
             "title": "Fantômes dévoilés",
             "category": "halloween",
             "subcategory": "halloween-items",
-            "description": "Le légendaire spectre de Jolene Cranley-Evans, visible uniquement pendant soixante secondes réelles entre 23h00 et minuit sur la falaise escarpée dominant le phare d'El Gordo.",
-            "reward": "Photographie paranormale réussie et 20 000 $",
-            "period": "Nuits d'Halloween (23h00 - 00h00)",
+            "description": "Le légendaire spectre du Mont Gordo, visible uniquement pendant soixante secondes réelles entre 23:00 et 00:00 sur le rocher escarpé qui domine le phare d'El Gordo.",
+            "reward": "Défi de photographie paranormale accompli et $20.000",
+            "period": "Nuits d'Halloween (23:00 - 00:00)",
             "badgeIcon": "fa-ghost",
             "badgeColor": "#9b59b6",
             "details": [
-              "Si le joueur s'approche à moins de 5 mètres, le spectre s'évanouit immédiatement.",
-              "Le mot 'JOCK' apparaît tracé avec du sang sur le rocher.",
-              "Prenez-le en photo pour enregistrer votre progression dans le journal paranormal."
+              "Si le joueur s'approche à moins de 5 mètres, le spectre disparaît aussitôt.",
+              "Le mot 'JOCK' apparaît écrit avec du sang sur la roche.",
+              "Il faut le photographier pour enregistrer la progression dans le journal paranormal."
             ]
           },
           {
             "id": "slasher-driver",
-            "title": "La Voiture Fantôme",
+            "title": "La voiture fantôme",
             "category": "halloween",
             "subcategory": "halloween-items",
-            "description": "Une sportive classique noire enveloppée de flammes spectrales conduite par une silhouette démoniaque. Elle poursuit impitoyablement à toute allure dans le but d'écraser sa cible.",
-            "reward": "Masque de citrouille enflammée et 2 000 RP",
-            "period": "Saison d'Halloween (22h00 - 05h00)",
+            "description": "Un coupé sport classique noir enveloppé de flammes spectrales, conduit par une silhouette démoniaque. Il poursuit sa cible sans relâche à toute vitesse dans le but de l'écraser.",
+            "reward": "Masque de citrouille enflammée et 2.000 RP",
+            "period": "Saison d'Halloween (22:00 - 05:00)",
             "badgeIcon": "fa-fire",
             "badgeColor": "#e67e22",
             "details": [
-              "La voiture est immunisée contre les collisions jusqu'à l'élimination du conducteur.",
-              "Les flammes du véhicule ne s'éteignent pas sous la pluie.",
-              "Sa destruction octroie une récompense financière immédiate."
+              "La voiture est immunisée contre les collisions classiques tant que le conducteur n'est pas abattu.",
+              "Le feu du véhicule ne s'éteint pas sous la pluie.",
+              "Le détruire donne une récompense en argent immédiate."
             ]
           }
         ]
@@ -72,30 +72,30 @@
     "icon": "fa-sleigh",
     "color": "#ffffff",
     "badge": "Décembre",
-    "description": "Célébrations festives d'hiver avec chutes de neige, braqueurs opportunistes et cadeaux de fête dans tout Los Santos.",
+    "description": "Célébrations hivernales avec des manteaux de neige, des voleurs opportunistes et des cadeaux de fête à Los Santos.",
     "subcategories": [
       {
         "id": "navidad-items",
         "title": "Événements de Noël",
         "icon": "fa-sleigh",
         "color": "#38bdf8",
-        "description": "Célébrations festives d'hiver avec chutes de neige, braqueurs opportunistes et cadeaux de fête dans tout Los Santos.",
+        "description": "Célébrations hivernales avec des manteaux de neige, des voleurs opportunistes et des cadeaux de fête à Los Santos.",
         "items": [
           {
             "id": "gooch",
-            "title": "The Gooch (Le Voyou)",
+            "title": "The Gooch",
             "category": "navidad",
             "subcategory": "navidad-items",
-            "description": "Le Grinch version Rockstar Games. Un personnage déguisé qui surgit par surprise dans un nuage de fumée verte, renverse le joueur et lui dérobe de l'argent et des provisions.",
-            "reward": "Tenue complète et masque de The Gooch + récupération du butin et argent supplémentaire",
-            "period": "Fêtes de fin d'année (apparition aléatoire)",
+            "description": "Le Grinch de Rockstar Games. Un personnage déguisé qui surgit par surprise dans un nuage de fumée verte, renverse le joueur et lui vole de l'argent et des provisions de son inventaire.",
+            "reward": "Tenue complète et masque de The Gooch + Récupération de ce qui a été volé et argent supplémentaire",
+            "period": "Fêtes de Noël (Apparition aléatoire)",
             "badgeIcon": "fa-mask",
             "badgeColor": "#22c55e",
             "details": [
-              "Apparition : aléatoire en monde libre (sans coordonnées fixes ni heure précise).",
-              "Conditions de session : au moins 2 joueurs et une session ouverte depuis 48 minutes minimum.",
-              "Condition du joueur : se trouver à l'extérieur, à pied, avec de l'argent liquide ou des encas sur soi.",
-              "Mécanique : le poursuivre et l'éliminer immédiatement avant qu'il ne s'échappe pour récupérer le butin et débloquer la récompense."
+              "Apparition : aléatoire en monde libre (sans coordonnées fixes ni heure d'apparition précise).",
+              "Conditions de session : être dans une session avec au moins 2 joueurs et une ancienneté minimale de 48 minutes.",
+              "Condition du joueur : se trouver à l'extérieur à pied et avoir sur soi de l'argent liquide ou des en-cas.",
+              "Mécanique : le poursuivre et l'éliminer immédiatement avant qu'il ne s'échappe afin de récupérer ce qui a été volé et de débloquer la récompense."
             ]
           },
           {
@@ -103,9 +103,9 @@
             "title": "Fusillade de Weazel Plaza",
             "category": "navidad",
             "subcategory": "navidad-items",
-            "description": "Hommage cinématographique à Die Hard (Piège de cristal). Un braquage armé sur le toit du gratte-ciel Weazel Plaza déclenche une violente fusillade entre une bande de braqueurs et la police de Los Santos, hélicoptères à l'appui.",
-            "reward": "Pistolet WM 29 + finition 'Season's Greetings' (Pistol Mk II) + 25 000 $ et RP",
-            "period": "Fêtes de fin d'année (20h00 - 06h00)",
+            "description": "Hommage cinématographique à Die Hard (Piège de cristal). Un braquage armé sur le toit du gratte-ciel Weazel Plaza déclenche une intense fusillade entre une bande de braqueurs et la police de Los Santos, avec des hélicoptères impliqués.",
+            "reward": "Pistolet WM 29 + Finition 'Season's Greetings' (Pistol Mk II) + $25.000 et RP",
+            "period": "Fêtes de Noël (20:00 - 06:00)",
             "badgeIcon": "fa-gun",
             "badgeColor": "#f59e0b",
             "position": {
@@ -114,21 +114,21 @@
               "z": 80
             },
             "details": [
-              "Emplacement fixe : toit du gratte-ciel Weazel Plaza (Rockford Hills).",
-              "Horaire d'activation : entre 20h00 et 06h00 (heure du jeu).",
-              "Conditions de session : être resté au moins 20 minutes en session libre.",
-              "Rayon d'activation : s'approcher à moins de 400 mètres du bâtiment durant la tranche nocturne.",
+              "Lieu fixe : toit du gratte-ciel Weazel Plaza (Rockford Hills).",
+              "Horaire d'activation : entre 20:00 et 06:00 (heure du jeu).",
+              "Conditions de session : avoir passé au moins 20 minutes dans la session libre.",
+              "Rayon d'activation : s'approcher à moins de 400 mètres du bâtiment durant la tranche horaire nocturne.",
               "Mécanique : monter sur le toit, éliminer les braqueurs armés et sécuriser le butin pour obtenir le pistolet exclusif WM 29."
             ]
           },
           {
             "id": "yeti-hunt",
-            "title": "La Chasse au Yéti",
+            "title": "La chasse au Yéti",
             "category": "navidad",
             "subcategory": "navidad-items",
-            "description": "Une enquête troublante dans les forêts denses de la Chiliad Mountain State Wilderness. Examinez les 5 indices laissés par une féroce créature mythologique avant d'affronter le mythique Yéti sous le manteau de la nuit.",
-            "reward": "Tenue officielle du Yéti + 50 000 $ de bonus final (10 000 $ par indice)",
-            "period": "Fêtes de fin d'année (21h00 - 06h00)",
+            "description": "Une enquête troublante dans les épaisses forêts de Chiliad Mountain State Wilderness. Examinez les 5 indices laissés par une féroce créature mythologique avant d'affronter le mythique Yéti sous le manteau de la nuit.",
+            "reward": "Tenue officielle du Yéti + $50.000 de bonus final ($10.000 par indice)",
+            "period": "Fêtes de Noël (21:00 - 06:00)",
             "badgeIcon": "fa-paw",
             "badgeColor": "#06b6d4",
             "position": {
@@ -138,26 +138,26 @@
             },
             "details": [
               "Zone d'enquête : Chiliad Mountain State Wilderness (Raton Canyon / Cassidy Creek).",
-              "Phase 1 (Indices) : localiser et examiner 5 indices ensanglantés disséminés dans les fourrés (10 000 $ et 1 000 RP chacun).",
+              "Phase 1 (Indices) : localiser et examiner 5 indices ensanglantés répartis dans les fourrés ($10.000 et 1.000 RP chacun).",
               "Effet sonore : à l'approche d'un indice, on entend un battement de cœur déformé.",
-              "Phase 2 (Traque nocturne) : après avoir réuni les 5 indices, pénétrer dans la zone entre 21h00 et 06h00 (heure du jeu).",
+              "Phase 2 (Traque nocturne) : après avoir réuni les 5 indices, pénétrer dans la zone entre 21:00 et 06:00 (heure du jeu).",
               "Mécanique finale : survivre à la féroce embuscade du Yéti et l'abattre pour débloquer la tenue intégrale."
             ]
           },
           {
             "id": "snowmen-hunt",
-            "title": "Chasse aux bonhommes de neige",
+            "title": "Chasse aux bonshommes de neige",
             "category": "navidad",
             "subcategory": "navidad-items",
-            "description": "25 bonhommes de neige festifs répartis aux quatre coins de la carte enneigée prêts à être détruits.",
-            "reward": "Tenue de bonhomme de neige + 125 000 $ en détruisant les 25",
-            "period": "Fêtes de fin d'année",
+            "description": "25 bonshommes de neige festifs répartis aux quatre coins de la carte enneigée, prêts à être détruits.",
+            "reward": "Tenue de bonhomme de neige (Le Bonhomme de neige) + $125.000 en terminant les 25",
+            "period": "Fêtes de Noël",
             "badgeIcon": "fa-snowflake",
             "badgeColor": "#38bdf8",
             "details": [
-              "Chaque bonhomme de neige détruit rapporte 5 000 $ et 1 000 RP.",
-              "Détruire les 25 bonhommes octroie un bonus final de 125 000 $.",
-              "Ils émettent un tintement de clochettes caractéristique à leur approche."
+              "Chaque bonhomme de neige détruit rapporte $5.000 et 1.000 RP.",
+              "Détruire les 25 bonshommes de neige donne un bonus final de $125.000.",
+              "Ils émettent un doux tintement de clochettes à l'approche de leur emplacement."
             ]
           }
         ]

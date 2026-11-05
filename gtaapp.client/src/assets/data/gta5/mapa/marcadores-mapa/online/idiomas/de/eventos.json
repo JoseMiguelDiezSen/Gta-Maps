@@ -3,104 +3,63 @@
     "id": "halloween",
     "title": "Halloween-Events",
     "icon": "fa-ghost",
-    "color": "#f39c12",
+    "color": "#ef4444",
     "badge": "Oktober",
-    "description": "Paranormale Phänomene und unheimliche Begegnungen, die Los Santos und Blaine County während der Halloween-Saison heimsuchen.",
+    "description": "Paranormale Ereignisse und unheimliche Erscheinungen, die Los Santos und Blaine County während der Halloween-Saison heimsuchen.",
     "subcategories": [
       {
-        "id": "asesinos",
-        "title": "Schlitzer",
-        "icon": "fa-mask",
-        "color": "#e74c3c",
-        "description": "Psychopathen und Serienmörder, die in den dunkelsten Nächten von San Andreas im Schatten lauern.",
+        "id": "halloween-items",
+        "title": "Halloween-Events",
+        "icon": "fa-ghost",
+        "color": "#ef4444",
+        "description": "Paranormale Ereignisse und unheimliche Erscheinungen, die Los Santos und Blaine County während der Halloween-Saison heimsuchen.",
         "items": [
           {
             "id": "slasher-clown",
-            "title": "Der Killer-Clown",
+            "title": "Halloween-Killer",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Ein Wahnsinniger mit düsterer Gesichtsbemalung und teuflischem Grinsen, bewaffnet mit einem Dolch. Er lauert in dunklen Gassen und greift an, wenn der Spieler zwischen 21:00 und 05:00 Uhr allein zu Fuß unterwegs ist.",
-            "reward": "Clown-Gedenk-T-Shirt und 50.000 $",
-            "period": "Halloween-Saison (21:00 - 05:00 Uhr)",
+            "subcategory": "halloween-items",
+            "description": "Ein Wahnsinniger mit düsterer Gesichtsbemalung und makabrem Lächeln, bewaffnet mit einem Dolch. Er lauert in dunklen Gassen und greift an, wenn der Spieler zwischen 21:00 und 05:00 allein zu Fuß unterwegs ist.",
+            "reward": "Gedenk-T-Shirt mit Clown und $50.000",
+            "period": "Halloween-Saison (21:00 - 05:00)",
             "badgeIcon": "fa-mask",
             "badgeColor": "#e74c3c",
             "details": [
-              "Erfordert mindestens 16 Minuten Aufenthalt im freien Modus.",
-              "Erscheint nur, wenn der Spieler nicht in bewaffneten oder fliegenden Fahrzeugen sitzt.",
-              "Eine unheimliche Melodie ertönt, sobald die Pirsch beginnt."
+              "Erfordert mindestens 16 Minuten in der freien Sitzung.",
+              "Erscheint ausschließlich, wenn der Spieler sich nicht in bewaffneten oder fliegenden Fahrzeugen befindet.",
+              "Eine unheimliche Melodie ertönt, wenn das Anschleichen beginnt."
+            ]
+          },
+          {
+            "id": "ghost-gordo",
+            "title": "Enthüllte Geister",
+            "category": "halloween",
+            "subcategory": "halloween-items",
+            "description": "Der legendäre Geist vom Mount Gordo, nur sechzig reale Sekunden lang zwischen 23:00 und 00:00 auf der steilen Klippe über dem Leuchtturm von El Gordo sichtbar.",
+            "reward": "Abgeschlossenes Paranormal-Foto und $20.000",
+            "period": "Halloween-Nächte (23:00 - 00:00)",
+            "badgeIcon": "fa-ghost",
+            "badgeColor": "#9b59b6",
+            "details": [
+              "Nähert sich der Spieler auf weniger als 5 Meter, verschwindet der Geist sofort.",
+              "Auf dem Felsen steht mit Blut das Wort 'JOCK' geschrieben.",
+              "Er muss fotografiert werden, um den Fortschritt im paranormalen Tagebuch festzuhalten."
             ]
           },
           {
             "id": "slasher-driver",
-            "title": "Das Geisterfahrzeug",
+            "title": "Das Geisterauto",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Ein klassischer schwarzer Sportwagen, der in gespenstische Flammen gehüllt ist und von einer dämonischen Gestalt gesteuert wird. Er jagt unerbittlich mit Vollgas, um sein Ziel zu überfahren.",
-            "reward": "Flammende Kürbismaske und 2.000 RP",
-            "period": "Halloween-Saison (22:00 - 05:00 Uhr)",
+            "subcategory": "halloween-items",
+            "description": "Ein schwarzer klassischer Sportwagen, umhüllt von Geisterflammen und gelenkt von einer dämonischen Silhouette. Er verfolgt sein Ziel unerbittlich mit voller Geschwindigkeit und will es überfahren.",
+            "reward": "Maske des flammenden Kürbisses und 2.000 RP",
+            "period": "Halloween-Saison (22:00 - 05:00)",
             "badgeIcon": "fa-fire",
             "badgeColor": "#e67e22",
             "details": [
-              "Das Fahrzeug ist gegen herkömmliche Kollisionen immun, bis der Fahrer ausgeschaltet wird.",
-              "Die Flammen des Fahrzeugs erlöschen selbst bei Regen nicht.",
-              "Bei Zerstörung wird eine sofortige Bargeldbelohnung gewährt."
-            ]
-          },
-          {
-            "id": "slasher-psycho",
-            "title": "Der Schlächter von Paleto",
-            "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Ein hünenhafter Mörder mit blutverschmierter Schürze und OP-Maske, bewaffnet mit einer rostigen Kettensäge. Er lauert in den dichten Wäldern des Nordens.",
-            "reward": "Blutige Schlitzer-Maske und 50.000 $",
-            "period": "Halloween-Saison (21:00 - 05:00 Uhr)",
-            "badgeIcon": "fa-skull",
-            "badgeColor": "#c0392b",
-            "details": [
-              "Verfügt über deutlich mehr Gesundheit als ein gewöhnlicher NPC.",
-              "Immun gegen Niederschlagen durch reguläre Projektile.",
-              "Hinterlässt nach dem Besiegen schwere Munition und ein Erste-Hilfe-Set."
-            ]
-          }
-        ]
-      },
-      {
-        "id": "fantasmas",
-        "title": "Geister",
-        "icon": "fa-spaghetti-monster-flying",
-        "color": "#9b59b6",
-        "description": "Paranormale Erscheinungen und ätherische Manifestationen, dokumentiert von der Parapsychologischen Gesellschaft von San Andreas.",
-        "items": [
-          {
-            "id": "ghost-gordo",
-            "title": "Das Gespenst von Mount Gordo",
-            "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "Der legendäre Geist von Jolene Cranley-Evans, der exakt sechzig reale Sekunden lang zwischen 23:00 und 00:00 Uhr auf der Klippe über dem Leuchtturm von El Gordo sichtbar ist.",
-            "reward": "Fortschritt bei paranormaler Foto-Herausforderung und 20.000 $",
-            "period": "Halloween-Nächte (23:00 - 00:00 Uhr)",
-            "badgeIcon": "fa-ghost",
-            "badgeColor": "#9b59b6",
-            "details": [
-              "Nähert sich der Spieler auf weniger als 5 Meter, löst sich das Gespenst sofort auf.",
-              "Auf dem Felsen steht das Wort 'JOCK' mit Blut geschrieben.",
-              "Muss fotografiert werden, um den Fortschritt im paranormalen Tagebuch zu speichern."
-            ]
-          },
-          {
-            "id": "ghost-johnson",
-            "title": "Das Phantom von Leonora Johnson",
-            "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "Die tragische Vinewood-Schauspielerin, die 1975 ermordet wurde, schwebt im Dämmerlicht nahe dem Mausoleum von Pacific Bluffs und klagt über das ungelöste Verbrechen.",
-            "reward": "Sammlerbonus und 20.000 $",
-            "period": "Halloween-Nächte (00:00 - 02:00 Uhr)",
-            "badgeIcon": "fa-camera",
-            "badgeColor": "#8e44ad",
-            "details": [
-              "Erscheint schwebend über einem namenlosen Grabstein.",
-              "Erfordert die Snapmatic-Kamera zur Erfassung des spektralen Beweises.",
-              "Das Fotografieren aller 10 Geister schaltet das Design Ghosts Exposed für den Albany Brigham frei."
+              "Das Auto ist immun gegen herkömmliche Kollisionen, bis der Fahrer ausgeschaltet ist.",
+              "Das Feuer des Fahrzeugs erlischt auch im Regen nicht.",
+              "Wird es zerstört, erhält man sofort eine Geldbelohnung."
             ]
           }
         ]
@@ -111,56 +70,94 @@
     "id": "navidad",
     "title": "Weihnachts-Events",
     "icon": "fa-sleigh",
-    "color": "#27ae60",
+    "color": "#ffffff",
     "badge": "Dezember",
-    "description": "Winterliche Festtage mit Schneedecke, opportunistischen Räubern und Feiertagsgeschenken in Los Santos.",
+    "description": "Festliche Winterfeiern mit Schneedecken, opportunistischen Räubern und Festtagsgeschenken in Los Santos.",
     "subcategories": [
       {
-        "id": "gooch",
-        "title": "Der Gooch",
-        "icon": "fa-hat-cowboy",
-        "color": "#2ecc71",
-        "description": "Eine finstere, pelzige grüne Kreatur im Weihnachtsmann-Kostüm, die ahnungslose Bewohner im freien Spiel überfällt.",
+        "id": "navidad-items",
+        "title": "Weihnachts-Events",
+        "icon": "fa-sleigh",
+        "color": "#38bdf8",
+        "description": "Festliche Winterfeiern mit Schneedecken, opportunistischen Räubern und Festtagsgeschenken in Los Santos.",
         "items": [
           {
-            "id": "gooch-ambush",
-            "title": "Auftauchen des Gooch",
+            "id": "gooch",
+            "title": "The Gooch",
             "category": "navidad",
-            "subcategory": "gooch",
-            "description": "Erscheint aus einer dichten grünen Rauchwolke mit schrillem Lachen. Stößt den Spieler zu Boden, stiehlt Bargeld und Snacks und flieht blitzschnell zu Fuß.",
-            "reward": "Offizielle Gooch-Maske, Beuterückgewinnung + 25.000 $",
-            "period": "Weihnachtsfeiertage",
-            "badgeIcon": "fa-sack-dollar",
-            "badgeColor": "#27ae60",
+            "subcategory": "navidad-items",
+            "description": "Rockstars ganz eigener Grinch. Eine verkleidete Figur, die überraschend in grünem Rauch auftaucht, den Spieler niederschlägt und ihm Geld und Vorräte aus dem Inventar stiehlt.",
+            "reward": "Vollständiges Kostüm und Maske von The Gooch + Zurückholen des Gestohlenen und zusätzliches Geld",
+            "period": "Weihnachtszeit (zufälliges Auftauchen)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#22c55e",
             "details": [
-              "Erfordert mindestens 2 Spieler in der Sitzung und Bargeld in der Tasche.",
-              "Muss sofort verfolgt und ausgeschaltet werden, bevor er verschwindet.",
-              "Beim ersten Sieg wird das komplette Gooch-Weihnachtsoutfit freigeschaltet."
+              "Auftauchen: zufällig in der freien Welt (ohne feste Koordinaten oder bestimmte Uhrzeit).",
+              "Sitzungsvoraussetzungen: in einer Sitzung mit mindestens 2 Spielern sein, die mindestens 48 Minuten alt ist.",
+              "Bedingung für den Spieler: sich im Freien zu Fuß befinden und Bargeld oder Snacks bei sich tragen.",
+              "Ablauf: ihn verfolgen und sofort ausschalten, bevor er entkommt, um das Gestohlene zurückzuholen und die Belohnung freizuschalten."
             ]
-          }
-        ]
-      },
-      {
-        "id": "snowmen",
-        "title": "Schneemänner",
-        "icon": "fa-snowflake",
-        "color": "#3498db",
-        "description": "25 festliche Schneemänner, die überall auf der verschneiten Karte verteilt sind und zerstört werden müssen.",
-        "items": [
+          },
+          {
+            "id": "weazel-plaza",
+            "title": "Schießerei an der Weazel Plaza",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Filmische Hommage an Stirb langsam. Ein bewaffneter Überfall auf dem Dach des Wolkenkratzers Weazel Plaza löst eine heftige Schießerei zwischen einer Räuberbande und der Polizei von Los Santos unter Beteiligung von Hubschraubern aus.",
+            "reward": "Pistole WM 29 + Lackierung 'Season's Greetings' (Pistol Mk II) + $25.000 und RP",
+            "period": "Weihnachtszeit (20:00 - 06:00)",
+            "badgeIcon": "fa-gun",
+            "badgeColor": "#f59e0b",
+            "position": {
+              "x": -915.7,
+              "y": -442.7,
+              "z": 80
+            },
+            "details": [
+              "Fester Ort: Dach des Wolkenkratzers Weazel Plaza (Rockford Hills).",
+              "Aktivierungszeit: zwischen 20:00 und 06:00 (Spielzeit).",
+              "Sitzungsvoraussetzungen: mindestens 20 Minuten in der freien Sitzung verbracht haben.",
+              "Aktivierungsradius: sich während der Nachtzeit auf weniger als 400 Meter dem Gebäude nähern.",
+              "Ablauf: aufs Dach steigen, die bewaffneten Räuber ausschalten und die Beute sichern, um die exklusive Pistole WM 29 zu erhalten."
+            ]
+          },
+          {
+            "id": "yeti-hunt",
+            "title": "Die Yeti-Jagd",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Eine beunruhigende Untersuchung in den dichten Wäldern der Chiliad Mountain State Wilderness. Untersuche die 5 Spuren, die eine wilde mythologische Kreatur hinterlassen hat, bevor du dich unter dem Mantel der Nacht dem legendären Yeti von Angesicht zu Angesicht stellst.",
+            "reward": "Offizielles Yeti-Outfit + $50.000 Abschlussbonus ($10.000 pro Spur)",
+            "period": "Weihnachtszeit (21:00 - 06:00)",
+            "badgeIcon": "fa-paw",
+            "badgeColor": "#06b6d4",
+            "position": {
+              "x": -1560,
+              "y": 4480,
+              "z": 20
+            },
+            "details": [
+              "Untersuchungsgebiet: Chiliad Mountain State Wilderness (Raton Canyon / Cassidy Creek).",
+              "Phase 1 (Spuren): 5 blutige Spuren im Dickicht finden und untersuchen ($10.000 und 1.000 RP für jede).",
+              "Soundeffekt: Nähert man sich einer Spur, ertönt ein verzerrter Herzschlag.",
+              "Phase 2 (Nächtliches Anschleichen): Nach dem Sammeln der 5 Spuren das Gebiet zwischen 21:00 und 06:00 (Spielzeit) betreten.",
+              "Finale: den wilden Hinterhalt des Yeti überleben und ihn erledigen, um das Ganzkörper-Outfit freizuschalten."
+            ]
+          },
           {
             "id": "snowmen-hunt",
             "title": "Schneemann-Jagd",
             "category": "navidad",
-            "subcategory": "snowmen",
-            "description": "Handgefertigte Eisfiguren in Parks, auf Dächern, in Gärten und auf Veranden von San Andreas. Können durch Überfahren, Schusswaffen oder Sprengstoff zerstört werden.",
-            "reward": "Schneemann-Outfit + 125.000 $ nach Zerstörung aller 25",
-            "period": "Weihnachtsfeiertage",
+            "subcategory": "navidad-items",
+            "description": "25 festliche Schneemänner, verteilt über die gesamte verschneite Karte und bereit, zerstört zu werden.",
+            "reward": "Schneemann-Outfit (Der Schneemann) + $125.000 nach Abschluss aller 25",
+            "period": "Weihnachtszeit",
             "badgeIcon": "fa-snowflake",
-            "badgeColor": "#2980b9",
+            "badgeColor": "#38bdf8",
             "details": [
-              "Jeder zerstörte Schneemann bringt 5.000 $ und 1.000 RP.",
-              "Das Zerstören aller 25 Schneemänner gewährt einen finalen Bonus von 125.000 $.",
-              "Geben ein feines Glockenläuten von sich, wenn man sich ihrer Position nähert."
+              "Jeder zerstörte Schneemann bringt $5.000 und 1.000 RP.",
+              "Werden alle 25 Schneemänner zerstört, gibt es einen Abschlussbonus von $125.000.",
+              "Sie geben ein leises Glöckchen-Geräusch von sich, wenn man sich ihrem Standort nähert."
             ]
           }
         ]

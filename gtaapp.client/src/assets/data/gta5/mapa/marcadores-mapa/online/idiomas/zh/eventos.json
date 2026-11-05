@@ -1,106 +1,65 @@
 [
   {
     "id": "halloween",
-    "title": "Eventos de Halloween",
+    "title": "万圣节活动",
     "icon": "fa-ghost",
-    "color": "#f39c12",
-    "badge": "Octubre",
-    "description": "Eventos paranormales y apariciones siniestras que asolan Los Santos y Blaine County durante la temporada de Halloween.",
+    "color": "#ef4444",
+    "badge": "10月",
+    "description": "万圣节期间，肆虐 Los Santos 和 Blaine County 的灵异事件与阴森现身。",
     "subcategories": [
       {
-        "id": "asesinos",
-        "title": "Asesinos",
-        "icon": "fa-mask",
-        "color": "#e74c3c",
-        "description": "Psicópatas y asesinos en serie que acechan en las sombras durante las noches más oscuras de San Andreas.",
+        "id": "halloween-items",
+        "title": "万圣节活动",
+        "icon": "fa-ghost",
+        "color": "#ef4444",
+        "description": "万圣节期间，肆虐 Los Santos 和 Blaine County 的灵异事件与阴森现身。",
         "items": [
           {
             "id": "slasher-clown",
-            "title": "El Payaso Asesino",
+            "title": "万圣节杀手",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un maníaco con tétrica pintura facial y sonrisa macabra armado con un puñal. Acecha en callejones oscuros y ataca cuando el jugador se encuentra a solas a pie entre las 21:00 y las 05:00.",
-            "reward": "Camiseta conmemorativa de payaso y $50,000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
+            "subcategory": "halloween-items",
+            "description": "一个脸上画着阴森油彩、挂着诡异笑容、手持匕首的疯子。他潜伏在黑暗的小巷中，当玩家在 21:00 至 05:00 之间独自步行时发动袭击。",
+            "reward": "纪念版小丑 T 恤和 $50,000",
+            "period": "万圣节期间（21:00 - 05:00）",
             "badgeIcon": "fa-mask",
             "badgeColor": "#e74c3c",
             "details": [
-              "Requiere estar al menos 16 minutos en la sesión libre.",
-              "Aparece exclusivamente si el jugador no va a bordo de vehículos armados o aéreos.",
-              "Se reproduce una melodía siniestra cuando inicia el acecho."
+              "需要在自由模式战局中至少待满 16 分钟。",
+              "仅当玩家未乘坐武装载具或飞行载具时才会出现。",
+              "开始潜行追击时会响起阴森的旋律。"
+            ]
+          },
+          {
+            "id": "ghost-gordo",
+            "title": "幽灵现形",
+            "category": "halloween",
+            "subcategory": "halloween-items",
+            "description": "Gordo 山的传说幽灵，仅在 23:00 至 00:00 之间出现六十现实秒，位于俯瞰 El Gordo 灯塔的陡峭悬崖上。",
+            "reward": "完成灵异拍照挑战和 $20,000",
+            "period": "万圣节之夜（23:00 - 00:00）",
+            "badgeIcon": "fa-ghost",
+            "badgeColor": "#9b59b6",
+            "details": [
+              "如果玩家靠近至 5 米以内，幽灵会立即消失。",
+              "岩石上用鲜血写着「JOCK」一词。",
+              "必须拍下照片，才能在灵异日志中记录进度。"
             ]
           },
           {
             "id": "slasher-driver",
-            "title": "El Conductor Fantasma",
+            "title": "幽灵汽车",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un deportivo clásico de color negro envuelto en llamas espectrales conducido por una silueta demoníaca. Persigue implacablemente a toda velocidad con el objetivo de atropellar al objetivo.",
-            "reward": "Máscara de Calabaza Llameante y 2,000 RP",
-            "period": "Temporada de Halloween (22:00 - 05:00)",
+            "subcategory": "halloween-items",
+            "description": "一辆被幽灵火焰包裹的黑色经典跑车，由一个恶魔般的身影驾驶。它全速不懈地追赶，目标是撞倒玩家。",
+            "reward": "烈焰南瓜面具和 2,000 RP",
+            "period": "万圣节期间（22:00 - 05:00）",
             "badgeIcon": "fa-fire",
             "badgeColor": "#e67e22",
             "details": [
-              "El coche es inmune a colisiones convencionales hasta abatir al conductor.",
-              "El fuego del vehículo no se extingue bajo la lluvia.",
-              "Al destruirlo se obtiene una recompensa monetaria inmediata."
-            ]
-          },
-          {
-            "id": "slasher-psycho",
-            "title": "El Carnicero de Paleto",
-            "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un descomunal asesino ataviado con delantal ensangrentado y máscara quirúrgica portando una motosierra oxidada. Se oculta entre la densa vegetación boscosa del norte.",
-            "reward": "Máscara Slasher ensangrentada y $50,000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
-            "badgeIcon": "fa-skull",
-            "badgeColor": "#c0392b",
-            "details": [
-              "Posee una barra de salud muy superior a la de un PNJ estándar.",
-              "Inmune al derribo por impacto de proyectiles comunes.",
-              "Al ser derrotado arroja munición pesada y botiquín completo."
-            ]
-          }
-        ]
-      },
-      {
-        "id": "fantasmas",
-        "title": "Fantasmas",
-        "icon": "fa-spaghetti-monster-flying",
-        "color": "#9b59b6",
-        "description": "Fenómenos paranormales y manifestaciones etéreas documentadas por la sociedad investigadora de San Andreas.",
-        "items": [
-          {
-            "id": "ghost-gordo",
-            "title": "Fantasma del Monte Gordo",
-            "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "El legendario espectro de Celene Mountain, visible únicamente durante sesenta segundos reales entre las 23:00 y las 00:00 en el risco escarpado que domina el faro de El Gordo.",
-            "reward": "Fotografía paranormal completada y $20,000",
-            "period": "Noches de Halloween (23:00 - 00:00)",
-            "badgeIcon": "fa-ghost",
-            "badgeColor": "#9b59b6",
-            "details": [
-              "Si el jugador se aproxima a menos de 5 metros, el espectro se desvanece de inmediato.",
-              "En la roca aparece escrita con sangre la palabra 'JOCK'.",
-              "Debe fotografiarla para registrar el progreso en el diario paranormal."
-            ]
-          },
-          {
-            "id": "ghost-johnson",
-            "title": "El Espectro de Leonora Johnson",
-            "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "La trágica actriz del viejo Vinewood asesinada en 1975 se materializa flotando en penumbra cerca del mausoleo de Pacific Bluffs, susurrando lamentos del crimen sin resolver.",
-            "reward": "Bonificación de coleccionista y $20,000",
-            "period": "Noches de Halloween (00:00 - 02:00)",
-            "badgeIcon": "fa-camera",
-            "badgeColor": "#8e44ad",
-            "details": [
-              "Aparece levitando sobre una lápida sin nombre.",
-              "Requiere cámara Snapmatic para capturar la evidencia espectral.",
-              "Fotografiar los 10 fantasmas desbloquea la librea temática Ghosts Exposed para el Albany Brigham."
+              "在击倒驾驶员之前，这辆车不受常规碰撞影响。",
+              "车辆的火焰在雨中也不会熄灭。",
+              "摧毁它后会立即获得现金奖励。"
             ]
           }
         ]
@@ -109,58 +68,96 @@
   },
   {
     "id": "navidad",
-    "title": "Eventos de Navidad",
+    "title": "圣诞活动",
     "icon": "fa-sleigh",
-    "color": "#27ae60",
-    "badge": "Diciembre",
-    "description": "Celebraciones festivas de invierno con mantos de nieve, asaltantes oportunistas y regalos festivos en Los Santos.",
+    "color": "#ffffff",
+    "badge": "12月",
+    "description": "冬季节日庆典，银装素裹，趁火打劫的劫匪出没，Los Santos 到处是节日礼物。",
     "subcategories": [
       {
-        "id": "gooch",
-        "title": "El Grinch (The Gooch)",
-        "icon": "fa-hat-cowboy",
-        "color": "#2ecc71",
-        "description": "Una siniestra criatura peluda de color verde vestida de Papá Noel que embosca sin piedad a los residentes desprevenidos.",
+        "id": "navidad-items",
+        "title": "圣诞活动",
+        "icon": "fa-sleigh",
+        "color": "#38bdf8",
+        "description": "冬季节日庆典，银装素裹，趁火打劫的劫匪出没，Los Santos 到处是节日礼物。",
         "items": [
           {
-            "id": "gooch-ambush",
-            "title": "Aparición de The Gooch",
+            "id": "gooch",
+            "title": "The Gooch",
             "category": "navidad",
-            "subcategory": "gooch",
-            "description": "Aparece entre una densa nube de humo verde con una risa estridente. Derriba al jugador de espaldas, le arrebata dinero en efectivo y aperitivos del inventario, y huye a pie velozmente.",
-            "reward": "Máscara oficial de The Gooch y recuperación del botín + $25,000",
-            "period": "Festividades Navideñas",
-            "badgeIcon": "fa-sack-dollar",
-            "badgeColor": "#27ae60",
+            "subcategory": "navidad-items",
+            "description": "Rockstar Games 版的格林奇。一个乔装打扮的角色，裹着绿色烟雾突然出现，将玩家撞倒，并偷走其物品栏中的金钱和补给。",
+            "reward": "The Gooch 完整套装与面具 + 追回被盗物品和额外奖金",
+            "period": "节日期间（随机出现）",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#22c55e",
             "details": [
-              "Requiere al menos 2 jugadores en la sesión y llevar dinero encima.",
-              "Hay que perseguirlo de inmediato antes de que desaparezca para abatirle.",
-              "La primera vez que lo abates desbloquea la indumentaria completa de The Gooch."
+              "出现：在自由模式中随机出现（没有固定坐标，也没有具体的出现时间）。",
+              "战局要求：处于至少有 2 名玩家且已持续至少 48 分钟的战局中。",
+              "玩家条件：在室外步行，且身上带有现金或零食。",
+              "机制：在他逃脱之前立即追击并消灭他，以追回被盗物品并解锁奖励。"
             ]
-          }
-        ]
-      },
-      {
-        "id": "snowmen",
-        "title": "Muñecos de Nieve",
-        "icon": "fa-snowflake",
-        "color": "#3498db",
-        "description": "25 muñecos de nieve festivos distribuidos a lo largo y ancho del mapa nevado listos para ser destruidos.",
-        "items": [
+          },
+          {
+            "id": "weazel-plaza",
+            "title": "Weazel Plaza 枪战",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "向《虎胆龙威》致敬的电影式场景。Weazel Plaza 摩天大楼楼顶发生武装抢劫，一伙劫匪与 Los Santos 警方展开激烈枪战，并有直升机参与。",
+            "reward": "WM 29 手枪 + 'Season's Greetings' 涂装（Pistol Mk II）+ $25,000 和 RP",
+            "period": "节日期间（20:00 - 06:00）",
+            "badgeIcon": "fa-gun",
+            "badgeColor": "#f59e0b",
+            "position": {
+              "x": -915.7,
+              "y": -442.7,
+              "z": 80
+            },
+            "details": [
+              "固定地点：Weazel Plaza 摩天大楼楼顶（Rockford Hills）。",
+              "触发时间：20:00 至 06:00 之间（游戏内时间）。",
+              "战局要求：已在自由模式战局中待满至少 20 分钟。",
+              "触发范围：夜间时段接近该建筑 400 米以内。",
+              "机制：登上楼顶，消灭持枪劫匪并夺取战利品，以获得专属 WM 29 手枪。"
+            ]
+          },
+          {
+            "id": "yeti-hunt",
+            "title": "雪怪猎杀",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "在 Chiliad Mountain State Wilderness 茂密森林中展开的令人不安的调查。检查一头凶猛神话生物留下的 5 条线索，然后在夜幕下与传说中的雪怪 Yeti 正面对决。",
+            "reward": "官方 Yeti 套装 + $50,000 最终奖金（每条线索 $10,000）",
+            "period": "节日期间（21:00 - 06:00）",
+            "badgeIcon": "fa-paw",
+            "badgeColor": "#06b6d4",
+            "position": {
+              "x": -1560,
+              "y": 4480,
+              "z": 20
+            },
+            "details": [
+              "调查区域：Chiliad Mountain State Wilderness（Raton Canyon / Cassidy Creek）。",
+              "第 1 阶段（线索）：找到并检查散布在密林中的 5 条血迹斑斑的线索（每条 $10,000 和 1,000 RP）。",
+              "音效提示：接近线索时会听到扭曲的心跳声。",
+              "第 2 阶段（夜间潜伏）：集齐 5 条线索后，在 21:00 至 06:00 之间（游戏内时间）进入该区域。",
+              "最终机制：在 Yeti 凶猛的伏击中活下来并击倒它，以解锁全身套装。"
+            ]
+          },
           {
             "id": "snowmen-hunt",
-            "title": "Cacería de Muñecos de Nieve",
+            "title": "雪人猎杀",
             "category": "navidad",
-            "subcategory": "snowmen",
-            "description": "Figuras heladas artesanales ubicadas en parques, azoteas, jardines y porches de San Andreas. Se pueden destruir atropellándolos, con armas de fuego o explosivos.",
-            "reward": "Atuendo de Muñeco de Nieve (El Muñeco de Nieve) + $125,000 al completar los 25",
-            "period": "Festividades Navideñas",
+            "subcategory": "navidad-items",
+            "description": "25 个节日雪人分布在白雪覆盖的整张地图上，等待被摧毁。",
+            "reward": "雪人套装（雪人）+ 摧毁全部 25 个后获得 $125,000",
+            "period": "节日期间",
             "badgeIcon": "fa-snowflake",
-            "badgeColor": "#2980b9",
+            "badgeColor": "#38bdf8",
             "details": [
-              "Cada muñeco destruido otorga $5,000 y 1,000 RP.",
-              "Al destruir los 25 muñecos se entrega un bono final de $125,000.",
-              "Emiten un suave sonido de campanillas al aproximarse a su ubicación."
+              "每摧毁一个雪人可获得 $5,000 和 1,000 RP。",
+              "摧毁全部 25 个雪人后，将获得 $125,000 的最终奖金。",
+              "接近其所在位置时，会发出轻柔的铃铛声。"
             ]
           }
         ]

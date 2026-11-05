@@ -1,106 +1,65 @@
 [
   {
     "id": "halloween",
-    "title": "Eventos de Halloween",
+    "title": "हैलोवीन इवेंट",
     "icon": "fa-ghost",
-    "color": "#f39c12",
-    "badge": "Octubre",
-    "description": "Eventos paranormales y apariciones siniestras que asolan Los Santos y Blaine County durante la temporada de Halloween.",
+    "color": "#ef4444",
+    "badge": "अक्टूबर",
+    "description": "हैलोवीन के मौसम में Los Santos और Blaine County को घेरने वाली अलौकिक घटनाएं और भयावह प्रकटीकरण।",
     "subcategories": [
       {
-        "id": "asesinos",
-        "title": "Asesinos",
-        "icon": "fa-mask",
-        "color": "#e74c3c",
-        "description": "Psicópatas y asesinos en serie que acechan en las sombras durante las noches más oscuras de San Andreas.",
+        "id": "halloween-items",
+        "title": "हैलोवीन इवेंट",
+        "icon": "fa-ghost",
+        "color": "#ef4444",
+        "description": "हैलोवीन के मौसम में Los Santos और Blaine County को घेरने वाली अलौकिक घटनाएं और भयावह प्रकटीकरण।",
         "items": [
           {
             "id": "slasher-clown",
-            "title": "El Payaso Asesino",
+            "title": "हैलोवीन के हत्यारे",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un maníaco con tétrica pintura facial y sonrisa macabra armado con un puñal. Acecha en callejones oscuros y ataca cuando el jugador se encuentra a solas a pie entre las 21:00 y las 05:00.",
-            "reward": "Camiseta conmemorativa de payaso y $50,000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
+            "subcategory": "halloween-items",
+            "description": "डरावने चेहरे के रंग और भयानक मुस्कान वाला, खंजर से लैस एक पागल। यह अंधेरी गलियों में घात लगाता है और 21:00 से 05:00 के बीच पैदल अकेले होने पर खिलाड़ी पर हमला करता है।",
+            "reward": "स्मारक जोकर टी-शर्ट और $50,000",
+            "period": "हैलोवीन का मौसम (21:00 - 05:00)",
             "badgeIcon": "fa-mask",
             "badgeColor": "#e74c3c",
             "details": [
-              "Requiere estar al menos 16 minutos en la sesión libre.",
-              "Aparece exclusivamente si el jugador no va a bordo de vehículos armados o aéreos.",
-              "Se reproduce una melodía siniestra cuando inicia el acecho."
+              "फ़्री मोड सेशन में कम से कम 16 मिनट रहना आवश्यक है।",
+              "केवल तब प्रकट होता है जब खिलाड़ी सशस्त्र या हवाई वाहनों में सवार न हो।",
+              "पीछा शुरू होने पर एक भयावह धुन बजती है।"
+            ]
+          },
+          {
+            "id": "ghost-gordo",
+            "title": "उजागर भूत",
+            "category": "halloween",
+            "subcategory": "halloween-items",
+            "description": "Gordo पर्वत का पौराणिक भूत, El Gordo लाइटहाउस को निहारती ऊबड़-खाबड़ चट्टान पर 23:00 से 00:00 के बीच केवल साठ वास्तविक सेकंड तक दिखाई देता है।",
+            "reward": "पूरी की गई अलौकिक फ़ोटोग्राफ़ी और $20,000",
+            "period": "हैलोवीन की रातें (23:00 - 00:00)",
+            "badgeIcon": "fa-ghost",
+            "badgeColor": "#9b59b6",
+            "details": [
+              "यदि खिलाड़ी 5 मीटर से कम दूरी तक पहुंचता है, तो भूत तुरंत गायब हो जाता है।",
+              "चट्टान पर ख़ून से लिखा शब्द 'JOCK' दिखाई देता है।",
+              "अलौकिक डायरी में प्रगति दर्ज करने के लिए इसकी फ़ोटो लेनी होगी।"
             ]
           },
           {
             "id": "slasher-driver",
-            "title": "El Conductor Fantasma",
+            "title": "भूतिया कार",
             "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un deportivo clásico de color negro envuelto en llamas espectrales conducido por una silueta demoníaca. Persigue implacablemente a toda velocidad con el objetivo de atropellar al objetivo.",
-            "reward": "Máscara de Calabaza Llameante y 2,000 RP",
-            "period": "Temporada de Halloween (22:00 - 05:00)",
+            "subcategory": "halloween-items",
+            "description": "दानवी आकृति द्वारा चलाई जा रही, भूतिया लपटों में लिपटी काली क्लासिक स्पोर्ट्स कार। यह निशाने को कुचलने के उद्देश्य से पूरी रफ़्तार से बेरहमी से पीछा करती है।",
+            "reward": "जलता कद्दू मास्क और 2,000 RP",
+            "period": "हैलोवीन का मौसम (22:00 - 05:00)",
             "badgeIcon": "fa-fire",
             "badgeColor": "#e67e22",
             "details": [
-              "El coche es inmune a colisiones convencionales hasta abatir al conductor.",
-              "El fuego del vehículo no se extingue bajo la lluvia.",
-              "Al destruirlo se obtiene una recompensa monetaria inmediata."
-            ]
-          },
-          {
-            "id": "slasher-psycho",
-            "title": "El Carnicero de Paleto",
-            "category": "halloween",
-            "subcategory": "asesinos",
-            "description": "Un descomunal asesino ataviado con delantal ensangrentado y máscara quirúrgica portando una motosierra oxidada. Se oculta entre la densa vegetación boscosa del norte.",
-            "reward": "Máscara Slasher ensangrentada y $50,000",
-            "period": "Temporada de Halloween (21:00 - 05:00)",
-            "badgeIcon": "fa-skull",
-            "badgeColor": "#c0392b",
-            "details": [
-              "Posee una barra de salud muy superior a la de un PNJ estándar.",
-              "Inmune al derribo por impacto de proyectiles comunes.",
-              "Al ser derrotado arroja munición pesada y botiquín completo."
-            ]
-          }
-        ]
-      },
-      {
-        "id": "fantasmas",
-        "title": "Fantasmas",
-        "icon": "fa-spaghetti-monster-flying",
-        "color": "#9b59b6",
-        "description": "Fenómenos paranormales y manifestaciones etéreas documentadas por la sociedad investigadora de San Andreas.",
-        "items": [
-          {
-            "id": "ghost-gordo",
-            "title": "Fantasma del Monte Gordo",
-            "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "El legendario espectro de Celene Mountain, visible únicamente durante sesenta segundos reales entre las 23:00 y las 00:00 en el risco escarpado que domina el faro de El Gordo.",
-            "reward": "Fotografía paranormal completada y $20,000",
-            "period": "Noches de Halloween (23:00 - 00:00)",
-            "badgeIcon": "fa-ghost",
-            "badgeColor": "#9b59b6",
-            "details": [
-              "Si el jugador se aproxima a menos de 5 metros, el espectro se desvanece de inmediato.",
-              "En la roca aparece escrita con sangre la palabra 'JOCK'.",
-              "Debe fotografiarla para registrar el progreso en el diario paranormal."
-            ]
-          },
-          {
-            "id": "ghost-johnson",
-            "title": "El Espectro de Leonora Johnson",
-            "category": "halloween",
-            "subcategory": "fantasmas",
-            "description": "La trágica actriz del viejo Vinewood asesinada en 1975 se materializa flotando en penumbra cerca del mausoleo de Pacific Bluffs, susurrando lamentos del crimen sin resolver.",
-            "reward": "Bonificación de coleccionista y $20,000",
-            "period": "Noches de Halloween (00:00 - 02:00)",
-            "badgeIcon": "fa-camera",
-            "badgeColor": "#8e44ad",
-            "details": [
-              "Aparece levitando sobre una lápida sin nombre.",
-              "Requiere cámara Snapmatic para capturar la evidencia espectral.",
-              "Fotografiar los 10 fantasmas desbloquea la librea temática Ghosts Exposed para el Albany Brigham."
+              "चालक को मार गिराने तक कार सामान्य टक्करों से अप्रभावित रहती है।",
+              "वाहन की आग बारिश में भी नहीं बुझती।",
+              "इसे नष्ट करने पर तुरंत नकद इनाम मिलता है।"
             ]
           }
         ]
@@ -109,58 +68,96 @@
   },
   {
     "id": "navidad",
-    "title": "Eventos de Navidad",
+    "title": "क्रिसमस इवेंट",
     "icon": "fa-sleigh",
-    "color": "#27ae60",
-    "badge": "Diciembre",
-    "description": "Celebraciones festivas de invierno con mantos de nieve, asaltantes oportunistas y regalos festivos en Los Santos.",
+    "color": "#ffffff",
+    "badge": "दिसंबर",
+    "description": "Los Santos में बर्फ़ की चादर, मौक़ापरस्त लुटेरों और त्योहारी उपहारों के साथ सर्दियों के उत्सव।",
     "subcategories": [
       {
-        "id": "gooch",
-        "title": "El Grinch (The Gooch)",
-        "icon": "fa-hat-cowboy",
-        "color": "#2ecc71",
-        "description": "Una siniestra criatura peluda de color verde vestida de Papá Noel que embosca sin piedad a los residentes desprevenidos.",
+        "id": "navidad-items",
+        "title": "क्रिसमस इवेंट",
+        "icon": "fa-sleigh",
+        "color": "#38bdf8",
+        "description": "Los Santos में बर्फ़ की चादर, मौक़ापरस्त लुटेरों और त्योहारी उपहारों के साथ सर्दियों के उत्सव।",
         "items": [
           {
-            "id": "gooch-ambush",
-            "title": "Aparición de The Gooch",
+            "id": "gooch",
+            "title": "The Gooch",
             "category": "navidad",
-            "subcategory": "gooch",
-            "description": "Aparece entre una densa nube de humo verde con una risa estridente. Derriba al jugador de espaldas, le arrebata dinero en efectivo y aperitivos del inventario, y huye a pie velozmente.",
-            "reward": "Máscara oficial de The Gooch y recuperación del botín + $25,000",
-            "period": "Festividades Navideñas",
-            "badgeIcon": "fa-sack-dollar",
-            "badgeColor": "#27ae60",
+            "subcategory": "navidad-items",
+            "description": "Rockstar Games का अपना Grinch। हरे धुएं में लिपटा एक भेषधारी पात्र जो अचानक प्रकट होता है, खिलाड़ी को गिरा देता है और उसकी इन्वेंटरी से पैसे और सामान चुरा लेता है।",
+            "reward": "The Gooch की पूरी पोशाक और मास्क + चुराया हुआ वापस और अतिरिक्त पैसे",
+            "period": "क्रिसमस का मौसम (यादृच्छिक प्रकटीकरण)",
+            "badgeIcon": "fa-mask",
+            "badgeColor": "#22c55e",
             "details": [
-              "Requiere al menos 2 jugadores en la sesión y llevar dinero encima.",
-              "Hay que perseguirlo de inmediato antes de que desaparezca para abatirle.",
-              "La primera vez que lo abates desbloquea la indumentaria completa de The Gooch."
+              "प्रकटीकरण: फ़्री मोड में यादृच्छिक (कोई निश्चित निर्देशांक या विशेष समय नहीं)।",
+              "सेशन की शर्तें: कम से कम 2 खिलाड़ियों वाला सेशन और कम से कम 48 मिनट पुराना होना।",
+              "खिलाड़ी की स्थिति: बाहर पैदल होना और पास में नकदी या स्नैक्स रखना।",
+              "तरीक़ा: चुराई चीज़ें वापस पाने और इनाम अनलॉक करने के लिए उसके भाग निकलने से पहले ही पीछा करके उसे तुरंत ख़त्म करें।"
             ]
-          }
-        ]
-      },
-      {
-        "id": "snowmen",
-        "title": "Muñecos de Nieve",
-        "icon": "fa-snowflake",
-        "color": "#3498db",
-        "description": "25 muñecos de nieve festivos distribuidos a lo largo y ancho del mapa nevado listos para ser destruidos.",
-        "items": [
+          },
+          {
+            "id": "weazel-plaza",
+            "title": "Weazel Plaza की गोलीबारी",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Die Hard को सिनेमाई श्रद्धांजलि। Weazel Plaza गगनचुंबी इमारत की छत पर सशस्त्र डकैती, लुटेरों के एक गिरोह और Los Santos पुलिस के बीच हेलीकॉप्टरों समेत भीषण गोलीबारी भड़का देती है।",
+            "reward": "WM 29 पिस्तौल + 'Season's Greetings' फ़िनिश (Pistol Mk II) + $25,000 और RP",
+            "period": "क्रिसमस का मौसम (20:00 - 06:00)",
+            "badgeIcon": "fa-gun",
+            "badgeColor": "#f59e0b",
+            "position": {
+              "x": -915.7,
+              "y": -442.7,
+              "z": 80
+            },
+            "details": [
+              "निश्चित स्थान: Weazel Plaza गगनचुंबी इमारत की छत (Rockford Hills)।",
+              "सक्रियण समय: गेम के समय अनुसार 20:00 से 06:00 के बीच।",
+              "सेशन की शर्तें: फ़्री मोड सेशन में कम से कम 20 मिनट रहना।",
+              "सक्रियण दायरा: रात के समय इमारत के 400 मीटर के भीतर पहुंचना।",
+              "तरीक़ा: छत पर चढ़ें, सशस्त्र लुटेरों को ख़त्म करें और विशेष WM 29 पिस्तौल पाने के लिए लूट सुरक्षित करें।"
+            ]
+          },
+          {
+            "id": "yeti-hunt",
+            "title": "येति का शिकार",
+            "category": "navidad",
+            "subcategory": "navidad-items",
+            "description": "Chiliad Mountain State Wilderness के घने जंगलों में एक विचलित करने वाली जांच। रात की चादर में पौराणिक येति का सामना करने से पहले एक खूंखार पौराणिक जीव द्वारा छोड़े गए 5 सुराग जांचें।",
+            "reward": "आधिकारिक येति पोशाक + $50,000 अंतिम बोनस (हर सुराग पर $10,000)",
+            "period": "क्रिसमस का मौसम (21:00 - 06:00)",
+            "badgeIcon": "fa-paw",
+            "badgeColor": "#06b6d4",
+            "position": {
+              "x": -1560,
+              "y": 4480,
+              "z": 20
+            },
+            "details": [
+              "जांच क्षेत्र: Chiliad Mountain State Wilderness (Raton Canyon / Cassidy Creek)।",
+              "चरण 1 (सुराग): घने जंगल में बिखरे 5 ख़ून से सने सुराग खोजें और जांचें (हर एक पर $10,000 और 1,000 RP)।",
+              "ध्वनि संकेत: किसी सुराग के पास पहुंचने पर विकृत दिल की धड़कन सुनाई देती है।",
+              "चरण 2 (रात का घात): 5 सुराग जुटाने के बाद गेम के समय अनुसार 21:00 से 06:00 के बीच क्षेत्र में प्रवेश करें।",
+              "अंतिम तरीक़ा: येति के खूंखार घात से बचें और पूरी पोशाक अनलॉक करने के लिए उसे मार गिराएं।"
+            ]
+          },
           {
             "id": "snowmen-hunt",
-            "title": "Cacería de Muñecos de Nieve",
+            "title": "स्नोमैन का शिकार",
             "category": "navidad",
-            "subcategory": "snowmen",
-            "description": "Figuras heladas artesanales ubicadas en parques, azoteas, jardines y porches de San Andreas. Se pueden destruir atropellándolos, con armas de fuego o explosivos.",
-            "reward": "Atuendo de Muñeco de Nieve (El Muñeco de Nieve) + $125,000 al completar los 25",
-            "period": "Festividades Navideñas",
+            "subcategory": "navidad-items",
+            "description": "बर्फ़ से ढके नक़्शे में हर जगह बिखरे 25 त्योहारी स्नोमैन, नष्ट होने को तैयार।",
+            "reward": "स्नोमैन पोशाक (द स्नोमैन) + सभी 25 पूरे करने पर $125,000",
+            "period": "क्रिसमस का मौसम",
             "badgeIcon": "fa-snowflake",
-            "badgeColor": "#2980b9",
+            "badgeColor": "#38bdf8",
             "details": [
-              "Cada muñeco destruido otorga $5,000 y 1,000 RP.",
-              "Al destruir los 25 muñecos se entrega un bono final de $125,000.",
-              "Emiten un suave sonido de campanillas al aproximarse a su ubicación."
+              "हर नष्ट किए गए स्नोमैन पर $5,000 और 1,000 RP मिलते हैं।",
+              "सभी 25 स्नोमैन नष्ट करने पर $125,000 का अंतिम बोनस मिलता है।",
+              "उनकी जगह के पास पहुंचने पर वे घंटियों की हल्की आवाज़ करते हैं।"
             ]
           }
         ]

@@ -1,14 +1,14 @@
 [
   {
     "id": "shipwreck-plane-1",
-    "name": "Airliner (NW)",
+    "name": "Yolcu Uçağı (Kuzeybatı)",
     "category": "shipwreck",
-    "categoryLabel": "Batık Gemi Sandığı",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Okyanusun derinliklerinde yatan batık enkazı. Çevresinde gizli para dolu çantalar bulunabilir.",
+    "description": "Kuzeybatı kıyısında uçak enkazı.",
     "features": [],
     "position": {
       "x": -1500,
@@ -23,14 +23,14 @@
   },
   {
     "id": "shipwreck-plane-2",
-    "name": "Cargo Plane (Alamo)",
+    "name": "Kargo Uçağı (Alamo Sea)",
     "category": "shipwreck",
-    "categoryLabel": "Batık Gemi Sandığı",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Okyanusun derinliklerinde yatan batık enkazı. Çevresinde gizli para dolu çantalar bulunabilir.",
+    "description": "Gölde batmış devasa uçak.",
     "features": [],
     "position": {
       "x": 600,
@@ -45,14 +45,15 @@
   },
   {
     "id": "shipwreck-plane-5",
-    "name": "Sunken Commercial Plane",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/AvionComercialHundido.jpg",
+    "name": "Batık Yolcu Uçağı",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Submerged wreckage of a commercial airliner lying on the seabed south of Los Santos.",
+    "description": "Los Santos'un güneyinde deniz yatağında batmış yolcu uçağının suya gömülü enkazı.",
     "features": [],
     "position": {
       "x": 1782.2,
@@ -63,20 +64,19 @@
       "icon": "plane",
       "color": "#f59e0b",
       "symbol": "✈️"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/AvionComercialHundido.jpg"
+    }
   },
   {
     "id": "shipwreck-plane-6",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Cola-Avion-Us.jpg",
-    "name": "US Plane Tail Wreck",
+    "name": "Amerikan Uçağı Kuyruğu",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
-    "zone": "Paleto Bay Coast",
-    "description": "Submerged tail section of a downed military aircraft off the coast of Paleto Bay.",
+    "zone": "Paleto Bay Kıyısı",
+    "description": "Paleto Bay kıyısı açıklarında düşürülen askeri uçağın batık kuyruk bölümü.",
     "features": [],
     "position": {
       "x": -1021.9,
@@ -92,14 +92,14 @@
   {
     "id": "shipwreck-plane-7",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Turbina-Gigante-Avion.jpg",
-    "name": "Giant Aircraft Engine",
+    "name": "Dev Uçak Türbini",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
-    "zone": "Paleto Bay Coast",
-    "description": "Massive jet engine turbine from a crashed aircraft resting on the seabed off Paleto Bay.",
+    "zone": "Paleto Bay Kıyısı",
+    "description": "Paleto Bay açıklarında deniz yatağında, düşen bir uçağın devasa türbini.",
     "features": [],
     "position": {
       "x": -989.6,
@@ -114,14 +114,14 @@
   },
   {
     "id": "shipwreck-ship-4",
-    "name": "Barge (Port 1)",
+    "name": "Mavna (Liman 1)",
     "category": "shipwreck",
-    "categoryLabel": "Batık Gemi Sandığı",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Okyanusun derinliklerinde yatan batık enkazı. Çevresinde gizli para dolu çantalar bulunabilir.",
+    "description": "Limanda batmış mavna.",
     "features": [],
     "position": {
       "x": 400,
@@ -136,14 +136,14 @@
   },
   {
     "id": "shipwreck-ship-5",
-    "name": "Boat (Port 2)",
+    "name": "Tekne (Liman 2)",
     "category": "shipwreck",
-    "categoryLabel": "Batık Gemi Sandığı",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Okyanusun derinliklerinde yatan batık enkazı. Çevresinde gizli para dolu çantalar bulunabilir.",
+    "description": "Limanın yakınında tekne enkazı.",
     "features": [],
     "position": {
       "x": -200,
@@ -158,14 +158,14 @@
   },
   {
     "id": "shipwreck-ship-6",
-    "name": "Wreck (SW)",
+    "name": "Gemi Enkazı (Güneybatı)",
     "category": "shipwreck",
-    "categoryLabel": "Batık Gemi Sandığı",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Okyanusun derinliklerinde yatan batık enkazı. Çevresinde gizli para dolu çantalar bulunabilir.",
+    "description": "Güneybatı kıyısında gemi enkazı.",
     "features": [],
     "position": {
       "x": -1800,
@@ -180,14 +180,15 @@
   },
   {
     "id": "shipwreck-ship-8",
-    "name": "Tugboat (Zancudo)",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/barco-naugrago-olifantus.jpg",
+    "name": "Olifantus Römorkörü",
     "category": "shipwreck",
-    "categoryLabel": "Batık Gemi Sandığı",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Okyanusun derinliklerinde yatan batık enkazı. Çevresinde gizli para dolu çantalar bulunabilir.",
+    "description": "Batık römorkör.",
     "features": [],
     "position": {
       "x": -3178.2,
@@ -198,19 +199,19 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/barco-naugrago-olifantus.jpg"
+    }
   },
   {
     "id": "shipwreck-ship-11",
-    "name": "Shipwreck (Old Boat Remains)",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RestosBarcoViejo.jpg",
+    "name": "Gemi Enkazı (Eski Gemi Kalıntıları)",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Barely noticeable remains of an old sunken wooden vessel, with only a few weathered timbers and framing dimly visible in the seabed.",
+    "description": "Deniz yatağına yarı gömülü, sadece birkaç kaburga ve tahtası seçilebilen, batmış eski bir ahşap geminin neredeyse fark edilmeyen kalıntıları.",
     "features": [],
     "position": {
       "x": 579.4,
@@ -221,19 +222,19 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RestosBarcoViejo.jpg"
+    }
   },
   {
     "id": "shipwreck-ship-12",
-    "name": "Sunken Old Boat and Iron Tank",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RestosTanqueYNaufragio.jpg",
+    "name": "Batık Eski Gemi ve Demir Tank",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Sunken old boat and iron tank remains on the seabed.",
+    "description": "Deniz yatağında batık eski gemi ve demir tank kalıntıları.",
     "features": [],
     "position": {
       "x": 1293.1,
@@ -244,19 +245,19 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RestosTanqueYNaufragio.jpg"
+    }
   },
   {
     "id": "shipwreck-ship-13",
-    "name": "Sunken Large Cargo Ship",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/GranCargueroHundido.jpg",
+    "name": "Batık Büyük Kargo Gemisi",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Large cargo ship submerged in deep seabed waters.",
+    "description": "Deniz yatağının derinliklerinde batmış büyük kargo gemisi.",
     "features": [],
     "position": {
       "x": 3138.3,
@@ -267,19 +268,19 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/GranCargueroHundido.jpg"
+    }
   },
   {
     "id": "shipwreck-ship-14",
-    "name": "Sunken Tugboat",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RemolcaddorHundido.jpg",
+    "name": "Batık Römorkör",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Sunken tugboat on the seabed.",
+    "description": "Deniz yatağında batmış römorkör.",
     "features": [],
     "position": {
       "x": 3876.1,
@@ -290,19 +291,19 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RemolcaddorHundido.jpg"
+    }
   },
   {
     "id": "shipwreck-ship-15",
-    "name": "Sunken Tank",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/TanqueMilitarHundido.jpg",
+    "name": "Batık Tank",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "San Andreas",
-    "description": "Sunken tank on the seabed.",
+    "description": "Deniz yatağında batmış tank.",
     "features": [],
     "position": {
       "x": 4173.1,
@@ -313,20 +314,19 @@
       "icon": "ship",
       "color": "#3b82f6",
       "symbol": "🚢"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/TanqueMilitarHundido.jpg"
+    }
   },
   {
     "id": "shipwreck-ship-16",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/RemolcaddorHundido.jpg",
-    "name": "Sunken Tugboat",
+    "name": "Batık Römorkör",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
-    "zone": "Mount Gordo Coast",
-    "description": "Remains of an old industrial tugboat sunken on the northeastern seabed of San Andreas.",
+    "zone": "Gordo Dağı Kıyısı",
+    "description": "San Andreas'ın kuzeydoğusunda deniz yatağında batmış eski bir endüstriyel römorkörün kalıntıları.",
     "features": [],
     "position": {
       "x": 3787,
@@ -342,14 +342,14 @@
   {
     "id": "shipwreck-ship-17",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Submarino-Nuclear-Hundido.jpg",
-    "name": "Sunken Nuclear Submarine",
+    "name": "Nükleer Denizaltı",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
-    "zone": "North Ocean Coast",
-    "description": "Decommissioned nuclear submarine wreckage resting in the deep waters of northern San Andreas.",
+    "zone": "Kuzey Okyanusu Kıyısı",
+    "description": "San Andreas'ın kuzeyindeki derin sularda hizmet dışı bırakılmış nükleer denizaltının kalıntıları.",
     "features": [],
     "position": {
       "x": 2653.7,
@@ -365,14 +365,14 @@
   {
     "id": "shipwreck-plane-8",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/cabina-avion-naufrago-zancudo.jpg",
-    "name": "Cargo Plane Cockpit Wreck",
+    "name": "Kargo Uçağı Kokpiti",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
-    "zone": "Fort Zancudo Coast",
-    "description": "Cockpit section of a cargo aircraft wreckage lying on the seabed off Fort Zancudo.",
+    "zone": "Fort Zancudo Kıyısı",
+    "description": "Fort Zancudo açıklarında deniz yatağındaki bir kargo uçağı enkazının kokpit bölümü.",
     "features": [],
     "position": {
       "x": -3342,
@@ -388,14 +388,14 @@
   {
     "id": "shipwreck-plane-9",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/avion-carga-naufrago-zancudo.jpg",
-    "name": "Cargo Plane Fuselage Wreck",
+    "name": "Kargo Uçağı",
     "category": "shipwreck",
-    "categoryLabel": "Shipwrecks & Sunken Remains",
+    "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
-    "zone": "Fort Zancudo Coast",
-    "description": "Fuselage section of a crashed cargo plane lying submerged off the coast of Fort Zancudo.",
+    "zone": "Fort Zancudo Kıyısı",
+    "description": "Fort Zancudo kıyısı açıklarında batık, düşen bir kargo uçağının gövde bölümü.",
     "features": [],
     "position": {
       "x": -3236,
@@ -410,18 +410,19 @@
   },
   {
     "id": "strange-sunken-ufo",
-    "name": "Sunken UFO",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Ovni.jpg",
+    "name": "Batık UFO",
     "category": "fake_ufo",
-    "categoryLabel": "Batık UFO",
+    "categoryLabel": "UFO",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Mystery",
-    "zone": "Paleto Körfezi",
-    "description": "San Andreas komplo teorileriyle bağlantılı batık veya havada asılı UFO.",
+    "priceFormatted": "Gizem",
+    "zone": "Paleto Bay",
+    "description": "Paleto Bay'in kuzeyinde okyanusun derinliklerine batmış uzaylı uçan daire. Deniz yatağında yosunlarla kaplı.",
     "features": [
-      "Deeply submerged UFO",
-      "Visible with submarine or scuba gear",
-      "San Andreas extraterrestrial mystery"
+      "Büyük derinlikte batık UFO",
+      "Denizaltı ya da dalış ekipmanıyla görülebilir",
+      "San Andreas'ın dünya dışı gizemi"
     ],
     "position": {
       "x": 706.7,
@@ -432,20 +433,19 @@
       "icon": "user-astronaut",
       "color": "#9b59b6",
       "symbol": "🛸"
-    },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/Ovni.jpg"
+    }
   },
   {
     "id": "strange-cave-rocosa",
     "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/strange_places/La-Cueva.jpg",
-    "name": "Rocky Cavern",
+    "name": "Kaya Mağarası",
     "category": "cave",
-    "categoryLabel": "Caves",
+    "categoryLabel": "Mağaralar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "Tongva Hills",
-    "description": "Hidden natural rocky cave nestled in the hills of Tongva Valley.",
+    "description": "Tongva Valley tepelerinde gizlenmiş doğal kaya mağarası.",
     "features": [],
     "position": {
       "x": -1925.2,
@@ -467,7 +467,7 @@
     "price": 0,
     "priceFormatted": "",
     "zone": "Pasifik Okyanusu",
-    "description": "Metal yapı üzerinde duran batık denizaltı",
+    "description": "Metal bir yapıya yaslanmış batık denizaltı.",
     "features": [],
     "position": {
       "x": -2814.6,
@@ -491,7 +491,7 @@
     "price": 0,
     "priceFormatted": "",
     "zone": "Paleto Bay",
-    "description": "Kuzey kıyısı açıklarında batık yolcu uçağı gövdesi.",
+    "description": "Kuzey kıyılarında batık yolcu uçağı gövdesi.",
     "features": [],
     "position": {
       "x": -918.6,
@@ -514,7 +514,7 @@
     "price": 0,
     "priceFormatted": "",
     "zone": "Paleto Bay",
-    "description": "Kuzey deniz tabanında batık yolcu uçağı kokpiti.",
+    "description": "Kuzeyde deniz yatağında batık yolcu uçağı kokpiti.",
     "features": [],
     "position": {
       "x": -1002,
@@ -529,14 +529,14 @@
   },
   {
     "id": "shipwreck-avioneta-hundida",
-    "name": "Batık Hafif Uçak",
+    "name": "Batık Küçük Uçak",
     "category": "shipwreck",
     "categoryLabel": "Gemi Enkazları ve Kalıntılar",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "",
     "zone": "Chiliad Dağı / Kuzeydoğu Kıyısı",
-    "description": "Kuzeydoğu kıyı sularında batık hafif uçak enkazı.",
+    "description": "Kuzeydoğu kıyısı sularında batmış hafif uçak enkazı.",
     "features": [],
     "position": {
       "x": 3265.8,

@@ -1,20 +1,21 @@
 [
   {
     "id": "warehouse-darnell-bros",
-    "name": "Large Warehouse Darnell Bros",
+    "name": "大型倉庫 Darnell Bros",
+    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/businesses/almacen-grande-darnell-bros.jpg",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "大型倉庫",
     "gameMode": "online",
     "price": 3500000,
     "priceFormatted": "$3,500,000",
     "zone": "La Mesa",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "description": "レスター・クレストの元縫製工場にある、Los Santosで最も人気の高い大型倉庫。",
     "features": [
-      "Capacity: 111 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "特殊貨物の木箱を最大111個収容可能",
+      "La Mesaのハイウェイ沿いという抜群の立地",
+      "倉庫スタッフのルペが木箱を自動で調達"
     ],
-    "income": "111個満タン売却時最大222万ドル（1.5倍イベント時は330万ドル以上）",
+    "income": "売却ごとに最大$2,220,000",
     "position": {
       "x": 759.9,
       "y": -898.9,
@@ -25,25 +26,24 @@
       "color": "#16a085",
       "symbol": "📦"
     },
-    "imageUrl": "/assets/images/gta5/mapa/marcadores-mapa/businesses/almacen-grande-darnell-bros.jpg",
     "capacity": 111
   },
   {
     "id": "warehouse-walker-sons",
-    "name": "Large Warehouse Walker & Sons",
+    "name": "大型倉庫 Walker & Sons",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "大型倉庫",
     "gameMode": "online",
     "price": 3040000,
     "priceFormatted": "$3,040,000",
-    "zone": "リトル・ソウル",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "zone": "Banning",
+    "description": "BanningにあるWalker & Sonsの倉庫内に位置する、特殊貨物の大型倉庫。",
     "features": [
-      "Capacity: 111 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "木箱を最大111個収容できる大型倉庫",
+      "BanningのWalker & Sons倉庫内に位置",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "111個満タン売却時最大222万ドル",
+    "income": "売却ごとに最大$2,220,000",
     "position": {
       "x": 102.5,
       "y": -2220,
@@ -59,20 +59,20 @@
   },
   {
     "id": "warehouse-xero-gas",
-    "name": "Large Warehouse Xero Gas Company",
+    "name": "大型倉庫 Xero Gas",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "大型倉庫",
     "gameMode": "online",
     "price": 2365000,
     "priceFormatted": "$2,365,000",
-    "zone": "サイプレス・フラット",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "zone": "Los Santos国際空港",
+    "description": "Los Santos国際空港内のXero Gas製油所にある、特殊貨物の大型倉庫。",
     "features": [
-      "Capacity: 111 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "木箱を最大111個収容できる大型倉庫",
+      "空港内のXero Gas製油所に位置",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "111個満タン売却時最大222万ドル",
+    "income": "売却ごとに最大$2,220,000",
     "position": {
       "x": -1040.2,
       "y": -2041.2,
@@ -88,20 +88,20 @@
   },
   {
     "id": "warehouse-west-vinewood",
-    "name": "Large Warehouse West Vinewood",
+    "name": "大型倉庫 West Vinewood",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "大型倉庫",
     "gameMode": "online",
     "price": 2135000,
     "priceFormatted": "$2,135,000",
-    "zone": "ウエスト・バインウッド",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "zone": "West Vinewood",
+    "description": "Vinewood側の市北部にある大型倉庫で、砂漠方面へすぐに出られます。",
     "features": [
-      "Capacity: 111 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "木箱111個分の収容力",
+      "市の北部に位置",
+      "砂漠方面へすぐ出られる"
     ],
-    "income": "111個満タン売却時最大222万ドル",
+    "income": "売却ごとに最大$2,220,000",
     "position": {
       "x": -248.9,
       "y": 205.6,
@@ -117,20 +117,20 @@
   },
   {
     "id": "warehouse-derriere-militare",
-    "name": "Medium Warehouse Derriere Militare",
+    "name": "中型倉庫 Derriere Lingerie",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "中型倉庫",
     "gameMode": "online",
-    "price": 948000,
-    "priceFormatted": "$948,000",
-    "zone": "ストロベリー",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "price": 902000,
+    "priceFormatted": "$902,000",
+    "zone": "Del Perro",
+    "description": "Del Perroにある特殊貨物の中型倉庫。",
     "features": [
-      "Capacity: 42 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "木箱42個分の収容力",
+      "中規模の売却で早く元が取れる",
+      "Del Perroで直接アクセスできる"
     ],
-    "income": "42個売却時最大73万5,000ドル",
+    "income": "売却ごとに最大$735,000",
     "position": {
       "x": -1267.1,
       "y": -812,
@@ -146,20 +146,20 @@
   },
   {
     "id": "warehouse-ls-marine",
-    "name": "Medium Warehouse LS Marine Building 3",
+    "name": "中型倉庫 LS Marine 3号棟",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "中型倉庫",
     "gameMode": "online",
     "price": 880000,
     "priceFormatted": "$880,000",
-    "zone": "エリシアン島",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "zone": "Elysian Island",
+    "description": "Elysian Islandの埠頭にある中型倉庫。",
     "features": [
-      "Capacity: 42 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "貨物の木箱42個",
+      "SparrowやBuzzardのヘリコプターが着陸できる広いスペース",
+      "購入費用が安い"
     ],
-    "income": "42個売却時最大73万5,000ドル",
+    "income": "売却ごとに最大$735,000",
     "position": {
       "x": -310.7,
       "y": -2705.6,
@@ -175,20 +175,20 @@
   },
   {
     "id": "warehouse-gee",
-    "name": "GE Warehouse",
+    "name": "Geeの倉庫",
     "category": "warehouse",
-    "categoryLabel": "Medium Special Cargo Warehouse",
+    "categoryLabel": "中型倉庫",
     "gameMode": "online",
     "price": 880000,
     "priceFormatted": "$880,000",
     "zone": "El Burro Heights",
-    "description": "Medium special cargo warehouse in El Burro Heights.",
+    "description": "El Burro Heightsにある特殊貨物の中型倉庫。",
     "features": [
-      "Capacity for 42 crates",
-      "Ubicación en zona industrial este",
-      "Amortización equilibrada"
+      "木箱42個分の収容力",
+      "東部の工業地帯に位置",
+      "バランスの取れた収益性"
     ],
-    "income": "Up to $735,000 per sale",
+    "income": "売却ごとに最大$735,000",
     "position": {
       "x": 1564.9,
       "y": -2167.8,
@@ -204,20 +204,20 @@
   },
   {
     "id": "warehouse-old-power-station",
-    "name": "Old Power Station Medium Warehouse",
+    "name": "旧発電所",
     "category": "warehouse",
-    "categoryLabel": "Medium Special Cargo Warehouse",
+    "categoryLabel": "中型倉庫",
     "gameMode": "online",
     "price": 1000000,
     "priceFormatted": "$1,000,000",
     "zone": "Rancho",
-    "description": "Medium warehouse at the old electrical substation in Rancho.",
+    "description": "Ranchoの旧変電所にある中型倉庫。",
     "features": [
-      "Capacity for 42 crates",
-      "Acceso directo y despejado",
-      "Ubicación en Rancho"
+      "木箱42個分の収容力",
+      "障害物のない直接アクセス",
+      "Ranchoに位置"
     ],
-    "income": "Up to $735,000 per sale",
+    "income": "売却ごとに最大$735,000",
     "position": {
       "x": 549.5,
       "y": -1622.2,
@@ -233,20 +233,20 @@
   },
   {
     "id": "warehouse-fridgit-annexe",
-    "name": "Fridgit Annexe Medium Warehouse",
+    "name": "中型倉庫 Fridgit別館",
     "category": "warehouse",
-    "categoryLabel": "Medium Special Cargo Warehouse",
+    "categoryLabel": "中型倉庫",
     "gameMode": "online",
     "price": 925000,
     "priceFormatted": "$925,000",
     "zone": "La Puerta",
-    "description": "Medium special cargo warehouse at the Fridgit cold storage facility in La Puerta.",
+    "description": "La PuertaのFridgit冷蔵施設にある中型倉庫。",
     "features": [
-      "Capacity for 42 crates",
-      "Fast payoff with medium-sized sales",
-      "Located at the Fridgit facility in La Puerta"
+      "木箱42個分の収容力",
+      "La Puertaのハイウェイや運河に近い",
+      "費用と収容力のバランスが抜群"
     ],
-    "income": "Up to $735,000 per sale",
+    "income": "売却ごとに最大$735,000",
     "position": {
       "x": -529.9,
       "y": -1786,
@@ -262,20 +262,20 @@
   },
   {
     "id": "warehouse-disused-factory",
-    "name": "Disused Factory Outlet Medium Warehouse",
+    "name": "中型倉庫 廃工場",
     "category": "warehouse",
-    "categoryLabel": "Medium Special Cargo Warehouse",
+    "categoryLabel": "中型倉庫",
     "gameMode": "online",
     "price": 971000,
     "priceFormatted": "$971,000",
     "zone": "Strawberry",
-    "description": "Medium warehouse in an abandoned factory in Strawberry.",
+    "description": "Strawberryの廃工場にある中型倉庫。",
     "features": [
-      "Capacity for 42 crates",
-      "Fast payoff with medium-sized sales",
-      "Central access in Los Santos"
+      "木箱42個分の収容力",
+      "Strawberryの中心部に位置",
+      "市内の主要道路から簡単にアクセスできる"
     ],
-    "income": "Up to $735,000 per sale",
+    "income": "売却ごとに最大$735,000",
     "position": {
       "x": -297.3,
       "y": -1356,
@@ -291,20 +291,20 @@
   },
   {
     "id": "warehouse-railyard",
-    "name": "LS Railyard Medium Warehouse",
+    "name": "鉄道倉庫",
     "category": "warehouse",
-    "categoryLabel": "Medium Special Cargo Warehouse",
+    "categoryLabel": "中型倉庫",
     "gameMode": "online",
     "price": 1017000,
     "priceFormatted": "$1,017,000",
     "zone": "La Mesa",
-    "description": "Medium special cargo warehouse next to the railroad tracks in La Mesa.",
+    "description": "La Mesaの線路沿いにある中型倉庫。",
     "features": [
-      "Capacity for 42 crates",
-      "Fast payoff with medium-sized sales",
-      "Strategic access in the eastern industrial district"
+      "木箱42個分の収容力",
+      "La Mesaの交通の要所に位置",
+      "線路やハイウェイにすぐ出られる"
     ],
-    "income": "Up to $735,000 per sale",
+    "income": "売却ごとに最大$735,000",
     "position": {
       "x": 497.8,
       "y": -656.7,
@@ -320,20 +320,20 @@
   },
   {
     "id": "warehouse-discount-retail",
-    "name": "Discount Retail Unit Medium Warehouse",
+    "name": "小売店舗ユニット",
     "category": "warehouse",
-    "categoryLabel": "Medium Special Cargo Warehouse",
+    "categoryLabel": "中型倉庫",
     "gameMode": "online",
     "price": 948000,
     "priceFormatted": "$948,000",
     "zone": "Downtown Vinewood",
-    "description": "Medium warehouse in a commercial retail unit in Downtown Vinewood.",
+    "description": "Vinewoodのど真ん中にある中型倉庫。",
     "features": [
-      "Capacity for 42 crates",
-      "Fast payoff with medium-sized sales",
-      "Commercial location in Downtown Vinewood"
+      "木箱42個分の収容力",
+      "高級なDowntown Vinewood地区に位置",
+      "北部の大通りにすぐ出られる"
     ],
-    "income": "Up to $735,000 per sale",
+    "income": "売却ごとに最大$735,000",
     "position": {
       "x": 356,
       "y": 330.3,
@@ -349,20 +349,20 @@
   },
   {
     "id": "warehouse-white-widow",
-    "name": "Small Warehouse White Widow Garage",
+    "name": "White Widow倉庫",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "小型倉庫",
     "gameMode": "online",
     "price": 392000,
     "priceFormatted": "$392,000",
-    "zone": "ラ・プエルタ",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "zone": "La Puerta",
+    "description": "La PuertaのWhite Widow Garageにある特殊貨物の倉庫。",
     "features": [
-      "Capacity: 16 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "木箱16個分の収容力",
+      "ソロでの素早い売却に最適",
+      "初期投資がとても安い"
     ],
-    "income": "16個売却時最大24万ドル",
+    "income": "売却ごとに最大$240,000",
     "position": {
       "x": -1074.3,
       "y": -1268.1,
@@ -378,20 +378,20 @@
   },
   {
     "id": "warehouse-celltowa",
-    "name": "Small Warehouse Celltowa Unit",
+    "name": "Celltowa倉庫",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "小型倉庫",
     "gameMode": "online",
     "price": 318000,
     "priceFormatted": "$318,000",
-    "zone": "ストロベリー",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "zone": "Strawberry",
+    "description": "StrawberryのCelltowa Unitにある特殊貨物の倉庫。",
     "features": [
-      "Capacity: 16 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "購入費用が最も安い倉庫",
+      "木箱16個分の収容力",
+      "ソロでも超高速で在庫が貯まる"
     ],
-    "income": "16個売却時最大24万ドル",
+    "income": "売却ごとに最大$240,000",
     "position": {
       "x": 918.9,
       "y": -1022.4,
@@ -407,20 +407,20 @@
   },
   {
     "id": "warehouse-convenience-store",
-    "name": "Convenience Store Lockup Small Warehouse",
+    "name": "コンビニの倉庫",
     "category": "warehouse",
-    "categoryLabel": "Small Special Cargo Warehouse",
+    "categoryLabel": "小型倉庫",
     "gameMode": "online",
     "price": 250000,
     "priceFormatted": "$250,000",
     "zone": "Rancho",
-    "description": "Small special cargo warehouse behind a convenience store in Rancho.",
+    "description": "Ranchoのコンビニの店舗裏にある特殊貨物の倉庫。",
     "features": [
-      "Small warehouse with 16 crate capacity",
-      "Very low initial investment",
-      "Direct access in Rancho"
+      "GTA Onlineで最も安い倉庫",
+      "木箱16個分の収容力",
+      "SecuroServのボスとして始めるのに最適"
     ],
-    "income": "Up to $240,000 per sale",
+    "income": "売却ごとに最大$240,000",
     "position": {
       "x": 277.2,
       "y": -1924.7,
@@ -436,20 +436,20 @@
   },
   {
     "id": "warehouse-vinewood-oeste",
-    "name": "West Vinewood Small Warehouse",
+    "name": "West Vinewood倉庫",
     "category": "warehouse",
-    "categoryLabel": "Small Special Cargo Warehouse",
+    "categoryLabel": "小型倉庫",
     "gameMode": "online",
     "price": 400000,
     "priceFormatted": "$400,000",
     "zone": "West Vinewood",
-    "description": "Small special cargo warehouse in West Vinewood with capacity for 16 crates.",
+    "description": "West VinewoodにあるSecuroServの特殊貨物倉庫。",
     "features": [
-      "Small warehouse with 16 crate capacity",
-      "Very low initial investment",
-      "Direct access in West Vinewood"
+      "特殊貨物の木箱16個を収容できる小型倉庫",
+      "West Vinewoodの中心部に位置",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "Up to $240,000 per sale",
+    "income": "売却ごとに最大$240,000",
     "position": {
       "x": -420.3,
       "y": 191.5,
@@ -465,20 +465,20 @@
   },
   {
     "id": "warehouse-pier-400",
-    "name": "Pier 400 Utility Building Small Warehouse",
+    "name": "Pier 400倉庫",
     "category": "warehouse",
-    "categoryLabel": "Small Special Cargo Warehouse",
+    "categoryLabel": "小型倉庫",
     "gameMode": "online",
     "price": 392000,
     "priceFormatted": "$392,000",
     "zone": "Elysian Island",
-    "description": "Small special cargo warehouse at Pier 400 on Elysian Island.",
+    "description": "Pier 400の埠頭エリアにある港湾の特殊貨物倉庫。",
     "features": [
-      "Small warehouse with 16 crate capacity",
-      "Very low initial investment",
-      "Access at Elysian Island docks"
+      "特殊貨物の木箱16個を収容できる小型倉庫",
+      "埠頭の港湾エリアに直接アクセスできる",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "Up to $240,000 per sale",
+    "income": "売却ごとに最大$240,000",
     "position": {
       "x": 268.5,
       "y": -3024.8,
@@ -494,20 +494,20 @@
   },
   {
     "id": "warehouse-pacific-bait",
-    "name": "Pacific Bait Storage Small Warehouse",
+    "name": "Pacific Bait倉庫",
     "category": "warehouse",
-    "categoryLabel": "Small Special Cargo Warehouse",
+    "categoryLabel": "小型倉庫",
     "gameMode": "online",
     "price": 376000,
     "priceFormatted": "$376,000",
     "zone": "Elysian Island",
-    "description": "Small special cargo warehouse at Pacific Bait on Elysian Island.",
+    "description": "Elysian IslandのPacific Baitの店舗にある特殊貨物の倉庫。",
     "features": [
-      "Small warehouse with 16 crate capacity",
-      "Very low initial investment",
-      "Access on Elysian Island"
+      "特殊貨物の木箱16個を収容できる小型倉庫",
+      "Pacific Baitの店舗内に位置",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "Up to $240,000 per sale",
+    "income": "売却ごとに最大$240,000",
     "position": {
       "x": 50.4,
       "y": -2576.1,
@@ -523,20 +523,20 @@
   },
   {
     "id": "warehouse-cypress-flats",
-    "name": "Large Warehouse Cypress Flats",
+    "name": "大型倉庫 Cypress Flats",
     "category": "warehouse",
-    "categoryLabel": "Large Special Cargo Warehouse",
+    "categoryLabel": "大型倉庫",
     "gameMode": "online",
     "price": 3265000,
     "priceFormatted": "$3,265,000",
     "zone": "Cypress Flats",
-    "description": "Large warehouse in Cypress Flats with capacity for 111 crates.",
+    "description": "Cypress Flatsにある特殊貨物の大型倉庫。",
     "features": [
-      "Capacity for 111 crates",
-      "Located in Cypress Flats industrial area",
-      "Fast highway exit toward the desert"
+      "木箱を最大111個収容できる大型倉庫",
+      "Cypress Flatsの工業地帯に位置",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "Up to $2,220,000 per sale",
+    "income": "売却ごとに最大$2,220,000",
     "position": {
       "x": 1009.2,
       "y": -2535.6,
@@ -552,20 +552,20 @@
   },
   {
     "id": "warehouse-wholesale-furniture",
-    "name": "Large Warehouse Wholesale Furniture",
+    "name": "大型倉庫 Wholesale Furniture",
     "category": "warehouse",
-    "categoryLabel": "Large Special Cargo Warehouse",
+    "categoryLabel": "大型倉庫",
     "gameMode": "online",
     "price": 1900000,
     "priceFormatted": "$1,900,000",
     "zone": "Cypress Flats",
-    "description": "Large warehouse in Cypress Flats with capacity for 111 crates and great value for money.",
+    "description": "Cypress Flatsの家具卸売倉庫にある特殊貨物の大型倉庫。",
     "features": [
-      "Capacity for 111 crates",
-      "Great value for money in Cypress Flats",
-      "Fast highway exit toward the desert"
+      "木箱を最大111個収容できる大型倉庫",
+      "家具卸売倉庫内に位置",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "Up to $2,220,000 per sale",
+    "income": "売却ごとに最大$2,220,000",
     "position": {
       "x": 1040.8,
       "y": -2173.6,
@@ -581,20 +581,20 @@
   },
   {
     "id": "warehouse-bilgeco",
-    "name": "Large Warehouse Bilgeco",
+    "name": "大型倉庫 Bilgeco",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "大型倉庫",
     "gameMode": "online",
     "price": 2825000,
     "priceFormatted": "$2,825,000",
-    "zone": "ロスサントス国際空港（LSIA）",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "zone": "Los Santos国際空港",
+    "description": "Los Santos国際空港のBilgeco倉庫内にある特殊貨物の大型倉庫。",
     "features": [
-      "Capacity: 111 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "木箱を最大111個収容できる大型倉庫",
+      "空港内のBilgeco倉庫に位置",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "111個満タン売却時最大222万ドル",
+    "income": "売却ごとに最大$2,220,000",
     "position": {
       "x": -868.9,
       "y": -2740.2,
@@ -610,20 +610,20 @@
   },
   {
     "id": "warehouse-logistics-depot",
-    "name": "Large Warehouse Logistics Depot",
+    "name": "大型倉庫 Logistics Depot",
     "category": "warehouse",
-    "categoryLabel": "極秘貨物倉庫",
+    "categoryLabel": "大型倉庫",
     "gameMode": "online",
     "price": 2600000,
     "priceFormatted": "$2,600,000",
-    "zone": "ラ・プエルタ",
-    "description": "最大111個の極秘貨物を保管できるSecuroServの大型倉庫。",
+    "zone": "Cypress Flats",
+    "description": "Cypress Flatsの物流倉庫にある特殊貨物の大型倉庫。",
     "features": [
-      "Capacity: 111 crates of Special Cargo",
-      "Sell full stock for maximum bonus margin",
-      "Fast vehicle access to highway"
+      "木箱を最大111個収容できる大型倉庫",
+      "Cypress Flatsの物流倉庫に位置",
+      "SecuroServによる配送と売却の管理"
     ],
-    "income": "111個満タン売却時最大222万ドル",
+    "income": "売却ごとに最大$2,220,000",
     "position": {
       "x": 932.2,
       "y": -1563,
@@ -639,20 +639,20 @@
   },
   {
     "id": "nightclub-west-vinewood",
-    "name": "West Vinewood Nightclub",
+    "name": "ナイトクラブ West Vinewood",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1700000,
     "priceFormatted": "$1,700,000",
-    "zone": "ウエスト・バインウッド",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "West Vinewood",
+    "description": "市内で最も格式高い立地のクラブで、Vinewoodの高級住宅街のど真ん中にあります。ナイトライフの中心地です。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "人気度によるパッシブ収入が最大$250,000貯まる金庫",
+      "すべてのビジネスの商品が自動的に貯まる地下倉庫",
+      "ミサイルスキャナー付きTerrorbyteガレージとOppressor MK IIの作業場"
     ],
-    "income": "金庫に48分ごとに最大5万ドルの不労所得",
+    "income": "金庫に48分ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": -14.3,
       "y": 221,
@@ -667,20 +667,20 @@
   },
   {
     "id": "nightclub-downtown-vinewood",
-    "name": "Downtown Vinewood Nightclub",
+    "name": "Downtown Vinewoodのクラブ",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1670000,
     "priceFormatted": "$1,670,000",
-    "zone": "ダウンタウン・バインウッド",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "Downtown Vinewood",
+    "description": "VinewoodのメインストリートにあるDopplerシネマの隣。隣接する通りにヘリコプターが着陸できる広いスペースがあります。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "広い通りに面したゆったりした入口",
+      "主要な大通りから簡単にアクセスできる",
+      "専属DJ(Solomun、Tale of Us、Dixon、Black Madonna)の総合管理"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": 376.3,
       "y": 243.1,
@@ -695,20 +695,20 @@
   },
   {
     "id": "nightclub-del-perro",
-    "name": "Del Perro Nightclub",
+    "name": "ナイトクラブ Del Perro",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1645000,
     "priceFormatted": "$1,645,000",
-    "zone": "デル・ペロ",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "Del Perro",
+    "description": "Del Perro桟橋とLombank Westタワーのすぐ近くにある、海岸へのアクセスが抜群の立地。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "Great Ocean HighwayとDel Perro Freewayにすぐ出られる",
+      "ビーチと海岸のヘリポートがすぐそば",
+      "違法品を保管する5階建ての地下倉庫"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": -1280,
       "y": -650,
@@ -723,20 +723,20 @@
   },
   {
     "id": "nightclub-vespucci",
-    "name": "Vespucci Canals Nightclub",
+    "name": "ナイトクラブ Vespucci Canals",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1320000,
     "priceFormatted": "$1,320,000",
-    "zone": "ベスプチ運河",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "Vespucci Canals",
+    "description": "Vespucci Canalsのすぐそばにあります。手頃な価格で、海岸へすぐに出られます。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "競争力のある中価格帯",
+      "5階建ての商品倉庫",
+      "Smoke on the Waterとビーチの近く"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": -1170,
       "y": -1150,
@@ -751,20 +751,20 @@
   },
   {
     "id": "nightclub-strawberry",
-    "name": "Strawberry Nightclub",
+    "name": "ナイトクラブ Strawberry",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1525000,
     "priceFormatted": "$1,525,000",
-    "zone": "ストロベリー",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "Strawberry",
+    "description": "Olympic Freewayの真下という便利な立地。装甲バンでの短距離の売却ルートにとても実用的です。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "上空から見えにくい高架下に位置",
+      "市のハイウェイ網に直接アクセスできる",
+      "配送用の裏手の駐車エリア"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": -120,
       "y": -1260,
@@ -779,20 +779,20 @@
   },
   {
     "id": "nightclub-mission-row",
-    "name": "Mission Row Nightclub",
+    "name": "ナイトクラブ Mission Row",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1440000,
     "priceFormatted": "$1,440,000",
-    "zone": "ミッション・ロウ",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "Mission Row",
+    "description": "Los Santos中心部にあるナイトクラブで、Mission Rowの警察署から目と鼻の先です。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "都会の中心という絶好のポジション",
+      "東西の大通りにすぐ出られる",
+      "金庫によるパッシブ収益"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": 350,
       "y": -980,
@@ -807,20 +807,20 @@
   },
   {
     "id": "nightclub-la-mesa",
-    "name": "La Mesa Nightclub",
+    "name": "ナイトクラブ La Mesa",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1500000,
     "priceFormatted": "$1,500,000",
     "zone": "La Mesa",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "description": "La Mesaの工業団地にあり、自動車工場や倉庫に隣接したクラブ。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "TunersのショップやLa Mesaのアーケードとの相乗効果",
+      "Los Santos川から簡単にアクセスできる",
+      "電線のない開けたエリア"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": 753,
       "y": -1330.3,
@@ -835,20 +835,20 @@
   },
   {
     "id": "nightclub-cypress",
-    "name": "Cypress Flats Nightclub",
+    "name": "ナイトクラブ Cypress Flats",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1370000,
     "priceFormatted": "$1,370,000",
-    "zone": "サイプレス・フラット",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "Cypress Flats",
+    "description": "Cypress Flatsの工業地区のど真ん中にあり、LS Car Meetまで目と鼻の先のクラブ。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "Los Santos Car Meetまで30秒",
+      "手頃な価格",
+      "売却用トラックが走れる広い大通り"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": 870,
       "y": -2100,
@@ -863,20 +863,21 @@
   },
   {
     "id": "nightclub-lsia",
-    "name": "LSIA Nightclub",
+    "name": "ナイトクラブ LSIA",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1135000,
     "priceFormatted": "$1,135,000",
-    "zone": "ロスサントス国際空港（LSIA）",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "Los Santos国際空港(LSIA)",
+    "description": "Exceptionalists Wayにある、Los Santos国際空港(LSIA)の周辺エリアのナイトクラブ。航空機向けの広々とした屋外スペースがあり、空港の滑走路にすぐアクセスできます。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "Maze Bank Foreclosuresの基本価格:$1,135,000",
+      "技術者5人を収容でき、バイカーやバンカーの商品も貯められる中央地下倉庫",
+      "最大$250,000まで貯まる金庫(人気度最大で48分ごとに$50,000)",
+      "3階建てのガレージ(36台分)と、Benefactor Terrorbyte専用の作業場"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに金庫に最大$50,000のパッシブ収入",
     "position": {
       "x": -672,
       "y": -2455.5,
@@ -891,20 +892,20 @@
   },
   {
     "id": "nightclub-elysian",
-    "name": "Elysian Island Nightclub",
+    "name": "ナイトクラブ Elysian Island",
     "category": "nightclub",
     "categoryLabel": "ナイトクラブ",
     "gameMode": "online",
     "price": 1080000,
     "priceFormatted": "$1,080,000",
-    "zone": "エリシアン島",
-    "description": "VIPエリア、人気DJ、地下貨物自動集積システムを備えた最高級ナイトクラブ。",
+    "zone": "Elysian Island",
+    "description": "San Andreas全体で最も購入価格が安い、港湾の島にあるナイトクラブ。",
     "features": [
-      "Passive daily wall-safe revenue up to $50,000",
-      "Underground hub immune to police raids",
-      "Includes garage for custom delivery vehicles"
+      "ゲーム内で最も安いナイトクラブ",
+      "港湾の環境",
+      "倉庫機能はほかと同じく完全装備"
     ],
-    "income": "ゲーム内1日あたり最大5万ドルの不労所得",
+    "income": "ゲーム内の日ごとに最大$50,000のパッシブ収入",
     "position": {
       "x": 190,
       "y": -3170,
@@ -919,20 +920,20 @@
   },
   {
     "id": "mc-coke-alamo",
-    "name": "コカイン密造所 (Alamo Sea)",
+    "name": "コカインラボ(Grand Senora砂漠)",
     "category": "coke_lockup",
-    "categoryLabel": "コカイン密造所",
+    "categoryLabel": "コカインラボ",
     "gameMode": "online",
     "price": 975000,
     "priceFormatted": "$975,000",
-    "zone": "アラモ海",
-    "description": "MC（モーターサイクルクラブ）ビジネスで最も収益性の高いコカイン精製施設。",
+    "zone": "Grand Senora砂漠",
+    "description": "バイカービジネスで最も儲かるビジネス。Alamo Seaの北岸にあります。",
     "features": [
-      "Highest net profit per gameplay hour",
-      "Supplies Nightclub logistics technicians",
-      "Los Santos delivery missions with 50% bonus"
+      "時間あたりの純利益が最大",
+      "ナイトクラブの技術者に供給する",
+      "Los Santosへの配送ミッションで50%のボーナス"
     ],
-    "income": "満タン売却時最大52万5,000ドル",
+    "income": "全量売却で最大$525,000",
     "position": {
       "x": 201.9,
       "y": 2468.3,
@@ -947,20 +948,20 @@
   },
   {
     "id": "mc-coke-paleto",
-    "name": "コカイン密造所 (Paleto Bay)",
+    "name": "コカインラボ(Paleto Bay)",
     "category": "coke_lockup",
-    "categoryLabel": "コカイン密造所",
+    "categoryLabel": "コカインラボ",
     "gameMode": "online",
     "price": 1098000,
     "priceFormatted": "$1,098,000",
-    "zone": "パレト・ベイ",
-    "description": "MC（モーターサイクルクラブ）ビジネスで最も収益性の高いコカイン精製施設。",
+    "zone": "Paleto Bay",
+    "description": "Paleto Bay最北端にある目立たない海沿いの施設で、Great Ocean Highwayに直接つながっています。",
     "features": [
-      "Highest net profit per gameplay hour",
-      "Supplies Nightclub logistics technicians",
-      "Los Santos delivery missions with 50% bonus"
+      "プレイヤーの襲撃から離れた立地",
+      "海路と陸路の両方でアクセスできる",
+      "大きな保管容量"
     ],
-    "income": "満タン売却時最大52万5,000ドル",
+    "income": "全量売却で最大$525,000",
     "position": {
       "x": 52.1,
       "y": 6482.6,
@@ -975,20 +976,20 @@
   },
   {
     "id": "mc-coke-elysian",
-    "name": "コカイン密造所 (Elysian Island)",
+    "name": "コカインラボ(Elysian Island)",
     "category": "coke_lockup",
-    "categoryLabel": "コカイン密造所",
+    "categoryLabel": "コカインラボ",
     "gameMode": "online",
     "price": 1462500,
     "priceFormatted": "$1,462,500",
-    "zone": "エリシアン島",
-    "description": "MC（モーターサイクルクラブ）ビジネスで最も収益性の高いコカイン精製施設。",
+    "zone": "Elysian Island",
+    "description": "Los Santos港にある工場の建物で、都市部での素早い売却に最適。",
     "features": [
-      "Highest net profit per gameplay hour",
-      "Supplies Nightclub logistics technicians",
-      "Los Santos delivery missions with 50% bonus"
+      "Los Santos南部への超高速配送",
+      "都市部のハイウェイにすぐ出られる",
+      "輸出用倉庫に近い"
     ],
-    "income": "満タン売却時最大52万5,000ドル",
+    "income": "全量売却で最大$525,000",
     "position": {
       "x": -242.6,
       "y": -2585.1,
@@ -1003,20 +1004,20 @@
   },
   {
     "id": "mc-coke-morningwood",
-    "name": "コカイン密造所 (Morningwood)",
+    "name": "コカインラボ(Morningwood)",
     "category": "coke_lockup",
-    "categoryLabel": "コカイン密造所",
+    "categoryLabel": "コカインラボ",
     "gameMode": "online",
     "price": 1852500,
     "priceFormatted": "$1,852,500",
     "zone": "Morningwood",
-    "description": "MC（モーターサイクルクラブ）ビジネスで最も収益性の高いコカイン精製施設。",
+    "description": "Morningwoodの路地の外観に隠された、市内で最も高級で人気のあるラボ。",
     "features": [
-      "Highest net profit per gameplay hour",
-      "Supplies Nightclub logistics technicians",
-      "Los Santos delivery missions with 50% bonus"
+      "市の西側という好立地",
+      "Los Santosの配送先までの移動時間が最も短い",
+      "最高のステータス"
     ],
-    "income": "満タン売却時最大52万5,000ドル",
+    "income": "全量売却で最大$525,000",
     "position": {
       "x": -1475.9,
       "y": -392.3,
@@ -1031,20 +1032,20 @@
   },
   {
     "id": "mc-weed-sanchianski",
-    "name": "大麻栽培所 (San Chianski)",
+    "name": "マリファナ農場(San Chianski)",
     "category": "weed_farm",
-    "categoryLabel": "大麻栽培所",
+    "categoryLabel": "マリファナ農場",
     "gameMode": "online",
     "price": 715000,
     "priceFormatted": "$715,000",
-    "zone": "サンシアンキスキー山脈",
-    "description": "水耕栽培で高品質な大麻を大量生産するMC事業。",
+    "zone": "San Chianski山脈",
+    "description": "San Chianski東海岸に隠された、ハイテクな水耕栽培の温室。",
     "features": [
-      "Low startup and resupply costs",
-      "Supplies Nightclub organic produce technicians",
-      "Steady passive business"
+      "購入費用が最も安いマリファナ農場",
+      "樹脂と花穂を素早く生産",
+      "ナイトクラブへの自動供給"
     ],
-    "income": "満タン売却時最大25万2,000ドル",
+    "income": "全量売却で最大$252,000",
     "position": {
       "x": 2855.6,
       "y": 4452.7,
@@ -1059,20 +1060,20 @@
   },
   {
     "id": "mc-weed-chiliad",
-    "name": "大麻栽培所 (Mount Chiliad)",
+    "name": "マリファナ農場(Chiliad山)",
     "category": "weed_farm",
-    "categoryLabel": "大麻栽培所",
+    "categoryLabel": "マリファナ農場",
     "gameMode": "online",
     "price": 805200,
     "priceFormatted": "$805,200",
-    "zone": "チリアド山",
-    "description": "水耕栽培で高品質な大麻を大量生産するMC事業。",
+    "zone": "Chiliad山",
+    "description": "Braddock農場の近く、Chiliad山のふもとにある屋内の秘密農場。",
     "features": [
-      "Low startup and resupply costs",
-      "Supplies Nightclub organic produce technicians",
-      "Steady passive business"
+      "安全な山間の環境",
+      "優れた導入価格",
+      "北のハイウェイから簡単にアクセスできる"
     ],
-    "income": "満タン売却時最大25万2,000ドル",
+    "income": "全量売却で最大$252,000",
     "position": {
       "x": 412.8,
       "y": 6532.5,
@@ -1087,20 +1088,20 @@
   },
   {
     "id": "mc-weed-elysian",
-    "name": "大麻栽培所 (Elysian Island)",
+    "name": "マリファナ農場(Elysian Island)",
     "category": "weed_farm",
-    "categoryLabel": "大麻栽培所",
+    "categoryLabel": "マリファナ農場",
     "gameMode": "online",
     "price": 1072500,
     "priceFormatted": "$1,072,500",
-    "zone": "エリシアン島",
-    "description": "水耕栽培で高品質な大麻を大量生産するMC事業。",
+    "zone": "Elysian Island",
+    "description": "Los Santosの商業港にある屋内栽培の工場で、海路と陸路でつながっています。",
     "features": [
-      "Low startup and resupply costs",
-      "Supplies Nightclub organic produce technicians",
-      "Steady passive business"
+      "Los Santosの南部と中心部へ直通",
+      "信号のない港湾エリア",
+      "港湾物流との連携"
     ],
-    "income": "満タン売却時最大25万2,000ドル",
+    "income": "全量売却で最大$252,000",
     "position": {
       "x": 134.7,
       "y": -2474.2,
@@ -1115,20 +1116,20 @@
   },
   {
     "id": "mc-weed-vinewood",
-    "name": "大麻栽培所 (Downtown Vinewood)",
+    "name": "マリファナ農場(Downtown Vinewood)",
     "category": "weed_farm",
-    "categoryLabel": "大麻栽培所",
+    "categoryLabel": "マリファナ農場",
     "gameMode": "online",
     "price": 1358500,
     "priceFormatted": "$1,358,500",
-    "zone": "ダウンタウン・バインウッド",
-    "description": "水耕栽培で高品質な大麻を大量生産するMC事業。",
+    "zone": "Downtown Vinewood",
+    "description": "Vinewoodの中心部にある高級な栽培施設で、都市部での超高速な売却が可能です。",
     "features": [
-      "Low startup and resupply costs",
-      "Supplies Nightclub organic produce technicians",
-      "Steady passive business"
+      "Los Santosで最も中心に近い立地",
+      "商品の配送時間が最も短い",
+      "最高の利便性"
     ],
-    "income": "満タン売却時最大25万2,000ドル",
+    "income": "全量売却で最大$252,000",
     "position": {
       "x": 92.3,
       "y": 191.2,
@@ -1143,20 +1144,20 @@
   },
   {
     "id": "mc-meth-senora",
-    "name": "Methamphetamine Lab (Grand Senora)",
+    "name": "覚醒剤ラボ(Grand Senora)",
     "category": "meth_lab",
-    "categoryLabel": "結晶メス研究所",
+    "categoryLabel": "覚醒剤ラボ",
     "gameMode": "online",
     "price": 910000,
     "priceFormatted": "$910,000",
-    "zone": "グランド・セノーラ砂漠",
-    "description": "MCビジネスで2番目に高い収益を誇るメタンフェタミン精製施設。",
+    "zone": "Grand Senora砂漠",
+    "description": "Grand Senora砂漠にある、最高純度の合成を行う化学ラボ。",
     "features": [
-      "Second most profitable MC business",
-      "High wholesale market value",
-      "Supplies Nightclub pharmaceutical technicians"
+      "純利益が二番目に高いバイカービジネス",
+      "昔ながらの中心的な立地",
+      "大きな商業的利幅"
     ],
-    "income": "満タン売却時最大42万5,000ドル",
+    "income": "全量売却で最大$425,000",
     "position": {
       "x": 195.7,
       "y": 2464.9,
@@ -1171,20 +1172,20 @@
   },
   {
     "id": "mc-meth-paleto",
-    "name": "Methamphetamine Lab (Paleto Bay)",
+    "name": "覚醒剤ラボ(Paleto Bay)",
     "category": "meth_lab",
-    "categoryLabel": "結晶メス研究所",
+    "categoryLabel": "覚醒剤ラボ",
     "gameMode": "online",
     "price": 1024800,
     "priceFormatted": "$1,024,800",
-    "zone": "パレト・ベイ",
-    "description": "MCビジネスで2番目に高い収益を誇るメタンフェタミン精製施設。",
+    "zone": "Paleto Bay",
+    "description": "Paleto Bayにある秘密のラボで、供給が途切れず、大都市から隔絶されています。",
     "features": [
-      "Second most profitable MC business",
-      "High wholesale market value",
-      "Supplies Nightclub pharmaceutical technicians"
+      "戦略的な孤立",
+      "手頃な取得費用",
+      "ナイトクラブの医薬品技術者に供給する"
     ],
-    "income": "満タン売却時最大42万5,000ドル",
+    "income": "全量売却で最大$425,000",
     "position": {
       "x": 48.3,
       "y": 6330.6,
@@ -1199,20 +1200,20 @@
   },
   {
     "id": "mc-meth-terminal",
-    "name": "Methamphetamine Lab (Terminal)",
+    "name": "覚醒剤ラボ(Terminal)",
     "category": "meth_lab",
-    "categoryLabel": "結晶メス研究所",
+    "categoryLabel": "覚醒剤ラボ",
     "gameMode": "online",
     "price": 1365000,
     "priceFormatted": "$1,365,000",
-    "zone": "Terminal / Puerto",
-    "description": "MCビジネスで2番目に高い収益を誇るメタンフェタミン精製施設。",
+    "zone": "Terminal / 港",
+    "description": "Los Santos南部の港、Terminalの埠頭にある加工施設。",
     "features": [
-      "Second most profitable MC business",
-      "High wholesale market value",
-      "Supplies Nightclub pharmaceutical technicians"
+      "Terminal港湾エリアの工場の建物内にある施設",
+      "市内への素早い配送ルートと港の道路へのアクセス",
+      "ナイトクラブの医薬品技術者に供給する"
     ],
-    "income": "満タン売却時最大42万5,000ドル",
+    "income": "全量売却で最大$425,000",
     "position": {
       "x": 1187.5,
       "y": -3111.1,
@@ -1227,20 +1228,20 @@
   },
   {
     "id": "mc-meth-elburro",
-    "name": "Methamphetamine Lab (El Burro Heights)",
+    "name": "覚醒剤ラボ(El Burro Heights)",
     "category": "meth_lab",
-    "categoryLabel": "結晶メス研究所",
+    "categoryLabel": "覚醒剤ラボ",
     "gameMode": "online",
     "price": 1729000,
     "priceFormatted": "$1,729,000",
-    "zone": "エル・ブロ・ハイツ",
-    "description": "MCビジネスで2番目に高い収益を誇るメタンフェタミン精製施設。",
+    "zone": "El Burro Heights",
+    "description": "市街を一望できる東の丘、El Burro Heightsにある高級ラボ。",
     "features": [
-      "Second most profitable MC business",
-      "High wholesale market value",
-      "Supplies Nightclub pharmaceutical technicians"
+      "最も高価で格式の高い立地",
+      "Los Santos東部とハイウェイに非常に近い",
+      "ナイトクラブの医薬品技術者に供給する"
     ],
-    "income": "満タン売却時最大42万5,000ドル",
+    "income": "全量売却で最大$425,000",
     "position": {
       "x": 1445.6,
       "y": -1665.1,
@@ -1255,20 +1256,20 @@
   },
   {
     "id": "mc-cash-senora",
-    "name": "偽造紙幣印刷所 (Grand Senora)",
+    "name": "偽札工場(Grand Senora)",
     "category": "cash_factory",
-    "categoryLabel": "偽造紙幣印刷所",
+    "categoryLabel": "偽札工場",
     "gameMode": "online",
     "price": 845000,
     "priceFormatted": "$845,000",
-    "zone": "グランド・セノーラ砂漠",
-    "description": "精巧な偽造紙幣を印刷・流通させるMC地下事業。",
+    "zone": "Grand Senora砂漠",
+    "description": "Grand Senora砂漠にある、高品質な紙幣を刷る秘密の印刷所。",
     "features": [
-      "Fast production cycle",
-      "Simple sales missions",
-      "Supplies Nightclub cash creation technicians"
+      "低い供給コスト",
+      "素早くバランスの取れた生産",
+      "売却に便利な中心的立地"
     ],
-    "income": "満タン売却時最大35万ドル",
+    "income": "全量売却で最大$350,000",
     "position": {
       "x": 635,
       "y": 2785,
@@ -1283,20 +1284,20 @@
   },
   {
     "id": "mc-cash-paleto",
-    "name": "偽造紙幣印刷所 (Paleto Bay)",
+    "name": "偽札工場(Paleto Bay)",
     "category": "cash_factory",
-    "categoryLabel": "偽造紙幣印刷所",
+    "categoryLabel": "偽札工場",
     "gameMode": "online",
-    "price": 950000,
-    "priceFormatted": "$950,000",
-    "zone": "パレト・ベイ",
-    "description": "精巧な偽造紙幣を印刷・流通させるMC地下事業。",
+    "price": 951000,
+    "priceFormatted": "$951,000",
+    "zone": "Paleto Bay",
+    "description": "Paleto Bayにある偽札の印刷所と乾燥工場。",
     "features": [
-      "Fast production cycle",
-      "Simple sales missions",
-      "Supplies Nightclub cash creation technicians"
+      "生産サイクルが速い",
+      "簡単な売却ミッション",
+      "ナイトクラブの資金担当技術者に供給する"
     ],
-    "income": "満タン売却時最大35万ドル",
+    "income": "全量売却で最大$350,000",
     "position": {
       "x": -425.8,
       "y": 6160,
@@ -1311,20 +1312,20 @@
   },
   {
     "id": "mc-cash-cypress",
-    "name": "偽造紙幣印刷所 (Cypress Flats)",
+    "name": "偽札工場(Cypress Flats)",
     "category": "cash_factory",
-    "categoryLabel": "偽造紙幣印刷所",
+    "categoryLabel": "偽札工場",
     "gameMode": "online",
     "price": 1267500,
     "priceFormatted": "$1,267,500",
-    "zone": "サイプレス・フラット",
-    "description": "精巧な偽造紙幣を印刷・流通させるMC地下事業。",
+    "zone": "Cypress Flats",
+    "description": "Cypress Flatsの工業地区にあり、LS Car Meetまで目と鼻の先の印刷工場。",
     "features": [
-      "Fast production cycle",
-      "Simple sales missions",
-      "Supplies Nightclub cash creation technicians"
+      "完全に都会に溶け込める",
+      "Los Santos東部での電撃的な売却",
+      "ナイトクラブの資金担当技術者に供給する"
     ],
-    "income": "満タン売却時最大35万ドル",
+    "income": "全量売却で最大$350,000",
     "position": {
       "x": 679.6,
       "y": -2681.3,
@@ -1339,20 +1340,20 @@
   },
   {
     "id": "mc-cash-vespucci",
-    "name": "偽造紙幣印刷所 (Vespucci Canals)",
+    "name": "偽札工場(Vespucci Canals)",
     "category": "cash_factory",
-    "categoryLabel": "偽造紙幣印刷所",
+    "categoryLabel": "偽札工場",
     "gameMode": "online",
     "price": 1605500,
     "priceFormatted": "$1,605,500",
-    "zone": "ベスプチ運河",
-    "description": "精巧な偽造紙幣を印刷・流通させるMC地下事業。",
+    "zone": "Vespucci Canals",
+    "description": "風光明媚なVespucci Canalsのそばにある、高級な偽札印刷所。",
     "features": [
-      "Fast production cycle",
-      "Simple sales missions",
-      "Supplies Nightclub cash creation technicians"
+      "人気の高い中心的な立地",
+      "ビーチや西側のハイウェイに近い",
+      "ナイトクラブの資金担当技術者に供給する"
     ],
-    "income": "満タン売却時最大35万ドル",
+    "income": "全量売却で最大$350,000",
     "position": {
       "x": -1166.8,
       "y": -1386.2,
@@ -1367,20 +1368,20 @@
   },
   {
     "id": "mc-doc-grapeseed",
-    "name": "偽造文書オフィス (Grapeseed)",
+    "name": "書類偽造所",
     "category": "doc_forgery",
-    "categoryLabel": "偽造文書オフィス",
+    "categoryLabel": "書類偽造所",
     "gameMode": "online",
     "price": 650000,
     "priceFormatted": "$650,000",
-    "zone": "グレープシード",
-    "description": "パスポートや身分証明書を偽造して裏市場へ供給するオフィス。",
+    "zone": "Grapeseed",
+    "description": "Grapeseedの田舎にある、偽造パスポート、ビザ、運転免許証の工房。",
     "features": [
-      "Lowest startup investment of all MC businesses",
-      "Quick supply turnaround",
-      "Good entry-level passive earner"
+      "最も安く手に入るバイカービジネス",
+      "低コストの生産",
+      "パッシブ収入の最初の収入源として最適"
     ],
-    "income": "満タン売却時最大17万5,000ドル",
+    "income": "売却ごとに最大$175,000",
     "position": {
       "x": 1651.6,
       "y": 4850.7,
@@ -1395,20 +1396,20 @@
   },
   {
     "id": "mc-doc-paleto",
-    "name": "偽造文書オフィス (Paleto Bay)",
+    "name": "書類偽造所",
     "category": "doc_forgery",
-    "categoryLabel": "偽造文書オフィス",
+    "categoryLabel": "書類偽造所",
     "gameMode": "online",
     "price": 732000,
     "priceFormatted": "$732,000",
-    "zone": "パレト・ベイ",
-    "description": "パスポートや身分証明書を偽造して裏市場へ供給するオフィス。",
+    "zone": "Paleto Bay",
+    "description": "Paleto Bayにある書類複製センター。",
     "features": [
-      "Lowest startup investment of all MC businesses",
-      "Quick supply turnaround",
-      "Good entry-level passive earner"
+      "田舎ならではの人目につかなさと慎重さ",
+      "素早い供給の補充",
+      "パッシブ収入の最初の収入源として最適"
     ],
-    "income": "満タン売却時最大17万5,000ドル",
+    "income": "売却ごとに最大$175,000",
     "position": {
       "x": -164,
       "y": 6334.3,
@@ -1423,20 +1424,20 @@
   },
   {
     "id": "mc-doc-elysian",
-    "name": "偽造文書オフィス (Elysian Island)",
+    "name": "書類偽造所",
     "category": "doc_forgery",
-    "categoryLabel": "偽造文書オフィス",
+    "categoryLabel": "書類偽造所",
     "gameMode": "online",
     "price": 975000,
     "priceFormatted": "$975,000",
-    "zone": "エリシアン島",
-    "description": "パスポートや身分証明書を偽造して裏市場へ供給するオフィス。",
+    "zone": "Elysian Island",
+    "description": "Elysian Islandにある、偽造身分証や偽の権利書を作る港の工房。",
     "features": [
-      "Lowest startup investment of all MC businesses",
-      "Quick supply turnaround",
-      "Good entry-level passive earner"
+      "海路と港への直接アクセス",
+      "素早い供給の補充",
+      "パッシブ収入の最初の収入源として最適"
     ],
-    "income": "満タン売却時最大17万5,000ドル",
+    "income": "売却ごとに最大$175,000",
     "position": {
       "x": -346.4,
       "y": -2771.1,
@@ -1451,20 +1452,20 @@
   },
   {
     "id": "mc-doc-textile",
-    "name": "偽造文書オフィス (Textile City)",
+    "name": "書類偽造所",
     "category": "doc_forgery",
-    "categoryLabel": "偽造文書オフィス",
+    "categoryLabel": "書類偽造所",
     "gameMode": "online",
     "price": 1235000,
     "priceFormatted": "$1,235,000",
-    "zone": "テキスタイル・シティ",
-    "description": "パスポートや身分証明書を偽造して裏市場へ供給するオフィス。",
+    "zone": "Textile City",
+    "description": "Los Santosの繊維街にある高級な偽造工房。",
     "features": [
-      "Lowest startup investment of all MC businesses",
-      "Quick supply turnaround",
-      "Good entry-level passive earner"
+      "Los Santosのど真ん中",
+      "売却がとても楽",
+      "パッシブ収入の最初の収入源として最適"
     ],
-    "income": "満タン売却時最大17万5,000ドル",
+    "income": "売却ごとに最大$175,000",
     "position": {
       "x": 299.6,
       "y": -758.9,
@@ -1479,9 +1480,9 @@
   },
   {
     "id": "bail-paleto-bay",
-    "name": "Bail Enforcement Office Paleto Bay",
+    "name": "Paleto Bayのオフィス",
     "category": "bail_office",
-    "categoryLabel": "Bail Enforcement Office",
+    "categoryLabel": "保釈執行オフィス",
     "gameMode": "online",
     "price": 1650000,
     "priceFormatted": "$1,650,000",
@@ -1496,14 +1497,18 @@
       "color": "#d4ac0d",
       "symbol": "⚖️"
     },
-    "description": "",
-    "features": []
+    "description": "Paleto BayにあるBottom Dollar Bail Enforcementのオフィス。危険な逃亡犯を追跡して拘束するための拠点です。",
+    "features": [
+      "州北部で最も手頃な保釈オフィス",
+      "拘束用の独房と逃亡犯検索端末",
+      "エージェントを雇ってパッシブ収入を得ることも可能"
+    ]
   },
   {
     "id": "bail-downtown-vinewood",
-    "name": "Downtown Vinewood Bail Enforcement Office",
+    "name": "Downtown Vinewoodのオフィス",
     "category": "bail_office",
-    "categoryLabel": "Bail Enforcement Office",
+    "categoryLabel": "保釈執行オフィス",
     "gameMode": "online",
     "price": 2620000,
     "priceFormatted": "$2,620,000",
@@ -1518,14 +1523,18 @@
       "color": "#d4ac0d",
       "symbol": "⚖️"
     },
-    "description": "",
-    "features": []
+    "description": "Downtown Vinewoodにある格式高いBottom Dollarのオフィス。北部と市の中心部へ快適に出られます。",
+    "features": [
+      "Downtown Vinewoodの一等地",
+      "拘束用の独房と逃亡犯コンピューター",
+      "パッシブな逮捕を行う保釈エージェント"
+    ]
   },
   {
     "id": "bail-del-perro",
-    "name": "Bail Enforcement Office Del Perro",
+    "name": "Del Perroのオフィス",
     "category": "bail_office",
-    "categoryLabel": "Bail Enforcement Office",
+    "categoryLabel": "保釈執行オフィス",
     "gameMode": "online",
     "price": 2350000,
     "priceFormatted": "$2,350,000",
@@ -1540,18 +1549,18 @@
       "color": "#d4ac0d",
       "symbol": "⚖️"
     },
-    "description": "Bail office in Del Perro with fast coastal access and detention cells for high-priority targets.",
+    "description": "Del Perroにある保釈オフィスで、海岸にすぐ出られ、最優先の標的を収容する独房があります。",
     "features": [
-      "Headquarters in western Los Santos",
-      "Detention cell and fugitive computer",
-      "Bail agents for passive captures"
+      "Los Santos西部の拠点",
+      "拘束用の独房と逃亡犯コンピューター",
+      "パッシブな逮捕を行う保釈エージェント"
     ]
   },
   {
     "id": "bail-mission-row",
-    "name": "Bail Enforcement Office Mission Row",
+    "name": "Mission Rowのオフィス",
     "category": "bail_office",
-    "categoryLabel": "Bail Enforcement Office",
+    "categoryLabel": "保釈執行オフィス",
     "gameMode": "online",
     "price": 2390000,
     "priceFormatted": "$2,390,000",
@@ -1566,14 +1575,18 @@
       "color": "#d4ac0d",
       "symbol": "⚖️"
     },
-    "description": "",
-    "features": []
+    "description": "Mission RowにあるBottom Dollarの中央オフィスで、警察本署のすぐそばです。",
+    "features": [
+      "Los Santos中心部の戦略的な立地",
+      "拘束用の独房と逃亡犯コンピューター",
+      "パッシブな逮捕を行う保釈エージェント"
+    ]
   },
   {
     "id": "bail-davis",
-    "name": "Bail Enforcement Office Davis",
+    "name": "Davisのオフィス",
     "category": "bail_office",
-    "categoryLabel": "Bail Enforcement Office",
+    "categoryLabel": "保釈執行オフィス",
     "gameMode": "online",
     "price": 2000000,
     "priceFormatted": "$2,000,000",
@@ -1588,7 +1601,11 @@
       "color": "#d4ac0d",
       "symbol": "⚖️"
     },
-    "description": "",
-    "features": []
+    "description": "Davis地区にあるBottom Dollar Bail Enforcementの南部支店。",
+    "features": [
+      "南部の地区やハイウェイに簡単にアクセスできる",
+      "拘束用の独房と逃亡犯コンピューター",
+      "パッシブな逮捕を行う保釈エージェント"
+    ]
   }
 ]
