@@ -288,9 +288,15 @@ export class Gta5MapMarkerService {
             iconSpan.textContent = '🎁';
 
             const textSpan = document.createElement('span');
+            textSpan.style.display = 'block';
+            textSpan.style.minWidth = '0';
             const strong = document.createElement('strong');
+            strong.style.display = 'block';
             strong.textContent = `${rewardLabel}:`;
-            textSpan.append(strong, document.createTextNode(` ${item.reward}`));
+            const rewardText = document.createElement('span');
+            rewardText.style.display = 'block';
+            rewardText.textContent = item.reward;
+            textSpan.append(strong, rewardText);
 
             rewardBox.append(iconSpan, textSpan);
             content.appendChild(rewardBox);
@@ -333,27 +339,27 @@ export class Gta5MapMarkerService {
 
         if (item.hint) {
             const hintRow = document.createElement('div');
-            hintRow.className = 'popup-row';
+            hintRow.className = 'popup-row popup-row-stack';
             const hintLbl = document.createElement('span');
             hintLbl.className = 'popup-tag-lbl';
             hintLbl.textContent = hintLabel;
             const hintVal = document.createElement('span');
             hintVal.className = 'popup-tag-val';
             hintVal.textContent = item.hint;
-            hintRow.append(hintLbl, document.createTextNode(' '), hintVal);
+            hintRow.append(hintLbl, hintVal);
             content.appendChild(hintRow);
         }
 
         if (item.reward) {
             const rewardRow = document.createElement('div');
-            rewardRow.className = 'popup-row';
+            rewardRow.className = 'popup-row popup-row-stack';
             const rewardLbl = document.createElement('span');
             rewardLbl.className = 'popup-tag-lbl';
             rewardLbl.textContent = rewardLabel;
             const rewardVal = document.createElement('span');
             rewardVal.className = 'popup-tag-val val-income';
             rewardVal.textContent = item.reward;
-            rewardRow.append(rewardLbl, document.createTextNode(' '), rewardVal);
+            rewardRow.append(rewardLbl, rewardVal);
             content.appendChild(rewardRow);
         }
 

@@ -792,6 +792,21 @@
   font-size: 11px;
 }
 
+:host ::ng-deep .popup-row-stack {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+}
+
+:host ::ng-deep .popup-row-stack .popup-tag-lbl,
+:host ::ng-deep .popup-row-stack .popup-tag-val {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
 :host ::ng-deep .popup-tag-lbl {
   color: rgba(255, 255, 255, 0.55);
   font-weight: 600;
