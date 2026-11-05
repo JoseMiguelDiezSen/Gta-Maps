@@ -1,18 +1,18 @@
 [
   {
     "id": "lsc-burton",
-    "name": "Los Santos Customs (Burton)",
+    "name": "Los Santos Customs",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Tuning-Werkstatt",
-    "zone": "Burton / Los Santos Zentrum",
-    "description": "Die zentralste Los Santos Customs-Werkstatt im Herzen von Rockford Hills.",
+    "priceFormatted": "Freier Eintritt",
+    "zone": "Burton",
+    "description": "Die meistbesuchte Werkstatt für Mechanik und Tuning in Los Santos. Panzerung, Motoren, Turbos, kugelsichere Reifen und Lackierung.",
     "features": [
-      "Reparación instantánea",
-      "Modificaciones de rendimiento",
-      "Venta de vehículos robados"
+      "Sofortreparatur",
+      "Leistungs-Upgrades",
+      "Verkauf gestohlener Fahrzeuge"
     ],
     "position": {
       "x": -365.1,
@@ -30,16 +30,16 @@
     "id": "lsc-lsia",
     "name": "Los Santos Customs (LSIA)",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Tuning-Werkstatt",
-    "zone": "Internationaler Flughafen Los Santos (Internationaler Flughafen Los Santos (LSIA))",
-    "description": "Offizielle Los Santos Customs-Werkstatt direkt an der Zufahrt zum Flughafen LSIA.",
+    "zone": "Flughafen LSIA",
+    "description": "Offizielle Werkstatt an der Zufahrt zum Internationalen Flughafen.",
     "features": [
-      "Reparación instantánea",
-      "Tuneo completo",
-      "Venta de coches"
+      "Sofortreparatur",
+      "Komplettes Tuning",
+      "Verkauf von Autos"
     ],
     "position": {
       "x": -1155.5,
@@ -57,16 +57,16 @@
     "id": "lsc-lamesa",
     "name": "Los Santos Customs (La Mesa)",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Tuning-Werkstatt",
-    "zone": "La Mesa / Canal Este",
-    "description": "Los Santos Customs-Werkstatt im Industriegebiet von La Mesa.",
+    "zone": "La Mesa / Ostkanal",
+    "description": "Werkstatt im Industriegebiet im Osten von Los Santos, direkt am Flussbett.",
     "features": [
-      "Tuneo completo",
-      "Reparación",
-      "Venta de vehículos"
+      "Komplettes Tuning",
+      "Reparatur",
+      "Verkauf von Fahrzeugen"
     ],
     "position": {
       "x": 731.8,
@@ -84,16 +84,16 @@
     "id": "lsc-paleto",
     "name": "Beeker's Garage (Paleto Bay)",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Tuning-Werkstatt",
     "zone": "Paleto Bay",
-    "description": "Unabhängige Kfz-Werkstatt in Paleto Bay zur Reparatur und zum Tuning aller Fahrzeugtypen im Norden.",
+    "description": "Unabhängige Partnerwerkstatt mit allen vollständigen Individualisierungsoptionen von Los Santos Customs im Norden.",
     "features": [
-      "Todas las mejoras de LS Customs",
-      "Pintura y blindaje",
-      "Único taller del extremo norte"
+      "Alle Verbesserungen von LS Customs",
+      "Lackierung und Panzerung",
+      "Einzige Werkstatt im äußersten Norden"
     ],
     "position": {
       "x": 106.2,
@@ -109,22 +109,22 @@
   },
   {
     "id": "lsc-desert-grand-senora",
-    "name": "Los Santos Customs (Grand Senora Desert)",
+    "name": "Los Santos Customs (Grand-Senora-Wüste)",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Tuning-Werkstatt",
-    "zone": "Grand Senora Desert",
-    "description": "Offizielle Los Santos Customs-Werkstatt an der Route 68 in der Grand-Senora-Wüste.",
+    "zone": "Grand-Senora-Wüste",
+    "description": "Offizielle Werkstatt an der Route 68 in der Grand-Senora-Wüste.",
     "features": [
-      "Sofortige Reparatur",
-      "Vollständiges Tuning",
-      "Fahrzeugverkauf"
+      "Sofortreparatur",
+      "Komplettes Tuning",
+      "Verkauf von Fahrzeugen"
     ],
     "position": {
       "x": 1179.3,
-      "y": 2640.0,
+      "y": 2640,
       "z": 37.8
     },
     "badge": {
@@ -136,18 +136,18 @@
   },
   {
     "id": "hao-garage",
-    "name": "Hao's Special Works Werkstatt (West-Vinewood)",
+    "name": "Haos Garage (HSW)",
     "category": "hao_garage",
-    "categoryLabel": "Hao's Special Works (HSW)",
+    "categoryLabel": "Haos Garage (HSW)",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Tuning-Werkstatt",
+    "priceFormatted": "HSW-Upgrades / Rennen",
     "zone": "Pillbox Hill / Textile City",
-    "description": "Haos Werkstatt und Basis. Im Story-Modus organisiert er Franklins Straßenrennen; in GTA Online bietet er extreme HSW-Upgrades an.",
+    "description": "Haos Werkstatt und Operationsbasis. Im Story-Modus organisiert er Franklins Straßenrennen; online bietet er extreme HSW-Modifikationen an.",
     "features": [
-      "Carreras callejeras nocturnas en Historia",
-      "Mejoras de rendimiento HSW de alta velocidad",
-      "Disponible en Modo Historia y Online"
+      "Nächtliche Straßenrennen im Story-Modus",
+      "HSW-Leistungsverbesserungen für hohe Geschwindigkeiten",
+      "Verfügbar im Story-Modus und online"
     ],
     "position": {
       "x": -283.5,

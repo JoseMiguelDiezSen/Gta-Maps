@@ -1,17 +1,17 @@
 [
   {
     "id": "lsc-burton",
-    "name": "Los Santos Customs (Burton)",
+    "name": "Los Santos Customs",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Tuning-Werkstatt",
-    "zone": "Burton / Los Santos Zentrum",
-    "description": "Die zentralste Los Santos Customs-Werkstatt im Herzen von Rockford Hills.",
+    "priceFormatted": "Freier Eintritt",
+    "zone": "Burton",
+    "description": "Die meistbesuchte Werkstatt für Mechanik und Tuning in Los Santos. Panzerung, Motoren, Turbos, kugelsichere Reifen und Lackierung.",
     "features": [
-      "Sofortige Reparatur",
-      "Leistungssteigernde Modifikationen",
+      "Sofortreparatur",
+      "Leistungs-Upgrades",
       "Verkauf gestohlener Fahrzeuge"
     ],
     "position": {
@@ -30,16 +30,16 @@
     "id": "lsc-lsia",
     "name": "Los Santos Customs (LSIA)",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Tuning-Werkstatt",
-    "zone": "Internationaler Flughafen Los Santos (Internationaler Flughafen Los Santos (LSIA))",
-    "description": "Offizielle Los Santos Customs-Werkstatt direkt an der Zufahrt zum Flughafen LSIA.",
+    "zone": "Flughafen LSIA",
+    "description": "Offizielle Werkstatt an der Zufahrt zum Internationalen Flughafen.",
     "features": [
-      "Sofortige Reparatur",
-      "Vollständiges Tuning",
-      "Fahrzeugverkauf"
+      "Sofortreparatur",
+      "Komplettes Tuning",
+      "Verkauf von Autos"
     ],
     "position": {
       "x": -1155.5,
@@ -57,16 +57,16 @@
     "id": "lsc-lamesa",
     "name": "Los Santos Customs (La Mesa)",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Tuning-Werkstatt",
-    "zone": "La Mesa / Canal Este",
-    "description": "Los Santos Customs-Werkstatt im Industriegebiet von La Mesa.",
+    "zone": "La Mesa / Ostkanal",
+    "description": "Werkstatt im Industriegebiet im Osten von Los Santos, direkt am Flussbett.",
     "features": [
-      "Vollständiges Tuning",
-      "Sofortige Reparatur",
-      "Fahrzeugverkauf"
+      "Komplettes Tuning",
+      "Reparatur",
+      "Verkauf von Fahrzeugen"
     ],
     "position": {
       "x": 731.8,
@@ -84,16 +84,16 @@
     "id": "lsc-paleto",
     "name": "Beeker's Garage (Paleto Bay)",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Tuning-Werkstatt",
     "zone": "Paleto Bay",
-    "description": "Unabhängige Kfz-Werkstatt in Paleto Bay zur Reparatur und zum Tuning aller Fahrzeugtypen im Norden.",
+    "description": "Unabhängige Partnerwerkstatt mit allen vollständigen Individualisierungsoptionen von Los Santos Customs im Norden.",
     "features": [
-      "Alle LS-Customs-Upgrades",
+      "Alle Verbesserungen von LS Customs",
       "Lackierung und Panzerung",
-      "Einzige Werkstatt im hohen Norden"
+      "Einzige Werkstatt im äußersten Norden"
     ],
     "position": {
       "x": 106.2,
@@ -109,22 +109,22 @@
   },
   {
     "id": "lsc-desert-grand-senora",
-    "name": "Los Santos Customs (Grand Senora Desert)",
+    "name": "Los Santos Customs (Grand-Senora-Wüste)",
     "category": "ls_customs",
-    "categoryLabel": "Los Santos Customs",
+    "categoryLabel": "Werkstatt Los Santos Customs",
     "gameMode": "both",
     "price": 0,
     "priceFormatted": "Tuning-Werkstatt",
-    "zone": "Grand Senora Desert",
-    "description": "Offizielle Los Santos Customs-Werkstatt an der Route 68 in der Grand-Senora-Wüste.",
+    "zone": "Grand-Senora-Wüste",
+    "description": "Offizielle Werkstatt an der Route 68 in der Grand-Senora-Wüste.",
     "features": [
-      "Sofortige Reparatur",
-      "Vollständiges Tuning",
-      "Fahrzeugverkauf"
+      "Sofortreparatur",
+      "Komplettes Tuning",
+      "Verkauf von Fahrzeugen"
     ],
     "position": {
       "x": 1179.3,
-      "y": 2640.0,
+      "y": 2640,
       "z": 37.8
     },
     "badge": {
@@ -136,18 +136,18 @@
   },
   {
     "id": "bennys-strawberry",
-    "name": "Benny's Original Motor Works (Strawberry)",
+    "name": "Benny's Original Motor Works",
     "category": "bennys",
-    "categoryLabel": "Benny's Original Motor Works",
+    "categoryLabel": "Bennys Werkstatt",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Tuning-Werkstatt",
+    "priceFormatted": "Lowrider-Anpassungen",
     "zone": "Strawberry",
-    "description": "Die legendäre Custom-Werkstatt in Strawberry für Lowrider-Umbauten mit Hydraulik und Custom-Supercars.",
+    "description": "Legendäre Werkstatt für Lowrider-Kultur und klassisches Tuning in Strawberry. Spezialisiert auf Hydraulik, Sound und Retro-Karosserien.",
     "features": [
       "Offizielle Lowrider-Umbauten",
-      "Verstellbare Hydraulik-Fahrwerke",
-      "Exklusiv in GTA Online"
+      "Einstellbare Hydraulikfederungen",
+      "Exklusiv für GTA Online"
     ],
     "position": {
       "x": -205.4,
@@ -163,18 +163,18 @@
   },
   {
     "id": "hao-garage",
-    "name": "Hao's Special Works Werkstatt (West-Vinewood)",
+    "name": "Haos Garage (HSW)",
     "category": "hao_garage",
-    "categoryLabel": "Hao's Special Works (HSW)",
+    "categoryLabel": "Haos Garage (HSW)",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Tuning-Werkstatt",
-    "zone": "Pillbox Hill / Textile City",
-    "description": "Haos Werkstatt und Basis. Im Story-Modus organisiert er Franklins Straßenrennen; in GTA Online bietet er extreme HSW-Upgrades an.",
+    "priceFormatted": "HSW-Upgrades / Rennen",
+    "zone": "Cypress Flats",
+    "description": "Haos Werkstatt und Operationsbasis. Im Story-Modus organisiert er Franklins Straßenrennen; online bietet er extreme HSW-Modifikationen an.",
     "features": [
       "Nächtliche Straßenrennen im Story-Modus",
-      "HSW-Hochleistungs-Tuning",
-      "Verfügbar im Story-Modus und Online"
+      "HSW-Leistungsverbesserungen für hohe Geschwindigkeiten",
+      "Verfügbar im Story-Modus und online"
     ],
     "position": {
       "x": 786.3,
@@ -190,19 +190,19 @@
   },
   {
     "id": "ls-car-meet",
-    "name": "LS Car Meet & Hao's Special Works (Cypress Flats)",
+    "name": "LS Car Meet (Cypress Flats)",
     "category": "ls_car_meet",
-    "categoryLabel": "LS Car Meet",
+    "categoryLabel": "LS Car Meet (Cypress Flats)",
     "gameMode": "online",
     "price": 50000,
-    "priceFormatted": "Tuning-Werkstatt",
+    "priceFormatted": "$50.000 Mitgliedschaft",
     "zone": "Cypress Flats / Docks",
-    "description": "Der unterirdische Autoclub in Cypress Flats mit privater Teststrecke und HSW-Tuning.",
+    "description": "Riesiges unterirdisches Lager in Cypress Flats in der Nähe der Docks. Waffenfreier sozialer Treffpunkt mit Teststrecke im Innenbereich, Sprintrennen und Ausstellungsfahrzeugen.",
     "features": [
-      "Überdachte private Teststrecke",
+      "Private überdachte Teststrecke",
       "Sprint- und Scramble-Rennen",
-      "Wöchentliche Preisfahrzeug-Herausforderungen",
-      "Exklusiv in GTA Online"
+      "Wöchentliche Herausforderungen um das Preisfahrzeug",
+      "Exklusiv für GTA Online"
     ],
     "position": {
       "x": 778,

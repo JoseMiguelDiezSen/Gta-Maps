@@ -186,7 +186,7 @@ export const GTA_GHOSTS_LIST: GtaGhostInfo[] = [
     id: 'ghost-lighthouse',
     order: 5,
     name: 'Fantasma del Faro de El Gordo',
-    location: 'Isla del faro, al este de Mount Gordo',
+    location: 'Isla del faro, al este de Monte Gordo',
     startHour: 1,
     endHour: 2,
     timeWindow: '01:00 - 02:00',
@@ -500,7 +500,7 @@ export const GTA_SNOWMEN_LIST: GtaSnowmanInfo[] = [
     id: 'snowman-16',
     order: 16,
     name: 'Joshua Road',
-    zone: 'Grand Senora Desert',
+    zone: 'Desierto de Grand Senora',
     description: 'En la entrada delantera de una casa rústica a lo largo de Joshua Road.',
     x: 672.0,
     y: 2695.0,
@@ -510,7 +510,7 @@ export const GTA_SNOWMEN_LIST: GtaSnowmanInfo[] = [
     id: 'snowman-17',
     order: 17,
     name: 'Cherry Pie Farm',
-    zone: 'Grand Senora Desert',
+    zone: 'Desierto de Grand Senora',
     description: 'Frente a una edificación rural junto a los campos de Cherry Pie Farm.',
     x: 2435.0,
     y: 4975.0,
@@ -520,7 +520,7 @@ export const GTA_SNOWMEN_LIST: GtaSnowmanInfo[] = [
     id: 'snowman-18',
     order: 18,
     name: 'Puesto de Martin Madrazo',
-    zone: 'Grand Senora Desert',
+    zone: 'Desierto de Grand Senora',
     description: 'Frente a un edificio en ruinas del puesto oculto del Cartel Madrazo.',
     x: 1395.0,
     y: 3613.0,
@@ -560,7 +560,7 @@ export const GTA_SNOWMEN_LIST: GtaSnowmanInfo[] = [
     id: 'snowman-22',
     order: 22,
     name: 'Casa de Ursula (Faro de El Gordo)',
-    zone: 'Mount Gordo',
+    zone: 'Monte Gordo',
     description: 'En el porche de la cabaña aislada de Ursula en el sendero del faro.',
     x: 3345.0,
     y: 5142.0,
@@ -1602,27 +1602,49 @@ export const GTA_SNOWMEN_LIST_PT: GtaSnowmanInfo[] = [
   }
 ];
 
+export type GtaEventListsOverlay = Record<'slashers' | 'ghosts' | 'yeti' | 'snowmen', Record<string, Record<string, string>>>;
+
+let eventListsOverlay: { lang: string; data: GtaEventListsOverlay } | null = null;
+const overlaidLists = new Map<string, unknown[]>();
+
+/** Registra los textos traducidos de las listas para los idiomas sin copia en este archivo. */
+export function setEventListsOverlay(lang: string, data: GtaEventListsOverlay): void {
+  eventListsOverlay = { lang, data };
+  overlaidLists.clear();
+}
+
+/** Devuelve siempre el mismo array por idioma para no rehacer las listas en cada detección de cambios. */
+function withOverlay<T extends { id: string }>(key: keyof GtaEventListsOverlay, lang: string, list: T[]): T[] {
+  if (eventListsOverlay?.lang !== lang) return list;
+  const cacheKey = `${lang}:${key}`;
+  const cached = overlaidLists.get(cacheKey) as T[] | undefined;
+  if (cached) return cached;
+  const texts = eventListsOverlay.data[key] ?? {};
+  const merged = list.map(item => ({ ...item, ...texts[item.id] }));
+  overlaidLists.set(cacheKey, merged);
+  return merged;
+}
+
 export function getSlashersList(lang: string): GtaSlasherInfo[] {
   if (lang === 'es') return GTA_SLASHERS_LIST;
   if (lang === 'pt') return GTA_SLASHERS_LIST_PT;
-  return GTA_SLASHERS_LIST_EN;
+  return withOverlay('slashers', lang, GTA_SLASHERS_LIST_EN);
 }
 
 export function getGhostsList(lang: string): GtaGhostInfo[] {
   if (lang === 'es') return GTA_GHOSTS_LIST;
   if (lang === 'pt') return GTA_GHOSTS_LIST_PT;
-  return GTA_GHOSTS_LIST_EN;
+  return withOverlay('ghosts', lang, GTA_GHOSTS_LIST_EN);
 }
 
 export function getYetiCluesList(lang: string): GtaYetiClue[] {
   if (lang === 'es') return GTA_YETI_CLUES_LIST;
   if (lang === 'pt') return GTA_YETI_CLUES_LIST_PT;
-  return GTA_YETI_CLUES_LIST_EN;
+  return withOverlay('yeti', lang, GTA_YETI_CLUES_LIST_EN);
 }
 
 export function getSnowmenList(lang: string): GtaSnowmanInfo[] {
   if (lang === 'es') return GTA_SNOWMEN_LIST;
   if (lang === 'pt') return GTA_SNOWMEN_LIST_PT;
-  return GTA_SNOWMEN_LIST_EN;
+  return withOverlay('snowmen', lang, GTA_SNOWMEN_LIST_EN);
 }
-

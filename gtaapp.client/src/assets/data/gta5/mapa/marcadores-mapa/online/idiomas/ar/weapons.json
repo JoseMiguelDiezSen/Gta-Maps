@@ -2,7 +2,7 @@
   {
     "id": "pistol",
     "order": 1,
-    "name": "مسدس 9 ملم",
+    "name": "مسدس",
     "nameEn": "Pistol",
     "category": "pistols",
     "categoryLabel": "مسدسات",
@@ -16,12 +16,12 @@
     "accuracy": 4,
     "range": 3,
     "clipSize": "12 طلقة (16 موسع)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Vom Feuer). الضرر: 2.6/10، الدقة: 4/10، معدل الإطلاق: 4/10.",
+    "description": "مسدس نصف آلي قياسي عيار 9 ملم. صغير وخفيف وموثوق للمواجهات قصيرة المدى.",
     "attachments": [
       "مخزن ذخيرة موسع",
       "كشاف تكتيكي",
       "كاتم صوت",
-      "نقش فاخر من يوسف أمير"
+      "طلاء فاخر Yusuf Amir"
     ],
     "icon": "fa-gun",
     "badgeColor": "#ffb833",
@@ -46,12 +46,12 @@
     "accuracy": 5,
     "range": 3.5,
     "clipSize": "12 طلقة (16 موسع)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Hawk & Little). الضرر: 3.2/10، الدقة: 5/10، معدل الإطلاق: 4.5/10.",
+    "description": "مسدس بوليمر صغير وخفيف مصمم لقوات الأمن والدفاع عن النفس بدقة أعلى ومعدل إطلاق أكبر.",
     "attachments": [
       "مخزن ذخيرة موسع",
       "كشاف تكتيكي",
       "كاتم صوت",
-      "Acabado platino"
+      "طلاء بلاتيني"
     ],
     "icon": "fa-gun",
     "badgeColor": "#ffb833",
@@ -62,7 +62,7 @@
   {
     "id": "ap_pistol",
     "order": 3,
-    "name": "Pistola Perforante (AP)",
+    "name": "مسدس خارق للدروع (AP)",
     "nameEn": "AP Pistol",
     "category": "pistols",
     "categoryLabel": "مسدسات",
@@ -76,12 +76,12 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "18 طلقة (36 موسع)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Vom Feuer). الضرر: 3/10، الدقة: 3.5/10، معدل الإطلاق: 8/10.",
+    "description": "مسدس آلي خارق للدروع بمعدل إطلاق عالٍ. يفرغ مخزنًا من 36 طلقة في ثوانٍ خلال تبادل إطلاق النار السريع من المركبات.",
     "attachments": [
       "مخزن ذخيرة موسع",
       "كشاف تكتيكي",
       "كاتم صوت",
-      "Luxury Finish"
+      "طلاء فاخر"
     ],
     "icon": "fa-gun",
     "badgeColor": "#ffb833",
@@ -92,7 +92,7 @@
   {
     "id": "heavy_revolver",
     "order": 4,
-    "name": "Revólver Pesado",
+    "name": "مسدس ريفولفر ثقيل",
     "nameEn": "Heavy Revolver",
     "category": "pistols",
     "categoryLabel": "مسدسات",
@@ -105,11 +105,11 @@
     "fireRate": 2,
     "accuracy": 6.5,
     "range": 5.5,
-    "clipSize": "6 طلقة",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 8.5/10، الدقة: 6.5/10، معدل الإطلاق: 2/10.",
+    "clipSize": "6 طلقات",
+    "description": "مسدس ريفولفر ضخم عالي العيار بقوة إيقاف مدمرة. قادر على إسقاط معظم الأهداف بطلقة واحدة على المدى القصير والمتوسط.",
     "attachments": [
-      "VIP Luxury Finish",
-      "Collector Engraving"
+      "طلاء فاخر VIP",
+      "نقش للمقتنيات"
     ],
     "icon": "fa-gun",
     "badgeColor": "#e74c3c",
@@ -120,23 +120,23 @@
   {
     "id": "perico_pistol",
     "order": 5,
-    "name": "مسدس بيريكو الذهبي",
+    "name": "مسدس Perico",
     "nameEn": "Perico Pistol",
     "category": "pistols",
     "categoryLabel": "مسدسات",
     "manufacturer": "Vom Feuer",
-    "realCounterpart": "Custom Engraved Gold Walther PPK",
+    "realCounterpart": "Walther PPK ذهبي بنقش مخصص",
     "price": 0,
-    "priceFormatted": "Free (Heist Unlock)",
+    "priceFormatted": "مجاني",
     "rankUnlock": 1,
     "damage": 6,
     "fireRate": 3.5,
     "accuracy": 5.5,
     "range": 4,
-    "clipSize": "Un solo disparo",
-    "description": "مسدس يدوي مصنوع من الذهب الخالص مسترجع من الخزنة السرية بمكتب إل روبيو في كايو بيريكو.",
+    "clipSize": "طلقة واحدة",
+    "description": "مسدس من الذهب الخالص صُنع يدويًا، استُخرج من خزنة المكتب الخاص لـ El Rubio في مجمعه المحصن في Cayo Perico.",
     "attachments": [
-      "Native 24K Gold Inlay"
+      "ترصيع بذهب خالص عيار 24 قيراطًا"
     ],
     "icon": "fa-gun",
     "badgeColor": "#eab308",
@@ -147,12 +147,12 @@
   {
     "id": "up_n_atomizer",
     "order": 6,
-    "name": "مسدس النبضات الفضائي (Up-n-Atomizer)",
+    "name": "Up-n-Atomizer",
     "nameEn": "Up-n-Atomizer",
     "category": "pistols",
-    "categoryLabel": "مسدسات",
+    "categoryLabel": "أسلحة خاصة",
     "manufacturer": "Republic Space Rangers",
-    "realCounterpart": "Alien Electromagnetic Ray Gun",
+    "realCounterpart": "مسدس أشعة كهرومغناطيسي فضائي",
     "price": 399000,
     "priceFormatted": "$399,000",
     "rankUnlock": 1,
@@ -160,10 +160,10 @@
     "fireRate": 1.5,
     "accuracy": 7,
     "range": 4.5,
-    "clipSize": "Infinite ammo (Heat cooldown)",
-    "description": "مسدس مستقبلي يطلق موجات طاقة كهرومغناطيسية نبضية كفيلة بقلب وتحريك السيارات العالقة.",
+    "clipSize": "ذخيرة لا نهائية (تبريد حراري)",
+    "description": "سلاح خيال علمي مستقبلي يطلق موجات صدمة من الطاقة عالية التأثير قادرة على قذف المركبات في الهواء وإزالة العوائق العالقة.",
     "attachments": [
-      "Themed Futuristic Tints"
+      "ألوان مستقبلية بموضوع خاص"
     ],
     "icon": "fa-atom",
     "badgeColor": "#a855f7",
@@ -174,7 +174,7 @@
   {
     "id": "stungun",
     "order": 7,
-    "name": "Stun Gun",
+    "name": "مسدس صاعق (Taser)",
     "nameEn": "Stun Gun",
     "category": "pistols",
     "categoryLabel": "مسدسات",
@@ -187,10 +187,10 @@
     "fireRate": 1,
     "accuracy": 4,
     "range": 2,
-    "clipSize": "High-voltage probes (4s recharge)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Coil). الضرر: 1/10، الدقة: 4/10، معدل الإطلاق: 1/10.",
+    "clipSize": "أسهم عالية الجهد (إعادة تعبئة 4 ثوانٍ)",
+    "description": "جهاز صعق كهربائي غير قاتل يطلق سهمين مكهربين لشل الأهداف وإعاقتها مؤقتًا دون التسبب في وفيات.",
     "attachments": [
-      "Tactical Polymer Finish"
+      "طلاء بوليمر تكتيكي"
     ],
     "icon": "fa-bolt",
     "badgeColor": "#38bdf8",
@@ -201,10 +201,10 @@
   {
     "id": "micro_smg",
     "order": 8,
-    "name": "رشاش مايكرو SMG",
+    "name": "رشاش خفيف صغير",
     "nameEn": "Micro SMG",
     "category": "smgs",
-    "categoryLabel": "رشاشات خفيفة ومتوسطة",
+    "categoryLabel": "رشاشات خفيفة",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "IMI Micro Uzi (9mm)",
     "price": 3750,
@@ -215,13 +215,13 @@
     "accuracy": 3.5,
     "range": 3,
     "clipSize": "16 طلقة (30 موسع)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 3.5/10، الدقة: 3.5/10، معدل الإطلاق: 7.5/10.",
+    "description": "السلاح النموذجي للمعارك النارية من المركبات. تصميم صغير بمعدل إطلاق شرس، مثالي للقتال قصير المدى خلف المقود.",
     "attachments": [
       "مخزن ذخيرة موسع",
       "كشاف تكتيكي",
       "كاتم صوت",
-      "منظار تقريب تلسكوبي",
-      "Luxury Finish"
+      "منظار",
+      "طلاء فاخر"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#3b82f6",
@@ -232,10 +232,10 @@
   {
     "id": "smg",
     "order": 9,
-    "name": "رشاش متوسط (SMG)",
+    "name": "رشاش خفيف قياسي",
     "nameEn": "SMG",
     "category": "smgs",
-    "categoryLabel": "رشاشات خفيفة ومتوسطة",
+    "categoryLabel": "رشاشات خفيفة",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Heckler & Koch MP5A3",
     "price": 7500,
@@ -245,11 +245,11 @@
     "fireRate": 7,
     "accuracy": 5.5,
     "range": 4.5,
-    "clipSize": "30 طلقة",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 4.2/10، الدقة: 5.5/10، معدل الإطلاق: 7/10.",
+    "clipSize": "30 طلقة (60 بالأسطوانة)",
+    "description": "رشاش خفيف تكتيكي عالي الدقة وسهل التحكم. يوازن بإتقان بين معدل الإطلاق والثبات على المسافات المتوسطة.",
     "attachments": [
       "مخزن ذخيرة موسع",
-      "Cargador de tambor",
+      "مخزن أسطواني",
       "كشاف تكتيكي",
       "كاتم صوت",
       "منظار هولوغرافي"
@@ -263,10 +263,10 @@
   {
     "id": "combat_mg",
     "order": 10,
-    "name": "Combat MG",
+    "name": "رشاش آلي قتالي",
     "nameEn": "Combat MG",
     "category": "smgs",
-    "categoryLabel": "رشاشات خفيفة ومتوسطة",
+    "categoryLabel": "رشاشات آلية خفيفة",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "M249 SAW / FN Minimi (5.56mm)",
     "price": 14800,
@@ -276,13 +276,13 @@
     "fireRate": 6.5,
     "accuracy": 5.5,
     "range": 6,
-    "clipSize": "100 طلقة",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 7.5/10، الدقة: 5.5/10، معدل الإطلاق: 6.5/10.",
+    "clipSize": "100 طلقة (200 بمخزن موسع)",
+    "description": "سلاح آلي ثقيل للفصائل بسعة حزام كبيرة، قادر على تمزيق الفرق المعادية وتعطيل الدعم الجوي.",
     "attachments": [
-      "200-Round Box Magazine",
-      "منظار تقريب تلسكوبي",
-      "مقبض تثبيت تكتيكي",
-      "Gold Luxury Tint"
+      "مخزن صندوقي سعة 200 طلقة",
+      "منظار",
+      "مقبض",
+      "لون ذهبي فاخر"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#e74c3c",
@@ -296,7 +296,7 @@
     "name": "Gusenberg Sweeper",
     "nameEn": "Gusenberg Sweeper",
     "category": "smgs",
-    "categoryLabel": "رشاشات خفيفة ومتوسطة",
+    "categoryLabel": "رشاشات خفيفة",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Thompson M1928 (Tommy Gun .45 ACP)",
     "price": 14600,
@@ -306,10 +306,10 @@
     "fireRate": 7.5,
     "accuracy": 4.5,
     "range": 4,
-    "clipSize": "30 طلقة",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Vom Feuer). الضرر: 5/10، الدقة: 4.5/10، معدل الإطلاق: 7.5/10.",
+    "clipSize": "30 طلقة (50 بالأسطوانة)",
+    "description": "أيقونة أسطورية من عصر الحظر مزودة بأسطوانة دائرية عالية السعة وصوت مميز لا يخطئه أحد.",
     "attachments": [
-      "50-Round Drum Magazine"
+      "مخزن أسطواني سعة 50 طلقة"
     ],
     "icon": "fa-shield-halved",
     "badgeColor": "#f59e0b",
@@ -320,7 +320,7 @@
   {
     "id": "assault_rifle",
     "order": 12,
-    "name": "بندقية هجومية (AK-47)",
+    "name": "بندقية هجومية",
     "nameEn": "Assault Rifle",
     "category": "rifles",
     "categoryLabel": "بنادق هجومية",
@@ -334,14 +334,14 @@
     "accuracy": 5.5,
     "range": 6,
     "clipSize": "30 طلقة (60 موسع)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 6.2/10، الدقة: 5.5/10، معدل الإطلاق: 6/10.",
+    "description": "البندقية العسكرية القياسية الأشهر والأكثر موثوقية في العالم. أداء باليستي ممتاز ودقة عالية وقوة ثابتة في كل موقف.",
     "attachments": [
       "مخزن ذخيرة موسع",
-      "Cargador de tambor",
-      "منظار تقريب تلسكوبي",
+      "مخزن أسطواني",
+      "منظار",
       "كاتم صوت",
-      "مقبض تثبيت تكتيكي",
-      "Yusuf Amir Gold Finish"
+      "مقبض",
+      "طلاء ذهبي Yusuf Amir"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
@@ -352,7 +352,7 @@
   {
     "id": "carbine_rifle",
     "order": 13,
-    "name": "بندقية كاربين (M4A1)",
+    "name": "كاربين",
     "nameEn": "Carbine Rifle",
     "category": "rifles",
     "categoryLabel": "بنادق هجومية",
@@ -366,14 +366,14 @@
     "accuracy": 6.5,
     "range": 6.5,
     "clipSize": "30 طلقة (60 موسع)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Vom Feuer). الضرر: 6.5/10، الدقة: 6.5/10، معدل الإطلاق: 7/10.",
+    "description": "كاربين عسكري متعدد الاستخدامات بقضبان تثبيت شاملة. يتميز بمعدل إطلاق عالٍ وارتداد منخفض وقابلية تكيف قصوى في المعارك الحضرية.",
     "attachments": [
       "مخزن ذخيرة موسع",
-      "Box Drum",
+      "مخزن أسطواني صندوقي",
       "منظار هولوغرافي",
-      "Tactical Flashlight",
+      "كشاف تكتيكي",
       "كاتم صوت",
-      "مقبض تثبيت تكتيكي"
+      "مقبض"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
@@ -384,7 +384,7 @@
   {
     "id": "special_carbine",
     "order": 14,
-    "name": "بندقية كاربين خاصة",
+    "name": "كاربين خاص",
     "nameEn": "Special Carbine",
     "category": "rifles",
     "categoryLabel": "بنادق هجومية",
@@ -398,13 +398,13 @@
     "accuracy": 7,
     "range": 6.5,
     "clipSize": "30 طلقة (60 موسع)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Vom Feuer). الضرر: 6.7/10، الدقة: 7/10، معدل الإطلاق: 7/10.",
+    "description": "كاربين بوليمر خفيف بتصميم متقدم. معروف بدقته الجراحية وتجمّع طلقاته الممتاز على المسافات البعيدة.",
     "attachments": [
       "مخزن ذخيرة موسع",
-      "100-Round Drum",
-      "Optical Scope",
+      "مخزن أسطواني سعة 100 طلقة",
+      "منظار بصري",
       "كاتم صوت",
-      "Ergonomic Grip"
+      "مقبض مريح"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
@@ -415,7 +415,7 @@
   {
     "id": "service_carbine",
     "order": 15,
-    "name": "Service Carbine",
+    "name": "كاربين الخدمة",
     "nameEn": "Service Carbine",
     "category": "rifles",
     "categoryLabel": "بنادق هجومية",
@@ -429,13 +429,13 @@
     "accuracy": 6.8,
     "range": 6.5,
     "clipSize": "30 طلقة (60 موسع)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Vom Feuer). الضرر: 6.8/10، الدقة: 6.8/10، معدل الإطلاق: 6.8/10.",
+    "description": "بندقية عسكرية رمزية للخدمة توفر ضررًا ثابتًا وموثوقًا في العمليات التكتيكية الحضرية في أنحاء San Andreas.",
     "attachments": [
       "مخزن ذخيرة موسع",
-      "Telescopic Scope",
+      "منظار",
       "كاتم صوت",
-      "مقبض تثبيت تكتيكي",
-      "Tactical Light"
+      "مقبض",
+      "كشاف تكتيكي"
     ],
     "icon": "fa-crosshairs",
     "badgeColor": "#10b981",
@@ -446,10 +446,10 @@
   {
     "id": "pump_shotgun",
     "order": 16,
-    "name": "بندقية بمب شوت جن",
+    "name": "بندقية خرطوش بمضخة",
     "nameEn": "Pump Shotgun",
     "category": "shotguns",
-    "categoryLabel": "بنادق شوت جن",
+    "categoryLabel": "بنادق خرطوش",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "Mossberg 590 (12 Gauge)",
     "price": 3500,
@@ -459,12 +459,12 @@
     "fireRate": 2,
     "accuracy": 3,
     "range": 2.5,
-    "clipSize": "8 shells",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 7.8/10، الدقة: 3/10، معدل الإطلاق: 2/10.",
+    "clipSize": "8 خراطيش",
+    "description": "بندقية خرطوش كلاسيكية بمضخة عيار 12 تستخدمها قوات إنفاذ القانون. فتاكة من مسافة قريبة مع انتشار مدمر للخردق.",
     "attachments": [
       "كشاف تكتيكي",
-      "Shotgun Suppressor",
-      "Luxury Engraving"
+      "كاتم صوت لبندقية الخرطوش",
+      "نقش فاخر"
     ],
     "icon": "fa-fire",
     "badgeColor": "#ea580c",
@@ -475,10 +475,10 @@
   {
     "id": "assault_shotgun",
     "order": 17,
-    "name": "شوت جن هجومي أوتوماتيكي",
+    "name": "بندقية خرطوش هجومية",
     "nameEn": "Assault Shotgun",
     "category": "shotguns",
-    "categoryLabel": "بنادق شوت جن",
+    "categoryLabel": "بنادق خرطوش",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "UTAS UTS-15 / Fostech Origin-12",
     "price": 10000,
@@ -488,12 +488,12 @@
     "fireRate": 6.5,
     "accuracy": 4,
     "range": 3.5,
-    "clipSize": "8 shells (32 drum)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 8.2/10، الدقة: 4/10، معدل الإطلاق: 6.5/10.",
+    "clipSize": "8 خراطيش (32 بالأسطوانة)",
+    "description": "بندقية خرطوش قتالية آلية بالكامل مزودة بأسطوانة عالية السعة لاكتساح الأماكن المغلقة دون الحاجة إلى ضخ الخرطوش بين الطلقات.",
     "attachments": [
-      "32-Shell Drum Magazine",
-      "Tactical Flashlight",
-      "مقبض تثبيت تكتيكي",
+      "مخزن أسطواني سعة 32 خرطوشة",
+      "كشاف تكتيكي",
+      "مقبض",
       "كاتم صوت"
     ],
     "icon": "fa-fire",
@@ -505,10 +505,10 @@
   {
     "id": "combat_shotgun",
     "order": 18,
-    "name": "شوت جن قتالي",
+    "name": "بندقية خرطوش قتالية",
     "nameEn": "Combat Shotgun",
     "category": "shotguns",
-    "categoryLabel": "بنادق شوت جن",
+    "categoryLabel": "بنادق خرطوش",
     "manufacturer": "Vom Feuer",
     "realCounterpart": "Franchi SPAS-12 (12 Gauge)",
     "price": 295000,
@@ -518,11 +518,11 @@
     "fireRate": 4.5,
     "accuracy": 4.5,
     "range": 3,
-    "clipSize": "6 shells",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Vom Feuer). الضرر: 8/10، الدقة: 4.5/10، معدل الإطلاق: 4.5/10.",
+    "clipSize": "6 خراطيش",
+    "description": "بندقية خرطوش قتالية بتصميم إيطالي ومؤخرة قابلة للطي، استُعيدت من حراس الأمن في Cayo Perico.",
     "attachments": [
-      "Tactical Light",
-      "Shotgun Suppressor"
+      "كشاف تكتيكي",
+      "كاتم صوت لبندقية الخرطوش"
     ],
     "icon": "fa-fire",
     "badgeColor": "#ea580c",
@@ -546,12 +546,12 @@
     "fireRate": 2,
     "accuracy": 8.5,
     "range": 9,
-    "clipSize": "10 طلقة",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 8.8/10، الدقة: 8.5/10، معدل الإطلاق: 2/10.",
+    "clipSize": "10 طلقات",
+    "description": "بندقية قنص دقيقة بإبرة ترددية للمواجهات بعيدة المدى بمنظار ذي تكبير عالٍ.",
     "attachments": [
-      "Advanced High-Power Scope",
+      "منظار متقدم عالي القوة",
       "كاتم صوت",
-      "Luxury Engraving"
+      "نقش فاخر"
     ],
     "icon": "fa-bullseye",
     "badgeColor": "#6366f1",
@@ -562,12 +562,12 @@
   {
     "id": "heavy_sniper",
     "order": 20,
-    "name": "بندقية قنص ثقيلة كاليبر .50",
+    "name": "قناصة ثقيلة",
     "nameEn": "Heavy Sniper",
     "category": "snipers",
     "categoryLabel": "بنادق قنص",
     "manufacturer": "Shrewsbury",
-    "realCounterpart": "Barrett M82A1 (.50 BMG Anti-Materiel)",
+    "realCounterpart": "Barrett M82A1 (.50 BMG مضاد للعتاد)",
     "price": 38150,
     "priceFormatted": "$38,150",
     "rankUnlock": 90,
@@ -575,12 +575,12 @@
     "fireRate": 2,
     "accuracy": 9.5,
     "range": 10,
-    "clipSize": "6 طلقة",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 9.8/10، الدقة: 9.5/10، معدل الإطلاق: 2/10.",
+    "clipSize": "6 طلقات",
+    "description": "بندقية ضخمة مضادة للعتاد عيار .50. قادرة على تعطيل المركبات المدرعة الخفيفة وإسقاط الطائرات وإصابة أهداف على مسافات قصوى.",
     "attachments": [
-      "Mira avanzada",
-      "Thermal / Night Vision Scope (Mk II)",
-      "Explosive Rounds (Mk II)"
+      "منظار متقدم",
+      "منظار حراري / رؤية ليلية (Mk II)",
+      "ذخيرة متفجرة (Mk II)"
     ],
     "icon": "fa-bullseye",
     "badgeColor": "#6366f1",
@@ -591,12 +591,12 @@
   {
     "id": "rpg",
     "order": 21,
-    "name": "قاذف صواريخ RPG",
+    "name": "قاذفة صواريخ (RPG)",
     "nameEn": "RPG",
     "category": "heavy",
-    "categoryLabel": "أسلحة ثقيلة وتفجيرية",
+    "categoryLabel": "أسلحة ثقيلة",
     "manufacturer": "Shrewsbury",
-    "realCounterpart": "RPG-7 (85mm Rocket)",
+    "realCounterpart": "RPG-7 (صاروخ 85mm)",
     "price": 26250,
     "priceFormatted": "$26,250",
     "rankUnlock": 100,
@@ -604,10 +604,10 @@
     "fireRate": 1,
     "accuracy": 3,
     "range": 7,
-    "clipSize": "1 rocket (20 capacity)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 10/10، الدقة: 3/10، معدل الإطلاق: 1/10.",
+    "clipSize": "1 صاروخ (سعة 20)",
+    "description": "قاذفة صواريخ مضادة للدبابات تُطلق من الكتف. تطلق رؤوسًا متفجرة غير موجهة مثالية لتدمير المدرعات الثقيلة والمتاريس.",
     "attachments": [
-      "VIP Gold Plated Finish"
+      "طلاء مطلي بالذهب VIP"
     ],
     "icon": "fa-bomb",
     "badgeColor": "#dc2626",
@@ -618,10 +618,10 @@
   {
     "id": "homing_launcher",
     "order": 22,
-    "name": "قاذف صواريخ موجهة حرارياً",
+    "name": "قاذفة صواريخ موجهة",
     "nameEn": "Homing Launcher",
     "category": "heavy",
-    "categoryLabel": "أسلحة ثقيلة وتفجيرية",
+    "categoryLabel": "أسلحة ثقيلة",
     "manufacturer": "Shrewsbury",
     "realCounterpart": "FIM-92 Stinger / SA-7 Grail",
     "price": 75000,
@@ -631,10 +631,10 @@
     "fireRate": 1.2,
     "accuracy": 8,
     "range": 8.5,
-    "clipSize": "1 heat-seeking missile (10 capacity)",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 9.5/10، الدقة: 8/10، معدل الإطلاق: 1.2/10.",
+    "clipSize": "1 صاروخ حراري (سعة 10)",
+    "description": "منظومة صواريخ أرض-جو محمولة بتتبع موجّه بالأشعة تحت الحمراء لتحييد المقاتلات والمروحيات والمركبات الهاربة بسرعة.",
     "attachments": [
-      "Special Edition Military Finish"
+      "طلاء عسكري إصدار خاص"
     ],
     "icon": "fa-rocket",
     "badgeColor": "#dc2626",
@@ -645,12 +645,12 @@
   {
     "id": "minigun",
     "order": 23,
-    "name": "المدفع الرشاش الدوار الصغير (Minigun)",
+    "name": "رشاش دوّار",
     "nameEn": "Minigun",
     "category": "heavy",
-    "categoryLabel": "أسلحة ثقيلة وتفجيرية",
+    "categoryLabel": "أسلحة ثقيلة",
     "manufacturer": "Shrewsbury",
-    "realCounterpart": "M134 Vulcan (6-barrel 7.62mm rotary)",
+    "realCounterpart": "M134 Vulcan (دوّار بـ 6 سبطانات 7.62mm)",
     "price": 47000,
     "priceFormatted": "$47,000",
     "rankUnlock": 120,
@@ -658,10 +658,10 @@
     "fireRate": 10,
     "accuracy": 4.5,
     "range": 6.5,
-    "clipSize": "999 طلقة",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 9.2/10، الدقة: 4.5/10، معدل الإطلاق: 10/10.",
+    "clipSize": "حتى 9,999 طلقة دون إعادة تعبئة",
+    "description": "السلاح النهائي للدعم الناري للمشاة. ست سبطانات دوّارة بمحرك كهربائي تطلق نار كبت لا هوادة فيها على المركبات والأفراد.",
     "attachments": [
-      "Gold Luxury Finish"
+      "طلاء ذهبي فاخر"
     ],
     "icon": "fa-bahai",
     "badgeColor": "#dc2626",
@@ -672,12 +672,12 @@
   {
     "id": "railgun",
     "order": 24,
-    "name": "سلاح المدفع الكهرومغناطيسي (Railgun)",
+    "name": "Railgun",
     "nameEn": "Railgun",
     "category": "heavy",
-    "categoryLabel": "أسلحة ثقيلة وتفجيرية",
+    "categoryLabel": "أسلحة ثقيلة",
     "manufacturer": "Coil",
-    "realCounterpart": "Experimental Electromagnetic Kinetic Cannon",
+    "realCounterpart": "مدفع حركي كهرومغناطيسي تجريبي",
     "price": 730000,
     "priceFormatted": "$730,000",
     "rankUnlock": 1,
@@ -685,10 +685,10 @@
     "fireRate": 1,
     "accuracy": 9.5,
     "range": 9,
-    "clipSize": "1 kinetic slug (20 capacity)",
-    "description": "سلاح كهرومغناطيسي عسكري خارق يطلق مقذوفات بسرعة تفوق سرعة الصوت لتبخير الأهداف فوراً.",
+    "clipSize": "1 مقذوف حركي (سعة 20)",
+    "description": "نموذج عسكري تجريبي لمدفع سكة كهرومغناطيسي يسرّع المقذوفات الحركية إلى سرعات تفوق سرعة الصوت بكثير مع ضرر نهائي فوري.",
     "attachments": [
-      "Custom Coil Metallic Tints"
+      "ألوان معدنية مخصصة من Coil"
     ],
     "icon": "fa-bolt-lightning",
     "badgeColor": "#06b6d4",
@@ -699,12 +699,12 @@
   {
     "id": "knife",
     "order": 25,
-    "name": "Knife",
+    "name": "سكين",
     "nameEn": "Knife",
     "category": "melee",
-    "categoryLabel": "أسلحة اشتباك يدوي",
+    "categoryLabel": "أسلحة المشاجرة",
     "manufacturer": "Shrewsbury",
-    "realCounterpart": "Ka-Bar USMC 7-inch Carbon Steel Knife",
+    "realCounterpart": "سكين Ka-Bar USMC من الفولاذ الكربوني بطول 7 بوصات",
     "price": 100,
     "priceFormatted": "$100",
     "rankUnlock": 1,
@@ -712,10 +712,10 @@
     "fireRate": 3,
     "accuracy": 1,
     "range": 1,
-    "clipSize": "Close combat bladed weapon",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 2/10، الدقة: 1/10، معدل الإطلاق: 3/10.",
+    "clipSize": "سلاح أبيض للقتال القريب",
+    "description": "سكين قتال بنصل ثابت من الفولاذ الكربوني بطول 7 بوصات. صامت وفتاك لعمليات التصفية الخفية من الخلف.",
     "attachments": [
-      "Forged Steel Finish"
+      "طلاء فولاذ مطروق"
     ],
     "icon": "fa-hand-back-fist",
     "badgeColor": "#94a3b8",
@@ -726,23 +726,23 @@
   {
     "id": "stone_hatchet",
     "order": 26,
-    "name": "Stone Hatchet",
+    "name": "فأس حجري",
     "nameEn": "Stone Hatchet",
     "category": "melee",
-    "categoryLabel": "أسلحة اشتباك يدوي",
-    "manufacturer": "Native American / RDR2",
-    "realCounterpart": "Sacred Stone Tomahawk",
+    "categoryLabel": "أسلحة المشاجرة",
+    "manufacturer": "السكان الأصليون الأمريكيون / RDR2",
+    "realCounterpart": "توماهوك حجري مقدس",
     "price": 0,
-    "priceFormatted": "Free (Maude Bounty Challenge)",
+    "priceFormatted": "مجاني",
     "rankUnlock": 1,
     "damage": 5,
     "fireRate": 2.5,
     "accuracy": 1,
     "range": 1,
-    "clipSize": "Passive: Stone Rage Mode",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Native American / RDR2). الضرر: 5/10، الدقة: 1/10، معدل الإطلاق: 2.5/10.",
+    "clipSize": "سلبي: وضع الغضب الحجري",
+    "description": "فأس حجري قديم من صنع السكان الأصليين الأمريكيين. عند توجيه ضربة قاتلة يُفعَّل «وضع الغضب» فيمنح مناعة مؤقتة وتجددًا سريعًا للصحة.",
     "attachments": [
-      "Traditional Leather Wraps"
+      "لفائف جلدية تقليدية"
     ],
     "icon": "fa-hand-back-fist",
     "badgeColor": "#f97316",
@@ -753,12 +753,12 @@
   {
     "id": "sticky_bomb",
     "order": 27,
-    "name": "Bomba Adhesiva",
+    "name": "قنبلة لاصقة",
     "nameEn": "Sticky Bomb",
     "category": "throwables",
-    "categoryLabel": "مقذوفات وقنابل يدوية",
+    "categoryLabel": "المقذوفات والمتفجرات",
     "manufacturer": "Shrewsbury",
-    "realCounterpart": "C4 Plastic Explosive with Remote Cellphone Detonator",
+    "realCounterpart": "متفجرات C4 البلاستيكية مع مفجر عن بُعد بالهاتف المحمول",
     "price": 600,
     "priceFormatted": "$600",
     "rankUnlock": 19,
@@ -766,10 +766,10 @@
     "fireRate": 1.5,
     "accuracy": 2,
     "range": 2.5,
-    "clipSize": "Up to 25 remote charges",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 9.5/10، الدقة: 2/10، معدل الإطلاق: 1.5/10.",
+    "clipSize": "حتى 25 شحنة عن بُعد",
+    "description": "كتلة متفجرة بلاستيكية C4 بقاعدة لاصقة ومفجر بالتحكم عن بُعد عبر الهاتف المحمول. لا غنى عنها للكمائن وفتح الشاحنات المدرعة.",
     "attachments": [
-      "Remote Cellular Trigger"
+      "مفجر عن بُعد عبر الهاتف المحمول"
     ],
     "icon": "fa-burst",
     "badgeColor": "#e11d48",
@@ -780,12 +780,12 @@
   {
     "id": "proximity_mine",
     "order": 28,
-    "name": "Proximity Mine",
+    "name": "لغم تقاربي",
     "nameEn": "Proximity Mine",
     "category": "throwables",
-    "categoryLabel": "مقذوفات وقنابل يدوية",
+    "categoryLabel": "المقذوفات والمتفجرات",
     "manufacturer": "Shrewsbury",
-    "realCounterpart": "Laser-Tripped Tactical Landmine",
+    "realCounterpart": "لغم تكتيكي بتفعيل ليزري",
     "price": 1000,
     "priceFormatted": "$1,000",
     "rankUnlock": 1,
@@ -793,10 +793,10 @@
     "fireRate": 1,
     "accuracy": 2,
     "range": 2,
-    "clipSize": "Up to 5 active deployed mines",
-    "description": "سلاح رسمي من متاجر Ammu-Nation (Shrewsbury). الضرر: 9.5/10، الدقة: 2/10، معدل الإطلاق: 1/10.",
+    "clipSize": "حتى 5 ألغام منتشرة",
+    "description": "لغم مضاد للأفراد وللمركبات بحساسات تقارب ليزرية ينفجر فورًا عند رصد حركة ضمن نطاق عمله.",
     "attachments": [
-      "Thermal Motion Trigger"
+      "مفجر بحساس حراري للحركة"
     ],
     "icon": "fa-burst",
     "badgeColor": "#e11d48",
@@ -807,12 +807,12 @@
   {
     "id": "grenade",
     "order": 29,
-    "name": "Frag Grenade",
+    "name": "قنبلة يدوية",
     "nameEn": "Grenade",
     "category": "throwables",
-    "categoryLabel": "Throwables & Explosives",
+    "categoryLabel": "المقذوفات والمتفجرات",
     "manufacturer": "Hawk & Little",
-    "realCounterpart": "M26 / Mk 2 Fragmentation Grenade",
+    "realCounterpart": "M26 / Mk 2 قنبلة تشظٍّ",
     "price": 250,
     "priceFormatted": "$250",
     "rankUnlock": 15,
@@ -820,8 +820,8 @@
     "fireRate": 1.5,
     "accuracy": 2,
     "range": 3,
-    "clipSize": "Up to 25 grenades",
-    "description": "Standard fragmentation grenade. Pull the pin, throw toward enemy positions, and it detonates after a short 5-second fuse.",
+    "clipSize": "حتى 25 قنبلة",
+    "description": "قنبلة تشظٍّ قياسية. اسحب الصمام وارمها نحو موقع العدو لتنفجر بعد عد تنازلي قصير مدته 5 ثوانٍ.",
     "attachments": [],
     "icon": "fa-burst",
     "badgeColor": "#e11d48",

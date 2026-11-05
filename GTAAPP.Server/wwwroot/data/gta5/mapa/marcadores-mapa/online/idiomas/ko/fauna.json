@@ -7,14 +7,14 @@
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "일일 도전",
-    "zone": "칠리아드 산 주립 야생보호구역",
-    "description": "로스 산토스 관광청 게시판. 야생 동물 사진 일일 도전을 통해 GTA 달러와 RP를 획득하고 디클라스 파크 레인저 차량을 잠금 해제할 수 있습니다.",
+    "zone": "Chiliad 자연공원",
+    "description": "야생 동물 사진 일일 도전으로 GTA$와 RP를 벌고 Declasse Park Ranger를 잠금 해제한다.",
     "features": [
-      "야생 동물 3종 일일 사진 촬영 도전",
-      "현금 GTA 달러 및 RP 보상",
-      "디클라스 파크 레인저 차량 잠금 해제"
+      "야생 동물 사진 일일 도전 (동물 3마리)",
+      "현금과 RP 획득",
+      "Declasse Park Ranger 잠금 해제"
     ],
-    "income": "일일 사진 촬영 보상",
+    "income": "",
     "position": {
       "x": -1512.5,
       "y": 4947.8,
@@ -29,20 +29,20 @@
   },
   {
     "id": "animal-rabbit-hills",
-    "name": "산토끼",
+    "name": "야생 토끼",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "바인우드 힐스 및 시골",
-    "description": "산토끼는 산 안드레아스 전역에서 가장 흔한 토착 포유류입니다. 바인우드 힐스, 칠리아드 산, 팔레토 숲, 통바 밸리에서 자연 발생합니다.",
+    "zone": "Vinewood 언덕과 시골",
+    "description": "야생 토끼는 San Andreas에서 가장 흔한 토착 포유류다. Vinewood Hills, Chiliad 산, Paleto 숲, Tongva 계곡에서 자연스럽게 나타난다.",
     "features": [
-      "야생 동물 사진 촬영 챌린지 대상",
-      "언덕과 수풀 지대에서 흔히 발견됨",
-      "빠르게 움직이며 발소리나 차량에 쉽게 놀람"
+      "야생 동물 사진 도전 과제의 대상 동물",
+      "언덕과 관목 지대 어디서나 흔하다",
+      "빠르며 발소리나 차량에 쉽게 놀란다"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "사진 촬영으로 받는 Kraken 잠수정 보상",
     "position": {
       "x": -420,
       "y": 1200,
@@ -57,20 +57,20 @@
   },
   {
     "id": "animal-deer-chiliad",
-    "name": "흰꼬리사슴",
+    "name": "흰꼬리사슴 / 암사슴",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "칠리아드 산 주립 야생보호구역",
-    "description": "라톤 캐니언과 팔레토 숲 깊은 곳에 서식하는 경계심 강한 야생 사슴.",
+    "zone": "Chiliad 산 주립 자연보호구역",
+    "description": "Chiliad 산의 숲 비탈과 Paleto 숲에서 풀을 뜯는 사슴 무리. Trevor의 전형적인 사냥감이다.",
     "features": [
-      "트레버 사냥 미션 및 사진 촬영 챌린지",
-      "북부 삼림 지대에 밀집 서식",
-      "총소리나 소음에 즉시 도망침"
+      "Trevor의 사냥 미션과 사진 도전 과제",
+      "북쪽 북방 숲에 밀집한 개체군",
+      "총소리나 소음이 나면 즉시 도망친다"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "스포츠 사냥과 사진 촬영 대상",
     "position": {
       "x": -650,
       "y": 4520,
@@ -85,20 +85,20 @@
   },
   {
     "id": "animal-cougar-tongva",
-    "name": "퓨마 (마운틴 라이온)",
+    "name": "퓨마",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "통바 힐스 / 밴햄 캐니언",
-    "description": "통바 힐즈와 칠리아드 산에 서식하는 맹수. 뒤에서 소리 없이 기습하여 일격에 치명상을 입힙니다.",
+    "zone": "Tongva 언덕 / Banham 협곡",
+    "description": "San Andreas에서 가장 치명적인 육상 포식자. 바위투성이 협곡에 숨어 있다가 치명적인 속도로 기습한다.",
     "features": [
-      "한 번의 공격으로 치명타를 입히는 맹수",
-      "덮치기 전 특유의 낮은 으르렁거림",
-      "안전한 거리에서 촬영 권장"
+      "한 번의 물기로 즉사시키는 공격적인 최상위 포식자",
+      "덮치기 전에 내는 특징적인 낮은 으르렁 소리",
+      "안전한 거리에서 촬영 가능"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "위험도가 높은 사진 촬영 대상",
     "position": {
       "x": -1520,
       "y": 1540,
@@ -113,20 +113,20 @@
   },
   {
     "id": "animal-coyote-senora",
-    "name": "코요테",
+    "name": "사막 코요테",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "그랜드 세노라 사막",
-    "description": "그랜드 세노라 사막과 샌디 해안 주변을 무리 지어 배회하는 육식 동물.",
+    "zone": "Grand Senora 사막",
+    "description": "사막의 청소동물 야생 갯과 동물로, Grand Senora와 Sandy Shores 비행장 일대에서 흔히 볼 수 있다.",
     "features": [
-      "밤에 사막 평원에서 하울링을 함",
-      "시골 도로 근처를 혼자 또는 짝을 지어 배회",
-      "퓨마보다 온순하며 차량을 보면 도망침"
+      "밤이면 사막 평원에 울음소리를 낸다",
+      "시골길 근처를 홀로 또는 쌍으로 배회한다",
+      "퓨마보다 덜 공격적이며 차량을 피해 도망친다"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "야생 동물 사진 촬영 대상",
     "position": {
       "x": 1240,
       "y": 3100,
@@ -143,18 +143,18 @@
     "id": "animal-boar-bolingbroke",
     "name": "야생 멧돼지",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "볼링브로크 힐스 / 세노라",
-    "description": "칠리아드 산 자연보호구역 덤불 속에 서식하는 거칠고 억센 멧돼지.",
+    "zone": "Bolingbroke 언덕 / Senora",
+    "description": "Bolingbroke 교도소와 Senora 국립공원을 둘러싼 관목 언덕에서 먹이를 찾는 튼튼한 멧돼지.",
     "features": [
-      "궁지에 몰리면 강력한 돌진 공격을 함",
-      "건조한 수풀과 선인장 군락에 흔함",
+      "놀라거나 궁지에 몰리면 힘차게 돌진한다",
+      "건조한 덤불과 선인장 군락에 흔하다",
       "야생 동물 사진 촬영 대상"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "야생 동물 사진 촬영 대상",
     "position": {
       "x": 1820,
       "y": 2650,
@@ -171,18 +171,18 @@
     "id": "animal-hawk-vinewood",
     "name": "붉은꼬리매",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "바인우드 힐스 산등성이",
-    "description": "산악 지대 상공을 우아하게 선회하는 대형 맹금류.",
+    "zone": "Vinewood Hills 능선",
+    "description": "상징적인 Vinewood 간판과 Galileo 천문대 위의 상승 온난 기류를 타고 활공하는 맹금류.",
     "features": [
-      "위엄 있는 원형 활공 비행 패턴",
-      "아래에서도 들리는 날카로운 울음소리",
-      "바위, 울타리, 전신주에 앉아 휴식"
+      "높은 하늘에서 위엄 있게 원을 그리며 활공한다",
+      "아래에서도 들리는 날카롭고 높은 울음소리",
+      "바위, 울타리, 전신주에 앉는다"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "조류 사진 촬영 대상",
     "position": {
       "x": 710,
       "y": 1195,
@@ -197,20 +197,20 @@
   },
   {
     "id": "animal-cormorant-zancudo",
-    "name": "가마우지",
+    "name": "신열대 가마우지",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "라고 잔쿠도 습지",
-    "description": "잔쿠도 호수 습지대에서 물고기를 사냥하는 깃털이 검은 물새.",
+    "zone": "Lago Zancudo 습지",
+    "description": "검은 깃털의 물새로, Lago Zancudo의 얕은 하구와 늪에서 물고기를 잡으려 잠수한다.",
     "features": [
-      "습지, 강, 해안 만을 따라 흔히 발견됨",
-      "바위 위에서 날개를 펼쳐 깃털을 말림",
-      "공식 야생 동물 사진 촬영 항목"
+      "습지, 강, 해안 만 어디서나 흔하다",
+      "바위 위에서 날개를 활짝 펴 깃털을 말린다",
+      "공식 야생 동물 사진 항목"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "물새 사진 촬영 대상",
     "position": {
       "x": -2250,
       "y": 2600,
@@ -225,20 +225,20 @@
   },
   {
     "id": "animal-seagull-pier",
-    "name": "갈매기",
+    "name": "은갈매기 / 갈매기",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "델 페로 부두 및 베스푸치 해변",
-    "description": "델 페로, 베스푸치 해변과 항만 부두 주변을 날아다니는 바닷새.",
+    "zone": "Del Perro 부두와 Vespucci 해변",
+    "description": "Del Perro 부두 산책로와 붐비는 Vespucci 해변 위를 날아다니는 어디서나 보이는 해안 새.",
     "features": [
-      "부두 난간과 대관람차에 앉음",
-      "모래사장에서 매우 쉽게 발견하고 촬영 가능",
-      "빠르게 완료할 수 있는 사진 목표"
+      "부두 난간과 대관람차에 앉는다",
+      "모래밭에서 찾고 촬영하기가 매우 쉽다",
+      "빠르게 찍을 수 있는 사진 대상"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "해안 야생 동물 사진 대상",
     "position": {
       "x": -1680,
       "y": -1070,
@@ -255,18 +255,18 @@
     "id": "animal-shark-paleto",
     "name": "백상아리",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "야생 동물 표본",
-    "zone": "팔레토 만 심해",
-    "description": "산 안드레아스 심해를 순회하는 위험한 바다 포식자. 조우 시 '위험한 심해' 도전과제를 획득합니다.",
+    "zone": "Paleto Bay 심해",
+    "description": "심해를 순찰하는 바다의 포식자. 뛰어올라 고무보트를 공격하고 방심한 잠수부를 집어삼킬 수 있다.",
     "features": [
-      "독특한 킬 모션을 가진 해양 포식자",
-      "심해에서 미니맵에 빨간색 점으로 표시됨",
-      "보트 위에서 안전하게 사진 촬영 가능"
+      "고유한 사망 연출이 있는 최상위 해양 포식자",
+      "심해에서 미니맵에 붉은 점으로 나타난다",
+      "배에서 안전하게 촬영 가능"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "심해 해양 야생 동물",
     "position": {
       "x": -500,
       "y": 6700,
@@ -281,20 +281,20 @@
   },
   {
     "id": "animal-farm-grapeseed",
-    "name": "농장 암소 및 돼지",
+    "name": "농장 소와 돼지",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "가축",
-    "zone": "그레이프시드 농경지",
-    "description": "칠리아드 산 기슭에 위치한 그레이프시드의 농장 우리에서 풀을 뜯는 가축입니다.",
+    "zone": "Grapeseed 농경지",
+    "description": "Chiliad 산 기슭 Grapeseed의 농장 우리에서 풀을 뜯는 가축.",
     "features": [
-      "두 가축 모두 같은 그레이프시드 우리에 위치",
-      "완전히 온순하며 사진 촬영이 매우 쉬움",
-      "목가적인 시골 풍경"
+      "두 종 모두 같은 Grapeseed 우리에 있다",
+      "전혀 해롭지 않아 촬영하기 매우 쉽다",
+      "평화로운 전원 풍경"
     ],
-    "income": "모든 야생동물 사진 촬영 시 크라켄 잠수정 해금",
+    "income": "손쉽게 달성하는 사진 대상",
     "position": {
       "x": 2440,
       "y": 4970,
@@ -309,20 +309,20 @@
   },
   {
     "id": "animal-orca-south",
-    "name": "Orca / Killer Whale",
+    "name": "범고래",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "Southern High Seas (South Pacific Ocean)",
-    "description": "The largest predatory cetacean off the shores of San Andreas. Glides through deep waters and surfaces to breach with unmistakable black-and-white patterns.",
+    "priceFormatted": "야생 동물 표본",
+    "zone": "남쪽 공해 (남태평양)",
+    "description": "San Andreas 해안에서 가장 큰 포식성 고래류. 심해를 미끄러지듯 헤엄치다 특유의 흰색과 검은색 무늬를 드러내며 수면으로 올라온다.",
     "features": [
-      "Massive oceanic mammal swimming in northern deep waters",
-      "Iconic marine species visible offshore",
-      "Controllable animal via underwater peyote plant in Story Mode"
+      "북쪽 심해를 헤엄치는 거대한 해양 포유류",
+      "먼바다에서 볼 수 있는 상징적인 해양 생물",
+      "스토리 모드에서 수중 페요테 식물로 조종할 수 있는 동물"
     ],
-    "income": "Deep ocean marine wildlife",
+    "income": "심해 해양 야생 동물",
     "position": {
       "x": 1231.1,
       "y": -3537.4,
@@ -337,20 +337,20 @@
   },
   {
     "id": "animal-whale-east",
-    "name": "Whale",
+    "name": "고래",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "Eastern High Seas (Pacific Ocean)",
-    "description": "Colossal whale swimming in the deep open waters of eastern San Andreas.",
+    "priceFormatted": "야생 동물 표본",
+    "zone": "동쪽 공해 (태평양 동부)",
+    "description": "San Andreas 동쪽 탁 트인 바다의 심해를 가르는 거대한 고래류.",
     "features": [
-      "Colossal oceanic mammal spotted offshore",
-      "Deep water marine sighting along the coastline",
-      "Spotted in deep ocean waters"
+      "먼바다에서 볼 수 있는 거대한 해양 포유류",
+      "심해에서 헤엄치는 해양 생물",
+      "심해에서 목격되는 동물"
     ],
-    "income": "Deep ocean marine wildlife",
+    "income": "심해 해양 야생 동물",
     "position": {
       "x": 3509.4,
       "y": 2017.8,
@@ -367,18 +367,18 @@
     "id": "animal-dolphin-east",
     "name": "돌고래",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "Eastern High Seas (Pacific Ocean)",
-    "description": "Intelligent and playful marine mammal. Swims and leaps in small pods in the oceanic waters east of San Andreas.",
+    "priceFormatted": "야생 동물 표본",
+    "zone": "동쪽 공해 (태평양 동부)",
+    "description": "영리하고 장난기 많은 해양 포유류. San Andreas 동쪽 연안 바다에서 작은 무리를 지어 헤엄치고 뛰어오른다.",
     "features": [
-      "Playful aquatic mammal that leaps above the water",
-      "Spotted in pods riding the waves of the eastern ocean",
-      "Spotted in deep ocean waters"
+      "물 위로 뛰어오르는 장난기 많은 수생 포유류",
+      "동쪽 바다의 파도를 타는 무리가 보인다",
+      "심해에서 목격되는 동물"
     ],
-    "income": "Marine wildlife and ocean sightings",
+    "income": "해양 생물과 바다 목격",
     "position": {
       "x": 4184,
       "y": 3416.9,
@@ -393,17 +393,17 @@
   },
   {
     "id": "animal-whale-north",
-    "name": "Whale",
+    "name": "고래",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "North Pacific Ocean",
-    "description": "Colossal cetacean in the deep open-ocean waters north of San Andreas.",
+    "priceFormatted": "야생 동물 표본",
+    "zone": "북태평양",
+    "description": "San Andreas 북쪽 탁 트인 바다의 심해에 있는 거대한 고래류.",
     "features": [
-      "Colossal oceanic mammal spotted offshore",
-      "Marine species swimming in deep waters"
+      "먼바다에서 볼 수 있는 거대한 해양 포유류",
+      "심해에서 헤엄치는 해양 생물"
     ],
     "position": {
       "x": 2163.1,
@@ -419,17 +419,17 @@
   },
   {
     "id": "animal-cougar-alamo",
-    "name": "Mountain Lion / Cougar",
+    "name": "퓨마",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "야생 동물",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
+    "priceFormatted": "야생 동물 표본",
     "zone": "Blaine County",
-    "description": "Lethal land predator roaming Blaine County.",
+    "description": "Blaine County를 배회하는 치명적인 육상 포식자.",
     "features": [
-      "Aggressive predator",
-      "Wildlife photography target"
+      "공격적인 포식자",
+      "야생 동물 사진 촬영 대상"
     ],
     "position": {
       "x": 47.2,
@@ -450,13 +450,13 @@
     "categoryLabel": "야생 동물",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Espécimen de Fauna",
+    "priceFormatted": "야생 동물 표본",
     "zone": "태평양",
-    "description": "태평양 해역에서 목격된 돌고래 무리.",
+    "description": "태평양 바다에서 목격된 돌고래 무리.",
     "features": [
-      "태평양 해역에서 목격된 돌고래 무리."
+      "태평양 바다에서 목격된 돌고래 무리."
     ],
-    "income": "Vida marina y avistamiento oceánico",
+    "income": "해양 생물과 바다 목격",
     "position": {
       "x": -3173.7,
       "y": -112.6,
@@ -471,18 +471,18 @@
   },
   {
     "id": "animal-orcas-costa-oeste",
-    "name": "Orca / Killer Whale",
+    "name": "범고래",
     "category": "animal",
     "categoryLabel": "야생 동물",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Espécimen de Fauna",
+    "priceFormatted": "야생 동물 표본",
     "zone": "태평양",
-    "description": "태평양 깊은 바다에서 목격된 범고래 무리.",
+    "description": "태평양 심해에서 목격된 범고래 무리.",
     "features": [
-      "태평양 깊은 바다에서 목격된 범고래 무리."
+      "태평양 심해에서 목격된 범고래 무리."
     ],
-    "income": "Vida marina y avistamiento oceánico",
+    "income": "해양 생물과 바다 목격",
     "position": {
       "x": -3595,
       "y": 1425.7,

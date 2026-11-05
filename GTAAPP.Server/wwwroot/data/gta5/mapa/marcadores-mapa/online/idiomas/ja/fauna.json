@@ -7,14 +7,14 @@
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "デイリーチャレンジ",
-    "zone": "チリアド山州立自然保護区",
-    "description": "ロスサントス観光局の掲示板。野生動物写真デイリーチャレンジでGTAマネーとRPを獲得し、デクラス パークレンジャーをアンロックできます。",
+    "zone": "Chiliad自然公園",
+    "description": "野生動物のデイリー撮影チャレンジで、GTA$とRPを獲得し、Declasse Park Rangerをアンロックできます。",
     "features": [
-      "3種類の野生動物を撮影するデイリーチャレンジ",
-      "GTAマネーおよびRPの報酬",
-      "デクラス パークレンジャーのアンロック"
+      "野生動物のデイリー撮影チャレンジ(動物3匹)",
+      "お金とRPを獲得",
+      "Declasse Park Rangerをアンロック"
     ],
-    "income": "デイリー写真撮影報酬",
+    "income": "",
     "position": {
       "x": -1512.5,
       "y": 4947.8,
@@ -31,18 +31,18 @@
     "id": "animal-rabbit-hills",
     "name": "野ウサギ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "バインウッドヒルズ＆田園地帯",
-    "description": "野ウサギはサンアンドレアス全域で最も一般的な在来哺乳類です。バインウッドヒルズ、チリアド山、パレトフォレスト、トングババレーに自然発生します。",
+    "priceFormatted": "動物の標本",
+    "zone": "Vinewood丘陵と田園地帯",
+    "description": "野ウサギはSan Andreasで最も一般的な在来の哺乳類です。Vinewood Hills、Chiliad山、Paletoの森、Tongva渓谷に自然に生息しています。",
     "features": [
-      "野生動物写真チャレンジのターゲット",
-      "丘陵地や茂みによく生息",
-      "素早く動き、足音や車に驚いて逃げやすい"
+      "野生動物撮影チャレンジの対象動物",
+      "丘陵地や低木の茂みに広く生息",
+      "足が速く、足音や車に簡単に驚く"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "撮影でKraken潜水艇の報酬を得られる",
     "position": {
       "x": -420,
       "y": 1200,
@@ -57,20 +57,20 @@
   },
   {
     "id": "animal-deer-chiliad",
-    "name": "オジロジカ",
+    "name": "オジロジカ / 雌ジカ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "チリアド山州立自然保護区",
-    "description": "ラトン渓谷やパレトの森の奥深くに生息する警戒心の強い野生のシカ。",
+    "priceFormatted": "動物の標本",
+    "zone": "Chiliad山自然保護区",
+    "description": "Chiliad山の森の斜面やPaletoの森で草を食むシカの群れ。Trevorの古典的な狩猟の獲物です。",
     "features": [
-      "トレバーの狩猟ミッションおよび写真チャレンジ",
-      "北部の森林地帯に密集して生息",
-      "銃声や物音を聞くと即座に逃走"
+      "Trevorの狩猟ミッションと撮影チャレンジ",
+      "北部の亜寒帯林に高密度で生息",
+      "銃声や物音がするとすぐに逃げる"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "スポーツハンティングと撮影の対象",
     "position": {
       "x": -650,
       "y": 4520,
@@ -85,20 +85,20 @@
   },
   {
     "id": "animal-cougar-tongva",
-    "name": "クーガー（マウンテンライオン）",
+    "name": "ピューマ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "トングバヒルズ / バナムキャニオン",
-    "description": "トングバ・ヒルズやチリアド山に生息する凶暴な肉食獣。背後から無音で奇襲し一撃で仕留めてきます。",
+    "priceFormatted": "動物の標本",
+    "zone": "Tongva丘陵 / Banham峡谷",
+    "description": "San Andreasで最も危険な陸上の捕食者。岩だらけの峡谷に潜み、致命的な速さで不意を突いて襲いかかります。",
     "features": [
-      "一撃でプレイヤーを倒す獰猛な捕食者",
-      "飛びかかる前に独特の唸り声をあげる",
-      "安全な距離から撮影可能"
+      "一撃で命を奪う噛みつきを持つ攻撃的な頂点捕食者",
+      "飛びかかる前に特徴的な低いうなり声を出す",
+      "安全な距離から撮影できる"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "危険度の高い撮影対象",
     "position": {
       "x": -1520,
       "y": 1540,
@@ -113,20 +113,20 @@
   },
   {
     "id": "animal-coyote-senora",
-    "name": "コヨーテ",
+    "name": "砂漠のコヨーテ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "グランド・セノーラ砂漠",
-    "description": "グランド・セノーラ砂漠やサンディ海岸周辺に群れで生息する肉食動物。",
+    "priceFormatted": "動物の標本",
+    "zone": "Grand Senora砂漠",
+    "description": "砂漠に生息する腐肉を食べる野生のイヌ科動物で、Grand SenoraとSandy Shores飛行場の周辺に多く見られます。",
     "features": [
-      "夜間に砂漠の平原で遠吠えをあげる",
-      "田舎道沿いを単独またはペアで徘徊",
-      "ピューマより攻撃性が低く、車から逃げる"
+      "夜になると砂漠の平原に遠吠えを響かせる",
+      "田舎道の近くで単独または二頭で歩き回る",
+      "ピューマほど攻撃的ではなく、車から逃げる"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "野生動物撮影の対象",
     "position": {
       "x": 1240,
       "y": 3100,
@@ -141,20 +141,20 @@
   },
   {
     "id": "animal-boar-bolingbroke",
-    "name": "イノシシ",
+    "name": "野生のイノシシ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "ボリングブロークヒルズ / セノーラ",
-    "description": "チリアド山自然保護区の茂みに生息する頑丈な野生動物。",
+    "priceFormatted": "動物の標本",
+    "zone": "Bolingbroke丘陵 / Senora",
+    "description": "Bolingbroke刑務所やSenora国立公園を囲む低木の丘で餌を探す、たくましいイノシシ。",
     "features": [
-      "驚いたり追い詰められると強烈な突進を行う",
-      "乾燥した茂みやサボテン地帯に生息",
-      "野生動物写真ターゲット"
+      "驚いたり追い詰められたりすると猛烈に突進してくる",
+      "乾いた低木の茂みやサボテンの群生地によく見られる",
+      "野生動物撮影の対象"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "野生動物撮影の対象",
     "position": {
       "x": 1820,
       "y": 2650,
@@ -169,20 +169,20 @@
   },
   {
     "id": "animal-hawk-vinewood",
-    "name": "アカオノスリ（タカ）",
+    "name": "アカオノスリ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "バインウッドヒルズ頂上",
-    "description": "山岳地帯の上空を優雅に旋回する大型の猛禽類。",
+    "priceFormatted": "動物の標本",
+    "zone": "Vinewood Hillsの稜線",
+    "description": "象徴的なVinewoodサインとGalileo天文台の上空で、上昇気流に乗って滑空する猛禽類。",
     "features": [
-      "雄大な旋回飛行パターン",
-      "下からもはっきりと聞こえる鋭い鳴き声",
-      "岩やフェンス、電柱にとまる"
+      "空高く優雅に円を描いて飛ぶ",
+      "下からでも聞こえる特徴的な鋭い甲高い鳴き声",
+      "岩、柵、電柱にとまる"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "鳥類撮影の対象",
     "position": {
       "x": 710,
       "y": 1195,
@@ -197,20 +197,20 @@
   },
   {
     "id": "animal-cormorant-zancudo",
-    "name": "ウ（鵜）",
+    "name": "ネッタイウ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "ザンクード湖湿地帯",
-    "description": "ザンクード湖の湿地帯で魚を獲る黒い羽毛の水鳥。",
+    "priceFormatted": "動物の標本",
+    "zone": "Lago Zancudo湿地帯",
+    "description": "Lago Zancudoの浅い河口や沼地で、魚を求めて潜る暗い羽毛の水鳥。",
     "features": [
-      "湿地、河川、海岸の入り江によく生息",
-      "岩の上で翼を広げて羽を乾かす習性",
-      "公式野生動物写真チャレンジ対象"
+      "湿地、川、海岸の入り江沿いによく見られる",
+      "岩の上で翼を広げて羽を乾かす",
+      "野生動物撮影の公式エントリー"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "水鳥撮影の対象",
     "position": {
       "x": -2250,
       "y": 2600,
@@ -225,20 +225,20 @@
   },
   {
     "id": "animal-seagull-pier",
-    "name": "カモメ",
+    "name": "ギンカモメ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "デル・ペロ桟橋＆ベスプッチビーチ",
-    "description": "デル・ペロやベスプチの海岸、港湾部に生息する海鳥。",
+    "priceFormatted": "動物の標本",
+    "zone": "Del Perro桟橋とVespucciビーチ",
+    "description": "Del Perro桟橋の遊歩道や賑やかなVespucciビーチの上空を飛ぶ、どこにでもいる海鳥。",
     "features": [
       "桟橋の手すりや観覧車にとまる",
-      "砂浜の上で非常に簡単に見つけて撮影可能",
-      "手軽な撮影ターゲット"
+      "砂浜で見つけて撮影するのが非常に簡単",
+      "手軽な撮影対象"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "沿岸の野生動物の撮影対象",
     "position": {
       "x": -1680,
       "y": -1070,
@@ -253,20 +253,20 @@
   },
   {
     "id": "animal-shark-paleto",
-    "name": "ホオジロザメ",
+    "name": "ホホジロザメ",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "野生生物標本",
-    "zone": "パレト湾の深海",
-    "description": "サンアンドレアス沖の深海を回遊する危険な海の捕食者。遭遇するとトロフィー「危険な深海」を獲得。",
+    "priceFormatted": "動物の標本",
+    "zone": "Paleto Bay沖の深海",
+    "description": "深い海を巡回する海洋の捕食者。ジャンプしてゴムボートを襲い、無警戒なダイバーを食い尽くすことがあります。",
     "features": [
-      "独自のキルアニメーションを持つ究極の海洋捕食者",
-      "深海域ではミニマップ上に赤い点で表示される",
-      "ボートや船の上から安全に撮影可能"
+      "独自の殺害アニメーションを持つ海の頂点捕食者",
+      "深い海ではミニマップに赤い点として表示される",
+      "船の上から安全に撮影できる"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "深海の海洋生物",
     "position": {
       "x": -500,
       "y": 6700,
@@ -281,20 +281,20 @@
   },
   {
     "id": "animal-farm-grapeseed",
-    "name": "農場の牛＆豚",
+    "name": "農場の牛と豚",
     "category": "animal",
-    "categoryLabel": "animal",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
     "priceFormatted": "家畜",
-    "zone": "グレープシード農接地帯",
-    "description": "チリアド山のふもとにあるグレープシードの農場囲い地で飼育されている家畜。",
+    "zone": "Grapeseed農地",
+    "description": "Chiliad山のふもとにあるGrapeseedの牧場の囲いで草を食む家畜。",
     "features": [
-      "両方の動物が同じグレープシードの囲いの中にいる",
-      "完全に無害で撮影が極めて容易",
-      "のどかな田園風景"
+      "どちらの種もGrapeseedの同じ囲いの中にいる",
+      "まったく無害で、とても簡単に撮影できる",
+      "のどかな田舎の風景"
     ],
-    "income": "全動物写真撮影で潜水艇クラーケン獲得",
+    "income": "簡単に達成できる撮影対象",
     "position": {
       "x": 2440,
       "y": 4970,
@@ -309,20 +309,20 @@
   },
   {
     "id": "animal-orca-south",
-    "name": "Orca / Killer Whale",
+    "name": "シャチ",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "Southern High Seas (South Pacific Ocean)",
-    "description": "The largest predatory cetacean off the shores of San Andreas. Glides through deep waters and surfaces to breach with unmistakable black-and-white patterns.",
+    "priceFormatted": "動物の標本",
+    "zone": "南部公海 (南太平洋)",
+    "description": "San Andreasの沿岸で最大の肉食性クジラ類。深い海を滑るように泳ぎ、見間違えようのない白と黒の模様を見せながら水面に浮上します。",
     "features": [
-      "Massive oceanic mammal swimming in northern deep waters",
-      "Iconic marine species visible offshore",
-      "Controllable animal via underwater peyote plant in Story Mode"
+      "北の深い海を泳ぐ巨大な海洋哺乳類",
+      "沖合で見られる象徴的な海洋生物",
+      "ストーリーモードでは水中のペヨーテの植物で操作できる動物"
     ],
-    "income": "Deep ocean marine wildlife",
+    "income": "深海の海洋生物",
     "position": {
       "x": 1231.1,
       "y": -3537.4,
@@ -337,20 +337,20 @@
   },
   {
     "id": "animal-whale-east",
-    "name": "Whale",
+    "name": "クジラ",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "Eastern High Seas (Pacific Ocean)",
-    "description": "Colossal whale swimming in the deep open waters of eastern San Andreas.",
+    "priceFormatted": "動物の標本",
+    "zone": "東部公海 (太平洋東部)",
+    "description": "San Andreas東の外洋の深い海を渡る巨大なクジラ類。",
     "features": [
-      "Colossal oceanic mammal spotted offshore",
-      "Deep water marine sighting along the coastline",
-      "Spotted in deep ocean waters"
+      "沖合で見られる巨大な海洋哺乳類",
+      "深い海を泳ぐ海洋生物",
+      "深い海域で目撃される動物"
     ],
-    "income": "Deep ocean marine wildlife",
+    "income": "深海の海洋生物",
     "position": {
       "x": 3509.4,
       "y": 2017.8,
@@ -367,18 +367,18 @@
     "id": "animal-dolphin-east",
     "name": "イルカ",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "Eastern High Seas (Pacific Ocean)",
-    "description": "Intelligent and playful marine mammal. Swims and leaps in small pods in the oceanic waters east of San Andreas.",
+    "priceFormatted": "動物の標本",
+    "zone": "東部公海 (太平洋東部)",
+    "description": "賢くて遊び好きな海洋哺乳類。San Andreas東の沿岸海域で小さな群れを作って泳ぎ、跳ねています。",
     "features": [
-      "Playful aquatic mammal that leaps above the water",
-      "Spotted in pods riding the waves of the eastern ocean",
-      "Spotted in deep ocean waters"
+      "水面の上を跳ねる遊び好きな水生哺乳類",
+      "東の海の波に乗る群れで見られる",
+      "深い海域で目撃される動物"
     ],
-    "income": "Marine wildlife and ocean sightings",
+    "income": "海洋生物と海でのウォッチング",
     "position": {
       "x": 4184,
       "y": 3416.9,
@@ -393,17 +393,17 @@
   },
   {
     "id": "animal-whale-north",
-    "name": "Whale",
+    "name": "クジラ",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
-    "zone": "North Pacific Ocean",
-    "description": "Colossal cetacean in the deep open-ocean waters north of San Andreas.",
+    "priceFormatted": "動物の標本",
+    "zone": "北太平洋",
+    "description": "San Andreas北の外洋の深い海域にいる巨大なクジラ類。",
     "features": [
-      "Colossal oceanic mammal spotted offshore",
-      "Marine species swimming in deep waters"
+      "沖合で見られる巨大な海洋哺乳類",
+      "深い海を泳ぐ海洋生物"
     ],
     "position": {
       "x": 2163.1,
@@ -419,17 +419,17 @@
   },
   {
     "id": "animal-cougar-alamo",
-    "name": "Mountain Lion / Cougar",
+    "name": "ピューマ",
     "category": "animal",
-    "categoryLabel": "Wildlife",
+    "categoryLabel": "野生動物",
     "gameMode": "online",
     "price": 0,
-    "priceFormatted": "Wildlife Specimen",
+    "priceFormatted": "動物の標本",
     "zone": "Blaine County",
-    "description": "Lethal land predator roaming Blaine County.",
+    "description": "Blaine Countyを徘徊する危険な陸上の捕食者。",
     "features": [
-      "Aggressive predator",
-      "Wildlife photography target"
+      "攻撃的な捕食者",
+      "野生動物撮影の対象"
     ],
     "position": {
       "x": 47.2,
@@ -447,16 +447,16 @@
     "id": "animal-delfines-costa-oeste",
     "name": "イルカ",
     "category": "animal",
-    "categoryLabel": "野生生物",
+    "categoryLabel": "野生動物",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Espécimen de Fauna",
+    "priceFormatted": "動物の標本",
     "zone": "太平洋",
     "description": "太平洋の海域で目撃されたイルカの群れ。",
     "features": [
       "太平洋の海域で目撃されたイルカの群れ。"
     ],
-    "income": "Vida marina y avistamiento oceánico",
+    "income": "海洋生物と海でのウォッチング",
     "position": {
       "x": -3173.7,
       "y": -112.6,
@@ -471,18 +471,18 @@
   },
   {
     "id": "animal-orcas-costa-oeste",
-    "name": "Orca / Killer Whale",
+    "name": "シャチ",
     "category": "animal",
-    "categoryLabel": "野生生物",
+    "categoryLabel": "野生動物",
     "gameMode": "both",
     "price": 0,
-    "priceFormatted": "Espécimen de Fauna",
+    "priceFormatted": "動物の標本",
     "zone": "太平洋",
-    "description": "太平洋の深海海域で目撃されたシャチの群れ。",
+    "description": "太平洋の深い海域で目撃されたシャチの群れ。",
     "features": [
-      "太平洋の深海海域で目撃されたシャチの群れ。"
+      "太平洋の深い海域で目撃されたシャチの群れ。"
     ],
-    "income": "Vida marina y avistamiento oceánico",
+    "income": "海洋生物と海でのウォッチング",
     "position": {
       "x": -3595,
       "y": 1425.7,
