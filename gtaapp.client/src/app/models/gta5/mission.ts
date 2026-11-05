@@ -5,6 +5,9 @@ export interface GtaMission {
   character: string;
   giver: string;
   category: string;
+  /** Categoría y personajes del dato base en español: para filtros, colores e iconos sin depender del idioma. */
+  baseCategory?: string;
+  baseCharacter?: string;
   description: string;
   goldRequirements: string[];
   reward?: string;

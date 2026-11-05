@@ -2,110 +2,101 @@
   {
     "id": "mission-01",
     "order": 1,
-    "title": "프롤로그 (Prologue)",
+    "title": "프롤로그",
     "character": "Michael, Trevor",
-    "giver": "메인 스토리",
-    "category": "Prólogo",
-    "description": "GTA V 스토리 모드 메인 미션: '프롤로그 (Prologue)'. 플레이어 (Michael, Trevor), 의뢰인: 메인 스토리. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "giver": "스토리",
+    "category": "프롤로그",
+    "description": "9년 전 루덴도르프(North Yankton)에서 벌어진 겨울 강도 사건입니다. Michael, Trevor, Brad가 Bobcat Security 금고에 침입합니다. 눈 속의 도주는 열차와의 충돌과 경찰의 개입으로 꼬이고, 결국 Michael이 연방 요원 Dave Norton과 자신의 죽음을 위장하기로 은밀히 합의하면서 막을 내립니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "04:30 이내에 완료하기",
+      "사격 명중률 최소 80% 달성하기",
+      "경찰 최소 12명의 머리를 쏘기"
     ],
-    "reward": "Unlocks Los Santos and Franklin",
-    "unlockedBy": "해금 조건: Game start"
+    "reward": "Los Santos와 Franklin 해금",
+    "unlockedBy": "게임 시작"
   },
   {
     "id": "mission-02",
     "order": 2,
-    "thumbnail": "assets/images/gta5/guia/offline/misiones-principales/02-franklin-y-lamar.png",
-    "title": "프랭클린과 라마",
+    "title": "Franklin과 Lamar",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '프랭클린과 라마'. 플레이어 (Franklin), 의뢰인: Simeon Yetarian. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "categoryLabel": "스토리 미션",
+    "description": "Simeon Yetarian의 자동차 매장에서 맡은 첫 일입니다. Franklin과 Lamar는 Rockford Hills의 저택으로 가서 고급 스포츠카 두 대를 되찾아 옵니다. 두 사람은 Los Santos 거리를 전속력으로 달리며 교통을 피하고 순찰차를 따돌린 뒤, 차량을 Premium Deluxe Motorsport에 세워 둡니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "9F에 큰 손상 없이 레이스 완료하기",
+      "Franklin의 특수 능력을 최소 7초 동안 사용하기",
+      "Lamar와의 레이스에서 승리하기",
+      "스튜디오 주차장에서 충돌 피하기"
     ],
     "reward": "$250",
-    "unlockedBy": "해금 조건: Prologue",
-    "position": {
-      "x": -1873.8,
-      "y": -583.6,
-      "z": 13
-    }
+    "unlockedBy": "프롤로그"
   },
   {
     "id": "mission-03",
     "order": 3,
-    "title": "압류 (Repossession)",
+    "title": "차량 압류",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '압류 (Repossession)'. 플레이어 (Franklin), 의뢰인: Simeon Yetarian. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "description": "Vespucci Beach 골목에서 벌어지는 압류 의뢰입니다. Franklin과 Lamar는 Vagos 갱단의 구역에서 오토바이를 되찾으려 합니다. 협상은 순식간에 결렬되어 차고 사이에서 총격전이 벌어지고, 곧바로 도로 위 추격전으로 이어져 표적을 쫓아 잡아야 합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "제한 시간 06:30",
+      "휘발유 자국을 쏴서 차량 폭파하기",
+      "적 6명을 헤드샷으로 처치하기",
+      "명중률 최소 70%"
     ],
-    "reward": "Experience and reputation with Simeon",
-    "unlockedBy": "해금 조건: Franklin and Lamar"
+    "reward": "경험과 Simeon의 신뢰",
+    "unlockedBy": "Franklin과 Lamar"
   },
   {
     "id": "mission-04",
     "order": 4,
-    "title": "복잡한 사정 (Complications)",
+    "title": "문제 발생",
     "character": "Franklin, Michael",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '복잡한 사정 (Complications)'. 플레이어 (Franklin, Michael), 의뢰인: Simeon Yetarian. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "description": "Rockford Hills의 De Santa 저택에 몰래 잠입하는 임무입니다. Franklin은 집안 사람들을 피해 Jimmy의 SUV를 빼내야 합니다. 그런데 뒷좌석에 무장한 Michael이 나타나 Simeon의 매장 유리창을 그대로 들이받으라고 요구하면서 작전이 예상치 못한 방향으로 흘러갑니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "05:00 이내에 완료하기",
+      "정원사를 은밀하게 기절시키기",
+      "Simeon과의 주먹 싸움에서 피해 입지 않기"
     ],
-    "reward": "$300 and Michael unlocked as playable character",
-    "unlockedBy": "해금 조건: Repossession"
+    "reward": "$300과 Michael 플레이 가능",
+    "unlockedBy": "차량 압류"
   },
   {
     "id": "mission-05",
     "order": 5,
-    "title": "아버지와 아들",
-    "character": "Michael, Franklin",
-    "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '아버지와 아들'. 플레이어 (Michael, Franklin), 의뢰인: Michael De Santa. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "Chop",
+    "character": "Franklin",
+    "giver": "Lamar Davis",
+    "category": "스토리",
+    "description": "'D'라는 별명의 Ballas 두목을 급습해 납치하려는 시도입니다. Lamar와 Franklin은 용의자를 기차 차량기지까지 쫓아갑니다. 로트와일러 Chop의 후각과 도움을 받아 화물 열차를 수색하고, 마침내 도망자를 붙잡습니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "Lamar의 밴을 손상시키지 않기",
+      "Chop의 시점으로 10초 동안 세상 보기",
+      "Franklin의 운전 능력을 7초 동안 사용하기"
     ],
-    "reward": "Free vehicle upgrades at Los Santos Customs for Franklin",
-    "unlockedBy": "해금 조건: Complications"
+    "reward": "Chop이 Franklin의 동료가 됨",
+    "unlockedBy": "Franklin과 Lamar"
   },
   {
     "id": "mission-06",
     "order": 6,
-    "title": "찹 (Chop)",
-    "character": "Franklin",
-    "giver": "Lamar Davis",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '찹 (Chop)'. 플레이어 (Franklin), 의뢰인: Lamar Davis. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "아버지와 아들",
+    "character": "Michael, Franklin",
+    "giver": "Michael De Santa",
+    "category": "스토리",
+    "description": "온라인 판매가 틀어지면서 Michael 가족의 보트가 Jimmy를 태운 채 고속도로 한복판에서 탈취당합니다. Michael과 Franklin은 Amanda의 스포츠카로 필사적인 추격전을 벌이고, Franklin은 달리는 중에 트레일러로 뛰어올라 Jimmy를 구해야 합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "붐에 매달린 Jimmy를 10초 이내에 구출하기",
+      "Amanda의 차를 추가 손상 없이 Los Santos Customs에 돌려놓기",
+      "07:00 이내에 완료하기"
     ],
-    "reward": "Chop unlocked as Franklin's companion",
-    "unlockedBy": "해금 조건: Franklin and Lamar"
+    "reward": "Franklin이 Los Santos Customs를 무료로 이용 가능",
+    "unlockedBy": "문제 발생"
   },
   {
     "id": "mission-07",
@@ -113,641 +104,608 @@
     "title": "부부 상담",
     "character": "Michael, Franklin",
     "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '부부 상담'. 플레이어 (Michael, Franklin), 의뢰인: Michael De Santa. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "description": "집에서 불륜을 목격한 Michael은 Franklin과 함께 테니스 코치를 Vinewood Hills의 거대한 저택까지 쫓아갑니다. 분노에 휩싸인 Michael은 픽업트럭으로 테라스 구조물을 무너뜨리는데, 알고 보니 그곳은 Martín Madrazo 카르텔의 소유였고 그는 거액의 보상을 요구합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "트럭 손상을 최소화하며 완료하기",
+      "미션 시간 05:30 미만",
+      "운전하면서 적 3명 처치하기"
     ],
-    "reward": "$2.5M debt with Martin Madrazo",
-    "unlockedBy": "해금 조건: Father/Son"
+    "reward": "Martín Madrazo에게 진 $2,500,000 빚",
+    "unlockedBy": "아버지와 아들"
   },
   {
     "id": "mission-08",
     "order": 8,
-    "title": "아빠의 귀여운 딸",
+    "title": "아빠의 딸",
     "character": "Michael",
-    "giver": "Jimmy De Santa",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '아빠의 귀여운 딸'. 플레이어 (Michael), 의뢰인: Jimmy De Santa. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "giver": "Michael De Santa",
+    "category": "스토리",
+    "description": "Vespucci와 Del Perro 부두 사이에서 가족 자전거 나들이를 하던 중, Tracey가 수상한 사람들과 함께 개인 보트에 있다는 사실을 알게 됩니다. Michael은 물에 뛰어들어 제트스키로 딸을 데리고 나와, 총알을 피하며 수로를 따라 도주합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "Seashark 제트스키로 최고 속도 달성하기",
+      "레이스 중 자전거에서 떨어지지 않기",
+      "1분 이내에 요트까지 헤엄쳐 가기"
     ],
-    "reward": "Stamina boost for Michael",
-    "unlockedBy": "해금 조건: Marriage Counseling"
+    "reward": "Michael의 체력 향상",
+    "unlockedBy": "부부 상담"
   },
   {
     "id": "mission-09",
     "order": 9,
-    "title": "친구 요청 (Friend Request)",
+    "title": "친구 요청",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '친구 요청 (Friend Request)'. 플레이어 (Michael), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "description": "Michael은 Madrazo에게 진 빚을 갚기 위해 천재적인 Lester Crest에게 도움을 청합니다. 선행 작업으로 IT 직원으로 위장해 기술 기업 Lifeinvader 본사에 잠입한 뒤, CEO Jay Norris가 생중계 컨퍼런스에서 선보일 기기를 조작합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "08:30 이내에 완료하기",
+      "32초 이내에 모든 팝업창 닫기",
+      "Suburban에서 힙스터 옷 구입하기"
     ],
-    "reward": "Lester agrees to assist in future heists",
-    "unlockedBy": "해금 조건: Marriage Counseling"
+    "reward": "Lester가 강도 작전을 돕기로 함",
+    "unlockedBy": "부부 상담"
   },
   {
     "id": "mission-10",
     "order": 10,
-    "title": "기나긴 여정",
+    "title": "먼 길",
     "character": "Franklin",
     "giver": "Lamar Davis",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '기나긴 여정'. 플레이어 (Franklin), 의뢰인: Lamar Davis. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "description": "Lamar, Stretch와 함께 Rogers Waste 폐기물 처리장에서 거래를 합니다. 알고 보니 Ballas가 꾸민 매복이었고, 일행은 교차 사격 속에서 통로를 뚫고 경찰 헬기의 감시를 따돌려 동네를 빠져나가야 합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "명중률 최소 60%",
+      "헤드샷 10회",
+      "Franklin이 입는 피해를 최소화하며 완료하기",
+      "10:30 미만"
     ],
-    "reward": "Weapons and ammunition scavenged during escape",
-    "unlockedBy": "해금 조건: Chop"
+    "reward": "도주 중에 얻은 무기와 탄약",
+    "unlockedBy": "Chop"
   },
   {
     "id": "mission-11",
     "order": 11,
-    "title": "보석점 사전 조사",
+    "title": "보석상 사전 조사",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '보석점 사전 조사'. 플레이어 (Michael), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "description": "Rockford Hills의 Vangelico 보석상을 전술적으로 정찰하는 단계입니다. 숨겨진 초소형 카메라를 갖춘 Michael은 환기구, 센서, 경보 단말기를 촬영합니다. 이후 Lester의 창고에서 강도 방식을 고릅니다. 수면 가스를 쓰는 은밀한 침투 또는 힘으로 밀어붙이는 정면 돌파입니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "미션 시간 08:00 미만",
+      "보안 시스템 3개를 단 한 번에 완벽하게 촬영하기"
     ],
-    "reward": "Jewel Store Heist planning board",
-    "unlockedBy": "해금 조건: Friend Request"
+    "reward": "Vangelico 강도 계획 보드",
+    "unlockedBy": "친구 요청"
   },
   {
     "id": "mission-12",
     "order": 12,
-    "title": "보석점 습격 (The Jewel Store Job)",
-    "character": "Michael, Franklin",
+    "title": "버그스타즈 장비",
+    "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Preparación",
-    "description": "GTA V 스토리 모드 메인 미션: '보석점 습격 (The Jewel Store Job)'. 플레이어 (Michael, Franklin), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "준비",
+    "description": "항구에서 해충 방제 업체(Bugstars)의 밴을 훔쳐 Vangelico 강도 때 트로이 목마로 사용합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "들키지 않고 Bugstars 밴 훔치기"
     ],
-    "reward": "Over $1.4M total split between Franklin and Michael",
-    "unlockedBy": "해금 조건: Casing the Jewel Store"
+    "reward": "강도(스마트 방식)에 쓸 밴과 변장 확보.",
+    "unlockedBy": "보석상 사전 조사"
   },
   {
     "id": "mission-13",
     "order": 13,
-    "title": "미스터 필립스 (Mr. Philips)",
-    "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Preparación",
-    "description": "GTA V 스토리 모드 메인 미션: '미스터 필립스 (Mr. Philips)'. 플레이어 (Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "BZ 가스탄",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "준비",
+    "description": "신경 가스 BZ를 운반하는 Humane Labs의 트럭을 가로채 보석상 강도에 쓸 화물을 확보합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "트럭 뒷문을 쏴서 화물을 떨어뜨리기"
     ],
-    "reward": "Trevor unlocked as playable character",
-    "unlockedBy": "해금 조건: The Jewel Store Job"
+    "reward": "강도(스마트 방식)에서 민간인을 제압할 BZ 가스 확보.",
+    "unlockedBy": "버그스타즈 장비"
   },
   {
     "id": "mission-14",
     "order": 14,
-    "title": "트레버 필립스 엔터프라이즈",
-    "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Golpe",
-    "description": "GTA V 스토리 모드 메인 미션: '트레버 필립스 엔터프라이즈'. 플레이어 (Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "보석상 강도",
+    "character": "Michael, Franklin",
+    "giver": "Lester Crest",
+    "category": "강도",
+    "description": "Vangelico 매장을 시간제로 터는 강도입니다. 일당은 경찰에 신고가 들어가기 전에 진열장을 싹쓸이하고, 크로스 바이크를 타고 지하 트램 터널을 지나 강 수로로 빠져나갑니다. 그곳에서 중장비가 순찰차들을 쓸어내며 퇴로를 확보해 줍니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "50초 이내에 진열대 털기",
+      "Los Santos 강 추격전에서 Franklin 보호하기",
+      "보석 진열장 20개를 전부 비우고 전리품 남기지 않기"
     ],
-    "reward": "Consolidates meth empire in Sandy Shores",
-    "unlockedBy": "해금 조건: Mr. Philips"
+    "reward": "거액의 전리품 (Franklin 약 $200,000, Michael $1,200,000)",
+    "unlockedBy": "보석상 사전 조사"
   },
   {
     "id": "mission-15",
     "order": 15,
-    "title": "불안한 론 (Nervous Ron)",
+    "title": "Philips 씨",
     "character": "Trevor",
-    "giver": "Ron Jakowski",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '불안한 론 (Nervous Ron)'. 플레이어 (Trevor), 의뢰인: Ron Jakowski. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "giver": "Trevor Philips",
+    "category": "스토리",
+    "description": "뉴스에 나온 한마디로 Trevor Philips는 Michael이 North Yankton에서 살아남았다는 사실을 알게 됩니다. Sandy Shores 사막에서 분노를 터뜨린 그는 Grapeseed에 있는 The Lost 바이커들의 거점을 박살 내고, 강변의 Ortega 캠프를 제압합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "도망치는 바이커를 모두 처치하기",
+      "헤드샷 12회 달성하기",
+      "12:00 이내에 완료하기",
+      "Ortega의 트레일러에 막대한 피해 입히기"
     ],
-    "reward": "McKenzie Airfield hangar unlocked for purchase",
-    "unlockedBy": "해금 조건: Trevor Philips Industries"
+    "reward": "Trevor가 세 번째 플레이 가능 주인공으로 해금",
+    "unlockedBy": "보석상 강도"
   },
   {
     "id": "mission-16",
     "order": 16,
-    "title": "크리스털 미로",
+    "title": "Trevor Philips 인더스트리",
     "character": "Trevor",
     "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '크리스털 미로'. 플레이어 (Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "description": "Blaine County에서 삼합회 특사와 벌이던 상거래가 O'Neil 형제의 무장 습격으로 중단됩니다. Trevor는 구매자들을 주류 판매점 냉장고에 가둬 두고, 지붕과 실험실 창문에서 밀려오는 공격자들을 막아냅니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "적 32명 처치하기",
+      "받는 피해를 최소화하며 완료하기",
+      "공격자들의 차량 6대 파괴하기"
     ],
-    "reward": "Elimination of Blaine County competitors",
-    "unlockedBy": "해금 조건: Trevor Philips Industries"
+    "reward": "Sandy Shores 사업의 확실한 장악",
+    "unlockedBy": "Philips 씨"
   },
   {
     "id": "mission-17",
     "order": 17,
-    "title": "친구들의 재회",
+    "title": "불안한 Ron",
     "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '친구들의 재회'. 플레이어 (Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "giver": "Ron Jakowski",
+    "category": "스토리",
+    "description": "Trevor의 집이 파괴된 데 대한 무장 보복입니다. Ron이 저장 탱크 위에서 전술 지원을 하는 가운데, McKenzie 비행장을 점령하고 화물기를 빼앗은 뒤 카운티의 다리 위를 날며 적 차량을 제거합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "저격 소총으로 헤드샷 5회 달성하기",
+      "12:30 이내에 완료하기",
+      "비행 중 다리 6개 아래로 통과하기",
+      "비행기 날개 위에 올라탄 상태에서 모든 바이커 처치하기"
     ],
-    "reward": "Floyd's Vespucci Beach safehouse unlocked",
-    "unlockedBy": "해금 조건: Crystal Maze"
+    "reward": "McKenzie Field 격납고 구매 가능",
+    "unlockedBy": "Trevor Philips 인더스트리"
   },
   {
     "id": "mission-18",
     "order": 18,
-    "title": "명예냐 굴욕이냐",
-    "character": "Michael, Trevor",
-    "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '명예냐 굴욕이냐'. 플레이어 (Michael, Trevor), 의뢰인: Michael De Santa. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "유리 미로",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "스토리",
+    "description": "아시아 투자자들과의 독점 계약을 잃은 뒤 O'Neil 형제의 농장을 응징하러 갑니다. Trevor는 언덕에 자리 잡은 저격수들을 제거하고 저택을 소탕한 다음, 지하실에 연료를 부어 시설을 잿더미로 만듭니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "적 10명을 헤드샷으로 처치하기",
+      "집에 들어가기 전까지 들키지 않고 완료하기",
+      "총알 한 발로 휘발유 자국에 불 붙이기"
     ],
-    "reward": "Initial truce between Michael and Trevor",
-    "unlockedBy": "해금 조건: Friends Reunited"
+    "reward": "카운티 내 경쟁자 제거",
+    "unlockedBy": "Trevor Philips 인더스트리"
   },
   {
     "id": "mission-19",
     "order": 19,
-    "title": "세 놈의 결합",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Dave Norton (FIB)",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '세 놈의 결합'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Dave Norton (FIB). 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "재회",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "스토리",
+    "description": "Michael의 행방을 찾으러 Los Santos로 향합니다. Trevor는 접착 폭탄으로 바이커들의 트레일러 파크를 날려 자신의 흔적을 남기고, Wade와 함께 도로를 달려 결국 Vespucci에 있는 Floyd의 아파트에 강제로 눌러앉습니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "폭발물 또는 저격으로 헤드샷 5회 달성하기",
+      "지원군에게 들키지 않고 모든 캐러밴 파괴하기",
+      "Bodhi 손상을 최소화하며 완료하기"
     ],
-    "reward": "Unlocks cooperative FIB field missions",
-    "unlockedBy": "해금 조건: Fame or Shame"
+    "reward": "Vespucci의 Floyd 아파트 은신처 해금",
+    "unlockedBy": "유리 미로"
   },
   {
     "id": "mission-20",
     "order": 20,
-    "title": "원칙대로",
+    "title": "명성 아니면 망신",
     "character": "Michael, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '원칙대로'. 플레이어 (Michael, Trevor), 의뢰인: Steve Haines (FIB). 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "giver": "Amanda / Tracey",
+    "category": "스토리",
+    "description": "Michael과 Trevor의 대면 재회는 Tracey가 TV 오디션 쇼 Fame or Shame에 출연한다는 소식에 묻혀 버립니다. 두 사람은 Maze Bank Arena로 가서 녹화를 중단시키고, 시내 수로에서 트럭 추격전을 벌인 끝에 진행자 Lazlow Jones를 궁지에 몰아넣습니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "Phantom 트럭으로 최고 속도 달성하기",
+      "추격전 중 트레일러를 분리시키지 않기",
+      "Lazlow에게 주먹 날리기",
+      "촬영장의 보행자에게 피해 주지 않기"
     ],
-    "reward": "Trevor transports Kerimov safely to the airport",
-    "unlockedBy": "해금 조건: Three's Company"
+    "reward": "Michael과 Trevor의 초기 화해",
+    "unlockedBy": "재회"
   },
   {
     "id": "mission-21",
     "order": 21,
-    "title": "후드 사파리 (Hood Safari)",
-    "character": "Franklin, Trevor",
-    "giver": "Franklin Clinton",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '후드 사파리 (Hood Safari)'. 플레이어 (Franklin, Trevor), 의뢰인: Franklin Clinton. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "살아 있는 시체",
+    "character": "Michael",
+    "giver": "FIB (Dave Norton)",
+    "category": "스토리",
+    "description": "Dave Norton은 Michael이 범죄 세계로 돌아온 것을 빌미로 협박해 FIB를 위해 일하게 만듭니다. 죽음을 위장한 뒤 시체 안치소에서 깨어나 Ferdinand Kerimov의 신분증을 찾고, IAA가 포위한 시설에서 탈출합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "명중률 최소 80% 이상으로 마치기",
+      "헤드샷 14회 달성하기",
+      "09:30 이내에 끝내기",
+      "특수 능력을 사용해 적 4명 처치하기",
+      "피해를 최소한으로 받기"
     ],
-    "reward": "$0 (deal gone bad)",
-    "unlockedBy": "해금 조건: Three's Company"
+    "reward": "FIB 미션 해금.",
+    "unlockedBy": "명성 아니면 망신"
   },
   {
     "id": "mission-22",
     "order": 22,
-    "title": "메리웨더 습격",
+    "title": "셋이면 많다",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '메리웨더 습격'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "giver": "Dave Norton (FIB)",
+    "category": "스토리",
+    "description": "Downtown에서 세 주인공이 함께 벌이는 구출 작전입니다. FIB의 명령에 따라 Trevor는 헬기를 조종하고, Michael은 IAA 본부 유리창으로 레펠 하강해 심문 현장에 난입하며, Franklin은 인근 옥상에서 저격총으로 위협을 제거하며 지원합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "07:30 미만",
+      "명중률 최소 60%",
+      "세 캐릭터가 합쳐 헤드샷 10회 달성하기"
     ],
-    "reward": "Experience (device returned without cash payout)",
-    "unlockedBy": "해금 조건: Hood Safari"
+    "reward": "FIB 합동 미션 해금",
+    "unlockedBy": "명성 아니면 망신"
   },
   {
     "id": "mission-23",
     "order": 23,
-    "title": "호텔 암살",
-    "character": "Franklin",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '호텔 암살'. 플레이어 (Franklin), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "규정대로",
+    "character": "Michael, Trevor",
+    "giver": "Steve Haines",
+    "category": "스토리",
+    "description": "요원 Steve Haines와 Dave Norton의 감독 아래 Los Santos 부두에서 심문이 진행됩니다. 용의자에 대한 정보를 얻어 가던 중, Michael은 Chumash 언덕의 비공개 파티를 감시하며 의심을 사지 않고 표적을 식별해 사살합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "심문 중 Kerimov의 심장이 멈추지 않게 하기",
+      "고문 도구 4개를 각각 최소 한 번씩 사용하기",
+      "망설이지 않고 첫 시도에 올바른 표적 쏘기"
     ],
-    "reward": "$9,000 + massive stock market returns",
-    "unlockedBy": "해금 조건: Fame or Shame"
+    "reward": "Trevor가 Kerimov를 공항까지 무사히 데려다 줌",
+    "unlockedBy": "셋이면 많다"
   },
   {
     "id": "mission-24",
     "order": 24,
-    "title": "기습 작전 (Blitz Play)",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '기습 작전 (Blitz Play)'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Steve Haines (FIB). 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "동네 사파리",
+    "character": "Franklin, Trevor",
+    "giver": "Franklin Clinton",
+    "category": "스토리",
+    "description": "Lamar, Trevor와 함께 Grove Street 한복판에서 수상한 거래를 합니다. 물건은 사기로 드러나고, 지역 갱단과의 폐쇄된 도심 전투가 벌어진 뒤 배수로를 따라 제트스키로 탈출합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "07:00 미만",
+      "명중률 최소 70%",
+      "헤드샷 12회"
     ],
-    "reward": "Black-ops funding for the FIB operation",
-    "unlockedBy": "해금 조건: Hotel Assassination"
+    "reward": "$0 (거래 실패)",
+    "unlockedBy": "셋이면 많다"
   },
   {
     "id": "mission-25",
     "order": 25,
-    "title": "법과 맞서다...",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Devin Weston",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '법과 맞서다...'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Devin Weston. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "누가 요가라고 했나?",
+    "character": "Michael",
+    "giver": "Amanda De Santa",
+    "category": "스토리",
+    "description": "강사 Fabien과 요가 수업을 견디고, Jimmy의 배신을 감당하며, 마취제의 나쁜 환각에서 살아남으려 애씁니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "15:00 이내에 끝내기",
+      "요가 자세 3가지를 실수 없이 모두 완료하기"
     ],
-    "reward": "Devin Weston unlocked as an employer",
-    "unlockedBy": "해금 조건: Blitz Play"
+    "reward": "Amanda, Jimmy, Tracey가 집을 떠남. Michael은 개인 차량을 일시적으로 이용할 수 없게 됨.",
+    "unlockedBy": "동네 사파리"
   },
   {
     "id": "mission-26",
     "order": 26,
-    "title": "팔레토 작업 (Paleto Score)",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "FIB / Lester",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '팔레토 작업 (Paleto Score)'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: FIB / Lester. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "항구 정찰",
+    "character": "Trevor",
+    "giver": "Floyd",
+    "category": "스토리",
+    "description": "Trevor는 Wade와 그의 사촌 Floyd(항만 노동자)를 압박해 준군사급 규모의 강도를 준비합니다. 부두 노동자로 변장해 Merryweather Security가 운영하는 항구 시설에 잠입하고, 첨단 기술 장치의 위치를 파악해 탈취 계획을 세웁니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "20:00 이내에 미션 끝내기",
+      "컨테이너를 손상시키지 않고 부두 노동자 구간 완료하기",
+      "배 사진을 첫 시도에 정확하게 찍기",
+      "소동을 일으키지 않고 항만 작업 전부 끝내기"
     ],
-    "reward": "Approx. $450,000 take per protagonist",
-    "unlockedBy": "해금 조건: I Fought the Law..."
+    "reward": "Merryweather 강도 준비 미션 해금.",
+    "unlockedBy": "누가 요가라고 했나?"
   },
   {
     "id": "mission-27",
     "order": 27,
-    "title": "탈선 (Derailed)",
-    "character": "Michael, Trevor",
-    "giver": "Trevor Philips",
-    "category": "Preparación",
-    "description": "GTA V 스토리 모드 메인 미션: '탈선 (Derailed)'. 플레이어 (Michael, Trevor), 의뢰인: Trevor Philips. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "소형 잠수정",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "준비",
+    "description": "항구에 정박한 탐사선에서 실험용 소형 잠수정을 훔칩니다. Merryweather 강도에서 어떤 방식을 택하든 반드시 필요합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "08:30 이내에 끝내기",
+      "민간 선박에 올라타지 않고 잠수정 훔치기"
     ],
-    "reward": "Valuable smuggled high-grade contraband",
-    "unlockedBy": "해금 조건: The Paleto Score"
+    "reward": "두 가지 강도 방식 모두에 쓸 잠수정 확보.",
+    "unlockedBy": "항구 정찰"
   },
   {
     "id": "mission-28",
     "order": 28,
-    "title": "FIB 습격",
-    "character": "Michael, Franklin",
-    "giver": "Steve Haines",
-    "category": "Preparación",
-    "description": "GTA V 스토리 모드 메인 미션: 'FIB 습격'. 플레이어 (Michael, Franklin), 의뢰인: Steve Haines. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "Cargobob",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "준비",
+    "description": "최고 보안 군사 기지(Fort Zancudo)에 잠입해 소형 잠수정을 들어 올릴 수 있는 군용 대형 수송 헬기(Cargobob)를 훔칩니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "05:30 이내에 끝내기"
     ],
-    "reward": "Erasure of federal records and legal pressure on Michael",
-    "unlockedBy": "해금 조건: Derailed"
+    "reward": "심해 방식에 쓸 화물 헬기 확보.",
+    "unlockedBy": "소형 잠수정"
   },
   {
     "id": "mission-29",
     "order": 29,
-    "title": "연방 정부 문제",
-    "character": "Michael, Trevor",
-    "giver": "Dave Norton",
-    "category": "Golpe",
-    "description": "GTA V 스토리 모드 메인 미션: '연방 정부 문제'. 플레이어 (Michael, Trevor), 의뢰인: Dave Norton. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "Merryweather 강도",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Trevor Philips",
+    "category": "강도",
+    "description": "군수 기업 Merryweather의 호송대를 노린 작전입니다. 잠수정과 대형 화물 헬기를 이용해 팀은 깊은 바다에 가라앉은 군사 장치를 회수하지만, 정부의 보복을 피하려면 Lester의 지시로 결국 그것을 돌려줘야 합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "14:30 이내에 완료하기",
+      "02:00 이내에 수중 장치 찾기",
+      "치명적인 피해 없이 추격 헬기 격추하기"
     ],
-    "reward": "Survival of Dave Norton and Michael",
-    "unlockedBy": "해금 조건: The Bureau Raid"
+    "reward": "경험 (장치를 반환해 즉각적인 보수는 없음)",
+    "unlockedBy": "동네 사파리"
   },
   {
     "id": "mission-30",
     "order": 30,
-    "title": "곤경에 빠진 라마",
-    "character": "Franklin, Michael, Trevor",
-    "giver": "Tanisha Jackson",
-    "category": "Preparación",
-    "description": "GTA V 스토리 모드 메인 미션: '곤경에 빠진 라마'. 플레이어 (Franklin, Michael, Trevor), 의뢰인: Tanisha Jackson. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "쓰레기 트럭",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "준비",
+    "description": "시 청소 차량단에서 운행 중인 쓰레기 트럭('Trashmaster')을 찾아 훔칩니다. 이 트럭은 강도 때 장갑차를 매복 공격할 중형 바리케이드로 쓰입니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "05:00 이내에 끝내기",
+      "트럭을 손상 없이 인도하기",
+      "최고 속도 달성하기"
     ],
-    "reward": "Unbreakable bond with Lamar",
-    "unlockedBy": "해금 조건: The Wrap Up"
+    "reward": "'블리츠 플레이' 강도에 쓸 차단용 차량 확보.",
+    "unlockedBy": "Merryweather 강도"
   },
   {
     "id": "mission-31",
     "order": 31,
-    "title": "멜트다운 (붕괴)",
-    "character": "Michael",
-    "giver": "Solomon Richards",
-    "category": "Preparación",
-    "description": "GTA V 스토리 모드 메인 미션: '멜트다운 (붕괴)'. 플레이어 (Michael), 의뢰인: Solomon Richards. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "견인차",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "준비",
+    "description": "'블리츠 플레이'(Blitz Play) 중 장갑차의 뒷문을 부수는 데 사용할 견인 크레인 차량을 훔칩니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "03:00 이내에 끝내기",
+      "견인차를 손상 없이 인도하기"
     ],
-    "reward": "Full reunion of the De Santa family",
-    "unlockedBy": "해금 조건: Lamar Down"
+    "reward": "'블리츠 플레이' 강도에 쓸 도주/돌진용 차량 확보.",
+    "unlockedBy": "쓰레기 트럭"
   },
   {
     "id": "mission-32",
     "order": 32,
-    "title": "큰 거 한 방 (The Big Score)",
+    "title": "블리츠 플레이",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '큰 거 한 방 (The Big Score)'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "giver": "Steve Haines",
+    "category": "스토리",
+    "description": "Cypress Flats 공업 지대에서 장갑차를 노린 전술 강도입니다. 중장비로 도로를 막고, 견인 크레인으로 장갑차를 무력화하고, 폭발물로 출입구를 날려 전술 부대를 막아내며 환적 지점에 도달합니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "Trevor로 헬기 격추하기",
+      "헤드샷 12회 달성하기",
+      "명중률 최소 60%",
+      "캐릭터를 최소 10번 전환하기"
     ],
-    "reward": "Approx. $28,000,000 take for each of the three protagonists",
-    "unlockedBy": "해금 조건: Meltdown"
+    "reward": "FIB 작전용 비밀 자금",
+    "unlockedBy": "호텔 암살"
   },
   {
     "id": "mission-33",
     "order": 33,
-    "title": "선택 A: 현명한 선택 (트레버 처치)",
-    "character": "Franklin",
-    "giver": "Steve Haines / Dave Norton",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '선택 A: 현명한 선택 (트레버 처치)'. 플레이어 (Franklin), 의뢰인: Steve Haines / Dave Norton. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "Richards 씨",
+    "character": "Michael",
+    "giver": "Solomon Richards",
+    "category": "스토리",
+    "description": "Solomon Richards의 최신 영화 주연 배우와 감독을 위협해, 아슬아슬한 비행으로 촬영장에 복귀하게 만듭니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "10:00 이내에 끝내기",
+      "적 3명을 은밀하게 처치하기",
+      "싸움 중 피해 입지 않기",
+      "헬기를 손상 없이 착륙시키기"
     ],
-    "reward": "Heist money split between Franklin and Michael (Trevor lost)",
-    "unlockedBy": "해금 조건: The Big Score"
+    "reward": "Michael과 Solomon의 영화 협업 시작.",
+    "unlockedBy": "블리츠 플레이"
   },
   {
     "id": "mission-34",
     "order": 34,
-    "title": "선택 B: 때가 왔다 (마이클 처치)",
-    "character": "Franklin",
+    "title": "법과의 대결...",
+    "character": "Franklin, Michael, Trevor",
     "giver": "Devin Weston",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '선택 B: 때가 왔다 (마이클 처치)'. 플레이어 (Franklin), 의뢰인: Devin Weston. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "category": "스토리",
+    "description": "재벌 Devin Weston이 의뢰한 특별 임무로, 고급 스포츠카 두 대를 압수합니다. 순찰 오토바이를 탄 교통 경찰로 위장한 Michael과 Trevor는 해안 도로에서 운전자들을 세우고, 약속된 정비소까지 먼저 인도하기 위해 경주를 벌입니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "12:00 미만",
+      "두 트럭 사이를 동시에 주행하기",
+      "경찰 오토바이로 충돌 없이 레이스에서 승리하기"
     ],
-    "reward": "Heist money split between Franklin and Trevor (Michael lost)",
-    "unlockedBy": "해금 조건: The Big Score"
+    "reward": "Devin Weston이 새 의뢰인이 됨",
+    "unlockedBy": "블리츠 플레이"
   },
   {
     "id": "mission-35",
     "order": 35,
-    "title": "선택 C: 제3의 길 (모두 구출)",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 스토리 모드 메인 미션: '선택 C: 제3의 길 (모두 구출)'. 플레이어 (Michael, Franklin, Trevor), 의뢰인: Lester Crest. 100% 완성을 위해 골드 메달 조건을 달성하세요.",
+    "title": "하늘의 눈",
+    "character": "Trevor, Franklin",
+    "giver": "Devin Weston",
+    "category": "스토리",
+    "description": "경찰 헬기의 고성능 열화상 센서와 안면 인식으로 주거 지역을 훑으며 값비싼 Z-Type(초고급 클래식카)을 훔칩니다.",
     "goldRequirements": [
-      "제한 시간 내에 미션 완료",
-      "사격 명중률 70% 이상 유지",
-      "헤드샷으로 적 제거",
-      "차량 파손 최소화"
+      "첫 번째 기회에 표적 찾기",
+      "Z-Type을 흠집 하나 없이 인도하기",
+      "경찰/민간인 대화 3건을 끝까지 듣기"
     ],
-    "reward": "$28,000,000 for each protagonist and all three alive and playable",
-    "unlockedBy": "해금 조건: The Big Score"
+    "reward": "Devin의 블랙리스트에 오른 차량이 더 해금됨.",
+    "unlockedBy": "법과의 대결..."
   },
   {
     "id": "mission-36",
     "order": 36,
-    "title": "Caida Libre",
+    "title": "자유 낙하",
     "character": "Michael, Trevor",
-    "giver": "Martin Madrazo",
-    "category": "Story",
-    "description": "Martin Madrazo hires Michael to silence his cousin Javier, who plans to testify against him and is flying to Liberty City with a briefcase of incriminating files. Using a high-caliber computer-guided sniper rifle mounted inside a van at the Galileo Observatory, Michael must cripple the aircraft mid-flight while Trevor chases the burning fuselage across Blaine County.",
+    "giver": "Martín Madrazo",
+    "category": "스토리",
+    "description": "중화기로 비행 중인 전용 제트기를 격추해 Martín Madrazo의 사촌(Javier)을 암살하고, 증거가 될 서류를 회수합니다.",
     "goldRequirements": [
-      "Floor It — Reach top speed on the Sanchez",
-      "Glued to the Seat — Don't fall off the Sanchez",
-      "One Two Three — Shoot down the plane with 3 shots",
-      "Time — Complete within 09:45"
+      "Sánchez 오토바이로 최고 속도 달성하기",
+      "추격전 중 Sánchez 오토바이에서 떨어지지 않기",
+      "세 발로 비행기 격추하기",
+      "09:45 이내에 끝내기"
     ],
-    "reward": "Michael and Trevor are exiled from Los Santos. Unlocks the Sandy Shores safehouse for both.",
-    "unlockedBy": "35. Eye in the Sky"
+    "reward": "Michael과 Trevor가 Los Santos에서 추방됨. Sandy Shores 은신처 해금.",
+    "unlockedBy": "하늘의 눈"
   },
   {
     "id": "mission-37",
     "order": 37,
-    "title": "Deep Inside",
+    "title": "바다 밑바닥",
     "character": "Franklin",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Devin Weston demands another legendary vehicle for his collection: the vintage Dewbauchee JB 700 currently being used on a spy film shoot at Richards Majestic Studios. Franklin sneaks onto the backlot, knocks out the lead actor and steals the prop car, discovering its ejector seat and road spikes are fully functional.",
+    "category": "스토리",
+    "description": "영화 촬영 현장에 잠입해 실제 무기와 첩보 장치를 갖춘 개조 Aston Martin(Dewbauchee JB 700)을 훔칩니다.",
     "goldRequirements": [
-      "Not a Scratch — Deliver the JB 700 with minimal damage",
-      "Fastest Speed — Reach top speed in the JB 700",
-      "Stealthy Recasting — Knock out the actor using a stealth attack",
-      "Premature Ejector — Hit the ejector seat within 10 seconds",
-      "Second Strike — Run over the actor as you escape in the JB 700"
+      "JB 700을 최소한의 손상으로 인도하기",
+      "JB 700으로 최고 속도 달성하기",
+      "배우를 은밀하게 기절시키기",
+      "10초 이내에 승객 탈출시키기"
     ],
-    "reward": "Another classic car delivered to Devin Weston's garage.",
-    "unlockedBy": "36. Caida Libre"
+    "reward": "Devin Weston의 차고에 새 차량 납품.",
+    "unlockedBy": "자유 낙하"
   },
   {
     "id": "mission-38",
     "order": 38,
-    "title": "Minor Turbulence",
+    "title": "밀항자",
     "character": "Trevor",
     "giver": "Ron Jakowski",
-    "category": "Story",
-    "description": "Tired of working for free for federal agents and eager to expand Trevor Philips Industries, Trevor takes off in a rickety crop duster to board a massive Merryweather military cargo plane mid-flight over Blaine County and seize its heavy weaponry.",
+    "category": "스토리",
+    "description": "비행 중인 Merryweather 화물기에 올라타 기체를 장악하고, 군사 기지 전투기들의 반격에서 살아남습니다.",
     "goldRequirements": [
-      "Accuracy — Finish with a shooting accuracy of at least 80%",
-      "Four Wheel Flier — Exit the cargo plane in the Mesa"
+      "명중률 최소 80% 이상으로 끝내기",
+      "Mesa 오프로더를 몰고 화물기에서 빠져나오기"
     ],
-    "reward": "None. The entire cargo sinks to the bottom of the Alamo Sea.",
-    "unlockedBy": "37. Deep Inside"
+    "reward": "없음. 화물 전체가 Alamo Sea에 가라앉음.",
+    "unlockedBy": "바다 밑바닥"
   },
   {
     "id": "mission-39",
     "order": 39,
-    "title": "Paleto Score Setup",
+    "title": "봉쇄",
     "character": "Michael, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Forced to fund a black-ops raid for the FIB while exiled in Blaine County, Michael and Trevor meet Lester in Sandy Shores. Together they scope out the Blaine County Savings Bank in Paleto Bay, a quiet rural branch holding millions in dirty cartel and corrupt sheriff kickbacks.",
+    "category": "준비",
+    "description": "Lester와 Trevor가 트레일러에서 직접 설계한 첫 공동 계획입니다. Paleto Bay의 시골 은행을 정찰하고 경보를 울려 지역 경찰의 전술 대응력을 가늠합니다.",
     "goldRequirements": [
-      "Leisurely Drive — Drive to the bank within 03:30",
-      "Winner — Win the race back to the meth lab"
+      "03:30 이내에 은행까지 운전하기",
+      "실험실로 돌아가는 레이스에서 승리하기"
     ],
-    "reward": "Unlocks setup preparations for the Paleto Score.",
-    "unlockedBy": "38. Minor Turbulence"
+    "reward": "Paleto 강도 준비 시작.",
+    "unlockedBy": "밀항자"
   },
   {
     "id": "mission-40",
     "order": 40,
-    "title": "Military Hardware",
+    "title": "포식자",
     "character": "Trevor, Michael, Franklin",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "Out for blood after the destruction of their meth farm, the surviving O'Neil brothers head out to ambush Trevor. After crashing their SUV deep into Raton Canyon, they scatter into the dense forest at dusk, prompting Michael, Trevor, Franklin and Chop to coordinate a combined air-and-ground manhunt.",
+    "category": "스토리",
+    "description": "Raton Canyon의 울창한 숲에 숨어 있는 살아남은 O'Neil 형제를 추적해 몰살합니다.",
     "goldRequirements": [
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Time — Complete within 09:00",
-      "Headshots — Kill 3 enemies with headshots",
-      "Thin the Herd — Do not kill any animals"
+      "명중률 최소 70% 이상으로 끝내기",
+      "09:00 이내에 끝내기",
+      "헤드샷 3회 달성하기",
+      "동물을 한 마리도 죽이지 않기"
     ],
-    "reward": "None. Vengeance and elimination of the remaining O'Neil brothers.",
-    "unlockedBy": "39. Paleto Score Setup"
+    "reward": "없음. 복수와 남은 O'Neil 형제 제거.",
+    "unlockedBy": "봉쇄"
   },
   {
     "id": "mission-41",
     "order": 41,
-    "title": "Predator",
+    "title": "군수 물자",
     "character": "Trevor, Michael, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Knowing that Paleto Bay law enforcement boasts heavy armor and militarized response teams, Lester devises an overwhelming brute-force plan: outfitting the crew in heavy ballistic Juggernaut armor and rotary miniguns. To acquire the gear, the gang intercepts an Army supply convoy rolling down the Great Ocean Highway.",
+    "category": "준비",
+    "description": "군 호송대를 매복 공격해 전신 방탄복과 로터리 기관총(Minigun)을 실은 트럭을 훔칩니다.",
     "goldRequirements": [
-      "Head Hunter — Kill 5 enemies with headshots",
-      "Sticky Strategist — Stop the convoy using a Sticky Bomb trap"
+      "헤드샷으로 병사 5명 처치하기",
+      "접착 폭탄으로 호송대 멈춰 세우기"
     ],
-    "reward": "Heavy ballistic armor and firepower secured for the Paleto Score.",
-    "unlockedBy": "40. Predator"
+    "reward": "Paleto 강도에 쓸 방탄 장비와 중화기 확보.",
+    "unlockedBy": "포식자"
   },
   {
     "id": "mission-42",
     "order": 42,
-    "title": "The Paleto Score",
+    "title": "Paleto 강도",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "An all-out armed assault on the Blaine County Savings Bank in Paleto Bay using heavy rotary miniguns and full-body ballistic armor. The crew withstands a combined siege by SWAT and the U.S. Army until Franklin smashes through the blockade in a heavy bulldozer to clear a path to the train tracks.",
+    "category": "강도",
+    "description": "중화기와 전신 방탄복을 갖추고 Paleto Bay의 은행을 무장 습격합니다. 팀은 특수부대와 군대의 합동 포위를 버텨내고, Franklin이 중장비를 몰고 도착해 철로로 향하는 길을 열 때까지 버팁니다.",
     "goldRequirements": [
-      "Let It Rain — Fire over 4,000 rounds of ammo",
-      "Accuracy — Finish with a shooting accuracy of at least 50%",
-      "Collateral Damage — Cause $1,000,000 of damage in Paleto Bay",
-      "Time — Complete within 16:00"
+      "4.000발 넘게 발사하기",
+      "사격 명중률 최소 50%",
+      "Paleto Bay에 $1,000,000 넘는 물적 피해 입히기",
+      "16:00 이내에 완료하기"
     ],
-    "reward": "Approx. $450,000 net payout per character",
-    "unlockedBy": "41. Military Hardware"
+    "reward": "각 캐릭터당 순수익 약 $450,000",
+    "unlockedBy": "법과의 대결..."
   },
   {
     "id": "mission-43",
     "order": 43,
-    "title": "Derailed",
-    "character": "Trevor, Michael",
+    "title": "탈선",
+    "character": "Michael, Trevor",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "A daring motorcycle jump onto a speeding freight train to force a head-on collision over the Zancudo River bridge. With the cargo cars plunged into the rapids below, Michael pulls up in a Dinghy to blow open the sunken container while fending off Merryweather tactical squads.",
+    "category": "스토리",
+    "description": "달리는 기차에 오토바이로 올라타 Zancudo 강 다리 위에서 충돌을 일으킵니다. 객차들이 물에 빠지면 Michael은 보트로 접근해 화물을 빼내고, 그동안 Merryweather 전술 병력을 막아냅니다.",
     "goldRequirements": [
-      "Time — Complete within 11:30",
-      "Fastest Speed — Reach top speed on the Sanchez",
-      "Better Than CJ — Land on the train using the first jump",
-      "Separation — Complete the mission without detaching",
-      "High Velocity — Reach top speed in the Dinghy"
+      "11:30 미만",
+      "오토바이로 첫 시도에 기차 객차 위에 착지하기",
+      "모터보트로 최고 속도 달성하기"
     ],
-    "reward": "High-value historical artifact for Martin Madrazo",
-    "unlockedBy": "The Paleto Score"
+    "reward": "가치가 높은 밀수품",
+    "unlockedBy": "Paleto 강도"
   },
   {
     "id": "mission-44",
     "order": 44,
-    "title": "Monkey Business",
+    "title": "몽키 비즈니스",
     "character": "Michael, Franklin, Trevor",
     "giver": "Steve Haines",
-    "category": "Story",
-    "description": "Under orders from Steve Haines and Dave Norton to stop an IAA chemical weapons program, the trio infiltrates the heavily guarded Humane Labs facility. Michael dives through underwater intake pipes to steal an experimental neurotoxin before Trevor extracts the cargo by air in a Cargobob.",
+    "category": "스토리",
+    "description": "수로를 통해 Humane Labs의 고보안 시설에 잠입해 FIB를 위해 실험용 신경 독소를 훔칩니다.",
     "goldRequirements": [
-      "Stunner — Stun 8 enemies with the Stun Gun",
-      "Headshots — Kill 15 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Time — Complete within 13:30"
+      "테이저건으로 적 8명 기절시키기",
+      "헤드샷 15회 달성하기",
+      "명중률 최소 70% 이상으로 끝내기",
+      "13:30 이내에 끝내기"
     ],
-    "reward": "Settles the FIB black-ops demand. Trevor reconciles the dispute with Martin Madrazo.",
-    "unlockedBy": "43. Derailed"
+    "reward": "Haines와의 거래 마무리. Madrazo가 추격을 멈춤.",
+    "unlockedBy": "탈선"
   },
   {
     "id": "mission-45",
@@ -755,392 +713,385 @@
     "title": "Hang Ten",
     "character": "Trevor",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "Debra's return to her Vespucci Beach condo sparks a violent confrontation with Floyd and Trevor that ends in an off-screen bloodbath. Covered in blood, Trevor steers an oblivious Wade away from the crime scene and relocates to the Vanilla Unicorn strip club, which he has forcefully taken over as his new Los Santos headquarters.",
+    "category": "스토리",
+    "description": "은신처 상황이 견딜 수 없게 되고 주인공들 사이의 긴장도 높아지자, Trevor는 '대형 강도'를 계획할 독립된 새 거점이 필요해집니다. Floyd와 Debra와의 관계를 폭력적으로 끝내고, Los Santos의 새 본부를 힘으로 차지합니다.",
     "goldRequirements": [
-      "Time — Complete within 04:00"
+      "04:00 이내에 끝내기"
     ],
-    "reward": "Trevor takes over the Vanilla Unicorn strip club, which becomes his Los Santos safehouse.",
-    "unlockedBy": "44. Monkey Business"
+    "reward": "Trevor가 스트립 클럽 Vanilla Unicorn을 장악하고, 이곳이 LS의 은신처가 됨.",
+    "unlockedBy": "몽키 비즈니스"
   },
   {
     "id": "mission-46",
     "order": 46,
-    "title": "Surveying the Score",
+    "title": "강도 사전 조사",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Gathered in the back office of the Vanilla Unicorn with Lester, the trio sets their sights on the ultimate criminal prize: robbing the Union Depository of over two hundred million dollars in gold bullion. To plan the score of the century, the crew conducts coordinated ground and aerial reconnaissance across Downtown Los Santos.",
+    "category": "강도",
+    "description": "연방준비은행('Union Depository')의 취약점을 분석하고, 대응 시간을 측정하며, 접근 지점을 찾아냅니다.",
     "goldRequirements": [
-      "Perfect Distance — Follow the vans without being warned about distance",
-      "Cavity Search — Find the construction hole within 20 seconds",
-      "Under the Bridge / Tunnel Flight — Fly under the bridge while following the vans and fly through a tunnel"
+      "거리 경고를 받지 않고 현금 수송차를 따라가기",
+      "20초 이내에 공사 구멍 찾기",
+      "다리 아래로 낮게 날며 수송차를 추적하고 터널 통과하기"
     ],
-    "reward": "Unlocks the official Big Score planning board (Subtle or Obvious).",
-    "unlockedBy": "45. Hang Ten"
+    "reward": "대형 강도(은밀 또는 정면) 공식 계획 수립.",
+    "unlockedBy": "Hang Ten"
   },
   {
     "id": "mission-47",
     "order": 47,
-    "title": "Bury the Hatchet",
+    "title": "전쟁 도끼를 묻다",
     "character": "Michael, Trevor",
     "giver": "Michael De Santa",
-    "category": "Story",
-    "description": "Consumed by suspicion, Trevor flies to the frozen town of Ludendorff to dig up the grave bearing Michael Townley's name. Discovering the decomposing body of Brad Snider inside the coffin, the bitter standoff between the former partners is cut short by an ambush from Wei Cheng's Triads, leaving Michael stranded and captured in the snow.",
+    "category": "스토리",
+    "description": "눈 덮인 루덴도르프(North Yankton)로 가서 'Michael Townley'의 무덤을 파헤치고, Wei Cheng 카르텔의 매복에서 살아남습니다.",
     "goldRequirements": [
-      "Time — Complete within 11:00",
-      "Headshots — Kill 20 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 80%"
+      "11:00 이내에 끝내기",
+      "헤드샷 20회 달성하기",
+      "명중률 최소 80% 이상으로 끝내기"
     ],
-    "reward": "Temporary fracture of the crew; Trevor learns the truth about Brad.",
-    "unlockedBy": "46. Surveying the Score"
+    "reward": "일행이 일시적으로 갈라섬. Trevor가 Brad에 관한 진실을 알게 됨.",
+    "unlockedBy": "강도 사전 조사"
   },
   {
     "id": "mission-48",
     "order": 48,
-    "title": "Pack Man",
+    "title": "납치범",
     "character": "Franklin, Trevor",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Having collected every exotic car on Devin Weston's list, Franklin, Lamar and Trevor load the five supercars onto a Packer car carrier bound for Paleto Bay. When highway patrol cruisers spot the stolen shipment and launch a high-speed pursuit, Franklin climbs into the weaponized JB 700 on the upper deck to fight off the police.",
+    "category": "스토리",
+    "description": "훔친 고급 슈퍼카 한 묶음을 카캐리어 트럭('Packer')에 실어 Paleto Bay의 인도 지점까지 운반하며 LSPD의 추격을 따돌립니다.",
     "goldRequirements": [
-      "Mission Time — Complete within 12:00",
-      "Not a Scratch — Deliver the JB 700 with minimal damage",
-      "Shredder — Disable 3 police cars using the spike strips"
+      "12:00 이내에 끝내기",
+      "JB 700을 최소한의 손상으로 인도하기",
+      "스파이크로 경찰차 3대 파괴하기"
     ],
-    "reward": "None. Weston refuses to pay the crew.",
-    "unlockedBy": "47. Bury the Hatchet"
+    "reward": "없음. Weston이 주인공들에게 대금 지급을 거부함.",
+    "unlockedBy": "전쟁 도끼를 묻다"
   },
   {
     "id": "mission-49",
     "order": 49,
-    "title": "Fresh Meat",
+    "title": "신선한 고기",
     "character": "Franklin, Michael",
     "giver": "Franklin Clinton",
-    "category": "Story",
-    "description": "Kidnapped in North Yankton by Wei Cheng's Triads after being mistaken for Trevor's lover, Michael is held captive inside the Raven Slaughterhouse in Cypress Flats. Tipped off by Lester, Franklin races against the clock using a phone tracking app to locate the meatpacking plant and save Michael from the industrial meat grinder.",
+    "category": "스토리",
+    "description": "Michael의 휴대전화 신호를 추적해 육가공 공장(Raven Abattoir)에 쳐들어가 삼합회를 몰살하고 그의 목숨을 구합니다.",
     "goldRequirements": [
-      "Switch Limiter — Don't switch characters more than 3 times",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Headshots — Kill 10 enemies with headshots",
-      "Swift Rescue — Rescue Michael within 03:30",
-      "Sense of Direction — Don't use any map waypoints"
+      "캐릭터를 3번 넘게 전환하지 않기",
+      "헤드샷 10회와 명중률 최소 70%",
+      "03:30 이내에 Michael 구출하기",
+      "지도의 웨이포인트(waypoint)를 사용하지 않기"
     ],
-    "reward": "Michael is rescued and rejoins the heist crew.",
-    "unlockedBy": "48. Pack Man"
+    "reward": "Michael이 구출되고 Lester와의 연락이 재개됨.",
+    "unlockedBy": "납치범"
   },
   {
     "id": "mission-50",
     "order": 50,
-    "title": "Cleaning out the Bureau",
+    "title": "Rocco의 발라드",
     "character": "Michael",
     "giver": "Solomon Richards",
-    "category": "Story",
-    "description": "Arriving at Richards Majestic Studios after a frantic call from Solomon Richards, Michael catches mobster Rocco Pelosi and his associate Gianni roughing up the elderly producer. Outraged by the attack on his mentor, Michael launches into a high-speed pursuit through Vinewood to permanently eliminate the Liberty City extortionist.",
+    "category": "스토리",
+    "description": "영화 스튜디오에서 Solomon Richards를 직접 폭행한 Rocco Pelosi(Liberty City 마피아)를 완전히 제거합니다.",
     "goldRequirements": [
-      "Time — Complete within 03:00"
+      "03:00 이내에 미션 끝내기"
     ],
-    "reward": "Michael is officially credited as Associate Producer on Solomon's film.",
-    "unlockedBy": "49. Fresh Meat"
+    "reward": "Michael이 Solomon 영화의 공동 프로듀서로 이름을 올림.",
+    "unlockedBy": "신선한 고기"
   },
   {
     "id": "mission-51",
     "order": 51,
-    "title": "Architect's Plans",
+    "title": "FIB 청소",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To prepare for the raid on FIB headquarters and wipe the files incriminating Steve Haines and Michael, the crew needs inside access. Michael stakes out the federal building to tail janitor Harvey Molina home and intimidate him into handing over his work overalls and security pass.",
+    "category": "스토리",
+    "description": "FIB 청소 직원의 제복과 신분증을 추적해 확보하고, 잠입하여 Steve Haines의 불리한 파일을 지웁니다.",
     "goldRequirements": [
-      "Eagle Eye — Check all the license plates",
-      "He Missed a Spot — Follow the janitor without being spotted",
-      "Time — Complete within 09:00"
+      "주차장의 모든 번호판 확인하기",
+      "들키지 않고 관리인 따라가기",
+      "09:00 이내에 끝내기"
     ],
-    "reward": "Unlocks the official FIB Raid planning board.",
-    "unlockedBy": "50. The Ballad of Rocco"
+    "reward": "FIB 습격 공식 계획 수립.",
+    "unlockedBy": "Rocco의 발라드"
   },
   {
     "id": "mission-52",
     "order": 52,
-    "title": "Fire Truck",
+    "title": "가족 재결합",
     "character": "Michael",
     "giver": "Jimmy De Santa",
-    "category": "Story",
-    "description": "After months of estrangement in an empty mansion, Jimmy reaches out to Michael to help bring the family back together. Together they drive across Los Santos to rescue Amanda from Fabien's pretentiousness and Tracey from Lazlow's sleazy advances, culminating in a chaotic group therapy session with Dr. Friedlander.",
+    "category": "스토리",
+    "description": "몇 달간 떨어져 지낸 Amanda, Tracey, Jimmy를 다시 모으고, 각자의 문제를 풀어 가며 가족의 화합을 되찾습니다.",
     "goldRequirements": [
-      "Time — Complete within 10:30"
+      "10:30 이내에 끝내기"
     ],
-    "reward": "The De Santa family moves back into the mansion. Family vehicles become available again.",
-    "unlockedBy": "51. Cleaning out the Bureau"
+    "reward": "De Santa 가족이 저택으로 돌아옴. 가족 차량을 다시 이용할 수 있음.",
+    "unlockedBy": "FIB 청소"
   },
   {
     "id": "mission-53",
     "order": 53,
-    "title": "Getaway Vehicle",
+    "title": "만능 건축가",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To plan the raid on the FIB tower, Lester needs the exact structural blueprints of the federal building. Franklin heads to the Mile High Club construction site in Pillbox Hill to track down the project architect, seize his briefcase containing the floor plans, and make a fast getaway.",
+    "category": "준비",
+    "description": "FIB 본부 증축 공사의 수석 건축가가 가진 건축 설계도를 훔쳐 보안의 허점을 찾아냅니다.",
     "goldRequirements": [
-      "Quick Getaway — Leave the construction site within 45 seconds"
+      "서류 가방을 훔친 뒤 45초 이내에 공사 구역에서 벗어나기"
     ],
-    "reward": "Building blueprints secured for the Bureau Raid.",
-    "unlockedBy": "52. Reuniting the Family"
+    "reward": "FIB 강도에 쓸 건물 설계도 확보.",
+    "unlockedBy": "가족 재결합"
   },
   {
     "id": "mission-54",
     "order": 54,
-    "title": "The Bureau Raid",
+    "title": "법적 문제",
     "character": "Michael",
     "giver": "Solomon Richards",
-    "category": "Story",
-    "description": "Devin Weston schemes to shut down production of 'Meltdown' and destroy the only master copy of the film to collect a massive insurance payout. Refusing to let his cinematic debut be ruined, Michael pursues Weston's panicked lawyer Molly Schultz onto the active runways of Los Santos International Airport.",
+    "category": "스토리",
+    "description": "보험금을 타고 Solomon을 파산시키려고 영화의 유일한 원본 필름을 훔친 억만장자 Devin Weston과 그의 변호사들을 막아냅니다.",
     "goldRequirements": [
-      "Time — Complete within 05:30",
-      "Floor It — Reach top speed in any car",
-      "Clean Escape — Lose the wanted level within 02:00",
-      "News Hound — View the Weazel News camera for 15 seconds"
+      "05:30 이내에 끝내기",
+      "최고 속도 달성하기",
+      "2분 이내에 수배 등급 벗어나기",
+      "뉴스 카메라(Weazel News)를 15초 동안 보기"
     ],
-    "reward": "Saves the release of 'Meltdown'.",
-    "unlockedBy": "53. Architect's Plans"
+    "reward": "영화 '대재앙'에 대한 위협 제거.",
+    "unlockedBy": "만능 건축가"
   },
   {
     "id": "mission-55",
     "order": 55,
-    "title": "The Ballad of Rocco",
+    "title": "FIB 습격",
     "character": "Michael, Franklin",
-    "giver": "Lester Crest",
-    "category": "Story",
-    "description": "A bold raid on FIB Headquarters in Downtown Los Santos to steal classified server drives. Depending on the selected approach, the crew either plants incendiary bombs as a janitor and enters disguised as firefighters, or executes a night HALO parachute drop directly onto the skyscraper roof.",
+    "giver": "Steve Haines",
+    "category": "강도",
+    "description": "FIB 본부 사무실에 직접 침투해 기밀 기록을 삭제합니다. 선택한 전략에 따라 옥상에 낙하산으로 침투하거나, 통제된 폭파를 곁들인 소방대 대피 상황을 연출해 습격합니다.",
     "goldRequirements": [
-      "Time — Complete within 18:00",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Headshots — Kill 20 enemies with headshots",
-      "Out of Breath — Escape with at least 40% oxygen remaining (Fire Crew) / Hacker — Hack the system within 45 seconds (Roof Entry)"
+      "18:00 이내에 완료하기",
+      "명중률 최소 70%",
+      "헤드샷 20회 달성하기",
+      "갇힌 팀원 구출하기"
     ],
-    "reward": "Erases the incriminating FIB files on Michael and Steve Haines",
-    "unlockedBy": "54. Legal Trouble"
+    "reward": "전과 기록 삭제와 Michael에 대한 법적 압박",
+    "unlockedBy": "탈선"
   },
   {
     "id": "mission-56",
     "order": 56,
-    "title": "Lamar Down",
+    "title": "마무리",
     "character": "Michael, Trevor",
     "giver": "Dave Norton / Steve Haines",
-    "category": "Story",
-    "description": "Michael meets Dave Norton and Steve Haines at the Kortz Center cultural complex, where tensions erupt into a chaotic three-way firefight between FIB tactical teams, IAA agents, and Merryweather contractors. Pinned down on the museum terraces, Michael only makes it out alive thanks to Trevor's unexpected sniper cover from the rooftops.",
+    "category": "스토리",
+    "description": "Kortz Center에서의 만남이 FIB 내 대립 부서, IAA, 사설 병력이 얽힌 삼파전 총격전으로 번집니다. Michael은 박물관 테라스 사이에서 포위되지만, 때마침 Trevor가 높은 곳에서 나타납니다.",
     "goldRequirements": [
-      "Time — Complete within 07:00",
-      "Headshots — Kill 18 enemies with headshots",
-      "Whirly Bird — Shoot down the pursuing chopper"
+      "미션 시간 07:00 미만",
+      "헤드샷 18회 달성하기",
+      "저격 소총으로 추격 헬기 격추하기"
     ],
-    "reward": "Dave Norton and Michael's survival",
-    "unlockedBy": "The Bureau Raid"
+    "reward": "Dave Norton과 Michael의 생존",
+    "unlockedBy": "FIB 습격"
   },
   {
     "id": "mission-57",
     "order": 57,
-    "title": "Meltdown",
+    "title": "문제투성이 Lamar",
     "character": "Franklin, Michael, Trevor",
     "giver": "Tanisha / Franklin",
-    "category": "Story",
-    "description": "A three-man rescue operation at the Paleto Forest sawmill to save Lamar from a Ballas ambush. Franklin recruits Michael and Trevor to coordinate a multi-angle assault on the lumber mill and extract Lamar safely.",
+    "category": "스토리",
+    "description": "Paleto Forest의 제재소에서 매복에 걸린 Lamar를 구출하는 작전입니다. Franklin은 Michael과 Trevor를 불러 모아 제재소를 에워싸는 공격을 조율하고, 납치범들이 도망치기 전에 제압합니다.",
     "goldRequirements": [
-      "Headshots — Kill 18 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Three Way — Kill an enemy with all 3 characters",
-      "Time — Complete within 13:30"
+      "헤드샷 18회 달성하기",
+      "사격 명중률 최소 70%",
+      "Lamar의 체력이 3분의 1 넘게 줄지 않게 구출하기",
+      "13:30 이내에 완료하기"
     ],
-    "reward": "Lamar's bond and survival",
-    "unlockedBy": "The Wrap Up"
+    "reward": "Lamar의 변치 않는 우정",
+    "unlockedBy": "마무리"
   },
   {
     "id": "mission-58",
     "order": 58,
-    "title": "Parenting 101",
+    "title": "대재앙",
     "character": "Michael",
     "giver": "Jimmy De Santa",
-    "category": "Story",
-    "description": "Michael's big Vinewood movie premiere is cut short by a veiled threat from Devin Weston against the De Santa family. Michael races back to his Rockford Hills residence to repel a Merryweather hit squad and rescue Amanda and Tracey inside the mansion.",
+    "category": "스토리",
+    "description": "Vinewood에서 열린 영화 시사회가 De Santa 가족을 노린 Devin Weston의 위협으로 중단됩니다. Michael은 급히 집으로 달려가 용병들을 물리치고, 저택 안에 있는 Amanda와 Tracey의 안전을 지킵니다.",
     "goldRequirements": [
-      "Time — Complete within 06:30",
-      "Pedal to the Metal — Reach top speed in any vehicle",
-      "Tier One — Kill 12 enemies with headshots",
-      "Saving Face — Kill the mercenaries attacking Amanda and Tracey with headshots"
+      "06:30 미만",
+      "저택으로 향하는 레이스 중 차량으로 최고 속도 달성하기",
+      "적 12명을 헤드샷으로 처치하기"
     ],
-    "reward": "Full reunion of the De Santa family",
-    "unlockedBy": "Lamar Down"
+    "reward": "De Santa 가족의 완전한 화해",
+    "unlockedBy": "문제투성이 Lamar"
   },
   {
     "id": "mission-59",
     "order": 59,
-    "title": "Drilling the Hole",
+    "title": "시추기",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To execute the Obvious Approach for the Union Depository heist, the crew needs heavy industrial equipment capable of boring straight through the reinforced underground vault walls. The team locates a massive HVY Cutter loaded onto a flatbed trailer in La Mesa and mounts a covert operation to steal it.",
+    "category": "준비",
+    "description": "거대한 터널 굴착기를 실은 대형 수송 트럭을 훔칩니다. '정면' 방식에서 금고를 뚫으려면 반드시 필요합니다.",
     "goldRequirements": [
-      "Sneak Thief — Steal the cutter without being detected",
-      "Time — Complete within 05:00"
+      "들키지 않고 굴착기 훔치기",
+      "05:00 이내에 끝내기"
     ],
-    "reward": "HVY Cutter tunnel boring machine secured for The Big Score (Obvious Approach).",
-    "unlockedBy": "58. Meltdown"
+    "reward": "정면 강도에 쓸 터널 굴착기(Cutter) 확보.",
+    "unlockedBy": "대재앙"
   },
   {
     "id": "mission-60",
     "order": 60,
-    "title": "Sidewrecked",
+    "title": "샛길",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "As part of the Obvious Approach for the Union Depository heist, the crew needs a freight train to haul the stolen gold out of the city. Michael and Trevor infiltrate the power station rail switch, divert an incoming freight train, and use a heavy-lift Skylift helicopter to airlift both the locomotive and a flatbed car to Sandy Shores.",
+    "category": "준비",
+    "description": "평판 화물 열차를 탈취해 훔친 금괴를 싣고 공중 회수 지점까지 운반합니다. 정면 방식 전용입니다.",
     "goldRequirements": [
-      "Time — Complete within 04:30",
-      "Undetected — Steal the train without being spotted"
+      "04:30 이내에 끝내기",
+      "들키지 않고 열차 훔치기"
     ],
-    "reward": "Freight locomotive and flatbed car stolen to haul the gold in the Obvious Approach.",
-    "unlockedBy": "59. Drillers"
+    "reward": "정면 방식에서 금을 옮기는 데 쓸 훔친 화물 객차.",
+    "unlockedBy": "시추기"
   },
   {
     "id": "mission-61",
     "order": 61,
-    "title": "Getaway Vehicle",
+    "title": "대형 강도",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "The ultimate heist on the Union Depository in Pillbox Hill to steal two hundred million dollars in gold bullion. Depending on the selected plan, the crew either infiltrates the vault in stolen armored vans and escapes in heavily modified muscle cars, or drills straight through the subterranean vault wall and airlifts the gold out by helicopter.",
+    "category": "강도",
+    "description": "나라에서 가장 철저히 보호되는 금 보관소인 Union Depository를 털 궁극의 습격입니다. 가짜 수송차와 교통 해킹을 쓰는 은밀한 방식도, 지하를 정면으로 뚫고 공중으로 빼내는 방식도 가능합니다.",
     "goldRequirements": [
-      "Headshots — Kill 20 enemies with headshots",
-      "Time — Complete within 16:00",
-      "Cha-Ching — Drop the gold onto the train within 30 seconds (Obvious) / Signal Man — Perform fewer than 10 traffic light changes (Subtle)",
-      "Accuracy — Finish with a shooting accuracy of at least 60%"
+      "헤드샷 20회 달성하기",
+      "16:00 이내에 완료하기",
+      "금을 기차 위에 정밀하게 떨어뜨리기",
+      "사격 명중률 최소 60%"
     ],
-    "reward": "Approx. $20,000,000 – $41,000,000 for each of the three protagonists",
-    "unlockedBy": "Meltdown"
+    "reward": "세 주인공 각각 약 $28,000,000",
+    "unlockedBy": "대재앙"
   },
   {
     "id": "mission-62",
     "order": 62,
-    "title": "The Big Score (Subtle)",
+    "title": "호텔 암살",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "A targeted corporate hit commissioned by Lester Crest to manipulate pharmaceutical stock prices. Franklin stakes out the Von Crastenburg Hotel in Richman and eliminates Bilkinton Research CEO Brett Lowrey before his motorcade departs.",
+    "category": "암살",
+    "description": "주가에 영향을 주기 위해 Lester가 의뢰한 제거 계약입니다. Franklin은 Rockford Hills의 Von Crastenburg 호텔 맞은편에 자리를 잡고, 수행원들이 떠나기 전에 Bilkinton Research의 임원을 처리합니다.",
     "goldRequirements": [
-      "Time — Complete within 05:00",
-      "Sniper Boy — Kill the target using a sniper rifle",
-      "Money Earned — $9,000"
+      "미션 시간 05:00 미만",
+      "저격 소총으로 표적 처치하기",
+      "미리 Betta Pharmaceuticals에 투자해 얻은 수익금"
     ],
-    "reward": "$9,000 + massive stock market returns",
-    "unlockedBy": "Fame or Shame"
+    "reward": "$9,000 + 막대한 주식 수익",
+    "unlockedBy": "명성 아니면 망신"
   },
   {
     "id": "mission-63",
     "order": 63,
-    "title": "The Big Score (Obvious)",
+    "title": "다중 암살",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To prevent Redwood Cigarettes from rigging a class-action lawsuit and send rival Debonaire's stock soaring on the LCN, Lester tasks Franklin with eliminating four bribed jurors across Los Santos within a strict nine-minute window.",
+    "category": "암살",
+    "description": "담배 회사 Redwood에 매수된 4인의 부패한 배심원단을 평결 전에 제거합니다.",
     "goldRequirements": [
-      "Speedy Killer — Kill all targets as quickly as possible",
-      "Money Earned — $7,000"
+      "모든 암살을 최대한 빨리 끝내기"
     ],
-    "reward": "Massive stock surge for Debonaire (DEB) on the LCN.",
-    "unlockedBy": "62. The Hotel Assassination"
+    "reward": "LCN에서 Debonaire(DEB) 주가 급등.",
+    "unlockedBy": "호텔 암살"
   },
   {
     "id": "mission-64",
     "order": 64,
-    "title": "Something Sensible (Option A)",
+    "title": "환락가 암살",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To boost Fruit Computers against rival tech giant Facade on the BAWSAQ exchange, Lester orders the elimination of Facade's head of product development, Jackson Skinner, who has been selling user data. Franklin stakes out La Puerta and takes Skinner out during his nightly rendezvous with a streetwalker.",
+    "category": "암살",
+    "description": "환락가에서 경쟁사에 기밀 정보를 팔아넘기는 Facade 기술 부서장 Jackson Skinner를 암살합니다.",
     "goldRequirements": [
-      "Clean Escape — Lose the cops without alerting them",
-      "Money Earned — $5,000"
+      "경찰에게 들키지 않고 현장에서 벗어나기"
     ],
-    "reward": "Fruit Computers (FRT) stock rises ~50% on BAWSAQ.",
-    "unlockedBy": "63. The Multi Target Assassination"
+    "reward": "BAWSAQ에서 Fruit Computers(FRT) 주가가 50% 상승.",
+    "unlockedBy": "다중 암살"
   },
   {
     "id": "mission-65",
     "order": 65,
-    "title": "The Time's Come (Option B)",
+    "title": "버스 암살",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Lester orchestrates a stock market crash for Vapid Motor Company by targeting prospective buyer Isaac Penny—a billionaire Venture capitalist so notoriously frugal that he refuses to own a car and commutes exclusively by city bus. Franklin poses as a transit bus driver along Penny's daily route to intercept and eliminate him.",
+    "category": "암살",
+    "description": "탐욕스러운 억만장자 투기꾼 Isaac Penny가 평소 다니는 시내 대중교통 노선을 이용하는 중에 암살합니다.",
     "goldRequirements": [
-      "Hit and Run — Kill the target using the bus",
-      "Money Earned — $7,000"
+      "표적을 차로 치고 도주하기"
     ],
-    "reward": "Vapid (VAP) stock market manipulation.",
-    "unlockedBy": "64. The Vice Assassination"
+    "reward": "Vapid Motor Company 주가 조작.",
+    "unlockedBy": "환락가 암살"
   },
   {
     "id": "mission-66",
     "order": 66,
-    "title": "The Third Way (Option C)",
+    "title": "공사장 암살",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To rescue GoldCoast Development on the LCN stock exchange, Lester orders the elimination of Enzo Bonelli—a mobbed-up real estate developer who uses union extortion and violence to monopolize city construction contracts. Franklin infiltrates the Mile High Club skyscraper under construction, fights his way up through private security, and takes down Bonelli before his helicopter can escape the roof.",
+    "category": "암살",
+    "description": "민간 경호원이 지키는 건설 중인 고층 빌딩의 상층부에 숨어 있는 부동산 범죄 두목 Enzo Bonelli를 암살합니다.",
     "goldRequirements": [
-      "No Fly Zone — Shoot down the target's helicopter",
-      "Money Earned — $10,000"
+      "표적의 헬기 격추하기"
     ],
-    "reward": "GoldCoast Development (GCD) stock manipulation on the LCN.",
-    "unlockedBy": "65. The Bus Assassination"
+    "reward": "LCN에서 GoldCoast(GCD) 주가 조작.",
+    "unlockedBy": "버스 암살"
   },
   {
     "id": "mission-67",
     "order": 67,
-    "title": "The Third Way - Finale",
+    "title": "옵션 A: 상식적으로",
     "character": "Franklin",
     "giver": "Steve Haines / FIB",
-    "category": "Story",
-    "description": "Pressured by Steve Haines and Dave Norton to eliminate Trevor as an unpredictable liability to the FIB, Franklin arranges a meeting in El Burro Heights under false pretenses. Realizing the ambush, Trevor flees in his pickup truck until Michael rams him into a fuel tanker at the Murrieta Oil Field, sealing his grim fate.",
+    "category": "피날레",
+    "description": "연방 기관이 Trevor를 제거하라고 강요하며 벌어지는 결말입니다. Franklin이 만남을 주선하고, 이는 El Burro Heights의 유전으로 이어지는 추격전으로 번져 인화성 탱크와의 충돌로 표적의 운명이 결정됩니다.",
     "goldRequirements": [
-      "Judas! — Kill Trevor",
-      "Time — Complete within 06:00"
+      "Trevor 죽이기",
+      "06:00 미만"
     ],
-    "reward": "Union Depository heist cut split between Franklin and Michael (Trevor dies permanently)",
-    "unlockedBy": "The Big Score"
+    "reward": "Franklin과 Michael이 전리품을 나눠 가짐 (Trevor는 사라짐)",
+    "unlockedBy": "대형 강도"
   },
   {
     "id": "mission-68",
     "order": 68,
-    "title": "The Last One",
+    "title": "옵션 B: 때가 왔다",
     "character": "Franklin",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Caving to pressure from billionaire Devin Weston, Franklin turns on his mentor, Michael De Santa. A high-speed pursuit leads to the Palmer-Taylor Power Station, where a tense foot chase up the industrial catwalks culminates with Michael dangling over the edge of a towering smokestack.",
+    "category": "피날레",
+    "description": "Devin Weston의 강요로 Michael을 제거해야 하는 결말입니다. 대결은 제철소 높은 곳으로 옮겨 가고, 금속 통로에서의 몸싸움 끝에 Michael이 허공으로 추락합니다.",
     "goldRequirements": [
-      "Surpassed the Mentor — Kill Michael",
-      "Time — Complete within 07:00"
+      "Michael 죽이기",
+      "07:00 미만"
     ],
-    "reward": "Union Depository heist cut split between Franklin and Trevor (Michael dies permanently)",
-    "unlockedBy": "The Big Score"
+    "reward": "Franklin과 Trevor가 전리품을 나눠 가짐 (Michael은 사라짐)",
+    "unlockedBy": "대형 강도"
   },
   {
     "id": "mission-69",
     "order": 69,
-    "title": "Prologue Redux",
+    "title": "옵션 C: 제3의 길",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Refusing to betray either of his partners to the FIB or Devin Weston, Franklin chooses 'Deathwish'—The Third Way. The trio lures FIB tactical squads and Merryweather mercenaries into an all-out firefight at an industrial foundry, splits up to eliminate Wei Cheng, Stretch, and Steve Haines across Los Santos, and abducts Devin Weston to settle accounts once and for all.",
+    "category": "피날레",
+    "description": "세 주인공이 손잡고 밀린 청산을 하는 정사(正史) 결말입니다. 제철소에서의 포위를 버텨낸 뒤, 목표를 나눠 FIB, 삼합회, 경쟁 갱단 추격자들을 제거하고, 마지막으로 Devin Weston을 납치해 그의 차를 해안 절벽 아래로 떨어뜨립니다.",
     "goldRequirements": [
-      "Time — Complete within 21:30",
-      "Headshots — Kill 20 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Cheng Reaction — Kill Wei Cheng with a Sticky Bomb",
-      "Lead Lobotomy — Kill Steve Haines with a headshot",
-      "Stretched Out — Kill Stretch with a melee attack"
+      "21:30 미만",
+      "헤드샷 20회 달성하기",
+      "명중률 최소 70%",
+      "접착 폭탄으로 Cheng 제거하기",
+      "머리에 한 발을 쏴서 Steve Haines 제거하기"
     ],
-    "reward": "Union Depository heist payout (~$20M–$41M each) and all three protagonists alive and playable",
-    "unlockedBy": "The Big Score"
+    "reward": "각자 $28,000,000, 세 캐릭터 모두 생존하며 플레이 가능",
+    "unlockedBy": "대형 강도"
   }
 ]

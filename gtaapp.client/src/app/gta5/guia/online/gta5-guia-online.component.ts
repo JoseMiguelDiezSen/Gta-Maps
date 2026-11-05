@@ -449,10 +449,6 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     }
   }
 
-  volverAlGridMisterios(): void {
-    this.misterioSeleccionado = null;
-  }
-
   getMysteryImage(m: GtaMystery | null | undefined): string {
     if (!m || !m.thumbnail) return '';
     const src = m.thumbnail.trim();
@@ -652,14 +648,6 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
     return this.expandedGruposMisiones.has(catId);
   }
 
-  trackByCategoriaId(index: number, item: { id: string }): string {
-    return item.id;
-  }
-
-  trackByMisionId(index: number, item: GtaMission): string {
-    return item.id;
-  }
-
   getGruposMisionesOnline(): {
     id: string;
     titulo: string;
@@ -692,13 +680,6 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
         misiones
       };
     }).filter(g => g.misiones.length > 0);
-  }
-
-  seleccionarCategoriaMision(cat: CategoriaMisionOnline): void {
-    this.categoriaMisionSeleccionada = cat;
-    this.busquedaMisiones = '';
-    const misiones = this.getMisionesDeCategoria(cat);
-    this.misionSeleccionada = misiones.length > 0 ? misiones[0] : null;
   }
 
   volverACategoriasMisiones(): void {
@@ -1078,23 +1059,6 @@ export class Gta5GuiaOnlineComponent implements OnInit, AfterViewInit, OnDestroy
 
   cleanBreadcrumbTitle(title?: string): string {
     return this.getCleanMissionTitle(title);
-  }
-
-  getOnlineContactBadgeClass(char: string): string {
-    const c = (char || '').toLowerCase();
-    if (c.includes('gerald')) return 'badge-gerald';
-    if (c.includes('simeon')) return 'badge-simeon';
-    if (c.includes('lamar')) return 'badge-lamar';
-    if (c.includes('lester')) return 'badge-lester';
-    if (c.includes('madrazo')) return 'badge-madrazo';
-    if (c.includes('trevor') || c.includes('ron')) return 'badge-trevor';
-    if (c.includes('agatha')) return 'badge-agatha';
-    if (c.includes('brendan')) return 'badge-darcy';
-    if (c.includes('franklin')) return 'badge-franklin';
-    if (c.includes('dax')) return 'badge-dax';
-    if (c.includes('vincent')) return 'badge-vincent';
-    if (c.includes('agente') || c.includes('securoserv')) return 'badge-tactical';
-    return 'badge-neutral';
   }
 
   getMissionAccentColor(m: GtaMission | null): string {

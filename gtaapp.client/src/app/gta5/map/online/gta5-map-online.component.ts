@@ -11,7 +11,6 @@ import { GotyService } from '../../../services/goty.service';
 import { Gta5MysteryPopupService } from '../../../services/gta5/gta5-mystery-popup.service';
 import { Gta5MapMarkerService } from '../../../services/gta5/gta5-map-marker.service';
 import { GtaTimeService } from '../../../services/gta5/gta-time.service';
-import { getGhostsList, GtaGhostInfo } from '../../../models/gta5/event';
 import { gta5WorldToLatLng, gta5LatLngToWorld } from '../../../utils/gta5-map-projection';
 
 @Component({
@@ -652,14 +651,6 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         this.dismissNotification();
     }
 
-    get activeGhostNotification(): GtaGhostInfo | null {
-        return null;
-    }
-
-    locateNotificationGhost(): void {
-        this.locateNotification();
-    }
-
     dismissGhostNotification(): void {
         this.dismissNotification();
     }
@@ -1169,13 +1160,13 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         const activeColor = item.color || 'red';
 
         const colors = [
-            { key: 'red', hex: '#e61919', title: 'Rojo' },
-            { key: 'blue', hex: '#2563eb', title: 'Azul' },
-            { key: 'green', hex: '#16a34a', title: 'Verde' },
-            { key: 'yellow', hex: '#eab308', title: 'Amarillo' },
-            { key: 'orange', hex: '#ea580c', title: 'Naranja' },
-            { key: 'purple', hex: '#9333ea', title: 'Morado' },
-            { key: 'white', hex: '#f8fafc', title: 'Blanco' }
+            { key: 'red', hex: '#e61919', title: this.translationService.t('gta5.popups.colorRed') },
+            { key: 'blue', hex: '#2563eb', title: this.translationService.t('gta5.popups.colorBlue') },
+            { key: 'green', hex: '#16a34a', title: this.translationService.t('gta5.popups.colorGreen') },
+            { key: 'yellow', hex: '#eab308', title: this.translationService.t('gta5.popups.colorYellow') },
+            { key: 'orange', hex: '#ea580c', title: this.translationService.t('gta5.popups.colorOrange') },
+            { key: 'purple', hex: '#9333ea', title: this.translationService.t('gta5.popups.colorPurple') },
+            { key: 'white', hex: '#f8fafc', title: this.translationService.t('gta5.popups.colorWhite') }
         ];
 
         const activeColorObj = colors.find(c => c.key === activeColor) || colors[0];
@@ -1199,8 +1190,8 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         input.className = 'custom-marker-name custom-marker-name-input custom-pin-name-input';
         input.value = item.name;
         input.maxLength = 45;
-        input.placeholder = this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name';
-        input.title = this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename';
+        input.placeholder = this.translationService.t('gta5.popups.markerNamePlaceholder');
+        input.title = this.translationService.t('gta5.popups.markerRenameHint');
         input.style.cssText = 'margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: auto; max-width: 95px; min-width: 60px; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;';
         L.DomEvent.disableClickPropagation(input);
         L.DomEvent.disableScrollPropagation(input);
@@ -1215,7 +1206,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             }
         });
         input.addEventListener('blur', () => {
-            const defaultName = this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker';
+            const defaultName = this.translationService.t('gta5.settings.defaultMarkerName');
             const trimmed = input.value.trim();
             const finalName = trimmed || defaultName;
             input.value = finalName;
@@ -1378,7 +1369,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
             }
             if (found.marker.getTooltip()) {
                 const tooltipBold = document.createElement('b');
-                tooltipBold.textContent = found.name || (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
+                tooltipBold.textContent = found.name || this.translationService.t('gta5.settings.defaultMarkerName');
                 found.marker.setTooltipContent(tooltipBold);
             }
             this.saveCustomMarkers();
@@ -2352,30 +2343,6 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         return this.allCollectibles.filter(c => c.category === categoryKey).length;
     }
 
-    getActiveLayersCount(): number {
-        return Object.values(this.layerFilters).filter(v => v).length;
-    }
-
-    setAllLayers(state: boolean): void {
-        Object.keys(this.layerFilters).forEach(key => {
-            this.layerFilters[key] = state;
-        });
-        if (this.selectedCity === 'cp') {
-            this.renderCayoPericoMarkers();
-        } else {
-            this.renderPropertyMarkers();
-            this.renderCollectibleMarkers();
-        }
-    }
-
-    toggleLegendSection(section: string): void {
-        this.toggleSection(section);
-    }
-
-    getActiveCountInSection(keys: string[]): number {
-        return keys.filter(k => this.layerFilters[k] !== false).length;
-    }
-
     isSectionAllActive(keys: string[]): boolean {
         return keys.length > 0 && keys.every(k => this.layerFilters[k] !== false);
     }
@@ -2500,7 +2467,18 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
      * Centra el mapa sobre la ubicación del misterio, cierra el drawer lateral
      * y genera un marcador destacado con animación y popup informativo.
      */
+    private clearMysteryMarkers(): void {
+        this.mysteryMarker?.remove();
+        this.mysteryMarker = null;
+        this.mysteryMarkers.forEach(m => m.remove());
+        this.mysteryMarkers = [];
+    }
+
     focusMysteryLocation(mystery: GtaMystery): void {
+        if (mystery?.clearLocated) {
+            this.clearMysteryMarkers();
+            return;
+        }
         if (!this.map) return;
 
         const anyMystery = mystery as any;
@@ -2650,14 +2628,7 @@ export class Gta5MapOnlineComponent implements OnInit, AfterViewInit, OnDestroy 
         const pinColor = accentColor;
         const pinIcon = mystery.badgeIcon || 'fa-ghost';
 
-        if (this.mysteryMarker) {
-            this.mysteryMarker.remove();
-            this.mysteryMarker = null;
-        }
-        if (this.mysteryMarkers && this.mysteryMarkers.length > 0) {
-            this.mysteryMarkers.forEach(m => m.remove());
-            this.mysteryMarkers = [];
-        }
+        this.clearMysteryMarkers();
 
         if (mystery.points && Array.isArray(mystery.points) && mystery.points.length > 0) {
             const latLngs: L.LatLngTuple[] = [];

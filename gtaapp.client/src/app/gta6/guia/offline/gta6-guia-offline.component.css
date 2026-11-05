@@ -134,6 +134,46 @@
   border-bottom-color: #cbd5e1;
 }
 
+:host ::ng-deep .narrative-editorial-body .guide-figure {
+  margin: 20px 0 22px;
+  overflow: hidden;
+  border: 1px solid rgba(236, 72, 153, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+
+/* Foto pequeña a un lado del texto; cada separador corta el flotado anterior. */
+:host ::ng-deep .narrative-editorial-body .guide-figure--right {
+  float: right;
+  width: 42%;
+  margin: 4px 0 12px 18px;
+}
+
+:host ::ng-deep .narrative-editorial-body .guide-figure--left {
+  float: left;
+  width: 42%;
+  margin: 4px 18px 12px 0;
+}
+
+:host ::ng-deep .narrative-editorial-body .guide-heading-divider {
+  clear: both;
+}
+
+@media (max-width: 600px) {
+  :host ::ng-deep .narrative-editorial-body .guide-figure--right,
+  :host ::ng-deep .narrative-editorial-body .guide-figure--left {
+    float: none;
+    width: 100%;
+    margin: 12px 0 14px;
+  }
+}
+
+:host ::ng-deep .narrative-editorial-body .guide-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .wiki-shell.mode-day .narrative-editorial-body .guide-callout {
   background: #fdf2f8;
   border-color: #fbcfe8;
@@ -2472,7 +2512,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 20px 0 14px 0;
+  margin: 24px 0 14px 0;
   width: 100%;
   box-sizing: border-box;
 }
@@ -2498,6 +2538,15 @@
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  color: #ec4899;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.25);
+}
+
+/* Separadores como los de GTA V, en fucsia. Anula el estilo general de h3 del cuerpo. */
+:host ::ng-deep .narrative-editorial-body .guide-heading-title {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 1.4px;
   color: #ec4899;
   text-shadow: 0 0 10px rgba(236, 72, 153, 0.25);
 }

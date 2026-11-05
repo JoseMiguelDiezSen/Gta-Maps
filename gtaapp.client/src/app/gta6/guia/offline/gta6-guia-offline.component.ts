@@ -7,6 +7,8 @@ import { Subscription, Observable, forkJoin, map, shareReplay } from 'rxjs';
 import { GRUPOS_MISIONES_GTA6 } from './misiones-grupos.config';
 import { DealerCategory, GtaVehicle } from '../../../models/gta5/vehicle';
 import { CATEGORIAS_VEHICULOS_GTA6 } from '../vehiculos-gta6.config';
+import { GtaWeapon } from '../../../models/gta5/weapon';
+import { WEAPON_CATEGORIES_GTA5, WeaponCategoryConfig } from '../../../gta5/map/info-panel/weapons.config';
 
 export interface GuiaBreadcrumbItem {
   label: string;
@@ -58,6 +60,12 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   busquedaVehiculos: string = '';
   private vehiculosSub?: Subscription;
 
+  readonly weaponCategories: WeaponCategoryConfig[] = WEAPON_CATEGORIES_GTA5;
+  readonly weaponCounts$: Observable<Record<string, number>>;
+  categoriaArmaSeleccionada: WeaponCategoryConfig | null = null;
+  armasCategoria$: Observable<GtaWeapon[]> | null = null;
+  armaSeleccionada: GtaWeapon | null = null;
+
   getSeccionContador(seccion: GuiaSeccion): number {
     if (seccion.id === 'trofeos') {
       return this.trofeosResumen.total;
@@ -65,13 +73,10 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (seccion.id === 'vehiculos') {
       return this.concesionarios.length;
     }
+    if (seccion.id === 'armas') {
+      return this.weaponCategories.length;
+    }
     return seccion.articulos.length;
-  }
-
-  /** Sección de artículos todavía sin contenido: se muestra el aviso de lanzamiento. */
-  get seccionPendiente(): boolean {
-    const sec = this.currentSection;
-    return !!sec && sec.id !== 'trofeos' && sec.id !== 'vehiculos' && sec.articulos.length === 0;
   }
 
   /* Estado de navegación por niveles en móvil (estilo Info-Panel) */
@@ -87,6 +92,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (this.vehiculoSeleccionado) {
       this.vehiculoSeleccionado = null;
     }
+    this.armaSeleccionada = null;
     if (this.mostrarTrofeos) {
       this.mostrarTrofeos = false;
       this.currentSection = null;
@@ -99,6 +105,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.currentSection = null;
     this.mostrarTrofeos = false;
     this.limpiarConcesionario();
+    this.limpiarArma();
     this.scrollToTop();
   }
 
@@ -108,6 +115,25 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
   get breadcrumbs(): GuiaBreadcrumbItem[] {
     const items: GuiaBreadcrumbItem[] = [];
+
+    // 0. Armas
+    if (this.categoriaArmaSeleccionada && this.currentSection?.id === 'armas') {
+      const secArmas = this.currentSection;
+      items.push({
+        label: secArmas.titulo,
+        clickable: true,
+        action: () => this.openSection(secArmas)
+      });
+      items.push({
+        label: this.categoriaArmaSeleccionada.name,
+        clickable: !!this.armaSeleccionada,
+        action: () => this.volverAlGridArmas()
+      });
+      if (this.armaSeleccionada) {
+        items.push({ label: this.armaSeleccionada.name, clickable: false });
+      }
+      return items;
+    }
 
     // 1. Vehículos
     if (this.concesionarioSeleccionado || this.currentSection?.id === 'vehiculos') {
@@ -198,6 +224,17 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   private readonly metaService = inject(Meta);
 
   constructor() {
+    this.weaponCounts$ = this.guiaService.getArmasGuiaGta6().pipe(
+      map(weapons => {
+        const counts: Record<string, number> = {};
+        for (const w of weapons) {
+          const cat = (w.category || '').toLowerCase();
+          counts[cat] = (counts[cat] || 0) + 1;
+        }
+        return counts;
+      }),
+      shareReplay(1)
+    );
     this.dealerCounts$ = forkJoin(
       this.concesionarios.map(d =>
         this.guiaService.getVehiculosGuiaGta6('offline', d.id).pipe(
@@ -403,7 +440,16 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.busquedaOffline = '';
     this.currentSection = sec;
     this.selectedSeccionId = sec.id;
-    if (sec.id === 'trofeos') {
+    this.limpiarArma();
+    if (sec.id === 'armas') {
+      this.mostrarTrofeos = false;
+      this.isMobileReadingOpen = false;
+      this.selectedArticulo = null;
+      this.limpiarConcesionario();
+      if (this.weaponCategories.length > 0 && !this.isMobileView()) {
+        this.seleccionarCategoriaArma(this.weaponCategories[0], false);
+      }
+    } else if (sec.id === 'trofeos') {
       this.mostrarTrofeos = true;
       this.isMobileReadingOpen = true;
       this.cargarTrofeos();
@@ -412,6 +458,9 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       this.isMobileReadingOpen = false;
       this.selectedArticulo = null;
       this.limpiarConcesionario();
+      if (this.concesionarios.length > 0 && !this.isMobileView()) {
+        this.seleccionarConcesionario(this.concesionarios[0], false);
+      }
     } else {
       this.mostrarTrofeos = false;
       this.isMobileReadingOpen = false;
@@ -423,9 +472,6 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       }
       if (sec.articulos && sec.articulos.length > 0) {
         this.seleccionarArticulo(sec.articulos[0].id, false);
-      } else {
-        this.selectedArticulo = null;
-        this.isMobileReadingOpen = true;
       }
     }
     if (this.isMobileView()) {
@@ -439,12 +485,43 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.mostrarTrofeos = false;
     this.isMobileReadingOpen = false;
     this.limpiarConcesionario();
+    this.limpiarArma();
     if (this.isMobileView()) {
       this.scrollToTop();
     }
   }
 
-  seleccionarConcesionario(concesionario: DealerCategory): void {
+  seleccionarCategoriaArma(cat: WeaponCategoryConfig, abrirEnMovil: boolean = true): void {
+    this.categoriaArmaSeleccionada = cat;
+    this.armaSeleccionada = null;
+    this.armasCategoria$ = this.guiaService.getArmasGuiaGta6(cat.id);
+    if (abrirEnMovil && this.isMobileView()) {
+      this.openMobileReading();
+    }
+  }
+
+  seleccionarArma(arma: GtaWeapon): void {
+    this.armaSeleccionada = arma;
+    if (this.isMobileView()) {
+      this.openMobileReading();
+    }
+  }
+
+  volverAlGridArmas(): void {
+    this.armaSeleccionada = null;
+  }
+
+  getWeaponIcon(arma: GtaWeapon | null): string {
+    return arma?.icon || 'fa-gun';
+  }
+
+  private limpiarArma(): void {
+    this.categoriaArmaSeleccionada = null;
+    this.armasCategoria$ = null;
+    this.armaSeleccionada = null;
+  }
+
+  seleccionarConcesionario(concesionario: DealerCategory, abrirEnMovil: boolean = true): void {
     this.concesionarioSeleccionado = concesionario;
     this.vehiculoSeleccionado = null;
     this.busquedaVehiculos = '';
@@ -455,10 +532,10 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       .pipe(shareReplay(1));
     this.vehiculosSub = this.vehiculosConcesionario$.subscribe(list => {
       this.vehiculosConcesionario = list || [];
-      if (this.vehiculosConcesionario.length === 0) {
-        this.isMobileReadingOpen = true;
-      }
     });
+    if (abrirEnMovil && this.isMobileView()) {
+      this.openMobileReading();
+    }
   }
 
   get vehiculosFiltrados(): GtaVehicle[] {
@@ -619,6 +696,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (s.includes('mecanica')) return '#a855f7';
     if (s.includes('policial') || s.includes('ia-')) return '#f97316';
     if (s.includes('vehiculo')) return '#38bdf8';
+    if (s.includes('arma')) return '#ef4444';
     return '#ec4899';
   }
 
@@ -710,6 +788,10 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     const normalizedBadge = badge.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
     const badgeKeywordToClass: ReadonlyArray<readonly [string, string]> = [
       ['introduccion', 'personaje-introduccion'],
+      ['protagonistas', 'personaje-jason'],
+      ['secundarios', 'personaje-lucia'],
+      ['perfil', 'personaje-tacticas'],
+      ['policia', 'personaje-policial'],
       ['duo', 'personaje-duo'],
       ['lucia', 'personaje-lucia'],
       ['jason', 'personaje-jason'],
@@ -793,16 +875,12 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   readonly protagonistas = [
-    { name: 'Lucia', label: 'Lucia Caminos', img: 'assets/images/gta6/guia/offline/personajes/Lucia.png' },
-    { name: 'Jason', label: 'Jason Duval', img: 'assets/images/gta6/guia/offline/personajes/Jason.png' }
+    { name: 'Lucia', label: 'Lucia Caminos', img: 'assets/images/gta6/guia/offline/personajes/Lucia_Caminos.jpg' },
+    { name: 'Jason', label: 'Jason Duval', img: 'assets/images/gta6/guia/offline/personajes/Jason_Duval.jpg' }
   ] as const;
 
-  /** Fotos que no han cargado: su marco se oculta hasta que exista el archivo. */
-  private readonly fotosFallidas = new Set<string>();
-
-  get protagonistasVisibles() {
-    return this.protagonistas.filter(p => !this.fotosFallidas.has(p.name));
-  }
+  /** Fotos que no han cargado: el marco se queda vacío, sin icono de imagen rota. */
+  readonly fotosFallidas = new Set<string>();
 
   onFotoProtagonistaError(nombre: string): void {
     this.fotosFallidas.add(nombre);

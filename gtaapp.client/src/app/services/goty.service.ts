@@ -43,7 +43,7 @@ export class GotyService {
   // Mensajes fijos por contexto de juego e idioma (Modo capado para producción)
   private readonly fixedMessages: Record<string, Partial<Record<GotyGameMode, string>>> = {
     es: {
-      'home': '¡Bienvenido a **GTA EXPLORER**!\n• **Mapas en alta definición:** con todas las ubicaciones.\n• **Asistente con IA:** apoyo táctico de GOTY 5 y GOTY 6 en tiempo real.\n• **Multi-idioma:** disponible en 13 idiomas.',
+      'home': '¡Bienvenido a **GTA EXPLORER**!\n• **Mapas en alta definición:** con todas las ubicaciones.\n• **Asistente con IA:** apoyo táctico de GOTY 5 y GOTY 6 en tiempo real.\n• **Multiidioma:** disponible en 13 idiomas.',
       'gta5-historia': '¡Qué pasa, colega! Soy GOTY. ¿En qué te echo una mano hoy por las calles?',
       'gta5-online': '¡Qué pasa, colega! Soy GOTY. ¿En qué te echo una mano hoy por las calles?',
       'gta6-historia': 'Hola, soy GOTY 6, aún me están ajustando algunos detalles. Disculpa las molestias.',
@@ -57,11 +57,11 @@ export class GotyService {
       'gta6-online': "Hello, I'm GOTY 6, I'm still being adjusted. Sorry for the inconvenience."
     },
     pt: {
-      'home': 'Bem-vindo ao **GTA EXPLORER**!\n• **Mapas em alta definição:** com todas as localizações.\n• **Assistente com IA:** apoio tático do GOTY 5 e GOTY 6 em tempo real.\n• **Multi-idioma:** disponível em 13 idiomas.',
+      'home': 'Bem-vindo ao **GTA EXPLORER**!\n• **Mapas em alta definição:** com todas as localizações.\n• **Assistente com IA:** apoio tático do GOTY 5 e GOTY 6 em tempo real.\n• **Multilíngue:** disponível em 13 idiomas.',
       'gta5-historia': 'Olá, sou o GOTY 5, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
-      'gta5-online': 'Olá, sou o GOTY 5, ainda estão ajustando algunos detalhes em mim. Desculpe o transtorno.',
+      'gta5-online': 'Olá, sou o GOTY 5, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
       'gta6-historia': 'Olá, sou o GOTY 6, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.',
-      'gta6-online': 'Olá, sou o GOTY 6, ainda estão ajustando algunos detalhes em mim. Desculpe o transtorno.'
+      'gta6-online': 'Olá, sou o GOTY 6, ainda estão ajustando alguns detalhes em mim. Desculpe o transtorno.'
     },
     zh: {
       'home': '欢迎来到 **GTA EXPLORER**！\n• **高清地图：** 包含所有位置点与标记。\n• **AI 助手：** GOTY 5 与 GOTY 6 实时战术协助。\n• **多语言：** 支持 13 种语言。',

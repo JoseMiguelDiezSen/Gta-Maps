@@ -20,21 +20,22 @@
     "online": "Онлайн",
     "storyShort": "С",
     "onlineShort": "О",
-    "goToGuide": "Go to guide",
-    "switchToStory": "Switch to Story Mode",
-    "onlineActive": "GTA Online mode active",
-    "storyActive": "Story Mode active",
-    "switchToOnline": "Switch to GTA Online",
+    "goToGuide": "Перейти к гайду",
+    "switchToStory": "Перейти в сюжетный режим",
+    "onlineActive": "Режим GTA Online активен",
+    "storyActive": "Сюжетный режим активен",
+    "switchToOnline": "Перейти в GTA Online",
     "goty5": "GOTY 5",
     "goty6": "GOTY 6",
-    "coordinates": "Coordinates (X, Y)",
-    "tacticalCoords": "TACTICAL COORDINATES:",
-    "clearSearch": "Clear search",
+    "coordinates": "Координаты (X, Y)",
+    "tacticalCoords": "ТАКТИЧЕСКИЕ КООРДИНАТЫ:",
+    "clearSearch": "Очистить поиск",
     "gta6Info": "GTA VI INFO",
-    "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V",
+    "mk2Available": "Доступен вариант Mk II",
+    "requiredFor100": "Требуется для 100% в GTA V",
     "fullscreen": "Полноэкранный режим",
-    "exitFullscreen": "Выйти из полноэкранного режима"
+    "exitFullscreen": "Выйти из полноэкранного режима",
+    "comingSoon": "Скоро"
   },
   "home": {
     "chooseGame": "Выберите игру",
@@ -44,13 +45,15 @@
     "gta6Title": "GTA VI",
     "gta6Sub": "В разработке...",
     "disclaimer": "Фанатский проект. Не связан с Rockstar Games.",
-    "copyright": "© Copyright 2026 JMD Software, все права защищены. JMD® и логотип JMD® являются товарными знаками The JMD Software.",
-    "onlineUsers": "онлайн пользователей",
-    "onlineUser": "онлайн пользователь",
-    "gta5GuiaBtn": "ГИД GTA 5",
-    "gta6GuiaBtn": "ГИД GTA 6",
-    "gta6VideosBtn": "VIDEOS",
-    "gta6MomentosBtn": "MOMENTS"
+    "copyright": "© Copyright 2026 JMD Software, все права защищены. JMD® и логотип JMD® являются зарегистрированными товарными знаками The JMD Software.",
+    "onlineUsers": "пользователей онлайн",
+    "onlineUser": "пользователь онлайн",
+    "gta5GuiaBtn": "ГАЙД GTA 5",
+    "gta6GuiaBtn": "ГАЙД GTA 6",
+    "gta6VideosBtn": "ВИДЕО",
+    "gta6MomentosBtn": "МОМЕНТЫ",
+    "logoAlt": "GTA Explorer - Интерактивные карты GTA V и GTA VI",
+    "mascotsAlt": "GOTY 5 и GOTY 6 - талисманы GTA Explorer"
   },
   "cookies": {
     "title": "Конфиденциальность и файлы cookie",
@@ -74,19 +77,19 @@
     "closePolicy": "Понятно",
     "policyTextP1": "В GTA Explorer мы уважаем вашу конфиденциальность. Мы не продаем ваши данные и не ведем рекламное отслеживание.",
     "policyTextP2": "Обязательные cookie гарантируют работу счетчика онлайна и сохранение языковых предпочтений.",
-    "policyTextP3": "Вы можете изменить или отозвать согласие в любой момент через значок настроек.",
-    "back": "Back",
-    "tableColName": "Name",
-    "tableColType": "Type",
-    "tableColPurpose": "Purpose",
-    "tableColDuration": "Duration",
-    "typeNecessary": "Necessary",
-    "typePreference": "Preference",
-    "descConsent": "Saves your cookie preferences locally",
-    "descLanguage": "Saves your preferred language (ES / EN)",
-    "descMapSettings": "Saves your active layers, filters, and zoom level",
-    "durationOneYear": "1 year",
-    "durationPersistent": "Persistent"
+    "policyTextP3": "Вы можете изменить или отозвать согласие в любой момент по ссылке на настройки конфиденциальности в нижней части страницы.",
+    "back": "Назад",
+    "tableColName": "Название",
+    "tableColType": "Тип",
+    "tableColPurpose": "Назначение",
+    "tableColDuration": "Срок",
+    "typeNecessary": "Обязательный",
+    "typePreference": "Настройки",
+    "descConsent": "Локально сохраняет ваши настройки cookie",
+    "descLanguage": "Сохраняет выбранный вами язык",
+    "descMapSettings": "Сохраняет активные слои, фильтры и масштаб",
+    "durationOneYear": "1 год",
+    "durationPersistent": "Постоянный"
   },
   "gta5": {
     "hud": {
@@ -117,7 +120,16 @@
       "edit": "Редактировать",
       "delete": "Удалить",
       "coordinates": "Координаты",
-      "robbableStore": "Ограбляемый магазин"
+      "robbableStore": "Ограбляемый магазин",
+      "markerNamePlaceholder": "Название метки",
+      "markerRenameHint": "Введите, чтобы переименовать",
+      "colorRed": "Красный",
+      "colorBlue": "Синий",
+      "colorGreen": "Зелёный",
+      "colorYellow": "Жёлтый",
+      "colorOrange": "Оранжевый",
+      "colorPurple": "Фиолетовый",
+      "colorWhite": "Белый"
     },
     "settings": {
       "gameMode": "Режим игры",
@@ -431,8 +443,7 @@
       "navBrandOnline": "GTA 6 - ONLINE",
       "heroTitle": "VICE CITY & STATE OF LEONIDA",
       "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
-      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida.",
-      "pendingLaunch": "Материалы появятся после выхода игры."
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -468,7 +479,8 @@
       "tradePrice": "Оптовая цена (Trade)",
       "weaponized": "Вооруженный транспорт",
       "sortDefault": "По умолчанию",
-      "sortByStat": "Сортировка по"
+      "sortByStat": "Сортировка по",
+      "priceUnavailable": "Цена недоступна"
     },
     "stats": {
       "speed": "Скорость",
@@ -549,7 +561,8 @@
       "nextMission": "Следующее задание",
       "req100Badge": "Нужно для 100%",
       "optionalBadge": "Опционально",
-      "viewGuide": "Смотреть гайд на GTABase"
+      "viewGuide": "Смотреть гайд на GTABase",
+      "seriesCount": "{{ count }} из {{ total }} заданий"
     },
     "heists": {
       "searchPlaceholder": "Поиск ограбления, организатора, цели, базы...",
@@ -685,9 +698,9 @@
   },
   "seo": {
     "defaultTitle": "GTA Explorer - Карты и гайды GTA V и GTA VI",
-    "defaultDesc": "Мультиязычная платформа на 13 языках: интерактивные Ultra HD карты и гайды по GTA V, GTA Online, Кайо-Перико и GTA VI Вайс-Сити со встроенным ИИ-ассистентом.",
-    "homeTitle": "GTA Explorer - HD карты и интерактивные гайды по GTA V и GTA VI с ИИ",
-    "homeDesc": "Мультиязычная платформа на 13 языках: интерактивные Ultra HD карты и гайды по GTA V, GTA Online, Кайо-Перико и GTA VI Вайс-Сити со встроенным ИИ-ассистентом.",
+    "defaultDesc": "Платформа на 13 языках с HD-картами и интерактивными гайдами по GTA 5, GTA 5 Online, Кайо-Перико, GTA 6 и GTA 6 Online, со встроенным ИИ-ассистентом, миссиями, локациями, транспортом, оружием и тайнами.",
+    "homeTitle": "GTA Explorer - HD-карты GTA V и GTA VI с ИИ-ассистентом и интерактивными гайдами",
+    "homeDesc": "Платформа на 13 языках с HD-картами и интерактивными гайдами по GTA 5, GTA 5 Online, Кайо-Перико, GTA 6 и GTA 6 Online, со встроенным ИИ-ассистентом, миссиями, локациями, транспортом, оружием и тайнами.",
     "gta5OnlineTitle": "Карта GTA V Online | GTA Explorer",
     "gta5OnlineDesc": "Интерактивная карта Ultra HD для GTA 5 Online и Кайо-Перико 100% без рекламы. Бизнесы, ограбления, недвижимость, транспорт, оружие и умный ассистент.",
     "gta5HistoriaTitle": "Карта GTA V: Сюжетный режим | GTA Explorer",
@@ -722,7 +735,7 @@
   "feedback": {
     "buttonTitle": "Отправить отзыв или предложение",
     "modalTitle": "Отзывы и предложения",
-    "modalSubtitle": "У вас есть идея или вы нашли ошибку? Напишите нам!",
+    "modalSubtitle": "Нашли ошибку в переводе, в расположении или деталь, которую можно улучшить? Расскажите нам! Ваша помощь позволяет нам становиться лучше.",
     "nameLabel": "Ваше имя (необязательно)",
     "namePlaceholder": "Например: Алексей или Аноним",
     "messageLabel": "Ваше сообщение",
@@ -742,19 +755,19 @@
       "modeStory": "СЮЖЕТ",
       "modeOnline": "ОНЛАЙН",
       "modeLabel": "РЕЖИМ:",
-      "switchModeTitle": "Переключение между гидом по сюжету и онлайн-руководством",
-      "alreadyOnGta5Guide": "Вы уже находитесь в руководстве по GTA 5",
-      "alreadyOnGta6Guide": "Вы уже находитесь в руководстве по GTA 6",
+      "switchModeTitle": "Переключение между сюжетным и онлайн-гайдом",
+      "alreadyOnGta5Guide": "Вы уже в гайде по GTA 5",
+      "alreadyOnGta6Guide": "Вы уже в гайде по GTA 6",
       "gta6MapComingSoon": "Карта GTA VI (Скоро)",
       "themeDay": "Переключить на дневную тему",
       "themeNight": "Переключить на ночную тему",
       "openNavMenu": "Открыть меню навигации",
       "closeNavMenu": "Закрыть меню",
-      "breadcrumb": "Breadcrumb navigation",
-      "chapterNav": "Chapter navigation",
-      "backToChapters": "Back to chapters",
-      "backToChaptersTitle": "Back to Chapters",
-      "protagonists": "GTA V Protagonists"
+      "breadcrumb": "Навигационная цепочка",
+      "chapterNav": "Навигация по главам",
+      "backToChapters": "Назад к главам",
+      "backToChaptersTitle": "Назад к главам",
+      "protagonists": "Главные герои GTA V"
     },
     "sidebar": {
       "contents": "СОДЕРЖАНИЕ",
@@ -908,21 +921,22 @@
     "noClips": "No moments available in this category currently."
   },
   "nav": {
-    "menuLabel": "Navigation menu",
-    "homeTitle": "Go to Home",
-    "home": "HOME",
-    "gta5MapTitle": "Go to GTA 5 Map",
-    "gta5Map": "GTA 5 MAP",
-    "gta5GuideTitle": "Go to GTA 5 Guide",
-    "gta5Guide": "GTA 5 GUIDE",
-    "gta6MapTitle": "Go to GTA 6 Map",
-    "gta6Map": "GTA 6 MAP",
-    "gta6GuideTitle": "Go to GTA 6 Guide",
-    "gta6Guide": "GTA 6 GUIDE",
-    "gta6VideosTitle": "GTA 6 Videos",
-    "gta6Videos": "VIDEOS",
+    "menuLabel": "Меню навигации",
+    "homeTitle": "На главную",
+    "home": "ГЛАВНАЯ",
+    "gta5MapTitle": "К карте GTA 5",
+    "gta5Map": "КАРТА GTA 5",
+    "gta5GuideTitle": "К гайду по GTA 5",
+    "gta5Guide": "ГАЙД GTA 5",
+    "gta6MapTitle": "К карте GTA 6",
+    "gta6Map": "КАРТА GTA 6",
+    "gta6GuideTitle": "К гайду по GTA 6",
+    "gta6Guide": "ГАЙД GTA 6",
+    "gta6VideosTitle": "Видео GTA 6",
+    "gta6Videos": "ВИДЕО",
     "aboutTitle": "О проекте",
-    "about": "О НАС",
-    "themeToggle": "Toggle day/night mode"
+    "about": "О ПРОЕКТЕ",
+    "themeToggle": "Переключить дневной и ночной режим",
+    "logoAlt": "Логотип GTA Explorer"
   }
 }

@@ -742,8 +742,14 @@
                 }
               </div>
               <div class="vehiculo-card-info">
+                @if (arma.manufacturer && arma.manufacturer !== 'Unknown') {
+                <span class="vehiculo-card-maker">{{ arma.manufacturer }}</span>
+                }
                 <span class="vehiculo-card-name">{{ arma.name }}</span>
-                <span class="vehiculo-card-price">{{ arma.priceFormatted }}</span>
+                <span class="vehiculo-card-price" [title]="arma.priceFormatted">
+                  <span class="vehiculo-card-price-lbl">{{ 'gta5.popups.price' | translate }}</span>
+                  <span class="vehiculo-card-price-val">{{ arma.priceFormatted }}</span>
+                </span>
               </div>
             </div>
             }
@@ -768,7 +774,9 @@
               </div>
 
               <div class="vehiculo-detail-info">
+                @if (armaSeleccionada.manufacturer && armaSeleccionada.manufacturer !== 'Unknown') {
                 <span class="vehiculo-detail-maker">{{ armaSeleccionada.manufacturer }}</span>
+                }
                 <h2 class="vehiculo-detail-name">{{ armaSeleccionada.name }}</h2>
 
                 @if (armaSeleccionada.priceFormatted) {
@@ -871,17 +879,7 @@
             </p>
             }
 
-            <!-- CARGADOR Y ACCESORIOS -->
-            @if (armaSeleccionada.clipSize) {
-            <div class="vclean-desc-box" style="margin-top: 14px;">
-              <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 6px;">
-                <i class="fa-solid fa-box-archive"></i>
-                <span>{{ 'transports.weapons.clipSize' | translate }}</span>
-              </div>
-              <p class="vehiculo-descripcion-texto" style="margin-top: 0;">{{ armaSeleccionada.clipSize }}</p>
-            </div>
-            }
-
+            <!-- ACCESORIOS -->
             @if (armaSeleccionada.attachments && armaSeleccionada.attachments.length > 0) {
             <div class="vclean-desc-box" style="margin-top: 14px;">
               <div class="vclean-desc-head" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffb833; font-size: 13px; margin-bottom: 8px;">

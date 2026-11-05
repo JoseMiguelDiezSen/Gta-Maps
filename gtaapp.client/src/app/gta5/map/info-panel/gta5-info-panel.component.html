@@ -1520,7 +1520,7 @@
                   <i class="fa-solid series-icon" [ngClass]="group.icon" [style.color]="group.color"></i>
                   <div class="series-title-wrap">
                     <span class="series-title">{{ group.name }}</span>
-                    <span class="series-badge-count">{{ group.missions.length }} de {{ group.total }} misiones</span>
+                    <span class="series-badge-count">{{ 'transports.strangers.seriesCount' | translate:{ count: group.missions.length, total: group.total } }}</span>
                   </div>
                 </div>
                 <div class="series-toggle-arrow">
@@ -1912,10 +1912,15 @@
                 <button
                   type="button"
                   class="mcard-locate-btn"
+                  [class.is-located]="locatedMysteryId === m.id"
                   (click)="onLocateMystery(m, $event)"
                   [title]="'transports.mysteries.locateOnMap' | translate"
                 >
-                  <i class="fa-solid fa-location-crosshairs"></i>
+                  @if (locatedMysteryId === m.id) {
+                    <i class="fa-solid fa-circle-check"></i>
+                  } @else {
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                  }
                 </button>
                 <div class="mcard-chevron">
                   <i class="fa-solid fa-chevron-right"></i>
@@ -2344,10 +2349,15 @@
                 <button
                   type="button"
                   class="mystery-locate-cta-btn"
+                  [class.is-located]="locatedMysteryId === selectedMystery.id"
                   (click)="onLocateMystery(selectedMystery)"
                   [style.--btn-accent]="selectedMystery.badgeColor"
                 >
-                  <i class="fa-solid fa-location-crosshairs"></i>
+                  @if (locatedMysteryId === selectedMystery.id) {
+                    <i class="fa-solid fa-circle-check"></i>
+                  } @else {
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                  }
                   <span>{{ 'transports.mysteries.locateOnMap' | translate }}</span>
                 </button>
               </div>

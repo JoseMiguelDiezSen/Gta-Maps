@@ -313,10 +313,6 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         return this._storyCharacters;
     }
 
-    get storyAnimals(): LocationItem[] {
-        return this._storyAnimals;
-    }
-
     private updateFaunaGroups(): void {
         const groupsMap = new Map<string, FaunaAnimalGroup>();
         this._storyAnimals.forEach(animal => {
@@ -500,7 +496,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             }
             if (found.marker.getTooltip()) {
                 const tooltipBold = document.createElement('b');
-                tooltipBold.textContent = found.name || (this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker');
+                tooltipBold.textContent = found.name || this.translationService.t('gta5.settings.defaultMarkerName');
                 found.marker.setTooltipContent(tooltipBold);
             }
             this.saveCustomMarkers();
@@ -717,13 +713,13 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         { name: 'Sandy Shores', x: 1700, y: 3600, size: 15, isMajor: true },
         { name: 'Grapeseed', x: 2300, y: 4800, size: 13, isMajor: false },
         { name: 'Paleto Bay', x: -300, y: 6200, size: 15, isMajor: true },
-        { name: 'Monte Chiliad', x: 400, y: 5500, size: 14, isMajor: true },
+        { name: 'Monte Chiliad', nameEn: 'Mount Chiliad', x: 400, y: 5500, size: 14, isMajor: true },
         { name: 'Chumash', x: -3100, y: 1100, size: 13, isMajor: false },
         { name: 'Fort Zancudo', x: -2100, y: 3000, size: 13, isMajor: false },
         { name: 'Great Chaparral', x: -300, y: 1500, size: 13, isMajor: false },
         { name: 'Harmony', x: 600, y: 2700, size: 13, isMajor: false },
         { name: 'El Burro Heights', x: 1400, y: -1800, size: 12, isMajor: false },
-        { name: 'Puerto de Los Santos', x: 500, y: -2600, size: 12, isMajor: false },
+        { name: 'Puerto de Los Santos', nameEn: 'Port of Los Santos', x: 500, y: -2600, size: 12, isMajor: false },
         { name: 'Palomino Highlands', x: 2700, y: -1200, size: 13, isMajor: false }
     ];
 
@@ -754,7 +750,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             labelEl.style.pointerEvents = 'none';
             labelEl.style.userSelect = 'none';
             labelEl.style.textAlign = 'center';
-            labelEl.textContent = d.name;
+            labelEl.textContent = (this.translationService.currentLang !== 'es' && d.nameEn) ? d.nameEn : d.name;
 
             const icon = L.divIcon({
                 className: 'gta-district-label-pin',
@@ -1371,7 +1367,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
                 const m = L.marker(latLng, { icon: this.createPushpinIcon(color) });
                 const markerObj = {
                     id: item.id || ('custom-' + Date.now() + '-' + crypto.randomUUID()),
-                    name: item.name || 'Marcador',
+                    name: item.name || this.translationService.t('gta5.settings.defaultMarkerName'),
                     marker: m,
                     latLng: latLng,
                     color: color,
@@ -1540,13 +1536,13 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         const activeColor = item.color || 'red';
 
         const colors = [
-            { key: 'red', hex: '#e61919', title: 'Rojo' },
-            { key: 'blue', hex: '#2563eb', title: 'Azul' },
-            { key: 'green', hex: '#16a34a', title: 'Verde' },
-            { key: 'yellow', hex: '#eab308', title: 'Amarillo' },
-            { key: 'orange', hex: '#ea580c', title: 'Naranja' },
-            { key: 'purple', hex: '#9333ea', title: 'Morado' },
-            { key: 'white', hex: '#f8fafc', title: 'Blanco' }
+            { key: 'red', hex: '#e61919', title: this.translationService.t('gta5.popups.colorRed') },
+            { key: 'blue', hex: '#2563eb', title: this.translationService.t('gta5.popups.colorBlue') },
+            { key: 'green', hex: '#16a34a', title: this.translationService.t('gta5.popups.colorGreen') },
+            { key: 'yellow', hex: '#eab308', title: this.translationService.t('gta5.popups.colorYellow') },
+            { key: 'orange', hex: '#ea580c', title: this.translationService.t('gta5.popups.colorOrange') },
+            { key: 'purple', hex: '#9333ea', title: this.translationService.t('gta5.popups.colorPurple') },
+            { key: 'white', hex: '#f8fafc', title: this.translationService.t('gta5.popups.colorWhite') }
         ];
 
         const activeColorObj = colors.find(c => c.key === activeColor) || colors[0];
@@ -1570,8 +1566,8 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         input.className = 'custom-marker-name custom-marker-name-input custom-pin-name-input';
         input.value = item.name;
         input.maxLength = 45;
-        input.placeholder = this.translationService.currentLang === 'es' ? 'Nombre del marcador' : 'Marker name';
-        input.title = this.translationService.currentLang === 'es' ? 'Escribe para renombrar' : 'Type to rename';
+        input.placeholder = this.translationService.t('gta5.popups.markerNamePlaceholder');
+        input.title = this.translationService.t('gta5.popups.markerRenameHint');
         input.style.cssText = 'margin: 0; outline: none; padding: 3px 6px; font-size: 11.5px; font-weight: 700; border-radius: 4px; border: 1px dashed rgba(255,255,255,0.25); background: rgba(0,0,0,0.35); color: #ffffff; text-align: center; width: auto; max-width: 95px; min-width: 60px; box-sizing: border-box; font-family: inherit; transition: all 0.15s ease;';
         L.DomEvent.disableClickPropagation(input);
         L.DomEvent.disableScrollPropagation(input);
@@ -1586,7 +1582,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
             }
         });
         input.addEventListener('blur', () => {
-            const defaultName = this.translationService.currentLang === 'es' ? 'Marcador' : 'Marker';
+            const defaultName = this.translationService.t('gta5.settings.defaultMarkerName');
             const trimmed = input.value.trim();
             const finalName = trimmed || defaultName;
             input.value = finalName;
@@ -1748,7 +1744,18 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
      * Centra el mapa sobre la ubicación del misterio, cierra el drawer lateral
      * y genera un marcador destacado con animación y popup informativo.
      */
+    private clearMysteryMarkers(): void {
+        this.mysteryMarker?.remove();
+        this.mysteryMarker = null;
+        this.mysteryMarkers.forEach(m => m.remove());
+        this.mysteryMarkers = [];
+    }
+
     focusMysteryLocation(mystery: GtaMystery): void {
+        if (mystery?.clearLocated) {
+            this.clearMysteryMarkers();
+            return;
+        }
         if (!this.map || !mystery?.position) return;
         this.closeProfileDrawer();
 
@@ -1786,14 +1793,7 @@ export class Gta5MapOfflineComponent implements OnInit, AfterViewInit, OnDestroy
         const pinColor = accentColor;
         const pinIcon = mystery.badgeIcon || 'fa-ghost';
 
-        if (this.mysteryMarker) {
-            this.mysteryMarker.remove();
-            this.mysteryMarker = null;
-        }
-        if (this.mysteryMarkers && this.mysteryMarkers.length > 0) {
-            this.mysteryMarkers.forEach(m => m.remove());
-            this.mysteryMarkers = [];
-        }
+        this.clearMysteryMarkers();
 
         if (mystery.points && Array.isArray(mystery.points) && mystery.points.length > 0) {
             const latLngs: L.LatLngTuple[] = [];

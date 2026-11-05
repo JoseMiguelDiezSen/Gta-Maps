@@ -9,7 +9,6 @@
     (gta6MapBlocked)="onGta6MapBlocked()">
   </app-top-nav>
 
-
   <!-- BANNER HERO DE VICE CITY (CIUDAD DE FONDO) -->
   <header class="wiki-hero-banner">
     <div class="hero-bg-overlay"></div>
@@ -241,15 +240,6 @@
       </div>
 
       <!-- Estado de carga -->
-      @if (seccionPendiente) {
-      <article class="wiki-article-card">
-        <div class="trophy-empty">
-          <i class="fa-solid fa-hourglass-half"></i>
-          <span>{{ 'gta6.guia.pendingLaunch' | translate }}</span>
-        </div>
-      </article>
-      }
-
       @if (isLoadingArticulo && currentSection?.id !== 'vehiculos') {
       <div class="wiki-loading-state">
         <div class="wiki-spinner"></div>
@@ -311,13 +301,6 @@
         </header>
 
         <div class="article-body">
-          @if (!vehiculoSeleccionado && (vehiculosConcesionario$ | async)?.length === 0) {
-          <div class="trophy-empty">
-            <i class="fa-solid fa-hourglass-half"></i>
-            <span>{{ 'gta6.guia.pendingLaunch' | translate }}</span>
-          </div>
-          }
-
           <!-- GRID DE VEHÍCULOS -->
           @if (!vehiculoSeleccionado && vehiculosFiltrados.length > 0) {
           <div class="vehiculos-grid">

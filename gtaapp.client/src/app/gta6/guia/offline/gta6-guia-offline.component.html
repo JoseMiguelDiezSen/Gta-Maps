@@ -9,7 +9,6 @@
     (gta6MapBlocked)="onGta6MapBlocked()">
   </app-top-nav>
 
-
   <!-- BANNER HERO DE VICE CITY (CIUDAD DE FONDO) -->
   <header class="wiki-hero-banner">
     <div class="hero-bg-overlay"></div>
@@ -145,6 +144,43 @@
               <span class="guide-cat-badge">{{ trofeosResumen.bronce }}</span>
               <div class="guide-cat-arrow"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
+          </div>
+        } @else if (currentSection.id === 'armas') {
+          <div class="guide-detail-toolbar">
+            <button type="button" class="guide-back-btn" (click)="backToSections()" [title]="'guia.sidebar.backToCategories' | translate">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>{{ 'guia.sidebar.categories' | translate }}</span>
+            </button>
+          </div>
+
+          <div class="sidebar-header-bar">
+            <span class="sidebar-header-title">{{ 'guia.weapons.title' | translate }}</span>
+          </div>
+
+          <div class="guide-categories-list">
+            @for (cat of weaponCategories; track cat.id) {
+            <div
+              class="guide-cat-card"
+              [class.is-active]="categoriaArmaSeleccionada?.id === cat.id"
+              [style.--cat-accent]="cat.color"
+              (click)="seleccionarCategoriaArma(cat)"
+              [title]="cat.name"
+            >
+              <div class="guide-cat-icon">
+                <i class="fas {{ cat.icon }}"></i>
+              </div>
+              <div class="guide-cat-info">
+                <span class="guide-cat-title">{{ cat.name }}</span>
+              </div>
+              <span class="guide-cat-badge">{{ (weaponCounts$ | async)?.[cat.id] ?? 0 }}</span>
+              <div class="guide-cat-arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+            }
+
+            <!-- SEPARADOR DE ESPIGA AL FINAL -->
+            <div class="guide-cat-list-divider" aria-hidden="true"></div>
           </div>
         } @else if (currentSection.id === 'vehiculos') {
           <div class="guide-detail-toolbar">
@@ -389,6 +425,12 @@
                 {{ vehiculoSeleccionado.name }}
               </span>
             }
+            @if (categoriaArmaSeleccionada) {
+              <span class="drawer-breadcrumb-sep">›</span>
+              <span class="drawer-breadcrumb-current">
+                {{ armaSeleccionada ? armaSeleccionada.name : categoriaArmaSeleccionada.name }}
+              </span>
+            }
             @if (selectedArticulo && !mostrarTrofeos && !vehiculoSeleccionado) {
               <span class="drawer-breadcrumb-sep">›</span>
               <span class="drawer-breadcrumb-current">
@@ -396,7 +438,11 @@
               </span>
             }
           </div>
-          @if (vehiculoSeleccionado) {
+          @if (categoriaArmaSeleccionada) {
+            <h2 class="drawer-title">
+              {{ armaSeleccionada ? armaSeleccionada.name : categoriaArmaSeleccionada.name }}
+            </h2>
+          } @else if (vehiculoSeleccionado) {
             <h2 class="drawer-title">
               {{ vehiculoSeleccionado.name }}
             </h2>
@@ -419,20 +465,18 @@
           <div class="trophy-panel-title-block">
             <div class="trophy-kicker-row">
               <span class="trophy-panel-kicker">{{ 'guia.trophies.kicker' | translate }}</span>
+              <span class="trophy-provisional-badge">{{ 'guia.trophies.provisional' | translate }}</span>
             </div>
             <h1 class="trophy-panel-title">
               <i class="fa-solid fa-trophy"></i>
               Trofeos de GTA VI
             </h1>
-            @if (trofeosResumen.total > 0) {
             <p class="trophy-panel-sub">
-              Listado completo y en español de los {{ trofeosResumen.total }} trofeos: el ansiado Platino, los desafíos de Oro,
+              Listado completo y en español de los {{ trofeosResumen.total }} trofeos (plantilla provisional): el ansiado Platino, los desafíos de Oro,
               los retos de Plata y la larga lista de Bronce del Modo Historia y de GTA Online.
             </p>
-            }
           </div>
 
-          @if (trofeosResumen.total > 0) {
           <div class="trophy-summary-grid">
             <div class="trophy-summary-card" style="--trophy-color: #7dd3fc;">
               <i class="fa-solid fa-trophy"></i>
@@ -455,7 +499,6 @@
               <span class="trophy-summary-label">{{ 'guia.trophies.badgeBronze' | translate }}</span>
             </div>
           </div>
-          }
         </header>
 
         @if (isLoadingTrofeos) {
@@ -507,7 +550,7 @@
           @if (trofeosPorTipo.length === 0) {
           <div class="trophy-empty">
             <i class="fa-solid fa-trophy"></i>
-            <span>{{ 'gta6.guia.pendingLaunch' | translate }}</span>
+            <span>{{ 'guia.trophies.empty' | translate }}</span>
           </div>
           }
         </div>
@@ -516,16 +559,7 @@
       }
 
       <!-- Estado de carga -->
-      @if (seccionPendiente) {
-      <article class="wiki-article-card">
-        <div class="trophy-empty">
-          <i class="fa-solid fa-hourglass-half"></i>
-          <span>{{ 'gta6.guia.pendingLaunch' | translate }}</span>
-        </div>
-      </article>
-      }
-
-      @if (isLoadingArticulo && !mostrarTrofeos && currentSection?.id !== 'vehiculos') {
+      @if (isLoadingArticulo && !mostrarTrofeos && currentSection?.id !== 'vehiculos' && currentSection?.id !== 'armas') {
       <div class="wiki-loading-state">
         <div class="wiki-spinner"></div>
         <p class="wiki-loading-text">{{ 'guia.vehicles.loadingArchive' | translate }}</p>
@@ -586,13 +620,6 @@
         </header>
 
         <div class="article-body">
-          @if (!vehiculoSeleccionado && (vehiculosConcesionario$ | async)?.length === 0) {
-          <div class="trophy-empty">
-            <i class="fa-solid fa-hourglass-half"></i>
-            <span>{{ 'gta6.guia.pendingLaunch' | translate }}</span>
-          </div>
-          }
-
           <!-- GRID DE VEHÍCULOS -->
           @if (!vehiculoSeleccionado && vehiculosFiltrados.length > 0) {
           <div class="vehiculos-grid">
@@ -707,8 +734,143 @@
       </article>
       }
 
+      <!-- Panel de la categoría de armas: título + grid de armas + detalle -->
+      @if (categoriaArmaSeleccionada && currentSection?.id === 'armas') {
+      <article class="wiki-article-card">
+        <header class="article-header">
+          <nav class="guide-breadcrumbs" [attr.aria-label]="'guia.nav.breadcrumb' | translate">
+            <ol class="breadcrumb-list">
+              @for (item of breadcrumbs; track item.label; let last = $last) {
+              <li class="breadcrumb-item" [class.is-active]="last">
+                @if (item.clickable && !last) {
+                <button type="button" class="breadcrumb-link" (click)="item.action ? item.action() : null">
+                  {{ item.label }}
+                </button>
+                } @else {
+                <span class="breadcrumb-current" [attr.aria-current]="last ? 'page' : null">
+                  {{ item.label }}
+                </span>
+                }
+                @if (!last) {
+                <span class="breadcrumb-separator" aria-hidden="true">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+                }
+              </li>
+              }
+            </ol>
+          </nav>
+
+          @if (armaSeleccionada) {
+          <div class="article-meta-row">
+            <button type="button" class="guide-back-btn" (click)="volverAlGridArmas()" [title]="'Volver a ' + categoriaArmaSeleccionada.name">
+              <i class="fa-solid fa-chevron-left"></i>
+              <span>{{ categoriaArmaSeleccionada.name }}</span>
+            </button>
+          </div>
+          }
+
+          <div class="article-chapter-banner">
+            <div class="chapter-banner-text">
+              <h1 class="article-main-title">{{ armaSeleccionada ? armaSeleccionada.name : categoriaArmaSeleccionada.name }}</h1>
+              @if (!armaSeleccionada && categoriaArmaSeleccionada.description) {
+              <p class="chapter-banner-desc">{{ categoriaArmaSeleccionada.description }}</p>
+              }
+            </div>
+          </div>
+        </header>
+
+        <div class="article-body">
+          <!-- GRID DE ARMAS -->
+          @if (!armaSeleccionada) {
+          <div class="vehiculos-grid">
+            @for (arma of armasCategoria$ | async; track arma.id) {
+            <div class="vehiculo-card" (click)="seleccionarArma(arma)">
+              <div class="vehiculo-card-media">
+                @if (!arma.imgFailed) {
+                <img [src]="arma.imageUrl" [alt]="arma.name" class="vehiculo-card-img" loading="lazy" (error)="arma.imgFailed = true" />
+                } @else {
+                <i class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(arma)"></i>
+                }
+              </div>
+              <div class="vehiculo-card-info">
+                <span class="vehiculo-card-name">{{ arma.name }}</span>
+                <span class="vehiculo-card-price">{{ arma.priceFormatted }}</span>
+              </div>
+            </div>
+            }
+          </div>
+          }
+
+          <!-- DETALLE DEL ARMA -->
+          @if (armaSeleccionada) {
+          <div class="vehiculo-detail">
+            <div class="vehiculo-detail-layout">
+              <div class="vehiculo-detail-media">
+                @if (!armaSeleccionada.imgFailed) {
+                <img [src]="armaSeleccionada.imageUrl" [alt]="armaSeleccionada.name" class="vehiculo-detail-img" (error)="armaSeleccionada.imgFailed = true" />
+                } @else {
+                <i class="fa-solid vehiculo-card-fallback" [ngClass]="getWeaponIcon(armaSeleccionada)"></i>
+                }
+              </div>
+
+              <div class="vehiculo-detail-info">
+                <span class="vehiculo-detail-maker">{{ armaSeleccionada.manufacturer }}</span>
+                <h2 class="vehiculo-detail-name">{{ armaSeleccionada.name }}</h2>
+
+                <div class="vehiculo-price-box">
+                  <span class="vehiculo-price-lbl">{{ 'transports.weapons.buyPrice' | translate }}</span>
+                  <span class="vehiculo-price-val">{{ armaSeleccionada.priceFormatted }}</span>
+                </div>
+
+                <div class="vehiculo-detail-badges">
+                  <span class="vehiculo-detail-badge">{{ armaSeleccionada.categoryLabel }}</span>
+                  @if (armaSeleccionada.realCounterpart) {
+                  <span class="vehiculo-detail-badge">{{ armaSeleccionada.realCounterpart }}</span>
+                  }
+                </div>
+
+                <div class="vehiculo-stats">
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.damage' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--speed" [style.width.%]="armaSeleccionada.damage * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.damage }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.fireRate' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--accel" [style.width.%]="armaSeleccionada.fireRate * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.fireRate }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.accuracy' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--handling" [style.width.%]="armaSeleccionada.accuracy * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.accuracy }}</span>
+                  </div>
+                  <div class="vehiculo-stat">
+                    <span class="vehiculo-stat-label">{{ 'transports.weapons.range' | translate }}</span>
+                    <div class="vehiculo-stat-bar"><div class="vehiculo-stat-fill vehiculo-stat-fill--brake" [style.width.%]="armaSeleccionada.range * 10"></div></div>
+                    <span class="vehiculo-stat-num">{{ armaSeleccionada.range }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            @if (armaSeleccionada.description) {
+            <div class="guide-heading-divider">
+              <div class="guide-heading-line"></div>
+              <h3 class="guide-heading-title">{{ 'guia.vehicles.descHeader' | translate }}</h3>
+              <div class="guide-heading-line guide-heading-line--right"></div>
+            </div>
+            <p class="vehiculo-descripcion-texto">{{ armaSeleccionada.description }}</p>
+            }
+          </div>
+          }
+        </div>
+      </article>
+      }
+
       <!-- Lector del Artículo Seleccionado -->
-      @if (!isLoadingArticulo && selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'vehiculos') {
+      @if (!isLoadingArticulo && selectedArticulo && !mostrarTrofeos && currentSection?.id !== 'vehiculos' && currentSection?.id !== 'armas') {
       <article class="wiki-article-card">
         <header class="article-header">
           <!-- Miga de pan dinámica (Breadcrumbs) -->
@@ -791,11 +953,13 @@
         <!-- Contenido Formateado Editorialmente -->
         <div class="article-body">
           <!-- Bloque: Protagonistas del Prólogo -->
-          @if (selectedArticulo.id === 'prologo-introduccion-gta6' && protagonistasVisibles.length > 0) {
+          @if (selectedArticulo.id === 'prologo-introduccion-gta6') {
             <div class="gta6-protagonists-frames" [attr.aria-label]="'guia.nav.protagonists' | translate">
-              @for (p of protagonistasVisibles; track p.name) {
+              @for (p of protagonistas; track p.name) {
                 <div class="gta6-protagonist-frame" [attr.aria-label]="p.label">
-                  <img [src]="p.img" [alt]="p.label" loading="lazy" (error)="onFotoProtagonistaError(p.name)" />
+                  @if (!fotosFallidas.has(p.name)) {
+                    <img [src]="p.img" [alt]="p.label" loading="lazy" (error)="onFotoProtagonistaError(p.name)" />
+                  }
                   <span>{{ p.name }}</span>
                 </div>
               }

@@ -778,8 +778,14 @@
   .wiki-top-nav .nav-left .nav-brand {
     margin: 0 !important;
   }
+  .wiki-top-nav .nav-left .nav-brand {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  /* El título se ajusta al hueco que dejan el menú, el logo y el botón de tema */
   .wiki-top-nav .nav-left .nav-brand-title {
-    font-size: 28px !important;
+    display: block !important;
+    font-size: clamp(14px, calc((100vw - 215px) / 7.4), 28px) !important;
   }
 }
 

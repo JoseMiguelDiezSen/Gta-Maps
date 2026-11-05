@@ -76,10 +76,13 @@ export class MissionService {
         return base.map(b => {
           const trans = locMap.get(b.id);
           if (!trans) return b;
+          const stable = b as { category?: string; character?: string };
           return {
             ...b,
             ...trans,
-            id: b.id
+            id: b.id,
+            baseCategory: stable.category,
+            baseCharacter: stable.character
           };
         });
       }),

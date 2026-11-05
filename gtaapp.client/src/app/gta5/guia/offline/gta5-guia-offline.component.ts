@@ -997,17 +997,9 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }
   }
 
-  toggleGrupoExtranos(grupoId: string): void {
-    this.toggleGrupo(grupoId);
-  }
-
   isGrupoExpanded(grupoId: string): boolean {
     if (this.busquedaOffline) return true;
     return this.expandedGrupos.has(grupoId);
-  }
-
-  isGrupoExtranosExpanded(grupoId: string): boolean {
-    return this.isGrupoExpanded(grupoId);
   }
 
   trackByGrupoId(index: number, item: { id: string }): string {
@@ -1045,10 +1037,6 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
         articulos: arts
       };
     }).filter(g => g.articulos.length > 0);
-  }
-
-  getGruposExtranos() {
-    return this.getGruposAccordion();
   }
 
   get articulosSubcategoriaActual(): GuiaArticuloResumen[] {
@@ -1115,23 +1103,6 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     const subcats = this.getSubcategoriasTematicas(this.currentSection);
     const found = subcats.find(s => s.id === this.currentSubcategory);
     return found?.color || this.getSectionColor(this.currentSection.id);
-  }
-
-  getSubcategoriaActualIcono(): string {
-    if (!this.currentSection || !this.currentSubcategory) return this.currentSection?.icono || 'folder';
-    
-    if (this.currentSubcategory === 'golpes') {
-      if (this.currentGolpe) {
-        const heists = this.getGolpesList();
-        const foundHeist = heists.find(h => h.id === this.currentGolpe);
-        return foundHeist?.icono || 'vault';
-      }
-      return 'vault';
-    }
-
-    const subcats = this.getSubcategoriasTematicas(this.currentSection);
-    const found = subcats.find(s => s.id === this.currentSubcategory);
-    return found?.icono || this.currentSection?.icono || 'folder';
   }
 
   failedImageArticleIds: Set<string> = new Set<string>();

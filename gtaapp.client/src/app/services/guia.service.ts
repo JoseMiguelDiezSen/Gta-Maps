@@ -289,7 +289,7 @@ export class GuiaService {
             id: 'trofeos',
             titulo: 'Trofeos',
             icono: 'trophy',
-            descripcion: 'Trofeos y logros de GTA VI: Platino, Oro, Plata y Bronce.',
+            descripcion: 'Listado provisional de trofeos y logros de GTA VI: Platino, Oro, Plata y Bronce.',
             orden: 2,
             articulos: []
           },
@@ -299,6 +299,14 @@ export class GuiaService {
             icono: 'car',
             descripcion: 'Catálogo de vehículos, deportivos, embarcaciones y aeronaves de Leonida.',
             orden: 3,
+            articulos: []
+          },
+          {
+            id: 'armas',
+            titulo: 'Armas',
+            icono: 'gun',
+            descripcion: 'Catálogo de armamento de GTA VI.',
+            orden: 4,
             articulos: []
           }
         ]
@@ -681,6 +689,17 @@ export class GuiaService {
           items = items.filter(w => (w.category || '').toLowerCase() === norm);
         }
         return items;
+      }),
+      catchError(() => of([])),
+      shareReplay(1)
+    );
+  }
+
+  getArmasGuiaGta6(categoryId?: string): Observable<GtaWeapon[]> {
+    return this.getGuiaJson<GtaWeapon[]>('gta6', 'offline', 'armas-guia-offline.json').pipe(
+      map(list => {
+        const items = list || [];
+        return categoryId ? items.filter(w => (w.category || '').toLowerCase() === categoryId.toLowerCase()) : items;
       }),
       catchError(() => of([])),
       shareReplay(1)

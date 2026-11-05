@@ -164,6 +164,7 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
   }
   activeGhostId: string | null = null;
   locatedGhostIds = new Set<string>();
+  locatedMysteryId: string | null = null;
   private ghostsMap?: L.Map;
   private ghostsMarkers: { [id: string]: L.CircleMarker } = {};
 
@@ -187,10 +188,6 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   isYetiClueLocated(id: string): boolean {
     return this.locatedYetiClueIds.has(id);
-  }
-
-  isYetiActive(): boolean {
-    return this.gtaTimeService.isHourActive(21, 6);
   }
 
   // Los 25 Muñecos de Nieve (Christmas Snowmen)
@@ -470,14 +467,6 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     });
   }
 
-  toggleMissionExpand(id: string): void {
-    this.expandedMissionId = this.expandedMissionId === id ? null : id;
-  }
-
-  setCharacterFilter(filter: string): void {
-    this.selectedCharacterFilter = filter;
-  }
-
   get filteredStoryMissions(): GtaMission[] {
     const key = `${this.storyMissions ? this.storyMissions.length : 0}_${this.selectedCharacterFilter}_${this.missionSearchQuery}`;
     if (this._cachedFSMKey !== key) {
@@ -486,9 +475,12 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       const filter = this.selectedCharacterFilter.toLowerCase();
       if (filter !== 'all') {
         if (filter === 'heists') {
-          list = list.filter(m => m.category.toLowerCase().includes('golpe') || m.category.toLowerCase().includes('heist'));
+          list = list.filter(m => {
+            const cat = (m.baseCategory ?? m.category).toLowerCase();
+            return cat.includes('golpe') || cat.includes('heist');
+          });
         } else {
-          list = list.filter(m => m.character.toLowerCase().includes(filter));
+          list = list.filter(m => (m.baseCharacter ?? m.character).toLowerCase().includes(filter));
         }
       }
       const q = this.missionSearchQuery.trim().toLowerCase();
@@ -504,15 +496,6 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this._cachedFSM = list;
     }
     return this._cachedFSM;
-  }
-
-  getCharacterMissionCount(filter: string): number {
-    const f = filter.toLowerCase();
-    if (f === 'all') return this.storyMissions.length;
-    if (f === 'heists') {
-      return this.storyMissions.filter(m => m.category.toLowerCase().includes('golpe') || m.category.toLowerCase().includes('heist')).length;
-    }
-    return this.storyMissions.filter(m => m.character.toLowerCase().includes(f)).length;
   }
 
   getCharacterBadgeClass(char: string): string {
@@ -608,8 +591,8 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   getMissionAccentColor(m: GtaMission | null): string {
     if (!m) return '#ffb833';
-    const c = m.character.toLowerCase();
-    const cat = m.category.toLowerCase();
+    const c = (m.baseCharacter ?? m.character).toLowerCase();
+    const cat = (m.baseCategory ?? m.category).toLowerCase();
     if (c.includes('lucia')) return '#ff4fe0';
     if (c.includes('jason')) return '#00cec9';
     if (c.includes('gerald')) return '#9b59b6';
@@ -632,8 +615,8 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   getMissionIcon(m: GtaMission | null): string {
     if (!m) return 'fa-crosshairs';
-    const c = m.character.toLowerCase();
-    const cat = m.category.toLowerCase();
+    const c = (m.baseCharacter ?? m.character).toLowerCase();
+    const cat = (m.baseCategory ?? m.category).toLowerCase();
     if (cat.includes('golpe') || cat.includes('heist')) return 'fa-sack-dollar';
     if (c.includes('lucia')) return 'fa-gem';
     if (c.includes('jason')) return 'fa-shield-halved';
@@ -677,23 +660,11 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     });
   }
 
-  setStrangerCharacterFilter(filter: string): void {
-    this.selectedStrangerCharacterFilter = filter;
-  }
-
   setStrangerSeriesFilter(seriesId: string): void {
     this.selectedStrangerSeriesFilter = seriesId;
     if (seriesId && seriesId !== 'all') {
       this.expandedStrangerSeries[seriesId] = true;
     }
-  }
-
-  toggleStranger100Filter(): void {
-    this.strangerOnly100Filter = !this.strangerOnly100Filter;
-  }
-
-  setStrangerViewMode(mode: 'series' | 'list'): void {
-    this.strangerSeriesViewMode = mode;
   }
 
   toggleStrangerSeriesExpand(seriesId: string): void {
@@ -793,17 +764,6 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       this._cachedFSSG = Array.from(map.values());
     }
     return this._cachedFSSG;
-  }
-
-  getStrangerCharacterMissionCount(filter: string): number {
-    const f = filter.toLowerCase();
-    if (f === 'all') return this.strangerMissions.length;
-    if (f === '100') return this.strangerMissions.filter(m => m.requiredFor100).length;
-    return this.strangerMissions.filter(m => m.character.toLowerCase().includes(f)).length;
-  }
-
-  getStranger100MissionCount(): number {
-    return this.strangerMissions.filter(m => m.requiredFor100).length;
   }
 
   get previousStranger(): GtaStrangerMission | null {
@@ -1652,13 +1612,10 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
 
   formatPrice(price: number): string {
     if (!price || price <= 0) {
-      const lang = this.translationService.currentLanguage();
-      if (lang === 'en') return 'Price not available';
-      if (lang === 'pt') return 'Preço não disponível';
-      return 'Precio no disponible';
+      return this.translationService.t('transports.catalog.priceUnavailable');
     }
     const lang = this.translationService.currentLanguage();
-    const locale = lang === 'en' ? 'en-US' : lang === 'pt' ? 'pt-BR' : 'es-ES';
+    const locale = lang === 'en' ? 'en-US' : lang === 'pt' ? 'pt-BR' : lang === 'es' ? 'es-ES' : `${lang}-u-nu-latn`;
     return '$' + price.toLocaleString(locale);
   }
 
@@ -1961,13 +1918,16 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
     if (event) {
       event.stopPropagation();
     }
-    this.locateOnMap.emit(mystery);
+    const alreadyLocated = this.locatedMysteryId === mystery.id;
+    this.locatedMysteryId = alreadyLocated ? null : mystery.id;
+    this.locateOnMap.emit(alreadyLocated ? { ...mystery, clearLocated: true } : mystery);
   }
 
   onLocateMission(mission: GtaMission, event?: Event): void {
     if (event) {
       event.stopPropagation();
     }
+    this.locatedMysteryId = null; // El marcador de misión reemplaza al del misterio
     this.locateOnMap.emit(mission as unknown as GtaMystery);
   }
 
@@ -2108,11 +2068,6 @@ export class Gta5InfoPanelComponent implements OnChanges, OnDestroy {
       })).filter(c => c.id === 'all' || c.count > 0);
     }
     return this._cachedWCL;
-  }
-
-  getWeaponCategoryCount(cat: string): number {
-    if (cat === 'all') return this.weapons.length;
-    return this.weapons.filter(w => (w.category || '').toLowerCase() === cat.toLowerCase()).length;
   }
 
   get previousWeapon(): GtaWeapon | null {

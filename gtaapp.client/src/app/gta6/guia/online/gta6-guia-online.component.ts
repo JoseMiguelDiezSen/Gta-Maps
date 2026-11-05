@@ -3,7 +3,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { GuiaService } from '../../../services/guia.service';
 import { CookieService } from '../../../services/cookie.service';
 import { GuiaManifest, GuiaSeccion, GuiaArticulo, GuiaArticuloResumen } from '../../../models/guia';
-import { Subscription, Observable, forkJoin, map, shareReplay } from 'rxjs';
+import { Subscription, Observable, forkJoin, map, shareReplay, take } from 'rxjs';
 import { DealerCategory, GtaVehicle } from '../../../models/gta5/vehicle';
 import { CATEGORIAS_VEHICULOS_GTA6 } from '../vehiculos-gta6.config';
 
@@ -53,11 +53,6 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
   private toastTimeout: ReturnType<typeof setTimeout> | null = null;
-
-  /** Sin artículo que mostrar: la guía online espera al lanzamiento del juego. */
-  get seccionPendiente(): boolean {
-    return !this.isLoading && !this.isLoadingArticulo && !this.selectedArticulo && this.currentSection?.id !== 'vehiculos';
-  }
 
   /* Estado de navegación por niveles en móvil (estilo Info-Panel) */
   isMobileReadingOpen: boolean = false;
@@ -374,13 +369,13 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     if (sec.id === 'vehiculos') {
       this.selectedArticulo = null;
       this.limpiarConcesionario();
+      if (!this.isMobileView()) {
+        this.abrirPrimerConcesionarioConVehiculos();
+      }
       return;
     }
     if (sec.articulos && sec.articulos.length > 0) {
       this.seleccionarArticulo(sec.articulos[0].id, false);
-    } else {
-      this.selectedArticulo = null;
-      this.isMobileReadingOpen = true;
     }
     if (this.isMobileView()) {
       this.scrollToTop();
@@ -396,7 +391,16 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
     }
   }
 
-  seleccionarConcesionario(concesionario: DealerCategory): void {
+  private abrirPrimerConcesionarioConVehiculos(): void {
+    this.dealerCounts$.pipe(take(1)).subscribe(counts => {
+      const primero = this.concesionarios.find(d => counts[d.id] > 0) ?? this.concesionarios[0];
+      if (primero && !this.concesionarioSeleccionado) {
+        this.seleccionarConcesionario(primero, false);
+      }
+    });
+  }
+
+  seleccionarConcesionario(concesionario: DealerCategory, abrirEnMovil: boolean = true): void {
     this.concesionarioSeleccionado = concesionario;
     this.vehiculoSeleccionado = null;
     this.busquedaVehiculos = '';
@@ -407,10 +411,10 @@ export class Gta6GuiaOnlineComponent implements OnInit, OnDestroy, AfterViewInit
       .pipe(shareReplay(1));
     this.vehiculosSub = this.vehiculosConcesionario$.subscribe(list => {
       this.vehiculosConcesionario = list || [];
-      if (this.vehiculosConcesionario.length === 0) {
-        this.isMobileReadingOpen = true;
-      }
     });
+    if (abrirEnMovil && this.isMobileView()) {
+      this.openMobileReading();
+    }
   }
 
   get vehiculosFiltrados(): GtaVehicle[] {

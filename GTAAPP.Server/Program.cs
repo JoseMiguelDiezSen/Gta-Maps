@@ -277,8 +277,8 @@ var seoRoutes = new Dictionary<string, (string CanonicalPath, string TitleKey, s
         "/home",
         "homeTitle",
         "homeDesc",
-        "GTA Explorer - Mapas GTA HD con asistente IA integrado y Guías Interactivas",
-        "Plataforma multilingüe en 13 idiomas de Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas y Misterios.",
+        "GTA Explorer - Mapas HD de GTA V y GTA VI con asistente de IA y guías interactivas",
+        "Plataforma en 13 idiomas con mapas HD y guías interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online, con asistente de IA integrado, misiones, ubicaciones, vehículos, armas y misterios.",
         "https://gtaexplorer.com/home"
     ),
     ["/gta5-map-online"] = (
@@ -517,11 +517,11 @@ app.MapFallback(async (HttpContext ctx, IWebHostEnvironment env) =>
             $"<html lang=\"{activeLang}\"",
             StringComparison.Ordinal)
         .Replace(
-            "<title>GTA Explorer - Mapas GTA HD con asistente IA integrado y Guías Interactivas</title>",
+            "<title>GTA Explorer - Mapas HD de GTA V y GTA VI con asistente de IA y guías interactivas</title>",
             $"<title>{safeTitle}</title>",
             StringComparison.Ordinal)
         .Replace(
-            "<meta name=\"description\" content=\"Plataforma multilingüe en 13 idiomas de Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas y Misterios.\">",
+            "<meta name=\"description\" content=\"Plataforma en 13 idiomas con mapas HD y guías interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online, con asistente de IA integrado, misiones, ubicaciones, vehículos, armas y misterios.\">",
             $"<meta name=\"description\" content=\"{safeDesc}\">",
             StringComparison.Ordinal)
         .Replace(
@@ -541,19 +541,19 @@ app.MapFallback(async (HttpContext ctx, IWebHostEnvironment env) =>
             $"<meta property=\"og:url\" content=\"{canonicalUrl}\">",
             StringComparison.Ordinal)
         .Replace(
-            "<meta property=\"og:title\" content=\"GTA Explorer - Mapas y Guías de GTA 5 &amp; GTA 6\">",
+            "<meta property=\"og:title\" content=\"GTA Explorer - Mapas y guías de GTA 5 y GTA 6\">",
             $"<meta property=\"og:title\" content=\"{safeTitle}\">",
             StringComparison.Ordinal)
         .Replace(
-            "<meta property=\"og:description\" content=\"Plataforma multilingüe en 13 idiomas de Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas y Misterios.\">",
+            "<meta property=\"og:description\" content=\"Plataforma en 13 idiomas con mapas HD y guías interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online, con asistente de IA integrado, misiones, ubicaciones, vehículos, armas y misterios.\">",
             $"<meta property=\"og:description\" content=\"{safeDesc}\">",
             StringComparison.Ordinal)
         .Replace(
-            "<meta name=\"twitter:title\" content=\"GTA Explorer - Mapas y Guías de GTA 5 &amp; GTA 6\">",
+            "<meta name=\"twitter:title\" content=\"GTA Explorer - Mapas y guías de GTA 5 y GTA 6\">",
             $"<meta name=\"twitter:title\" content=\"{safeTitle}\">",
             StringComparison.Ordinal)
         .Replace(
-            "<meta name=\"twitter:description\" content=\"Plataforma multilingüe en 13 idiomas de Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas y Misterios.\">",
+            "<meta name=\"twitter:description\" content=\"Plataforma en 13 idiomas con mapas HD y guías interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online, con asistente de IA integrado, misiones, ubicaciones, vehículos, armas y misterios.\">",
             $"<meta name=\"twitter:description\" content=\"{safeDesc}\">",
             StringComparison.Ordinal);
 

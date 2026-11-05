@@ -20,21 +20,22 @@
     "online": "Online",
     "storyShort": "S",
     "onlineShort": "O",
-    "goToGuide": "Go to guide",
-    "switchToStory": "Switch to Story Mode",
-    "onlineActive": "GTA Online mode active",
-    "storyActive": "Story Mode active",
-    "switchToOnline": "Switch to GTA Online",
+    "goToGuide": "Zum Leitfaden",
+    "switchToStory": "Zum Story-Modus wechseln",
+    "onlineActive": "GTA-Online-Modus aktiv",
+    "storyActive": "Story-Modus aktiv",
+    "switchToOnline": "Zu GTA Online wechseln",
     "goty5": "GOTY 5",
     "goty6": "GOTY 6",
-    "coordinates": "Coordinates (X, Y)",
-    "tacticalCoords": "TACTICAL COORDINATES:",
-    "clearSearch": "Clear search",
+    "coordinates": "Koordinaten (X, Y)",
+    "tacticalCoords": "TAKTISCHE KOORDINATEN:",
+    "clearSearch": "Suche löschen",
     "gta6Info": "GTA VI INFO",
-    "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V",
+    "mk2Available": "Mk-II-Variante verfügbar",
+    "requiredFor100": "Erforderlich für 100 % in GTA V",
     "fullscreen": "Vollbild",
-    "exitFullscreen": "Vollbild beenden"
+    "exitFullscreen": "Vollbild beenden",
+    "comingSoon": "Demnächst"
   },
   "home": {
     "chooseGame": "Wähle das Spiel",
@@ -44,13 +45,15 @@
     "gta6Title": "GTA VI",
     "gta6Sub": "In Entwicklung...",
     "disclaimer": "Von Fans erstelltes Projekt. Nicht mit Rockstar Games verbunden.",
-    "copyright": "© Copyright 2026 JMD Software, alle Rechte vorbehalten. JMD® und das JMD®-Logo sind eingetragene Marken der The JMD Software.",
+    "copyright": "© Copyright 2026 JMD Software, alle Rechte vorbehalten. JMD® und das JMD®-Logo sind eingetragene Marken von The JMD Software.",
     "onlineUsers": "Benutzer online",
     "onlineUser": "Benutzer online",
     "gta5GuiaBtn": "GTA 5 LEITFADEN",
     "gta6GuiaBtn": "GTA 6 LEITFADEN",
     "gta6VideosBtn": "VIDEOS",
-    "gta6MomentosBtn": "MOMENTS"
+    "gta6MomentosBtn": "MOMENTE",
+    "logoAlt": "GTA Explorer - Interaktive Karten für GTA V und GTA VI",
+    "mascotsAlt": "GOTY 5 und GOTY 6 - Maskottchen von GTA Explorer"
   },
   "cookies": {
     "title": "Datenschutz & Cookies",
@@ -74,19 +77,19 @@
     "closePolicy": "Verstanden",
     "policyTextP1": "Bei GTA Explorer respektieren wir deine Privatsphäre. Wir verkaufen deine Daten nicht und betreiben kein Werbetracking.",
     "policyTextP2": "Notwendige Cookies gewährleisten den Online-Benutzerzähler und deine Spracheinstellungen.",
-    "policyTextP3": "Du kannst deine Einwilligung jederzeit über das Einstellungssymbol ändern oder widerrufen.",
-    "back": "Back",
+    "policyTextP3": "Du kannst deine Einwilligung jederzeit über den Link zu den Datenschutzeinstellungen in der Fußzeile ändern oder widerrufen.",
+    "back": "Zurück",
     "tableColName": "Name",
-    "tableColType": "Type",
-    "tableColPurpose": "Purpose",
-    "tableColDuration": "Duration",
-    "typeNecessary": "Necessary",
-    "typePreference": "Preference",
-    "descConsent": "Saves your cookie preferences locally",
-    "descLanguage": "Saves your preferred language (ES / EN)",
-    "descMapSettings": "Saves your active layers, filters, and zoom level",
-    "durationOneYear": "1 year",
-    "durationPersistent": "Persistent"
+    "tableColType": "Typ",
+    "tableColPurpose": "Zweck",
+    "tableColDuration": "Dauer",
+    "typeNecessary": "Notwendig",
+    "typePreference": "Präferenz",
+    "descConsent": "Speichert deine Cookie-Einstellungen lokal",
+    "descLanguage": "Speichert deine bevorzugte Sprache",
+    "descMapSettings": "Speichert deine aktiven Ebenen, Filter und die Zoomstufe",
+    "durationOneYear": "1 Jahr",
+    "durationPersistent": "Dauerhaft"
   },
   "gta5": {
     "hud": {
@@ -117,7 +120,16 @@
       "edit": "Bearbeiten",
       "delete": "Löschen",
       "coordinates": "Koordinaten",
-      "robbableStore": "Ausraubbarer Laden"
+      "robbableStore": "Ausraubbarer Laden",
+      "markerNamePlaceholder": "Name der Markierung",
+      "markerRenameHint": "Zum Umbenennen tippen",
+      "colorRed": "Rot",
+      "colorBlue": "Blau",
+      "colorGreen": "Grün",
+      "colorYellow": "Gelb",
+      "colorOrange": "Orange",
+      "colorPurple": "Lila",
+      "colorWhite": "Weiß"
     },
     "settings": {
       "gameMode": "Spielmodus",
@@ -431,8 +443,7 @@
       "navBrandOnline": "GTA 6 - ONLINE",
       "heroTitle": "VICE CITY & STATE OF LEONIDA",
       "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
-      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida.",
-      "pendingLaunch": "Inhalte sind nach dem Release des Spiels verfügbar."
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -468,7 +479,8 @@
       "tradePrice": "Einkaufspreis",
       "weaponized": "Bewaffnetes Fahrzeug",
       "sortDefault": "Standard",
-      "sortByStat": "Sortieren nach"
+      "sortByStat": "Sortieren nach",
+      "priceUnavailable": "Preis nicht verfügbar"
     },
     "stats": {
       "speed": "Geschwindigkeit",
@@ -549,7 +561,8 @@
       "nextMission": "Nächste Mission",
       "req100Badge": "100% Erforderlich",
       "optionalBadge": "Optional",
-      "viewGuide": "Guide auf GTABase ansehen"
+      "viewGuide": "Guide auf GTABase ansehen",
+      "seriesCount": "{{ count }} von {{ total }} Missionen"
     },
     "heists": {
       "searchPlaceholder": "Raubüberfall, Planer, Ziel, Immobilie suchen...",
@@ -685,9 +698,9 @@
   },
   "seo": {
     "defaultTitle": "GTA Explorer - Karten und Guides für GTA V und GTA VI",
-    "defaultDesc": "Mehrsprachige Plattform in 13 Sprachen mit interaktiven Ultra-HD-Karten und Guides für GTA V, GTA Online, Cayo Perico und GTA VI Vice City inklusive KI-Assistent.",
-    "homeTitle": "GTA Explorer - HD-Karten und Interaktive Guides für GTA V und GTA VI mit KI",
-    "homeDesc": "Mehrsprachige Plattform in 13 Sprachen mit interaktiven Ultra-HD-Karten und Guides für GTA V, GTA Online, Cayo Perico und GTA VI Vice City inklusive KI-Assistent.",
+    "defaultDesc": "Plattform in 13 Sprachen mit HD-Karten und interaktiven Guides für GTA 5, GTA 5 Online, Cayo Perico, GTA 6 und GTA 6 Online, mit integriertem KI-Assistenten, Missionen, Standorten, Fahrzeugen, Waffen und Mysterien.",
+    "homeTitle": "GTA Explorer - HD-Karten für GTA V und GTA VI mit KI-Assistent und interaktiven Guides",
+    "homeDesc": "Plattform in 13 Sprachen mit HD-Karten und interaktiven Guides für GTA 5, GTA 5 Online, Cayo Perico, GTA 6 und GTA 6 Online, mit integriertem KI-Assistenten, Missionen, Standorten, Fahrzeugen, Waffen und Mysterien.",
     "gta5OnlineTitle": "GTA V Online Karte | GTA Explorer",
     "gta5OnlineDesc": "Interaktive Ultra-HD-Karte für GTA 5 Online und Cayo Perico 100% werbefrei. Unternehmen, Raubüberfälle, Immobilien, Fahrzeuge, Waffen und KI-Assistent in Echtzeit.",
     "gta5HistoriaTitle": "GTA V Story-Modus Karte | GTA Explorer",
@@ -722,7 +735,7 @@
   "feedback": {
     "buttonTitle": "Feedback oder Vorschlag senden",
     "modalTitle": "Vorschläge und Feedback",
-    "modalSubtitle": "Hast du eine Idee oder einen Fehler gefunden? Lass es uns wissen!",
+    "modalSubtitle": "Hast du einen Fehler in einer Übersetzung, einem Standort oder ein Detail gefunden, das wir verbessern können? Erzähl es uns! Deine Hilfe bringt uns weiter.",
     "nameLabel": "Dein Name (optional)",
     "namePlaceholder": "Z. B.: Max oder Anonym",
     "messageLabel": "Deine Nachricht",
@@ -750,11 +763,11 @@
       "themeNight": "Zu Nachtmodus wechseln",
       "openNavMenu": "Navigationsmenü öffnen",
       "closeNavMenu": "Menü schließen",
-      "breadcrumb": "Breadcrumb navigation",
-      "chapterNav": "Chapter navigation",
-      "backToChapters": "Back to chapters",
-      "backToChaptersTitle": "Back to Chapters",
-      "protagonists": "GTA V Protagonists"
+      "breadcrumb": "Brotkrümelnavigation",
+      "chapterNav": "Kapitelnavigation",
+      "backToChapters": "Zurück zu den Kapiteln",
+      "backToChaptersTitle": "Zurück zu den Kapiteln",
+      "protagonists": "Protagonisten von GTA V"
     },
     "sidebar": {
       "contents": "INHALT",
@@ -908,21 +921,22 @@
     "noClips": "No moments available in this category currently."
   },
   "nav": {
-    "menuLabel": "Navigation menu",
-    "homeTitle": "Go to Home",
-    "home": "HOME",
-    "gta5MapTitle": "Go to GTA 5 Map",
-    "gta5Map": "GTA 5 MAP",
-    "gta5GuideTitle": "Go to GTA 5 Guide",
-    "gta5Guide": "GTA 5 GUIDE",
-    "gta6MapTitle": "Go to GTA 6 Map",
-    "gta6Map": "GTA 6 MAP",
-    "gta6GuideTitle": "Go to GTA 6 Guide",
-    "gta6Guide": "GTA 6 GUIDE",
+    "menuLabel": "Navigationsmenü",
+    "homeTitle": "Zur Startseite",
+    "home": "STARTSEITE",
+    "gta5MapTitle": "Zur GTA 5 Karte",
+    "gta5Map": "GTA 5 KARTE",
+    "gta5GuideTitle": "Zum GTA 5 Leitfaden",
+    "gta5Guide": "GTA 5 LEITFADEN",
+    "gta6MapTitle": "Zur GTA 6 Karte",
+    "gta6Map": "GTA 6 KARTE",
+    "gta6GuideTitle": "Zum GTA 6 Leitfaden",
+    "gta6Guide": "GTA 6 LEITFADEN",
     "gta6VideosTitle": "GTA 6 Videos",
     "gta6Videos": "VIDEOS",
-    "aboutTitle": "Über",
-    "about": "ÜBER",
-    "themeToggle": "Toggle day/night mode"
+    "aboutTitle": "Über uns",
+    "about": "ÜBER UNS",
+    "themeToggle": "Zwischen Tag- und Nachtmodus wechseln",
+    "logoAlt": "GTA-Explorer-Logo"
   }
 }

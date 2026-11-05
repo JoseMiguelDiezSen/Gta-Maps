@@ -2,161 +2,149 @@
   {
     "id": "mission-01",
     "order": 1,
-    "title": "المقدمة (Prologue)",
+    "title": "المقدمة",
     "character": "Michael, Trevor",
-    "giver": "القصة الرئيسية",
-    "category": "Prólogo",
-    "description": "مهمة طور القصة في GTA V: \"المقدمة (Prologue)\". الشخصيات (Michael, Trevor)، الجهة الطالبة: القصة الرئيسية. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "giver": "القصة",
+    "category": "المقدمة",
+    "description": "عملية سطو شتوية في Ludendorff (North Yankton) قبل تسع سنوات. يقتحم Michael وTrevor وBrad خزنة تابعة لشركة Bobcat Security. تتعقد عملية الهروب تحت الثلج بعد الاصطدام بقطار وتدخل الشرطة، وتنتهي باتفاق سري بين Michael والعميل الفيدرالي Dave Norton لتزييف موت Michael.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 04:30",
+      "دقة تصويب لا تقل عن 80%",
+      "إصابة 12 شرطيا على الأقل في الرأس"
     ],
-    "reward": "Unlocks Los Santos and Franklin",
-    "unlockedBy": "المهمة السابقة: Game start"
+    "reward": "فتح Los Santos وشخصية Franklin",
+    "unlockedBy": "بداية اللعبة"
   },
   {
     "id": "mission-02",
     "order": 2,
-    "thumbnail": "assets/images/gta5/guia/offline/misiones-principales/02-franklin-y-lamar.png",
-    "title": "فرانكلين ولامار",
+    "title": "Franklin و Lamar",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"فرانكلين ولامار\". الشخصيات (Franklin)، الجهة الطالبة: Simeon Yetarian. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "categoryLabel": "مهمة قصة",
+    "description": "أول عمل لحساب معرض سيارات Simeon Yetarian. يذهب Franklin وLamar إلى فيلا في Rockford Hills لاستعادة سيارتين رياضيتين فاخرتين. ينطلق الاثنان في سباق بأقصى سرعة في شوارع Los Santos، يتفاديان الازدحام ويضللان دوريات الشرطة قبل ركن السيارتين في Premium Deluxe Motorsport.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "إنهاء السباق دون إلحاق ضرر جسيم بسيارة 9F",
+      "استخدام القدرة الخاصة لـ Franklin لمدة 7 ثوان على الأقل",
+      "الفوز بالسباق ضد Lamar",
+      "تجنب الاصطدامات في موقف سيارات الاستوديو"
     ],
     "reward": "$250",
-    "unlockedBy": "المهمة السابقة: Prologue",
-    "position": {
-      "x": -1873.8,
-      "y": -583.6,
-      "z": 13
-    }
+    "unlockedBy": "المقدمة"
   },
   {
     "id": "mission-03",
     "order": 3,
-    "title": "استرداد الدراجة (Repossession)",
+    "title": "استرداد المركبة",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"استرداد الدراجة (Repossession)\". الشخصيات (Franklin)، الجهة الطالبة: Simeon Yetarian. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "description": "مهمة استرداد في أزقة Vespucci Beach. يحاول Franklin وLamar استعادة دراجة نارية في منطقة نفوذ عصابة Vagos. تفشل المفاوضات فجأة وتندلع معركة بالأسلحة بين المرائب ثم مطاردة فورية على الأسفلت للإمساك بالهدف.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الحد الزمني 06:30",
+      "إطلاق النار على أثر البنزين لتفجير المركبة",
+      "قتل 6 أعداء بطلقات في الرأس",
+      "دقة لا تقل عن 70%"
     ],
-    "reward": "Experience and reputation with Simeon",
-    "unlockedBy": "المهمة السابقة: Franklin and Lamar"
+    "reward": "خبرة واحترام من Simeon",
+    "unlockedBy": "Franklin و Lamar"
   },
   {
     "id": "mission-04",
     "order": 4,
-    "title": "تعقيدات (Complications)",
+    "title": "مضاعفات",
     "character": "Franklin, Michael",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"تعقيدات (Complications)\". الشخصيات (Franklin, Michael)، الجهة الطالبة: Simeon Yetarian. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "description": "تسلل خفي إلى منزل De Santa في Rockford Hills. على Franklin أن يتجاوز طاقم الخدم لسرقة سيارة الدفع الرباعي الخاصة بـ Jimmy. تنقلب العملية بشكل غير متوقع عندما يظهر Michael مسلحا في المقعد الخلفي ويطلب منه الاقتحام بالاصطدام مباشرة بواجهة معرض Simeon الزجاجية.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 05:00",
+      "إفقاد البستاني وعيه بصمت",
+      "عدم التعرض لأي ضرر أثناء العراك بالأيدي مع Simeon"
     ],
-    "reward": "$300 and Michael unlocked as playable character",
-    "unlockedBy": "المهمة السابقة: Repossession"
+    "reward": "$300 وشخصية Michael قابلة للعب",
+    "unlockedBy": "استرداد المركبة"
   },
   {
     "id": "mission-05",
     "order": 5,
-    "title": "الأب والابن",
-    "character": "Michael, Franklin",
-    "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"الأب والابن\". الشخصيات (Michael, Franklin)، الجهة الطالبة: Michael De Santa. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "Chop",
+    "character": "Franklin",
+    "giver": "Lamar Davis",
+    "category": "القصة",
+    "description": "محاولة اختطاف سريعة لأحد قادة عصابة Ballas المعروف باسم 'D'. يطارد Lamar وFranklin المشتبه به حتى مستودعات القطارات. وبحاسة الشم لدى الكلب Chop من فصيلة روتوايلر، يفتشان عربات الشحن حتى يمسكا بالهارب.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "عدم إلحاق ضرر بشاحنة Lamar",
+      "رؤية العالم من منظور Chop لمدة 10 ثوان",
+      "استخدام قدرة القيادة لدى Franklin لمدة 7 ثوان"
     ],
-    "reward": "Free vehicle upgrades at Los Santos Customs for Franklin",
-    "unlockedBy": "المهمة السابقة: Complications"
+    "reward": "Chop رفيقا لـ Franklin",
+    "unlockedBy": "Franklin و Lamar"
   },
   {
     "id": "mission-06",
     "order": 6,
-    "title": "تشوب (Chop)",
-    "character": "Franklin",
-    "giver": "Lamar Davis",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"تشوب (Chop)\". الشخصيات (Franklin)، الجهة الطالبة: Lamar Davis. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "الأب والابن",
+    "character": "Michael, Franklin",
+    "giver": "Michael De Santa",
+    "category": "القصة",
+    "description": "صفقة بيع فاشلة عبر الإنترنت تنتهي باختطاف قارب Michael العائلي على الطريق السريع وعلى متنه Jimmy. يبدأ Michael وFranklin مطاردة يائسة بسيارة Amanda الرياضية، وعلى Franklin القفز أثناء الحركة إلى المقطورة لإنقاذ الشاب.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "إنقاذ Jimmy في أقل من 10 ثوان بعد تعلقه بعمود الشراع",
+      "إعادة سيارة Amanda إلى Los Santos Customs دون أضرار إضافية",
+      "الإنهاء في أقل من 07:00"
     ],
-    "reward": "Chop unlocked as Franklin's companion",
-    "unlockedBy": "المهمة السابقة: Franklin and Lamar"
+    "reward": "فتح Los Santos Customs مجانا لـ Franklin",
+    "unlockedBy": "مضاعفات"
   },
   {
     "id": "mission-07",
     "order": 7,
-    "title": "استشارة زوجية",
+    "title": "الاستشارة الزوجية",
     "character": "Michael, Franklin",
     "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"استشارة زوجية\". الشخصيات (Michael, Franklin)، الجهة الطالبة: Michael De Santa. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "description": "بعد اكتشاف خيانة في منزله، يطارد Michael برفقة Franklin مدرب التنس حتى عقار ضخم في Vinewood Hills. بدافع الغضب، يستخدم Michael شاحنة صغيرة لهدم هيكل الشرفة، ثم يكتشف أنه يعود لكارتل Martín Madrazo الذي يطالب بتعويض بالملايين.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء بأضرار طفيفة في الشاحنة",
+      "زمن المهمة أقل من 05:30",
+      "قتل 3 أعداء أثناء القيادة"
     ],
-    "reward": "$2.5M debt with Martin Madrazo",
-    "unlockedBy": "المهمة السابقة: Father/Son"
+    "reward": "دين قدره $2,500,000 لـ Martín Madrazo",
+    "unlockedBy": "الأب والابن"
   },
   {
     "id": "mission-08",
     "order": 8,
-    "title": "مدللة أبيها",
+    "title": "ابنة أبيها",
     "character": "Michael",
-    "giver": "Jimmy De Santa",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"مدللة أبيها\". الشخصيات (Michael)، الجهة الطالبة: Jimmy De Santa. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "giver": "Michael De Santa",
+    "category": "القصة",
+    "description": "نزهة عائلية بالدراجات بين Vespucci ورصيف Del Perro تنقلب عندما يكتشف Michael أن Tracey على متن قارب خاص برفقة أشخاص مشبوهين. يقفز Michael إلى الماء ويستخدم دراجة مائية لإخراج ابنته والفرار عبر شبكة القنوات متفاديا الرصاص.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "بلوغ السرعة القصوى بالدراجة المائية Seashark",
+      "عدم السقوط من الدراجة الهوائية أثناء السباق",
+      "السباحة إلى اليخت في أقل من دقيقة واحدة"
     ],
-    "reward": "Stamina boost for Michael",
-    "unlockedBy": "المهمة السابقة: Marriage Counseling"
+    "reward": "تحسين القدرة على التحمل البدني لـ Michael",
+    "unlockedBy": "الاستشارة الزوجية"
   },
   {
     "id": "mission-09",
     "order": 9,
-    "title": "طلب صداقة (Friend Request)",
+    "title": "طلب صداقة",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"طلب صداقة (Friend Request)\". الشخصيات (Michael)، الجهة الطالبة: Lester Crest. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "description": "يلجأ Michael إلى العقل اللامع لـ Lester Crest لتسديد دين Madrazo. وكخدمة مسبقة، يتسلل إلى المقر الرئيسي لشركة التقنية Lifeinvader متنكرا في هيئة فني حاسوب للتلاعب بجهاز سيعرضه المدير التنفيذي Jay Norris خلال مؤتمر يبث مباشرة.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 08:30",
+      "إغلاق جميع النوافذ المنبثقة في أقل من 32 ثانية",
+      "شراء ملابس هيبستر من Suburban"
     ],
-    "reward": "Lester agrees to assist in future heists",
-    "unlockedBy": "المهمة السابقة: Marriage Counseling"
+    "reward": "موافقة Lester على المساعدة في عمليات السطو",
+    "unlockedBy": "الاستشارة الزوجية"
   },
   {
     "id": "mission-10",
@@ -164,590 +152,560 @@
     "title": "الطريق الطويل",
     "character": "Franklin",
     "giver": "Lamar Davis",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"الطريق الطويل\". الشخصيات (Franklin)، الجهة الطالبة: Lamar Davis. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "description": "صفقة في محطة معالجة النفايات Rogers Waste برفقة Lamar وStretch. تتحول الصفقة إلى كمين دبرته عصابة Ballas، فتضطر المجموعة إلى تطهير الممرات تحت النيران المتبادلة وإبطال مراقبة طائرات الشرطة للخروج من الحي.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "دقة لا تقل عن 60%",
+      "10 طلقات في الرأس",
+      "الإنهاء بأقل ضرر ممكن لـ Franklin",
+      "زمن أقل من 10:30"
     ],
-    "reward": "Weapons and ammunition scavenged during escape",
-    "unlockedBy": "المهمة السابقة: Chop"
+    "reward": "أسلحة وذخيرة تم الحصول عليها أثناء الهروب",
+    "unlockedBy": "Chop"
   },
   {
     "id": "mission-11",
     "order": 11,
-    "title": "استطلاع متجر المجوهرات",
+    "title": "تفقد محل المجوهرات",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"استطلاع متجر المجوهرات\". الشخصيات (Michael)، الجهة الطالبة: Lester Crest. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "description": "مرحلة استطلاع تكتيكي في محل المجوهرات Vangelico في Rockford Hills. بكاميرا صغيرة مخفية، يوثق Michael فتحات التهوية وأجهزة الاستشعار ولوحات الإنذار. بعد ذلك، في مستودع Lester يتم اختيار أسلوب السطو: تسلل هادئ بغاز منوم أو هجوم مباشر بالقوة.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "زمن المهمة أقل من 08:00",
+      "تصوير أنظمة الأمان الثلاثة في لقطة واحدة مثالية"
     ],
-    "reward": "Jewel Store Heist planning board",
-    "unlockedBy": "المهمة السابقة: Friend Request"
+    "reward": "لوحة تخطيط سطو Vangelico",
+    "unlockedBy": "طلب صداقة"
   },
   {
     "id": "mission-12",
     "order": 12,
-    "title": "سطو متجر المجوهرات (Jewel Store Job)",
-    "character": "Michael, Franklin",
+    "title": "فريق Bugstars",
+    "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Preparación",
-    "description": "مهمة طور القصة في GTA V: \"سطو متجر المجوهرات (Jewel Store Job)\". الشخصيات (Michael, Franklin)، الجهة الطالبة: Lester Crest. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "التحضير",
+    "description": "سرقة شاحنة شركة مكافحة الحشرات (Bugstars) في الميناء لاستخدامها كحصان طروادة أثناء السطو على Vangelico.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "سرقة شاحنة Bugstars دون أن يتم اكتشافك"
     ],
-    "reward": "Over $1.4M total split between Franklin and Michael",
-    "unlockedBy": "المهمة السابقة: Casing the Jewel Store"
+    "reward": "تأمين الشاحنة والأزياء التنكرية لعملية السطو (الأسلوب الذكي).",
+    "unlockedBy": "تفقد محل المجوهرات"
   },
   {
     "id": "mission-13",
     "order": 13,
-    "title": "السيد فيليبس (Mr. Philips)",
-    "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Preparación",
-    "description": "مهمة طور القصة في GTA V: \"السيد فيليبس (Mr. Philips)\". الشخصيات (Trevor)، الجهة الطالبة: Trevor Philips. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "قنابل غاز BZ",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "التحضير",
+    "description": "اعتراض شاحنة تابعة لشركة Humane Labs تنقل غاز الأعصاب BZ وتأمين الشحنة لعملية السطو على محل المجوهرات.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "إطلاق النار على الأبواب الخلفية للشاحنة لسقوط البضاعة"
     ],
-    "reward": "Trevor unlocked as playable character",
-    "unlockedBy": "المهمة السابقة: The Jewel Store Job"
+    "reward": "تأمين غاز BZ لتخدير المدنيين في عملية السطو (الأسلوب الذكي).",
+    "unlockedBy": "فريق Bugstars"
   },
   {
     "id": "mission-14",
     "order": 14,
-    "title": "مؤسسة تريفور فيليبس",
-    "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Golpe",
-    "description": "مهمة طور القصة في GTA V: \"مؤسسة تريفور فيليبس\". الشخصيات (Trevor)، الجهة الطالبة: Trevor Philips. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "سطو المجوهرات",
+    "character": "Michael, Franklin",
+    "giver": "Lester Crest",
+    "category": "السطو",
+    "description": "عملية سطو بالتوقيت على متجر Vangelico. يجتاح الفريق واجهات العرض قبل إبلاغ الشرطة ويهرب على دراجات الطرق الوعرة عبر أنفاق الترام تحت الأرض حتى قناة النهر، حيث تكنس مركبة ثقيلة سيارات الدورية لتأمين الانسحاب.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "سرقة واجهات العرض في أقل من 50 ثانية",
+      "حماية Franklin أثناء المطاردة في نهر Los Santos",
+      "تفريغ واجهات المجوهرات الـ 20 دون ترك أي غنيمة"
     ],
-    "reward": "Consolidates meth empire in Sandy Shores",
-    "unlockedBy": "المهمة السابقة: Mr. Philips"
+    "reward": "غنيمة بالملايين (حوالي $200,000 لـ Franklin و$1,200,000 لـ Michael)",
+    "unlockedBy": "تفقد محل المجوهرات"
   },
   {
     "id": "mission-15",
     "order": 15,
-    "title": "رون المتوتر",
+    "title": "السيد Philips",
     "character": "Trevor",
-    "giver": "Ron Jakowski",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"رون المتوتر\". الشخصيات (Trevor)، الجهة الطالبة: Ron Jakowski. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "giver": "Trevor Philips",
+    "category": "القصة",
+    "description": "جملة تبثها نشرة الأخبار تكشف لـ Trevor Philips أن Michael نجا من North Yankton. يفرغ Trevor غضبه في صحراء Sandy Shores، فيدمر قاعدة عصابة الدراجين The Lost في Grapeseed ويقضي على مخيم Ortega على ضفة النهر.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "قتل جميع الدراجين الهاربين",
+      "تحقيق 12 إصابة في الرأس",
+      "الإنهاء في أقل من 12:00",
+      "إحداث أضرار جسيمة في مقطورة Ortega"
     ],
-    "reward": "McKenzie Airfield hangar unlocked for purchase",
-    "unlockedBy": "المهمة السابقة: Trevor Philips Industries"
+    "reward": "فتح Trevor كشخصية قابلة للعب ثالثة",
+    "unlockedBy": "سطو المجوهرات"
   },
   {
     "id": "mission-16",
     "order": 16,
-    "title": "المتاهة الكريستالية",
+    "title": "شركة Trevor Philips للصناعات",
     "character": "Trevor",
     "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"المتاهة الكريستالية\". الشخصيات (Trevor)، الجهة الطالبة: Trevor Philips. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "description": "مفاوضات تجارية مع مبعوث التريادات في Blaine County يقطعها هجوم مسلح من الأخوين O'Neil. يحصن Trevor المشترين في غرفة التبريد بمحل الخمور ويصد موجات المهاجمين من السطح ونوافذ المختبر.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "قتل 32 عدوا",
+      "الإنهاء بأقل ضرر جسدي",
+      "تدمير 6 مركبات للمهاجمين"
     ],
-    "reward": "Elimination of Blaine County competitors",
-    "unlockedBy": "المهمة السابقة: Trevor Philips Industries"
+    "reward": "ترسيخ السيطرة على النشاط في Sandy Shores",
+    "unlockedBy": "السيد Philips"
   },
   {
     "id": "mission-17",
     "order": 17,
-    "title": "لم شمل الأصدقاء",
+    "title": "Ron المتوتر",
     "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"لم شمل الأصدقاء\". الشخصيات (Trevor)، الجهة الطالبة: Trevor Philips. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "giver": "Ron Jakowski",
+    "category": "القصة",
+    "description": "رد مسلح بعد التخريب الذي طال منزل Trevor. بدعم تكتيكي من Ron من أعلى خزان، يستوليان على مطار McKenzie ويسيطران على طائرات شحن ويدمران مركبات العدو أثناء التحليق فوق جسور المقاطعة.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "تحقيق 5 إصابات في الرأس ببندقية قنص",
+      "الإنهاء في أقل من 12:30",
+      "الطيران تحت 6 جسور أثناء الرحلة الجوية",
+      "قتل جميع الدراجين وأنت واقف على جناح الطائرة"
     ],
-    "reward": "Floyd's Vespucci Beach safehouse unlocked",
-    "unlockedBy": "المهمة السابقة: Crystal Maze"
+    "reward": "إتاحة حظيرة McKenzie Field للشراء",
+    "unlockedBy": "شركة Trevor Philips للصناعات"
   },
   {
     "id": "mission-18",
     "order": 18,
-    "title": "شهرة أم فضيحة",
-    "character": "Michael, Trevor",
-    "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"شهرة أم فضيحة\". الشخصيات (Michael, Trevor)، الجهة الطالبة: Michael De Santa. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "متاهة الزجاج",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "القصة",
+    "description": "هجوم انتقامي على مزرعة الأخوين O'Neil بعد خسارة الحصرية مع المستثمرين الآسيويين. يقضي Trevor على القناصة المتمركزين في التلال، ويطهر القصر ويسكب الوقود في القبو لتحويل المنشآت إلى رماد.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "قتل 10 أعداء بطلقات في الرأس",
+      "الإنهاء دون أن يتم اكتشافك قبل دخول المنزل",
+      "إشعال أثر البنزين برصاصة واحدة"
     ],
-    "reward": "Initial truce between Michael and Trevor",
-    "unlockedBy": "المهمة السابقة: Friends Reunited"
+    "reward": "القضاء على المنافسة في المقاطعة",
+    "unlockedBy": "شركة Trevor Philips للصناعات"
   },
   {
     "id": "mission-19",
     "order": 19,
-    "title": "ثلاثة هم حشد",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Dave Norton (FIB)",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"ثلاثة هم حشد\". الشخصيات (Michael, Franklin, Trevor)، الجهة الطالبة: Dave Norton (FIB). حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "لمّ الشمل",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "القصة",
+    "description": "الانطلاق نحو Los Santos لمعرفة مكان Michael. يترك Trevor بصمته بتفجير مجمع مقطورات الدراجين بشحنات لاصقة، ويبدأ رحلة برية مع Wade حتى يفرض نفسه في شقة Floyd في Vespucci.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "تحقيق 5 إصابات في الرأس بالمتفجرات أو بالقنص",
+      "تدمير جميع المقطورات دون تنبيه التعزيزات",
+      "الإنهاء بأضرار طفيفة في الدراجة Bodhi"
     ],
-    "reward": "Unlocks cooperative FIB field missions",
-    "unlockedBy": "المهمة السابقة: Fame or Shame"
+    "reward": "فتح مخبأ Floyd في Vespucci",
+    "unlockedBy": "متاهة الزجاج"
   },
   {
     "id": "mission-20",
     "order": 20,
-    "title": "وفقاً للتعليمات",
+    "title": "الشهرة أو العار",
     "character": "Michael, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"وفقاً للتعليمات\". الشخصيات (Michael, Trevor)، الجهة الطالبة: Steve Haines (FIB). حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "giver": "Amanda / Tracey",
+    "category": "القصة",
+    "description": "يطغى على اللقاء المباشر بين Michael وTrevor خبر مشاركة Tracey في تجربة أداء ببرنامج المسابقات التلفزيوني Fame or Shame. يذهب الاثنان إلى Maze Bank Arena، يوقفان التصوير ويحاصران المذيع Lazlow Jones بعد مطاردة بشاحنة في مجرى المدينة.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "بلوغ السرعة القصوى بالشاحنة Phantom",
+      "عدم فصل المقطورة أثناء المطاردة",
+      "لكم Lazlow",
+      "عدم إيذاء المارة في موقع التصوير"
     ],
-    "reward": "Trevor transports Kerimov safely to the airport",
-    "unlockedBy": "المهمة السابقة: Three's Company"
+    "reward": "مصالحة أولية بين Michael وTrevor",
+    "unlockedBy": "لمّ الشمل"
   },
   {
     "id": "mission-21",
     "order": 21,
-    "title": "رحلة في الحي (Hood Safari)",
-    "character": "Franklin, Trevor",
-    "giver": "Franklin Clinton",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"رحلة في الحي (Hood Safari)\". الشخصيات (Franklin, Trevor)، الجهة الطالبة: Franklin Clinton. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "الميت الحي",
+    "character": "Michael",
+    "giver": "FIB (Dave Norton)",
+    "category": "القصة",
+    "description": "يجبر Dave Norton الميكل Michael على العمل لصالح FIB كابتزاز مقابل عودته إلى الحياة الإجرامية. الاستيقاظ داخل المشرحة بعد تزييف الموت، والبحث عن بطاقات Ferdinand Kerimov والهرب من المنشأة المحاصرة من IAA.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء بدقة تصويب لا تقل عن 80%",
+      "تحقيق 14 إصابة في الرأس",
+      "الإنهاء في أقل من 09:30",
+      "قتل 4 أعداء باستخدام القدرة الخاصة",
+      "التعرض لأقل ضرر ممكن"
     ],
-    "reward": "$0 (deal gone bad)",
-    "unlockedBy": "المهمة السابقة: Three's Company"
+    "reward": "فتح مهمات FIB.",
+    "unlockedBy": "الشهرة أو العار"
   },
   {
     "id": "mission-22",
     "order": 22,
-    "title": "سطو ميريويذر",
+    "title": "ثلاثة كثرة",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"سطو ميريويذر\". الشخصيات (Michael, Franklin, Trevor)، الجهة الطالبة: Trevor Philips. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "giver": "Dave Norton (FIB)",
+    "category": "القصة",
+    "description": "عملية إنقاذ مشتركة بالشخصيات الثلاث في Downtown. بأوامر من FIB، يقود Trevor المروحية، وينزل Michael بالحبل على نوافذ مقر IAA ليقتحم التحقيق، بينما يساعد Franklin بالقضاء على التهديدات من سطح مجاور ببندقية قنص.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "زمن أقل من 07:30",
+      "دقة لا تقل عن 60%",
+      "10 إصابات في الرأس موزعة بين الشخصيات الثلاث"
     ],
-    "reward": "Experience (device returned without cash payout)",
-    "unlockedBy": "المهمة السابقة: Hood Safari"
+    "reward": "فتح المهمات المشتركة لـ FIB",
+    "unlockedBy": "الشهرة أو العار"
   },
   {
     "id": "mission-23",
     "order": 23,
-    "title": "اغتيال الفندق",
-    "character": "Franklin",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"اغتيال الفندق\". الشخصيات (Franklin)، الجهة الطالبة: Lester Crest. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "حسب الأصول",
+    "character": "Michael, Trevor",
+    "giver": "Steve Haines",
+    "category": "القصة",
+    "description": "تحقيق في أرصفة Los Santos تحت إشراف العميلين Steve Haines وDave Norton. مع الحصول على معلومات عن المشتبه به، يراقب Michael حفلة خاصة في تلال Chumash لتحديد الهدف وإسقاطه دون إثارة الشبهات.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "عدم إيقاف قلب Kerimov أثناء التحقيق",
+      "استخدام أدوات التعذيب الأربع مرة واحدة على الأقل",
+      "إصابة الهدف الصحيح من المحاولة الأولى دون تردد"
     ],
-    "reward": "$9,000 + massive stock market returns",
-    "unlockedBy": "المهمة السابقة: Fame or Shame"
+    "reward": "Trevor يوصل Kerimov سالما إلى المطار",
+    "unlockedBy": "ثلاثة كثرة"
   },
   {
     "id": "mission-24",
     "order": 24,
-    "title": "اللعب الخاطف (Blitz Play)",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"اللعب الخاطف (Blitz Play)\". الشخصيات (Michael, Franklin, Trevor)، الجهة الطالبة: Steve Haines (FIB). حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "رحلة صيد في الحي",
+    "character": "Franklin, Trevor",
+    "giver": "Franklin Clinton",
+    "category": "القصة",
+    "description": "صفقة مشبوهة في قلب Grove Street برفقة Lamar وTrevor. تتضح أن البضاعة خدعة، فتندلع معركة حضرية ضيقة ضد رجال العصابات المحليين، تتبعها هروب بالدراجات المائية عبر قنوات الصرف.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "زمن أقل من 07:00",
+      "دقة لا تقل عن 70%",
+      "12 إصابة في الرأس"
     ],
-    "reward": "Black-ops funding for the FIB operation",
-    "unlockedBy": "المهمة السابقة: Hotel Assassination"
+    "reward": "$0 (صفقة فاشلة)",
+    "unlockedBy": "ثلاثة كثرة"
   },
   {
     "id": "mission-25",
     "order": 25,
-    "title": "تحديت القانون...",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Devin Weston",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"تحديت القانون...\". الشخصيات (Michael, Franklin, Trevor)، الجهة الطالبة: Devin Weston. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "هل قال أحدهم يوغا؟",
+    "character": "Michael",
+    "giver": "Amanda De Santa",
+    "category": "القصة",
+    "description": "تحمل حصة يوغا مع المدرب Fabien، والتعامل مع خيانة Jimmy ومحاولة النجاة من رحلة سيئة بسبب المخدر.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 15:00",
+      "إتمام كل وضعية من وضعيات اليوغا الثلاث دون أخطاء"
     ],
-    "reward": "Devin Weston unlocked as an employer",
-    "unlockedBy": "المهمة السابقة: Blitz Play"
+    "reward": "Amanda وJimmy وTracey يغادرون المنزل. يفقد Michael الوصول المؤقت إلى مركباته الشخصية.",
+    "unlockedBy": "رحلة صيد في الحي"
   },
   {
     "id": "mission-26",
     "order": 26,
-    "title": "سطو باليتو باي (Paleto Score)",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "FIB / Lester",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"سطو باليتو باي (Paleto Score)\". الشخصيات (Michael, Franklin, Trevor)، الجهة الطالبة: FIB / Lester. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "استطلاع الميناء",
+    "character": "Trevor",
+    "giver": "Floyd",
+    "category": "القصة",
+    "description": "يضغط Trevor على Wade وابن عمه Floyd (عامل الميناء) لتنظيم عملية سطو بحجم عسكري. التسلل إلى منشآت الميناء التي تديرها Merryweather Security متنكرا في هيئة عامل شحن، لتحديد موقع جهاز تقني متطور والتخطيط لسرقته.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "إنهاء المهمة في أقل من 20:00",
+      "إتمام قسم عامل الشحن دون إتلاف الحاويات",
+      "التقاط صور السفينة بشكل صحيح من المرة الأولى",
+      "إنهاء كل العمل في الميناء دون التسبب في مشاجرات"
     ],
-    "reward": "Approx. $450,000 take per protagonist",
-    "unlockedBy": "المهمة السابقة: I Fought the Law..."
+    "reward": "فتح مهمات التحضير لسطو Merryweather.",
+    "unlockedBy": "هل قال أحدهم يوغا؟"
   },
   {
     "id": "mission-27",
     "order": 27,
-    "title": "خروج عن المسار (Derailed)",
-    "character": "Michael, Trevor",
-    "giver": "Trevor Philips",
-    "category": "Preparación",
-    "description": "مهمة طور القصة في GTA V: \"خروج عن المسار (Derailed)\". الشخصيات (Michael, Trevor)، الجهة الطالبة: Trevor Philips. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "الغواصة الصغيرة",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "التحضير",
+    "description": "سرقة غواصة صغيرة تجريبية من سفينة استكشاف راسية في الميناء. وهي ضرورية مهما كان الأسلوب المختار لسطو Merryweather.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 08:30",
+      "سرقة الغواصة دون الصعود على متن السفينة المدنية"
     ],
-    "reward": "Valuable smuggled high-grade contraband",
-    "unlockedBy": "المهمة السابقة: The Paleto Score"
+    "reward": "تأمين الغواصة لأي من أسلوبي السطو.",
+    "unlockedBy": "استطلاع الميناء"
   },
   {
     "id": "mission-28",
     "order": 28,
-    "title": "اقتحام مقر FIB",
-    "character": "Michael, Franklin",
-    "giver": "Steve Haines",
-    "category": "Preparación",
-    "description": "مهمة طور القصة في GTA V: \"اقتحام مقر FIB\". الشخصيات (Michael, Franklin)، الجهة الطالبة: Steve Haines. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "Cargobob",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "التحضير",
+    "description": "التسلل إلى القاعدة العسكرية شديدة الحراسة (Fort Zancudo) وسرقة مروحية نقل عسكرية ثقيلة (Cargobob) قادرة على رفع الغواصة الصغيرة.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 05:30"
     ],
-    "reward": "Erasure of federal records and legal pressure on Michael",
-    "unlockedBy": "المهمة السابقة: Derailed"
+    "reward": "تأمين مروحية الشحن لأسلوب أعالي البحار.",
+    "unlockedBy": "الغواصة الصغيرة"
   },
   {
     "id": "mission-29",
     "order": 29,
-    "title": "مشاكل مع الفيدراليين",
-    "character": "Michael, Trevor",
-    "giver": "Dave Norton",
-    "category": "Golpe",
-    "description": "مهمة طور القصة في GTA V: \"مشاكل مع الفيدراليين\". الشخصيات (Michael, Trevor)، الجهة الطالبة: Dave Norton. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "سطو Merryweather",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Trevor Philips",
+    "category": "السطو",
+    "description": "عملية ضد قوافل الشركة العسكرية Merryweather. باستخدام غواصة ومروحية شحن ثقيلة، يستعيد الفريق جهازا عسكريا غارقا في المياه العميقة، يجب في النهاية إعادته بأمر من Lester لتفادي انتقام الحكومة.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 14:30",
+      "العثور على الجهاز تحت الماء في أقل من 02:00",
+      "القضاء على مروحيات المطاردة دون التعرض لأضرار حرجة"
     ],
-    "reward": "Survival of Dave Norton and Michael",
-    "unlockedBy": "المهمة السابقة: The Bureau Raid"
+    "reward": "خبرة (إعادة الجهاز دون مقابل فوري)",
+    "unlockedBy": "رحلة صيد في الحي"
   },
   {
     "id": "mission-30",
     "order": 30,
-    "title": "لامار في ورطة",
-    "character": "Franklin, Michael, Trevor",
-    "giver": "Tanisha Jackson",
-    "category": "Preparación",
-    "description": "مهمة طور القصة في GTA V: \"لامار في ورطة\". الشخصيات (Franklin, Michael, Trevor)، الجهة الطالبة: Tanisha Jackson. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "شاحنة القمامة",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "التحضير",
+    "description": "تحديد موقع شاحنة قمامة عاملة من أسطول البلدية وسرقتها ('Trashmaster')، لتكون حاجزا ثقيلا لنصب كمين للشاحنة المدرعة أثناء السطو.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 05:00",
+      "تسليم الشاحنة دون أضرار",
+      "بلوغ السرعة القصوى"
     ],
-    "reward": "Unbreakable bond with Lamar",
-    "unlockedBy": "المهمة السابقة: The Wrap Up"
+    "reward": "تأمين مركبة الإغلاق لسطو 'الضربة الخاطفة'.",
+    "unlockedBy": "سطو Merryweather"
   },
   {
     "id": "mission-31",
     "order": 31,
-    "title": "الانهيار (The Meltdown)",
-    "character": "Michael",
-    "giver": "Solomon Richards",
-    "category": "Preparación",
-    "description": "مهمة طور القصة في GTA V: \"الانهيار (The Meltdown)\". الشخصيات (Michael)، الجهة الطالبة: Solomon Richards. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "الونش",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "التحضير",
+    "description": "سرقة ونش سحب سيُستخدم لخلع الأبواب الخلفية للشاحنة المدرعة أثناء عملية 'الضربة الخاطفة' (Blitz Play).",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 03:00",
+      "تسليم الونش دون أضرار"
     ],
-    "reward": "Full reunion of the De Santa family",
-    "unlockedBy": "المهمة السابقة: Lamar Down"
+    "reward": "تأمين مركبة الهروب والاصطدام لسطو 'الضربة الخاطفة'.",
+    "unlockedBy": "شاحنة القمامة"
   },
   {
     "id": "mission-32",
     "order": 32,
-    "title": "السطو الكبير (The Big Score)",
+    "title": "الضربة الخاطفة",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"السطو الكبير (The Big Score)\". الشخصيات (Michael, Franklin, Trevor)، الجهة الطالبة: Lester Crest. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "giver": "Steve Haines",
+    "category": "القصة",
+    "description": "سطو تكتيكي على شاحنة مدرعة في المنطقة الصناعية في Cypress Flats. يُقطع الطريق بمركبة ثقيلة، وتُعطل الشاحنة بونش سحب، وتُفجر المداخل بالمتفجرات، مع صد الوحدات التكتيكية حتى الوصول إلى نقطة النقل.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "إسقاط المروحية باستخدام Trevor",
+      "تحقيق 12 إصابة في الرأس",
+      "دقة لا تقل عن 60%",
+      "تبديل الشخصية 10 مرات على الأقل"
     ],
-    "reward": "Approx. $28,000,000 take for each of the three protagonists",
-    "unlockedBy": "المهمة السابقة: Meltdown"
+    "reward": "أموال سرية لعملية FIB",
+    "unlockedBy": "اغتيال الفندق"
   },
   {
     "id": "mission-33",
     "order": 33,
-    "title": "الخيار A: عين العقل (قتل تريفور)",
-    "character": "Franklin",
-    "giver": "Steve Haines / Dave Norton",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"الخيار A: عين العقل (قتل تريفور)\". الشخصيات (Franklin)، الجهة الطالبة: Steve Haines / Dave Norton. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "السيد Richards",
+    "character": "Michael",
+    "giver": "Solomon Richards",
+    "category": "القصة",
+    "description": "ترهيب الممثل الرئيسي ومخرج أحدث أفلام Solomon Richards لإعادتهما إلى موقع التصوير باستخدام أساليب الطيران المتهورة.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "الإنهاء في أقل من 10:00",
+      "قتل 3 أعداء بصمت",
+      "عدم التعرض لأي ضرر أثناء العراك",
+      "هبوط المروحية دون إتلافها"
     ],
-    "reward": "Heist money split between Franklin and Michael (Trevor lost)",
-    "unlockedBy": "المهمة السابقة: The Big Score"
+    "reward": "بدء التعاون السينمائي بين Michael وSolomon.",
+    "unlockedBy": "الضربة الخاطفة"
   },
   {
     "id": "mission-34",
     "order": 34,
-    "title": "الخيار B: حان الوقت (قتل مايكل)",
-    "character": "Franklin",
+    "title": "مواجهة مع القانون",
+    "character": "Franklin, Michael, Trevor",
     "giver": "Devin Weston",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"الخيار B: حان الوقت (قتل مايكل)\". الشخصيات (Franklin)، الجهة الطالبة: Devin Weston. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "category": "القصة",
+    "description": "مهمة خاصة من قطب الأعمال Devin Weston لمصادرة سيارتين نادرتين. متنكرين في هيئة شرطيي مرور على دراجات دورية، يعترض Michael وTrevor السائقين على الطريق الساحلي السريع ويتسابقان لتسليمهما في الورشة المتفق عليها.",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "زمن أقل من 12:00",
+      "القيادة بين شاحنتين في آن واحد",
+      "الفوز بالسباق على دراجة الشرطة دون اصطدام"
     ],
-    "reward": "Heist money split between Franklin and Trevor (Michael lost)",
-    "unlockedBy": "المهمة السابقة: The Big Score"
+    "reward": "Devin Weston متعاقدا جديدا",
+    "unlockedBy": "الضربة الخاطفة"
   },
   {
     "id": "mission-35",
     "order": 35,
-    "title": "الخيار C: الطريق الثالث (إنقاذ الجميع)",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "مهمة طور القصة في GTA V: \"الخيار C: الطريق الثالث (إنقاذ الجميع)\". الشخصيات (Michael, Franklin, Trevor)، الجهة الطالبة: Lester Crest. حقق متطلبات الميدالية الذهبية لإكمال اللعبة بنسبة 100%.",
+    "title": "العين في السماء",
+    "character": "Trevor, Franklin",
+    "giver": "Devin Weston",
+    "category": "القصة",
+    "description": "مسح الأحياء السكنية باستخدام أجهزة الاستشعار الحرارية المتقدمة والتعرف على الوجوه في مروحية شرطة لسرقة سيارة Z-Type ثمينة (سيارة كلاسيكية فائقة الفخامة).",
     "goldRequirements": [
-      "إكمال المهمة خلال الوقت المحدد",
-      "دقة تصويب لا تقل عن 70%",
-      "إصابات مباشرة في الرأس",
-      "تجنب تعرض المركبة لأضرار بالغة"
+      "العثور على الهدف من أول فرصة",
+      "تسليم Z-Type دون خدش واحد",
+      "الاستماع إلى 3 محادثات كاملة بين الشرطة والمدنيين"
     ],
-    "reward": "$28,000,000 for each protagonist and all three alive and playable",
-    "unlockedBy": "المهمة السابقة: The Big Score"
+    "reward": "فتح المزيد من سيارات قائمة Devin السوداء.",
+    "unlockedBy": "مواجهة مع القانون"
   },
   {
     "id": "mission-36",
     "order": 36,
-    "title": "Caida Libre",
+    "title": "السقوط الحر",
     "character": "Michael, Trevor",
-    "giver": "Martin Madrazo",
-    "category": "Story",
-    "description": "Martin Madrazo hires Michael to silence his cousin Javier, who plans to testify against him and is flying to Liberty City with a briefcase of incriminating files. Using a high-caliber computer-guided sniper rifle mounted inside a van at the Galileo Observatory, Michael must cripple the aircraft mid-flight while Trevor chases the burning fuselage across Blaine County.",
+    "giver": "Martín Madrazo",
+    "category": "القصة",
+    "description": "اغتيال ابن عم Martín Madrazo (Javier) بإسقاط طائرته الخاصة أثناء الطيران بأسلحة ثقيلة واستعادة وثائق تدينه.",
     "goldRequirements": [
-      "Floor It — Reach top speed on the Sanchez",
-      "Glued to the Seat — Don't fall off the Sanchez",
-      "One Two Three — Shoot down the plane with 3 shots",
-      "Time — Complete within 09:45"
+      "بلوغ السرعة القصوى بالدراجة Sánchez",
+      "عدم السقوط من الدراجة Sánchez أثناء المطاردة",
+      "إسقاط الطائرة بـ 3 طلقات",
+      "الإنهاء في أقل من 09:45"
     ],
-    "reward": "Michael and Trevor are exiled from Los Santos. Unlocks the Sandy Shores safehouse for both.",
-    "unlockedBy": "35. Eye in the Sky"
+    "reward": "نفي Michael وTrevor من Los Santos. فتح مخبأ Sandy Shores.",
+    "unlockedBy": "العين في السماء"
   },
   {
     "id": "mission-37",
     "order": 37,
-    "title": "Deep Inside",
+    "title": "في قاع البحر",
     "character": "Franklin",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Devin Weston demands another legendary vehicle for his collection: the vintage Dewbauchee JB 700 currently being used on a spy film shoot at Richards Majestic Studios. Franklin sneaks onto the backlot, knocks out the lead actor and steals the prop car, discovering its ejector seat and road spikes are fully functional.",
+    "category": "القصة",
+    "description": "التسلل إلى موقع تصوير فيلم وسرقة سيارة Aston Martin معدلة (Dewbauchee JB 700) مجهزة بأسلحة حقيقية وأدوات تجسس.",
     "goldRequirements": [
-      "Not a Scratch — Deliver the JB 700 with minimal damage",
-      "Fastest Speed — Reach top speed in the JB 700",
-      "Stealthy Recasting — Knock out the actor using a stealth attack",
-      "Premature Ejector — Hit the ejector seat within 10 seconds",
-      "Second Strike — Run over the actor as you escape in the JB 700"
+      "تسليم JB 700 بأقل أضرار",
+      "بلوغ السرعة القصوى بالسيارة JB 700",
+      "إفقاد الممثل وعيه بصمت",
+      "قذف الراكب في أقل من 10 ثوان"
     ],
-    "reward": "Another classic car delivered to Devin Weston's garage.",
-    "unlockedBy": "36. Caida Libre"
+    "reward": "إضافة جديدة لمرآب Devin Weston.",
+    "unlockedBy": "السقوط الحر"
   },
   {
     "id": "mission-38",
     "order": 38,
-    "title": "Minor Turbulence",
+    "title": "المتسلل الخفي",
     "character": "Trevor",
     "giver": "Ron Jakowski",
-    "category": "Story",
-    "description": "Tired of working for free for federal agents and eager to expand Trevor Philips Industries, Trevor takes off in a rickety crop duster to board a massive Merryweather military cargo plane mid-flight over Blaine County and seize its heavy weaponry.",
+    "category": "القصة",
+    "description": "الصعود إلى طائرة شحن تابعة لـ Merryweather أثناء الطيران، والسيطرة على الطائرة والنجاة من هجوم المقاتلات القادمة من القاعدة العسكرية.",
     "goldRequirements": [
-      "Accuracy — Finish with a shooting accuracy of at least 80%",
-      "Four Wheel Flier — Exit the cargo plane in the Mesa"
+      "الإنهاء بدقة لا تقل عن 80%",
+      "الخروج من طائرة الشحن بقيادة سيارة الدفع الرباعي Mesa"
     ],
-    "reward": "None. The entire cargo sinks to the bottom of the Alamo Sea.",
-    "unlockedBy": "37. Deep Inside"
+    "reward": "لا شيء. تغرق الحمولة كلها في Alamo Sea.",
+    "unlockedBy": "في قاع البحر"
   },
   {
     "id": "mission-39",
     "order": 39,
-    "title": "Paleto Score Setup",
+    "title": "الحاجز",
     "character": "Michael, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Forced to fund a black-ops raid for the FIB while exiled in Blaine County, Michael and Trevor meet Lester in Sandy Shores. Together they scope out the Blaine County Savings Bank in Paleto Bay, a quiet rural branch holding millions in dirty cartel and corrupt sheriff kickbacks.",
+    "category": "التحضير",
+    "description": "أول خطة مشتركة صممها Lester وTrevor مباشرة من المقطورة. إجراء مسبار وتفعيل إنذار البنك الريفي في Paleto Bay لقياس قوة الاستجابة التكتيكية للشرطة المحلية.",
     "goldRequirements": [
-      "Leisurely Drive — Drive to the bank within 03:30",
-      "Winner — Win the race back to the meth lab"
+      "الوصول إلى البنك بالقيادة في أقل من 03:30",
+      "الفوز بسباق العودة إلى المختبر"
     ],
-    "reward": "Unlocks setup preparations for the Paleto Score.",
-    "unlockedBy": "38. Minor Turbulence"
+    "reward": "بدء التحضيرات لسطو Paleto.",
+    "unlockedBy": "المتسلل الخفي"
   },
   {
     "id": "mission-40",
     "order": 40,
-    "title": "Military Hardware",
+    "title": "المفترس",
     "character": "Trevor, Michael, Franklin",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "Out for blood after the destruction of their meth farm, the surviving O'Neil brothers head out to ambush Trevor. After crashing their SUV deep into Raton Canyon, they scatter into the dense forest at dusk, prompting Michael, Trevor, Franklin and Chop to coordinate a combined air-and-ground manhunt.",
+    "category": "القصة",
+    "description": "مطاردة الأخوين O'Neil الناجيين والقضاء عليهما، وهما مختبئان في غابة Raton Canyon الكثيفة.",
     "goldRequirements": [
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Time — Complete within 09:00",
-      "Headshots — Kill 3 enemies with headshots",
-      "Thin the Herd — Do not kill any animals"
+      "الإنهاء بدقة لا تقل عن 70%",
+      "الإنهاء في أقل من 09:00",
+      "تحقيق 3 إصابات في الرأس",
+      "عدم قتل أي حيوان"
     ],
-    "reward": "None. Vengeance and elimination of the remaining O'Neil brothers.",
-    "unlockedBy": "39. Paleto Score Setup"
+    "reward": "لا شيء. انتقام والقضاء على من تبقى من الأخوين O'Neil.",
+    "unlockedBy": "الحاجز"
   },
   {
     "id": "mission-41",
     "order": 41,
-    "title": "Predator",
+    "title": "العتاد العسكري",
     "character": "Trevor, Michael, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Knowing that Paleto Bay law enforcement boasts heavy armor and militarized response teams, Lester devises an overwhelming brute-force plan: outfitting the crew in heavy ballistic Juggernaut armor and rotary miniguns. To acquire the gear, the gang intercepts an Army supply convoy rolling down the Great Ocean Highway.",
+    "category": "التحضير",
+    "description": "نصب كمين لقافلة عسكرية لسرقة شاحنة تنقل بدلات عسكرية واقية من الرصاص بالكامل ورشاشات دوارة (Minigun).",
     "goldRequirements": [
-      "Head Hunter — Kill 5 enemies with headshots",
-      "Sticky Strategist — Stop the convoy using a Sticky Bomb trap"
+      "قتل 5 جنود بطلقات في الرأس",
+      "إيقاف القافلة باستخدام قنبلة لاصقة"
     ],
-    "reward": "Heavy ballistic armor and firepower secured for the Paleto Score.",
-    "unlockedBy": "40. Predator"
+    "reward": "تأمين الدروع والأسلحة الثقيلة لسطو Paleto.",
+    "unlockedBy": "المفترس"
   },
   {
     "id": "mission-42",
     "order": 42,
-    "title": "The Paleto Score",
+    "title": "سطو Paleto",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "An all-out armed assault on the Blaine County Savings Bank in Paleto Bay using heavy rotary miniguns and full-body ballistic armor. The crew withstands a combined siege by SWAT and the U.S. Army until Franklin smashes through the blockade in a heavy bulldozer to clear a path to the train tracks.",
+    "category": "السطو",
+    "description": "هجوم مسلح على بنك Paleto Bay بأسلحة ثقيلة وبدلات واقية كاملة. يصمد الفريق أمام حصار مشترك من القوات الخاصة والجيش حتى وصول Franklin بآلية ثقيلة لفتح الطريق نحو سكة القطار.",
     "goldRequirements": [
-      "Let It Rain — Fire over 4,000 rounds of ammo",
-      "Accuracy — Finish with a shooting accuracy of at least 50%",
-      "Collateral Damage — Cause $1,000,000 of damage in Paleto Bay",
-      "Time — Complete within 16:00"
+      "إطلاق أكثر من 4.000 رصاصة",
+      "دقة تصويب لا تقل عن 50%",
+      "إحداث أضرار مادية تفوق $1,000,000 في Paleto Bay",
+      "الإنهاء في أقل من 16:00"
     ],
-    "reward": "Approx. $450,000 net payout per character",
-    "unlockedBy": "41. Military Hardware"
+    "reward": "حوالي $450,000 صافية لكل شخصية",
+    "unlockedBy": "مواجهة مع القانون"
   },
   {
     "id": "mission-43",
     "order": 43,
-    "title": "Derailed",
-    "character": "Trevor, Michael",
+    "title": "خروج عن السكة",
+    "character": "Michael, Trevor",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "A daring motorcycle jump onto a speeding freight train to force a head-on collision over the Zancudo River bridge. With the cargo cars plunged into the rapids below, Michael pulls up in a Dinghy to blow open the sunken container while fending off Merryweather tactical squads.",
+    "category": "القصة",
+    "description": "الصعود بدراجة نارية على قطار متحرك لإحداث تصادم فوق جسر نهر Zancudo. مع سقوط العربات في الماء، يصل Michael بقارب لاستخراج الحمولة بينما يصدان عناصر Merryweather التكتيكيين.",
     "goldRequirements": [
-      "Time — Complete within 11:30",
-      "Fastest Speed — Reach top speed on the Sanchez",
-      "Better Than CJ — Land on the train using the first jump",
-      "Separation — Complete the mission without detaching",
-      "High Velocity — Reach top speed in the Dinghy"
+      "زمن أقل من 11:30",
+      "الهبوط من المحاولة الأولى على عربة القطار بالدراجة",
+      "بلوغ السرعة القصوى بالقارب السريع"
     ],
-    "reward": "High-value historical artifact for Martin Madrazo",
-    "unlockedBy": "The Paleto Score"
+    "reward": "قطع مهربة عالية القيمة",
+    "unlockedBy": "سطو Paleto"
   },
   {
     "id": "mission-44",
     "order": 44,
-    "title": "Monkey Business",
+    "title": "لعبة القرود",
     "character": "Michael, Franklin, Trevor",
     "giver": "Steve Haines",
-    "category": "Story",
-    "description": "Under orders from Steve Haines and Dave Norton to stop an IAA chemical weapons program, the trio infiltrates the heavily guarded Humane Labs facility. Michael dives through underwater intake pipes to steal an experimental neurotoxin before Trevor extracts the cargo by air in a Cargobob.",
+    "category": "القصة",
+    "description": "التسلل إلى منشآت Humane Labs شديدة الحراسة عبر قنوات المياه لسرقة سم عصبي تجريبي لصالح FIB.",
     "goldRequirements": [
-      "Stunner — Stun 8 enemies with the Stun Gun",
-      "Headshots — Kill 15 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Time — Complete within 13:30"
+      "صعق 8 أعداء بمسدس الصعق",
+      "تحقيق 15 إصابة في الرأس",
+      "الإنهاء بدقة لا تقل عن 70%",
+      "الإنهاء في أقل من 13:30"
     ],
-    "reward": "Settles the FIB black-ops demand. Trevor reconciles the dispute with Martin Madrazo.",
-    "unlockedBy": "43. Derailed"
+    "reward": "تسوية الاتفاق مع Haines. يوقف Madrazo المطاردة.",
+    "unlockedBy": "خروج عن السكة"
   },
   {
     "id": "mission-45",
@@ -755,392 +713,385 @@
     "title": "Hang Ten",
     "character": "Trevor",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "Debra's return to her Vespucci Beach condo sparks a violent confrontation with Floyd and Trevor that ends in an off-screen bloodbath. Covered in blood, Trevor steers an oblivious Wade away from the crime scene and relocates to the Vanilla Unicorn strip club, which he has forcefully taken over as his new Los Santos headquarters.",
+    "category": "القصة",
+    "description": "مع تعذر الوضع في المخبأ والتوتر بين الشخصيات، يحتاج Trevor إلى قاعدة جديدة مستقلة للتخطيط لـ 'السطو الكبير'. وضع نهاية عنيفة لعلاقة Trevor مع Floyd وDebra، والاستيلاء بالقوة على مقر جديد في Los Santos.",
     "goldRequirements": [
-      "Time — Complete within 04:00"
+      "الإنهاء في أقل من 04:00"
     ],
-    "reward": "Trevor takes over the Vanilla Unicorn strip club, which becomes his Los Santos safehouse.",
-    "unlockedBy": "44. Monkey Business"
+    "reward": "يسيطر Trevor على نادي التعري Vanilla Unicorn الذي يصبح مخبأه في LS.",
+    "unlockedBy": "لعبة القرود"
   },
   {
     "id": "mission-46",
     "order": 46,
-    "title": "Surveying the Score",
+    "title": "استطلاع السطو",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Gathered in the back office of the Vanilla Unicorn with Lester, the trio sets their sights on the ultimate criminal prize: robbing the Union Depository of over two hundred million dollars in gold bullion. To plan the score of the century, the crew conducts coordinated ground and aerial reconnaissance across Downtown Los Santos.",
+    "category": "السطو",
+    "description": "إجراء تحليل للثغرات وقياس أزمنة الاستجابة وتحديد نقاط الدخول في بنك الاحتياطي الفيدرالي ('Union Depository').",
     "goldRequirements": [
-      "Perfect Distance — Follow the vans without being warned about distance",
-      "Cavity Search — Find the construction hole within 20 seconds",
-      "Under the Bridge / Tunnel Flight — Fly under the bridge while following the vans and fly through a tunnel"
+      "تتبع الشاحنات المدرعة دون تلقي تحذير بشأن المسافة",
+      "العثور على ثغرة البناء في أقل من 20 ثانية",
+      "الطيران تحت الجسر أثناء تتبع الشاحنات المدرعة والمرور عبر نفق"
     ],
-    "reward": "Unlocks the official Big Score planning board (Subtle or Obvious).",
-    "unlockedBy": "45. Hang Ten"
+    "reward": "التخطيط الرسمي للسطو الكبير (الخفي أو العلني).",
+    "unlockedBy": "Hang Ten"
   },
   {
     "id": "mission-47",
     "order": 47,
-    "title": "Bury the Hatchet",
+    "title": "دفن الأحقاد",
     "character": "Michael, Trevor",
     "giver": "Michael De Santa",
-    "category": "Story",
-    "description": "Consumed by suspicion, Trevor flies to the frozen town of Ludendorff to dig up the grave bearing Michael Townley's name. Discovering the decomposing body of Brad Snider inside the coffin, the bitter standoff between the former partners is cut short by an ambush from Wei Cheng's Triads, leaving Michael stranded and captured in the snow.",
+    "category": "القصة",
+    "description": "السفر إلى Ludendorff (North Yankton) تحت الثلج لنبش قبر 'Michael Townley' والنجاة من كمين لكارتل Wei Cheng.",
     "goldRequirements": [
-      "Time — Complete within 11:00",
-      "Headshots — Kill 20 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 80%"
+      "الإنهاء في أقل من 11:00",
+      "تحقيق 20 إصابة في الرأس",
+      "الإنهاء بدقة لا تقل عن 80%"
     ],
-    "reward": "Temporary fracture of the crew; Trevor learns the truth about Brad.",
-    "unlockedBy": "46. Surveying the Score"
+    "reward": "انفصال مؤقت للطاقم؛ يكتشف Trevor الحقيقة عن Brad.",
+    "unlockedBy": "استطلاع السطو"
   },
   {
     "id": "mission-48",
     "order": 48,
-    "title": "Pack Man",
+    "title": "الشاحنة المخطوفة",
     "character": "Franklin, Trevor",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Having collected every exotic car on Devin Weston's list, Franklin, Lamar and Trevor load the five supercars onto a Packer car carrier bound for Paleto Bay. When highway patrol cruisers spot the stolen shipment and launch a high-speed pursuit, Franklin climbs into the weaponized JB 700 on the upper deck to fight off the police.",
+    "category": "القصة",
+    "description": "نقل شحنة السيارات الخارقة الفاخرة المسروقة في شاحنة نقل سيارات ('Packer') إلى نقطة التسليم في Paleto Bay، مع الإفلات من مطاردة LSPD.",
     "goldRequirements": [
-      "Mission Time — Complete within 12:00",
-      "Not a Scratch — Deliver the JB 700 with minimal damage",
-      "Shredder — Disable 3 police cars using the spike strips"
+      "الإنهاء في أقل من 12:00",
+      "تسليم JB 700 بأقل أضرار",
+      "تدمير 3 سيارات شرطة باستخدام الأشواك"
     ],
-    "reward": "None. Weston refuses to pay the crew.",
-    "unlockedBy": "47. Bury the Hatchet"
+    "reward": "لا شيء. يرفض Weston الدفع للأبطال.",
+    "unlockedBy": "دفن الأحقاد"
   },
   {
     "id": "mission-49",
     "order": 49,
-    "title": "Fresh Meat",
+    "title": "اللحم الطازج",
     "character": "Franklin, Michael",
     "giver": "Franklin Clinton",
-    "category": "Story",
-    "description": "Kidnapped in North Yankton by Wei Cheng's Triads after being mistaken for Trevor's lover, Michael is held captive inside the Raven Slaughterhouse in Cypress Flats. Tipped off by Lester, Franklin races against the clock using a phone tracking app to locate the meatpacking plant and save Michael from the industrial meat grinder.",
+    "category": "القصة",
+    "description": "تتبع إشارة هاتف Michael، واقتحام مصنع لتجهيز اللحوم (Raven Abattoir) وإبادة التريادات لإنقاذ حياته.",
     "goldRequirements": [
-      "Switch Limiter — Don't switch characters more than 3 times",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Headshots — Kill 10 enemies with headshots",
-      "Swift Rescue — Rescue Michael within 03:30",
-      "Sense of Direction — Don't use any map waypoints"
+      "عدم تبديل الشخصية أكثر من 3 مرات",
+      "10 إصابات في الرأس ودقة لا تقل عن 70%",
+      "إنقاذ Michael في أقل من 03:30",
+      "عدم استخدام نقاط الطريق (waypoint) على الخريطة"
     ],
-    "reward": "Michael is rescued and rejoins the heist crew.",
-    "unlockedBy": "48. Pack Man"
+    "reward": "إنقاذ Michael واستئناف الاتصال مع Lester.",
+    "unlockedBy": "الشاحنة المخطوفة"
   },
   {
     "id": "mission-50",
     "order": 50,
-    "title": "Cleaning out the Bureau",
+    "title": "أنشودة Rocco",
     "character": "Michael",
     "giver": "Solomon Richards",
-    "category": "Story",
-    "description": "Arriving at Richards Majestic Studios after a frantic call from Solomon Richards, Michael catches mobster Rocco Pelosi and his associate Gianni roughing up the elderly producer. Outraged by the attack on his mentor, Michael launches into a high-speed pursuit through Vinewood to permanently eliminate the Liberty City extortionist.",
+    "category": "القصة",
+    "description": "القضاء نهائيا على Rocco Pelosi (رجل المافيا من Liberty City) بعد اعتدائه جسديا على Solomon Richards في استوديوهات السينما.",
     "goldRequirements": [
-      "Time — Complete within 03:00"
+      "إنهاء المهمة في أقل من 03:00"
     ],
-    "reward": "Michael is officially credited as Associate Producer on Solomon's film.",
-    "unlockedBy": "49. Fresh Meat"
+    "reward": "يُدرج Michael منتجا مشاركا في فيلم Solomon.",
+    "unlockedBy": "اللحم الطازج"
   },
   {
     "id": "mission-51",
     "order": 51,
-    "title": "Architect's Plans",
+    "title": "تنظيف FIB",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To prepare for the raid on FIB headquarters and wipe the files incriminating Steve Haines and Michael, the crew needs inside access. Michael stakes out the federal building to tail janitor Harvey Molina home and intimidate him into handing over his work overalls and security pass.",
+    "category": "القصة",
+    "description": "تتبع وحيازة زي وبطاقات هوية عمال النظافة في FIB للتمكن من التسلل ومحو الملفات المدينة الخاصة بـ Steve Haines.",
     "goldRequirements": [
-      "Eagle Eye — Check all the license plates",
-      "He Missed a Spot — Follow the janitor without being spotted",
-      "Time — Complete within 09:00"
+      "فحص جميع لوحات المركبات في موقف السيارات",
+      "تتبع البواب دون أن يتم اكتشافك",
+      "الإنهاء في أقل من 09:00"
     ],
-    "reward": "Unlocks the official FIB Raid planning board.",
-    "unlockedBy": "50. The Ballad of Rocco"
+    "reward": "التخطيط الرسمي لاقتحام FIB.",
+    "unlockedBy": "أنشودة Rocco"
   },
   {
     "id": "mission-52",
     "order": 52,
-    "title": "Fire Truck",
+    "title": "جمع شمل العائلة",
     "character": "Michael",
     "giver": "Jimmy De Santa",
-    "category": "Story",
-    "description": "After months of estrangement in an empty mansion, Jimmy reaches out to Michael to help bring the family back together. Together they drive across Los Santos to rescue Amanda from Fabien's pretentiousness and Tracey from Lazlow's sleazy advances, culminating in a chaotic group therapy session with Dr. Friedlander.",
+    "category": "القصة",
+    "description": "جمع Amanda وTracey وJimmy بعد أشهر من الانفصال، والتعامل مع مشاكل كل منهم لإعادة بناء وحدة العائلة.",
     "goldRequirements": [
-      "Time — Complete within 10:30"
+      "الإنهاء في أقل من 10:30"
     ],
-    "reward": "The De Santa family moves back into the mansion. Family vehicles become available again.",
-    "unlockedBy": "51. Cleaning out the Bureau"
+    "reward": "تعود عائلة De Santa إلى القصر. تعود مركبات العائلة متاحة.",
+    "unlockedBy": "تنظيف FIB"
   },
   {
     "id": "mission-53",
     "order": 53,
-    "title": "Getaway Vehicle",
+    "title": "مهندس لكل شيء",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To plan the raid on the FIB tower, Lester needs the exact structural blueprints of the federal building. Franklin heads to the Mile High Club construction site in Pillbox Hill to track down the project architect, seize his briefcase containing the floor plans, and make a fast getaway.",
+    "category": "التحضير",
+    "description": "سرقة المخططات المعمارية لمقر FIB التي يحملها كبير مهندسي مشروع التوسعة، للعثور على ثغرات في أمنه.",
     "goldRequirements": [
-      "Quick Getaway — Leave the construction site within 45 seconds"
+      "مغادرة منطقة البناء في أقل من 45 ثانية بعد سرقة الحقيبة"
     ],
-    "reward": "Building blueprints secured for the Bureau Raid.",
-    "unlockedBy": "52. Reuniting the Family"
+    "reward": "تأمين مخططات المبنى لاقتحام FIB.",
+    "unlockedBy": "جمع شمل العائلة"
   },
   {
     "id": "mission-54",
     "order": 54,
-    "title": "The Bureau Raid",
+    "title": "مشاكل قانونية",
     "character": "Michael",
     "giver": "Solomon Richards",
-    "category": "Story",
-    "description": "Devin Weston schemes to shut down production of 'Meltdown' and destroy the only master copy of the film to collect a massive insurance payout. Refusing to let his cinematic debut be ruined, Michael pursues Weston's panicked lawyer Molly Schultz onto the active runways of Los Santos International Airport.",
+    "category": "القصة",
+    "description": "إيقاف الملياردير Devin Weston ومحاميه الذين سرقوا النسخة الأصلية الوحيدة من الفيلم لقبض التأمين وإسقاط Solomon.",
     "goldRequirements": [
-      "Time — Complete within 05:30",
-      "Floor It — Reach top speed in any car",
-      "Clean Escape — Lose the wanted level within 02:00",
-      "News Hound — View the Weazel News camera for 15 seconds"
+      "الإنهاء في أقل من 05:30",
+      "بلوغ السرعة القصوى",
+      "التخلص من مستوى الطلب في أقل من دقيقتين",
+      "مشاهدة كاميرا الأخبار (Weazel News) لمدة 15 ثانية"
     ],
-    "reward": "Saves the release of 'Meltdown'.",
-    "unlockedBy": "53. Architect's Plans"
+    "reward": "إزالة التهديد عن فيلم 'Meltdown'.",
+    "unlockedBy": "مهندس لكل شيء"
   },
   {
     "id": "mission-55",
     "order": 55,
-    "title": "The Ballad of Rocco",
+    "title": "اقتحام FIB",
     "character": "Michael, Franklin",
-    "giver": "Lester Crest",
-    "category": "Story",
-    "description": "A bold raid on FIB Headquarters in Downtown Los Santos to steal classified server drives. Depending on the selected approach, the crew either plants incendiary bombs as a janitor and enters disguised as firefighters, or executes a night HALO parachute drop directly onto the skyscraper roof.",
+    "giver": "Steve Haines",
+    "category": "السطو",
+    "description": "اقتحام مباشر للمكاتب المركزية لـ FIB لمحو السجلات السرية. بحسب الاستراتيجية المختارة، ينفذ الاقتحام بالإنزال بالمظلات على السطح أو بتمثيل إخلاء من فرقة الإطفاء مع تفجيرات محكومة.",
     "goldRequirements": [
-      "Time — Complete within 18:00",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Headshots — Kill 20 enemies with headshots",
-      "Out of Breath — Escape with at least 40% oxygen remaining (Fire Crew) / Hacker — Hack the system within 45 seconds (Roof Entry)"
+      "الإنهاء في أقل من 18:00",
+      "دقة لا تقل عن 70%",
+      "تحقيق 20 إصابة في الرأس",
+      "إنقاذ عضو الفريق المحاصر"
     ],
-    "reward": "Erases the incriminating FIB files on Michael and Steve Haines",
-    "unlockedBy": "54. Legal Trouble"
+    "reward": "محو السوابق وضغط قانوني على Michael",
+    "unlockedBy": "خروج عن السكة"
   },
   {
     "id": "mission-56",
     "order": 56,
-    "title": "Lamar Down",
+    "title": "العقدة",
     "character": "Michael, Trevor",
     "giver": "Dave Norton / Steve Haines",
-    "category": "Story",
-    "description": "Michael meets Dave Norton and Steve Haines at the Kortz Center cultural complex, where tensions erupt into a chaotic three-way firefight between FIB tactical teams, IAA agents, and Merryweather contractors. Pinned down on the museum terraces, Michael only makes it out alive thanks to Trevor's unexpected sniper cover from the rooftops.",
+    "category": "القصة",
+    "description": "موعد في مجمع Kortz Center ينتهي بإطلاق نار ثلاثي بين أقسام متنازعة من FIB وIAA وقوات خاصة. يحاصر Michael على شرفات المتحف حتى يظهر Trevor في الوقت المناسب من مواقع مرتفعة.",
     "goldRequirements": [
-      "Time — Complete within 07:00",
-      "Headshots — Kill 18 enemies with headshots",
-      "Whirly Bird — Shoot down the pursuing chopper"
+      "زمن المهمة أقل من 07:00",
+      "تحقيق 18 إصابة في الرأس",
+      "إسقاط مروحية المطاردة بالقنص"
     ],
-    "reward": "Dave Norton and Michael's survival",
-    "unlockedBy": "The Bureau Raid"
+    "reward": "نجاة Dave Norton وMichael",
+    "unlockedBy": "اقتحام FIB"
   },
   {
     "id": "mission-57",
     "order": 57,
-    "title": "Meltdown",
+    "title": "Lamar في ورطة",
     "character": "Franklin, Michael, Trevor",
     "giver": "Tanisha / Franklin",
-    "category": "Story",
-    "description": "A three-man rescue operation at the Paleto Forest sawmill to save Lamar from a Ballas ambush. Franklin recruits Michael and Trevor to coordinate a multi-angle assault on the lumber mill and extract Lamar safely.",
+    "category": "القصة",
+    "description": "عملية إنقاذ في معمل النشر في Paleto Forest لتحرير Lamar من كمين. يجمع Franklin كلا من Michael وTrevor لتنسيق هجوم محيط على المنشرة وإحباط الخاطفين قبل إخلائهم.",
     "goldRequirements": [
-      "Headshots — Kill 18 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Three Way — Kill an enemy with all 3 characters",
-      "Time — Complete within 13:30"
+      "تحقيق 18 إصابة في الرأس",
+      "دقة تصويب لا تقل عن 70%",
+      "إنقاذ Lamar دون أن يفقد أكثر من ثلث صحته",
+      "الإنهاء في أقل من 13:30"
     ],
-    "reward": "Lamar's bond and survival",
-    "unlockedBy": "The Wrap Up"
+    "reward": "صداقة لا تتزعزع من Lamar",
+    "unlockedBy": "العقدة"
   },
   {
     "id": "mission-58",
     "order": 58,
-    "title": "Parenting 101",
+    "title": "الانهيار",
     "character": "Michael",
     "giver": "Jimmy De Santa",
-    "category": "Story",
-    "description": "Michael's big Vinewood movie premiere is cut short by a veiled threat from Devin Weston against the De Santa family. Michael races back to his Rockford Hills residence to repel a Merryweather hit squad and rescue Amanda and Tracey inside the mansion.",
+    "category": "القصة",
+    "description": "يتعطل العرض الأول للفيلم في Vinewood بسبب تهديد Devin Weston لعائلة De Santa. يتوجه Michael على وجه السرعة إلى منزله لصد المرتزقة وضمان سلامة Amanda وTracey داخل القصر.",
     "goldRequirements": [
-      "Time — Complete within 06:30",
-      "Pedal to the Metal — Reach top speed in any vehicle",
-      "Tier One — Kill 12 enemies with headshots",
-      "Saving Face — Kill the mercenaries attacking Amanda and Tracey with headshots"
+      "زمن أقل من 06:30",
+      "بلوغ السرعة القصوى بالمركبة أثناء السباق نحو القصر",
+      "قتل 12 عدوا بطلقات في الرأس"
     ],
-    "reward": "Full reunion of the De Santa family",
-    "unlockedBy": "Lamar Down"
+    "reward": "مصالحة كاملة لعائلة De Santa",
+    "unlockedBy": "Lamar في ورطة"
   },
   {
     "id": "mission-59",
     "order": 59,
-    "title": "Drilling the Hole",
+    "title": "آلات الحفر",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To execute the Obvious Approach for the Union Depository heist, the crew needs heavy industrial equipment capable of boring straight through the reinforced underground vault walls. The team locates a massive HVY Cutter loaded onto a flatbed trailer in La Mesa and mounts a covert operation to steal it.",
+    "category": "التحضير",
+    "description": "سرقة شاحنة نقل ثقيلة تحمل آلة حفر أنفاق عملاقة. وهي إلزامية لثقب الخزنة في الأسلوب 'العلني'.",
     "goldRequirements": [
-      "Sneak Thief — Steal the cutter without being detected",
-      "Time — Complete within 05:00"
+      "سرقة آلة الحفر دون أن يتم اكتشافك",
+      "الإنهاء في أقل من 05:00"
     ],
-    "reward": "HVY Cutter tunnel boring machine secured for The Big Score (Obvious Approach).",
-    "unlockedBy": "58. Meltdown"
+    "reward": "تأمين آلة الحفر (Cutter) للسطو العلني.",
+    "unlockedBy": "الانهيار"
   },
   {
     "id": "mission-60",
     "order": 60,
-    "title": "Sidewrecked",
+    "title": "سكة مسدودة",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "As part of the Obvious Approach for the Union Depository heist, the crew needs a freight train to haul the stolen gold out of the city. Michael and Trevor infiltrate the power station rail switch, divert an incoming freight train, and use a heavy-lift Skylift helicopter to airlift both the locomotive and a flatbed car to Sandy Shores.",
+    "category": "التحضير",
+    "description": "اختطاف قطار بضائع بمنصة مسطحة لتحميل سبائك الذهب المسروقة عليه ونقلها إلى نقطة الإخلاء الجوي. حصري بالأسلوب العلني.",
     "goldRequirements": [
-      "Time — Complete within 04:30",
-      "Undetected — Steal the train without being spotted"
+      "الإنهاء في أقل من 04:30",
+      "سرقة القطار دون أن يتم كشفك"
     ],
-    "reward": "Freight locomotive and flatbed car stolen to haul the gold in the Obvious Approach.",
-    "unlockedBy": "59. Drillers"
+    "reward": "عربات بضائع مسروقة لنقل الذهب في الأسلوب العلني.",
+    "unlockedBy": "آلات الحفر"
   },
   {
     "id": "mission-61",
     "order": 61,
-    "title": "Getaway Vehicle",
+    "title": "السطو الكبير",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "The ultimate heist on the Union Depository in Pillbox Hill to steal two hundred million dollars in gold bullion. Depending on the selected plan, the crew either infiltrates the vault in stolen armored vans and escapes in heavily modified muscle cars, or drills straight through the subterranean vault wall and airlifts the gold out by helicopter.",
+    "category": "السطو",
+    "description": "الهجوم الحاسم على خزنة Union Depository لسرقة أكثر احتياطيات الذهب حماية في البلاد. يمكن تنفيذه إما بمناورة خفية بنقل مزيف وقرصنة المرور أو بحفر أرضي مباشر مع إخلاء جوي.",
     "goldRequirements": [
-      "Headshots — Kill 20 enemies with headshots",
-      "Time — Complete within 16:00",
-      "Cha-Ching — Drop the gold onto the train within 30 seconds (Obvious) / Signal Man — Perform fewer than 10 traffic light changes (Subtle)",
-      "Accuracy — Finish with a shooting accuracy of at least 60%"
+      "تحقيق 20 إصابة في الرأس",
+      "الإنهاء في أقل من 16:00",
+      "إسقاط الذهب على القطار بدقة متناهية",
+      "دقة تصويب لا تقل عن 60%"
     ],
-    "reward": "Approx. $20,000,000 – $41,000,000 for each of the three protagonists",
-    "unlockedBy": "Meltdown"
+    "reward": "حوالي $28,000,000 لكل واحد من الأبطال الثلاثة",
+    "unlockedBy": "الانهيار"
   },
   {
     "id": "mission-62",
     "order": 62,
-    "title": "The Big Score (Subtle)",
+    "title": "اغتيال الفندق",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "A targeted corporate hit commissioned by Lester Crest to manipulate pharmaceutical stock prices. Franklin stakes out the Von Crastenburg Hotel in Richman and eliminates Bilkinton Research CEO Brett Lowrey before his motorcade departs.",
+    "category": "الاغتيال",
+    "description": "عقد تصفية يكلف به Lester للتأثير على سعر الأسهم. يتخذ Franklin موقعا أمام فندق Von Crastenburg في Rockford Hills ويقضي على المسؤول التنفيذي في Bilkinton Research قبل أن يغادر موكبه المكان.",
     "goldRequirements": [
-      "Time — Complete within 05:00",
-      "Sniper Boy — Kill the target using a sniper rifle",
-      "Money Earned — $9,000"
+      "زمن المهمة أقل من 05:00",
+      "قتل الهدف باستخدام بندقية قنص",
+      "المال المكتسب من الاستثمار المسبق في Betta Pharmaceuticals"
     ],
-    "reward": "$9,000 + massive stock market returns",
-    "unlockedBy": "Fame or Shame"
+    "reward": "$9,000 + أرباح هائلة في البورصة",
+    "unlockedBy": "الشهرة أو العار"
   },
   {
     "id": "mission-63",
     "order": 63,
-    "title": "The Big Score (Obvious)",
+    "title": "الاغتيال المتعدد",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To prevent Redwood Cigarettes from rigging a class-action lawsuit and send rival Debonaire's stock soaring on the LCN, Lester tasks Franklin with eliminating four bribed jurors across Los Santos within a strict nine-minute window.",
+    "category": "الاغتيال",
+    "description": "القضاء على هيئة محلفين فاسدة من 4 أشخاص اشترتهم شركة التبغ Redwood قبل أن يصدروا الحكم.",
     "goldRequirements": [
-      "Speedy Killer — Kill all targets as quickly as possible",
-      "Money Earned — $7,000"
+      "إنهاء جميع الاغتيالات بأسرع ما يمكن"
     ],
-    "reward": "Massive stock surge for Debonaire (DEB) on the LCN.",
-    "unlockedBy": "62. The Hotel Assassination"
+    "reward": "ارتفاع هائل في أسهم Debonaire (DEB) في LCN.",
+    "unlockedBy": "اغتيال الفندق"
   },
   {
     "id": "mission-64",
     "order": 64,
-    "title": "Something Sensible (Option A)",
+    "title": "اغتيال الرذيلة",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To boost Fruit Computers against rival tech giant Facade on the BAWSAQ exchange, Lester orders the elimination of Facade's head of product development, Jackson Skinner, who has been selling user data. Franklin stakes out La Puerta and takes Skinner out during his nightly rendezvous with a streetwalker.",
+    "category": "الاغتيال",
+    "description": "اغتيال Jackson Skinner، رئيس القسم التقني في Facade، الذي يبيع معلومات سرية لمنافسيه في منطقة الدعارة.",
     "goldRequirements": [
-      "Clean Escape — Lose the cops without alerting them",
-      "Money Earned — $5,000"
+      "الهروب من مكان الحادث دون تنبيه الشرطة"
     ],
-    "reward": "Fruit Computers (FRT) stock rises ~50% on BAWSAQ.",
-    "unlockedBy": "63. The Multi Target Assassination"
+    "reward": "سترتفع أسهم Fruit Computers (FRT) بنسبة 50% في BAWSAQ.",
+    "unlockedBy": "الاغتيال المتعدد"
   },
   {
     "id": "mission-65",
     "order": 65,
-    "title": "The Time's Come (Option B)",
+    "title": "اغتيال الحافلة",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Lester orchestrates a stock market crash for Vapid Motor Company by targeting prospective buyer Isaac Penny—a billionaire Venture capitalist so notoriously frugal that he refuses to own a car and commutes exclusively by city bus. Franklin poses as a transit bus driver along Penny's daily route to intercept and eliminate him.",
+    "category": "الاغتيال",
+    "description": "اغتيال Isaac Penny، مضارب ملياردير جشع، أثناء تنقله في مساره المعتاد بوسائل النقل العام في المدينة.",
     "goldRequirements": [
-      "Hit and Run — Kill the target using the bus",
-      "Money Earned — $7,000"
+      "دهس الهدف والهروب"
     ],
-    "reward": "Vapid (VAP) stock market manipulation.",
-    "unlockedBy": "64. The Vice Assassination"
+    "reward": "التلاعب بأسهم Vapid Motor Company.",
+    "unlockedBy": "اغتيال الرذيلة"
   },
   {
     "id": "mission-66",
     "order": 66,
-    "title": "The Third Way (Option C)",
+    "title": "اغتيال موقع البناء",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To rescue GoldCoast Development on the LCN stock exchange, Lester orders the elimination of Enzo Bonelli—a mobbed-up real estate developer who uses union extortion and violence to monopolize city construction contracts. Franklin infiltrates the Mile High Club skyscraper under construction, fights his way up through private security, and takes down Bonelli before his helicopter can escape the roof.",
+    "category": "الاغتيال",
+    "description": "اغتيال زعيم الجريمة العقارية Enzo Bonelli، المختبئ في الطوابق العليا من ناطحة سحاب قيد الإنشاء يحرسها أمن خاص.",
     "goldRequirements": [
-      "No Fly Zone — Shoot down the target's helicopter",
-      "Money Earned — $10,000"
+      "إسقاط مروحية الضحية"
     ],
-    "reward": "GoldCoast Development (GCD) stock manipulation on the LCN.",
-    "unlockedBy": "65. The Bus Assassination"
+    "reward": "التلاعب بأسهم GoldCoast (GCD) في LCN.",
+    "unlockedBy": "اغتيال الحافلة"
   },
   {
     "id": "mission-67",
     "order": 67,
-    "title": "The Third Way - Finale",
+    "title": "الخيار A: التصرف بحكمة",
     "character": "Franklin",
     "giver": "Steve Haines / FIB",
-    "category": "Story",
-    "description": "Pressured by Steve Haines and Dave Norton to eliminate Trevor as an unpredictable liability to the FIB, Franklin arranges a meeting in El Burro Heights under false pretenses. Realizing the ambush, Trevor flees in his pickup truck until Michael rams him into a fuel tanker at the Murrieta Oil Field, sealing his grim fate.",
+    "category": "النهاية",
+    "description": "خاتمة تفرضها الوكالة الفيدرالية للقضاء على Trevor. يرتب Franklin لقاء ينتهي بمطاردة نحو آبار النفط في El Burro Heights، حيث يحسم الاصطدام بخزان قابل للاشتعال مصير الهدف.",
     "goldRequirements": [
-      "Judas! — Kill Trevor",
-      "Time — Complete within 06:00"
+      "قتل Trevor",
+      "زمن أقل من 06:00"
     ],
-    "reward": "Union Depository heist cut split between Franklin and Michael (Trevor dies permanently)",
-    "unlockedBy": "The Big Score"
+    "reward": "تقاسم الغنيمة بين Franklin وMichael (يختفي Trevor)",
+    "unlockedBy": "السطو الكبير"
   },
   {
     "id": "mission-68",
     "order": 68,
-    "title": "The Last One",
+    "title": "الخيار B: حانت الساعة",
     "character": "Franklin",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Caving to pressure from billionaire Devin Weston, Franklin turns on his mentor, Michael De Santa. A high-speed pursuit leads to the Palmer-Taylor Power Station, where a tense foot chase up the industrial catwalks culminates with Michael dangling over the edge of a towering smokestack.",
+    "category": "النهاية",
+    "description": "خاتمة تحت إكراه Devin Weston لتصفية Michael. تنتقل المواجهة إلى أعالي مصنع للصلب، وتنتهي بعراك على الممرات المعدنية يلقي بـ Michael في الفراغ.",
     "goldRequirements": [
-      "Surpassed the Mentor — Kill Michael",
-      "Time — Complete within 07:00"
+      "قتل Michael",
+      "زمن أقل من 07:00"
     ],
-    "reward": "Union Depository heist cut split between Franklin and Trevor (Michael dies permanently)",
-    "unlockedBy": "The Big Score"
+    "reward": "تقاسم الغنيمة بين Franklin وTrevor (يختفي Michael)",
+    "unlockedBy": "السطو الكبير"
   },
   {
     "id": "mission-69",
     "order": 69,
-    "title": "Prologue Redux",
+    "title": "الخيار C: الطريق الثالث",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Refusing to betray either of his partners to the FIB or Devin Weston, Franklin chooses 'Deathwish'—The Third Way. The trio lures FIB tactical squads and Merryweather mercenaries into an all-out firefight at an industrial foundry, splits up to eliminate Wei Cheng, Stretch, and Steve Haines across Los Santos, and abducts Devin Weston to settle accounts once and for all.",
+    "category": "النهاية",
+    "description": "الخاتمة المعتمدة التي يتحالف فيها الأبطال الثلاثة لتصفية الحسابات المعلقة. بعد صد الحصار في المسبك، يتوزعون على الأهداف للقضاء على ملاحقيهم من FIB والتريادات والعصابات المنافسة، وتنتهي باختطاف Devin Weston وإسقاط سيارته من على الجرف الساحلي.",
     "goldRequirements": [
-      "Time — Complete within 21:30",
-      "Headshots — Kill 20 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Cheng Reaction — Kill Wei Cheng with a Sticky Bomb",
-      "Lead Lobotomy — Kill Steve Haines with a headshot",
-      "Stretched Out — Kill Stretch with a melee attack"
+      "زمن أقل من 21:30",
+      "تحقيق 20 إصابة في الرأس",
+      "دقة لا تقل عن 70%",
+      "القضاء على Cheng بقنبلة لاصقة",
+      "القضاء على Steve Haines بطلقة في الرأس"
     ],
-    "reward": "Union Depository heist payout (~$20M–$41M each) and all three protagonists alive and playable",
-    "unlockedBy": "The Big Score"
+    "reward": "$28,000,000 لكل واحد وبقاء الشخصيات الثلاث أحياء وقابلة للعب",
+    "unlockedBy": "السطو الكبير"
   }
 ]

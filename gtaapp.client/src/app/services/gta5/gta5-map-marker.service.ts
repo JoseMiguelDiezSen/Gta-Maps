@@ -397,41 +397,4 @@ export class Gta5MapMarkerService {
         });
     }
 
-    buildPushpinPopupHtml(item: { note: string; color: string; lat: number; lng: number }): HTMLElement {
-        const hex = item.color || '#ff3b30';
-
-        const card = document.createElement('div');
-        card.className = 'custom-pin-popup-inner';
-
-        const head = document.createElement('div');
-        head.className = 'custom-pin-popup-head';
-        head.style.borderLeft = `3px solid ${hex}`;
-
-        const title = document.createElement('span');
-        title.className = 'custom-pin-popup-title';
-        const icon = document.createElement('i');
-        icon.className = 'fa-solid fa-thumbtack';
-        title.append(icon, document.createTextNode(' Marcador'));
-
-        const delBtn = document.createElement('button');
-        delBtn.className = 'custom-pin-del-btn';
-        delBtn.setAttribute('data-pin-id', `${item.lat}_${item.lng}`);
-        delBtn.setAttribute('data-action', 'delete');
-        const trashIcon = document.createElement('i');
-        trashIcon.className = 'fa-solid fa-trash-can';
-        delBtn.appendChild(trashIcon);
-
-        head.append(title, delBtn);
-        card.appendChild(head);
-
-        const body = document.createElement('div');
-        body.className = 'custom-pin-popup-body';
-        const note = document.createElement('p');
-        note.className = 'custom-pin-note';
-        note.textContent = item.note || 'Sin nota';
-        body.appendChild(note);
-        card.appendChild(body);
-
-        return card;
-    }
 }

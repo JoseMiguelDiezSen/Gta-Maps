@@ -35,7 +35,7 @@ export class GotyComponent implements OnInit, OnDestroy {
     es: 'Asistente de GTA Explorer',
     en: 'GTA Explorer Assistant',
     pt: 'Assistente do GTA Explorer',
-    zh: 'GTA Explorer 官方向导',
+    zh: 'GTA Explorer 助手',
     fr: 'Assistant GTA Explorer',
     de: 'GTA Explorer Assistent',
     it: 'Assistente GTA Explorer',

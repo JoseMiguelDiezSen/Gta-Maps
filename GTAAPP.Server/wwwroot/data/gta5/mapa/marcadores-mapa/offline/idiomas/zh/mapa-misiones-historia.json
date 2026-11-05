@@ -4,108 +4,99 @@
     "order": 1,
     "title": "序幕",
     "character": "Michael, Trevor",
-    "giver": "主线故事",
-    "category": "Prólogo",
-    "description": "GTA V 故事模式主线任务：序幕。主角（Michael, Trevor）由 主线故事 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "giver": "剧情",
+    "category": "序幕",
+    "description": "九年前发生在 Ludendorff（North Yankton）的冬季劫案。Michael、Trevor 和 Brad 闯入 Bobcat Security 的金库。雪地逃亡因撞上火车和警方介入而变得复杂，最终 Michael 与联邦探员 Dave Norton 秘密达成协议，伪造自己的死亡。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 04:30 内完成",
+      "射击命中率至少 80%",
+      "至少爆头 12 名警察"
     ],
-    "reward": "Unlocks Los Santos and Franklin",
-    "unlockedBy": "前置任务: Game start"
+    "reward": "解锁 Los Santos 和 Franklin",
+    "unlockedBy": "游戏开始"
   },
   {
     "id": "mission-02",
     "order": 2,
-    "thumbnail": "assets/images/gta5/guia/offline/misiones-principales/02-franklin-y-lamar.png",
-    "title": "富兰克林与拉玛",
+    "title": "Franklin 与 Lamar",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：富兰克林与拉玛。主角（Franklin）由 Simeon Yetarian 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "categoryLabel": "剧情任务",
+    "description": "为 Simeon Yetarian 的车行接的第一单活。Franklin 和 Lamar 前往 Rockford Hills 的一栋别墅，取回两辆高档跑车。两人在 Los Santos 的街道上全速飙车，穿过车流、甩开巡逻车，最后把车停到 Premium Deluxe Motorsport。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "完成比赛且 9F 不受严重损坏",
+      "使用 Franklin 的特殊能力至少 7 秒",
+      "在比赛中赢过 Lamar",
+      "避免在片场停车场内发生碰撞"
     ],
     "reward": "$250",
-    "unlockedBy": "前置任务: Prologue",
-    "position": {
-      "x": -1873.8,
-      "y": -583.6,
-      "z": 13
-    }
+    "unlockedBy": "序幕"
   },
   {
     "id": "mission-03",
     "order": 3,
-    "title": "回收资产",
+    "title": "收回车辆",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：回收资产。主角（Franklin）由 Simeon Yetarian 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "description": "在 Vespucci Beach 的小巷里收回欠款车辆的委托。Franklin 和 Lamar 试图在 Vagos 帮的地盘上取回一辆摩托车。谈判当场破裂，引发车库间的枪战，并紧接着在街上展开追逐，要抓住目标。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "时限 06:30",
+      "射击汽油痕迹引爆车辆",
+      "爆头击杀 6 名敌人",
+      "命中率至少 70%"
     ],
-    "reward": "Experience and reputation with Simeon",
-    "unlockedBy": "前置任务: Franklin and Lamar"
+    "reward": "经验以及 Simeon 的信任",
+    "unlockedBy": "Franklin 与 Lamar"
   },
   {
     "id": "mission-04",
     "order": 4,
-    "title": "错综复杂",
+    "title": "并发症",
     "character": "Franklin, Michael",
     "giver": "Simeon Yetarian",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：错综复杂。主角（Franklin, Michael）由 Simeon Yetarian 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "description": "潜入 Rockford Hills 的 De Santa 宅邸。Franklin 必须避开佣人，偷走 Jimmy 的越野车。行动突然出现转折：Michael 持枪出现在后座，要求他直接撞破 Simeon 店铺的玻璃橱窗。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 05:00 内完成",
+      "悄悄击晕园丁",
+      "与 Simeon 的拳斗中不受伤害"
     ],
-    "reward": "$300 and Michael unlocked as playable character",
-    "unlockedBy": "前置任务: Repossession"
+    "reward": "$300 以及 Michael 成为可操控角色",
+    "unlockedBy": "收回车辆"
   },
   {
     "id": "mission-05",
     "order": 5,
-    "title": "有其父必有其子",
-    "character": "Michael, Franklin",
-    "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：有其父必有其子。主角（Michael, Franklin）由 Michael De Santa 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "Chop",
+    "character": "Franklin",
+    "giver": "Lamar Davis",
+    "category": "剧情",
+    "description": "针对绰号“D”的 Ballas 头目的快速绑架行动。Lamar 和 Franklin 追着嫌疑人来到火车车库。借助罗威纳犬 Chop 的嗅觉，两人搜查货运车厢，直到抓住逃犯。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "不要损坏 Lamar 的货车",
+      "以 Chop 的视角观察世界 10 秒",
+      "使用 Franklin 的驾驶能力 7 秒"
     ],
-    "reward": "Free vehicle upgrades at Los Santos Customs for Franklin",
-    "unlockedBy": "前置任务: Complications"
+    "reward": "Chop 成为 Franklin 的伙伴",
+    "unlockedBy": "Franklin 与 Lamar"
   },
   {
     "id": "mission-06",
     "order": 6,
-    "title": "小查",
-    "character": "Franklin",
-    "giver": "Lamar Davis",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：小查。主角（Franklin）由 Lamar Davis 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "父与子",
+    "character": "Michael, Franklin",
+    "giver": "Michael De Santa",
+    "category": "剧情",
+    "description": "一次失败的网上交易，导致 Michael 家的游艇连同 Jimmy 一起在高速公路上被劫走。Michael 和 Franklin 驾驶 Amanda 的跑车展开拼命追逐，Franklin 必须在行驶中跳上拖车，救出这个年轻人。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "Jimmy 挂在帆桁上后，10 秒内将他救下",
+      "将 Amanda 的车送回 Los Santos Customs 且无额外损坏",
+      "在 07:00 内完成"
     ],
-    "reward": "Chop unlocked as Franklin's companion",
-    "unlockedBy": "前置任务: Franklin and Lamar"
+    "reward": "为 Franklin 解锁免费的 Los Santos Customs",
+    "unlockedBy": "并发症"
   },
   {
     "id": "mission-07",
@@ -113,33 +104,31 @@
     "title": "婚姻咨询",
     "character": "Michael, Franklin",
     "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：婚姻咨询。主角（Michael, Franklin）由 Michael De Santa 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "description": "发现家中有出轨后，Michael 和 Franklin 一路追赶网球教练，来到 Vinewood Hills 的一座豪宅。Michael 怒火中烧，开着皮卡撞塌了露台结构，随后才发现这是 Martín Madrazo 的毒枭宅邸，对方要求巨额赔偿。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "完成任务且皮卡损坏最小",
+      "任务用时少于 05:30",
+      "驾驶时击杀 3 名敌人"
     ],
-    "reward": "$2.5M debt with Martin Madrazo",
-    "unlockedBy": "前置任务: Father/Son"
+    "reward": "欠 Martín Madrazo $2,500,000 的债务",
+    "unlockedBy": "父与子"
   },
   {
     "id": "mission-08",
     "order": 8,
-    "title": "掌上明珠",
+    "title": "爸爸的乖女儿",
     "character": "Michael",
-    "giver": "Jimmy De Santa",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：掌上明珠。主角（Michael）由 Jimmy De Santa 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "giver": "Michael De Santa",
+    "category": "剧情",
+    "description": "一家人在 Vespucci 和 Del Perro 码头之间骑自行车，结果发现 Tracey 正在一艘私人游艇上，身边的人来路不明，场面急转直下。Michael 跳入水中，骑上水上摩托救出女儿，并在枪林弹雨中穿过运河水网逃离。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "驾驶 Seashark 水上摩托达到最高速度",
+      "比赛中不要从自行车上摔下来",
+      "在 1 分钟内游到游艇"
     ],
-    "reward": "Stamina boost for Michael",
-    "unlockedBy": "前置任务: Marriage Counseling"
+    "reward": "Michael 的体力提升",
+    "unlockedBy": "婚姻咨询"
   },
   {
     "id": "mission-09",
@@ -147,16 +136,15 @@
     "title": "好友请求",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：好友请求。主角（Michael）由 Lester Crest 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "description": "Michael 求助于天才 Lester Crest，以偿还欠 Madrazo 的债。作为提前的人情，他假扮 IT 人员潜入科技公司 Lifeinvader 总部，对首席执行官 Jay Norris 要在直播发布会上展示的设备动手脚。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 08:30 内完成",
+      "在 32 秒内清除所有弹窗",
+      "在 Suburban 购买潮人服装"
     ],
-    "reward": "Lester agrees to assist in future heists",
-    "unlockedBy": "前置任务: Marriage Counseling"
+    "reward": "Lester 同意协助策划抢劫",
+    "unlockedBy": "婚姻咨询"
   },
   {
     "id": "mission-10",
@@ -164,590 +152,560 @@
     "title": "漫漫长路",
     "character": "Franklin",
     "giver": "Lamar Davis",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：漫漫长路。主角（Franklin）由 Lamar Davis 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "description": "与 Lamar 和 Stretch 一起在 Rogers Waste 的垃圾处理厂进行交易。这场交易其实是 Ballas 设下的埋伏，众人只能在交叉火力中清出通道，并解决警方的空中监视，才能离开这片街区。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "命中率至少 60%",
+      "10 次爆头",
+      "Franklin 受到的伤害最小",
+      "用时少于 10:30"
     ],
-    "reward": "Weapons and ammunition scavenged during escape",
-    "unlockedBy": "前置任务: Chop"
+    "reward": "逃脱途中获得的武器和弹药",
+    "unlockedBy": "Chop"
   },
   {
     "id": "mission-11",
     "order": 11,
-    "title": "勘查珠宝店",
+    "title": "珠宝店踩点",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：勘查珠宝店。主角（Michael）由 Lester Crest 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "description": "对 Rockford Hills 的 Vangelico 珠宝店进行战术勘察。Michael 带着隐藏的微型摄像机，记录通风口、传感器和警报终端。随后在 Lester 的仓库里选定抢劫方式：用催眠毒气潜入，或者蛮力正面强攻。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "任务用时少于 08:00",
+      "一次完美拍摄下全部 3 套安保系统"
     ],
-    "reward": "Jewel Store Heist planning board",
-    "unlockedBy": "前置任务: Friend Request"
+    "reward": "Vangelico 抢劫的策划板",
+    "unlockedBy": "好友请求"
   },
   {
     "id": "mission-12",
     "order": 12,
-    "title": "珠光宝气（珠宝店抢劫）",
-    "character": "Michael, Franklin",
+    "title": "Bugstars 装备",
+    "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Preparación",
-    "description": "GTA V 故事模式主线任务：珠光宝气（珠宝店抢劫）。主角（Michael, Franklin）由 Lester Crest 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "准备",
+    "description": "在港口偷一辆 Bugstars 灭虫货车，在 Vangelico 抢劫中当作特洛伊木马使用。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在不被发现的情况下偷走 Bugstars 货车"
     ],
-    "reward": "Over $1.4M total split between Franklin and Michael",
-    "unlockedBy": "前置任务: Casing the Jewel Store"
+    "reward": "为抢劫（智取方案）备好货车和伪装。",
+    "unlockedBy": "珠宝店踩点"
   },
   {
     "id": "mission-13",
     "order": 13,
-    "title": "菲利普先生",
-    "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Preparación",
-    "description": "GTA V 故事模式主线任务：菲利普先生。主角（Trevor）由 Trevor Philips 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "BZ 毒气手雷",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "准备",
+    "description": "拦截一辆运送 BZ 神经毒气的 Humane Labs 货车，并为珠宝店抢劫夺取这批货物。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "射击货车后门，让货物掉出来"
     ],
-    "reward": "Trevor unlocked as playable character",
-    "unlockedBy": "前置任务: The Jewel Store Job"
+    "reward": "备好 BZ 毒气，用于在抢劫（智取方案）中放倒平民。",
+    "unlockedBy": "Bugstars 装备"
   },
   {
     "id": "mission-14",
     "order": 14,
-    "title": "崔佛·菲利普产业",
-    "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Golpe",
-    "description": "GTA V 故事模式主线任务：崔佛·菲利普产业。主角（Trevor）由 Trevor Philips 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "珠宝店抢劫",
+    "character": "Michael, Franklin",
+    "giver": "Lester Crest",
+    "category": "抢劫",
+    "description": "对 Vangelico 店铺进行的计时抢劫。团队在警方接到报警前扫空展柜，骑越野摩托穿过地下电车隧道逃走，来到河道，在那里用一辆重型车辆撞开巡逻车，确保撤离。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 50 秒内抢光展柜",
+      "在 Los Santos 河道追逐中保护 Franklin",
+      "清空 20 个珠宝展柜，不留下任何赃物"
     ],
-    "reward": "Consolidates meth empire in Sandy Shores",
-    "unlockedBy": "前置任务: Mr. Philips"
+    "reward": "百万级赃款（Franklin 约 $200,000，Michael 约 $1,200,000）",
+    "unlockedBy": "珠宝店踩点"
   },
   {
     "id": "mission-15",
     "order": 15,
-    "title": "焦虑的小罗",
+    "title": "Philips 先生",
     "character": "Trevor",
-    "giver": "Ron Jakowski",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：焦虑的小罗。主角（Trevor）由 Ron Jakowski 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "giver": "Trevor Philips",
+    "category": "剧情",
+    "description": "新闻里播出的一句话，让 Trevor Philips 得知 Michael 在 North Yankton 活了下来。他在 Sandy Shores 的沙漠里怒火爆发，端掉了 The Lost 车队在 Grapeseed 的据点，并清除了河边的 Ortega 营地。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "击杀所有逃跑的飙车党",
+      "取得 12 次爆头",
+      "在 12:00 内完成",
+      "对 Ortega 的拖车造成大规模破坏"
     ],
-    "reward": "McKenzie Airfield hangar unlocked for purchase",
-    "unlockedBy": "前置任务: Trevor Philips Industries"
+    "reward": "Trevor 成为第三位可操控主角",
+    "unlockedBy": "珠宝店抢劫"
   },
   {
     "id": "mission-16",
     "order": 16,
-    "title": "水晶迷宫",
+    "title": "Trevor Philips 实业",
     "character": "Trevor",
     "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：水晶迷宫。主角（Trevor）由 Trevor Philips 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "description": "与 Blaine County 三合会使者的商业谈判被 O'Neil 兄弟的武装袭击打断。Trevor 把买家困在酒类商店的冷藏室里，从屋顶和实验室窗口击退一波又一波袭击者。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "击杀 32 名敌人",
+      "完成任务且自身受伤最小",
+      "摧毁 6 辆袭击者的车辆"
     ],
-    "reward": "Elimination of Blaine County competitors",
-    "unlockedBy": "前置任务: Trevor Philips Industries"
+    "reward": "巩固对 Sandy Shores 生意的掌控",
+    "unlockedBy": "Philips 先生"
   },
   {
     "id": "mission-17",
     "order": 17,
-    "title": "重逢好友",
+    "title": "紧张的 Ron",
     "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：重逢好友。主角（Trevor）由 Trevor Philips 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "giver": "Ron Jakowski",
+    "category": "剧情",
+    "description": "Trevor 的家遭到破坏后展开武装反击。Ron 在储油罐顶上提供战术支援，两人夺下 McKenzie 机场，抢走运输机，并驾机掠过郡里的桥梁击毁敌方车辆。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "用狙击步枪取得 5 次爆头",
+      "在 12:30 内完成",
+      "空中航程中从 6 座桥下低飞穿过",
+      "站在飞机机翼上击杀所有飙车党"
     ],
-    "reward": "Floyd's Vespucci Beach safehouse unlocked",
-    "unlockedBy": "前置任务: Crystal Maze"
+    "reward": "可购买 McKenzie Field 机库",
+    "unlockedBy": "Trevor Philips 实业"
   },
   {
     "id": "mission-18",
     "order": 18,
-    "title": "出名或出丑",
-    "character": "Michael, Trevor",
-    "giver": "Michael De Santa",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：出名或出丑。主角（Michael, Trevor）由 Michael De Santa 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "玻璃迷宫",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "剧情",
+    "description": "在失去亚洲投资人的独家合作后，对 O'Neil 兄弟的农场发动惩罚性袭击。Trevor 清除了埋伏在山上的枪手，扫荡宅邸，并在地下室倒上燃料，把整个设施烧成灰烬。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "爆头击杀 10 名敌人",
+      "进屋前不被发现",
+      "一发子弹点燃汽油痕迹"
     ],
-    "reward": "Initial truce between Michael and Trevor",
-    "unlockedBy": "前置任务: Friends Reunited"
+    "reward": "消灭该郡的竞争对手",
+    "unlockedBy": "Trevor Philips 实业"
   },
   {
     "id": "mission-19",
     "order": 19,
-    "title": "三人成行",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Dave Norton (FIB)",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：三人成行。主角（Michael, Franklin, Trevor）由 Dave Norton (FIB) 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "重逢",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "剧情",
+    "description": "动身前往 Los Santos 寻找 Michael 的下落。Trevor 用粘性炸弹炸毁了飙车党的拖车营地，留下自己的印记，随后与 Wade 踏上公路旅程，最后强行住进 Floyd 在 Vespucci 的公寓。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "用爆炸物或狙击枪取得 5 次爆头",
+      "摧毁所有房车且不惊动援兵",
+      "完成任务且 Bodhi 损坏最小"
     ],
-    "reward": "Unlocks cooperative FIB field missions",
-    "unlockedBy": "前置任务: Fame or Shame"
+    "reward": "解锁 Floyd 在 Vespucci 的安全屋",
+    "unlockedBy": "玻璃迷宫"
   },
   {
     "id": "mission-20",
     "order": 20,
-    "title": "依计行事",
+    "title": "成名还是出丑",
     "character": "Michael, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：依计行事。主角（Michael, Trevor）由 Steve Haines (FIB) 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "giver": "Amanda / Tracey",
+    "category": "剧情",
+    "description": "Michael 与 Trevor 的当面重逢，因得知 Tracey 要参加电视节目 Fame or Shame 的试镜而黯然失色。两人赶到 Maze Bank Arena，叫停录制，并开着卡车沿城市河道一路追逐，把主持人 Lazlow Jones 逼到走投无路。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "驾驶 Phantom 卡车达到最高速度",
+      "追逐过程中不要甩掉拖车",
+      "给 Lazlow 一拳",
+      "不要伤害片场的行人"
     ],
-    "reward": "Trevor transports Kerimov safely to the airport",
-    "unlockedBy": "前置任务: Three's Company"
+    "reward": "Michael 与 Trevor 初步和解",
+    "unlockedBy": "重逢"
   },
   {
     "id": "mission-21",
     "order": 21,
-    "title": "穷街陋巷（街区游猎）",
-    "character": "Franklin, Trevor",
-    "giver": "Franklin Clinton",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：穷街陋巷（街区游猎）。主角（Franklin, Trevor）由 Franklin Clinton 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "活死人",
+    "character": "Michael",
+    "giver": "FIB (Dave Norton)",
+    "category": "剧情",
+    "description": "Dave Norton 以 Michael 重操旧业为要挟，逼他为 FIB 效力。Michael 在假死后于停尸房醒来，找出 Ferdinand Kerimov 的证件，并逃离被 IAA 包围的设施。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "射击命中率至少 80%",
+      "取得 14 次爆头",
+      "在 09:30 内完成",
+      "使用特殊能力击杀 4 名敌人",
+      "受到的伤害最小"
     ],
-    "reward": "$0 (deal gone bad)",
-    "unlockedBy": "前置任务: Three's Company"
+    "reward": "解锁 FIB 任务。",
+    "unlockedBy": "成名还是出丑"
   },
   {
     "id": "mission-22",
     "order": 22,
-    "title": "梅利威瑟抢劫任务",
+    "title": "三人行",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Trevor Philips",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：梅利威瑟抢劫任务。主角（Michael, Franklin, Trevor）由 Trevor Philips 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "giver": "Dave Norton (FIB)",
+    "category": "剧情",
+    "description": "三名主角在 Downtown 联手实施的营救行动。奉 FIB 之命，Trevor 驾驶直升机，Michael 从 IAA 总部的落地窗外顺绳索降下，闯入审讯现场，Franklin 则在邻近楼顶用精确步枪清除威胁，从旁协助。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "用时少于 07:30",
+      "命中率至少 60%",
+      "三名角色合计 10 次爆头"
     ],
-    "reward": "Experience (device returned without cash payout)",
-    "unlockedBy": "前置任务: Hood Safari"
+    "reward": "解锁 FIB 联合任务",
+    "unlockedBy": "成名还是出丑"
   },
   {
     "id": "mission-23",
     "order": 23,
-    "title": "饭店暗杀行动",
-    "character": "Franklin",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：饭店暗杀行动。主角（Franklin）由 Lester Crest 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "照章办事",
+    "character": "Michael, Trevor",
+    "giver": "Steve Haines",
+    "category": "剧情",
+    "description": "在 Steve Haines 和 Dave Norton 两名探员的监督下，于 Los Santos 码头进行审讯。随着嫌疑人的情报逐渐到手，Michael 监视 Chumash 山丘上的一场私人派对，在不引起怀疑的情况下辨认并击倒目标。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "审讯期间不要让 Kerimov 心脏停跳",
+      "4 种刑具各至少使用一次",
+      "毫不犹豫，第一次就射中正确的目标"
     ],
-    "reward": "$9,000 + massive stock market returns",
-    "unlockedBy": "前置任务: Fame or Shame"
+    "reward": "Trevor 把 Kerimov 安全送到机场",
+    "unlockedBy": "三人行"
   },
   {
     "id": "mission-24",
     "order": 24,
-    "title": "闪电突袭",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：闪电突袭。主角（Michael, Franklin, Trevor）由 Steve Haines (FIB) 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "邻里狩猎",
+    "character": "Franklin, Trevor",
+    "giver": "Franklin Clinton",
+    "category": "剧情",
+    "description": "与 Lamar 和 Trevor 一起，在 Grove Street 的腹地进行一笔见不得光的交易。货物原来是个骗局，引发与本地帮派的近距离街头战斗，随后乘水上摩托沿排水渠逃离。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "用时少于 07:00",
+      "命中率至少 70%",
+      "12 次爆头"
     ],
-    "reward": "Black-ops funding for the FIB operation",
-    "unlockedBy": "前置任务: Hotel Assassination"
+    "reward": "$0（生意告吹）",
+    "unlockedBy": "三人行"
   },
   {
     "id": "mission-25",
     "order": 25,
-    "title": "我战胜了法律...",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Devin Weston",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：我战胜了法律...。主角（Michael, Franklin, Trevor）由 Devin Weston 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "谁说瑜伽?",
+    "character": "Michael",
+    "giver": "Amanda De Santa",
+    "category": "剧情",
+    "description": "忍受瑜伽教练 Fabien 的一堂课，处理 Jimmy 的背叛，并设法熬过一场麻醉药引发的糟糕幻觉。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 15:00 内完成",
+      "无失误完成全部 3 个瑜伽体式"
     ],
-    "reward": "Devin Weston unlocked as an employer",
-    "unlockedBy": "前置任务: Blitz Play"
+    "reward": "Amanda、Jimmy 和 Tracey 离开家。Michael 暂时无法使用自己的私人车辆。",
+    "unlockedBy": "邻里狩猎"
   },
   {
     "id": "mission-26",
     "order": 26,
-    "title": "佩立托湾抢劫任务",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "FIB / Lester",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：佩立托湾抢劫任务。主角（Michael, Franklin, Trevor）由 FIB / Lester 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "码头踩点",
+    "character": "Trevor",
+    "giver": "Floyd",
+    "category": "剧情",
+    "description": "Trevor 向 Wade 和他的表哥 Floyd（码头工人）施压，要策划一场准军事规模的抢劫。他假扮装卸工，潜入由 Merryweather Security 管理的港口设施，寻找一件先进技术装置并规划偷窃。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 20:00 内完成任务",
+      "完成装卸工环节且不损坏集装箱",
+      "第一次就正确拍好船只的照片",
+      "完成全部码头工作且不引发骚乱"
     ],
-    "reward": "Approx. $450,000 take per protagonist",
-    "unlockedBy": "前置任务: I Fought the Law..."
+    "reward": "解锁 Merryweather 抢劫的准备任务。",
+    "unlockedBy": "谁说瑜伽?"
   },
   {
     "id": "mission-27",
     "order": 27,
-    "title": "追撞列车",
-    "character": "Michael, Trevor",
-    "giver": "Trevor Philips",
-    "category": "Preparación",
-    "description": "GTA V 故事模式主线任务：追撞列车。主角（Michael, Trevor）由 Trevor Philips 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "微型潜艇",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "准备",
+    "description": "从停靠在港口的勘探船上偷走一艘实验性微型潜艇。无论选择哪种抢劫方案，这都是必须完成的任务。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 08:30 内完成",
+      "不登上民用船只就偷走潜艇"
     ],
-    "reward": "Valuable smuggled high-grade contraband",
-    "unlockedBy": "前置任务: The Paleto Score"
+    "reward": "为两种抢劫方案备好潜艇。",
+    "unlockedBy": "码头踩点"
   },
   {
     "id": "mission-28",
     "order": 28,
-    "title": "突袭FIB",
-    "character": "Michael, Franklin",
-    "giver": "Steve Haines",
-    "category": "Preparación",
-    "description": "GTA V 故事模式主线任务：突袭FIB。主角（Michael, Franklin）由 Steve Haines 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "Cargobob",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "准备",
+    "description": "潜入最高戒备的军事基地（Fort Zancudo），偷走一架能吊起微型潜艇的军用重型运输直升机（Cargobob）。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 05:30 内完成"
     ],
-    "reward": "Erasure of federal records and legal pressure on Michael",
-    "unlockedBy": "前置任务: Derailed"
+    "reward": "为深海方案备好运输直升机。",
+    "unlockedBy": "微型潜艇"
   },
   {
     "id": "mission-29",
     "order": 29,
-    "title": "联邦难题",
-    "character": "Michael, Trevor",
-    "giver": "Dave Norton",
-    "category": "Golpe",
-    "description": "GTA V 故事模式主线任务：联邦难题。主角（Michael, Trevor）由 Dave Norton 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "Merryweather 抢劫",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Trevor Philips",
+    "category": "抢劫",
+    "description": "针对军事企业 Merryweather 车队的行动。团队借助潜水器和重型运输直升机，打捞沉在深海的军事装置，最后按 Lester 的指示必须将其归还，以躲避政府的报复。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 14:30 内完成",
+      "在 02:00 内找到水下装置",
+      "击落追击的直升机且不受致命损伤"
     ],
-    "reward": "Survival of Dave Norton and Michael",
-    "unlockedBy": "前置任务: The Bureau Raid"
+    "reward": "经验（装置已归还，没有即时报酬）",
+    "unlockedBy": "邻里狩猎"
   },
   {
     "id": "mission-30",
     "order": 30,
-    "title": "拉玛遇险",
-    "character": "Franklin, Michael, Trevor",
-    "giver": "Tanisha Jackson",
-    "category": "Preparación",
-    "description": "GTA V 故事模式主线任务：拉玛遇险。主角（Franklin, Michael, Trevor）由 Tanisha Jackson 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "垃圾车",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "准备",
+    "description": "找到并偷走一辆市政车队正在作业的垃圾车（“Trashmaster”），在抢劫中充当重型路障，用来伏击运钞车。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 05:00 内完成",
+      "交付垃圾车且无损坏",
+      "达到最高速度"
     ],
-    "reward": "Unbreakable bond with Lamar",
-    "unlockedBy": "前置任务: The Wrap Up"
+    "reward": "为“闪电突击”抢劫备好拦截车辆。",
+    "unlockedBy": "Merryweather 抢劫"
   },
   {
     "id": "mission-31",
     "order": 31,
-    "title": "崩溃危机",
-    "character": "Michael",
-    "giver": "Solomon Richards",
-    "category": "Preparación",
-    "description": "GTA V 故事模式主线任务：崩溃危机。主角（Michael）由 Solomon Richards 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "拖车",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "准备",
+    "description": "偷一辆拖吊车，在“闪电突击”（Blitz Play）行动中用来撞开运钞车的后门。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 03:00 内完成",
+      "交付拖吊车且无损坏"
     ],
-    "reward": "Full reunion of the De Santa family",
-    "unlockedBy": "前置任务: Lamar Down"
+    "reward": "为“闪电突击”抢劫备好逃离/冲撞用车辆。",
+    "unlockedBy": "垃圾车"
   },
   {
     "id": "mission-32",
     "order": 32,
-    "title": "大干一票（大劫案）",
+    "title": "闪电突击",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：大干一票（大劫案）。主角（Michael, Franklin, Trevor）由 Lester Crest 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "giver": "Steve Haines",
+    "category": "剧情",
+    "description": "在 Cypress Flats 工业区对一辆装甲运钞车发动的战术抢劫。用重型车辆截断道路，用拖车废掉运钞车，再用炸药炸开出入口，同时压制战术部队，直到抵达换乘点。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "用 Trevor 击落直升机",
+      "取得 12 次爆头",
+      "命中率至少 60%",
+      "至少切换角色 10 次"
     ],
-    "reward": "Approx. $28,000,000 take for each of the three protagonists",
-    "unlockedBy": "前置任务: Meltdown"
+    "reward": "FIB 行动的秘密资金",
+    "unlockedBy": "酒店暗杀"
   },
   {
     "id": "mission-33",
     "order": 33,
-    "title": "结局A：明智之举（杀死崔佛）",
-    "character": "Franklin",
-    "giver": "Steve Haines / Dave Norton",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：结局A：明智之举（杀死崔佛）。主角（Franklin）由 Steve Haines / Dave Norton 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "Richards 先生",
+    "character": "Michael",
+    "giver": "Solomon Richards",
+    "category": "剧情",
+    "description": "用鲁莽的飞行手段，恐吓 Solomon Richards 最新电影的男主角和导演，逼他们回到片场。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "在 10:00 内完成",
+      "悄悄击杀 3 名敌人",
+      "战斗中不受伤",
+      "降落直升机且不造成损坏"
     ],
-    "reward": "Heist money split between Franklin and Michael (Trevor lost)",
-    "unlockedBy": "前置任务: The Big Score"
+    "reward": "Michael 与 Solomon 的电影合作就此开始。",
+    "unlockedBy": "闪电突击"
   },
   {
     "id": "mission-34",
     "order": 34,
-    "title": "结局B：时候到了（杀死麦克）",
-    "character": "Franklin",
+    "title": "与法律交锋...",
+    "character": "Franklin, Michael, Trevor",
     "giver": "Devin Weston",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：结局B：时候到了（杀死麦克）。主角（Franklin）由 Devin Weston 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "category": "剧情",
+    "description": "大亨 Devin Weston 的特别委托：扣押两辆奢华跑车。Michael 和 Trevor 假扮骑警摩托的交警，在沿海公路上拦下司机，并展开一场比赛，把车送到约定的修车厂。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "用时少于 12:00",
+      "同时在两辆卡车之间行驶",
+      "骑警用摩托赢得比赛且不发生碰撞"
     ],
-    "reward": "Heist money split between Franklin and Trevor (Michael lost)",
-    "unlockedBy": "前置任务: The Big Score"
+    "reward": "Devin Weston 成为新的雇主",
+    "unlockedBy": "闪电突击"
   },
   {
     "id": "mission-35",
     "order": 35,
-    "title": "结局C：第三条路（全员生还/大团圆）",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Lester Crest",
-    "category": "Historia",
-    "description": "GTA V 故事模式主线任务：结局C：第三条路（全员生还/大团圆）。主角（Michael, Franklin, Trevor）由 Lester Crest 处接取，完成各项黄金勋章挑战以达成 100% 游戏进度。",
+    "title": "天眼",
+    "character": "Trevor, Franklin",
+    "giver": "Devin Weston",
+    "category": "剧情",
+    "description": "借助警用直升机的先进热成像传感器和人脸识别，扫描住宅区，以偷走一辆珍贵的 Z-Type（超级奢华的经典老爷车）。",
     "goldRequirements": [
-      "在规定时间内完成任务",
-      "保持高射击命中率（70% 以上）",
-      "达成指定爆头击杀数",
-      "避免载具发生严重碰撞"
+      "第一次就找到目标",
+      "交付 Z-Type 且没有一丝划痕",
+      "完整听完 3 段警察/平民的对话"
     ],
-    "reward": "$28,000,000 for each protagonist and all three alive and playable",
-    "unlockedBy": "前置任务: The Big Score"
+    "reward": "解锁更多 Devin 黑名单上的车辆。",
+    "unlockedBy": "与法律交锋..."
   },
   {
     "id": "mission-36",
     "order": 36,
-    "title": "Caida Libre",
+    "title": "自由落体",
     "character": "Michael, Trevor",
-    "giver": "Martin Madrazo",
-    "category": "Story",
-    "description": "Martin Madrazo hires Michael to silence his cousin Javier, who plans to testify against him and is flying to Liberty City with a briefcase of incriminating files. Using a high-caliber computer-guided sniper rifle mounted inside a van at the Galileo Observatory, Michael must cripple the aircraft mid-flight while Trevor chases the burning fuselage across Blaine County.",
+    "giver": "Martín Madrazo",
+    "category": "剧情",
+    "description": "用重型火力在空中击落 Martín Madrazo 表亲（Javier）的私人喷气机，将其刺杀，并取回一些能定罪的文件。",
     "goldRequirements": [
-      "Floor It — Reach top speed on the Sanchez",
-      "Glued to the Seat — Don't fall off the Sanchez",
-      "One Two Three — Shoot down the plane with 3 shots",
-      "Time — Complete within 09:45"
+      "驾驶 Sánchez 摩托达到最高速度",
+      "追逐过程中不要从 Sánchez 摩托上摔下来",
+      "用 3 发击落飞机",
+      "在 09:45 内完成"
     ],
-    "reward": "Michael and Trevor are exiled from Los Santos. Unlocks the Sandy Shores safehouse for both.",
-    "unlockedBy": "35. Eye in the Sky"
+    "reward": "Michael 和 Trevor 被逐出 Los Santos。解锁 Sandy Shores 安全屋。",
+    "unlockedBy": "天眼"
   },
   {
     "id": "mission-37",
     "order": 37,
-    "title": "Deep Inside",
+    "title": "深海之底",
     "character": "Franklin",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Devin Weston demands another legendary vehicle for his collection: the vintage Dewbauchee JB 700 currently being used on a spy film shoot at Richards Majestic Studios. Franklin sneaks onto the backlot, knocks out the lead actor and steals the prop car, discovering its ejector seat and road spikes are fully functional.",
+    "category": "剧情",
+    "description": "潜入一处电影拍摄现场，偷走一辆改装的 Aston Martin（Dewbauchee JB 700），车上装有真实武器和间谍装置。",
     "goldRequirements": [
-      "Not a Scratch — Deliver the JB 700 with minimal damage",
-      "Fastest Speed — Reach top speed in the JB 700",
-      "Stealthy Recasting — Knock out the actor using a stealth attack",
-      "Premature Ejector — Hit the ejector seat within 10 seconds",
-      "Second Strike — Run over the actor as you escape in the JB 700"
+      "交付 JB 700 且损坏最小",
+      "驾驶 JB 700 达到最高速度",
+      "悄悄击晕演员",
+      "在 10 秒内弹射出乘客"
     ],
-    "reward": "Another classic car delivered to Devin Weston's garage.",
-    "unlockedBy": "36. Caida Libre"
+    "reward": "为 Devin Weston 的车库再添一辆新车。",
+    "unlockedBy": "自由落体"
   },
   {
     "id": "mission-38",
     "order": 38,
-    "title": "Minor Turbulence",
+    "title": "偷渡客",
     "character": "Trevor",
     "giver": "Ron Jakowski",
-    "category": "Story",
-    "description": "Tired of working for free for federal agents and eager to expand Trevor Philips Industries, Trevor takes off in a rickety crop duster to board a massive Merryweather military cargo plane mid-flight over Blaine County and seize its heavy weaponry.",
+    "category": "剧情",
+    "description": "在飞行途中登上 Merryweather 的货机，夺取飞机控制权，并在军事基地战斗机的反击中活下来。",
     "goldRequirements": [
-      "Accuracy — Finish with a shooting accuracy of at least 80%",
-      "Four Wheel Flier — Exit the cargo plane in the Mesa"
+      "命中率至少 80%",
+      "驾驶 Mesa 越野车驶出货机"
     ],
-    "reward": "None. The entire cargo sinks to the bottom of the Alamo Sea.",
-    "unlockedBy": "37. Deep Inside"
+    "reward": "无。所有货物沉入 Alamo Sea。",
+    "unlockedBy": "深海之底"
   },
   {
     "id": "mission-39",
     "order": 39,
-    "title": "Paleto Score Setup",
+    "title": "封锁",
     "character": "Michael, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Forced to fund a black-ops raid for the FIB while exiled in Blaine County, Michael and Trevor meet Lester in Sandy Shores. Together they scope out the Blaine County Savings Bank in Paleto Bay, a quiet rural branch holding millions in dirty cartel and corrupt sheriff kickbacks.",
+    "category": "准备",
+    "description": "由 Lester 和 Trevor 直接在房车里设计的第一个联合计划。对 Paleto Bay 的乡村银行进行试探并触发警报，以评估当地警察的战术响应力量。",
     "goldRequirements": [
-      "Leisurely Drive — Drive to the bank within 03:30",
-      "Winner — Win the race back to the meth lab"
+      "在 03:30 内开到银行",
+      "赢得返回实验室的比赛"
     ],
-    "reward": "Unlocks setup preparations for the Paleto Score.",
-    "unlockedBy": "38. Minor Turbulence"
+    "reward": "开始筹备 Paleto 抢劫。",
+    "unlockedBy": "偷渡客"
   },
   {
     "id": "mission-40",
     "order": 40,
-    "title": "Military Hardware",
+    "title": "猎杀者",
     "character": "Trevor, Michael, Franklin",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "Out for blood after the destruction of their meth farm, the surviving O'Neil brothers head out to ambush Trevor. After crashing their SUV deep into Raton Canyon, they scatter into the dense forest at dusk, prompting Michael, Trevor, Franklin and Chop to coordinate a combined air-and-ground manhunt.",
+    "category": "剧情",
+    "description": "追击并消灭躲藏在 Raton Canyon 茂密森林中的 O'Neil 兄弟幸存者。",
     "goldRequirements": [
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Time — Complete within 09:00",
-      "Headshots — Kill 3 enemies with headshots",
-      "Thin the Herd — Do not kill any animals"
+      "命中率至少 70%",
+      "在 09:00 内完成",
+      "取得 3 次爆头",
+      "不要杀死任何动物"
     ],
-    "reward": "None. Vengeance and elimination of the remaining O'Neil brothers.",
-    "unlockedBy": "39. Paleto Score Setup"
+    "reward": "无。复仇并消灭剩下的 O'Neil 兄弟。",
+    "unlockedBy": "封锁"
   },
   {
     "id": "mission-41",
     "order": 41,
-    "title": "Predator",
+    "title": "军用装备",
     "character": "Trevor, Michael, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Knowing that Paleto Bay law enforcement boasts heavy armor and militarized response teams, Lester devises an overwhelming brute-force plan: outfitting the crew in heavy ballistic Juggernaut armor and rotary miniguns. To acquire the gear, the gang intercepts an Army supply convoy rolling down the Great Ocean Highway.",
+    "category": "准备",
+    "description": "伏击一支军用车队，偷走一辆运送全身军用防弹服和转管机枪（Minigun）的卡车。",
     "goldRequirements": [
-      "Head Hunter — Kill 5 enemies with headshots",
-      "Sticky Strategist — Stop the convoy using a Sticky Bomb trap"
+      "爆头击杀 5 名士兵",
+      "用粘性炸弹拦停车队"
     ],
-    "reward": "Heavy ballistic armor and firepower secured for the Paleto Score.",
-    "unlockedBy": "40. Predator"
+    "reward": "为 Paleto 抢劫备好护甲和重型武器。",
+    "unlockedBy": "猎杀者"
   },
   {
     "id": "mission-42",
     "order": 42,
-    "title": "The Paleto Score",
+    "title": "Paleto 抢劫",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "An all-out armed assault on the Blaine County Savings Bank in Paleto Bay using heavy rotary miniguns and full-body ballistic armor. The crew withstands a combined siege by SWAT and the U.S. Army until Franklin smashes through the blockade in a heavy bulldozer to clear a path to the train tracks.",
+    "category": "抢劫",
+    "description": "身着全身防弹服、手持重型武器，武装洗劫 Paleto Bay 的银行。团队顶住特种部队与军队的联合包围，直到 Franklin 开着重型机械赶到，为通往铁路的道路杀开一条路。",
     "goldRequirements": [
-      "Let It Rain — Fire over 4,000 rounds of ammo",
-      "Accuracy — Finish with a shooting accuracy of at least 50%",
-      "Collateral Damage — Cause $1,000,000 of damage in Paleto Bay",
-      "Time — Complete within 16:00"
+      "射出超过 4,000 发子弹",
+      "射击命中率至少 50%",
+      "对 Paleto Bay 造成超过 $1,000,000 的财产损失",
+      "在 16:00 内完成"
     ],
-    "reward": "Approx. $450,000 net payout per character",
-    "unlockedBy": "41. Military Hardware"
+    "reward": "每名角色净得约 $450,000",
+    "unlockedBy": "与法律交锋..."
   },
   {
     "id": "mission-43",
     "order": 43,
-    "title": "Derailed",
-    "character": "Trevor, Michael",
+    "title": "出轨",
+    "character": "Michael, Trevor",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "A daring motorcycle jump onto a speeding freight train to force a head-on collision over the Zancudo River bridge. With the cargo cars plunged into the rapids below, Michael pulls up in a Dinghy to blow open the sunken container while fending off Merryweather tactical squads.",
+    "category": "剧情",
+    "description": "骑摩托登上行驶中的火车，迫使火车在 Zancudo 河大桥上相撞。车厢坠入水中后，Michael 乘船取出货物，同时与 Merryweather 的战术人员交火。",
     "goldRequirements": [
-      "Time — Complete within 11:30",
-      "Fastest Speed — Reach top speed on the Sanchez",
-      "Better Than CJ — Land on the train using the first jump",
-      "Separation — Complete the mission without detaching",
-      "High Velocity — Reach top speed in the Dinghy"
+      "用时少于 11:30",
+      "第一次尝试就骑摩托落在火车车厢上",
+      "驾驶快艇达到最高速度"
     ],
-    "reward": "High-value historical artifact for Martin Madrazo",
-    "unlockedBy": "The Paleto Score"
+    "reward": "高价值的走私品",
+    "unlockedBy": "Paleto 抢劫"
   },
   {
     "id": "mission-44",
     "order": 44,
-    "title": "Monkey Business",
+    "title": "猴子把戏",
     "character": "Michael, Franklin, Trevor",
     "giver": "Steve Haines",
-    "category": "Story",
-    "description": "Under orders from Steve Haines and Dave Norton to stop an IAA chemical weapons program, the trio infiltrates the heavily guarded Humane Labs facility. Michael dives through underwater intake pipes to steal an experimental neurotoxin before Trevor extracts the cargo by air in a Cargobob.",
+    "category": "剧情",
+    "description": "通过水道潜入高度戒备的 Humane Labs 设施，为 FIB 偷取一种实验性神经毒素。",
     "goldRequirements": [
-      "Stunner — Stun 8 enemies with the Stun Gun",
-      "Headshots — Kill 15 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Time — Complete within 13:30"
+      "用电击枪击晕 8 名敌人",
+      "取得 15 次爆头",
+      "命中率至少 70%",
+      "在 13:30 内完成"
     ],
-    "reward": "Settles the FIB black-ops demand. Trevor reconciles the dispute with Martin Madrazo.",
-    "unlockedBy": "43. Derailed"
+    "reward": "与 Haines 的交易了结。Madrazo 停止追杀。",
+    "unlockedBy": "出轨"
   },
   {
     "id": "mission-45",
@@ -755,392 +713,385 @@
     "title": "Hang Ten",
     "character": "Trevor",
     "giver": "Trevor Philips",
-    "category": "Story",
-    "description": "Debra's return to her Vespucci Beach condo sparks a violent confrontation with Floyd and Trevor that ends in an off-screen bloodbath. Covered in blood, Trevor steers an oblivious Wade away from the crime scene and relocates to the Vanilla Unicorn strip club, which he has forcefully taken over as his new Los Santos headquarters.",
+    "category": "剧情",
+    "description": "安全屋的局面难以为继，主角们之间关系紧张，Trevor 需要一个独立的新据点来策划“大劫案”。他要暴力了断与 Floyd 和 Debra 的关系，并强行在 Los Santos 夺下一处新总部。",
     "goldRequirements": [
-      "Time — Complete within 04:00"
+      "在 04:00 内完成"
     ],
-    "reward": "Trevor takes over the Vanilla Unicorn strip club, which becomes his Los Santos safehouse.",
-    "unlockedBy": "44. Monkey Business"
+    "reward": "Trevor 接管脱衣舞俱乐部 Vanilla Unicorn，把它变成自己在 LS 的安全屋。",
+    "unlockedBy": "猴子把戏"
   },
   {
     "id": "mission-46",
     "order": 46,
-    "title": "Surveying the Score",
+    "title": "勘察抢劫",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Gathered in the back office of the Vanilla Unicorn with Lester, the trio sets their sights on the ultimate criminal prize: robbing the Union Depository of over two hundred million dollars in gold bullion. To plan the score of the century, the crew conducts coordinated ground and aerial reconnaissance across Downtown Los Santos.",
+    "category": "抢劫",
+    "description": "对联邦储备银行（“Union Depository”）进行漏洞分析，测算响应时间，并找出进入点。",
     "goldRequirements": [
-      "Perfect Distance — Follow the vans without being warned about distance",
-      "Cavity Search — Find the construction hole within 20 seconds",
-      "Under the Bridge / Tunnel Flight — Fly under the bridge while following the vans and fly through a tunnel"
+      "跟踪运钞车，不被提示距离过远",
+      "在 20 秒内找到施工洞口",
+      "低空飞越大桥追踪运钞车并穿过隧道"
     ],
-    "reward": "Unlocks the official Big Score planning board (Subtle or Obvious).",
-    "unlockedBy": "45. Hang Ten"
+    "reward": "正式策划大劫案（隐秘或强攻）。",
+    "unlockedBy": "Hang Ten"
   },
   {
     "id": "mission-47",
     "order": 47,
-    "title": "Bury the Hatchet",
+    "title": "埋葬战斧",
     "character": "Michael, Trevor",
     "giver": "Michael De Santa",
-    "category": "Story",
-    "description": "Consumed by suspicion, Trevor flies to the frozen town of Ludendorff to dig up the grave bearing Michael Townley's name. Discovering the decomposing body of Brad Snider inside the coffin, the bitter standoff between the former partners is cut short by an ambush from Wei Cheng's Triads, leaving Michael stranded and captured in the snow.",
+    "category": "剧情",
+    "description": "冒着大雪前往 Ludendorff（North Yankton），挖开“Michael Townley”的坟墓，并在 Wei Cheng 集团的伏击中活下来。",
     "goldRequirements": [
-      "Time — Complete within 11:00",
-      "Headshots — Kill 20 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 80%"
+      "在 11:00 内完成",
+      "取得 20 次爆头",
+      "命中率至少 80%"
     ],
-    "reward": "Temporary fracture of the crew; Trevor learns the truth about Brad.",
-    "unlockedBy": "46. Surveying the Score"
+    "reward": "团队暂时分裂；Trevor 得知关于 Brad 的真相。",
+    "unlockedBy": "勘察抢劫"
   },
   {
     "id": "mission-48",
     "order": 48,
-    "title": "Pack Man",
+    "title": "运车劫匪",
     "character": "Franklin, Trevor",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Having collected every exotic car on Devin Weston's list, Franklin, Lamar and Trevor load the five supercars onto a Packer car carrier bound for Paleto Bay. When highway patrol cruisers spot the stolen shipment and launch a high-speed pursuit, Franklin climbs into the weaponized JB 700 on the upper deck to fight off the police.",
+    "category": "剧情",
+    "description": "用运车拖车（“Packer”）把偷来的一批豪华超跑运到 Paleto Bay 的交货点，同时躲避 LSPD 的追捕。",
     "goldRequirements": [
-      "Mission Time — Complete within 12:00",
-      "Not a Scratch — Deliver the JB 700 with minimal damage",
-      "Shredder — Disable 3 police cars using the spike strips"
+      "在 12:00 内完成",
+      "交付 JB 700 且损坏最小",
+      "用钉刺带摧毁 3 辆警车"
     ],
-    "reward": "None. Weston refuses to pay the crew.",
-    "unlockedBy": "47. Bury the Hatchet"
+    "reward": "无。Weston 拒绝向主角们付钱。",
+    "unlockedBy": "埋葬战斧"
   },
   {
     "id": "mission-49",
     "order": 49,
-    "title": "Fresh Meat",
+    "title": "鲜肉",
     "character": "Franklin, Michael",
     "giver": "Franklin Clinton",
-    "category": "Story",
-    "description": "Kidnapped in North Yankton by Wei Cheng's Triads after being mistaken for Trevor's lover, Michael is held captive inside the Raven Slaughterhouse in Cypress Flats. Tipped off by Lester, Franklin races against the clock using a phone tracking app to locate the meatpacking plant and save Michael from the industrial meat grinder.",
+    "category": "剧情",
+    "description": "追踪 Michael 的手机信号，闯入一家肉类加工厂（Raven Abattoir），大肆屠杀三合会成员，救他一命。",
     "goldRequirements": [
-      "Switch Limiter — Don't switch characters more than 3 times",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Headshots — Kill 10 enemies with headshots",
-      "Swift Rescue — Rescue Michael within 03:30",
-      "Sense of Direction — Don't use any map waypoints"
+      "切换角色不超过 3 次",
+      "10 次爆头且命中率至少 70%",
+      "在 03:30 内救出 Michael",
+      "不要使用地图上的路径点（waypoint）"
     ],
-    "reward": "Michael is rescued and rejoins the heist crew.",
-    "unlockedBy": "48. Pack Man"
+    "reward": "Michael 获救，与 Lester 重新取得联系。",
+    "unlockedBy": "运车劫匪"
   },
   {
     "id": "mission-50",
     "order": 50,
-    "title": "Cleaning out the Bureau",
+    "title": "Rocco 之歌",
     "character": "Michael",
     "giver": "Solomon Richards",
-    "category": "Story",
-    "description": "Arriving at Richards Majestic Studios after a frantic call from Solomon Richards, Michael catches mobster Rocco Pelosi and his associate Gianni roughing up the elderly producer. Outraged by the attack on his mentor, Michael launches into a high-speed pursuit through Vinewood to permanently eliminate the Liberty City extortionist.",
+    "category": "剧情",
+    "description": "在 Rocco Pelosi（Liberty City 的黑手党成员）于电影制片厂对 Solomon Richards 动手之后，将其彻底除掉。",
     "goldRequirements": [
-      "Time — Complete within 03:00"
+      "在 03:00 内完成任务"
     ],
-    "reward": "Michael is officially credited as Associate Producer on Solomon's film.",
-    "unlockedBy": "49. Fresh Meat"
+    "reward": "Michael 被列为 Solomon 电影的联合制片人。",
+    "unlockedBy": "鲜肉"
   },
   {
     "id": "mission-51",
     "order": 51,
-    "title": "Architect's Plans",
+    "title": "清扫 FIB",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To prepare for the raid on FIB headquarters and wipe the files incriminating Steve Haines and Michael, the crew needs inside access. Michael stakes out the federal building to tail janitor Harvey Molina home and intimidate him into handing over his work overalls and security pass.",
+    "category": "剧情",
+    "description": "找到并弄到 FIB 清洁人员的制服和身份证件，以便潜入并删除 Steve Haines 的罪证档案。",
     "goldRequirements": [
-      "Eagle Eye — Check all the license plates",
-      "He Missed a Spot — Follow the janitor without being spotted",
-      "Time — Complete within 09:00"
+      "检查停车场内的所有车牌",
+      "跟踪清洁工且不被发现",
+      "在 09:00 内完成"
     ],
-    "reward": "Unlocks the official FIB Raid planning board.",
-    "unlockedBy": "50. The Ballad of Rocco"
+    "reward": "正式策划 FIB 突袭。",
+    "unlockedBy": "Rocco 之歌"
   },
   {
     "id": "mission-52",
     "order": 52,
-    "title": "Fire Truck",
+    "title": "家庭团聚",
     "character": "Michael",
     "giver": "Jimmy De Santa",
-    "category": "Story",
-    "description": "After months of estrangement in an empty mansion, Jimmy reaches out to Michael to help bring the family back together. Together they drive across Los Santos to rescue Amanda from Fabien's pretentiousness and Tracey from Lazlow's sleazy advances, culminating in a chaotic group therapy session with Dr. Friedlander.",
+    "category": "剧情",
+    "description": "在分居数月之后，把 Amanda、Tracey 和 Jimmy 重新聚到一起，处理各人的问题，重建家庭的团结。",
     "goldRequirements": [
-      "Time — Complete within 10:30"
+      "在 10:30 内完成"
     ],
-    "reward": "The De Santa family moves back into the mansion. Family vehicles become available again.",
-    "unlockedBy": "51. Cleaning out the Bureau"
+    "reward": "De Santa 一家回到豪宅。家庭车辆重新可用。",
+    "unlockedBy": "清扫 FIB"
   },
   {
     "id": "mission-53",
     "order": 53,
-    "title": "Getaway Vehicle",
+    "title": "万能建筑师",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To plan the raid on the FIB tower, Lester needs the exact structural blueprints of the federal building. Franklin heads to the Mile High Club construction site in Pillbox Hill to track down the project architect, seize his briefcase containing the floor plans, and make a fast getaway.",
+    "category": "准备",
+    "description": "抢走 FIB 总部扩建工程总建筑师随身携带的建筑图纸，从中找出其安保的漏洞。",
     "goldRequirements": [
-      "Quick Getaway — Leave the construction site within 45 seconds"
+      "抢走公文包后 45 秒内离开施工区域"
     ],
-    "reward": "Building blueprints secured for the Bureau Raid.",
-    "unlockedBy": "52. Reuniting the Family"
+    "reward": "为 FIB 抢劫备好大楼图纸。",
+    "unlockedBy": "家庭团聚"
   },
   {
     "id": "mission-54",
     "order": 54,
-    "title": "The Bureau Raid",
+    "title": "法律纠纷",
     "character": "Michael",
     "giver": "Solomon Richards",
-    "category": "Story",
-    "description": "Devin Weston schemes to shut down production of 'Meltdown' and destroy the only master copy of the film to collect a massive insurance payout. Refusing to let his cinematic debut be ruined, Michael pursues Weston's panicked lawyer Molly Schultz onto the active runways of Los Santos International Airport.",
+    "category": "剧情",
+    "description": "拦住亿万富翁 Devin Weston 和他的律师们，他们偷走了影片唯一的原始拷贝，想领取保险金并击垮 Solomon。",
     "goldRequirements": [
-      "Time — Complete within 05:30",
-      "Floor It — Reach top speed in any car",
-      "Clean Escape — Lose the wanted level within 02:00",
-      "News Hound — View the Weazel News camera for 15 seconds"
+      "在 05:30 内完成",
+      "达到最高速度",
+      "在 2 分钟内甩掉通缉等级",
+      "观看新闻摄像机（Weazel News）15 秒"
     ],
-    "reward": "Saves the release of 'Meltdown'.",
-    "unlockedBy": "53. Architect's Plans"
+    "reward": "消除对电影《崩溃》的威胁。",
+    "unlockedBy": "万能建筑师"
   },
   {
     "id": "mission-55",
     "order": 55,
-    "title": "The Ballad of Rocco",
+    "title": "FIB 突袭",
     "character": "Michael, Franklin",
-    "giver": "Lester Crest",
-    "category": "Story",
-    "description": "A bold raid on FIB Headquarters in Downtown Los Santos to steal classified server drives. Depending on the selected approach, the crew either plants incendiary bombs as a janitor and enters disguised as firefighters, or executes a night HALO parachute drop directly onto the skyscraper roof.",
+    "giver": "Steve Haines",
+    "category": "抢劫",
+    "description": "直接突袭 FIB 总部，销毁机密记录。根据所选策略，突袭可以通过伞降到屋顶，也可以假扮消防队疏散并配合受控爆破来执行。",
     "goldRequirements": [
-      "Time — Complete within 18:00",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Headshots — Kill 20 enemies with headshots",
-      "Out of Breath — Escape with at least 40% oxygen remaining (Fire Crew) / Hacker — Hack the system within 45 seconds (Roof Entry)"
+      "在 18:00 内完成",
+      "命中率至少 70%",
+      "取得 20 次爆头",
+      "救出被困的队友"
     ],
-    "reward": "Erases the incriminating FIB files on Michael and Steve Haines",
-    "unlockedBy": "54. Legal Trouble"
+    "reward": "抹除前科，并对 Michael 施加法律压力",
+    "unlockedBy": "出轨"
   },
   {
     "id": "mission-56",
     "order": 56,
-    "title": "Lamar Down",
+    "title": "收网",
     "character": "Michael, Trevor",
     "giver": "Dave Norton / Steve Haines",
-    "category": "Story",
-    "description": "Michael meets Dave Norton and Steve Haines at the Kortz Center cultural complex, where tensions erupt into a chaotic three-way firefight between FIB tactical teams, IAA agents, and Merryweather contractors. Pinned down on the museum terraces, Michael only makes it out alive thanks to Trevor's unexpected sniper cover from the rooftops.",
+    "category": "剧情",
+    "description": "在 Kortz Center 的会面演变成 FIB 内部对立部门、IAA 和私人武装三方之间的枪战。Michael 被困在博物馆的露台之间，直到 Trevor 适时从高处现身。",
     "goldRequirements": [
-      "Time — Complete within 07:00",
-      "Headshots — Kill 18 enemies with headshots",
-      "Whirly Bird — Shoot down the pursuing chopper"
+      "任务用时少于 07:00",
+      "取得 18 次爆头",
+      "用狙击枪击落追击的直升机"
     ],
-    "reward": "Dave Norton and Michael's survival",
-    "unlockedBy": "The Bureau Raid"
+    "reward": "Dave Norton 和 Michael 幸存",
+    "unlockedBy": "FIB 突袭"
   },
   {
     "id": "mission-57",
     "order": 57,
-    "title": "Meltdown",
+    "title": "Lamar 惹麻烦",
     "character": "Franklin, Michael, Trevor",
     "giver": "Tanisha / Franklin",
-    "category": "Story",
-    "description": "A three-man rescue operation at the Paleto Forest sawmill to save Lamar from a Ballas ambush. Franklin recruits Michael and Trevor to coordinate a multi-angle assault on the lumber mill and extract Lamar safely.",
+    "category": "剧情",
+    "description": "在 Paleto Forest 的锯木厂展开营救行动，把 Lamar 从埋伏中救出。Franklin 召集 Michael 和 Trevor，协调对锯木厂的包抄突击，在绑匪撤离之前将其制服。",
     "goldRequirements": [
-      "Headshots — Kill 18 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Three Way — Kill an enemy with all 3 characters",
-      "Time — Complete within 13:30"
+      "取得 18 次爆头",
+      "射击命中率至少 70%",
+      "救出 Lamar，且他的生命值损失不超过三分之一",
+      "在 13:30 内完成"
     ],
-    "reward": "Lamar's bond and survival",
-    "unlockedBy": "The Wrap Up"
+    "reward": "Lamar 坚定不移的友情",
+    "unlockedBy": "收网"
   },
   {
     "id": "mission-58",
     "order": 58,
-    "title": "Parenting 101",
+    "title": "崩溃",
     "character": "Michael",
     "giver": "Jimmy De Santa",
-    "category": "Story",
-    "description": "Michael's big Vinewood movie premiere is cut short by a veiled threat from Devin Weston against the De Santa family. Michael races back to his Rockford Hills residence to repel a Merryweather hit squad and rescue Amanda and Tracey inside the mansion.",
+    "category": "剧情",
+    "description": "Vinewood 的电影首映式因 Devin Weston 对 De Santa 一家的威胁而被迫中断。Michael 火速赶回家，击退雇佣兵，保证 Amanda 和 Tracey 在豪宅内的安全。",
     "goldRequirements": [
-      "Time — Complete within 06:30",
-      "Pedal to the Metal — Reach top speed in any vehicle",
-      "Tier One — Kill 12 enemies with headshots",
-      "Saving Face — Kill the mercenaries attacking Amanda and Tracey with headshots"
+      "用时少于 06:30",
+      "赶往豪宅的途中驾驶车辆达到最高速度",
+      "爆头击杀 12 名敌人"
     ],
-    "reward": "Full reunion of the De Santa family",
-    "unlockedBy": "Lamar Down"
+    "reward": "De Santa 一家彻底和解",
+    "unlockedBy": "Lamar 惹麻烦"
   },
   {
     "id": "mission-59",
     "order": 59,
-    "title": "Drilling the Hole",
+    "title": "钻机",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To execute the Obvious Approach for the Union Depository heist, the crew needs heavy industrial equipment capable of boring straight through the reinforced underground vault walls. The team locates a massive HVY Cutter loaded onto a flatbed trailer in La Mesa and mounts a covert operation to steal it.",
+    "category": "准备",
+    "description": "偷走一辆载着巨型盾构机的重型运输卡车。在“强攻”方案中，必须靠它来钻开金库。",
     "goldRequirements": [
-      "Sneak Thief — Steal the cutter without being detected",
-      "Time — Complete within 05:00"
+      "在不被发现的情况下偷走盾构机",
+      "在 05:00 内完成"
     ],
-    "reward": "HVY Cutter tunnel boring machine secured for The Big Score (Obvious Approach).",
-    "unlockedBy": "58. Meltdown"
+    "reward": "为强攻抢劫备好盾构钻机（Cutter）。",
+    "unlockedBy": "崩溃"
   },
   {
     "id": "mission-60",
     "order": 60,
-    "title": "Sidewrecked",
+    "title": "岔道",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "As part of the Obvious Approach for the Union Depository heist, the crew needs a freight train to haul the stolen gold out of the city. Michael and Trevor infiltrate the power station rail switch, divert an incoming freight train, and use a heavy-lift Skylift helicopter to airlift both the locomotive and a flatbed car to Sandy Shores.",
+    "category": "准备",
+    "description": "劫持一列平板货运火车，把偷来的金条装上去，运往空中接应点。仅限强攻方案。",
     "goldRequirements": [
-      "Time — Complete within 04:30",
-      "Undetected — Steal the train without being spotted"
+      "在 04:30 内完成",
+      "在不被发现的情况下偷走火车"
     ],
-    "reward": "Freight locomotive and flatbed car stolen to haul the gold in the Obvious Approach.",
-    "unlockedBy": "59. Drillers"
+    "reward": "为强攻方案备好用来转运黄金的被盗货运车厢。",
+    "unlockedBy": "钻机"
   },
   {
     "id": "mission-61",
     "order": 61,
-    "title": "Getaway Vehicle",
+    "title": "大劫案",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "The ultimate heist on the Union Depository in Pillbox Hill to steal two hundred million dollars in gold bullion. Depending on the selected plan, the crew either infiltrates the vault in stolen armored vans and escapes in heavily modified muscle cars, or drills straight through the subterranean vault wall and airlifts the gold out by helicopter.",
+    "category": "抢劫",
+    "description": "对 Union Depository 金库发动终极抢劫，夺取全国防守最严密的黄金储备。可以用伪装运输车和入侵交通系统的隐秘手段，也可以从地下正面钻入并空中撤离。",
     "goldRequirements": [
-      "Headshots — Kill 20 enemies with headshots",
-      "Time — Complete within 16:00",
-      "Cha-Ching — Drop the gold onto the train within 30 seconds (Obvious) / Signal Man — Perform fewer than 10 traffic light changes (Subtle)",
-      "Accuracy — Finish with a shooting accuracy of at least 60%"
+      "取得 20 次爆头",
+      "在 16:00 内完成",
+      "将黄金精准地投放到火车上",
+      "射击命中率至少 60%"
     ],
-    "reward": "Approx. $20,000,000 – $41,000,000 for each of the three protagonists",
-    "unlockedBy": "Meltdown"
+    "reward": "三名主角每人约 $28,000,000",
+    "unlockedBy": "崩溃"
   },
   {
     "id": "mission-62",
     "order": 62,
-    "title": "The Big Score (Subtle)",
+    "title": "酒店暗杀",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "A targeted corporate hit commissioned by Lester Crest to manipulate pharmaceutical stock prices. Franklin stakes out the Von Crastenburg Hotel in Richman and eliminates Bilkinton Research CEO Brett Lowrey before his motorcade departs.",
+    "category": "暗杀",
+    "description": "Lester 委托的刺杀合同，目的是影响股价。Franklin 在 Rockford Hills 的 Von Crastenburg 酒店前就位，趁 Bilkinton Research 的高管车队离开前将其解决。",
     "goldRequirements": [
-      "Time — Complete within 05:00",
-      "Sniper Boy — Kill the target using a sniper rifle",
-      "Money Earned — $9,000"
+      "任务用时少于 05:00",
+      "用狙击步枪击杀目标",
+      "事先投资 Betta Pharmaceuticals 所获得的金额"
     ],
-    "reward": "$9,000 + massive stock market returns",
-    "unlockedBy": "Fame or Shame"
+    "reward": "$9,000 + 股市巨额收益",
+    "unlockedBy": "成名还是出丑"
   },
   {
     "id": "mission-63",
     "order": 63,
-    "title": "The Big Score (Obvious)",
+    "title": "多重暗杀",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To prevent Redwood Cigarettes from rigging a class-action lawsuit and send rival Debonaire's stock soaring on the LCN, Lester tasks Franklin with eliminating four bribed jurors across Los Santos within a strict nine-minute window.",
+    "category": "暗杀",
+    "description": "在裁决宣布之前，除掉被烟草公司 Redwood 收买的 4 人腐败陪审团。",
     "goldRequirements": [
-      "Speedy Killer — Kill all targets as quickly as possible",
-      "Money Earned — $7,000"
+      "尽快完成所有刺杀"
     ],
-    "reward": "Massive stock surge for Debonaire (DEB) on the LCN.",
-    "unlockedBy": "62. The Hotel Assassination"
+    "reward": "Debonaire（DEB）在 LCN 的股价大幅上涨。",
+    "unlockedBy": "酒店暗杀"
   },
   {
     "id": "mission-64",
     "order": 64,
-    "title": "Something Sensible (Option A)",
+    "title": "恶习暗杀",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To boost Fruit Computers against rival tech giant Facade on the BAWSAQ exchange, Lester orders the elimination of Facade's head of product development, Jackson Skinner, who has been selling user data. Franklin stakes out La Puerta and takes Skinner out during his nightly rendezvous with a streetwalker.",
+    "category": "暗杀",
+    "description": "刺杀 Facade 技术部门负责人 Jackson Skinner，他在红灯区向竞争对手出售机密信息。",
     "goldRequirements": [
-      "Clean Escape — Lose the cops without alerting them",
-      "Money Earned — $5,000"
+      "离开现场且不惊动警察"
     ],
-    "reward": "Fruit Computers (FRT) stock rises ~50% on BAWSAQ.",
-    "unlockedBy": "63. The Multi Target Assassination"
+    "reward": "Fruit Computers（FRT）的股价将在 BAWSAQ 上涨 50%。",
+    "unlockedBy": "多重暗杀"
   },
   {
     "id": "mission-65",
     "order": 65,
-    "title": "The Time's Come (Option B)",
+    "title": "巴士暗杀",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Lester orchestrates a stock market crash for Vapid Motor Company by targeting prospective buyer Isaac Penny—a billionaire Venture capitalist so notoriously frugal that he refuses to own a car and commutes exclusively by city bus. Franklin poses as a transit bus driver along Penny's daily route to intercept and eliminate him.",
+    "category": "暗杀",
+    "description": "刺杀贪婪的亿万投机商 Isaac Penny，趁他乘坐城市公共交通走日常路线时下手。",
     "goldRequirements": [
-      "Hit and Run — Kill the target using the bus",
-      "Money Earned — $7,000"
+      "撞倒目标后逃离"
     ],
-    "reward": "Vapid (VAP) stock market manipulation.",
-    "unlockedBy": "64. The Vice Assassination"
+    "reward": "操纵 Vapid Motor Company 的股价。",
+    "unlockedBy": "恶习暗杀"
   },
   {
     "id": "mission-66",
     "order": 66,
-    "title": "The Third Way (Option C)",
+    "title": "工地暗杀",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To rescue GoldCoast Development on the LCN stock exchange, Lester orders the elimination of Enzo Bonelli—a mobbed-up real estate developer who uses union extortion and violence to monopolize city construction contracts. Franklin infiltrates the Mile High Club skyscraper under construction, fights his way up through private security, and takes down Bonelli before his helicopter can escape the roof.",
+    "category": "暗杀",
+    "description": "刺杀房地产犯罪头目 Enzo Bonelli，他躲在一栋由私人保安看守的在建摩天大楼的高层。",
     "goldRequirements": [
-      "No Fly Zone — Shoot down the target's helicopter",
-      "Money Earned — $10,000"
+      "击落目标的直升机"
     ],
-    "reward": "GoldCoast Development (GCD) stock manipulation on the LCN.",
-    "unlockedBy": "65. The Bus Assassination"
+    "reward": "操纵 GoldCoast（GCD）在 LCN 的股价。",
+    "unlockedBy": "巴士暗杀"
   },
   {
     "id": "mission-67",
     "order": 67,
-    "title": "The Third Way - Finale",
+    "title": "方案 A:凭常识",
     "character": "Franklin",
     "giver": "Steve Haines / FIB",
-    "category": "Story",
-    "description": "Pressured by Steve Haines and Dave Norton to eliminate Trevor as an unpredictable liability to the FIB, Franklin arranges a meeting in El Burro Heights under false pretenses. Realizing the ambush, Trevor flees in his pickup truck until Michael rams him into a fuel tanker at the Murrieta Oil Field, sealing his grim fate.",
+    "category": "结局",
+    "description": "联邦机构逼迫之下的结局，要除掉 Trevor。Franklin 安排了一次会面，演变成一路追逐到 El Burro Heights 的油井，撞上易燃油罐，目标就此丧命。",
     "goldRequirements": [
-      "Judas! — Kill Trevor",
-      "Time — Complete within 06:00"
+      "杀死 Trevor",
+      "用时少于 06:00"
     ],
-    "reward": "Union Depository heist cut split between Franklin and Michael (Trevor dies permanently)",
-    "unlockedBy": "The Big Score"
+    "reward": "Franklin 与 Michael 分赃（Trevor 消失）",
+    "unlockedBy": "大劫案"
   },
   {
     "id": "mission-68",
     "order": 68,
-    "title": "The Last One",
+    "title": "方案 B:时候到了",
     "character": "Franklin",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Caving to pressure from billionaire Devin Weston, Franklin turns on his mentor, Michael De Santa. A high-speed pursuit leads to the Palmer-Taylor Power Station, where a tense foot chase up the industrial catwalks culminates with Michael dangling over the edge of a towering smokestack.",
+    "category": "结局",
+    "description": "在 Devin Weston 的胁迫下，要除掉 Michael 的结局。对峙转移到钢铁厂的高处，最后在金属栈桥上扭打，Michael 坠入深渊。",
     "goldRequirements": [
-      "Surpassed the Mentor — Kill Michael",
-      "Time — Complete within 07:00"
+      "杀死 Michael",
+      "用时少于 07:00"
     ],
-    "reward": "Union Depository heist cut split between Franklin and Trevor (Michael dies permanently)",
-    "unlockedBy": "The Big Score"
+    "reward": "Franklin 与 Trevor 分赃（Michael 消失）",
+    "unlockedBy": "大劫案"
   },
   {
     "id": "mission-69",
     "order": 69,
-    "title": "Prologue Redux",
+    "title": "方案 C:第三条路",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Refusing to betray either of his partners to the FIB or Devin Weston, Franklin chooses 'Deathwish'—The Third Way. The trio lures FIB tactical squads and Merryweather mercenaries into an all-out firefight at an industrial foundry, splits up to eliminate Wei Cheng, Stretch, and Steve Haines across Los Santos, and abducts Devin Weston to settle accounts once and for all.",
+    "category": "结局",
+    "description": "三名主角联手了结旧账的正史结局。在熔炼厂顶住围攻之后，他们分头行动，清除来自 FIB、三合会和敌对帮派的追杀者，最后绑架 Devin Weston，并把他的车推下海岸悬崖。",
     "goldRequirements": [
-      "Time — Complete within 21:30",
-      "Headshots — Kill 20 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Cheng Reaction — Kill Wei Cheng with a Sticky Bomb",
-      "Lead Lobotomy — Kill Steve Haines with a headshot",
-      "Stretched Out — Kill Stretch with a melee attack"
+      "用时少于 21:30",
+      "取得 20 次爆头",
+      "命中率至少 70%",
+      "用粘性炸弹除掉 Cheng",
+      "一枪爆头除掉 Steve Haines"
     ],
-    "reward": "Union Depository heist payout (~$20M–$41M each) and all three protagonists alive and playable",
-    "unlockedBy": "The Big Score"
+    "reward": "每人 $28,000,000，三名角色都活着并可操控",
+    "unlockedBy": "大劫案"
   }
 ]

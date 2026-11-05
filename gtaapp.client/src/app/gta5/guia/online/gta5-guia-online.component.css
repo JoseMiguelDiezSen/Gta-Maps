@@ -108,14 +108,19 @@
 }
 
 .vehiculo-card-media {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   aspect-ratio: 16 / 10;
+  overflow: hidden;
   background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
 }
 
+/* Absoluta para que ninguna foto altere la altura de la zona de imagen */
 .vehiculo-card-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -130,10 +135,19 @@
 
 .vehiculo-card-info {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 4px;
   padding: 12px 14px 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vehiculo-card-maker {
+  color: #ffb833;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
 .vehiculo-card-name {
@@ -143,11 +157,41 @@
   line-height: 1.25;
 }
 
+/* Versión compacta del panel verde de precio del detalle */
 .vehiculo-card-price {
-  color: #4ade80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+  padding: 6px 10px;
+  border: 1px solid rgba(46, 204, 113, 0.45);
+  border-radius: 10px;
+  background: rgba(46, 204, 113, 0.08);
+  box-shadow: 0 0 16px rgba(46, 204, 113, 0.12);
+  box-sizing: border-box;
+}
+
+
+.vehiculo-card-price-lbl {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* Una sola línea: los textos largos (recompensas de armas) se cortan */
+.vehiculo-card-price-val {
+  overflow: hidden;
+  color: #2ecc71;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .wiki-shell.mode-day .vehiculo-card {
@@ -167,7 +211,20 @@
   color: #1e293b;
 }
 
+.wiki-shell.mode-day .vehiculo-card-maker {
+  color: #b45309;
+}
+
 .wiki-shell.mode-day .vehiculo-card-price {
+  border-color: rgba(34, 197, 94, 0.4);
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.wiki-shell.mode-day .vehiculo-card-price-lbl {
+  color: #64748b;
+}
+
+.wiki-shell.mode-day .vehiculo-card-price-val {
   color: #16a34a;
 }
 

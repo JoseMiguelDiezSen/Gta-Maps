@@ -20,21 +20,22 @@
     "online": "オンライン",
     "storyShort": "話",
     "onlineShort": "オ",
-    "goToGuide": "Go to guide",
-    "switchToStory": "Switch to Story Mode",
-    "onlineActive": "GTA Online mode active",
-    "storyActive": "Story Mode active",
-    "switchToOnline": "Switch to GTA Online",
+    "goToGuide": "ガイドへ",
+    "switchToStory": "ストーリーモードに切り替え",
+    "onlineActive": "GTAオンラインモード有効",
+    "storyActive": "ストーリーモード有効",
+    "switchToOnline": "GTAオンラインに切り替え",
     "goty5": "GOTY 5",
     "goty6": "GOTY 6",
-    "coordinates": "Coordinates (X, Y)",
-    "tacticalCoords": "TACTICAL COORDINATES:",
-    "clearSearch": "Clear search",
+    "coordinates": "座標 (X, Y)",
+    "tacticalCoords": "戦術座標:",
+    "clearSearch": "検索をクリア",
     "gta6Info": "GTA VI INFO",
-    "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V",
+    "mk2Available": "Mk II バリアントあり",
+    "requiredFor100": "GTA V の100%達成に必要",
     "fullscreen": "全画面表示",
-    "exitFullscreen": "全画面表示を終了"
+    "exitFullscreen": "全画面表示を終了",
+    "comingSoon": "近日公開"
   },
   "home": {
     "chooseGame": "ゲームを選択",
@@ -49,8 +50,10 @@
     "onlineUser": "オンラインユーザー",
     "gta5GuiaBtn": "GTA 5 攻略ガイド",
     "gta6GuiaBtn": "GTA 6 攻略ガイド",
-    "gta6VideosBtn": "VIDEOS",
-    "gta6MomentosBtn": "MOMENTS"
+    "gta6VideosBtn": "動画",
+    "gta6MomentosBtn": "モーメント",
+    "logoAlt": "GTA Explorer - GTA V・GTA VI インタラクティブマップ",
+    "mascotsAlt": "GOTY 5 と GOTY 6 - GTA Explorer のマスコット"
   },
   "cookies": {
     "title": "プライバシーとCookie",
@@ -74,19 +77,19 @@
     "closePolicy": "理解しました",
     "policyTextP1": "GTA Explorerではプライバシーを尊重しています。データの販売や広告トラッキングは行いません。",
     "policyTextP2": "必須Cookieにより、オンラインカウンターの動作や言語設定が維持されます。",
-    "policyTextP3": "設定アイコンからいつでも同意の変更や取り消しが可能です。",
-    "back": "Back",
-    "tableColName": "Name",
-    "tableColType": "Type",
-    "tableColPurpose": "Purpose",
-    "tableColDuration": "Duration",
-    "typeNecessary": "Necessary",
-    "typePreference": "Preference",
-    "descConsent": "Saves your cookie preferences locally",
-    "descLanguage": "Saves your preferred language (ES / EN)",
-    "descMapSettings": "Saves your active layers, filters, and zoom level",
-    "durationOneYear": "1 year",
-    "durationPersistent": "Persistent"
+    "policyTextP3": "ページ下部のプライバシー設定リンクから、いつでも同意の変更や取り消しが可能です。",
+    "back": "戻る",
+    "tableColName": "名前",
+    "tableColType": "種類",
+    "tableColPurpose": "目的",
+    "tableColDuration": "保存期間",
+    "typeNecessary": "必須",
+    "typePreference": "設定",
+    "descConsent": "Cookieの設定をローカルに保存します",
+    "descLanguage": "使用言語を保存します",
+    "descMapSettings": "有効なレイヤー、フィルター、ズームレベルを保存します",
+    "durationOneYear": "1年",
+    "durationPersistent": "永続"
   },
   "gta5": {
     "hud": {
@@ -117,7 +120,16 @@
       "edit": "編集",
       "delete": "削除",
       "coordinates": "座標",
-      "robbableStore": "強盗可能な店舗"
+      "robbableStore": "強盗可能な店舗",
+      "markerNamePlaceholder": "マーカー名",
+      "markerRenameHint": "入力して名前を変更",
+      "colorRed": "赤",
+      "colorBlue": "青",
+      "colorGreen": "緑",
+      "colorYellow": "黄",
+      "colorOrange": "オレンジ",
+      "colorPurple": "紫",
+      "colorWhite": "白"
     },
     "settings": {
       "gameMode": "ゲームモード",
@@ -431,8 +443,7 @@
       "navBrandOnline": "GTA 6 - ONLINE",
       "heroTitle": "VICE CITY & STATE OF LEONIDA",
       "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
-      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida.",
-      "pendingLaunch": "コンテンツはゲームの発売後に公開されます。"
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -468,7 +479,8 @@
       "tradePrice": "割引価格（Trade）",
       "weaponized": "武装車両",
       "sortDefault": "デフォルト順",
-      "sortByStat": "並び替え"
+      "sortByStat": "並び替え",
+      "priceUnavailable": "価格情報なし"
     },
     "stats": {
       "speed": "最高速度",
@@ -549,7 +561,8 @@
       "nextMission": "次のミッション",
       "req100Badge": "100%達成に必須",
       "optionalBadge": "任意",
-      "viewGuide": "GTABaseでガイドを見る"
+      "viewGuide": "GTABaseでガイドを見る",
+      "seriesCount": "{{ count }}/{{ total }} ミッション"
     },
     "heists": {
       "searchPlaceholder": "強盗、リーダー、ターゲット、物件を検索...",
@@ -685,9 +698,9 @@
   },
   "seo": {
     "defaultTitle": "GTA Explorer - GTA V・GTA VI マップ＆ガイド",
-    "defaultDesc": "13言語対応のマルチリンガルプラットフォーム。AIアシスタント搭載のGTA V、GTAオンライン、カヨ・ペリコ、GTA VIバイスシティ超高画質インタラクティブマップ＆攻略ガイド。",
+    "defaultDesc": "13言語対応プラットフォーム。GTA 5、GTAオンライン、カヨ・ペリコ、GTA 6、GTA 6オンラインのHDマップとインタラクティブガイドに加え、AIアシスタント、ミッション、ロケーション、車両、武器、ミステリーを収録。",
     "homeTitle": "GTA Explorer - AIアシスタント搭載 GTA V・GTA VI HDマップ＆インタラクティブガイド",
-    "homeDesc": "13言語対応のマルチリンガルプラットフォーム。AIアシスタント搭載のGTA V、GTAオンライン、カヨ・ペリコ、GTA VIバイスシティ超高画質インタラクティブマップ＆攻略ガイド。",
+    "homeDesc": "13言語対応プラットフォーム。GTA 5、GTAオンライン、カヨ・ペリコ、GTA 6、GTA 6オンラインのHDマップとインタラクティブガイドに加え、AIアシスタント、ミッション、ロケーション、車両、武器、ミステリーを収録。",
     "gta5OnlineTitle": "GTA V Online マップ | GTA Explorer",
     "gta5OnlineDesc": "GTA5オンライン＆カヨ・ペリコの完全広告なし超高画質マップ。事業物件、強盗、不動産、車両、武器、スタントジャンプをAIアシスタントでリアルタイム検索。",
     "gta5HistoriaTitle": "GTA V ストーリーモード マップ | GTA Explorer",
@@ -722,7 +735,7 @@
   "feedback": {
     "buttonTitle": "ご意見・フィードバックを送信",
     "modalTitle": "ご意見とフィードバック",
-    "modalSubtitle": "アイデアやバグ報告がありましたら、ぜひお聞かせください！",
+    "modalSubtitle": "翻訳やロケーションの誤り、改善できそうな点を見つけましたか？ぜひお知らせください。皆さんのご協力が改善につながります。",
     "nameLabel": "お名前（任意）",
     "namePlaceholder": "例: 匿名 または ニックネーム",
     "messageLabel": "メッセージ",
@@ -750,11 +763,11 @@
       "themeNight": "夜間モードに切り替え",
       "openNavMenu": "ナビゲーションメニューを開く",
       "closeNavMenu": "メニューを閉じる",
-      "breadcrumb": "Breadcrumb navigation",
-      "chapterNav": "Chapter navigation",
-      "backToChapters": "Back to chapters",
-      "backToChaptersTitle": "Back to Chapters",
-      "protagonists": "GTA V Protagonists"
+      "breadcrumb": "パンくずリスト",
+      "chapterNav": "チャプターナビゲーション",
+      "backToChapters": "チャプターに戻る",
+      "backToChaptersTitle": "チャプターに戻る",
+      "protagonists": "GTA V の主人公"
     },
     "sidebar": {
       "contents": "目次",
@@ -908,21 +921,22 @@
     "noClips": "No moments available in this category currently."
   },
   "nav": {
-    "menuLabel": "Navigation menu",
-    "homeTitle": "Go to Home",
-    "home": "HOME",
-    "gta5MapTitle": "Go to GTA 5 Map",
-    "gta5Map": "GTA 5 MAP",
-    "gta5GuideTitle": "Go to GTA 5 Guide",
-    "gta5Guide": "GTA 5 GUIDE",
-    "gta6MapTitle": "Go to GTA 6 Map",
-    "gta6Map": "GTA 6 MAP",
-    "gta6GuideTitle": "Go to GTA 6 Guide",
-    "gta6Guide": "GTA 6 GUIDE",
-    "gta6VideosTitle": "GTA 6 Videos",
-    "gta6Videos": "VIDEOS",
+    "menuLabel": "ナビゲーションメニュー",
+    "homeTitle": "ホームへ",
+    "home": "ホーム",
+    "gta5MapTitle": "GTA 5 マップへ",
+    "gta5Map": "GTA 5 マップ",
+    "gta5GuideTitle": "GTA 5 ガイドへ",
+    "gta5Guide": "GTA 5 ガイド",
+    "gta6MapTitle": "GTA 6 マップへ",
+    "gta6Map": "GTA 6 マップ",
+    "gta6GuideTitle": "GTA 6 ガイドへ",
+    "gta6Guide": "GTA 6 ガイド",
+    "gta6VideosTitle": "GTA 6 動画",
+    "gta6Videos": "動画",
     "aboutTitle": "概要",
     "about": "概要",
-    "themeToggle": "Toggle day/night mode"
+    "themeToggle": "昼間モードと夜間モードを切り替え",
+    "logoAlt": "GTA Explorer ロゴ"
   }
 }

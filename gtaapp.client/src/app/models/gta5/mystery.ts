@@ -14,6 +14,8 @@ export interface MysteryPoint {
 
 export interface GtaMystery {
   id: string;
+  /** Pide al mapa quitar el misterio localizado en lugar de mostrarlo. */
+  clearLocated?: boolean;
   order: number;
   title: string;
   titleEn?: string;

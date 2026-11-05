@@ -3947,7 +3947,8 @@ aside.hud-profile-drawer *::-webkit-scrollbar-thumb:hover {
   vertical-align: middle;
 }
 
-.mcard-locate-btn.is-located {
+.mcard-locate-btn.is-located,
+.mystery-locate-cta-btn.is-located {
   background: var(--m-color, #ef4444);
   color: #ffffff;
   border-color: var(--m-color, #ef4444);

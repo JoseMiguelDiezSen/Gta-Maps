@@ -13,28 +13,29 @@
     "days": "أيام",
     "hours": "ساعات",
     "minutes": "دقائق",
-    "seconds": "ثواني",
+    "seconds": "ثوانٍ",
     "viewGeneral": "نظرة عامة",
     "recenterMap": "إعادة توسيط الخريطة",
     "story": "القصة",
     "online": "أونلاين",
     "storyShort": "ق",
     "onlineShort": "أ",
-    "goToGuide": "Go to guide",
-    "switchToStory": "Switch to Story Mode",
-    "onlineActive": "GTA Online mode active",
-    "storyActive": "Story Mode active",
-    "switchToOnline": "Switch to GTA Online",
+    "goToGuide": "الانتقال إلى الدليل",
+    "switchToStory": "التبديل إلى نمط القصة",
+    "onlineActive": "وضع GTA Online نشط",
+    "storyActive": "نمط القصة نشط",
+    "switchToOnline": "التبديل إلى GTA Online",
     "goty5": "GOTY 5",
     "goty6": "GOTY 6",
-    "coordinates": "Coordinates (X, Y)",
-    "tacticalCoords": "TACTICAL COORDINATES:",
-    "clearSearch": "Clear search",
+    "coordinates": "الإحداثيات (X, Y)",
+    "tacticalCoords": "الإحداثيات التكتيكية:",
+    "clearSearch": "مسح البحث",
     "gta6Info": "GTA VI INFO",
-    "mk2Available": "Mk II Variant available",
-    "requiredFor100": "Required for 100% of GTA V",
+    "mk2Available": "إصدار Mk II متاح",
+    "requiredFor100": "مطلوب لإكمال 100% من GTA V",
     "fullscreen": "ملء الشاشة",
-    "exitFullscreen": "الخروج من ملء الشاشة"
+    "exitFullscreen": "الخروج من ملء الشاشة",
+    "comingSoon": "قريباً"
   },
   "home": {
     "chooseGame": "اختر اللعبة",
@@ -44,13 +45,15 @@
     "gta6Title": "GTA VI",
     "gta6Sub": "قيد التطوير...",
     "disclaimer": "مشروع صممه المعجبون. غير تابع لشركة Rockstar Games.",
-    "copyright": "© حقوق النشر 2026 JMD Software، جميع الحقوق محفوظة. JMD® وشعار JMD® هما علامتان تجاريتان لشركة The JMD Software.",
+    "copyright": "© حقوق النشر 2026 JMD Software، جميع الحقوق محفوظة. JMD® وشعار JMD® علامتان تجاريتان مسجلتان لشركة The JMD Software.",
     "onlineUsers": "مستخدمون متصلون",
     "onlineUser": "مستخدم متصل",
     "gta5GuiaBtn": "دليل GTA 5",
     "gta6GuiaBtn": "دليل GTA 6",
-    "gta6VideosBtn": "VIDEOS",
-    "gta6MomentosBtn": "MOMENTS"
+    "gta6VideosBtn": "الفيديوهات",
+    "gta6MomentosBtn": "اللحظات",
+    "logoAlt": "GTA Explorer - خرائط تفاعلية لـ GTA V و GTA VI",
+    "mascotsAlt": "GOTY 5 و GOTY 6 - تميمتا GTA Explorer"
   },
   "cookies": {
     "title": "الخصوصية وملفات تعريف الارتباط",
@@ -74,19 +77,19 @@
     "closePolicy": "فهمت",
     "policyTextP1": "في GTA Explorer نحترم خصوصيتك. نحن لا نبيع بياناتك ولا نقوم بأي تتبع إعلاني.",
     "policyTextP2": "تضمن ملفات تعريف الارتباط الضرورية عمل عداد المتصلين وحفظ تفضيلات اللغة الخاصة بك.",
-    "policyTextP3": "يمكنك تعديل أو إلغاء موافقتك في أي وقت عبر أيقونة الإعدادات.",
-    "back": "Back",
-    "tableColName": "Name",
-    "tableColType": "Type",
-    "tableColPurpose": "Purpose",
-    "tableColDuration": "Duration",
-    "typeNecessary": "Necessary",
-    "typePreference": "Preference",
-    "descConsent": "Saves your cookie preferences locally",
-    "descLanguage": "Saves your preferred language (ES / EN)",
-    "descMapSettings": "Saves your active layers, filters, and zoom level",
-    "durationOneYear": "1 year",
-    "durationPersistent": "Persistent"
+    "policyTextP3": "يمكنك تعديل موافقتك أو إلغاؤها في أي وقت عبر رابط إعدادات الخصوصية في أسفل الصفحة.",
+    "back": "رجوع",
+    "tableColName": "الاسم",
+    "tableColType": "النوع",
+    "tableColPurpose": "الغرض",
+    "tableColDuration": "المدة",
+    "typeNecessary": "ضروري",
+    "typePreference": "تفضيلات",
+    "descConsent": "يحفظ تفضيلات ملفات تعريف الارتباط محلياً",
+    "descLanguage": "يحفظ لغتك المفضلة",
+    "descMapSettings": "يحفظ الطبقات النشطة والفلاتر ومستوى التكبير",
+    "durationOneYear": "سنة واحدة",
+    "durationPersistent": "دائم"
   },
   "gta5": {
     "hud": {
@@ -117,7 +120,16 @@
       "edit": "تعديل",
       "delete": "حذف",
       "coordinates": "الإحداثيات",
-      "robbableStore": "متجر قابل للسطو"
+      "robbableStore": "متجر قابل للسطو",
+      "markerNamePlaceholder": "اسم العلامة",
+      "markerRenameHint": "اكتب لإعادة التسمية",
+      "colorRed": "أحمر",
+      "colorBlue": "أزرق",
+      "colorGreen": "أخضر",
+      "colorYellow": "أصفر",
+      "colorOrange": "برتقالي",
+      "colorPurple": "بنفسجي",
+      "colorWhite": "أبيض"
     },
     "settings": {
       "gameMode": "نمط اللعب",
@@ -431,8 +443,7 @@
       "navBrandOnline": "GTA 6 - ONLINE",
       "heroTitle": "VICE CITY & STATE OF LEONIDA",
       "heroDescStory": "Interactive compendium of Vice City and the State of Leonida: protagonists, districts, stealth & inventory mechanics, and criminal analysis.",
-      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida.",
-      "pendingLaunch": "سيتوفر المحتوى بعد إطلاق اللعبة."
+      "heroDescOnline": "Interactive multiplayer compendium of Vice City and the State of Leonida."
     }
   },
   "transports": {
@@ -468,7 +479,8 @@
       "tradePrice": "السعر الخاص (Trade)",
       "weaponized": "مركبة مسلحة",
       "sortDefault": "افتراضي",
-      "sortByStat": "ترتيب حسب"
+      "sortByStat": "ترتيب حسب",
+      "priceUnavailable": "السعر غير متاح"
     },
     "stats": {
       "speed": "السرعة",
@@ -549,7 +561,8 @@
       "nextMission": "المهمة التالية",
       "req100Badge": "مطلوبة لـ 100%",
       "optionalBadge": "اختيارية",
-      "viewGuide": "عرض الدليل على GTABase"
+      "viewGuide": "عرض الدليل على GTABase",
+      "seriesCount": "{{ count }} من {{ total }} مهمة"
     },
     "heists": {
       "searchPlaceholder": "بحث عن سطو، منظم، هدف، منشأة...",
@@ -685,9 +698,9 @@
   },
   "seo": {
     "defaultTitle": "GTA Explorer - خرائط وأدلة GTA V و GTA VI",
-    "defaultDesc": "منصة متعددة اللغات بـ 13 لغة تقدم خرائط تفاعلية فائقة الدقة Ultra HD وأدلة شاملة لألعاب GTA V و GTA Online وكايو بريكو و GTA VI فايس سيتي مع مساعد ذكاء اصطناعي مدمج.",
-    "homeTitle": "GTA Explorer - خرائط HD وأدلة تفاعلية لـ GTA V و GTA VI مع مساعد ذكاء اصطناعي",
-    "homeDesc": "منصة متعددة اللغات بـ 13 لغة تقدم خرائط تفاعلية فائقة الدقة Ultra HD وأدلة شاملة لألعاب GTA V و GTA Online وكايو بريكو و GTA VI فايس سيتي مع مساعد ذكاء اصطناعي مدمج.",
+    "defaultDesc": "منصة بـ 13 لغة تقدم خرائط HD وأدلة تفاعلية لـ GTA 5 و GTA 5 Online وكايو بريكو و GTA 6 و GTA 6 Online، مع مساعد ذكاء اصطناعي مدمج ومهام ومواقع ومركبات وأسلحة وأسرار.",
+    "homeTitle": "GTA Explorer - خرائط HD لـ GTA V و GTA VI مع مساعد ذكاء اصطناعي وأدلة تفاعلية",
+    "homeDesc": "منصة بـ 13 لغة تقدم خرائط HD وأدلة تفاعلية لـ GTA 5 و GTA 5 Online وكايو بريكو و GTA 6 و GTA 6 Online، مع مساعد ذكاء اصطناعي مدمج ومهام ومواقع ومركبات وأسلحة وأسرار.",
     "gta5OnlineTitle": "خريطة GTA V Online | GTA Explorer",
     "gta5OnlineDesc": "خريطة تفاعلية فائقة الدقة لـ GTA 5 Online وكايو بريكو 100% بدون إعلانات. الأنشطة التجارية، السرقات، العقارات، المركبات والمساعد الذكي.",
     "gta5HistoriaTitle": "خريطة نمط القصة GTA V | GTA Explorer",
@@ -722,7 +735,7 @@
   "feedback": {
     "buttonTitle": "إرسال اقتراح أو ملاحظات",
     "modalTitle": "الاقتراحات والملاحظات",
-    "modalSubtitle": "هل لديك فكرة أو واجهت خطأ ما؟ أخبرنا بذلك!",
+    "modalSubtitle": "هل وجدت خطأً في ترجمة أو في موقع أو تفصيلاً يمكننا تحسينه؟ أخبرنا بذلك! مساعدتك تتيح لنا مواصلة التحسين.",
     "nameLabel": "اسمك (اختياري)",
     "namePlaceholder": "مثال: أحمد أو مجهول",
     "messageLabel": "رسالتك",
@@ -750,11 +763,11 @@
       "themeNight": "التبديل إلى الوضع الليلي",
       "openNavMenu": "فتح قائمة التنقل",
       "closeNavMenu": "إغلاق القائمة",
-      "breadcrumb": "Breadcrumb navigation",
-      "chapterNav": "Chapter navigation",
-      "backToChapters": "Back to chapters",
-      "backToChaptersTitle": "Back to Chapters",
-      "protagonists": "GTA V Protagonists"
+      "breadcrumb": "مسار التنقل",
+      "chapterNav": "التنقل بين الفصول",
+      "backToChapters": "العودة إلى الفصول",
+      "backToChaptersTitle": "العودة إلى الفصول",
+      "protagonists": "أبطال GTA V"
     },
     "sidebar": {
       "contents": "المحتويات",
@@ -908,21 +921,22 @@
     "noClips": "No moments available in this category currently."
   },
   "nav": {
-    "menuLabel": "Navigation menu",
-    "homeTitle": "Go to Home",
-    "home": "HOME",
-    "gta5MapTitle": "Go to GTA 5 Map",
-    "gta5Map": "GTA 5 MAP",
-    "gta5GuideTitle": "Go to GTA 5 Guide",
-    "gta5Guide": "GTA 5 GUIDE",
-    "gta6MapTitle": "Go to GTA 6 Map",
-    "gta6Map": "GTA 6 MAP",
-    "gta6GuideTitle": "Go to GTA 6 Guide",
-    "gta6Guide": "GTA 6 GUIDE",
-    "gta6VideosTitle": "GTA 6 Videos",
-    "gta6Videos": "VIDEOS",
+    "menuLabel": "قائمة التنقل",
+    "homeTitle": "الانتقال إلى الرئيسية",
+    "home": "الرئيسية",
+    "gta5MapTitle": "الانتقال إلى خريطة GTA 5",
+    "gta5Map": "خريطة GTA 5",
+    "gta5GuideTitle": "الانتقال إلى دليل GTA 5",
+    "gta5Guide": "دليل GTA 5",
+    "gta6MapTitle": "الانتقال إلى خريطة GTA 6",
+    "gta6Map": "خريطة GTA 6",
+    "gta6GuideTitle": "الانتقال إلى دليل GTA 6",
+    "gta6Guide": "دليل GTA 6",
+    "gta6VideosTitle": "فيديوهات GTA 6",
+    "gta6Videos": "الفيديوهات",
     "aboutTitle": "حول",
     "about": "حول",
-    "themeToggle": "Toggle day/night mode"
+    "themeToggle": "التبديل بين الوضع النهاري والليلي",
+    "logoAlt": "شعار GTA Explorer"
   }
 }

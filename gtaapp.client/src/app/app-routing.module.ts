@@ -22,8 +22,8 @@ const routes: Routes = [
         data: {
             titleKey: 'seo.homeTitle',
             descriptionKey: 'seo.homeDesc',
-            title: 'GTA Explorer - Mapas GTA HD con asistente IA integrado y Guias Interactivas',
-            description: 'Plataforma multilingüe en 13 idiomas de Mapas HD y Guías Interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online con Asistente de IA integrado, Misiones, Ubicaciones, Vehículos, Armas y Misterios.',
+            title: 'GTA Explorer - Mapas HD de GTA V y GTA VI con asistente de IA y guías interactivas',
+            description: 'Plataforma en 13 idiomas con mapas HD y guías interactivas de GTA 5, GTA 5 Online, Cayo Perico, GTA 6 y GTA 6 Online, con asistente de IA integrado, misiones, ubicaciones, vehículos, armas y misterios.',
             canonical: 'https://gtaexplorer.com/home'
         }
     },

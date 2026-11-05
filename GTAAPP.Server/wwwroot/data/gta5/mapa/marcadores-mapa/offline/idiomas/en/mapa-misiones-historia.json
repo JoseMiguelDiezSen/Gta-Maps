@@ -4,16 +4,16 @@
     "order": 1,
     "title": "Prologue",
     "character": "Michael, Trevor",
-    "giver": "Storyline",
+    "giver": "Story",
     "category": "Prologue",
-    "description": "Nine years earlier in Ludendorff, North Yankton. Michael Townley, Trevor Philips, and Brad Snider rob a Bobcat Security depository. After a heavy firefight with local police and a snowy getaway, their vehicle is hit by a train and Michael fakes his death in a staged ambush arranged with FIB agent Dave Norton.",
+    "description": "Winter robbery in Ludendorff (North Yankton), set nine years earlier. Michael, Trevor and Brad break into a Bobcat Security vault. The escape through the snow goes wrong after a collision with a train and police intervention, ending with the secret pact between Michael and federal agent Dave Norton to fake his own death.",
     "goldRequirements": [
-      "Complete within 04:30",
-      "Shooting accuracy of at least 80%",
-      "Headshot at least 12 officers"
+      "Complete in under 04:30",
+      "Minimum shooting accuracy of 80%",
+      "Shoot at least 12 police officers in the head"
     ],
     "reward": "Unlocks Los Santos and Franklin",
-    "unlockedBy": "Game start"
+    "unlockedBy": "Start of the game"
   },
   {
     "id": "mission-02",
@@ -21,22 +21,17 @@
     "title": "Franklin and Lamar",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
-    "category": "Storyline",
-    "thumbnail": "assets/images/gta5/guia/offline/misiones-principales/02-franklin-y-lamar.png",
-    "description": "Franklin Clinton and Lamar Davis work for Simeon Yetarian's dealership repossessing two luxury sports cars (a 9F and a Rapid GT) in Rockford Hills. After a street race through Los Santos traffic and a brief police chase, they deliver the cars to Premium Deluxe Motorsport.",
+    "category": "Story",
+    "categoryLabel": "Story Mission",
+    "description": "First job for Simeon Yetarian's dealership. Franklin and Lamar go to a villa in Rockford Hills to recover two high-end sports cars. They race at full speed through the streets of Los Santos, weaving through traffic and shaking off patrol cars before parking the vehicles at Premium Deluxe Motorsport.",
     "goldRequirements": [
-      "Deliver the 9F with minimal damage",
-      "Use Franklin's special driving ability for at least 7 seconds",
+      "Finish the race without seriously damaging the 9F",
+      "Use Franklin's special ability for at least 7 seconds",
       "Win the race against Lamar",
-      "Avoid crashes in the movie studio lot"
+      "Avoid collisions in the studio parking lot"
     ],
     "reward": "$250",
-    "unlockedBy": "Prologue",
-    "position": {
-      "x": -1873.8,
-      "y": -583.6,
-      "z": 13
-    }
+    "unlockedBy": "Prologue"
   },
   {
     "id": "mission-03",
@@ -44,15 +39,15 @@
     "title": "Repossession",
     "character": "Franklin",
     "giver": "Simeon Yetarian",
-    "category": "Storyline",
-    "description": "Simeon tasks Franklin and Lamar with recovering a high-end sports bike sold to Esteban Jimenez in Vagos territory at Vespucci Beach. The situation turns into an alley shootout followed by a high-speed motorcycle chase across South Los Santos.",
+    "category": "Story",
+    "description": "Repossession job in the alleys of Vespucci Beach. Franklin and Lamar try to recover a motorcycle on Vagos gang turf. Negotiations collapse abruptly, sparking a shootout among the garages and an immediate chase on foot and down the road to catch the target.",
     "goldRequirements": [
       "Time limit of 06:30",
-      "Shoot the gasoline trail to ignite the bike/car",
+      "Shoot the gasoline trail to blow up the vehicle",
       "Kill 6 enemies with headshots",
-      "Shooting accuracy of at least 70%"
+      "Minimum accuracy of 70%"
     ],
-    "reward": "Experience and reputation with Simeon",
+    "reward": "Experience and Simeon's respect",
     "unlockedBy": "Franklin and Lamar"
   },
   {
@@ -61,47 +56,47 @@
     "title": "Complications",
     "character": "Franklin, Michael",
     "giver": "Simeon Yetarian",
-    "category": "Storyline",
-    "description": "Franklin sneaks into Michael De Santa's luxury mansion in Rockford Hills to repossess Jimmy's yellow SUV. As Franklin drives away, Michael ambushes him from the back seat at gunpoint and forces him to ram the SUV straight into Simeon's showroom window.",
+    "category": "Story",
+    "description": "Stealth infiltration of the De Santa residence in Rockford Hills. Franklin must get past the staff to steal Jimmy's SUV. The operation takes an unexpected turn when Michael appears armed in the back seat and demands he drive straight through the window of Simeon's business.",
     "goldRequirements": [
-      "Complete within 05:00",
-      "Stealth knockout the gardener",
-      "Take no damage during the fist fight with Simeon"
+      "Complete in under 05:00",
+      "Stealthily knock out the gardener",
+      "Take no damage during the fistfight with Simeon"
     ],
-    "reward": "$300 and Michael unlocked as playable character",
+    "reward": "$300 and Michael as a playable character",
     "unlockedBy": "Repossession"
   },
   {
     "id": "mission-05",
     "order": 5,
-    "title": "Father/Son",
-    "character": "Michael, Franklin",
-    "giver": "Michael De Santa",
-    "category": "Storyline",
-    "description": "Jimmy tries to sell his father's yacht online, but thieves steal it with Jimmy trapped inside along the Pacific Bluffs highway. Michael and Franklin chase the thieves down in Amanda's convertible, with Franklin leaping onto the yacht at full highway speed to save Jimmy.",
+    "title": "Chop",
+    "character": "Franklin",
+    "giver": "Lamar Davis",
+    "category": "Story",
+    "description": "Attempted quick abduction of a Ballas ringleader nicknamed 'D'. Lamar and Franklin chase the suspect to the rail yards. With the nose and help of Chop the Rottweiler, they search the freight cars until they run the fugitive down.",
     "goldRequirements": [
-      "Rescue Jimmy within 10 seconds of him hanging from the mast",
-      "Deliver Amanda's car to Los Santos Customs with minimal damage",
-      "Complete within 07:00"
+      "Don't damage Lamar's van",
+      "See the world from Chop's perspective for 10 seconds",
+      "Use Franklin's driving ability for 7 seconds"
     ],
-    "reward": "Free vehicle upgrades at Los Santos Customs for Franklin",
-    "unlockedBy": "Complications"
+    "reward": "Chop as Franklin's companion",
+    "unlockedBy": "Franklin and Lamar"
   },
   {
     "id": "mission-06",
     "order": 6,
-    "title": "Chop",
-    "character": "Franklin",
-    "giver": "Lamar Davis",
-    "category": "Storyline",
-    "description": "Lamar enlists Franklin to kidnap Ballas gangster 'D' using Lamar's rottweiler Chop. Following a van chase into the railroad yards, Franklin and Chop track down D through freight train carriages.",
+    "title": "Father/Son",
+    "character": "Michael, Franklin",
+    "giver": "Michael De Santa",
+    "category": "Story",
+    "description": "A failed online sale ends with Michael's family boat stolen on the freeway with Jimmy aboard. Michael and Franklin set off on a desperate chase in Amanda's sports car, and Franklin must jump onto the moving trailer to bring the young man to safety.",
     "goldRequirements": [
-      "Complete with minimal damage to Lamar's van",
-      "View the world through Chop's perspective for 10 seconds",
-      "Use Franklin's special driving ability for 7 seconds"
+      "Rescue Jimmy within 10 seconds of him hanging from the boom",
+      "Return Amanda's car to Los Santos Customs with no further damage",
+      "Complete in under 07:00"
     ],
-    "reward": "Chop unlocked as Franklin's companion",
-    "unlockedBy": "Franklin and Lamar"
+    "reward": "Unlocks free Los Santos Customs upgrades for Franklin",
+    "unlockedBy": "Complications"
   },
   {
     "id": "mission-07",
@@ -109,14 +104,14 @@
     "title": "Marriage Counseling",
     "character": "Michael, Franklin",
     "giver": "Michael De Santa",
-    "category": "Storyline",
-    "description": "Michael catches Amanda in bed with her tennis coach. Enraged, Michael and Franklin pursue the coach to a cliffside Vinewood mansion and use a pickup truck winch to bring down the stilt deck. The mansion turns out to belong to drug lord Martin Madrazo, who demands $2.5M in compensation.",
+    "category": "Story",
+    "description": "After discovering an affair in his home, Michael and Franklin chase the tennis coach to a huge property in Vinewood Hills. Driven by rage, Michael uses a pickup truck to pull down the terrace, only to learn that it belongs to cartel boss Martin Madrazo, who demands multimillion-dollar compensation.",
     "goldRequirements": [
-      "Complete with minimal truck damage",
-      "Complete within 05:30",
-      "Kill 3 enemies while in vehicle"
+      "Complete with minimal damage to the pickup truck",
+      "Mission time under 05:30",
+      "Kill 3 enemies while driving"
     ],
-    "reward": "$2.5M debt with Martin Madrazo",
+    "reward": "$2,500,000 debt to Martin Madrazo",
     "unlockedBy": "Father/Son"
   },
   {
@@ -124,15 +119,15 @@
     "order": 8,
     "title": "Daddy's Little Girl",
     "character": "Michael",
-    "giver": "Jimmy De Santa",
-    "category": "Storyline",
-    "description": "Michael attempts family bonding with Jimmy by renting bicycles along Vespucci Beach. Upon reaching Del Perro Pier, Jimmy reveals that Tracey is partying on a luxury yacht with shady film producers, prompting Michael to execute a high-speed jet ski rescue.",
+    "giver": "Michael De Santa",
+    "category": "Story",
+    "description": "A family bike ride between Vespucci and Del Perro Pier goes wrong on discovering that Tracey is on a private boat in shady company. Michael jumps into the water and uses a Seashark to extract his daughter and flee through the canals, dodging gunfire.",
     "goldRequirements": [
-      "Reach top speed on the Seashark jet ski",
-      "Don't fall off the bicycle during the race",
+      "Reach top speed on the Seashark",
+      "Don't fall off the bike during the race",
       "Swim to the yacht in under 1 minute"
     ],
-    "reward": "Stamina boost for Michael",
+    "reward": "Physical stamina upgrade for Michael",
     "unlockedBy": "Marriage Counseling"
   },
   {
@@ -141,14 +136,14 @@
     "title": "Friend Request",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Storyline",
-    "description": "To repay Madrazo, Michael reunites with heist mastermind Lester Crest. Lester tasks Michael with infiltrating social media giant Lifeinvader disguised as an IT technician to rig an explosive device into Jay Norris's keynote prototype phone.",
+    "category": "Story",
+    "description": "Michael turns to the brilliant mind of Lester Crest to pay off the debt to Madrazo. As a preliminary favor, he sneaks into the headquarters of tech company Lifeinvader posing as an IT worker to rig a device that CEO Jay Norris will show during a live-streamed presentation.",
     "goldRequirements": [
-      "Complete within 08:30",
-      "Clear all popups in under 32 seconds",
-      "Buy hipster clothing from Suburban"
+      "Complete in under 08:30",
+      "Clear all pop-ups in under 32 seconds",
+      "Buy hipster clothes at Suburban"
     ],
-    "reward": "Lester agrees to assist in future heists",
+    "reward": "Lester agrees to help with the heists",
     "unlockedBy": "Marriage Counseling"
   },
   {
@@ -157,15 +152,15 @@
     "title": "The Long Stretch",
     "character": "Franklin",
     "giver": "Lamar Davis",
-    "category": "Storyline",
-    "description": "Franklin, Lamar, and newly released convict Stretch meet Ballas dealers at Rogers Waste recycling plant. The deal turns out to be an ambush. The trio fights room-by-room through the facility, shooting down a police chopper to make their getaway.",
+    "category": "Story",
+    "description": "A deal at the Rogers Waste treatment plant with Lamar and Stretch. It turns out to be an ambush set up by the Ballas, forcing the group to clear corridors under crossfire and neutralize police air surveillance to get out of the neighborhood.",
     "goldRequirements": [
-      "Accuracy of at least 60%",
+      "Minimum accuracy of 60%",
       "10 headshots",
-      "Take minimal damage as Franklin",
+      "Complete with minimal damage to Franklin",
       "Time under 10:30"
     ],
-    "reward": "Weapons and ammunition scavenged during escape",
+    "reward": "Weapons and ammo obtained during the escape",
     "unlockedBy": "Chop"
   },
   {
@@ -174,423 +169,414 @@
     "title": "Casing the Jewel Store",
     "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Heists",
-    "description": "Michael and Lester scout out the Vangelico jewelry store in Little Portola. Equipping micro-camera eyeglasses, Michael photographs security panels, cameras, air vents, and perimeter layout, choosing between the Loud or Smart approach back at the garment factory.",
+    "category": "Story",
+    "description": "Tactical reconnaissance at the Vangelico jewelry store in Rockford Hills. Equipped with a hidden micro-camera, Michael documents ventilation grilles, sensors and alarm terminals. Later, at Lester's warehouse, the robbery tactic is chosen: a stealth raid with sleeping gas or a frontal assault with brute force.",
     "goldRequirements": [
-      "Time under 08:00",
-      "Capture all 3 security targets in a single clean photo"
+      "Mission time under 08:00",
+      "Photograph all 3 security systems in one perfect shot"
     ],
-    "reward": "Jewel Store Heist planning board",
+    "reward": "Planning board for the Vangelico heist",
     "unlockedBy": "Friend Request"
   },
   {
     "id": "mission-12",
     "order": 12,
-    "title": "The Jewel Store Job",
-    "character": "Michael, Franklin",
+    "title": "Bugstars Equipment",
+    "character": "Michael",
     "giver": "Lester Crest",
-    "category": "Heists",
-    "description": "The crew executes the Vangelico robbery, clearing the display cases before authorities arrive, and escaping on dirt bikes through subway construction tunnels and the Los Santos River canal with Michael providing truck support.",
+    "category": "Setup",
+    "description": "Steal a pest control van (Bugstars) at the port to use as a Trojan horse during the Vangelico robbery.",
     "goldRequirements": [
-      "Loot the jewelry cases within 50 seconds",
-      "Protect Franklin during the river pursuit",
-      "Clear all 20 display cases"
+      "Steal the Bugstars van without being detected"
     ],
-    "reward": "Over $1.4M total split between Franklin and Michael",
+    "reward": "Van and disguises secured for the heist (Smart approach).",
     "unlockedBy": "Casing the Jewel Store"
   },
   {
     "id": "mission-13",
     "order": 13,
-    "title": "Mr. Philips",
-    "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Storyline",
-    "description": "In Sandy Shores, Trevor Philips discovers Michael is still alive after hearing news coverage of the jewelry store heist. Following a violent confrontation with The Lost MC, Trevor wipes out the biker camp in Grapeseed and destroys Ortega's trailer.",
+    "title": "BZ Gas Grenades",
+    "character": "Michael",
+    "giver": "Lester Crest",
+    "category": "Setup",
+    "description": "Intercept a Humane Labs truck carrying BZ nerve gas and secure the cargo for the jewelry store robbery.",
     "goldRequirements": [
-      "Kill all fleeing bikers",
-      "Score 12 headshots",
-      "Complete within 12:00",
-      "Heavily damage Ortega's trailer"
+      "Shoot the truck's rear doors so the cargo falls out"
     ],
-    "reward": "Trevor unlocked as playable character",
-    "unlockedBy": "The Jewel Store Job"
+    "reward": "BZ gas secured to neutralize civilians in the heist (Smart approach).",
+    "unlockedBy": "Bugstars Equipment"
   },
   {
     "id": "mission-14",
     "order": 14,
-    "title": "Trevor Philips Industries",
-    "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Storyline",
-    "description": "Trevor meets with Mr. Cheng and his translator to negotiate a meth supply deal in Blaine County. When the rival O'Neil brothers attack the liquor store lab, Trevor locks his clients in the freezer and fends off waves of cartel gunmen with shotguns and grenade launchers.",
+    "title": "The Jewel Store Job",
+    "character": "Michael, Franklin",
+    "giver": "Lester Crest",
+    "category": "Heist",
+    "description": "Timed robbery of the Vangelico store. The crew clears the display cases before the police are alerted and escapes on dirt bikes through the underground tram tunnels to the river channel, where a heavy vehicle sweeps the patrol cars aside to secure the getaway.",
     "goldRequirements": [
-      "Kill 32 enemies",
-      "Complete with minimal damage",
-      "Destroy 6 enemy attacker vehicles"
+      "Rob the display cases in under 50 seconds",
+      "Protect Franklin during the Los Santos River chase",
+      "Clear all 20 jewelry cases without leaving any loot behind"
     ],
-    "reward": "Consolidates meth empire in Sandy Shores",
-    "unlockedBy": "Mr. Philips"
+    "reward": "Million-dollar take (approx. $200,000 for Franklin and $1,200,000 for Michael)",
+    "unlockedBy": "Casing the Jewel Store"
   },
   {
     "id": "mission-15",
     "order": 15,
-    "title": "Nervous Ron",
+    "title": "Mr. Philips",
     "character": "Trevor",
-    "giver": "Ron Jakowski",
-    "category": "Storyline",
-    "description": "The Lost MC has trashed Trevor's trailer. With Ron providing sniper support from a water tower, Trevor clears McKenzie Airfield, boards a plane packed with weaponry, and executes bombing runs on biker convoys before performing aerial stunt maneuvers.",
+    "giver": "Trevor Philips",
+    "category": "Story",
+    "description": "A phrase broadcast on the news reveals to Trevor Philips that Michael survived North Yankton. Unleashing his rage in the Sandy Shores desert, he wipes out The Lost bikers' base of operations in Grapeseed and destroys Ortega's riverside camp.",
     "goldRequirements": [
-      "5 sniper headshots",
-      "Time under 12:30",
-      "Fly under 6 bridges along the flight path",
-      "Kill all bikers while riding on the plane wing"
+      "Kill all the fleeing bikers",
+      "Get 12 headshots",
+      "Complete in under 12:00",
+      "Cause massive damage to Ortega's trailer"
     ],
-    "reward": "McKenzie Airfield hangar unlocked for purchase",
-    "unlockedBy": "Trevor Philips Industries"
+    "reward": "Trevor unlocked as the third playable protagonist",
+    "unlockedBy": "The Jewel Store Job"
   },
   {
     "id": "mission-16",
     "order": 16,
-    "title": "Crystal Maze",
+    "title": "Trevor Philips Industries",
     "character": "Trevor",
     "giver": "Trevor Philips",
-    "category": "Storyline",
-    "description": "Discovering that the Cheng Triad plans to partner with the O'Neil family instead of him, Trevor raids their remote Grapeseed farmhouse, snipes guards, eliminates the brothers, and burns down their underground meth lab with gasoline.",
+    "category": "Story",
+    "description": "A business negotiation with the triads' envoy in Blaine County is interrupted by an armed attack from the O'Neil brothers. Trevor shelters the buyers in the liquor store's cold room and fights off waves of attackers from the roof and windows of the lab.",
     "goldRequirements": [
-      "10 sniper headshots",
-      "Complete without being detected prior to entering the farmhouse",
-      "Ignite the gasoline trail with a single bullet"
+      "Kill 32 enemies",
+      "Complete with minimal bodily damage",
+      "Destroy 6 of the attackers' vehicles"
     ],
-    "reward": "Elimination of Blaine County competitors",
-    "unlockedBy": "Trevor Philips Industries"
+    "reward": "Consolidated control of the business in Sandy Shores",
+    "unlockedBy": "Mr. Philips"
   },
   {
     "id": "mission-17",
     "order": 17,
-    "title": "Friends Reunited",
+    "title": "Nervous Ron",
     "character": "Trevor",
-    "giver": "Trevor Philips",
-    "category": "Storyline",
-    "description": "Trevor heads to Los Santos to confront Michael. Before departing, he plants sticky bombs across The Lost MC trailer camp, destroying it completely before driving to Floyd's apartment in Vespucci Beach.",
+    "giver": "Ron Jakowski",
+    "category": "Story",
+    "description": "Armed retaliation after the sabotage of Trevor's home. With tactical support from Ron atop a water tank, they take McKenzie airfield, seize cargo aircraft and take out enemy vehicles while flying over the county's bridges.",
     "goldRequirements": [
-      "5 headshots with explosives or sniper rifle",
-      "Destroy all trailers without alerting reinforcements",
-      "Complete with minimal damage to the Bodhi truck"
+      "Get 5 headshots with a sniper rifle",
+      "Complete in under 12:30",
+      "Fly under 6 bridges during the flight",
+      "Kill all the bikers while standing on the wing of the plane"
     ],
-    "reward": "Floyd's Vespucci Beach safehouse unlocked",
-    "unlockedBy": "Crystal Maze"
+    "reward": "McKenzie Field hangar available for purchase",
+    "unlockedBy": "Trevor Philips Industries"
   },
   {
     "id": "mission-18",
     "order": 18,
-    "title": "Fame or Shame",
-    "character": "Michael, Trevor",
-    "giver": "Michael De Santa",
-    "category": "Storyline",
-    "description": "Trevor bursts into Michael's mansion as Michael is arguing with Jimmy. Learning that Tracey is auditioning for Lazlow's talent show at the Maze Bank Arena, Michael and Trevor team up to confront Lazlow and chase his electric car across the Los Santos River canal in a semi-truck.",
+    "title": "Crystal Maze",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "Story",
+    "description": "Punitive attack on the O'Neil brothers' farm after losing the exclusive deal with the Asian investors. Trevor eliminates the shooters posted in the hills, clears the house and pours fuel in the basement to burn the place to ashes.",
     "goldRequirements": [
-      "Reach top speed in the Phantom semi-truck",
-      "Keep the trailer attached during the entire pursuit",
-      "Punch Lazlow during confrontation",
-      "Do not hit pedestrians inside the television studio"
+      "Kill 10 enemies with headshots",
+      "Complete without being detected before entering the house",
+      "Ignite the gasoline trail with a single bullet"
     ],
-    "reward": "Initial truce between Michael and Trevor",
-    "unlockedBy": "Friends Reunited"
+    "reward": "Competition in the county eliminated",
+    "unlockedBy": "Trevor Philips Industries"
   },
   {
     "id": "mission-19",
     "order": 19,
-    "title": "Three's Company",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Dave Norton (FIB)",
-    "category": "Storyline",
-    "description": "The first mission uniting all three protagonists. The FIB needs Ferdinand Kerimov extracted from the IAA skyscraper. Trevor pilots the Maverick helicopter above the skyline, Michael rappels through the glass windows, and Franklin provides long-range sniper cover from across the street.",
+    "title": "Friends Reunited",
+    "character": "Trevor",
+    "giver": "Trevor Philips",
+    "category": "Story",
+    "description": "Departure for Los Santos to track down Michael. Trevor leaves his mark by blowing up the bikers' trailer park with sticky bombs and sets off on a road trip with Wade, ending by forcing his way into Floyd's apartment in Vespucci.",
     "goldRequirements": [
-      "Time under 07:30",
-      "Shooting accuracy of at least 60%",
-      "10 headshots across all three protagonists"
+      "Get 5 headshots with explosives or a sniper rifle",
+      "Destroy all the trailers without alerting reinforcements",
+      "Complete with minimal damage to the Bodhi"
     ],
-    "reward": "Unlocks cooperative FIB field missions",
-    "unlockedBy": "Fame or Shame"
+    "reward": "Floyd's safehouse in Vespucci unlocked",
+    "unlockedBy": "Crystal Maze"
   },
   {
     "id": "mission-20",
     "order": 20,
-    "title": "By the Book",
+    "title": "Fame or Shame",
     "character": "Michael, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Storyline",
-    "description": "Steve Haines and Dave Norton interrogate Kerimov to pinpoint a suspected Azerbaijani target. While Trevor extracts intel in a warehouse, Michael scans Chumash hills with a high-caliber sniper rifle waiting for target confirmation.",
+    "giver": "Amanda / Tracey",
+    "category": "Story",
+    "description": "The face-to-face reunion between Michael and Trevor is overshadowed when they learn about Tracey's audition for the TV contest Fame or Shame. They rush to the Maze Bank Arena, stop the taping and corner host Lazlow Jones after a truck chase along the urban riverbed.",
     "goldRequirements": [
-      "Do not cause Kerimov's heart to stop during interrogation",
-      "Use all 4 torture instruments at least once",
-      "Shoot the target on the first shot without guessing"
+      "Reach top speed in the Phantom truck",
+      "Don't detach the trailer during the chase",
+      "Punch Lazlow",
+      "Don't harm pedestrians on the set"
     ],
-    "reward": "Trevor transports Kerimov safely to the airport",
-    "unlockedBy": "Three's Company"
+    "reward": "Initial reconciliation between Michael and Trevor",
+    "unlockedBy": "Friends Reunited"
   },
   {
     "id": "mission-21",
     "order": 21,
-    "title": "Hood Safari",
-    "character": "Franklin, Trevor",
-    "giver": "Franklin Clinton",
-    "category": "Storyline",
-    "description": "Franklin, Trevor, and Lamar travel to Grove Street to purchase cocaine from the Ballas. Trevor notices the brick is mostly drywall plaster, sparking an explosive gun battle in the iconic Grove Street cul-de-sac followed by an escape via Jet Skis through the storm drains.",
+    "title": "Dead Man Walking",
+    "character": "Michael",
+    "giver": "FIB (Dave Norton)",
+    "category": "Story",
+    "description": "Dave Norton forces Michael to work for the FIB, blackmailing him over his return to crime. Wake up inside the morgue after faking death, find Ferdinand Kerimov's credentials and escape the facility under siege by the IAA.",
     "goldRequirements": [
-      "Time under 07:00",
-      "Accuracy of at least 70%",
-      "12 headshots"
+      "Finish with at least 80% accuracy",
+      "Get 14 headshots",
+      "Finish in under 09:30",
+      "Kill 4 enemies using the special ability",
+      "Take minimal damage"
     ],
-    "reward": "$0 (deal gone bad)",
-    "unlockedBy": "Three's Company"
+    "reward": "Unlocks missions for the FIB.",
+    "unlockedBy": "Fame or Shame"
   },
   {
     "id": "mission-22",
     "order": 22,
-    "title": "The Merryweather Heist",
+    "title": "Three's Company",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Trevor Philips",
-    "category": "Heists",
-    "description": "Trevor plans a raid against a high-tech naval weapons project guarded by Merryweather Security. Using a minisub and a Cargobob helicopter, the team recovers a secret subaquatic superweapon, only for Lester to force them to return it to avert federal retaliation.",
+    "giver": "Dave Norton (FIB)",
+    "category": "Story",
+    "description": "Joint rescue operation with all three characters in Downtown. Under FIB orders, Trevor flies the helicopter, Michael rappels down the windows of the IAA building to burst into the interrogation and Franklin assists by eliminating threats with a sniper rifle from a nearby rooftop.",
     "goldRequirements": [
-      "Complete within 14:30",
-      "Find the underwater device within 02:00",
-      "Shoot down pursuer choppers without suffering critical damage"
+      "Time under 07:30",
+      "Minimum accuracy of 60%",
+      "10 headshots across the three characters"
     ],
-    "reward": "Experience (device returned without cash payout)",
-    "unlockedBy": "Hood Safari"
+    "reward": "Unlocks joint FIB missions",
+    "unlockedBy": "Fame or Shame"
   },
   {
     "id": "mission-23",
     "order": 23,
-    "title": "Hotel Assassination",
-    "character": "Franklin",
-    "giver": "Lester Crest",
-    "category": "Assassinations",
-    "description": "The first stock market assassination contract from Lester. Franklin positions himself outside the Von Crastenburg Hotel in Rockford Hills to eliminate Bilkinton Research's CEO using a sniper rifle or sticky bomb before he departs in his security motorcade.",
+    "title": "By the Book",
+    "character": "Michael, Trevor",
+    "giver": "Steve Haines",
+    "category": "Story",
+    "description": "Interrogation at the Los Santos docks under the supervision of agents Steve Haines and Dave Norton. As information on the suspect comes out, Michael watches a private party in the Chumash hills to identify and take down the target without raising suspicion.",
     "goldRequirements": [
-      "Time under 05:00",
-      "Kill the target with a sniper rifle",
-      "Profit from buying Betta Pharmaceuticals stock beforehand"
+      "Don't stop Kerimov's heart during the interrogation",
+      "Use all 4 torture tools at least once",
+      "Shoot the correct target on the first try without hesitating"
     ],
-    "reward": "$9,000 + massive stock market returns",
-    "unlockedBy": "Fame or Shame"
+    "reward": "Trevor takes Kerimov safely to the airport",
+    "unlockedBy": "Three's Company"
   },
   {
     "id": "mission-24",
     "order": 24,
-    "title": "Blitz Play",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Steve Haines (FIB)",
-    "category": "Heists",
-    "description": "A textbook coordinated armored car ambush in Cypress Flats. The trio blocks traffic with a garbage truck, rams the armored car with a tow truck, breaches the rear doors with explosives, and holds off SWAT assault teams before making a getaway in a clean switch car.",
+    "title": "Hood Safari",
+    "character": "Franklin, Trevor",
+    "giver": "Franklin Clinton",
+    "category": "Story",
+    "description": "A shady deal in the heart of Grove Street with Lamar and Trevor. The goods turn out to be a con, sparking close-quarters urban combat against local gang members and a getaway on jet skis through the storm drains.",
     "goldRequirements": [
-      "Shoot down the chopper as Trevor",
-      "12 headshots",
-      "Accuracy of at least 60%",
-      "Switch characters at least 10 times"
+      "Time under 07:00",
+      "Minimum accuracy of 70%",
+      "12 headshots"
     ],
-    "reward": "Black-ops funding for the FIB operation",
-    "unlockedBy": "Hotel Assassination"
+    "reward": "$0 (failed deal)",
+    "unlockedBy": "Three's Company"
   },
   {
     "id": "mission-25",
     "order": 25,
-    "title": "I Fought the Law...",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Devin Weston",
-    "category": "Storyline",
-    "description": "Billionaire Devin Weston hires the trio to steal two ultra-rare supercars (an Entity XF and a Cheetah) from wealthy street racers. Michael and Trevor disguise themselves as motorcycle highway patrol officers to intercept the racers along the Great Ocean Highway.",
+    "title": "Did Somebody Say Yoga?",
+    "character": "Michael",
+    "giver": "Amanda De Santa",
+    "category": "Story",
+    "description": "Endure a yoga session with instructor Fabien, deal with Jimmy's betrayal and try to survive a bad anesthetic trip.",
     "goldRequirements": [
-      "Time under 12:00",
-      "Drive between two semi-trucks simultaneously",
-      "Win the race on the police motorcycle without crashing"
+      "Finish in under 15:00",
+      "Complete each of the 3 yoga poses without mistakes"
     ],
-    "reward": "Devin Weston unlocked as an employer",
-    "unlockedBy": "Blitz Play"
+    "reward": "Amanda, Jimmy and Tracey leave the house. Michael temporarily loses access to his personal vehicles.",
+    "unlockedBy": "Hood Safari"
   },
   {
     "id": "mission-26",
     "order": 26,
-    "title": "The Paleto Score",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "FIB / Lester",
-    "category": "Heists",
-    "description": "Equipped with heavy ballistic juggernaut suits and miniguns, Michael and Trevor storm the Paleto Bay Bank. They blast through the entire police department and military reinforcements, destroying helicopters and fleeing inside a bulldozer driven by Franklin.",
+    "title": "Scouting the Port",
+    "character": "Trevor",
+    "giver": "Floyd",
+    "category": "Story",
+    "description": "Trevor pressures Wade and his cousin Floyd (a dock worker) into organizing a paramilitary-scale robbery. Infiltrate the port facilities run by Merryweather Security, disguised as a dock worker, to locate an advanced technology device and plan its theft.",
     "goldRequirements": [
-      "Fire over 4,000 rounds of ammunition",
-      "Accuracy of at least 50%",
-      "Cause over $1,000,000 in property damage across Paleto Bay",
-      "Complete within 16:00"
+      "Finish the mission in under 20:00",
+      "Complete the dock worker section without damaging the containers",
+      "Take the photos of the ship correctly on the first try",
+      "Finish all the dock work without causing altercations"
     ],
-    "reward": "Approx. $450,000 take per protagonist",
-    "unlockedBy": "I Fought the Law..."
+    "reward": "Unlocks the setup missions for the Merryweather Heist.",
+    "unlockedBy": "Did Somebody Say Yoga?"
   },
   {
     "id": "mission-27",
     "order": 27,
-    "title": "Derailed",
-    "character": "Michael, Trevor",
-    "giver": "Trevor Philips",
-    "category": "Storyline",
-    "description": "Trevor jumps a dirt bike onto a moving freight train from an elevated ridge, hijack the locomotive, and causes a massive head-on collision on the Zancudo bridge. Michael arrives in a speedboat to retrieve military shipping containers while holding off Merryweather mercenaries.",
+    "title": "Minisub",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "Setup",
+    "description": "Steal an experimental minisub from a survey ship docked at the port. It is required regardless of the approach chosen for the Merryweather Heist.",
     "goldRequirements": [
-      "Time under 11:30",
-      "Land on the train carriage on the first bike jump attempt",
-      "Reach top speed with the speedboat"
+      "Finish in under 08:30",
+      "Steal the submarine without boarding the civilian ship"
     ],
-    "reward": "Valuable smuggled high-grade contraband",
-    "unlockedBy": "The Paleto Score"
+    "reward": "Submarine secured for either heist approach.",
+    "unlockedBy": "Scouting the Port"
   },
   {
     "id": "mission-28",
     "order": 28,
-    "title": "The Bureau Raid",
-    "character": "Michael, Franklin",
-    "giver": "Steve Haines",
-    "category": "Heists",
-    "description": "Infiltrating the FIB skyscraper in Downtown Los Santos to erase Haines's incriminating files. Depending on the approach, the crew enters disguised as firefighters after detonating charges, or parachutes directly onto the roof amidst active building fires.",
+    "title": "Cargobob",
+    "character": "Trevor",
+    "giver": "Wade",
+    "category": "Setup",
+    "description": "Infiltrate the maximum-security military base (Fort Zancudo) and steal a heavy military transport helicopter (Cargobob) capable of lifting the minisub.",
     "goldRequirements": [
-      "Complete within 18:00",
-      "Accuracy of at least 70%",
-      "Score 20 headshots",
-      "Rescue the trapped squad member"
+      "Finish in under 05:30"
     ],
-    "reward": "Erasure of federal records and legal pressure on Michael",
-    "unlockedBy": "Derailed"
+    "reward": "Cargo helicopter secured for the Offshore approach.",
+    "unlockedBy": "Minisub"
   },
   {
     "id": "mission-29",
     "order": 29,
-    "title": "The Wrap Up",
-    "character": "Michael, Trevor",
-    "giver": "Dave Norton",
-    "category": "Storyline",
-    "description": "Michael meets Dave Norton at the Kortz Center, but the meeting turns into a three-way standoff between rogue FIB squads, IAA agents, and a Merryweather strike force. Michael is trapped in the crossfire until Trevor intervenes with sniper support from the rooftop.",
+    "title": "The Merryweather Heist",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "Trevor Philips",
+    "category": "Heist",
+    "description": "Operation against the convoys of the Merryweather military corporation. Using a submersible and a heavy-lift helicopter, the team recovers a military device sunk in deep water, which must ultimately be returned on Lester's orders to avoid government reprisals.",
     "goldRequirements": [
-      "Time under 07:00",
-      "18 headshots",
-      "Shoot down the attack helicopter with a sniper rifle"
+      "Complete in under 14:30",
+      "Find the underwater device in under 02:00",
+      "Take out the pursuing helicopters without taking critical damage"
     ],
-    "reward": "Survival of Dave Norton and Michael",
-    "unlockedBy": "The Bureau Raid"
+    "reward": "Experience (device returned with no immediate payment)",
+    "unlockedBy": "Hood Safari"
   },
   {
     "id": "mission-30",
     "order": 30,
-    "title": "Lamar Down",
-    "character": "Franklin, Michael, Trevor",
-    "giver": "Tanisha Jackson",
-    "category": "Storyline",
-    "description": "Tanisha warns Franklin that Lamar has been captured by the Ballas at the Paleto Forest sawmill. Franklin enlists Michael and Trevor to launch a coordinated three-pronged assault around the logging facility and extract Lamar alive.",
+    "title": "Trash Truck",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "Setup",
+    "description": "Locate and steal an active garbage truck from the municipal fleet ('Trashmaster') to serve as a heavy roadblock for ambushing the armored truck in the heist.",
     "goldRequirements": [
-      "18 headshots",
-      "Shooting accuracy of at least 70%",
-      "Rescue Lamar with him losing no more than a third of his health",
-      "Complete within 13:30"
+      "Finish in under 05:00",
+      "Deliver the truck undamaged",
+      "Reach top speed"
     ],
-    "reward": "Unbreakable bond with Lamar",
-    "unlockedBy": "The Wrap Up"
+    "reward": "Blocking vehicle secured for 'Blitz Play'.",
+    "unlockedBy": "The Merryweather Heist"
   },
   {
     "id": "mission-31",
     "order": 31,
-    "title": "Meltdown",
-    "character": "Michael",
-    "giver": "Solomon Richards",
-    "category": "Storyline",
-    "description": "At the Oriental Theater film premiere of 'Meltdown', Devin Weston informs Michael that hitmen have been sent to his mansion to kill Amanda and Tracey. Michael races across Los Santos in his tuxedo and defends his family in a housewide standoff.",
+    "title": "Tow Truck",
+    "character": "Michael, Franklin, Trevor",
+    "giver": "FIB / Steve Haines",
+    "category": "Setup",
+    "description": "Steal a tow truck to be used to pull off the rear doors of the armored truck during the 'Blitz Play' operation.",
     "goldRequirements": [
-      "Time under 06:30",
-      "Reach top speed driving to the mansion",
-      "Kill 12 enemies with headshots"
+      "Finish in under 03:00",
+      "Deliver the tow truck undamaged"
     ],
-    "reward": "Full reunion of the De Santa family",
-    "unlockedBy": "Lamar Down"
+    "reward": "Getaway/ramming vehicle secured for 'Blitz Play'.",
+    "unlockedBy": "Trash Truck"
   },
   {
     "id": "mission-32",
     "order": 32,
-    "title": "The Big Score",
+    "title": "Blitz Play",
     "character": "Michael, Franklin, Trevor",
-    "giver": "Lester Crest",
-    "category": "Heists",
-    "description": "The ultimate heist on the Union Depository in Downtown Los Santos to steal $200 million in gold bullion. Either by covert armored car infiltration and traffic light control (Subtle) or tunnel boring machines and heavy-lift helicopters (Obvious).",
+    "giver": "Steve Haines",
+    "category": "Story",
+    "description": "Tactical robbery of an armored truck in the Cypress Flats industrial zone. The road is cut off with a heavy vehicle, the truck is disabled with a tow truck and the doors are blown open with explosives, holding back the tactical units until reaching the transfer point.",
     "goldRequirements": [
-      "Score 20 headshots",
-      "Complete within 16:00",
-      "Drop gold onto the train with precision",
-      "Accuracy of at least 60%"
+      "Shoot down the helicopter as Trevor",
+      "Get 12 headshots",
+      "Minimum accuracy of 60%",
+      "Switch characters at least 10 times"
     ],
-    "reward": "Approx. $28,000,000 take for each of the three protagonists",
-    "unlockedBy": "Meltdown"
+    "reward": "Secret funds for the FIB operation",
+    "unlockedBy": "The Hotel Assassination"
   },
   {
     "id": "mission-33",
     "order": 33,
-    "title": "Option A: Something Sensible (Kill Trevor)",
-    "character": "Franklin",
-    "giver": "Steve Haines / Dave Norton",
-    "category": "Finale",
-    "description": "Steve Haines orders Franklin to eliminate Trevor as an uncontrollable liability. Franklin confronts Trevor at El Burro Heights oil fields. Michael assists by ramming Trevor's truck into a gas tanker before Franklin shoots the gasoline trail.",
+    "title": "Mr. Richards",
+    "character": "Michael",
+    "giver": "Solomon Richards",
+    "category": "Story",
+    "description": "Intimidate the lead actor and the director of Solomon Richards' latest film into returning to the shoot, using reckless flying tactics.",
     "goldRequirements": [
-      "Kill Trevor",
-      "Complete within 06:00"
+      "Finish in under 10:00",
+      "Stealthily kill 3 enemies",
+      "Take no damage during the fight",
+      "Land the helicopter without damaging it"
     ],
-    "reward": "Heist money split between Franklin and Michael (Trevor lost)",
-    "unlockedBy": "The Big Score"
+    "reward": "The film collaboration between Michael and Solomon begins.",
+    "unlockedBy": "Blitz Play"
   },
   {
     "id": "mission-34",
     "order": 34,
-    "title": "Option B: The Time's Come (Kill Michael)",
-    "character": "Franklin",
+    "title": "I Fought the Law...",
+    "character": "Franklin, Michael, Trevor",
     "giver": "Devin Weston",
-    "category": "Finale",
-    "description": "Devin Weston orders Franklin to kill Michael for ruining his ventures. Franklin meets Michael at a secluded location. Realizing the betrayal, Michael flees to an industrial ironworks facility, where a catwalk struggle ends in Michael falling to his death.",
+    "category": "Story",
+    "description": "A special assignment from tycoon Devin Weston to seize two exotic vehicles. Posing as traffic officers on patrol motorcycles, Michael and Trevor intercept the drivers on the coastal highway and race each other to deliver them to the agreed garage.",
     "goldRequirements": [
-      "Kill Michael",
-      "Complete within 07:00"
+      "Time under 12:00",
+      "Drive between two trucks at the same time",
+      "Win the race on the police bike without crashing"
     ],
-    "reward": "Heist money split between Franklin and Trevor (Michael lost)",
-    "unlockedBy": "The Big Score"
+    "reward": "Devin Weston as a new employer",
+    "unlockedBy": "Blitz Play"
   },
   {
     "id": "mission-35",
     "order": 35,
-    "title": "Option C: The Third Way (Save Both)",
-    "character": "Michael, Franklin, Trevor",
-    "giver": "Lester Crest",
-    "category": "Finale",
-    "description": "The canonical ending. Franklin refuses to turn on his friends and seeks Lester's advice. The trio ambushes the FIB and Merryweather at a foundry, then divide and conquer to wipe out all their enemies: Stretch, Steve Haines, Wei Cheng, and finally kidnap Devin Weston before pushing his car off a Mount Chiliad cliff.",
+    "title": "Eye in the Sky",
+    "character": "Trevor, Franklin",
+    "giver": "Devin Weston",
+    "category": "Story",
+    "description": "Scan the residential districts using the advanced thermal sensors and facial recognition of a police helicopter to steal a valuable Z-Type (a hyper-luxury classic car).",
     "goldRequirements": [
-      "Time under 21:30",
-      "20 headshots",
-      "Accuracy of at least 70%",
-      "Kill Cheng with a sticky bomb",
-      "Kill Steve Haines with a headshot"
+      "Find the target on the first opportunity",
+      "Deliver the Z-Type without a single scratch",
+      "Listen to 3 complete police/civilian conversations"
     ],
-    "reward": "$28,000,000 for each protagonist and all three alive and playable",
-    "unlockedBy": "The Big Score"
+    "reward": "Unlocks more cars from Devin's list.",
+    "unlockedBy": "I Fought the Law..."
   },
   {
     "id": "mission-36",
     "order": 36,
     "title": "Caida Libre",
     "character": "Michael, Trevor",
-    "giver": "Martin Madrazo",
+    "giver": "Martín Madrazo",
     "category": "Story",
-    "description": "Martin Madrazo hires Michael to silence his cousin Javier, who plans to testify against him and is flying to Liberty City with a briefcase of incriminating files. Using a high-caliber computer-guided sniper rifle mounted inside a van at the Galileo Observatory, Michael must cripple the aircraft mid-flight while Trevor chases the burning fuselage across Blaine County.",
+    "description": "Kill Martin Madrazo's cousin (Javier) by shooting down his private jet in mid-flight with heavy artillery and recover some incriminating documents.",
     "goldRequirements": [
-      "Floor It — Reach top speed on the Sanchez",
-      "Glued to the Seat — Don't fall off the Sanchez",
-      "One Two Three — Shoot down the plane with 3 shots",
-      "Time — Complete within 09:45"
+      "Reach top speed on the Sanchez bike",
+      "Don't fall off the Sanchez during the chase",
+      "Shoot down the plane with 3 shots",
+      "Finish in under 09:45"
     ],
-    "reward": "Michael and Trevor are exiled from Los Santos. Unlocks the Sandy Shores safehouse for both.",
-    "unlockedBy": "35. Eye in the Sky"
+    "reward": "Michael and Trevor are exiled from Los Santos. Unlocks the Sandy Shores safehouse.",
+    "unlockedBy": "Eye in the Sky"
   },
   {
     "id": "mission-37",
@@ -599,16 +585,15 @@
     "character": "Franklin",
     "giver": "Devin Weston",
     "category": "Story",
-    "description": "Devin Weston demands another legendary vehicle for his collection: the vintage Dewbauchee JB 700 currently being used on a spy film shoot at Richards Majestic Studios. Franklin sneaks onto the backlot, knocks out the lead actor and steals the prop car, discovering its ejector seat and road spikes are fully functional.",
+    "description": "Infiltrate a film shoot and steal a modified Aston Martin-style car (Dewbauchee JB 700) equipped with real weapons and spy gadgets.",
     "goldRequirements": [
-      "Not a Scratch — Deliver the JB 700 with minimal damage",
-      "Fastest Speed — Reach top speed in the JB 700",
-      "Stealthy Recasting — Knock out the actor using a stealth attack",
-      "Premature Ejector — Hit the ejector seat within 10 seconds",
-      "Second Strike — Run over the actor as you escape in the JB 700"
+      "Deliver the JB 700 with minimal damage",
+      "Reach top speed in the JB 700",
+      "Stealthily knock out the actor",
+      "Eject the passenger in under 10 seconds"
     ],
-    "reward": "Another classic car delivered to Devin Weston's garage.",
-    "unlockedBy": "36. Caida Libre"
+    "reward": "New delivery for Devin Weston's garage.",
+    "unlockedBy": "Caida Libre"
   },
   {
     "id": "mission-38",
@@ -617,13 +602,13 @@
     "character": "Trevor",
     "giver": "Ron Jakowski",
     "category": "Story",
-    "description": "Tired of working for free for federal agents and eager to expand Trevor Philips Industries, Trevor takes off in a rickety crop duster to board a massive Merryweather military cargo plane mid-flight over Blaine County and seize its heavy weaponry.",
+    "description": "Board a Merryweather cargo plane in mid-flight, take control of the aircraft and survive the counterattack by fighter jets from the military base.",
     "goldRequirements": [
-      "Accuracy — Finish with a shooting accuracy of at least 80%",
-      "Four Wheel Flier — Exit the cargo plane in the Mesa"
+      "Finish with at least 80% accuracy",
+      "Leave the cargo plane driving the Mesa SUV"
     ],
-    "reward": "None. The entire cargo sinks to the bottom of the Alamo Sea.",
-    "unlockedBy": "37. Deep Inside"
+    "reward": "None. All the cargo sinks into Alamo Sea.",
+    "unlockedBy": "Deep Inside"
   },
   {
     "id": "mission-39",
@@ -631,46 +616,46 @@
     "title": "Paleto Score Setup",
     "character": "Michael, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Forced to fund a black-ops raid for the FIB while exiled in Blaine County, Michael and Trevor meet Lester in Sandy Shores. Together they scope out the Blaine County Savings Bank in Paleto Bay, a quiet rural branch holding millions in dirty cartel and corrupt sheriff kickbacks.",
+    "category": "Setup",
+    "description": "The first joint plan designed directly by Lester and Trevor from the trailer. Scout and trigger the alarm at the rural Paleto Bay bank to measure the tactical response of the local police.",
     "goldRequirements": [
-      "Leisurely Drive — Drive to the bank within 03:30",
-      "Winner — Win the race back to the meth lab"
+      "Drive to the bank in under 03:30",
+      "Win the race back to the lab"
     ],
-    "reward": "Unlocks setup preparations for the Paleto Score.",
-    "unlockedBy": "38. Minor Turbulence"
+    "reward": "Preparations for the Paleto Score begin.",
+    "unlockedBy": "Minor Turbulence"
   },
   {
     "id": "mission-40",
     "order": 40,
-    "title": "Military Hardware",
+    "title": "Predator",
     "character": "Trevor, Michael, Franklin",
     "giver": "Trevor Philips",
     "category": "Story",
-    "description": "Out for blood after the destruction of their meth farm, the surviving O'Neil brothers head out to ambush Trevor. After crashing their SUV deep into Raton Canyon, they scatter into the dense forest at dusk, prompting Michael, Trevor, Franklin and Chop to coordinate a combined air-and-ground manhunt.",
+    "description": "Hunt down and wipe out the surviving O'Neil brothers hiding in the dense Raton Canyon forest.",
     "goldRequirements": [
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Time — Complete within 09:00",
-      "Headshots — Kill 3 enemies with headshots",
-      "Thin the Herd — Do not kill any animals"
+      "Finish with at least 70% accuracy",
+      "Finish in under 09:00",
+      "Get 3 headshots",
+      "Don't kill any animals"
     ],
-    "reward": "None. Vengeance and elimination of the remaining O'Neil brothers.",
-    "unlockedBy": "39. Paleto Score Setup"
+    "reward": "None. Revenge and elimination of the remaining O'Neil brothers.",
+    "unlockedBy": "Paleto Score Setup"
   },
   {
     "id": "mission-41",
     "order": 41,
-    "title": "Predator",
+    "title": "Military Hardware",
     "character": "Trevor, Michael, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Knowing that Paleto Bay law enforcement boasts heavy armor and militarized response teams, Lester devises an overwhelming brute-force plan: outfitting the crew in heavy ballistic Juggernaut armor and rotary miniguns. To acquire the gear, the gang intercepts an Army supply convoy rolling down the Great Ocean Highway.",
+    "category": "Setup",
+    "description": "Ambush a military convoy to steal a truck carrying full-body bulletproof military suits and rotary machine guns (Miniguns).",
     "goldRequirements": [
-      "Head Hunter — Kill 5 enemies with headshots",
-      "Sticky Strategist — Stop the convoy using a Sticky Bomb trap"
+      "Kill 5 soldiers with headshots",
+      "Stop the convoy using a sticky bomb"
     ],
-    "reward": "Heavy ballistic armor and firepower secured for the Paleto Score.",
-    "unlockedBy": "40. Predator"
+    "reward": "Armor and heavy weapons secured for the Paleto Score.",
+    "unlockedBy": "Predator"
   },
   {
     "id": "mission-42",
@@ -678,33 +663,31 @@
     "title": "The Paleto Score",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "An all-out armed assault on the Blaine County Savings Bank in Paleto Bay using heavy rotary miniguns and full-body ballistic armor. The crew withstands a combined siege by SWAT and the U.S. Army until Franklin smashes through the blockade in a heavy bulldozer to clear a path to the train tracks.",
+    "category": "Heist",
+    "description": "Armed assault on the Paleto Bay bank with heavy weapons and full-body ballistic suits. The team holds out against a joint cordon of special forces and military until Franklin arrives with heavy machinery to clear a path to the train tracks.",
     "goldRequirements": [
-      "Let It Rain — Fire over 4,000 rounds of ammo",
-      "Accuracy — Finish with a shooting accuracy of at least 50%",
-      "Collateral Damage — Cause $1,000,000 of damage in Paleto Bay",
-      "Time — Complete within 16:00"
+      "Fire more than 4,000 rounds",
+      "Minimum shooting accuracy of 50%",
+      "Cause more than $1,000,000 in property damage to Paleto Bay",
+      "Complete in under 16:00"
     ],
-    "reward": "Approx. $450,000 net payout per character",
-    "unlockedBy": "41. Military Hardware"
+    "reward": "Approx. $450,000 net for each character",
+    "unlockedBy": "I Fought the Law..."
   },
   {
     "id": "mission-43",
     "order": 43,
     "title": "Derailed",
-    "character": "Trevor, Michael",
+    "character": "Michael, Trevor",
     "giver": "Trevor Philips",
     "category": "Story",
-    "description": "A daring motorcycle jump onto a speeding freight train to force a head-on collision over the Zancudo River bridge. With the cargo cars plunged into the rapids below, Michael pulls up in a Dinghy to blow open the sunken container while fending off Merryweather tactical squads.",
+    "description": "Boarding a moving train by motorcycle to force a collision on the Zancudo River bridge. With the cars plunged into the water, Michael reaches them by boat to extract the cargo while they fight off Merryweather's tactical forces.",
     "goldRequirements": [
-      "Time — Complete within 11:30",
-      "Fastest Speed — Reach top speed on the Sanchez",
-      "Better Than CJ — Land on the train using the first jump",
-      "Separation — Complete the mission without detaching",
-      "High Velocity — Reach top speed in the Dinghy"
+      "Time under 11:30",
+      "Land on the train car with the bike on the first try",
+      "Reach top speed with the speedboat"
     ],
-    "reward": "High-value historical artifact for Martin Madrazo",
+    "reward": "High-value contraband artifacts",
     "unlockedBy": "The Paleto Score"
   },
   {
@@ -714,15 +697,15 @@
     "character": "Michael, Franklin, Trevor",
     "giver": "Steve Haines",
     "category": "Story",
-    "description": "Under orders from Steve Haines and Dave Norton to stop an IAA chemical weapons program, the trio infiltrates the heavily guarded Humane Labs facility. Michael dives through underwater intake pipes to steal an experimental neurotoxin before Trevor extracts the cargo by air in a Cargobob.",
+    "description": "Infiltrate the high-security Humane Labs facility through the water ducts to steal an experimental nerve toxin for the FIB.",
     "goldRequirements": [
-      "Stunner — Stun 8 enemies with the Stun Gun",
-      "Headshots — Kill 15 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Time — Complete within 13:30"
+      "Stun 8 enemies with the taser",
+      "Get 15 headshots",
+      "Finish with at least 70% accuracy",
+      "Finish in under 13:30"
     ],
-    "reward": "Settles the FIB black-ops demand. Trevor reconciles the dispute with Martin Madrazo.",
-    "unlockedBy": "43. Derailed"
+    "reward": "The deal with Haines is settled. Madrazo stops the pursuit.",
+    "unlockedBy": "Derailed"
   },
   {
     "id": "mission-45",
@@ -731,12 +714,12 @@
     "character": "Trevor",
     "giver": "Trevor Philips",
     "category": "Story",
-    "description": "Debra's return to her Vespucci Beach condo sparks a violent confrontation with Floyd and Trevor that ends in an off-screen bloodbath. Covered in blood, Trevor steers an oblivious Wade away from the crime scene and relocates to the Vanilla Unicorn strip club, which he has forcefully taken over as his new Los Santos headquarters.",
+    "description": "With the situation at the safehouse unsustainable and tension among the protagonists, Trevor needs a new independent base to plan the 'Big Score'. Bring Trevor's relationship with Floyd and Debra to a violent end and take over a new headquarters in Los Santos by force.",
     "goldRequirements": [
-      "Time — Complete within 04:00"
+      "Finish in under 04:00"
     ],
-    "reward": "Trevor takes over the Vanilla Unicorn strip club, which becomes his Los Santos safehouse.",
-    "unlockedBy": "44. Monkey Business"
+    "reward": "Trevor takes control of the Vanilla Unicorn strip club, which becomes his safehouse in LS.",
+    "unlockedBy": "Monkey Business"
   },
   {
     "id": "mission-46",
@@ -744,15 +727,15 @@
     "title": "Surveying the Score",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Gathered in the back office of the Vanilla Unicorn with Lester, the trio sets their sights on the ultimate criminal prize: robbing the Union Depository of over two hundred million dollars in gold bullion. To plan the score of the century, the crew conducts coordinated ground and aerial reconnaissance across Downtown Los Santos.",
+    "category": "Heist",
+    "description": "Carry out a vulnerability analysis, measure response times and locate access points at the Union Depository.",
     "goldRequirements": [
-      "Perfect Distance — Follow the vans without being warned about distance",
-      "Cavity Search — Find the construction hole within 20 seconds",
-      "Under the Bridge / Tunnel Flight — Fly under the bridge while following the vans and fly through a tunnel"
+      "Follow the armored trucks without being warned about the distance",
+      "Find the construction hole in under 20 seconds",
+      "Fly under the bridge while tracking the trucks and go through a tunnel"
     ],
-    "reward": "Unlocks the official Big Score planning board (Subtle or Obvious).",
-    "unlockedBy": "45. Hang Ten"
+    "reward": "Official Big Score planning (Subtle or Obvious).",
+    "unlockedBy": "Hang Ten"
   },
   {
     "id": "mission-47",
@@ -761,14 +744,14 @@
     "character": "Michael, Trevor",
     "giver": "Michael De Santa",
     "category": "Story",
-    "description": "Consumed by suspicion, Trevor flies to the frozen town of Ludendorff to dig up the grave bearing Michael Townley's name. Discovering the decomposing body of Brad Snider inside the coffin, the bitter standoff between the former partners is cut short by an ambush from Wei Cheng's Triads, leaving Michael stranded and captured in the snow.",
+    "description": "Travel to snowy Ludendorff (North Yankton) to dig up the grave of 'Michael Townley' and survive an ambush by Wei Cheng's cartel.",
     "goldRequirements": [
-      "Time — Complete within 11:00",
-      "Headshots — Kill 20 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 80%"
+      "Finish in under 11:00",
+      "Get 20 headshots",
+      "Finish with at least 80% accuracy"
     ],
-    "reward": "Temporary fracture of the crew; Trevor learns the truth about Brad.",
-    "unlockedBy": "46. Surveying the Score"
+    "reward": "Temporary crew split; Trevor discovers the truth about Brad.",
+    "unlockedBy": "Surveying the Score"
   },
   {
     "id": "mission-48",
@@ -777,14 +760,14 @@
     "character": "Franklin, Trevor",
     "giver": "Devin Weston",
     "category": "Story",
-    "description": "Having collected every exotic car on Devin Weston's list, Franklin, Lamar and Trevor load the five supercars onto a Packer car carrier bound for Paleto Bay. When highway patrol cruisers spot the stolen shipment and launch a high-speed pursuit, Franklin climbs into the weaponized JB 700 on the upper deck to fight off the police.",
+    "description": "Transport the batch of stolen luxury hypercars on a car carrier ('Packer') to the drop-off point in Paleto Bay, evading an LSPD chase.",
     "goldRequirements": [
-      "Mission Time — Complete within 12:00",
-      "Not a Scratch — Deliver the JB 700 with minimal damage",
-      "Shredder — Disable 3 police cars using the spike strips"
+      "Finish in under 12:00",
+      "Deliver the JB 700 with minimal damage",
+      "Destroy 3 police cars using the spikes"
     ],
-    "reward": "None. Weston refuses to pay the crew.",
-    "unlockedBy": "47. Bury the Hatchet"
+    "reward": "None. Weston refuses to pay the protagonists.",
+    "unlockedBy": "Bury the Hatchet"
   },
   {
     "id": "mission-49",
@@ -793,329 +776,322 @@
     "character": "Franklin, Michael",
     "giver": "Franklin Clinton",
     "category": "Story",
-    "description": "Kidnapped in North Yankton by Wei Cheng's Triads after being mistaken for Trevor's lover, Michael is held captive inside the Raven Slaughterhouse in Cypress Flats. Tipped off by Lester, Franklin races against the clock using a phone tracking app to locate the meatpacking plant and save Michael from the industrial meat grinder.",
+    "description": "Track the signal from Michael's phone, storm a meat processing plant (Raven Abattoir) and slaughter the Triads to save his life.",
     "goldRequirements": [
-      "Switch Limiter — Don't switch characters more than 3 times",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Headshots — Kill 10 enemies with headshots",
-      "Swift Rescue — Rescue Michael within 03:30",
-      "Sense of Direction — Don't use any map waypoints"
+      "Switch characters no more than 3 times",
+      "10 headshots and at least 70% accuracy",
+      "Rescue Michael in under 03:30",
+      "Don't use map waypoints"
     ],
-    "reward": "Michael is rescued and rejoins the heist crew.",
-    "unlockedBy": "48. Pack Man"
+    "reward": "Michael is rescued and contact with Lester resumes.",
+    "unlockedBy": "Pack Man"
   },
   {
     "id": "mission-50",
     "order": 50,
-    "title": "Cleaning out the Bureau",
+    "title": "The Ballad of Rocco",
     "character": "Michael",
     "giver": "Solomon Richards",
     "category": "Story",
-    "description": "Arriving at Richards Majestic Studios after a frantic call from Solomon Richards, Michael catches mobster Rocco Pelosi and his associate Gianni roughing up the elderly producer. Outraged by the attack on his mentor, Michael launches into a high-speed pursuit through Vinewood to permanently eliminate the Liberty City extortionist.",
+    "description": "Take out Rocco Pelosi (the Liberty City mobster) for good after he physically assaulted Solomon Richards at the film studios.",
     "goldRequirements": [
-      "Time — Complete within 03:00"
+      "Finish the mission in under 03:00"
     ],
-    "reward": "Michael is officially credited as Associate Producer on Solomon's film.",
-    "unlockedBy": "49. Fresh Meat"
+    "reward": "Michael is credited as Associate Producer on Solomon's film.",
+    "unlockedBy": "Fresh Meat"
   },
   {
     "id": "mission-51",
     "order": 51,
-    "title": "Architect's Plans",
+    "title": "Cleaning out the Bureau",
     "character": "Michael",
     "giver": "Lester Crest",
     "category": "Story",
-    "description": "To prepare for the raid on FIB headquarters and wipe the files incriminating Steve Haines and Michael, the crew needs inside access. Michael stakes out the federal building to tail janitor Harvey Molina home and intimidate him into handing over his work overalls and security pass.",
+    "description": "Track down and obtain the uniforms and ID cards of the FIB cleaning staff in order to infiltrate the building and erase Steve Haines' incriminating files.",
     "goldRequirements": [
-      "Eagle Eye — Check all the license plates",
-      "He Missed a Spot — Follow the janitor without being spotted",
-      "Time — Complete within 09:00"
+      "Check all the license plates in the parking lot",
+      "Follow the janitor without being detected",
+      "Finish in under 09:00"
     ],
-    "reward": "Unlocks the official FIB Raid planning board.",
-    "unlockedBy": "50. The Ballad of Rocco"
+    "reward": "Official planning of the FIB raid.",
+    "unlockedBy": "The Ballad of Rocco"
   },
   {
     "id": "mission-52",
     "order": 52,
-    "title": "Fire Truck",
+    "title": "Reuniting the Family",
     "character": "Michael",
     "giver": "Jimmy De Santa",
     "category": "Story",
-    "description": "After months of estrangement in an empty mansion, Jimmy reaches out to Michael to help bring the family back together. Together they drive across Los Santos to rescue Amanda from Fabien's pretentiousness and Tracey from Lazlow's sleazy advances, culminating in a chaotic group therapy session with Dr. Friedlander.",
+    "description": "Bring Amanda, Tracey and Jimmy back together after months of separation, dealing with their respective problems to rebuild the family.",
     "goldRequirements": [
-      "Time — Complete within 10:30"
+      "Finish in under 10:30"
     ],
-    "reward": "The De Santa family moves back into the mansion. Family vehicles become available again.",
-    "unlockedBy": "51. Cleaning out the Bureau"
+    "reward": "The De Santa family returns to the mansion. The family vehicles are available again.",
+    "unlockedBy": "Cleaning out the Bureau"
   },
   {
     "id": "mission-53",
     "order": 53,
-    "title": "Getaway Vehicle",
+    "title": "Architect's Plans",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To plan the raid on the FIB tower, Lester needs the exact structural blueprints of the federal building. Franklin heads to the Mile High Club construction site in Pillbox Hill to track down the project architect, seize his briefcase containing the floor plans, and make a fast getaway.",
+    "category": "Setup",
+    "description": "Steal the architectural plans of the FIB building from the lead architect of the expansion project to find gaps in its security.",
     "goldRequirements": [
-      "Quick Getaway — Leave the construction site within 45 seconds"
+      "Leave the construction area within 45 seconds of stealing the briefcase"
     ],
-    "reward": "Building blueprints secured for the Bureau Raid.",
-    "unlockedBy": "52. Reuniting the Family"
+    "reward": "Building plans secured for the FIB raid.",
+    "unlockedBy": "Reuniting the Family"
   },
   {
     "id": "mission-54",
     "order": 54,
-    "title": "The Bureau Raid",
+    "title": "Legal Trouble",
     "character": "Michael",
     "giver": "Solomon Richards",
     "category": "Story",
-    "description": "Devin Weston schemes to shut down production of 'Meltdown' and destroy the only master copy of the film to collect a massive insurance payout. Refusing to let his cinematic debut be ruined, Michael pursues Weston's panicked lawyer Molly Schultz onto the active runways of Los Santos International Airport.",
+    "description": "Stop billionaire Devin Weston and his lawyers, who have stolen the only original reel of the film to collect the insurance and ruin Solomon.",
     "goldRequirements": [
-      "Time — Complete within 05:30",
-      "Floor It — Reach top speed in any car",
-      "Clean Escape — Lose the wanted level within 02:00",
-      "News Hound — View the Weazel News camera for 15 seconds"
+      "Finish in under 05:30",
+      "Reach top speed",
+      "Lose your wanted level in under 2 minutes",
+      "Watch the news camera (Weazel News) for 15 seconds"
     ],
-    "reward": "Saves the release of 'Meltdown'.",
-    "unlockedBy": "53. Architect's Plans"
+    "reward": "Threat to the film 'Meltdown' eliminated.",
+    "unlockedBy": "Architect's Plans"
   },
   {
     "id": "mission-55",
     "order": 55,
-    "title": "The Ballad of Rocco",
+    "title": "The Bureau Raid",
     "character": "Michael, Franklin",
-    "giver": "Lester Crest",
-    "category": "Story",
-    "description": "A bold raid on FIB Headquarters in Downtown Los Santos to steal classified server drives. Depending on the selected approach, the crew either plants incendiary bombs as a janitor and enters disguised as firefighters, or executes a night HALO parachute drop directly onto the skyscraper roof.",
+    "giver": "Steve Haines",
+    "category": "Heist",
+    "description": "Direct raid on FIB headquarters to erase classified records. Depending on the strategy selected, the assault is carried out by parachuting onto the roof or by posing as a fire department evacuation with controlled detonations.",
     "goldRequirements": [
-      "Time — Complete within 18:00",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Headshots — Kill 20 enemies with headshots",
-      "Out of Breath — Escape with at least 40% oxygen remaining (Fire Crew) / Hacker — Hack the system within 45 seconds (Roof Entry)"
+      "Complete in under 18:00",
+      "Minimum accuracy of 70%",
+      "Get 20 headshots",
+      "Rescue the trapped crew member"
     ],
-    "reward": "Erases the incriminating FIB files on Michael and Steve Haines",
-    "unlockedBy": "54. Legal Trouble"
+    "reward": "Records erased and legal pressure on Michael lifted",
+    "unlockedBy": "Derailed"
   },
   {
     "id": "mission-56",
     "order": 56,
-    "title": "Lamar Down",
+    "title": "The Wrap Up",
     "character": "Michael, Trevor",
     "giver": "Dave Norton / Steve Haines",
     "category": "Story",
-    "description": "Michael meets Dave Norton and Steve Haines at the Kortz Center cultural complex, where tensions erupt into a chaotic three-way firefight between FIB tactical teams, IAA agents, and Merryweather contractors. Pinned down on the museum terraces, Michael only makes it out alive thanks to Trevor's unexpected sniper cover from the rooftops.",
+    "description": "A meeting at the Kortz Center turns into a three-way shootout between rival factions of the FIB, the IAA and private troops. Michael is surrounded on the museum terraces until Trevor appears just in time from high ground.",
     "goldRequirements": [
-      "Time — Complete within 07:00",
-      "Headshots — Kill 18 enemies with headshots",
-      "Whirly Bird — Shoot down the pursuing chopper"
+      "Mission time under 07:00",
+      "Get 18 headshots",
+      "Shoot down the pursuing helicopter with a sniper rifle"
     ],
-    "reward": "Dave Norton and Michael's survival",
+    "reward": "Dave Norton and Michael survive",
     "unlockedBy": "The Bureau Raid"
   },
   {
     "id": "mission-57",
     "order": 57,
-    "title": "Meltdown",
+    "title": "Lamar Down",
     "character": "Franklin, Michael, Trevor",
     "giver": "Tanisha / Franklin",
     "category": "Story",
-    "description": "A three-man rescue operation at the Paleto Forest sawmill to save Lamar from a Ballas ambush. Franklin recruits Michael and Trevor to coordinate a multi-angle assault on the lumber mill and extract Lamar safely.",
+    "description": "Rescue operation at the Paleto Forest sawmill to free Lamar from an ambush. Franklin brings Michael and Trevor together to coordinate an enveloping assault on the sawmill and neutralize the captors before they can get away.",
     "goldRequirements": [
-      "Headshots — Kill 18 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Three Way — Kill an enemy with all 3 characters",
-      "Time — Complete within 13:30"
+      "Get 18 headshots",
+      "Minimum shooting accuracy of 70%",
+      "Rescue Lamar without him losing more than a third of his health",
+      "Complete in under 13:30"
     ],
-    "reward": "Lamar's bond and survival",
+    "reward": "Lamar's unbreakable friendship",
     "unlockedBy": "The Wrap Up"
   },
   {
     "id": "mission-58",
     "order": 58,
-    "title": "Parenting 101",
+    "title": "Meltdown",
     "character": "Michael",
     "giver": "Jimmy De Santa",
     "category": "Story",
-    "description": "Michael's big Vinewood movie premiere is cut short by a veiled threat from Devin Weston against the De Santa family. Michael races back to his Rockford Hills residence to repel a Merryweather hit squad and rescue Amanda and Tracey inside the mansion.",
+    "description": "The film premiere in Vinewood is cut short by Devin Weston's threat against the De Santas. Michael rushes home to fight off the mercenaries and keep Amanda and Tracey safe inside the mansion.",
     "goldRequirements": [
-      "Time — Complete within 06:30",
-      "Pedal to the Metal — Reach top speed in any vehicle",
-      "Tier One — Kill 12 enemies with headshots",
-      "Saving Face — Kill the mercenaries attacking Amanda and Tracey with headshots"
+      "Time under 06:30",
+      "Reach top speed in the vehicle during the race to the mansion",
+      "Kill 12 enemies with headshots"
     ],
-    "reward": "Full reunion of the De Santa family",
+    "reward": "Full reconciliation of the De Santa family",
     "unlockedBy": "Lamar Down"
   },
   {
     "id": "mission-59",
     "order": 59,
-    "title": "Drilling the Hole",
+    "title": "Driller",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To execute the Obvious Approach for the Union Depository heist, the crew needs heavy industrial equipment capable of boring straight through the reinforced underground vault walls. The team locates a massive HVY Cutter loaded onto a flatbed trailer in La Mesa and mounts a covert operation to steal it.",
+    "category": "Setup",
+    "description": "Steal a heavy transport truck carrying a giant tunnel boring machine. It is required to drill through the vault in the Obvious approach.",
     "goldRequirements": [
-      "Sneak Thief — Steal the cutter without being detected",
-      "Time — Complete within 05:00"
+      "Steal the tunnel boring machine without being detected",
+      "Finish in under 05:00"
     ],
-    "reward": "HVY Cutter tunnel boring machine secured for The Big Score (Obvious Approach).",
-    "unlockedBy": "58. Meltdown"
+    "reward": "Tunnel boring machine (Cutter) secured for the Obvious approach.",
+    "unlockedBy": "Meltdown"
   },
   {
     "id": "mission-60",
     "order": 60,
-    "title": "Sidewrecked",
+    "title": "Sidetracked",
     "character": "Michael, Trevor, Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "As part of the Obvious Approach for the Union Depository heist, the crew needs a freight train to haul the stolen gold out of the city. Michael and Trevor infiltrate the power station rail switch, divert an incoming freight train, and use a heavy-lift Skylift helicopter to airlift both the locomotive and a flatbed car to Sandy Shores.",
+    "category": "Setup",
+    "description": "Hijack a flatbed freight train to load the stolen gold bars and transport them to the air extraction point. Exclusive to the Obvious approach.",
     "goldRequirements": [
-      "Time — Complete within 04:30",
-      "Undetected — Steal the train without being spotted"
+      "Finish in under 04:30",
+      "Steal the train without being discovered"
     ],
-    "reward": "Freight locomotive and flatbed car stolen to haul the gold in the Obvious Approach.",
-    "unlockedBy": "59. Drillers"
+    "reward": "Stolen freight cars to move the gold in the Obvious approach.",
+    "unlockedBy": "Driller"
   },
   {
     "id": "mission-61",
     "order": 61,
-    "title": "Getaway Vehicle",
+    "title": "The Big Score",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "The ultimate heist on the Union Depository in Pillbox Hill to steal two hundred million dollars in gold bullion. Depending on the selected plan, the crew either infiltrates the vault in stolen armored vans and escapes in heavily modified muscle cars, or drills straight through the subterranean vault wall and airlifts the gold out by helicopter.",
+    "category": "Heist",
+    "description": "The ultimate assault on the Union Depository to steal the most heavily protected gold reserve in the country. It can be carried out either with a subtle maneuver using fake transports and a traffic hack, or with a frontal underground drilling operation and air extraction.",
     "goldRequirements": [
-      "Headshots — Kill 20 enemies with headshots",
-      "Time — Complete within 16:00",
-      "Cha-Ching — Drop the gold onto the train within 30 seconds (Obvious) / Signal Man — Perform fewer than 10 traffic light changes (Subtle)",
-      "Accuracy — Finish with a shooting accuracy of at least 60%"
+      "Get 20 headshots",
+      "Complete in under 16:00",
+      "Drop the gold onto the train with pinpoint accuracy",
+      "Minimum shooting accuracy of 60%"
     ],
-    "reward": "Approx. $20,000,000 – $41,000,000 for each of the three protagonists",
+    "reward": "Approx. $28,000,000 for each of the three protagonists",
     "unlockedBy": "Meltdown"
   },
   {
     "id": "mission-62",
     "order": 62,
-    "title": "The Big Score (Subtle)",
+    "title": "The Hotel Assassination",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "A targeted corporate hit commissioned by Lester Crest to manipulate pharmaceutical stock prices. Franklin stakes out the Von Crastenburg Hotel in Richman and eliminates Bilkinton Research CEO Brett Lowrey before his motorcade departs.",
+    "category": "Assassination",
+    "description": "A hit ordered by Lester to influence the stock market. Franklin takes up position opposite the Von Crastenburg hotel in Rockford Hills and takes out the Bilkinton Research executive before his entourage leaves.",
     "goldRequirements": [
-      "Time — Complete within 05:00",
-      "Sniper Boy — Kill the target using a sniper rifle",
-      "Money Earned — $9,000"
+      "Mission time under 05:00",
+      "Kill the target with a sniper rifle",
+      "Money earned by investing in Betta Pharmaceuticals beforehand"
     ],
-    "reward": "$9,000 + massive stock market returns",
+    "reward": "$9,000 + huge stock market profits",
     "unlockedBy": "Fame or Shame"
   },
   {
     "id": "mission-63",
     "order": 63,
-    "title": "The Big Score (Obvious)",
+    "title": "The Multi Target Assassination",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To prevent Redwood Cigarettes from rigging a class-action lawsuit and send rival Debonaire's stock soaring on the LCN, Lester tasks Franklin with eliminating four bribed jurors across Los Santos within a strict nine-minute window.",
+    "category": "Assassination",
+    "description": "Kill 4 corrupt jurors bought by the Redwood tobacco company before they deliver their verdict.",
     "goldRequirements": [
-      "Speedy Killer — Kill all targets as quickly as possible",
-      "Money Earned — $7,000"
+      "Finish all the assassinations as quickly as possible"
     ],
-    "reward": "Massive stock surge for Debonaire (DEB) on the LCN.",
-    "unlockedBy": "62. The Hotel Assassination"
+    "reward": "Debonaire (DEB) shares soar on the LCN.",
+    "unlockedBy": "The Hotel Assassination"
   },
   {
     "id": "mission-64",
     "order": 64,
-    "title": "Something Sensible (Option A)",
+    "title": "The Vice Assassination",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To boost Fruit Computers against rival tech giant Facade on the BAWSAQ exchange, Lester orders the elimination of Facade's head of product development, Jackson Skinner, who has been selling user data. Franklin stakes out La Puerta and takes Skinner out during his nightly rendezvous with a streetwalker.",
+    "category": "Assassination",
+    "description": "Kill Jackson Skinner, head of Facade's technology department, who sells confidential information to competitors in the red-light district.",
     "goldRequirements": [
-      "Clean Escape — Lose the cops without alerting them",
-      "Money Earned — $5,000"
+      "Escape the scene without alerting the police"
     ],
-    "reward": "Fruit Computers (FRT) stock rises ~50% on BAWSAQ.",
-    "unlockedBy": "63. The Multi Target Assassination"
+    "reward": "Fruit Computers (FRT) shares will rise 50% on BAWSAQ.",
+    "unlockedBy": "The Multi Target Assassination"
   },
   {
     "id": "mission-65",
     "order": 65,
-    "title": "The Time's Come (Option B)",
+    "title": "The Bus Assassination",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Lester orchestrates a stock market crash for Vapid Motor Company by targeting prospective buyer Isaac Penny—a billionaire Venture capitalist so notoriously frugal that he refuses to own a car and commutes exclusively by city bus. Franklin poses as a transit bus driver along Penny's daily route to intercept and eliminate him.",
+    "category": "Assassination",
+    "description": "Kill Isaac Penny, a greedy billionaire speculator, while he rides his usual public transport route.",
     "goldRequirements": [
-      "Hit and Run — Kill the target using the bus",
-      "Money Earned — $7,000"
+      "Run over the target and flee"
     ],
-    "reward": "Vapid (VAP) stock market manipulation.",
-    "unlockedBy": "64. The Vice Assassination"
+    "reward": "Manipulation of Vapid Motor Company shares.",
+    "unlockedBy": "The Vice Assassination"
   },
   {
     "id": "mission-66",
     "order": 66,
-    "title": "The Third Way (Option C)",
+    "title": "The Construction Assassination",
     "character": "Franklin",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "To rescue GoldCoast Development on the LCN stock exchange, Lester orders the elimination of Enzo Bonelli—a mobbed-up real estate developer who uses union extortion and violence to monopolize city construction contracts. Franklin infiltrates the Mile High Club skyscraper under construction, fights his way up through private security, and takes down Bonelli before his helicopter can escape the roof.",
+    "category": "Assassination",
+    "description": "Kill real estate crime boss Enzo Bonelli, who is hiding on the upper floors of a skyscraper under construction guarded by private security.",
     "goldRequirements": [
-      "No Fly Zone — Shoot down the target's helicopter",
-      "Money Earned — $10,000"
+      "Shoot down the victim's helicopter"
     ],
-    "reward": "GoldCoast Development (GCD) stock manipulation on the LCN.",
-    "unlockedBy": "65. The Bus Assassination"
+    "reward": "Manipulation of GoldCoast (GCD) shares on the LCN.",
+    "unlockedBy": "The Bus Assassination"
   },
   {
     "id": "mission-67",
     "order": 67,
-    "title": "The Third Way - Finale",
+    "title": "Option A: Something Sensible",
     "character": "Franklin",
     "giver": "Steve Haines / FIB",
-    "category": "Story",
-    "description": "Pressured by Steve Haines and Dave Norton to eliminate Trevor as an unpredictable liability to the FIB, Franklin arranges a meeting in El Burro Heights under false pretenses. Realizing the ambush, Trevor flees in his pickup truck until Michael rams him into a fuel tanker at the Murrieta Oil Field, sealing his grim fate.",
+    "category": "Finale",
+    "description": "An ending forced by the federal agency to neutralize Trevor. Franklin arranges a meeting that ends in a chase to the oil fields of El Burro Heights, where a collision with a flammable tank seals the target's fate.",
     "goldRequirements": [
-      "Judas! — Kill Trevor",
-      "Time — Complete within 06:00"
+      "Kill Trevor",
+      "Time under 06:00"
     ],
-    "reward": "Union Depository heist cut split between Franklin and Michael (Trevor dies permanently)",
+    "reward": "The take is split between Franklin and Michael (Trevor is gone)",
     "unlockedBy": "The Big Score"
   },
   {
     "id": "mission-68",
     "order": 68,
-    "title": "The Last One",
+    "title": "Option B: The Time's Come",
     "character": "Franklin",
     "giver": "Devin Weston",
-    "category": "Story",
-    "description": "Caving to pressure from billionaire Devin Weston, Franklin turns on his mentor, Michael De Santa. A high-speed pursuit leads to the Palmer-Taylor Power Station, where a tense foot chase up the industrial catwalks culminates with Michael dangling over the edge of a towering smokestack.",
+    "category": "Finale",
+    "description": "An ending under pressure from Devin Weston to get rid of Michael. The confrontation moves to the heights of a steel foundry and ends with a struggle on the metal walkways that sends Michael falling to his death.",
     "goldRequirements": [
-      "Surpassed the Mentor — Kill Michael",
-      "Time — Complete within 07:00"
+      "Kill Michael",
+      "Time under 07:00"
     ],
-    "reward": "Union Depository heist cut split between Franklin and Trevor (Michael dies permanently)",
+    "reward": "The take is split between Franklin and Trevor (Michael is gone)",
     "unlockedBy": "The Big Score"
   },
   {
     "id": "mission-69",
     "order": 69,
-    "title": "Prologue Redux",
+    "title": "Option C: The Third Way",
     "character": "Michael, Franklin, Trevor",
     "giver": "Lester Crest",
-    "category": "Story",
-    "description": "Refusing to betray either of his partners to the FIB or Devin Weston, Franklin chooses 'Deathwish'—The Third Way. The trio lures FIB tactical squads and Merryweather mercenaries into an all-out firefight at an industrial foundry, splits up to eliminate Wei Cheng, Stretch, and Steve Haines across Los Santos, and abducts Devin Weston to settle accounts once and for all.",
+    "category": "Finale",
+    "description": "The canonical conclusion in which the three protagonists team up to settle old scores. After holding out against the siege at the foundry, they split up the targets to eliminate their pursuers from the FIB, the triads and rival gangs, ending with the kidnapping of Devin Weston and his car going over a cliff on the coast.",
     "goldRequirements": [
-      "Time — Complete within 21:30",
-      "Headshots — Kill 20 enemies with headshots",
-      "Accuracy — Finish with a shooting accuracy of at least 70%",
-      "Cheng Reaction — Kill Wei Cheng with a Sticky Bomb",
-      "Lead Lobotomy — Kill Steve Haines with a headshot",
-      "Stretched Out — Kill Stretch with a melee attack"
+      "Time under 21:30",
+      "Get 20 headshots",
+      "Minimum accuracy of 70%",
+      "Kill Cheng with a sticky bomb",
+      "Kill Steve Haines with a headshot"
     ],
-    "reward": "Union Depository heist payout (~$20M–$41M each) and all three protagonists alive and playable",
+    "reward": "$28,000,000 for each and all three characters alive and playable",
     "unlockedBy": "The Big Score"
   }
 ]
