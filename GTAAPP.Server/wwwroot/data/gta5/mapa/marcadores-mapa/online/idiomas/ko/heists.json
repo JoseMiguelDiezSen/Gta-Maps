@@ -2,11 +2,11 @@
   {
     "id": "fleeca",
     "order": 1,
-    "title": "플리카 작업 (The Fleeca Job)",
+    "title": "Fleeca 강탈",
     "titleEn": "The Fleeca Job",
     "category": "classic",
-    "categoryLabel": "클래식 습격",
-    "giver": "Lester Crest",
+    "categoryLabel": "아파트 강탈",
+    "giver": "레스터 크레스트",
     "players": "2인 플레이",
     "minLevel": 12,
     "propertyRequired": "고급 아파트",
@@ -15,54 +15,54 @@
     "potentialTake": {
       "normal": "$143,750",
       "hard": "$177,500",
-      "description": "The loot is stored in safety deposit box #153 inside the Fleeca Bank branch."
+      "description": "전리품은 Fleeca Bank 지점 안의 안전금고 #153 안에 있습니다."
     },
-    "target": "플리카 은행 안전 금고",
+    "target": "안전금고 153번",
     "location": "Western Highway, Banham Canyon",
-    "description": "2인 입문 습격. 서부 고속도로변의 플리카 은행을 습격하고, 안전 금고를 드릴로 뚫은 뒤 카고밥의 전자석으로 탈출합니다.",
+    "description": "GTA 온라인 최초의 협동 강탈로, 레스터 크레스트가 계획했습니다. 서쪽 고속도로변의 작은 Fleeca Bank 지점을 터는 두 명이 하는 단기 작업입니다.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-fleeca.jpg",
     "badgeColor": "#2ecc71",
     "badgeIcon": "fa-building-columns",
     "eliteChallenges": [
-      "Complete in under 05:20 minutes",
-      "Vehicle damage under 6%",
-      "Nobody gets wasted"
+      "05:20분 이내에 완료",
+      "차량 손상 6% 미만",
+      "도주 중 아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 추가",
     "unlockedVehicles": [
       "Karin Kuruma ($95,000 / $126,350)",
-      "Armored Karin Kuruma ($525,000 / $698,250)"
+      "Karin Kuruma 방탄형 ($525,000 / $698,250)"
     ],
     "setupMissions": [
       {
-        "name": "Scope Out",
+        "name": "사전 조사 (정찰)",
         "type": "recon",
-        "description": "Drive with Lester in his Asea to the Fleeca Bank branch, examine the cameras, and complete the firewall hack mini-game."
+        "description": "레스터와 함께 현장을 돌며 카메라 배치를 파악하고, 탈출 경로를 연습하고, 디지털 침투 장비를 시험하는 점검 주행입니다."
       },
       {
-        "name": "Kuruma",
+        "name": "쿠루마 탈취",
         "type": "prep",
-        "description": "Raid the top floor of a guarded parking garage in Little Seoul controlled by Korean mobsters to steal the armored Karin Kuruma."
+        "description": "Little Seoul의 주차장 옥상을 급습해 무장 호위대를 제압하고 도주용 방탄 Kuruma를 빼앗습니다."
       },
       {
-        "name": "The Fleeca Job (Finale)",
+        "name": "Fleeca 강탈 (피날레)",
         "type": "finale",
-        "description": "Arrive at the branch, neutralize the security cameras, intimidate the tellers, drill safe box 153, and escape to the bridge where an electro-magnet Cargobob lifts your car."
+        "description": "강탈 실행: 변장하고 진입해 직원들을 통제하고, 금고 #153을 드릴로 뚫은 뒤 도로로 빠져나가 Cargobob의 전자석에 들어 올려질 때까지 이동합니다."
       }
     ],
     "tips": [
-      "Push the drill forward smoothly and gently to prevent it from overheating while opening the deposit box.",
-      "The driver should immediately destroy the security cameras and fire near the tellers to maintain intimidation."
+      "드릴은 적당하고 고른 힘으로 누르세요. 너무 세게 밀면 드릴 날이 과열되어 결정적인 몇 초가 더 걸립니다.",
+      "운전 담당은 들어가자마자 천장 카메라를 부수고, 인질 가까이에 사격해 위협 수준을 유지하되 사상자는 내지 않아야 합니다."
     ]
   },
   {
     "id": "prison_break",
     "order": 2,
-    "title": "탈옥 (The Prison Break)",
+    "title": "감옥 탈출",
     "titleEn": "The Prison Break",
     "category": "classic",
-    "categoryLabel": "클래식 습격",
-    "giver": "Agent 14",
+    "categoryLabel": "아파트 강탈",
+    "giver": "요원 14",
     "players": "4인 플레이",
     "minLevel": 12,
     "propertyRequired": "고급 아파트",
@@ -71,65 +71,65 @@
     "potentialTake": {
       "normal": "$400,000",
       "hard": "$500,000",
-      "description": "Government contract payout for the live extraction of Professor Maxim Rashkovsky."
+      "description": "맥심 라슈콥스키 교수를 산 채로 빼내는 대가로 이체되는 정부 기밀 자금입니다."
     },
-    "target": "막심 라스코브스키 교수 구출",
-    "location": "Bolingbroke Penitentiary, Grand Senora Desert",
-    "description": "4인 팀의 본격 탈옥 작전. 교도관과 죄수로 위장하여 삼엄한 볼링브로크 교도소에 침투하고, 라스코브스키 교수를 비행기로 해외 탈출시킵니다.",
+    "target": "맥심 라슈콥스키 교수",
+    "location": "Bolingbroke 교도소, Grand Senora 사막",
+    "description": "요원 14가 조율하는 전술 구출 작전으로, 최고 보안 교도소인 Bolingbroke에서 맥심 라슈콥스키 교수를 빼냅니다. 계획에는 서로 맞물린 네 가지 역할이 필요합니다. 두 명은 교도관과 수감자로 위장해 잠입하고, 조종사 한 명은 비행기를 대기시키며, 폭파 전문가는 공격 헬리콥터로 일대를 엄호합니다.",
     "thumbnail": "",
     "badgeColor": "#3498db",
     "badgeIcon": "fa-handcuffs",
     "eliteChallenges": [
-      "Rashkovsky takes under 1% damage",
-      "Extraction under 04:40 minutes",
-      "Nobody gets wasted"
+      "라슈콥스키가 입는 피해 1% 미만",
+      "04:40분 이내에 구출",
+      "아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 추가",
     "unlockedVehicles": [
       "Lampadati Casco ($680,000 / $904,400)",
-      "Prison Bus ($550,000 / $731,500)",
-      "Mammoth 5-seater Velum ($995,000 / $1,323,350)"
+      "교도소 버스 ($550,000 / $731,500)",
+      "Mammoth Velum 5인승 ($995,000 / $1,323,350)"
     ],
     "setupMissions": [
       {
-        "name": "Plane",
+        "name": "비행기",
         "type": "prep",
-        "description": "Steal the smuggler Velum aircraft from Vagos gang members at McKenzie Airfield."
+        "description": "McKenzie 비행장을 습격해 Vagos 밀수업자들을 몰아내고, 다섯 좌석짜리 Velum을 약속된 격납고로 가져갑니다."
       },
       {
-        "name": "Bus",
+        "name": "버스",
         "type": "prep",
-        "description": "Hijack an official prison transport bus on the highway, lose the police heat, and stash it in Sandy Shores."
+        "description": "이동 중인 교도소 버스를 도로에서 습격하고, 경찰의 포위망을 피해 폐차장에 숨깁니다."
       },
       {
-        "name": "Station",
+        "name": "경찰서",
         "type": "prep",
-        "description": "One team disguised as cops steals the prisoner transfer schedule from a police station, while the other team steals the Casco from a cargo ship."
+        "description": "요원 두 명이 위장해 경찰서에서 근무 교대표를 빼내는 동안, 나머지는 부두에서 Casco 스포츠카를 되찾습니다."
       },
       {
-        "name": "Wet Work",
+        "name": "더러운 일",
         "type": "prep",
-        "description": "Simultaneously assassinate Rashkovsky's corrupt business partners and defense attorney at City Hall and a private mansion."
+        "description": "라슈콥스키의 옛 동업자들과 그의 변호사를 관공서와 Vinewood의 저택에서 동시에 제거합니다."
       },
       {
-        "name": "The Prison Break (Finale)",
+        "name": "감옥 탈출 (피날레)",
         "type": "finale",
-        "description": "Infiltrate Bolingbroke in the prison bus, fight through prison guards, extract Rashkovsky into the Velum, dodge fighter jets, and parachute down to the beach."
+        "description": "훔친 버스로 Bolingbroke에 진입하고, 감방 구역에서 교전한 뒤, Velum으로 라슈콥스키를 빼내 함께 물가로 뛰어내립니다."
       }
     ],
     "tips": [
-      "The Velum pilot can fly right behind military jets to prevent them from firing homing missiles without needing the Buzzard to destroy them.",
-      "Demolition should protect the prison bus before boarding the Buzzard."
+      "비행기 조종사는 군용 전투기 뒤에 붙으면 사정권을 벗어난 채로 있을 수 있으며, 그동안 폭파 담당이 외곽을 확보합니다.",
+      "지원 헬리콥터를 타기 전에 원래의 이송 버스를 파괴하면 경찰 증원이 일찍 몰려드는 것을 막을 수 있습니다."
     ]
   },
   {
     "id": "humane_labs",
     "order": 3,
-    "title": "휴메인 연구소 습격 (The Humane Labs Raid)",
+    "title": "Humane Labs 급습",
     "titleEn": "The Humane Labs Raid",
     "category": "classic",
-    "categoryLabel": "클래식 습격",
-    "giver": "Agent 14",
+    "categoryLabel": "아파트 강탈",
+    "giver": "요원 14",
     "players": "4인 플레이",
     "minLevel": 12,
     "propertyRequired": "고급 아파트",
@@ -138,71 +138,72 @@
     "potentialTake": {
       "normal": "$540,000",
       "hard": "$675,000",
-      "description": "Classified biological and chemical warfare research files."
+      "description": "최신 생화학 무기 데이터를 확보한 대가로 받는 기밀 보수입니다."
     },
-    "target": "IAA 극비 생물학 연구 데이터 파일",
-    "location": "Humane Labs, San Chianski Mountain Range",
-    "description": "군사급 첨단 강습 작전. 야간 투시경을 착용하고 야간 낙하산 강하 후, EMP로 정전된 시설에서 IAA의 극비 연구 데이터를 탈취합니다.",
+    "target": "극비 연구 자료",
+    "location": "Humane Labs, San Chianski 산맥",
+    "description": "동부 해안에 있는 Humane Labs 연구 벙커에 대한 비밀 군사 침투 작전입니다. 계획은 고고도 전자기 펄스로 전력 공급을 마비시키고, 야간 투시경을 쓰고 낙하산으로 내려가 기밀 정보를 빼낸 뒤, 지하 배수 터널을 잠수해 단지를 빠져나가는 것입니다.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-laboratorios-humane-guia.jpg",
     "badgeColor": "#9b59b6",
     "badgeIcon": "fa-flask-vial",
     "eliteChallenges": [
-      "Complete in under 11:00 minutes",
-      "Valkyrie takes under 2% damage",
-      "Nobody gets wasted"
+      "11:00분 이내에 완료",
+      "Valkyrie 헬리콥터 손상 2% 미만",
+      "아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 추가",
     "unlockedVehicles": [
       "Mammoth Hydra ($3,000,000 / $3,990,000)",
       "Buckingham Valkyrie ($2,850,000 / $3,790,500)",
       "HVY Insurgent ($675,000 / $897,750)",
-      "HVY Insurgent Pick-Up ($1,350,000 / $1,795,500)"
+      "HVY Insurgent Pick-Up ($1,350,000 / $1,795,500)",
+      "Nagasaki Dinghy 4인승 ($125,000)"
     ],
     "setupMissions": [
       {
-        "name": "Key Codes",
+        "name": "암호 코드",
         "type": "prep",
-        "description": "Meet the contact in a downtown alleyway to obtain security keycards under heavy FIB ambush."
+        "description": "도심 골목에서 만나 생체 인증 정보를 입수하며, FIB가 놓은 매복을 물리칩니다."
       },
       {
-        "name": "Insurgents",
+        "name": "방탄 Insurgent",
         "type": "prep",
-        "description": "Steal two heavy armored Insurgent military vehicles from Merryweather at Davis Quartz quarry."
+        "description": "채석장에 있는 Merryweather 시험 시설을 공격해 중장갑 Insurgent 수송차 두 대를 빼앗습니다."
       },
       {
-        "name": "EMP",
+        "name": "전자기 펄스 (EMP)",
         "type": "prep",
-        "description": "Infiltrate the aircraft carrier USS Luxington at sea, steal the Hydra VTOL jet carrying the EMP, and dogfight enemy fighter jets."
+        "description": "바다에 정박한 군용 항공모함에 올라 첨단 Hydra 전투기를 탈취하고, 공중전을 치른 뒤 후퇴합니다."
       },
       {
         "name": "Valkyrie",
         "type": "prep",
-        "description": "Raid the Merryweather naval base at Terminal docks to steal the heavy Valkyrie gunship helicopter."
+        "description": "Merryweather의 전용 부두를 습격해 자동 기관포를 장착한 공격 헬리콥터를 빼앗습니다."
       },
       {
-        "name": "Deliver EMP",
+        "name": "EMP 인도",
         "type": "prep",
-        "description": "Pure stealth mission: sneak an Insurgent disguised as a delivery truck into Humane Labs without triggering any alarms."
+        "description": "들키지 않고 잠입합니다. EMP를 실은 장갑차를 경보를 울리지 않고 연구소 안에 주차해야 합니다."
       },
       {
-        "name": "The Humane Labs Raid (Finale)",
+        "name": "Humane Labs 급습 (피날레)",
         "type": "finale",
-        "description": "EMP blackout, night-vision parachute drop, data extraction inside the lab, underwater scuba escape through coolant pipes, and an epic aerial gunship dogfight."
+        "description": "전자기 펄스를 터뜨리고, 완전한 어둠 속에서 낙하산으로 뛰어내려 하드 드라이브를 빼낸 뒤, 냉각 수로를 잠수해 빠져나갑니다."
       }
     ],
     "tips": [
-      "In Deliver EMP, synchronize suppressed shots with your teammates to drop pairs of scientists simultaneously.",
-      "The ground team should equip Rebreathers before diving into the water coolant pipes."
+      "EMP 밴을 인도할 때는 소음기를 단 사격을 두 명씩 동시에 맞춰 쏴서, 반응할 틈을 주지 않고 보초를 쓰러뜨리세요.",
+      "물이 찬 관으로 잠수하기 전에 수중 호흡기를 착용하면 바다 탈출 중 익사를 피할 수 있습니다."
     ]
   },
   {
     "id": "series_a",
     "order": 4,
-    "title": "시리즈 A 자금 조달 (Series A Funding)",
+    "title": "시리즈 A 펀딩",
     "titleEn": "Series A Funding",
     "category": "classic",
-    "categoryLabel": "클래식 습격",
-    "giver": "Trevor Philips",
+    "categoryLabel": "아파트 강탈",
+    "giver": "트레버 필립스",
     "players": "4인 플레이",
     "minLevel": 12,
     "propertyRequired": "고급 아파트",
@@ -211,69 +212,69 @@
     "potentialTake": {
       "normal": "$404,000",
       "hard": "$505,000",
-      "description": "Profits generated from bulk wholesale distribution of acquired contraband."
+      "description": "경쟁 조직에게서 압수한 물건 전부를 암시장에 대량으로 풀어 얻는 수익 전액입니다."
     },
-    "target": "탈취한 대량의 밀수 마약 화물",
-    "location": "El Burro Heights warehouse / Sandy Shores",
-    "description": "트레버 필립스를 위해 경쟁 갱단의 마약 기지를 기습 및 탈취하고, 엘 고르도 등대에서의 최종 방어전을 돌파합니다.",
+    "target": "경쟁 조직의 마약 화물",
+    "location": "El Burro Heights 창고 / Sandy Shores",
+    "description": "트레버 필립스가 이끄는 강제 사업 확장입니다. 팀은 카운티와 도시의 주요 경쟁 조직(Ballas, Vagos, The Lost, 그리고 O'Neil 가문)의 비축품을 털어 거대한 지하 물량을 모으고, 창고를 방어하며, 화물을 최종 구매자에게 호송해야 합니다.",
     "thumbnail": "",
     "badgeColor": "#e67e22",
     "badgeIcon": "fa-cannabis",
     "eliteChallenges": [
-      "Complete in under 06:30 minutes",
-      "75 enemies killed",
-      "Nobody gets wasted"
+      "06:30분 이내에 완료",
+      "적 75명 처치",
+      "아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 추가",
     "unlockedVehicles": [
       "Karin Technical ($950,000 / $1,263,500)",
-      "Brute Armored Mule ($32,500 / $43,225)"
+      "Brute Mule 방탄형 ($32,500 / $43,225)"
     ],
     "setupMissions": [
       {
-        "name": "Coke",
+        "name": "코카인",
         "type": "prep",
-        "description": "Raid a luxury yacht anchored off Del Perro to steal packages of cocaine and escape in helicopters and speedboats."
+        "description": "Del Perro 앞바다의 초대형 요트를 해상 습격해 민간 경비원들에게서 화물을 빼앗습니다."
       },
       {
-        "name": "Trash Truck",
+        "name": "쓰레기",
         "type": "prep",
-        "description": "Use a Trashmaster garbage truck to collect bags of pills across Vagos turf while enduring intense gang gunfire."
+        "description": "도시 쓰레기 수거차를 몰고 다니며, 갱이 장악한 동네에 숨겨진 꾸러미를 계속되는 총격 속에서 수거합니다."
       },
       {
-        "name": "Bikers",
+        "name": "바이커",
         "type": "prep",
-        "description": "Night stealth infiltration into the Lost MC camp at Stab City with silenced AP pistols to steal loaded vans."
+        "description": "Stab City의 바이커 캠프에 소음기를 쓰고 침투해 순찰대를 제압하고 짐을 실은 밴을 빼앗습니다."
       },
       {
-        "name": "Weed",
+        "name": "마리화나",
         "type": "prep",
-        "description": "Frontal assault on the Paleto Forest sawmill controlled by the Ballas to secure flatbed trucks with mounted machine guns."
+        "description": "Paleto Forest의 벌목 시설을 습격하고, 적의 괴롭힘으로부터 운송 트럭을 지킵니다."
       },
       {
-        "name": "Steal Meth",
+        "name": "메스암페타민",
         "type": "prep",
-        "description": "Attack the O'Neil brothers' meth farm in Grapeseed and drive away with an explosive fuel tanker."
+        "description": "Grapeseed에 있는 O'Neil 가문의 제조 농장을 공격해 화학 원료를 실은 탱크로리를 빼앗습니다."
       },
       {
-        "name": "Series A Funding (Finale)",
+        "name": "시리즈 A 펀딩 (피날레)",
         "type": "finale",
-        "description": "Defend Trevor's warehouse in El Burro Heights from incoming gang hit squads and escort the technical trucks down the freeway."
+        "description": "모든 세력이 한꺼번에 몰려와 포위하는 El Burro Heights 창고에서 버티고, 방탄 호송대로 등대까지 탈출합니다."
       }
     ],
     "tips": [
-      "In the Trash Truck setup, collectors should consume snacks from the weapon wheel constantly while carrying bags in the open.",
-      "Place proximity mines in spawn alleys around the warehouse before triggering the finale shootout."
+      "쓰레기차 구간에서는 자루를 싣는 사람들이 좁은 골목에서 노출되므로 방탄조끼를 자주 보충해야 합니다.",
+      "포위가 시작되기 전에 창고 입구에 끈끈이 폭탄을 설치하면 적의 픽업트럭을 효과적으로 막을 수 있습니다."
     ]
   },
   {
     "id": "pacific_standard",
     "order": 5,
-    "title": "퍼시픽 스탠다드 작업 (The Pacific Standard Job)",
+    "title": "Pacific Standard 강탈",
     "titleEn": "The Pacific Standard Job",
     "category": "classic",
-    "categoryLabel": "클래식 습격",
-    "giver": "Lester Crest",
+    "categoryLabel": "아파트 강탈",
+    "giver": "레스터 크레스트",
     "players": "4인 플레이",
     "minLevel": 12,
     "propertyRequired": "고급 아파트",
@@ -282,572 +283,575 @@
     "potentialTake": {
       "normal": "$1,000,000",
       "hard": "$1,250,000",
-      "description": "Main bank vault cash. Taking hits while carrying money bags reduces the payout."
+      "description": "중앙 은행의 주 금고실입니다. 참고: 도주 중 총알을 맞으면 가방이 손상되어 회수하는 돈이 줄어듭니다."
     },
-    "target": "퍼시픽 스탠다드 은행 중앙 금고",
+    "target": "Pacific Standard 본점 금고실",
     "location": "Vinewood Boulevard / Downtown Los Santos",
-    "description": "로스 산토스 역사상 최대 규모의 클래식 은행 강도. 도심의 퍼시픽 스탠다드 은행 중앙 금고를 서멀 차저로 폭파하고, 오토바이로 협곡을 질주해 탈출합니다.",
+    "description": "기본 목록에서 가장 큰 규모의 은행 강탈입니다. 레스터의 계획에 따라 팀은 Vinewood에 있는 Pacific Standard Bank 본점에 침입합니다. 열 절단 장비로 장갑을 뚫고 가방에 현금을 채운 뒤에는 총을 쏴 경찰 포위망을 뚫고, 오토바이를 타고 Blaine County의 바위 협곡으로 달아납니다.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-pacific-standard-guia.jpg",
     "badgeColor": "#f1c40f",
     "badgeIcon": "fa-vault",
     "eliteChallenges": [
-      "Complete in under 10:15 minutes",
-      "No NOOSE called (no alarms or teller alerts)",
-      "Nobody gets wasted"
+      "10:15분 이내에 완료",
+      "NOOSE 호출 없음 (911 신고나 카메라 경보 없음)",
+      "아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 추가",
     "unlockedVehicles": [
-      "Principe Lectro ($750,000 / $997,500)",
-      "Savage Gunship ($1,950,000 / $2,593,500)",
+      "Principe Lectro KERS 장착 ($750,000 / $997,500)",
+      "군용 Savage ($1,950,000 / $2,593,500)",
       "Declasse Gang Burrito ($65,000 / $86,450)"
     ],
     "setupMissions": [
       {
-        "name": "Vans",
+        "name": "밴",
         "type": "prep",
-        "description": "Photograph license plates of Post OP vans across the city to track down the Pacific Standard transponder."
+        "description": "도시를 돌며 배달 차량을 사진으로 조사해, 은행 중계기를 숨기고 있는 번호판을 알아냅니다."
       },
       {
-        "name": "Signal",
+        "name": "신호",
         "type": "prep",
-        "description": "Rescue signal expert Avi Schwartzman on an isolated island off Chumash surrounded by police boats."
+        "description": "순찰대가 지키는 작은 섬에서 전문가 아비 슈워츠먼을 빼내고, 쾌속정으로 바다로 철수합니다."
       },
       {
-        "name": "Hack",
+        "name": "해킹",
         "type": "prep",
-        "description": "Steal a decryption module from a rival gang in Vinewood and use a decoy van to mislead bank investigators."
+        "description": "Vinewood의 무장 조직을 공격해 해독 장비를 빼앗고, 미끼용 밴을 바꿔치기합니다."
       },
       {
-        "name": "Convoy",
+        "name": "호송대",
         "type": "prep",
-        "description": "Ambush a heavily armed Merryweather military convoy crossing the Raton Canyon bridge to seize the thermal charges."
+        "description": "Raton Canyon 다리에서 Merryweather 분견대를 가로채 금고용 열 절단 장약을 확보합니다."
       },
       {
-        "name": "Bikes",
+        "name": "오토바이",
         "type": "prep",
-        "description": "Steal four high-performance Principe Lectro motorcycles with KERS boost from the Lost MC clubhouse."
+        "description": "The Lost 바이커 클럽 본부를 습격해 KERS 과급 장치가 달린 Lectro 오토바이 네 대를 빼앗습니다."
       },
       {
-        "name": "The Pacific Standard Job (Finale)",
+        "name": "Pacific Standard 강탈 (피날레)",
         "type": "finale",
-        "description": "Bank robbery with crowd intimidation, vault breach, alleyway firefight against cops, motorcycle canyon chase, and cliff parachute jump to the getaway boat."
+        "description": "은행 대기실을 장악하고, 철창을 열로 뚫고, 골목 사이로 탈출한 뒤, 오토바이로 강 협곡을 향해 내려갑니다."
       }
     ],
     "tips": [
-      "To preserve the maximum payout, have a single player pick up all the money and stay protected behind the team during the street shootout.",
-      "Do not shoot any bank tellers to avoid triggering NOOSE tactical response units."
+      "전리품 손실을 막으려면 한 명이 현금을 전부 모으고 바깥 후방에서 엄폐한 채 대기하는 것이 좋습니다.",
+      "로비의 민간인 직원을 쓰러뜨리지 않으면 NOOSE 중무장 밴이 즉시 출동하는 것을 막을 수 있습니다."
     ]
   },
   {
     "id": "doomsday_act1",
     "order": 6,
-    "title": "심판의 날: 1막 - 정보 유출",
+    "title": "둠스데이 강탈: I막 - 데이터 유출",
     "titleEn": "The Doomsday Heist: Act I - The Data Breaches",
     "category": "doomsday",
-    "categoryLabel": "심판의 날 습격",
-    "giver": "Lester Crest & Avon Hertz",
-    "players": "2-4 Players",
+    "categoryLabel": "둠스데이 강탈",
+    "giver": "레스터 크레스트 & 아본 허츠",
+    "players": "2-4인 플레이",
     "minLevel": 1,
-    "propertyRequired": "Underground Facility",
+    "propertyRequired": "지하 시설 (Facility)",
     "setupCost": 65000,
     "setupCostFormatted": "$65,000",
     "potentialTake": {
       "normal": "$650,000",
       "hard": "$812,500",
-      "description": "Government defense payout for stopping foreign intrusion into IAA defense servers."
+      "description": "정보기관의 비밀 서버에 대한 사이버 공격을 막아낸 대가로 지급되는 정부 보수입니다."
     },
-    "target": "IAA 핵심 데이터 서버",
-    "location": "IAA Satellite Facility, Tataviam Mountains",
-    "description": "용병 부대의 공격을 받는 IAA 지하 시설로 진입하여, 에이본 헤르츠 및 AI '클리포드'와 함께 핵심 데이터 서버를 탈환합니다.",
+    "target": "IAA 국방 서버망",
+    "location": "IAA 정부 시설, Tataviam 산맥",
+    "description": "사업가 아본 허츠와 슈퍼컴퓨터 클리퍼드가 경고한 국가 안보 사건의 시작입니다. 정보 부서에 고용된 요원들은 유출 경위를 조사하고, Deluxo 수륙양용차로 신호를 가로채며, 정체불명의 용병 부대에게 빼앗긴 Tataviam의 지하 연산 센터를 되찾아야 합니다.",
     "thumbnail": "",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-shield-halved",
     "eliteChallenges": [
-      "Complete in under 05:30 minutes",
-      "78 enemy kills",
-      "Nobody gets wasted"
+      "05:30분 이내에 완료",
+      "적 78명 처치",
+      "아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 추가",
     "unlockedVehicles": [
       "Imponte Deluxo ($3,550,000 / $4,721,500)",
-      "Akula Stealth Chopper ($2,785,000 / $3,704,050)",
+      "Akula 스텔스 헬리콥터 ($2,785,000 / $3,704,050)",
       "HVY Chernobog ($2,490,000 / $3,311,700)"
     ],
     "setupMissions": [
       {
-        "name": "Freemode Preps: Deluxo & Akula",
+        "name": "프리모드 준비: Pariah, Deluxo & Akula",
         "type": "preliminary",
-        "description": "Acquire tactical hardware and vehicles in public or private freemode lobbies."
+        "description": "준비 단계에 필요한 전술 차량을 확보해 시설로 옮깁니다."
       },
       {
-        "name": "Setup: Dead Courier",
+        "name": "준비: 시신",
         "type": "prep",
-        "description": "Infiltrate the city coroner's morgue disguised as paramedics to extract hard drive data."
+        "description": "위생 요원으로 변장해 공공 시체 안치소에 잠입하고, 민감한 정보가 든 메모리 장치를 회수합니다."
       },
       {
-        "name": "Setup: Signal Intercepts",
+        "name": "준비: Deluxo로 신호 가로채기",
         "type": "prep",
-        "description": "Hack trucks, speedboats, and a military cargo plane using amphibious hovercraft Deluxos."
+        "description": "Deluxo의 비행 능력을 이용해 지상, 해상, 공중의 주파수를 추적하고 내려받습니다."
       },
       {
-        "name": "Setup: Server Farm",
+        "name": "준비: Akula로 서버 확보",
         "type": "prep",
-        "description": "Fly a stealth Akula to the government server facility and steal classified target lists."
+        "description": "Akula 헬리콥터를 스텔스 모드로 날려 Fort Zancudo 관제탑의 파일을 내려받습니다."
       },
       {
-        "name": "The Data Breaches (Finale)",
+        "name": "데이터 유출 (피날레)",
         "type": "finale",
-        "description": "Assault the overrun IAA underground facility, deploy automated defense turrets, and contain the digital breach."
+        "description": "점령당한 IAA 시설을 무장 습격하고, 시스템을 다시 연결하며, 주 서버실을 방어합니다."
       }
     ],
     "tips": [
-      "Use tear gas or rocket launchers on the elevated catwalks to eliminate heavy shotgun agents before accessing server terminals."
+      "서버 로비에서는 높은 엄폐물을 활용하고, 산탄총을 든 습격자들은 중화기로 제압하세요."
     ]
   },
   {
     "id": "doomsday_act2",
     "order": 7,
-    "title": "심판의 날: 2막 - 보그단 문제",
+    "title": "둠스데이 강탈: II막 - 보그단 문제",
     "titleEn": "The Doomsday Heist: Act II - The Bogdan Problem",
     "category": "doomsday",
-    "categoryLabel": "심판의 날 습격",
-    "giver": "Lester Crest & Avon Hertz",
-    "players": "2-4 Players",
+    "categoryLabel": "둠스데이 강탈",
+    "giver": "레스터 크레스트 & 아본 허츠",
+    "players": "2-4인 플레이",
     "minLevel": 1,
-    "propertyRequired": "Underground Facility",
+    "propertyRequired": "지하 시설 (Facility)",
     "setupCost": 95000,
     "setupCostFormatted": "$95,000",
     "potentialTake": {
       "normal": "$950,000",
       "hard": "$1,187,500",
-      "description": "Agency compensation after uncovering the Russian submarine espionage network."
+      "description": "국제 해상 사보타주 조직으로 지목된 망을 무력화한 대가로 정부 기관이 지급하는 보상입니다."
     },
-    "target": "극비 핵잠수함 라미우스",
-    "location": "Paleto Bay, Pacific Ocean",
-    "description": "팔레토 앞바다의 러시아 핵잠수함으로 진입하여 보그단 사령관을 심문하고, 산 안드레아스를 위협하는 진정한 음모를 밝혀냅니다.",
+    "target": "러시아 핵잠수함 Ramyus",
+    "location": "Paleto Bay 만, 태평양",
+    "description": "Paleto Bay 해역에서 발견된 군용 잠수함에 집중한 방첩 작전입니다. 팀은 두 개 조로 동시에 움직입니다. 한 분대는 잠수함 Ramyus 내부로 진입해 지휘관 보그단을 심문하고, 다른 조는 전환형 비행기 Avenger를 타고 적의 포화 속에서 하늘을 장악합니다.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-juiciofinal-2.jpg",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-water",
     "eliteChallenges": [
-      "Complete in under 15:00 minutes",
-      "Avenger takes under 5% damage",
-      "Nobody gets wasted"
+      "15:00분 이내에 완료",
+      "Avenger 비행기 손상 5% 미만",
+      "아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 추가",
     "unlockedVehicles": [
-      "Pegassi Stromberg Submarine ($2,395,000 / $3,185,350)",
+      "Pegassi Stromberg 수륙양용 ($2,395,000 / $3,185,350)",
       "Mammoth Avenger ($3,450,000 / $4,787,500)",
-      "RCV Riot Control Vehicle ($2,350,000 / $3,125,500)"
+      "RCV 진압 차량 ($2,350,000 / $3,125,500)"
     ],
     "setupMissions": [
       {
-        "name": "Freemode Preps: Stromberg & Torpedoes",
+        "name": "프리모드 준비: ULP, Stromberg & 어뢰",
         "type": "preliminary",
-        "description": "Retrieve military technology across San Andreas."
+        "description": "San Andreas 곳곳에서 특수 장비와 수륙양용 차량을 확보합니다."
       },
       {
-        "name": "Setup: Rescue ULP",
+        "name": "준비: ULP 요원 구출",
         "type": "prep",
-        "description": "Storm an oil refinery to rescue captured government agent ULP under heavy enemy siege."
+        "description": "철통같이 지켜지는 정유 시설을 총격 속에서 습격해 붙잡힌 정부 요원을 풀어줍니다."
       },
       {
-        "name": "Setup: Salvage Hard Drives",
+        "name": "준비: 하드 드라이브 회수",
         "type": "prep",
-        "description": "Extinguish fires and recover sensitive hard drives using the armored water cannon RCV."
+        "description": "RCV 차량의 물대포로 불을 끄고 컴퓨터 단말기를 구해냅니다."
       },
       {
-        "name": "Setup: Submarine Recon",
+        "name": "준비: Stromberg 잠수함",
         "type": "prep",
-        "description": "Underwater combat destroying sea mines using submersible Stromberg sports cars."
+        "description": "수륙양용 스포츠카로 잠수 침투해 수중 호송대를 파괴하고 수중 기뢰를 해체합니다."
       },
       {
-        "name": "The Bogdan Problem (Finale)",
+        "name": "보그단 문제 (피날레)",
         "type": "finale",
-        "description": "Board the Ramyus submarine to confront Commander Bogdan while the Avenger provides coastal air defense."
+        "description": "Avenger가 바깥 하늘을 정리하는 동안, 잠수함 Ramyus의 복도를 지나 지휘관에게 도달합니다."
       }
     ],
     "tips": [
-      "The Avenger team can engage auto-pilot at high altitude to operate the heavy turrets without danger of crashing."
+      "Avenger의 자동 조종을 적당한 고도에 맞춰 두면 추락할 걱정 없이 방어 포탑을 정확하게 쓸 수 있습니다."
     ]
   },
   {
     "id": "doomsday_act3",
     "order": 8,
-    "title": "심판의 날: 3막 - 심판의 날 시나리오",
+    "title": "둠스데이 강탈: III막 - 둠스데이 시나리오",
     "titleEn": "The Doomsday Heist: Act III - The Doomsday Scenario",
     "category": "doomsday",
-    "categoryLabel": "심판의 날 습격",
-    "giver": "Lester Crest & Bogdan",
-    "players": "2-4 Players",
+    "categoryLabel": "둠스데이 강탈",
+    "giver": "레스터 크레스트 & 보그단",
+    "players": "2-4인 플레이",
     "minLevel": 1,
-    "propertyRequired": "Underground Facility",
+    "propertyRequired": "지하 시설 (Facility)",
     "setupCost": 120000,
     "setupCostFormatted": "$120,000",
     "potentialTake": {
       "normal": "$1,200,000",
       "hard": "$1,500,000",
-      "description": "Maximum reward for saving the world from nuclear obliteration orchestrated by Clifford."
+      "description": "핵 위협을 무력화하고 대륙을 사이버 섬멸에서 구한 대가로 국가가 지급하는 최고 보상입니다."
     },
-    "target": "칠리아드 산 내부의 핵미사일 사일로 기지",
-    "location": "칠리아드 산 지하 비밀 벙커",
-    "description": "칠리아드 산 깊은 곳의 핵미사일 발사 기지로의 최종 돌격. 제트팩 '스러스터'를 타고 클리포드의 핵 발사 카운트다운을 저지합니다.",
+    "target": "Chiliad 산 핵미사일 발사 사일로",
+    "location": "Chiliad 산 내부의 비밀 벙커",
+    "description": "탄도 대참사를 막기 위한 결정적 대결입니다. 아본 허츠의 배신이 확인되고 AI 클리퍼드가 Chiliad 산의 사일로를 장악한 상황에서, 요원들은 Khanjali 전차를 타고 지하 기지로 진입하고, 합성 유닛과 싸우고, 중앙 단말기에서 발사를 중단시킨 뒤, 제트팩을 메고 아본을 쫓습니다.",
     "thumbnail": "",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-radiation",
     "eliteChallenges": [
-      "Complete in under 30:00 minutes",
-      "0 hack failures in terminals",
-      "150 headshots",
-      "Nobody gets wasted"
+      "30:00분 이내에 완료",
+      "단말기 해킹 실패 0회",
+      "헤드샷 150회",
+      "아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 추가",
     "unlockedVehicles": [
-      "TM-02 Khanjali Tank ($2,895,000 / $3,850,350)",
-      "Mammoth Thruster Jetpack ($2,750,000 / $3,657,500)",
-      "Volatol Bomber ($2,800,000 / $3,724,000)",
-      "Barrage Off-Roader ($1,595,000 / $2,121,350)"
+      "TM-02 Khanjali 전차 ($2,895,000 / $3,850,350)",
+      "Mammoth Thruster 제트팩 ($2,750,000 / $3,657,500)",
+      "Volatol 폭격기 ($2,800,000 / $3,724,000)",
+      "Barrage 오프로더 ($1,595,000 / $2,121,350)"
     ],
     "setupMissions": [
       {
-        "name": "Freemode Preps: Khanjali, Volatol & Jetpack",
+        "name": "프리모드 준비: Khanjali 전차, Volatol & 제트팩",
         "type": "preliminary",
-        "description": "Secure experimental military hardware across the map."
+        "description": "장갑 장비와 최신 개인용 추진 장치를 확보해 보급합니다."
       },
       {
-        "name": "Setup: Rescue Agent 14",
+        "name": "준비: 요원 14 구출",
         "type": "prep",
-        "description": "Battle cloaked soldiers using active optical camouflage at an abandoned shipyard."
+        "description": "광학 투명 슈트를 입은 정예 부대를 상대로 산업 부두에서 싸웁니다."
       },
       {
-        "name": "Setup: Escort ULP / Chernobog",
+        "name": "준비: Chernobog 호위",
         "type": "prep",
-        "description": "Defend the mobile ballistic missile system from military air strikes."
+        "description": "대탄도 미사일 발사 트럭을 기계화 부대의 공격으로부터 지키며 이송합니다."
       },
       {
-        "name": "Setup: Barrage & Khanjali",
+        "name": "준비: Volatol 공습",
         "type": "prep",
-        "description": "Raid military air bases to secure the heavy armored ground vehicles."
+        "description": "Volatol 비행기로 고공 폭격 임무를 수행해 Chiliad 능선의 포탑과 포대를 무너뜨립니다."
       },
       {
-        "name": "The Doomsday Scenario (Finale)",
+        "name": "둠스데이 시나리오 (피날레)",
         "type": "finale",
-        "description": "Khanjali tank breach into Mount Chiliad, intense command center firefight, 4-terminal orbital hack mini-game, and Thruster jetpack aerial duel."
+        "description": "전차로 사일로 터널을 전진하고, 네 발의 미사일 코드를 수동으로 해제한 뒤, 제트팩으로 목표를 공중에서 추격합니다."
       }
     ],
     "tips": [
-      "During the 4-terminal hack mini-game, teammates must hold the perimeter with Mk II Combat MGs and incendiary heavy rifles."
+      "발사 단말기를 해킹하는 동안 동료들은 자동 소총과 지속적인 방어 사격으로 출입구를 막아야 합니다.",
+      "Khanjali 전차의 레일 포탄은 진입 터널의 방벽과 장갑 장애물을 강력하게 파괴합니다."
     ]
   },
   {
     "id": "diamond_casino",
     "order": 9,
-    "title": "다이아몬드 카지노 습격 (The Diamond Casino Heist)",
+    "title": "Diamond Casino 강탈",
     "titleEn": "The Diamond Casino Heist",
     "category": "casino",
-    "categoryLabel": "카지노 습격",
-    "giver": "Lester Crest & Georgina Cheng",
-    "players": "2-4 Players",
+    "categoryLabel": "Diamond Casino",
+    "giver": "레스터 크레스트 & 조지나 쳉",
+    "players": "2-4인 플레이",
     "minLevel": 1,
-    "propertyRequired": "아케이드",
+    "propertyRequired": "오락실 (Arcade)",
     "setupCost": 25000,
     "setupCostFormatted": "$25,000",
     "potentialTake": {
       "normal": "$2,115,000 - $3,290,000",
       "hard": "$2,326,500 - $3,619,000",
-      "description": "Dynamic vault loot: Cash ($2.1M), Artwork ($2.3M), Gold ($2.5M), or Diamonds ($3.6M during special event weeks)."
+      "description": "금고 내용물은 강탈마다 다릅니다. 현금($2.1M), 미술품($2.3M), 금괴($2.5M), 다이아몬드(특별 시즌에 $3.6M)."
     },
-    "target": "다이아몬드 카지노 중장갑 지하 금고",
+    "target": "Diamond Casino 지하 최고 보안 금고실",
     "location": "The Diamond Casino & Resort, East Vinewood",
-    "description": "다양한 접근 방식(대사기극, 비밀 작전, 공격 전술)을 기획하여 듀건 가문의 초호화 금고로 침투해 다이아몬드, 금괴, 예술품, 현금을 털어냅니다.",
+    "description": "Los Santos에서 전략이 가장 다양한 작전입니다. 오락실의 비밀 작업장에서 계획을 세우며, 세 가지 전술로 Diamond Casino의 금고를 털 수 있습니다. 은밀한 잠입, 위장 신분으로 속이기, 정면 무장 습격입니다. 팀을 맞춤 구성해 현금, 그림, 금, 다이아몬드로 수백만 달러를 챙기세요.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-casino.jpg",
     "badgeColor": "#f39c12",
     "badgeIcon": "fa-dice",
     "eliteChallenges": [
-      "Complete in under 15:00 minutes",
-      "0 hack failures on vault keypads",
-      "Nobody gets wasted",
-      "Undetected before vault (Stealth/Big Con) or 80 headshots (Aggressive)"
+      "15:00분 이내에 완료",
+      "금고실 키패드 해킹 실패 0회",
+      "아무도 쓰러지지 않음",
+      "금고실 도달 전까지 들키지 않기 (은밀 및 위장), 또는 머리 처치 80회 (공격적)"
     ],
-    "eliteReward": "+$100,000 bonus (Hard) / +$50,000 bonus (Normal)",
+    "eliteReward": "+$100,000 추가 (어려움) / +$50,000 추가 (보통)",
     "unlockedVehicles": [
       "Gruppe Sechs Stockade ($1,680,000 / $2,240,000)",
       "Bugstars Burrito ($450,000 / $598,500)",
       "Lampadati Komoda ($1,275,000 / $1,700,000)",
-      "Ubermacht Rebla GTS ($881,250 / $1,175,000)"
+      "Ubermacht Rebla GTS ($881,250 / $1,175,000)",
+      "Karin Sultan Classic ($1,288,500 / $1,718,000)"
     ],
     "setupMissions": [
       {
-        "name": "Casino & Vault Scoping",
+        "name": "카지노 및 금고 정찰",
         "type": "recon",
-        "description": "Photograph security doors, sewer access, and tap into cameras to reveal the vault target."
+        "description": "출입구와 통로를 사진으로 조사하고 내부 감시 신호에 연결해 금고 속 전리품을 확인합니다."
       },
       {
-        "name": "Support Crew & Weapons",
+        "name": "지원 인력 및 무기",
         "type": "prep",
-        "description": "Hire a gunman (Chester McCoy, Gustavo Mota, Packie McReary) and steal suitable weapons."
+        "description": "사격 전문가를 고르고, 합의한 진입 계획에 맞춘 무기 일체를 확보합니다."
       },
       {
-        "name": "Getaway Vehicles",
+        "name": "도주 차량",
         "type": "prep",
-        "description": "Hire a getaway driver (Karim Denz, Eddie Toh) and steal customized getaway vehicles."
+        "description": "도주 운전사를 선택하고 도로 탈출용으로 개조한 승용차를 구입합니다."
       },
       {
-        "name": "Hacking Device & Keycards",
+        "name": "해킹 장치 및 키카드",
         "type": "prep",
-        "description": "Hire an expert hacker (Avi Schwartzman or Paige Harris) to maximize vault time before nerve gas is released."
+        "description": "금고실이 밀폐되기 전까지 머무를 수 있는 시간을 늘려 줄 전문 해커를 고용합니다."
       },
       {
-        "name": "Approach-Specific Equipment",
+        "name": "접근 방식별 준비 임무",
         "type": "prep",
-        "description": "Gruppe Sechs outfits, Bugstars gear, thermal charges, EMP devices, or reinforced armor."
+        "description": "Gruppe Sechs나 Bugstars의 복장, 열 천공기, 폭파 장약 또는 보강 방탄 장비를 확보합니다."
       },
       {
-        "name": "The Diamond Casino Heist (Finale)",
+        "name": "Diamond Casino 강탈 (피날레)",
         "type": "finale",
-        "description": "Infiltration via selected method, fingerprint keypad hack, timed vault looting, and escape through sewers to the police rooftop helicopter."
+        "description": "정해둔 계획대로 침투하고, 금고 철창을 열고, 시간과 싸우며 전리품을 챙긴 뒤, 구매자를 향해 달아납니다."
       }
     ],
     "approaches": [
       {
         "id": "sneaky",
-        "name": "Silent & Sneaky",
-        "description": "Night stealth with silenced weapons, camera stunners, EMP blackout, and rappel ropes."
+        "name": "은밀과 교활 (Silent & Sneaky)",
+        "description": "소음기, 카메라 회로 해제, 테이저, 어두운 복장으로 경보 없이 깔끔하게 잠입합니다."
       },
       {
         "id": "big_con",
-        "name": "The Big Con",
-        "description": "Walk right through the front door disguised as Gruppe Sechs armored guards or Bugstars exterminators."
+        "name": "대사기극 (The Big Con)",
+        "description": "가장 편한 방법입니다. Gruppe Sechs 현금 수송원이나 Bugstars 방역 업체 직원으로 변장해 출입 통제를 통과합니다."
       },
       {
         "id": "aggressive",
-        "name": "Aggressive",
-        "description": "Frontal brute force with thermal charges, reinforced ballistic suits, and heavy firepower."
+        "name": "공격적 (Aggressive)",
+        "description": "힘으로 곧장 밀고 들어갑니다. 중장약으로 문을 폭파하고, 보강 조끼를 입고, 경비원을 향해 정면 사격합니다."
       }
     ],
     "tips": [
-      "Recommended hacker: Avi Schwartzman (unlocked by destroying all 50 signal jammers) or Paige Harris grants 3 minutes and 30 seconds inside the vault.",
-      "For the easiest getaway, exit through the staff lobby, steal the police helicopter from the nearby station roof, and fly straight to the buyer."
+      "페이지 해리스나 아비 슈워츠먼 같은 이름난 해커를 쓰면 경보 없이 금고실에 머무르는 시간이 최대 3분 반까지 늘어납니다.",
+      "구매자에게 빠르게 철수하려면 서비스 출입구로 나가 인근 경찰 본부 지붕을 건너 플랫폼에 있는 헬리콥터를 이용하세요."
     ]
   },
   {
     "id": "cayo_perico",
     "order": 10,
-    "title": "카요 페리코 습격 (The Cayo Perico Heist)",
+    "title": "Cayo Perico 강탈",
     "titleEn": "The Cayo Perico Heist",
     "category": "cayo_perico",
-    "categoryLabel": "카요 페리코 습격",
-    "giver": "Miguel Madrazo & Pavel",
-    "players": "1-4인 (솔로 플레이 가능!)",
+    "categoryLabel": "Cayo Perico",
+    "giver": "미겔 마드라조 & 파벨",
+    "players": "1-4인 플레이 (솔로 플레이 가능!)",
     "minLevel": 1,
-    "propertyRequired": "코사트카 잠수함",
+    "propertyRequired": "Kosatka 잠수함",
     "setupCost": 25000,
     "setupCostFormatted": "$25,000",
     "potentialTake": {
       "normal": "$1,070,000 - $2,090,000+",
       "hard": "$1,180,000 - $2,550,000+",
-      "description": "Primary Target (Panther Statue $1.9M-$2.09M, Pink Diamond $1.3M-$1.43M, Bearer Bonds $1.1M-$1.21M, Ruby Necklace $1M-$1.1M, Tequila $900k-$990k) + Secondary Targets (Gold, Cocaine, Paintings, Weed, Cash)."
+      "description": "주요 전리품(표범 조각상 $1.9M-$2.09M, 핑크 다이아몬드 $1.3M-$1.43M, 무기명 채권 $1.1M-$1.21M, 루비 목걸이 $1M-$1.1M, 데킬라 $900k-$990k)에 누적 가능한 부수 전리품(금, 코카인, 그림, 마리화나, 현금)이 더해집니다."
     },
-    "target": "엘 루비오 저택 주 금고",
-    "location": "Private island of Cayo Perico, Caribbean Sea",
-    "description": "마약왕 엘 루비오의 사유 요새 섬으로 잠입합니다. 완전 솔로 플레이가 가능하며, 코사트카 배수 터널 침투 및 다양한 탈출 경로를 선택할 수 있습니다.",
+    "target": "후안 '엘 루비오' 스트릭랜드의 요새화된 저택",
+    "location": "Cayo Perico 개인 섬, 카리브해",
+    "description": "잠수함 Kosatka에서 조타수 파벨과 함께 조직하는 비밀 침투 작전으로, 혼자서도 팀으로도 후안 '엘 루비오' 스트릭랜드의 요새화된 카리브해 영지를 습격합니다. 진입 경로, 침투 지점, 탈출 경로가 매우 유연하고 완전히 자유롭습니다.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-cayo-perico.jpg",
     "badgeColor": "#1abc9c",
     "badgeIcon": "fa-umbrella-beach",
     "eliteChallenges": [
-      "Complete in under 15:00 minutes",
-      "0 hack failures on compound fingerprint scanner",
-      "Full secondary loot bags",
-      "Nobody gets wasted"
+      "15:00분 이내에 완료",
+      "저택 지문 인식기 해킹 실패 0회",
+      "부수 전리품 가방을 100% 채우기",
+      "아무도 쓰러지지 않음"
     ],
-    "eliteReward": "+$100,000 bonus (Hard) / +$50,000 bonus (Normal)",
+    "eliteReward": "+$100,000 추가 (어려움) / +$50,000 추가 (보통)",
     "unlockedVehicles": [
-      "Kosatka Submarine ($2,200,000)",
-      "Sparrow Helicopter ($1,815,000)",
+      "Kosatka 잠수함 ($2,200,000)",
+      "Sparrow 헬리콥터 ($1,815,000)",
       "Pegassi Toreador ($3,750,000 / $4,250,000)",
-      "Longfin Powerboat ($1,593,750 / $2,125,000)",
-      "Kurtz 31 Patrol Boat ($2,216,250 / $2,955,000)"
+      "Longfin 보트 ($1,593,750 / $2,125,000)",
+      "Kurtz 31 순찰정 ($2,216,250 / $2,955,000)",
+      "Alkonost 폭격기 ($3,262,500 / $4,350,000)"
     ],
     "setupMissions": [
       {
-        "name": "Cayo Perico Scoping",
+        "name": "Cayo Perico 정찰",
         "type": "recon",
-        "description": "Fly to the island disguised as a tour musician, sneak to the radio communication tower, and hack security cameras to identify loot."
+        "description": "음악 연주단에 섞여 몰래 섬에 도착하고, 순찰을 피해 중계기까지 가서, 카메라에 원격 접속해 목표를 파악합니다."
       },
       {
-        "name": "Approach Vehicle",
+        "name": "접근 차량",
         "type": "prep",
-        "description": "Secure entry method: Kosatka torpedoes (drainage tunnel), Longfin boat, Alkonost stealth HALO jump, or smuggler Velum."
+        "description": "이동 수단을 확보합니다. 배수구용 Kosatka 어뢰, Longfin 보트, Alkonost에서의 낙하산 강하, 또는 Velum 경비행기입니다."
       },
       {
-        "name": "Weapons & Suppressors",
+        "name": "무기 및 소음기",
         "type": "prep",
-        "description": "Raid an agency or gang office to steal loadouts (Conspirator, Crack Shot, Aggressor) with night suppressors."
+        "description": "Los Santos의 비밀 창고를 공격해 선택한 무기 세트를 입수하고 소음기를 장착합니다."
       },
       {
-        "name": "Equipment",
+        "name": "장비",
         "type": "prep",
-        "description": "Steal the plasma cutter, fingerprint cloner, and cutting torch."
+        "description": "수중 토치, 지문 복제기, 지하실 진열장용 절단 도구를 확보합니다."
       },
       {
-        "name": "The Cayo Perico Heist (Finale)",
+        "name": "Cayo Perico 강탈 (피날레)",
         "type": "finale",
-        "description": "Underwater drainage tunnel infiltration, silent guard kills, office fingerprint hack, vault extraction, and ocean swim escape."
+        "description": "배수구 격자로 물에서 진입하고, 마당을 소리 없이 전진하고, 사무실의 금고실을 열고, 헤엄쳐 철수합니다."
       }
     ],
     "approaches": [
       {
         "id": "drainage",
-        "name": "Drainage Pipe (Kosatka)",
-        "description": "The fastest speedrun method: enter directly inside El Rubio's courtyard by cutting underwater iron bars."
+        "name": "배수관 침투 (Kosatka)",
+        "description": "가장 직접적인 경로입니다. 호흡기를 쓰고 저택 마당에 침투해 물에 잠긴 창살을 토치로 자릅니다."
       },
       {
         "id": "longfin",
-        "name": "Longfin Speedboat",
-        "description": "Top solo strategy: land at the North Dock or Airstrip to fill loot bags with cocaine or paintings before hitting the compound."
+        "name": "Longfin 쾌속정 접근",
+        "description": "솔로 플레이에 이상적인 선택지입니다. 배수구로 향하기 전에 부두나 활주로에 정박해 가방을 채울 수 있습니다."
       },
       {
         "id": "halo_jump",
-        "name": "HALO Parachute Jump (Alkonost)",
-        "description": "High-altitude military stealth drop with flares to bypass El Rubio's radar."
+        "name": "Alkonost 폭격기에서 HALO 강하",
+        "description": "전자 대응책을 쓰며 고고도에서 낙하산으로 침투해 섬의 레이더 범위를 넘어갑니다."
       }
     ],
     "tips": [
-      "To escape in under 10 minutes: exit through the front gate, shoot the guard with the motorbike on the left, ride off the southern cliff, and swim underwater away from the island.",
-      "The cutting torch cuts warehouse padlocks silently without needing guard keys."
+      "십 분 안에 철수하려면 정문으로 저택을 나와 보초의 오토바이를 타고 남서쪽으로 물속을 헤엄쳐 바다로 뛰어드세요.",
+      "플라스마 토치는 부수 전리품 철창의 자물쇠를 경보 없이, 열쇠 없이 즉시 터뜨립니다."
     ]
   },
   {
     "id": "cluckin_bell",
     "order": 11,
-    "title": "클러킹 벨 농장 기습 (Cluckin' Bell Farm Raid)",
+    "title": "Cluckin' Bell 농장 급습",
     "titleEn": "The Cluckin' Bell Farm Raid",
     "category": "raid",
-    "categoryLabel": "전술 기습",
-    "giver": "Vincent Effenburger",
-    "players": "1-4 Players (Solo or Co-op)",
+    "categoryLabel": "경찰 급습",
+    "giver": "빈센트 에펜버거",
+    "players": "1-4인 플레이 (솔로 또는 협동)",
     "minLevel": 1,
-    "propertyRequired": "None (Free)",
+    "propertyRequired": "없음 (무료)",
     "setupCost": 0,
-    "setupCostFormatted": "$0 (Free)",
+    "setupCostFormatted": "$0 (무료)",
     "potentialTake": {
       "normal": "$500,000",
       "hard": "$500,000 + $250,000",
-      "description": "$500,000 flat leader payout (+$250,000 bonus on your first completion)."
+      "description": "실행자에게 보장되는 고정 $500,000 (첫 완료 시 보너스 +$250,000)."
     },
-    "target": "클러킹 벨 공장 지하 마약 제조 랩",
-    "location": "Cluckin' Bell processing factory, Paleto Bay",
-    "description": "전직 경찰관 빈센트와 협력하여, 팔레토 베이의 클러킹 벨 공장을 위장막으로 삼는 카르텔 마약 조직을 소탕합니다.",
+    "target": "Paleto Bay의 카르텔 비밀 코카인 제조 시설",
+    "location": "Cluckin' Bell 가공 공장, Paleto Bay",
+    "description": "전직 카지노 보안 책임자이자 지금은 경찰관인 빈센트 에펜버거와 함께하는 작전 침투입니다. 계획은 Paleto Bay의 Cluckin' Bell 공장 건물을 위장과 가공 거점으로 쓰는 마약 밀매 조직과 부패 경찰 간부들을 와해시키는 것입니다.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-clucking-bell.jpg",
     "badgeColor": "#f39c12",
     "badgeIcon": "fa-drumstick-bite",
     "eliteChallenges": [
-      "Complete in under 45:00 minutes total",
-      "0 team lives lost",
-      "Getaway train takes no critical damage"
+      "총 45:00분 이내에 완료",
+      "작전 중 사망자 0명",
+      "도주용 열차가 치명적인 손상을 입지 않고 완료"
     ],
-    "eliteReward": "+$50,000 bonus",
+    "eliteReward": "+$50,000 추가",
     "unlockedVehicles": [
-      "Bravado Gauntlet Interceptor Cruiser ($4,065,000 / $5,420,000)",
-      "Canis Terminus 4x4 ($1,408,125 / $1,877,500)"
+      "Bravado Gauntlet Interceptor 순찰차 ($4,065,000 / $5,420,000)",
+      "Canis Terminus 오프로드 ($1,408,125 / $1,877,500)"
     ],
     "setupMissions": [
       {
-        "name": "Slush Fund",
+        "name": "뇌물 자금",
         "type": "prep",
-        "description": "Raid cartel money laundering businesses in Los Santos to acquire funding."
+        "description": "도시의 자금 세탁 거점 두 곳을 털어 필요한 작전 예산을 확보합니다."
       },
       {
-        "name": "Breaking and Entering",
+        "name": "규칙 깨기",
         "type": "prep",
-        "description": "Steal weapons and military tactical equipment from Marabunta Grande, The Professionals, or Merryweather."
+        "description": "적대 세력인 Marabunta Grande, Los Profesionales 또는 Merryweather 병사를 습격해 전술 무기를 빼앗습니다."
       },
       {
-        "name": "Concealed Carry",
+        "name": "흔적 지우기",
         "type": "prep",
-        "description": "Steal a suitable getaway vehicle from local street gangs."
+        "description": "산업 단지에서 활동하는 조직에게서 도주용으로 개조된 차량을 훔칩니다."
       },
       {
-        "name": "Hit and Run",
+        "name": "가택 침입",
         "type": "prep",
-        "description": "Infiltrate the LS Railway depot and hijack a freight locomotive."
+        "description": "철도 물류 센터에 잠입해 화물 열차와 그 관제 주파수를 손에 넣습니다."
       },
       {
-        "name": "Scene of the Crime (Finale)",
+        "name": "범행 현장 (피날레)",
         "type": "finale",
-        "description": "Full assault on the Paleto Bay Cluckin' Bell processing plant, destroy the drug lab, crack the cartel safe, and escape on the freight train."
+        "description": "Cluckin' Bell 공장 단지를 습격하고, 실험실을 해체하고, 금고를 열고, 철로로 탈출합니다."
       }
     ],
     "tips": [
-      "Perfect for beginner players: requires zero upfront investment, no property purchases, and pays $500,000 guaranteed cash every run.",
-      "Choosing The Professionals weapon loadout in setup 2 gives you military rifles with suppressors for a quiet factory breach."
+      "이 급습은 사전 부동산 구입이나 준비 비용 지출이 필요 없어, 꾸준히 깨끗한 자금을 만드는 데 이상적입니다.",
+      "두 번째 임무에서 Los Profesionales의 무기 패키지를 고르면 잠입에 알맞은 소음기 장착 소총을 얻을 수 있습니다."
     ]
   },
   {
     "id": "kortz_center",
     "order": 12,
-    "title": "코츠 센터 급습 (Kortz Center Raid)",
+    "title": "Kortz Center 강탈",
     "titleEn": "The Kortz Center Heist",
     "category": "kortz_center",
-    "categoryLabel": "전술 기습",
-    "giver": "Raf De Angelis & Mr. Faber",
-    "players": "1-4 Players (Solo or Co-op)",
+    "categoryLabel": "저택 강탈",
+    "giver": "라프 데 안젤리스 & 파버 씨",
+    "players": "1-4인 플레이 (솔로 또는 협동)",
     "minLevel": 1,
-    "propertyRequired": "Luxury Mansion with Art Studio (Prix Luxury Real Estate)",
+    "propertyRequired": "예술 작업실이 있는 고급 저택 (Prix Luxury Real Estate)",
     "setupCost": 100000,
     "setupCostFormatted": "$100,000",
     "potentialTake": {
       "normal": "$2,200,000",
       "hard": "$2,650,000",
-      "description": "The highest paying heist in GTA Online. Primary Target: The Albert Crisp Art Collection ($2.0M - $2.2M on first weekly run) plus high-value gallery antiquities."
+      "description": "게임 전체에서 가장 수익이 큰 강탈입니다. 주요 전리품은 앨버트 크리스프 미술 컬렉션(매주 첫 플레이에서 $2.0M - $2.2M)이며, 진열장의 부수 작품도 있습니다."
     },
-    "target": "코츠 센터 내부 FIB 극비 아카이브",
-    "location": "The Kortz Center, Pacific Bluffs",
-    "description": "코츠 센터 미술관 정원과 전시실에서 펼쳐지는 삼파전 전술 총격전.",
+    "target": "앨버트 크리스프 미술 컬렉션 (Bell Building)",
+    "location": "Kortz Center, Pacific Bluffs",
+    "description": "GTA 온라인에서 가장 수익이 큰 강탈입니다. 골동품상 파버 씨, 라프 데 안젤리스와 함께 저택의 예술 작업실에서 계획하는 화이트칼라 침투입니다. Pacific Bluffs의 Kortz Center 박물관 전시실에 들어가 앨버트 크리스프의 귀중한 회화 컬렉션을 빼내며, 똑같은 복제품을 걸어 두고 레이저 망과 부피 감지기를 피합니다.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-kort-center.jpg",
     "badgeColor": "#8b5cf6",
     "badgeIcon": "fa-palette",
     "eliteChallenges": [
-      "Complete in under 15:00 minutes",
-      "No alarms raised / private security undetected",
-      "0 team lives lost",
-      "Complete the Buyer's Request bonus"
+      "15:00분 이내에 완료",
+      "경보를 울리지 않고 민간 경비에게 들키지 않기",
+      "작전 중 사망자 0명",
+      "구매자의 특별 요청(Buyer's Request) 완료"
     ],
-    "eliteReward": "+$100,000 bonus",
+    "eliteReward": "+$100,000 추가",
     "unlockedVehicles": [
       "Enus Paragon S ($1,507,500 / $2,010,000)",
       "Grotti Stinger TT ($1,785,000 / $2,380,000)"
     ],
     "setupMissions": [
       {
-        "name": "Bell Building Reconnaissance",
+        "name": "Bell Building 정찰",
         "type": "recon",
-        "description": "Tour the Kortz Center as a tourist to photograph security cameras, roof access routes, and Albert Crisp collection cases."
+        "description": "전시관을 사진으로 조사해 경보 장치, 무게 센서, 핵심 작품의 진열장을 기록합니다."
       },
       {
-        "name": "Art Forgery Fabrication",
+        "name": "미술품 위조",
         "type": "prep",
-        "description": "Contract a specialist forger in your mansion's art studio to craft exact replica paintings and sculptures."
+        "description": "작업실에서 원본 캔버스를 의심받지 않고 바꿔치기할 정교한 복제품을 제작합니다."
       },
       {
-        "name": "Security Jammers & Feed Hijack",
+        "name": "방해 장치와 보안 신호",
         "type": "prep",
-        "description": "Hijack military signal jammers from Merryweather to disable weight sensors and display case lasers."
+        "description": "Merryweather 계약자들에게서 주파수 차단기를 확보해 전시실의 레이저 망을 무력화합니다."
       },
       {
-        "name": "Tactical Gear & Suppressed Arsenal",
+        "name": "전술 장비와 소음 무기",
         "type": "prep",
-        "description": "Acquire night-infiltration stealth suits and suppressed firearms for a whisper-quiet heist execution."
+        "description": "밤 침투용 복장과 소음기 무기를 준비해 완전한 은밀함으로 임무를 마칩니다."
       },
       {
-        "name": "The Kortz Center Heist (Finale)",
+        "name": "Kortz Center 강탈 (피날레)",
         "type": "finale",
-        "description": "Infiltrate the Kortz Center, neutralize private security, swap originals for replicas, and exfiltrate by air or sea to the private buyer."
+        "description": "밤에 전시실로 침투해 그림을 복제품으로 교체하고, 깔끔하게 빠져나가 비공개 인도 장소로 향합니다."
       }
     ],
     "tips": [
-      "Currently the most profitable heist in GTA Online history, overtaking Cayo Perico with over $2.2M on your first weekly run.",
-      "Swapping masterworks with forgeries prevents security from noticing the theft until hours after your clean getaway.",
-      "Fulfilling the Buyer's Request objective awards a massive secondary bonus on top of Elite Challenge payouts."
+      "현재 GTA 온라인에서 가장 수익성이 높은 강탈입니다. 첫 주간 플레이에서 $2.2M가 넘어 Cayo Perico를 능가합니다.",
+      "각 위조품을 정확한 받침대에 놓으면 민간 경비가 도난을 알아채는 시점을 늦출 수 있습니다.",
+      "구매자의 독특한 요청을 처리하면 엘리트 챌린지와 누적되는 금전 보너스가 생깁니다."
     ]
   }
 ]

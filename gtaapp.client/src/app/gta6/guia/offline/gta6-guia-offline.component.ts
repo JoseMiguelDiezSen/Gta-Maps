@@ -38,6 +38,7 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
   isLoading: boolean = true;
   isLoadingArticulo: boolean = false;
   renderedContent: string = '';
+  renderedContentTrasAlertas: string = '';
   readingProgress: number = 0;
   showScrollTop: boolean = false;
   toastMessage: string | null = null;
@@ -824,7 +825,9 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     this.articuloSub = this.guiaService.getArticulo('gta6', articuloId).subscribe({
       next: (articulo) => {
         this.selectedArticulo = articulo;
-        this.renderedContent = articulo.contenidoMarkdown || '';
+        const [contenido, contenidoTrasAlertas] = (articulo.contenidoMarkdown || '').split('<!--alertas-policia-->');
+        this.renderedContent = contenido;
+        this.renderedContentTrasAlertas = contenidoTrasAlertas || '';
         this.isLoadingArticulo = false;
         if (openMobile && this.isMobileView()) {
           this.openMobileReading();
@@ -878,6 +881,8 @@ export class Gta6GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     { name: 'Lucia', label: 'Lucia Caminos', img: 'assets/images/gta6/guia/offline/personajes/Lucia_Caminos.jpg' },
     { name: 'Jason', label: 'Jason Duval', img: 'assets/images/gta6/guia/offline/personajes/Jason_Duval.jpg' }
   ] as const;
+
+  readonly alertasPoliciales = ['weapon', 'identity', 'clothes', 'couple', 'cctv'] as const;
 
   /** Fotos que no han cargado: el marco se queda vacío, sin icono de imagen rota. */
   readonly fotosFallidas = new Set<string>();

@@ -2,596 +2,575 @@
   {
     "id": "fleeca",
     "order": 1,
-    "title": "سطو بنك فليكا (The Fleeca Job)",
+    "title": "سطو Fleeca",
     "titleEn": "The Fleeca Job",
     "category": "classic",
-    "categoryLabel": "عمليات السطو الكلاسيكية",
-    "giver": "Lester Crest",
-    "players": "2 jugadores",
+    "categoryLabel": "سطو الشقة",
+    "giver": "ليستر كريست",
+    "players": "لاعبان 2",
     "minLevel": 12,
-    "propertyRequired": "Apartamento de Lujo",
+    "propertyRequired": "شقة فاخرة",
     "setupCost": 11500,
     "setupCostFormatted": "$11,500",
     "potentialTake": {
       "normal": "$143,750",
       "hard": "$177,500",
-      "description": "El botín se encuentra dentro de la caja de seguridad #153 de la sucursal de Fleeca Bank."
+      "description": "يوجد الغنيمة داخل صندوق الأمانات #153 في فرع Fleeca Bank."
     },
-    "target": "صندوق الأمانات في خزنة بنك فليكا",
+    "target": "صندوق الأمانات رقم 153",
     "location": "Western Highway, Banham Canyon",
-    "description": "عملية تمهيدية للاعبين. اقتحم فرع بنك فليكا على الطريق السريع الغربي، احفر قفل الخزنة واهرب بالمروحية المغناطيسية Cargobob.",
+    "description": "أول سطو تعاوني في GTA Online، خطط له ليستر كريست. مهمة سريعة للاعبين اثنين لاقتحام فرع صغير من Fleeca Bank على الطريق السريع الغربي.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-fleeca.jpg",
     "badgeColor": "#2ecc71",
     "badgeIcon": "fa-building-columns",
     "eliteChallenges": [
-      "Completar en menos de 05:20 minutos",
-      "Daño al vehículo inferior al 6%",
-      "Nadie resulta abatido en la huida"
+      "إنجاز المهمة في أقل من 05:20 دقيقة",
+      "ضرر المركبة أقل من 6%",
+      "ألا يُقتل أي شخص أثناء الهروب"
     ],
-    "eliteReward": "+$50,000 extra",
+    "eliteReward": "+$50,000 إضافية",
     "unlockedVehicles": [
       "Karin Kuruma ($95,000 / $126,350)",
-      "Karin Kuruma Blindado ($525,000 / $698,250)"
+      "Karin Kuruma مدرعة ($525,000 / $698,250)"
     ],
     "setupMissions": [
       {
-        "name": "Examen previo (Reconocimiento)",
+        "name": "الفحص المسبق (الاستطلاع)",
         "type": "recon",
-        "description": "Trayecto de inspección con Lester para estudiar la disposición de las cámaras, ensayar la ruta de evacuación y probar la herramienta de intrusión digital."
+        "description": "جولة تفقدية مع ليستر لدراسة توزيع الكاميرات وتجربة طريق الإخلاء واختبار أداة الاختراق الرقمي."
       },
       {
-        "name": "Robo del Kuruma",
+        "name": "سرقة الـ Kuruma",
         "type": "prep",
-        "description": "Asalto en la azotea de un estacionamiento en Little Seoul para neutralizar a la escolta armada y sustraer el Kuruma blindado de huida."
+        "description": "هجوم على سطح موقف سيارات في Little Seoul لتحييد الحراسة المسلحة وسرقة سيارة الهروب Kuruma المدرعة."
       },
       {
-        "name": "Golpe al Fleeca (Final)",
+        "name": "سطو Fleeca (النهائية)",
         "type": "finale",
-        "description": "Ejecución del atraco: acceso con disfraces, contención del personal, taladrado de la caja #153 y extracción por carretera hasta ser izados por el electroimán de un Cargobob."
+        "description": "تنفيذ عملية السطو: الدخول بالأزياء المتنكرة، وإخضاع الموظفين، وثقب الصندوق #153، والانسحاب بالطريق حتى رفعهم بمغناطيس مروحية Cargobob."
       }
     ],
     "tips": [
-      "Mantén una presión moderada y uniforme con el taladro; empujar con demasiada fuerza sobrecalienta la broca y añade segundos decisivos.",
-      "El rol de conductor debe romper las cámaras del techo al entrar y mantener el nivel de intimidación disparando cerca de los rehenes sin causar bajas."
-    ],
-    "synopsis": "عملية سطو تمهيدية ثنائية اللاعبين لاختبار أنظمة الأمان والسطو على صندوق أمانات فرع بنك فليكا في الساحل الغربي.",
-    "strategy": "يتولى السائق قيادة سيارة Armored Kuruma وإرهاب الرهائن في القاعة بينما يقوم المخترق باختراق النظام وحفر قفل الصندوق في الخزنة.",
-    "eliteChallenge": "إكمال المهمة في أقل من 5:20 دقائق، تلقي أضرار أقل من 6% للمركبة، ودون أن يموت أي لاعب."
+      "حافظ على ضغط معتدل ومنتظم على المثقاب؛ فالدفع بقوة مفرطة يسخّن رأس المثقاب ويضيف ثواني حاسمة.",
+      "يجب أن يحطم دور السائق كاميرات السقف عند الدخول، وأن يحافظ على مستوى الترهيب بإطلاق النار قرب الرهائن دون إيقاع ضحايا."
+    ]
   },
   {
     "id": "prison_break",
     "order": 2,
-    "title": "الهروب من السجن (The Prison Break)",
+    "title": "الهروب من السجن",
     "titleEn": "The Prison Break",
     "category": "classic",
-    "categoryLabel": "عمليات السطو الكلاسيكية",
-    "giver": "Agente 14",
-    "players": "4 jugadores",
+    "categoryLabel": "سطو الشقة",
+    "giver": "العميل 14",
+    "players": "4 لاعبين",
     "minLevel": 12,
-    "propertyRequired": "Apartamento de Lujo",
+    "propertyRequired": "شقة فاخرة",
     "setupCost": 40000,
     "setupCostFormatted": "$40,000",
     "potentialTake": {
       "normal": "$400,000",
       "hard": "$500,000",
-      "description": "Fondos gubernamentales reservados transferidos por la extracción con vida del profesor Maxim Rashkovsky."
+      "description": "أموال حكومية سرية حُوّلت مقابل إخراج البروفيسور ماكسيم راشكوفسكي حيًا."
     },
-    "target": "تهريب البروفيسور مكسيم راشكوفسكي",
-    "location": "Penitenciaría Bolingbroke, Desierto de Grand Senora",
-    "description": "عملية معقدة لأربعة لاعبين. تسلل تحت ستار الحراس والسجناء إلى سجن بولينغبروك لتهريب البروفيسور راشكوفسكي على متن طائرة.",
+    "target": "البروفيسور ماكسيم راشكوفسكي",
+    "location": "سجن Bolingbroke، صحراء Grand Senora",
+    "description": "عملية إخراج تكتيكية نسقها العميل 14 لإخراج البروفيسور ماكسيم راشكوفسكي من سجن Bolingbroke المشدد الحراسة. تتطلب الخطة أربع مهام متزامنة: يتسلل عضوان بصفة حارس سجن ونزيل، ويُبقي طيار طائرة جاهزة في الانتظار، ويغطي خبير متفجرات المنطقة بمروحية هجومية.",
     "thumbnail": "",
     "badgeColor": "#3498db",
     "badgeIcon": "fa-handcuffs",
     "eliteChallenges": [
-      "Rashkovsky recibe menos del 1% de daño",
-      "Extracción en menos de 04:40 minutos",
-      "Nadie resulta abatido"
+      "تعرض راشكوفسكي لأقل من 1% من الضرر",
+      "الإخراج في أقل من 04:40 دقيقة",
+      "ألا يُقتل أي شخص"
     ],
-    "eliteReward": "+$100,000 extra",
+    "eliteReward": "+$100,000 إضافية",
     "unlockedVehicles": [
       "Lampadati Casco ($680,000 / $904,400)",
-      "Autobús de Prisión ($550,000 / $731,500)",
-      "Mammoth Velum de 5 plazas ($995,000 / $1,323,350)"
+      "حافلة السجن ($550,000 / $731,500)",
+      "Mammoth Velum بـ5 مقاعد ($995,000 / $1,323,350)"
     ],
     "setupMissions": [
       {
-        "name": "Avión",
+        "name": "الطائرة",
         "type": "prep",
-        "description": "Incursión en el aeródromo de McKenzie para expulsar a los contrabandistas de los Vagos y llevar el Velum de cinco plazas al hangar convenido."
+        "description": "اقتحام مطار McKenzie لطرد المهربين من Vagos ونقل طائرة Velum ذات الخمسة مقاعد إلى الحظيرة المتفق عليها."
       },
       {
-        "name": "Autobús",
+        "name": "الحافلة",
         "type": "prep",
-        "description": "Asalto en carretera a un autobús penitenciario en tránsito, eludiendo el cerco policial para ocultarlo en un depósito de chatarra."
+        "description": "هجوم على الطريق على حافلة سجن أثناء نقلها، مع التملص من الطوق الشرطي لإخفائها في ساحة خردة."
       },
       {
-        "name": "Estación de policía",
+        "name": "مركز الشرطة",
         "type": "prep",
-        "description": "Dos agentes camuflados requisan el cuadrante de turnos en comisaría mientras el resto recupera el vehículo deportivo Casco en los muelles."
+        "description": "يتنكر عميلان ويصادران جدول المناوبات في مركز الشرطة بينما يستعيد الباقون السيارة الرياضية Casco في الأرصفة."
       },
       {
-        "name": "Trabajo sucio",
+        "name": "العمل القذر",
         "type": "prep",
-        "description": "Eliminación coordinada de los antiguos socios de Rashkovsky y su letrado en dependencias oficiales y una villa de Vinewood."
+        "description": "تصفية منسقة لشركاء راشكوفسكي السابقين ومحاميه في مقار رسمية وفيلا في Vinewood."
       },
       {
-        "name": "Fuga de prisión (Final)",
+        "name": "الهروب من السجن (النهائية)",
         "type": "finale",
-        "description": "Entrada a Bolingbroke en el autobús sustraído, combate en los módulos carcelarios, extracción de Rashkovsky en el Velum y salto conjunto a la orilla."
+        "description": "الدخول إلى Bolingbroke بالحافلة المسروقة، والقتال في أجنحة السجن، وإخراج راشكوفسكي بطائرة Velum، والقفز معًا إلى الشاطئ."
       }
     ],
     "tips": [
-      "El piloto del avión puede colocarse detrás del caza militar para permanecer fuera de su rango de fuego mientras la demolición asegura el perímetro.",
-      "Destruir el autobús original de traslado antes de tomar el helicóptero de apoyo evita atraer refuerzos policiales anticipados."
-    ],
-    "synopsis": "عملية معقدة لأربعة لاعبين لتهريب البروفيسور مكسيم راشكوفسكي من سجن بولينغبروك الفيدرالي شديد الحراسة.",
-    "strategy": "فريق داخل السجن بزي حراس وسجناء، طيار لقيادة طائرة Velum، وخبير مروحية Buzzard لحماية الطائرة من طائرات الجيش النفاثة.",
-    "eliteChallenge": "تلقي راشكوفسكي ضرراً أقل من 1%، الهروب في أقل من 4:40 دقائق، ودون وفاة أي لاعب."
+      "يستطيع طيار الطائرة أن يتمركز خلف المقاتلة العسكرية ليبقى خارج مدى نيرانها بينما يؤمّن خبير المتفجرات المحيط.",
+      "تدمير الحافلة الأصلية للنقل قبل أخذ مروحية الدعم يمنع جذب تعزيزات الشرطة مبكرًا."
+    ]
   },
   {
     "id": "humane_labs",
     "order": 3,
-    "title": "الإغارة على مختبرات هيومان (The Humane Labs Raid)",
+    "title": "اقتحام Humane Labs",
     "titleEn": "The Humane Labs Raid",
     "category": "classic",
-    "categoryLabel": "عمليات السطو الكلاسيكية",
-    "giver": "Agente 14",
-    "players": "4 jugadores",
+    "categoryLabel": "سطو الشقة",
+    "giver": "العميل 14",
+    "players": "4 لاعبين",
     "minLevel": 12,
-    "propertyRequired": "Apartamento de Lujo",
+    "propertyRequired": "شقة فاخرة",
     "setupCost": 54000,
     "setupCostFormatted": "$54,000",
     "potentialTake": {
       "normal": "$540,000",
       "hard": "$675,000",
-      "description": "Pago clasificado por la recuperación de datos sobre armas biológicas y químicas de última generación."
+      "description": "دفعة سرية مقابل استعادة بيانات عن أسلحة بيولوجية وكيميائية متطورة."
     },
-    "target": "الملفات البحثية البيولوجية السرية لـ IAA",
-    "location": "Laboratorios Humane, Costa este de San Chianski",
-    "description": "اقتحام عسكري تكتيكي. اقفز بالمظلات ليلاً بنظارات الرؤية الليلية على مختبرات هيومان لسرقة ملفات أبحاث IAA السرية.",
+    "target": "بيانات أبحاث سرية",
+    "location": "Humane Labs، الساحل الشرقي لSan Chianski",
+    "description": "غارة عسكرية سرية على مخبأ الأبحاث في Humane Labs على الساحل الشرقي. تقضي الاستراتيجية بتعطيل الإمداد الكهربائي بنبضة كهرومغناطيسية على ارتفاع عالٍ، والنزول بالمظلة بنظارات الرؤية الليلية لأخذ المعلومات السرية، ومغادرة المجمع غوصًا عبر أنفاق تصريف المياه.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-laboratorios-humane-guia.jpg",
     "badgeColor": "#9b59b6",
     "badgeIcon": "fa-flask-vial",
     "eliteChallenges": [
-      "Completar en menos de 11:00 minutos",
-      "Daño al helicóptero Valkyrie inferior al 2%",
-      "Nadie resulta abatido"
+      "إنجاز المهمة في أقل من 11:00 دقيقة",
+      "ضرر مروحية Valkyrie أقل من 2%",
+      "ألا يُقتل أي شخص"
     ],
-    "eliteReward": "+$100,000 extra",
+    "eliteReward": "+$100,000 إضافية",
     "unlockedVehicles": [
       "Mammoth Hydra ($3,000,000 / $3,990,000)",
       "Buckingham Valkyrie ($2,850,000 / $3,790,500)",
       "HVY Insurgent ($675,000 / $897,750)",
       "HVY Insurgent Pick-Up ($1,350,000 / $1,795,500)",
-      "Nagasaki Dinghy de 4 plazas ($125,000)"
+      "Nagasaki Dinghy بـ4 مقاعد ($125,000)"
     ],
     "setupMissions": [
       {
-        "name": "Códigos clave",
+        "name": "الرموز السرية",
         "type": "prep",
-        "description": "Punto de encuentro en un callejón urbano para adquirir credenciales biométricas, repeliendo la emboscada montada por el FIB."
+        "description": "نقطة لقاء في زقاق حضري للحصول على بيانات اعتماد بيومترية، مع صد الكمين الذي نصبه FIB."
       },
       {
-        "name": "Blindados Insurgent",
+        "name": "مدرعات Insurgent",
         "type": "prep",
-        "description": "Ataque al centro de pruebas de Merryweather en las canteras para confiscar dos transportes Insurgent dotados de blindaje pesado."
+        "description": "هجوم على مركز اختبارات Merryweather في المحاجر للاستيلاء على ناقلتي Insurgent مزودتين بدرع ثقيل."
       },
       {
-        "name": "Pulso Electromagnético (PEM)",
+        "name": "النبضة الكهرومغناطيسية (EMP)",
         "type": "prep",
-        "description": "Abordaje al portaaviones militar fondeado en alta mar, sustracción del caza avanzado Hydra y repliegue tras combate aéreo."
+        "description": "اقتحام حاملة الطائرات العسكرية الراسية في عرض البحر، وسرقة المقاتلة المتطورة Hydra، والانسحاب بعد قتال جوي."
       },
       {
         "name": "Valkyrie",
         "type": "prep",
-        "description": "Asalto a la dársena privada de Merryweather para requisar el helicóptero de asalto artillado con cañones automáticos."
+        "description": "هجوم على المرفأ الخاص لـ Merryweather للاستيلاء على المروحية الهجومية المسلحة بمدافع آلية."
       },
       {
-        "name": "Entrega de PEM",
+        "name": "تسليم الـ EMP",
         "type": "prep",
-        "description": "Infiltración sin ser detectado: estacionar el blindado portador del PEM en el interior de los laboratorios sin levantar la alarma."
+        "description": "تسلل دون أن يُكتشف: ركن المدرعة الحاملة للـ EMP داخل المختبرات دون إطلاق الإنذار."
       },
       {
-        "name": "Asalto a Laboratorios Humane (Final)",
+        "name": "اقتحام Humane Labs (النهائية)",
         "type": "finale",
-        "description": "Detonación del pulso electromagnético, salto en paracaídas en plena oscuridad, extracción de los discos duros y salida buceando por el canal de refrigeración."
+        "description": "تفجير النبضة الكهرومغناطيسية، والقفز بالمظلة في ظلام دامس، واستخراج الأقراص الصلبة، والخروج غوصًا عبر قناة التبريد."
       }
     ],
     "tips": [
-      "En la entrega de la furgoneta PEM, coordinar cada disparo silenciado en parejas simultáneas para abatir a los centinelas sin margen de reacción.",
-      "Colocarse los respiradores submarinos antes de sumergirse en la tubería inundada evita ahogamientos durante el escape marítimo."
+      "عند تسليم شاحنة الـ EMP، نسّقوا كل طلقة مكتومة الصوت في أزواج متزامنة لإسقاط الحراس دون أن تتاح لهم فرصة الرد.",
+      "ارتداء أجهزة التنفس تحت الماء قبل الغطس في الأنبوب المغمور يمنع حالات الغرق أثناء الهروب البحري."
     ]
   },
   {
     "id": "series_a",
     "order": 4,
-    "title": "تمويل السلسلة أ (Series A Funding)",
+    "title": "التمويل الأولي",
     "titleEn": "Series A Funding",
     "category": "classic",
-    "categoryLabel": "عمليات السطو الكلاسيكية",
-    "giver": "Trevor Philips",
-    "players": "4 jugadores",
+    "categoryLabel": "سطو الشقة",
+    "giver": "تريفور فيليبس",
+    "players": "4 لاعبين",
     "minLevel": 12,
-    "propertyRequired": "Apartamento de Lujo",
+    "propertyRequired": "شقة فاخرة",
     "setupCost": 40400,
     "setupCostFormatted": "$40,400",
     "potentialTake": {
       "normal": "$404,000",
       "hard": "$505,000",
-      "description": "Beneficios íntegros por la colocación masiva en el mercado negro de toda la mercancía confiscada a las bandas rivales."
+      "description": "أرباح كاملة من بيع كل البضائع المصادَرة من العصابات المنافسة بكميات ضخمة في السوق السوداء."
     },
-    "target": "شحنات الممنوعات المنهوبة",
-    "location": "Almacén de El Burro Heights / Sandy Shores",
-    "description": "يستعين تريفور فيليبس بفريقك للإغارة على مخازن العصابات المنافسة في سان أندرياس وحماية الشحنات في معركة المنارة النهائية.",
+    "target": "شحنات مخدرات من عصابات منافسة",
+    "location": "مستودع El Burro Heights / Sandy Shores",
+    "description": "توسع تجاري قسري يقوده تريفور فيليبس. على الطاقم أن يضرب مخزونات أبرز الجماعات المنافسة في المقاطعة والمدينة (Ballas وVagos وThe Lost وعائلة O'Neil) لتكديس مخبأ سري ضخم، وحماية المستودع، ومرافقة الحمولة إلى المشتري النهائي.",
     "thumbnail": "",
     "badgeColor": "#e67e22",
     "badgeIcon": "fa-cannabis",
     "eliteChallenges": [
-      "Completar en menos de 06:30 minutos",
-      "75 enemigos abatidos",
-      "Nadie resulta abatido"
+      "إنجاز المهمة في أقل من 06:30 دقيقة",
+      "القضاء على 75 عدوًا",
+      "ألا يُقتل أي شخص"
     ],
-    "eliteReward": "+$100,000 extra",
+    "eliteReward": "+$100,000 إضافية",
     "unlockedVehicles": [
       "Karin Technical ($950,000 / $1,263,500)",
-      "Brute Mule Blindado ($32,500 / $43,225)"
+      "Brute Mule مدرعة ($32,500 / $43,225)"
     ],
     "setupMissions": [
       {
-        "name": "Cocaína",
+        "name": "الكوكايين",
         "type": "prep",
-        "description": "Asalto marítimo a un megayate en las aguas de Del Perro para arrebatar los cargamentos a los guardias de seguridad privada."
+        "description": "هجوم بحري على يخت ضخم في مياه Del Perro لانتزاع الشحنات من حراس الأمن الخاص."
       },
       {
-        "name": "Basura",
+        "name": "القمامة",
         "type": "prep",
-        "description": "Recorrido en camión de recogida urbana recogiendo paquetes ocultos en barrios controlados por bandas bajo continuos disparos."
+        "description": "جولة بشاحنة جمع القمامة لالتقاط طرود مخبأة في أحياء تسيطر عليها العصابات تحت إطلاق نار متواصل."
       },
       {
-        "name": "Moteros",
+        "name": "راكبو الدراجات",
         "type": "prep",
-        "description": "Incursión con silenciador en el campamento motero de Stab City para neutralizar patrullas y sustraer las furgonetas cargadas."
+        "description": "غارة بكاتم صوت على مخيم راكبي الدراجات في Stab City لتحييد الدوريات والاستيلاء على الشاحنات المحملة."
       },
       {
-        "name": "Hierba",
+        "name": "الحشيش",
         "type": "prep",
-        "description": "Asalto a la explotación maderera de Paleto Forest y protección de los camiones de transporte frente al hostigamiento enemigo."
+        "description": "هجوم على مزرعة قطع الأخشاب في Paleto Forest وحماية شاحنات النقل من مضايقات الأعداء."
       },
       {
-        "name": "Metanfetamina",
+        "name": "الميثامفيتامين",
         "type": "prep",
-        "description": "Ataque a la granja de elaboración de los O'Neil en Grapeseed para requisar el camión cisterna con los componentes químicos."
+        "description": "هجوم على مزرعة التصنيع التابعة لعائلة O'Neil في Grapeseed للاستيلاء على الشاحنة الصهريجية المحملة بالمكونات الكيميائية."
       },
       {
-        "name": "Financiación Inicial (Final)",
+        "name": "التمويل الأولي (النهائية)",
         "type": "finale",
-        "description": "Resistencia en el almacén de El Burro Heights ante el asedio conjunto de todas las facciones y convoy blindado de escape hacia el faro."
+        "description": "الصمود في مستودع El Burro Heights أمام حصار مشترك من كل الفصائل، ثم قافلة هروب مدرعة نحو المنارة."
       }
     ],
     "tips": [
-      "En la ruta del camión de basuras, quienes cargan las bolsas deben reponer chalecos balísticos frecuentemente al estar expuestos en callejones estrechos.",
-      "Colocar minas adhesivas en los accesos del almacén antes de que comience el asedio frena eficazmente a las camionetas enemigas."
-    ],
-    "synopsis": "مساعدة تريفور فيليبس في سرقة وجمع شحنات ضخمة من الممنوعات من عصابات لوس سانتوس لبيعها للمشترين.",
-    "strategy": "حماية الشاحنتين التقنيتين المحملتين بالبضاعة من هجمات القوارب والدراجات والمروحيات على طول الطريق السريع.",
-    "eliteChallenge": "إكمال المهمة في أقل من 6:30 دقائق، قتل 75 عدواً على الأقل، ودون أن يُقتل أي لاعب."
+      "في مسار شاحنة القمامة، على من يحملون الأكياس تجديد السترات الواقية باستمرار لأنهم مكشوفون في الأزقة الضيقة.",
+      "وضع ألغام لاصقة عند مداخل المستودع قبل بدء الحصار يبطئ شاحنات الأعداء بفاعلية."
+    ]
   },
   {
     "id": "pacific_standard",
     "order": 5,
-    "title": "السطو على بنك باسيفيك ستاندرد (The Pacific Standard Job)",
+    "title": "سطو Pacific Standard",
     "titleEn": "The Pacific Standard Job",
     "category": "classic",
-    "categoryLabel": "عمليات السطو الكلاسيكية",
-    "giver": "Lester Crest",
-    "players": "4 jugadores",
+    "categoryLabel": "سطو الشقة",
+    "giver": "ليستر كريست",
+    "players": "4 لاعبين",
     "minLevel": 12,
-    "propertyRequired": "Apartamento de Lujo",
+    "propertyRequired": "شقة فاخرة",
     "setupCost": 100000,
     "setupCostFormatted": "$100,000",
     "potentialTake": {
       "normal": "$1,000,000",
       "hard": "$1,250,000",
-      "description": "Cámara acorazada principal del banco central. Nota: recibir impactos de bala durante la huida daña las bolsas y reduce el dinero recuperado."
+      "description": "الخزنة المدرعة الرئيسية للبنك المركزي. ملاحظة: التعرض للرصاص أثناء الهروب يتلف الأكياس ويقلل المال المسترد."
     },
-    "target": "الخزنة الرئيسية لبنك باسيفيك ستاندرد",
-    "location": "Vinewood Boulevard / Downtown Los Santos",
-    "description": "العملية الكبرى للسطو على المقر الرئيسي لبنك Pacific Standard في وسط لوس سانتوس والهروب بالدراجات النارية Lectro عبر الوديان.",
+    "target": "الخزنة المدرعة في المقر الرئيسي لـ Pacific Standard",
+    "location": "Vinewood Boulevard / وسط مدينة Los Santos",
+    "description": "أكبر عملية سطو على بنك في القائمة التقليدية. بتخطيط من ليستر، يقتحم الفريق الفرع الرئيسي لـ Pacific Standard Bank في Vinewood. وبعد اختراق التحصينات بالرماح الحرارية وملء أكياس النقد، يأتي شق الطريق بالرصاص عبر الطوق الشرطي والهروب على الدراجات النارية عبر الوديان الصخرية في مقاطعة Blaine.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-pacific-standard-guia.jpg",
     "badgeColor": "#f1c40f",
     "badgeIcon": "fa-vault",
     "eliteChallenges": [
-      "Completar en menos de 10:15 minutos",
-      "No alertar al NOOSE (sin llamadas al 911 ni alarmas en cámara)",
-      "Nadie resulta abatido"
+      "إنجاز المهمة في أقل من 10:15 دقيقة",
+      "عدم تنبيه NOOSE (دون اتصالات بالرقم 911 أو إنذارات أمام الكاميرا)",
+      "ألا يُقتل أي شخص"
     ],
-    "eliteReward": "+$100,000 extra",
+    "eliteReward": "+$100,000 إضافية",
     "unlockedVehicles": [
-      "Principe Lectro con KERS ($750,000 / $997,500)",
-      "Savage militar ($1,950,000 / $2,593,500)",
+      "Principe Lectro مع KERS ($750,000 / $997,500)",
+      "Savage عسكرية ($1,950,000 / $2,593,500)",
       "Declasse Gang Burrito ($65,000 / $86,450)"
     ],
     "setupMissions": [
       {
-        "name": "Furgonetas",
+        "name": "الشاحنات الصغيرة",
         "type": "prep",
-        "description": "Búsqueda fotográfica de vehículos de reparto por la ciudad para identificar la matrícula que esconde el repetidor bancario."
+        "description": "بحث مصوَّر عن مركبات التوصيل في المدينة لتحديد اللوحة التي تخفي جهاز التقوية المصرفي."
       },
       {
-        "name": "Señal",
+        "name": "الإشارة",
         "type": "prep",
-        "description": "Extracción del experto Avi Schwartzman de un islote vigilado por patrullas y evacuación por mar en lancha rápida."
+        "description": "إخراج الخبير أفي شوارتزمان من جزيرة صغيرة تراقبها الدوريات والإخلاء بحرًا بزورق سريع."
       },
       {
-        "name": "Hackeo",
+        "name": "الاختراق",
         "type": "prep",
-        "description": "Ataque a una célula armada en Vinewood para capturar el equipo de desencriptación e intercambio de furgonetas de despiste."
+        "description": "هجوم على خلية مسلحة في Vinewood للاستيلاء على معدات فك التشفير وتبديل شاحنات التمويه."
       },
       {
-        "name": "Convoy",
+        "name": "القافلة",
         "type": "prep",
-        "description": "Interceptación de un destacamento de Merryweather en el puente del Cañón de Raton para conseguir las cargas térmicas de la bóveda."
+        "description": "اعتراض مفرزة من Merryweather على جسر Raton Canyon للحصول على الشحنات الحرارية للخزنة."
       },
       {
-        "name": "Motos",
+        "name": "الدراجات النارية",
         "type": "prep",
-        "description": "Golpe en la sede del club motero The Lost para arrebatar cuatro motos Lectro provistas de sobrealimentación KERS."
+        "description": "اقتحام مقر نادي الدراجين The Lost للاستيلاء على أربع دراجات Lectro مزودة بالشحن الفائق KERS."
       },
       {
-        "name": "Golpe al Pacific Standard (Final)",
+        "name": "سطو Pacific Standard (النهائية)",
         "type": "finale",
-        "description": "Control de la antesala bancaria, perforación térmica de las verjas, escape entre callejones y descenso en moto hacia el barranco del río."
+        "description": "السيطرة على ردهة البنك، وثقب القضبان حراريًا، والهروب بين الأزقة، والنزول بالدراجة نحو وادي النهر."
       }
     ],
     "tips": [
-      "Para evitar pérdidas en el botín, es recomendable que un solo integrante recoja todo el efectivo y permanezca cubierto en retaguardia en el exterior.",
-      "Evitar abatir al personal civil en el vestíbulo impide el despliegue inmediato de las furgonetas pesadas del NOOSE."
-    ],
-    "synopsis": "العملية الكبرى للسطو على المقر الرئيسي لبنك Pacific Standard في قلب وسط لوس سانتوس ونهب 1,250,000 دولار.",
-    "strategy": "السيطرة على صالة البنك والخزنة وتفجير البوابات بالحرارة، ثم شق طريق الهروب بالدراجات النارية Lectro إلى قوارب النجاة في وادي راتون كانيون.",
-    "eliteChallenge": "إكمال المهمة في أقل من 10:15 دقائق، عدم استدعاء قوات NOOSE (بدون إطلاق إنذار بالقتل)، وبدون وفيات."
+      "لتفادي خسائر في الغنيمة، يُستحسن أن يجمع عضو واحد فقط كل النقد وأن يبقى مغطًى في المؤخرة بالخارج.",
+      "تجنب قتل المدنيين في الردهة يمنع النشر الفوري لشاحنات NOOSE الثقيلة."
+    ]
   },
   {
     "id": "doomsday_act1",
     "order": 6,
-    "title": "كارثة يوم القيامة: الفصل الأول - تسريب البيانات",
+    "title": "سطو يوم القيامة: الفصل الأول - تسريبات البيانات",
     "titleEn": "The Doomsday Heist: Act I - The Data Breaches",
     "category": "doomsday",
-    "categoryLabel": "عمليات سطو يوم القيامة",
-    "giver": "Lester Crest & Avon Hertz",
-    "players": "2-4 jugadores",
+    "categoryLabel": "سطو يوم القيامة",
+    "giver": "ليستر كريست وأفون هيرتز",
+    "players": "2-4 لاعبين",
     "minLevel": 1,
-    "propertyRequired": "Instalaciones Subterráneas (Facility)",
+    "propertyRequired": "منشآت تحت الأرض (Facility)",
     "setupCost": 65000,
     "setupCostFormatted": "$65,000",
     "potentialTake": {
       "normal": "$650,000",
       "hard": "$812,500",
-      "description": "Honorarios gubernamentales asignados por repeler el asalto cibernético a los servidores secretos de la agencia."
+      "description": "أتعاب حكومية مخصصة لصد الهجوم الإلكتروني على خوادم الوكالة السرية."
     },
-    "target": "خوادم البيانات العسكرية الرئيسية لـ IAA",
-    "location": "Instalaciones gubernamentales de la IAA, Cordillera de Tataviam",
-    "description": "اقتحم منشأة IAA تحت الأرض وسط نيران المرتزقة واستعد خوادم البيانات المشفرة مع إيفون هيرتز والذكاء الاصطناعي كليفورد.",
+    "target": "شبكة الخوادم العسكرية التابعة لـ IAA",
+    "location": "المنشآت الحكومية التابعة لـ IAA، سلسلة جبال Tataviam",
+    "description": "بداية حبكة الأمن القومي التي حذر منها رجل الأعمال أفون هيرتز والحاسوب العملاق كليفورد. تعاقدت معهم شعبة الاستخبارات، وعلى المنفذين التحقيق في التسريبات واعتراض الإشارات في مركبات Deluxo البرمائية واستعادة مركز الحوسبة تحت الأرض في Tataviam بعد أن استولت عليه قوة مرتزقة مجهولة.",
     "thumbnail": "",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-shield-halved",
     "eliteChallenges": [
-      "Completar en menos de 05:30 minutos",
-      "78 bajas enemigas",
-      "Nadie resulta abatido"
+      "إنجاز المهمة في أقل من 05:30 دقيقة",
+      "78 قتيلًا من الأعداء",
+      "ألا يُقتل أي شخص"
     ],
-    "eliteReward": "+$50,000 extra",
+    "eliteReward": "+$50,000 إضافية",
     "unlockedVehicles": [
       "Imponte Deluxo ($3,550,000 / $4,721,500)",
-      "Helicóptero Akula ($2,785,000 / $3,704,050)",
+      "مروحية Akula ($2,785,000 / $3,704,050)",
       "HVY Chernobog ($2,490,000 / $3,311,700)"
     ],
     "setupMissions": [
       {
-        "name": "Preliminares: Pariah, Deluxo y Akula",
+        "name": "التمهيدات: Pariah وDeluxo وAkula",
         "type": "preliminary",
-        "description": "Adquisición y traslado a las instalaciones de los vehículos tácticos necesarios para las fases preparatorias."
+        "description": "الحصول على المركبات التكتيكية اللازمة للمراحل التحضيرية ونقلها إلى المنشأة."
       },
       {
-        "name": "Preparación: Cadáveres",
+        "name": "التحضير: الجثث",
         "type": "prep",
-        "description": "Infiltración en la morgue pública con disfraces sanitarios para recuperar unidades de memoria con información sensible."
+        "description": "التسلل إلى المشرحة العامة بأزياء طبية لاستعادة وحدات ذاكرة تحتوي معلومات حساسة."
       },
       {
-        "name": "Preparación: Señales en Deluxos",
+        "name": "التحضير: الإشارات في Deluxo",
         "type": "prep",
-        "description": "Rastreo y descarga de frecuencias en tierra, mar y aire empleando las capacidades de vuelo del Deluxo."
+        "description": "تتبع الترددات وتنزيلها على الأرض وفي البحر وفي الجو باستخدام قدرات الطيران لـ Deluxo."
       },
       {
-        "name": "Preparación: Servidores en Akula",
+        "name": "التحضير: الخوادم في Akula",
         "type": "prep",
-        "description": "Vuelo en modo furtivo con el helicóptero Akula para descargar archivos de la torre de control de Fort Zancudo."
+        "description": "طيران في وضع التخفي بمروحية Akula لتنزيل ملفات من برج المراقبة في Fort Zancudo."
       },
       {
-        "name": "Fugas de datos (Final)",
+        "name": "تسريبات البيانات (النهائية)",
         "type": "finale",
-        "description": "Asalto armado a las instalaciones tomadas de la IAA, reconexión de sistemas y defensa de la sala principal de servidores."
+        "description": "هجوم مسلح على منشآت IAA المستولى عليها، وإعادة وصل الأنظمة، والدفاع عن قاعة الخوادم الرئيسية."
       }
     ],
     "tips": [
-      "En el vestíbulo de servidores, aprovechar las coberturas altas y usar proyectiles pesados para neutralizar a los asaltantes armados con escopetas."
-    ],
-    "synopsis": "كشف تسريب معلومات عسكرية سرية والتحقيق في هجمات إلكترونية تستهدف شبكة الدفاع القومي لأمريكا.",
-    "strategy": "اقتحام المقر السري تحت الأرض واستعادة خوادم البيانات المشفرة بمساعدة الذكاء الاصطناعي كليفورد.",
-    "eliteChallenge": "إكمال المهمة في أقل من 5:30 دقائق، قتل 78 عدواً، ودون خسارة أي حياة."
+      "في ردهة الخوادم، استغلوا الأغطية المرتفعة واستخدموا القذائف الثقيلة لتحييد المهاجمين المسلحين ببنادق الصيد."
+    ]
   },
   {
     "id": "doomsday_act2",
     "order": 7,
-    "title": "كارثة يوم القيامة: الفصل الثاني - مشكلة بوجدان",
+    "title": "سطو يوم القيامة: الفصل الثاني - مشكلة بوغدان",
     "titleEn": "The Doomsday Heist: Act II - The Bogdan Problem",
     "category": "doomsday",
-    "categoryLabel": "عمليات سطو يوم القيامة",
-    "giver": "Lester Crest & Avon Hertz",
-    "players": "2-4 jugadores",
+    "categoryLabel": "سطو يوم القيامة",
+    "giver": "ليستر كريست وأفون هيرتز",
+    "players": "2-4 لاعبين",
     "minLevel": 1,
-    "propertyRequired": "Instalaciones Subterráneas (Facility)",
+    "propertyRequired": "منشآت تحت الأرض (Facility)",
     "setupCost": 95000,
     "setupCostFormatted": "$95,000",
     "potentialTake": {
       "normal": "$950,000",
       "hard": "$1,187,500",
-      "description": "Compensación de la agencia gubernamental tras neutralizar la supuesta red de sabotaje naval internacional."
+      "description": "تعويض من الوكالة الحكومية بعد تحييد شبكة التخريب البحري الدولية المزعومة."
     },
-    "target": "الغواصة النووية العسكرية السرية",
-    "location": "Bahía de Paleto Bay, Océano Pacífico",
-    "description": "اقتحم الغواصة النووية الروسية قبالة ساحل باليتو باي، استجوب العميل بوجدان واكتشف المؤامرة الحقيقية التي تهدد سان أندرياس.",
+    "target": "الغواصة النووية الروسية Ramyus",
+    "location": "خليج Paleto Bay، المحيط الهادئ",
+    "description": "عملية مكافحة تجسس تتركز على غواصة عسكرية رُصدت في مياه Paleto Bay. يعمل الفريق في خليتين متزامنتين: فرقة تقتحم داخل الغواصة Ramyus لاستجواب قائدها بوغدان، بينما تسيطر الخلية الأخرى على السماء على متن الطائرة المتحولة Avenger في مواجهة نيران العدو.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-juiciofinal-2.jpg",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-water",
     "eliteChallenges": [
-      "Completar en menos de 15:00 minutos",
-      "Daño al avión Avenger inferior al 5%",
-      "Nadie resulta abatido"
+      "إنجاز المهمة في أقل من 15:00 دقيقة",
+      "ضرر طائرة Avenger أقل من 5%",
+      "ألا يُقتل أي شخص"
     ],
-    "eliteReward": "+$50,000 extra",
+    "eliteReward": "+$50,000 إضافية",
     "unlockedVehicles": [
-      "Pegassi Stromberg anfibio ($2,395,000 / $3,185,350)",
+      "Pegassi Stromberg برمائية ($2,395,000 / $3,185,350)",
       "Mammoth Avenger ($3,450,000 / $4,787,500)",
-      "RCV antidisturbios ($2,350,000 / $3,125,500)"
+      "RCV لمكافحة الشغب ($2,350,000 / $3,125,500)"
     ],
     "setupMissions": [
       {
-        "name": "Preliminares: ULP, Stromberg y Torpedos",
+        "name": "التمهيدات: ULP وStromberg والطوربيدات",
         "type": "preliminary",
-        "description": "Obtención de equipos especializados y vehículos anfibios en distintos puntos de San Andreas."
+        "description": "الحصول على معدات متخصصة ومركبات برمائية في نقاط مختلفة من San Andreas."
       },
       {
-        "name": "Preparación: Rescate del agente ULP",
+        "name": "التحضير: إنقاذ عميل ULP",
         "type": "prep",
-        "description": "Asalto bajo fuego a una refinería fuertemente protegida para liberar al agente gubernamental cautivo."
+        "description": "هجوم تحت النار على مصفاة شديدة الحراسة لتحرير العميل الحكومي الأسير."
       },
       {
-        "name": "Preparación: Recuperación de discos duros",
+        "name": "التحضير: استعادة الأقراص الصلبة",
         "type": "prep",
-        "description": "Extinción de incendios y salvamento de terminales informáticos empleando el cañón de agua del furgón RCV."
+        "description": "إطفاء الحرائق وإنقاذ المحطات الحاسوبية باستخدام مدفع المياه في شاحنة RCV."
       },
       {
-        "name": "Preparación: Submarinos Stromberg",
+        "name": "التحضير: غواصات Stromberg",
         "type": "prep",
-        "description": "Incursión submarina para destruir convoyes sumergidos y desactivar minas acuáticas con deportivos anfibios."
+        "description": "غارة تحت الماء لتدمير قوافل مغمورة وإبطال ألغام مائية بالسيارات الرياضية البرمائية."
       },
       {
-        "name": "El problema Bogdan (Final)",
+        "name": "مشكلة بوغدان (النهائية)",
         "type": "finale",
-        "description": "Infiltración por los pasillos del submarino Ramyus hasta llegar al comandante mientras el Avenger despeja el cielo exterior."
+        "description": "التسلل عبر ممرات الغواصة Ramyus حتى الوصول إلى القائد بينما تطهر Avenger السماء الخارجية."
       }
     ],
     "tips": [
-      "Fijar el piloto automático del Avenger a buena altura permite usar las torretas defensivas con total puntería y sin peligro de estrellarse."
-    ],
-    "synopsis": "التسلل إلى غواصة روسية نووية غارقة قبالة ساحل باليتو واكتشاف الخيانة الكبرى لكليفورد وافون هيرتز.",
-    "strategy": "فريق يدخل الغواصة لتحييد طاقم بوجدان بينما يتولى فريق طائرة أفيجر الحربية السيطرة الجوية فوق الخليج.",
-    "eliteChallenge": "أضرار لطائرة أفيجر أقل من 5%، إكمال في أقل من 15:00 دقيقة، ودون موت أي لاعب."
+      "تثبيت الطيار الآلي في Avenger على ارتفاع جيد يتيح استخدام البرجيات الدفاعية بدقة تامة ودون خطر التحطم."
+    ]
   },
   {
     "id": "doomsday_act3",
     "order": 8,
-    "title": "كارثة يوم القيامة: الفصل الثالث - سيناريو يوم القيامة",
+    "title": "سطو يوم القيامة: الفصل الثالث - مسرح يوم القيامة",
     "titleEn": "The Doomsday Heist: Act III - The Doomsday Scenario",
     "category": "doomsday",
-    "categoryLabel": "عمليات سطو يوم القيامة",
-    "giver": "Lester Crest & Bogdan",
-    "players": "2-4 jugadores",
+    "categoryLabel": "سطو يوم القيامة",
+    "giver": "ليستر كريست وبوغدان",
+    "players": "2-4 لاعبين",
     "minLevel": 1,
-    "propertyRequired": "Instalaciones Subterráneas (Facility)",
+    "propertyRequired": "منشآت تحت الأرض (Facility)",
     "setupCost": 120000,
     "setupCostFormatted": "$120,000",
     "potentialTake": {
       "normal": "$1,200,000",
       "hard": "$1,500,000",
-      "description": "Recompensa máxima del estado por neutralizar la amenaza nuclear y salvar el continente de la aniquilación cibernética."
+      "description": "أقصى مكافأة من الدولة مقابل تحييد التهديد النووي وإنقاذ القارة من الإبادة السيبرانية."
     },
-    "target": "صوامع الصواريخ النووية في قلب جبل تشيلياد",
-    "location": "المخبأ السري داخل جبل تشيلياد",
-    "description": "الاقتحام النهائي لصوامع الصواريخ النووية داخل جبل تشيلياد. استخدم حقائب الطيران النفاثة Jetpacks لإيقاف ضربة كليفورد النووية.",
+    "target": "صومعة الإطلاق النووي في جبل Chiliad",
+    "location": "المخبأ السري داخل جبل Chiliad",
+    "description": "المواجهة الحاسمة لمنع كارثة باليستية. بعد تأكد خيانة أفون هيرتز وسيطرة الذكاء الاصطناعي كليفورد على صوامع جبل Chiliad، يدخل المنفذون القاعدة تحت الأرض بالدبابة Khanjali، ويقاتلون وحدات اصطناعية، ويوقفون الإطلاق في المحطات المركزية، ويطاردون أفون بحقائب Jetpack.",
     "thumbnail": "",
     "badgeColor": "#e74c3c",
     "badgeIcon": "fa-radiation",
     "eliteChallenges": [
-      "Completar en menos de 30:00 minutos",
-      "0 fallos de hackeo en los terminales",
-      "150 disparos a la cabeza",
-      "Nadie resulta abatido"
+      "إنجاز المهمة في أقل من 30:00 دقيقة",
+      "0 إخفاقات اختراق في المحطات",
+      "150 طلقة في الرأس",
+      "ألا يُقتل أي شخص"
     ],
-    "eliteReward": "+$50,000 extra",
+    "eliteReward": "+$50,000 إضافية",
     "unlockedVehicles": [
       "TM-02 Khanjali ($2,895,000 / $3,850,350)",
       "Mammoth Thruster Jetpack ($2,750,000 / $3,657,500)",
-      "Bombardero Volatol ($2,800,000 / $3,724,000)",
-      "Barrage todoterreno ($1,595,000 / $2,121,350)"
+      "قاذفة القنابل Volatol ($2,800,000 / $3,724,000)",
+      "Barrage لجميع التضاريس ($1,595,000 / $2,121,350)"
     ],
     "setupMissions": [
       {
-        "name": "Preliminares: Tanque Khanjali, Volatol y Mochilas",
+        "name": "التمهيدات: دبابة Khanjali وVolatol والحقائب",
         "type": "preliminary",
-        "description": "Captura y aprovisionamiento del material acorazado y propulsores individuales de última hornada."
+        "description": "الاستيلاء على العتاد المدرع والمحركات الفردية من أحدث طراز وتزويدها."
       },
       {
-        "name": "Preparación: Rescate del Agente 14",
+        "name": "التحضير: إنقاذ العميل 14",
         "type": "prep",
-        "description": "Combate en los muelles industriales contra fuerzas de élite equipadas con trajes de invisibilidad óptica."
+        "description": "قتال في الأرصفة الصناعية ضد قوات النخبة المزودة ببدلات الإخفاء البصري."
       },
       {
-        "name": "Preparación: Escolta del Chernobog",
+        "name": "التحضير: مرافقة Chernobog",
         "type": "prep",
-        "description": "Protección y traslado del camión lanzamisiles antibalístico frente al ataque de columnas mecanizadas."
+        "description": "حماية شاحنة الصواريخ المضادة للمقذوفات الباليستية ونقلها أمام هجوم أرتال آلية."
       },
       {
-        "name": "Preparación: Asalto aéreo en Volatol",
+        "name": "التحضير: هجوم جوي بـ Volatol",
         "type": "prep",
-        "description": "Misión de bombardeo en altura con el avión Volatol para demoler torretas y baterías en las crestas de Chiliad."
+        "description": "مهمة قصف من ارتفاع عالٍ بطائرة Volatol لتدمير البرجيات والبطاريات على قمم Chiliad."
       },
       {
-        "name": "El escenario del Juicio Final (Final)",
+        "name": "مسرح يوم القيامة (النهائية)",
         "type": "finale",
-        "description": "Avance en tanque por el túnel del silo, anulación manual del código de los cuatro misiles y caza aérea del objetivo en Jetpack."
+        "description": "التقدم بالدبابة عبر نفق الصومعة، وإبطال رمز الصواريخ الأربعة يدويًا، ومطاردة الهدف جوًا بـ Jetpack."
       }
     ],
     "tips": [
-      "Al piratear los terminales de lanzamiento, los compañeros deben blindar los accesos usando rifles automáticos y fuego defensivo continuo.",
-      "El proyectil de riel del tanque Khanjali destruye bloqueos y obstáculos blindados de forma contundente en el túnel de entrada."
-    ],
-    "synopsis": "اقتحام الصوامع النووية السرية داخل جبل تشيلياد لإيقاف إطلاق الصواريخ النووية وتدمير الذكاء الاصطناعي كليفورد.",
-    "strategy": "استخدام الدبابات الثقيلة Khanjali واختراق حواسيب الصواريخ ثم ملاحقة افون هيرتز باستخدام حقائب الطيران النفاثة Jetpacks.",
-    "eliteChallenge": "إكمال في أقل من 30:00 دقيقة، 0 أخطاء في قرصنة الألغاز، 150 قتلة برصاصة في الرأس، ودون وفيات."
+      "عند اختراق محطات الإطلاق، على الزملاء تحصين المداخل باستخدام بنادق آلية ونيران دفاعية متواصلة.",
+      "قذيفة السكة في دبابة Khanjali تدمر الحواجز والعوائق المدرعة بقوة في نفق الدخول."
+    ]
   },
   {
     "id": "diamond_casino",
     "order": 9,
-    "title": "سطو كازينو دايموند (The Diamond Casino Heist)",
+    "title": "سطو The Diamond Casino",
     "titleEn": "The Diamond Casino Heist",
     "category": "casino",
-    "categoryLabel": "سطو الكازينو",
-    "giver": "Lester Crest & Georgina Cheng",
-    "players": "2-4 jugadores",
+    "categoryLabel": "Diamond Casino",
+    "giver": "ليستر كريست وجورجينا تشينغ",
+    "players": "2-4 لاعبين",
     "minLevel": 1,
-    "propertyRequired": "Salón Recreativo (Arcade)",
+    "propertyRequired": "صالة ألعاب (Arcade)",
     "setupCost": 25000,
     "setupCostFormatted": "$25,000",
     "potentialTake": {
       "normal": "$2,115,000 - $3,290,000",
       "hard": "$2,326,500 - $3,619,000",
-      "description": "El contenido de la bóveda varía en cada golpe: Dinero en efectivo ($2.1M), Obras de arte ($2.3M), Lingotes de oro ($2.5M) o Diamantes ($3.6M en temporadas especiales)."
+      "description": "يختلف محتوى الخزنة في كل سطو: نقد ($2.1M) أو أعمال فنية ($2.3M) أو سبائك ذهب ($2.5M) أو ألماس ($3.6M في المواسم الخاصة)."
     },
-    "target": "الخزنة الفولاذية المحصنة لكازينو دايموند",
-    "location": "The Diamond Casino & Resort, Vinewood Este",
-    "description": "خطط للسطو الذكي على الكازينو. اختر الأسلوب: الخداع والتنكر (Gruppe Sechs)، التخفي الصامت، أو الهجوم الشامل لنهب الألماس والذهب والأموال.",
+    "target": "الخزنة الجوفية شديدة التأمين في Diamond Casino",
+    "location": "The Diamond Casino & Resort، شرق Vinewood",
+    "description": "العملية الأكثر تنوعًا في الاستراتيجية في Los Santos. يُخطَّط لها من الورشة السرية في صالة ألعاب، وتتيح اقتحام خزائن Diamond Casino بثلاثة أساليب تكتيكية: التسلل الصامت، أو الخداع بهويات مزيفة، أو الهجوم المسلح المباشر. كوّن فريقًا مفصلًا لنهب ملايين من النقد أو اللوحات أو الذهب أو الألماس.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-casino.jpg",
     "badgeColor": "#f39c12",
     "badgeIcon": "fa-dice",
     "eliteChallenges": [
-      "Completar en menos de 15:00 minutos",
-      "0 fallos de pirateo en las puertas de la cámara",
-      "Nadie resulta abatido",
-      "Sin ser detectado antes de la cámara (en Sigilo y Engaño) u 80 bajas en la cabeza (en Agresivo)"
+      "إنجاز المهمة في أقل من 15:00 دقيقة",
+      "0 إخفاقات اختراق في أبواب الخزنة",
+      "ألا يُقتل أي شخص",
+      "عدم الاكتشاف قبل الخزنة (في الصمت والخداع) أو 80 طلقة في الرأس (في العدواني)"
     ],
-    "eliteReward": "+$100,000 extra (Difícil) / +$50,000 extra (Normal)",
+    "eliteReward": "+$100,000 إضافية (صعب) / +$50,000 إضافية (عادي)",
     "unlockedVehicles": [
       "Gruppe Sechs Stockade ($1,680,000 / $2,240,000)",
       "Bugstars Burrito ($450,000 / $598,500)",
@@ -601,224 +580,221 @@
     ],
     "setupMissions": [
       {
-        "name": "Reconocimiento del Casino y Bóveda",
+        "name": "استطلاع الكازينو والخزنة",
         "type": "recon",
-        "description": "Inspección fotográfica de entradas y conductos, enlazando con la señal de vigilancia interior para confirmar el botín en cámara."
+        "description": "فحص مصوَّر للمداخل والقنوات، مع الاتصال بإشارة المراقبة الداخلية لتأكيد الغنيمة في الخزنة."
       },
       {
-        "name": "Equipo de apoyo y Armas",
+        "name": "فريق الدعم والأسلحة",
         "type": "prep",
-        "description": "Selección del especialista en tiro y requisa del lote de armas adaptado al plan de entrada acordado."
+        "description": "اختيار خبير الرماية والاستيلاء على حزمة الأسلحة المناسبة لخطة الدخول المتفق عليها."
       },
       {
-        "name": "Vehículos de huida",
+        "name": "مركبات الهروب",
         "type": "prep",
-        "description": "Elección del piloto de fuga y adquisición de los turismos modificados para la escapada por carretera."
+        "description": "اختيار طيار الهروب والحصول على سيارات معدلة للفرار على الطريق."
       },
       {
-        "name": "Dispositivos de hackeo y Tarjetas",
+        "name": "أجهزة الاختراق والبطاقات",
         "type": "prep",
-        "description": "Contratación de un hacker experto para prolongar el margen de estancia en la cámara antes del cierre hermético."
+        "description": "التعاقد مع هاكر خبير لإطالة مدة البقاء في الخزنة قبل الإغلاق المحكم."
       },
       {
-        "name": "Misiones preparatorias específicas del enfoque",
+        "name": "المهمات التحضيرية الخاصة بالأسلوب",
         "type": "prep",
-        "description": "Asegurar indumentarias de Gruppe Sechs o Bugstars, perforadoras térmicas, cargas de demolición o blindajes reforzados."
+        "description": "تأمين أزياء Gruppe Sechs أو Bugstars، وأجهزة حفر حرارية، وشحنات هدم، أو دروع معززة."
       },
       {
-        "name": "Golpe a The Diamond Casino (Final)",
+        "name": "سطو The Diamond Casino (النهائية)",
         "type": "finale",
-        "description": "Incursión según el plan fijado, desbloqueo de las rejas de la bóveda, recolección del botín contrarreloj y huida hacia el comprador."
+        "description": "الاقتحام وفق الخطة المحددة، وفتح قضبان الخزنة، وجمع الغنيمة ضد الزمن، والهروب نحو المشتري."
       }
     ],
     "approaches": [
       {
         "id": "sneaky",
-        "name": "التخفي الصامت y Astucia (Silent & Sneaky)",
-        "description": "Infiltración limpia sin generar alertas con silenciadores, desactivación de circuitos de cámaras, pistolas táser y trajes oscuros."
+        "name": "التسلل والمكر (Silent & Sneaky)",
+        "description": "تسلل نظيف دون إطلاق إنذارات بكواتم الصوت، وتعطيل دوائر الكاميرات، ومسدسات صاعقة، وأزياء داكنة."
       },
       {
         "id": "big_con",
-        "name": "El Gran الخداع والتنكر (Gruppe Sechs) (The Big Con)",
-        "description": "El método más cómodo: cruzar el control de acceso vestidos como transportistas de caudales Gruppe Sechs o fumigadores Bugstars."
+        "name": "الخديعة الكبرى (The Big Con)",
+        "description": "الأسلوب الأريح: اجتياز نقطة الدخول بزي ناقلي الأموال من Gruppe Sechs أو مبيدي الحشرات من Bugstars."
       },
       {
         "id": "aggressive",
-        "name": "الهجوم الشامل (Aggressive)",
-        "description": "Entrada directa a base de fuerza. Voladura de las puertas con cargas pesadas, chalecos reforzados y fuego abierto contra los guardias."
+        "name": "العدواني (Aggressive)",
+        "description": "دخول مباشر بالقوة. تفجير الأبواب بشحنات ثقيلة وسترات معززة ونيران مفتوحة على الحراس."
       }
     ],
     "tips": [
-      "Contar con hackers de prestigio como Paige Harris o Avi Schwartzman extiende el tiempo dentro de la cámara hasta 3 minutos y medio sin alarma.",
-      "Para evacuar rápidamente hacia el comprador, tomar la salida de servicio, cruzar al tejado del cuartel policial cercano y utilizar el helicóptero en plataforma."
+      "وجود هاكرز مرموقين مثل بايج هاريس أو أفي شوارتزمان يمدد الوقت داخل الخزنة حتى 3 دقائق ونصف دون إنذار.",
+      "للإخلاء بسرعة نحو المشتري، اتخذوا مخرج الخدمة، واعبروا إلى سطح مقر الشرطة القريب، واستخدموا المروحية على المنصة."
     ]
   },
   {
     "id": "cayo_perico",
     "order": 10,
-    "title": "سطو كايو بيريكو (The Cayo Perico Heist)",
+    "title": "سطو Cayo Perico",
     "titleEn": "The Cayo Perico Heist",
     "category": "cayo_perico",
-    "categoryLabel": "سطو الجزيرة",
-    "giver": "Miguel Madrazo & Pavel",
-    "players": "1-4 لاعبين (يمكن اللعب فردياً!)",
+    "categoryLabel": "Cayo Perico",
+    "giver": "ميغيل مادرازو وبافيل",
+    "players": "1-4 لاعبين (يمكن اللعب منفردًا!)",
     "minLevel": 1,
-    "propertyRequired": "Submarino Kosatka",
+    "propertyRequired": "غواصة Kosatka",
     "setupCost": 25000,
     "setupCostFormatted": "$25,000",
     "potentialTake": {
       "normal": "$1,070,000 - $2,090,000+",
       "hard": "$1,180,000 - $2,550,000+",
-      "description": "Botín Principal (Estatua de pantera $1.9M-$2.09M, Diamante rosa $1.3M-$1.43M, Bonos al portador $1.1M-$1.21M, Collar de rubíes $1M-$1.1M, Tequila $900k-$990k) más botín secundario acumulable (Oro, Cocaína, Cuadros, Marihuana y Dinero)."
+      "description": "الغنيمة الرئيسية (تمثال النمر $1.9M-$2.09M، الماسة الوردية $1.3M-$1.43M، السندات لحاملها $1.1M-$1.21M، عقد الياقوت $1M-$1.1M، التكيلا $900k-$990k) بالإضافة إلى غنيمة ثانوية قابلة للتراكم (ذهب وكوكايين ولوحات وماريجوانا ونقود)."
     },
-    "target": "الخزنة الرئيسية في مجمع إل روبيو",
-    "location": "Isla privada de Cayo Perico, Mar Caribe",
-    "description": "تسلل إلى الجزيرة الاستوائية المحصنة لتاجر الممنوعات إل روبيو. متاح بالكامل بنمط فردي Solo أو حتى 4 لاعبين مع خيارات تسلل متعددة.",
+    "target": "مزرعة خوان 'إل روبيو' ستريكلاند المحصنة",
+    "location": "جزيرة Cayo Perico الخاصة، البحر الكاريبي",
+    "description": "غارة سرية منفردة أو بفريق تُنظَّم من الغواصة Kosatka مع القبطان بافيل لاقتحام الإقطاعية الكاريبية المحصنة لخوان 'إل روبيو' ستريكلاند. توفر مرونة كبيرة وحرية كاملة في طرق الدخول ونقاط الإنزال ومسارات الهروب.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-cayo-perico.jpg",
     "badgeColor": "#1abc9c",
     "badgeIcon": "fa-umbrella-beach",
     "eliteChallenges": [
-      "Completar en menos de 15:00 minutos",
-      "0 fallos de pirateo en el lector de huellas",
-      "Bolsas de botín secundario llenas al 100%",
-      "Nadie resulta abatido"
+      "إنجاز المهمة في أقل من 15:00 دقيقة",
+      "0 إخفاقات اختراق في قارئ البصمات",
+      "حقائب الغنيمة الثانوية ممتلئة بنسبة 100%",
+      "ألا يُقتل أي شخص"
     ],
-    "eliteReward": "+$100,000 extra (Difícil) / +$50,000 extra (Normal)",
+    "eliteReward": "+$100,000 إضافية (صعب) / +$50,000 إضافية (عادي)",
     "unlockedVehicles": [
-      "Submarino Kosatka ($2,200,000)",
-      "Helicóptero Sparrow ($1,815,000)",
+      "غواصة Kosatka ($2,200,000)",
+      "مروحية Sparrow ($1,815,000)",
       "Pegassi Toreador ($3,750,000 / $4,250,000)",
-      "Lancha Longfin ($1,593,750 / $2,125,000)",
-      "Patrullera Kurtz 31 ($2,216,250 / $2,955,000)",
-      "Bombardero Alkonost ($3,262,500 / $4,350,000)"
+      "زورق Longfin ($1,593,750 / $2,125,000)",
+      "زورق دورية Kurtz 31 ($2,216,250 / $2,955,000)",
+      "قاذفة القنابل Alkonost ($3,262,500 / $4,350,000)"
     ],
     "setupMissions": [
       {
-        "name": "Reconocimiento de Cayo Perico",
+        "name": "استطلاع Cayo Perico",
         "type": "recon",
-        "description": "Llegada encubierta a la isla con el séquito musical, elusión de patrullas hasta el repetidor y acceso remoto a las cámaras para catalogar el objetivo."
+        "description": "الوصول إلى الجزيرة خلسة مع الموكب الموسيقي، والتملص من الدوريات حتى جهاز التقوية، والوصول عن بعد إلى الكاميرات لفهرسة الهدف."
       },
       {
-        "name": "Vehículo de aproximación",
+        "name": "مركبة الاقتراب",
         "type": "prep",
-        "description": "Asegurar el medio de transporte: torpedos del Kosatka para el desagüe, lancha Longfin, salto paracaidista desde Alkonost o avioneta Velum."
+        "description": "تأمين وسيلة النقل: طوربيدات Kosatka للمصرف، أو زورق Longfin، أو قفزة مظلية من Alkonost، أو طائرة Velum الصغيرة."
       },
       {
-        "name": "Armamento y Silenciadores",
+        "name": "الأسلحة وكواتم الصوت",
         "type": "prep",
-        "description": "Ataque a un almacén clandestino en Los Santos para capturar el set de armas elegido y acoplar silenciadores."
+        "description": "هجوم على مستودع سري في Los Santos للاستيلاء على مجموعة الأسلحة المختارة وتركيب كواتم الصوت."
       },
       {
-        "name": "Equipo táctico",
+        "name": "المعدات التكتيكية",
         "type": "prep",
-        "description": "Requisar el soplete submarino, el duplicador de huellas y la herramienta de corte para la vitrina del sótano."
+        "description": "الحصول على شعلة القطع تحت الماء ونسّاخ البصمات وأداة القطع لخزانة العرض في القبو."
       },
       {
-        "name": "Golpe a Cayo Perico (Final)",
+        "name": "سطو Cayo Perico (النهائية)",
         "type": "finale",
-        "description": "Entrada acuática por la rejilla de desagüe, avance silencioso por el patio, apertura de la cámara en el despacho y evacuación a nado."
+        "description": "الدخول المائي عبر شبكة المصرف، والتقدم الصامت عبر الفناء، وفتح الخزنة في المكتب، والإخلاء سباحة."
       }
     ],
     "approaches": [
       {
         "id": "drainage",
-        "name": "التسلل por Túnel de Desagüe (Kosatka)",
-        "description": "El itinerario más directo: inserción con respirador en el patio de la hacienda cortando los barrotes sumergidos con el soplete."
+        "name": "التسلل عبر نفق المصرف (Kosatka)",
+        "description": "المسار الأكثر مباشرة: الإنزال بجهاز تنفس في فناء المزرعة وقطع القضبان المغمورة بالشعلة."
       },
       {
         "id": "longfin",
-        "name": "Aproximación en Lancha Longfin",
-        "description": "Opción ideal para jugar en solitario: permite fondear en muelles o pista para llenar petates antes de dirigirse al desagüe."
+        "name": "الاقتراب بزورق Longfin",
+        "description": "الخيار المثالي للعب المنفرد: يتيح الرسو في الأرصفة أو المدرج لملء الحقائب قبل التوجه إلى المصرف."
       },
       {
         "id": "halo_jump",
-        "name": "Salto HALO desde Bombardero Alkonost",
-        "description": "Inserción paracaidista a gran altitud empleando contramedidas electrónicas para rebasar la cobertura de radar de la isla."
+        "name": "قفزة HALO من قاذفة Alkonost",
+        "description": "إنزال مظلي من ارتفاع عالٍ باستخدام إجراءات مضادة إلكترونية لتجاوز تغطية رادار الجزيرة."
       }
     ],
     "tips": [
-      "Para evacuar en menos de diez minutos, abandonar la villa por la puerta principal, tomar la moto del centinela y lanzarse al mar nadando bajo el agua hacia el suroeste.",
-      "El soplete de plasma revienta las cerraduras de las verjas de mercancía secundaria al instante sin activar avisos ni requerir llaves."
-    ],
-    "synopsis": "التسلل إلى الجزيرة الخاصة المحصنة لتاجر الممنوعات إل روبيو ونهب الخزنة الرئيسية والغنائم الثانوية بمفردك أو مع فريقك.",
-    "strategy": "التسلل عبر نفق الصرف الصحي (Drainage Tunnel) باستخدام قاطع الشعلة، تصفية الحراس بأسلحة كاتمة للصوت، والهروب بالسباحة جنوباً في البحر.",
-    "eliteChallenge": "إكمال السطو في أقل من 15 دقيقة، ملء حقائب الغنائم بالكامل، 0 إنذارات مكتشفة، وبدون أي وفيات."
+      "للإخلاء في أقل من عشر دقائق، غادروا الفيلا من الباب الرئيسي، وخذوا دراجة الحارس، وانطلقوا إلى البحر سباحة تحت الماء نحو الجنوب الغربي.",
+      "تفتح شعلة البلازما أقفال بوابات الغنيمة الثانوية فورًا دون تفعيل أي تنبيه أو الحاجة إلى مفاتيح."
+    ]
   },
   {
     "id": "cluckin_bell",
     "order": 11,
-    "title": "الإغارة على مصنع كلوكين بيل (Cluckin' Bell Farm Raid)",
+    "title": "غارة Cluckin' Bell",
     "titleEn": "The Cluckin' Bell Farm Raid",
     "category": "raid",
-    "categoryLabel": "مداهمات تكتيكية",
-    "giver": "Vincent Effenburger",
-    "players": "1-4 jugadores (En solitario o cooperativo)",
+    "categoryLabel": "الغارة الشرطية",
+    "giver": "فينسنت إيفنبرغر",
+    "players": "1-4 لاعبين (منفردًا أو تعاونيًا)",
     "minLevel": 1,
-    "propertyRequired": "Ninguna (Gratuito)",
+    "propertyRequired": "لا شيء (مجاني)",
     "setupCost": 0,
-    "setupCostFormatted": "$0 (Gratis)",
+    "setupCostFormatted": "$0 (مجاني)",
     "potentialTake": {
       "normal": "$500,000",
       "hard": "$500,000 + $250,000",
-      "description": "$500,000 fijos garantizados para el ejecutor (+$250,000 de bonificación por completarlo por primera vez)."
+      "description": "$500,000 ثابتة مضمونة للمنفذ (+$250,000 مكافأة لإنجازها لأول مرة)."
     },
-    "target": "مختبر الممنوعات السري داخل مصنع كلوكين بيل",
-    "location": "Planta procesadora de Cluckin' Bell, Paleto Bay",
-    "description": "تحالف مع الضابط فينسنت لضرب كارتل المخدرات الفاسد في مصنع Cluckin' Bell في خليج باليتو.",
+    "target": "مختبر الكوكايين السري للكارتل في Paleto Bay",
+    "location": "مصنع المعالجة Cluckin' Bell، Paleto Bay",
+    "description": "غارة عملياتية مع فينسنت إيفنبرغر، رئيس أمن الكازينو السابق والعميل الآن في جهاز الشرطة. تسعى الخطة إلى تفكيك شبكة اتجار بالمخدرات وقيادات شرطية فاسدة تستخدم مباني Cluckin' Bell الصناعية في Paleto Bay غطاءً ومركز معالجة.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-clucking-bell.jpg",
     "badgeColor": "#f39c12",
     "badgeIcon": "fa-drumstick-bite",
     "eliteChallenges": [
-      "Completar en menos de 45:00 minutos en total",
-      "0 vidas perdidas durante la operación",
-      "Completar sin que el tren de huida sufra daños críticos"
+      "إنجاز المهمة في أقل من 45:00 دقيقة إجمالًا",
+      "0 أرواح مفقودة أثناء العملية",
+      "الإنجاز دون أن يتعرض قطار الهروب لأضرار جسيمة"
     ],
-    "eliteReward": "+$50,000 extra",
+    "eliteReward": "+$50,000 إضافية",
     "unlockedVehicles": [
-      "Bravado Gauntlet Interceptor patrulla ($4,065,000 / $5,420,000)",
-      "Canis Terminus todoterreno ($1,408,125 / $1,877,500)"
+      "Bravado Gauntlet Interceptor دورية ($4,065,000 / $5,420,000)",
+      "Canis Terminus لجميع التضاريس ($1,408,125 / $1,877,500)"
     ],
     "setupMissions": [
       {
-        "name": "Fondos para sobornos",
+        "name": "أموال الرشاوى",
         "type": "prep",
-        "description": "Golpear dos centros de lavado de dinero en la ciudad para asegurar el presupuesto operativo necesario."
+        "description": "ضرب مركزين لغسيل الأموال في المدينة لتأمين الميزانية التشغيلية اللازمة."
       },
       {
-        "name": "Rompiendo las reglas",
+        "name": "كسر القواعد",
         "type": "prep",
-        "description": "Confiscar armamento táctico asaltando a una facción enemiga: Marabunta Grande, Los Profesionales o soldados de Merryweather."
+        "description": "مصادرة أسلحة تكتيكية بمهاجمة فصيل معادٍ: Marabunta Grande أو Los Profesionales أو جنود Merryweather."
       },
       {
-        "name": "Ocultando huellas",
+        "name": "إخفاء الآثار",
         "type": "prep",
-        "description": "Robar un vehículo adaptado para la huida a las organizaciones que operan en los polígonos industriales."
+        "description": "سرقة مركبة معدلة للهروب من المنظمات التي تنشط في المناطق الصناعية."
       },
       {
-        "name": "Allanamiento de morada",
+        "name": "اقتحام المنزل",
         "type": "prep",
-        "description": "Infiltrarse en el centro logístico ferroviario para apoderarse de un tren de carga y sus frecuencias de control."
+        "description": "التسلل إلى مركز اللوجستيات للسكك الحديدية للاستيلاء على قطار شحن وترددات التحكم به."
       },
       {
-        "name": "Escena del crimen (Final)",
+        "name": "مسرح الجريمة (النهائية)",
         "type": "finale",
-        "description": "Asalto al complejo fabril de Cluckin' Bell, desmantelamiento del laboratorio, apertura de la caja fuerte y escape por vía férrea."
+        "description": "هجوم على مجمع Cluckin' Bell الصناعي، وتفكيك المختبر، وفتح الخزنة، والهروب عبر السكة الحديدية."
       }
     ],
     "tips": [
-      "Esta incursión no exige adquirir propiedades previas ni desembolsar costes de preparación, siendo ideal para generar saldo limpio constante.",
-      "Escoger el paquete armamentístico de Los Profesionales en la segunda tarea proporciona rifles con silenciador idóneos para la infiltración."
+      "لا تتطلب هذه الغارة شراء عقارات مسبقة ولا دفع تكاليف إعداد، مما يجعلها مثالية لتوليد رصيد نظيف باستمرار.",
+      "اختيار حزمة أسلحة Los Profesionales في المهمة الثانية يوفر بنادق بكاتم صوت مناسبة للتسلل."
     ]
   },
   {
     "id": "kortz_center",
     "order": 12,
-    "title": "الإغارة على مركز كورتز (Kortz Center Raid)",
+    "title": "سطو Kortz Center",
     "titleEn": "The Kortz Center Heist",
     "category": "kortz_center",
-    "categoryLabel": "مداهمات تكتيكية",
-    "giver": "Raf De Angelis & Sr. Faber",
-    "players": "1-4 jugadores (Solo o Cooperativo)",
+    "categoryLabel": "سطو القصر",
+    "giver": "راف دي أنجيليس والسيد فابر",
+    "players": "1-4 لاعبين (منفردًا أو تعاونيًا)",
     "minLevel": 1,
     "propertyRequired": "قصر فاخر مع استوديو فني (Prix Luxury Real Estate)",
     "setupCost": 100000,
@@ -826,55 +802,56 @@
     "potentialTake": {
       "normal": "$2,200,000",
       "hard": "$2,650,000",
-      "description": "Operación de gran rendimiento. Botín principal: Colección de Arte Albert Crisp ($2.0M - $2.2M en la primera carrera de cada semana) junto a piezas secundarias en vitrinas."
+      "description": "أربح سطو في اللعبة كلها. الغنيمة الرئيسية: مجموعة ألبرت كريسب الفنية ($2.0M - $2.2M في أول جولة من كل أسبوع) مع قطع ثانوية في خزائن العرض."
     },
-    "target": "أرشيف ملفات FIB السرية في مركز كورتز",
-    "location": "El Kortz Center, Pacific Bluffs",
-    "description": "اشتباك تكتيكي ثلاثي الأطراف في حدائق وصالات العرض الفنية في مجمع مركز كورتز.",
+    "target": "مجموعة ألبرت كريسب الفنية (مبنى Bell)",
+    "location": "Kortz Center، Pacific Bluffs",
+    "description": "أربح سطو في GTA Online. غارة أنيقة خُطط لها مع تاجر التحف السيد فابر وراف دي أنجيليس من الورشة الفنية في المسكن. تتمثل في دخول قاعات متحف Kortz Center في Pacific Bluffs لسرقة مجموعة اللوحات الثمينة لألبرت كريسب، مع وضع نسخ مطابقة وتفادي الشبكات الليزرية وكواشف الحجم.",
     "thumbnail": "/assets/images/gta5/mapa/marcadores-mapa/heists/golpe-kort-center.jpg",
     "badgeColor": "#8b5cf6",
     "badgeIcon": "fa-palette",
     "eliteChallenges": [
-      "Completar en menos de 15:00 minutos",
-      "Sin activar alarmas ni alertar a la seguridad privada",
-      "0 vidas perdidas durante la operación",
-      "Completar la petición especial del comprador (Buyer's Request)"
+      "إنجاز المهمة في أقل من 15:00 دقيقة",
+      "دون تفعيل إنذارات ودون تنبيه الأمن الخاص",
+      "0 أرواح مفقودة أثناء العملية",
+      "إنجاز الطلب الخاص للمشتري (Buyer's Request)"
     ],
-    "eliteReward": "+$100,000 extra",
+    "eliteReward": "+$100,000 إضافية",
     "unlockedVehicles": [
       "Enus Paragon S ($1,507,500 / $2,010,000)",
       "Grotti Stinger TT ($1,785,000 / $2,380,000)"
     ],
     "setupMissions": [
       {
-        "name": "Reconocimiento del Edificio Bell",
+        "name": "استطلاع مبنى Bell",
         "type": "recon",
-        "description": "Inspección fotográfica de las galerías para documentar dispositivos de alarma, sensores de peso y la vitrina de las obras clave."
+        "description": "فحص مصوَّر للصالات لتوثيق أجهزة الإنذار وحساسات الوزن وخزانة عرض الأعمال الرئيسية."
       },
       {
-        "name": "Falsificaciones de Arte",
+        "name": "تزوير الأعمال الفنية",
         "type": "prep",
-        "description": "Producción en el taller de copias fidedignas para sustituir los lienzos originales sin levantar sospechas inmediatas."
+        "description": "إنتاج نسخ مطابقة في الورشة لاستبدال اللوحات الأصلية دون إثارة شكوك فورية."
       },
       {
-        "name": "Inhibidores y Señal de Seguridad",
+        "name": "أجهزة التشويش وإشارة الأمن",
         "type": "prep",
-        "description": "Asegurar bloqueadores de frecuencia a contratistas de Merryweather para desactivar los campos láser de las salas."
+        "description": "تأمين أجهزة تشويش الترددات من متعاقدي Merryweather لتعطيل الحقول الليزرية في القاعات."
       },
       {
-        "name": "Equipamiento Táctico y Armas Silenciadas",
+        "name": "المعدات التكتيكية والأسلحة المزودة بكواتم",
         "type": "prep",
-        "description": "Preparación de vestuario de infiltración nocturna y armamento con supresores para completar la tarea en absoluto sigilo."
+        "description": "تجهيز ملابس التسلل الليلي والأسلحة المزودة بكواتم لإنجاز المهمة في سرية تامة."
       },
       {
-        "name": "Golpe al Kortz Center (Final)",
+        "name": "سطو Kortz Center (النهائية)",
         "type": "finale",
-        "description": "Incursión nocturna en las salas de exposición, reemplazo de los cuadros por las réplicas y evacuación limpia hacia la entrega privada."
+        "description": "غارة ليلية على قاعات العرض، واستبدال اللوحات بالنسخ المطابقة، وإخلاء نظيف نحو التسليم الخاص."
       }
     ],
     "tips": [
-      "Colocar cada falsificación en su peana exacta retrasa el descubrimiento de la sustracción por parte de la vigilancia privada.",
-      "Atender la solicitud singular del cliente genera una prima económica acumulable con el Desafío de Élite."
+      "هو حاليًا أربح سطو في GTA Online: يتفوق على Cayo Perico بأكثر من $2.2M في أول جولة أسبوعية لك.",
+      "وضع كل نسخة مزورة على قاعدتها الدقيقة يؤخر اكتشاف السرقة من قبل الحراسة الخاصة.",
+      "تلبية الطلب الفريد للعميل تمنح مكافأة مالية تتراكم مع تحدي النخبة."
     ]
   }
 ]
