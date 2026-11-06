@@ -135,6 +135,16 @@ export class GuiaService {
     };
   }
 
+  /** Títulos de sección en el idioma activo; si falta la clave, deja el del manifiesto. */
+  private localizarSecciones(manifest: GuiaManifest): GuiaManifest {
+    const secciones = manifest.secciones.map(seccion => {
+      const clave = 'guia.secciones.' + seccion.id;
+      const titulo = this.translationService.t(clave);
+      return titulo && titulo !== clave ? { ...seccion, titulo } : seccion;
+    });
+    return { ...manifest, secciones };
+  }
+
   /**
    * Obtiene el manifiesto completo con secciones y listado de artículos para GTA 5 o GTA 6.
    */
@@ -252,6 +262,7 @@ export class GuiaService {
           console.warn('[GuiaService] Falló /api/gta5/guia/manifest, usando fallback local:', err);
           return buildLocalFallback$();
         }),
+        map(manifest => this.localizarSecciones(manifest)),
         shareReplay(1)
       );
       this.manifestCache.set(cacheKey, obs$);

@@ -1,6 +1,9 @@
 # robots.txt para gtaexplorer.com
 User-agent: *
 Allow: /
+Allow: /api/gta5/guia/manifest
+Allow: /api/gta5/guia/articulos/
+Allow: /api/gta6/guia/manifest
 Disallow: /api/
 Disallow: /hubs/
 
@@ -12,6 +15,9 @@ User-agent: anthropic-ai
 User-agent: PerplexityBot
 User-agent: Google-Extended
 Allow: /
+Allow: /api/gta5/guia/manifest
+Allow: /api/gta5/guia/articulos/
+Allow: /api/gta6/guia/manifest
 Disallow: /api/
 Disallow: /hubs/
 

@@ -1,7 +1,9 @@
 import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { UrlSerializer } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
+import { LangUrlSerializer } from './i18n/lang-url-serializer';
 
 import { AppComponent }           from './app.component';
 /* Componentes desacoplados en Gta5Module y Gta6Module
@@ -54,7 +56,8 @@ import { AppRoutingModule }       from './app-routing.module';
         AppRoutingModule
     ],
     providers: [
-        provideHttpClient()
+        provideHttpClient(),
+        { provide: UrlSerializer, useClass: LangUrlSerializer }
     ]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, inject } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { APP_VERSION } from '../../environments/version';
@@ -67,6 +68,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     public readonly usuariosActivosService = inject(UsuariosActivosService);
     public readonly cookieService = inject(CookieService);
     private readonly router = inject(Router);
+    private readonly location = inject(Location);
     private readonly route = inject(ActivatedRoute);
     private readonly http = inject(HttpClient);
 
@@ -188,6 +190,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.selectedCode = code;
         this.isOpen = false;
         this.translationService.setLanguage(code);
+        // router.url ya sale con el idioma nuevo (LangUrlSerializer); se sincroniza la barra de direcciones
+        this.location.replaceState(this.router.url);
     }
 
     goToGta6(event?: Event): void {

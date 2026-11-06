@@ -1,3 +1,4 @@
+import { TranslationService } from '../../../i18n';
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, HostListener, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -24,6 +25,8 @@ export interface GuiaBreadcrumbItem {
   standalone: false
 })
 export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewInit {
+  private readonly i18n = inject(TranslationService);
+
 
   manifest: GuiaManifest | null = null;
   secciones: GuiaSeccion[] = [];
@@ -640,6 +643,20 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     }));
   }
 
+  /** Título del grupo en el idioma activo; si falta la clave, deja el español. */
+  private temaTitulo(id: string, titulo: string): string {
+    const clave = 'guia.temas.' + id;
+    const texto = this.i18n.t(clave);
+    return texto && texto !== clave ? texto : titulo;
+  }
+
+  /** Agrupa por id de artículo: la etiqueta "badge" cambia con el idioma. */
+  private perteneceATema(articulo: GuiaArticuloResumen, temaId: string | null): boolean {
+    if (!temaId) return false;
+    if (temaId === 'Sasquatch') return articulo.id === 'eyl-the-last-one';
+    return articulo.id.startsWith('eyl-' + temaId.toLowerCase().replace(/[^a-z]/g, '') + '-');
+  }
+
   getSubcategoriasTematicas(sec: GuiaSeccion | null): { id: string; titulo: string; badge: string; badges?: string[]; missionIds?: string[]; icono: string; color?: string; total: number }[] {
     if (!sec) return [];
     
@@ -665,7 +682,8 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
 
       return temas.map(t => ({
         ...t,
-        total: (sec.articulos || []).filter(a => a.badge === t.badge).length
+        titulo: this.temaTitulo(t.id, t.titulo),
+        total: (sec.articulos || []).filter(a => this.perteneceATema(a, t.id)).length
       })).filter(t => t.total > 0);
     }
 
@@ -816,7 +834,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
         const count = (sec.articulos || []).filter(a => t.missionIds.includes(a.id)).length;
         return {
           id: t.id,
-          titulo: t.titulo,
+          titulo: this.temaTitulo(t.id, t.titulo),
           badge: t.badge,
           missionIds: t.missionIds,
           icono: t.icono,
@@ -966,7 +984,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
         const count = (sec.articulos || []).filter(a => t.missionIds.includes(a.id)).length;
         return {
           id: t.id,
-          titulo: t.titulo,
+          titulo: this.temaTitulo(t.id, t.titulo),
           badge: t.badge,
           missionIds: t.missionIds,
           icono: t.icono,
@@ -1021,7 +1039,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
       if (sub.missionIds && sub.missionIds.length > 0) {
         arts = allArts.filter(a => sub.missionIds!.includes(a.id));
       } else {
-        arts = allArts.filter(a => a.badge === sub.badge);
+        arts = allArts.filter(a => this.perteneceATema(a, sub.id));
       }
       if (query) {
         const clean = (s?: string) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -1065,7 +1083,7 @@ export class Gta5GuiaOfflineComponent implements OnInit, OnDestroy, AfterViewIni
     if (found.badges && found.badges.length > 0) {
       return (this.currentSection.articulos || []).filter(a => found.badges!.includes(a.badge || ''));
     }
-    return (this.currentSection.articulos || []).filter(a => a.badge === this.currentSubcategory);
+    return (this.currentSection.articulos || []).filter(a => this.perteneceATema(a, this.currentSubcategory));
   }
 
   getSubcategoriaActualTitulo(): string {

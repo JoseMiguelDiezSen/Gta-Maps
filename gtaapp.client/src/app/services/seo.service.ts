@@ -81,9 +81,9 @@ export class SeoService {
     const rawPath = this.router.url.split('?')[0].split('#')[0] || '/home';
     const cleanPath = rawPath === '/' ? '/home' : (rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath).toLowerCase();
     const baseCanonical = data.canonical || `${this.baseUrl}${cleanPath}`;
-    const queryLang = this.activatedRoute.snapshot.queryParamMap.get('lang');
-    const canonical = queryLang && queryLang !== DEFAULT_LANGUAGE
-      ? `${baseCanonical}?lang=${queryLang}`
+    const activeLang = this.translationService.currentLang;
+    const canonical = activeLang !== DEFAULT_LANGUAGE
+      ? `${baseCanonical}?lang=${activeLang}`
       : baseCanonical;
 
     this.updateSeo(title, description, canonical, baseCanonical);
